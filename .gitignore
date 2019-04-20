@@ -1,0 +1,5 @@
+*.obj
+*.lib
+drally.exe
+drally.le
+drally.lnk
