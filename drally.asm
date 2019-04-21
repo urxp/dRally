@@ -1080,14 +1080,14 @@ cpu 386
                         ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
                         ;;
-    extern  dr@61a04h   ;;
+    extern  SerialPort_PM_Handler   ;;
                         ;;
     global  dr@199fc4h  ;;
     global  dr@199fc8h  ;;
     global  dr@199fcch  ;;
-    global  dr@24e46ch  ;;
+    global  SerialPort_Mem0Ptr  ;;
     global  dr@24e47ch  ;;
-    global  dr@24e4c4h  ;;
+    global  SerialPort_Mem1Ptr  ;;
                         ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
                         ;;
@@ -1139,7 +1139,7 @@ cpu 386
                         ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
                         ;;
-    extern  dr@80000h   ;;
+    extern  SerialPort_RM_Handler   ;;
                         ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 

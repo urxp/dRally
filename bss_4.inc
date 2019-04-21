@@ -1499,13 +1499,13 @@ dr@24e45ch:	resb	4
 dr@24e460h:	resb	4
 dr@24e464h:	resb	4
 dr@24e468h:	resb	4
-dr@24e46ch:	resb	4
+SerialPort_Mem0Ptr:	resb	4
 dr@24e470h:	resb	6
 dr@24e476h:	resb	2
 dr@24e478h:	resb	2
 dr@24e47ah:	resb	2
 dr@24e47ch:	resb	4
-dr@24e480h:	resb	4
+SerialPort_Mem0Selector:	resb	4
 dr@24e484h:	resb	4
 dr@24e488h:	resb	4
 REGS_S2:
@@ -1518,9 +1518,9 @@ dr@24e4ach:	resb	4
 dr@24e4b0h:	resb	4
 dr@24e4b4h:	resb	4
 dr@24e4b8h:	resb	4
-dr@24e4bch:	resb	4
+SerialPort_Mem1Selector:	resb	4
 dr@24e4c0h:	resb	4
-dr@24e4c4h:	resb	4
+SerialPort_Mem1Ptr:	resb	4
 dr@24e4c8h:	resb	4
 dr@24e4cch:	resb	4
 dr@24e4d0h:	resb	4
