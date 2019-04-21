@@ -78622,7 +78622,7 @@ dr@62dcbh:
 		db	8ch,0dah
 		;mov     ecx, cs
 		db	8ch,0c9h
-		mov     ebx, dr@80000h
+		mov     ebx, SerialPort_RM_Handler
 		call    near _fmemcpy
 		mov     dword [REGS_S2.eax], 205h
 		mov     ecx, [esp+8]
@@ -78630,11 +78630,11 @@ dr@62dcbh:
 		mov     [REGS_S2.ebx], ecx
 		;mov     edx, cs
 		db	8ch,0cah
-		mov     eax, dr@61a04h
+		mov     eax, SerialPort_PM_Handler
 		xor     eax, eax
 		mov     ax, dx
 		mov     [REGS_S2.ecx], eax
-		mov     dword [REGS_S2.edx], dr@61a04h
+		mov     dword [REGS_S2.edx], SerialPort_PM_Handler
 		mov     ebx, REGS_S2
 		mov     edx, ebx
 		mov     eax, 31h
