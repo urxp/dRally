@@ -8,10 +8,10 @@ cpu 386
     extern  dr@199fc8h
     extern  dr@199fcch
     extern  dr@199fc4h
-    extern  dr@24e4c4h
-    extern  dr@24e46ch
+    extern  SerialPort_Mem1Ptr
+    extern  SerialPort_Mem0Ptr
 
-SEGMENT _TEXT   PUBLIC USE32 ALIGN=1 CLASS=CODE
+SEGMENT _TEXT   PUBLIC USE32 ALIGN=4 CLASS=CODE
 
 dr@619e8h:
 dd	dr@61a3eh
@@ -58,7 +58,7 @@ dr@61a52h:
 dr@61a66h:
 		mov     ebx, [dr@199fc4h]
 dr@61a6ch:
-		mov     eax, [dr@24e4c4h]
+		mov     eax, [SerialPort_Mem1Ptr]
 		mov     dx, [eax+2]
 		cmp     dx, [eax]
 		je      short dr@61a15h
@@ -71,14 +71,14 @@ dr@61a6ch:
 		and     edx, 0ffh
 		mov     eax, [dr@24e47ch]
 		call    near outp
-		mov     eax, [dr@24e4c4h]
+		mov     eax, [SerialPort_Mem1Ptr]
 		inc     word [eax+2]
 		jmp     short dr@61a6ch
 dr@61aa8h:
 		mov     eax, [dr@24e47ch]
 		call    near inp
 		mov     ebx, eax
-		mov     eax, [dr@24e46ch]
+		mov     eax, [SerialPort_Mem0Ptr]
 		mov     dx, [eax]
 		and     dh, 0fh
 		and     edx, 0ffffh
@@ -104,8 +104,6 @@ dr@61aech:
 		popad   
 		iret
 
-
-cpu 386
 
 SEGMENT _TEXT16 	PUBLIC USE16 ALIGN=2 CLASS=CODE
 

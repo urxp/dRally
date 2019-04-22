@@ -75998,7 +75998,7 @@ dr@60ab7h:
 		mov     eax, [dr@24e4ach]
 		mov     word [eax], 0
 		mov     word [eax+2], 0
-		mov     eax, [dr@24e46ch]
+		mov     eax, [SerialPort_Mem0Ptr]
 		mov     word [eax], 0
 		mov     word [eax+2], 0
 		pop     edx
@@ -76585,7 +76585,7 @@ dr@6123fh:
 		mov     eax, [dr@24e4ach]
 		mov     word [eax], 0
 		mov     word [eax+2], 0
-		mov     eax, [dr@24e46ch]
+		mov     eax, [SerialPort_Mem0Ptr]
 		mov     word [eax], 0
 		mov     word [eax+2], 0
 		mov     eax, [esp]
@@ -76604,7 +76604,7 @@ dr@61278h:
 		push    ecx
 		push    edx
 		mov     ebx, [dr@24e4d0h]
-		mov     ecx, [dr@24e4c4h]
+		mov     ecx, [SerialPort_Mem1Ptr]
 dr@61291h:
 		cmp     ebx, byte 2
 		je      short dr@6129fh
@@ -76622,7 +76622,7 @@ dr@612b3h:
 		cmp     edx, [eax]
 		ja      short dr@612b3h
 dr@612b7h:
-		mov     [dr@24e4c4h], ecx
+		mov     [SerialPort_Mem1Ptr], ecx
 		mov     [dr@24e4d0h], ebx
 		pop     edx
 		pop     ecx
@@ -76796,7 +76796,7 @@ dr@614d1h:
 		cmp     ebp, byte 4
 		jne     short dr@6150eh
 dr@614e6h:
-		mov     eax, [dr@24e4c4h]
+		mov     eax, [SerialPort_Mem1Ptr]
 		mov     dx, [eax]
 		and     dh, 0fh
 		and     edx, 0ffffh
@@ -76897,7 +76897,7 @@ dr@61625h:
 		cmp     ecx, byte 4
 		jne     short dr@61682h
 dr@6163ah:
-		mov     eax, [dr@24e46ch]
+		mov     eax, [SerialPort_Mem0Ptr]
 		mov     dx, [eax]
 		mov     bx, [eax+2]
 		cmp     dx, bx
@@ -76943,7 +76943,7 @@ dr@6168ch:
 		cmp     edx, byte 4
 		jne     short dr@616f0h
 dr@616b0h:
-		mov     eax, [dr@24e46ch]
+		mov     eax, [SerialPort_Mem0Ptr]
 		mov     dx, [eax]
 		mov     bx, [eax+2]
 		cmp     dx, bx
@@ -77036,7 +77036,7 @@ dr@617d9h:
 		and     ch, 0fh
 		and     ecx, 0ffffh
 		lea     edi, [eax+ecx*1]
-		mov     eax, [dr@24e4c4h]
+		mov     eax, [SerialPort_Mem1Ptr]
 		mov     cx, [eax]
 		and     ch, 0fh
 		xor     esi, esi
@@ -77129,7 +77129,7 @@ dr@618feh:
 		xor     esi, esi
 		mov     si, cx
 		add     esi, eax
-		mov     eax, [dr@24e4c4h]
+		mov     eax, [SerialPort_Mem1Ptr]
 		mov     cx, [eax]
 		and     ch, 0fh
 		and     ecx, 0ffffh
@@ -77191,7 +77191,7 @@ dr@619e2h:
 		pop     ecx
 		pop     ebx
 		retn    
-dr@61b00h:
+allocateDOSMemoryBlock:
 		push    28h
 		call    near __CHK
 		push    ebx
@@ -77398,7 +77398,7 @@ dr@61cd0h:
 dr@61d08h:
 		mov     edx, dr@24e4cch
 		mov     eax, 1f4h
-		call    near dr@61b00h
+		call    near allocateDOSMemoryBlock
 		mov     [dr@24e4d4h], eax
 		test    eax, eax
 		jne     short dr@61d35h
@@ -77407,10 +77407,10 @@ dr@61d08h:
 		mov     [dr@24e4d0h], eax
 		jmp     near dr@623bch
 dr@61d35h:
-		mov     edx, dr@24e480h
+		mov     edx, SerialPort_Mem0Selector
 		mov     eax, 1004h
-		call    near dr@61b00h
-		mov     [dr@24e46ch], eax
+		call    near allocateDOSMemoryBlock
+		mov     [SerialPort_Mem0Ptr], eax
 		test    eax, eax
 		jne     short dr@61d62h
 		mov     esi, [dr@199fb8h]
@@ -77418,10 +77418,10 @@ dr@61d35h:
 		mov     [dr@24e4d0h], eax
 		jmp     near dr@623bch
 dr@61d62h:
-		mov     edx, dr@24e4bch
+		mov     edx, SerialPort_Mem1Selector
 		mov     eax, 1004h
-		call    near dr@61b00h
-		mov     [dr@24e4c4h], eax
+		call    near allocateDOSMemoryBlock
+		mov     [SerialPort_Mem1Ptr], eax
 		test    eax, eax
 		jne     short dr@61d8fh
 		mov     esi, [dr@199fb8h]
@@ -77432,7 +77432,7 @@ dr@61d62h:
 dr@61d8fh:
 		mov     edx, dr@24e4c8h
 		mov     eax, 1004h
-		call    near dr@61b00h
+		call    near allocateDOSMemoryBlock
 		mov     [dr@24e4ach], eax
 		test    eax, eax
 		jne     short dr@61dbch
@@ -77443,7 +77443,7 @@ dr@61d8fh:
 dr@61dbch:
 		mov     edx, dr@24cf18h
 		mov     eax, 1004h
-		call    near dr@61b00h
+		call    near allocateDOSMemoryBlock
 		mov     [dr@24cee0h], eax
 		test    eax, eax
 		jne     short dr@61de9h
@@ -77454,7 +77454,7 @@ dr@61dbch:
 dr@61de9h:
 		mov     edx, dr@24cf1ch
 		mov     eax, 1004h
-		call    near dr@61b00h
+		call    near allocateDOSMemoryBlock
 		mov     [dr@24cee4h], eax
 		test    eax, eax
 		jne     short dr@61e16h
@@ -77465,7 +77465,7 @@ dr@61de9h:
 dr@61e16h:
 		mov     edx, dr@24cf20h
 		mov     eax, 1004h
-		call    near dr@61b00h
+		call    near allocateDOSMemoryBlock
 		mov     [dr@24cee8h], eax
 		test    eax, eax
 		jne     short dr@61e43h
@@ -77476,7 +77476,7 @@ dr@61e16h:
 dr@61e43h:
 		mov     edx, dr@24cf24h
 		mov     eax, 1004h
-		call    near dr@61b00h
+		call    near allocateDOSMemoryBlock
 		mov     [dr@24ceech], eax
 		test    eax, eax
 		jne     short dr@61e70h
@@ -77487,7 +77487,7 @@ dr@61e43h:
 dr@61e70h:
 		mov     edx, dr@24e4b8h
 		mov     eax, 1004h
-		call    near dr@61b00h
+		call    near allocateDOSMemoryBlock
 		mov     [dr@24e4c0h], eax
 		test    eax, eax
 		jne     short dr@61e9dh
@@ -77572,7 +77572,7 @@ dr@61fc8h:
 		jne     near dr@62355h
 		mov     edx, dr@24e484h
 		mov     eax, 10h
-		call    near dr@61b00h
+		call    near allocateDOSMemoryBlock
 		mov     [dr@24e4b4h], eax
 		test    eax, eax
 		jne     short dr@62008h
@@ -77583,7 +77583,7 @@ dr@61fc8h:
 dr@62008h:
 		mov     edx, dr@24e460h
 		mov     eax, 40h
-		call    near dr@61b00h
+		call    near allocateDOSMemoryBlock
 		;mov     [dr@24e552h], ds
 		db	8ch,1dh
 		dd	dr@24e552h
@@ -77601,7 +77601,7 @@ dr@62008h:
 dr@6204ah:
 		mov     edx, dr@24e448h
 		mov     eax, 40h
-		call    near dr@61b00h
+		call    near allocateDOSMemoryBlock
 		mov     [dr@24e45ch], eax
 		test    eax, eax
 		jne     short dr@62077h
@@ -77612,7 +77612,7 @@ dr@6204ah:
 dr@62077h:
 		mov     edx, dr@24e454h
 		mov     eax, 40h
-		call    near dr@61b00h
+		call    near allocateDOSMemoryBlock
 		;mov     [dr@24e54ch], ds
 		db	8ch,1dh
 		dd	dr@24e54ch
@@ -77629,7 +77629,7 @@ dr@62077h:
 dr@620b6h:
 		mov     edx, dr@24e458h
 		mov     eax, 7d0h
-		call    near dr@61b00h
+		call    near allocateDOSMemoryBlock
 		;mov     [dr@24e58eh], ds
 		db	8ch,1dh
 		dd	dr@24e58eh
@@ -77647,7 +77647,7 @@ dr@620b6h:
 dr@620f8h:
 		mov     edx, dr@24e44ch
 		mov     eax, 0ah
-		call    near dr@61b00h
+		call    near allocateDOSMemoryBlock
 		mov     [dr@24e464h], eax
 		test    eax, eax
 		jne     short dr@62125h
@@ -77661,7 +77661,7 @@ dr@62127h:
 		lea     edx, [ebx*4+0]
 		add     edx, dr@24ce20h
 		mov     eax, 40h
-		call    near dr@61b00h
+		call    near allocateDOSMemoryBlock
 		mov     edx, eax
 		lea     eax, [ebx*4+0]
 		sub     eax, ebx
@@ -77690,7 +77690,7 @@ dr@62191h:
 		lea     edx, [ebx*4+0]
 		add     edx, dr@24cea0h
 		mov     eax, 40h
-		call    near dr@61b00h
+		call    near allocateDOSMemoryBlock
 		mov     edx, eax
 		lea     eax, [ebx*4+0]
 		sub     eax, ebx
@@ -77718,7 +77718,7 @@ dr@621f8h:
 		lea     edx, [ebx*4+0]
 		add     edx, dr@24ce60h
 		mov     eax, 7d0h
-		call    near dr@61b00h
+		call    near allocateDOSMemoryBlock
 		mov     ecx, eax
 		lea     eax, [ebx*4+0]
 		sub     eax, ebx
@@ -77881,14 +77881,14 @@ dr@623f9h:
 		mov     eax, 31h
 		call    near int386
 		mov     [REGS_S2.eax], esi
-		mov     eax, [dr@24e480h]
+		mov     eax, [SerialPort_Mem0Selector]
 		mov     [REGS_S2.edx], eax
 		mov     ebx, REGS_S2
 		mov     edx, ebx
 		mov     eax, 31h
 		call    near int386
 		mov     [REGS_S2.eax], esi
-		mov     eax, [dr@24e4bch]
+		mov     eax, [SerialPort_Mem1Selector]
 		mov     [REGS_S2.edx], eax
 		mov     ebx, REGS_S2
 		mov     edx, ebx
@@ -78503,17 +78503,17 @@ dr@62c68h:
 		mov     [dr@24e468h], eax
 		mov     eax, [REGS_S2.edx]
 		mov     [dr@24e488h], eax
-		mov     eax, [dr@24e46ch]
+		mov     eax, [SerialPort_Mem0Ptr]
 		mov     word [eax], 0
 		mov     word [eax+2], 0
-		mov     edx, [dr@24e4c4h]
+		mov     edx, [SerialPort_Mem1Ptr]
 		mov     word [edx], 0
 		mov     word [edx+2], 0
 		add     eax, byte 4
 		mov     ebx, 1000h
 		xor     edx, edx
 		call    near memset
-		mov     eax, [dr@24e4c4h]
+		mov     eax, [SerialPort_Mem1Ptr]
 		add     eax, byte 4
 		mov     ebx, 1000h
 		xor     edx, edx
@@ -78560,7 +78560,7 @@ dr@62dcbh:
 		mov     ebx, 2
 		mov     edx, esp
 		call    near memcpy
-		mov     eax, [dr@24e46ch]
+		mov     eax, [SerialPort_Mem0Ptr]
 		shr     eax, 4
 		and     eax, 0ffffh
 		mov     [esp+4], eax
@@ -78569,7 +78569,7 @@ dr@62dcbh:
 		mov     ebx, 2
 		lea     edx, [esp+4]
 		call    near memcpy
-		mov     eax, [dr@24e46ch]
+		mov     eax, [SerialPort_Mem0Ptr]
 		and     eax, byte 0fh
 		mov     [esp+4], eax
 		mov     eax, [dr@24e4d4h]
@@ -78577,7 +78577,7 @@ dr@62dcbh:
 		mov     ebx, 2
 		lea     edx, [esp+4]
 		call    near memcpy
-		mov     eax, [dr@24e4c4h]
+		mov     eax, [SerialPort_Mem1Ptr]
 		shr     eax, 4
 		and     eax, 0ffffh
 		mov     [esp+4], eax
@@ -78586,7 +78586,7 @@ dr@62dcbh:
 		mov     ebx, 2
 		lea     edx, [esp+4]
 		call    near memcpy
-		mov     eax, [dr@24e4c4h]
+		mov     eax, [SerialPort_Mem1Ptr]
 		and     eax, byte 0fh
 		mov     [esp+4], eax
 		mov     eax, [dr@24e4d4h]
