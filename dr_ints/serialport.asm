@@ -11,7 +11,7 @@ cpu 386
     extern  SerialPort_Mem1Ptr
     extern  SerialPort_Mem0Ptr
 
-SEGMENT _TEXT   PUBLIC USE32 ALIGN=1 CLASS=CODE
+SEGMENT _TEXT   PUBLIC USE32 ALIGN=4 CLASS=CODE
 
 dr@619e8h:
 dd	dr@61a3eh
@@ -104,8 +104,6 @@ dr@61aech:
 		popad   
 		iret
 
-
-cpu 386
 
 SEGMENT _TEXT16 	PUBLIC USE16 ALIGN=2 CLASS=CODE
 
