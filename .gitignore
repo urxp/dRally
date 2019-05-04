@@ -1,5 +1,8 @@
 *.le
+*.lx
+*.pe
 *.exe
 *.lib
 *.obj
+*.bin
 *.o

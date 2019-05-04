@@ -2,9 +2,12 @@
 
 cp drally.exe ~/DEATHRAL/drally.exe
 cp drally.le ~/DEATHRAL/drally.le
+cp drally.le ~/DEATHRAL/drally.lx
+cp drally.le ~/DEATHRAL/drally.pe
 
 # dosbox ~/DEATHRAL/drally.exe
 # dosbox -c "mount C ~/DEATHRAL" -c "C:" -c "drally.exe"
 # dosbox-x -c "mount C ~/DEATHRAL" -c "C:" -c "DOS4G.EXE drally.le"
-dosbox-x -c "set windir=c:\windows" -c "mount C ~/DEATHRAL" -c "C:" -c "DOS4G.EXE drally.le"
+dosbox -c "mount C ~/DEATHRAL" -c "C:" -c "DOS4G.EXE drally.pe"
+# dosbox-x -c "set windir=c:\windows" -c "mount C ~/DEATHRAL" -c "C:" -c "DOS4G.EXE drally.pe"
 # dosbox -c "mount C ~/DEATHRAL" -c "C:" -c "pmwbind /B /DPMWRALLY.EXE DRALLY.LE" -c "PMWRALLY.EXE"

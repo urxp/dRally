@@ -4,11 +4,10 @@ group  dgroup obj_4 _bss stack
 
 section obj_1 public use32 align=4 class=code
 %include "obj_1.inc"
+___80000h:
+    incbin "obj_2.bin"
 
-section obj_2 public use16 class=code
-%include "obj_2.inc"
-
-section obj_3 public use16 class=data
+section obj_3 public use32 class=data
 %include "obj_3.inc"
 
 section obj_4 public use32 align=4 class=data
