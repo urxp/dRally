@@ -4,8 +4,8 @@ segs = obj_1.inc obj_3.inc obj_4.inc bss_4.inc
 
 dr_src = dr_src/dr_src.lib
 
-default: $(subdirs) drally.exe drally.le drally.lx drally.pe
-	@rm -f drally.lnk drle.lnk drlx.lnk drpe.lnk
+default: $(subdirs) drally.exe drally.le drally.lx
+	@rm -f drally.lnk drle.lnk drlx.lnk
 
 $(subdirs):
 	@$(MAKE) -C $@ $(MAKECMDGOALS)
@@ -17,9 +17,6 @@ drally.le: drle.lnk
 	wlink @ $< name $@ option nostub
 
 drally.lx: drlx.lnk
-	wlink @ $< name $@ option nostub
-
-drally.pe: drpe.lnk
 	wlink @ $< name $@ option nostub
 
 drally.obj: drally.asm obj_2.bin Makefile
@@ -53,14 +50,6 @@ drlx.lnk: Makefile drally.obj $(dr_src)
 	@echo op internalrelocs				>> $@					
 	@echo op togglerelocs				>> $@
 	@echo format os2 lx					>> $@
-#	@echo option stub=wstub.exe			>> $@
-	@echo file $(dr_src)				>> $@
-	@echo file drally.obj				>> $@
-
-drpe.lnk: Makefile drally.obj $(dr_src)
-	@echo option osname="'Win32'"		> $@
-	@echo format windows nt				>> $@
-#	@echo runtime windows=4.0			>> $@
 #	@echo option stub=wstub.exe			>> $@
 	@echo file $(dr_src)				>> $@
 	@echo file drally.obj				>> $@
