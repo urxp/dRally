@@ -1,8 +1,10 @@
-LIB_NAME = dr_src.lib
+TARGET = dr
+
+LIB_NAME = $(TARGET).lib
 
 OBJS = 
 
-dr_src: $(LIB_NAME) $(OBJS)
+$(TARGET): $(LIB_NAME) $(OBJS)
 
 $(LIB_NAME): Makefile
 	wlib -fo -c -b -n $@

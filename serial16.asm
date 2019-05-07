@@ -1,8 +1,7 @@
 cpu 386
 bits 16
-
 ;OBJECT#2
-___80000h:
+handler16@serial:
 		push    ds
 		push    es
 		pusha   
@@ -22,8 +21,7 @@ ___80017h:
 		jne     short ___8005ch
 		mov     cx, [cs:0ah]
 ___80026h:
-		;mov     es, [cs:6]
-		db	2eh,8eh,6,6,0
+		mov     es, [cs:6]
 		mov     di, [cs:8]
 		push    bx
 		mov     bx, [es:di]
@@ -47,8 +45,7 @@ ___8005ch:
 ___80061h:
 		mov     dx, [cs:0]
 		in      al, dx
-		;mov     es, [cs:2]
-		db	2eh,8eh,6,2,0
+		mov     es, [cs:2]
 		mov     di, [cs:4]
 		mov     cx, [es:di]
 		add     di, byte 4

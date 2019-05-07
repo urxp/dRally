@@ -1,8 +1,8 @@
-subdirs = dr_src
+subdirs = dr
 
-segs = obj_1.inc obj_3.inc obj_4.inc bss_4.inc
+segs = @text.inc @data.inc @bss.inc
 
-dr_src = dr_src/dr_src.lib
+dr = dr/dr.lib
 
 default: $(subdirs) drally.exe drally.le drally.lx
 	@rm -f drally.lnk drle.lnk drlx.lnk
@@ -19,39 +19,42 @@ drally.le: drle.lnk
 drally.lx: drlx.lnk
 	wlink @ $< name $@ option nostub
 
-drally.obj: drally.asm obj_2.bin Makefile
+drally.obj: drally.asm serial16.bin Makefile
 	nasm -f obj -o $@ $<
 
-obj_2.bin: obj_2.asm Makefile
+serial16.bin: serial16.asm Makefile
 	nasm -f bin -o $@ $<
 
-%.obj: %.c Makefile
-	clang-9 -c $< -o $@ -O2 -m32
-
-drally.lnk: Makefile drally.obj $(dr_src)
+drally.lnk: Makefile drally.obj $(dr)
 #	@echo option osname="'DOS/4G'"		> $@
 	@echo option osname="'CauseWay'"	> $@
 	@echo format os2 le					>> $@
 #	@echo option stub=wstub.exe			>> $@
 	@echo option stub=cwstub.exe		>> $@
-	@echo file $(dr_src)				>> $@
+	@echo seg "'@text'" pre, "'@data'" pre		>> $@
+	@echo op start=start				>> $@
+	@echo file $(dr)					>> $@
 	@echo file drally.obj				>> $@
 
-drle.lnk: Makefile drally.obj $(dr_src)
+drle.lnk: Makefile drally.obj $(dr)
 	@echo option osname="'DOS/4G'"		> $@
 	@echo format os2 le					>> $@
 #	@echo option stub=wstub.exe			>> $@
-	@echo file $(dr_src)				>> $@
+	@echo seg "'@text'" pre, "'@data'" pre		>> $@
+	@echo op start=start				>> $@
+	@echo file $(dr)					>> $@
 	@echo file drally.obj				>> $@
 
-drlx.lnk: Makefile drally.obj $(dr_src)
+drlx.lnk: Makefile drally.obj $(dr)
 	@echo option osname="'DOS/4G non-zero base'"	> $@
 	@echo disable 123    				>> $@
 	@echo op internalrelocs				>> $@					
 	@echo op togglerelocs				>> $@
 	@echo format os2 lx					>> $@
 #	@echo option stub=wstub.exe			>> $@
-	@echo file $(dr_src)				>> $@
+	@echo seg "'@text'" pre, "'@data'" pre		>> $@
+	@echo op start=start				>> $@
+	@echo file $(dr)					>> $@
 	@echo file drally.obj				>> $@
 
 drally.asm: $(segs)
@@ -59,4 +62,4 @@ drally.asm: $(segs)
 
 .PHONY: clean $(subdirs)
 clean: $(subdirs)
-	@rm -f drally.obj drally.exe drally.le drally.lx obj_2.bin
+	@rm -f drally.obj drally.exe drally.le drally.lx serial16.bin

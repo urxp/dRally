@@ -4,7 +4,9 @@ ___10000h:
 		jmp     short ___10000h
 ___begtext:
 db	90h,90h,90h,90h,90h,90h,90h,90h,90h,90h,90h,90h,90h
-___10010h:
+
+;; chkarg_start ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+chkarg@cmdln:
 		push    18h
 		call    near __CHK
 		push    ebx
@@ -39,20 +41,22 @@ ___10058h:
 		pop     edx
 		pop     ecx
 		pop     ebx
-		retn    
+		retn
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; chkarg_end ;;    
 db	8bh,0c0h
-___10060h:
+;; welcome_start ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+welcome@dr:
 		push    0ch
 		call    near __CHK
 		push    ebx
 		push    ___180004h
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 4
 		push    ___18005ch
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 4
 		mov     eax, ___180060h
-		call    near ___10010h
+		call    near chkarg@cmdln
 		test    eax, eax
 		je      short ___1009dh
 		mov     dword [___19bd4ch], 1
@@ -64,17 +68,18 @@ ___1009dh:
 		je      short ___100cah
 		push    ___18006ch
 		mov     ebx, 1
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 4
 		mov     [___19bd4ch], ebx
 		pop     ebx
 		retn    
 ___100cah:
 		push    ___180084h
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 4
 		pop     ebx
-		retn    
+		retn
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; welcome_end ;;
 db	8dh,40h,0
 ___100dch:
 		push    14h
@@ -82,19 +87,20 @@ ___100dch:
 		push    ebx
 		push    ecx
 		push    edx
-		call    near ___5a101h
+		call    near restore@keyboard
 		call    near ___5e0e3h
 		push    ___1800c4h
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 4
 		mov     eax, 70h
-		call    near exit_
+		call    near exit@clib3r
 		pop     edx
 		pop     ecx
 		pop     ebx
 		retn    
 db	8bh,0c0h
-___10110h:
+;; restore_start ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+restore@dos:
 		push    34h
 		call    near __CHK
 		push    ebx
@@ -133,9 +139,11 @@ ___10110h:
 		pop     edx
 		pop     ecx
 		pop     ebx
-		retn    
+		retn
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; restore_end ;;    
 db	90h
-main_:
+;; main_start ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+main@dr:
 		push    8
 		call    near __CHK
 		push    ebx
@@ -148,7 +156,7 @@ ___1019eh:
 		mov     [eax*4+___19bd1ch], ebx
 		cmp     eax, byte 0ah
 		jl      short ___1019eh
-		call    near ___10060h
+		call    near welcome@dr
 		call    near ___5eb70h
 		cmp     dword [___19bd4ch], byte 0
 		je      short ___101cah
@@ -163,23 +171,25 @@ ___101dch:
 		mov     ebx, 1
 		mov     eax, 46h
 ___101e6h:
-		call    near ___60466h
+		call    near install@timer
 		mov     dword [___2432c8h], ___100dch
-		call    near ___5a0c2h
-		call    near ___3e720h
-		call    near ___5a101h
+		call    near install@keyboard
+		call    near startup@dr
+		call    near restore@keyboard
 		cmp     dword [___19bd60h], byte 0
 		je      short ___10212h
 		call    near ___623d4h
 ___10212h:
 		call    near ___5ec04h
-		call    near ___10110h
+		call    near restore@dos
 		mov     ebx, ___1800f0h
 		mov     edx, 0b8000h
 		mov     eax, ___1800f8h
-		call    near ___42988h
+		call    near read@bpa
 		pop     ebx
-		retn    
+		retn 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; main_end ;;
+
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___10240h:
 		push    88h
@@ -211,19 +221,19 @@ ___10279h:
 		mov     edx, ___180104h
 		mov     eax, [esp+68h]
 		mov     ebx, 1
-		call    near fopen
+		call    near fopen@clib3r
 		mov     edx, 4
 		mov     edi, eax
 		mov     ecx, eax
 		lea     eax, [esp+60h]
-		call    near fread
+		call    near fread@clib3r
 		mov     ebx, 1
 		mov     edx, 10efh
 		mov     eax, ___19bd74h
 		mov     ecx, edi
-		call    near fread
+		call    near fread@clib3r
 		mov     eax, edi
-		call    near fclose
+		call    near fclose@clib3r
 		xor     edx, edx
 		lea     eax, [esp+50h]
 		mov     [esp+6ch], edx
@@ -373,11 +383,11 @@ ___103f9h:
 ___10401h:
 		mov     edx, ___180104h
 		mov     eax, [esp+68h]
-		call    near fopen
+		call    near fopen@clib3r
 		xor     ebx, ebx
 		mov     edx, 10f3h
 		mov     ecx, eax
-		call    near fseek
+		call    near fseek@clib3r
 		xor     edx, edx
 		mov     [esp+6ch], edx
 		test    ebp, ebp
@@ -398,12 +408,12 @@ ___10430h:
 ___10448h:
 		mov     ebx, 1
 		mov     eax, ecx
-		call    near fseek
+		call    near fseek@clib3r
 		mov     eax, ebp
 		shl     eax, 4
 		mov     edx, [eax+ebp*1+___19bd81h]
 		mov     eax, ecx
-		call    near fclose
+		call    near fclose@clib3r
 		mov     eax, edx
 		add     esp, byte 70h
 		pop     ebp
@@ -446,7 +456,7 @@ ___10490h:
 		mov     ebp, eax
 		mov     edx, eax
 		mov     eax, ___180124h
-		call    near ___42988h
+		call    near read@bpa
 		xor     edx, edx
 		mov     [esp], edx
 		test    ecx, ecx
@@ -558,7 +568,7 @@ db	8dh,40h,0
 		mov     esi, eax
 		mov     edx, ecx
 		mov     eax, ___180124h
-		call    near ___42988h
+		call    near read@bpa
 		mov     edx, ecx
 		mov     eax, esi
 		call    near ___10534h
@@ -1011,7 +1021,7 @@ ___10c80h:
 		mov     ebx, 1
 		mov     eax, 46h
 ___10c8ah:
-		call    near ___60466h
+		call    near install@timer
 		cmp     byte [esp+408h], 0
 		je      short ___10cb2h
 		mov     eax, 5622h
@@ -1022,7 +1032,7 @@ ___10c8ah:
 ___10cb2h:
 		mov     edx, ___180134h
 		lea     eax, [esp+300h]
-		call    near fopen
+		call    near fopen@clib3r
 		mov     edi, [eax+4]
 		mov     ebp, eax
 		test    edi, edi
@@ -1184,7 +1194,7 @@ ___10e2ch:
 		mov     ebx, ___180138h
 		mov     eax, ___180144h
 		mov     edx, [___1a1f0ch]
-		call    near ___42988h
+		call    near read@bpa
 		mov     ebx, [___1a1f0ch]
 		push    ebx
 		lea     eax, [esp+4]
@@ -1298,7 +1308,7 @@ ___10fa9h:
 		mov     ebx, 1
 		add     edx, eax
 		mov     eax, [___1a1f0ch]
-		call    near fread
+		call    near fread@clib3r
 		call    near ___108e8h
 		mov     eax, [___1a1f1ch]
 		add     eax, [___185a0ch]
@@ -1405,7 +1415,7 @@ ___11100h:
 		jl      near ___10f0fh
 ___11119h:
 		mov     eax, ebp
-		call    near fclose
+		call    near fclose@clib3r
 		xor     ecx, ecx
 		mov     esi, 3c9h
 		mov     ebx, 3c8h
@@ -1467,7 +1477,7 @@ db	90h
 		mov     [esp+80h], edx
 		mov     edx, ___180150h
 		mov     edi, esp
-		call    near fopen
+		call    near fopen@clib3r
 		mov     edx, 1
 		mov     esi, eax
 		sub     ecx, ecx
@@ -1479,9 +1489,9 @@ db	90h
 		mov     eax, esp
 		mov     ebx, ecx
 		mov     ecx, esi
-		call    near fwrite
+		call    near fwrite@clib3r
 		mov     eax, esi
-		call    near fclose
+		call    near fclose@clib3r
 		add     esp, 84h
 		pop     edi
 		pop     esi
@@ -1508,7 +1518,7 @@ ___1123ch:
 		call    near ___2fc50h
 		call    near ___64a28h
 		call    near ___5ec04h
-		call    near ___5a101h
+		call    near restore@keyboard
 		call    near ___5e0e3h
 		mov     eax, [___199fbch]
 		sub     eax, byte 64h
@@ -1533,13 +1543,13 @@ ___112a2h:
 ___112a9h:
 		push    ___180268h
 ___112aeh:
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 4
 		push    ___180290h
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 4
 		mov     eax, 70h
-		call    near exit_
+		call    near exit@clib3r
 		pop     edx
 		pop     ecx
 		pop     ebx
@@ -2158,11 +2168,11 @@ ___117f4h:
 		mov     edx, [___1a10c8h]
 		mov     [___1a0fb4h], eax
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		mov     ebx, ___18031ch
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     edx, [___1a10c4h]
 		push    edx
@@ -2170,7 +2180,7 @@ ___117f4h:
 		mov     ebx, ___180328h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     ebx, [___1a10cch]
 		push    ebx
@@ -2178,7 +2188,7 @@ ___117f4h:
 		mov     ebx, ___180334h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     ecx, [___1a1108h]
 		push    ecx
@@ -2186,7 +2196,7 @@ ___117f4h:
 		mov     ebx, ___180340h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     esi, [___1a10fch]
 		push    esi
@@ -2194,7 +2204,7 @@ ___117f4h:
 		mov     ebx, ___18034ch
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     edi, [___1a110ch]
 		push    edi
@@ -2202,7 +2212,7 @@ ___117f4h:
 		mov     ebx, ___180358h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     ebp, [___1a10b8h]
 		push    ebp
@@ -2210,7 +2220,7 @@ ___117f4h:
 		mov     ebx, ___180364h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     eax, [___1a0fbch]
 		push    eax
@@ -2218,7 +2228,7 @@ ___117f4h:
 		mov     ebx, ___180370h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     edx, [___1a0fd8h]
 		push    edx
@@ -2226,7 +2236,7 @@ ___117f4h:
 		mov     ebx, ___180380h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     ebx, [___1a0fe8h]
 		push    ebx
@@ -2234,7 +2244,7 @@ ___117f4h:
 		mov     ebx, ___18038ch
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     ecx, [___1a0fcch]
 		push    ecx
@@ -2242,7 +2252,7 @@ ___117f4h:
 		mov     ebx, ___18039ch
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     esi, [___1a0fd0h]
 		push    esi
@@ -2250,7 +2260,7 @@ ___117f4h:
 		mov     ebx, ___1803ach
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     edi, [___1a0fd4h]
 		push    edi
@@ -2258,7 +2268,7 @@ ___117f4h:
 		mov     ebx, ___1803bch
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     ebp, [___1a0fech]
 		push    ebp
@@ -2266,7 +2276,7 @@ ___117f4h:
 		mov     ebx, ___1803cch
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     eax, [___1a0fc4h]
 		push    eax
@@ -2274,7 +2284,7 @@ ___117f4h:
 		mov     ebx, ___1803dch
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     edx, [___1a0fe4h]
 		push    edx
@@ -2282,7 +2292,7 @@ ___117f4h:
 		mov     ebx, ___1803ech
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     ebx, [___1a0fdch]
 		push    ebx
@@ -2290,7 +2300,7 @@ ___117f4h:
 		mov     ebx, ___1803f8h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     ecx, [___1a0fach]
 		push    ecx
@@ -2298,7 +2308,7 @@ ___117f4h:
 		mov     ebx, ___180404h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     esi, [___1a0fc8h]
 		push    esi
@@ -2306,7 +2316,7 @@ ___117f4h:
 		mov     ebx, ___180410h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     edi, [___1a0fb0h]
 		push    edi
@@ -2314,7 +2324,7 @@ ___117f4h:
 		mov     ebx, ___180420h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     ebp, [___1a0ff0h]
 		push    ebp
@@ -2322,7 +2332,7 @@ ___117f4h:
 		mov     ebx, ___18042ch
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     eax, [___1a0fa8h]
 		push    eax
@@ -2330,7 +2340,7 @@ ___117f4h:
 		mov     ebx, ___18043ch
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     edx, [___1a0fc0h]
 		push    edx
@@ -2338,7 +2348,7 @@ ___117f4h:
 		mov     ebx, ___180448h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     ebx, [___1a0fa4h]
 		push    ebx
@@ -2346,7 +2356,7 @@ ___117f4h:
 		mov     ebx, ___180454h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     ecx, [___19de70h]
 		push    ecx
@@ -2354,7 +2364,7 @@ ___117f4h:
 		mov     ebx, ___180460h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     esi, [___19de74h]
 		push    esi
@@ -2362,7 +2372,7 @@ ___117f4h:
 		mov     ebx, ___18046ch
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     edi, [___19de78h]
 		push    edi
@@ -2370,7 +2380,7 @@ ___117f4h:
 		mov     ebx, ___180478h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     ebp, [___19de7ch]
 		push    ebp
@@ -2378,7 +2388,7 @@ ___117f4h:
 		mov     ebx, ___180484h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     eax, [___19de80h]
 		push    eax
@@ -2386,7 +2396,7 @@ ___117f4h:
 		mov     ebx, ___180490h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     edx, [___19de84h]
 		push    edx
@@ -2394,7 +2404,7 @@ ___117f4h:
 		mov     ebx, ___18049ch
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     ebx, [___19de88h]
 		push    ebx
@@ -2402,7 +2412,7 @@ ___117f4h:
 		mov     ebx, ___1804a8h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     ecx, [___19de8ch]
 		push    ecx
@@ -2410,7 +2420,7 @@ ___117f4h:
 		mov     ebx, ___1804b4h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     esi, [___19de90h]
 		push    esi
@@ -2418,7 +2428,7 @@ ___117f4h:
 		mov     ebx, ___1804c0h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     edi, [___19de94h]
 		push    edi
@@ -2426,7 +2436,7 @@ ___117f4h:
 		mov     ebx, ___1804cch
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     ebp, [___19de98h]
 		push    ebp
@@ -2434,7 +2444,7 @@ ___117f4h:
 		mov     ebx, ___1804d8h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     eax, [___19de9ch]
 		push    eax
@@ -2442,7 +2452,7 @@ ___117f4h:
 		mov     ebx, ___1804e4h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     edx, [___19dea0h]
 		push    edx
@@ -2450,7 +2460,7 @@ ___117f4h:
 		mov     ebx, ___1804f0h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     ebx, [___19dea4h]
 		push    ebx
@@ -2458,7 +2468,7 @@ ___117f4h:
 		mov     ebx, ___1804fch
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     ecx, [___19dea8h]
 		push    ecx
@@ -2466,7 +2476,7 @@ ___117f4h:
 		mov     ebx, ___180508h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     esi, [___19deach]
 		push    esi
@@ -2474,7 +2484,7 @@ ___117f4h:
 		mov     ebx, ___180514h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     edi, [___19deb0h]
 		push    edi
@@ -2482,7 +2492,7 @@ ___117f4h:
 		mov     ebx, ___180520h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     ebp, [___19deb4h]
 		push    ebp
@@ -2490,7 +2500,7 @@ ___117f4h:
 		mov     ebx, ___18052ch
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     eax, [___19deb8h]
 		push    eax
@@ -2498,7 +2508,7 @@ ___117f4h:
 		mov     ebx, ___180538h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     edx, [___19debch]
 		push    edx
@@ -2506,7 +2516,7 @@ ___117f4h:
 		mov     ebx, ___180544h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     ebx, [___1a0fb4h]
 		push    ebx
@@ -2514,15 +2524,15 @@ ___117f4h:
 		mov     ebx, ___180550h
 		mov     eax, ___180144h
 		mov     edx, [___1a0fb8h]
-		call    near ___42988h
+		call    near read@bpa
 		mov     ebx, ___18055ch
 		mov     eax, ___180144h
 		mov     edx, [___1a0fe0h]
-		call    near ___42988h
+		call    near read@bpa
 		mov     ebx, ___180568h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     ecx, [___1a10f0h]
 		push    ecx
@@ -2530,7 +2540,7 @@ ___117f4h:
 		mov     ebx, ___180574h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     esi, [___1a10d8h]
 		push    esi
@@ -2538,7 +2548,7 @@ ___117f4h:
 		mov     ebx, ___180580h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     edi, [___1a1138h]
 		push    edi
@@ -2786,7 +2796,7 @@ ___12653h:
 		mov     ebx, ___18058ch
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     ebx, [esi+___1a1040h]
 		push    ebx
@@ -2800,7 +2810,7 @@ ___12653h:
 		mov     ebx, ___18058ch
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     ecx, [___1a1030h]
 		push    ecx
@@ -2810,7 +2820,7 @@ ___12653h:
 		mov     ebx, ___18058ch
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     esi, [___1a1038h]
 		push    esi
@@ -2820,7 +2830,7 @@ ___12653h:
 		mov     ebx, ___18059ch
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     edi, [___1a10f4h]
 		push    edi
@@ -2828,7 +2838,7 @@ ___12653h:
 		mov     ebx, ___1805a8h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     ebp, [___1a10e0h]
 		push    ebp
@@ -2836,7 +2846,7 @@ ___12653h:
 		mov     ebx, ___1805b4h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     eax, [___1a10d0h]
 		push    eax
@@ -2844,7 +2854,7 @@ ___12653h:
 		mov     ebx, ___1805c0h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     edx, [___1a10b4h]
 		push    edx
@@ -2852,7 +2862,7 @@ ___12653h:
 		mov     ebx, ___1805d0h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     ebx, [___1a1128h]
 		push    ebx
@@ -2860,7 +2870,7 @@ ___12653h:
 		mov     ebx, ___1805e0h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     ecx, [___1a10d4h]
 		push    ecx
@@ -2868,7 +2878,7 @@ ___12653h:
 		mov     ebx, ___1805f0h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     esi, [___1a10bch]
 		push    esi
@@ -2876,7 +2886,7 @@ ___12653h:
 		mov     ebx, ___180600h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     edi, [___1a10e8h]
 		push    edi
@@ -2884,7 +2894,7 @@ ___12653h:
 		mov     ebx, ___180610h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     ebp, [___1a10dch]
 		push    ebp
@@ -2892,7 +2902,7 @@ ___12653h:
 		mov     ebx, ___18061ch
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     eax, [___1a10ach]
 		push    eax
@@ -2900,7 +2910,7 @@ ___12653h:
 		mov     ebx, ___180628h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     edx, [___1a10c0h]
 		push    edx
@@ -2908,7 +2918,7 @@ ___12653h:
 		mov     ebx, ___180634h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     ebx, [___1a10ech]
 		push    ebx
@@ -2916,7 +2926,7 @@ ___12653h:
 		mov     ebx, ___180644h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     ecx, [___1a10f8h]
 		push    ecx
@@ -2924,7 +2934,7 @@ ___12653h:
 		mov     ebx, ___180654h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     esi, [___1a1104h]
 		push    esi
@@ -2932,7 +2942,7 @@ ___12653h:
 		mov     ebx, ___180664h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     edi, [___1a0ff8h]
 		push    edi
@@ -2940,7 +2950,7 @@ ___12653h:
 		mov     ebx, ___180674h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     ebp, [___1a10a4h]
 		push    ebp
@@ -2966,7 +2976,7 @@ ___12940h:
 		mov     ebx, ___180680h
 		mov     edx, esp
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		xor     edx, edx
 		xor     ecx, ecx
 		mov     [esp+300h], edx
@@ -8167,7 +8177,7 @@ ___16e6ch:
 		mov     ebx, ___180710h
 		mov     eax, ___180144h
 		mov     edx, [___1a1114h]
-		call    near ___42988h
+		call    near read@bpa
 		mov     edx, [___1a1114h]
 		push    edx
 		push    ___1a54d0h
@@ -10171,15 +10181,15 @@ ___18808h:
 		mov     edx, ___180134h
 		mov     eax, edi
 		mov     ebx, 1
-		call    near fopen
+		call    near fopen@clib3r
 		mov     edx, 883h
 		mov     esi, [___1a0f9ch]
 		mov     edi, eax
 		mov     eax, esi
 		mov     ecx, edi
-		call    near fread
+		call    near fread@clib3r
 		mov     eax, edi
-		call    near fclose
+		call    near fclose@clib3r
 		mov     esi, [___1a0f9ch]
 		mov     al, [esi]
 		mov     edx, 1
@@ -10441,14 +10451,14 @@ ___18b63h:
 		pop     edi
 		mov     eax, esp
 		mov     ebx, 1
-		call    near fopen
+		call    near fopen@clib3r
 		mov     edx, 883h
 		mov     esi, eax
 		mov     eax, [___1a0f9ch]
 		mov     ecx, esi
-		call    near fread
+		call    near fread@clib3r
 		mov     eax, esi
-		call    near fclose
+		call    near fclose@clib3r
 		mov     eax, [___1a0f9ch]
 		mov     al, [eax]
 		mov     ebp, 1
@@ -10849,14 +10859,14 @@ ___1904dh:
 		pop     edi
 		lea     eax, [esp+10h]
 		mov     ebx, 1
-		call    near fopen
+		call    near fopen@clib3r
 		mov     esi, eax
 		mov     edx, ebp
 		mov     eax, [___1a0f9ch]
 		mov     ecx, esi
-		call    near fwrite
+		call    near fwrite@clib3r
 		mov     eax, esi
-		call    near fclose
+		call    near fclose@clib3r
 		mov     eax, [___1a0f9ch]
 		xor     edx, edx
 		call    near ___3f77ch
@@ -25974,7 +25984,7 @@ ___245cbh:
 		call    near ___3f71ch
 		mov     [___1a1e64h], eax
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     edi, [___1a1ed4h]
 		push    edi
@@ -25982,7 +25992,7 @@ ___245cbh:
 		mov     ebx, ___181d34h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     ebp, [___1a1e90h]
 		push    ebp
@@ -25990,7 +26000,7 @@ ___245cbh:
 		mov     ebx, ___181d44h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     eax, [___1a10b0h]
 		push    eax
@@ -25998,87 +26008,87 @@ ___245cbh:
 		mov     ebx, ___181d50h
 		mov     eax, ___180144h
 		mov     edx, [___1a01b8h]
-		call    near ___42988h
+		call    near read@bpa
 		mov     ebx, ___181d5ch
 		mov     eax, ___180144h
 		mov     edx, [___1a01bch]
-		call    near ___42988h
+		call    near read@bpa
 		mov     ebx, ___181d68h
 		mov     eax, ___180144h
 		mov     edx, [___1a01c0h]
-		call    near ___42988h
+		call    near read@bpa
 		mov     ebx, ___181d74h
 		mov     eax, ___180144h
 		mov     edx, [___1a01c4h]
-		call    near ___42988h
+		call    near read@bpa
 		mov     ebx, ___181d80h
 		mov     eax, ___180144h
 		mov     edx, [___1a01c8h]
-		call    near ___42988h
+		call    near read@bpa
 		mov     ebx, ___181d8ch
 		mov     eax, ___180144h
 		mov     edx, [___1a01cch]
-		call    near ___42988h
+		call    near read@bpa
 		mov     ebx, ___181d98h
 		mov     eax, ___180144h
 		mov     edx, [___1a01a8h]
-		call    near ___42988h
+		call    near read@bpa
 		mov     ebx, ___181da4h
 		mov     eax, ___180144h
 		mov     edx, [___1a01ach]
-		call    near ___42988h
+		call    near read@bpa
 		mov     ebx, ___181db0h
 		mov     eax, ___180144h
 		mov     edx, [___1a01b0h]
-		call    near ___42988h
+		call    near read@bpa
 		mov     ebx, ___181dbch
 		mov     eax, ___180144h
 		mov     edx, [___1a01b4h]
-		call    near ___42988h
+		call    near read@bpa
 		mov     ebx, ___181dc8h
 		mov     eax, ___180144h
 		mov     edx, [___1a0198h]
-		call    near ___42988h
+		call    near read@bpa
 		mov     ebx, ___181dd4h
 		mov     eax, ___180144h
 		mov     edx, [___1a019ch]
-		call    near ___42988h
+		call    near read@bpa
 		mov     ebx, ___181de0h
 		mov     eax, ___180144h
 		mov     edx, [___1a01a0h]
-		call    near ___42988h
+		call    near read@bpa
 		mov     ebx, ___181dech
 		mov     eax, ___180144h
 		mov     edx, [___1a01a4h]
-		call    near ___42988h
+		call    near read@bpa
 		mov     ebx, ___181df8h
 		mov     eax, ___180144h
 		mov     edx, [___1a01d0h]
-		call    near ___42988h
+		call    near read@bpa
 		mov     ebx, ___181e04h
 		mov     eax, ___180144h
 		mov     edx, [___1a01d4h]
-		call    near ___42988h
+		call    near read@bpa
 		mov     ebx, ___181e10h
 		mov     eax, ___180144h
 		mov     edx, [___1a01d8h]
-		call    near ___42988h
+		call    near read@bpa
 		mov     ebx, ___181e1ch
 		mov     eax, ___180144h
 		mov     edx, [___1a01dch]
-		call    near ___42988h
+		call    near read@bpa
 		mov     ebx, ___181e28h
 		mov     eax, ___180144h
 		mov     edx, [___1a1ea0h]
-		call    near ___42988h
+		call    near read@bpa
 		mov     ebx, ___181e34h
 		mov     eax, ___180144h
 		mov     edx, [___1a1e8ch]
-		call    near ___42988h
+		call    near read@bpa
 		mov     ebx, ___181e40h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     edx, [___1a1e6ch]
 		push    edx
@@ -26086,7 +26096,7 @@ ___245cbh:
 		mov     ebx, ___181e4ch
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     ebx, [___1a1e74h]
 		push    ebx
@@ -26094,7 +26104,7 @@ ___245cbh:
 		mov     ebx, ___181e58h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     ecx, [___1a1e80h]
 		push    ecx
@@ -26102,7 +26112,7 @@ ___245cbh:
 		mov     ebx, ___181e68h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     esi, [___1a1e84h]
 		push    esi
@@ -26110,7 +26120,7 @@ ___245cbh:
 		mov     ebx, ___181e74h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     edi, [___1a1e60h]
 		push    edi
@@ -26118,7 +26128,7 @@ ___245cbh:
 		mov     ebx, ___181e84h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     ebp, [___1a1e54h]
 		push    ebp
@@ -26126,7 +26136,7 @@ ___245cbh:
 		mov     ebx, ___181e94h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     eax, [___1a1e64h]
 		push    eax
@@ -26134,7 +26144,7 @@ ___245cbh:
 		mov     ebx, ___181ea4h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     edx, [___1a1e58h]
 		push    edx
@@ -26142,7 +26152,7 @@ ___245cbh:
 		mov     ebx, ___181eb4h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     ebx, [___1a1e5ch]
 		push    ebx
@@ -26150,7 +26160,7 @@ ___245cbh:
 		mov     ebx, ___181ec4h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     ecx, [___1a1e98h]
 		push    ecx
@@ -26184,7 +26194,7 @@ ___245cbh:
 		mov     ebx, ___181ed0h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     edx, [___1a0180h]
 		push    edx
@@ -26224,7 +26234,7 @@ ___245cbh:
 		mov     ebx, ___181ee0h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     eax, [___1a1eb0h]
 		push    eax
@@ -26232,7 +26242,7 @@ ___245cbh:
 		mov     ebx, ___181eech
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     edx, [___1a1e78h]
 		push    edx
@@ -26240,7 +26250,7 @@ ___245cbh:
 		mov     ebx, ___181efch
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     ebx, [___1a1eb8h]
 		push    ebx
@@ -26248,7 +26258,7 @@ ___245cbh:
 		mov     ebx, ___181f08h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     ecx, [___1a1ea8h]
 		push    ecx
@@ -26256,7 +26266,7 @@ ___245cbh:
 		mov     ebx, ___181f14h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     esi, [___1a1ea4h]
 		push    esi
@@ -26264,7 +26274,7 @@ ___245cbh:
 		mov     ebx, ___181f24h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     edi, [___1a1eb4h]
 		push    edi
@@ -26272,7 +26282,7 @@ ___245cbh:
 		mov     ebx, ___181f34h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     ebp, [___1a1ebch]
 		push    ebp
@@ -26280,7 +26290,7 @@ ___245cbh:
 		mov     ebx, ___181f40h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     eax, [___1a1e88h]
 		push    eax
@@ -33010,7 +33020,7 @@ ___2a498h:
 		movsd   
 		movsd   
 		movsb   
-		call    near fopen
+		call    near fopen@clib3r
 		mov     edi, esp
 		mov     edx, 1
 		mov     esi, eax
@@ -33023,12 +33033,12 @@ ___2a498h:
 		mov     eax, esp
 		mov     ebx, ecx
 		mov     ecx, esi
-		call    near fwrite
+		call    near fwrite@clib3r
 		mov     eax, 0ah
 		mov     edx, esi
 		call    near fputc
 		mov     eax, esi
-		call    near fclose
+		call    near fclose@clib3r
 		add     esp, byte 20h
 		pop     edi
 		pop     esi
@@ -33080,7 +33090,7 @@ ___2a5bah:
 		pop     edi
 		mov     eax, ___180154h
 		lea     edi, [esp+50h]
-		call    near fopen
+		call    near fopen@clib3r
 		mov     edx, 1
 		mov     esi, eax
 		sub     ecx, ecx
@@ -33092,12 +33102,12 @@ ___2a5bah:
 		lea     eax, [esp+50h]
 		mov     ebx, ecx
 		mov     ecx, esi
-		call    near fwrite
+		call    near fwrite@clib3r
 		mov     eax, 0ah
 		mov     edx, esi
 		call    near fputc
 		mov     eax, esi
-		call    near fclose
+		call    near fclose@clib3r
 		add     esp, 0a0h
 		pop     edi
 		pop     esi
@@ -33275,14 +33285,14 @@ ___2a801h:
 		mov     edx, ___1807bch
 		mov     eax, ___182164h
 		mov     ebx, 1
-		call    near fopen
+		call    near fopen@clib3r
 		mov     edi, eax
 		mov     edx, ebp
 		mov     eax, [___1a0f9ch]
 		mov     ecx, edi
-		call    near fwrite
+		call    near fwrite@clib3r
 		mov     eax, edi
-		call    near fclose
+		call    near fclose@clib3r
 		mov     eax, [___1a0f9ch]
 		call    near ___3f77ch
 ___2a836h:
@@ -33301,7 +33311,7 @@ ___2a836h:
 		mov     edx, ___180134h
 		mov     eax, ___182164h
 		mov     [esp+14h], ebp
-		call    near fopen
+		call    near fopen@clib3r
 		mov     edi, eax
 		test    eax, eax
 		je      near ___2a9f2h
@@ -33309,9 +33319,9 @@ ___2a836h:
 		mov     edx, 883h
 		mov     eax, [___1a0f9ch]
 		mov     ecx, edi
-		call    near fread
+		call    near fread@clib3r
 		mov     eax, edi
-		call    near fclose
+		call    near fclose@clib3r
 		mov     eax, [___1a0f9ch]
 		mov     al, [eax]
 		mov     ecx, 1
@@ -39288,7 +39298,7 @@ ___2faf0h:
 		call    near ___3f71ch
 		mov     [___1a0f94h], eax
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     edx, [___1a0f90h]
 		push    edx
@@ -39296,7 +39306,7 @@ ___2faf0h:
 		mov     ebx, ___1822fch
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     ebx, [___1a0f88h]
 		push    ebx
@@ -39304,7 +39314,7 @@ ___2faf0h:
 		mov     ebx, ___182308h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     ecx, [___1a0f84h]
 		push    ecx
@@ -39312,7 +39322,7 @@ ___2faf0h:
 		mov     ebx, ___182314h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     esi, [___1a0f8ch]
 		push    esi
@@ -39320,7 +39330,7 @@ ___2faf0h:
 		mov     ebx, ___182320h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     edi, [___1a0f98h]
 		push    edi
@@ -39328,7 +39338,7 @@ ___2faf0h:
 		mov     ebx, ___182330h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     ebp, [___1a0f94h]
 		push    ebp
@@ -43733,7 +43743,7 @@ ___332a3h:
 ___332bbh:
 		pop     edi
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     edx, [___1a1114h]
 		push    edx
@@ -43847,7 +43857,7 @@ ___333f7h:
 ___3340fh:
 		pop     edi
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     esi, [___1a1114h]
 		push    esi
@@ -43941,7 +43951,7 @@ ___334eeh:
 ___33506h:
 		pop     edi
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     ebx, [___1a1114h]
 		push    ebx
@@ -44036,7 +44046,7 @@ ___335e6h:
 ___335feh:
 		pop     edi
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     eax, [___1a1114h]
 		push    eax
@@ -44095,7 +44105,7 @@ ___3368ch:
 		movsd   
 		movsd   
 		movsb   
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     ecx, [___1a1114h]
 		push    ecx
@@ -52774,13 +52784,13 @@ ___3a512h:
 		mov     edx, ___1807bch
 		mov     eax, esp
 		mov     ebx, 80h
-		call    near fopen
+		call    near fopen@clib3r
 		mov     edx, 1
 		mov     [___1a0ef4h], eax
 		mov     ecx, eax
 		mov     eax, ___196be0h
 		xor     esi, esi
-		call    near fwrite
+		call    near fwrite@clib3r
 		mov     ecx, 280h
 ___3a540h:
 		mov     eax, [___1a112ch]
@@ -52816,22 +52826,22 @@ ___3a578h:
 		mov     ecx, [___1a0ef4h]
 		mov     [esp+14h], al
 		lea     eax, [esp+1ch]
-		call    near fwrite
+		call    near fwrite@clib3r
 		lea     eax, [esp+18h]
 		mov     ecx, [___1a0ef4h]
 		mov     ebx, edi
 		mov     edx, edi
-		call    near fwrite
+		call    near fwrite@clib3r
 		lea     eax, [esp+14h]
 		mov     ecx, [___1a0ef4h]
 		mov     ebx, edi
 		mov     edx, edi
 		inc     esi
-		call    near fwrite
+		call    near fwrite@clib3r
 		cmp     esi, 0ffh
 		jle     short ___3a578h
 		mov     eax, [___1a0ef4h]
-		call    near fclose
+		call    near fclose@clib3r
 		add     esp, byte 20h
 		pop     ebp
 		pop     edi
@@ -53262,17 +53272,17 @@ ___3aaf8h:
 		call    near ___2fc50h
 		call    near ___64a28h
 		call    near ___5ec04h
-		call    near ___5a101h
+		call    near restore@keyboard
 		cmp     dword [___19bd60h], byte 0
 		je      short ___3ab3bh
 		call    near ___623d4h
 ___3ab3bh:
 		call    near ___5e0e3h
 		push    ___1826f4h
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 4
 		mov     eax, 70h
-		call    near exit_
+		call    near exit@clib3r
 		pop     edx
 		pop     ecx
 		pop     ebx
@@ -53294,7 +53304,7 @@ ___3ab5ch:
 		mov     eax, ___180144h
 		mov     [esp+44h], edx
 		mov     edx, [___1a1114h]
-		call    near ___42988h
+		call    near read@bpa
 		mov     ebx, [___1a1114h]
 		push    ebx
 		push    ___1a54d0h
@@ -54526,15 +54536,15 @@ ___3bb44h:
 		test    eax, eax
 		jg      short ___3bbach
 		call    near ___5ec04h
-		call    near ___5a101h
+		call    near restore@keyboard
 		call    near ___5e0e3h
 		push    ___18274ch
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 4
 		mov     eax, edi
 		call    near close
 		mov     eax, 70h
-		call    near exit_
+		call    near exit@clib3r
 ___3bbach:
 		mov     eax, esi
 		call    near filelength
@@ -54545,29 +54555,29 @@ ___3bbach:
 		call    near close
 		mov     eax, ___182744h
 		mov     ebx, 1
-		call    near fopen
+		call    near fopen@clib3r
 		mov     esi, eax
 		mov     ecx, eax
 		mov     edx, ebx
 		mov     eax, ___1a2143h
-		call    near fread
+		call    near fread@clib3r
 		mov     ebx, 1
 		mov     eax, ___1a2144h
 		mov     ecx, esi
 		mov     edx, ebx
-		call    near fread
+		call    near fread@clib3r
 		mov     ebx, 1
 		mov     eax, ___1a2145h
 		mov     ecx, esi
 		mov     edx, ebx
-		call    near fread
+		call    near fread@clib3r
 		mov     ebx, 1
 		mov     edx, 4
 		mov     eax, ___1a0ef0h
 		mov     ecx, esi
-		call    near fread
+		call    near fread@clib3r
 		mov     eax, esi
-		call    near fclose
+		call    near fclose@clib3r
 		call    near ___3c668h
 		jmp     near ___3c13ah
 ___3bc30h:
@@ -54579,27 +54589,27 @@ ___3bc30h:
 		mov     ebp, eax
 		mov     eax, ___182744h
 		mov     ebx, 1
-		call    near fopen
+		call    near fopen@clib3r
 		mov     esi, eax
 		mov     ecx, eax
 		mov     edx, ebx
 		mov     eax, ___1a2143h
-		call    near fread
+		call    near fread@clib3r
 		mov     ebx, 1
 		mov     eax, ___1a2144h
 		mov     ecx, esi
 		mov     edx, ebx
-		call    near fread
+		call    near fread@clib3r
 		mov     ebx, 1
 		mov     eax, ___1a2145h
 		mov     ecx, esi
 		mov     edx, ebx
-		call    near fread
+		call    near fread@clib3r
 		mov     ebx, 1
 		mov     edx, 4
 		mov     eax, ___1a0ef0h
 		mov     ecx, esi
-		call    near fread
+		call    near fread@clib3r
 		mov     ebx, [esp]
 		mov     eax, esi
 		mov     edx, 1
@@ -54607,12 +54617,12 @@ ___3bc30h:
 		mov     ecx, esi
 		mov     [esp+8], al
 		mov     eax, ebp
-		call    near fread
+		call    near fread@clib3r
 		mov     edx, eax
 		mov     edi, eax
 		mov     eax, esi
 		xor     ebx, ebx
-		call    near fclose
+		call    near fclose@clib3r
 		mov     [esp+4], ebx
 		test    edx, edx
 		jle     short ___3bd28h
@@ -55396,53 +55406,53 @@ ___3c528h:
 		mov     edx, ___180134h
 		mov     eax, ___182744h
 		mov     ebx, 1
-		call    near fopen
+		call    near fopen@clib3r
 		mov     esi, eax
 		mov     ecx, eax
 		mov     edx, ebx
 		mov     eax, ___1a2143h
-		call    near fread
+		call    near fread@clib3r
 		mov     ebx, 1
 		mov     eax, ___1a2144h
 		mov     ecx, esi
 		mov     edx, ebx
-		call    near fread
+		call    near fread@clib3r
 		mov     ebx, 1
 		mov     eax, ___1a2145h
 		mov     ecx, esi
 		mov     edx, ebx
-		call    near fread
+		call    near fread@clib3r
 		mov     ebx, 1
 		mov     edx, 4
 		mov     eax, ___1a0ef0h
 		mov     ecx, esi
-		call    near fread
+		call    near fread@clib3r
 		mov     eax, esi
 		mov     edx, ___1807bch
-		call    near fclose
+		call    near fclose@clib3r
 		mov     eax, ___182744h
 		mov     ebx, 1
-		call    near fopen
+		call    near fopen@clib3r
 		mov     esi, eax
 		mov     ecx, eax
 		mov     edx, ebx
 		mov     eax, ___1a2143h
-		call    near fwrite
+		call    near fwrite@clib3r
 		mov     ebx, 1
 		mov     eax, ___1a2144h
 		mov     ecx, esi
 		mov     edx, ebx
-		call    near fwrite
+		call    near fwrite@clib3r
 		mov     ebx, 1
 		mov     eax, ___1a2145h
 		mov     ecx, esi
 		mov     edx, ebx
-		call    near fwrite
+		call    near fwrite@clib3r
 		mov     ebx, 1
 		mov     edx, 4
 		mov     eax, ___1a0ef0h
 		mov     ecx, esi
-		call    near fwrite
+		call    near fwrite@clib3r
 		mov     ebx, 1
 		xor     eax, eax
 		mov     edx, esi
@@ -55451,9 +55461,9 @@ ___3c528h:
 		call    near fputc
 		mov     edx, edi
 		mov     eax, ebp
-		call    near fwrite
+		call    near fwrite@clib3r
 		mov     eax, esi
-		call    near fclose
+		call    near fclose@clib3r
 		add     esp, byte 0ch
 		pop     ebp
 		pop     edi
@@ -56055,7 +56065,7 @@ ___3d154h:
 		xor     esi, esi
 		mov     eax, ___180144h
 		xor     ecx, ecx
-		call    near ___42988h
+		call    near read@bpa
 		mov     ebp, 640000h
 ___3d181h:
 		lea     edi, [esi+esi*2]
@@ -56267,7 +56277,7 @@ ___3d3a4h:
 		mov     edx, ___1a54d0h
 		call    near ___3d154h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     esi, [___1a112ch]
 		xor     edi, edi
@@ -56293,7 +56303,7 @@ ___3d420h:
 		mov     edx, ___1a54d0h
 		call    near ___3d154h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     edx, [___1a112ch]
 		push    edx
@@ -56319,7 +56329,7 @@ ___3d480h:
 		mov     edx, ___1a54d0h
 		call    near ___3d154h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     edi, [___1a112ch]
 		xor     ebp, ebp
@@ -56440,7 +56450,7 @@ ___3d55fh:
 		mov     edx, ___1a54d0h
 		call    near ___3d154h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     ecx, [___1a112ch]
 		push    ecx
@@ -56457,7 +56467,7 @@ ___3d63dh:
 		mov     edx, ___1a54d0h
 		call    near ___3d154h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     edi, [___1a112ch]
 		push    edi
@@ -56661,7 +56671,7 @@ ___3d8a6h:
 		mov     edx, ___1a54d0h
 		call    near ___3d154h
 		mov     eax, ___180144h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     esi, [___1a112ch]
 		push    esi
@@ -56764,7 +56774,7 @@ ___3d9c0h:
 		mov     eax, ___180144h
 		mov     ebx, edx
 		mov     edx, ___1a54d0h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     edx, [___1a112ch]
 		push    edx
@@ -57428,21 +57438,21 @@ ___3e164h:
 		cmp     eax, dword 57b0cch
 		jge     short ___3e1c2h
 		push    ___182940h
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 4
 		push    ___182944h
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 4
 		push    ___182990h
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 4
 		push    ___1829e0h
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 4
-		call    near ___5a101h
+		call    near restore@keyboard
 		call    near ___5ec04h
 		mov     eax, 70h
-		call    near exit_
+		call    near exit@clib3r
 ___3e1c2h:
 		retn    
 db	90h
@@ -57467,15 +57477,15 @@ ___3e1e6h:
 		jge     short ___3e220h
 		push    ebx
 		push    ___182a30h
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 8
 		push    ___182a5ch
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 4
-		call    near ___5a101h
+		call    near restore@keyboard
 		call    near ___5ec04h
 		mov     eax, ebp
-		call    near exit_
+		call    near exit@clib3r
 ___3e220h:
 		cmp     edi, [edx+___196c6dh]
 		je      short ___3e25bh
@@ -57483,15 +57493,15 @@ ___3e220h:
 		add     eax, edx
 		push    eax
 		push    ___182aach
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 8
 		push    ___182ae4h
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 4
-		call    near ___5a101h
+		call    near restore@keyboard
 		call    near ___5ec04h
 		mov     eax, ebp
-		call    near exit_
+		call    near exit@clib3r
 ___3e25bh:
 		add     edx, byte 11h
 		add     ebx, byte 11h
@@ -57602,15 +57612,15 @@ ___3e33dh:
 		je      short ___3e380h
 		push    edx
 		push    ___182b34h
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 8
 		push    ___182b6ch
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 4
-		call    near ___5a101h
+		call    near restore@keyboard
 		call    near ___5ec04h
 		mov     eax, 70h
-		call    near exit_
+		call    near exit@clib3r
 ___3e380h:
 		inc     ebx
 		add     edx, byte 11h
@@ -57653,7 +57663,7 @@ ___3e3cch:
 		push    edi
 		mov     edx, ___180134h
 		mov     eax, ___182bbch
-		call    near fopen
+		call    near fopen@clib3r
 		test    eax, eax
 		je      short ___3e449h
 		push    ___1a0d60h
@@ -57698,12 +57708,12 @@ ___3e443h:
 		retn    
 ___3e449h:
 		push    ___182bd0h
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 4
-		call    near ___5a101h
+		call    near restore@keyboard
 		call    near ___5ec04h
 		mov     eax, 70h
-		call    near exit_
+		call    near exit@clib3r
 ___3e46ah:
 		pop     edi
 		pop     esi
@@ -57810,7 +57820,7 @@ ___3e53dh:
 ___3e555h:
 		mov     edx, ___180134h
 		mov     eax, esp
-		call    near fopen
+		call    near fopen@clib3r
 		mov     ebp, eax
 		mov     [esp+104h], eax
 		test    eax, eax
@@ -57819,7 +57829,7 @@ ___3e555h:
 		mov     edx, 4
 		mov     ecx, eax
 		lea     eax, [esp+100h]
-		call    near fread
+		call    near fread@clib3r
 		mov     eax, [esp+100h]
 		mov     ebx, 1
 		sub     eax, 2b7916f1h
@@ -57827,11 +57837,11 @@ ___3e555h:
 		mov     [esp+108h], eax
 		mov     eax, ebp
 		mov     ecx, ebp
-		call    near fseek
+		call    near fseek@clib3r
 		mov     ebx, 1
 		mov     edx, 10000h
 		mov     eax, edi
-		call    near fread
+		call    near fread@clib3r
 		mov     dl, [edi+7cd1h]
 		sub     dl, [edi+1403h]
 		mov     dh, [edi+9ab2h]
@@ -57871,7 +57881,7 @@ ___3e62dh:
 		sub     edx, byte 4
 		mov     eax, [esp+104h]
 		shl     edx, 10h
-		call    near fseek
+		call    near fseek@clib3r
 		mov     dl, [esi+7cd1h]
 		mov     dh, [esi+1403h]
 		mov     bl, [esi+9ab2h]
@@ -57947,7 +57957,7 @@ dd	___3ef5eh
 dd	___3ef6eh
 dd	___3ef75h
 dd	___3ef7ch
-___3e720h:
+startup@dr:
 		push    58h
 		call    near __CHK
 		push    ebx
@@ -57982,7 +57992,7 @@ ___3e720h:
 		call    near ___3c16ch
 		push    ___182bf8h
 		mov     [esp+24h], esi
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 4
 		mov     ebx, 2
 		mov     ecx, ___181c9ch
@@ -58053,16 +58063,16 @@ ___3e88bh:
 		je      short ___3e8e7h
 		call    near ___5e0e3h
 		push    ___182c24h
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 4
 		push    ___182cb8h
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 4
 		call    near ___64a28h
 		call    near ___5ec04h
-		call    near ___5a101h
+		call    near restore@keyboard
 		mov     eax, 70h
-		call    near exit_
+		call    near exit@clib3r
 ___3e8e7h:
 		mov     eax, 3ch
 		xor     ebx, ebx
@@ -58881,10 +58891,10 @@ ___3f71ch:
 		call    near ___5ec04h
 		call    near ___5e0e3h
 		push    ___182df4h
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 4
 		push    ___182e20h
-		call    near printf
+		call    near printf@clib3r
 		mov     edx, [___19bd60h]
 		add     esp, byte 4
 		test    edx, edx
@@ -58892,7 +58902,7 @@ ___3f71ch:
 		call    near ___623d4h
 ___3f76ah:
 		mov     eax, 70h
-		call    near exit_
+		call    near exit@clib3r
 ___3f774h:
 		mov     eax, esi
 		pop     esi
@@ -58951,7 +58961,7 @@ ___3f78ch:
 		mov     eax, ___182each
 		rep movsd   
 		movsw   
-		call    near fopen
+		call    near fopen@clib3r
 		lea     edi, [esp+50h]
 		mov     edx, 1
 		mov     esi, eax
@@ -58965,7 +58975,7 @@ ___3f78ch:
 		mov     ebx, ecx
 		mov     ecx, esi
 		lea     edi, [esp+50h]
-		call    near fwrite
+		call    near fwrite@clib3r
 		mov     eax, 0ah
 		mov     ebx, 0ah
 		mov     edx, esi
@@ -58973,7 +58983,7 @@ ___3f78ch:
 		call    near fputc
 		mov     eax, esi
 		mov     edx, esp
-		call    near fclose
+		call    near fclose@clib3r
 		mov     esi, ___182eb4h
 		call    near ___3f78ch
 		call    near itoa
@@ -59003,7 +59013,7 @@ ___3f89dh:
 		pop     edi
 		mov     eax, ___182each
 		lea     edi, [esp+50h]
-		call    near fopen
+		call    near fopen@clib3r
 		mov     edx, 1
 		mov     esi, eax
 		sub     ecx, ecx
@@ -59015,12 +59025,12 @@ ___3f89dh:
 		lea     eax, [esp+50h]
 		mov     ebx, ecx
 		mov     ecx, esi
-		call    near fwrite
+		call    near fwrite@clib3r
 		mov     eax, 0ah
 		mov     edx, esi
 		call    near fputc
 		mov     eax, esi
-		call    near fclose
+		call    near fclose@clib3r
 		add     esp, 0a0h
 		pop     edi
 		pop     esi
@@ -59048,7 +59058,7 @@ db	8dh,40h,0
 		mov     [esp+80h], edx
 		mov     edx, ___182ea8h
 		mov     edi, esp
-		call    near fopen
+		call    near fopen@clib3r
 		mov     edx, 1
 		mov     esi, eax
 		sub     ecx, ecx
@@ -59060,9 +59070,9 @@ db	8dh,40h,0
 		mov     eax, esp
 		mov     ebx, ecx
 		mov     ecx, esi
-		call    near fwrite
+		call    near fwrite@clib3r
 		mov     eax, esi
-		call    near fclose
+		call    near fclose@clib3r
 		add     esp, 84h
 		pop     edi
 		pop     esi
@@ -62649,10 +62659,10 @@ db	90h
 		call    near ___5e0e3h
 		push    esi
 		push    ___182fb8h
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 8
 		push    ___182fe0h
-		call    near printf
+		call    near printf@clib3r
 		mov     edx, [___19bd60h]
 		add     esp, byte 4
 		test    edx, edx
@@ -62660,7 +62670,7 @@ db	90h
 		call    near ___623d4h
 ___42935h:
 		mov     eax, 70h
-		call    near exit_
+		call    near exit@clib3r
 		pop     esi
 		pop     edx
 		pop     ecx
@@ -62677,20 +62687,21 @@ ___42944h:
 		call    near ___5e0e3h
 		push    esi
 		push    ___183030h
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 8
 		push    ___183048h
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 4
-		call    near ___5a101h
+		call    near restore@keyboard
 		mov     eax, 70h
-		call    near exit_
+		call    near exit@clib3r
 		pop     esi
 		pop     edx
 		pop     ecx
 		pop     ebx
-		retn    
-___42988h:
+		retn
+;; read_start ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+read@bpa:
 		push    88h
 		call    near __CHK
 		push    ecx
@@ -62720,19 +62731,19 @@ ___429c9h:
 		pop     edi
 		mov     eax, [esp+68h]
 		mov     ebx, 1
-		call    near fopen
+		call    near fopen@clib3r
 		mov     edx, 4
 		mov     edi, eax
 		mov     ecx, eax
 		lea     eax, [esp+60h]
-		call    near fread
+		call    near fread@clib3r
 		mov     ebx, 1
 		mov     edx, 10efh
 		mov     eax, ___24bb60h
 		mov     ecx, edi
-		call    near fread
+		call    near fread@clib3r
 		mov     eax, edi
-		call    near fclose
+		call    near fclose@clib3r
 		xor     edx, edx
 		lea     eax, [esp+50h]
 		mov     [esp+70h], edx
@@ -62882,11 +62893,11 @@ ___42b44h:
 ___42b4ch:
 		mov     edx, ___183098h
 		mov     eax, [esp+68h]
-		call    near fopen
+		call    near fopen@clib3r
 		xor     ebx, ebx
 		mov     edx, 10f3h
 		mov     edi, eax
-		call    near fseek
+		call    near fseek@clib3r
 		xor     edx, edx
 		mov     [esp+70h], edx
 		test    ebp, ebp
@@ -62907,22 +62918,23 @@ ___42b7bh:
 ___42b93h:
 		mov     ebx, 1
 		mov     eax, edi
-		call    near fseek
+		call    near fseek@clib3r
 		mov     eax, ebp
 		mov     ecx, edi
 		shl     eax, 4
 		mov     ebx, 1
 		mov     edx, [eax+ebp*1+___24bb6dh]
 		mov     eax, [esp+6ch]
-		call    near fread
+		call    near fread@clib3r
 		mov     eax, edi
-		call    near fclose
+		call    near fclose@clib3r
 		add     esp, byte 74h
 		pop     ebp
 		pop     edi
 		pop     esi
 		pop     ecx
-		retn    
+		retn
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; read_end ;;
 db	8bh,0c0h
 ___42bcch:
 dd	___42d4ch
@@ -62943,7 +62955,7 @@ ___42be4h:
 		mov     ebx, ___1830b8h
 		mov     edx, ___1a54d0h
 		mov     eax, ___1830c4h
-		call    near ___42988h
+		call    near read@bpa
 		mov     eax, [___243ce8h]
 		lea     esi, [eax*8+0]
 		add     esi, eax
@@ -63022,7 +63034,7 @@ ___42cdch:
 		mov     ebx, ___1830d0h
 		mov     edx, ___1a54d0h
 		mov     eax, ___1830c4h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     ebp, [___243d84h]
 		push    ebp
@@ -63056,7 +63068,7 @@ ___42d6fh:
 ___42d74h:
 		mov     edx, ___1a54d0h
 		mov     eax, ___1830c4h
-		call    near ___42988h
+		call    near read@bpa
 ___42d83h:
 		mov     esi, [___243ce8h]
 		mov     eax, esi
@@ -63071,42 +63083,42 @@ ___42d83h:
 		mov     ebx, ___183124h
 		mov     edx, ___1a54d0h
 		mov     eax, ___1830c4h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		push    ___1de210h
 		call    near ___5905ch
 		mov     ebx, ___183130h
 		mov     edx, ___1a54d0h
 		mov     eax, ___1830c4h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		push    ___1d7810h
 		call    near ___5905ch
 		mov     ebx, ___183140h
 		mov     edx, ___1a54d0h
 		mov     eax, ___1830c4h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		push    ___1d8910h
 		call    near ___5905ch
 		mov     ebx, ___18314ch
 		mov     edx, ___1a54d0h
 		mov     eax, ___1830c4h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		push    ___1d8a10h
 		call    near ___5905ch
 		mov     ebx, ___18315ch
 		mov     edx, ___1a54d0h
 		mov     eax, ___1830c4h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		push    ___1d2710h
 		call    near ___5905ch
 		mov     ebx, ___18316ch
 		mov     edx, ___1a54d0h
 		mov     eax, ___1830c4h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     eax, [___243d3ch]
 		push    eax
@@ -63114,7 +63126,7 @@ ___42d83h:
 		mov     ebx, ___18317ch
 		mov     edx, ___1a54d0h
 		mov     eax, ___1830c4h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     edx, [___243d34h]
 		push    edx
@@ -63122,7 +63134,7 @@ ___42d83h:
 		mov     ebx, ___18318ch
 		mov     edx, ___1a54d0h
 		mov     eax, ___1830c4h
-		call    near ___42988h
+		call    near read@bpa
 		mov     eax, [___243ce8h]
 		lea     esi, [eax*8+0]
 		add     esi, eax
@@ -63200,7 +63212,7 @@ ___42f73h:
 		pop     edi
 		mov     eax, ___243dd0h
 		mov     edx, [___243d60h]
-		call    near ___42988h
+		call    near read@bpa
 		mov     edx, [___243d60h]
 		push    edx
 		lea     eax, [esp+4]
@@ -63274,7 +63286,7 @@ ___4305fh:
 		mov     eax, ___243dd0h
 		mov     esi, ___19bd64h
 		lea     edi, [esp+300h]
-		call    near ___42988h
+		call    near read@bpa
 		push    edi
 ___43077h:
 		mov     al, [esi]
@@ -63312,20 +63324,20 @@ ___430aah:
 ___430c2h:
 		pop     edi
 		lea     eax, [esp+300h]
-		call    near fopen
+		call    near fopen@clib3r
 		mov     esi, eax
 		test    eax, eax
 		je      short ___430fbh
 		mov     edx, 0ah
 		xor     ebx, ebx
-		call    near fseek
+		call    near fseek@clib3r
 		mov     ecx, esi
 		mov     ebx, 300h
 		mov     edx, 1
 		mov     eax, esp
-		call    near fread
+		call    near fread@clib3r
 		mov     eax, esi
-		call    near fclose
+		call    near fclose@clib3r
 ___430fbh:
 		xor     eax, eax
 ___430fdh:
@@ -63397,7 +63409,7 @@ ___43186h:
 ___4319eh:
 		pop     edi
 		mov     eax, ___243dd0h
-		call    near ___42988h
+		call    near read@bpa
 		mov     eax, [___243d28h]
 		imul    eax, [___243d2ch]
 		push    ___1a54d0h
@@ -63446,7 +63458,7 @@ ___43206h:
 ___4321eh:
 		pop     edi
 		mov     eax, ___243dd0h
-		call    near ___42988h
+		call    near read@bpa
 		mov     eax, [___243d30h]
 		imul    eax, [___243d04h]
 		push    ___1a54d0h
@@ -63495,7 +63507,7 @@ ___43286h:
 ___4329eh:
 		pop     edi
 		mov     eax, ___243dd0h
-		call    near ___42988h
+		call    near read@bpa
 		mov     eax, [___243cf8h]
 		imul    eax, [___243d10h]
 		push    ___1a54d0h
@@ -63591,7 +63603,7 @@ ___4339ch:
 		mov     edx, ___1a54d0h
 		mov     eax, ___1831f4h
 		mov     esi, [esp+18h]
-		call    near ___42988h
+		call    near read@bpa
 		mov     ebp, [___243d74h]
 		push    ___1a54d0h
 		lea     eax, [esi+ebp*1]
@@ -63711,7 +63723,7 @@ ___434d3h:
 ___434ebh:
 		pop     edi
 		mov     eax, ___243dd0h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		push    ___243c88h
 		push    byte 0
@@ -63934,7 +63946,7 @@ ___437a6h:
 		mov     eax, ___243dd0h
 		mov     esi, ___19bd64h
 		mov     edi, esp
-		call    near ___42988h
+		call    near read@bpa
 		push    edi
 ___437b9h:
 		mov     al, [esi]
@@ -63975,7 +63987,7 @@ ___43801h:
 		mov     eax, ___243dd0h
 		mov     esi, ___19bd64h
 		mov     edi, esp
-		call    near ___42988h
+		call    near read@bpa
 		push    edi
 ___43814h:
 		mov     al, [esi]
@@ -64014,11 +64026,11 @@ ___43844h:
 ___4385ch:
 		pop     edi
 		mov     eax, ___243dd0h
-		call    near ___42988h
+		call    near read@bpa
 		mov     ebx, ___183230h
 		mov     edx, ___240a48h
 		mov     eax, ___1831f4h
-		call    near ___42988h
+		call    near read@bpa
 		add     esp, byte 10h
 		pop     edi
 		pop     esi
@@ -64078,7 +64090,7 @@ ___438edh:
 		pop     edi
 		mov     eax, ___243dd0h
 		xor     ebp, ebp
-		call    near ___42988h
+		call    near read@bpa
 ___438fah:
 		mov     edx, ebp
 		inc     ebp
@@ -64127,7 +64139,7 @@ ___43951h:
 ___43969h:
 		pop     edi
 		mov     eax, ___243dd0h
-		call    near ___42988h
+		call    near read@bpa
 		mov     ebp, [___243d08h]
 		add     esp, byte 10h
 		pop     ebp
@@ -64186,7 +64198,7 @@ ___439ceh:
 ___439e6h:
 		pop     edi
 		mov     eax, ___243dd0h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		push    ___243c5ch
 		push    byte 0
@@ -64282,7 +64294,7 @@ ___43b14h:
 		mov     ebx, ___183260h
 		mov     edx, ___1a54d0h
 		mov     eax, ___1831f4h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     edx, [___243d8ch]
 		push    edx
@@ -64290,7 +64302,7 @@ ___43b14h:
 		mov     ebx, ___18326ch
 		mov     edx, ___1a54d0h
 		mov     eax, ___1831f4h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     ebx, [___243d7ch]
 		push    ebx
@@ -64298,7 +64310,7 @@ ___43b14h:
 		mov     ebx, ___183278h
 		mov     edx, ___1a54d0h
 		mov     eax, ___1831f4h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     ecx, [___243298h]
 		push    ecx
@@ -64306,7 +64318,7 @@ ___43b14h:
 		mov     ebx, ___183284h
 		mov     edx, ___1a54d0h
 		mov     eax, ___1831f4h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     esi, [___24329ch]
 		push    esi
@@ -64314,7 +64326,7 @@ ___43b14h:
 		mov     ebx, ___183290h
 		mov     edx, ___1a54d0h
 		mov     eax, ___1831f4h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     edi, [___2432a0h]
 		push    edi
@@ -64322,7 +64334,7 @@ ___43b14h:
 		mov     ebx, ___18329ch
 		mov     edx, ___1a54d0h
 		mov     eax, ___1831f4h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     ebp, [___2432a4h]
 		push    ebp
@@ -64330,7 +64342,7 @@ ___43b14h:
 		mov     ebx, ___1832a8h
 		mov     edx, ___1a54d0h
 		mov     eax, ___1831f4h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     eax, [___2432a8h]
 		push    eax
@@ -64338,7 +64350,7 @@ ___43b14h:
 		mov     ebx, ___1832b4h
 		mov     edx, ___1a54d0h
 		mov     eax, ___1831f4h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     edx, [___2432ach]
 		push    edx
@@ -64346,7 +64358,7 @@ ___43b14h:
 		mov     ebx, ___1832c0h
 		mov     edx, ___1a54d0h
 		mov     eax, ___1831f4h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     ebx, [___243d88h]
 		push    ebx
@@ -64360,7 +64372,7 @@ ___43c80h:
 ___43c85h:
 		mov     edx, ___1a54d0h
 		mov     eax, ___1831f4h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     esi, [___243d38h]
 		push    esi
@@ -64368,7 +64380,7 @@ ___43c85h:
 		mov     ebx, ___1832ech
 		mov     edx, ___1a54d0h
 		mov     eax, ___1831f4h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     edi, [___243d40h]
 		push    edi
@@ -64376,7 +64388,7 @@ ___43c85h:
 		mov     ebx, ___1832f8h
 		mov     edx, ___1a54d0h
 		mov     eax, ___1831f4h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     ebp, [___243288h]
 		push    ebp
@@ -64384,7 +64396,7 @@ ___43c85h:
 		mov     ebx, ___183304h
 		mov     edx, ___1a54d0h
 		mov     eax, ___1831f4h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     eax, [___24328ch]
 		push    eax
@@ -64392,7 +64404,7 @@ ___43c85h:
 		mov     ebx, ___183310h
 		mov     edx, ___1a54d0h
 		mov     eax, ___1831f4h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     edx, [___243290h]
 		push    edx
@@ -64400,7 +64412,7 @@ ___43c85h:
 		mov     ebx, ___18331ch
 		mov     edx, ___1a54d0h
 		mov     eax, ___1831f4h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     ebx, [___243294h]
 		push    ebx
@@ -64408,7 +64420,7 @@ ___43c85h:
 		mov     ebx, ___183328h
 		mov     edx, ___1a54d0h
 		mov     eax, ___1831f4h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     ecx, [___243d68h]
 		push    ecx
@@ -64416,7 +64428,7 @@ ___43c85h:
 		mov     ebx, ___183334h
 		mov     edx, ___1a54d0h
 		mov     eax, ___1831f4h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     esi, [___243d64h]
 		push    esi
@@ -64438,7 +64450,7 @@ ___43db0h:
 		mov     ebx, ___183340h
 		mov     edx, ___1a54d0h
 		mov     eax, ___1831f4h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     edx, [___243d50h]
 		push    edx
@@ -64457,7 +64469,7 @@ ___43de8h:
 		mov     ebx, ___18334ch
 		mov     edx, ___1a54d0h
 		mov     eax, ___1831f4h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     edx, [___243d6ch]
 		push    edx
@@ -64476,7 +64488,7 @@ ___43e20h:
 		mov     ebx, ___183358h
 		mov     edx, ___1a54d0h
 		mov     eax, ___1831f4h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     edx, [___243d4ch]
 		push    edx
@@ -64484,7 +64496,7 @@ ___43e20h:
 		mov     ebx, ___183364h
 		mov     edx, ___1a54d0h
 		mov     eax, ___1830c4h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		mov     ebx, [___243d48h]
 		push    ebx
@@ -64522,14 +64534,14 @@ dd	___4402bh
 		mov     [___199f9ch], edx
 		mov     [___199fach], ecx
 		mov     [___243cf4h], esi
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 4
 		mov     eax, 3f8h
 		call    near ___61b88h
 		test    eax, eax
 		je      short ___43f03h
 		push    ___1833ach
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 4
 ___43f03h:
 		mov     eax, 2f8h
@@ -64537,7 +64549,7 @@ ___43f03h:
 		test    eax, eax
 		je      short ___43f1eh
 		push    ___1833b0h
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 4
 ___43f1eh:
 		mov     eax, 3e8h
@@ -64545,7 +64557,7 @@ ___43f1eh:
 		test    eax, eax
 		je      short ___43f39h
 		push    ___1833b4h
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 4
 ___43f39h:
 		mov     eax, 2e8h
@@ -64553,18 +64565,18 @@ ___43f39h:
 		test    eax, eax
 		je      short ___43f54h
 		push    ___1833b8h
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 4
 ___43f54h:
 		call    near ___633d8h
 		test    eax, eax
 		je      short ___43f6ah
 		push    ___1833bch
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 4
 ___43f6ah:
 		push    ___1833c0h
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 4
 		mov     eax, esp
 		push    eax
@@ -64626,7 +64638,7 @@ ___44050h:
 		mov     edx, [___243cf4h]
 		push    edx
 		push    ___1833c8h
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 8
 		xor     bl, bl
 		call    near ___60a84h
@@ -64649,7 +64661,7 @@ ___44070h:
 		and     eax, 0ffh
 		push    eax
 		push    ___18340ch
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 8
 ___440b1h:
 		mov     bl, dl
@@ -64660,7 +64672,7 @@ ___440b5h:
 		je      short ___440cdh
 		call    near ___623d4h
 		mov     eax, 70h
-		call    near exit_
+		call    near exit@clib3r
 ___440cdh:
 		xor     edx, edx
 		xor     eax, eax
@@ -64680,7 +64692,7 @@ ___440cdh:
 		push    ___183438h
 		mov     [___1a116bh], bl
 		mov     [___1a116ah], dh
-		call    near printf
+		call    near printf@clib3r
 		mov     eax, [___243ce8h]
 		add     esp, byte 8
 		add     esp, byte 4
@@ -70516,14 +70528,14 @@ ___48bc7h:
 		mov     ebx, ___183c80h
 		mov     edx, ___1a54d0h
 		mov     eax, ___1831f4h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		push    0a0000h
 		call    near ___5905ch
 		mov     ebx, ___183c8ch
 		mov     edx, ___1a4ec0h
 		mov     eax, ___1831f4h
-		call    near ___42988h
+		call    near read@bpa
 		mov     edx, ___183c98h
 		mov     eax, 0a0a3ch
 		call    near ___483d4h
@@ -71135,7 +71147,7 @@ ___491b4h:
 		mov     ebx, ___183e6ch
 		mov     edx, ___1a54d0h
 		mov     eax, ___1831f4h
-		call    near ___42988h
+		call    near read@bpa
 		push    ___1a54d0h
 		push    0a0000h
 		call    near ___5905ch
@@ -71143,7 +71155,7 @@ ___491b4h:
 		mov     edx, ___1a4ec0h
 		mov     eax, ___1831f4h
 		xor     esi, esi
-		call    near ___42988h
+		call    near read@bpa
 		mov     [___196e70h], esi
 		call    near ___45ad4h
 		xor     edx, edx
@@ -71236,11 +71248,11 @@ ___492f4h:
 		push    ebx
 		push    ecx
 		push    edx
-		call    near ___5a101h
+		call    near restore@keyboard
 		call    near ___5ec04h
 		call    near ___5e0e3h
 		push    ___183e84h
-		call    near printf
+		call    near printf@clib3r
 		mov     edx, [___19bd60h]
 		add     esp, byte 4
 		test    edx, edx
@@ -71248,7 +71260,7 @@ ___492f4h:
 		call    near ___623d4h
 ___4932ch:
 		mov     eax, 70h
-		call    near exit_
+		call    near exit@clib3r
 		pop     edx
 		pop     ecx
 		pop     ebx
@@ -71259,14 +71271,14 @@ db	8bh,0c0h
 		push    ebx
 		push    ecx
 		push    edx
-		call    near ___5a101h
+		call    near restore@keyboard
 		call    near ___5ec04h
 		call    near ___5e0e3h
 		push    ___183eb0h
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 4
 		push    ___183ed8h
-		call    near printf
+		call    near printf@clib3r
 		mov     edx, [___19bd60h]
 		add     esp, byte 4
 		test    edx, edx
@@ -71274,7 +71286,7 @@ db	8bh,0c0h
 		call    near ___623d4h
 ___49381h:
 		mov     eax, 70h
-		call    near exit_
+		call    near exit@clib3r
 		pop     edx
 		pop     ecx
 		pop     ebx
@@ -71370,13 +71382,13 @@ ___4944eh:
 		mov     edx, ___183f38h
 		mov     eax, esp
 		mov     ebx, 80h
-		call    near fopen
+		call    near fopen@clib3r
 		mov     edx, 1
 		mov     [___1a0ef4h], eax
 		mov     ecx, eax
 		mov     eax, ___196e7ch
 		mov     ebp, 0a0000h
-		call    near fwrite
+		call    near fwrite@clib3r
 		mov     ecx, 140h
 ___4947fh:
 		mov     edx, ecx
@@ -71414,24 +71426,24 @@ ___494bdh:
 		mov     edx, esi
 		mov     [esp+14h], al
 		lea     eax, [esp+1ch]
-		call    near fwrite
+		call    near fwrite@clib3r
 		lea     eax, [esp+18h]
 		mov     ecx, [___1a0ef4h]
 		mov     ebx, esi
 		mov     edx, esi
-		call    near fwrite
+		call    near fwrite@clib3r
 		lea     eax, [esp+14h]
 		mov     ecx, [___1a0ef4h]
 		mov     ebx, esi
 		mov     edx, esi
-		call    near fwrite
+		call    near fwrite@clib3r
 		mov     ebx, [___243d08h]
 		inc     ebx
 		mov     [___243d08h], ebx
 		cmp     ebx, 0ffh
 		jle     short ___494bdh
 		mov     eax, [___1a0ef4h]
-		call    near fclose
+		call    near fclose@clib3r
 		add     esp, byte 20h
 		pop     ebp
 		pop     edi
@@ -71507,12 +71519,12 @@ ___495b1h:
 		mov     [esp+17h], al
 		mov     eax, esp
 		mov     ebx, 0ah
-		call    near fopen
+		call    near fopen@clib3r
 		mov     edx, 1
 		mov     esi, eax
 		mov     ecx, eax
 		lea     eax, [esp+10h]
-		call    near fwrite
+		call    near fwrite@clib3r
 		xor     edx, edx
 		mov     ebp, 3c9h
 		mov     [___243d08h], edx
@@ -71535,17 +71547,17 @@ ___4961bh:
 		mov     [esp+24h], al
 		mov     edx, edi
 		lea     eax, [esp+20h]
-		call    near fwrite
+		call    near fwrite@clib3r
 		lea     eax, [esp+1ch]
 		mov     ecx, esi
 		mov     ebx, edi
 		mov     edx, edi
-		call    near fwrite
+		call    near fwrite@clib3r
 		lea     eax, [esp+24h]
 		mov     ecx, esi
 		mov     ebx, edi
 		mov     edx, edi
-		call    near fwrite
+		call    near fwrite@clib3r
 		mov     ebx, [___243d08h]
 		inc     ebx
 		mov     [___243d08h], ebx
@@ -71556,9 +71568,9 @@ ___4961bh:
 		mov     edx, 1
 		mov     eax, [___243d58h]
 		mov     ecx, esi
-		call    near fwrite
+		call    near fwrite@clib3r
 		mov     eax, esi
-		call    near fclose
+		call    near fclose@clib3r
 		add     esp, byte 28h
 		pop     ebp
 		pop     edi
@@ -72022,7 +72034,7 @@ ___49c81h:
 		mov     ecx, 4
 		mov     esi, ___1a54d0h
 		mov     edi, ___243d28h
-		call    near ___42988h
+		call    near read@bpa
 		push    edi
 		mov     eax, ecx
 		shr     ecx, 2
@@ -83006,71 +83018,71 @@ ___53ac9h:
 		mov     ebp, [___243d08h]
 		mov     edx, ___183098h
 		mov     eax, ___184290h
-		call    near fopen
+		call    near fopen@clib3r
 		mov     esi, eax
 		test    eax, eax
 		je      short ___53b27h
 		mov     edx, 30ah
 		xor     ebx, ebx
-		call    near fseek
+		call    near fseek@clib3r
 		mov     ecx, esi
 		mov     ebx, 1800h
 		mov     edx, 1
 		mov     eax, ___243298h
-		call    near fread
+		call    near fread@clib3r
 		mov     eax, esi
-		call    near fclose
+		call    near fclose@clib3r
 ___53b27h:
 		mov     edx, ___183098h
 		mov     eax, ___18429ch
-		call    near fopen
+		call    near fopen@clib3r
 		mov     esi, eax
 		test    eax, eax
 		je      short ___53b65h
 		mov     edx, 30ah
 		xor     ebx, ebx
-		call    near fseek
+		call    near fseek@clib3r
 		mov     ecx, esi
 		mov     ebx, 140h
 		mov     edx, 1
 		mov     eax, [___243d8ch]
-		call    near fread
+		call    near fread@clib3r
 		mov     eax, esi
-		call    near fclose
+		call    near fclose@clib3r
 ___53b65h:
 		mov     edx, ___183098h
 		mov     eax, ___1842a8h
-		call    near fopen
+		call    near fopen@clib3r
 		mov     esi, eax
 		test    eax, eax
 		je      short ___53ba3h
 		mov     edx, 30ah
 		xor     ebx, ebx
-		call    near fseek
+		call    near fseek@clib3r
 		mov     ecx, esi
 		mov     ebx, 600h
 		mov     edx, 1
 		mov     eax, [___243d7ch]
-		call    near fread
+		call    near fread@clib3r
 		mov     eax, esi
-		call    near fclose
+		call    near fclose@clib3r
 ___53ba3h:
 		mov     edx, ___183098h
 		mov     eax, ___1842b4h
-		call    near fopen
+		call    near fopen@clib3r
 		mov     esi, eax
 		test    eax, eax
 		je      short ___53be1h
 		mov     edx, 30ah
 		xor     ebx, ebx
-		call    near fseek
+		call    near fseek@clib3r
 		mov     ecx, esi
 		mov     ebx, 480h
 		mov     edx, 1
 		mov     eax, [___243d88h]
-		call    near fread
+		call    near fread@clib3r
 		mov     eax, esi
-		call    near fclose
+		call    near fclose@clib3r
 ___53be1h:
 		mov     esi, ___19bd64h
 		mov     edi, esp
@@ -83111,7 +83123,7 @@ ___53c17h:
 ___53c2fh:
 		pop     edi
 		mov     eax, esp
-		call    near fopen
+		call    near fopen@clib3r
 		mov     esi, eax
 		test    eax, eax
 		je      short ___53c5ah
@@ -83119,9 +83131,9 @@ ___53c2fh:
 		mov     edx, 1
 		mov     ecx, eax
 		mov     eax, ___242178h
-		call    near fread
+		call    near fread@clib3r
 		mov     eax, esi
-		call    near fclose
+		call    near fclose@clib3r
 ___53c5ah:
 		mov     esi, ___19bd64h
 		mov     edi, esp
@@ -83162,7 +83174,7 @@ ___53c90h:
 ___53ca8h:
 		pop     edi
 		mov     eax, esp
-		call    near fopen
+		call    near fopen@clib3r
 		mov     esi, eax
 		test    eax, eax
 		je      short ___53ce9h
@@ -83170,14 +83182,14 @@ ___53ca8h:
 		mov     edx, 1
 		mov     ecx, eax
 		mov     eax, ___242578h
-		call    near fread
+		call    near fread@clib3r
 		mov     ebx, 400h
 		mov     edx, 1
 		mov     eax, ___241d78h
 		mov     ecx, esi
-		call    near fread
+		call    near fread@clib3r
 		mov     eax, esi
-		call    near fclose
+		call    near fclose@clib3r
 ___53ce9h:
 		mov     esi, ___19bd64h
 		mov     edi, esp
@@ -83218,21 +83230,21 @@ ___53d1fh:
 ___53d37h:
 		pop     edi
 		mov     eax, esp
-		call    near fopen
+		call    near fopen@clib3r
 		mov     esi, eax
 		test    eax, eax
 		je      short ___53d76h
 		mov     edx, 30ah
 		xor     ebx, ebx
-		call    near fseek
+		call    near fseek@clib3r
 		mov     ebx, [___243d30h]
 		imul    ebx, [___243d04h]
 		mov     ecx, esi
 		mov     eax, [___243d78h]
 		mov     edx, 1
-		call    near fread
+		call    near fread@clib3r
 		mov     eax, esi
-		call    near fclose
+		call    near fclose@clib3r
 ___53d76h:
 		mov     esi, ___19bd64h
 		mov     edi, esp
@@ -83273,22 +83285,22 @@ ___53dach:
 ___53dc4h:
 		pop     edi
 		mov     eax, esp
-		call    near fopen
+		call    near fopen@clib3r
 		mov     esi, eax
 		test    eax, eax
 		je      short ___53e04h
 		mov     edx, 30ah
 		xor     ebx, ebx
-		call    near fseek
+		call    near fseek@clib3r
 		mov     eax, [___243cf8h]
 		mov     ebx, [___243d10h]
 		imul    ebx, eax
 		mov     ecx, esi
 		mov     edx, 1
 		mov     eax, [___243d54h]
-		call    near fread
+		call    near fread@clib3r
 		mov     eax, esi
-		call    near fclose
+		call    near fclose@clib3r
 ___53e04h:
 		mov     esi, ___19bd64h
 		mov     edi, esp
@@ -83329,7 +83341,7 @@ ___53e3ah:
 ___53e52h:
 		pop     edi
 		mov     eax, esp
-		call    near fopen
+		call    near fopen@clib3r
 		mov     esi, eax
 		test    eax, eax
 		je      short ___53e7dh
@@ -83337,9 +83349,9 @@ ___53e52h:
 		mov     edx, 1
 		mov     ecx, eax
 		mov     eax, ___243188h
-		call    near fread
+		call    near fread@clib3r
 		mov     eax, esi
-		call    near fclose
+		call    near fclose@clib3r
 ___53e7dh:
 		mov     esi, ___19bd64h
 		mov     edi, esp
@@ -83380,7 +83392,7 @@ ___53eb3h:
 ___53ecbh:
 		pop     edi
 		mov     eax, esp
-		call    near fopen
+		call    near fopen@clib3r
 		mov     esi, eax
 		test    eax, eax
 		je      short ___53ef6h
@@ -83388,9 +83400,9 @@ ___53ecbh:
 		mov     edx, 1
 		mov     ecx, eax
 		mov     eax, ___242f78h
-		call    near fread
+		call    near fread@clib3r
 		mov     eax, esi
-		call    near fclose
+		call    near fclose@clib3r
 ___53ef6h:
 		mov     esi, ___19bd64h
 		mov     edi, esp
@@ -83431,7 +83443,7 @@ ___53f2ch:
 ___53f44h:
 		pop     edi
 		mov     eax, esp
-		call    near fopen
+		call    near fopen@clib3r
 		mov     esi, eax
 		test    eax, eax
 		je      short ___53f6fh
@@ -83439,9 +83451,9 @@ ___53f44h:
 		mov     edx, 1
 		mov     ecx, eax
 		mov     eax, ___242e78h
-		call    near fread
+		call    near fread@clib3r
 		mov     eax, esi
-		call    near fclose
+		call    near fclose@clib3r
 ___53f6fh:
 		mov     esi, ___19bd64h
 		mov     edi, esp
@@ -83482,7 +83494,7 @@ ___53fa5h:
 ___53fbdh:
 		pop     edi
 		mov     eax, esp
-		call    near fopen
+		call    near fopen@clib3r
 		mov     esi, eax
 		test    eax, eax
 		je      short ___53fe8h
@@ -83490,9 +83502,9 @@ ___53fbdh:
 		mov     edx, 1
 		mov     ecx, eax
 		mov     eax, ___243078h
-		call    near fread
+		call    near fread@clib3r
 		mov     eax, esi
-		call    near fclose
+		call    near fclose@clib3r
 ___53fe8h:
 		mov     esi, ___19bd64h
 		mov     edi, esp
@@ -83533,7 +83545,7 @@ ___5401eh:
 ___54036h:
 		pop     edi
 		mov     eax, esp
-		call    near fopen
+		call    near fopen@clib3r
 		mov     esi, eax
 		test    eax, eax
 		je      short ___54061h
@@ -83541,9 +83553,9 @@ ___54036h:
 		mov     edx, 1
 		mov     ecx, eax
 		mov     eax, ___242d78h
-		call    near fread
+		call    near fread@clib3r
 		mov     eax, esi
-		call    near fclose
+		call    near fclose@clib3r
 ___54061h:
 		mov     esi, ___19bd64h
 		mov     edi, esp
@@ -83584,7 +83596,7 @@ ___54097h:
 ___540afh:
 		pop     edi
 		mov     eax, esp
-		call    near fopen
+		call    near fopen@clib3r
 		mov     esi, eax
 		test    eax, eax
 		je      short ___540dah
@@ -83592,13 +83604,13 @@ ___540afh:
 		mov     edx, 1
 		mov     ecx, eax
 		mov     eax, ___241c78h
-		call    near fread
+		call    near fread@clib3r
 		mov     eax, esi
-		call    near fclose
+		call    near fclose@clib3r
 ___540dah:
 		mov     edx, ___183098h
 		mov     eax, ___184308h
-		call    near fopen
+		call    near fopen@clib3r
 		mov     esi, eax
 		test    eax, eax
 		je      short ___5410ch
@@ -83606,19 +83618,19 @@ ___540dah:
 		mov     edx, 1
 		mov     ecx, eax
 		mov     eax, ___240a48h
-		call    near fread
+		call    near fread@clib3r
 		mov     eax, esi
-		call    near fclose
+		call    near fclose@clib3r
 ___5410ch:
 		mov     edx, ___183098h
 		mov     eax, ___184314h
-		call    near fopen
+		call    near fopen@clib3r
 		mov     esi, eax
 		test    eax, eax
 		je      near ___5422dh
 		mov     edx, 0ah
 		xor     ebx, ebx
-		call    near fseek
+		call    near fseek@clib3r
 		xor     ecx, ecx
 		xor     edi, edi
 		mov     [esp+10h], ecx
@@ -83717,17 +83729,17 @@ ___541dah:
 		cmp     edx, 100h
 		jl      near ___54139h
 		mov     eax, esi
-		call    near fclose
+		call    near fclose@clib3r
 ___5422dh:
 		mov     edx, ___183098h
 		mov     eax, ___184320h
-		call    near fopen
+		call    near fopen@clib3r
 		mov     esi, eax
 		test    eax, eax
 		je      near ___5434bh
 		mov     edx, 0ah
 		xor     ebx, ebx
-		call    near fseek
+		call    near fseek@clib3r
 		xor     ecx, ecx
 		xor     edi, edi
 		mov     [esp+10h], ecx
@@ -83830,25 +83842,25 @@ ___54302h:
 		cmp     ecx, byte 50h
 		jl      near ___5425ah
 		mov     eax, esi
-		call    near fclose
+		call    near fclose@clib3r
 ___5434bh:
 		mov     edx, ___183098h
 		mov     eax, ___184314h
-		call    near fopen
+		call    near fopen@clib3r
 		mov     esi, eax
 		test    eax, eax
 		je      short ___543aeh
 		mov     edx, 30ah
 		xor     ebx, ebx
-		call    near fseek
+		call    near fseek@clib3r
 		mov     ebx, [___243d28h]
 		imul    ebx, [___243d2ch]
 		mov     ecx, esi
 		mov     eax, [___243d58h]
 		mov     edx, 1
-		call    near fread
+		call    near fread@clib3r
 		mov     eax, esi
-		call    near fclose
+		call    near fclose@clib3r
 		mov     eax, [___243d28h]
 		mov     ebx, [___243d2ch]
 		imul    ebx, eax
@@ -83895,25 +83907,25 @@ ___543e4h:
 ___543fch:
 		pop     edi
 		mov     eax, esp
-		call    near fopen
+		call    near fopen@clib3r
 		mov     esi, eax
 		test    eax, eax
 		je      short ___5443bh
 		mov     edx, 30ah
 		xor     ebx, ebx
-		call    near fseek
+		call    near fseek@clib3r
 		mov     ebx, [___243d28h]
 		imul    ebx, [___243d2ch]
 		mov     edx, 1
 		mov     eax, [___243d60h]
 		mov     ecx, esi
-		call    near fread
+		call    near fread@clib3r
 		mov     eax, esi
-		call    near fclose
+		call    near fclose@clib3r
 ___5443bh:
 		mov     edx, ___183098h
 		mov     eax, ___184338h
-		call    near fopen
+		call    near fopen@clib3r
 		mov     esi, eax
 		test    eax, eax
 		je      short ___54475h
@@ -83922,13 +83934,13 @@ ___5443bh:
 		mov     edx, 1
 		mov     eax, [___243d60h]
 		mov     ecx, esi
-		call    near fread
+		call    near fread@clib3r
 		mov     eax, esi
-		call    near fclose
+		call    near fclose@clib3r
 ___54475h:
 		mov     edx, ___183098h
 		mov     eax, ___184348h
-		call    near fopen
+		call    near fopen@clib3r
 		mov     esi, eax
 		test    eax, eax
 		je      short ___544afh
@@ -83937,13 +83949,13 @@ ___54475h:
 		mov     eax, [___243d54h]
 		mov     ecx, esi
 		mov     edx, 1
-		call    near fread
+		call    near fread@clib3r
 		mov     eax, esi
-		call    near fclose
+		call    near fclose@clib3r
 ___544afh:
 		mov     edx, ___183098h
 		mov     eax, ___184354h
-		call    near fopen
+		call    near fopen@clib3r
 		mov     esi, eax
 		test    eax, eax
 		je      short ___544e1h
@@ -83951,13 +83963,13 @@ ___544afh:
 		mov     edx, 1
 		mov     eax, [___243d74h]
 		mov     ecx, esi
-		call    near fread
+		call    near fread@clib3r
 		mov     eax, esi
-		call    near fclose
+		call    near fclose@clib3r
 ___544e1h:
 		mov     edx, ___183098h
 		mov     eax, ___184360h
-		call    near fopen
+		call    near fopen@clib3r
 		mov     esi, eax
 		test    eax, eax
 		je      short ___54518h
@@ -83966,13 +83978,13 @@ ___544e1h:
 		mov     eax, [___243d74h]
 		mov     ecx, esi
 		add     eax, 25800h
-		call    near fread
+		call    near fread@clib3r
 		mov     eax, esi
-		call    near fclose
+		call    near fclose@clib3r
 ___54518h:
 		mov     edx, ___183098h
 		mov     eax, ___18436ch
-		call    near fopen
+		call    near fopen@clib3r
 		mov     esi, eax
 		test    eax, eax
 		je      short ___5454fh
@@ -83981,13 +83993,13 @@ ___54518h:
 		mov     eax, [___243d74h]
 		mov     ecx, esi
 		add     eax, 4b000h
-		call    near fread
+		call    near fread@clib3r
 		mov     eax, esi
-		call    near fclose
+		call    near fclose@clib3r
 ___5454fh:
 		mov     edx, ___183098h
 		mov     eax, ___184378h
-		call    near fopen
+		call    near fopen@clib3r
 		mov     esi, eax
 		test    eax, eax
 		je      short ___54586h
@@ -83996,13 +84008,13 @@ ___5454fh:
 		mov     eax, [___243d74h]
 		mov     ecx, esi
 		add     eax, 70800h
-		call    near fread
+		call    near fread@clib3r
 		mov     eax, esi
-		call    near fclose
+		call    near fclose@clib3r
 ___54586h:
 		mov     edx, ___183098h
 		mov     eax, ___184384h
-		call    near fopen
+		call    near fopen@clib3r
 		mov     esi, eax
 		test    eax, eax
 		je      near ___54657h
@@ -84019,7 +84031,7 @@ ___545b4h:
 		mov     ebx, edi
 		add     eax, ___1f3b08h
 		mov     [___243d08h], ebp
-		call    near fread
+		call    near fread@clib3r
 		mov     ebp, [___243d08h]
 		mov     ebx, [___243c88h]
 		inc     ebp
@@ -84042,7 +84054,7 @@ ___54607h:
 		mov     ecx, esi
 		mov     ebx, edi
 		add     eax, ___240b48h
-		call    near fread
+		call    near fread@clib3r
 		mov     ebp, [___243d08h]
 		inc     ebp
 		mov     ecx, [___243c94h]
@@ -84054,9 +84066,9 @@ ___5463ah:
 		mov     edx, 1
 		mov     eax, [___243d5ch]
 		mov     ecx, esi
-		call    near fread
+		call    near fread@clib3r
 		mov     eax, esi
-		call    near fclose
+		call    near fclose@clib3r
 ___54657h:
 		mov     ebp, [___243d08h]
 		add     esp, byte 14h
@@ -85971,7 +85983,7 @@ ___56360h:
 		call    near _settextposition
 		push    esi
 		push    ___1843dch
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 8
 		pop     esi
 		pop     edx
@@ -88395,10 +88407,10 @@ ___58b7ch:
 		mov     al, [esp+488h]
 		push    eax
 		push    ___184bf4h
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 8
 		mov     eax, 0ffh
-		call    near exit_
+		call    near exit@clib3r
 ___58ba9h:
 		xor     eax, eax
 		mov     al, [esp+488h]
@@ -88406,7 +88418,7 @@ ___58ba9h:
 		push    ___184c3ch
 		inc     edx
 		lea     ecx, [esp+494h]
-		call    near printf
+		call    near printf@clib3r
 		mov     al, [edx]
 		add     esp, byte 8
 		test    al, al
@@ -88429,7 +88441,7 @@ ___58beah:
 		push    edi
 		push    ___184c68h
 		mov     ecx, eax
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 8
 		jmp     short ___58c23h
 ___58bffh:
@@ -88437,7 +88449,7 @@ ___58bffh:
 		push    esi
 		push    ___184c6ch
 		mov     ecx, eax
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 8
 		jmp     short ___58c23h
 ___58c14h:
@@ -88456,14 +88468,14 @@ ___58c23h:
 		jne     short ___58bceh
 ___58c2bh:
 		push    ___184c70h
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 4
 		push    ___184c74h
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 4
 		xor     eax, eax
 		mov     al, [esp+488h]
-		call    near exit_
+		call    near exit@clib3r
 		add     esp, 470h
 		pop     edi
 		pop     esi
@@ -88540,13 +88552,13 @@ dd	___58fbah
 		mov     [esp+8], dl
 ___58d08h:
 		mov     eax, ___184cc4h
-		call    near ___10010h
+		call    near chkarg@cmdln
 		test    eax, eax
 		jne     near ___58da0h
 		cmp     byte [esp+8], 20h
 		jne     short ___58d2eh
 		push    ___184cc8h
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 4
 ___58d2eh:
 		mov     bh, [esp+8]
@@ -88556,7 +88568,7 @@ ___58d2eh:
 		mov     al, bh
 		push    eax
 		push    ___184ce4h
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 8
 ___58d49h:
 		cmp     byte [esp+8], 20h
@@ -88565,7 +88577,7 @@ ___58d49h:
 		mov     ax, [esp]
 		push    eax
 		push    ___184cf0h
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 8
 ___58d64h:
 		cmp     byte [esp+8], 20h
@@ -88574,7 +88586,7 @@ ___58d64h:
 		mov     al, [esp+0ch]
 		push    eax
 		push    ___184cfch
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 8
 ___58d7fh:
 		cmp     byte [esp+8], 20h
@@ -88583,35 +88595,35 @@ ___58d7fh:
 		mov     al, [esp+4]
 		push    eax
 		push    ___184d04h
-		call    near printf
+		call    near printf@clib3r
 		jmp     near ___5901ch
 ___58da0h:
 		push    ___184d0ch
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 4
 		push    ___184d2ch
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 4
 		push    ___184d48h
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 4
 		push    ___184d68h
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 4
 		push    ___184d88h
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 4
 		push    ___184da8h
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 4
 		push    ___184dc8h
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 4
 		push    ___184de8h
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 4
 		push    ___184e08h
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 4
 		lea     eax, [esp+8]
 		push    eax
@@ -88641,31 +88653,31 @@ ___58e63h:
 		cmp     byte [esp+8], 0
 		je      near ___5901fh
 		push    ___184e0ch
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 4
 		push    ___184e2ch
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 4
 		push    ___184e4ch
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 4
 		push    ___184e6ch
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 4
 		push    ___184e8ch
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 4
 		push    ___184each
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 4
 		push    ___184ecch
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 4
 		push    ___184eech
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 4
 		push    ___184e08h
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 4
 		mov     eax, esp
 		push    eax
@@ -88677,31 +88689,31 @@ ___58e63h:
 		add     ah, 2
 		push    ___184f0ch
 		mov     [esp+4], eax
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 4
 		push    ___184f2ch
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 4
 		push    ___184f4ch
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 4
 		push    ___184f6ch
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 4
 		push    ___184f8ch
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 4
 		push    ___184fach
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 4
 		push    ___184fcch
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 4
 		push    ___184fech
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 4
 		push    ___184e08h
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 4
 		lea     eax, [esp+0ch]
 		push    eax
@@ -88730,22 +88742,22 @@ ___58fbah:
 		mov     byte [esp+0ch], 0fh
 ___58fbfh:
 		push    ___18500ch
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 4
 		push    ___18502ch
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 4
 		push    ___18504ch
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 4
 		push    ___18506ch
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 4
 		push    ___18508ch
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 4
 		push    ___184e08h
-		call    near printf
+		call    near printf@clib3r
 		add     esp, byte 4
 		lea     eax, [esp+4]
 		push    eax
@@ -90010,7 +90022,7 @@ ___5a0bfh:
 db	0,0
 ___5a0c1h:
 db	0
-___5a0c2h:
+install@keyboard:
 		cmp     byte [___5a0c1h], 1
 		je      short ___5a100h
 		nop     
@@ -90039,7 +90051,7 @@ ___5a0c2h:
 		sti     
 ___5a100h:
 		retn    
-___5a101h:
+restore@keyboard:
 		cmp     byte [___5a0c1h], 0
 		je      short ___5a12eh
 		nop     
@@ -90080,9 +90092,10 @@ ___5a151h:
 		push    ebx
 		push    ecx
 		push    ds
-		mov     ax, obj_4
+;		mov     ax, @data
 		;mov     ds, eax
-		db	8eh,0d8h
+;		db	8eh,0d8h
+		call 	__GETDS
 		in      al, 60h
 		mov     ah, al
 		cmp     ah, 0e0h
@@ -92123,8 +92136,9 @@ ___5ea89h:
 		mov     eax, edx
 		pop     ecx
 		pop     ebx
-		retn    
-printf:
+		retn 
+;; printf_start ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;		   
+printf@clib3r:
 		push    ebx
 		push    edx
 		sub     esp, byte 4
@@ -92137,7 +92151,8 @@ printf:
 		add     esp, byte 4
 		pop     edx
 		pop     ebx
-		retn    
+		retn
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; printf_end ;;
 getenv:
 		push    ebx
 		push    ecx
@@ -92198,7 +92213,7 @@ ___5eb17h:
 		retn    
 _null_exit_rtn:
 		retn    
-exit_:
+exit@clib3r:
 		push    edx
 		mov     edx, eax
 		call    dword [___atexit]
@@ -94081,7 +94096,7 @@ ___60460h:
 db	0,0,0,0
 ___60464h:
 db	1,0
-___60466h:
+install@timer:
 		pushad  
 		push    eax
 		push    ebx
@@ -97342,7 +97357,7 @@ ___62dcbh:
 		db	8ch,0dah
 		;mov     ecx, cs
 		db	8ch,0c9h
-		mov     ebx, ___80000h
+		mov     ebx, handler16@serial
 		call    near _fmemcpy
 		mov     dword [___24e48ch], 205h
 		mov     ecx, [esp+8]
@@ -98435,7 +98450,9 @@ ___63c90h:
 		pop     ebx
 		retn    
 db	0,0,0
-..start:
+;..start:
+global start
+start:
 		jmp     short around
 db	57h,41h,54h,43h,4fh,4dh,20h,43h,2fh,43h,2bh,2bh,33h,32h,20h,52h
 db	75h,6eh,2dh,54h,69h,6dh,65h,20h,73h,79h,73h,74h,65h,6dh,2eh,20h
@@ -98865,7 +98882,7 @@ ___640d0h:
 		mov     ebx, 2
 		mov     eax, ecx
 		xor     edx, edx
-		call    near fseek
+		call    near fseek@clib3r
 ___640f8h:
 		mov     eax, ecx
 		call    near __chktty
@@ -98901,7 +98918,7 @@ ___6413ah:
 		pop     esi
 		pop     ecx
 		retn    
-fopen:
+fopen@clib3r:
 		push    ebx
 		xor     ebx, ebx
 		call    near _fsopen
@@ -98989,7 +99006,7 @@ ___641eeh:
 		pop     esi
 		pop     ecx
 		retn    
-fread:
+fread@clib3r:
 		push    esi
 		push    edi
 		push    ebp
@@ -99172,7 +99189,7 @@ ___643c6h:
 		pop     edi
 		pop     esi
 		retn    
-fclose:
+fclose@clib3r:
 		push    ebx
 		push    edx
 		mov     ebx, eax
@@ -99277,7 +99294,7 @@ ___6449ch:
 		mov     esi, eax
 ___644afh:
 		mov     eax, ecx
-		call    near ftell
+		call    near ftell@clib3r
 		cmp     eax, byte 0ffffffffh
 		je      short ___644c9h
 		mov     edx, eax
@@ -99449,7 +99466,7 @@ ___6460dh:
 		pop     ecx
 		pop     ebx
 		retn    
-fseek:
+fseek@clib3r:
 		push    ecx
 		push    esi
 		push    edi
@@ -101039,7 +101056,7 @@ vsprintf:
 		pop     esi
 		pop     ecx
 		retn    
-fwrite:
+fwrite@clib3r:
 		push    esi
 		push    edi
 		push    ebp
@@ -103578,8 +103595,8 @@ ___67169h:
 		call    near __CommonInit_
 		mov     edx, [____Argv]
 		mov     eax, [____Argc]
-		call    near main_
-		call    near exit_
+		call    near main@dr
+		call    near exit@clib3r
 		mov     esp, ebp
 		pop     ebp
 		pop     edx
@@ -104205,7 +104222,7 @@ ___676d0h:
 		pop     ecx
 		pop     ebx
 		retn    
-ftell:
+ftell@clib3r:
 		push    ebx
 		push    edx
 		mov     edx, eax
@@ -125056,7 +125073,7 @@ ___77bbch:
 		call    near ___77f18h
 		mov     ebx, 1
 		mov     eax, 0ffffffffh
-		call    near ___60466h
+		call    near install@timer
 		pop     ebx
 		retn    
 db	8bh,0c0h
@@ -125184,7 +125201,7 @@ ___77d2ch:
 ___77d54h:
 		mov     ebx, 1
 		mov     eax, 0ffffffffh
-		call    near ___60466h
+		call    near install@timer
 		pop     ebx
 		retn    
 db	8dh,40h,0
