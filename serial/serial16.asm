@@ -1,7 +1,7 @@
 cpu 386
 bits 16
-;OBJECT#2
-handler16@serial:
+
+handler16__serial:
 		push    ds
 		push    es
 		pusha   

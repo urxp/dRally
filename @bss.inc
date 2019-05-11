@@ -1,11 +1,15 @@
 ;UNINITIALIZED DATA
-resb	8
-___19bd1ch:	resb	4
-_edata:	resb	28h
+_edata:
+global ___19bd20h
+___19bd20h: resb	28h
 ___19bd48h:	resb	4
+global ___19bd4ch
 ___19bd4ch:	resb	8
+global ___19bd54h
 ___19bd54h:	resb	4
+global ___19bd58h
 ___19bd58h:	resb	8
+global ___19bd60h
 ___19bd60h:	resb	4
 ___19bd64h:	resb	2
 ___19bd66h:	resb	0eh
@@ -196,8 +200,11 @@ ___19df58h:	resb	0bech
 ___19eb44h:	resb	4
 ___19eb48h:	resb	4
 ___19eb4ch:	resb	4
+global ___19eb50h
 ___19eb50h:	resb	4
+global ___19eb54h
 ___19eb54h:	resb	4
+global ___19eb58h
 ___19eb58h:	resb	0bf8h
 ___19f750h:	resb	0ch
 ___19f75ch:	resb	4
@@ -445,17 +452,20 @@ ___1a01d0h:	resb	4
 ___1a01d4h:	resb	4
 ___1a01d8h:	resb	4
 ___1a01dch:	resb	4
+global ___1a01e0h
 ___1a01e0h:	resb	0ch
 ___1a01ech:	resb	4
 ___1a01f0h:	resb	4
 ___1a01f4h:	resb	4
 ___1a01f8h:	resb	4
 ___1a01fch:	resb	10h
+global ___1a020ch
 ___1a020ch:	resb	4
 ___1a0210h:	resb	4
 ___1a0214h:	resb	4
 ___1a0218h:	resb	4
 ___1a021ch:	resb	4
+global ___1a0220h
 ___1a0220h:	resb	4
 ___1a0224h:	resb	4
 ___1a0228h:	resb	4
@@ -530,6 +540,7 @@ ___1a0fa8h:	resb	4
 ___1a0fach:	resb	4
 ___1a0fb0h:	resb	4
 ___1a0fb4h:	resb	4
+global ___1a0fb8h
 ___1a0fb8h:	resb	4
 ___1a0fbch:	resb	4
 ___1a0fc0h:	resb	4
@@ -591,12 +602,14 @@ ___1a10bch:	resb	4
 ___1a10c0h:	resb	4
 ___1a10c4h:	resb	4
 ___1a10c8h:	resb	4
+global ___1a10cch
 ___1a10cch:	resb	4
 ___1a10d0h:	resb	4
 ___1a10d4h:	resb	4
 ___1a10d8h:	resb	4
 ___1a10dch:	resb	4
 ___1a10e0h:	resb	4
+global ___1a10e4h
 ___1a10e4h:	resb	4
 ___1a10e8h:	resb	4
 ___1a10ech:	resb	4
@@ -604,8 +617,10 @@ ___1a10f0h:	resb	4
 ___1a10f4h:	resb	4
 ___1a10f8h:	resb	4
 ___1a10fch:	resb	4
+global ___1a1100h
 ___1a1100h:	resb	4
 ___1a1104h:	resb	4
+global ___1a1108h
 ___1a1108h:	resb	4
 ___1a110ch:	resb	4
 ___1a1110h:	resb	4
@@ -613,11 +628,14 @@ ___1a1114h:	resb	4
 ___1a1118h:	resb	4
 ___1a111ch:	resb	4
 ___1a1120h:	resb	4
+global ___1a1124h
 ___1a1124h:	resb	4
 ___1a1128h:	resb	4
+global ___1a112ch
 ___1a112ch:	resb	4
 ___1a1130h:	resb	4
 ___1a1134h:	resb	4
+global ___1a1138h
 ___1a1138h:	resb	4
 ___1a113ch:	resb	4
 ___1a1140h:	resb	4
@@ -634,11 +652,13 @@ ___1a1168h:	resb	1
 ___1a1169h:	resb	1
 ___1a116ah:	resb	1
 ___1a116bh:	resb	1
+global ___1a116ch
 ___1a116ch:	resb	9f6h
 ___1a1b62h:	resb	96h
 ___1a1bf8h:	resb	96h
 ___1a1c8eh:	resb	96h
 ___1a1d24h:	resb	96h
+global ___1a1dbah
 ___1a1dbah:	resb	96h
 ___1a1e50h:	resb	4
 ___1a1e54h:	resb	4
@@ -681,7 +701,9 @@ ___1a1ee4h:	resb	4
 ___1a1ee8h:	resb	4
 ___1a1eech:	resb	4
 ___1a1ef0h:	resb	4
+global ___1a1ef4h
 ___1a1ef4h:	resb	4
+global ___1a1ef8h
 ___1a1ef8h:	resb	4
 ___1a1efch:	resb	4
 ___1a1f00h:	resb	4
@@ -699,16 +721,21 @@ ___1a1f2ch:	resb	4
 ___1a1f30h:	resb	4
 ___1a1f34h:	resb	4
 ___1a1f38h:	resb	4
+global ___1a1f3ch
 ___1a1f3ch:	resb	3
 ___1a1f3fh:	resb	0eh
+global ___1a1f4dh
 ___1a1f4dh:	resb	1
+global ___1a1f4eh
 ___1a1f4eh:	resb	1
+global ___1a1f4fh
 ___1a1f4fh:	resb	0fh
 ___1a1f5eh:	resb	1
 ___1a1f5fh:	resb	1
 ___1a1f60h:	resb	1
 ___1a1f61h:	resb	1
 ___1a1f62h:	resb	1
+global ___1a1f63h
 ___1a1f63h:	resb	1
 ___1a1f64h:	resb	1
 ___1a1f65h:	resb	1
@@ -720,11 +747,16 @@ ___1a1f6ah:	resb	87h
 ___1a1ff1h:	resb	0bh
 ___1a1ffch:	resb	14h
 ___1a2010h:	resb	1
+global ___1a2011h
 ___1a2011h:	resb	1
+global ___1a2012h
 ___1a2012h:	resb	1
+global ___1a2013h
 ___1a2013h:	resb	1
+global ___1a2014h
 ___1a2014h:	resb	6
 ___1a201ah:	resb	15h
+global ___1a202fh
 ___1a202fh:	resb	12h
 ___1a2041h:	resb	1
 ___1a2042h:	resb	101h
@@ -732,6 +764,7 @@ ___1a2143h:	resb	1
 ___1a2144h:	resb	1
 ___1a2145h:	resb	2
 ___1a2147h:	resb	1
+global ___1a2148h
 ___1a2148h:	resb	1
 ___1a2149h:	resb	1
 ___1a214ah:	resb	56h
@@ -1242,6 +1275,7 @@ ___2432b8h:	resb	4
 ___2432bch:	resb	4
 ___2432c0h:	resb	4
 ___2432c4h:	resb	4
+global ___2432c8h
 ___2432c8h:	resb	4
 ___2432cch:	resb	4
 ___2432d0h:	resb	4
@@ -1412,7 +1446,9 @@ ___243e80h:	resb	14h
 ___243e94h:	resb	7ccch
 ___24bb60h:	resb	0dh
 ___24bb6dh:	resb	10e7h
+global ___24cc54h
 ___24cc54h:	resb	4
+global ___24cc58h
 ___24cc58h:	resb	0ch
 ___24cc64h:	resb	8
 ___24cc6ch:	resb	10h
@@ -1489,31 +1525,44 @@ ___24e458h:	resb	4
 ___24e45ch:	resb	4
 ___24e460h:	resb	4
 ___24e464h:	resb	4
+global ___24e468h
 ___24e468h:	resb	4
+global ___24e46ch
 ___24e46ch:	resb	4
 ___24e470h:	resb	6
 ___24e476h:	resb	2
 ___24e478h:	resb	2
 ___24e47ah:	resb	2
+global ___24e47ch
 ___24e47ch:	resb	4
 ___24e480h:	resb	4
 ___24e484h:	resb	4
+global ___24e488h
 ___24e488h:	resb	4
+global ___24e48ch
 ___24e48ch:	resb	4
+global ___24e490h
 ___24e490h:	resb	4
+global ___24e494h
 ___24e494h:	resb	4
+global ___24e498h
 ___24e498h:	resb	10h
+global ___24e4a8h
 ___24e4a8h:	resb	4
 ___24e4ach:	resb	4
+global ___24e4b0h
 ___24e4b0h:	resb	4
 ___24e4b4h:	resb	4
 ___24e4b8h:	resb	4
 ___24e4bch:	resb	4
 ___24e4c0h:	resb	4
+global ___24e4c4h
 ___24e4c4h:	resb	4
 ___24e4c8h:	resb	4
 ___24e4cch:	resb	4
+global ___24e4d0h
 ___24e4d0h:	resb	4
+global ___24e4d4h
 ___24e4d4h:	resb	4
 ___24e4d8h:	resb	10h
 ___24e4e8h:	resb	12h
@@ -1703,5 +1752,4 @@ _my_stack:	resb	400h
 ___24f760h:	resb	68h
 ___24f7c8h:	resb	10h
 ___24f7d8h:	resb	10h
-_end:	resb	0b68h
-___250350h:	resb	4a0h
+_end:

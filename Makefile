@@ -1,8 +1,14 @@
-subdirs = dr
+subdirs = clib3r dr serial video
 
 segs = @text.inc @data.inc @bss.inc
 
+clib3r = clib3r/clib3r.lib
+
 dr = dr/dr.lib
+serial = serial/serial.lib
+video = video/video.lib
+
+libs = $(clib3r) $(dr) $(serial) $(video)
 
 default: $(subdirs) drally.exe drally.le drally.lx
 	@rm -f drally.lnk drle.lnk drlx.lnk
@@ -19,47 +25,49 @@ drally.le: drle.lnk
 drally.lx: drlx.lnk
 	wlink @ $< name $@ option nostub
 
-drally.obj: drally.asm serial16.bin Makefile
-	nasm -f obj -o $@ $<
+drally.obj: drally.asm Makefile
+	nasm -f obj -o $@ $< -Iinclude -w-all
 
-serial16.bin: serial16.asm Makefile
-	nasm -f bin -o $@ $<
+drally.lib: $(libs) drally.obj Makefile
+	wlib -fo -c -b -n $@
+	wlib -fo -c -b $@ +-$(clib3r)
+	wlib -fo -c -b $@ +-$(dr)
+	wlib -fo -c -b $@ +-$(serial)
+	wlib -fo -c -b $@ +-$(video)
+	wlib -fo -c -b $@ +-drally.obj
 
-drally.lnk: Makefile drally.obj $(dr)
-#	@echo option osname="'DOS/4G'"		> $@
-	@echo option osname="'CauseWay'"	> $@
-	@echo format os2 le					>> $@
-#	@echo option stub=wstub.exe			>> $@
-	@echo option stub=cwstub.exe		>> $@
-	@echo seg "'@text'" pre, "'@data'" pre		>> $@
-	@echo op start=start				>> $@
-	@echo file $(dr)					>> $@
-	@echo file drally.obj				>> $@
+drally.lnk: Makefile drally.lib
+#	@echo option osname="'DOS/4G'"                  > $@
+	@echo option osname="'CauseWay'"                > $@
+	@echo format os2 le                             >> $@
+#	@echo option stub=wstub.exe                     >> $@
+	@echo option stub=cwstub.exe                    >> $@
+	@echo seg "'@text'" pre, "'@data'" pre          >> $@
+	@echo op start=start                            >> $@
+	@echo file drally.lib                           >> $@
 
 drle.lnk: Makefile drally.obj $(dr)
-	@echo option osname="'DOS/4G'"		> $@
-	@echo format os2 le					>> $@
-#	@echo option stub=wstub.exe			>> $@
-	@echo seg "'@text'" pre, "'@data'" pre		>> $@
-	@echo op start=start				>> $@
-	@echo file $(dr)					>> $@
-	@echo file drally.obj				>> $@
+	@echo option osname="'DOS/4G'"                  > $@
+	@echo format os2 le                             >> $@
+#	@echo option stub=wstub.exe                     >> $@
+	@echo seg "'@text'" pre, "'@data'" pre          >> $@
+	@echo op start=start                            >> $@
+	@echo file drally.lib                           >> $@
 
 drlx.lnk: Makefile drally.obj $(dr)
-	@echo option osname="'DOS/4G non-zero base'"	> $@
-	@echo disable 123    				>> $@
-	@echo op internalrelocs				>> $@					
-	@echo op togglerelocs				>> $@
-	@echo format os2 lx					>> $@
-#	@echo option stub=wstub.exe			>> $@
-	@echo seg "'@text'" pre, "'@data'" pre		>> $@
-	@echo op start=start				>> $@
-	@echo file $(dr)					>> $@
-	@echo file drally.obj				>> $@
+	@echo option osname="'DOS/4G non-zero base'"    > $@
+	@echo disable 123                               >> $@
+	@echo op internalrelocs                         >> $@
+	@echo op togglerelocs                           >> $@
+	@echo format os2 lx                             >> $@
+#	@echo option stub=wstub.exe                     >> $@
+	@echo seg "'@text'" pre, "'@data'" pre          >> $@
+	@echo op start=start                            >> $@
+	@echo file drally.lib                           >> $@
 
 drally.asm: $(segs)
 	@touch $@
 
 .PHONY: clean $(subdirs)
 clean: $(subdirs)
-	@rm -f drally.obj drally.exe drally.le drally.lx serial16.bin
+	@rm -f drally.lib drally.exe drally.le drally.lx drally.obj

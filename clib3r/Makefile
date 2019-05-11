@@ -1,8 +1,8 @@
-TARGET = dr
+TARGET = clib3r
 
 LIB_NAME = $(TARGET).lib
 
-OBJS = main.obj startup__dr.obj
+OBJS = cinit.obj start.obj
 
 $(TARGET): $(LIB_NAME) $(OBJS)
 

@@ -26,8 +26,10 @@ ___1800c4h:
 db	44h,45h,41h,54h,48h,20h,52h,41h,4ch,4ch,59h,20h,45h,78h,69h,74h
 db	3ah,20h,43h,54h,52h,4ch,2bh,41h,4ch,54h,2bh,44h,45h,4ch,20h,70h
 db	72h,65h,73h,73h,65h,64h,21h,0ah,0,0,0,0
+global ___1800f0h
 ___1800f0h:
 db	64h,72h,2eh,62h,69h,6eh,0,0
+global ___1800f8h
 ___1800f8h:
 db	4dh,45h,4eh,55h,2eh,42h,50h,41h,0,0,0,0
 ___180104h:
@@ -40,6 +42,7 @@ ___18011ch:
 db	20h,66h,69h,6ch,65h,21h,0,0
 ___180124h:
 db	4dh,55h,53h,49h,43h,53h,2eh,42h,50h,41h,0,0
+global ___180130h
 ___180130h:
 db	0,0,0,0
 ___180134h:
@@ -241,6 +244,7 @@ ___18068ch:
 db	79h,65h,73h,0
 ___180690h:
 db	6eh,6fh,0,0
+global ___180694h
 ___180694h:
 db	43h,4fh,4eh,54h,49h,4eh,55h,45h,0,0,0,0
 ___1806a0h:
@@ -324,6 +328,7 @@ db	20h,72h,65h,73h,65h,72h,76h,65h,64h,21h,0,0
 ___180848h:
 db	50h,72h,65h,73h,73h,20h,61h,6eh,79h,20h,6bh,65h,79h,20h,74h,6fh
 db	20h,63h,6fh,6eh,74h,69h,6eh,75h,65h,2eh,0,0
+global ___180864h
 ___180864h:
 db	2dh,2dh,20h,0
 ___180868h:
@@ -433,6 +438,7 @@ db	70h,6ch,61h,79h,65h,72h,3fh,0
 ___180b88h:
 db	43h,6fh,6eh,74h,69h,6eh,75h,65h,20h,43h,75h,72h,72h,65h,6eh,74h
 db	20h,47h,61h,6dh,65h,0,0,0
+global ___180ba0h
 ___180ba0h:
 db	41h,62h,6fh,72h,74h,20h,43h,75h,72h,72h,65h,6eh,74h,20h,47h,61h
 db	6dh,65h,0,0
@@ -462,6 +468,7 @@ db	74h,69h,70h,6ch,61h,79h,65h,72h,2eh,0,0,0
 ___180c88h:
 db	20h,68h,61h,73h,20h,6ah,6fh,69h,6eh,65h,64h,20h,74h,6fh,20h,44h
 db	65h,61h,74h,68h,20h,52h,61h,6ch,6ch,79h,2eh,0
+global ___180ca4h
 ___180ca4h:
 db	20h,68h,61h,73h,20h,6ch,65h,66h,74h,20h,66h,72h,6fh,6dh,20h,44h
 db	65h,61h,74h,68h,20h,52h,61h,6ch,6ch,79h,2eh,0
@@ -585,6 +592,7 @@ db	41h,6eh,73h,77h,65h,72h,20h,4dh,6fh,64h,65h,6dh,0,0,0,0
 ___181078h:
 db	41h,62h,6fh,72h,74h,20h,63h,75h,72h,72h,65h,6eh,74h,20h,67h,61h
 db	6dh,65h,3fh,0
+global ___18108ch
 ___18108ch:
 db	20h,61h,62h,6fh,72h,74h,65h,64h,20h,63h,75h,72h,72h,65h,6eh,74h
 db	20h,6eh,65h,74h,67h,61h,6dh,65h,2eh,0,0,0
@@ -621,6 +629,7 @@ db	45h,6eh,74h,65h,72h,20h,6dh,6fh,64h,65h,6dh,20h,69h,6eh,69h,74h
 db	69h,61h,6ch,20h,73h,74h,72h,69h,6eh,67h,3fh,0
 ___1811b8h:
 db	54h,6fh,6eh,65h,20h,44h,69h,61h,6ch,69h,6eh,67h,0,0,0,0
+global ___1811c8h
 ___1811c8h:
 db	50h,75h,6ch,73h,65h,20h,44h,69h,61h,6ch,69h,6eh,67h,0,0,0
 ___1811d8h:
@@ -938,9 +947,11 @@ db	25h,0,0,0
 ___181c18h:
 db	41h,64h,6ah,75h,73h,74h,20h,65h,66h,66h,65h,63h,74h,20h,76h,6fh
 db	6ch,75h,6dh,65h,3ah,0,0,0
+global ___181c30h
 ___181c30h:
 db	47h,61h,6dh,65h,70h,61h,64h,2fh,4ah,6fh,79h,73h,74h,69h,63h,6bh
 db	20h,45h,6eh,61h,62h,6ch,65h,64h,0,0,0,0
+global ___181c4ch
 ___181c4ch:
 db	47h,61h,6dh,65h,70h,61h,64h,2fh,4ah,6fh,79h,73h,74h,69h,63h,6bh
 db	20h,44h,69h,73h,61h,62h,6ch,65h,64h,0
@@ -954,8 +965,10 @@ ___181c80h:
 db	65h,6eh,64h,61h,6eh,69h,2dh,65h,2eh,63h,6dh,66h,0,0,0,0
 ___181c90h:
 db	74h,72h,30h,2dh,6dh,75h,73h,2eh,63h,6dh,66h,0
+global ___181c9ch
 ___181c9ch:
 db	4dh,45h,4eh,2dh,53h,41h,4dh,2eh,43h,4dh,46h,0
+global ___181ca8h
 ___181ca8h:
 db	4dh,45h,4eh,2dh,4dh,55h,53h,2eh,43h,4dh,46h,0
 ___181cb4h:
@@ -1530,10 +1543,12 @@ db	45h,72h,72h,6fh,72h,20h,72h,65h,61h,64h,69h,6eh,67h,20h,43h,44h
 db	52h,4fh,4dh,2eh,49h,4eh,49h,20h,66h,69h,6ch,65h,21h,0ah,0,0
 ___182bf0h:
 db	44h,52h,2eh,49h,44h,46h,0,0
+global ___182bf8h
 ___182bf8h:
 db	0ah,4ch,6fh,61h,64h,69h,6eh,67h,20h,6dh,75h,73h,69h,63h,20h,26h
 db	20h,65h,66h,66h,65h,63h,74h,73h,2ch,20h,70h,6ch,65h,61h,73h,65h
 db	20h,77h,61h,69h,74h,2eh,2eh,2eh,0ah,0,0,0
+global ___182c24h
 ___182c24h:
 db	44h,45h,41h,54h,48h,20h,52h,41h,4ch,4ch,59h,20h,45h,72h,72h,6fh
 db	72h,3ah,20h,59h,6fh,75h,72h,20h,56h,47h,41h,2dh,61h,64h,61h,70h
@@ -1545,31 +1560,37 @@ db	65h,20h,55h,4eh,49h,56h,42h,45h,20h,6fh,72h,20h,73h,69h,6dh,69h
 db	6ch,61h,72h,20h,65h,6dh,75h,6ch,61h,74h,6fh,72h,20h,74h,6fh,20h
 db	66h,69h,78h,20h,74h,68h,65h,20h,70h,72h,6fh,62h,6ch,65h,6dh,2eh
 db	0ah,0,0,0
+global ___182cb8h
 ___182cb8h:
 db	50h,6ch,65h,61h,73h,65h,20h,63h,6fh,6eh,73h,75h,6ch,74h,20h,44h
 db	52h,48h,45h,4ch,50h,2eh,45h,58h,45h,20h,66h,6fh,72h,20h,6dh,6fh
 db	72h,65h,20h,69h,6eh,66h,6fh,72h,6dh,61h,74h,69h,6fh,6eh,20h,6fh
 db	6eh,20h,68h,6fh,77h,20h,74h,6fh,20h,72h,65h,73h,6fh,6ch,76h,65h
 db	20h,74h,68h,69h,73h,20h,70h,72h,6fh,62h,6ch,65h,6dh,2eh,0ah,0
+global ___182d08h
 ___182d08h:
 db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,57h,65h,6ch,63h,6fh,6dh
 db	65h,20h,74h,6fh,20h,44h,65h,61h,74h,68h,20h,52h,61h,6ch,6ch,79h
 db	20h,2dh,20h,46h,75h,6ch,6ch,20h,76h,65h,72h,73h,69h,6fh,6eh,20h
 db	31h,2eh,31h,0
+global ___182d3ch
 ___182d3ch:
 db	20h,20h,20h,20h,44h,65h,76h,65h,6ch,6fh,70h,65h,64h,20h,62h,79h
 db	20h,52h,65h,6dh,65h,64h,79h,20h,45h,6eh,74h,65h,72h,74h,61h,69h
 db	6eh,6dh,65h,6eh,74h,20h,66h,6fh,72h,20h,41h,70h,6fh,67h,65h,65h
 db	20h,53h,6fh,66h,74h,77h,61h,72h,65h,0,0,0
+global ___182d78h
 ___182d78h:
 db	55h,73h,65h,20h,61h,72h,72h,6fh,77h,20h,6bh,65h,79h,73h,20h,74h
 db	6fh,20h,63h,68h,61h,6eh,67h,65h,20h,73h,65h,6ch,65h,63h,74h,69h
 db	6fh,6eh,20h,61h,6eh,64h,20h,70h,72h,65h,73h,73h,20h,65h,6eh,74h
 db	65h,72h,20h,74h,6fh,20h,63h,6fh,6eh,66h,69h,72h,6dh,2eh,0,0
+global ___182db8h
 ___182db8h:
 db	50h,6ch,65h,61h,73h,65h,20h,69h,6eh,73h,65h,72h,74h,20h,44h,65h
 db	61h,74h,68h,20h,52h,61h,6ch,6ch,79h,20h,74h,6fh,20h,43h,44h,2dh
 db	52h,4fh,4dh,20h,64h,72h,69h,76h,65h,21h,0,0
+global ___182de4h
 ___182de4h:
 db	41h,72h,65h,20h,79h,6fh,75h,20h,73h,75h,72h,65h,3fh,0,0,0
 ___182df4h:
@@ -3086,6 +3107,7 @@ ___1854b0h:
 db	0,80h,2,0,0,80h,2,0
 ___1854b8h:
 db	0,80h,2,0
+global ___1854bch
 ___1854bch:
 db	0,80h,2,0,0,80h,2,0
 ___1854c4h:
@@ -3201,6 +3223,7 @@ ___185a24h:
 db	0,0,0,0
 ___185a28h:
 db	0,0,0,0
+global ___185a2ch
 ___185a2ch:
 db	0,0,0,0
 ___185a30h:
@@ -3312,6 +3335,7 @@ db	1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
 db	1,0
 ___185ba0h:
 db	1,1,1,1,1,1,1,1,0
+global ___185ba9h
 ___185ba9h:
 db	20h,20h,14h,9,0eh,14h,15h,18h,15h,0ah,0ch,0bh,10h,15h,9,14h
 db	8,13h,15h,0ah,14h,13h,14h,14h,13h,12h,13h,12h,8,9,10h,15h
@@ -3321,6 +3345,7 @@ db	14h,13h,9,14h
 ___185bedh:
 db	12h,11h,12h,10h,0fh,13h,12h,8,0eh,13h,10h,16h,12h,12h,10h,12h
 db	12h,11h,10h,12h,13h,1ah,12h,13h,10h,0bh,6,0bh,0fh,14h
+global ___185c0bh
 ___185c0bh:
 db	10h
 ___185c0ch:
@@ -3578,6 +3603,7 @@ db	49h,6eh,69h,74h,69h,61h,6ch,69h,7ah,65h,20h,41h,20h,4eh,65h,77h
 db	20h,47h,61h,6dh,65h,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0
+global ___186a6eh
 ___186a6eh:
 db	4ah,6fh,69h,6eh,20h,41h,6eh,20h,45h,78h,69h,73h,74h,69h,6eh,67h
 db	20h,47h,61h,6dh,65h,0,0,0,0,0,0,0,0,0,0,0
@@ -3624,6 +3650,7 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,44h,65h
 db	66h,69h,6eh,65h,20h,47h,61h,6dh,65h,70h,61h,64h,2fh,4ah,6fh,79h
 db	73h,74h,69h,63h,6bh,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+global ___186cc6h
 ___186cc6h:
 db	47h,61h,6dh,65h,70h,61h,64h,20h,44h,69h,73h,61h,62h,6ch,65h,64h
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -3762,6 +3789,7 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,4dh,6fh
 db	64h,65h,6dh,20h,49h,6eh,69h,74h,20h,53h,74h,72h,69h,6eh,67h,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+global ___187432h
 ___187432h:
 db	54h,6fh,6eh,65h,20h,44h,69h,61h,6ch,69h,6eh,67h,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -8062,12 +8090,15 @@ ___196a7ch:
 db	0,0,0,0
 ___196a80h:
 db	0,0,0,0
+global ___196a84h
 ___196a84h:
 db	0,0,0,0
 ___196a88h:
 db	0,0,0,0
-___196a8ch:
+global GXType
+GXType:
 db	0,0,0,0
+global ___196a90h
 ___196a90h:
 db	1,0,0,0
 ___196a94h:
@@ -8088,14 +8119,19 @@ ___196ab0h:
 db	0,0,0,0
 ___196ab4h:
 db	0,0,0,0
+global ___196ab8h
 ___196ab8h:
 db	0,0,0,0
+global ___196abch
 ___196abch:
 db	0
+global ___196abdh
 ___196abdh:
 db	7
+global ___196abeh
 ___196abeh:
 db	5
+global ___196abfh
 ___196abfh:
 db	3,4
 ___196ac1h:
@@ -8178,6 +8214,7 @@ ___196d5dh:
 db	40h,50h,48h,1,45h,4eh,44h,41h,4eh,49h,2eh,48h,41h,46h,0,0
 db	0,6bh,0edh,39h,0,45h,4eh,44h,41h,4eh,49h,30h,2eh,48h,41h,46h
 db	0,0,0fch,0c2h,6dh,0,0
+global ___196d84h
 ___196d84h:
 db	1,0,0,0
 ___196d88h:
@@ -9131,24 +9168,29 @@ ___FPE_handler_exit:
 dd	_null_exit_rtn
 ___199f9ch:
 db	0,0,0,0
+global ___199fa0h
 ___199fa0h:
 db	0,0,0,0
+global ___199fa4h
 ___199fa4h:
 db	0,0,0,0
 ___199fa8h:
 db	0,0,0,0
 ___199fach:
 db	0,0,0,0
+global ___199fb0h
 ___199fb0h:
 db	0,0,0,0,0,0
 ___199fb6h:
 db	1,0
 ___199fb8h:
 db	0,0,0,0
+global ___199fbch
 ___199fbch:
 db	0,0,0,0
 ___199fc0h:
 db	40h,2,0,0
+global ___199fc4h
 ___199fc4h:
 db	1,0,0,0
 ___199fc8h:
@@ -9159,8 +9201,10 @@ ___199fd0h:
 db	0,0,0,0
 ___199fd4h:
 db	0,0,0,0
+global __GDAptr
 __GDAptr:
 db	0,0,0,0
+global __D16Infoseg
 __D16Infoseg:
 db	20h,0
 __x386_zero_base_selector:
@@ -9195,18 +9239,25 @@ __8087:
 db	0
 __real87:
 db	0,0,0
+global __dynend
 __dynend:
 db	0,0,0,0
+global __curbrk
 __curbrk:
 db	0,0,0,0
+global __LpCmdLine
 __LpCmdLine:
 db	0,0,0,0
+global __LpPgmName
 __LpPgmName:
 db	0,0,0,0
+global __psp
 __psp:
 db	0,0,0,0
+global __STACKLOW
 __STACKLOW:
 db	0,0,0,0
+global __STACKTOP
 __STACKTOP:
 db	0,0,0,0
 __ASTACKSIZ:
@@ -9217,20 +9268,27 @@ __cbyte:
 db	0,0,0,0,0,0,0,0
 __child:
 db	0,0,0,0
+global __no87
 __no87:
 db	0,0
+global __Extender
 __Extender:
 db	0
+global __ExtenderSubtype
 __ExtenderSubtype:
 db	0
 __X32VM:
 db	0
+global __Envptr
 __Envptr:
 db	0,0,0,0
+global __Envseg
 __Envseg:
 db	0,0
+global __osmajor
 __osmajor:
 db	0
+global __osminor
 __osminor:
 db	0
 __FPE_handler:
@@ -9645,6 +9703,7 @@ ___EFG_scanf:
 dd	_no_support_loaded_
 ___heap_enabled:
 db	1,0,0,0
+global __amblksiz
 __amblksiz:
 db	10h,0,0,0
 ___19ae1ch:
