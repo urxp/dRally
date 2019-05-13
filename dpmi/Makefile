@@ -1,8 +1,8 @@
-TARGET = dr
+TARGET = dpmi
 
 LIB_NAME = $(TARGET).lib
 
-OBJS = main.obj startup__dr.obj chkcdromini__dr.obj chkfiles__dr.obj
+OBJS = allocdos.obj
 
 $(TARGET): $(LIB_NAME) $(OBJS)
 

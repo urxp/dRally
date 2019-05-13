@@ -8,6 +8,7 @@
     extern  __do_exit_with_msg__
     extern  startup__dr
     extern  install__serial
+    extern  allocateDOSMemoryBlock__dpmi
 
 %include "layout.inc"
 

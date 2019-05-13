@@ -45,6 +45,7 @@ db	4dh,55h,53h,49h,43h,53h,2eh,42h,50h,41h,0,0
 global ___180130h
 ___180130h:
 db	0,0,0,0
+global ___180134h
 ___180134h:
 db	72h,62h,0,0
 ___180138h:
@@ -1400,7 +1401,7 @@ db	6ch,69h,63h,65h,6eh,63h,65h,33h,2eh,62h,70h,6bh,0,0,0,0
 ___182730h:
 db	53h,65h,6ch,65h,63h,74h,20h,64h,69h,66h,66h,69h,63h,75h,6ch,74h
 db	79h,3ah,0,0
-___182744h:
+DR_CFG:
 db	64h,72h,2eh,63h,66h,67h,0,0
 ___18274ch:
 db	44h,52h,2eh,43h,46h,47h,20h,66h,69h,6ch,65h,20h,64h,6fh,65h,73h
@@ -1500,44 +1501,54 @@ db	52h,48h,45h,4ch,50h,2eh,45h,58h,45h,20h,66h,6fh,72h,20h,6dh,6fh
 db	72h,65h,20h,69h,6eh,66h,6fh,72h,6dh,61h,74h,69h,6fh,6eh,20h,6fh
 db	6eh,20h,68h,6fh,77h,20h,74h,6fh,20h,72h,65h,73h,6fh,6ch,76h,65h
 db	20h,74h,68h,69h,73h,20h,70h,72h,6fh,62h,6ch,65h,6dh,2eh,0ah,0
+global ___182a30h
 ___182a30h:
 db	0ah,44h,45h,41h,54h,48h,20h,52h,41h,4ch,4ch,59h,20h,45h,52h,52h
 db	4fh,52h,3ah,20h,46h,69h,6ch,65h,20h,25h,73h,20h,69h,73h,20h,6eh
 db	6fh,74h,20h,66h,6fh,75h,6eh,64h,21h,0ah,0,0
+global ___182a5ch
 ___182a5ch:
 db	50h,6ch,65h,61h,73h,65h,20h,63h,6fh,6eh,73h,75h,6ch,74h,20h,44h
 db	52h,48h,45h,4ch,50h,2eh,45h,58h,45h,20h,66h,6fh,72h,20h,6dh,6fh
 db	72h,65h,20h,69h,6eh,66h,6fh,72h,6dh,61h,74h,69h,6fh,6eh,20h,6fh
 db	6eh,20h,68h,6fh,77h,20h,74h,6fh,20h,72h,65h,73h,6fh,6ch,76h,65h
 db	20h,74h,68h,69h,73h,20h,70h,72h,6fh,62h,6ch,65h,6dh,2eh,0ah,0
+global ___182aach
 ___182aach:
 db	0ah,44h,45h,41h,54h,48h,20h,52h,41h,4ch,4ch,59h,20h,45h,52h,52h
 db	4fh,52h,3ah,20h,46h,69h,6ch,65h,20h,25h,73h,20h,69h,73h,20h,6eh
 db	6fh,74h,20h,69h,6eh,20h,6fh,72h,69h,67h,69h,6eh,61h,6ch,20h,66h
 db	6fh,72h,6dh,21h,0ah,0,0,0
+global ___182ae4h
 ___182ae4h:
 db	50h,6ch,65h,61h,73h,65h,20h,63h,6fh,6eh,73h,75h,6ch,74h,20h,44h
 db	52h,48h,45h,4ch,50h,2eh,45h,58h,45h,20h,66h,6fh,72h,20h,6dh,6fh
 db	72h,65h,20h,69h,6eh,66h,6fh,72h,6dh,61h,74h,69h,6fh,6eh,20h,6fh
 db	6eh,20h,68h,6fh,77h,20h,74h,6fh,20h,72h,65h,73h,6fh,6ch,76h,65h
 db	20h,74h,68h,69h,73h,20h,70h,72h,6fh,62h,6ch,65h,6dh,2eh,0ah,0
+global ___182b34h
 ___182b34h:
 db	0ah,44h,45h,41h,54h,48h,20h,52h,41h,4ch,4ch,59h,20h,45h,52h,52h
 db	4fh,52h,3ah,20h,46h,69h,6ch,65h,20h,25h,73h,20h,69h,73h,20h,6eh
 db	6fh,74h,20h,69h,6eh,20h,6fh,72h,69h,67h,69h,6eh,61h,6ch,20h,66h
 db	6fh,72h,6dh,21h,0ah,0,0,0
+global ___182b6ch
 ___182b6ch:
 db	50h,6ch,65h,61h,73h,65h,20h,63h,6fh,6eh,73h,75h,6ch,74h,20h,44h
 db	52h,48h,45h,4ch,50h,2eh,45h,58h,45h,20h,66h,6fh,72h,20h,6dh,6fh
 db	72h,65h,20h,69h,6eh,66h,6fh,72h,6dh,61h,74h,69h,6fh,6eh,20h,6fh
 db	6eh,20h,68h,6fh,77h,20h,74h,6fh,20h,72h,65h,73h,6fh,6ch,76h,65h
 db	20h,74h,68h,69h,73h,20h,70h,72h,6fh,62h,6ch,65h,6dh,2eh,0ah,0
+global ___182bbch
 ___182bbch:
 db	43h,44h,52h,4fh,4dh,2eh,49h,4eh,49h,0,0,0
+global ___182bc8h
 ___182bc8h:
 db	25h,73h,0,0
+global ___182bcch
 ___182bcch:
 db	5ch,0,0,0
+global ___182bd0h
 ___182bd0h:
 db	45h,72h,72h,6fh,72h,20h,72h,65h,61h,64h,69h,6eh,67h,20h,43h,44h
 db	52h,4fh,4dh,2eh,49h,4eh,49h,20h,66h,69h,6ch,65h,21h,0ah,0,0
@@ -8190,30 +8201,49 @@ db	0,1,80h,2,1,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-___196c60h:
-db	45h,4eh,47h,49h,4eh,45h,2eh,42h,50h,41h,0,0,0
-___196c6dh:
-db	79h,0e8h,5,0,49h,42h,46h,49h,4ch,45h,53h,2eh,42h,50h,41h,0
-db	0,0e5h,4fh,1,0,4dh,45h,4eh,55h,2eh,42h,50h,41h,0,0,0
-db	0,0,0a5h,5ah,30h,0,4dh,55h,53h,49h,43h,53h,2eh,42h,50h,41h
-db	0,0,0,5fh,61h,57h,0,54h,52h,30h,2eh,42h,50h,41h,0,0
-db	0,0,0,0,97h,25h,5,0,54h,52h,31h,2eh,42h,50h,41h,0
-db	0,0,0,0,0,72h,0e7h,4,0,54h,52h,32h,2eh,42h,50h,41h
-db	0,0,0,0,0,0,0ddh,7dh,4,0,54h,52h,33h,2eh,42h,50h
-db	41h,0,0,0,0,0,0,0fbh,46h,5,0,54h,52h,34h,2eh,42h
-db	50h,41h,0,0,0,0,0,0,72h,0f9h,3,0,54h,52h,35h,2eh
-db	42h,50h,41h,0,0,0,0,0,0,78h,97h,6,0,54h,52h,36h
-db	2eh,42h,50h,41h,0,0,0,0,0,0,0c8h,7bh,5,0,54h,52h
-db	37h,2eh,42h,50h,41h,0,0,0,0,0,0,97h,5eh,6,0,54h
-db	52h,38h,2eh,42h,50h,41h,0,0,0,0,0,0,12h,0ddh,3,0
-db	54h,52h,39h,2eh,42h,50h,41h,0,0,0,0,0,0,23h,86h,6
-db	0,0,0
-___196d50h:
-db	53h,41h,4eh,49h,4dh,2eh,48h,41h,46h,0,0,0,0
-___196d5dh:
-db	40h,50h,48h,1,45h,4eh,44h,41h,4eh,49h,2eh,48h,41h,46h,0,0
-db	0,6bh,0edh,39h,0,45h,4eh,44h,41h,4eh,49h,30h,2eh,48h,41h,46h
-db	0,0,0fch,0c2h,6dh,0,0
+global drfiles_list
+drfiles_list:
+db	"ENGINE.BPA",0,0,0
+global drfile_size
+drfile_size:
+db	79h,0e8h,5,0
+db  "IBFILES.BPA",0,0
+db  0e5h,4fh,1,0
+db  "MENU.BPA",0,0,0,0,0
+db  0a5h,5ah,30h,0
+db  "MUSICS.BPA",0,0,0
+db  5fh,61h,57h,0
+db  "TR0.BPA",0,0,0,0,0,0
+db  97h,25h,5,0
+db  "TR1.BPA",0,0,0,0,0,0
+db  72h,0e7h,4,0
+db  "TR2.BPA",0,0,0,0,0,0
+db  0ddh,7dh,4,0
+db  "TR3.BPA",0,0,0,0,0,0
+db  0fbh,46h,5,0
+db  "TR4.BPA",0,0,0,0,0,0
+db  72h,0f9h,3,0
+db  "TR5.BPA",0,0,0,0,0,0
+db  78h,97h,6,0
+db  "TR6.BPA",0,0,0,0,0,0
+db  0c8h,7bh,5,0
+db  "TR7.BPA",0,0,0,0,0,0
+db  97h,5eh,6,0
+db  "TR8.BPA",0,0,0,0,0,0
+db  12h,0ddh,3,0
+db	"TR9.BPA",0,0,0,0,0,0
+db  23h,86h,6,0
+db  0,0
+global animfiles_list
+animfiles_list:
+db	"SANIM.HAF",0,0,0,0
+global animfile_size
+animfile_size:
+db	40h,50h,48h,1
+db  "ENDANI.HAF",0,0,0
+db  6bh,0edh,39h,0
+db  "ENDANI0.HAF",0,0
+db  0fch,0c2h,6dh,0,0
 global ___196d84h
 ___196d84h:
 db	1,0,0,0

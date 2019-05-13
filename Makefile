@@ -1,14 +1,15 @@
-subdirs = clib3r dr serial video
+subdirs = clib3r dpmi dr serial video
 
 segs = @text.inc @data.inc @bss.inc
 
 clib3r = clib3r/clib3r.lib
 
+dpmi = dpmi/dpmi.lib
 dr = dr/dr.lib
 serial = serial/serial.lib
 video = video/video.lib
 
-libs = $(clib3r) $(dr) $(serial) $(video)
+libs = $(clib3r) $(dpmi) $(dr) $(serial) $(video)
 
 default: $(subdirs) drally.exe drally.le drally.lx
 	@rm -f drally.lnk drle.lnk drlx.lnk
@@ -31,6 +32,7 @@ drally.obj: drally.asm Makefile
 drally.lib: $(libs) drally.obj Makefile
 	wlib -fo -c -b -n $@
 	wlib -fo -c -b $@ +-$(clib3r)
+	wlib -fo -c -b $@ +-$(dpmi)
 	wlib -fo -c -b $@ +-$(dr)
 	wlib -fo -c -b $@ +-$(serial)
 	wlib -fo -c -b $@ +-$(video)

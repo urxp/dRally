@@ -1,12 +1,13 @@
 
     extern  __CHK
     extern  ___24e47ch
-    extern  ___24e48ch
-    extern  ___24e490h
+    extern  REGS0
+	extern	REGS0_EAX
+    extern  REGS0_EBX
     extern  int386__clib3r
-    extern  ___24e494h
+    extern  REGS0_ECX
     extern  ___24e4b0h
-    extern  ___24e498h
+    extern  REGS0_EDX
     extern  ___24e4a8h
     extern  memset__clib3r
     extern  outp
@@ -15,7 +16,7 @@
     extern  ___199fb0h
     extern  ___199fbch
     extern  ___199fc4h
-    extern  ___24e4d4h
+    extern  RMSerialPtr
     extern  memcpy
     extern  ___199fa4h
     extern  ___24e468h
@@ -54,29 +55,29 @@ install__serial:
 		mov     eax, 1c200h
 		div     ebx
 		mov     ecx, eax
-		mov     dword [___24e48ch], 204h
+		mov     dword [REGS0_EAX], 204h
 		mov     al, [esp+8]
 		add     al, 8
 		mov     [esp+0ch], al
-		mov     [___24e490h], al
-		mov     ebx, ___24e48ch
+		mov     [REGS0_EBX], al
+		mov     ebx, REGS0
 		mov     edx, ebx
 		mov     eax, 31h
 		call    near int386__clib3r
-		mov     eax, [___24e494h]
+		mov     eax, [REGS0_ECX]
 		mov     [___24e4b0h], eax
-		mov     eax, [___24e498h]
+		mov     eax, [REGS0_EDX]
 		mov     [___24e4a8h], eax
-		mov     dword [___24e48ch], 200h
+		mov     dword [REGS0_EAX], 200h
 		mov     al, [esp+0ch]
-		mov     [___24e490h], al
-		mov     ebx, ___24e48ch
+		mov     [REGS0_EBX], al
+		mov     ebx, REGS0
 		mov     edx, ebx
 		mov     eax, 31h
 		call    near int386__clib3r
-		mov     eax, [___24e494h]
+		mov     eax, [REGS0_ECX]
 		mov     [___24e468h], eax
-		mov     eax, [___24e498h]
+		mov     eax, [REGS0_EDX]
 		mov     [___24e488h], eax
 		mov     eax, [___24e46ch]
 		mov     word [eax], 0
@@ -131,7 +132,7 @@ install__serial:
 ___62dcbh:
 		cmp     eax, byte 4
 		mov     dword [___199fc4h], 1
-		mov     eax, [___24e4d4h]
+		mov     eax, [RMSerialPtr]
 		mov     ebx, 2
 		mov     edx, esp
 		call    near memcpy
@@ -139,7 +140,7 @@ ___62dcbh:
 		shr     eax, 4
 		and     eax, 0ffffh
 		mov     [esp+4], eax
-		mov     eax, [___24e4d4h]
+		mov     eax, [RMSerialPtr]
 		add     eax, byte 2
 		mov     ebx, 2
 		lea     edx, [esp+4]
@@ -147,7 +148,7 @@ ___62dcbh:
 		mov     eax, [___24e46ch]
 		and     eax, byte 0fh
 		mov     [esp+4], eax
-		mov     eax, [___24e4d4h]
+		mov     eax, [RMSerialPtr]
 		add     eax, byte 4
 		mov     ebx, 2
 		lea     edx, [esp+4]
@@ -156,7 +157,7 @@ ___62dcbh:
 		shr     eax, 4
 		and     eax, 0ffffh
 		mov     [esp+4], eax
-		mov     eax, [___24e4d4h]
+		mov     eax, [RMSerialPtr]
 		add     eax, byte 6
 		mov     ebx, 2
 		lea     edx, [esp+4]
@@ -164,14 +165,14 @@ ___62dcbh:
 		mov     eax, [___24e4c4h]
 		and     eax, byte 0fh
 		mov     [esp+4], eax
-		mov     eax, [___24e4d4h]
+		mov     eax, [RMSerialPtr]
 		add     eax, byte 8
 		mov     ebx, 2
 		lea     edx, [esp+4]
 		call    near memcpy
 		mov     eax, [___199fc4h]
 		mov     [esp+4], eax
-		mov     eax, [___24e4d4h]
+		mov     eax, [RMSerialPtr]
 		add     eax, byte 0ah
 		mov     ebx, 2
 		lea     edx, [esp+4]
@@ -180,17 +181,17 @@ ___62dcbh:
 		mov     eax, 1
 		shl     eax, cl
 		mov     [esp+4], eax
-		mov     eax, [___24e4d4h]
+		mov     eax, [RMSerialPtr]
 		add     eax, byte 0ch
 		mov     ebx, 2
 		lea     edx, [esp+4]
 		call    near memcpy
-		mov     eax, [___24e4d4h]
+		mov     eax, [RMSerialPtr]
 		mov     [esp+4], eax
 		lea     esi, [eax+0eh]
 		mov     [esp+4], esi
 		mov     eax, esi
-		mov     [___24e4d4h], esi
+		mov     [RMSerialPtr], esi
 		push    190h
 		;mov     edx, ds
 		db	8ch,0dah
@@ -198,31 +199,31 @@ ___62dcbh:
 		db	8ch,0c9h
 		mov     ebx, handler16__serial
 		call    near _fmemcpy
-		mov     dword [___24e48ch], 205h
+		mov     dword [REGS0_EAX], 205h
 		mov     ecx, [esp+8]
 		add     ecx, byte 8
-		mov     [___24e490h], ecx
+		mov     [REGS0_EBX], ecx
 		;mov     edx, cs
 		db	8ch,0cah
 		mov     eax, ___61a04h
 		xor     eax, eax
 		mov     ax, dx
-		mov     [___24e494h], eax
-		mov     dword [___24e498h], ___61a04h
-		mov     ebx, ___24e48ch
+		mov     [REGS0_ECX], eax
+		mov     dword [REGS0_EDX], ___61a04h
+		mov     ebx, REGS0
 		mov     edx, ebx
 		mov     eax, 31h
 		call    near int386__clib3r
-		mov     dword [___24e48ch], 201h
-		mov     [___24e490h], ecx
-		mov     eax, [___24e4d4h]
+		mov     dword [REGS0_EAX], 201h
+		mov     [REGS0_EBX], ecx
+		mov     eax, [RMSerialPtr]
 		shr     eax, 4
 		and     eax, 0ffffh
-		mov     [___24e494h], eax
-		mov     eax, [___24e4d4h]
+		mov     [REGS0_ECX], eax
+		mov     eax, [RMSerialPtr]
 		and     eax, byte 0fh
-		mov     [___24e498h], eax
-		mov     ebx, ___24e48ch
+		mov     [REGS0_EDX], eax
+		mov     ebx, REGS0
 		mov     edx, ebx
 		mov     eax, 31h
 		call    near int386__clib3r

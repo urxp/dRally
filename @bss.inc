@@ -486,9 +486,9 @@ ___1a0a58h:	resb	4
 ___1a0a5ch:	resb	2
 ___1a0a5eh:	resb	1
 ___1a0a5fh:	resb	1
-___1a0a60h:	resb	2ffh
-___1a0d5fh:	resb	1
-___1a0d60h:	resb	0c4h
+___1a0a60h:	resb	300h
+global cdrom_ini
+cdrom_ini:	resb	0c4h
 ___1a0e24h:	resb	4
 ___1a0e28h:	resb	0ch
 ___1a0e34h:	resb	4
@@ -511,7 +511,7 @@ ___1a0ec8h:	resb	0ch
 ___1a0ed4h:	resb	8
 ___1a0edch:	resb	0ch
 ___1a0ee8h:	resb	8
-___1a0ef0h:	resb	4
+Sound_Address:	resb	4
 ___1a0ef4h:	resb	3
 ___1a0ef7h:	resb	1
 ___1a0ef8h:	resb	1
@@ -760,13 +760,14 @@ global ___1a202fh
 ___1a202fh:	resb	12h
 ___1a2041h:	resb	1
 ___1a2042h:	resb	101h
-___1a2143h:	resb	1
-___1a2144h:	resb	1
-___1a2145h:	resb	2
+Sound_CardType:	resb	1
+Sound_IRQ:	resb	1
+Sound_DMA:	resb	2
 ___1a2147h:	resb	1
 global ___1a2148h
 ___1a2148h:	resb	1
 ___1a2149h:	resb	1
+global ___1a214ah
 ___1a214ah:	resb	56h
 ___1a21a0h:	resb	0fh
 ___1a21afh:	resb	0fh
@@ -1455,13 +1456,14 @@ ___24cc6ch:	resb	10h
 ___24cc7ch:	resb	4
 ___24cc80h:	resb	4
 ___24cc84h:	resb	4
-___24cc88h:	resb	4
-___24cc8ch:	resb	4
-___24cc90h:	resb	4
-___24cc94h:	resb	4
-___24cc98h:	resb	4
-___24cc9ch:	resb	4
-___24cca0h:	resb	4
+REGS1:
+REGS1_EAX:	resb	4
+REGS1_EBX:	resb	4
+REGS1_ECX:	resb	4
+REGS1_EDX:	resb	4
+REGS1_ESI:	resb	4
+REGS1_EDI:	resb	4
+REGS1_CFLAG:	resb	4
 ___24cca4h:	resb	6
 ___24ccaah:	resb	2
 ___24ccach:	resb	2
@@ -1539,14 +1541,19 @@ ___24e480h:	resb	4
 ___24e484h:	resb	4
 global ___24e488h
 ___24e488h:	resb	4
-global ___24e48ch
-___24e48ch:	resb	4
-global ___24e490h
-___24e490h:	resb	4
-global ___24e494h
-___24e494h:	resb	4
-global ___24e498h
-___24e498h:	resb	10h
+global REGS0
+REGS0:
+global REGS0_EAX
+REGS0_EAX:	resb	4
+global REGS0_EBX
+REGS0_EBX:	resb	4
+global REGS0_ECX
+REGS0_ECX:	resb	4
+global REGS0_EDX
+REGS0_EDX:	resb	4
+REGS0_ESI:	resb	4
+REGS0_EDI:	resb	4
+REGS0_CFLAG:	resb	4
 global ___24e4a8h
 ___24e4a8h:	resb	4
 ___24e4ach:	resb	4
@@ -1562,8 +1569,8 @@ ___24e4c8h:	resb	4
 ___24e4cch:	resb	4
 global ___24e4d0h
 ___24e4d0h:	resb	4
-global ___24e4d4h
-___24e4d4h:	resb	4
+global RMSerialPtr
+RMSerialPtr:	resb	4
 ___24e4d8h:	resb	10h
 ___24e4e8h:	resb	12h
 ___24e4fah:	resb	12h

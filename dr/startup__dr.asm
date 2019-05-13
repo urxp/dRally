@@ -1,14 +1,14 @@
 	
 	extern 	__CHK	
-	extern 	___3e3cch	
-	extern 	___3e164h	
-	extern 	___3e1c4h	
+	extern 	chkcdromini__dr	
+	extern 	chkmemory__dr	
+	extern 	chkfiles__dr	
 	extern 	___1a202fh	
 	extern 	___199fa0h	
 	extern 	__STOSB	
 	extern 	___1a2148h	
 	extern 	___2415ch	
-	extern 	___3bb44h	
+	extern 	readConfig__dr	
 	extern 	___3aaf8h	
 	extern 	___2432c8h	
 	extern 	___1a1f3ch	
@@ -179,9 +179,9 @@ startup__dr:
 		mov     [esp+24h], edx
 		mov     [esp+0ch], edx
 		mov     [esp+18h], ecx
-		call    ___3e3cch
-		call    ___3e164h
-		call    ___3e1c4h
+		call    chkcdromini__dr
+		call    chkmemory__dr
+		call    chkfiles__dr
 		mov     ecx, 13h
 		mov     eax, ___1a202fh
 		mov     [___199fa0h], edx
@@ -190,14 +190,14 @@ startup__dr:
 		mov     esi, 0afh
 		mov     [___1a2148h], ah
 		call    ___2415ch
-		call    ___3bb44h
+		call    readConfig__dr
 		mov     eax, [___1a1f3ch]
 		mov     ebp, ___3aaf8h
 		inc     eax
 		mov     [___2432c8h], ebp
 		mov     [___1a1f3ch], eax
 		call    ___3c16ch
-		push    ___182bf8h
+		push    ___182bf8h 			;; "Loading music & ..."
 		mov     [esp+24h], esi
 		call    printf__clib3r
 		add     esp, byte 4
@@ -258,7 +258,7 @@ ___3e873h:
 		movsd   
 		movsw   
 ___3e88bh:
-		mov     eax, 46ch
+		mov     eax, 46ch		;; BIOS tick count
 		mov     eax, [eax]
 		call    srand__clib3r
 		call    ___606dfh
