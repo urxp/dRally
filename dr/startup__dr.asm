@@ -11,17 +11,17 @@
 	extern 	readConfig__dr	
 	extern 	___3aaf8h	
 	extern 	___2432c8h	
-	extern 	___1a1f3ch	
-	extern 	___3c16ch	
+	extern 	TimesPlayed	
+	extern 	writeConfig__dr	
 	extern 	___182bf8h	
 	extern 	printf__clib3r	
 	extern 	___181c9ch	
-	extern 	___3d908h	
+	extern 	intro__anim	
 	extern 	___181ca8h	
 	extern 	___64864h	
-	extern 	___24cc58h	
+	extern 	ConfigMusicVolume	
 	extern 	___6572ch	
-	extern 	___24cc54h	
+	extern 	ConfigSFXVolume	
 	extern 	___65770h	
 	extern 	___658b8h	
 	extern 	___65990h	
@@ -32,7 +32,7 @@
 	extern 	___196abdh	
 	extern 	___1a2012h	
 	extern 	___196abeh	
-	extern 	___19bd58h	
+	extern 	Gamepad	
 	extern 	___1a2013h	
 	extern 	___196abfh	
 	extern 	___196ab8h	
@@ -41,7 +41,7 @@
 	extern 	___596f0h	
 	extern 	___186cc6h	
 	extern 	___181c4ch	
-	extern 	___196a90h	
+	extern 	ToneDialing	
 	extern 	___187432h	
 	extern 	___1811c8h	
 	extern 	srand__clib3r	
@@ -62,10 +62,10 @@
 	extern 	___2b318h	
 	extern 	___5e0f9h	
 	extern 	___1a1100h	
-	extern 	___1a112ch	
+	extern 	VGABufferPtr_0	
 	extern 	___146c4h	
 	extern 	___180694h		
-	extern 	___5994ch	
+	extern 	lastScanCode__keyboard	
 	extern 	___22a80h	
 	extern 	___182de4h	
 	extern 	strcmp__clib3r	
@@ -113,19 +113,19 @@
 	extern 	___1a1ef4h	
 	extern 	___65710h		
 	extern 	___12dc4h	
-	extern 	___3e4a0h	
+	extern 	chkcdrom__dr	
 	extern 	___13248h	
 	extern 	___182db8h	
 	extern 	___185c0bh	
 	extern 	___1a1108h	
-	extern 	___12e78h	
+	extern 	renderTextToBuffer__video	
 	extern 	___185ba9h	
 	extern 	___1a10cch	
-	extern 	___13bd4h		
+	extern 	updateScreen_TBD		
 	extern 	___1854bch	
-	extern 	___654d4h	
-	extern 	___59b3ch	
-	extern 	___2ab50h	
+	extern 	playSFX__sound	
+	extern 	nullScanCode__keyboard	
+	extern 	delay_TBD	
 	extern 	___194a8h	
 	extern 	___1e888h	
 	extern 	___218b4h	
@@ -156,7 +156,7 @@ section @text
 
 ___3e700h:
 dd	___3ef4dh
-dd	___3ee58h
+dd	@cdchk
 dd	___3ef4dh
 dd	___3ef57h
 dd	___3ef5eh
@@ -191,30 +191,30 @@ startup__dr:
 		mov     [___1a2148h], ah
 		call    ___2415ch
 		call    readConfig__dr
-		mov     eax, [___1a1f3ch]
+		mov     eax, [TimesPlayed]
 		mov     ebp, ___3aaf8h
 		inc     eax
 		mov     [___2432c8h], ebp
-		mov     [___1a1f3ch], eax
-		call    ___3c16ch
+		mov     [TimesPlayed], eax
+		call    writeConfig__dr
 		push    ___182bf8h 			;; "Loading music & ..."
 		mov     [esp+24h], esi
 		call    printf__clib3r
 		add     esp, byte 4
 		mov     ebx, 2
-		mov     ecx, ___181c9ch
-		call    ___3d908h
+		mov     ecx, ___181c9ch		;; "MEN-SAM.CMF"
+		call    intro__anim
 		push    byte 5
-		mov     edx, ___181ca8h
+		mov     edx, ___181ca8h		;; "MEN-MUS.CMF"
 		mov     eax, 1
 		call    ___64864h
-		mov     eax, [___24cc58h]
+		mov     eax, [ConfigMusicVolume]
 		call    ___6572ch
-		mov     eax, [___24cc54h]
+		mov     eax, [ConfigSFXVolume]
 		call    ___65770h
-		mov     eax, 2d00h
+		mov     eax, 2d00h			;; 11520
 		call    ___658b8h
-		mov     eax, 5622h
+		mov     eax, 5622h			;; 22050
 		call    ___65990h
 		call    ___648d8h
 		mov     eax, 1
@@ -225,7 +225,7 @@ startup__dr:
 		mov     edx, 4
 		mov     [___1a2012h], al
 		mov     al, [___196abeh]
-		mov     ebx, [___19bd58h]
+		mov     ebx, [Gamepad]
 		mov     [___1a2013h], al
 		mov     al, [___196abfh]
 		mov     [___196ab8h], edx
@@ -237,7 +237,7 @@ startup__dr:
 ___3e847h:
 		mov     ecx, 6
 		mov     edi, ___186cc6h
-		mov     esi, ___181c30h
+		mov     esi, ___181c30h		;; "Gamepad/Joystick enabled"
 		call    ___596f0h
 		rep movsd   
 		movsb   
@@ -245,14 +245,14 @@ ___3e847h:
 ___3e860h:
 		mov     ecx, 6
 		mov     edi, ___186cc6h
-		mov     esi, ___181c4ch
+		mov     esi, ___181c4ch		;; "Gamepad/Joystick disabled"
 		rep movsd   
 		movsw   
 ___3e873h:
-		cmp     dword [___196a90h], byte 0
+		cmp     dword [ToneDialing], byte 0
 		jne     ___3e88bh
 		mov     edi, ___187432h
-		mov     esi, ___1811c8h
+		mov     esi, ___1811c8h		;; "Pulse Dialing"
 		movsd   
 		movsd   
 		movsd   
@@ -325,7 +325,7 @@ ___3e88bh:
 		mov     ecx, 4b000h
 		call    ___11564h
 		mov     esi, [___1a1138h]
-		mov     edi, [___1a112ch]
+		mov     edi, [VGABufferPtr_0]
 		push    edi
 		mov     eax, ecx
 		shr     ecx, 2
@@ -541,7 +541,7 @@ ___3eba1h:
 ___3ec59h:
 		mov     ecx, 2c380h
 		mov     esi, [___1a1138h]
-		mov     edi, [___1a112ch]
+		mov     edi, [VGABufferPtr_0]
 		add     esi, 0d200h
 		add     edi, 0d200h
 		mov     edx, 1
@@ -649,7 +649,7 @@ ___3ecf0h:
 		rep movsb   
 		pop     edi
 		mov     eax, [___1a1100h]
-		mov     [___1a112ch], eax
+		mov     [VGABufferPtr_0], eax
 		mov     eax, [___1a10e4h]
 		mov     [___1a1124h], eax
 ___3edeah:
@@ -659,7 +659,7 @@ ___3edeah:
 		test    ebx, ebx
 		jne     ___3ee31h
 		mov     eax, [___1a1100h]
-		mov     [___1a112ch], eax
+		mov     [VGABufferPtr_0], eax
 		mov     eax, 0ffffffffh
 		call    ___3a7e0h
 		call    ___649a8h
@@ -680,10 +680,10 @@ ___3ee3fh:
 		cmp     eax, byte 7
 		ja      ___3efd1h
 		jmp     dword [cs:eax*4+___3e700h]
-___3ee58h:
-		call    ___3e4a0h
+@cdchk:
+		call    chkcdrom__dr
 		test    eax, eax
-		jne     ___3ef43h
+		jne     @cdchk_ok
 		mov     ecx, 61h
 		xor     edx, edx
 		mov     ebx, 1e4h
@@ -693,59 +693,59 @@ ___3ee58h:
 		mov     eax, [esp+1ch]
 		call    ___13248h
 		mov     ecx, [esp+10h]
-		mov     ebx, ___182db8h
+		mov     ebx, ___182db8h			;; " ... insert cd-rom"
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
-		call    ___12e78h
+		call    renderTextToBuffer__video
 		mov     ecx, [esp+14h]
-		mov     ebx, ___180694h
+		mov     ebx, ___180694h			;; "CONTINUE"
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10cch]
-		call    ___12e78h
+		call    renderTextToBuffer__video
 		mov     edx, [esp+4]
 		mov     eax, ebp
-		call    ___13bd4h
+		call    updateScreen_TBD
 		call    ___12cb8h
 		mov     esi, 1dh
-___3eecah:
+@cdchk_failed:
 		push    8000h
 		mov     eax, [___1854bch]
-		mov     ecx, [___24cc54h]
+		mov     ecx, [ConfigSFXVolume]
 		mov     edx, esi
 		push    eax
 		xor     ebx, ebx
 		mov     eax, 1
-		call    ___654d4h
-		call    ___5994ch
-		call    ___59b3ch
+		call    playSFX__sound
+		call    lastScanCode__keyboard
+		call    nullScanCode__keyboard
 		xor     bh, bh
-___3eef5h:
-		cmp     bh, 1ch
-		je      ___3ef22h
-		cmp     bh, 9ch
-		je      ___3ef22h
-		call    ___5994ch
+@cdchk_wait:
+		cmp     bh, 1ch			;; KEY_ENTER
+		je      @cdchk_repeat
+		cmp     bh, 9ch			;; KEYPAD_ENTER
+		je      @cdchk_repeat
+		call    lastScanCode__keyboard
 		mov     bl, al
 		mov     edx, [esp+4]
 		mov     bh, al
-		call    ___2ab50h
-		call    ___2ab50h
+		call    delay_TBD
+		call    delay_TBD
 		mov     eax, ebp
-		call    ___13bd4h
-		cmp     bl, 1
-		jne     ___3eef5h
-___3ef22h:
-		call    ___5994ch
-		call    ___59b3ch
-		call    ___3e4a0h
+		call    updateScreen_TBD
+		cmp     bl, 1				;; KEY_ESC
+		jne     @cdchk_wait
+@cdchk_repeat:
+		call    lastScanCode__keyboard
+		call    nullScanCode__keyboard
+		call    chkcdrom__dr
 		test    eax, eax
-		jne     ___3ef3ah
-		cmp     bh, 1
-		jne     ___3eecah
-___3ef3ah:
-		cmp     bh, 1
+		jne     @cdchk_repeat_ok
+		cmp     bh, 1				;; KEY_ESC
+		jne     @cdchk_failed
+@cdchk_repeat_ok:
+		cmp     bh, 1				;; KEY_ESC
 		je      ___3efd1h
-___3ef43h:
+@cdchk_ok:
 		call    ___194a8h
 		jmp     ___3efd1h
 ___3ef4dh:
@@ -776,10 +776,10 @@ ___3ef7ch:
 		mov     eax, 0aah
 		call    ___13248h
 		mov     ecx, 208fdh
-		mov     ebx, ___182de4h
+		mov     ebx, ___182de4h			;; "Are you sure?"
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
-		call    ___12e78h
+		call    renderTextToBuffer__video
 		lea     ecx, [esp+0ch]
 		mov     ebx, 1
 		mov     edx, 0eeh
@@ -792,7 +792,7 @@ ___3efdch:
 		cmp     dword [___19bd60h], byte 0
 		je      ___3f1bah
 		mov     edx, ___180ba0h
-		mov     eax, ___186a6eh
+		mov     eax, ___186a6eh			;; "Join An Existing Game"
 		call    strcmp__clib3r
 		mov     edx, [___1a1ef8h]
 		mov     ecx, eax
@@ -973,7 +973,7 @@ ___3f19dh:
 		mov     [___24e4d0h], esi
 ___3f1bah:
 		call    ___3d79ch
-		call    ___3c16ch
+		call    writeConfig__dr
 		call    ___12200h
 		call    ___12a54h
 		call    ___24ec0h

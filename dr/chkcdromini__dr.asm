@@ -20,21 +20,21 @@ section @text
 global chkcdromini__dr
 chkcdromini__dr:
 		push    20h
-		call    near __CHK
+		call    __CHK
 		push    ecx
 		push    edx
 		push    esi
 		push    edi
 		mov     edx, ___180134h         ;; "rb"
 		mov     eax, ___182bbch         ;; "CDROM.INI"
-		call    near fopen__clib3r
+		call    fopen__clib3r
 		test    eax, eax
-		je      short @nocdromini
+		je      @nocdromini
 		push    cdrom_ini
 		push    ___182bc8h              ;; "%s"
 		push    eax
-		call    near fscanf__clib3r
-		add     esp, byte 0ch
+		call    fscanf__clib3r
+		add     esp, 0ch
 		mov     edi, cdrom_ini
 		sub     ecx, ecx
 		dec     ecx
@@ -43,7 +43,7 @@ chkcdromini__dr:
 		not     ecx
 		dec     ecx
 		cmp     byte [ecx+cdrom_ini-1], 5ch  ;; '\'
-		je      short @ok
+		je      @ok
 		mov     esi, ___182bcch             ;; "\"
 		mov     edi, cdrom_ini
 		push    edi
@@ -56,13 +56,13 @@ ___3e42bh:
 		mov     al, [esi]
 		mov     [edi], al
 		cmp     al, 0
-		je      short ___3e443h
+		je      ___3e443h
 		mov     al, [esi+1]
-		add     esi, byte 2
+		add     esi, 2
 		mov     [edi+1], al
-		add     edi, byte 2
+		add     edi, 2
 		cmp     al, 0
-		jne     short ___3e42bh
+		jne     ___3e42bh
 ___3e443h:
 		pop     edi
 		pop     edi
@@ -72,12 +72,12 @@ ___3e443h:
 		retn    
 @nocdromini:
 		push    ___182bd0h
-		call    near printf__clib3r
-		add     esp, byte 4
-		call    near restore__keyboard
-		call    near ___5ec04h
+		call    printf__clib3r
+		add     esp, 4
+		call    restore__keyboard
+		call    ___5ec04h
 		mov     eax, 70h
-		call    near exit__clib3r
+		call    exit__clib3r
 @ok:
 		pop     edi
 		pop     esi

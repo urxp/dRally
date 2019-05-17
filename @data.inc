@@ -968,7 +968,7 @@ ___181c90h:
 db	74h,72h,30h,2dh,6dh,75h,73h,2eh,63h,6dh,66h,0
 global ___181c9ch
 ___181c9ch:
-db	4dh,45h,4eh,2dh,53h,41h,4dh,2eh,43h,4dh,46h,0
+db	"MEN-SAM.CMF",0
 global ___181ca8h
 ___181ca8h:
 db	4dh,45h,4eh,2dh,4dh,55h,53h,2eh,43h,4dh,46h,0
@@ -1552,6 +1552,7 @@ global ___182bd0h
 ___182bd0h:
 db	45h,72h,72h,6fh,72h,20h,72h,65h,61h,64h,69h,6eh,67h,20h,43h,44h
 db	52h,4fh,4dh,2eh,49h,4eh,49h,20h,66h,69h,6ch,65h,21h,0ah,0,0
+global ___182bf0h
 ___182bf0h:
 db	44h,52h,2eh,49h,44h,46h,0,0
 global ___182bf8h
@@ -8109,8 +8110,8 @@ db	0,0,0,0
 global GXType
 GXType:
 db	0,0,0,0
-global ___196a90h
-___196a90h:
+global ToneDialing
+ToneDialing:
 db	1,0,0,0
 ___196a94h:
 db	1,0,0,0
@@ -9245,9 +9246,9 @@ __argv:
 db	0,0,0,0
 ___199fe8h:
 db	0,0,1,0
-___199fech:
+MusicVolume:
 db	0,0,1,0
-___199ff0h:
+SFXVolume:
 db	0,0,1,0
 ___199ff4h:
 db	0,0,0,0
@@ -9387,7 +9388,7 @@ ___19a279h:
 db	0
 ___19a27ah:
 db	0
-___19a27bh:
+IsSoundEnabled:
 db	0
 ___19a27ch:
 db	0

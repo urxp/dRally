@@ -9,31 +9,31 @@ section @text
 global allocateDOSMemoryBlock__dpmi
 allocateDOSMemoryBlock__dpmi:
 		push    28h
-		call    near __CHK
+		call    __CHK
 		push    ebx
 		push    ecx
-		sub     esp, byte 1ch
+		sub     esp, 1ch
 		mov     ecx, edx
 		mov     dword [esp], 100h
-		add     eax, byte 0fh
+		add     eax, 0fh
 		shr     eax, 4
 		mov     [esp+4], eax
 		mov     ebx, esp
 		mov     edx, esp
 		mov     eax, 31h
-		call    near int386__clib3r
+		call    int386__clib3r
 		mov     eax, [esp+0ch]
 		mov     [ecx], eax
-		cmp     dword [esp+18h], byte 0
-		je      short ___61b41h
+		cmp     dword [esp+18h], 0
+		je      @ok
 		xor     eax, eax
-		jmp     short ___61b4ch
-___61b41h:
+		jmp     @failed
+@ok:
 		mov     eax, [esp]
 		and     eax, 0ffffh
 		shl     eax, 4
-___61b4ch:
-		add     esp, byte 1ch
+@failed:
+		add     esp, 1ch
 		pop     ecx
 		pop     ebx
 		retn

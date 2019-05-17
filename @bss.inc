@@ -7,8 +7,8 @@ global ___19bd4ch
 ___19bd4ch:	resb	8
 global ___19bd54h
 ___19bd54h:	resb	4
-global ___19bd58h
-___19bd58h:	resb	8
+global Gamepad
+Gamepad:	resb	8
 global ___19bd60h
 ___19bd60h:	resb	4
 ___19bd64h:	resb	2
@@ -511,7 +511,7 @@ ___1a0ec8h:	resb	0ch
 ___1a0ed4h:	resb	8
 ___1a0edch:	resb	0ch
 ___1a0ee8h:	resb	8
-Sound_Address:	resb	4
+CFGSound_Address:	resb	4
 ___1a0ef4h:	resb	3
 ___1a0ef7h:	resb	1
 ___1a0ef8h:	resb	1
@@ -631,8 +631,8 @@ ___1a1120h:	resb	4
 global ___1a1124h
 ___1a1124h:	resb	4
 ___1a1128h:	resb	4
-global ___1a112ch
-___1a112ch:	resb	4
+global VGABufferPtr_0
+VGABufferPtr_0:	resb	4
 ___1a1130h:	resb	4
 ___1a1134h:	resb	4
 global ___1a1138h
@@ -721,8 +721,8 @@ ___1a1f2ch:	resb	4
 ___1a1f30h:	resb	4
 ___1a1f34h:	resb	4
 ___1a1f38h:	resb	4
-global ___1a1f3ch
-___1a1f3ch:	resb	3
+global TimesPlayed
+TimesPlayed:	resb	3
 ___1a1f3fh:	resb	0eh
 global ___1a1f4dh
 ___1a1f4dh:	resb	1
@@ -760,9 +760,9 @@ global ___1a202fh
 ___1a202fh:	resb	12h
 ___1a2041h:	resb	1
 ___1a2042h:	resb	101h
-Sound_CardType:	resb	1
-Sound_IRQ:	resb	1
-Sound_DMA:	resb	2
+CFGSound_CardType:	resb	1
+CFGSound_IRQ:	resb	1
+CFGSound_DMA:	resb	2
 ___1a2147h:	resb	1
 global ___1a2148h
 ___1a2148h:	resb	1
@@ -1447,10 +1447,10 @@ ___243e80h:	resb	14h
 ___243e94h:	resb	7ccch
 ___24bb60h:	resb	0dh
 ___24bb6dh:	resb	10e7h
-global ___24cc54h
-___24cc54h:	resb	4
-global ___24cc58h
-___24cc58h:	resb	0ch
+global ConfigSFXVolume
+ConfigSFXVolume:	resb	4
+global ConfigMusicVolume
+ConfigMusicVolume:	resb	0ch
 ___24cc64h:	resb	8
 ___24cc6ch:	resb	10h
 ___24cc7ch:	resb	4
