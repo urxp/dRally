@@ -58,7 +58,7 @@
 	extern 	___3d38ch	
 	extern 	___3d890h	
 	extern 	___1a1f4fh	
-	extern 	___1a1f63h	
+	extern 	RowBox0Colors_R5	
 	extern 	___2b318h	
 	extern 	___5e0f9h	
 	extern 	___1a1100h	
@@ -66,7 +66,7 @@
 	extern 	___146c4h	
 	extern 	___180694h		
 	extern 	lastScanCode__keyboard	
-	extern 	___22a80h	
+	extern 	hallOfFameMenu__dr	
 	extern 	___182de4h	
 	extern 	strcmp__clib3r	
 	extern 	___180864h	
@@ -84,18 +84,18 @@
 	extern 	___1a020ch	
 	extern 	___1a0fb8h	
 	extern 	___11564h	
-	extern 	___1a1138h
+	extern 	GXBackBuffer
 	extern 	___180130h	
 	extern 	___1a0220h	
 	extern 	___1a01e0h	
-	extern 	___1a116ch	
+	extern 	RowBoxBuffers	
 	extern 	___1a1f4dh	
 	extern 	___182d08h	
 	extern 	___182d3ch	
 	extern 	___1a1f4eh	
 	extern 	___182d78h		
-	extern 	___135fch	
-	extern 	___23230h	
+	extern 	frameFooter__dr	
+	extern 	footer__dr	
 	extern 	___13710h	
 	extern 	___196d84h	
 	extern 	___185a2ch	
@@ -116,8 +116,8 @@
 	extern 	chkcdrom__dr	
 	extern 	___13248h	
 	extern 	___182db8h	
-	extern 	___185c0bh	
-	extern 	___1a1108h	
+	extern 	Font0Props	
+	extern 	WhiteFont0Ptr	
 	extern 	renderTextToBuffer__video	
 	extern 	___185ba9h	
 	extern 	___1a10cch	
@@ -126,11 +126,11 @@
 	extern 	playSFX__sound	
 	extern 	nullScanCode__keyboard	
 	extern 	delay_TBD	
-	extern 	___194a8h	
-	extern 	___1e888h	
-	extern 	___218b4h	
-	extern 	___3d4f0h	
-	extern 	___3da48h	
+	extern 	startRacingMenu__dr	
+	extern 	multiplayerRaceMenu__dr	
+	extern 	configureMenu__dr	
+	extern 	creditsMenu__dr	
+	extern 	showPreviewMenu__dr	
 	extern 	___148cch	
 	extern 	___19bd60h	
 	extern 	___180ba0h	
@@ -154,15 +154,15 @@
 
 section @text
 
-___3e700h:
-dd	___3ef4dh
-dd	@cdchk
-dd	___3ef4dh
-dd	___3ef57h
-dd	___3ef5eh
-dd	___3ef6eh
-dd	___3ef75h
-dd	___3ef7ch
+@drmainmenu:
+dd	@drmultiplayer
+dd	@drstartracing
+dd	@drmultiplayer
+dd	@drconfigure
+dd	@drhof
+dd	@drcredits
+dd	@drpreview
+dd	@drexit
 global startup__dr
 startup__dr:
 		push    58h
@@ -324,7 +324,7 @@ ___3e88bh:
 		fstp    dword [esp]
 		mov     ecx, 4b000h
 		call    ___11564h
-		mov     esi, [___1a1138h]
+		mov     esi, [GXBackBuffer]
 		mov     edi, [VGABufferPtr_0]
 		push    edi
 		mov     eax, ecx
@@ -347,7 +347,7 @@ ___3e88bh:
 		xor     eax, eax
 ___3e9dfh:
 		mov     dl, [___180130h]
-		mov     [eax+___1a116ch], dl
+		mov     [eax+RowBoxBuffers], dl
 		mov     edx, [esp+8]
 		inc     edx
 		xor     bl, bl
@@ -361,9 +361,9 @@ ___3e9dfh:
 		mov     esi, ___182d08h
 		mov     bh, 1
 		rep movsd   
-		mov     edx, ___1a116ch
+		mov     edx, RowBoxBuffers
 		xor     ecx, ecx
-		mov     [___1a1f63h], bh
+		mov     [RowBox0Colors_R5], bh
 		mov     [esp+8], ecx
 		lea     ecx, [edx+96h]
 ___3ea30h:
@@ -400,8 +400,8 @@ ___3ea4dh:
 		movsw   
 		mov     cl, 1
 		xor     ebp, ebp
-		mov     [___1a1f63h], cl
-		mov     ecx, ___1a116ch
+		mov     [RowBox0Colors_R5], cl
+		mov     ecx, RowBoxBuffers
 		mov     [esp+8], ebp
 		lea     edx, [ecx+96h]
 ___3eaa4h:
@@ -431,11 +431,11 @@ ___3eac1h:
 		mov     [esp+8], eax
 		cmp     eax, byte 15h
 		jl      ___3eaa4h
-		mov     byte [___1a1f63h], 1
+		mov     byte [RowBox0Colors_R5], 1
 		xor     ecx, ecx
 		mov     al, [___180130h]
 		mov     [esp+8], ecx
-		mov     ecx, ___1a116ch
+		mov     ecx, RowBoxBuffers
 		mov     [___1a1dbah], al
 		lea     edx, [ecx+96h]
 ___3eb10h:
@@ -473,8 +473,8 @@ ___3eb2dh:
 		rep movsd   
 		movsw   
 		movsb   
-		mov     [___1a1f63h], al
-		mov     ecx, ___1a116ch
+		mov     [RowBox0Colors_R5], al
+		mov     ecx, RowBoxBuffers
 		mov     [esp+8], ebp
 		lea     edx, [ecx+96h]
 ___3eb84h:
@@ -510,10 +510,10 @@ ___3eba1h:
 		mov     [___1a1dbah], al
 		mov     ah, 1
 		mov     edx, 173h
-		mov     [___1a1f63h], ah
+		mov     [RowBox0Colors_R5], ah
 		xor     eax, eax
-		call    ___135fch
-		call    ___23230h
+		call    frameFooter__dr
+		call    footer__dr
 		cmp     dword [esp+0ch], byte 0
 		jne     ___3efdch
 		mov     eax, [esp+20h]
@@ -540,7 +540,7 @@ ___3eba1h:
 		mov     [esp+14h], eax
 ___3ec59h:
 		mov     ecx, 2c380h
-		mov     esi, [___1a1138h]
+		mov     esi, [GXBackBuffer]
 		mov     edi, [VGABufferPtr_0]
 		add     esi, 0d200h
 		add     edi, 0d200h
@@ -679,8 +679,8 @@ ___3ee3fh:
 		inc     eax
 		cmp     eax, byte 7
 		ja      ___3efd1h
-		jmp     dword [cs:eax*4+___3e700h]
-@cdchk:
+		jmp     dword [cs:eax*4+@drmainmenu]
+@drstartracing:
 		call    chkcdrom__dr
 		test    eax, eax
 		jne     @cdchk_ok
@@ -694,8 +694,8 @@ ___3ee3fh:
 		call    ___13248h
 		mov     ecx, [esp+10h]
 		mov     ebx, ___182db8h			;; " ... insert cd-rom"
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    renderTextToBuffer__video
 		mov     ecx, [esp+14h]
 		mov     ebx, ___180694h			;; "CONTINUE"
@@ -746,26 +746,26 @@ ___3ee3fh:
 		cmp     bh, 1				;; KEY_ESC
 		je      ___3efd1h
 @cdchk_ok:
-		call    ___194a8h
+		call    startRacingMenu__dr
 		jmp     ___3efd1h
-___3ef4dh:
-		call    ___1e888h
+@drmultiplayer:
+		call    multiplayerRaceMenu__dr
 		jmp     ___3efd1h
-___3ef57h:
-		call    ___218b4h
+@drconfigure:
+		call    configureMenu__dr
 		jmp     ___3efd1h
-___3ef5eh:
+@drhof:
 		mov     edi, 1
-		call    ___22a80h
+		call    hallOfFameMenu__dr
 		mov     [esp+24h], edi
 		jmp     ___3efd1h
-___3ef6eh:
-		call    ___3d4f0h
+@drcredits:
+		call    creditsMenu__dr
 		jmp     ___3efd1h
-___3ef75h:
-		call    ___3da48h
+@drpreview:
+		call    showPreviewMenu__dr
 		jmp     ___3efd1h
-___3ef7ch:
+@drexit:
 		mov     ecx, 50h
 		xor     edx, edx
 		xor     eax, eax
@@ -777,8 +777,8 @@ ___3ef7ch:
 		call    ___13248h
 		mov     ecx, 208fdh
 		mov     ebx, ___182de4h			;; "Are you sure?"
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    renderTextToBuffer__video
 		lea     ecx, [esp+0ch]
 		mov     ebx, 1
@@ -849,7 +849,7 @@ ___3f066h:
 		jne     ___3f066h
 ___3f07eh:
 		pop     edi
-		mov     [___1a1f63h], dh
+		mov     [RowBox0Colors_R5], dh
 		mov     eax, edi
 		mov     edx, 64h
 		call    ___23488h
@@ -904,7 +904,7 @@ ___3f0ebh:
 ___3f103h:
 		pop     edi
 		mov     ecx, [___24e4d0h]
-		mov     [___1a1f63h], bl
+		mov     [RowBox0Colors_R5], bl
 		cmp     ecx, byte 2
 		jne     ___3f123h
 		mov     ebx, 6
@@ -961,7 +961,7 @@ ___3f177h:
 		jne     ___3f177h
 ___3f18fh:
 		pop     edi
-		mov     [___1a1f63h], dl
+		mov     [RowBox0Colors_R5], dl
 		mov     eax, edi
 		mov     edx, 64h
 ___3f19dh:

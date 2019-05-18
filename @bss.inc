@@ -616,13 +616,15 @@ ___1a10ech:	resb	4
 ___1a10f0h:	resb	4
 ___1a10f4h:	resb	4
 ___1a10f8h:	resb	4
-___1a10fch:	resb	4
+global GreyFont0Ptr
+GreyFont0Ptr:	resb	4
 global ___1a1100h
 ___1a1100h:	resb	4
 ___1a1104h:	resb	4
-global ___1a1108h
-___1a1108h:	resb	4
-___1a110ch:	resb	4
+global WhiteFont0Ptr
+WhiteFont0Ptr:	resb	4
+global LightBlueFont0Ptr
+LightBlueFont0Ptr:	resb	4
 ___1a1110h:	resb	4
 ___1a1114h:	resb	4
 ___1a1118h:	resb	4
@@ -635,8 +637,8 @@ global VGABufferPtr_0
 VGABufferPtr_0:	resb	4
 ___1a1130h:	resb	4
 ___1a1134h:	resb	4
-global ___1a1138h
-___1a1138h:	resb	4
+global GXBackBuffer
+GXBackBuffer:	resb	4
 ___1a113ch:	resb	4
 ___1a1140h:	resb	4
 ___1a1144h:	resb	4
@@ -652,8 +654,8 @@ ___1a1168h:	resb	1
 ___1a1169h:	resb	1
 ___1a116ah:	resb	1
 ___1a116bh:	resb	1
-global ___1a116ch
-___1a116ch:	resb	9f6h
+global RowBoxBuffers
+RowBoxBuffers:	resb	9f6h
 ___1a1b62h:	resb	96h
 ___1a1bf8h:	resb	96h
 ___1a1c8eh:	resb	96h
@@ -730,13 +732,16 @@ global ___1a1f4eh
 ___1a1f4eh:	resb	1
 global ___1a1f4fh
 ___1a1f4fh:	resb	0fh
-___1a1f5eh:	resb	1
-___1a1f5fh:	resb	1
-___1a1f60h:	resb	1
-___1a1f61h:	resb	1
-___1a1f62h:	resb	1
-global ___1a1f63h
-___1a1f63h:	resb	1
+global RowBox0Colors
+RowBox0Colors:	
+RowBox0Colors_R0:  resb	1
+RowBox0Colors_R1:	resb	1
+RowBox0Colors_R2:	resb	1
+RowBox0Colors_R3:	resb	1
+global RowBox0Colors_R4
+RowBox0Colors_R4:	resb	1
+global RowBox0Colors_R5
+RowBox0Colors_R5:	resb	1
 ___1a1f64h:	resb	1
 ___1a1f65h:	resb	1
 ___1a1f66h:	resb	1

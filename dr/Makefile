@@ -2,7 +2,7 @@ TARGET = dr
 
 LIB_NAME = $(TARGET).lib
 
-OBJS = main.obj startup__dr.obj chkcdrom__dr.obj chkcdromini__dr.obj chkfiles__dr.obj
+OBJS = main.obj startup__dr.obj chkcdrom__dr.obj chkcdromini__dr.obj chkfiles__dr.obj footer__dr.obj
 
 $(TARGET): $(LIB_NAME) $(OBJS)
 

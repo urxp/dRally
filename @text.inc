@@ -407,7 +407,7 @@ ___10490h:
 		mov     ecx, eax
 		mov     dl, [esp+4]
 		mov     edi, eax
-		call    near ___5ed38h
+		call    near allocMemoryLock
 		mov     esi, eax
 		mov     ebp, eax
 		mov     edx, eax
@@ -738,13 +738,13 @@ ___10911h:
 		mov     bh, [edx+eax*1]
 		mov     eax, 1001h
 		mov     [___1859d0h], ecx
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a1f18h], eax
 		mov     eax, 1001h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a1f14h], eax
 		mov     eax, 4004h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a1f24h], eax
 		xor     eax, eax
 		mov     al, bh
@@ -950,11 +950,11 @@ ___10c03h:
 ___10c1bh:
 		pop     edi
 		mov     eax, 0fa00h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a1f20h], eax
 		mov     eax, 0fa00h
 		mov     bh, [esp+408h]
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a1f0ch], eax
 		test    bh, bh
 		je      short ___10c62h
@@ -1049,11 +1049,11 @@ ___10d41h:
 		mov     dl, bl
 		add     eax, edx
 		mov     [___1a1f00h], eax
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a1f10h], eax
 		mov     eax, [___1a1f00h]
 		xor     ecx, ecx
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     edi, [___1a1f00h]
 		mov     [___1a1f1ch], eax
 		test    edi, edi
@@ -1896,7 +1896,7 @@ ___117d4h:
 		push    4
 		call    near __CHK
 		mov     eax, 4b000h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [VGABufferPtr_0], eax
 		mov     [___1a1100h], eax
 		retn    
@@ -1912,155 +1912,155 @@ ___117f4h:
 		push    edi
 		push    ebp
 		mov     eax, 0a00h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a10d8h], eax
 		mov     eax, 0a00h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a10f0h], eax
 		mov     eax, 300h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a0fb8h], eax
 		mov     eax, 300h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a0fe0h], eax
 		mov     eax, 600h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a10c8h], eax
 		mov     eax, 8cah
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a10c4h], eax
 		mov     eax, 18000h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a10cch], eax
 		mov     eax, 6000h
-		call    near ___3f71ch
-		mov     [___1a10fch], eax
+		call    near allocMemSafe
+		mov     [GreyFont0Ptr], eax
 		mov     eax, 6000h
-		call    near ___3f71ch
-		mov     [___1a110ch], eax
+		call    near allocMemSafe
+		mov     [LightBlueFont0Ptr], eax
 		mov     eax, 6000h
-		call    near ___3f71ch
-		mov     [___1a1108h], eax
+		call    near allocMemSafe
+		mov     [WhiteFont0Ptr], eax
 		mov     eax, 1a28h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a10b8h], eax
-		mov     eax, 4b000h
-		call    near ___3f71ch
-		mov     [___1a1138h], eax
+		mov     eax, 4b000h 		;; 640x480
+		call    near allocMemSafe
+		mov     [GXBackBuffer], eax
 		mov     eax, 2e00h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a0fe8h], eax
 		mov     eax, 516ch
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a0fbch], eax
 		mov     eax, 19a20h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a0fd8h], eax
 		mov     eax, 22eh
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a0fcch], eax
 		mov     eax, 71ah
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a0fd0h], eax
 		mov     eax, 3bah
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a0fd4h], eax
 		mov     eax, 3fc0h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a0fech], eax
 		mov     eax, 3fc0h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a0fc4h], eax
 		mov     eax, 3fc0h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a0fe4h], eax
 		mov     eax, 71ah
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a0fdch], eax
 		mov     eax, 3bah
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a0fach], eax
 		mov     eax, 22eh
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a0fc8h], eax
 		mov     eax, 2f4h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a0fb0h], eax
 		mov     eax, 2f4h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a0ff0h], eax
 		mov     eax, 2f4h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a0fa8h], eax
 		mov     eax, 3a64h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a0fc0h], eax
 		mov     eax, 1e780h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a0fa4h], eax
 		mov     eax, 1000h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___19de70h], eax
 		mov     eax, 1000h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___19de74h], eax
 		mov     eax, 1000h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___19de78h], eax
 		mov     eax, 1000h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___19de7ch], eax
 		mov     eax, 1000h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___19de80h], eax
 		mov     eax, 1000h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___19de84h], eax
 		mov     eax, 1000h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___19de88h], eax
 		mov     eax, 1000h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___19de8ch], eax
 		mov     eax, 1000h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___19de90h], eax
 		mov     eax, 1000h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___19de94h], eax
 		mov     eax, 1000h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___19de98h], eax
 		mov     eax, 1000h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___19de9ch], eax
 		mov     eax, 1000h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___19dea0h], eax
 		mov     eax, 1000h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___19dea4h], eax
 		mov     eax, 1000h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___19dea8h], eax
 		mov     eax, 1000h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___19deach], eax
 		mov     eax, 1000h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___19deb0h], eax
 		mov     eax, 1000h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___19deb4h], eax
 		mov     eax, 1000h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___19deb8h], eax
 		mov     eax, 1000h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___19debch], eax
 		mov     eax, 1000h
 		mov     ebx, ___180310h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     edx, [___1a10c8h]
 		mov     [___1a0fb4h], eax
 		mov     eax, ___180144h
@@ -2086,7 +2086,7 @@ ___117f4h:
 		mov     eax, ___180144h
 		call    near read__bpa
 		push    ___1a54d0h
-		mov     ecx, [___1a1108h]
+		mov     ecx, [WhiteFont0Ptr]
 		push    ecx
 		call    near ___5905ch
 		mov     ebx, ___180340h
@@ -2094,7 +2094,7 @@ ___117f4h:
 		mov     eax, ___180144h
 		call    near read__bpa
 		push    ___1a54d0h
-		mov     esi, [___1a10fch]
+		mov     esi, [GreyFont0Ptr]
 		push    esi
 		call    near ___5905ch
 		mov     ebx, ___18034ch
@@ -2102,7 +2102,7 @@ ___117f4h:
 		mov     eax, ___180144h
 		call    near read__bpa
 		push    ___1a54d0h
-		mov     edi, [___1a110ch]
+		mov     edi, [LightBlueFont0Ptr]
 		push    edi
 		call    near ___5905ch
 		mov     ebx, ___180358h
@@ -2446,7 +2446,7 @@ ___117f4h:
 		mov     eax, ___180144h
 		call    near read__bpa
 		push    ___1a54d0h
-		mov     edi, [___1a1138h]
+		mov     edi, [GXBackBuffer]
 		push    edi
 		call    near ___5905ch
 		pop     ebp
@@ -2475,15 +2475,15 @@ ___12200h:
 		call    near ___3f77ch
 		mov     eax, [___1a10c4h]
 		call    near ___3f77ch
-		mov     eax, [___1a1138h]
+		mov     eax, [GXBackBuffer]
 		call    near ___3f77ch
 		mov     eax, [___1a10cch]
 		call    near ___3f77ch
-		mov     eax, [___1a10fch]
+		mov     eax, [GreyFont0Ptr]
 		call    near ___3f77ch
-		mov     eax, [___1a110ch]
+		mov     eax, [LightBlueFont0Ptr]
 		call    near ___3f77ch
-		mov     eax, [___1a1108h]
+		mov     eax, [WhiteFont0Ptr]
 		call    near ___3f77ch
 		mov     eax, [___1a10b8h]
 		call    near ___3f77ch
@@ -2578,117 +2578,117 @@ ___1240ch:
 		xor     edx, edx
 		mov     eax, 7530h
 		mov     [___1a1e68h], edx
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a1128h], eax
 		mov     eax, 1b18h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a10f8h], eax
 		mov     eax, 1100h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a1104h], eax
 		mov     eax, 5000h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a10d4h], eax
 		mov     eax, 2800h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a10bch], eax
 		mov     eax, 2800h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a10e8h], eax
 		mov     eax, 8700h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a10dch], eax
 		mov     eax, 2800h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a10ach], eax
 		mov     eax, 0aa00h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a10c0h], eax
 		mov     eax, 111ch
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a10ech], eax
 		mov     eax, 1900h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a10b4h], eax
 		mov     eax, 4e20h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a10f4h], eax
 		mov     eax, 18000h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a10d0h], eax
 		mov     eax, 18000h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a10e0h], eax
 		mov     eax, 2800h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a0ff8h], eax
 		mov     eax, 1500h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a10a4h], eax
 		mov     eax, 3800h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a1040h], eax
 		mov     eax, 3800h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a1044h], eax
 		mov     eax, 3800h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a1048h], eax
 		mov     eax, 3800h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a104ch], eax
 		mov     eax, 3800h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a1050h], eax
 		mov     eax, 3800h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a1054h], eax
 		mov     eax, 3800h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a1058h], eax
 		mov     eax, 3800h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a105ch], eax
 		mov     eax, 3800h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a1060h], eax
 		mov     eax, 3800h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a1064h], eax
 		mov     eax, 3800h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a1068h], eax
 		mov     eax, 3800h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a106ch], eax
 		mov     eax, 3800h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a1070h], eax
 		mov     eax, 3800h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a1074h], eax
 		mov     eax, 3800h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a1078h], eax
 		mov     eax, 3800h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a107ch], eax
 		mov     eax, 3800h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a1080h], eax
 		mov     eax, 3800h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a1084h], eax
 		mov     eax, 3800h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a1088h], eax
 		mov     eax, 3800h
 		xor     edi, edi
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a1030h], eax
 		mov     eax, 3800h
 		xor     esi, esi
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a1038h], eax
 ___12653h:
 		mov     ebx, ___18058ch
@@ -3363,7 +3363,7 @@ ___13094h:
 		mov     [esp+8], eax
 		mov     [esp+18h], edx
 		xor     ebx, ebx
-		mov     bl, [___185c0bh]
+		mov     bl, [Font0Props]
 		mov     [esp+14h], ebx
 		xor     ebx, ebx
 		mov     bl, [___185c0ch]
@@ -3409,7 +3409,7 @@ ___1311ch:
 		mov     esi, [esp+4]
 		sub     ecx, byte 20h
 		imul    ecx, esi
-		mov     esi, [___1a10fch]
+		mov     esi, [GreyFont0Ptr]
 		mov     edx, [esp+14h]
 		add     esi, ecx
 		mov     ecx, [esp]
@@ -3439,7 +3439,7 @@ ___13167h:
 		imul    ecx, edx
 		mov     eax, [esp+18h]
 		mov     ebx, [VGABufferPtr_0]
-		mov     esi, [___1a110ch]
+		mov     esi, [LightBlueFont0Ptr]
 		add     ebx, eax
 		mov     edx, [esp+14h]
 		add     esi, ecx
@@ -3471,7 +3471,7 @@ ___131b2h:
 		mov     esi, [esp+4]
 		sub     ecx, byte 20h
 		imul    ecx, esi
-		mov     esi, [___1a1108h]
+		mov     esi, [WhiteFont0Ptr]
 		mov     edx, [esp+14h]
 		add     esi, ecx
 		mov     ecx, [esp]
@@ -3866,8 +3866,8 @@ ___135f1h:
 		pop     esi
 		ret     4
 db	8bh,0c0h
-global ___135fch
-___135fch:
+global frameFooter__dr
+frameFooter__dr:
 		push    1ch
 		call    near __CHK
 		push    esi
@@ -3891,7 +3891,7 @@ ___135fch:
 		sub     ebx, byte 6
 		mov     [esp+8], edi
 ___13646h:
-		mov     esi, [___1a1138h]
+		mov     esi, [GXBackBuffer]
 		mov     edi, [VGABufferPtr_0]
 		mov     ecx, ebx
 		add     esi, edx
@@ -5229,13 +5229,13 @@ ___14720h:
 ___14722h:
 		cmp     edi, 708h
 		jle     short ___14731h
-		call    near ___3da48h
+		call    near showPreviewMenu__dr
 		xor     edi, edi
 ___14731h:
-		cmp     edx, byte 3bh
+		cmp     edx, byte 3bh			;; KEY_F1
 		jl      short ___1478ah
 		jle     near ___14848h
-		cmp     edx, 9ch
+		cmp     edx, 9ch				;; KEYPAD_ENTER
 		jl      short ___1476dh
 		jle     near ___1481fh
 		cmp     edx, 0c8h
@@ -5245,20 +5245,20 @@ ___14731h:
 		je      near ___1487fh
 		jmp     near ___148a9h
 ___1476dh:
-		cmp     edx, byte 48h
+		cmp     edx, byte 48h			;; KEY_UP
 		jl      near ___148a9h
 		jle     near ___14858h
-		cmp     edx, byte 50h
+		cmp     edx, byte 50h			;; KEY_DOWN
 		je      near ___1487fh
 		jmp     near ___148a9h
 ___1478ah:
-		cmp     edx, byte 1
+		cmp     edx, byte 1				;; KEY_ESC
 		jl      near ___148a9h
 		jle     short ___147aeh
-		cmp     edx, byte 1ch
+		cmp     edx, byte 1ch			;; KEY_ENTER
 		jl      near ___148a9h
 		jle     near ___1481fh
-		cmp     edx, byte 39h
+		cmp     edx, byte 39h			;; KEY_SPACE
 		je      short ___1481fh
 		jmp     near ___148a9h
 ___147aeh:
@@ -5372,20 +5372,20 @@ ___148cch:
 		sub     ecx, 1162h
 		cmp     edi, byte 1
 		jne     short ___1493eh
-		mov     ebx, ___18068ch
+		mov     ebx, STRING_YES			;; "YES"
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10cch]
 		call    near renderTextToBuffer__video
-		mov     ebx, ___180690h
+		mov     ebx, STRING_NO			;; "NO"
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10e0h]
 		jmp     short ___14961h
 ___1493eh:
-		mov     ebx, ___18068ch
+		mov     ebx, STRING_YES			;; "YES"
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10e0h]
 		call    near renderTextToBuffer__video
-		mov     ebx, ___180690h
+		mov     ebx, STRING_NO			;; "NO"
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10cch]
 ___14961h:
@@ -5460,18 +5460,18 @@ ___14a05h:
 		mov     [___1a1e68h], eax
 ___14a4ch:
 		call    near lastScanCode__keyboard
-		cmp     al, 15h
+		cmp     al, 15h					;; 'Y'
 		jne     short ___14a57h
 		mov     al, 0cbh
 ___14a57h:
-		cmp     al, 31h
+		cmp     al, 31h					;; 'N'
 		jne     short ___14a5dh
 		mov     al, 0cdh
 ___14a5dh:
-		cmp     al, 4bh
+		cmp     al, 4bh					;; 'LEFT'
 		jb      short ___14a91h
 		jbe     short ___14ac8h
-		cmp     al, 9ch
+		cmp     al, 9ch					;; KEYPAD_ENTER
 		jb      short ___14a84h
 		jbe     near ___14be8h
 		cmp     al, 0cbh
@@ -5481,18 +5481,18 @@ ___14a5dh:
 		je      near ___14b5ch
 		jmp     near ___14c08h
 ___14a84h:
-		cmp     al, 4dh
+		cmp     al, 4dh					;; 'RIGHT'
 		je      near ___14b5ch
 		jmp     near ___14c08h
 ___14a91h:
-		cmp     al, 1ch
+		cmp     al, 1ch					;; KEY_ENTER
 		jb      short ___14aa4h
 		jbe     near ___14be8h
-		cmp     al, 3bh
+		cmp     al, 3bh					;; KEY_F1
 		je      short ___14ab1h
 		jmp     near ___14c08h
 ___14aa4h:
-		cmp     al, 1
+		cmp     al, 1					;; KEY_ESC
 		je      near ___14bf2h
 		jmp     near ___14c08h
 ___14ab1h:
@@ -5528,12 +5528,12 @@ ___14b02h:
 		cmp     ecx, 3e80h
 		jne     short ___14b02h
 		mov     ecx, [esp+18h]
-		mov     ebx, ___18068ch
+		mov     ebx, STRING_YES
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10cch]
 		call    near renderTextToBuffer__video
 		mov     ecx, [esp]
-		mov     ebx, ___180690h
+		mov     ebx, STRING_NO
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10e0h]
 		call    near renderTextToBuffer__video
@@ -5565,12 +5565,12 @@ ___14b91h:
 		cmp     ecx, 3e80h
 		jne     short ___14b91h
 		mov     ecx, [esp+18h]
-		mov     ebx, ___18068ch
+		mov     ebx, STRING_YES
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10e0h]
 		call    near renderTextToBuffer__video
 		mov     ecx, [esp]
-		mov     ebx, ___180690h
+		mov     ebx, STRING_NO
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10cch]
 		call    near renderTextToBuffer__video
@@ -9993,7 +9993,7 @@ ___18808h:
 		mov     edi, edx
 		mov     eax, 883h
 		mov     ebx, 883h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		xor     edx, edx
 		mov     [___1a0f9ch], eax
 		call    near memset__clib3r
@@ -10154,7 +10154,7 @@ ___189c7h:
 		movsb   
 ___189f1h:
 		mov     ecx, 28f00h
-		mov     esi, [___1a1138h]
+		mov     esi, [GXBackBuffer]
 		mov     edi, [VGABufferPtr_0]
 		add     esi, 10680h
 		add     edi, 10680h
@@ -10237,7 +10237,7 @@ ___18a9ah:
 		mov     eax, 883h
 		mov     edi, esp
 		mov     esi, ___180754h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a0f9ch], eax
 		call    near memset__clib3r
 		mov     ebx, 0ah
@@ -10462,7 +10462,7 @@ ___18d88h:
 		mov     dword [esp+24h], 0ffffffffh
 ___18db5h:
 		mov     ecx, 28f00h
-		mov     esi, [___1a1138h]
+		mov     esi, [GXBackBuffer]
 		mov     edi, [VGABufferPtr_0]
 		add     esi, 10680h
 		add     edi, 10680h
@@ -10504,8 +10504,8 @@ ___18db5h:
 		call    near ___13248h
 		mov     ecx, 2c182h
 		mov     ebx, ___18079ch
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 		call    near ___12cb8h
 		add     esi, ___186f82h
@@ -10556,7 +10556,7 @@ ___18ee0h:
 		mov     ebp, 883h
 		mov     eax, ebp
 		xor     edx, edx
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     ebx, ebp
 		mov     [___1a0f9ch], eax
 		call    near memset__clib3r
@@ -10842,7 +10842,7 @@ ___191b4h:
 		mov     eax, 2
 		mov     ecx, 4b000h
 		call    near ___3892ch
-		mov     esi, [___1a1138h]
+		mov     esi, [GXBackBuffer]
 		mov     edi, [VGABufferPtr_0]
 		xor     edx, edx
 		push    edi
@@ -10862,21 +10862,21 @@ ___191b4h:
 		call    near ___13710h
 		mov     edx, 173h
 		xor     eax, eax
-		call    near ___135fch
+		call    near frameFooter__dr
 		cmp     dword [___19bd60h], byte 0
 		je      short ___192f6h
 		mov     ecx, 390a3h
 		mov     ebx, ___1807cch
-		mov     edx, ___185c0bh
-		mov     eax, [___1a10fch]
+		mov     edx, Font0Props
+		mov     eax, [GreyFont0Ptr]
 		call    near renderTextToBuffer__video
 		mov     ecx, 390d9h
 		mov     ebx, ___1807e8h
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 ___192f6h:
-		call    near ___23230h
+		call    near footer__dr
 		call    near ___12cb8h
 		xor     ebp, ebp
 		call    near ___2b318h
@@ -11007,8 +11007,8 @@ dd	___19735h
 dd	___1974dh
 dd	___1977ch
 dd	___19794h
-global ___194a8h
-___194a8h:
+global startRacingMenu__dr
+startRacingMenu__dr:
 		push    24h
 		call    near __CHK
 		push    ebx
@@ -11025,7 +11025,7 @@ ___194c3h:
 		test    ebx, ebx
 		jne     near ___1963fh
 		mov     ecx, 2af80h
-		mov     esi, [___1a1138h]
+		mov     esi, [GXBackBuffer]
 		mov     edi, [VGABufferPtr_0]
 		add     esi, 0e600h
 		add     edi, 0e600h
@@ -11138,8 +11138,8 @@ ___19649h:
 		call    near ___13248h
 		mov     ecx, 23ae8h
 		mov     ebx, ___180800h
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 		mov     edx, 1
 		mov     ecx, esp
@@ -11340,14 +11340,14 @@ ___198a0h:
 		mov     edx, 58h
 		mov     eax, 1fh
 		mov     ebx, 68h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [esp+0c4h], edx
 		mov     [esp+0dch], ebx
 		mov     [esp+0fch], eax
 		mov     eax, 1fh
 		mov     ebx, 0ah
 		lea     edx, [esp+0ach]
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     ebp, eax
 		mov     eax, [___185a54h]
 		mov     ecx, 6dh
@@ -11355,8 +11355,8 @@ ___198a0h:
 		mov     ebx, 27fh
 		mov     edx, 173h
 		xor     eax, eax
-		call    near ___135fch
-		call    near ___23230h
+		call    near frameFooter__dr
+		call    near footer__dr
 		mov     eax, 4
 		xor     edx, edx
 		mov     ecx, 64h
@@ -11495,7 +11495,7 @@ ___19b04h:
 		pop     ebx
 		retn    
 ___19b26h:
-		mov     ebx, ___1a116ch
+		mov     ebx, RowBoxBuffers
 		xor     edx, edx
 		lea     ecx, [ebx+96h]
 ___19b33h:
@@ -11574,7 +11574,7 @@ ___19be4h:
 		pop     edi
 		xor     cl, cl
 		mov     ebx, 6
-		mov     [___1a1f63h], cl
+		mov     [RowBox0Colors_R5], cl
 		sub     ecx, ecx
 		dec     ecx
 		xor     eax, eax
@@ -11585,7 +11585,7 @@ ___19be4h:
 		lea     edx, [ecx+1]
 		mov     edi, 1
 		call    near ___23488h
-		call    near ___23230h
+		call    near footer__dr
 		call    near ___12d6ch
 		mov     dl, [___180130h]
 		mov     [esp+108h], edi
@@ -11696,8 +11696,8 @@ ___19d4ch:
 		add     eax, esi
 		mov     edi, esp
 		lea     ecx, [eax+16h]
-		mov     edx, ___185c0bh
-		mov     eax, [___1a110ch]
+		mov     edx, Font0Props
+		mov     eax, [LightBlueFont0Ptr]
 		mov     esi, ___180890h
 		call    near renderTextToBuffer__video
 		mov     ebx, 0ah
@@ -11738,9 +11738,9 @@ ___19dc9h:
 		add     eax, edx
 		mov     edi, esp
 		shl     eax, 7
-		mov     edx, ___185c0bh
+		mov     edx, Font0Props
 		add     ecx, eax
-		mov     eax, [___1a110ch]
+		mov     eax, [LightBlueFont0Ptr]
 		add     ecx, byte 5dh
 		mov     esi, ___1808a4h
 		call    near renderTextToBuffer__video
@@ -11778,9 +11778,9 @@ ___19e34h:
 		add     eax, edx
 		mov     edi, esp
 		shl     eax, 7
-		mov     edx, ___185c0bh
+		mov     edx, Font0Props
 		add     ecx, eax
-		mov     eax, [___1a110ch]
+		mov     eax, [LightBlueFont0Ptr]
 		add     ecx, byte 5dh
 		mov     esi, ___1808b8h
 		call    near renderTextToBuffer__video
@@ -11824,8 +11824,8 @@ ___19ea0h:
 		add     eax, edx
 		mov     ebx, esp
 		lea     ecx, [eax+5dh]
-		mov     edx, ___185c0bh
-		mov     eax, [___1a110ch]
+		mov     edx, Font0Props
+		mov     eax, [LightBlueFont0Ptr]
 		call    near renderTextToBuffer__video
 		mov     edx, [esp+0dch]
 		add     edx, byte 27h
@@ -11911,8 +11911,8 @@ ___19fb3h:
 		add     eax, edx
 		mov     ebx, esp
 		lea     ecx, [eax+64h]
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 		mov     edx, [esp+0dch]
 		mov     edi, esp
@@ -11926,10 +11926,10 @@ ___19fb3h:
 		rep movsd   
 		movsw   
 		add     eax, ebx
-		mov     edx, ___185c0bh
+		mov     edx, Font0Props
 		lea     ecx, [eax+14h]
 		mov     ebx, esp
-		mov     eax, [___1a1108h]
+		mov     eax, [WhiteFont0Ptr]
 		mov     edi, esp
 		call    near renderTextToBuffer__video
 		mov     edx, [esp+0dch]
@@ -11945,8 +11945,8 @@ ___19fb3h:
 		add     eax, ecx
 		mov     ebx, esp
 		lea     ecx, [eax+14h]
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 		mov     eax, [esp+0dch]
 		mov     edi, esp
@@ -11963,12 +11963,12 @@ ___19fb3h:
 		mov     edi, [esp+0c4h]
 		mov     [esp+0d0h], eax
 		lea     esi, [eax+edi*1]
-		mov     edx, ___185c0bh
+		mov     edx, Font0Props
 		mov     eax, esp
 		lea     ecx, [esi+27h]
 		call    near ___25138h
 		sub     ecx, eax
-		mov     eax, [___1a1108h]
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 		mov     edx, [___1a1ef8h]
 		lea     eax, [edx*8+0]
@@ -11980,9 +11980,9 @@ ___19fb3h:
 		sub     eax, edx
 		mov     ecx, esi
 		shl     eax, 2
-		mov     edx, ___185c0bh
+		mov     edx, Font0Props
 		add     ebx, eax
-		mov     eax, [___1a1108h]
+		mov     eax, [WhiteFont0Ptr]
 		mov     [esp+0bch], esi
 		call    near renderTextToBuffer__video
 		mov     eax, [esp+0dch]
@@ -11997,13 +11997,13 @@ ___19fb3h:
 		movsw   
 		movsb   
 		shl     eax, 7
-		mov     edx, ___185c0bh
+		mov     edx, Font0Props
 		add     ecx, eax
 		mov     eax, esp
 		add     ecx, byte 27h
 		call    near ___25138h
 		sub     ecx, eax
-		mov     eax, [___1a1108h]
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 		mov     edx, [esp+0dch]
 		mov     edi, esp
@@ -12020,9 +12020,9 @@ ___19fb3h:
 		mov     eax, esp
 		lea     ecx, [edx+27h]
 		call    near ___25138h
-		mov     edx, ___185c0bh
+		mov     edx, Font0Props
 		sub     ecx, eax
-		mov     eax, [___1a1108h]
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 		mov     edx, [esp+0dch]
 		mov     edi, esp
@@ -12039,9 +12039,9 @@ ___19fb3h:
 		mov     eax, esp
 		lea     ecx, [edx+27h]
 		call    near ___25138h
-		mov     edx, ___185c0bh
+		mov     edx, Font0Props
 		sub     ecx, eax
-		mov     eax, [___1a1108h]
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 		call    near ___12cb8h
 		mov     eax, [___24e4ach]
@@ -12279,8 +12279,8 @@ ___1a557h:
 		xor     eax, eax
 		call    near ___197d0h
 		imul    ebx, [___1a1ef8h], byte 6ch
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		mov     ecx, [esp+0e8h]
 		add     ebx, ___1a01e0h
 		mov     edi, [esp+0c8h]
@@ -12300,8 +12300,8 @@ ___1a5cfh:
 		test    ecx, ecx
 		jbe     short ___1a5f7h
 		mov     ecx, [esp+0f4h]
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		mov     ebx, esi
 		call    near renderTextToBuffer__video
 ___1a5f7h:
@@ -12328,22 +12328,22 @@ ___1a647h:
 ___1a655h:
 		mov     ecx, 390a3h
 		mov     ebx, ___1807cch
-		mov     edx, ___185c0bh
-		mov     eax, [___1a10fch]
+		mov     edx, Font0Props
+		mov     eax, [GreyFont0Ptr]
 		call    near renderTextToBuffer__video
 		mov     ecx, 390d9h
 		mov     ebx, ___1807e8h
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		mov     edi, [esp+0f8h]
 		call    near renderTextToBuffer__video
-		call    near ___23230h
+		call    near footer__dr
 		cmp     edi, byte 1ch
 		je      short ___1a6a4h
 		cmp     edi, 9ch
 		jne     near ___1a8d8h
 ___1a6a4h:
-		mov     edx, ___1a116ch
+		mov     edx, RowBoxBuffers
 		xor     ebx, ebx
 		lea     ecx, [edx+96h]
 ___1a6b1h:
@@ -12510,8 +12510,8 @@ ___1a81ch:
 		pop     edi
 		xor     cl, cl
 		mov     ebx, 6
-		mov     [___1a1f63h], cl
-		call    near ___23230h
+		mov     [RowBox0Colors_R5], cl
+		call    near footer__dr
 		call    near ___12d6ch
 		sub     ecx, ecx
 		dec     ecx
@@ -12561,7 +12561,7 @@ ___1a8afh:
 		pop     ebx
 		retn    
 ___1a8d8h:
-		mov     edx, ___1a116ch
+		mov     edx, RowBoxBuffers
 		xor     ebx, ebx
 		lea     ecx, [edx+96h]
 ___1a8e5h:
@@ -12639,8 +12639,8 @@ ___1a980h:
 		jne     short ___1a980h
 ___1a998h:
 		pop     edi
-		mov     [___1a1f63h], bh
-		call    near ___23230h
+		mov     [RowBox0Colors_R5], bh
+		call    near footer__dr
 		call    near ___12d6ch
 		sub     ecx, ecx
 		dec     ecx
@@ -12693,11 +12693,11 @@ ___1aa28h:
 		mov     edi, ebx
 		mov     eax, 1fh
 		mov     ecx, 51h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [esp+8], eax
 		mov     eax, 1fh
 		mov     ebx, 14eh
-		call    near ___3f71ch
+		call    near allocMemSafe
 		push    byte 1
 		mov     esi, eax
 		mov     eax, [esp+4]
@@ -12709,9 +12709,9 @@ ___1aa28h:
 		add     eax, edx
 		mov     ebx, ___180998h
 		shl     eax, 7
-		mov     edx, ___185c0bh
+		mov     edx, Font0Props
 		add     ecx, eax
-		mov     eax, [___1a1108h]
+		mov     eax, [WhiteFont0Ptr]
 		add     ecx, byte 28h
 		call    near renderTextToBuffer__video
 		mov     edx, [esp+4]
@@ -12723,8 +12723,8 @@ ___1aa28h:
 		add     eax, edx
 		mov     ebx, ___1809b8h
 		lea     ecx, [eax+28h]
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 		mov     edx, 46ch
 		call    near ___12dc4h
@@ -12807,8 +12807,8 @@ ___1ab73h:
 		add     eax, ecx
 		mov     ebx, ___1809d4h
 		lea     ecx, [eax+28h]
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 		call    near ___12dc4h
 		mov     edx, [esp+0ch]
@@ -12858,9 +12858,9 @@ ___1ac53h:
 		add     eax, edx
 		mov     ebx, ___1809ech
 		shl     eax, 7
-		mov     edx, ___185c0bh
+		mov     edx, Font0Props
 		add     ecx, eax
-		mov     eax, [___1a1108h]
+		mov     eax, [WhiteFont0Ptr]
 		add     ecx, byte 28h
 		call    near renderTextToBuffer__video
 		call    near ___12dc4h
@@ -12939,8 +12939,8 @@ ___1ad30h:
 		add     eax, edi
 		mov     ebx, ___180a04h
 		lea     ecx, [eax+14h]
-		mov     edx, ___185c0bh
-		mov     eax, [___1a110ch]
+		mov     edx, Font0Props
+		mov     eax, [LightBlueFont0Ptr]
 		call    near renderTextToBuffer__video
 		lea     ecx, [esi+29h]
 		xor     edx, edx
@@ -13003,19 +13003,19 @@ ___1ae36h:
 		mov     eax, esp
 		mov     ecx, [esp+0a0h]
 		mov     ebx, esp
-		mov     edx, ___185c0bh
+		mov     edx, Font0Props
 		call    near ___25138h
 		sub     ecx, eax
-		mov     eax, [___1a1108h]
+		mov     eax, [WhiteFont0Ptr]
 		jmp     short ___1ae81h
 ___1ae65h:
 		mov     eax, esp
 		mov     ecx, [esp+0a0h]
 		mov     ebx, esp
-		mov     edx, ___185c0bh
+		mov     edx, Font0Props
 		call    near ___25138h
 		sub     ecx, eax
-		mov     eax, [___1a10fch]
+		mov     eax, [GreyFont0Ptr]
 ___1ae81h:
 		call    near renderTextToBuffer__video
 		mov     esi, ___19ded0h
@@ -13120,13 +13120,13 @@ ___1af5bh:
 		cmp     eax, [esp+0b4h]
 		jne     short ___1af7ah
 		mov     ebx, esp
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		jmp     short ___1af86h
 ___1af7ah:
 		mov     ebx, esp
-		mov     edx, ___185c0bh
-		mov     eax, [___1a10fch]
+		mov     edx, Font0Props
+		mov     eax, [GreyFont0Ptr]
 ___1af86h:
 		mov     ecx, ebp
 		call    near renderTextToBuffer__video
@@ -13166,9 +13166,9 @@ ___1afdeh:
 		pop     edi
 		mov     ecx, [esp+0ach]
 		mov     ebx, esp
-		mov     edx, ___185c0bh
+		mov     edx, Font0Props
 		mov     edi, esp
-		mov     eax, [___1a10fch]
+		mov     eax, [GreyFont0Ptr]
 		mov     esi, ___1808a4h
 		call    near renderTextToBuffer__video
 		movsd   
@@ -13179,7 +13179,7 @@ ___1afdeh:
 		mov     ebx, esp
 		mov     esi, [esp+0a8h]
 		mov     edi, esp
-		mov     edx, ___185c0bh
+		mov     edx, Font0Props
 		push    edi
 		sub     ecx, ecx
 		dec     ecx
@@ -13200,32 +13200,32 @@ ___1b01dh:
 ___1b035h:
 		pop     edi
 		mov     ecx, [esp+0b0h]
-		mov     eax, [___1a10fch]
+		mov     eax, [GreyFont0Ptr]
 		call    near renderTextToBuffer__video
 ___1b047h:
 		mov     eax, [esp+0b8h]
 		cmp     byte [eax+___19ded0h], 0ffh
 		jne     short ___1b0b1h
 		mov     ebx, ___180a54h
-		mov     edx, ___185c0bh
+		mov     edx, Font0Props
 		mov     edi, esp
-		mov     eax, [___1a10fch]
+		mov     eax, [GreyFont0Ptr]
 		mov     ecx, ebp
 		mov     esi, ___180a58h
 		call    near renderTextToBuffer__video
 		mov     ecx, 7
 		mov     ebx, esp
-		mov     edx, ___185c0bh
+		mov     edx, Font0Props
 		rep movsd   
 		movsw   
 		movsb   
-		mov     eax, [___1a10fch]
+		mov     eax, [GreyFont0Ptr]
 		mov     ecx, [esp+0ach]
 		call    near renderTextToBuffer__video
 		mov     ecx, [esp+0b0h]
 		mov     ebx, ___180a54h
-		mov     edx, ___185c0bh
-		mov     eax, [___1a10fch]
+		mov     edx, Font0Props
+		mov     eax, [GreyFont0Ptr]
 		call    near renderTextToBuffer__video
 ___1b0b1h:
 		mov     eax, [esp+0a8h]
@@ -13270,7 +13270,7 @@ ___1b140h:
 		mov     edx, 50h
 		mov     eax, 64h
 		mov     ebx, 60h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		xor     ecx, ecx
 		mov     [esp+10h], edx
 		mov     [esp], ecx
@@ -13328,8 +13328,8 @@ ___1b1f0h:
 		mov     ebx, 27fh
 		mov     edx, 173h
 		xor     eax, eax
-		call    near ___135fch
-		call    near ___23230h
+		call    near frameFooter__dr
+		call    near footer__dr
 		xor     edx, edx
 		xor     eax, eax
 		call    near ___13710h
@@ -13983,7 +13983,7 @@ ___1b94dh:
 		cmp     eax, byte 9
 		jl      short ___1b94dh
 		mov     ecx, 2a580h
-		mov     esi, [___1a1138h]
+		mov     esi, [GXBackBuffer]
 		mov     edi, [VGABufferPtr_0]
 		add     esi, 0f000h
 		add     edi, 0f000h
@@ -14012,7 +14012,7 @@ ___1b94dh:
 		jmp     short ___1ba46h
 ___1b9ceh:
 		mov     ecx, 2a580h
-		mov     esi, [___1a1138h]
+		mov     esi, [GXBackBuffer]
 		mov     edi, [VGABufferPtr_0]
 		add     esi, 0f000h
 		add     edi, 0f000h
@@ -14038,8 +14038,8 @@ ___1b9ceh:
 		call    near ___13248h
 		mov     ecx, [esp+18h]
 		mov     ebx, ___180a78h
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 		mov     byte [esp+24h], 1
 ___1ba46h:
@@ -14144,17 +14144,17 @@ ___1bb42h:
 		call    near nullScanCode__keyboard
 		mov     ebx, ___1807cch
 		mov     eax, ebp
-		mov     edx, ___185c0bh
+		mov     edx, Font0Props
 		call    near ___3f77ch
-		mov     eax, [___1a10fch]
+		mov     eax, [GreyFont0Ptr]
 		call    near renderTextToBuffer__video
 		mov     ecx, 390d9h
 		mov     ebx, ___1807e8h
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		mov     ebp, [esp]
 		call    near renderTextToBuffer__video
-		call    near ___23230h
+		call    near footer__dr
 		test    ebp, ebp
 		je      short ___1bc14h
 		call    near ___61278h
@@ -14212,12 +14212,12 @@ ___1bc20h:
 		call    near itoa
 		mov     eax, 12h
 		mov     ecx, 28f00h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     ebp, eax
 		mov     eax, 12h
 		xor     edx, edx
-		call    near ___3f71ch
-		mov     esi, [___1a1138h]
+		call    near allocMemSafe
+		mov     esi, [GXBackBuffer]
 		mov     edi, [VGABufferPtr_0]
 		add     esi, 10680h
 		add     edi, 10680h
@@ -14246,13 +14246,13 @@ ___1bc20h:
 		call    near ___13248h
 		mov     ecx, 20dbfh
 		mov     ebx, ___180aa8h
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 		mov     ecx, 2383fh
 		mov     ebx, ___180ac8h
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 		call    near ___12dc4h
 		mov     ebx, ebp
@@ -14275,7 +14275,7 @@ ___1bd30h:
 		mov     [ebx+7], al
 		cmp     edx, byte 9
 		jl      short ___1bd30h
-		mov     ecx, ___1a116ch
+		mov     ecx, RowBoxBuffers
 		mov     al, [___185a14h]
 		xor     edx, edx
 		lea     ebx, [ecx+96h]
@@ -14357,7 +14357,7 @@ ___1be0bh:
 		pop     edi
 		xor     ah, ah
 		mov     esi, [esp+14h]
-		mov     [___1a1f63h], ah
+		mov     [RowBox0Colors_R5], ah
 		sub     ecx, ecx
 		dec     ecx
 		xor     eax, eax
@@ -14368,7 +14368,7 @@ ___1be0bh:
 		lea     edx, [ecx+1]
 		add     esi, byte 0fh
 		call    near ___23488h
-		call    near ___23230h
+		call    near footer__dr
 		call    near ___12d6ch
 		mov     ebx, 1000h
 		mov     eax, [___24e4ach]
@@ -14402,7 +14402,7 @@ ___1be57h:
 ___1beach:
 		mov     edx, ecx
 		mov     eax, esi
-		mov     ebx, ___1a116ch
+		mov     ebx, RowBoxBuffers
 		call    near ___13c9ch
 		lea     ecx, [ebx+96h]
 		xor     edx, edx
@@ -14526,8 +14526,8 @@ ___1bfbeh:
 		jne     short ___1bfbeh
 ___1bfd6h:
 		pop     edi
-		mov     [___1a1f63h], dh
-		call    near ___23230h
+		mov     [RowBox0Colors_R5], dh
+		call    near footer__dr
 		call    near ___12d6ch
 		sub     ecx, ecx
 		dec     ecx
@@ -14565,7 +14565,7 @@ ___1bfd6h:
 		pop     ebx
 		retn    
 ___1c058h:
-		mov     ebx, ___1a116ch
+		mov     ebx, RowBoxBuffers
 		xor     edx, edx
 		lea     ecx, [ebx+96h]
 ___1c065h:
@@ -14644,8 +14644,8 @@ ___1c105h:
 		jne     short ___1c105h
 ___1c11dh:
 		pop     edi
-		mov     [___1a1f63h], dl
-		call    near ___23230h
+		mov     [RowBox0Colors_R5], dl
+		call    near footer__dr
 		call    near ___12d6ch
 		sub     ecx, ecx
 		dec     ecx
@@ -14687,12 +14687,12 @@ ___1c178h:
 		sub     esp, byte 0ch
 		mov     eax, 12h
 		mov     ecx, 28f00h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     ebp, eax
 		mov     eax, 1
 		xor     edx, edx
-		call    near ___3f71ch
-		mov     esi, [___1a1138h]
+		call    near allocMemSafe
+		mov     esi, [GXBackBuffer]
 		mov     edi, [VGABufferPtr_0]
 		add     esi, 10680h
 		add     edi, 10680h
@@ -14718,13 +14718,13 @@ ___1c178h:
 		call    near ___13248h
 		mov     ecx, 20dbfh
 		mov     ebx, ___180aa8h
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 		mov     ecx, 2383fh
 		mov     ebx, ___180ac8h
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 		call    near ___12dc4h
 		mov     ebx, 1000h
@@ -14834,7 +14834,7 @@ ___1c374h:
 		je      near ___1c46ah
 ___1c390h:
 		mov     ecx, 2c380h
-		mov     esi, [___1a1138h]
+		mov     esi, [GXBackBuffer]
 		mov     edi, [VGABufferPtr_0]
 		add     esi, 0d200h
 		add     edi, 0d200h
@@ -14917,8 +14917,8 @@ ___1c474h:
 		call    near ___13248h
 		mov     ecx, 2c182h
 		mov     ebx, ___180b38h
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 		mov     ecx, 2e982h
 		mov     ebx, ___180728h
@@ -14955,8 +14955,8 @@ ___1c522h:
 		call    near ___13248h
 		mov     ecx, 2c182h
 		mov     ebx, ___180b60h
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 		mov     ecx, 2e982h
 		mov     ebx, ___180728h
@@ -15254,7 +15254,7 @@ ___1c8f2h:
 		jne     short ___1c8bah
 		mov     edx, esp
 		mov     eax, 6ch
-		mov     ebx, ___1a116ch
+		mov     ebx, RowBoxBuffers
 		xor     esi, esi
 		call    near ___611c0h
 		mov     [esp+10h], esi
@@ -15340,8 +15340,8 @@ ___1c9cch:
 ___1c9e4h:
 		pop     edi
 		xor     al, al
-		mov     [___1a1f63h], al
-		call    near ___23230h
+		mov     [RowBox0Colors_R5], al
+		call    near footer__dr
 		call    near ___12d6ch
 		add     esp, byte 14h
 		pop     ebp
@@ -15361,7 +15361,7 @@ ___1ca00h:
 		push    edi
 		mov     ebx, eax
 		mov     ecx, 28f00h
-		mov     esi, [___1a1138h]
+		mov     esi, [GXBackBuffer]
 		mov     edi, [VGABufferPtr_0]
 		add     esi, 10680h
 		add     edi, 10680h
@@ -15398,8 +15398,8 @@ ___1ca63h:
 		call    near renderTextToBuffer__video
 		mov     ecx, 25851h
 		mov     ebx, ___180bech
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 		mov     ecx, 2a851h
 		mov     ebx, ___180848h
@@ -15441,7 +15441,7 @@ ___1caf4h:
 		jne     near ___1cbdah
 		mov     ebp, 1
 		mov     ecx, 28f00h
-		mov     esi, [___1a1138h]
+		mov     esi, [GXBackBuffer]
 		mov     edi, [VGABufferPtr_0]
 		add     esi, 10680h
 		add     edi, 10680h
@@ -15495,7 +15495,7 @@ ___1cbdah:
 		call    near ___1123ch
 ___1cbf9h:
 		mov     ecx, 1
-		mov     esi, [___1a1138h]
+		mov     esi, [GXBackBuffer]
 		mov     edi, [VGABufferPtr_0]
 		mov     [___19bd60h], ecx
 		add     esi, 10680h
@@ -15527,7 +15527,7 @@ ___1cbf9h:
 		mov     eax, [___1a10cch]
 		call    near renderTextToBuffer__video
 		call    near ___12cb8h
-		mov     ecx, ___1a116ch
+		mov     ecx, RowBoxBuffers
 		xor     edx, edx
 		lea     ebx, [ecx+96h]
 ___1cc8ch:
@@ -15554,7 +15554,7 @@ ___1ccaah:
 		mov     [edx+___1a1f4dh], al
 		cmp     edx, byte 15h
 		jl      short ___1cc8ch
-		mov     ebx, ___1a116ch
+		mov     ebx, RowBoxBuffers
 		mov     al, [___180130h]
 		xor     edx, edx
 		mov     [___1a1dbah], al
@@ -15587,11 +15587,11 @@ ___1ccfdh:
 		mov     edi, ___1a1dbah
 		xor     ah, ah
 		mov     esi, ___180c5ch
-		mov     [___1a1f63h], ah
+		mov     [RowBox0Colors_R5], ah
 		mov     eax, 64h
 		rep movsd   
 		movsw   
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     esi, [___24e4d0h]
 		mov     [___1a0f9ch], eax
 		cmp     esi, byte 2
@@ -15600,7 +15600,7 @@ ___1ccfdh:
 		xor     edx, edx
 		call    near ___23488h
 ___1cd5ch:
-		mov     eax, ___1a116ch
+		mov     eax, RowBoxBuffers
 		add     eax, 96h
 		xor     ebp, ebp
 		mov     [esp+64h], eax
@@ -15625,7 +15625,7 @@ ___1cd6ch:
 		rep movsb   
 		pop     edi
 		xor     edx, edx
-		mov     ecx, ___1a116ch
+		mov     ecx, RowBoxBuffers
 ___1cdb5h:
 		mov     esi, ebx
 		mov     edi, ecx
@@ -15667,13 +15667,13 @@ ___1cdfbh:
 		jne     short ___1cdfbh
 ___1ce13h:
 		pop     edi
-		mov     [___1a1f63h], dl
+		mov     [RowBox0Colors_R5], dl
 ___1ce1ah:
 		inc     ebp
 		cmp     ebp, byte 1eh
 		jl      near ___1cd6ch
 		mov     eax, [___1a0f9ch]
-		mov     ecx, ___1a116ch
+		mov     ecx, RowBoxBuffers
 		call    near ___3f77ch
 		xor     edx, edx
 		lea     ebx, [ecx+96h]
@@ -15753,7 +15753,7 @@ ___1cedbh:
 		jne     short ___1cedbh
 ___1cef3h:
 		pop     edi
-		mov     [___1a1f63h], dh
+		mov     [RowBox0Colors_R5], dh
 		sub     ecx, ecx
 		dec     ecx
 		xor     eax, eax
@@ -15763,7 +15763,7 @@ ___1cef3h:
 		mov     eax, ___1a1dbah
 		lea     edx, [ecx+1]
 		call    near ___23488h
-		call    near ___23230h
+		call    near footer__dr
 		call    near ___12d6ch
 		xor     edi, edi
 		xor     bl, bl
@@ -15797,18 +15797,18 @@ ___1cf92h:
 		mov     ebx, 27fh
 		mov     edx, 173h
 		xor     eax, eax
-		call    near ___135fch
+		call    near frameFooter__dr
 		mov     ecx, 390a3h
 		mov     ebx, ___1807cch
-		mov     edx, ___185c0bh
-		mov     eax, [___1a10fch]
+		mov     edx, Font0Props
+		mov     eax, [GreyFont0Ptr]
 		call    near renderTextToBuffer__video
 		mov     ecx, 390d9h
 		mov     ebx, ___1807e8h
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
-		call    near ___23230h
+		call    near footer__dr
 		call    near ___12cb8h
 		call    near nullScanCode__keyboard
 		call    near lastScanCode__keyboard
@@ -15843,7 +15843,7 @@ ___1d00ch:
 		mov     edx, [___19bd60h]
 		test    edx, edx
 		je      near ___1d21eh
-		mov     ecx, ___1a116ch
+		mov     ecx, RowBoxBuffers
 		xor     esi, esi
 		xor     edx, edx
 		lea     ebx, [ecx+96h]
@@ -15925,10 +15925,10 @@ ___1d0f4h:
 		pop     edi
 		xor     ah, ah
 		mov     edx, 64h
-		mov     [___1a1f63h], ah
+		mov     [RowBox0Colors_R5], ah
 		mov     eax, edi
 		call    near ___23488h
-		mov     ebx, ___1a116ch
+		mov     ebx, RowBoxBuffers
 		xor     edx, edx
 		lea     ecx, [ebx+96h]
 ___1d116h:
@@ -15963,8 +15963,8 @@ ___1d134h:
 		mov     [___1a1dbah], al
 		xor     eax, eax
 		mov     esi, ___180cc0h
-		call    near ___135fch
-		call    near ___23230h
+		call    near frameFooter__dr
+		call    near footer__dr
 		call    near ___12cb8h
 		call    near ___61278h
 		call    near ___623d4h
@@ -16122,7 +16122,7 @@ ___1d2fdh:
 		call    near ___1123ch
 ___1d37ch:
 		mov     ecx, 28f00h
-		mov     esi, [___1a1138h]
+		mov     esi, [GXBackBuffer]
 		mov     edi, [VGABufferPtr_0]
 		add     esi, 10680h
 		add     edi, 10680h
@@ -16153,9 +16153,9 @@ ___1d37ch:
 		add     eax, edx
 		mov     ebx, ___180aa8h
 		shl     eax, 7
-		mov     edx, ___185c0bh
+		mov     edx, Font0Props
 		add     ecx, eax
-		mov     eax, [___1a1108h]
+		mov     eax, [WhiteFont0Ptr]
 		add     ecx, byte 28h
 		call    near renderTextToBuffer__video
 		mov     edx, [esp+4]
@@ -16171,8 +16171,8 @@ ___1d37ch:
 		add     eax, ebp
 		mov     ebx, ___180ac8h
 		lea     ecx, [eax+28h]
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		xor     ebp, ebp
 		call    near renderTextToBuffer__video
 		call    near ___12dc4h
@@ -16244,7 +16244,7 @@ ___1d4e8h:
 		push    edx
 		push    esi
 		push    edi
-		mov     ecx, ___1a116ch
+		mov     ecx, RowBoxBuffers
 		xor     edx, edx
 		lea     ebx, [ecx+96h]
 		mov     [___185a58h], edx
@@ -16325,9 +16325,9 @@ ___1d5c2h:
 		pop     edi
 		xor     ah, ah
 		mov     edx, 64h
-		mov     [___1a1f63h], ah
+		mov     [RowBox0Colors_R5], ah
 		mov     eax, edi
-		mov     ecx, ___1a116ch
+		mov     ecx, RowBoxBuffers
 		call    near ___23488h
 		lea     ebx, [ecx+96h]
 		xor     edx, edx
@@ -16365,8 +16365,8 @@ ___1d602h:
 		mov     [___196a84h], ebx
 		xor     eax, eax
 		mov     ebx, 27fh
-		call    near ___135fch
-		call    near ___23230h
+		call    near frameFooter__dr
+		call    near footer__dr
 		call    near ___12cb8h
 		xor     ecx, ecx
 		mov     edx, 1
@@ -16438,7 +16438,7 @@ ___1d6e5h:
 ___1d6fdh:
 		pop     edi
 		mov     ecx, 28f00h
-		mov     esi, [___1a1138h]
+		mov     esi, [GXBackBuffer]
 		mov     edi, [VGABufferPtr_0]
 		add     esi, 10680h
 		add     edi, 10680h
@@ -16464,8 +16464,8 @@ ___1d6fdh:
 		call    near ___13248h
 		mov     ecx, 20ddch
 		mov     ebx, ___180d2ch
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 		call    near ___12dc4h
 		mov     eax, esp
@@ -16511,10 +16511,10 @@ ___1d7d4h:
 		lea     eax, [ebx*4+0]
 		add     eax, ebx
 		shl     eax, 7
-		mov     edx, ___185c0bh
+		mov     edx, Font0Props
 		lea     ecx, [eax+ebp*1]
 		mov     ebx, ___180d48h
-		mov     eax, [___1a1108h]
+		mov     eax, [WhiteFont0Ptr]
 		add     ecx, byte 28h
 		call    near renderTextToBuffer__video
 		call    near ___12dc4h
@@ -16554,7 +16554,7 @@ ___1d83ch:
 		rep movsb   
 		pop     edi
 		mov     ecx, 28f00h
-		mov     esi, [___1a1138h]
+		mov     esi, [GXBackBuffer]
 		mov     edi, [VGABufferPtr_0]
 		add     esi, 10680h
 		add     edi, 10680h
@@ -16580,43 +16580,43 @@ ___1d83ch:
 		call    near ___13248h
 		mov     ecx, 1ce9bh
 		mov     ebx, ___180d5ch
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 		mov     ecx, 1f69bh
 		mov     ebx, ___180d9ch
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 		mov     ecx, 21e9bh
 		mov     ebx, ___180dd8h
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 		mov     ecx, 2469bh
 		mov     ebx, ___180e14h
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 		mov     ecx, 26e9bh
 		mov     ebx, ___180e54h
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 		mov     ecx, 2969bh
 		mov     ebx, ___180e8ch
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 		mov     ecx, 2be9bh
 		mov     ebx, ___180ecch
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 		mov     ecx, 2e69bh
 		mov     ebx, ___180f08h
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 		mov     ecx, 327e1h
 		mov     ebx, ___180848h
@@ -16692,7 +16692,7 @@ ___1da4fh:
 		test    eax, eax
 		je      near ___1e08fh
 		mov     ecx, 28f00h
-		mov     esi, [___1a1138h]
+		mov     esi, [GXBackBuffer]
 		mov     edi, [VGABufferPtr_0]
 		add     esi, 10680h
 		add     edi, 10680h
@@ -16718,8 +16718,8 @@ ___1da4fh:
 		call    near ___13248h
 		mov     ecx, 28f64h
 		mov     ebx, ___180f40h
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 		call    near ___12cb8h
 		push    byte 0
@@ -16762,7 +16762,7 @@ ___1db77h:
 		je      near ___1e08ah
 		mov     ecx, 28f00h
 		mov     ebx, 159h
-		mov     esi, [___1a1138h]
+		mov     esi, [GXBackBuffer]
 		mov     edi, [VGABufferPtr_0]
 		add     esi, 10680h
 		add     edi, 10680h
@@ -16819,8 +16819,8 @@ ___1dc17h:
 		add     eax, ebp
 		mov     ebx, esp
 		lea     ecx, [eax+28h]
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 		mov     edx, [esp+50h]
 		add     edx, byte 1eh
@@ -16830,8 +16830,8 @@ ___1dc17h:
 		add     eax, ebp
 		mov     ebx, ___180f68h
 		lea     ecx, [eax+28h]
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 		mov     edx, [esp+50h]
 		add     edx, byte 2fh
@@ -16841,8 +16841,8 @@ ___1dc17h:
 		add     eax, ebp
 		mov     ebx, ___180ac8h
 		lea     ecx, [eax+28h]
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		lea     edi, [esp+28h]
 		call    near renderTextToBuffer__video
 		mov     edx, [esp+50h]
@@ -16977,8 +16977,8 @@ ___1ddcdh:
 		jne     short ___1ddcdh
 		mov     ecx, [esp+60h]
 		mov     ebx, ___180f68h
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 		call    near ___12dc4h
 		mov     ecx, 0ffffffffh
@@ -17009,9 +17009,9 @@ ___1de3bh:
 		jne     short ___1de3bh
 		mov     ecx, [esp+64h]
 		mov     ebx, ___180f9ch
-		mov     edx, ___185c0bh
+		mov     edx, Font0Props
 		lea     edi, [esp+28h]
-		mov     eax, [___1a1108h]
+		mov     eax, [WhiteFont0Ptr]
 		mov     esi, ___180fb0h
 		call    near renderTextToBuffer__video
 		call    near ___12dc4h
@@ -17065,9 +17065,9 @@ ___1dee8h:
 		jne     short ___1dee8h
 		mov     ecx, [esp+68h]
 		mov     ebx, ___180fc0h
-		mov     edx, ___185c0bh
+		mov     edx, Font0Props
 		lea     edi, [esp+28h]
-		mov     eax, [___1a1108h]
+		mov     eax, [WhiteFont0Ptr]
 		mov     esi, ___180fb0h
 		call    near renderTextToBuffer__video
 		call    near ___12dc4h
@@ -17305,7 +17305,7 @@ ___1e1b1h:
 		test    eax, eax
 		je      near ___1e4e9h
 		mov     ecx, 28f00h
-		mov     esi, [___1a1138h]
+		mov     esi, [GXBackBuffer]
 		mov     edi, [VGABufferPtr_0]
 		add     esi, 10680h
 		add     edi, 10680h
@@ -17337,9 +17337,9 @@ ___1e1b1h:
 		mov     ebx, ___181010h
 		mov     [esp+18h], eax
 		lea     esi, [eax+ebp*1]
-		mov     edx, ___185c0bh
+		mov     edx, Font0Props
 		add     esi, byte 28h
-		mov     eax, [___1a1108h]
+		mov     eax, [WhiteFont0Ptr]
 		mov     ecx, esi
 		call    near renderTextToBuffer__video
 		mov     edx, [esp+24h]
@@ -17349,8 +17349,8 @@ ___1e1b1h:
 		shl     eax, 7
 		mov     ebx, ___180ac8h
 		lea     ecx, [eax+ebp*1]
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		add     ecx, byte 28h
 		call    near renderTextToBuffer__video
 		mov     ebx, [esp+24h]
@@ -17399,8 +17399,8 @@ ___1e2edh:
 		jne     short ___1e2edh
 		mov     ecx, [esp+34h]
 		mov     ebx, ___18102ch
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		lea     esi, [esp+40h]
 		call    near renderTextToBuffer__video
 		call    near ___12dc4h
@@ -17452,8 +17452,8 @@ ___1e389h:
 		jne     short ___1e389h
 		mov     ecx, [esp+28h]
 		mov     ebx, ___181010h
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 		call    near ___12dc4h
 		call    near ___63228h
@@ -17718,7 +17718,7 @@ ___1e62ch:
 		call    near ___623d4h
 		cmp     edx, byte 1
 		jne     near ___1e813h
-		mov     ebx, ___1a116ch
+		mov     ebx, RowBoxBuffers
 		xor     edi, edi
 		xor     edx, edx
 		lea     ecx, [ebx+96h]
@@ -17798,8 +17798,8 @@ ___1e7a1h:
 		jne     short ___1e7a1h
 ___1e7b9h:
 		pop     edi
-		mov     [___1a1f63h], bh
-		mov     ebx, ___1a116ch
+		mov     [RowBox0Colors_R5], bh
+		mov     ebx, RowBoxBuffers
 		xor     edx, edx
 		lea     ecx, [ebx+96h]
 ___1e7cdh:
@@ -17842,8 +17842,8 @@ ___1e813h:
 		mov     [___196a7ch], eax
 		mov     [___19bd60h], eax
 		mov     [___24e4d0h], eax
-		call    near ___135fch
-		call    near ___23230h
+		call    near frameFooter__dr
+		call    near footer__dr
 		call    near ___12dc4h
 ___1e85fh:
 		pop     edi
@@ -17862,8 +17862,8 @@ dd	___1f00dh
 dd	___1f01ch
 dd	___1f02bh
 dd	___1f032h
-global ___1e888h
-___1e888h:
+global multiplayerRaceMenu__dr
+multiplayerRaceMenu__dr:
 		push    34h
 		call    near __CHK
 		push    ebx
@@ -18000,7 +18000,7 @@ ___1e9ach:
 		jne     near ___1e8e9h
 		mov     ecx, 4b000h
 		mov     ebx, 27fh
-		mov     esi, [___1a1138h]
+		mov     esi, [GXBackBuffer]
 		mov     edi, [VGABufferPtr_0]
 		mov     edx, 173h
 		push    edi
@@ -18013,25 +18013,25 @@ ___1e9ach:
 		pop     edi
 		mov     ecx, 6dh
 		xor     eax, eax
-		call    near ___135fch
+		call    near frameFooter__dr
 		cmp     dword [___196a7ch], byte 0
 		jne     short ___1ead6h
 		mov     ecx, 390a3h
 		mov     ebx, ___1807cch
-		mov     edx, ___185c0bh
-		mov     eax, [___1a10fch]
+		mov     edx, Font0Props
+		mov     eax, [GreyFont0Ptr]
 		call    near renderTextToBuffer__video
 		mov     ecx, 390d9h
 		mov     ebx, ___1807e8h
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 ___1ead6h:
-		call    near ___23230h
+		call    near footer__dr
 		jmp     short ___1eb0ah
 ___1eaddh:
 		mov     ecx, 2c380h
-		mov     esi, [___1a1138h]
+		mov     esi, [GXBackBuffer]
 		mov     edi, [VGABufferPtr_0]
 		add     esi, 0d200h
 		add     edi, 0d200h
@@ -18218,7 +18218,7 @@ ___1ed74h:
 		mov     edi, [VGABufferPtr_0]
 		mov     [___196a80h], esi
 		mov     [___196ad4h], esi
-		mov     esi, [___1a1138h]
+		mov     esi, [GXBackBuffer]
 		add     edi, 0d200h
 		add     esi, 0d200h
 		xor     edx, edx
@@ -18289,8 +18289,8 @@ ___1ee5ah:
 		call    near ___13248h
 		mov     ecx, 23adah
 		mov     ebx, ___181078h
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 		mov     ebx, 1
 		mov     ecx, esp
@@ -18304,7 +18304,7 @@ ___1ee5ah:
 		je      near ___1f075h
 		test    eax, eax
 		je      near ___1f075h
-		mov     ebp, ___1a116ch
+		mov     ebp, RowBoxBuffers
 		xor     edx, edx
 		lea     ebx, [ebp+96h]
 ___1eef6h:
@@ -18377,11 +18377,11 @@ ___1ef85h:
 		jne     short ___1ef85h
 ___1ef9dh:
 		pop     edi
-		mov     [___1a1f63h], dh
+		mov     [RowBox0Colors_R5], dh
 		mov     eax, edi
 		mov     edx, 64h
 		call    near ___23488h
-		call    near ___23230h
+		call    near footer__dr
 		xor     edx, edx
 		call    near ___1e4f8h
 		mov     [___196a84h], edx
@@ -18534,7 +18534,7 @@ ___1f124h:
 		je      near ___1f6ceh
 ___1f140h:
 		mov     ecx, 28f00h
-		mov     esi, [___1a1138h]
+		mov     esi, [GXBackBuffer]
 		mov     edi, [VGABufferPtr_0]
 		add     esi, 10680h
 		add     edi, 10680h
@@ -18717,8 +18717,8 @@ ___1f40dh:
 		call    near ___13248h
 		mov     ecx, 2445ch
 		mov     ebx, ___181118h
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 		call    near ___12cb8h
 		mov     ebx, 10h
@@ -18762,8 +18762,8 @@ ___1f40dh:
 		call    near ___13248h
 		mov     ecx, 2445ch
 		mov     ebx, ___181150h
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 		call    near ___12cb8h
 		mov     ebx, 0ah
@@ -18795,7 +18795,7 @@ ___1f40dh:
 		mov     [___1a1e50h], ebx
 		call    near nullScanCode__keyboard
 		call    near lastScanCode__keyboard
-		mov     esi, [___1a1138h]
+		mov     esi, [GXBackBuffer]
 		mov     edi, [VGABufferPtr_0]
 		add     esi, 10680h
 		add     edi, 10680h
@@ -18851,8 +18851,8 @@ ___1f625h:
 		call    near ___13248h
 		mov     ecx, 28f42h
 		mov     ebx, ___18119ch
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 		call    near ___12dc4h
 		push    byte 1
@@ -20364,7 +20364,7 @@ ___204fch:
 		mov     [esp+30h], edx
 ___205a3h:
 		mov     ecx, 28f00h
-		mov     esi, [___1a1138h]
+		mov     esi, [GXBackBuffer]
 		mov     edi, [VGABufferPtr_0]
 		add     esi, 10680h
 		add     edi, 10680h
@@ -20411,8 +20411,8 @@ ___20617h:
 		call    near ___13248h
 		mov     ecx, [esp+28h]
 		mov     ebx, ___1819d0h
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 		call    near ___12dc4h
 ___20670h:
@@ -20484,8 +20484,8 @@ ___206ebh:
 		call    near ___13248h
 		mov     ecx, [esp+24h]
 		mov     ebx, ___1819f0h
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 		call    near ___12dc4h
 ___20743h:
@@ -20553,8 +20553,8 @@ ___207bbh:
 		call    near ___13248h
 		mov     ecx, [esp+38h]
 		mov     ebx, ___181a0ch
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 		call    near ___12dc4h
 ___20813h:
@@ -20624,8 +20624,8 @@ ___2088dh:
 		call    near ___13248h
 		mov     ecx, [esp+1ch]
 		mov     ebx, ___181a2ch
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 		call    near ___12dc4h
 ___208e5h:
@@ -20695,8 +20695,8 @@ ___2095eh:
 		call    near ___13248h
 		mov     ecx, [esp+18h]
 		mov     ebx, ___181a4ch
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 		call    near ___12dc4h
 ___209b6h:
@@ -20764,8 +20764,8 @@ ___20a34h:
 		call    near ___13248h
 		mov     ecx, [esp+0ch]
 		mov     ebx, ___181a6ch
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 		call    near ___12dc4h
 ___20a8ch:
@@ -20832,8 +20832,8 @@ ___20b08h:
 		call    near ___13248h
 		mov     ecx, [esp+20h]
 		mov     ebx, ___181a8ch
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 		call    near ___12dc4h
 ___20b60h:
@@ -20901,8 +20901,8 @@ ___20bddh:
 		call    near ___13248h
 		mov     ecx, [esp+30h]
 		mov     ebx, ___181aach
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 		call    near ___12dc4h
 ___20c35h:
@@ -21326,7 +21326,7 @@ ___210b4h:
 		mov     [esp+10h], ebp
 ___21149h:
 		mov     ecx, 28f00h
-		mov     esi, [___1a1138h]
+		mov     esi, [GXBackBuffer]
 		mov     edi, [VGABufferPtr_0]
 		add     esi, 10680h
 		add     edi, 10680h
@@ -21373,8 +21373,8 @@ ___211bdh:
 		call    near ___13248h
 		mov     ecx, [esp+2ch]
 		mov     ebx, ___181b04h
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 		call    near ___12dc4h
 		call    near ___20f78h
@@ -21442,8 +21442,8 @@ ___21288h:
 		call    near ___13248h
 		mov     ecx, [esp+28h]
 		mov     ebx, ___181b24h
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 		call    near ___12dc4h
 		call    near ___20f78h
@@ -21508,8 +21508,8 @@ ___21350h:
 		call    near ___13248h
 		mov     ecx, [esp+14h]
 		mov     ebx, ___181b40h
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 		call    near ___12dc4h
 		call    near ___20f78h
@@ -21574,8 +21574,8 @@ ___21417h:
 		call    near ___13248h
 		mov     ecx, [esp+8]
 		mov     ebx, ___181b60h
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 		call    near ___12dc4h
 		call    near ___20f78h
@@ -21642,8 +21642,8 @@ ___214e1h:
 		call    near ___13248h
 		mov     ecx, [esp+4]
 		mov     ebx, ___181b80h
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 		call    near ___12dc4h
 		call    near ___20f78h
@@ -21707,8 +21707,8 @@ ___215aeh:
 		call    near ___13248h
 		mov     ecx, [esp+30h]
 		mov     ebx, ___181ba0h
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 		call    near ___12dc4h
 		call    near ___20f78h
@@ -21772,8 +21772,8 @@ ___2167bh:
 		call    near ___13248h
 		mov     ecx, [esp+10h]
 		mov     ebx, ___181bc4h
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 		call    near ___12dc4h
 		call    near ___20f78h
@@ -21874,7 +21874,7 @@ ___217b0h:
 		mov     edx, 1dh
 		call    near playSFX__sound
 		mov     ecx, 28f00h
-		mov     esi, [___1a1138h]
+		mov     esi, [GXBackBuffer]
 		mov     edi, [VGABufferPtr_0]
 		add     esi, 10680h
 		add     edi, 10680h
@@ -21931,8 +21931,8 @@ dd	___21f17h
 dd	___21f21h
 dd	___21f2bh
 dd	___21f93h
-global ___218b4h
-___218b4h:
+global configureMenu__dr
+configureMenu__dr:
 		push    44h
 		call    near __CHK
 		push    ebx
@@ -21965,7 +21965,7 @@ ___21901h:
 		test    edx, edx
 		jne     near ___21c44h
 		mov     ecx, 2c380h
-		mov     esi, [___1a1138h]
+		mov     esi, [GXBackBuffer]
 		mov     edi, [VGABufferPtr_0]
 		add     esi, 0d200h
 		add     edi, 0d200h
@@ -22001,8 +22001,8 @@ ___21976h:
 		call    near ___13248h
 		mov     ecx, 235e0h
 		mov     ebx, ___181bfch
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 		mov     ecx, 18h
 		mov     edx, 0ach
@@ -22230,8 +22230,8 @@ ___21c52h:
 		call    near ___13248h
 		mov     ecx, 235e0h
 		mov     ebx, ___181c18h
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 		mov     ecx, 18h
 		mov     edx, 0ach
@@ -22503,7 +22503,7 @@ ___21fd4h:
 		mov     ebp, 14c80h
 		mov     ebx, 17dh
 ___21ff5h:
-		mov     eax, [___1a1138h]
+		mov     eax, [GXBackBuffer]
 		add     eax, ebp
 		lea     esi, [eax+0e1h]
 		mov     eax, [VGABufferPtr_0]
@@ -22524,7 +22524,7 @@ ___21ff5h:
 		mov     ebp, 20300h
 		mov     edx, 170h
 ___22039h:
-		mov     eax, [___1a1138h]
+		mov     eax, [GXBackBuffer]
 		add     eax, ebp
 		lea     esi, [eax+0e0h]
 		mov     eax, [VGABufferPtr_0]
@@ -22863,7 +22863,7 @@ ___223c4h:
 		sub     esp, byte 44h
 		mov     ecx, 4b000h
 		mov     ebx, 27fh
-		mov     esi, [___1a1138h]
+		mov     esi, [GXBackBuffer]
 		mov     edi, [VGABufferPtr_0]
 		mov     edx, 173h
 		push    edi
@@ -22876,9 +22876,9 @@ ___223c4h:
 		pop     edi
 		mov     ecx, 6dh
 		xor     eax, eax
-		call    near ___135fch
+		call    near frameFooter__dr
 		call    near ___3e03ch
-		call    near ___23230h
+		call    near footer__dr
 		mov     ecx, 36h
 		mov     edx, 280h
 		mov     ebx, [VGABufferPtr_0]
@@ -23398,8 +23398,8 @@ ___2297dh:
 		pop     ebx
 		retn    
 db	8bh,0c0h
-global ___22a80h
-___22a80h:
+global hallOfFameMenu__dr
+hallOfFameMenu__dr:
 		push    64h
 		call    near __CHK
 		push    ebx
@@ -23424,7 +23424,7 @@ ___22a80h:
 		pop     edi
 		mov     ecx, 28f00h
 		mov     eax, [___1a10e4h]
-		mov     esi, [___1a1138h]
+		mov     esi, [GXBackBuffer]
 		mov     [VGABufferPtr_0], eax
 		add     esi, 10680h
 		lea     edi, [eax+10680h]
@@ -23660,7 +23660,7 @@ ___22d86h:
 		pop     edi
 		mov     ecx, 2c380h
 		mov     eax, [___1a10e4h]
-		mov     esi, [___1a1138h]
+		mov     esi, [GXBackBuffer]
 		mov     [VGABufferPtr_0], eax
 		add     esi, 0d200h
 		lea     edi, [eax+0d200h]
@@ -24019,76 +24019,7 @@ ___231f3h:
 		pop     edx
 		pop     ecx
 		pop     ebx
-		retn    
-global ___23230h
-___23230h:
-		push    1ch
-		call    near __CHK
-		push    ebx
-		push    ecx
-		push    edx
-		push    esi
-		push    edi
-		push    ebp
-		mov     ebp, 3b600h
-___23245h:
-		mov     ecx, 280h
-		mov     esi, [___1a1138h]
-		mov     edi, [VGABufferPtr_0]
-		add     esi, ebp
-		add     edi, ebp
-		add     ebp, 280h
-		push    edi
-		mov     eax, ecx
-		shr     ecx, 2
-		rep movsd   
-		mov     cl, al
-		and     cl, 3
-		rep movsb   
-		pop     edi
-		cmp     ebp, 49480h
-		jne     short ___23245h
-		mov     edi, ___1a116ch
-		mov     esi, 3b10ch
-		xor     ebp, ebp
-		add     edi, 960h
-___2328ah:
-		cmp     byte [ebp+___1a1f5eh], 0
-		jne     short ___232a6h
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
-		mov     ecx, esi
-		mov     ebx, edi
-		call    near renderTextToBuffer__video
-___232a6h:
-		cmp     byte [ebp+___1a1f5eh], 1
-		jne     short ___232c2h
-		mov     edx, ___185c0bh
-		mov     eax, [___1a10fch]
-		mov     ecx, esi
-		mov     ebx, edi
-		call    near renderTextToBuffer__video
-___232c2h:
-		cmp     byte [ebp+___1a1f5eh], 2
-		jne     short ___232deh
-		mov     edx, ___185c0bh
-		mov     eax, [___1a110ch]
-		mov     ecx, esi
-		mov     ebx, edi
-		call    near renderTextToBuffer__video
-___232deh:
-		add     esi, 2580h
-		inc     ebp
-		add     edi, 96h
-		cmp     ebp, byte 6
-		jl      short ___2328ah
-		pop     ebp
-		pop     edi
-		pop     esi
-		pop     edx
-		pop     ecx
-		pop     ebx
-		retn    
+		retn        
 db	90h
 ___232f8h:
 		push    1ch
@@ -24101,7 +24032,7 @@ ___232f8h:
 		push    ebp
 		mov     ebp, 12c00h
 ___2330dh:
-		mov     eax, [___1a1138h]
+		mov     eax, [GXBackBuffer]
 		add     eax, ebp
 		lea     esi, [eax+0ch]
 		mov     eax, [VGABufferPtr_0]
@@ -24119,30 +24050,30 @@ ___2330dh:
 		pop     edi
 		cmp     ebp, 49700h
 		jne     short ___2330dh
-		mov     edi, ___1a116ch
+		mov     edi, RowBoxBuffers
 		mov     esi, 1298ch
 		xor     ebp, ebp
 ___23350h:
 		cmp     byte [ebp+___1a1f4eh], 0
 		jne     short ___2336ch
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		mov     ecx, esi
 		mov     ebx, edi
 		call    near renderTextToBuffer__video
 ___2336ch:
 		cmp     byte [ebp+___1a1f4eh], 1
 		jne     short ___23388h
-		mov     edx, ___185c0bh
-		mov     eax, [___1a10fch]
+		mov     edx, Font0Props
+		mov     eax, [GreyFont0Ptr]
 		mov     ecx, esi
 		mov     ebx, edi
 		call    near renderTextToBuffer__video
 ___23388h:
 		cmp     byte [ebp+___1a1f4eh], 2
 		jne     short ___233a4h
-		mov     edx, ___185c0bh
-		mov     eax, [___1a110ch]
+		mov     edx, Font0Props
+		mov     eax, [LightBlueFont0Ptr]
 		mov     ecx, esi
 		mov     ebx, edi
 		call    near renderTextToBuffer__video
@@ -24171,7 +24102,7 @@ ___233c0h:
 		push    ebp
 		mov     ebp, 12c00h
 ___233d5h:
-		mov     eax, [___1a1138h]
+		mov     eax, [GXBackBuffer]
 		add     eax, ebp
 		lea     esi, [eax+0ch]
 		mov     eax, [VGABufferPtr_0]
@@ -24189,30 +24120,30 @@ ___233d5h:
 		pop     edi
 		cmp     ebp, 46a00h
 		jne     short ___233d5h
-		mov     edi, ___1a116ch
+		mov     edi, RowBoxBuffers
 		mov     esi, 1298ch
 		xor     ebp, ebp
 ___23418h:
 		cmp     byte [ebp+___1a1f4eh], 0
 		jne     short ___23434h
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		mov     ecx, esi
 		mov     ebx, edi
 		call    near renderTextToBuffer__video
 ___23434h:
 		cmp     byte [ebp+___1a1f4eh], 1
 		jne     short ___23450h
-		mov     edx, ___185c0bh
-		mov     eax, [___1a10fch]
+		mov     edx, Font0Props
+		mov     eax, [GreyFont0Ptr]
 		mov     ecx, esi
 		mov     ebx, edi
 		call    near renderTextToBuffer__video
 ___23450h:
 		cmp     byte [ebp+___1a1f4eh], 2
 		jne     short ___2346ch
-		mov     edx, ___185c0bh
-		mov     eax, [___1a110ch]
+		mov     edx, Font0Props
+		mov     eax, [LightBlueFont0Ptr]
 		mov     ecx, esi
 		mov     ebx, edi
 		call    near renderTextToBuffer__video
@@ -24508,7 +24439,7 @@ ___23758h:
 		rep movsb   
 		pop     edi
 		mov     ecx, 3c500h
-		mov     esi, [___1a1138h]
+		mov     esi, [GXBackBuffer]
 		mov     edi, [VGABufferPtr_0]
 		add     esi, 0d200h
 		add     edi, 0d200h
@@ -24524,40 +24455,40 @@ ___23758h:
 		mov     ecx, 171h
 		xor     eax, eax
 		xor     ebp, ebp
-		call    near ___135fch
+		call    near frameFooter__dr
 		mov     ecx, 10923h
 		mov     ebx, ___181cb4h
-		mov     edx, ___185c0bh
-		mov     eax, [___1a10fch]
-		mov     esi, ___1a116ch
+		mov     edx, Font0Props
+		mov     eax, [GreyFont0Ptr]
+		mov     esi, RowBoxBuffers
 		call    near renderTextToBuffer__video
 		mov     ecx, 10959h
 		mov     ebx, ___1807e8h
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		mov     edi, 1298ch
 		call    near renderTextToBuffer__video
 ___23843h:
 		cmp     byte [ebp+___1a1f4eh], 0
 		jne     short ___2385fh
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		mov     ecx, edi
 		mov     ebx, esi
 		call    near renderTextToBuffer__video
 ___2385fh:
 		cmp     byte [ebp+___1a1f4eh], 1
 		jne     short ___2387bh
-		mov     edx, ___185c0bh
-		mov     eax, [___1a10fch]
+		mov     edx, Font0Props
+		mov     eax, [GreyFont0Ptr]
 		mov     ecx, edi
 		mov     ebx, esi
 		call    near renderTextToBuffer__video
 ___2387bh:
 		cmp     byte [ebp+___1a1f4eh], 2
 		jne     short ___23897h
-		mov     edx, ___185c0bh
-		mov     eax, [___1a110ch]
+		mov     edx, Font0Props
+		mov     eax, [LightBlueFont0Ptr]
 		mov     ecx, edi
 		mov     ebx, esi
 		call    near renderTextToBuffer__video
@@ -24582,7 +24513,7 @@ ___238c3h:
 		jle     short ___23920h
 		mov     edx, 46500h
 ___238e1h:
-		mov     eax, [___1a1138h]
+		mov     eax, [GXBackBuffer]
 		add     eax, edx
 		add     eax, byte 0ch
 		lea     esi, [eax+ebp*1]
@@ -24605,8 +24536,8 @@ ___238e1h:
 		jmp     short ___238e1h
 ___23920h:
 		mov     ebx, ___18072ch
-		mov     edx, ___185c0bh
-		mov     eax, [___1a110ch]
+		mov     edx, Font0Props
+		mov     eax, [LightBlueFont0Ptr]
 		lea     ecx, [ebp+4650ch]
 		call    near renderTextToBuffer__video
 ___2393ah:
@@ -24652,7 +24583,7 @@ ___239aah:
 		xor     ebp, ebp
 ___239c5h:
 		mov     ecx, 262h
-		mov     esi, [___1a1138h]
+		mov     esi, [GXBackBuffer]
 		mov     eax, [VGABufferPtr_0]
 		add     esi, edx
 		add     eax, edx
@@ -24669,7 +24600,7 @@ ___239c5h:
 		pop     edi
 		cmp     edx, 48d00h
 		jne     short ___239c5h
-		mov     ecx, ___1a116ch
+		mov     ecx, RowBoxBuffers
 		xor     edx, edx
 		lea     ebx, [ecx+96h]
 ___23a0ah:
@@ -24735,7 +24666,7 @@ ___23a94h:
 		jne     short ___23a94h
 ___23aach:
 		pop     edi
-		mov     [___1a1f63h], dl
+		mov     [RowBox0Colors_R5], dl
 		call    near ___232f8h
 		mov     [esp], dl
 		jmp     near ___23f6dh
@@ -24806,7 +24737,7 @@ ___23b4ah:
 		pop     edi
 		mov     al, 2
 		mov     ebx, 1
-		mov     [___1a1f63h], al
+		mov     [RowBox0Colors_R5], al
 		sub     ecx, ecx
 		dec     ecx
 		xor     eax, eax
@@ -24845,7 +24776,7 @@ ___23b7dh:
 		sub     ebp, eax
 		mov     ebx, 20h
 ___23bbah:
-		mov     eax, [___1a1138h]
+		mov     eax, [GXBackBuffer]
 		add     eax, edx
 		add     eax, byte 0ch
 		lea     esi, [eax+ebp*1]
@@ -24916,7 +24847,7 @@ ___23c88h:
 		pop     edi
 		mov     ebx, 10h
 ___23c8eh:
-		mov     eax, [___1a1138h]
+		mov     eax, [GXBackBuffer]
 		add     eax, edx
 		add     eax, byte 0ch
 		lea     esi, [eax+ebp*1]
@@ -24937,9 +24868,9 @@ ___23c8eh:
 		cmp     edx, 48d00h
 		jne     short ___23c8eh
 		lea     ebx, [esp+13ch]
-		mov     edx, ___185c0bh
+		mov     edx, Font0Props
 		lea     esi, [ebp+4650ch]
-		mov     eax, [___1a110ch]
+		mov     eax, [LightBlueFont0Ptr]
 		mov     ecx, esi
 		call    near renderTextToBuffer__video
 		xor     ebx, ebx
@@ -25008,7 +24939,7 @@ ___23d87h:
 		mov     [esp+ebp*1], bh
 ___23d8bh:
 		mov     ecx, 262h
-		mov     esi, [___1a1138h]
+		mov     esi, [GXBackBuffer]
 		mov     eax, [VGABufferPtr_0]
 		add     esi, edx
 		add     eax, edx
@@ -25025,7 +24956,7 @@ ___23d8bh:
 		pop     edi
 		cmp     edx, 48d00h
 		jne     short ___23d8bh
-		mov     ecx, ___1a116ch
+		mov     ecx, RowBoxBuffers
 		xor     edx, edx
 		lea     ebx, [ecx+96h]
 ___23dd0h:
@@ -25118,7 +25049,7 @@ ___23e96h:
 		pop     edi
 		mov     cl, 2
 		mov     ebx, 1
-		mov     [___1a1f63h], cl
+		mov     [RowBox0Colors_R5], cl
 		sub     ecx, ecx
 		dec     ecx
 		xor     eax, eax
@@ -25162,7 +25093,7 @@ ___23f03h:
 		lea     esi, [esp+13ch]
 		mov     edi, esp
 		mov     ebx, esp
-		mov     edx, ___185c0bh
+		mov     edx, Font0Props
 		push    edi
 		sub     ecx, ecx
 		dec     ecx
@@ -25183,7 +25114,7 @@ ___23f1ch:
 ___23f34h:
 		pop     edi
 		mov     ecx, 4650ch
-		mov     eax, [___1a110ch]
+		mov     eax, [LightBlueFont0Ptr]
 		xor     ebp, ebp
 		call    near renderTextToBuffer__video
 		xor     edx, edx
@@ -25238,7 +25169,7 @@ ___23fa3h:
 		je      short ___23ff6h
 		cmp     dword [___196a84h], byte 0
 		jne     short ___23ff6h
-		call    near ___23230h
+		call    near footer__dr
 		call    near ___12dc4h
 ___23ff6h:
 		mov     eax, [esp+134h]
@@ -25649,166 +25580,166 @@ ___245c5h:
 		mov     [___1a1ee4h], ebx
 ___245cbh:
 		mov     eax, 4b000h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a1124h], eax
 		mov     [___1a10e4h], eax
 		mov     eax, 3400h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a1e80h], eax
 		mov     eax, 3400h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a1e74h], eax
 		mov     eax, 3400h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a1e84h], eax
 		mov     eax, 3400h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a1e60h], eax
 		mov     eax, 5400h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a1ed4h], eax
 		mov     eax, 4b0h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a1e90h], eax
 		mov     eax, 8f0h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a10b0h], eax
 		mov     eax, 900h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a1eb0h], eax
 		mov     eax, 1000h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a1e78h], eax
 		mov     eax, 12000h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a1eb8h], eax
 		mov     eax, 1af00h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a01b8h], eax
 		mov     eax, 1a77bh
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a01bch], eax
 		mov     eax, 18f14h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a01c0h], eax
 		mov     eax, 18f51h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a01c4h], eax
 		mov     eax, 1a060h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a01c8h], eax
 		mov     eax, 1bea2h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a01cch], eax
 		mov     eax, 1800h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a0180h], eax
 		mov     eax, 1800h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a0184h], eax
 		mov     eax, 1800h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a0188h], eax
 		mov     eax, 1800h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a018ch], eax
 		mov     eax, 1800h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a0190h], eax
 		mov     eax, 1800h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a0194h], eax
 		mov     eax, 0a235h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a01a8h], eax
 		mov     eax, 0ae36h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a01ach], eax
 		mov     eax, 0b413h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a01b0h], eax
 		mov     eax, 0d788h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a01b4h], eax
 		mov     eax, 511ch
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a0198h], eax
 		mov     eax, 52b8h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a019ch], eax
 		mov     eax, 5724h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a01a0h], eax
 		mov     eax, 5f1eh
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a01a4h], eax
 		mov     eax, 5ffbh
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a01d0h], eax
 		mov     eax, 6dd9h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a01d4h], eax
 		mov     eax, 7922h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a01d8h], eax
 		mov     eax, 7801h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a01dch], eax
 		mov     eax, 878bh
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a1e8ch], eax
 		mov     eax, 8ae9h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a1ea0h], eax
 		mov     eax, 1800h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a1e7ch], eax
 		mov     eax, 0f0h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a1ebch], eax
 		mov     eax, 0f0h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a1eb4h], eax
 		mov     eax, 1260h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a1e88h], eax
 		mov     eax, 1020h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a1ea4h], eax
 		mov     eax, 2400h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a1ea8h], eax
 		mov     eax, 2400h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a1e6ch], eax
 		mov     eax, 2400h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a1e98h], eax
 		mov     eax, 2400h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a1each], eax
 		mov     eax, 2400h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a1e94h], eax
 		mov     eax, 2400h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a1e9ch], eax
 		mov     eax, 2400h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a1e70h], eax
 		mov     eax, 1b000h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a1e5ch], eax
 		mov     eax, 2400h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a1e58h], eax
 		mov     eax, 2800h
 		mov     ebx, ___181d24h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a1e54h], eax
 		mov     eax, 2800h
 		mov     edx, ___1a54d0h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a1e64h], eax
 		mov     eax, ___180144h
 		call    near read__bpa
@@ -26694,8 +26625,8 @@ ___254ceh:
 		lea     ebx, [esp+14h]
 		call    near ___250e0h
 		lea     ecx, [eax+202a0h]
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 		mov     edx, [___1a1ef8h]
 		lea     eax, [edx*8+0]
@@ -26888,8 +26819,8 @@ ___2570ah:
 		cmp     edx, ecx
 		jb      short ___256f6h
 		mov     ecx, 2f56fh
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		xor     edi, edi
 		sub     ecx, ebx
 		lea     ebx, [esp+14h]
@@ -30152,7 +30083,7 @@ ___281d0h:
 		add     eax, 0c80h
 		mov     [esp+10h], eax
 ___281feh:
-		mov     esi, [___1a1138h]
+		mov     esi, [GXBackBuffer]
 		mov     edi, [VGABufferPtr_0]
 		mov     ecx, ebx
 		add     esi, edx
@@ -30183,7 +30114,7 @@ ___281feh:
 		add     eax, edi
 		mov     [esp+0ch], eax
 ___2825eh:
-		mov     esi, [___1a1138h]
+		mov     esi, [GXBackBuffer]
 		mov     edi, [VGABufferPtr_0]
 		mov     ecx, ebx
 		add     esi, edx
@@ -30218,7 +30149,7 @@ ___2825eh:
 		mov     [esp+8], edi
 ___282c2h:
 		mov     ecx, 5
-		mov     esi, [___1a1138h]
+		mov     esi, [GXBackBuffer]
 		mov     edi, [VGABufferPtr_0]
 		add     esi, edx
 		add     edi, edx
@@ -30251,7 +30182,7 @@ ___282f7h:
 		mov     [esp+14h], eax
 ___28325h:
 		mov     ecx, 5
-		mov     esi, [___1a1138h]
+		mov     esi, [GXBackBuffer]
 		mov     edi, [VGABufferPtr_0]
 		add     esi, edx
 		add     edi, edx
@@ -31260,7 +31191,7 @@ ___29031h:
 		pop     edi
 		mov     esi, ___181fdch
 		mov     edi, esp
-		mov     edx, ___185c0bh
+		mov     edx, Font0Props
 		push    edi
 		sub     ecx, ecx
 		dec     ecx
@@ -31282,14 +31213,14 @@ ___2905fh:
 		pop     edi
 		mov     ecx, 136aah
 		mov     edi, esp
-		mov     eax, [___1a110ch]
+		mov     eax, [LightBlueFont0Ptr]
 		mov     esi, ___181fe4h
 		call    near renderTextToBuffer__video
 		mov     ecx, 8
 		mov     ebx, esp
-		mov     edx, ___185c0bh
+		mov     edx, Font0Props
 		rep movsd   
-		mov     eax, [___1a110ch]
+		mov     eax, [LightBlueFont0Ptr]
 		mov     ecx, 15eaah
 		call    near renderTextToBuffer__video
 		mov     edx, [___1a1ee4h]
@@ -31337,7 +31268,7 @@ ___290f9h:
 		lea     esi, [esp+3ch]
 		mov     edi, esp
 		mov     ebx, esp
-		mov     edx, ___185c0bh
+		mov     edx, Font0Props
 		push    edi
 		sub     ecx, ecx
 		dec     ecx
@@ -31358,7 +31289,7 @@ ___29110h:
 ___29128h:
 		pop     edi
 		mov     ecx, 186aah
-		mov     eax, [___1a110ch]
+		mov     eax, [LightBlueFont0Ptr]
 		call    near renderTextToBuffer__video
 		mov     edx, [___1a1ee4h]
 		lea     eax, [edx*8+0]
@@ -31396,7 +31327,7 @@ ___29186h:
 		pop     edi
 		mov     esi, ___182020h
 		mov     edi, esp
-		mov     edx, ___185c0bh
+		mov     edx, Font0Props
 		push    edi
 		sub     ecx, ecx
 		dec     ecx
@@ -31417,7 +31348,7 @@ ___2919ch:
 ___291b4h:
 		pop     edi
 		mov     ecx, 1aeaah
-		mov     eax, [___1a110ch]
+		mov     eax, [LightBlueFont0Ptr]
 		jmp     near ___293cch
 ___291c4h:
 		call    near ___28ab4h
@@ -31472,7 +31403,7 @@ ___29256h:
 		pop     edi
 		mov     esi, ___181fdch
 		mov     edi, esp
-		mov     edx, ___185c0bh
+		mov     edx, Font0Props
 		push    edi
 		sub     ecx, ecx
 		dec     ecx
@@ -31494,14 +31425,14 @@ ___29284h:
 		pop     edi
 		mov     ecx, 136aah
 		mov     edi, esp
-		mov     eax, [___1a110ch]
+		mov     eax, [LightBlueFont0Ptr]
 		mov     esi, ___182024h
 		call    near renderTextToBuffer__video
 		mov     ecx, 8
 		mov     ebx, esp
-		mov     edx, ___185c0bh
+		mov     edx, Font0Props
 		rep movsd   
-		mov     eax, [___1a110ch]
+		mov     eax, [LightBlueFont0Ptr]
 		mov     ecx, 15eaah
 		call    near renderTextToBuffer__video
 		mov     edx, [___1a1ee4h]
@@ -31583,7 +31514,7 @@ ___29370h:
 		lea     esi, [esp+3ch]
 		mov     edi, esp
 		mov     ebx, esp
-		mov     edx, ___185c0bh
+		mov     edx, Font0Props
 		push    edi
 		sub     ecx, ecx
 		dec     ecx
@@ -31605,13 +31536,13 @@ ___2939fh:
 		pop     edi
 		mov     ecx, 186aah
 		mov     edi, esp
-		mov     eax, [___1a110ch]
+		mov     eax, [LightBlueFont0Ptr]
 		mov     esi, ___182054h
 		call    near renderTextToBuffer__video
 		mov     ecx, 1aeaah
 		mov     ebx, esp
-		mov     edx, ___185c0bh
-		mov     eax, [___1a110ch]
+		mov     edx, Font0Props
+		mov     eax, [LightBlueFont0Ptr]
 		movsd   
 		movsd   
 		movsd   
@@ -31619,12 +31550,12 @@ ___2939fh:
 ___293cch:
 		call    near renderTextToBuffer__video
 		mov     ecx, 1cf70h
-		mov     ebx, ___18068ch
+		mov     ebx, STRING_YES
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10cch]
 		call    near renderTextToBuffer__video
 		mov     ecx, 1d01ah
-		mov     ebx, ___180690h
+		mov     ebx, STRING_NO
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10e0h]
 		xor     ebp, ebp
@@ -31781,12 +31712,12 @@ ___295f8h:
 		cmp     ecx, 21e80h
 		jne     short ___295f8h
 		mov     ecx, 1cf70h
-		mov     ebx, ___18068ch
+		mov     ebx, STRING_YES
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10cch]
 		call    near renderTextToBuffer__video
 		mov     ecx, 1d01ah
-		mov     ebx, ___180690h
+		mov     ebx, STRING_NO
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10e0h]
 		call    near renderTextToBuffer__video
@@ -31818,12 +31749,12 @@ ___2968dh:
 		cmp     ecx, 21e80h
 		jne     short ___2968dh
 		mov     ecx, 1cf70h
-		mov     ebx, ___18068ch
+		mov     ebx, STRING_YES
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10e0h]
 		call    near renderTextToBuffer__video
 		mov     ecx, 1d01ah
-		mov     ebx, ___180690h
+		mov     ebx, STRING_NO
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10cch]
 		call    near renderTextToBuffer__video
@@ -31923,28 +31854,28 @@ ___29842h:
 		mov     edi, esp
 		mov     esi, ___182064h
 		mov     ebx, esp
-		mov     edx, ___185c0bh
+		mov     edx, Font0Props
 		rep movsd   
 		movsw   
 		movsb   
-		mov     eax, [___1a110ch]
+		mov     eax, [LightBlueFont0Ptr]
 		mov     ecx, 136aah
 		mov     edi, esp
 		mov     esi, ___182084h
 		call    near renderTextToBuffer__video
 		mov     ecx, 7
 		mov     ebx, esp
-		mov     edx, ___185c0bh
+		mov     edx, Font0Props
 		rep movsd   
-		mov     eax, [___1a110ch]
+		mov     eax, [LightBlueFont0Ptr]
 		mov     ecx, 15eaah
 		mov     edi, esp
 		mov     esi, ___1820a0h
 		call    near renderTextToBuffer__video
 		mov     ecx, 186aah
 		mov     ebx, esp
-		mov     edx, ___185c0bh
-		mov     eax, [___1a110ch]
+		mov     edx, Font0Props
+		mov     eax, [LightBlueFont0Ptr]
 		movsd   
 		movsd   
 		movsd   
@@ -32968,8 +32899,8 @@ ___2a608h:
 		call    near renderTextToBuffer__video
 		mov     ecx, 2a650h
 		mov     ebx, ___180848h
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 		call    near ___12dc4h
 		call    near lastScanCode__keyboard
@@ -33011,7 +32942,7 @@ ___2a6a8h:
 		je      near ___2a836h
 		mov     ebp, 883h
 		mov     eax, ebp
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     ebx, ebp
 		mov     [___1a0f9ch], eax
 		call    near memset__clib3r
@@ -33133,7 +33064,7 @@ ___2a836h:
 		mov     [___196ab4h], eax
 		mov     eax, 883h
 		xor     edx, edx
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a0f9ch], eax
 		call    near memset__clib3r
 		mov     edx, ___180134h
@@ -33474,7 +33405,7 @@ ___2acebh:
 		je      near ___2adcch
 		xor     ebx, ebx
 		mov     [esp+418h], ebx
-		mov     ebx, ___1a116ch
+		mov     ebx, RowBoxBuffers
 		lea     edx, [ebx+96h]
 ___2ad25h:
 		mov     esi, edx
@@ -33520,12 +33451,12 @@ ___2ad7bh:
 ___2ad93h:
 		pop     edi
 		mov     edi, [___185a1ch]
-		mov     [___1a1f63h], dh
+		mov     [RowBox0Colors_R5], dh
 		test    edi, edi
 		jne     short ___2adb9h
 		cmp     dword [___196a74h], byte 1
 		jne     short ___2adcch
-		call    near ___23230h
+		call    near footer__dr
 		call    near ___12d6ch
 		jmp     short ___2adcch
 ___2adb9h:
@@ -33541,7 +33472,7 @@ ___2adcch:
 		je      near ___2ae9bh
 		xor     edx, edx
 		mov     [esp+418h], edx
-		mov     edx, ___1a116ch
+		mov     edx, RowBoxBuffers
 		lea     ebx, [edx+96h]
 ___2adf4h:
 		mov     esi, ebx
@@ -33587,12 +33518,12 @@ ___2ae60h:
 		pop     edi
 		xor     bl, bl
 		mov     edi, [___185a1ch]
-		mov     [___1a1f63h], bl
+		mov     [RowBox0Colors_R5], bl
 		test    edi, edi
 		jne     short ___2ae88h
 		cmp     dword [___196a74h], byte 1
 		jne     short ___2ae9bh
-		call    near ___23230h
+		call    near footer__dr
 		call    near ___12d6ch
 		jmp     short ___2ae9bh
 ___2ae88h:
@@ -33607,7 +33538,7 @@ ___2ae9bh:
 		test    eax, eax
 		je      near ___2af52h
 		mov     eax, 64h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     edi, eax
 		mov     [___1a0f9ch], eax
 		mov     eax, [___180864h]
@@ -33674,7 +33605,7 @@ ___2af52h:
 		je      near ___2b031h
 		xor     edx, edx
 		mov     [esp+418h], edx
-		mov     edx, ___1a116ch
+		mov     edx, RowBoxBuffers
 		lea     ebx, [edx+96h]
 ___2af7ah:
 		mov     esi, ebx
@@ -33720,12 +33651,12 @@ ___2afe6h:
 		pop     edi
 		xor     bh, bh
 		mov     edi, [___185a1ch]
-		mov     [___1a1f63h], bh
+		mov     [RowBox0Colors_R5], bh
 		test    edi, edi
 		jne     short ___2b00eh
 		cmp     dword [___196a74h], byte 1
 		jne     short ___2b021h
-		call    near ___23230h
+		call    near footer__dr
 		call    near ___12d6ch
 		jmp     short ___2b021h
 ___2b00eh:
@@ -33744,7 +33675,7 @@ ___2b031h:
 		test    eax, eax
 		je      near ___2b10ah
 		xor     ebx, ebx
-		mov     edx, ___1a116ch
+		mov     edx, RowBoxBuffers
 		mov     [esp+418h], ebx
 		lea     ebx, [edx+96h]
 ___2b059h:
@@ -33791,12 +33722,12 @@ ___2b0c5h:
 		pop     edi
 		xor     cl, cl
 		mov     edi, [___185a1ch]
-		mov     [___1a1f63h], cl
+		mov     [RowBox0Colors_R5], cl
 		test    edi, edi
 		jne     short ___2b0edh
 		cmp     dword [___196a74h], byte 1
 		jne     short ___2b100h
-		call    near ___23230h
+		call    near footer__dr
 		call    near ___12d6ch
 		jmp     short ___2b100h
 ___2b0edh:
@@ -33815,7 +33746,7 @@ ___2b10ah:
 		je      near ___2b236h
 		xor     edx, edx
 		mov     [esp+418h], edx
-		mov     edx, ___1a116ch
+		mov     edx, RowBoxBuffers
 		lea     ebx, [edx+96h]
 ___2b137h:
 		mov     esi, ebx
@@ -33896,12 +33827,12 @@ ___2b1fbh:
 		pop     edi
 		xor     ch, ch
 		mov     edi, [___185a1ch]
-		mov     [___1a1f63h], ch
+		mov     [RowBox0Colors_R5], ch
 		test    edi, edi
 		jne     short ___2b223h
 		cmp     dword [___196a74h], byte 1
 		jne     short ___2b236h
-		call    near ___23230h
+		call    near footer__dr
 		call    near ___12d6ch
 		jmp     short ___2b236h
 ___2b223h:
@@ -33918,7 +33849,7 @@ ___2b236h:
 ___2b24ah:
 		test    byte [___199fc8h], 80h
 		jne     near ___2b30bh
-		mov     edx, ___1a116ch
+		mov     edx, RowBoxBuffers
 		xor     ecx, ecx
 		lea     ebx, [edx+96h]
 		mov     [esp+418h], ecx
@@ -33953,14 +33884,14 @@ ___2b288h:
 		mov     esi, ___1821c0h
 		xor     ah, ah
 		mov     ebp, [___185a1ch]
-		mov     [___1a1f63h], ah
+		mov     [RowBox0Colors_R5], ah
 		rep movsd   
 		movsw   
 		test    ebp, ebp
 		jne     short ___2b2f1h
 		cmp     dword [___196a74h], byte 1
 		jne     short ___2b304h
-		call    near ___23230h
+		call    near footer__dr
 		call    near ___12d6ch
 		jmp     short ___2b304h
 ___2b2f1h:
@@ -34510,7 +34441,7 @@ ___2b9cah:
 		pop     edi
 		mov     ecx, 29b80h
 		mov     eax, [___1a10e4h]
-		mov     esi, [___1a1138h]
+		mov     esi, [GXBackBuffer]
 		mov     [VGABufferPtr_0], eax
 		add     esi, 0f000h
 		lea     edi, [eax+0f000h]
@@ -34578,7 +34509,7 @@ ___2bae9h:
 		jne     near ___2c687h
 		mov     ecx, 4b000h
 		xor     edi, edi
-		mov     esi, [___1a1138h]
+		mov     esi, [GXBackBuffer]
 		mov     [esp+28h], edi
 		mov     [___185a20h], edi
 		mov     edi, [VGABufferPtr_0]
@@ -34685,21 +34616,21 @@ ___2bc81h:
 		xor     eax, eax
 		mov     [___1a1ec4h], ebx
 		mov     ebx, 27fh
-		call    near ___135fch
+		call    near frameFooter__dr
 		cmp     dword [___19bd60h], byte 0
 		je      short ___2bcddh
 		mov     ecx, 390a3h
 		mov     ebx, ___1807cch
-		mov     edx, ___185c0bh
-		mov     eax, [___1a10fch]
+		mov     edx, Font0Props
+		mov     eax, [GreyFont0Ptr]
 		call    near renderTextToBuffer__video
 		mov     ecx, 390d9h
 		mov     ebx, ___1807e8h
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 ___2bcddh:
-		call    near ___23230h
+		call    near footer__dr
 		call    near ___12cb8h
 		cmp     dword [___185a28h], byte 0
 		je      short ___2bcfah
@@ -35262,7 +35193,7 @@ ___2c5ceh:
 		jne     near ___2c67fh
 		mov     ecx, 29b80h
 		mov     ebx, 27fh
-		mov     esi, [___1a1138h]
+		mov     esi, [GXBackBuffer]
 		mov     edi, [VGABufferPtr_0]
 		add     esi, 0f000h
 		add     edi, 0f000h
@@ -35278,21 +35209,21 @@ ___2c5ceh:
 		call    near ___2b6a4h
 		mov     ecx, 6dh
 		xor     eax, eax
-		call    near ___135fch
+		call    near frameFooter__dr
 		cmp     dword [___19bd60h], byte 0
 		je      short ___2c65ch
 		mov     ecx, 390a3h
 		mov     ebx, ___1807cch
-		mov     edx, ___185c0bh
-		mov     eax, [___1a10fch]
+		mov     edx, Font0Props
+		mov     eax, [GreyFont0Ptr]
 		call    near renderTextToBuffer__video
 		mov     ecx, 390d9h
 		mov     ebx, ___1807e8h
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 ___2c65ch:
-		call    near ___23230h
+		call    near footer__dr
 		mov     ecx, 72h
 		mov     ebx, 6ch
 		mov     edx, 0f3h
@@ -35678,7 +35609,7 @@ ___2cc6bh:
 		test    eax, eax
 		jle     near ___2cf97h
 		mov     ecx, 29b80h
-		mov     esi, [___1a1138h]
+		mov     esi, [GXBackBuffer]
 		mov     edi, [VGABufferPtr_0]
 		add     esi, 0f000h
 		add     edi, 0f000h
@@ -35825,21 +35756,21 @@ ___2cec8h:
 		mov     ebx, 27fh
 		mov     edx, 173h
 		xor     eax, eax
-		call    near ___135fch
+		call    near frameFooter__dr
 		cmp     dword [___19bd60h], byte 0
 		je      short ___2cf19h
 		mov     ecx, 390a3h
 		mov     ebx, ___1807cch
-		mov     edx, ___185c0bh
-		mov     eax, [___1a10fch]
+		mov     edx, Font0Props
+		mov     eax, [GreyFont0Ptr]
 		call    near renderTextToBuffer__video
 		mov     ecx, 390d9h
 		mov     ebx, ___1807e8h
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 ___2cf19h:
-		call    near ___23230h
+		call    near footer__dr
 		call    near ___12cb8h
 		mov     ecx, 4b000h
 		mov     esi, [VGABufferPtr_0]
@@ -35895,7 +35826,7 @@ ___2cfbch:
 ___2cfc8h:
 		mov     ecx, 4b000h
 		mov     ebx, 27fh
-		mov     esi, [___1a1138h]
+		mov     esi, [GXBackBuffer]
 		mov     edi, [___1a10e4h]
 		mov     edx, 173h
 		push    edi
@@ -35910,21 +35841,21 @@ ___2cfc8h:
 		mov     ecx, 6dh
 		mov     [VGABufferPtr_0], eax
 		xor     eax, eax
-		call    near ___135fch
+		call    near frameFooter__dr
 		cmp     dword [___19bd60h], byte 0
 		je      short ___2d044h
 		mov     ecx, 390a3h
 		mov     ebx, ___1807cch
-		mov     edx, ___185c0bh
-		mov     eax, [___1a10fch]
+		mov     edx, Font0Props
+		mov     eax, [GreyFont0Ptr]
 		call    near renderTextToBuffer__video
 		mov     ecx, 390d9h
 		mov     ebx, ___1807e8h
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 ___2d044h:
-		call    near ___23230h
+		call    near footer__dr
 		add     esp, byte 40h
 		pop     ebp
 		pop     edi
@@ -38117,7 +38048,7 @@ ___2ed2ch:
 		push    esi
 		push    edi
 		mov     ecx, 2a580h
-		mov     esi, [___1a1138h]
+		mov     esi, [GXBackBuffer]
 		mov     edi, [VGABufferPtr_0]
 		add     esi, 0e600h
 		add     edi, 0e600h
@@ -38720,7 +38651,7 @@ ___2f559h:
 		test    eax, eax
 		jle     near ___2f887h
 		mov     ecx, 29b80h
-		mov     esi, [___1a1138h]
+		mov     esi, [GXBackBuffer]
 		mov     edi, [VGABufferPtr_0]
 		add     esi, 0f000h
 		add     edi, 0f000h
@@ -38867,21 +38798,21 @@ ___2f7b8h:
 		mov     ebx, 27fh
 		mov     edx, 173h
 		xor     eax, eax
-		call    near ___135fch
+		call    near frameFooter__dr
 		cmp     dword [___19bd60h], byte 0
 		je      short ___2f809h
 		mov     ecx, 390a3h
 		mov     ebx, ___1807cch
-		mov     edx, ___185c0bh
-		mov     eax, [___1a10fch]
+		mov     edx, Font0Props
+		mov     eax, [GreyFont0Ptr]
 		call    near renderTextToBuffer__video
 		mov     ecx, 390d9h
 		mov     ebx, ___1807e8h
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 ___2f809h:
-		call    near ___23230h
+		call    near footer__dr
 		call    near ___12cb8h
 		mov     ecx, 4b000h
 		mov     esi, [VGABufferPtr_0]
@@ -39106,27 +39037,27 @@ ___2faf0h:
 		push    edi
 		push    ebp
 		mov     eax, 1b80h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a0f90h], eax
 		mov     eax, 0e400h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a0f88h], eax
 		mov     eax, 2eb8h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a0f84h], eax
 		mov     eax, 110h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a0f98h], eax
 		mov     eax, 8700h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a0f8ch], eax
 		mov     eax, 18150h
 		mov     ebx, ___1822f0h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a1114h], eax
 		mov     eax, 0f0d2h
 		mov     edx, ___1a54d0h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___1a0f94h], eax
 		mov     eax, ___180144h
 		call    near read__bpa
@@ -39340,7 +39271,7 @@ ___2fe64h:
 		sub     esp, byte 4
 		mov     ecx, 4b000h
 		mov     ebx, 27fh
-		mov     esi, [___1a1138h]
+		mov     esi, [GXBackBuffer]
 		xor     edx, edx
 		mov     edi, [___1a10e4h]
 		mov     [___1a1160h], edx
@@ -39357,23 +39288,23 @@ ___2fe64h:
 		mov     edx, 173h
 		mov     [VGABufferPtr_0], eax
 		xor     eax, eax
-		call    near ___135fch
+		call    near frameFooter__dr
 		cmp     dword [___19bd60h], byte 0
 		je      short ___2fefbh
 		mov     ecx, 390a3h
 		mov     ebx, ___1807cch
-		mov     edx, ___185c0bh
-		mov     eax, [___1a10fch]
+		mov     edx, Font0Props
+		mov     eax, [GreyFont0Ptr]
 		call    near renderTextToBuffer__video
 		mov     ecx, 390d9h
 		mov     ebx, ___1807e8h
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 ___2fefbh:
-		call    near ___23230h
+		call    near footer__dr
 		mov     ecx, 29b80h
-		mov     esi, [___1a1138h]
+		mov     esi, [GXBackBuffer]
 		mov     edi, [VGABufferPtr_0]
 		add     esi, 0f000h
 		add     edi, 0f000h
@@ -39877,7 +39808,7 @@ ___30571h:
 		mov     edx, 23f00h
 		mov     ebx, 203h
 ___3057bh:
-		mov     esi, [___1a1138h]
+		mov     esi, [GXBackBuffer]
 		mov     edi, [VGABufferPtr_0]
 		mov     ecx, ebx
 		add     esi, edx
@@ -40000,7 +39931,7 @@ ___306edh:
 ___30711h:
 		mov     ecx, 4b000h
 		mov     ebx, 27fh
-		mov     esi, [___1a1138h]
+		mov     esi, [GXBackBuffer]
 		mov     edi, [___1a10e4h]
 		mov     edx, 173h
 		push    edi
@@ -40015,21 +39946,21 @@ ___30711h:
 		mov     ecx, 6dh
 		mov     [VGABufferPtr_0], eax
 		xor     eax, eax
-		call    near ___135fch
+		call    near frameFooter__dr
 		cmp     dword [___19bd60h], byte 0
 		je      short ___3078dh
 		mov     ecx, 390a3h
 		mov     ebx, ___1807cch
-		mov     edx, ___185c0bh
-		mov     eax, [___1a10fch]
+		mov     edx, Font0Props
+		mov     eax, [GreyFont0Ptr]
 		call    near renderTextToBuffer__video
 		mov     ecx, 390d9h
 		mov     ebx, ___1807e8h
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 ___3078dh:
-		call    near ___23230h
+		call    near footer__dr
 		add     esp, byte 4
 		pop     ebp
 		pop     edi
@@ -40506,7 +40437,7 @@ ___30c60h:
 		mov     eax, 870h
 		mov     ecx, 870h
 		mov     esi, ___1a01e0h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     ebx, eax
 		mov     edi, eax
 		mov     [esp], eax
@@ -40587,7 +40518,7 @@ ___30d47h:
 		mov     eax, 870h
 		mov     ecx, 870h
 		mov     esi, ___1a01e0h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     ebx, eax
 		mov     edi, eax
 		mov     [esp+4], eax
@@ -40659,7 +40590,7 @@ ___30df8h:
 		push    edi
 		mov     ecx, 2800h
 		mov     ebx, 27fh
-		mov     esi, [___1a1138h]
+		mov     esi, [GXBackBuffer]
 		mov     edi, [VGABufferPtr_0]
 		add     esi, 39580h
 		add     edi, 39580h
@@ -40674,8 +40605,8 @@ ___30df8h:
 		pop     edi
 		mov     ecx, 6dh
 		xor     eax, eax
-		call    near ___135fch
-		call    near ___23230h
+		call    near frameFooter__dr
+		call    near footer__dr
 		mov     ecx, 70h
 		xor     eax, eax
 		mov     ebx, [VGABufferPtr_0]
@@ -40747,18 +40678,18 @@ ___30f0ah:
 		jne     short ___30f08h
 		mov     ecx, 23049h
 		mov     ebx, ___182358h
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 		mov     ecx, 230e2h
 		mov     ebx, ___182360h
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 		mov     ecx, 2317fh
 		mov     ebx, ___182368h
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 		push    byte 1
 		mov     ecx, 69h
@@ -40875,7 +40806,7 @@ ___3102eh:
 		pop     edi
 		mov     ecx, 2aa80h
 		mov     eax, [___1a10e4h]
-		mov     esi, [___1a1138h]
+		mov     esi, [GXBackBuffer]
 		mov     [VGABufferPtr_0], eax
 		add     esi, 0e100h
 		lea     edi, [eax+0e100h]
@@ -40889,7 +40820,7 @@ ___3102eh:
 		rep movsb   
 		pop     edi
 		mov     ecx, 2800h
-		mov     esi, [___1a1138h]
+		mov     esi, [GXBackBuffer]
 		mov     edi, [VGABufferPtr_0]
 		add     esi, 39580h
 		add     edi, 39580h
@@ -40904,8 +40835,8 @@ ___3102eh:
 		pop     edi
 		mov     ecx, 6dh
 		xor     eax, eax
-		call    near ___135fch
-		call    near ___23230h
+		call    near frameFooter__dr
+		call    near footer__dr
 		call    near ___25330h
 		mov     ecx, 10h
 		mov     edx, 1b8h
@@ -41429,8 +41360,8 @@ ___317c9h:
 		jne     short ___317c9h
 		mov     ecx, 2e250h
 		mov     ebx, ___180848h
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 		call    near ___12dc4h
 		push    8000h
@@ -42684,7 +42615,7 @@ ___326a2h:
 		cmp     ecx, 0b7h
 		jl      near ___326a2h
 		mov     ecx, 4b000h
-		mov     esi, [___1a1138h]
+		mov     esi, [GXBackBuffer]
 		mov     edi, [___1a10e4h]
 		push    edi
 		mov     eax, ecx
@@ -42696,7 +42627,7 @@ ___326a2h:
 		pop     edi
 		mov     ecx, 28a00h
 		mov     eax, [___1a10e4h]
-		mov     esi, [___1a1138h]
+		mov     esi, [GXBackBuffer]
 		mov     [VGABufferPtr_0], eax
 		add     esi, 10180h
 		lea     edi, [eax+10180h]
@@ -42733,7 +42664,7 @@ ___327c9h:
 		je      short ___3284bh
 		call    near ___17324h
 		mov     ecx, 28a00h
-		mov     esi, [___1a1138h]
+		mov     esi, [GXBackBuffer]
 		mov     edi, [VGABufferPtr_0]
 		add     esi, 10180h
 		add     edi, 10180h
@@ -43218,8 +43149,8 @@ ___32dddh:
 		call    near renderTextToBuffer__video
 		mov     ecx, 28d50h
 		mov     ebx, ___180848h
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 		call    near ___12dc4h
 		push    8000h
@@ -43399,7 +43330,7 @@ ___33010h:
 		pop     edi
 		mov     ecx, 4b000h
 		mov     eax, [___1a10e4h]
-		mov     esi, [___1a1138h]
+		mov     esi, [GXBackBuffer]
 		mov     edi, eax
 		mov     [VGABufferPtr_0], eax
 		push    edi
@@ -43520,7 +43451,7 @@ ___331ech:
 		mov     ch, 3
 		mov     [esp+0cdh], bh
 		mov     [esp+0cfh], ch
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     dl, [___1a1ef8h]
 		mov     ebx, 13h
 		mov     [eax], dl
@@ -44484,7 +44415,7 @@ ___33ce6h:
 		add     edx, eax
 		mov     eax, 4
 		mov     [esp+0a4h], edx
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     dl, [___1a1ef8h]
 		mov     [___1a0f9ch], eax
 		mov     [eax], dl
@@ -45670,7 +45601,7 @@ ___3518fh:
 		inc     ecx
 		mov     esi, [___196ab8h]
 		mov     [___196ad4h], ecx
-		mov     ecx, ___1a116ch
+		mov     ecx, RowBoxBuffers
 		mov     eax, [___196ad4h]
 		add     ecx, 96h
 		cmp     eax, esi
@@ -45679,7 +45610,7 @@ ___3518fh:
 		mov     eax, 1
 		mov     [esp+0d0h], edx
 		mov     [___196a80h], eax
-		mov     edx, ___1a116ch
+		mov     edx, RowBoxBuffers
 ___351dfh:
 		mov     esi, ecx
 		mov     edi, edx
@@ -45741,7 +45672,7 @@ ___35284h:
 		pop     edi
 		mov     [esp+0d0h], edx
 		mov     esi, ___182458h
-		mov     edx, ___1a116ch
+		mov     edx, RowBoxBuffers
 		push    edi
 		sub     ecx, ecx
 		dec     ecx
@@ -45761,7 +45692,7 @@ ___3529fh:
 		jne     short ___3529fh
 ___352b7h:
 		pop     edi
-		mov     [___1a1f63h], bh
+		mov     [RowBox0Colors_R5], bh
 		lea     ebx, [edx+96h]
 ___352c4h:
 		mov     esi, ebx
@@ -45793,11 +45724,11 @@ ___352e8h:
 		mov     al, [___180130h]
 		xor     cl, cl
 		mov     [___1a1dbah], al
-		mov     [___1a1f63h], cl
+		mov     [RowBox0Colors_R5], cl
 		jmp     near ___35500h
 ___3532ch:
 		xor     edi, edi
-		mov     edx, ___1a116ch
+		mov     edx, RowBoxBuffers
 		mov     [esp+0d0h], edi
 ___3533ah:
 		mov     esi, ecx
@@ -45932,10 +45863,10 @@ ___35468h:
 ___35480h:
 		pop     edi
 ___35481h:
-		mov     ebx, ___1a116ch
+		mov     ebx, RowBoxBuffers
 		xor     dh, dh
 		xor     eax, eax
-		mov     [___1a1f63h], dh
+		mov     [RowBox0Colors_R5], dh
 		mov     [esp+0d0h], eax
 		lea     edx, [ebx+96h]
 ___3549dh:
@@ -45968,7 +45899,7 @@ ___354c1h:
 		mov     al, [___180130h]
 		xor     bl, bl
 		mov     [___1a1dbah], al
-		mov     [___1a1f63h], bl
+		mov     [RowBox0Colors_R5], bl
 ___35500h:
 		xor     edi, edi
 		mov     ebx, [___196adch]
@@ -46898,8 +46829,8 @@ ___36148h:
 		jne     short ___3613eh
 		mov     ecx, 0d890h
 		mov     ebx, ___1824ech
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 		mov     edx, esp
 		mov     eax, 4
@@ -47036,8 +46967,8 @@ ___36328h:
 		jne     short ___3634dh
 		mov     ecx, 46b6eh
 		mov     ebx, ___18250ch
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 		call    near ___12cb8h
 ___3634dh:
@@ -47139,8 +47070,8 @@ ___36456h:
 		jne     short ___3644ch
 		mov     ecx, 0d890h
 		mov     ebx, ___18252ch
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 		mov     edx, esp
 		mov     eax, 4
@@ -47429,8 +47360,8 @@ ___36816h:
 		jne     short ___3680ch
 		mov     ecx, 0d890h
 		mov     ebx, ___182544h
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 		mov     edx, esp
 		mov     eax, 4
@@ -47641,7 +47572,7 @@ ___36adch:
 		push    ebp
 		sub     esp, 0a4h
 		mov     ecx, 4b000h
-		mov     esi, [___1a1138h]
+		mov     esi, [GXBackBuffer]
 		mov     edi, [VGABufferPtr_0]
 		mov     edx, 36h
 		push    edi
@@ -47757,7 +47688,7 @@ ___36c24h:
 		mov     esi, ___182574h
 		mov     edi, esp
 		mov     ebx, esp
-		mov     edx, ___185c0bh
+		mov     edx, Font0Props
 		push    edi
 		sub     ecx, ecx
 		dec     ecx
@@ -47778,21 +47709,21 @@ ___36c3ch:
 ___36c54h:
 		pop     edi
 		mov     ecx, 46a2eh
-		mov     eax, [___1a1108h]
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 ___36c64h:
 		cmp     dword [___19bd60h], byte 0
 		je      short ___36c86h
 		mov     ecx, 0d738h
 		mov     ebx, ___182580h
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 ___36c86h:
 		mov     ecx, 0d8a0h
 		mov     ebx, ___182594h
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 		mov     edx, [___1a1ef8h]
 		lea     eax, [edx*8+0]
@@ -47828,11 +47759,11 @@ ___36cf2h:
 		mov     ecx, 120e8h
 		mov     esi, ___1825a8h
 		mov     ebx, esp
-		mov     edx, ___185c0bh
+		mov     edx, Font0Props
 		movsd   
 		movsd   
 		movsb   
-		mov     eax, [___1a1108h]
+		mov     eax, [WhiteFont0Ptr]
 		mov     edi, esp
 		mov     esi, ___1825b4h
 		call    near renderTextToBuffer__video
@@ -47841,7 +47772,7 @@ ___36cf2h:
 		mov     ebx, esp
 		lea     esi, [esp+64h]
 		mov     edi, esp
-		mov     edx, ___185c0bh
+		mov     edx, Font0Props
 		push    edi
 		sub     ecx, ecx
 		dec     ecx
@@ -47861,7 +47792,7 @@ ___36d33h:
 		jne     short ___36d33h
 ___36d4bh:
 		pop     edi
-		mov     eax, [___1a1108h]
+		mov     eax, [WhiteFont0Ptr]
 		lea     ecx, [ebp+11f80h]
 		call    near renderTextToBuffer__video
 		mov     edx, [___1a1ef8h]
@@ -47877,11 +47808,11 @@ ___36d4bh:
 		mov     ecx, 15a68h
 		call    near itoa
 		mov     ebx, esp
-		mov     edx, ___185c0bh
+		mov     edx, Font0Props
 		movsd   
 		movsd   
 		movsw   
-		mov     eax, [___1a1108h]
+		mov     eax, [WhiteFont0Ptr]
 		mov     edi, esp
 		mov     esi, ___1825b4h
 		call    near renderTextToBuffer__video
@@ -47890,7 +47821,7 @@ ___36d4bh:
 		mov     ebx, esp
 		lea     esi, [esp+64h]
 		mov     edi, esp
-		mov     edx, ___185c0bh
+		mov     edx, Font0Props
 		push    edi
 		sub     ecx, ecx
 		dec     ecx
@@ -47910,7 +47841,7 @@ ___36dc6h:
 		jne     short ___36dc6h
 ___36ddeh:
 		pop     edi
-		mov     eax, [___1a1108h]
+		mov     eax, [WhiteFont0Ptr]
 		lea     ecx, [ebp+15900h]
 		call    near renderTextToBuffer__video
 		mov     edx, [___1a1ef8h]
@@ -47926,11 +47857,11 @@ ___36ddeh:
 		mov     ecx, 193e8h
 		call    near itoa
 		mov     ebx, esp
-		mov     edx, ___185c0bh
+		mov     edx, Font0Props
 		movsd   
 		movsd   
 		movsd   
-		mov     eax, [___1a1108h]
+		mov     eax, [WhiteFont0Ptr]
 		mov     edi, esp
 		mov     esi, ___1825b4h
 		call    near renderTextToBuffer__video
@@ -48007,8 +47938,8 @@ ___36ed6h:
 		pop     edi
 ___36ed7h:
 		mov     ebx, esp
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		lea     ecx, [ebp+19280h]
 		call    near renderTextToBuffer__video
 		mov     edx, [___1a1ef8h]
@@ -48024,8 +47955,8 @@ ___36ed7h:
 		mov     ecx, 1cd68h
 		call    near itoa
 		mov     ebx, esp
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		movsd   
 		movsd   
 		movsd   
@@ -48035,7 +47966,7 @@ ___36ed7h:
 		mov     edi, esp
 		mov     ebx, esp
 		mov     eax, [___1825e4h]
-		mov     edx, ___185c0bh
+		mov     edx, Font0Props
 		mov     [esp], eax
 		push    edi
 		sub     ecx, ecx
@@ -48056,7 +47987,7 @@ ___36f56h:
 		jne     short ___36f56h
 ___36f6eh:
 		pop     edi
-		mov     eax, [___1a1108h]
+		mov     eax, [WhiteFont0Ptr]
 		lea     ecx, [ebp+1cc00h]
 		call    near renderTextToBuffer__video
 		mov     edx, [___1a1ef8h]
@@ -48072,8 +48003,8 @@ ___36f6eh:
 		mov     ecx, 206e8h
 		call    near itoa
 		mov     ebx, esp
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		movsd   
 		movsd   
 		movsd   
@@ -48082,7 +48013,7 @@ ___36f6eh:
 		mov     edi, esp
 		mov     ebx, esp
 		mov     eax, [___1825e4h]
-		mov     edx, ___185c0bh
+		mov     edx, Font0Props
 		mov     [esp], eax
 		push    edi
 		sub     ecx, ecx
@@ -48103,7 +48034,7 @@ ___36fe6h:
 		jne     short ___36fe6h
 ___36ffeh:
 		pop     edi
-		mov     eax, [___1a1108h]
+		mov     eax, [WhiteFont0Ptr]
 		lea     ecx, [ebp+20580h]
 		call    near renderTextToBuffer__video
 		cmp     dword [___196ae8h], byte 0
@@ -48318,8 +48249,8 @@ ___37200h:
 ___37201h:
 		mov     ecx, 26ae8h
 		mov     ebx, esp
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		mov     esi, ___180724h
 		call    near renderTextToBuffer__video
 		mov     ebx, 0ah
@@ -48350,10 +48281,10 @@ ___37254h:
 		mov     ecx, 2a468h
 		mov     esi, ___182638h
 		mov     ebx, esp
-		mov     edx, ___185c0bh
+		mov     edx, Font0Props
 		movsd   
 		movsd   
-		mov     eax, [___1a1108h]
+		mov     eax, [WhiteFont0Ptr]
 		mov     edi, esp
 		mov     esi, ___1825b4h
 		call    near renderTextToBuffer__video
@@ -48362,7 +48293,7 @@ ___37254h:
 		mov     ebx, esp
 		lea     esi, [esp+64h]
 		mov     edi, esp
-		mov     edx, ___185c0bh
+		mov     edx, Font0Props
 		push    edi
 		sub     ecx, ecx
 		dec     ecx
@@ -48383,7 +48314,7 @@ ___37294h:
 ___372ach:
 		pop     edi
 		mov     edi, esp
-		mov     eax, [___1a1108h]
+		mov     eax, [WhiteFont0Ptr]
 		lea     ecx, [ebp+2a300h]
 		mov     esi, ___182640h
 		call    near renderTextToBuffer__video
@@ -48393,8 +48324,8 @@ ___372ach:
 		mov     ecx, 2dde8h
 		call    near itoa
 		mov     ebx, esp
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		movsd   
 		movsd   
 		movsd   
@@ -48403,7 +48334,7 @@ ___372ach:
 		mov     edi, esp
 		mov     ebx, esp
 		mov     eax, [___1825e4h]
-		mov     edx, ___185c0bh
+		mov     edx, Font0Props
 		mov     [esp], eax
 		push    edi
 		sub     ecx, ecx
@@ -48425,7 +48356,7 @@ ___3730eh:
 ___37326h:
 		pop     edi
 		mov     edi, esp
-		mov     eax, [___1a1108h]
+		mov     eax, [WhiteFont0Ptr]
 		lea     ecx, [ebp+2dc80h]
 		mov     esi, ___18264ch
 		call    near renderTextToBuffer__video
@@ -48435,8 +48366,8 @@ ___37326h:
 		mov     ecx, 31768h
 		call    near itoa
 		mov     ebx, esp
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		movsd   
 		movsd   
 		movsd   
@@ -48446,7 +48377,7 @@ ___37326h:
 		mov     edi, esp
 		mov     ebx, esp
 		mov     eax, [___1825e4h]
-		mov     edx, ___185c0bh
+		mov     edx, Font0Props
 		mov     [esp], eax
 		push    edi
 		sub     ecx, ecx
@@ -48467,7 +48398,7 @@ ___37389h:
 		jne     short ___37389h
 ___373a1h:
 		pop     edi
-		mov     eax, [___1a1108h]
+		mov     eax, [WhiteFont0Ptr]
 		lea     ecx, [ebp+31600h]
 		mov     edi, esp
 		call    near renderTextToBuffer__video
@@ -48480,8 +48411,8 @@ ___373a1h:
 		call    near itoa
 		mov     ecx, 350e8h
 		mov     ebx, esp
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		movsd   
 		movsd   
 		movsd   
@@ -48492,7 +48423,7 @@ ___373a1h:
 		mov     edi, esp
 		mov     ebx, esp
 		mov     eax, [___1825e4h]
-		mov     edx, ___185c0bh
+		mov     edx, Font0Props
 		mov     [esp], eax
 		push    edi
 		sub     ecx, ecx
@@ -48514,7 +48445,7 @@ ___3740eh:
 ___37426h:
 		pop     edi
 		mov     edi, esp
-		mov     eax, [___1a1108h]
+		mov     eax, [WhiteFont0Ptr]
 		lea     ecx, [ebp+34f80h]
 		mov     esi, ___182670h
 		call    near renderTextToBuffer__video
@@ -48524,13 +48455,13 @@ ___37426h:
 		mov     ecx, 38a68h
 		call    near itoa
 		mov     ebx, esp
-		mov     edx, ___185c0bh
+		mov     edx, Font0Props
 		movsd   
 		movsd   
 		movsd   
 		movsw   
 		movsb   
-		mov     eax, [___1a1108h]
+		mov     eax, [WhiteFont0Ptr]
 		mov     edi, esp
 		mov     esi, ___1825b4h
 		call    near renderTextToBuffer__video
@@ -48539,7 +48470,7 @@ ___37426h:
 		mov     ebx, esp
 		lea     esi, [esp+64h]
 		mov     edi, esp
-		mov     edx, ___185c0bh
+		mov     edx, Font0Props
 		push    edi
 		sub     ecx, ecx
 		dec     ecx
@@ -48559,7 +48490,7 @@ ___3748dh:
 		jne     short ___3748dh
 ___374a5h:
 		pop     edi
-		mov     eax, [___1a1108h]
+		mov     eax, [WhiteFont0Ptr]
 		lea     ecx, [ebp+38900h]
 		call    near renderTextToBuffer__video
 		mov     ebx, 0ah
@@ -48725,12 +48656,12 @@ ___37646h:
 		pop     edi
 		mov     edi, esp
 		mov     esi, ___182680h
-		mov     edx, ___185c0bh
+		mov     edx, Font0Props
 		mov     ecx, 3c3e8h
 		movsd   
 		movsd   
 		movsw   
-		mov     eax, [___1a1108h]
+		mov     eax, [WhiteFont0Ptr]
 		mov     edi, esp
 		mov     esi, ___1825b4h
 		call    near renderTextToBuffer__video
@@ -48739,7 +48670,7 @@ ___37646h:
 		mov     ebx, esp
 		lea     esi, [esp+64h]
 		mov     edi, esp
-		mov     edx, ___185c0bh
+		mov     edx, Font0Props
 		push    edi
 		sub     ecx, ecx
 		dec     ecx
@@ -48759,7 +48690,7 @@ ___37686h:
 		jne     short ___37686h
 ___3769eh:
 		pop     edi
-		mov     eax, [___1a1108h]
+		mov     eax, [WhiteFont0Ptr]
 		lea     ecx, [ebp+3c280h]
 		call    near renderTextToBuffer__video
 		mov     edx, [___1a1ef8h]
@@ -49135,12 +49066,12 @@ ___37b8eh:
 		pop     edi
 		mov     edi, esp
 		mov     esi, ___18268ch
-		mov     edx, ___185c0bh
+		mov     edx, Font0Props
 		mov     ecx, 3fd68h
 		movsd   
 		movsd   
 		movsb   
-		mov     eax, [___1a1108h]
+		mov     eax, [WhiteFont0Ptr]
 		mov     edi, esp
 		mov     esi, ___1825b4h
 		call    near renderTextToBuffer__video
@@ -49149,7 +49080,7 @@ ___37b8eh:
 		mov     ebx, esp
 		lea     esi, [esp+64h]
 		mov     edi, esp
-		mov     edx, ___185c0bh
+		mov     edx, Font0Props
 		push    edi
 		sub     ecx, ecx
 		dec     ecx
@@ -49169,7 +49100,7 @@ ___37bcdh:
 		jne     short ___37bcdh
 ___37be5h:
 		pop     edi
-		mov     eax, [___1a1108h]
+		mov     eax, [WhiteFont0Ptr]
 		lea     ecx, [ebp+3fc00h]
 		call    near renderTextToBuffer__video
 		mov     edx, [___1a1ef8h]
@@ -49383,13 +49314,13 @@ ___37e52h:
 		pop     edi
 		mov     edi, esp
 		mov     esi, ___182698h
-		mov     edx, ___185c0bh
+		mov     edx, Font0Props
 		mov     ecx, 436e8h
 		movsd   
 		movsd   
 		movsd   
 		movsw   
-		mov     eax, [___1a1108h]
+		mov     eax, [WhiteFont0Ptr]
 		mov     edi, esp
 		mov     esi, ___1825b4h
 		call    near renderTextToBuffer__video
@@ -49398,7 +49329,7 @@ ___37e52h:
 		mov     ebx, esp
 		lea     esi, [esp+64h]
 		mov     edi, esp
-		mov     edx, ___185c0bh
+		mov     edx, Font0Props
 		push    edi
 		sub     ecx, ecx
 		dec     ecx
@@ -49418,7 +49349,7 @@ ___37e93h:
 		jne     short ___37e93h
 ___37eabh:
 		pop     edi
-		mov     eax, [___1a1108h]
+		mov     eax, [WhiteFont0Ptr]
 		lea     ecx, [ebp+43580h]
 		call    near renderTextToBuffer__video
 ___37ebch:
@@ -50164,8 +50095,8 @@ ___38768h:
 		call    near ___38708h
 		mov     ecx, 46b6eh
 		mov     ebx, ___18250ch
-		mov     edx, ___185c0bh
-		mov     eax, [___1a10fch]
+		mov     edx, Font0Props
+		mov     eax, [GreyFont0Ptr]
 		call    near renderTextToBuffer__video
 		mov     ecx, 10h
 		mov     ebx, 10eh
@@ -50179,8 +50110,8 @@ ___387c6h:
 		call    near ___38708h
 		mov     ecx, 46b6eh
 		mov     ebx, ___18250ch
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 		mov     ecx, 10h
 		mov     ebx, 10eh
@@ -50248,8 +50179,8 @@ ___38878h:
 		call    near ___3881ch
 		mov     ecx, 102beh
 		mov     ebx, ___180998h
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 		mov     ecx, 14h
 		mov     ebx, 168h
@@ -50263,8 +50194,8 @@ ___388d6h:
 		call    near ___3881ch
 		mov     ecx, 102beh
 		mov     ebx, ___180998h
-		mov     edx, ___185c0bh
-		mov     eax, [___1a10fch]
+		mov     edx, Font0Props
+		mov     eax, [GreyFont0Ptr]
 		call    near renderTextToBuffer__video
 		mov     ecx, 14h
 		mov     ebx, 168h
@@ -50303,9 +50234,9 @@ ___3892ch:
 		mov     eax, 14h
 		mov     ecx, 46b6eh
 		mov     ebx, ___18250ch
-		mov     edx, ___185c0bh
+		mov     edx, Font0Props
 		call    near ___37ed4h
-		mov     eax, [___1a1108h]
+		mov     eax, [WhiteFont0Ptr]
 		xor     ebp, ebp
 		call    near renderTextToBuffer__video
 		call    near ___12cb8h
@@ -50511,7 +50442,7 @@ ___38babh:
 		jmp     near ___38affh
 ___38c51h:
 		mov     ecx, 4b000h
-		mov     esi, [___1a1138h]
+		mov     esi, [GXBackBuffer]
 		mov     edi, [VGABufferPtr_0]
 		mov     edx, 36h
 		push    edi
@@ -50717,10 +50648,10 @@ ___38ec1h:
 		mov     ecx, 46b6eh
 		mov     ebx, ___1826a8h
 		and     eax, 0ffh
-		mov     edx, ___185c0bh
+		mov     edx, Font0Props
 		mov     [___196ab4h], eax
 		call    near ___38708h
-		mov     eax, [___1a1108h]
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 		call    near ___12cb8h
 		call    near ___1240ch
@@ -50737,8 +50668,8 @@ ___38ec1h:
 		call    near playSFX__sound
 		mov     ecx, 46b6eh
 		mov     ebx, ___18250ch
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 		call    near ___12cb8h
 ___38f61h:
@@ -50746,8 +50677,8 @@ ___38f61h:
 		jne     short ___38f86h
 		mov     ecx, 46b6eh
 		mov     ebx, ___18250ch
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 		call    near ___12cb8h
 ___38f86h:
@@ -51451,7 +51382,7 @@ ___3986ch:
 		mov     ecx, 4b000h
 		mov     edx, 36h
 		mov     eax, [___196adch]
-		mov     esi, [___1a1138h]
+		mov     esi, [GXBackBuffer]
 		mov     edi, [VGABufferPtr_0]
 		mov     [esp+58h], eax
 		push    edi
@@ -51563,7 +51494,7 @@ ___399a7h:
 		mov     esi, ___182574h
 		mov     edi, esp
 		mov     ebx, esp
-		mov     edx, ___185c0bh
+		mov     edx, Font0Props
 		push    edi
 		sub     ecx, ecx
 		dec     ecx
@@ -51584,12 +51515,12 @@ ___399bfh:
 ___399d7h:
 		pop     edi
 		mov     ecx, 46a2eh
-		mov     eax, [___1a1108h]
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 		mov     ecx, 0d738h
 		mov     ebx, ___182580h
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 		xor     edx, edx
 		call    near ___35dd0h
@@ -51963,9 +51894,9 @@ ___39dbfh:
 		sar     eax, 1
 		mov     ebx, esp
 		mov     ecx, 0d8eah
-		mov     edx, ___185c0bh
+		mov     edx, Font0Props
 		sub     ecx, eax
-		mov     eax, [___1a1108h]
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 		xor     ecx, ecx
 		mov     [esp+5ch], ecx
@@ -52018,8 +51949,8 @@ ___39e6eh:
 		mov     ebx, ___18250ch
 		call    near ___38184h
 		call    near ___38708h
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		xor     ebp, ebp
 		call    near renderTextToBuffer__video
 		call    near ___12cb8h
@@ -52084,8 +52015,8 @@ ___39f52h:
 		call    near ___38708h
 		mov     ecx, 46b6eh
 		mov     ebx, ___1826a8h
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 		call    near ___12cb8h
 		call    near ___1240ch
@@ -52102,8 +52033,8 @@ ___39f52h:
 		call    near playSFX__sound
 		mov     ecx, 46b6eh
 		mov     ebx, ___18250ch
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 		call    near ___12cb8h
 ___39fe7h:
@@ -53158,8 +53089,8 @@ ___3ab5ch:
 		mov     [eax*4+___1a020ch], ecx
 		mov     ecx, 6dh
 		xor     eax, eax
-		call    near ___135fch
-		call    near ___23230h
+		call    near frameFooter__dr
+		call    near footer__dr
 		mov     edx, [___1a0fb8h]
 		xor     eax, eax
 		mov     al, [edx+182h]
@@ -53272,13 +53203,13 @@ ___3ad02h:
 		lea     eax, [edx*4+0]
 		add     eax, edx
 		shl     eax, 7
-		mov     ebx, ___18068ch
+		mov     ebx, STRING_YES
 		lea     esi, [eax+ebp*1]
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10e0h]
 		lea     ecx, [esi+0a0h]
 		call    near renderTextToBuffer__video
-		mov     ebx, ___180690h
+		mov     ebx, STRING_NO
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10e0h]
 		lea     ecx, [esi+14ah]
@@ -53908,7 +53839,7 @@ ___3b54eh:
 		mov     edi, [esp+44h]
 		mov     ecx, 2c380h
 		mov     ebx, 1b8h
-		mov     esi, [___1a1138h]
+		mov     esi, [GXBackBuffer]
 		add     edi, byte 1eh
 		add     ebp, byte 1eh
 		mov     [esp+44h], edi
@@ -54321,16 +54252,16 @@ ___3bad9h:
 		je      short ___3bb14h
 		mov     ecx, 390a3h
 		mov     ebx, ___1807cch
-		mov     edx, ___185c0bh
-		mov     eax, [___1a10fch]
+		mov     edx, Font0Props
+		mov     eax, [GreyFont0Ptr]
 		call    near renderTextToBuffer__video
 		mov     ecx, 390d9h
 		mov     ebx, ___1807e8h
-		mov     edx, ___185c0bh
-		mov     eax, [___1a1108h]
+		mov     edx, Font0Props
+		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 ___3bb14h:
-		call    near ___23230h
+		call    near footer__dr
 		call    near ___12cb8h
 		xor     eax, eax
 		mov     [___1a1ed0h], eax
@@ -54421,7 +54352,7 @@ ___3bc30h:
 		call    near close
 		mov     eax, [esp]
 		mov     edx, ___180134h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     ebp, eax
 		mov     eax, DR_CFG
 		mov     ebx, 1
@@ -54884,7 +54815,7 @@ writeConfig__dr:
 		mov     [esp+4], al
 		mov     eax, 1388h
 		mov     esi, ConfigMusicVolume
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     edx, eax
 		mov     edi, eax
 		mov     ebp, eax
@@ -56196,8 +56127,8 @@ ___3d4deh:
 		pop     ebx
 		retn    
 db	8dh,40h,0
-global ___3d4f0h
-___3d4f0h:
+global creditsMenu__dr
+creditsMenu__dr:
 		push    38h
 		call    near __CHK
 		push    ebx
@@ -56659,8 +56590,8 @@ ___3da3dh:
 		pop     ecx
 		retn    
 db	8dh,40h,0
-global ___3da48h
-___3da48h:
+global showPreviewMenu__dr
+showPreviewMenu__dr:
 		push    0a0h
 		call    near __CHK
 		push    ebx
@@ -57010,12 +56941,12 @@ ___3deb8h:
 		push    edi
 		push    ebp
 		sub     esp, byte 4
-		mov     edx, ___1a116ch
+		mov     edx, RowBoxBuffers
 		add     edx, 96h
 		xor     ebp, ebp
 		mov     [esp], edx
 ___3dedbh:
-		mov     ecx, ___1a116ch
+		mov     ecx, RowBoxBuffers
 		mov     ebx, [esp]
 		xor     edx, edx
 ___3dee5h:
@@ -57080,7 +57011,7 @@ ___3df7fh:
 		pop     edi
 		mov     edi, ___1a1bf8h
 		lea     esi, [edx+46h]
-		mov     [___1a1f5fh], bh
+		mov     [RowBox0Colors_R1], bh
 		push    edi
 ___3df8fh:
 		mov     al, [esi]
@@ -57097,7 +57028,7 @@ ___3dfa7h:
 		pop     edi
 		mov     edi, ___1a1c8eh
 		lea     esi, [edx+8ch]
-		mov     [___1a1f60h], bh
+		mov     [RowBox0Colors_R2], bh
 		push    edi
 ___3dfbah:
 		mov     al, [esi]
@@ -57114,7 +57045,7 @@ ___3dfd2h:
 		pop     edi
 		mov     edi, ___1a1d24h
 		lea     esi, [edx+0d2h]
-		mov     [___1a1f61h], bh
+		mov     [RowBox0Colors_R3], bh
 		push    edi
 ___3dfe5h:
 		mov     al, [esi]
@@ -57131,7 +57062,7 @@ ___3dffdh:
 		pop     edi
 		mov     ah, [___1a2148h]
 		add     ah, bh
-		mov     [___1a1f62h], bh
+		mov     [RowBox0Colors_R4], bh
 		mov     [___1a2148h], ah
 		cmp     ah, 12h
 		jbe     short ___3e030h
@@ -57161,12 +57092,12 @@ ___3e03ch:
 		push    edi
 		push    ebp
 		sub     esp, byte 4
-		mov     edx, ___1a116ch
+		mov     edx, RowBoxBuffers
 		add     edx, 96h
 		xor     ebp, ebp
 		mov     [esp], edx
 ___3e05fh:
-		mov     ebx, ___1a116ch
+		mov     ebx, RowBoxBuffers
 		mov     ecx, [esp]
 		xor     edx, edx
 ___3e069h:
@@ -57216,7 +57147,7 @@ ___3e0d0h:
 		mov     ah, 1
 		mov     esi, ___1969a2h
 		mov     edi, ___1a1bf8h
-		mov     [___1a1f5fh], ah
+		mov     [RowBox0Colors_R1], ah
 		push    edi
 ___3e0e4h:
 		mov     al, [esi]
@@ -57233,7 +57164,7 @@ ___3e0fch:
 		pop     edi
 		mov     esi, ___1969e8h
 		mov     edi, ___1a1c8eh
-		mov     [___1a1f60h], dl
+		mov     [RowBox0Colors_R2], dl
 		push    edi
 ___3e10eh:
 		mov     al, [esi]
@@ -57250,7 +57181,7 @@ ___3e126h:
 		pop     edi
 		mov     esi, ___196a2eh
 		mov     edi, ___1a1d24h
-		mov     [___1a1f61h], dl
+		mov     [RowBox0Colors_R3], dl
 		push    edi
 ___3e138h:
 		mov     al, [esi]
@@ -57265,7 +57196,7 @@ ___3e138h:
 		jne     short ___3e138h
 ___3e150h:
 		pop     edi
-		mov     [___1a1f62h], dl
+		mov     [RowBox0Colors_R4], dl
 		add     esp, byte 4
 		pop     ebp
 		pop     edi
@@ -57401,7 +57332,7 @@ db	0ech,51h,38h,3eh,0ah,0d7h,0a3h,3eh
 ___3f704h:
 db	8fh,0c2h,0f5h,3dh,5ch,8fh,42h,3eh,8fh,0c2h,75h,3dh,8fh,0c2h,0f5h,3dh
 db	8fh,0c2h,0f5h,3ch,8fh,0c2h,75h,3dh
-___3f71ch:
+allocMemSafe:
 		push    18h
 		call    near __CHK
 		push    ebx
@@ -57409,7 +57340,7 @@ ___3f71ch:
 		push    edx
 		push    esi
 		xor     edx, edx
-		call    near ___5ed38h
+		call    near allocMemoryLock
 		mov     esi, eax
 		test    eax, eax
 		jne     short ___3f774h
@@ -64341,16 +64272,16 @@ db	8dh,40h,0
 		mov     eax, 3844h
 		mov     ebx, 1f400h
 		mov     esi, 0a0000h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [esp+4], eax
 		mov     [esp+30h], eax
 		mov     eax, 3844h
 		xor     edx, edx
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [esp], eax
 		mov     eax, 1f400h
 		mov     [esp+8], edx
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     ecx, eax
 		mov     [esp+18h], eax
 		call    near memset__clib3r
@@ -64541,13 +64472,13 @@ ___4539ch:
 		mov     ecx, [___243310h]
 		mov     esi, [___243314h]
 		mov     eax, 3844h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		xor     edx, edx
 		mov     esi, eax
 		mov     [esp+8], edx
 		mov     eax, 3844h
 		mov     [___243314h], esi
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     esi, [___243314h]
 		mov     ecx, eax
 		fld     qword [___183485h]
@@ -67456,11 +67387,11 @@ ___478c8h:
 		mov     [___2432d0h], edx
 		mov     [___2432e0h], edx
 		mov     [___2432e8h], edx
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___2432d8h], eax
 		mov     eax, 0fa00h
 		mov     ebx, 0fa00h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___2432d4h], eax
 		mov     eax, [___2432d8h]
 		mov     [esp+330h], edx
@@ -67906,11 +67837,11 @@ ___47ed8h:
 		mov     [___2432d0h], edx
 		mov     [___2432e0h], edx
 		mov     [___2432e8h], edx
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___2432d8h], eax
 		mov     eax, 0fa00h
 		mov     ebx, 0fa00h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___2432d4h], eax
 		mov     eax, [___2432d8h]
 		call    near memset__clib3r
@@ -84868,107 +84799,107 @@ ___568c6h:
 		call    near ___49bd4h
 		mov     eax, [___243d28h]
 		imul    eax, [___243d2ch]
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     esi, [___243d2ch]
 		mov     [___243d58h], eax
 		mov     eax, [___243d28h]
 		imul    eax, esi
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     edi, [___243d04h]
 		mov     [___243d60h], eax
 		mov     eax, [___243d30h]
 		imul    eax, edi
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     ebp, [___243d10h]
 		mov     [___243d78h], eax
 		mov     eax, [___243cf8h]
 		imul    eax, ebp
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___243d54h], eax
 		mov     eax, 5f370h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___243d5ch], eax
 		mov     eax, 19400h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		add     eax, 200h
 		mov     [___243d80h], eax
 		mov     eax, 96000h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___243d74h], eax
 		mov     eax, 4b000h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___243d50h], eax
 		mov     eax, 3840h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___243d6ch], eax
 		mov     eax, 30h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___243d34h], eax
 		mov     eax, 240h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___243d48h], eax
 		mov     eax, 3c90h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___243d4ch], eax
 		mov     eax, 3c90h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___243d70h], eax
 		mov     eax, 800h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___243d84h], eax
 		mov     eax, 268h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___243d3ch], eax
 		mov     eax, 0c00h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___243298h], eax
 		mov     eax, 0c00h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___24329ch], eax
 		mov     eax, 0c00h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___2432a0h], eax
 		mov     eax, 0c00h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___2432a4h], eax
 		mov     eax, 0c00h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___2432a8h], eax
 		mov     eax, 0c00h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___2432ach], eax
 		mov     eax, 140h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___243d8ch], eax
 		mov     eax, 600h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___243d7ch], eax
 		mov     eax, 480h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___243d88h], eax
 		mov     eax, 800h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___243d38h], eax
 		mov     eax, 2400h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___243d40h], eax
 		mov     eax, 800h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___243288h], eax
 		mov     eax, 800h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___24328ch], eax
 		mov     eax, 1800h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___243290h], eax
 		mov     eax, 1800h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___243294h], eax
 		mov     eax, 800h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___243d68h], eax
 		mov     eax, 0c0h
-		call    near ___3f71ch
+		call    near allocMemSafe
 		mov     [___243d64h], eax
 		call    near ___4539ch
 		mov     dword [___2432c8h], ___492f4h
@@ -90914,7 +90845,7 @@ ___5ed0eh:
 		pop     ebx
 		retn    
 db	8bh,0c0h
-___5ed38h:
+allocMemoryLock:
 		push    ebx
 		push    ecx
 		push    esi
@@ -91322,7 +91253,7 @@ ___5f248h:
 		push    ebx
 		mov     ebx, eax
 		and     edx, 0ffh
-		call    near ___5ed38h
+		call    near allocMemoryLock
 		mov     [___24cc7ch], eax
 		mov     [___24cc84h], eax
 		lea     edx, [eax+ebx*1]
@@ -98329,14 +98260,14 @@ ___652e8h:
 		add     ebx, esi
 		mov     edx, 1
 		mov     eax, ebx
-		call    near ___5ed38h
+		call    near allocMemoryLock
 		xor     edx, edx
 		mov     [___199ff8h], eax
 		call    near memset__clib3r
 		lea     ebx, [esi*4+0]
 		mov     edx, 1
 		mov     eax, ebx
-		call    near ___5ed38h
+		call    near allocMemoryLock
 		xor     edx, edx
 		mov     [___24e640h], eax
 		call    near memset__clib3r
@@ -102393,7 +102324,7 @@ ___6782ch:
 		mov     edx, 1
 		add     eax, byte 2
 		mov     ebx, 2
-		call    near ___5ed38h
+		call    near allocMemoryLock
 		xor     edx, edx
 		mov     [___24e794h], eax
 		call    near memset__clib3r
@@ -102414,7 +102345,7 @@ ___6782ch:
 		add     eax, edx
 		mov     edx, 1
 		lea     esi, [ecx*4+0]
-		call    near ___5ed38h
+		call    near allocMemoryLock
 		lea     edx, [esi+4]
 		mov     [___24e79ch], eax
 		add     eax, edx
@@ -102729,7 +102660,7 @@ ___67bbch:
 		sub     ebp, [___24e794h]
 		mov     edx, 1
 		mov     eax, ebp
-		call    near ___5ed38h
+		call    near allocMemoryLock
 		mov     ecx, ebp
 		mov     ebx, [___24e794h]
 		mov     [esp+0ch], eax
@@ -122980,7 +122911,7 @@ ___77a60h:
 		sub     eax, edx
 		mov     edx, 1
 		mov     [___77e30h], eax
-		call    near ___5ed38h
+		call    near allocMemoryLock
 		mov     ecx, eax
 		mov     [___77e2ch], eax
 		mov     eax, [___77e30h]
@@ -123118,7 +123049,7 @@ ___77c14h:
 		mov     edx, 1
 		mov     eax, ecx
 		mov     [___77e30h], ecx
-		call    near ___5ed38h
+		call    near allocMemoryLock
 		mov     ecx, eax
 		mov     [___77e2ch], eax
 		mov     eax, [___77e30h]
@@ -129779,7 +129710,7 @@ ___7c6d4h:
 		shl     esi, 2
 		mov     ebx, 23e00h
 		mov     [___68d3ch], esi
-		call    near ___5ed38h
+		call    near allocMemoryLock
 		xor     edx, edx
 		mov     [___68d40h], eax
 		call    near memset__clib3r
@@ -129852,7 +129783,7 @@ ___7c7e6h:
 		mov     eax, 3fe0h
 		mov     ebx, 0ffffe040h
 		mov     [___68d48h], ebp
-		call    near ___5ed38h
+		call    near allocMemoryLock
 		mov     edx, 0ffffff01h
 		mov     ebp, eax
 		mov     [esp], ebx

@@ -9,6 +9,7 @@
     extern  startup__dr
     extern  install__serial
     extern  allocateDOSMemoryBlock__dpmi
+    extern  footer__dr
 
 %include "layout.inc"
 

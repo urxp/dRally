@@ -241,9 +241,9 @@ ___180674h:
 db	74h,72h,61h,72h,72h,31h,2eh,62h,70h,6bh,0,0
 ___180680h:
 db	6dh,65h,6eh,75h,2eh,70h,61h,6ch,0,0,0,0
-___18068ch:
+STRING_YES:
 db	79h,65h,73h,0
-___180690h:
+STRING_NO:
 db	6eh,6fh,0,0
 global ___180694h
 ___180694h:
@@ -3357,8 +3357,8 @@ db	14h,13h,9,14h
 ___185bedh:
 db	12h,11h,12h,10h,0fh,13h,12h,8,0eh,13h,10h,16h,12h,12h,10h,12h
 db	12h,11h,10h,12h,13h,1ah,12h,13h,10h,0bh,6,0bh,0fh,14h
-global ___185c0bh
-___185c0bh:
+global Font0Props
+Font0Props:
 db	10h
 ___185c0ch:
 db	10h,0ah,5,8,0bh,0bh,0dh,0bh,5,6,6,9,0bh,5,0bh,4
