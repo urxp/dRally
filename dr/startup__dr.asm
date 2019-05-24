@@ -54,14 +54,14 @@
 	extern 	restore__keyboard	
 	extern 	exit__clib3r	
 	extern 	___605deh	
-	extern 	___117d4h	
+	extern 	allocVGABuffer	
 	extern 	___3d38ch	
 	extern 	___3d890h	
 	extern 	___1a1f4fh	
 	extern 	RowBox0Colors_R5	
 	extern 	___2b318h	
 	extern 	___5e0f9h	
-	extern 	___1a1100h	
+	extern 	___VGABufferPtr_0	
 	extern 	VGABufferPtr_0	
 	extern 	___146c4h	
 	extern 	___180694h		
@@ -284,7 +284,7 @@ ___3e88bh:
 		mov     eax, 3ch
 		xor     ebx, ebx
 		call    ___605deh
-		call    ___117d4h
+		call    allocVGABuffer
 		call    ___3d38ch
 		call    ___3d890h
 		call    ___117f4h
@@ -637,7 +637,7 @@ ___3ecf0h:
 		test    edi, edi
 		je      ___3edeah
 		mov     ecx, 4b000h
-		mov     edi, [___1a1100h]
+		mov     edi, [___VGABufferPtr_0]
 		mov     [___185a2ch], esi
 		mov     esi, [___1a1124h]
 		push    edi
@@ -648,7 +648,7 @@ ___3ecf0h:
 		and     cl, 3
 		rep movsb   
 		pop     edi
-		mov     eax, [___1a1100h]
+		mov     eax, [___VGABufferPtr_0]
 		mov     [VGABufferPtr_0], eax
 		mov     eax, [___1a10e4h]
 		mov     [___1a1124h], eax
@@ -658,7 +658,7 @@ ___3edeah:
 		mov     ebx, [___196a84h]
 		test    ebx, ebx
 		jne     ___3ee31h
-		mov     eax, [___1a1100h]
+		mov     eax, [___VGABufferPtr_0]
 		mov     [VGABufferPtr_0], eax
 		mov     eax, 0ffffffffh
 		call    ___3a7e0h

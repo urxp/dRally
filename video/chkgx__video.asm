@@ -31,14 +31,14 @@ chkgx__video:
 		xor     eax, eax
 ;; to uppercase ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ___1130dh:
-		mov     dl, [esp+eax*1]
+		mov     dl, [esp+eax]
 		cmp     dl, 60h
 		jbe     ___11322h
 		cmp     dl, 84h
 		jae     ___11322h
 		mov     bl, dl
 		sub     bl, 20h
-		mov     [esp+eax*1], bl
+		mov     [esp+eax], bl
 ___11322h:
 		inc     eax
 		cmp     eax, 190h
@@ -48,18 +48,18 @@ ___11322h:
 		xor     edx, edx
 ;; check for 'cirrus' substring ;;;;;;;;;;;;;;;;;;
 ___1132eh:
-		cmp     byte [esp+eax*1], 43h		;; 'C'
+		cmp     byte [esp+eax], 43h		;; 'C'
 		jne     ___1135dh
-		cmp     byte [esp+eax*1+1], 49h		;; 'I'
+		cmp     byte [esp+eax+1], 49h		;; 'I'
 		jne     ___1135dh
-		mov     ch, [esp+eax*1+2]
+		mov     ch, [esp+eax+2]
 		cmp     ch, 52h						;; 'R'
 		jne     ___1135dh
-		cmp     ch, [esp+eax*1+3]			;; 'R'
+		cmp     ch, [esp+eax+3]			;; 'R'
 		jne     ___1135dh
-		cmp     byte [esp+eax*1+4], 55h		;; 'U'
+		cmp     byte [esp+eax+4], 55h		;; 'U'
 		jne     ___1135dh
-		cmp     byte [esp+eax*1+5], 53h		;; 'S'
+		cmp     byte [esp+eax+5], 53h		;; 'S'
 		jne     ___1135dh
 		mov     edx, 2
 ___1135dh:

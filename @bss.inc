@@ -13,7 +13,9 @@ global ___19bd60h
 ___19bd60h:	resb	4
 ___19bd64h:	resb	2
 ___19bd66h:	resb	0eh
+global ___19bd74h
 ___19bd74h:	resb	0dh
+global ___19bd81h
 ___19bd81h:	resb	10efh
 ___19ce70h:	resb	0fh
 ___19ce7fh:	resb	0fh
@@ -601,7 +603,7 @@ ___1a10b8h:	resb	4
 ___1a10bch:	resb	4
 ___1a10c0h:	resb	4
 ___1a10c4h:	resb	4
-___1a10c8h:	resb	4
+BGCOP_PAL_Ptr:	resb	4
 global ___1a10cch
 ___1a10cch:	resb	4
 ___1a10d0h:	resb	4
@@ -618,8 +620,8 @@ ___1a10f4h:	resb	4
 ___1a10f8h:	resb	4
 global GreyFont0Ptr
 GreyFont0Ptr:	resb	4
-global ___1a1100h
-___1a1100h:	resb	4
+global ___VGABufferPtr_0
+___VGABufferPtr_0:	resb	4
 ___1a1104h:	resb	4
 global WhiteFont0Ptr
 WhiteFont0Ptr:	resb	4
@@ -1450,7 +1452,9 @@ ___243e78h:	resb	4
 ___243e7ch:	resb	4
 ___243e80h:	resb	14h
 ___243e94h:	resb	7ccch
+global ___24bb60h
 ___24bb60h:	resb	0dh
+global ___24bb6dh
 ___24bb6dh:	resb	10e7h
 global ConfigSFXVolume
 ConfigSFXVolume:	resb	4

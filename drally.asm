@@ -10,6 +10,8 @@
     extern  install__serial
     extern  allocateDOSMemoryBlock__dpmi
     extern  footer__dr
+    extern  read__bpa
+    extern  ___10240h
 
 %include "layout.inc"
 
