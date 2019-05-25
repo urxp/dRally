@@ -15,7 +15,7 @@
     extern  ___19bd60h
     extern  ___623d4h
     extern  ___5ec04h
-    extern  restore__dos
+    extern  restrdos__dr
     extern  ___1800f0h
     extern  ___1800f8h
     extern  read__bpa
@@ -63,7 +63,7 @@ ___101e6h:
 		call    ___623d4h
 ___10212h:
 		call    ___5ec04h
-		call    restore__dos
+		call    restrdos__dr
 		mov     ebx, ___1800f0h
 		mov     edx, 0b8000h
 		mov     eax, ___1800f8h

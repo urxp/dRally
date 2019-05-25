@@ -10,7 +10,7 @@
 	extern 	GreyFont0Ptr
 	extern 	LightBlueFont0Ptr
 
-	extern 	memcpy
+	extern 	memcpy__clib3r
 
 %include "layout.inc"
 

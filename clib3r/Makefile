@@ -2,7 +2,7 @@ TARGET = clib3r
 
 LIB_NAME = $(TARGET).lib
 
-OBJS = cinit.obj start.obj
+OBJS = cinit.obj cmp386.obj fmemcpy.obj fprtf.obj getenv.obj int386.obj intx386.obj intxa386.obj memcpy.obj printf.obj start.obj stricmp.obj strnicmp.obj
 
 $(TARGET): $(LIB_NAME) $(OBJS)
 

@@ -2,6 +2,7 @@
 _edata:
 global ___19bd20h
 ___19bd20h: resb	28h
+global ___19bd48h
 ___19bd48h:	resb	4
 global ___19bd4ch
 ___19bd4ch:	resb	8

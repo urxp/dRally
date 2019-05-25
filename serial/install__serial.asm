@@ -17,14 +17,14 @@
     extern  ___199fbch
     extern  ___199fc4h
     extern  RMSerialPtr
-    extern  memcpy
+    extern  memcpy__clib3r
     extern  ___199fa4h
     extern  ___24e468h
     extern  ___24e488h
     extern  ___24e46ch
     extern  ___24e4c4h
     extern  handler16__serial
-    extern  _fmemcpy
+    extern  _fmemcpy__clib3r
     extern  ___61a04h
     extern  inp
     extern  ___24e4d0h
@@ -135,7 +135,7 @@ ___62dcbh:
 		mov     eax, [RMSerialPtr]
 		mov     ebx, 2
 		mov     edx, esp
-		call    near memcpy
+		call    near memcpy__clib3r
 		mov     eax, [___24e46ch]
 		shr     eax, 4
 		and     eax, 0ffffh
@@ -144,7 +144,7 @@ ___62dcbh:
 		add     eax, byte 2
 		mov     ebx, 2
 		lea     edx, [esp+4]
-		call    near memcpy
+		call    near memcpy__clib3r
 		mov     eax, [___24e46ch]
 		and     eax, byte 0fh
 		mov     [esp+4], eax
@@ -152,7 +152,7 @@ ___62dcbh:
 		add     eax, byte 4
 		mov     ebx, 2
 		lea     edx, [esp+4]
-		call    near memcpy
+		call    near memcpy__clib3r
 		mov     eax, [___24e4c4h]
 		shr     eax, 4
 		and     eax, 0ffffh
@@ -161,7 +161,7 @@ ___62dcbh:
 		add     eax, byte 6
 		mov     ebx, 2
 		lea     edx, [esp+4]
-		call    near memcpy
+		call    near memcpy__clib3r
 		mov     eax, [___24e4c4h]
 		and     eax, byte 0fh
 		mov     [esp+4], eax
@@ -169,14 +169,14 @@ ___62dcbh:
 		add     eax, byte 8
 		mov     ebx, 2
 		lea     edx, [esp+4]
-		call    near memcpy
+		call    near memcpy__clib3r
 		mov     eax, [___199fc4h]
 		mov     [esp+4], eax
 		mov     eax, [RMSerialPtr]
 		add     eax, byte 0ah
 		mov     ebx, 2
 		lea     edx, [esp+4]
-		call    near memcpy
+		call    near memcpy__clib3r
 		mov     cl, [esp+8]
 		mov     eax, 1
 		shl     eax, cl
@@ -185,7 +185,7 @@ ___62dcbh:
 		add     eax, byte 0ch
 		mov     ebx, 2
 		lea     edx, [esp+4]
-		call    near memcpy
+		call    near memcpy__clib3r
 		mov     eax, [RMSerialPtr]
 		mov     [esp+4], eax
 		lea     esi, [eax+0eh]
@@ -198,7 +198,7 @@ ___62dcbh:
 		;mov     ecx, cs
 		db	8ch,0c9h
 		mov     ebx, handler16__serial
-		call    near _fmemcpy
+		call    near _fmemcpy__clib3r
 		mov     dword [REGS0_EAX], 205h
 		mov     ecx, [esp+8]
 		add     ecx, byte 8

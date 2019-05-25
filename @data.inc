@@ -1,5 +1,6 @@
 ;OBJECT#4
 db	1,1,1,0
+global ___180004h
 ___180004h:
 db	0ah,44h,65h,61h,74h,68h,20h,52h,61h,6ch,6ch,79h,20h,2ah,2ah,2ah
 db	20h,46h,75h,6ch,6ch,20h,56h,65h,72h,73h,69h,6fh,6eh,20h,31h,2eh
@@ -7,15 +8,20 @@ db	31h,0ah,43h,6fh,70h,79h,72h,69h,67h,68h,74h,20h,28h,63h,29h,20h
 db	31h,39h,39h,35h,2ch,20h,31h,39h,39h,36h,20h,52h,65h,6dh,65h,64h
 db	79h,20h,45h,6eh,74h,65h,72h,74h,61h,69h,6eh,6dh,65h,6eh,74h,2ch
 db	20h,4ch,74h,64h,2eh,0ah,0,0
+global ___18005ch
 ___18005ch:
 db	0ah,0,0,0
+global ___180060h
 ___180060h:
 db	2fh,77h,0,0
+global ___180064h
 ___180064h:
 db	57h,49h,4eh,44h,49h,52h,0,0
+global ___18006ch
 ___18006ch:
 db	57h,69h,6eh,64h,6fh,77h,73h,20h,39h,35h,20h,64h,65h,74h,65h,63h
 db	74h,65h,64h,2eh,0ah,0,0,0
+global ___180084h
 ___180084h:
 db	55h,73h,65h,20h,22h,2fh,57h,22h,20h,70h,61h,72h,61h,6dh,65h,74h
 db	65h,72h,2ch,20h,69h,66h,20h,79h,6fh,75h,20h,61h,72h,65h,20h,72h
@@ -9333,6 +9339,7 @@ db	0
 __FPE_handler:
 dd	__null_FPE_rtn
 db	0,0,0
+global ___iob
 ___iob:
 db	0,0,0,0
 ___19a060h:
@@ -9386,6 +9393,7 @@ __fmode:
 db	0,1,0,0
 dd	___OpenStreams
 db	0,0,0
+global _environ
 _environ:
 db	0,0,0,0
 ___env_mask:

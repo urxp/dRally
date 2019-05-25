@@ -13,6 +13,33 @@
     extern  read__bpa
     extern  ___10240h
 
+    extern  ___68d4ch
+    extern  ___68d58h
+    extern  ___68e94h
+    extern  ___68d94h
+    extern  ___68ec4h
+    extern  ___68d40h
+    extern  ___690e8h
+    extern  ___68d48h
+    extern  ___691deh
+    extern  ___691b8h
+    extern  ___68d3ch
+    extern  ___68d5eh
+    extern  ___68d38h
+    extern  ___68d5ch
+    extern  ___68d34h
+    extern  ___68d5dh
+    extern  ___68d44h
+    extern  ___68d30h
+
+    extern  printf__clib3r
+    extern  strncmp__clib3r
+    extern  getenv__clib3r
+    extern  int386__clib3r
+    extern  int386x__clib3r
+
+    extern  chkarg__dr
+
 %include "layout.inc"
 
 section @text
