@@ -16,7 +16,6 @@ ___100dch:
 		pop     ecx
 		pop     ebx
 		retn    
-db	8bh,0c0h
 ___10474h:
 		push    8
 		call    near __CHK
