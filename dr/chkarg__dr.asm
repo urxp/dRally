@@ -1,3 +1,4 @@
+%include "macros.inc"
 
     extern  __CHK
     extern  ___19bd54h
@@ -8,8 +9,7 @@
 
 section @text
 
-global chkarg__dr
-chkarg__dr:
+__GDECL(__CEXT_F(chkarg__dr))
 		push    18h
 		call    __CHK
 		push    ebx

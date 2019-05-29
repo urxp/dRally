@@ -1,6 +1,7 @@
+%include "macros.inc"
 
-    extern  main_
-    extern  __CommonInit_
+    extern  __CEXT_F(main)
+    extern  __CommonInit__clib3r
     extern  setbank__video
     extern  chkbankswitch__video
     extern  __GETDS
@@ -38,7 +39,7 @@
     extern  int386__clib3r
     extern  int386x__clib3r
 
-    extern  chkarg__dr
+    extern  __CEXT_F(chkarg__dr)
 
 %include "layout.inc"
 

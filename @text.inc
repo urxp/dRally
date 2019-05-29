@@ -21,11 +21,10 @@ ___10474h:
 		call    near __CHK
 		push    edx
 		mov     edx, eax
-		mov     eax, ___180124h
+		mov     eax, MUSICS_BPA
 		call    near ___10240h
 		pop     edx
 		retn    
-db	8dh,40h,0
 ___10490h:
 		push    24h
 		call    near __CHK
@@ -38,7 +37,7 @@ ___10490h:
 		mov     ebx, eax
 		mov     [esp+4], dl
 		mov     edx, eax
-		mov     eax, ___180124h
+		mov     eax, MUSICS_BPA
 		call    near ___10240h
 		xor     edx, edx
 		mov     ecx, eax
@@ -48,7 +47,7 @@ ___10490h:
 		mov     esi, eax
 		mov     ebp, eax
 		mov     edx, eax
-		mov     eax, ___180124h
+		mov     eax, MUSICS_BPA
 		call    near read__bpa
 		xor     edx, edx
 		mov     [esp], edx
@@ -150,27 +149,33 @@ ___1059dh:
 db	8dh,40h,0   
 ___105e0h:
 db	19h,0fh,3bh,3ch,3dh,3eh,3fh,40h,41h,42h,43h,44h,57h,58h,1
-___105efh:
-db	53h,41h,4dh,20h,53h,50h,45h,45h,44h,0,0,4ah,41h,4eh,45h,20h
-db	48h,4fh,4eh,44h,41h,0,44h,55h,4bh,45h,20h,4eh,55h,4bh,45h,4dh
-db	0,4eh,41h,53h,54h,59h,20h,4eh,49h,43h,4bh,0,4dh,4fh,54h,4fh
-db	52h,20h,4dh,41h,52h,59h,0,4dh,41h,44h,20h,4dh,41h,43h,0,0
-db	0,0,4dh,41h,54h,54h,20h,4dh,49h,4ch,45h,52h,0,43h,4ch,49h
-db	4eh,54h,20h,57h,45h,53h,54h,0,4ch,45h,45h,20h,56h,49h,43h,45h
-db	0,0,0,44h,41h,52h,4bh,20h,52h,59h,44h,45h,52h,0,47h,52h
-db	45h,47h,20h,50h,45h,43h,4bh,0,0,53h,55h,5ah,59h,20h,53h,54h
-db	4fh,43h,4bh,0,49h,52h,4fh,4eh,20h,4ah,4fh,48h,4eh,0,0,4dh
-db	4fh,52h,49h,20h,53h,41h,54h,4fh,0,0,43h,48h,45h,52h,20h,53h
-db	54h,4fh,4eh,45h,0,44h,49h,45h,53h,45h,4ch,20h,4ah,4fh,45h,0
-db	4dh,49h,43h,20h,44h,41h,49h,52h,0,0,0,4ch,49h,5ah,20h,41h
-db	52h,44h,45h,4eh,0,0,42h,4fh,47h,55h,53h,20h,42h,49h,4ch,4ch
-db	0,46h,41h,52h,4dh,45h,52h,20h,54h,45h,44h,0
+ListOfDrivers:
+db	"SAM SPEED",0,0
+db	"JANE HONDA",0
+db	"DUKE NUKEM",0
+db	"NASTY NICK",0
+db	"MOTOR MARY",0
+db	"MAD MAC",0,0,0,0
+db	"MATT MILER",0
+db	"CLINT WEST",0
+db	"LEE VICE",0,0,0
+db	"DARK RYDER",0
+db	"GREG PECK",0,0
+db	"SUZY STOCK",0
+db	"IRON JOHN",0,0
+db	"MORI SATO",0,0
+db	"CHER STONE",0
+db	"DIESEL JOE",0
+db	"MIC DAIR",0,0,0
+db	"LIZ ARDEN",0,0
+db	"BOGUS BILL",0
+db	"FARMER TED",0
 ___106cbh:
-db	54h,52h,31h,0,54h,52h,32h,0,54h,52h,33h,0,54h,52h,34h,0
-db	54h,52h,35h,0,54h,52h,36h,0,54h,52h,37h,0,54h,52h,38h,0
-db	54h,52h,39h,0,54h,52h,31h,0,54h,52h,32h,0,54h,52h,33h,0
-db	54h,52h,34h,0,54h,52h,35h,0,54h,52h,36h,0,54h,52h,37h,0
-db	54h,52h,38h,0,54h,52h,39h,0,54h,52h,30h,0,0
+db	"TR1",0,"TR2",0,"TR3",0,"TR4",0
+db	"TR5",0,"TR6",0,"TR7",0,"TR8",0
+db	"TR9",0,"TR1",0,"TR2",0,"TR3",0
+db	"TR4",0,"TR5",0,"TR6",0,"TR7",0
+db	"TR8",0,"TR9",0,"TR0",0,0
 ___10718h:
 db	0b3h,0bah,1,0,0a3h,1ch,2,0,33h,0adh,2,0,23h,0fh,3,0
 ___10728h:
@@ -24921,7 +24926,7 @@ ___2415ch:
 		and     esp, byte 0fffffff8h
 		mov     ecx, 37h
 		mov     edi, esp
-		mov     esi, ___105efh
+		mov     esi, ListOfDrivers
 		lea     eax, [esp+0dch]
 		rep movsd   
 		xor     edx, edx
@@ -86343,7 +86348,7 @@ dd	___58fbah
 		mov     [esp+8], dl
 ___58d08h:
 		mov     eax, ___184cc4h
-		call    near chkarg__dr
+		call    near __CEXT_F(chkarg__dr)
 		test    eax, eax
 		jne     near ___58da0h
 		cmp     byte [esp+8], 20h
@@ -100491,10 +100496,10 @@ ___67169h:
 		mov     edx, [__ASTACKSIZ]
 		add     eax, edx
 		mov     [__ASTACKPTR], eax
-		call    near __CommonInit_
+		call    near __CommonInit__clib3r
 		mov     edx, [____Argv]
 		mov     eax, [____Argc]
-		call    near main_
+		call    near __CEXT_F(main)
 		call    near exit__clib3r
 		mov     esp, ebp
 		pop     ebp

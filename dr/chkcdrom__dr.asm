@@ -1,3 +1,4 @@
+%include "macros.inc"
 
     extern  __CHK
     extern  cdrom_ini
@@ -14,8 +15,7 @@
 
 section @text
 
-global chkcdrom__dr
-chkcdrom__dr:
+__GDECL(__CEXT_F(chkcdrom__dr))
 		push    12ch
 		call    __CHK
 		push    ebx

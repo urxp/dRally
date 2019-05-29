@@ -1,10 +1,11 @@
+%include "macros.inc"
 
     extern  __CHK
     extern  ___180004h
     extern  printf__clib3r
     extern  ___18005ch
     extern  ___180060h
-    extern  chkarg__dr
+    extern  __CEXT_F(chkarg__dr)
     extern  ___180064h
     extern  getenv__clib3r
     extern  ___19bd48h
@@ -16,8 +17,7 @@
 
 section @text
 
-global welcome__dr
-welcome__dr:
+__GDECL(__CEXT_F(welcome__dr))
 		push    0ch
 		call    __CHK
 		push    ebx
@@ -28,7 +28,7 @@ welcome__dr:
 		call    printf__clib3r
 		add     esp, 4
 		mov     eax, ___180060h
-		call    chkarg__dr
+		call    __CEXT_F(chkarg__dr)
 		test    eax, eax
 		je      ___1009dh
 		mov     dword [___19bd4ch], 1

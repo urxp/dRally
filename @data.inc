@@ -50,7 +50,7 @@ db	5dh,20h,0,0
 global ___18011ch
 ___18011ch:
 db	20h,66h,69h,6ch,65h,21h,0,0
-___180124h:
+MUSICS_BPA:
 db	4dh,55h,53h,49h,43h,53h,2eh,42h,50h,41h,0,0
 global ___180130h
 ___180130h:

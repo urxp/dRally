@@ -9,8 +9,8 @@
 
 section @text
 
-global __CommonInit_
-__CommonInit_:
+global __CommonInit__clib3r
+__CommonInit__clib3r:
 		push    ebx
 		push    ecx
 		push    edx

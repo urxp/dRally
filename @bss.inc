@@ -1,23 +1,23 @@
 ;UNINITIALIZED DATA
-_edata:
-global ___19bd20h
-___19bd20h: resb	28h
-global ___19bd48h
-___19bd48h:	resb	4
-global ___19bd4ch
-___19bd4ch:	resb	8
-global ___19bd54h
-___19bd54h:	resb	4
-global Gamepad
-Gamepad:	resb	8
-global ___19bd60h
-___19bd60h:	resb	4
+;_edata:
+__GDECL(___19bd20h)
+    resb    28h
+__GDECL(___19bd48h)
+    resb	4
+__GDECL(___19bd4ch)
+    resb	8
+__GDECL(___19bd54h)
+    resb	4
+__GDECL(Gamepad)
+    resb	8
+__GDECL(___19bd60h)
+    resb	4
 ___19bd64h:	resb	2
 ___19bd66h:	resb	0eh
-global ___19bd74h
-___19bd74h:	resb	0dh
-global ___19bd81h
-___19bd81h:	resb	10efh
+__GDECL(___19bd74h)
+    resb	0dh
+__GDECL(___19bd81h)
+    resb	10efh
 ___19ce70h:	resb	0fh
 ___19ce7fh:	resb	0fh
 ___19ce8eh:	resb	0fh
@@ -203,12 +203,12 @@ ___19df58h:	resb	0bech
 ___19eb44h:	resb	4
 ___19eb48h:	resb	4
 ___19eb4ch:	resb	4
-global ___19eb50h
-___19eb50h:	resb	4
-global ___19eb54h
-___19eb54h:	resb	4
-global ___19eb58h
-___19eb58h:	resb	0bf8h
+__GDECL(___19eb50h)
+    resb	4
+__GDECL(___19eb54h)
+    resb	4
+__GDECL(___19eb58h)
+    resb	0bf8h
 ___19f750h:	resb	0ch
 ___19f75ch:	resb	4
 ___19f760h:	resb	4
@@ -455,21 +455,21 @@ ___1a01d0h:	resb	4
 ___1a01d4h:	resb	4
 ___1a01d8h:	resb	4
 ___1a01dch:	resb	4
-global ___1a01e0h
-___1a01e0h:	resb	0ch
+__GDECL(___1a01e0h)
+    resb	0ch
 ___1a01ech:	resb	4
 ___1a01f0h:	resb	4
 ___1a01f4h:	resb	4
 ___1a01f8h:	resb	4
 ___1a01fch:	resb	10h
-global ___1a020ch
-___1a020ch:	resb	4
+__GDECL(___1a020ch)
+    resb	4
 ___1a0210h:	resb	4
 ___1a0214h:	resb	4
 ___1a0218h:	resb	4
 ___1a021ch:	resb	4
-global ___1a0220h
-___1a0220h:	resb	4
+__GDECL(___1a0220h)
+    resb	4
 ___1a0224h:	resb	4
 ___1a0228h:	resb	4
 ___1a022ch:	resb	4
@@ -490,8 +490,8 @@ ___1a0a5ch:	resb	2
 ___1a0a5eh:	resb	1
 ___1a0a5fh:	resb	1
 ___1a0a60h:	resb	300h
-global cdrom_ini
-cdrom_ini:	resb	0c4h
+__GDECL(cdrom_ini)
+    resb	0c4h
 ___1a0e24h:	resb	4
 ___1a0e28h:	resb	0ch
 ___1a0e34h:	resb	4
@@ -543,8 +543,8 @@ ___1a0fa8h:	resb	4
 ___1a0fach:	resb	4
 ___1a0fb0h:	resb	4
 ___1a0fb4h:	resb	4
-global ___1a0fb8h
-___1a0fb8h:	resb	4
+__GDECL(___1a0fb8h)
+    resb	4
 ___1a0fbch:	resb	4
 ___1a0fc0h:	resb	4
 ___1a0fc4h:	resb	4
@@ -605,43 +605,43 @@ ___1a10bch:	resb	4
 ___1a10c0h:	resb	4
 ___1a10c4h:	resb	4
 BGCOP_PAL_Ptr:	resb	4
-global ___1a10cch
-___1a10cch:	resb	4
+__GDECL(___1a10cch)
+    resb	4
 ___1a10d0h:	resb	4
 ___1a10d4h:	resb	4
 ___1a10d8h:	resb	4
 ___1a10dch:	resb	4
 ___1a10e0h:	resb	4
-global ___1a10e4h
-___1a10e4h:	resb	4
+__GDECL(___1a10e4h)
+    resb	4
 ___1a10e8h:	resb	4
 ___1a10ech:	resb	4
 ___1a10f0h:	resb	4
 ___1a10f4h:	resb	4
 ___1a10f8h:	resb	4
-global GreyFont0Ptr
-GreyFont0Ptr:	resb	4
-global ___VGABufferPtr_0
-___VGABufferPtr_0:	resb	4
+__GDECL(GreyFont0Ptr)
+    resb	4
+__GDECL(___VGABufferPtr_0)
+    resb	4
 ___1a1104h:	resb	4
-global WhiteFont0Ptr
-WhiteFont0Ptr:	resb	4
-global LightBlueFont0Ptr
-LightBlueFont0Ptr:	resb	4
+__GDECL(WhiteFont0Ptr)
+    resb	4
+__GDECL(LightBlueFont0Ptr)
+    resb	4
 ___1a1110h:	resb	4
 ___1a1114h:	resb	4
 ___1a1118h:	resb	4
 ___1a111ch:	resb	4
 ___1a1120h:	resb	4
-global ___1a1124h
-___1a1124h:	resb	4
+__GDECL(___1a1124h)
+    resb	4
 ___1a1128h:	resb	4
-global VGABufferPtr_0
-VGABufferPtr_0:	resb	4
+__GDECL(VGABufferPtr_0)
+    resb	4
 ___1a1130h:	resb	4
 ___1a1134h:	resb	4
-global GXBackBuffer
-GXBackBuffer:	resb	4
+__GDECL(GXBackBuffer)
+    resb	4
 ___1a113ch:	resb	4
 ___1a1140h:	resb	4
 ___1a1144h:	resb	4
@@ -657,14 +657,14 @@ ___1a1168h:	resb	1
 ___1a1169h:	resb	1
 ___1a116ah:	resb	1
 ___1a116bh:	resb	1
-global RowBoxBuffers
-RowBoxBuffers:	resb	9f6h
+__GDECL(RowBoxBuffers)
+    resb	9f6h
 ___1a1b62h:	resb	96h
 ___1a1bf8h:	resb	96h
 ___1a1c8eh:	resb	96h
 ___1a1d24h:	resb	96h
-global ___1a1dbah
-___1a1dbah:	resb	96h
+__GDECL(___1a1dbah)
+    resb	96h
 ___1a1e50h:	resb	4
 ___1a1e54h:	resb	4
 ___1a1e58h:	resb	4
@@ -706,10 +706,10 @@ ___1a1ee4h:	resb	4
 ___1a1ee8h:	resb	4
 ___1a1eech:	resb	4
 ___1a1ef0h:	resb	4
-global ___1a1ef4h
-___1a1ef4h:	resb	4
-global ___1a1ef8h
-___1a1ef8h:	resb	4
+__GDECL(___1a1ef4h)
+    resb	4
+__GDECL(___1a1ef8h)
+    resb	4
 ___1a1efch:	resb	4
 ___1a1f00h:	resb	4
 ___1a1f04h:	resb	4
@@ -726,25 +726,24 @@ ___1a1f2ch:	resb	4
 ___1a1f30h:	resb	4
 ___1a1f34h:	resb	4
 ___1a1f38h:	resb	4
-global TimesPlayed
-TimesPlayed:	resb	3
+__GDECL(TimesPlayed)
+    resb	3
 ___1a1f3fh:	resb	0eh
-global ___1a1f4dh
-___1a1f4dh:	resb	1
-global ___1a1f4eh
-___1a1f4eh:	resb	1
-global ___1a1f4fh
-___1a1f4fh:	resb	0fh
-global RowBox0Colors
-RowBox0Colors:	
-RowBox0Colors_R0:  resb	1
+__GDECL(___1a1f4dh)
+    resb	1
+__GDECL(___1a1f4eh)
+    resb	1
+__GDECL(___1a1f4fh)
+    resb	0fh
+__GDECL(RowBox0Colors)
+RowBox0Colors_R0:   resb	1
 RowBox0Colors_R1:	resb	1
 RowBox0Colors_R2:	resb	1
 RowBox0Colors_R3:	resb	1
-global RowBox0Colors_R4
-RowBox0Colors_R4:	resb	1
-global RowBox0Colors_R5
-RowBox0Colors_R5:	resb	1
+__GDECL(RowBox0Colors_R4)
+    resb	1
+__GDECL(RowBox0Colors_R5)
+    resb	1
 ___1a1f64h:	resb	1
 ___1a1f65h:	resb	1
 ___1a1f66h:	resb	1
@@ -755,28 +754,28 @@ ___1a1f6ah:	resb	87h
 ___1a1ff1h:	resb	0bh
 ___1a1ffch:	resb	14h
 ___1a2010h:	resb	1
-global ___1a2011h
-___1a2011h:	resb	1
-global ___1a2012h
-___1a2012h:	resb	1
-global ___1a2013h
-___1a2013h:	resb	1
-global ___1a2014h
-___1a2014h:	resb	6
+__GDECL(___1a2011h)
+    resb	1
+__GDECL(___1a2012h)
+    resb	1
+__GDECL(___1a2013h)
+    resb	1
+__GDECL(___1a2014h)
+    resb	6
 ___1a201ah:	resb	15h
-global ___1a202fh
-___1a202fh:	resb	12h
+__GDECL(___1a202fh)
+    resb	12h
 ___1a2041h:	resb	1
 ___1a2042h:	resb	101h
 CFGSound_CardType:	resb	1
 CFGSound_IRQ:	resb	1
 CFGSound_DMA:	resb	2
 ___1a2147h:	resb	1
-global ___1a2148h
-___1a2148h:	resb	1
+__GDECL(___1a2148h)
+    resb	1
 ___1a2149h:	resb	1
-global ___1a214ah
-___1a214ah:	resb	56h
+__GDECL(___1a214ah)
+    resb	56h
 ___1a21a0h:	resb	0fh
 ___1a21afh:	resb	0fh
 ___1a21beh:	resb	0fh
@@ -1284,8 +1283,8 @@ ___2432b8h:	resb	4
 ___2432bch:	resb	4
 ___2432c0h:	resb	4
 ___2432c4h:	resb	4
-global ___2432c8h
-___2432c8h:	resb	4
+__GDECL(___2432c8h)
+    resb	4
 ___2432cch:	resb	4
 ___2432d0h:	resb	4
 ___2432d4h:	resb	4
@@ -1453,14 +1452,14 @@ ___243e78h:	resb	4
 ___243e7ch:	resb	4
 ___243e80h:	resb	14h
 ___243e94h:	resb	7ccch
-global ___24bb60h
-___24bb60h:	resb	0dh
-global ___24bb6dh
-___24bb6dh:	resb	10e7h
-global ConfigSFXVolume
-ConfigSFXVolume:	resb	4
-global ConfigMusicVolume
-ConfigMusicVolume:	resb	0ch
+__GDECL(___24bb60h)
+    resb	0dh
+__GDECL(___24bb6dh)
+    resb	10e7h
+__GDECL(ConfigSFXVolume)
+    resb	4
+__GDECL(ConfigMusicVolume)
+    resb	0ch
 ___24cc64h:	resb	8
 ___24cc6ch:	resb	10h
 ___24cc7ch:	resb	4
@@ -1537,50 +1536,49 @@ ___24e458h:	resb	4
 ___24e45ch:	resb	4
 ___24e460h:	resb	4
 ___24e464h:	resb	4
-global ___24e468h
-___24e468h:	resb	4
-global ___24e46ch
-___24e46ch:	resb	4
+__GDECL(___24e468h)
+    resb	4
+__GDECL(___24e46ch)
+    resb	4
 ___24e470h:	resb	6
 ___24e476h:	resb	2
 ___24e478h:	resb	2
 ___24e47ah:	resb	2
-global ___24e47ch
-___24e47ch:	resb	4
+__GDECL(___24e47ch)
+    resb	4
 ___24e480h:	resb	4
 ___24e484h:	resb	4
-global ___24e488h
-___24e488h:	resb	4
-global REGS0
-REGS0:
-global REGS0_EAX
-REGS0_EAX:	resb	4
-global REGS0_EBX
-REGS0_EBX:	resb	4
-global REGS0_ECX
-REGS0_ECX:	resb	4
-global REGS0_EDX
-REGS0_EDX:	resb	4
+__GDECL(___24e488h)
+    resb	4
+__GDECL(REGS0)
+__GDECL(REGS0_EAX)
+    resb	4
+__GDECL(REGS0_EBX)
+    resb	4
+__GDECL(REGS0_ECX)
+    resb	4
+__GDECL(REGS0_EDX)
+    resb	4
 REGS0_ESI:	resb	4
 REGS0_EDI:	resb	4
 REGS0_CFLAG:	resb	4
-global ___24e4a8h
-___24e4a8h:	resb	4
+__GDECL(___24e4a8h)
+    resb	4
 ___24e4ach:	resb	4
-global ___24e4b0h
-___24e4b0h:	resb	4
+__GDECL(___24e4b0h)
+    resb	4
 ___24e4b4h:	resb	4
 ___24e4b8h:	resb	4
 ___24e4bch:	resb	4
 ___24e4c0h:	resb	4
-global ___24e4c4h
-___24e4c4h:	resb	4
+__GDECL(___24e4c4h)
+    resb	4
 ___24e4c8h:	resb	4
 ___24e4cch:	resb	4
-global ___24e4d0h
-___24e4d0h:	resb	4
-global RMSerialPtr
-RMSerialPtr:	resb	4
+__GDECL(___24e4d0h)
+    resb	4
+__GDECL(RMSerialPtr)
+    resb	4
 ___24e4d8h:	resb	10h
 ___24e4e8h:	resb	12h
 ___24e4fah:	resb	12h
@@ -1769,4 +1767,4 @@ _my_stack:	resb	400h
 ___24f760h:	resb	68h
 ___24f7c8h:	resb	10h
 ___24f7d8h:	resb	10h
-_end:
+;_end:

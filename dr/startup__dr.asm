@@ -1,3 +1,4 @@
+%include "macros.inc"
 	
 	extern 	__CHK	
 	extern 	chkcdromini__dr	
@@ -113,7 +114,7 @@
 	extern 	___1a1ef4h	
 	extern 	___65710h		
 	extern 	___12dc4h	
-	extern 	chkcdrom__dr	
+	extern 	__CEXT_F(chkcdrom__dr)	
 	extern 	___13248h	
 	extern 	___182db8h	
 	extern 	Font0Props	
@@ -681,7 +682,7 @@ ___3ee3fh:
 		ja      ___3efd1h
 		jmp     dword [cs:eax*4+@drmainmenu]
 @drstartracing:
-		call    chkcdrom__dr
+		call    __CEXT_F(chkcdrom__dr)
 		test    eax, eax
 		jne     @cdchk_ok
 		mov     ecx, 61h
@@ -737,7 +738,7 @@ ___3ee3fh:
 @cdchk_repeat:
 		call    lastScanCode__keyboard
 		call    nullScanCode__keyboard
-		call    chkcdrom__dr
+		call    __CEXT_F(chkcdrom__dr)
 		test    eax, eax
 		jne     @cdchk_repeat_ok
 		cmp     bh, 1				;; KEY_ESC

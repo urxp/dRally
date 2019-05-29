@@ -1,9 +1,10 @@
+%include "macros.inc"
 
     extern  __CHK
     extern  ___100dch
     extern  ___19bd54h
     extern  ___19bd20h
-    extern  welcome__dr
+    extern  __CEXT_F(welcome__dr)
     extern  ___5eb70h
     extern  ___5ff98h
     extern  ___19bd4ch
@@ -24,8 +25,7 @@
 
 section @text
 
-global main_
-main_:
+__GDECL(__CEXT_F(main))
 		push    8
 		call    __CHK
 		push    ebx
@@ -38,7 +38,7 @@ ___1019eh:
 		inc     eax
 		cmp     eax, 0ah
 		jl      ___1019eh
-		call    welcome__dr
+		call    __CEXT_F(welcome__dr)
 		call    ___5eb70h
 		cmp     dword [___19bd4ch], 0
 		je      ___101cah
