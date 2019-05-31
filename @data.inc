@@ -50,24 +50,24 @@ db	5dh,20h,0,0
 global ___18011ch
 ___18011ch:
 db	20h,66h,69h,6ch,65h,21h,0,0
-MUSICS_BPA:
-db	4dh,55h,53h,49h,43h,53h,2eh,42h,50h,41h,0,0
+__GDECL(__CEXT_V(MUSICS_BPA))
+db	"MUSICS.BPA",0,0
 global ___180130h
 ___180130h:
 db	0,0,0,0
 global ___180134h
 ___180134h:
 db	72h,62h,0,0
-___180138h:
-db	46h,52h,41h,4dh,45h,53h,2eh,42h,50h,4bh,0,0
-MENU_BPA:
-db	4dh,45h,4eh,55h,2eh,42h,50h,41h,0,0,0,0
-___180150h:
-db	61h,0,0,0
-___180154h:
-db	64h,72h,2eh,6ch,6fh,67h,0,0
+__GDECL(__CEXT_V(FRAMES_BPK))
+db	"FRAMES.BPK",0,0
+__GDECL(__CEXT_V(MENU_BPA))
+db	"MENU.BPA",0,0,0,0
+__GDECL(__CEXT_V(append_m))
+db	"a",0,0,0
+__GDECL(__CEXT_V(dr_log))
+db	"dr.log",0,0
 ___18015ch:
-db	44h,45h,41h,54h,48h,20h,52h,41h,4ch,4ch,59h,20h,4dh,50h,2dh,45h
+db	"DEATH RALLY",20h,4dh,50h,2dh,45h
 db	52h,52h,4fh,52h,3ah,20h,4eh,6fh,74h,20h,65h,6eh,6fh,75h,67h,68h
 db	20h,6ch,6fh,77h,20h,6dh,65h,6dh,6fh,72h,79h,20h,61h,76h,61h,69h
 db	6ch,61h,62h,6ch,65h,2eh,20h,41h,62h,6fh,75h,74h,20h,35h,37h,30h
