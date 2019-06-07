@@ -1,5 +1,4 @@
-global ___100dch
-___100dch:
+__GDECL(__CEXT_F(___100dch))
 		push    14h
 		call    near __CHK
 		push    ebx
@@ -7,7 +6,7 @@ ___100dch:
 		push    edx
 		call    near restore__keyboard
 		call    near setmode3h__video
-		push    ___1800c4h
+		push    __CEXT_V(___1800c4h)
 		call    near printf__clib3r
 		add     esp, byte 4
 		mov     eax, 70h
@@ -24,7 +23,7 @@ ___10474h:
 		mov     eax, __CEXT_V(MUSICS_BPA)
 		call    near ___10240h
 		pop     edx
-		retn    
+		retn
 ___10490h:
 		push    24h
 		call    near __CHK
@@ -607,7 +606,7 @@ ___10c8ah:
 		mov     eax, 1
 		call    near ___659b8h
 ___10cb2h:
-		mov     edx, ___180134h
+		mov     edx, __CEXT_V(rb_m)
 		lea     eax, [esp+300h]
 		call    near fopen__clib3r
 		mov     edi, [eax+4]
@@ -1103,26 +1102,26 @@ ___1123ch:
 		ja      short ___112a9h
 		jmp     near dword [cs:eax*4+___11228h]
 ___11286h:
-		push    ___18015ch
+		push    __CEXT_V(___18015ch)
 		jmp     short ___112aeh
 ___1128dh:
-		push    ___1801a8h
+		push    __CEXT_V(___1801a8h)
 		jmp     short ___112aeh
 ___11294h:
-		push    ___1801dch
+		push    __CEXT_V(___1801dch)
 		jmp     short ___112aeh
 ___1129bh:
-		push    ___18020ch
+		push    __CEXT_V(___18020ch)
 		jmp     short ___112aeh
 ___112a2h:
-		push    ___180238h
+		push    __CEXT_V(___180238h)
 		jmp     short ___112aeh
 ___112a9h:
-		push    ___180268h
+		push    __CEXT_V(___180268h)
 ___112aeh:
 		call    near printf__clib3r
 		add     esp, byte 4
-		push    ___180290h
+		push    __CEXT_V(___180290h)
 		call    near printf__clib3r
 		add     esp, byte 4
 		mov     eax, 70h
@@ -1734,7 +1733,7 @@ ___117f4h:
 		mov     ebp, [___1a10b8h]
 		push    ebp
 		call    near memcpy__bpa
-		mov     ebx, ___180364h
+		mov     ebx, __CEXT_V(rank1c_bpk)
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near read__bpa
@@ -4993,20 +4992,20 @@ ___148cch:
 		sub     ecx, 1162h
 		cmp     edi, byte 1
 		jne     short ___1493eh
-		mov     ebx, STRING_YES			;; "YES"
+		mov     ebx, __CEXT_V(STRING_yes)			;; "YES"
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10cch]
 		call    near renderTextToBuffer__video
-		mov     ebx, STRING_NO			;; "NO"
+		mov     ebx, __CEXT_V(STRING_no)			;; "NO"
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10e0h]
 		jmp     short ___14961h
 ___1493eh:
-		mov     ebx, STRING_YES			;; "YES"
+		mov     ebx, __CEXT_V(STRING_yes)			;; "YES"
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10e0h]
 		call    near renderTextToBuffer__video
-		mov     ebx, STRING_NO			;; "NO"
+		mov     ebx, __CEXT_V(STRING_no)			;; "NO"
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10cch]
 ___14961h:
@@ -5149,12 +5148,12 @@ ___14b02h:
 		cmp     ecx, 3e80h
 		jne     short ___14b02h
 		mov     ecx, [esp+18h]
-		mov     ebx, STRING_YES
+		mov     ebx, __CEXT_V(STRING_yes)
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10cch]
 		call    near renderTextToBuffer__video
 		mov     ecx, [esp]
-		mov     ebx, STRING_NO
+		mov     ebx, __CEXT_V(STRING_no)
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10e0h]
 		call    near renderTextToBuffer__video
@@ -5186,12 +5185,12 @@ ___14b91h:
 		cmp     ecx, 3e80h
 		jne     short ___14b91h
 		mov     ecx, [esp+18h]
-		mov     ebx, STRING_YES
+		mov     ebx, __CEXT_V(STRING_yes)
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10e0h]
 		call    near renderTextToBuffer__video
 		mov     ecx, [esp]
-		mov     ebx, STRING_NO
+		mov     ebx, __CEXT_V(STRING_no)
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10cch]
 		call    near renderTextToBuffer__video
@@ -5328,7 +5327,7 @@ ___14cfch:
 		call    near ___13094h
 		mov     edx, 2bca1h
 		mov     eax, ___18d122h
-		mov     ebx, ___180694h
+		mov     ebx, __CEXT_V(STRING_CONTINUE)
 		call    near ___13094h
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10cch]
@@ -5558,7 +5557,7 @@ ___14f82h:
 		lea     eax, [edx*4+0]
 		add     eax, edx
 		shl     eax, 7
-		mov     ebx, ___180694h
+		mov     ebx, __CEXT_V(STRING_CONTINUE)
 		lea     ecx, [eax+0c0h]
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10cch]
@@ -5790,7 +5789,7 @@ ___152eeh:
 		lea     eax, [edx*4+0]
 		add     eax, edx
 		shl     eax, 7
-		mov     ebx, ___180694h
+		mov     ebx, __CEXT_V(STRING_CONTINUE)
 		lea     ecx, [eax+0c0h]
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10cch]
@@ -6022,7 +6021,7 @@ ___1565ah:
 		lea     eax, [edx*4+0]
 		add     eax, edx
 		shl     eax, 7
-		mov     ebx, ___180694h
+		mov     ebx, __CEXT_V(STRING_CONTINUE)
 		lea     ecx, [eax+0c0h]
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10cch]
@@ -6466,7 +6465,7 @@ ___15dffh:
 		lea     eax, [edx*4+0]
 		add     eax, edx
 		shl     eax, 7
-		mov     ebx, ___180694h
+		mov     ebx, __CEXT_V(STRING_CONTINUE)
 		lea     ecx, [eax+0c0h]
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10cch]
@@ -6962,7 +6961,7 @@ ___16494h:
 		lea     eax, [edx*4+0]
 		add     eax, edx
 		shl     eax, 7
-		mov     ebx, ___180694h
+		mov     ebx, __CEXT_V(STRING_CONTINUE)
 		lea     ecx, [eax+0c0h]
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10cch]
@@ -7019,7 +7018,7 @@ ___164d0h:
 		call    near ___13094h
 		mov     edx, 2c8bch
 		mov     eax, ___18be62h
-		mov     ebx, ___180694h
+		mov     ebx, __CEXT_V(STRING_CONTINUE)
 		call    near ___13094h
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10cch]
@@ -7134,7 +7133,7 @@ ___16743h:
 		lea     eax, [edx*4+0]
 		add     eax, edx
 		shl     eax, 7
-		mov     ebx, ___180694h
+		mov     ebx, __CEXT_V(STRING_CONTINUE)
 		lea     ecx, [eax+0c0h]
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10cch]
@@ -7216,7 +7215,7 @@ ___167dch:
 		call    near ___13094h
 		mov     edx, 2bca1h
 		mov     eax, ___18d442h
-		mov     ebx, ___180694h
+		mov     ebx, __CEXT_V(STRING_CONTINUE)
 		call    near ___13094h
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10cch]
@@ -7591,7 +7590,7 @@ ___16e30h:
 		shl     eax, 7
 		mov     edx, ___185ba9h
 		lea     ecx, [eax+0c0h]
-		mov     ebx, ___180694h
+		mov     ebx, __CEXT_V(STRING_CONTINUE)
 		mov     eax, [___1a10cch]
 		call    near renderTextToBuffer__video
 		mov     eax, [esp+34h]
@@ -7935,7 +7934,7 @@ ___1716ch:
 		call    near ___13094h
 		mov     edx, 2c8bch
 		mov     eax, ___18c4a2h
-		mov     ebx, ___180694h
+		mov     ebx, __CEXT_V(STRING_CONTINUE)
 		call    near ___13094h
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10cch]
@@ -7987,7 +7986,7 @@ ___17248h:
 		call    near ___13094h
 		mov     edx, 2c8bch
 		mov     eax, ___18c7c2h
-		mov     ebx, ___180694h
+		mov     ebx, __CEXT_V(STRING_CONTINUE)
 		call    near ___13094h
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10cch]
@@ -9570,7 +9569,7 @@ ___1876bh:
 ;		mov     eax, 96h
 ;		call    near ___13248h
 ;		mov     ecx, 235a0h
-;		mov     ebx, ___180730h
+;		mov     ebx, __CEXT_V(string__under_construction)
 ;		mov     edx, ___185ba9h
 ;		mov     eax, [___1a10cch]
 ;		call    near renderTextToBuffer__video
@@ -9618,7 +9617,7 @@ ___18808h:
 		xor     edx, edx
 		mov     [___1a0f9ch], eax
 		call    near memset__clib3r
-		mov     edx, ___180134h
+		mov     edx, __CEXT_V(rb_m)
 		mov     eax, edi
 		mov     ebx, 1
 		call    near fopen__clib3r
@@ -9710,7 +9709,7 @@ ___18924h:
 ___1893fh:
 		mov     eax, [esp+18h]
 		mov     dl, 1
-		mov     esi, ___180748h
+		mov     esi, __CEXT_V(string__empty_slot)
 		lea     edi, [ebp+___186f82h]
 		mov     [eax+___185b85h], dl
 		movsd   
@@ -9869,7 +9868,7 @@ ___18a9ah:
 		call    near itoa
 		lea     esi, [esp+20h]
 		mov     edi, esp
-		mov     edx, ___180134h
+		mov     edx, __CEXT_V(rb_m)
 		push    edi
 		sub     ecx, ecx
 		dec     ecx
@@ -10023,7 +10022,7 @@ ___18cf0h:
 ___18d0bh:
 		mov     eax, [esp+28h]
 		mov     dl, 1
-		mov     esi, ___180748h
+		mov     esi, __CEXT_V(string__empty_slot)
 		lea     edi, [ebp+___186f82h]
 		mov     [eax+___185b85h], dl
 		movsd   
@@ -10130,7 +10129,7 @@ ___18db5h:
 		call    near renderTextToBuffer__video
 		call    near ___12cb8h
 		add     esi, ___186f82h
-		mov     edx, ___180748h
+		mov     edx, __CEXT_V(string__empty_slot)
 		mov     eax, esi
 		call    near strcmp__clib3r
 		test    eax, eax
@@ -10277,7 +10276,7 @@ ___19001h:
 		call    near itoa
 		lea     esi, [esp+2ch]
 		lea     edi, [esp+10h]
-		mov     edx, ___1807bch
+		mov     edx, __CEXT_V(string__wb_m)
 		push    edi
 		sub     ecx, ecx
 		dec     ecx
@@ -10492,7 +10491,7 @@ ___191b4h:
 		mov     eax, [GreyFont0Ptr]
 		call    near renderTextToBuffer__video
 		mov     ecx, 390d9h
-		mov     ebx, ___1807e8h
+		mov     ebx, __CEXT_V(string__F1)
 		mov     edx, Font0Props
 		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
@@ -11143,7 +11142,7 @@ ___19b51h:
 		mov     [edx+___1a1f4dh], al
 		cmp     edx, byte 15h
 		jl      short ___19b33h
-		mov     eax, [___180864h]
+		mov     eax, [__CEXT_V(___180864h)]
 		mov     edx, [___1a1ef8h]
 		mov     [___1a1dbah], eax
 		lea     eax, [edx*8+0]
@@ -11411,10 +11410,10 @@ ___19e34h:
 		movsw   
 		cmp     dword [___185a14h], byte 0
 		je      short ___19e78h
-		mov     esi, ___1808c8h
+		mov     esi, __CEXT_V(string__on)
 		jmp     short ___19e7dh
 ___19e78h:
-		mov     esi, ___1808cch
+		mov     esi, __CEXT_V(string__off)
 ___19e7dh:
 		mov     edi, esp
 		push    edi
@@ -11953,7 +11952,7 @@ ___1a655h:
 		mov     eax, [GreyFont0Ptr]
 		call    near renderTextToBuffer__video
 		mov     ecx, 390d9h
-		mov     ebx, ___1807e8h
+		mov     ebx, __CEXT_V(string__F1)
 		mov     edx, Font0Props
 		mov     eax, [WhiteFont0Ptr]
 		mov     edi, [esp+0f8h]
@@ -11991,7 +11990,7 @@ ___1a6cfh:
 		mov     [ebx+___1a1f4dh], al
 		cmp     ebx, byte 15h
 		jl      short ___1a6b1h
-		mov     eax, [___180864h]
+		mov     eax, [__CEXT_V(___180864h)]
 		mov     edx, [___1a1ef8h]
 		mov     [___1a1dbah], eax
 		lea     eax, [edx*8+0]
@@ -12209,7 +12208,7 @@ ___1a903h:
 		mov     [ebx+___1a1f4dh], al
 		cmp     ebx, byte 15h
 		jl      short ___1a8e5h
-		mov     eax, [___180864h]
+		mov     eax, [__CEXT_V(___180864h)]
 		mov     edx, [___1a1ef8h]
 		mov     [___1a1dbah], eax
 		lea     eax, [edx*8+0]
@@ -13770,7 +13769,7 @@ ___1bb42h:
 		mov     eax, [GreyFont0Ptr]
 		call    near renderTextToBuffer__video
 		mov     ecx, 390d9h
-		mov     ebx, ___1807e8h
+		mov     ebx, __CEXT_V(string__F1)
 		mov     edx, Font0Props
 		mov     eax, [WhiteFont0Ptr]
 		mov     ebp, [esp]
@@ -13925,7 +13924,7 @@ ___1bd73h:
 		mov     [edx+___1a1f4dh], al
 		cmp     edx, byte 15h
 		jl      short ___1bd55h
-		mov     eax, [___180864h]
+		mov     eax, [__CEXT_V(___180864h)]
 		mov     edx, [___1a1ef8h]
 		mov     [___1a1dbah], eax
 		lea     eax, [edx*8+0]
@@ -14051,7 +14050,7 @@ ___1bee0h:
 		mov     [edx+___1a1f4dh], al
 		cmp     edx, byte 15h
 		jl      short ___1bec2h
-		mov     eax, [___180864h]
+		mov     eax, [__CEXT_V(___180864h)]
 		mov     edx, [___1a1ef8h]
 		mov     [___1a1dbah], eax
 		lea     eax, [edx*8+0]
@@ -14213,7 +14212,7 @@ ___1c083h:
 		mov     [edx+___1a1f4dh], al
 		cmp     edx, byte 15h
 		jl      short ___1c065h
-		mov     eax, [___180864h]
+		mov     eax, [__CEXT_V(___180864h)]
 		mov     edx, [___1a1ef8h]
 		mov     [___1a1dbah], eax
 		lea     eax, [edx*8+0]
@@ -15322,7 +15321,7 @@ ___1ce59h:
 		mov     [edx+___1a1f4dh], al
 		cmp     edx, byte 15h
 		jl      short ___1ce3bh
-		mov     eax, [___180864h]
+		mov     eax, [__CEXT_V(___180864h)]
 		mov     edx, [___1a1ef8h]
 		mov     [___1a1dbah], eax
 		lea     eax, [edx*8+0]
@@ -15425,7 +15424,7 @@ ___1cf92h:
 		mov     eax, [GreyFont0Ptr]
 		call    near renderTextToBuffer__video
 		mov     ecx, 390d9h
-		mov     ebx, ___1807e8h
+		mov     ebx, __CEXT_V(string__F1)
 		mov     edx, Font0Props
 		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
@@ -15501,7 +15500,7 @@ ___1d05ch:
 		sub     edx, ebx
 		mov     edi, ___1a1dbah
 		shl     edx, 2
-		mov     eax, [___180864h]
+		mov     eax, [__CEXT_V(___180864h)]
 		add     esi, edx
 		mov     [___1a1dbah], eax
 		push    edi
@@ -15893,7 +15892,7 @@ ___1d528h:
 		mov     [edx+___1a1f4dh], al
 		cmp     edx, byte 15h
 		jl      short ___1d50ah
-		mov     edx, [___180864h]
+		mov     edx, [__CEXT_V(___180864h)]
 		mov     ebx, [___1a1ef8h]
 		mov     [___1a1dbah], edx
 		lea     edx, [ebx*8+0]
@@ -16094,7 +16093,7 @@ ___1d6fdh:
 		call    near ___631d4h
 		call    near ___63228h
 		xor     ebx, ebx
-		mov     edi, ___180d40h
+		mov     edi, __CEXT_V(string__OK)
 		xor     ecx, ecx
 ___1d78dh:
 		test    esi, esi
@@ -17368,7 +17367,7 @@ ___1e722h:
 		mov     [edx+___1a1f4dh], al
 		cmp     edx, byte 15h
 		jl      short ___1e704h
-		mov     edx, [___180864h]
+		mov     edx, [__CEXT_V(___180864h)]
 		mov     ebx, [___1a1ef8h]
 		mov     [___1a1dbah], edx
 		lea     edx, [ebx*8+0]
@@ -17643,7 +17642,7 @@ ___1e9ach:
 		mov     eax, [GreyFont0Ptr]
 		call    near renderTextToBuffer__video
 		mov     ecx, 390d9h
-		mov     ebx, ___1807e8h
+		mov     ebx, __CEXT_V(string__F1)
 		mov     edx, Font0Props
 		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
@@ -17952,7 +17951,7 @@ ___1ef14h:
 		mov     [edx+___1a1f4dh], al
 		cmp     edx, byte 15h
 		jl      short ___1eef6h
-		mov     eax, [___180864h]
+		mov     eax, [__CEXT_V(___180864h)]
 		mov     [___1a1dbah], eax
 		imul    esi, [___1a1ef8h], byte 6ch
 		mov     edi, ___1a1dbah
@@ -18501,7 +18500,7 @@ ___1f690h:
 		jmp     short ___1f6c5h
 ___1f6b6h:
 		mov     edi, ___187432h
-		mov     esi, ___1811c8h
+		mov     esi, __CEXT_V(string__pulse_dialing)
 		movsd   
 		movsd   
 		movsd   
@@ -24084,7 +24083,7 @@ ___23758h:
 		mov     esi, RowBoxBuffers
 		call    near renderTextToBuffer__video
 		mov     ecx, 10959h
-		mov     ebx, ___1807e8h
+		mov     ebx, __CEXT_V(string__F1)
 		mov     edx, Font0Props
 		mov     eax, [WhiteFont0Ptr]
 		mov     edi, 1298ch
@@ -24248,7 +24247,7 @@ ___23a28h:
 		mov     [edx+___1a1f4dh], al
 		cmp     edx, byte 15h
 		jl      short ___23a0ah
-		mov     edx, ___181cd4h
+		mov     edx, __CEXT_V(string__memavail)
 		mov     eax, esp
 		call    near strcmp__clib3r
 		test    eax, eax
@@ -31171,12 +31170,12 @@ ___2939fh:
 ___293cch:
 		call    near renderTextToBuffer__video
 		mov     ecx, 1cf70h
-		mov     ebx, STRING_YES
+		mov     ebx, __CEXT_V(STRING_yes)
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10cch]
 		call    near renderTextToBuffer__video
 		mov     ecx, 1d01ah
-		mov     ebx, STRING_NO
+		mov     ebx, __CEXT_V(STRING_no)
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10e0h]
 		xor     ebp, ebp
@@ -31333,12 +31332,12 @@ ___295f8h:
 		cmp     ecx, 21e80h
 		jne     short ___295f8h
 		mov     ecx, 1cf70h
-		mov     ebx, STRING_YES
+		mov     ebx, __CEXT_V(STRING_yes)
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10cch]
 		call    near renderTextToBuffer__video
 		mov     ecx, 1d01ah
-		mov     ebx, STRING_NO
+		mov     ebx, __CEXT_V(STRING_no)
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10e0h]
 		call    near renderTextToBuffer__video
@@ -31370,12 +31369,12 @@ ___2968dh:
 		cmp     ecx, 21e80h
 		jne     short ___2968dh
 		mov     ecx, 1cf70h
-		mov     ebx, STRING_YES
+		mov     ebx, __CEXT_V(STRING_yes)
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10e0h]
 		call    near renderTextToBuffer__video
 		mov     ecx, 1d01ah
-		mov     ebx, STRING_NO
+		mov     ebx, __CEXT_V(STRING_no)
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10cch]
 		call    near renderTextToBuffer__video
@@ -32662,7 +32661,7 @@ ___2a7b3h:
 		cmp     ebp, esi
 		jg      short ___2a7b3h
 ___2a801h:
-		mov     edx, ___1807bch
+		mov     edx, __CEXT_V(string__wb_m)
 		mov     eax, ___182164h
 		mov     ebx, 1
 		call    near fopen__clib3r
@@ -32688,7 +32687,7 @@ ___2a836h:
 		call    near allocMemSafe
 		mov     [___1a0f9ch], eax
 		call    near memset__clib3r
-		mov     edx, ___180134h
+		mov     edx, __CEXT_V(rb_m)
 		mov     eax, ___182164h
 		mov     [esp+14h], ebp
 		call    near fopen__clib3r
@@ -33162,7 +33161,7 @@ ___2ae9bh:
 		call    near allocMemSafe
 		mov     edi, eax
 		mov     [___1a0f9ch], eax
-		mov     eax, [___180864h]
+		mov     eax, [__CEXT_V(___180864h)]
 		mov     edx, [___1a1ef8h]
 		mov     [edi], eax
 		lea     eax, [edx*8+0]
@@ -33396,7 +33395,7 @@ ___2b154h:
 		cmp     ecx, byte 15h
 		jl      short ___2b137h
 		xor     edx, edx
-		mov     eax, [___180864h]
+		mov     eax, [__CEXT_V(___180864h)]
 		mov     dl, [esp+400h]
 		mov     [___1a1dbah], eax
 		lea     eax, [edx*8+0]
@@ -34246,7 +34245,7 @@ ___2bc81h:
 		mov     eax, [GreyFont0Ptr]
 		call    near renderTextToBuffer__video
 		mov     ecx, 390d9h
-		mov     ebx, ___1807e8h
+		mov     ebx, __CEXT_V(string__F1)
 		mov     edx, Font0Props
 		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
@@ -34839,7 +34838,7 @@ ___2c5ceh:
 		mov     eax, [GreyFont0Ptr]
 		call    near renderTextToBuffer__video
 		mov     ecx, 390d9h
-		mov     ebx, ___1807e8h
+		mov     ebx, __CEXT_V(string__F1)
 		mov     edx, Font0Props
 		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
@@ -35386,7 +35385,7 @@ ___2cec8h:
 		mov     eax, [GreyFont0Ptr]
 		call    near renderTextToBuffer__video
 		mov     ecx, 390d9h
-		mov     ebx, ___1807e8h
+		mov     ebx, __CEXT_V(string__F1)
 		mov     edx, Font0Props
 		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
@@ -35471,7 +35470,7 @@ ___2cfc8h:
 		mov     eax, [GreyFont0Ptr]
 		call    near renderTextToBuffer__video
 		mov     ecx, 390d9h
-		mov     ebx, ___1807e8h
+		mov     ebx, __CEXT_V(string__F1)
 		mov     edx, Font0Props
 		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
@@ -38428,7 +38427,7 @@ ___2f7b8h:
 		mov     eax, [GreyFont0Ptr]
 		call    near renderTextToBuffer__video
 		mov     ecx, 390d9h
-		mov     ebx, ___1807e8h
+		mov     ebx, __CEXT_V(string__F1)
 		mov     edx, Font0Props
 		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
@@ -38918,7 +38917,7 @@ ___2fe64h:
 		mov     eax, [GreyFont0Ptr]
 		call    near renderTextToBuffer__video
 		mov     ecx, 390d9h
-		mov     ebx, ___1807e8h
+		mov     ebx, __CEXT_V(string__F1)
 		mov     edx, Font0Props
 		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
@@ -39576,7 +39575,7 @@ ___30711h:
 		mov     eax, [GreyFont0Ptr]
 		call    near renderTextToBuffer__video
 		mov     ecx, 390d9h
-		mov     ebx, ___1807e8h
+		mov     ebx, __CEXT_V(string__F1)
 		mov     edx, Font0Props
 		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
@@ -42147,7 +42146,7 @@ ___32592h:
 		lea     eax, [edx*4+0]
 		add     eax, edx
 		shl     eax, 7
-		mov     ebx, ___180694h
+		mov     ebx, __CEXT_V(STRING_CONTINUE)
 		lea     ecx, [eax+0c0h]
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10cch]
@@ -45259,7 +45258,7 @@ ___35203h:
 		mov     [ebx+___1a1f4eh], al
 		cmp     edi, byte 15h
 		jl      short ___351dfh
-		mov     eax, [___180864h]
+		mov     eax, [__CEXT_V(___180864h)]
 		mov     edx, [___1a1ef8h]
 		mov     [___1a1dbah], eax
 		lea     eax, [edx*8+0]
@@ -45386,7 +45385,7 @@ ___3535eh:
 		rep movsd   
 		jmp     near ___35481h
 ___353aah:
-		mov     eax, [___180864h]
+		mov     eax, [__CEXT_V(___180864h)]
 		mov     [___1a1dbah], eax
 		mov     eax, [___196ad4h]
 		xor     edx, edx
@@ -52166,7 +52165,7 @@ ___3a4fbh:
 		cmp     ebp, byte 64h
 		jl      near ___3a469h
 ___3a512h:
-		mov     edx, ___1807bch
+		mov     edx, __CEXT_V(string__wb_m)
 		mov     eax, esp
 		mov     ebx, 80h
 		call    near fopen__clib3r
@@ -52824,13 +52823,13 @@ ___3ad02h:
 		lea     eax, [edx*4+0]
 		add     eax, edx
 		shl     eax, 7
-		mov     ebx, STRING_YES
+		mov     ebx, __CEXT_V(STRING_yes)
 		lea     esi, [eax+ebp]
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10e0h]
 		lea     ecx, [esi+0a0h]
 		call    near renderTextToBuffer__video
-		mov     ebx, STRING_NO
+		mov     ebx, __CEXT_V(STRING_no)
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10e0h]
 		lea     ecx, [esi+14ah]
@@ -53877,7 +53876,7 @@ ___3bad9h:
 		mov     eax, [GreyFont0Ptr]
 		call    near renderTextToBuffer__video
 		mov     ecx, 390d9h
-		mov     ebx, ___1807e8h
+		mov     ebx, __CEXT_V(string__F1)
 		mov     edx, Font0Props
 		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
@@ -53939,7 +53938,7 @@ ___3bbach:
 		cmp     eax, byte 7
 		jne     short ___3bc30h
 		mov     eax, esi
-		mov     edx, ___180134h
+		mov     edx, __CEXT_V(rb_m)
 		call    near close__clib3r
 		mov     eax, DR_CFG
 		mov     ebx, 1
@@ -53972,7 +53971,7 @@ ___3bc30h:
 		mov     eax, esi
 		call    near close__clib3r
 		mov     eax, [esp]
-		mov     edx, ___180134h
+		mov     edx, __CEXT_V(rb_m)
 		call    near allocMemSafe
 		mov     ebp, eax
 		mov     eax, DR_CFG
@@ -54792,7 +54791,7 @@ ___3c528h:
 		mov     [esp], ecx
 		cmp     ecx, 0b76h
 		jl      short ___3c528h
-		mov     edx, ___180134h
+		mov     edx, __CEXT_V(rb_m)
 		mov     eax, DR_CFG
 		mov     ebx, 1
 		call    near fopen__clib3r
@@ -54817,7 +54816,7 @@ ___3c528h:
 		mov     ecx, esi
 		call    near fread__clib3r
 		mov     eax, esi
-		mov     edx, ___1807bch
+		mov     edx, __CEXT_V(string__wb_m)
 		call    near fclose__clib3r
 		mov     eax, DR_CFG
 		mov     ebx, 1
@@ -110442,7 +110441,7 @@ ___71590h:
 		mov     eax, esi
 		mov     ebx, 4
 		call    near ___10490h
-		mov     edx, ___185114h
+		mov     edx, __CEXT_V(string__SCRM)
 		mov     ecx, eax
 		add     eax, byte 2ch
 		call    near strncmp__clib3r
@@ -114807,7 +114806,7 @@ ___7552ch:
 		mov     eax, esi
 		mov     ebx, 11h
 		call    near ___10490h
-		mov     edx, ___18511ch
+		mov     edx, __CEXT_V(string__Extended_Module)
 		mov     edi, eax
 		call    near strncmp__clib3r
 		test    eax, eax

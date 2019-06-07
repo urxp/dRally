@@ -1,3 +1,4 @@
+%include "macros.inc"
 
 	extern 	__CHK
 	extern 	getFileSize__dr
@@ -5,8 +6,8 @@
 	extern 	___182a5ch
 	extern 	printf__clib3r
 	extern 	restore__keyboard
-	extern 	drfile_size
-	extern 	drfiles_list
+	extern 	__CEXT_V(drfile_size)
+	extern 	__CEXT_V(drfiles_list)
 	extern 	___182aach
 	extern 	___182ae4h
 	extern 	___5ec04h
@@ -26,7 +27,7 @@ section @text
 global chkfiles__dr
 chkfiles__dr:
 		push    124h
-		call    near __CHK
+		call    __CHK
 		push    ebx
 		push    ecx
 		push    edx
@@ -34,47 +35,47 @@ chkfiles__dr:
 		push    edi
 		push    ebp
 		sub     esp, 100h
-		mov     ebx, drfiles_list
+		mov     ebx, __CEXT_V(drfiles_list)
 		xor     edx, edx
 		mov     ebp, 70h
 @file_chk:
 		mov     eax, ebx
-		call    near getFileSize__dr
+		call    getFileSize__dr
 		mov     edi, eax
-		cmp     eax, byte 1
-		jge     short @file_exists
+		cmp     eax, 1
+		jge     @file_exists
 		push    ebx
 		push    ___182a30h
-		call    near printf__clib3r
-		add     esp, byte 8
+		call    printf__clib3r
+		add     esp, 8
 		push    ___182a5ch
-		call    near printf__clib3r
-		add     esp, byte 4
-		call    near restore__keyboard
-		call    near ___5ec04h
+		call    printf__clib3r
+		add     esp, 4
+		call    restore__keyboard
+		call    ___5ec04h
 		mov     eax, ebp
-		call    near exit__clib3r
+		call    exit__clib3r
 @file_exists:
-		cmp     edi, [edx+drfile_size]
-		je      short @file_original
-		mov     eax, drfiles_list
+		cmp     edi, [edx+__CEXT_V(drfile_size)]
+		je      @file_original
+		mov     eax, __CEXT_V(drfiles_list)
 		add     eax, edx
 		push    eax
 		push    ___182aach
-		call    near printf__clib3r
-		add     esp, byte 8
+		call    printf__clib3r
+		add     esp, 8
 		push    ___182ae4h
-		call    near printf__clib3r
-		add     esp, byte 4
-		call    near restore__keyboard
-		call    near ___5ec04h
+		call    printf__clib3r
+		add     esp, 4
+		call    restore__keyboard
+		call    ___5ec04h
 		mov     eax, ebp
-		call    near exit__clib3r
+		call    exit__clib3r
 @file_original:
-		add     edx, byte 11h
-		add     ebx, byte 11h
+		add     edx, 11h
+		add     ebx, 11h
 		cmp     edx, 0eeh
-		jne     near @file_chk
+		jne     @file_chk
 		mov     ah, 2
 		mov     esi, cdrom_ini
 		mov     edi, esp
@@ -84,13 +85,13 @@ ___3e27dh:
 		mov     al, [esi]
 		mov     [edi], al
 		cmp     al, 0
-		je      short ___3e295h
+		je      ___3e295h
 		mov     al, [esi+1]
-		add     esi, byte 2
+		add     esi, 2
 		mov     [edi+1], al
-		add     edi, byte 2
+		add     edi, 2
 		cmp     al, 0
-		jne     short ___3e27dh
+		jne     ___3e27dh
 ___3e295h:
 		pop     edi
 		mov     esi, animfiles_list
@@ -105,19 +106,19 @@ ___3e2a6h:
 		mov     al, [esi]
 		mov     [edi], al
 		cmp     al, 0
-		je      short ___3e2beh
+		je      ___3e2beh
 		mov     al, [esi+1]
-		add     esi, byte 2
+		add     esi, 2
 		mov     [edi+1], al
-		add     edi, byte 2
+		add     edi, 2
 		cmp     al, 0
-		jne     short ___3e2a6h
+		jne     ___3e2a6h
 ___3e2beh:
 		pop     edi
 		mov     eax, esp
-		call    near getFileSize__dr
-		cmp     eax, byte 1
-		jge     short ___3e2d2h
+		call    getFileSize__dr
+		cmp     eax, 1
+		jge     ___3e2d2h
 		mov     byte [___1a214ah], 1
 ___3e2d2h:
 		mov     edx, animfiles_list
@@ -127,7 +128,7 @@ ___3e2d2h:
 		mov     cl, [___1a214ah]
 		mov     [esp], al
 		cmp     cl, 2
-		jne     short ___3e315h
+		jne     ___3e315h
 		mov     esi, cdrom_ini
 		mov     edi, esp
 		push    edi
@@ -140,17 +141,17 @@ ___3e2fch:
 		mov     al, [esi]
 		mov     [edi], al
 		cmp     al, 0
-		je      short ___3e314h
+		je      ___3e314h
 		mov     al, [esi+1]
-		add     esi, byte 2
+		add     esi, 2
 		mov     [edi+1], al
-		add     edi, byte 2
+		add     edi, 2
 		cmp     al, 0
-		jne     short ___3e2fch
+		jne     ___3e2fch
 ___3e314h:
 		pop     edi
 ___3e315h:
-		imul    ebp, ebx, byte 11h
+		imul    ebp, ebx, 11h
 		mov     edi, esp
 		mov     esi, edx
 		push    edi
@@ -163,37 +164,37 @@ ___3e325h:
 		mov     al, [esi]
 		mov     [edi], al
 		cmp     al, 0
-		je      short ___3e33dh
+		je      ___3e33dh
 		mov     al, [esi+1]
-		add     esi, byte 2
+		add     esi, 2
 		mov     [edi+1], al
-		add     edi, byte 2
+		add     edi, 2
 		cmp     al, 0
-		jne     short ___3e325h
+		jne     ___3e325h
 ___3e33dh:
 		pop     edi
 		mov     eax, esp
-		call    near getFileSize__dr
+		call    getFileSize__dr
 		test    eax, eax
-		jle     short @anim_original
+		jle     @anim_original
 		cmp     eax, [ebp+animfile_size]
-		je      short @anim_original
+		je      @anim_original
 		push    edx
 		push    ___182b34h
-		call    near printf__clib3r
-		add     esp, byte 8
+		call    printf__clib3r
+		add     esp, 8
 		push    ___182b6ch
-		call    near printf__clib3r
-		add     esp, byte 4
-		call    near restore__keyboard
-		call    near ___5ec04h
+		call    printf__clib3r
+		add     esp, 4
+		call    restore__keyboard
+		call    ___5ec04h
 		mov     eax, 70h
-		call    near exit__clib3r
+		call    exit__clib3r
 @anim_original:
 		inc     ebx
-		add     edx, byte 11h
-		cmp     ebx, byte 3
-		jl      near @anim_chk
+		add     edx, 11h
+		cmp     ebx, 3
+		jl      @anim_chk
 		add     esp, 100h
 		pop     ebp
 		pop     edi

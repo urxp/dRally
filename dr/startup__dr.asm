@@ -44,7 +44,7 @@
 	extern 	___181c4ch	
 	extern 	ToneDialing	
 	extern 	___187432h	
-	extern 	___1811c8h	
+	extern 	__CEXT_V(string__pulse_dialing)	
 	extern 	srand__clib3r	
 	extern 	___606dfh	
 	extern 	chkbankswitch__video	
@@ -65,12 +65,12 @@
 	extern 	___VGABufferPtr_0	
 	extern 	VGABufferPtr_0	
 	extern 	___146c4h	
-	extern 	___180694h		
+	extern 	__CEXT_V(STRING_CONTINUE)		
 	extern 	lastScanCode__keyboard	
 	extern 	hallOfFameMenu__dr	
 	extern 	___182de4h	
 	extern 	strcmp__clib3r	
-	extern 	___180864h	
+	extern 	__CEXT_V(___180864h)	
 	extern 	___1a1dbah	
 	extern 	___24e4d0h	
 	extern 	___64a28h	
@@ -253,7 +253,7 @@ ___3e873h:
 		cmp     dword [ToneDialing], byte 0
 		jne     ___3e88bh
 		mov     edi, ___187432h
-		mov     esi, ___1811c8h		;; "Pulse Dialing"
+		mov     esi, __CEXT_V(string__pulse_dialing)		;; "Pulse Dialing"
 		movsd   
 		movsd   
 		movsd   
@@ -699,7 +699,7 @@ ___3ee3fh:
 		mov     eax, [WhiteFont0Ptr]
 		call    renderTextToBuffer__video
 		mov     ecx, [esp+14h]
-		mov     ebx, ___180694h			;; "CONTINUE"
+		mov     ebx, __CEXT_V(STRING_CONTINUE)			;; "CONTINUE"
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10cch]
 		call    renderTextToBuffer__video
@@ -807,7 +807,7 @@ ___3efdch:
 		test    ecx, ecx
 		jne     ___3f131h
 		mov     edi, ___1a1dbah
-		mov     eax, [___180864h]
+		mov     eax, [__CEXT_V(___180864h)]
 		mov     ebx, 14h
 		mov     [___1a1dbah], eax
 		push    edi
@@ -854,7 +854,7 @@ ___3f07eh:
 		mov     eax, edi
 		mov     edx, 64h
 		call    ___23488h
-		mov     eax, [___180864h]
+		mov     eax, [__CEXT_V(___180864h)]
 		mov     edx, [___1a1ef8h]
 		mov     [___1a1dbah], eax
 		lea     eax, [edx*8+0]
@@ -919,7 +919,7 @@ ___3f123h:
 		jmp     ___3f19dh
 ___3f131h:
 		mov     edi, ___1a1dbah
-		mov     eax, [___180864h]
+		mov     eax, [__CEXT_V(___180864h)]
 		mov     ebx, 6
 		mov     [___1a1dbah], eax
 		push    edi

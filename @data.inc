@@ -1,63 +1,36 @@
-;OBJECT#4
 db	1,1,1,0
-global ___180004h
-___180004h:
-db	0ah,44h,65h,61h,74h,68h,20h,52h,61h,6ch,6ch,79h,20h,2ah,2ah,2ah
-db	20h,46h,75h,6ch,6ch,20h,56h,65h,72h,73h,69h,6fh,6eh,20h,31h,2eh
-db	31h,0ah,43h,6fh,70h,79h,72h,69h,67h,68h,74h,20h,28h,63h,29h,20h
-db	31h,39h,39h,35h,2ch,20h,31h,39h,39h,36h,20h,52h,65h,6dh,65h,64h
-db	79h,20h,45h,6eh,74h,65h,72h,74h,61h,69h,6eh,6dh,65h,6eh,74h,2ch
-db	20h,4ch,74h,64h,2eh,0ah,0,0
-global ___18005ch
-___18005ch:
+__GDECL(__CEXT_V(___180004h))
+db	0ah,"Death Rally *** Full Version 1.1",0ah,"Copyright (c) 1995, 1996 Remedy Entertainment, Ltd.",0ah,0,0
+__GDECL(___18005ch)
 db	0ah,0,0,0
-global ___180060h
-___180060h:
-db	2fh,77h,0,0
-global ___180064h
-___180064h:
-db	57h,49h,4eh,44h,49h,52h,0,0
-global ___18006ch
-___18006ch:
-db	57h,69h,6eh,64h,6fh,77h,73h,20h,39h,35h,20h,64h,65h,74h,65h,63h
-db	74h,65h,64h,2eh,0ah,0,0,0
-global ___180084h
-___180084h:
-db	55h,73h,65h,20h,22h,2fh,57h,22h,20h,70h,61h,72h,61h,6dh,65h,74h
-db	65h,72h,2ch,20h,69h,66h,20h,79h,6fh,75h,20h,61h,72h,65h,20h,72h
-db	75h,6eh,6eh,69h,6eh,67h,20h,75h,6eh,64h,65h,72h,20h,57h,69h,6eh
-db	64h,6fh,77h,73h,20h,39h,35h
-db	20h,73h,68h,65h,6ch,6ch,2eh,0ah,0
-___1800c4h:
-db	44h,45h,41h,54h,48h,20h,52h,41h,4ch,4ch,59h,20h,45h,78h,69h,74h
-db	3ah,20h,43h,54h,52h,4ch,2bh,41h,4ch,54h,2bh,44h,45h,4ch,20h,70h
-db	72h,65h,73h,73h,65h,64h,21h,0ah,0,0,0,0
-global ___1800f0h
-___1800f0h:
-db	64h,72h,2eh,62h,69h,6eh,0,0
-global ___1800f8h
-___1800f8h:
-db	4dh,45h,4eh,55h,2eh,42h,50h,41h,0,0,0,0
-global ___180104h
-___180104h:
-db	72h,62h,0,0
-global ___180108h
-___180108h:
-db	50h,72h,6fh,62h,6ch,65h,6dh,73h,20h,77h,69h,74h,68h,20h,5bh,0
-global ___180118h
-___180118h:
-db	5dh,20h,0,0
-global ___18011ch
-___18011ch:
-db	20h,66h,69h,6ch,65h,21h,0,0
+__GDECL(___180060h)
+db	"/w",0,0
+__GDECL(__CEXT_V(WINDIR))
+db	"WINDIR",0,0
+__GDECL(___18006ch)
+db	"Windows 95 detected.",0ah,0,0,0
+__GDECL(___180084h)
+db	"Use ",22h,"/W",22h," parameter, if you are running under Windows 95 shell.",0ah,0
+__GDECL(__CEXT_V(___1800c4h))
+db	"DEATH RALLY Exit: CTRL+ALT+DEL pressed!",0ah,0,0,0,0
+__GDECL(__CEXT_V(dr_bin))
+db	"dr.bin",0,0
+__GDECL(__CEXT_V(MENU_BPA_0))
+db	"MENU.BPA",0,0,0,0
+__GDECL(__CEXT_V(rb_m_0))
+db	"rb",0,0
+__GDECL(___180108h)
+db	"Problems with [",0
+__GDECL(___180118h)
+db	"] ",0,0
+__GDECL(__CEXT_V(___18011ch))
+db  " file!",0,0  
 __GDECL(__CEXT_V(MUSICS_BPA))
 db	"MUSICS.BPA",0,0
-global ___180130h
-___180130h:
+__GDECL(___180130h)
 db	0,0,0,0
-global ___180134h
-___180134h:
-db	72h,62h,0,0
+__GDECL(__CEXT_V(rb_m))
+db	"rb",0,0
 __GDECL(__CEXT_V(FRAMES_BPK))
 db	"FRAMES.BPK",0,0
 __GDECL(__CEXT_V(MENU_BPA))
@@ -66,39 +39,20 @@ __GDECL(__CEXT_V(append_m))
 db	"a",0,0,0
 __GDECL(__CEXT_V(dr_log))
 db	"dr.log",0,0
-___18015ch:
-db	"DEATH RALLY",20h,4dh,50h,2dh,45h
-db	52h,52h,4fh,52h,3ah,20h,4eh,6fh,74h,20h,65h,6eh,6fh,75h,67h,68h
-db	20h,6ch,6fh,77h,20h,6dh,65h,6dh,6fh,72h,79h,20h,61h,76h,61h,69h
-db	6ch,61h,62h,6ch,65h,2eh,20h,41h,62h,6fh,75h,74h,20h,35h,37h,30h
-db	6bh,20h,6eh,65h,65h,64h,65h,64h,21h,0ah,0,0
-___1801a8h:
-db	44h,45h,41h,54h,48h,20h,52h,41h,4ch,4ch,59h,20h,4dh,50h,2dh,45h
-db	52h,52h,4fh,52h,3ah,20h,49h,50h,58h,2dh,64h,72h,69h,76h,65h,72h
-db	20h,6eh,6fh,74h,20h,69h,6eh,73h,74h,61h,6ch,6ch,65h,64h,21h,0ah
-db	0,0,0,0
-___1801dch:
-db	44h,45h,41h,54h,48h,20h,52h,41h,4ch,4ch,59h,20h,4dh,50h,2dh,45h
-db	52h,52h,4fh,52h,3ah,20h,53h,6fh,63h,6bh,65h,74h,20h,74h,61h,62h
-db	6ch,65h,20h,69h,73h,20h,66h,75h,6ch,6ch,21h,0ah,0,0,0,0
-___18020ch:
-db	44h,45h,41h,54h,48h,20h,52h,41h,4ch,4ch,59h,20h,4dh,50h,2dh,45h
-db	52h,52h,4fh,52h,3ah,20h,53h,6fh,63h,6bh,65h,74h,20h,61h,6ch,72h
-db	65h,61h,64h,79h,20h,6fh,70h,65h,6eh,21h,0ah,0
-___180238h:
-db	44h,45h,41h,54h,48h,20h,52h,41h,4ch,4ch,59h,20h,4dh,50h,2dh,45h
-db	52h,52h,4fh,52h,3ah,20h,43h,4fh,4dh,2dh,50h,4fh,52h,54h,20h,6eh
-db	6fh,74h,20h,64h,65h,74h,65h,63h,74h,65h,64h,21h,0ah,0,0,0
-___180268h:
-db	44h,45h,41h,54h,48h,20h,52h,41h,4ch,4ch,59h,20h,4dh,50h,2dh,45h
-db	52h,52h,4fh,52h,3ah,20h,55h,6eh,6bh,6eh,6fh,77h,6eh,20h,65h,72h
-db	72h,6fh,72h,21h,0ah,0,0,0
-___180290h:
-db	50h,6ch,65h,61h,73h,65h,20h,63h,6fh,6eh,73h,75h,6ch,74h,20h,44h
-db	52h,48h,45h,4ch,50h,2eh,45h,58h,45h,20h,66h,6fh,72h,20h,6dh,6fh
-db	72h,65h,20h,69h,6eh,66h,6fh,72h,6dh,61h,74h,69h,6fh,6eh,20h,6fh
-db	6eh,20h,68h,6fh,77h,20h,74h,6fh,20h,72h,65h,73h,6fh,6ch,76h,65h
-db	20h,74h,68h,69h,73h,20h,70h,72h,6fh,62h,6ch,65h,6dh,2eh,0ah,0
+__GDECL(__CEXT_V(___18015ch))
+db	"DEATH RALLY MP-ERROR: Not enough low memory available. About 570k needed!",0ah,0,0
+__GDECL(__CEXT_V(___1801a8h))
+db	"DEATH RALLY MP-ERROR: IPX-driver not installed!",0ah,0,0,0,0
+__GDECL(__CEXT_V(___1801dch))
+db	"DEATH RALLY MP-ERROR: Socket table is full!",0ah,0,0,0,0
+__GDECL(__CEXT_V(___18020ch))
+db	"DEATH RALLY MP-ERROR: Socket already open!",0ah,0
+__GDECL(__CEXT_V(___180238h))
+db	"DEATH RALLY MP-ERROR: COM-PORT not detected!",0ah,0,0,0
+__GDECL(__CEXT_V(___180268h))
+db	"DEATH RALLY MP-ERROR: Unknown error!",0ah,0,0,0
+__GDECL(__CEXT_V(___180290h))
+db	"Please consult DRHELP.EXE for more information on how to resolve this problem.",0ah,0
 ___1802e0h:
 db	0,0,0,0,0,0,24h,40h
 ___1802e8h:
@@ -115,885 +69,744 @@ ___180308h:
 db	0,0,7ch,42h
 ___18030ch:
 db	0,0,80h,3dh
-bgcop_pal:
-db	62h,67h,63h,6fh,70h,2eh,70h,61h,6ch,0,0,0
-_15x150_bpk:
-db	31h,35h,78h,31h,35h,30h,2eh,62h,70h,6bh,0,0
+__GDECL(bgcop_pal)
+db	"bgcop.pal",0,0,0
+__GDECL(_15x150_bpk)
+db	"15x150.bpk",0,0
 ___180328h:
-db	66h,2dh,62h,69h,67h,33h,61h,2eh,62h,70h,6bh,0
+db	"f-big3a.bpk",0
 ___180334h:
-db	66h,2dh,73h,6dh,61h,33h,61h,2eh,62h,70h,6bh,0
+db	"f-sma3a.bpk",0
 ___180340h:
-db	66h,2dh,73h,6dh,61h,33h,62h,2eh,62h,70h,6bh,0
+db	"f-sma3b.bpk",0
 ___18034ch:
-db	66h,2dh,73h,6dh,61h,33h,63h,2eh,62h,70h,6bh,0
+db	"f-sma3c.bpk",0
 ___180358h:
-db	66h,2dh,6dh,65h,64h,31h,61h,2eh,62h,70h,6bh,0
-___180364h:
-db	72h,61h,6eh,6bh,31h,63h,2eh,62h,70h,6bh,0,0
+db	"f-med1a.bpk",0
+__GDECL(__CEXT_V(rank1c_bpk))
+db	"rank1c.bpk",0,0
 ___180370h:
-db	72h,65h,73h,75h,70h,6fh,6bh,31h,2eh,62h,70h,6bh,0,0,0,0
+db	"resupok1.bpk",0,0,0,0
 ___180380h:
-db	6dh,75h,6ch,73h,62h,67h,32h,2eh,62h,70h,6bh,0
+db	"mulsbg2.bpk",0
 ___18038ch:
-db	72h,61h,6eh,6bh,69h,6eh,66h,31h,2eh,62h,70h,6bh,0,0,0,0
+db	"rankinf1.bpk",0,0,0,0
 ___18039ch:
-db	72h,61h,6eh,6bh,69h,6eh,66h,32h,2eh,62h,70h,6bh,0,0,0,0
+db	"rankinf2.bpk",0,0,0,0
 ___1803ach:
-db	72h,61h,6eh,6bh,69h,6eh,66h,33h,2eh,62h,70h,6bh,0,0,0,0
+db	"rankinf3.bpk",0,0,0,0
 ___1803bch:
-db	72h,61h,63h,65h,2dh,65h,61h,73h,2eh,62h,70h,6bh,0,0,0,0
+db	"race-eas.bpk",0,0,0,0
 ___1803cch:
-db	72h,61h,63h,65h,2dh,6dh,65h,64h,2eh,62h,70h,6bh,0,0,0,0
+db	"race-med.bpk",0,0,0,0
 ___1803dch:
-db	72h,61h,63h,65h,2dh,68h,61h,72h,2eh,62h,70h,6bh,0,0,0,0
+db	"race-har.bpk",0,0,0,0
 ___1803ech:
-db	70h,2dh,6eh,61h,6dh,65h,2eh,62h,70h,6bh,0,0
+db	"p-name.bpk",0,0
 ___1803f8h:
-db	70h,2dh,70h,69h,73h,74h,2eh,62h,70h,6bh,0,0
+db	"p-pist.bpk",0,0
 ___180404h:
-db	70h,2dh,72h,61h,6eh,6bh,2eh,62h,70h,6bh,0,0
+db	"p-rank.bpk",0,0
 ___180410h:
-db	70h,74h,73h,2dh,65h,61h,73h,79h,2eh,62h,70h,6bh,0,0,0,0
+db	"pts-easy.bpk",0,0,0,0
 ___180420h:
-db	70h,74h,73h,2dh,6dh,65h,64h,2eh,62h,70h,6bh,0
+db	"pts-med.bpk",0
 ___18042ch:
-db	70h,74h,73h,2dh,68h,61h,72h,64h,2eh,62h,70h,6bh,0,0,0,0
+db	"pts-hard.bpk",0,0,0,0
 ___18043ch:
-db	70h,6ch,61h,63h,69h,6eh,67h,2eh,62h,70h,6bh,0
+db	"placing.bpk",0
 ___180448h:
-db	63h,61h,72h,72h,65h,73h,2eh,62h,70h,6bh,0,0
+db	"carres.bpk",0,0
 ___180454h:
-db	66h,61h,63h,65h,30h,31h,2eh,62h,70h,6bh,0,0
+db	"face01.bpk",0,0
 ___180460h:
-db	66h,61h,63h,65h,30h,32h,2eh,62h,70h,6bh,0,0
+db	"face02.bpk",0,0
 ___18046ch:
-db	66h,61h,63h,65h,30h,33h,2eh,62h,70h,6bh,0,0
+db	"face03.bpk",0,0
 ___180478h:
-db	66h,61h,63h,65h,30h,34h,2eh,62h,70h,6bh,0,0
+db	"face04.bpk",0,0
 ___180484h:
-db	66h,61h,63h,65h,30h,35h,2eh,62h,70h,6bh,0,0
+db	"face05.bpk",0,0
 ___180490h:
-db	66h,61h,63h,65h,30h,36h,2eh,62h,70h,6bh,0,0
+db	"face06.bpk",0,0
 ___18049ch:
-db	66h,61h,63h,65h,30h,37h,2eh,62h,70h,6bh,0,0
+db	"face07.bpk",0,0
 ___1804a8h:
-db	66h,61h,63h,65h,30h,38h,2eh,62h,70h,6bh,0,0
+db	"face08.bpk",0,0
 ___1804b4h:
-db	66h,61h,63h,65h,30h,39h,2eh,62h,70h,6bh,0,0
+db	"face09.bpk",0,0
 ___1804c0h:
-db	66h,61h,63h,65h,31h,30h,2eh,62h,70h,6bh,0,0
+db	"face10.bpk",0,0
 ___1804cch:
-db	66h,61h,63h,65h,31h,31h,2eh,62h,70h,6bh,0,0
+db	"face11.bpk",0,0
 ___1804d8h:
-db	66h,61h,63h,65h,31h,32h,2eh,62h,70h,6bh,0,0
+db	"face12.bpk",0,0
 ___1804e4h:
-db	66h,61h,63h,65h,31h,33h,2eh,62h,70h,6bh,0,0
+db	"face13.bpk",0,0
 ___1804f0h:
-db	66h,61h,63h,65h,31h,34h,2eh,62h,70h,6bh,0,0
+db	"face14.bpk",0,0
 ___1804fch:
-db	66h,61h,63h,65h,31h,35h,2eh,62h,70h,6bh,0,0
+db	"face15.bpk",0,0
 ___180508h:
-db	66h,61h,63h,65h,31h,36h,2eh,62h,70h,6bh,0,0
+db	"face16.bpk",0,0
 ___180514h:
-db	66h,61h,63h,65h,31h,37h,2eh,62h,70h,6bh,0,0
+db	"face17.bpk",0,0
 ___180520h:
-db	66h,61h,63h,65h,31h,38h,2eh,62h,70h,6bh,0,0
+db	"face18.bpk",0,0
 ___18052ch:
-db	66h,61h,63h,65h,31h,39h,2eh,62h,70h,6bh,0,0
+db	"face19.bpk",0,0
 ___180538h:
-db	66h,61h,63h,65h,32h,30h,2eh,62h,70h,6bh,0,0
+db	"face20.bpk",0,0
 ___180544h:
-db	66h,61h,63h,65h,78h,78h,2eh,62h,70h,6bh,0,0
+db	"facexx.bpk",0,0
 ___180550h:
-db	63h,6fh,70h,70h,65h,72h,2eh,70h,61h,6ch,0,0
+db	"copper.pal",0,0
 ___18055ch:
-db	63h,61h,72h,63h,6fh,6ch,2eh,70h,61h,6ch,0,0
+db	"carcol.pal",0,0
 ___180568h:
-db	63h,6fh,72h,6eh,33h,61h,2eh,62h,70h,6bh,0,0
+db	"corn3a.bpk",0,0
 ___180574h:
-db	63h,6fh,72h,6eh,33h,62h,2eh,62h,70h,6bh,0,0
+db	"corn3b.bpk",0,0
 ___180580h:
-db	6dh,65h,6eh,75h,62h,67h,35h,2eh,62h,70h,6bh,0
+db	"menubg5.bpk",0
 ___18058ch:
-db	74h,72h,73h,6eh,61h,70h,32h,6dh,2eh,62h,70h,6bh,0,0,0,0
+db	"trsnap2m.bpk",0,0,0,0
 ___18059ch:
-db	63h,75h,72h,73h,6fh,72h,2eh,62h,70h,6bh,0,0
+db	"cursor.bpk",0,0
 ___1805a8h:
-db	66h,2dh,62h,69h,67h,33h,62h,2eh,62h,70h,6bh,0
+db	"f-big3b.bpk",0
 ___1805b4h:
-db	66h,2dh,62h,69h,67h,33h,64h,2eh,62h,70h,6bh,0
+db	"f-big3d.bpk",0
 ___1805c0h:
-db	63h,68h,61h,74h,6ch,69h,6eh,31h,2eh,62h,70h,6bh,0,0,0,0
+db	"chatlin1.bpk",0,0,0,0
 ___1805d0h:
-db	63h,68h,61h,74h,74h,65h,78h,74h,2eh,62h,70h,6bh,0,0,0,0
+db	"chattext.bpk",0,0,0,0
 ___1805e0h:
-db	65h,6eh,74h,65h,72h,74h,78h,32h,2eh,62h,70h,6bh,0,0,0,0
+db	"entertx2.bpk",0,0,0,0
 ___1805f0h:
-db	73h,68h,6fh,70h,74h,78h,74h,31h,2eh,62h,70h,6bh,0,0,0,0
+db	"shoptxt1.bpk",0,0,0,0
 ___180600h:
-db	73h,68h,6fh,70h,74h,78h,74h,32h,2eh,62h,70h,6bh,0,0,0,0
+db	"shoptxt2.bpk",0,0,0,0
 ___180610h:
-db	66h,61h,6dh,65h,74h,78h,74h,2eh,62h,70h,6bh,0
+db	"fametxt.bpk",0
 ___18061ch:
-db	72h,65h,63h,6fh,74h,78h,74h,2eh,62h,70h,6bh,0
+db	"recotxt.bpk",0
 ___180628h:
-db	72h,65h,63h,6fh,62h,61h,72h,2eh,62h,70h,6bh,0
+db	"recobar.bpk",0
 ___180634h:
-db	6ch,69h,63h,2dh,6ch,69h,6eh,31h,2eh,62h,70h,6bh,0,0,0,0
+db	"lic-lin1.bpk",0,0,0,0
 ___180644h:
-db	66h,61h,63h,65h,73h,65h,6ch,31h,2eh,62h,70h,6bh,0,0,0,0
+db	"facesel1.bpk",0,0,0,0
 ___180654h:
-db	66h,61h,63h,65h,61h,72h,72h,31h,2eh,62h,70h,6bh,0,0,0,0
+db	"facearr1.bpk",0,0,0,0
 ___180664h:
-db	6dh,73h,65h,6ch,65h,74h,78h,31h,2eh,62h,70h,6bh,0,0,0,0
+db	"mseletx1.bpk",0,0,0,0
 ___180674h:
-db	74h,72h,61h,72h,72h,31h,2eh,62h,70h,6bh,0,0
+db	"trarr1.bpk",0,0
 ___180680h:
-db	6dh,65h,6eh,75h,2eh,70h,61h,6ch,0,0,0,0
-STRING_YES:
-db	79h,65h,73h,0
-STRING_NO:
-db	6eh,6fh,0,0
-global ___180694h
-___180694h:
-db	43h,4fh,4eh,54h,49h,4eh,55h,45h,0,0,0,0
+db	"menu.pal",0,0,0,0
+__GDECL(__CEXT_V(STRING_yes))
+db	"yes",0
+__GDECL(__CEXT_V(STRING_no))
+db	"no",0,0
+__GDECL(__CEXT_V(STRING_CONTINUE))
+db	"CONTINUE",0,0,0,0
 ___1806a0h:
-db	31h,32h,30h,30h,30h,0,0,0
+db	"12000",0,0,0
 ___1806a8h:
-db	38h,30h,30h,30h,0,0,0,0
+db	"8000",0,0,0,0
 ___1806b0h:
-db	36h,30h,30h,30h,0,0,0,0
+db	"6000",0,0,0,0
 ___1806b8h:
-db	34h,30h,30h,30h,0,0,0,0
+db	"4000",0,0,0,0
 ___1806c0h:
-db	32h,30h,30h,30h,0,0,0,0
+db	"2000",0,0,0,0
 ___1806c8h:
-db	31h,30h,30h,30h,0,0,0,0
+db	"1000",0,0,0,0
 ___1806d0h:
-db	2ch,20h,74h,6fh,20h,79h,6fh,75h,2eh,0,0,0
+db	", to you.",0,0,0
 ___1806dch:
-db	33h,30h,30h,30h,0,0,0,0
+db	"3000",0,0,0,0
 ___1806e4h:
-db	35h,30h,30h,0
+db	"500",0
 ___1806e8h:
-db	20h,69h,73h,20h,69h,6eh,20h,61h,20h,63h,61h,72h,2dh,0,0,0
+db	" is in a car-",0,0,0
 ___1806f8h:
-db	2ch,20h,79h,6fh,75h,72h,20h,6dh,6fh,6eh,65h,79h,2eh,0,0,0
+db	", your money.",0,0,0
 ___180708h:
-db	37h,35h,30h,0
+db	"750",0
 ___18070ch:
-db	32h,35h,30h,0
+db	"250",0
 ___180710h:
-db	6dh,70h,2dh,72h,65h,73h,2eh,62h,70h,6bh,0,0
+db	"mp-res.bpk",0,0
 ___18071ch:
-db	5bh,0,0,0
+db	"[",0,0,0
 ___180720h:
-db	7bh,0,0,0
+db	"{",0,0,0
 ___180724h:
-db	2eh,0,0,0
+db	".",0,0,0
 ___180728h:
-db	24h,0,0,0
+db	"$",0,0,0
 ___18072ch:
 db	7fh,0,0,0
-___180730h:
-db	55h,6eh,64h,65h,72h,20h,63h,6fh,6eh,73h,74h,72h,75h,63h,74h,69h
-db	6fh,6eh,2eh,2eh,2eh,0,0,0
-___180748h:
-db	45h,6dh,70h,74h,79h,20h,53h,6ch,6fh,74h,0,0
+__GDECL(__CEXT_V(string__under_construction))
+db	"Under construction...",0,0,0
+__GDECL(__CEXT_V(string__empty_slot))
+db	"Empty Slot",0,0
 ___180754h:
-db	44h,52h,2eh,53h,47h,0,0,0
+db	"DR.SG",0,0,0
 ___18075ch:
-db	51h,75h,69h,63h,6bh,73h,61h,76h,65h,20h,53h,6ch,6fh,74h,0,0
+db	"Quicksave Slot",0,0
 ___18076ch:
-db	45h,6eh,74h,65h,72h,20h,54h,68h,65h,20h,53h,68h,6fh,70h,0,0
+db	"Enter The Shop",0,0
 ___18077ch:
-db	43h,6fh,6eh,74h,69h,6eh,75h,65h,20h,52h,61h,63h,69h,6eh,67h,0
+db	"Continue Racing",0
 ___18078ch:
-db	47h,61h,6dh,65h,20h,4ch,6fh,61h,64h,65h,64h,2eh,0,0,0,0
+db	"Game Loaded.",0,0,0,0
 ___18079ch:
-db	45h,6eh,74h,65h,72h,20h,74h,68h,65h,20h,6eh,61h,6dh,65h,20h,6fh
-db	66h,20h,73h,61h,76h,65h,20h,67h,61h,6dh,65h,3fh,0,0,0,0
-___1807bch:
-db	77h,62h,0,0
+db	"Enter the name of save game?",0,0,0,0
+__GDECL(__CEXT_V(string__wb_m))
+db	"wb",0,0
 ___1807c0h:
-db	47h,61h,6dh,65h,20h,53h,61h,76h,65h,64h,2eh,0
+db	"Game Saved.",0
 ___1807cch:
-db	70h,72h,65h,73h,73h,20h,20h,20h,74h,6fh,20h,65h,6eh,74h,65h,72h
-db	20h,63h,68h,61h,74h,20h,6dh,6fh,64h,65h,0,0
-___1807e8h:
-db	46h,31h,0,0
+db	"press   to enter chat mode",0,0
+__GDECL(__CEXT_V(string__F1))
+db	"F1",0,0
 ___1807ech:
-db	53h,74h,61h,72h,74h,20h,41h,20h,4eh,65h,77h,20h,47h,61h,6dh,65h
-db	0,0,0,0
+db	"Start A New Game",0,0,0,0
 ___180800h:
-db	45h,6eh,64h,20h,63h,75h,72h,72h,65h,6eh,74h,20h,67h,61h,6dh,65h
-db	3fh,0,0,0
+db	"End current game?",0,0,0
 ___180814h:
-db	53h,74h,61h,72h,74h,20h,52h,61h,63h,69h,6eh,67h,0,0,0,0
+db	"Start Racing",0,0,0,0
 ___180824h:
-db	57h,61h,69h,74h,2eh,2eh,2eh,0
+db	"Wait...",0
 ___18082ch:
-db	41h,6ch,6ch,20h,6eh,65h,74h,67h,61h,6dh,65h,73h,20h,61h,72h,65h
-db	20h,72h,65h,73h,65h,72h,76h,65h,64h,21h,0,0
+db	"All netgames are reserved!",0,0
 ___180848h:
-db	50h,72h,65h,73h,73h,20h,61h,6eh,79h,20h,6bh,65h,79h,20h,74h,6fh
-db	20h,63h,6fh,6eh,74h,69h,6eh,75h,65h,2eh,0,0
-global ___180864h
-___180864h:
-db	2dh,2dh,20h,0
+db	"Press any key to continue.",0,0
+__GDECL(__CEXT_V(___180864h))
+db	"-- ",0
 ___180868h:
-db	20h,68h,61h,73h,20h,69h,6eh,69h,74h,69h,61h,6ch,69h,7ah,65h,64h
-db	20h,61h,20h,6eh,65h,77h,20h,6eh,65h,74h,67h,61h,6dh,65h,2eh,0
+db	" has initialized a new netgame.",0
 ___180888h:
-db	27h,73h,20h,67h,61h,6dh,65h,0
+db	"'s game",0
 ___180890h:
-db	53h,65h,6ch,65h,63h,74h,65h,64h,20h,74h,72h,61h,63h,6bh,73h,3ah
-db	20h,0,0,0
+db	"Selected tracks: ",0,0,0
 ___1808a4h:
-db	53h,74h,61h,72h,74h,69h,6eh,67h,20h,6dh,6fh,6eh,65h,79h,3ah,20h
-db	24h,0,0,0
+db	"Starting money: $",0,0,0
 ___1808b8h:
-db	57h,65h,61h,70h,6fh,6eh,20h,6dh,6fh,64h,65h,3ah,20h,0,0,0
-___1808c8h:
-db	4fh,6eh,0,0
-___1808cch:
-db	4fh,66h,66h,0
+db	"Weapon mode: ",0,0,0
+__GDECL(__CEXT_V(string__on))
+db	"On",0,0
+__GDECL(__CEXT_V(string__off))
+db	"Off",0
 ___1808d0h:
-db	49h,6eh,69h,74h,69h,61h,6ch,69h,7ah,69h,6eh,67h,20h,61h,20h,6eh
-db	65h,77h,20h,6eh,65h,74h,67h,61h,6dh,65h,0,0
+db	"Initializing a new netgame",0,0
 ___1808ech:
-db	50h,72h,65h,73h,73h,20h,45h,4eh,54h,45h,52h,20h,77h,68h,65h,6eh
-db	20h,61h,6ch,6ch,20h,70h,6ch,61h,79h,65h,72h,73h,20h,68h,61h,76h
-db	65h,20h,61h,72h,72h,69h,76h,65h,64h,0,0,0
+db	"Press ENTER when all players have arrived",0,0,0
 ___180918h:
-db	6fh,72h,20h,70h,72h,65h,73h,73h,20h,45h,53h,43h,20h,74h,6fh,20h
-db	63h,6ch,6fh,73h,65h,20h,79h,6fh,75h,72h,20h,67h,61h,6dh,65h,2eh
-db	0,0,0,0
+db	"or press ESC to close your game.",0,0,0,0
 ___18093ch:
-db	31h,2eh,0,0
+db	"1.",0,0
 ___180940h:
-db	32h,2eh,0,0
+db	"2.",0,0
 ___180944h:
-db	33h,2eh,0,0
+db	"3.",0,0
 ___180948h:
-db	34h,2eh,0,0
+db  "4.",0,0
 ___18094ch:
-db	27h,73h,20h,67h,61h,6dh,65h,20h,73h,74h,61h,72h,74h,65h,64h,20h
-db	77h,69h,74h,68h,20h,0,0,0
+db	"'s game started with ",0,0,0
 ___180964h:
-db	20h,70h,6ch,61h,79h,65h,72h,73h,20h,61h,6eh,64h,20h,0,0,0
+db	" players and ",0,0,0
 ___180974h:
-db	20h,74h,72h,61h,63h,6bh,28h,73h,29h,2eh,0,0
+db	" track(s).",0,0
 ___180980h:
-db	20h,63h,6ch,6fh,73h,65h,64h,20h,74h,68h,65h,20h,6eh,65h,74h,67h
-db	61h,6dh,65h,2eh,0,0,0,0
+db	" closed the netgame.",0,0,0,0
 ___180998h:
-db	57h,61h,69h,74h,69h,6eh,67h,20h,66h,6fh,72h,20h,6fh,74h,68h,65h
-db	72h,20h,70h,6ch,61h,79h,65h,72h,73h,2eh,2eh,2eh,0,0,0,0
+db	"Waiting for other players...",0,0,0,0
 ___1809b8h:
-db	50h,72h,65h,73h,73h,20h,45h,53h,43h,20h,74h,6fh,20h,6ch,65h,61h
-db	76h,65h,20h,6eh,65h,74h,67h,61h,6dh,65h,0,0
+db	"Press ESC to leave netgame",0,0
 ___1809d4h:
-db	48h,6fh,73h,74h,20h,63h,6ch,6fh,73h,65h,64h,20h,74h,68h,65h,20h
-db	67h,61h,6dh,65h,21h,0,0,0
+db	"Host closed the game!",0,0,0
 ___1809ech:
-db	48h,6fh,73h,74h,20h,73h,74h,61h,72h,74h,65h,64h,20h,74h,68h,65h
-db	20h,67h,61h,6dh,65h,21h,0,0
+db	"Host started the game!",0,0
 ___180a04h:
-db	4ch,6fh,6fh,6bh,69h,6eh,67h,20h,66h,6fh,72h,20h,6eh,65h,74h,67h
-db	61h,6dh,65h,73h,2ch,20h,70h,72h,65h,73h,73h,20h,65h,6eh,74h,65h
-db	72h,20h,74h,6fh,20h,6ah,6fh,69h,6eh,2eh,2eh,2eh,0,0,0,0
+db	"Looking for netgames, press enter to join...",0,0,0,0
 ___180a34h:
-db	2eh,20h,0,0
+db	". ",0,0
 ___180a38h:
-db	20h,77h,69h,74h,68h,20h,0,0
+db	" with ",0,0
 ___180a40h:
-db	20h,77h,69h,74h,68h,6fh,75h,74h,20h,0,0,0
+db	" without ",0,0,0
 ___180a4ch:
-db	77h,65h,61h,70h,6fh,6eh,73h,0
+db	"weapons",0
 ___180a54h:
-db	2dh,2dh,0,0
+db	"--",0,0
 ___180a58h:
-db	54h,68h,65h,20h,6eh,65h,74h,67h,61h,6dh,65h,20h,69h,73h,20h,61h
-db	6ch,72h,65h,61h,64h,79h,20h,69h,6eh,20h,75h,73h,65h,21h,0,0
+db	"The netgame is already in use!",0,0
 ___180a78h:
-db	4ch,6fh,6fh,6bh,69h,6eh,67h,20h,66h,6fh,72h,20h,6eh,65h,74h,67h
-db	61h,6dh,65h,73h,2ch,20h,70h,72h,65h,73h,73h,20h,65h,6eh,74h,65h
-db	72h,20h,74h,6fh,20h,6ah,6fh,69h,6eh,2eh,2eh,2eh,0,0,0,0
+db	"Looking for netgames, press enter to join...",0,0,0,0
 ___180aa8h:
-db	57h,61h,69h,74h,69h,6eh,67h,20h,66h,6fh,72h,20h,72h,65h,6dh,6fh
-db	74h,65h,20h,70h,6ch,61h,79h,65h,72h,2eh,2eh,2eh,0,0,0,0
+db	"Waiting for remove player...",0,0,0,0
 ___180ac8h:
-db	50h,72h,65h,73h,73h,20h,45h,53h,43h,20h,74h,6fh,20h,61h,62h,6fh
-db	72h,74h,0,0
+db	"Press ESC to abort",0,0
 ___180adch:
-db	20h,68h,61h,73h,20h,69h,6eh,69h,74h,69h,61h,6ch,69h,7ah,65h,64h
-db	20h,61h,20h,6eh,65h,77h,20h,6eh,65h,74h,67h,61h,6dh,65h,2eh,0
+db	" has initialized a new netgame.",0
 ___180afch:
-db	27h,73h,20h,67h,61h,6dh,65h,20h,73h,74h,61h,72h,74h,65h,64h,20h
-db	77h,69h,74h,68h,20h,32h,20h,70h,6ch,61h,79h,65h,72h,73h,20h,61h
-db	6eh,64h,20h,0
+db	"'s game started with 2 players and ",0
 ___180b20h:
-db	57h,65h,61h,70h,6fh,6eh,73h,20h,4fh,6eh,0,0
+db	"Weapons On",0,0
 ___180b2ch:
-db	57h,65h,61h,70h,6fh,6eh,73h,20h,4fh,66h,66h,0
+db	"Weapons Off",0
 ___180b38h:
-db	45h,6eh,74h,65h,72h,20h,74h,68h,65h,20h,73h,75h,6dh,20h,61h,76h
-db	61h,69h,6ch,61h,62h,6ch,65h,20h,74h,6fh,20h,65h,61h,63h,68h,20h
-db	70h,6ch,61h,79h,65h,72h,3fh,0
+db	"Enter the sum available to each player?",0
 ___180b60h:
-db	45h,6eh,74h,65h,72h,20h,74h,68h,65h,20h,73h,75h,6dh,20h,61h,76h
-db	61h,69h,6ch,61h,62h,6ch,65h,20h,74h,6fh,20h,65h,61h,63h,68h,20h
-db	70h,6ch,61h,79h,65h,72h,3fh,0
+db	"Enter the sum available to each player?",0
 ___180b88h:
-db	43h,6fh,6eh,74h,69h,6eh,75h,65h,20h,43h,75h,72h,72h,65h,6eh,74h
-db	20h,47h,61h,6dh,65h,0,0,0
-global ___180ba0h
-___180ba0h:
-db	41h,62h,6fh,72h,74h,20h,43h,75h,72h,72h,65h,6eh,74h,20h,47h,61h
-db	6dh,65h,0,0
+db	"Continue Current Game",0,0,0
+__GDECL(___180ba0h)
+db	"Abort Current Game",0,0
 ___180bb4h:
-db	2dh,2dh,20h,50h,72h,65h,70h,61h,72h,65h,20h,66h,6fh,72h,20h,74h
-db	68h,65h,20h,66h,69h,72h,73h,74h,20h,74h,72h,61h,63h,6bh,2ch,20h
-db	0,0,0,0
+db	"-- Prepare for the first track, ",0,0,0,0
 ___180bd8h:
-db	43h,4fh,4dh,2dh,70h,6fh,72h,74h,20h,6eh,6fh,74h,20h,66h,6fh,75h
-db	6eh,64h,0,0
+db	"COM-port not found",0,0
 ___180bech:
-db	50h,6ch,65h,61h,73h,65h,20h,73h,65h,6ch,65h,63h,74h,20h,61h,20h
-db	43h,4fh,4dh,2dh,70h,6fh,72h,74h,20h,66h,72h,6fh,6dh,20h,53h,65h
-db	72h,69h,61h,6ch,2fh,43h,4fh,4dh,20h,4fh,70h,74h,69h,6fh,6eh,73h
-db	0,0,0,0
+db	"Please select a COM-port from Serial/COM Options",0,0,0,0
 ___180c20h:
-db	4eh,65h,74h,77h,61h,72h,65h,20h,49h,50h,58h,2dh,70h,72h,6fh,74h
-db	6fh,63h,6fh,6ch,20h,6eh,6fh,74h,20h,6ch,6fh,61h,64h,65h,64h,21h
-db	0,0,0,0
+db	"Netware IPX-protocol not loaded!",0,0,0,0
 ___180c44h:
-db	43h,6fh,6eh,6eh,65h,63h,74h,69h,6fh,6eh,20h,65h,73h,74h,61h,62h
-db	6ch,69h,73h,68h,65h,64h,21h,0
+db	"Connection established!",0
 ___180c5ch:
-db	2dh,2dh,20h,43h,6fh,6eh,6eh,65h,63h,74h,69h,6eh,67h,20h,74h,6fh
-db	20h,44h,65h,61h,74h,68h,20h,52h,61h,6ch,6ch,79h,20h,6dh,75h,6ch
-db	74h,69h,70h,6ch,61h,79h,65h,72h,2eh,0,0,0
+db	"-- Connecting to Death Rally multiplayer.",0,0,0
 ___180c88h:
-db	20h,68h,61h,73h,20h,6ah,6fh,69h,6eh,65h,64h,20h,74h,6fh,20h,44h
-db	65h,61h,74h,68h,20h,52h,61h,6ch,6ch,79h,2eh,0
-global ___180ca4h
-___180ca4h:
-db	20h,68h,61h,73h,20h,6ch,65h,66h,74h,20h,66h,72h,6fh,6dh,20h,44h
-db	65h,61h,74h,68h,20h,52h,61h,6ch,6ch,79h,2eh,0
+db	" has joined to Death Rally.",0
+__GDECL(___180ca4h)
+db	" has left from Death Rally.",0
 ___180cc0h:
-db	49h,6eh,69h,74h,69h,61h,6ch,69h,7ah,65h,20h,41h,20h,4eh,65h,77h
-db	20h,47h,61h,6dh,65h,0,0,0
+db	"Initialize A New Game",0,0,0
 ___180cd8h:
-db	4ah,6fh,69h,6eh,20h,41h,6eh,20h,45h,78h,69h,73h,74h,69h,6eh,67h
-db	20h,47h,61h,6dh,65h,0,0,0
+db	"Join An Existing Game",0,0,0
 ___180cf0h:
-db	4eh,65h,74h,77h,6fh,72h,6bh,20h,43h,6fh,6eh,6eh,65h,63h,74h,69h
-db	6fh,6eh,0,0
+db	"Network Connection",0,0
 ___180d04h:
-db	44h,69h,73h,63h,6fh,6eh,6eh,65h,63h,74h,20h,4eh,65h,74h,77h,6fh
-db	72h,6bh,0,0
+db	"Disconnect Network",0,0
 ___180d18h:
-db	44h,69h,73h,63h,6fh,6eh,6eh,65h,63h,74h,20h,53h,65h,72h,69h,61h
-db	6ch,0,0,0
+db	"Disconnect Serial",0,0,0
 ___180d2ch:
-db	52h,65h,73h,65h,74h,74h,69h,6eh,67h,20h,6dh,6fh,64h,65h,6dh,2eh
-db	2eh,2eh,0,0
-___180d40h:
-db	4fh,4bh,0,0
+db	"Resetting modem...",0,0
+__GDECL(__CEXT_V(string__OK))
+db	"OK",0,0
 ___180d44h:
 db	30h,0,0,0
 ___180d48h:
-db	4eh,6fh,20h,6dh,6fh,64h,65h,6dh,20h,64h,65h,74h,65h,63h,74h,65h
-db	64h,2eh,0,0
+db	"No modem detected.",0,0
 ___180d5ch:
-db	50h,6ch,65h,61h,73h,65h,20h,6eh,6fh,74h,65h,3ah,20h,20h,44h,75h
-db	65h,20h,74h,6fh,20h,74h,68h,65h,20h,69h,6eh,65h,66h,66h,69h,63h
-db	69h,65h,6eh,63h,69h,65h,73h,20h,61h,6eh,64h,20h,69h,6eh,68h,65h
-db	72h,65h,6eh,74h,20h,6ch,61h,74h,65h,6eh,63h,69h,65h,73h,0,0
+db	"Please note:  Due to the inefficiencies and inherent latencies",0,0
 ___180d9ch:
-db	6fh,66h,20h,6dh,6fh,64h,65h,6dh,2dh,74h,6fh,2dh,6dh,6fh,64h,65h
-db	6dh,20h,63h,6fh,6eh,6eh,65h,63h,74h,69h,6fh,6eh,73h,2ch,20h,61h
-db	6eh,64h,20h,64h,75h,65h,20h,74h,6fh,20h,73h,6fh,6dh,65h,20h,6dh
-db	6fh,64h,65h,6dh,73h,20h,6eh,6fh,74h,0,0,0
+db	"of modem-to-modem connections, and due to some modems not",0,0,0
 ___180dd8h:
-db	62h,65h,69h,6eh,67h,20h,61h,73h,20h,67h,6fh,6fh,64h,20h,61h,73h
-db	20h,6fh,74h,68h,65h,72h,73h,2ch,20h,79h,6fh,75h,20h,6dh,61h,79h
-db	20h,65h,78h,70h,65h,72h,69h,65h,6eh,63h,65h,20h,6ah,65h,72h,6bh
-db	79h,20h,6dh,6fh,76h,65h,6dh,65h,6eh,74h,73h,0
+db	"being as good as others, you may experience jerky movements",0
 ___180e14h:
-db	66h,6fh,72h,20h,79h,6fh,75h,72h,20h,6fh,70h,70h,6fh,6eh,65h,6eh
-db	74h,27h,73h,20h,63h,61h,72h,2eh,20h,20h,44h,65h,70h,65h,6eh,64h
-db	69h,6eh,67h,20h,6fh,6eh,20h,79h,6fh,75h,72h,20h,63h,69h,72h,63h
-db	75h,6dh,73h,74h,61h,6eh,63h,65h,73h,20h,61h,6eh,64h,0,0,0
+db	"for your opponent's car.  Depending on your circumstances and",0,0,0
 ___180e54h:
-db	74h,68h,65h,20h,71h,75h,61h,6ch,69h,74h,79h,20h,6fh,66h,20h,79h
-db	6fh,75h,72h,20h,70h,68h,6fh,6eh,65h,20h,63h,6fh,6eh,6eh,65h,63h
-db	74h,69h,6fh,6eh,2ch,20h,74h,68h,65h,72h,65h,20h,6dh,61h,79h,20h
-db	6eh,6fh,74h,20h,62h,65h,0,0
+db	"the quality of your phone connection, there may not be",0,0
 ___180e8ch:
-db	61h,20h,73h,6fh,6ch,75h,74h,69h,6fh,6eh,20h,74h,6fh,20h,66h,69h
-db	78h,20h,74h,68h,69h,73h,20h,70h,72h,6fh,62h,6ch,65h,6dh,2eh,20h
-db	20h,41h,20h,70h,6fh,73h,73h,69h,62h,6ch,65h,20h,73h,6fh,6ch,75h
-db	74h,69h,6fh,6eh,20h,69h,73h,20h,74h,6fh,20h,75h,73h,65h,0,0
+db	"a solution to fix this problem.  A possible solution is to use",0,0
 ___180ecch:
-db	61h,20h,63h,75h,73h,74h,6fh,6dh,20h,6dh,6fh,64h,65h,6dh,20h,73h
-db	74h,72h,69h,6eh,67h,20h,74h,68h,61h,74h,20h,73h,65h,65h,6dh,73h
-db	20h,74h,6fh,20h,77h,6fh,72h,6bh,20h,77h,69h,74h,68h,20h,61h,6eh
-db	6fh,74h,68h,65h,72h,20h,67h,61h,6dh,65h,0,0
+db	"a custom modem string that seems to work with another game",0,0
 ___180f08h:
-db	79h,6fh,75h,27h,76h,65h,20h,70h,6ch,61h,79h,65h,64h,20h,76h,69h
-db	61h,20h,6dh,6fh,64h,65h,6dh,2ch,20h,73h,75h,63h,68h,20h,61h,73h
-db	20h,44h,75h,6bh,65h,20h,4eh,75h,6bh,65h,6dh,20h,33h,44h,20h,6fh
-db	72h,20h,44h,4fh,4fh,4dh,2eh,0
+db	"you've played via modem, such as Duke Nukem 3D or DOOM.",0
 ___180f40h:
-db	45h,6eh,74h,65h,72h,20h,74h,68h,65h,20h,6eh,75h,6dh,62h,65h,72h
-db	20h,74h,6fh,20h,64h,69h,61h,6ch,3fh,0,0,0
+db	"Enter the number to dial?",0,0,0
 ___180f5ch:
-db	44h,69h,61h,6ch,69h,6eh,67h,3ah,20h,0,0,0
+db	"Dialing: ",0,0,0
 ___180f68h:
-db	57h,61h,69h,74h,69h,6eh,67h,20h,66h,6fh,72h,20h,61h,6eh,73h,77h
-db	65h,72h,2eh,2eh,2eh,0,0,0
+db	"Waiting for answer...",0,0,0
 ___180f80h:
-db	41h,54h,45h,31h,58h,31h,56h,31h,44h,0,0,0
+db	"ATE1X1V1D",0,0,0
 ___180f8ch:
-db	54h,0,0,0
+db	"T",0,0,0
 ___180f90h:
-db	50h,0,0,0
+db	"P",0,0,0
 ___180f94h:
-db	42h,55h,53h,59h,0,0,0,0
+db	"BUSY",0,0,0,0
 ___180f9ch:
-db	42h,75h,73h,79h,21h,20h,52h,65h,2dh,64h,69h,61h,6ch,69h,6eh,67h
-db	2eh,2eh,2eh,0
+db	"Busy! Re-dialing...",0
 ___180fb0h:
-db	41h,2fh,0,0
+db	"A/",0,0
 ___180fb4h:
-db	4eh,4fh,20h,43h,41h,52h,52h,49h,45h,52h,0,0
+db	"NO CARRIER",0,0
 ___180fc0h:
-db	4eh,6fh,20h,63h,61h,72h,72h,69h,65h,72h,21h,20h,52h,65h,2dh,64h
-db	69h,61h,6ch,69h,6eh,67h,2eh,2eh,2eh,0,0,0
+db	"No carrier! Re-dialing...",0,0,0
 ___180fdch:
-db	43h,4fh,4eh,4eh,45h,43h,54h,0
+db	"CONNECT",0
 ___180fe4h:
-db	43h,41h,52h,52h,49h,45h,52h,0
+db	"CARRIER",0
 ___180fech:
-db	44h,69h,73h,63h,6fh,6eh,6eh,65h,63h,74h,20h,4dh,6fh,64h,65h,6dh
-db	0,0,0,0
+db	"Disconnect Modem",0,0,0,0
 ___181000h:
-db	41h,54h,45h,31h,58h,31h,56h,31h,53h,30h,3dh,30h,0,0,0,0
+db	"ATE1X1V1S0=0",0,0,0,0
 ___181010h:
-db	57h,61h,69h,74h,69h,6eh,67h,20h,66h,6fh,72h,20h,63h,61h,6ch,6ch
-db	2eh,2eh,2eh,0
+db	"Waiting for call...",0
 ___181024h:
-db	52h,49h,4eh,47h,0,0,0,0
+db	"RING",0,0,0,0
 ___18102ch:
-db	45h,73h,74h,61h,62h,6ch,69h,73h,68h,69h,6eh,67h,20h,63h,6fh,6eh
-db	6eh,65h,63h,74h,69h,6fh,6eh,0
+db	"Establishing connection",0
 ___181044h:
-db	41h,54h,41h,0
+db	"ATA",0
 ___181048h:
-db	53h,65h,72h,69h,61h,6ch,20h,43h,6fh,6eh,6eh,65h,63h,74h,69h,6fh
-db	6eh,0,0,0
+db	"Serial Connection",0,0,0
 ___18105ch:
-db	44h,69h,61h,6ch,20h,4dh,6fh,64h,65h,6dh,0,0
+db	"Dial Modem",0,0
 ___181068h:
-db	41h,6eh,73h,77h,65h,72h,20h,4dh,6fh,64h,65h,6dh,0,0,0,0
+db	"Answer Modem",0,0,0,0
 ___181078h:
-db	41h,62h,6fh,72h,74h,20h,63h,75h,72h,72h,65h,6eh,74h,20h,67h,61h
-db	6dh,65h,3fh,0
-global ___18108ch
-___18108ch:
-db	20h,61h,62h,6fh,72h,74h,65h,64h,20h,63h,75h,72h,72h,65h,6eh,74h
-db	20h,6eh,65h,74h,67h,61h,6dh,65h,2eh,0,0,0
+db	"Abort current game?",0
+__GDECL(___18108ch)
+db	" aborted current netgame.",0,0,0
 ___1810a8h:
-db	53h,74h,61h,6eh,64h,61h,72h,64h,20h,43h,4fh,4dh,31h,20h,61h,63h
-db	74h,69h,76h,61h,74h,65h,64h,2eh,0,0,0,0
+db	"Standard COM1 activated.",0,0,0,0
 ___1810c4h:
-db	53h,74h,61h,6eh,64h,61h,72h,64h,20h,43h,4fh,4dh,32h,20h,61h,63h
-db	74h,69h,76h,61h,74h,65h,64h,2eh,0,0,0,0
+db	"Standard COM2 activated.",0,0,0,0
 ___1810e0h:
-db	53h,74h,61h,6eh,64h,61h,72h,64h,20h,43h,4fh,4dh,33h,20h,61h,63h
-db	74h,69h,76h,61h,74h,65h,64h,2eh,0,0,0,0
+db	"Standard COM3 activated.",0,0,0,0
 ___1810fch:
-db	53h,74h,61h,6eh,64h,61h,72h,64h,20h,43h,4fh,4dh,34h,20h,61h,63h
-db	74h,69h,76h,61h,74h,65h,64h,2eh,0,0,0,0
+db	"Standard COM4 activated.",0,0,0,0
 ___181118h:
-db	45h,6eh,74h,65h,72h,20h,74h,68h,65h,20h,43h,75h,73h,74h,6fh,6dh
-db	20h,43h,4fh,4dh,2dh,70h,6fh,72h,74h,20h,62h,61h,73h,65h,20h,61h
-db	64h,64h,72h,65h,73h,73h,20h,28h,69h,6eh,20h,68h,65h,78h,29h,3fh
-db	0,0,0,0
+db	"Enter the Custom COM-port base address (in hex)?",0,0,0,0
 ___18114ch:
-db	25h,78h,0,0
+db	"%x",0,0
 ___181150h:
-db	45h,6eh,74h,65h,72h,20h,74h,68h,65h,20h,43h,75h,73h,74h,6fh,6dh
-db	20h,43h,4fh,4dh,2dh,70h,6fh,72h,74h,20h,49h,52h,51h,20h,28h,69h
-db	6eh,20h,64h,65h,63h,69h,6dh,61h,6ch,29h,3fh,0
+db	"Enter the Custom COM-port IRQ (in decimal)?",0
 ___18117ch:
-db	25h,69h,0,0
+db	"%i",0,0
 ___181180h:
-db	43h,75h,73h,74h,6fh,6dh,20h,43h,4fh,4dh,2dh,70h,6fh,72h,74h,20h
-db	61h,63h,74h,69h,76h,61h,74h,65h,64h,2eh,0,0
+db	"Custom COM-port activated.",0,0
 ___18119ch:
-db	45h,6eh,74h,65h,72h,20h,6dh,6fh,64h,65h,6dh,20h,69h,6eh,69h,74h
-db	69h,61h,6ch,20h,73h,74h,72h,69h,6eh,67h,3fh,0
+db	"Enter modem initial string?",0
 ___1811b8h:
-db	54h,6fh,6eh,65h,20h,44h,69h,61h,6ch,69h,6eh,67h,0,0,0,0
-global ___1811c8h
-___1811c8h:
-db	50h,75h,6ch,73h,65h,20h,44h,69h,61h,6ch,69h,6eh,67h,0,0,0
+db	"Tone Dialing",0,0,0,0
+__GDECL(__CEXT_V(string__pulse_dialing))
+db	"Pulse Dialing",0,0,0
 ___1811d8h:
-db	2dh,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0,0,0,0
+db	"-           ",0,0,0,0
 ___1811e8h:
-db	6ch,65h,66h,74h,20h,20h,20h,20h,20h,20h,20h,20h,0,0,0,0
+db	"left        ",0,0,0,0
 ___1811f8h:
-db	72h,69h,67h,68h,74h,20h,20h,20h,20h,20h,20h,20h,0,0,0,0
+db	"right       ",0,0,0,0
 ___181208h:
-db	75h,70h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0,0,0,0
+db	"up          ",0,0,0,0
 ___181218h:
-db	64h,6fh,77h,6eh,20h,20h,20h,20h,20h,20h,20h,20h,0,0,0,0
+db	"down        ",0,0,0,0
 ___181228h:
-db	62h,75h,74h,74h,6fh,6eh,20h,31h,20h,20h,20h,20h,0,0,0,0
+db	"button 1    ",0,0,0,0
 ___181238h:
-db	62h,75h,74h,74h,6fh,6eh,20h,32h,20h,20h,20h,20h,0,0,0,0
+db	"button 2    ",0,0,0,0
 ___181248h:
-db	62h,75h,74h,74h,6fh,6eh,20h,33h,20h,20h,20h,20h,0,0,0,0
+db	"button 3    ",0,0,0,0
 ___181258h:
-db	62h,75h,74h,74h,6fh,6eh,20h,34h,20h,20h,20h,20h,0,0,0,0
+db	"button 4    ",0,0,0,0
 ___181268h:
-db	55h,4eh,41h,56h,41h,49h,4ch,41h,42h,4ch,45h,20h,0,0,0,0
+db	"UNAVAILABLE ",0,0,0,0
 ___181278h:
-db	65h,73h,63h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0,0,0,0
+db	"esc         ",0,0,0,0
 ___181288h:
-db	31h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0,0,0,0
+db	"1           ",0,0,0,0
 ___181298h:
-db	32h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0,0,0,0
+db	"2           ",0,0,0,0
 ___1812a8h:
-db	33h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0,0,0,0
+db	"3           ",0,0,0,0
 ___1812b8h:
-db	34h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0,0,0,0
+db	"4           ",0,0,0,0
 ___1812c8h:
-db	35h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0,0,0,0
+db	"5           ",0,0,0,0
 ___1812d8h:
-db	36h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0,0,0,0
+db	"6           ",0,0,0,0
 ___1812e8h:
-db	37h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0,0,0,0
+db	"7           ",0,0,0,0
 ___1812f8h:
-db	38h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0,0,0,0
+db	"8           ",0,0,0,0
 ___181308h:
-db	39h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0,0,0,0
+db	"9           ",0,0,0,0
 ___181318h:
-db	30h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0,0,0,0
+db	"0           ",0,0,0,0
 ___181328h:
-db	6dh,69h,6eh,75h,73h,20h,20h,20h,20h,20h,20h,20h,0,0,0,0
+db	"minus       ",0,0,0,0
 ___181338h:
-db	65h,71h,75h,61h,6ch,20h,20h,20h,20h,20h,20h,20h,0,0,0,0
+db	"equal       ",0,0,0,0
 ___181348h:
-db	62h,61h,63h,6bh,73h,70h,61h,63h,65h,20h,20h,20h,0,0,0,0
+db	"backspace   ",0,0,0,0
 ___181358h:
-db	74h,61h,62h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0,0,0,0
+db	"tab         ",0,0,0,0
 ___181368h:
-db	71h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0,0,0,0
+db	"q           ",0,0,0,0
 ___181378h:
-db	77h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0,0,0,0
+db	"w           ",0,0,0,0
 ___181388h:
-db	65h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0,0,0,0
+db	"e           ",0,0,0,0
 ___181398h:
-db	72h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0,0,0,0
+db	"r           ",0,0,0,0
 ___1813a8h:
-db	74h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0,0,0,0
+db	"t           ",0,0,0,0
 ___1813b8h:
-db	79h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0,0,0,0
+db	"y           ",0,0,0,0
 ___1813c8h:
-db	75h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0,0,0,0
+db	"u           ",0,0,0,0
 ___1813d8h:
-db	69h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0,0,0,0
+db	"i           ",0,0,0,0
 ___1813e8h:
-db	6fh,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0,0,0,0
+db	"o           ",0,0,0,0
 ___1813f8h:
-db	70h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0,0,0,0
+db	"p           ",0,0,0,0
 ___181408h:
-db	6ch,65h,66h,74h,20h,62h,72h,61h,63h,6bh,65h,74h,0,0,0,0
+db	"left bracket",0,0,0,0
 ___181418h:
-db	72h,69h,67h,68h,74h,20h,62h,72h,61h,63h,6bh,65h,74h,0,0,0
+db	"right bracket",0,0,0
 ___181428h:
-db	65h,6eh,74h,65h,72h,20h,20h,20h,20h,20h,20h,20h,0,0,0,0
+db	"enter       ",0,0,0,0
 ___181438h:
-db	6ch,65h,66h,74h,20h,63h,6fh,6eh,74h,72h,6fh,6ch,0,0,0,0
+db	"left control",0,0,0,0
 ___181448h:
-db	61h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0,0,0,0
+db	"a           ",0,0,0,0
 ___181458h:
-db	73h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0,0,0,0
+db	"s           ",0,0,0,0
 ___181468h:
-db	64h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0,0,0,0
+db	"d           ",0,0,0,0
 ___181478h:
-db	66h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0,0,0,0
+db	"f           ",0,0,0,0
 ___181488h:
-db	67h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0,0,0,0
+db	"g           ",0,0,0,0
 ___181498h:
-db	68h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0,0,0,0
+db	"h           ",0,0,0,0
 ___1814a8h:
-db	6ah,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0,0,0,0
+db	"j           ",0,0,0,0
 ___1814b8h:
-db	6bh,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0,0,0,0
+db	"k           ",0,0,0,0
 ___1814c8h:
-db	6ch,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0,0,0,0
+db	"l           ",0,0,0,0
 ___1814d8h:
-db	73h,65h,6dh,69h,63h,6fh,6ch,6fh,6eh,20h,20h,20h,0,0,0,0
+db	"semicolon   ",0,0,0,0
 ___1814e8h:
-db	74h,69h,63h,6bh,20h,20h,20h,20h,20h,20h,20h,20h,0,0,0,0
+db	"tick        ",0,0,0,0
 ___1814f8h:
-db	61h,70h,6fh,73h,74h,72h,6fh,70h,68h,65h,20h,20h,0,0,0,0
+db	"apostrophe  ",0,0,0,0
 ___181508h:
-db	6ch,65h,66h,74h,20h,73h,68h,69h,66h,74h,20h,20h,0,0,0,0
+db	"left shift  ",0,0,0,0
 ___181518h:
-db	62h,61h,63h,6bh,73h,6ch,61h,73h,68h,20h,20h,20h,0,0,0,0
+db	"backslash   ",0,0,0,0
 ___181528h:
-db	7ah,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0,0,0,0
+db	"z           ",0,0,0,0
 ___181538h:
-db	78h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0,0,0,0
+db	"x           ",0,0,0,0
 ___181548h:
-db	63h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0,0,0,0
+db	"c           ",0,0,0,0
 ___181558h:
-db	76h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0,0,0,0
+db	"v           ",0,0,0,0
 ___181568h:
-db	62h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0,0,0,0
+db	"b           ",0,0,0,0
 ___181578h:
-db	6eh,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0,0,0,0
+db	"n           ",0,0,0,0
 ___181588h:
-db	6dh,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0,0,0,0
+db	"m           ",0,0,0,0
 ___181598h:
-db	63h,6fh,6dh,6dh,61h,20h,20h,20h,20h,20h,20h,20h,0,0,0,0
+db	"comma       ",0,0,0,0
 ___1815a8h:
-db	70h,65h,72h,69h,6fh,64h,20h,20h,20h,20h,20h,20h,0,0,0,0
+db	"period      ",0,0,0,0
 ___1815b8h:
-db	73h,6ch,61h,73h,68h,20h,20h,20h,20h,20h,20h,20h,0,0,0,0
+db	"slash       ",0,0,0,0
 ___1815c8h:
-db	72h,69h,67h,68h,74h,20h,73h,68h,69h,66h,74h,20h,0,0,0,0
+db	"right shift ",0,0,0,0
 ___1815d8h:
-db	6bh,65h,79h,70h,61h,64h,2dh,73h,74h,61h,72h,20h,0,0,0,0
+db	"keypad-star ",0,0,0,0
 ___1815e8h:
-db	6ch,65h,66h,74h,20h,61h,6ch,74h,20h,20h,20h,20h,0,0,0,0
+db	"left alt    ",0,0,0,0
 ___1815f8h:
-db	73h,70h,61h,63h,65h,20h,20h,20h,20h,20h,20h,20h,0,0,0,0
+db	"space       ",0,0,0,0
 ___181608h:
-db	63h,61h,70h,73h,6ch,6fh,63h,6bh,20h,20h,20h,20h,0,0,0,0
+db	"capslock    ",0,0,0,0
 ___181618h:
-db	66h,31h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0,0,0,0
+db	"f1          ",0,0,0,0
 ___181628h:
-db	66h,32h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0,0,0,0
+db	"f2          ",0,0,0,0
 ___181638h:
-db	66h,33h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0,0,0,0
+db	"f3          ",0,0,0,0
 ___181648h:
-db	66h,34h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0,0,0,0
+db	"f4          ",0,0,0,0
 ___181658h:
-db	66h,35h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0,0,0,0
+db	"f5          ",0,0,0,0
 ___181668h:
-db	66h,36h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0,0,0,0
+db	"f6          ",0,0,0,0
 ___181678h:
-db	66h,37h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0,0,0,0
+db	"f7          ",0,0,0,0
 ___181688h:
-db	66h,38h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0,0,0,0
+db	"f8          ",0,0,0,0
 ___181698h:
-db	66h,39h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0,0,0,0
+db	"f9          ",0,0,0,0
 ___1816a8h:
-db	66h,31h,30h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0,0,0,0
+db	"f10         ",0,0,0,0
 ___1816b8h:
-db	6eh,75h,6dh,6ch,6fh,63h,6bh,20h,20h,20h,20h,20h,0,0,0,0
+db	"numlock     ",0,0,0,0
 ___1816c8h:
-db	73h,63h,72h,6fh,6ch,6ch,6ch,6fh,63h,6bh,20h,20h,0,0,0,0
+db	"scrolllock  ",0,0,0,0
 ___1816d8h:
-db	6bh,65h,79h,70h,61h,64h,2dh,37h,20h,20h,20h,20h,0,0,0,0
+db	"keypad-7    ",0,0,0,0
 ___1816e8h:
-db	6bh,65h,79h,70h,61h,64h,2dh,38h,20h,20h,20h,20h,0,0,0,0
+db	"keypad-8    ",0,0,0,0
 ___1816f8h:
-db	6bh,65h,79h,70h,61h,64h,2dh,39h,20h,20h,20h,20h,0,0,0,0
+db	"keypad-9    ",0,0,0,0
 ___181708h:
-db	6bh,65h,79h,70h,61h,64h,2dh,6dh,69h,6eh,75h,73h,0,0,0,0
+db	"keypad-minus",0,0,0,0
 ___181718h:
-db	6bh,65h,79h,70h,61h,64h,2dh,34h,20h,20h,20h,20h,0,0,0,0
+db	"keypad-4    ",0,0,0,0
 ___181728h:
-db	6bh,65h,79h,70h,61h,64h,2dh,35h,20h,20h,20h,20h,0,0,0,0
+db	"keypad-5    ",0,0,0,0
 ___181738h:
-db	6bh,65h,79h,70h,61h,64h,2dh,36h,20h,20h,20h,20h,0,0,0,0
+db	"keypad-6    ",0,0,0,0
 ___181748h:
-db	6bh,65h,79h,70h,61h,64h,2dh,70h,6ch,75h,73h,20h,0,0,0,0
+db	"keypad-plus ",0,0,0,0
 ___181758h:
-db	6bh,65h,79h,70h,61h,64h,2dh,31h,20h,20h,20h,20h,0,0,0,0
+db	"keypad-1    ",0,0,0,0
 ___181768h:
-db	6bh,65h,79h,70h,61h,64h,2dh,32h,20h,20h,20h,20h,0,0,0,0
+db	"keypad-2    ",0,0,0,0
 ___181778h:
-db	6bh,65h,79h,70h,61h,64h,2dh,33h,20h,20h,20h,20h,0,0,0,0
+db	"keypad-3    ",0,0,0,0
 ___181788h:
-db	6bh,65h,79h,70h,61h,64h,2dh,30h,20h,20h,20h,20h,0,0,0,0
+db	"keypad-0    ",0,0,0,0
 ___181798h:
-db	6bh,65h,79h,70h,61h,64h,2dh,64h,65h,6ch,20h,20h,0,0,0,0
+db	"keypad-del  ",0,0,0,0
 ___1817a8h:
-db	73h,79h,73h,72h,65h,71h,20h,20h,20h,20h,20h,20h,0,0,0,0
+db	"sysreq      ",0,0,0,0
 ___1817b8h:
-db	66h,31h,31h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0,0,0,0
+db	"f11         ",0,0,0,0
 ___1817c8h:
-db	66h,31h,32h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0,0,0,0
+db	"f12         ",0,0,0,0
 ___1817d8h:
-db	6bh,65h,79h,70h,61h,64h,2dh,65h,6eh,74h,65h,72h,0,0,0,0
+db	"keypad-enter",0,0,0,0
 ___1817e8h:
-db	72h,69h,67h,68h,74h,20h,63h,6fh,6eh,74h,72h,6fh,6ch,0,0,0
+db	"right control",0,0,0
 ___1817f8h:
-db	6bh,65h,79h,70h,61h,64h,2dh,73h,6ch,61h,73h,68h,0,0,0,0
+db	"keypad-slash",0,0,0,0
 ___181808h:
-db	70h,72h,74h,73h,63h,20h,20h,20h,20h,20h,20h,20h,0,0,0,0
+db	"prtsc       ",0,0,0,0
 ___181818h:
-db	70h,72h,69h,6eh,74h,73h,63h,72h,20h,20h,20h,20h,0,0,0,0
+db	"printscr    ",0,0,0,0
 ___181828h:
-db	72h,69h,67h,68h,74h,20h,61h,6ch,74h,20h,20h,20h,0,0,0,0
+db	"right alt   ",0,0,0,0
 ___181838h:
-db	68h,6fh,6dh,65h,20h,20h,20h,20h,20h,20h,20h,20h,0,0,0,0
+db	"home        ",0,0,0,0
 ___181848h:
-db	75h,70h,20h,61h,72h,72h,6fh,77h,20h,20h,20h,20h,0,0,0,0
+db	"up arrow    ",0,0,0,0
 ___181858h:
-db	70h,61h,67h,65h,20h,75h,70h,20h,20h,20h,20h,20h,0,0,0,0
+db	"page up     ",0,0,0,0
 ___181868h:
-db	6ch,65h,66h,74h,20h,61h,72h,72h,6fh,77h,20h,20h,0,0,0,0
+db	"left arrow  ",0,0,0,0
 ___181878h:
-db	72h,69h,67h,68h,74h,20h,61h,72h,72h,6fh,77h,20h,0,0,0,0
+db	"right arrow ",0,0,0,0
 ___181888h:
-db	65h,6eh,64h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0,0,0,0
+db	"end         ",0,0,0,0
 ___181898h:
-db	64h,6fh,77h,6eh,20h,61h,72h,72h,6fh,77h,20h,20h,0,0,0,0
+db	"down arrow  ",0,0,0,0
 ___1818a8h:
-db	70h,61h,67h,65h,20h,64h,6fh,77h,6eh,20h,20h,20h,0,0,0,0
+db	"page down   ",0,0,0,0
 ___1818b8h:
-db	69h,6eh,73h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0,0,0,0
+db	"ins         ",0,0,0,0
 ___1818c8h:
-db	64h,65h,6ch,20h,20h,20h,20h,20h,20h,20h,20h,20h,0,0,0,0
+db	"del         ",0,0,0,0
 ___1818d8h:
-db	41h,63h,63h,65h,6ch,65h,72h,61h,74h,65h,20h,20h,20h,20h,0,0
+db	"Accelerate    ",0,0
 ___1818e8h:
-db	42h,72h,61h,6bh,65h,20h,20h,20h,20h,20h,20h,20h,20h,0,0,0
+db	"Brake        ",0,0,0
 ___1818f8h:
-db	53h,74h,65h,65h,72h,20h,4ch,65h,66h,74h,20h,20h,20h,20h,0fah,0fah
-db	0,0,0,0
+db	"Steer Left    ",0fah,0fah,0,0,0,0
 ___18190ch:
-db	53h,74h,65h,65h,72h,20h,52h,69h,67h,68h,74h,20h,20h,20h,0fah,0fah
-db	0fah,0fah,0fah,0fah,0,0,0,0
+db	"Steer Right   ",0fah,0fah,0fah,0fah,0fah,0fah,0,0,0,0
 ___181924h:
-db	54h,75h,72h,62h,6fh,20h,42h,6fh,6fh,73h,74h,20h,20h,0fah,0fah,0fah
-db	0fah,0fah,0fah,0fah,0fah,0fah,0fah,0fah,0fah,0,0,0
+db	"Turbo Boost  ",0fah,0fah,0fah,0fah,0fah,0fah,0fah,0fah,0fah,0fah,0fah,0fah,0,0,0
 ___181940h:
-db	4dh,61h,63h,68h,69h,6eh,65h,20h,47h,75h,6eh,20h,20h,0fah,0fah,0fah
+db	"Machine Gun  ",0fah,0fah,0fah
 db	0fah,0fah,0fah,0fah,0fah,0fah,0fah,0fah,0fah,0,0,0
 ___18195ch:
-db	44h,72h,6fh,70h,20h,4dh,69h,6eh,65h,20h,20h,20h,20h,0fah,0fah,0fah
+db	"Drop Mine    ",0fah,0fah,0fah
 db	0fah,0fah,0fah,0fah,0fah,0fah,0fah,0fah,0,0,0,0
 ___181978h:
-db	48h,6fh,72h,6eh,20h,20h,20h,20h,20h,20h,20h,20h,0fah,0fah,0fah,0fah
+db	"Horn        ",0fah,0fah,0fah,0fah
 db	0fah,0fah,0fah,0fah,0fah,0fah,0fah,0fah,0fah,0fah,0fah,0fah,0fah,0fah,0fah,0
 ___181998h:
-db	49h,6eh,76h,61h,6ch,69h,64h,20h,6bh,65h,79h,20h,63h,6fh,6eh,66h
-db	69h,67h,75h,72h,61h,74h,69h,6fh,6eh,21h,0,0
+db	"Invalid key configuration!",0,0
 ___1819b4h:
-db	50h,72h,65h,73h,73h,20h,61h,6eh,79h,20h,6bh,65h,79h,20h,74h,6fh
-db	20h,72h,65h,2dh,65h,6eh,74h,65h,72h,2eh,0,0
+db	"Press any key to re-enter.",0,0
 ___1819d0h:
-db	50h,72h,65h,73h,73h,20h,61h,20h,6bh,65h,79h,20h,66h,6fh,72h,20h
-db	61h,63h,63h,65h,6ch,65h,72h,61h,74h,65h,2eh,2eh,2eh,0,0,0
+db	"Press a key for accelerate...",0,0,0
 ___1819f0h:
-db	50h,72h,65h,73h,73h,20h,61h,20h,6bh,65h,79h,20h,66h,6fh,72h,20h
-db	62h,72h,61h,6bh,65h,2eh,2eh,2eh,0,0,0,0
+db	"Press a key for brake...",0,0,0,0
 ___181a0ch:
-db	50h,72h,65h,73h,73h,20h,61h,20h,6bh,65h,79h,20h,66h,6fh,72h,20h
-db	6ch,65h,66h,74h,20h,73h,74h,65h,65h,72h,2eh,2eh,2eh,0,0,0
+db	"Press a key for left steer...",0,0,0
 ___181a2ch:
-db	50h,72h,65h,73h,73h,20h,61h,20h,6bh,65h,79h,20h,66h,6fh,72h,20h
-db	72h,69h,67h,68h,74h,20h,73h,74h,65h,65h,72h,2eh,2eh,2eh,0,0
+db	"Press a key for right steer...",0,0
 ___181a4ch:
-db	50h,72h,65h,73h,73h,20h,61h,20h,6bh,65h,79h,20h,66h,6fh,72h,20h
-db	74h,75h,72h,62h,6fh,20h,62h,6fh,6fh,73h,74h,2eh,2eh,2eh,0,0
+db	"Press a key for turbo boost...",0,0
 ___181a6ch:
-db	50h,72h,65h,73h,73h,20h,61h,20h,6bh,65h,79h,20h,66h,6fh,72h,20h
-db	6dh,61h,63h,68h,69h,6eh,65h,20h,67h,75h,6eh,2eh,2eh,2eh,0,0
+db	"Press a key for machine gun...",0,0
 ___181a8ch:
-db	50h,72h,65h,73h,73h,20h,61h,20h,6bh,65h,79h,20h,66h,6fh,72h,20h
-db	64h,72h,6fh,70h,20h,6dh,69h,6eh,65h,2eh,2eh,2eh,0,0,0,0
+db	"Press a key for drop mine...",0,0,0,0
 ___181aach:
-db	50h,72h,65h,73h,73h,20h,61h,20h,6bh,65h,79h,20h,66h,6fh,72h,20h
-db	68h,6fh,72h,6eh,2eh,2eh,2eh,0
+db	"Press a key for horn...",0
 ___181ac4h:
-db	48h,6fh,72h,6eh,20h,20h,20h,20h,20h,20h,20h,20h,0fah,0fah,0fah,0fah
+db	"Horn        ",0fah,0fah,0fah,0fah
 db	0fah,0fah,0fah,0fah,0fah,0fah,0fah,0fah,0fah,0fah,0fah,0fah,0fah,0fah,0fah,0
 ___181ae4h:
-db	49h,6eh,76h,61h,6ch,69h,64h,20h,67h,61h,6dh,65h,70h,61h,64h,20h
-db	63h,6fh,6eh,66h,69h,67h,75h,72h,61h,74h,69h,6fh,6eh,21h,0,0
+db	"Invalid gamepad configuration!",0,0
 ___181b04h:
-db	4dh,6fh,76h,65h,20h,67h,61h,6dh,65h,70h,61h,64h,20h,66h,6fh,72h
-db	20h,61h,63h,63h,65h,6ch,65h,72h,61h,74h,65h,2eh,2eh,2eh,0,0
+db	"Move gamepad for accelerate...",0,0
 ___181b24h:
-db	4dh,6fh,76h,65h,20h,67h,61h,6dh,65h,70h,61h,64h,20h,66h,6fh,72h
-db	20h,62h,72h,61h,6bh,65h,2eh,2eh,2eh,0,0,0
+db	"Move gamepad for brake...",0,0,0
 ___181b40h:
-db	4dh,6fh,76h,65h,20h,67h,61h,6dh,65h,70h,61h,64h,20h,66h,6fh,72h
-db	20h,6ch,65h,66h,74h,20h,73h,74h,65h,65h,72h,2eh,2eh,2eh,0,0
+db	"Move gamepad for left steer...",0,0
 ___181b60h:
-db	4dh,6fh,76h,65h,20h,67h,61h,6dh,65h,70h,61h,64h,20h,66h,6fh,72h
-db	20h,72h,69h,67h,68h,74h,20h,73h,74h,65h,65h,72h,2eh,2eh,2eh,0
+db	"Move gamepad for right steer...",0
 ___181b80h:
-db	4dh,6fh,76h,65h,20h,67h,61h,6dh,65h,70h,61h,64h,20h,66h,6fh,72h
-db	20h,74h,75h,72h,62h,6fh,20h,62h,6fh,6fh,73h,74h,2eh,2eh,2eh,0
+db	"Move gamepad for turbo boost...",0
 ___181ba0h:
-db	4dh,6fh,76h,65h,20h,67h,61h,6dh,65h,70h,61h,64h,20h,20h,66h,6fh
-db	72h,20h,6dh,61h,63h,68h,69h,6eh,65h,20h,67h,75h,6eh,2eh,2eh,2eh
-db	0,0,0,0
+db	"Move gamepad for machine gun...",0,0,0,0,0
 ___181bc4h:
-db	4dh,6fh,76h,65h,20h,67h,61h,6dh,65h,70h,61h,64h,20h,66h,6fh,72h
-db	20h,64h,72h,6fh,70h,20h,6dh,69h,6eh,65h,2eh,2eh,2eh,0,0,0
+db	"Move gamepad for drop mine...",0,0,0
 ___181be4h:
-db	47h,61h,6dh,65h,70h,61h,64h,20h,6eh,6fh,74h,20h,64h,65h,74h,65h
-db	63h,74h,65h,64h,21h,0,0,0
+db	"Gamepad not detected!",0,0,0
 ___181bfch:
-db	41h,64h,6ah,75h,73h,74h,20h,6dh,75h,73h,69h,63h,20h,76h,6fh,6ch
-db	75h,6dh,65h,3ah,0,0,0,0
+db	"Adjust music volume:",0,0,0,0
 ___181c14h:
-db	25h,0,0,0
+db	"%",0,0,0
 ___181c18h:
-db	41h,64h,6ah,75h,73h,74h,20h,65h,66h,66h,65h,63h,74h,20h,76h,6fh
-db	6ch,75h,6dh,65h,3ah,0,0,0
-global ___181c30h
-___181c30h:
-db	47h,61h,6dh,65h,70h,61h,64h,2fh,4ah,6fh,79h,73h,74h,69h,63h,6bh
-db	20h,45h,6eh,61h,62h,6ch,65h,64h,0,0,0,0
-global ___181c4ch
-___181c4ch:
-db	47h,61h,6dh,65h,70h,61h,64h,2fh,4ah,6fh,79h,73h,74h,69h,63h,6bh
-db	20h,44h,69h,73h,61h,62h,6ch,65h,64h,0
+db	"Adjust effect volume:",0,0,0
+__GDECL(___181c30h)
+db	"Gamepad/Joystick Enabled",0,0,0,0
+__GDECL(___181c4ch)
+db	"Gamepad/Joystick Disabled",0
 ___181c66h:
 db	0,0,0,0,0,0,0e9h,3fh,0,0
 ___181c70h:
-db	3ah,0,0,0
+db	":",0,0,0
 ___181c74h:
-db	65h,6eh,64h,61h,6eh,69h,2eh,68h,61h,66h,0,0
+db	"endani.haf",0,0
 ___181c80h:
-db	65h,6eh,64h,61h,6eh,69h,2dh,65h,2eh,63h,6dh,66h,0,0,0,0
+db	"endani-e.cmf",0,0,0,0
 ___181c90h:
-db	74h,72h,30h,2dh,6dh,75h,73h,2eh,63h,6dh,66h,0
-global ___181c9ch
-___181c9ch:
+db	"tr0-mus.cmf",0
+__GDECL(___181c9ch)
 db	"MEN-SAM.CMF",0
-global ___181ca8h
-___181ca8h:
-db	4dh,45h,4eh,2dh,4dh,55h,53h,2eh,43h,4dh,46h,0
+__GDECL(___181ca8h)
+db	"MEN-MUS.CMF",0
 ___181cb4h:
-db	70h,72h,65h,73h,73h,20h,20h,20h,74h,6fh,20h,6dh,69h,6eh,69h,6dh
-db	69h,7ah,65h,20h,63h,68h,61h,74h,20h,77h,69h,6eh,64h,6fh,77h,0
-___181cd4h:
-db	2fh,6dh,65h,6dh,61h,76h,61h,69h,6ch,0,0,0
+db	"press   to minimize chat window",0
+__GDECL(__CEXT_V(string__memavail))
+db	"/memavail",0,0,0
 ___181ce0h:
-db	2dh,2dh,20h,4dh,65h,6dh,6fh,72h,79h,20h,61h,76h,61h,69h,6ch,61h
-db	62h,6ch,65h,3ah,20h,0,0,0
+db	"-- Memory available: ",0,0,0
 ___181cf8h:
-db	3ch,0,0,0
+db	"<",0,0,0
 ___181cfch:
-db	3eh,20h,0
+db	"> ",0
 ___181cffh:
 db	0,0,0e0h,40h
 ___181d03h:
@@ -1009,89 +822,89 @@ db	0,0,0c8h,42h
 ___181d1fh:
 db	0,0,0,40h,0
 ___181d24h:
-db	73h,74h,61h,74h,62h,61h,73h,37h,2eh,62h,70h,6bh,0,0,0,0
+db	"statbas7.bpk",0,0,0,0
 ___181d34h:
-db	73h,74h,61h,74h,70h,6fh,70h,34h,2eh,62h,70h,6bh,0,0,0,0
+db	"statpop4.bpk",0,0,0,0
 ___181d44h:
-db	66h,2dh,73h,6dh,61h,33h,66h,2eh,62h,70h,6bh,0
+db	"f-sma3f.bpk",0
 ___181d50h:
-db	6bh,75h,70h,6ch,61h,2eh,62h,70h,6bh,0,0,0
+db	"kupla.bpk",0,0,0
 ___181d5ch:
-db	70h,69h,63h,6bh,75h,70h,2eh,62h,70h,6bh,0,0
+db	"pickup.bpk",0,0
 ___181d68h:
-db	73h,65h,64h,61h,6eh,2eh,62h,70h,6bh,0,0,0
+db	"sedan.bpk",0,0,0
 ___181d74h:
-db	63h,61h,6dh,61h,72h,6fh,2eh,62h,70h,6bh,0,0
+db	"camaro.bpk",0,0
 ___181d80h:
-db	70h,6fh,72h,73h,63h,68h,65h,2eh,62h,70h,6bh,0
+db	"porsche.bpk",0
 ___181d8ch:
-db	6ch,6fh,74h,75h,73h,2eh,62h,70h,6bh,0,0,0
+db	"lotus.bpk",0,0,0
 ___181d98h:
-db	65h,6eh,67h,69h,31h,2eh,62h,70h,6bh,0,0,0
+db	"engi1.bpk",0,0,0
 ___181da4h:
-db	65h,6eh,67h,69h,32h,2eh,62h,70h,6bh,0,0,0
+db	"engi2.bpk",0,0,0
 ___181db0h:
-db	65h,6eh,67h,69h,33h,2eh,62h,70h,6bh,0,0,0
+db	"engi3.bpk",0,0,0
 ___181dbch:
-db	65h,6eh,67h,69h,34h,2eh,62h,70h,6bh,0,0,0
+db	"engi4.bpk",0,0,0
 ___181dc8h:
-db	74h,69h,72h,65h,31h,2eh,62h,70h,6bh,0,0,0
+db	"tire1.bpk",0,0,0
 ___181dd4h:
-db	74h,69h,72h,65h,32h,2eh,62h,70h,6bh,0,0,0
+db	"tire2.bpk",0,0,0
 ___181de0h:
-db	74h,69h,72h,65h,33h,2eh,62h,70h,6bh,0,0,0
+db	"tire3.bpk",0,0,0
 ___181dech:
-db	74h,69h,72h,65h,34h,2eh,62h,70h,6bh,0,0,0
+db	"tire4.bpk",0,0,0
 ___181df8h:
-db	61h,72h,6dh,6fh,72h,31h,2eh,62h,70h,6bh,0,0
+db	"armor1.bpk",0,0
 ___181e04h:
-db	61h,72h,6dh,6fh,72h,32h,2eh,62h,70h,6bh,0,0
+db	"armor2.bpk",0,0
 ___181e10h:
-db	61h,72h,6dh,6fh,72h,33h,2eh,62h,70h,6bh,0,0
+db	"armor3.bpk",0,0
 ___181e1ch:
-db	61h,72h,6dh,6fh,72h,34h,2eh,62h,70h,6bh,0,0
+db	"armor4.bpk",0,0
 ___181e28h:
-db	63h,6fh,6eh,74h,61h,6eh,69h,2eh,62h,70h,6bh,0
+db	"contani.bpk",0
 ___181e34h:
-db	72h,65h,70h,61h,61h,6eh,69h,2eh,62h,70h,6bh,0
+db	"repaani.bpk",0
 ___181e40h:
-db	63h,61h,72h,62h,61h,73h,32h,2eh,62h,70h,6bh,0
+db	"carbas2.bpk",0
 ___181e4ch:
-db	73h,70h,6fh,6eh,73h,31h,62h,2eh,62h,70h,6bh,0
+db	"spons1b.bpk",0
 ___181e58h:
-db	64h,72h,75h,67h,64h,65h,61h,6ch,2eh,62h,70h,6bh,0,0,0,0
+db	"drugdeal.bpk",0,0,0,0
 ___181e68h:
-db	65h,76h,65h,6eh,74h,5fh,32h,2eh,62h,70h,6bh,0
+db	"event_2.bpk",0
 ___181e74h:
-db	72h,65h,61h,70h,65h,72h,5fh,78h,2eh,62h,70h,6bh,0,0,0,0
+db	"reaper_x.bpk",0,0,0,0
 ___181e84h:
-db	62h,6ch,61h,63h,6bh,74h,78h,31h,2eh,62h,70h,6bh,0,0,0,0
+db	"blacktx1.bpk",0,0,0,0
 ___181e94h:
-db	62h,6ch,61h,63h,6bh,74h,78h,32h,2eh,62h,70h,6bh,0,0,0,0
+db	"blacktx2.bpk",0,0,0,0
 ___181ea4h:
-db	64h,65h,61h,6ch,65h,72h,32h,62h,2eh,62h,70h,6bh,0,0,0,0
+db	"dealer2b.bpk",0,0,0,0
 ___181eb4h:
-db	6dh,61h,72h,6bh,65h,74h,31h,65h,2eh,62h,70h,6bh,0,0,0,0
+db	"market1e.bpk",0,0,0,0
 ___181ec4h:
-db	62h,61h,73h,65h,73h,34h,2eh,62h,70h,6bh,0,0
+db	"bases4.bpk",0,0
 ___181ed0h:
-db	73h,63h,65h,6eh,65h,63h,61h,72h,2eh,62h,70h,6bh,0,0,0,0
+db	"scenecar.bpk",0,0,0,0
 ___181ee0h:
-db	63h,68h,6fh,6fh,32h,2eh,62h,70h,6bh,0,0,0
+db	"choo2.bpk",0,0,0
 ___181eech:
-db	61h,72h,72h,6fh,77h,73h,31h,64h,2eh,62h,70h,6bh,0,0,0,0
+db	"arrows1d.bpk",0,0,0,0
 ___181efch:
-db	6dh,61h,78h,69h,31h,66h,2eh,62h,70h,6bh,0,0
+db	"maxi1f.bpk",0,0
 ___181f08h:
-db	63h,61h,72h,6eh,61h,6dh,65h,2eh,62h,70h,6bh,0
+db	"carname.bpk",0
 ___181f14h:
-db	73h,6ch,69h,64h,6dh,75h,73h,32h,2eh,62h,70h,6bh,0,0,0,0
+db	"slidmus2.bpk",0,0,0,0
 ___181f24h:
-db	73h,6ch,69h,64h,63h,75h,72h,33h,2eh,62h,70h,6bh,0,0,0,0
+db	"slidcur3.bpk",0,0,0,0
 ___181f34h:
-db	76h,6fh,6ch,63h,75h,72h,32h,2eh,62h,70h,6bh,0
+db	"volcur2.bpk",0
 ___181f40h:
-db	73h,6ch,69h,64h,63h,6fh,70h,32h,2eh,62h,70h,6bh,0,0,0,0
+db	"slidcop2.bpk",0,0,0,0
 ___181f50h:
 db	20h,0,0,0
 ___181f54h:
@@ -1101,16 +914,15 @@ db	29h,5ch,8fh,0c2h,0f5h,28h,0dch,3fh,0,0
 ___181f60h:
 db	31h,30h,0,0
 ___181f64h:
-db	68h,6fh,6eh,65h,79h,2eh,20h,5bh,59h,6fh,75h,20h,61h,72h,65h,20h
-db	24h,0,0,0
+db	"honey. [You are $",0,0,0
 ___181f78h:
-db	20h,5bh,73h,68h,6fh,72h,74h,2eh,0,0,0,0
+db	" [short.",0,0,0,0
 ___181f84h:
-db	4eh,6fh,20h,64h,6fh,75h,67h,68h,2ch,20h,6eh,6fh,20h,67h,6fh,2ch
-db	20h,62h,72h,6fh,2eh,20h,4eh,6fh,20h,6dh,6fh,6eh,65h,79h,2ch,0
+db	"No dough, no go,"
+db	" bro. No money,",0
 ___181fa4h:
-db	47h,6fh,74h,74h,61h,20h,65h,61h,72h,6eh,20h,69h,74h,2eh,20h,47h
-db	6fh,20h,64h,6fh,20h,69h,74h,20h,61h,6ch,72h,65h,61h,64h,79h,2eh
+db	"Gotta earn it. G"
+db	"o do it already."
 db	0,0,0,0
 ___181fc8h:
 db	59h,6fh,75h,20h,77h,6fh,75h,6ch,64h,20h,67h,65h,74h,20h,61h,20h
@@ -1118,72 +930,72 @@ db	24h,0,0,0
 ___181fdch:
 db	20h,72h,65h,66h,75h,6eh,64h,0
 ___181fe4h:
-db	66h,72h,6fh,6dh,20h,79h,6fh,75h,72h,20h,6fh,6ch,64h,20h,63h,61h
-db	72h,20h,61h,6eh,64h,20h,75h,70h,67h,72h,61h,64h,65h,73h,2eh,0
+db	"from your old ca"
+db	"r and upgrades.",0
 ___182004h:
-db	4dh,6fh,6eh,65h,79h,20h,72h,65h,74h,75h,72h,6eh,65h,64h,3ah,20h
+db	"Money returned: "
 db	0,0,0,0
 ___182018h:
 db	42h,75h,79h,20h,61h,20h,0,0
 ___182020h:
 db	20h,3fh,0,0
 ___182024h:
-db	66h,72h,6fh,6dh,20h,79h,6fh,75h,72h,20h,6fh,6ch,64h,20h,63h,61h
-db	72h,20h,61h,6eh,64h,20h,75h,70h,67h,72h,61h,64h,65h,73h,2eh,0
+db	"from your old ca"
+db	"r and upgrades.",0
 ___182044h:
-db	20h,77h,6fh,75h,6ch,64h,20h,63h,6fh,73h,74h,20h,0,0,0,0
+db	" would cost ",0,0,0,0
 ___182054h:
-db	50h,75h,72h,63h,68h,61h,73h,65h,20h,69h,74h,20h,3fh,0,0,0
+db	"Purchase it ?",0,0,0
 ___182064h:
-db	55h,73h,65h,20h,61h,72h,72h,6fh,77h,73h,20h,74h,6fh,20h,63h,68h
-db	61h,6eh,67h,65h,20h,74h,68h,65h,20h,63h,6fh,6ch,6fh,72h,0,0
+db	"Use arrows to ch"
+db	"ange the color",0,0
 ___182084h:
-db	6fh,66h,20h,79h,6fh,75h,72h,20h,63h,61h,72h,20h,61h,6eh,64h,20h
-db	70h,72h,65h,73h,73h,20h,45h,6eh,74h,65h,72h,0
+db	"of your car and "
+db	"press Enter",0
 ___1820a0h:
-db	77h,68h,65h,6eh,20h,66h,69h,6eh,69h,73h,68h,65h,64h,2eh,0,0
+db	"when finished.",0,0
 ___1820b0h:
-db	5bh,52h,65h,70h,61h,69h,72h,20h,79h,6fh,75h,72h,20h,63h,61h,72h
-db	20h,66h,69h,72h,73h,74h,2eh,0
+db	"[Repair your car"
+db	" first.",0
 ___1820c8h:
-db	57h,68h,61h,74h,27h,63h,68h,61h,20h,67h,6fh,6eh,6eh,61h,20h,64h
-db	6fh,20h,77h,69h,74h,68h,20h,74h,68h,61h,74h,20h,70h,69h,6ch,65h
-db	20h,6fh,66h,0
+db	"What'cha gonna d"
+db	"o with that pile"
+db	" of",0
 ___1820ech:
-db	6ah,75h,6eh,6bh,2ch,20h,63h,61h,72h,72h,79h,20h,69h,74h,20h,61h
-db	72h,6fh,75h,6eh,64h,3fh,20h,4ch,65h,74h,20h,6dh,65h,20h,73h,70h
+db	"junk, carry it a"
+db	"round? Let me sp"
 db	65h,6ch,6ch,0
 ___182110h:
-db	74h,68h,69h,73h,20h,6fh,75h,74h,20h,66h,6fh,72h,20h,79h,6fh,75h
+db	"this out for you"
 db	3ah,20h,52h,2dh,45h,2dh,50h,2dh,41h,2dh,49h,2dh,52h,2eh,0
 ___18212fh:
 db	0,0,0,0,0,0,0d0h,3fh,0
 ___182138h:
-db	2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh
-db	2dh,2dh,2dh,2dh,0,0,0,0
+db	"----------------"
+db	"----",0,0,0,0
 ___182150h:
-db	4dh,65h,6dh,6fh,72h,79h,20h,61h,76h,61h,69h,6ch,61h,62h,6ch,65h
+db	"Memory available"
 db	3ah,20h,0,0
 ___182164h:
 db	44h,52h,2eh,53h,47h,37h,0
 ___18216bh:
 db	0,0,0,0,0,0,90h,3fh,0
 ___182174h:
-db	20h,69h,73h,20h,63h,75h,72h,72h,65h,6eh,74h,6ch,79h,20h,6fh,6eh
-db	20h,44h,65h,61h,74h,68h,20h,52h,61h,6ch,6ch,79h,2eh,0,0,0
+db	" is currently on"
+db	" Death Rally.",0,0,0
 ___182194h:
-db	20h,69h,73h,20h,77h,61h,69h,74h,69h,6eh,67h,20h,66h,6fh,72h,20h
-db	79h,6fh,75h,20h,74h,6fh,20h,6ah,6fh,69h,6eh,20h,74h,68h,65h,20h
+db	" is waiting for "
+db	"you to join the "
 db	6eh,65h,78h,74h,20h,72h,61h,63h,65h,2eh,0,0
 ___1821c0h:
-db	2dh,2dh,20h,4dh,6fh,64h,65h,6dh,20h,63h,6fh,6eh,6eh,65h,63h,74h
-db	69h,6fh,6eh,20h,6ch,6fh,73h,74h,21h,0
+db	"-- Modem connect"
+db	"ion lost!",0
 ___1821dah:
 db	0,0,0,0,0,0,90h,3fh
 ___1821e2h:
 db	0,0,0,0,0,0,90h,3fh,0,0
 ___1821ech:
-db	47h,61h,6dh,65h,20h,6eh,6fh,74h,20h,66h,6fh,75h,6eh,64h,2eh,0
+db	"Game not found.",0
 ___1821fch:
 db	0,0,0,0,0,0,0d0h,3fh
 ___182204h:
@@ -1205,15 +1017,15 @@ db	0,0,0,0,0,70h,97h,40h
 ___182244h:
 db	0,0,0,0,0,70h,87h,40h
 ___18224ch:
-db	57h,68h,61h,74h,27h,63h,68h,61h,20h,67h,6fh,6eh,6eh,61h,20h,64h
-db	6fh,20h,77h,69h,74h,68h,20h,74h,68h,61h,74h,20h,70h,69h,6ch,65h
-db	20h,6fh,66h,0
+db	"What'cha gonna d"
+db	"o with that pile"
+db	" of",0
 ___182270h:
-db	6ah,75h,6eh,6bh,2ch,20h,63h,61h,72h,72h,79h,20h,69h,74h,20h,61h
-db	72h,6fh,75h,6eh,64h,3fh,20h,4ch,65h,74h,20h,6dh,65h,20h,73h,70h
+db	"junk, carry it a"
+db	"round? Let me sp"
 db	65h,6ch,6ch,0
 ___182294h:
-db	74h,68h,69h,73h,20h,74h,6fh,20h,79h,6fh,75h,3ah,20h,52h,2dh,45h
+db	"this to you: R-E"
 db	2dh,50h,2dh,41h,2dh,49h,2dh,52h,2eh,0
 ___1822aeh:
 db	0,0,0,0,0,0,8,40h
@@ -1232,19 +1044,19 @@ db	0,0,0,0,0,70h,97h,40h
 ___1822e6h:
 db	0,0,0,0,0,70h,87h,40h,0,0
 ___1822f0h:
-db	62h,61h,64h,74h,69h,74h,2eh,62h,70h,6bh,0,0
+db	"badtit.bpk",0,0
 ___1822fch:
-db	62h,61h,64h,73h,6eh,61h,70h,2eh,62h,70h,6bh,0
+db	"badsnap.bpk",0
 ___182308h:
-db	65h,73h,63h,62h,6fh,78h,2eh,62h,70h,6bh,0,0
+db	"escbox.bpk",0,0
 ___182314h:
-db	70h,72h,65h,70h,34h,2eh,62h,70h,6bh,0,0,0
+db	"prep4.bpk",0,0,0
 ___182320h:
-db	73h,69h,67h,6eh,6ch,69h,6eh,65h,2eh,62h,70h,6bh,0,0,0,0
+db	"signline.bpk",0,0,0,0
 ___182330h:
-db	70h,72h,65h,70h,77h,31h,2eh,62h,70h,6bh,0,0
+db	"prepw1.bpk",0,0
 ___18233ch:
-db	5bh,54h,6fh,74h,61h,6ch,20h,74h,72h,61h,63h,6bh,73h,20h,73h,65h
+db	"[Total tracks se"
 db	6ch,65h,63h,74h,65h,64h,3ah,20h,0,0,0,0
 ___182358h:
 db	24h,37h,35h,30h,0,0,0,0
@@ -1253,27 +1065,27 @@ db	24h,33h,30h,30h,30h,0,0,0
 ___182368h:
 db	24h,31h,32h,30h,30h,30h,0,0
 ___182370h:
-db	7bh,2ch,20h,61h,6eh,79h,6fh,6eh,65h,3fh,20h,59h,6fh,75h,3fh,20h
-db	54h,68h,69h,73h,20h,69h,73h,0
+db	"{, anyone? you? "
+db	"This is",0
 ___182388h:
-db	20h,77h,6fh,6eh,27h,74h,20h,72h,65h,61h,63h,68h,20h,74h,68h,65h
+db	" won't reach the"
 db	0,0,0,0
 ___18239ch:
-db	25h,20h,77h,6fh,72h,74h,68h,21h,20h,53h,61h,62h,6fh,74h,61h,67h
-db	65h,20h,73h,61h,79h,73h,20h,74h,68h,61h,74h,0
+db	"% worth! Sabotag"
+db	"e says that",0
 ___1823b8h:
-db	20h,69h,73h,20h,67h,6fh,69h,6eh,67h,20h,64h,6fh,77h,6eh,7bh,20h
-db	61h,6eh,64h,20h,73h,74h,61h,79h,69h,6eh,67h,0
+db	" is going down{ "
+db	"and staying",0
 ___1823d4h:
-db	59h,6fh,75h,20h,64h,69h,64h,20h,6eh,6fh,74h,20h,73h,69h,67h,6eh
-db	20h,75h,70h,20h,69h,6eh,20h,61h,6eh,79h,20h,72h,61h,63h,65h,2eh
+db	"You did not sign"
+db	" up in any race."
 db	0,0,0,0
 ___1823f8h:
-db	2eh,62h,70h,6bh,0,0,0,0
+db	".bpk",0,0,0,0
 ___182400h:
-db	54h,53h,48h,41h,50h,45h,31h,39h,2eh,42h,50h,4bh,0,0,0,0
+db	"TSHAPE19.BPK",0,0,0,0
 ___182410h:
-db	54h,52h,30h,0
+db	"TR0",0
 ___182414h:
 db	4eh,55h,4dh,42h,45h,52h,20h,4fh,46h,20h,4ch,41h,50h,53h,3ah,20h
 db	0,0,0,0
@@ -1286,11 +1098,11 @@ db	61h,64h,76h,65h,72h,73h,61h,72h,79h,0,0,0
 ___18244ch:
 db	41h,44h,56h,45h,52h,53h,41h,52h,59h,0,0,0
 ___182458h:
-db	20h,63h,6fh,6dh,70h,6ch,65h,74h,65h,64h,20h,74h,68h,65h,20h,6eh
-db	65h,74h,67h,61h,6dh,65h,2eh,0
+db	" completed the n"
+db	"etgame.",0
 ___182470h:
-db	2dh,2dh,20h,4dh,75h,6ch,74h,69h,70h,6ch,61h,79h,65h,72h,20h,63h
-db	6fh,6eh,6eh,65h,63h,74h,69h,6fh,6eh,20h,6ch,6fh,73h,74h,21h,0
+db	"-- Multiplayer c"
+db	"onnection lost!",0
 ___182490h:
 db	20h,72h,61h,63h,65h,20h,63h,6fh,6dh,70h,6ch,65h,74h,65h,64h,2eh
 db	20h,4eh,65h,78h,74h,20h,72h,61h,63h,65h,20h,0
@@ -1322,8 +1134,8 @@ db	2bh,32h,0,0
 ___182508h:
 db	2bh,31h,0,0
 ___18250ch:
-db	50h,72h,65h,73h,73h,20h,61h,6eh,79h,20h,6bh,65h,79h,20h,74h,6fh
-db	20h,63h,6fh,6eh,74h,69h,6eh,75h,65h,2eh,2eh,2eh,0,0,0,0
+db	"Press any key to"
+db	" continue...",0,0,0,0
 ___18252ch:
 db	4dh,65h,64h,69h,75h,6dh,20h,52h,61h,63h,65h,20h,52h,65h,73h,75h
 db	6ch,74h,73h,0
@@ -1343,48 +1155,47 @@ db	53h,74h,61h,74h,75h,73h,20h,61h,66h,74h,65h,72h,20h,0,0,0
 ___182574h:
 db	20h,72h,61h,63h,65h,28h,73h,29h,0,0,0,0
 ___182580h:
-db	4dh,75h,6ch,74h,69h,70h,6ch,61h,79h,65h,72h,20h,52h,61h,6eh,6bh
-db	69h,6eh,67h,0
+db	"Multiplayer Rank"
+db	"ing",0
 ___182594h:
 db	59h,6fh,75h,72h,20h,53h,74h,61h,74h,69h,73h,74h,69h,63h,73h,3ah
 db	0,0,0,0
 ___1825a8h:
-db	50h,6fh,73h,69h,74h,69h,6fh,6eh,0,0,0,0
+db	"Position",0,0,0,0
 ___1825b4h:
 db	3ah,20h,0,0
 ___1825b8h:
-db	52h,61h,63h,65h,73h,20h,77h,6fh,6eh,0,0,0
+db	"Races won",0,0,0
 ___1825c4h:
 db	54h,6fh,74h,61h,6ch,20h,72h,61h,63h,65h,73h,0
 ___1825d0h:
 db	20h,2fh,20h,0
 ___1825d4h:
-db	54h,6fh,74h,61h,6ch,20h,69h,6eh,63h,6fh,6dh,65h,0,0,0,0
+db	"Total income",0,0,0,0
 ___1825e4h:
-db	3ah,20h,24h,0
+db	": $",0
 ___1825e8h:
-db	54h,6fh,74h,61h,6ch,20h,6dh,6fh,6eh,65h,79h,0
+db	"Total money",0
 ___1825f4h:
 db	20h,65h,61h,73h,79h,20h,72h,61h,63h,65h,3ah,0
 ___182600h:
 db	20h,6dh,65h,64h,69h,75h,6dh,20h,72h,61h,63h,65h,3ah,0,0,0
 ___182610h:
-db	20h,68h,61h,72h,64h,20h,72h,61h,63h,65h,3ah,0
+db	" hard race:",0
 ___18261ch:
-db	54h,68h,65h,20h,41h,72h,65h,6eh,61h,3ah,0,0
+db	"The Arena:",0,0
 ___182628h:
-db	2dh,70h,6ch,61h,79h,65h,72h,20h,72h,61h,63h,65h,3ah,0,0,0
+db	"-player race:",0,0,0
 ___182638h:
-db	50h,6ch,61h,63h,69h,6eh,67h,0
+db	"Placing",0
 ___182640h:
-db	52h,61h,63h,65h,20h,69h,6eh,63h,6fh,6dh,65h,0
+db	"Race income",0
 ___18264ch:
-db	42h,6fh,6eh,75h,73h,20h,69h,6eh,63h,6fh,6dh,65h,0,0,0,0
+db	"Bonus income",0,0,0,0
 ___18265ch:
-db	54h,6fh,74h,61h,6ch,20h,72h,61h,63h,65h,20h,69h,6eh,63h,6fh,6dh
-db	65h,0,0,0
+db	"Total race income",0,0,0
 ___182670h:
-db	4eh,75h,6dh,62h,65h,72h,20h,6fh,66h,20h,6ch,61h,70h,73h,0,0
+db	"Number of laps",0,0
 ___182680h:
 db	52h,61h,63h,65h,20h,74h,69h,6dh,65h,0,0,0
 ___18268ch:
@@ -1392,253 +1203,158 @@ db	42h,65h,73h,74h,20h,6ch,61h,70h,0,0,0,0
 ___182698h:
 db	42h,65h,73h,74h,20h,6ch,61h,70h,20h,65h,76h,65h,72h,0,0,0
 ___1826a8h:
-db	50h,6ch,65h,61h,73h,65h,20h,77h,61h,69h,74h,20h,77h,68h,69h,6ch
-db	65h,20h,6ch,6fh,61h,64h,69h,6eh,67h,2eh,2eh,2eh,0,0,0,0
+db	"Please wait while loading...",0,0,0,0
 ___1826c8h:
-db	65h,6eh,64h,61h,6eh,69h,30h,2eh,68h,61h,66h,0
+db	"endani0.haf",0
 ___1826d4h:
-db	65h,6eh,64h,61h,6eh,69h,30h,65h,2eh,63h,6dh,66h,0,0,0,0
+db	"endani0e.cmf",0,0,0,0
 ___1826e4h:
-db	48h,53h,2dh,50h,49h,43h,0,0
+db	"HS-PIC",0,0
 ___1826ech:
-db	2eh,50h,43h,58h,0,0,0,0
+db	".PCX",0,0,0,0
 ___1826f4h:
-db	44h,45h,41h,54h,48h,20h,52h,41h,4ch,4ch,59h,20h,45h,78h,69h,74h
-db	3ah,20h,43h,54h,52h,4ch,2bh,41h,4ch,54h,2bh,44h,45h,4ch,20h,70h
-db	72h,65h,73h,73h,65h,64h,2eh,0ah,0,0,0,0
+db	"DEATH RALLY Exit: CTRL+ALT+DEL pressed.",0ah,0,0,0,0
 ___182720h:
-db	6ch,69h,63h,65h,6eh,63h,65h,33h,2eh,62h,70h,6bh,0,0,0,0
+db	"licence3.bpk",0,0,0,0
 ___182730h:
-db	53h,65h,6ch,65h,63h,74h,20h,64h,69h,66h,66h,69h,63h,75h,6ch,74h
-db	79h,3ah,0,0
+db	"Select difficulty:",0,0
 DR_CFG:
-db	64h,72h,2eh,63h,66h,67h,0,0
+db	"dr.cfg",0,0
 ___18274ch:
-db	44h,52h,2eh,43h,46h,47h,20h,66h,69h,6ch,65h,20h,64h,6fh,65h,73h
-db	20h,6eh,6fh,74h,20h,65h,78h,69h,73h,74h,21h,20h,54h,79h,70h,65h
-db	20h,53h,45h,54h,55h,50h,20h,74h,6fh,20h,63h,6fh,6eh,66h,69h,67h
-db	75h,72h,65h,20h,79h,6fh,75h,72h,20h,73h,6fh,75h,6eh,64h,20h,63h
-db	61h,72h,64h,2eh,0ah,0,0,0
+db	"DR.CFG file does not exist! Type SETUP to configure your sound card.",0ah,0,0,0
 ___182794h:
-db	61h,74h,7ah,0
+db	"atz",0
 ___182798h:
-db	52h,65h,6dh,65h,64h,79h,0,0
+db	"Remedy",0,0
 ___1827a0h:
-db	53h,41h,4dh,20h,53h,50h,45h,45h,44h,20h,0,0
+db	"SAM SPEED ",0,0
 ___1827ach:
-db	4ah,41h,4eh,45h,20h,48h,4fh,4eh,44h,41h,0,0
+db	"JANE HONDA",0,0
 ___1827b8h:
-db	44h,55h,4bh,45h,20h,4eh,55h,4bh,45h,4dh,0,0
+db	"DUKE NUKEM",0,0
 ___1827c4h:
-db	4eh,41h,53h,54h,59h,20h,4eh,49h,43h,4bh,0,0
+db	"NASTY NICK",0,0
 ___1827d0h:
-db	4dh,4fh,54h,4fh,52h,20h,4dh,41h,52h,59h,0,0
+db	"MOTOR MARY",0,0
 ___1827dch:
-db	4dh,41h,44h,20h,4dh,41h,43h,20h,20h,20h,0,0
+db	"MAD MAC   ",0,0
 ___1827e8h:
-db	4dh,41h,54h,54h,20h,4dh,49h,4ch,45h,52h,0,0
+db	"MATT MILER",0,0
 ___1827f4h:
-db	43h,4ch,49h,4eh,54h,20h,57h,45h,53h,54h,0,0
+db	"CLINT WEST",0,0
 ___182800h:
-db	4ch,45h,45h,20h,56h,49h,43h,45h,20h,20h,0,0
+db	"LEE VICE  ",0,0
 ___18280ch:
-db	44h,41h,52h,4bh,20h,52h,59h,44h,45h,52h,0,0
+db	"DARK RYDER",0,0
 ___182818h:
-db	61h,70h,6fh,67h,65h,65h,2eh,70h,61h,6ch,0,0
+db	"apogee.pal",0,0
 ___182824h:
-db	61h,70h,6fh,67h,65h,65h,2eh,62h,70h,6bh,0,0
+db	"apogee.bpk",0,0
 ___182830h:
-db	67h,74h,6ch,6fh,67h,6fh,34h,2eh,70h,61h,6ch,0
+db	"gtlogo4.pal",0
 ___18283ch:
-db	67h,74h,6ch,6fh,67h,6fh,34h,2eh,62h,70h,6bh,0
+db	"gtlogo4.bpk",0
 ___182848h:
-db	72h,65h,6dh,65h,64h,79h,2eh,70h,61h,6ch,0,0
+db	"remedy.pal",0,0
 ___182854h:
-db	72h,65h,6dh,65h,64h,79h,2eh,62h,70h,6bh,0,0
+db	"remedy.bpk",0,0
 ___182860h:
-db	63h,72h,65h,64h,69h,74h,31h,2eh,70h,61h,6ch,0
+db	"credit1.pal",0
 ___18286ch:
-db	63h,72h,65h,64h,69h,74h,31h,2eh,62h,70h,6bh,0
+db	"credit1.bpk",0
 ___182878h:
-db	63h,72h,65h,64h,69h,74h,32h,2eh,70h,61h,6ch,0
+db	"credit2.pal",0
 ___182884h:
-db	63h,72h,65h,64h,69h,74h,32h,2eh,62h,70h,6bh,0
+db	"credit2.bpk",0
 ___182890h:
-db	73h,74h,61h,72h,74h,73h,63h,72h,2eh,70h,61h,6ch,0,0,0,0
+db	"startscr.pal",0,0,0,0
 ___1828a0h:
-db	73h,74h,61h,72h,74h,73h,63h,72h,2eh,62h,70h,6bh,0,0,0,0
+db	"startscr.bpk",0,0,0,0
 ___1828b0h:
-db	73h,61h,6eh,69h,6dh,2eh,68h,61h,66h,0,0,0
+db	"sanim.haf",0,0,0
 ___1828bch:
-db	73h,61h,6eh,69h,6dh,2dh,65h,2eh,63h,6dh,66h,0
+db	"sanim-e.cmf",0
 ___1828c8h:
-db	73h,6ch,69h,64h,65h,30h,33h,2eh,62h,70h,6bh,0
+db	"slide03.bpk",0
 ___1828d4h:
-db	73h,6ch,69h,64h,65h,30h,33h,2eh,70h,61h,6ch,0
+db	"slide03.pal",0
 ___1828e0h:
-db	73h,6ch,69h,64h,65h,30h,34h,2eh,62h,70h,6bh,0
+db	"slide04.bpk",0
 ___1828ech:
-db	73h,6ch,69h,64h,65h,30h,34h,2eh,70h,61h,6ch,0
+db	"slide04.pal",0
 ___1828f8h:
-db	73h,6ch,69h,64h,65h,30h,31h,2eh,62h,70h,6bh,0
+db	"slide01.bpk",0
 ___182904h:
-db	73h,6ch,69h,64h,65h,30h,31h,2eh,70h,61h,6ch,0
+db	"slide01.pal",0
 ___182910h:
-db	73h,6ch,69h,64h,65h,30h,32h,2eh,62h,70h,6bh,0
+db	"slide02.bpk",0
 ___18291ch:
-db	73h,6ch,69h,64h,65h,30h,32h,2eh,70h,61h,6ch,0
+db	"slide02.pal",0
 ___182928h:
-db	73h,6ch,69h,64h,65h,30h,35h,2eh,62h,70h,6bh,0
+db	"slide05.bpk",0
 ___182934h:
-db	73h,6ch,69h,64h,65h,30h,35h,2eh,70h,61h,6ch,0
+db	"slide05.pal",0
 ___182940h:
 db	0ah,0,0,0
 ___182944h:
-db	59h,6fh,75h,20h,64h,6fh,6eh,27h,74h,20h,68h,61h,76h,65h,20h,65h
-db	6eh,6fh,75h,67h,68h,20h,66h,72h,65h,65h,20h,58h,4dh,53h,2fh,45h
-db	4dh,53h,20h,6dh,65h,6dh,6fh,72h,79h,20h,74h,6fh,20h,72h,75h,6eh
-db	20h,44h,65h,61h,74h,68h,20h,52h,61h,6ch,6ch,79h,2eh,20h,54h,68h
-db	65h,20h,44h,4fh,53h,20h,4dh,45h,4dh,0ah,0,0
+db	"You don't have enough free XMS/EMS memory to run Death Rally. The DOS MEM",0ah,0,0
 ___182990h:
-db	63h,6fh,6dh,6dh,61h,6eh,64h,20h,73h,68h,6fh,75h,6ch,64h,20h,72h
-db	65h,70h,6fh,72h,74h,20h,36h,2ch,35h,30h,30h,4bh,20h,28h,6fh,72h
-db	20h,36h,2eh,37h,20h,6dh,65h,67h,73h,29h,20h,66h,72h,65h,65h,20h
-db	65h,78h,74h,65h,6eh,64h,65h,64h,20h,6fh,72h,20h,65h,78h,70h,61h
-db	6eh,64h,65h,64h,20h,6dh,65h,6dh,6fh,72h,79h,2eh,0ah,0,0,0
+db	"command should report 6,500K (or 6.7 megs) free extended or expanded memory.",0ah,0,0,0
 ___1829e0h:
-db	50h,6ch,65h,61h,73h,65h,20h,63h,6fh,6eh,73h,75h,6ch,74h,20h,44h
-db	52h,48h,45h,4ch,50h,2eh,45h,58h,45h,20h,66h,6fh,72h,20h,6dh,6fh
-db	72h,65h,20h,69h,6eh,66h,6fh,72h,6dh,61h,74h,69h,6fh,6eh,20h,6fh
-db	6eh,20h,68h,6fh,77h,20h,74h,6fh,20h,72h,65h,73h,6fh,6ch,76h,65h
-db	20h,74h,68h,69h,73h,20h,70h,72h,6fh,62h,6ch,65h,6dh,2eh,0ah,0
-global ___182a30h
-___182a30h:
-db	0ah,44h,45h,41h,54h,48h,20h,52h,41h,4ch,4ch,59h,20h,45h,52h,52h
-db	4fh,52h,3ah,20h,46h,69h,6ch,65h,20h,25h,73h,20h,69h,73h,20h,6eh
-db	6fh,74h,20h,66h,6fh,75h,6eh,64h,21h,0ah,0,0
-global ___182a5ch
-___182a5ch:
-db	50h,6ch,65h,61h,73h,65h,20h,63h,6fh,6eh,73h,75h,6ch,74h,20h,44h
-db	52h,48h,45h,4ch,50h,2eh,45h,58h,45h,20h,66h,6fh,72h,20h,6dh,6fh
-db	72h,65h,20h,69h,6eh,66h,6fh,72h,6dh,61h,74h,69h,6fh,6eh,20h,6fh
-db	6eh,20h,68h,6fh,77h,20h,74h,6fh,20h,72h,65h,73h,6fh,6ch,76h,65h
-db	20h,74h,68h,69h,73h,20h,70h,72h,6fh,62h,6ch,65h,6dh,2eh,0ah,0
-global ___182aach
-___182aach:
-db	0ah,44h,45h,41h,54h,48h,20h,52h,41h,4ch,4ch,59h,20h,45h,52h,52h
-db	4fh,52h,3ah,20h,46h,69h,6ch,65h,20h,25h,73h,20h,69h,73h,20h,6eh
-db	6fh,74h,20h,69h,6eh,20h,6fh,72h,69h,67h,69h,6eh,61h,6ch,20h,66h
-db	6fh,72h,6dh,21h,0ah,0,0,0
-global ___182ae4h
-___182ae4h:
-db	50h,6ch,65h,61h,73h,65h,20h,63h,6fh,6eh,73h,75h,6ch,74h,20h,44h
-db	52h,48h,45h,4ch,50h,2eh,45h,58h,45h,20h,66h,6fh,72h,20h,6dh,6fh
-db	72h,65h,20h,69h,6eh,66h,6fh,72h,6dh,61h,74h,69h,6fh,6eh,20h,6fh
-db	6eh,20h,68h,6fh,77h,20h,74h,6fh,20h,72h,65h,73h,6fh,6ch,76h,65h
-db	20h,74h,68h,69h,73h,20h,70h,72h,6fh,62h,6ch,65h,6dh,2eh,0ah,0
-global ___182b34h
-___182b34h:
-db	0ah,44h,45h,41h,54h,48h,20h,52h,41h,4ch,4ch,59h,20h,45h,52h,52h
-db	4fh,52h,3ah,20h,46h,69h,6ch,65h,20h,25h,73h,20h,69h,73h,20h,6eh
-db	6fh,74h,20h,69h,6eh,20h,6fh,72h,69h,67h,69h,6eh,61h,6ch,20h,66h
-db	6fh,72h,6dh,21h,0ah,0,0,0
-global ___182b6ch
-___182b6ch:
-db	50h,6ch,65h,61h,73h,65h,20h,63h,6fh,6eh,73h,75h,6ch,74h,20h,44h
-db	52h,48h,45h,4ch,50h,2eh,45h,58h,45h,20h,66h,6fh,72h,20h,6dh,6fh
-db	72h,65h,20h,69h,6eh,66h,6fh,72h,6dh,61h,74h,69h,6fh,6eh,20h,6fh
-db	6eh,20h,68h,6fh,77h,20h,74h,6fh,20h,72h,65h,73h,6fh,6ch,76h,65h
-db	20h,74h,68h,69h,73h,20h,70h,72h,6fh,62h,6ch,65h,6dh,2eh,0ah,0
-global ___182bbch
-___182bbch:
-db	43h,44h,52h,4fh,4dh,2eh,49h,4eh,49h,0,0,0
-global ___182bc8h
-___182bc8h:
-db	25h,73h,0,0
-global ___182bcch
-___182bcch:
-db	5ch,0,0,0
-global ___182bd0h
-___182bd0h:
-db	45h,72h,72h,6fh,72h,20h,72h,65h,61h,64h,69h,6eh,67h,20h,43h,44h
-db	52h,4fh,4dh,2eh,49h,4eh,49h,20h,66h,69h,6ch,65h,21h,0ah,0,0
-global ___182bf0h
-___182bf0h:
-db	44h,52h,2eh,49h,44h,46h,0,0
-global ___182bf8h
-___182bf8h:
-db	0ah,4ch,6fh,61h,64h,69h,6eh,67h,20h,6dh,75h,73h,69h,63h,20h,26h
-db	20h,65h,66h,66h,65h,63h,74h,73h,2ch,20h,70h,6ch,65h,61h,73h,65h
-db	20h,77h,61h,69h,74h,2eh,2eh,2eh,0ah,0,0,0
-global ___182c24h
-___182c24h:
-db	44h,45h,41h,54h,48h,20h,52h,41h,4ch,4ch,59h,20h,45h,72h,72h,6fh
-db	72h,3ah,20h,59h,6fh,75h,72h,20h,56h,47h,41h,2dh,61h,64h,61h,70h
-db	74h,65h,72h,20h,69h,73h,20h,6eh,6fh,74h,20h,66h,75h,6ch,6ch,79h
-db	20h,56h,45h,53h,41h,20h,28h,56h,42h,45h,20h,31h,2eh,30h,29h,20h
-db	63h,6fh,6dh,70h,6ch,69h,61h,6eh,74h,2eh,0ah,20h,20h,20h,20h,20h
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,55h,73h
-db	65h,20h,55h,4eh,49h,56h,42h,45h,20h,6fh,72h,20h,73h,69h,6dh,69h
-db	6ch,61h,72h,20h,65h,6dh,75h,6ch,61h,74h,6fh,72h,20h,74h,6fh,20h
-db	66h,69h,78h,20h,74h,68h,65h,20h,70h,72h,6fh,62h,6ch,65h,6dh,2eh
-db	0ah,0,0,0
-global ___182cb8h
-___182cb8h:
-db	50h,6ch,65h,61h,73h,65h,20h,63h,6fh,6eh,73h,75h,6ch,74h,20h,44h
-db	52h,48h,45h,4ch,50h,2eh,45h,58h,45h,20h,66h,6fh,72h,20h,6dh,6fh
-db	72h,65h,20h,69h,6eh,66h,6fh,72h,6dh,61h,74h,69h,6fh,6eh,20h,6fh
-db	6eh,20h,68h,6fh,77h,20h,74h,6fh,20h,72h,65h,73h,6fh,6ch,76h,65h
-db	20h,74h,68h,69h,73h,20h,70h,72h,6fh,62h,6ch,65h,6dh,2eh,0ah,0
-global ___182d08h
-___182d08h:
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,57h,65h,6ch,63h,6fh,6dh
-db	65h,20h,74h,6fh,20h,44h,65h,61h,74h,68h,20h,52h,61h,6ch,6ch,79h
-db	20h,2dh,20h,46h,75h,6ch,6ch,20h,76h,65h,72h,73h,69h,6fh,6eh,20h
-db	31h,2eh,31h,0
-global ___182d3ch
-___182d3ch:
-db	20h,20h,20h,20h,44h,65h,76h,65h,6ch,6fh,70h,65h,64h,20h,62h,79h
-db	20h,52h,65h,6dh,65h,64h,79h,20h,45h,6eh,74h,65h,72h,74h,61h,69h
-db	6eh,6dh,65h,6eh,74h,20h,66h,6fh,72h,20h,41h,70h,6fh,67h,65h,65h
-db	20h,53h,6fh,66h,74h,77h,61h,72h,65h,0,0,0
-global ___182d78h
-___182d78h:
-db	55h,73h,65h,20h,61h,72h,72h,6fh,77h,20h,6bh,65h,79h,73h,20h,74h
-db	6fh,20h,63h,68h,61h,6eh,67h,65h,20h,73h,65h,6ch,65h,63h,74h,69h
-db	6fh,6eh,20h,61h,6eh,64h,20h,70h,72h,65h,73h,73h,20h,65h,6eh,74h
-db	65h,72h,20h,74h,6fh,20h,63h,6fh,6eh,66h,69h,72h,6dh,2eh,0,0
-global ___182db8h
-___182db8h:
-db	50h,6ch,65h,61h,73h,65h,20h,69h,6eh,73h,65h,72h,74h,20h,44h,65h
-db	61h,74h,68h,20h,52h,61h,6ch,6ch,79h,20h,74h,6fh,20h,43h,44h,2dh
-db	52h,4fh,4dh,20h,64h,72h,69h,76h,65h,21h,0,0
-global ___182de4h
-___182de4h:
-db	41h,72h,65h,20h,79h,6fh,75h,20h,73h,75h,72h,65h,3fh,0,0,0
+db	"Please consult DRHELP.EXE for more information on how to resolve this problem.",0ah,0
+__GDECL(___182a30h)
+db	0ah,"DEATH RALLY ERROR: File %s is not found!",0ah,0,0
+__GDECL(___182a5ch)
+db	"Please consult DRHELP.EXE for more information on how to resolve this problem.",0ah,0
+__GDECL(___182aach)
+db	0ah,"DEATH RALLY ERROR: File %s is not in original form!",0ah,0,0,0
+__GDECL(___182ae4h)
+db	"Please consult DRHELP.EXE for more information on how to resolve this problem.",0ah,0
+__GDECL(___182b34h)
+db	0ah,"DEATH RALLY ERROR: File %s is not in original form!",0ah,0,0,0
+__GDECL(___182b6ch)
+db	"Please consult DRHELP.EXE for more information on how to resolve this problem.",0ah,0
+__GDECL(__CEXT_V(string__CDROM_INI))
+db	"CDROM.INI",0,0,0
+__GDECL(___182bc8h)
+db	"%s",0,0
+__GDECL(___182bcch)
+db	"\",0,0,0
+__GDECL(___182bd0h)
+db	"Error reading CDROM.INI file!",0ah,0,0
+__GDECL(__CEXT_V(string__DR_IDF))
+db	"DR.IDF",0,0
+__GDECL(___182bf8h)
+db	0ah,"Loading music & effects, please wait...",0ah,0,0,0
+__GDECL(___182c24h)
+db	"DEATH RALLY Error: Your VGA-adapter is not fully VESA (VBE 1.0) compliant.",0ah
+db  "                   Use UNIVBE or similar emulator to fix the problem.",0ah,0,0,0
+__GDECL(___182cb8h)
+db	"Please consult DRHELP.EXE for more information on how to resolve this problem.",0ah,0
+__GDECL(___182d08h)
+db	"          Welcome to Death Rally - Full version 1.1",0
+__GDECL(___182d3ch)
+db	"    Developed by Remedy Entertainment for Apogee Software",0,0,0
+__GDECL(___182d78h)
+db	"Use arrow keys to change selection and press enter to confirm.",0,0
+__GDECL(___182db8h)
+db	"Please insert Death Rally to CD-ROM drive!",0,0
+__GDECL(___182de4h)
+db	"Are you sure?",0,0,0
 ___182df4h:
-db	44h,45h,41h,54h,48h,20h,52h,41h,4ch,4ch,59h,20h,45h,72h,72h,6fh
-db	72h,3ah,20h,43h,61h,6eh,6eh,6fh,74h,20h,61h,6ch,6ch,6fh,63h,61h
-db	74h,65h,20h,6dh,65h,6dh,6fh,72h,79h,21h,0ah,0
+db	"DEATH RALLY ErroR: Cannot allocate memory!",0ah,0
 ___182e20h:
-db	50h,6ch,65h,61h,73h,65h,20h,63h,6fh,6eh,73h,75h,6ch,74h,20h,44h
-db	52h,48h,45h,4ch,50h,2eh,45h,58h,45h,20h,66h,6fh,72h,20h,6dh,6fh
-db	72h,65h,20h,69h,6eh,66h,6fh,72h,6dh,61h,74h,69h,6fh,6eh,20h,6fh
-db	6eh,20h,68h,6fh,77h,20h,74h,6fh,20h,72h,65h,73h,6fh,6ch,76h,65h
-db	20h,74h,68h,69h,73h,20h,70h,72h,6fh,62h,6ch,65h,6dh,2eh,0ah,0
+db	"Please consult DRHELP.EXE for more information on how to resolve this problem.",0ah,0
 ___182e70h:
-db	2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh
-db	2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh
-db	2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh
-db	2dh,2dh,2dh,2dh,2dh,0,0,0
+db	"-----------------------------------------------------",0,0,0
 ___182ea8h:
 db	61h,0,0,0
 ___182each:
-db	64h,72h,2eh,6ch,6fh,67h,0,0
+db	"dr.log",0,0
 ___182eb4h:
-db	4dh,65h,6dh,6fh,72h,79h,20h,61h,76h,61h,69h,6ch,61h,62h,6ch,65h
-db	20h,65h,6eh,67h,69h,6eh,65h,73h,73h,84h,3ah,20h,0,0,0,0
+db	"Memory available enginess",84h,3ah,20h,0,0,0,0
 ___182ed4h:
-db	44h,55h,4bh,45h,20h,4eh,55h,4bh,45h,4dh,0
+db	"DUKE NUKEM",0
 ___182edfh:
 db	33h,33h,33h,33h,33h,33h,0c3h,3fh
 ___182ee7h:
@@ -1692,183 +1408,157 @@ db	0,0,0,0,0,0,59h,40h
 ___182fa7h:
 db	0,0,0,0,0,0,0d4h,40h,0
 ___182fb0h:
-db	2eh,42h,50h,41h,0,0,0,0
+db	".BPA",0,0,0,0
 ___182fb8h:
-db	44h,45h,41h,54h,48h,20h,52h,41h,4ch,4ch,59h,20h,45h,72h,72h,6fh
-db	72h,3ah,20h,46h,69h,6ch,65h,20h,25h,73h,20h,69h,73h,20h,6dh,69h
-db	73h,73h,69h,6eh,67h,21h,0ah,0
+db	"DEATH RALLY Error: File %s is missing!",0ah,0
 ___182fe0h:
-db	50h,6ch,65h,61h,73h,65h,20h,63h,6fh,6eh,73h,75h,6ch,74h,20h,44h
-db	52h,48h,45h,4ch,50h,2eh,45h,58h,45h,20h,66h,6fh,72h,20h,6dh,6fh
-db	72h,65h,20h,69h,6eh,66h,6fh,72h,6dh,61h,74h,69h,6fh,6eh,20h,6fh
-db	6eh,20h,68h,6fh,77h,20h,74h,6fh,20h,72h,65h,73h,6fh,6ch,76h,65h
-db	20h,74h,68h,69h,73h,20h,70h,72h,6fh,62h,6ch,65h,6dh,2eh,0ah,0
+db	"Please consult DRHELP.EXE for more information on how to resolve this problem.",0ah,0
 ___183030h:
-db	44h,45h,41h,54h,48h,20h,52h,41h,4ch,4ch,59h,20h,45h,72h,72h,6fh
-db	72h,3ah,20h,25h,73h,0ah,0,0
+db	"DEATH RALLY Error: %s",0ah,0,0
 ___183048h:
-db	50h,6ch,65h,61h,73h,65h,20h,63h,6fh,6eh,73h,75h,6ch,74h,20h,44h
-db	52h,48h,45h,4ch,50h,2eh,45h,58h,45h,20h,66h,6fh,72h,20h,6dh,6fh
-db	72h,65h,20h,69h,6eh,66h,6fh,72h,6dh,61h,74h,69h,6fh,6eh,20h,6fh
-db	6eh,20h,68h,6fh,77h,20h,74h,6fh,20h,72h,65h,73h,6fh,6ch,76h,65h
-db	20h,74h,68h,69h,73h,20h,70h,72h,6fh,62h,6ch,65h,6dh,2eh,0ah,0
-global ___183098h
-___183098h:
-db	72h,62h,0,0
-global ___18309ch
-___18309ch:
-db	50h,72h,6fh,62h,6ch,65h,6dh,73h,20h,77h,69h,74h,68h,20h,5bh,0
-global ___1830ach
-___1830ach:
-db	5dh,20h,0,0
-global ___1830b0h
-___1830b0h:
-db	20h,66h,69h,6ch,65h,21h,0,0
+db	"Please consult DRHELP.EXE for more information on how to resolve this problem.",0ah,0
+__GDECL(___183098h)
+db	"rb",0,0
+__GDECL(___18309ch)
+db	"Problems with [",0
+__GDECL(___1830ach)
+db	"] ",0,0
+__GDECL(___1830b0h)
+db	" file!",0,0
 ___1830b8h:
-db	42h,4fh,41h,52h,44h,53h,2eh,42h,50h,4bh,0,0
+db	"BOARDS.BPK",0,0
 ___1830c4h:
-db	49h,42h,46h,49h,4ch,45h,53h,2eh,42h,50h,41h,0
+db	"IBFILES.BPA",0
 ___1830d0h:
-db	52h,41h,53h,54h,49h,31h,2eh,42h,50h,4bh,0,0
+db	"RASTI1.BPK",0,0
 ___1830dch:
-db	44h,41h,4dh,2dh,4bh,55h,50h,2eh,42h,50h,4bh,0
+db	"DAM-KUP.BPK",0
 ___1830e8h:
-db	44h,41h,4dh,2dh,50h,49h,43h,2eh,42h,50h,4bh,0
+db	"DAM-PIC.BPK",0
 ___1830f4h:
-db	44h,41h,4dh,2dh,53h,45h,44h,2eh,42h,50h,4bh,0
+db	"DAM-SED.BPK",0
 ___183100h:
-db	44h,41h,4dh,2dh,43h,41h,4dh,2eh,42h,50h,4bh,0
+db	"DAM-CAM.BPK",0
 ___18310ch:
-db	44h,41h,4dh,2dh,50h,4fh,52h,2eh,42h,50h,4bh,0
+db	"DAM-POR.BPK",0
 ___183118h:
-db	44h,41h,4dh,2dh,4ch,4fh,54h,2eh,42h,50h,4bh,0
+db	"DAM-LOT.BPK",0
 ___183124h:
-db	42h,49h,47h,4eh,55h,4dh,36h,2eh,42h,50h,4bh,0
+db	"BIGNUM6.BPK",0
 ___183130h:
-db	53h,4dh,41h,4ch,46h,4fh,34h,41h,2eh,42h,50h,4bh,0,0,0,0
+db	"SMALFO4A.BPK",0,0,0,0
 ___183140h:
-db	50h,4fh,53h,4eh,55h,4dh,32h,2eh,42h,50h,4bh,0
+db	"POSNUM2.BPK",0
 ___18314ch:
-db	4fh,57h,4eh,2dh,4eh,55h,4dh,31h,2eh,42h,50h,4bh,0,0,0,0
+db	"OWN-NUM1.BPK",0,0,0,0
 ___18315ch:
-db	4fh,54h,48h,2dh,4eh,55h,4dh,31h,2eh,42h,50h,4bh,0,0,0,0
+db	"OTH-NUM1.BPK",0,0,0,0
 ___18316ch:
-db	47h,4fh,41h,4ch,4eh,55h,4dh,32h,2eh,42h,50h,4bh,0,0,0,0
+db	"GOALNUM2.BPK",0,0,0,0
 ___18317ch:
-db	53h,49h,44h,45h,42h,4fh,4dh,31h,2eh,42h,50h,4bh,0,0,0,0
+db	"SIDEBOM1.BPK",0,0,0,0
 ___18318ch:
-db	53h,4dh,41h,4ch,4ch,42h,41h,52h,2eh,42h,50h,4bh,0,0,0,0
+db	"SMALLBAR.BPK",0,0,0,0
 ___18319ch:
-db	2dh,49h,4dh,41h,2eh,42h,50h,4bh,0,0,0,0
+db	"-IMA.BPK",0,0,0,0
 ___1831a8h:
-db	2dh,46h,4ch,49h,50h,2eh,50h,41h,4ch,0,0,0
+db	"-FLIP.PAL",0,0,0
 ___1831b4h:
-db	2dh,46h,4ch,49h,50h,2eh,53h,43h,58h,0,0,0
+db	"-FLIP.SCX",0,0,0
 ___1831c0h:
-db	2dh,4dh,41h,53h,2eh,42h,50h,4bh,0,0,0,0
+db	"-MAS.BPK",0,0,0,0
 ___1831cch:
-db	2dh,56h,41h,49h,2eh,42h,50h,4bh,0,0,0,0
+db	"-VAI.BPK",0,0,0,0
 ___1831d8h:
-db	2dh,4ch,52h,31h,2eh,42h,50h,4bh,0,0,0,0
+db	"-LR1.BPK",0,0,0,0
 ___1831e4h:
-db	2dh,53h,2eh,42h,50h,4bh,0,0
+db	"-S.BPK",0,0
 ___1831ech:
-db	2eh,42h,50h,4bh,0,0,0,0
+db	".BPK",0,0,0,0
 ___1831f4h:
-db	45h,4eh,47h,49h,4eh,45h,2eh,42h,50h,41h,0,0
+db	"ENGINE.BPA",0,0
 ___183200h:
-db	2dh,53h,43h,45h,2eh,42h,50h,4bh,0,0,0,0
+db	"-SCE.BPK",0,0,0,0
 ___18320ch:
-db	2dh,53h,4bh,49h,2eh,54h,41h,42h,0,0,0,0
+db	"-SKI.TAB",0,0,0,0
 ___183218h:
-db	2dh,42h,4ch,4fh,2eh,54h,41h,42h,0,0,0,0
+db	"-BLO.TAB",0,0,0,0
 ___183224h:
-db	2dh,4ch,49h,54h,2eh,54h,41h,42h,0,0,0,0
+db	"-LIT.TAB",0,0,0,0
 ___183230h:
-db	56h,41h,52h,4ah,4fh,2eh,54h,41h,42h,0,0,0
+db	"VARJO.TAB",0,0,0
 ___18323ch:
 db	2dh,44h,52h,56h,2eh,44h,41h,54h,0,0,0,0
 ___183248h:
 db	2dh,4fh,48h,49h,2eh,44h,41h,54h,0,0,0,0
 ___183254h:
-db	2dh,53h,48h,41h,2eh,42h,50h,4bh,0,0,0,0
+db	"-SHA.BPK",0,0,0,0
 ___183260h:
-db	4dh,49h,4eh,45h,53h,31h,41h,2eh,42h,50h,4bh,0
+db	"MINES1A.BPK",0
 ___18326ch:
-db	42h,4ch,4fh,57h,49h,2eh,42h,50h,4bh,0,0,0
+db	"BLOWI.BPK",0,0,0
 ___183278h:
-db	46h,4ch,41h,4dh,45h,31h,2eh,42h,50h,4bh,0,0
+db	"FLAME1.BPK",0,0
 ___183284h:
-db	46h,4ch,41h,4dh,45h,32h,2eh,42h,50h,4bh,0,0
+db	"FLAME2.BPK",0,0
 ___183290h:
-db	46h,4ch,41h,4dh,45h,33h,2eh,42h,50h,4bh,0,0
+db	"FLAME3.BPK",0,0
 ___18329ch:
-db	46h,4ch,41h,4dh,45h,34h,2eh,42h,50h,4bh,0,0
+db	"FLAME4.BPK",0,0
 ___1832a8h:
-db	46h,4ch,41h,4dh,45h,35h,2eh,42h,50h,4bh,0,0
+db	"FLAME5.BPK",0,0
 ___1832b4h:
-db	46h,4ch,41h,4dh,45h,36h,2eh,42h,50h,4bh,0,0
+db	"FLAME6.BPK",0,0
 ___1832c0h:
-db	53h,48h,4fh,54h,53h,2eh,42h,50h,4bh,0,0,0
+db	"SHOTS.BPK",0,0,0
 ___1832cch:
-db	4fh,42h,53h,54h,5fh,52h,45h,56h,2eh,42h,50h,4bh,0,0,0,0
+db	"OBST_REV.BPK",0,0,0,0
 ___1832dch:
-db	4fh,42h,53h,54h,41h,43h,4ch,45h,2eh,42h,50h,4bh,0,0,0,0
+db	"OBSTACLE.BPK",0,0,0,0
 ___1832ech:
-db	50h,45h,44h,45h,53h,54h,52h,2eh,42h,50h,4bh,0
+db	"PEDESTR.BPK",0
 ___1832f8h:
-db	53h,50h,4ch,41h,54h,33h,2eh,42h,50h,4bh,0,0
+db	"SPLAT3.BPK",0,0
 ___183304h:
-db	53h,50h,4ch,41h,54h,34h,2eh,42h,50h,4bh,0,0
+db	"SPLAT4.BPK",0,0
 ___183310h:
-db	52h,4fh,43h,4bh,45h,54h,31h,2eh,42h,50h,4bh,0
+db	"ROCKET1.BPK",0
 ___18331ch:
-db	52h,4fh,43h,4bh,45h,54h,32h,2eh,42h,50h,4bh,0
+db	"ROCKET2.BPK",0
 ___183328h:
-db	42h,55h,52h,4eh,31h,41h,2eh,42h,50h,4bh,0,0
+db	"BURN1A.BPK",0,0
 ___183334h:
-db	53h,4dh,4fh,4bh,45h,2eh,42h,50h,4bh,0,0,0
+db	"SMOKE.BPK",0,0,0
 ___183340h:
-db	47h,45h,4eh,2dh,46h,4ch,41h,2eh,42h,50h,4bh,0
+db	"GEN-FLA.BPK",0
 ___18334ch:
-db	47h,45h,4eh,2dh,4ch,41h,4dh,2eh,42h,50h,4bh,0
+db	"GEN-LAM.BPK",0
 ___183358h:
-db	47h,45h,4eh,2dh,4dh,45h,53h,2eh,42h,50h,4bh,0
+db	"GEN-MES.BPK",0
 ___183364h:
-db	44h,41h,4dh,53h,4ch,49h,44h,2eh,42h,50h,4bh,0
+db	"DAMSLID.BPK",0
 ___183370h:
-db	53h,65h,6ch,65h,63h,74h,20h,63h,6fh,6dh,6dh,75h,6eh,69h,63h,61h
-db	74h,69h,6fh,6eh,20h,28h,30h,3dh,4eh,4fh,4eh,45h,2ch,20h,31h,2dh
-db	34h,3dh,43h,4fh,4dh,20h,70h,6fh,72h,74h,73h,2ch,20h,39h,3dh,49h
-db	50h,58h,2dh,4eh,45h,54h,29h,20h,5bh,30h,0,0
+db	"Select communication (0=NONE, 1-4=COM ports, 9=IPX-NET) [0",0,0
 ___1833ach:
-db	2fh,31h,0,0
+db	"/1",0,0
 ___1833b0h:
-db	2fh,32h,0,0
+db	"/2",0,0
 ___1833b4h:
-db	2fh,33h,0,0
+db	"/3",0,0
 ___1833b8h:
-db	2fh,34h,0,0
+db	"/4",0,0
 ___1833bch:
-db	2fh,39h,0,0
+db	"/9",0,0
 ___1833c0h:
-db	5dh,3ah,20h,0
+db	"]: ",0
 ___1833c4h:
-db	25h,69h,0,0
+db	"%i",0,0
 ___1833c8h:
-db	45h,73h,74h,61h,62h,6ch,69h,73h,68h,69h,6eh,67h,20h,63h,6fh,6eh
-db	6eh,65h,63h,74h,69h,6fh,6eh,20h,66h,6fh,72h,20h,25h,69h,20h,70h
-db	6ch,61h,79h,65h,72h,73h,2eh,2eh,2eh,20h,28h,50h,72h,65h,73h,73h
-db	20h,45h,53h,43h,20h,74h,6fh,20h,65h,73h,63h,61h,70h,65h,29h,0ah
-db	0,0,0,0
+db	"Establishing connection for %i players... (Press ESC to escape)",0ah,0,0,0,0
 ___18340ch:
-db	46h,6fh,75h,6eh,64h,20h,61h,20h,6eh,65h,77h,20h,70h,6ch,61h,79h
-db	65h,72h,2ch,20h,74h,6fh,74h,61h,6ch,6ch,79h,20h,25h,69h,20h,63h
-db	6fh,6eh,6eh,65h,63h,74h,65h,64h,0ah,0,0,0
+db	"Found a new player, totally %i connected",0ah,0,0,0
 ___183438h:
-db	52h,65h,61h,64h,79h,20h,74h,6fh,20h,73h,74h,61h,72h,74h,2eh,20h
-db	54h,68h,69h,73h,20h,6dh,61h,63h,68h,69h,6eh,65h,20h,69h,73h,20h
-db	23h,25h,69h,0ah,0
+db	"Ready to start. This machine is #%i",0ah,0
 ___18345dh:
 db	0,0,0,0,0,0,70h,40h
 ___183465h:
@@ -1950,315 +1640,289 @@ db	66h,66h,66h,66h,66h,66h,0f6h,3fh
 ___183585h:
 db	0,0,0,0,0,0c0h,62h,40h,0,0,0
 ___183590h:
-db	2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,4eh,4fh,4eh,45h,0,0,0
+db	".........NONE",0,0,0
 ___1835a0h:
-db	2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,4ch,45h,46h,54h,0,0,0
+db	".........LEFT",0,0,0
 ___1835b0h:
-db	2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,52h,49h,47h,48h,54h,0,0,0
+db	"........RIGHT",0,0,0
 ___1835c0h:
-db	2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,55h,50h,0,0,0
+db	"...........UP",0,0,0
 ___1835d0h:
-db	2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,44h,4fh,57h,4eh,0,0,0
+db	".........DOWN",0,0,0
 ___1835e0h:
-db	2eh,2eh,2eh,2eh,2eh,42h,55h,54h,54h,4fh,4eh,20h,31h,0,0,0
+db	".....BUTTON 1",0,0,0
 ___1835f0h:
-db	2eh,2eh,2eh,2eh,2eh,42h,55h,54h,54h,4fh,4eh,20h,32h,0,0,0
+db	".....BUTTON 2",0,0,0
 ___183600h:
-db	2eh,2eh,2eh,2eh,2eh,42h,55h,54h,54h,4fh,4eh,20h,33h,0,0,0
+db	".....BUTTON 3",0,0,0
 ___183610h:
-db	2eh,2eh,2eh,2eh,2eh,42h,55h,54h,54h,4fh,4eh,20h,34h,0,0,0
+db	".....BUTTON 4",0,0,0
 ___183620h:
-db	2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,45h,53h,43h,0,0,0
+db	"..........ESC",0,0,0
 ___183630h:
-db	2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,31h,0,0,0
+db	"............1",0,0,0
 ___183640h:
-db	2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,32h,0,0,0
+db	"............2",0,0,0
 ___183650h:
-db	2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,33h,0,0,0
+db	"............3",0,0,0
 ___183660h:
-db	2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,34h,0,0,0
+db	"............4",0,0,0
 ___183670h:
-db	2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,35h,0,0,0
+db	"............5",0,0,0
 ___183680h:
-db	2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,36h,0,0,0
+db	"............6",0,0,0
 ___183690h:
-db	2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,37h,0,0,0
+db	"............7",0,0,0
 ___1836a0h:
-db	2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,38h,0,0,0
+db	"............8",0,0,0
 ___1836b0h:
-db	2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,39h,0,0,0
+db	"............9",0,0,0
 ___1836c0h:
-db	2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,30h,0,0,0
+db	"............0",0,0,0
 ___1836d0h:
-db	2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,4dh,49h,4eh,55h,53h,0,0,0
+db	"........MINUS",0,0,0
 ___1836e0h:
-db	2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,45h,51h,55h,41h,4ch,0,0,0
+db	"........EQUAL",0,0,0
 ___1836f0h:
-db	2eh,2eh,2eh,2eh,42h,41h,43h,4bh,53h,50h,41h,43h,45h,0,0,0
+db	"....BACKSPACE",0,0,0
 ___183700h:
-db	2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,54h,41h,42h,0,0,0
+db	"..........TAB",0,0,0
 ___183710h:
-db	2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,51h,0,0,0
+db	"............Q",0,0,0
 ___183720h:
-db	2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,57h,0,0,0
+db	"............W",0,0,0
 ___183730h:
-db	2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,45h,0,0,0
+db	"............E",0,0,0
 ___183740h:
-db	2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,52h,0,0,0
+db	"............R",0,0,0
 ___183750h:
-db	2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,54h,0,0,0
+db	"............T",0,0,0
 ___183760h:
-db	2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,59h,0,0,0
+db	"............Y",0,0,0
 ___183770h:
-db	2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,55h,0,0,0
+db	"............U",0,0,0
 ___183780h:
-db	2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,49h,0,0,0
+db	"............I",0,0,0
 ___183790h:
-db	2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,4fh,0,0,0
+db	"............O",0,0,0
 ___1837a0h:
-db	2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,50h,0,0,0
+db	"............P",0,0,0
 ___1837b0h:
-db	2eh,4ch,45h,46h,54h,20h,42h,52h,41h,43h,4bh,45h,54h,0,0,0
+db	".LEFT BRACKET",0,0,0
 ___1837c0h:
-db	52h,49h,47h,48h,54h,20h,42h,52h,41h,43h,4bh,45h,54h,0,0,0
+db	"RIGHT BRACKET",0,0,0
 ___1837d0h:
-db	2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,45h,4eh,54h,45h,52h,0,0,0
+db	"........ENTER",0,0,0
 ___1837e0h:
-db	2eh,4ch,45h,46h,54h,20h,43h,4fh,4eh,54h,52h,4fh,4ch,0,0,0
+db	".LEFT CONTROL",0,0,0
 ___1837f0h:
-db	2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,41h,0,0,0
+db	"............A",0,0,0
 ___183800h:
-db	2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,53h,0,0,0
+db	"............S",0,0,0
 ___183810h:
-db	2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,44h,0,0,0
+db	"............D",0,0,0
 ___183820h:
-db	2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,46h,0,0,0
+db	"............F",0,0,0
 ___183830h:
-db	2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,47h,0,0,0
+db	"............G",0,0,0
 ___183840h:
-db	2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,48h,0,0,0
+db	"............H",0,0,0
 ___183850h:
-db	2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,4ah,0,0,0
+db	"............J",0,0,0
 ___183860h:
-db	2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,4bh,0,0,0
+db	"............K",0,0,0
 ___183870h:
-db	2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,4ch,0,0,0
+db	"............L",0,0,0
 ___183880h:
-db	2eh,2eh,2eh,2eh,53h,45h,4dh,49h,43h,4fh,4ch,4fh,4eh,0,0,0
+db	"....SEMICOLON",0,0,0
 ___183890h:
-db	2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,54h,49h,43h,4bh,0,0,0
+db	".........TICK",0,0,0
 ___1838a0h:
-db	2eh,2eh,2eh,41h,50h,4fh,53h,54h,52h,4fh,50h,48h,45h,0,0,0
+db	"...APOSTROPHE",0,0,0
 ___1838b0h:
-db	2eh,2eh,2eh,4ch,45h,46h,54h,20h,53h,48h,49h,46h,54h,0,0,0
+db	"...LEFT SHIFT",0,0,0
 ___1838c0h:
-db	2eh,2eh,2eh,2eh,42h,41h,43h,4bh,53h,4ch,41h,53h,48h,0,0,0
+db	"....BACKSLASH",0,0,0
 ___1838d0h:
-db	2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,5ah,0,0,0
+db	"............Z",0,0,0
 ___1838e0h:
-db	2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,58h,0,0,0
+db	"............X",0,0,0
 ___1838f0h:
-db	2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,43h,0,0,0
+db	"............C",0,0,0
 ___183900h:
-db	2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,56h,0,0,0
+db	"............V",0,0,0
 ___183910h:
-db	2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,42h,0,0,0
+db	"............B",0,0,0
 ___183920h:
-db	2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,4eh,0,0,0
+db	"............N",0,0,0
 ___183930h:
-db	2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,4dh,0,0,0
+db	"............M",0,0,0
 ___183940h:
-db	2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,43h,4fh,4dh,4dh,41h,0,0,0
+db	"........COMMA",0,0,0
 ___183950h:
-db	2eh,2eh,2eh,2eh,2eh,2eh,2eh,50h,45h,52h,49h,4fh,44h,0,0,0
+db	".......PERIOD",0,0,0
 ___183960h:
-db	2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,53h,4ch,41h,53h,48h,0,0,0
+db	"........SLASH",0,0,0
 ___183970h:
-db	2eh,2eh,52h,49h,47h,48h,54h,20h,53h,48h,49h,46h,54h,0,0,0
+db	"..RIGHT SHIFT",0,0,0
 ___183980h:
-db	2eh,2eh,4bh,45h,59h,50h,41h,44h,2dh,53h,54h,41h,52h,0,0,0
+db	"..KEYPAD-STAR",0,0,0
 ___183990h:
-db	2eh,2eh,2eh,2eh,2eh,4ch,45h,46h,54h,20h,41h,4ch,54h,0,0,0
+db	".....LEFT ALT",0,0,0
 ___1839a0h:
-db	2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,53h,50h,41h,43h,45h,0,0,0
+db	"........SPACE",0,0,0
 ___1839b0h:
-db	2eh,2eh,2eh,2eh,2eh,43h,41h,50h,53h,4ch,4fh,43h,4bh,0,0,0
+db	".....CAPSLOCK",0,0,0
 ___1839c0h:
-db	2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,46h,31h,0,0,0
+db	"...........F1",0,0,0
 ___1839d0h:
-db	2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,46h,32h,0,0,0
+db	"...........F2",0,0,0
 ___1839e0h:
-db	2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,46h,33h,0,0,0
+db	"...........F3",0,0,0
 ___1839f0h:
-db	2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,46h,34h,0,0,0
+db	"...........F4",0,0,0
 ___183a00h:
-db	2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,46h,35h,0,0,0
+db	"...........F5",0,0,0
 ___183a10h:
-db	2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,46h,36h,0,0,0
+db	"...........F6",0,0,0
 ___183a20h:
-db	2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,46h,37h,0,0,0
+db	"...........F7",0,0,0
 ___183a30h:
-db	2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,46h,38h,0,0,0
+db	"...........F8",0,0,0
 ___183a40h:
-db	2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,46h,39h,0,0,0
+db	"...........F9",0,0,0
 ___183a50h:
-db	2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,46h,31h,30h,0,0,0
+db	"..........F10",0,0,0
 ___183a60h:
-db	2eh,2eh,2eh,2eh,2eh,2eh,4eh,55h,4dh,4ch,4fh,43h,4bh,0,0,0
+db	"......NUMLOCK",0,0,0
 ___183a70h:
-db	2eh,2eh,2eh,53h,43h,52h,4fh,4ch,4ch,4ch,4fh,43h,4bh,0,0,0
+db	"...SCROLLLOCK",0,0,0
 ___183a80h:
-db	2eh,2eh,2eh,2eh,2eh,4bh,45h,59h,50h,41h,44h,2dh,37h,0,0,0
+db	".....KEYPAD-7",0,0,0
 ___183a90h:
-db	2eh,2eh,2eh,2eh,2eh,4bh,45h,59h,50h,41h,44h,2dh,38h,0,0,0
+db	".....KEYPAD-8",0,0,0
 ___183aa0h:
-db	2eh,2eh,2eh,2eh,2eh,4bh,45h,59h,50h,41h,44h,2dh,39h,0,0,0
+db	".....KEYPAD-9",0,0,0
 ___183ab0h:
-db	2eh,4bh,45h,59h,50h,41h,44h,2dh,4dh,49h,4eh,55h,53h,0,0,0
+db	".KEYPAD-MINUS",0,0,0
 ___183ac0h:
-db	2eh,2eh,2eh,2eh,2eh,4bh,45h,59h,50h,41h,44h,2dh,34h,0,0,0
+db	".....KEYPAD-4",0,0,0
 ___183ad0h:
-db	2eh,2eh,2eh,2eh,2eh,4bh,45h,59h,50h,41h,44h,2dh,35h,0,0,0
+db	".....KEYPAD-5",0,0,0
 ___183ae0h:
-db	2eh,2eh,2eh,2eh,2eh,4bh,45h,59h,50h,41h,44h,2dh,36h,0,0,0
+db	".....KEYPAD-6",0,0,0
 ___183af0h:
-db	2eh,2eh,4bh,45h,59h,50h,41h,44h,2dh,50h,4ch,55h,53h,0,0,0
+db	"..KEYPAD-PLUS",0,0,0
 ___183b00h:
-db	2eh,2eh,2eh,2eh,2eh,4bh,45h,59h,50h,41h,44h,2dh,31h,0,0,0
+db	".....KEYPAD-1",0,0,0
 ___183b10h:
-db	2eh,2eh,2eh,2eh,2eh,4bh,45h,59h,50h,41h,44h,2dh,32h,0,0,0
+db	".....KEYPAD-2",0,0,0
 ___183b20h:
-db	2eh,2eh,2eh,2eh,2eh,4bh,45h,59h,50h,41h,44h,2dh,33h,0,0,0
+db	".....KEYPAD-3",0,0,0
 ___183b30h:
-db	2eh,2eh,2eh,2eh,2eh,4bh,45h,59h,50h,41h,44h,2dh,30h,0,0,0
+db	".....KEYPAD-0",0,0,0
 ___183b40h:
-db	2eh,2eh,2eh,4bh,45h,59h,50h,41h,44h,2dh,44h,45h,4ch,0,0,0
+db	"...KEYPAD-DEL",0,0,0
 ___183b50h:
-db	2eh,2eh,2eh,2eh,2eh,2eh,2eh,53h,59h,53h,52h,45h,51h,0,0,0
+db	".......SYSREQ",0,0,0
 ___183b60h:
-db	2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,46h,31h,31h,0,0,0
+db	"..........F11",0,0,0
 ___183b70h:
-db	2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,46h,31h,32h,0,0,0
+db	"..........F12",0,0,0
 ___183b80h:
-db	2eh,4bh,45h,59h,50h,41h,44h,2dh,45h,4eh,54h,45h,52h,0,0,0
+db	".KEYPAD-ENTER",0,0,0
 ___183b90h:
-db	52h,49h,47h,48h,54h,20h,43h,4fh,4eh,54h,52h,4fh,4ch,0,0,0
+db	"RIGHT CONTROL",0,0,0
 ___183ba0h:
-db	2eh,4bh,45h,59h,50h,41h,44h,2dh,53h,4ch,41h,53h,48h,0,0,0
+db	".KEYPAD-SLASH",0,0,0
 ___183bb0h:
-db	2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,50h,52h,54h,53h,43h,0,0,0
+db	"........PRTSC",0,0,0
 ___183bc0h:
-db	2eh,2eh,2eh,2eh,2eh,50h,52h,49h,4eh,54h,53h,43h,52h,0,0,0
+db	".....PRINTSCR",0,0,0
 ___183bd0h:
-db	2eh,2eh,2eh,2eh,52h,49h,47h,48h,54h,20h,41h,4ch,54h,0,0,0
+db	"....RIGHT ALT",0,0,0
 ___183be0h:
-db	2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,48h,4fh,4dh,45h,0,0,0
+db	".........HOME",0,0,0
 ___183bf0h:
-db	2eh,2eh,2eh,2eh,2eh,55h,50h,20h,41h,52h,52h,4fh,57h,0,0,0
+db	".....UP ARROW",0,0,0
 ___183c00h:
-db	2eh,2eh,2eh,2eh,2eh,2eh,50h,41h,47h,45h,20h,55h,50h,0,0,0
+db	"......PAGE UP",0,0,0
 ___183c10h:
-db	2eh,2eh,2eh,4ch,45h,46h,54h,20h,41h,52h,52h,4fh,57h,0,0,0
+db	"...LEFT ARROW",0,0,0
 ___183c20h:
-db	2eh,2eh,52h,49h,47h,48h,54h,20h,41h,52h,52h,4fh,57h,0,0,0
+db	"..RIGHT ARROW",0,0,0
 ___183c30h:
-db	2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,45h,4eh,44h,0,0,0
+db	"..........END",0,0,0
 ___183c40h:
-db	2eh,2eh,2eh,44h,4fh,57h,4eh,20h,41h,52h,52h,4fh,57h,0,0,0
+db	"...DOWN ARROW",0,0,0
 ___183c50h:
-db	2eh,2eh,2eh,2eh,50h,41h,47h,45h,20h,44h,4fh,57h,4eh,0,0,0
+db	"....PAGE DOWN",0,0,0
 ___183c60h:
-db	2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,49h,4eh,53h,0,0,0
+db	"..........INS",0,0,0
 ___183c70h:
-db	2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,44h,45h,4ch,0,0,0
+db	"..........DEL",0,0,0
 ___183c80h:
-db	4bh,45h,59h,43h,4fh,4dh,33h,2eh,42h,50h,4bh,0
+db	"KEYCOM3.BPK",0
 ___183c8ch:
-db	4bh,45h,59h,43h,4fh,4dh,33h,2eh,50h,41h,4ch,0
+db	"KEYCOM3.PAL",0
 ___183c98h:
-db	20h,20h,20h,20h,20h,47h,4ch,4fh,42h,41h,4ch,20h,4bh,45h,59h,2dh
-db	44h,45h,46h,49h,4eh,49h,54h,49h,4fh,4eh,53h,0
+db	"     GLOBAL KEY-DEFINITIONS",0
 ___183cb4h:
-db	20h,20h,20h,54h,41h,42h,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh
-db	2eh,2eh,2eh,53h,54h,41h,54h,55h,53h,20h,42h,41h,52h,0,0,0
+db	"   TAB.............STATUS BAR",0,0,0
 ___183cd4h:
-db	20h,20h,20h,46h,31h,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh
-db	2eh,2eh,49h,4eh,46h,4fh,20h,53h,43h,52h,45h,45h,4eh,0,0,0
+db	"   F1.............INFO SCREEN",0,0,0
 ___183cf4h:
-db	20h,20h,20h,46h,32h,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh
-db	2eh,4dh,55h,53h,49h,43h,20h,4fh,4eh,2fh,4fh,46h,46h,0,0,0
+db	"   F2............MUSIC ON/OFF",0,0,0
 ___183d14h:
-db	20h,20h,20h,46h,33h,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh
-db	2eh,2eh,2eh,53h,46h,58h,20h,4fh,4eh,2fh,4fh,46h,46h,0,0,0
+db	"   F3..............SFX ON/OFF",0,0,0
 ___183d34h:
-db	20h,20h,20h,46h,34h,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh
-db	2eh,2eh,2eh,2eh,2eh,54h,45h,58h,54h,55h,52h,45h,53h,0,0,0
+db	"   F4................TEXTURES",0,0,0
 ___183d54h:
-db	20h,20h,20h,46h,35h,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh
-db	2eh,2eh,2eh,2eh,2eh,2eh,53h,48h,41h,44h,4fh,57h,53h,0,0,0
+db	"   F5.................SHADOWS",0,0,0
 ___183d74h:
-db	20h,20h,20h,50h,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh
-db	2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,50h,41h,55h,53h,45h,0,0,0
+db	"   P....................PAUSE",0,0,0
 ___183d94h:
-db	20h,20h,20h,20h,20h,20h,4bh,45h,59h,42h,4fh,41h,52h,44h,20h,44h
-db	45h,46h,49h,4eh,49h,54h,49h,4fh,4eh,53h,0,0
+db	"      KEYBOARD DEFINITIONS",0,0
 ___183db0h:
-db	20h,20h,20h,41h,43h,43h,45h,4ch,45h,52h,41h,54h,45h,2eh,2eh,2eh
-db	0,0,0,0
+db	"   ACCELERATE...",0,0,0,0
 ___183dc4h:
-db	20h,20h,20h,42h,52h,41h,4bh,45h,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh
-db	0,0,0,0
+db	"   BRAKE........",0,0,0,0
 ___183dd8h:
-db	20h,20h,20h,53h,54h,45h,45h,52h,20h,4ch,45h,46h,54h,2eh,2eh,2eh
-db	0,0,0,0
+db	"   STEER LEFT...",0,0,0,0
 ___183dech:
-db	20h,20h,20h,53h,54h,45h,45h,52h,20h,52h,49h,47h,48h,54h,2eh,2eh
-db	0,0,0,0
+db	"   STEER RIGHT..",0,0,0,0
 ___183e00h:
-db	20h,20h,20h,54h,55h,52h,42h,4fh,20h,42h,4fh,4fh,53h,54h,2eh,2eh
-db	0,0,0,0
+db	"   TURBO BOOST..",0,0,0,0
 ___183e14h:
-db	20h,20h,20h,4dh,41h,43h,48h,49h,4eh,45h,20h,47h,55h,4eh,2eh,2eh
-db	0,0,0,0
+db	"   MACHINE GUN..",0,0,0,0
 ___183e28h:
-db	20h,20h,20h,44h,52h,4fh,50h,20h,4dh,49h,4eh,45h,2eh,2eh,2eh,2eh
-db	0,0,0,0
+db	"   DROP MINE....",0,0,0,0
 ___183e3ch:
-db	20h,20h,20h,48h,4fh,52h,4eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh,2eh
-db	0,0,0,0
+db	"   HORN.........",0,0,0,0
 ___183e50h:
-db	20h,20h,20h,20h,20h,20h,47h,41h,4dh,45h,50h,41h,44h,20h,44h,45h
-db	46h,49h,4eh,49h,54h,49h,4fh,4eh,53h,0,0,0
+db	"      GAMEPAD DEFINITIONS",0,0,0
 ___183e6ch:
-db	49h,4eh,46h,4fh,32h,2eh,42h,50h,4bh,0,0,0
+db	"INFO2.BPK",0,0,0
 ___183e78h:
-db	49h,4eh,46h,4fh,32h,2eh,50h,41h,4ch,0,0,0
+db	"INFO2.PAL",0,0,0
 ___183e84h:
-db	44h,45h,41h,54h,48h,20h,52h,41h,4ch,4ch,59h,20h,45h,78h,69h,74h
-db	3ah,20h,43h,54h,52h,4ch,2bh,41h,4ch,54h,2bh,44h,45h,4ch,20h,70h
-db	72h,65h,73h,73h,65h,64h,21h,0ah,0,0,0,0
+db	"DEATH RALLY Exit: CTRL+ALT+DEL pressed!",0ah,0,0,0,0
 ___183eb0h:
-db	44h,45h,41h,54h,48h,20h,52h,41h,4ch,4ch,59h,20h,45h,72h,72h,6fh
-db	72h,3ah,20h,48h,61h,72h,64h,77h,61h,72h,65h,20h,63h,6fh,6eh,66h
-db	6ch,69h,63h,74h,2eh,0ah,0,0
+db	"DEATH RALLY Error: Hardware conflict.",0ah,0,0
 ___183ed8h:
-db	50h,6ch,65h,61h,73h,65h,20h,63h,6fh,6eh,73h,75h,6ch,74h,20h,44h
-db	52h,48h,45h,4ch,50h,2eh,45h,58h,45h,20h,66h,6fh,72h,20h,6dh,6fh
-db	72h,65h,20h,69h,6eh,66h,6fh,72h,6dh,61h,74h,69h,6fh,6eh,20h,6fh
-db	6eh,20h,68h,6fh,77h,20h,74h,6fh,20h,72h,65h,73h,6fh,6ch,76h,65h
-db	20h,74h,68h,69h,73h,20h,70h,72h,6fh,62h,6ch,65h,6dh,2eh,0ah,0
+db	"Please consult DRHELP.EXE for more information on how to resolve this problem.",0ah,0
 ___183f28h:
-db	48h,53h,2dh,50h,49h,43h,0,0
+db	"HS-PIC",0,0
 ___183f30h:
-db	2eh,50h,43h,58h,0,0,0,0
+db	".PCX",0,0,0,0
 ___183f38h:
-db	77h,62h,0,0
+db	"wb",0,0
 ___183f3ch:
-db	2dh,49h,4dh,41h,2eh,53h,43h,58h,0
+db	"-IMA.SCX",0
 ___183f45h:
 db	0,0,0,0,0,0,0eh,40h,0,0,0
 ___183f50h:
-db	2dh,49h,4eh,46h,2eh,42h,49h,4eh,0
+db	"-INF.BIN",0
 ___183f59h:
 db	0,0,0,0,0,0,24h,40h
 ___183f61h:
@@ -2508,47 +2172,47 @@ db	25h,0
 ___184286h:
 db	9ah,99h,99h,99h,99h,99h,0f1h,3fh,0,0
 ___184290h:
-db	66h,6ch,61h,6dh,65h,31h,61h,2eh,73h,63h,78h,0
+db	"flame1a.scx",0
 ___18429ch:
-db	6dh,69h,6eh,65h,73h,31h,61h,2eh,73h,63h,78h,0
+db	"mines1a.scx",0
 ___1842a8h:
-db	62h,6ch,6fh,77h,69h,2eh,73h,63h,78h,0,0,0
+db	"blowi.scx",0,0,0
 ___1842b4h:
-db	73h,68h,6fh,74h,73h,2eh,73h,63h,78h,0,0,0
+db	"shots.scx",0,0,0
 ___1842c0h:
-db	5fh,4fh,48h,49h,2eh,44h,41h,54h,0,0,0,0
+db	"_OHI.DAT",0,0,0,0
 ___1842cch:
-db	2dh,56h,41h,49h,2eh,53h,43h,58h,0,0,0,0
+db	"-VAI.SCX",0,0,0,0
 ___1842d8h:
-db	2dh,4ch,52h,31h,2eh,53h,43h,58h,0,0,0,0
+db	"-LR1.SCX",0,0,0,0
 ___1842e4h:
-db	2dh,52h,4dh,31h,2eh,54h,41h,42h,0,0,0,0
+db	"-RM1.TAB",0,0,0,0
 ___1842f0h:
-db	2dh,52h,4dh,32h,2eh,54h,41h,42h,0,0,0,0
+db	"-RM2.TAB",0,0,0,0
 ___1842fch:
-db	2dh,52h,4dh,33h,2eh,54h,41h,42h,0,0,0,0
+db	"-RM3.TAB",0,0,0,0
 ___184308h:
-db	76h,61h,72h,6ah,6fh,2eh,74h,61h,62h,0,0,0
+db	"varjo.tab",0,0,0
 ___184314h:
-db	72h,61h,74h,61h,2eh,73h,63h,78h,0,0,0,0
+db	"rata.scx",0,0,0,0
 ___184320h:
-db	70h,61h,6ch,65h,2eh,73h,63h,78h,0,0,0,0
+db	"pale.scx",0,0,0,0
 ___18432ch:
-db	2dh,4dh,41h,53h,2eh,53h,43h,58h,0,0,0,0
+db	"-MAS.SCX",0,0,0,0
 ___184338h:
-db	6dh,61h,73h,6bh,76h,61h,69h,68h,2eh,72h,61h,77h,0,0,0,0
+db	"maskvaih.raw",0,0,0,0
 ___184348h:
-db	72h,65h,69h,74h,69h,74h,2eh,72h,61h,77h,0,0
+db	"reitit.raw",0,0
 ___184354h:
-db	61h,75h,74h,6fh,31h,2eh,64h,61h,74h,0,0,0
+db	"auto1.dat",0,0,0
 ___184360h:
-db	61h,75h,74h,6fh,32h,2eh,64h,61h,74h,0,0,0
+db	"auto2.dat",0,0,0
 ___18436ch:
-db	61h,75h,74h,6fh,33h,2eh,64h,61h,74h,0,0,0
+db	"auto3.dat",0,0,0
 ___184378h:
-db	61h,75h,74h,6fh,34h,2eh,64h,61h,74h,0,0,0
+db	"auto4.dat",0,0,0
 ___184384h:
-db	73h,63h,65h,6eh,65h,2eh,73h,63h,6eh,0
+db	"scene.scn",0
 ___18438eh:
 db	0,0,34h,43h
 ___184392h:
@@ -2574,491 +2238,336 @@ db	0,0,0,0,0,80h,66h,40h
 ___1843d6h:
 db	0,0,0b0h,41h,0,0
 ___1843dch:
-db	44h,65h,62h,75h,67h,3ah,20h,25h,69h,20h,20h,20h,20h,20h,20h,0ah
-db	0,0,0,0
+db	"Debug: %i      ",0ah,0,0,0,0
 ___1843f0h:
-db	2dh,4dh,55h,53h,2eh,43h,4dh,46h,0,0,0,0
+db	"-MUS.CMF",0,0,0,0
 ___1843fch:
-db	47h,45h,4eh,2dh,45h,46h,45h,2eh,43h,4dh,46h,0
+db	"GEN-EFE.CMF",0
 ___184408h:
-db	54h,52h,30h,0
+db	"TR0",0
 ___18440ch:
-db	54h,52h,31h,0
+db	"TR1",0
 ___184410h:
-db	54h,52h,32h,0
+db	"TR2",0
 ___184414h:
-db	54h,52h,33h,0
+db	"TR3",0
 ___184418h:
-db	54h,52h,34h,0
+db	"TR4",0
 ___18441ch:
-db	54h,52h,35h,0
+db	"TR5",0
 ___184420h:
-db	54h,52h,36h,0
+db	"TR6",0
 ___184424h:
-db	54h,52h,37h,0
+db	"TR7",0
 ___184428h:
-db	54h,52h,38h,0
+db	"TR8",0
 ___18442ch:
-db	54h,52h,39h,0
+db	"TR9",0
 ___184430h:
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	0,0,0,0
+db	"                                ",0,0,0,0
 ___184454h:
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	0,0,0,0
+db	"                                ",0,0,0,0
 ___184478h:
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	0,0,0,0
+db	"                                ",0,0,0,0
 ___18449ch:
-db	20h,20h,20h,20h,20h,47h,20h,41h,20h,4dh,20h,45h,20h,20h,20h,50h
-db	20h,41h,20h,55h,20h,53h,20h,45h,20h,44h,20h,21h,20h,20h,20h,20h
-db	0,0,0,0
+db	"     G A M E   P A U S E D !    ",0,0,0,0
 ___1844c0h:
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	0,0,0,0
+db	"                                ",0,0,0,0
 ___1844e4h:
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	0,0,0,0
+db	"                                ",0,0,0,0
 ___184508h:
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	0,0,0,0
+db	"                                ",0,0,0,0
 ___18452ch:
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	0,0,0,0
+db	"                                ",0,0,0,0
 ___184550h:
-db	20h,20h,20h,20h,50h,52h,45h,53h,53h,20h,45h,4eh,54h,45h,52h,20h
-db	54h,4fh,20h,43h,4fh,4eh,54h,49h,4eh,55h,45h,20h,20h,20h,20h,20h
-db	0,0,0,0
+db	"    PRESS ENTER TO CONTINUE     ",0,0,0,0
 ___184574h:
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	0,0,0,0
+db	"                                ",0,0,0,0
 ___184598h:
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	0,0,0,0
+db	"                                ",0,0,0,0
 ___1845bch:
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	0,0,0,0
+db	"                                ",0,0,0,0
 ___1845e0h:
-db	20h,20h,20h,20h,20h,20h,52h,20h,41h,20h,43h,20h,45h,20h,20h,20h
-db	20h,4fh,20h,56h,20h,45h,20h,52h,20h,21h,20h,20h,20h,20h,20h,20h
-db	0,0,0,0
+db	"      R A C E    O V E R !      ",0,0,0,0
 ___184604h:
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	0,0,0,0
+db	"                                ",0,0,0,0
 ___184628h:
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	0,0,0,0
+db	"                                ",0,0,0,0
 ___18464ch:
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	0,0,0,0
+db	"                                ",0,0,0,0
 ___184670h:
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	0,0,0,0
+db	"                                ",0,0,0,0
 ___184694h:
-db	20h,20h,20h,20h,50h,52h,45h,53h,53h,20h,45h,4eh,54h,45h,52h,20h
-db	54h,4fh,20h,43h,4fh,4eh,54h,49h,4eh,55h,45h,20h,20h,20h,20h,20h
-db	0,0,0,0
+db	"    PRESS ENTER TO CONTINUE     ",0,0,0,0
 ___1846b8h:
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	0,0,0,0
+db	"                                ",0,0,0,0
 ___1846dch:
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	0,0,0,0
+db	"                                ",0,0,0,0
 ___184700h:
-db	20h,53h,20h,4fh,20h,4dh,20h,45h,20h,4fh,20h,4eh,20h,45h,20h,20h
-db	20h,49h,20h,53h,20h,20h,20h,41h,20h,42h,20h,4fh,20h,55h,20h,54h
-db	0,0,0,0
+db	" S O M E O N E   I S   A B O U T",0,0,0,0
 ___184724h:
-db	20h,20h,20h,54h,20h,4fh,20h,20h,20h,41h,20h,42h,20h,4fh,20h,52h
-db	20h,54h,20h,20h,20h,52h,20h,41h,20h,43h,20h,45h,20h,21h,20h,20h
-db	0,0,0,0
+db	"   T O   A B O R T   R A C E !  ",0,0,0,0
 ___184748h:
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	0,0,0,0
+db	"                                ",0,0,0,0
 ___18476ch:
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	0,0,0,0
+db	"                                ",0,0,0,0
 ___184790h:
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	0,0,0,0
+db	"                                ",0,0,0,0
 ___1847b4h:
-db	20h,20h,57h,41h,49h,54h,49h,4eh,47h,20h,46h,4fh,52h,20h,53h,49h
-db	47h,4eh,41h,4ch,20h,46h,52h,4fh,4dh,20h,48h,4fh,53h,54h,20h,20h
-db	0,0,0,0
+db	"  WAITING FOR SIGNAL FROM HOST  ",0,0,0,0
 ___1847d8h:
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	0,0,0,0
+db	"                                ",0,0,0,0
 ___1847fch:
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	0,0,0,0
+db	"                                ",0,0,0,0
 ___184820h:
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	0,0,0,0
+db	"                                ",0,0,0,0
 ___184844h:
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	0,0,0,0
+db	"                                ",0,0,0,0
 ___184868h:
-db	20h,20h,20h,20h,20h,20h,41h,20h,42h,20h,4fh,20h,52h,20h,54h,20h
-db	20h,20h,44h,20h,45h,20h,4dh,20h,4fh,20h,21h,20h,20h,20h,20h,20h
-db	0,0,0,0
+db	"      A B O R T   D E M O !     ",0,0,0,0
 ___18488ch:
-db	20h,20h,20h,20h,20h,20h,41h,20h,42h,20h,4fh,20h,52h,20h,54h,20h
-db	20h,20h,52h,20h,41h,20h,43h,20h,45h,20h,21h,20h,20h,20h,20h,20h
-db	0,0,0,0
+db	"      A B O R T   R A C E !     ",0,0,0,0
 ___1848b0h:
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	0,0,0,0
+db	"                                ",0,0,0,0
 ___1848d4h:
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,59h,20h,2fh
-db	20h,4eh,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	0,0,0,0
+db	"             Y / N              ",0,0,0,0
 ___1848f8h:
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	0,0,0,0
+db	"                                ",0,0,0,0
 ___18491ch:
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	0,0,0,0
+db	"                                ",0,0,0,0
 ___184940h:
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	0,0,0,0
+db	"                                ",0,0,0,0
 ___184964h:
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	0,0,0,0
+db	"                                ",0,0,0,0
 ___184988h:
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	0,0,0,0
+db	"                                ",0,0,0,0
 ___1849ach:
-db	20h,20h,20h,20h,20h,4dh,20h,55h,20h,4ch,20h,54h,20h,49h,20h,50h
-db	20h,4ch,20h,41h,20h,59h,20h,45h,20h,52h,20h,20h,20h,20h,20h,20h
-db	0,0,0,0
+db	"     M U L T I P L A Y E R      ",0,0,0,0
 ___1849d0h:
-db	20h,20h,20h,20h,20h,20h,43h,20h,4fh,20h,4eh,20h,4eh,20h,45h,20h
-db	43h,20h,54h,20h,49h,20h,4fh,20h,4eh,20h,20h,20h,20h,20h,20h,20h
-db	0,0,0,0
+db	"      C O N N E C T I O N       ",0,0,0,0
 ___1849f4h:
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,4ch,20h,4fh,20h,53h
-db	20h,54h,20h,21h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	0,0,0,0
+db	"           L O S T !            ",0,0,0,0
 ___184a18h:
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	0,0,0,0
+db	"                                ",0,0,0,0
 ___184a3ch:
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	0,0,0,0
+db	"                                ",0,0,0,0
 ___184a60h:
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	0,0,0,0
+db	"                                ",0,0,0,0
 ___184a84h:
-db	20h,20h,20h,20h,20h,20h,50h,52h,45h,53h,53h,20h,45h,4eh,54h,45h
-db	52h,20h,54h,4fh,20h,41h,42h,4fh,52h,54h,20h,20h,20h,20h,20h,20h
-db	0,0,0,0
+db	"      PRESS ENTER TO ABORT      ",0,0,0,0
 ___184aa8h:
-db	20h,20h,20h,20h,20h,57h,45h,4ch,43h,4fh,4dh,45h,20h,54h,4fh,20h
-db	44h,45h,41h,54h,48h,20h,52h,41h,4ch,4ch,59h,21h,20h,20h,20h,20h
-db	0,0,0,0
+db	"     WELCOME TO DEATH RALLY!    ",0,0,0,0
 ___184acch:
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	0,0,0,0
+db	"                                ",0,0,0,0
 ___184af0h:
-db	20h,50h,52h,45h,53h,53h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	0,0,0,0
+db	" PRESS                          ",0,0,0,0
 ___184b14h:
-db	20h,20h,20h,20h,46h,31h,2dh,49h,4eh,46h,4fh,20h,53h,43h,52h,45h
-db	45h,4eh,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	0,0,0,0
+db	"    F1-INFO SCREEN              ",0,0,0,0
 ___184b38h:
-db	20h,20h,20h,20h,20h,50h,2dh,50h,41h,55h,53h,45h,20h,20h,20h,20h
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	0,0,0,0
+db	"     P-PAUSE                    ",0,0,0,0
 ___184b5ch:
-db	20h,20h,20h,54h,41h,42h,2dh,54h,4fh,47h,47h,4ch,45h,20h,53h,54h
-db	41h,54h,55h,53h,20h,42h,41h,52h,20h,20h,20h,20h,20h,20h,20h,20h
-db	0,0,0,0
+db	"   TAB-TOGGLE STATUS BAR        ",0,0,0,0
 ___184b80h:
-db	20h,20h,20h,45h,53h,43h,2dh,41h,42h,4fh,52h,54h,20h,52h,41h,43h
-db	45h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	0,0,0,0
+db	"   ESC-ABORT RACE               ",0,0,0,0
 ___184ba4h:
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	0,0,0,0
+db	"                                ",0,0,0,0
 ___184bc8h:
-db	20h,20h,20h,20h,50h,52h,45h,53h,53h,20h,45h,4eh,54h,45h,52h,20h
-db	54h,4fh,20h,43h,4fh,4eh,54h,49h,4eh,55h,45h,20h,20h,20h,20h,20h
+db	"    PRESS ENTER "
+db	"TO CONTINUE     "
 db	0
 ___184be9h:
 db	0,0,0,0,0,6ah,0d8h,40h,0,0,0
 ___184bf4h:
-db	0ah,45h,53h,50h,20h,46h,61h,74h,61h,6ch,20h,45h,72h,72h,6fh,72h
-db	20h,32h,35h,35h,3ah,0ah,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh
-db	2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,0ah,55h,6eh,64h,65h,66h
-db	69h,6eh,65h,64h,20h,46h,61h,74h,61h,6ch,20h,45h,72h,72h,6fh,72h
-db	20h,25h,64h,21h,0ah,7,0,0
+db	0ah,"ESP Fatal Error 255:"
+db  0ah,"--------------------"
+db  0ah,"Undefined Fatal Error %d!"
+db  0ah,7,0,0
 ___184c3ch:
-db	0ah,45h,53h,50h,20h,46h,61h,74h,61h,6ch,20h,45h,72h,72h,6fh,72h
-db	20h,25h,64h,3ah,0ah,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh
-db	2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,0ah,0,0
+db	0ah,"ESP Fatal Error %d:"
+db  0ah,"--------------------"
+db  0ah,0,0
 ___184c68h:
-db	25h,64h,0,0
+db	"%d",0,0
 ___184c6ch:
-db	25h,73h,0,0
+db	"%s",0,0
 ___184c70h:
 db	0ah,7,0,0
 ___184c74h:
-db	50h,6ch,65h,61h,73h,65h,20h,63h,6fh,6eh,73h,75h,6ch,74h,20h,44h
-db	52h,48h,45h,4ch,50h,2eh,45h,58h,45h,20h,66h,6fh,72h,20h,6dh,6fh
-db	72h,65h,20h,69h,6eh,66h,6fh,72h,6dh,61h,74h,69h,6fh,6eh,20h,6fh
-db	6eh,20h,68h,6fh,77h,20h,74h,6fh,20h,72h,65h,73h,6fh,6ch,76h,65h
-db	20h,74h,68h,69h,73h,20h,70h,72h,6fh,62h,6ch,65h,6dh,2eh,0ah,0
+db	"Please consult DRHELP.EXE for more information on how to resolve this problem.",0ah,0
 ___184cc4h:
-db	2fh,73h,0,0
+db	"/s",0,0
 ___184cc8h:
-db	44h,65h,74h,65h,63h,74h,65h,64h,20h,47h,72h,61h,76h,69h,73h,20h
-db	55h,6ch,74h,72h,61h,53h,6fh,75h,6eh,64h,0ah,0
+db	"Detected Gravis UltraSound",0ah,0
 ___184ce4h:
-db	63h,61h,72h,64h,3dh,25h,64h,0ah,0,0,0,0
+db	"card=%d",0ah,0,0,0,0
 ___184cf0h:
-db	70h,6fh,72h,74h,3dh,25h,78h,0ah,0,0,0,0
+db	"port=%x",0ah,0,0,0,0
 ___184cfch:
-db	69h,72h,71h,3dh,25h,64h,0ah,0
+db	"irq=%d",0ah,0
 ___184d04h:
-db	64h,6dh,61h,3dh,25h,64h,0ah,0
+db	"dma=%d",0ah,0
 ___184d0ch:
-db	2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh
-db	2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,0ah,0,0
+db	"-----------------------------",0ah,0,0
 ___184d2ch:
-db	53h,45h,4ch,45h,43h,54h,20h,53h,4fh,55h,4eh,44h,20h,43h,41h,52h
-db	44h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0ah,0
+db	"SELECT SOUND CARD         ",0ah,0
 ___184d48h:
-db	20h,20h,20h,30h,20h,3dh,20h,4eh,6fh,20h,73h,6fh,75h,6eh,64h,20h
-db	63h,61h,72h,64h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0ah,0
+db	"   0 = No sound card          ",0ah,0
 ___184d68h:
-db	20h,20h,20h,31h,20h,3dh,20h,47h,72h,61h,76h,69h,73h,20h,55h,6ch
-db	74h,72h,61h,53h,6fh,75h,6eh,64h,20h,20h,20h,20h,20h,20h,0ah,0
+db	"   1 = Gravis UltraSound      ",0ah,0
 ___184d88h:
-db	20h,20h,20h,32h,20h,3dh,20h,53h,6fh,75h,6eh,64h,20h,42h,6ch,61h
-db	73h,74h,65h,72h,20h,28h,6dh,6fh,6eh,6fh,29h,20h,20h,20h,0ah,0
+db	"   2 = Sound Blaster (mono)   ",0ah,0
 ___184da8h:
-db	20h,20h,20h,33h,20h,3dh,20h,53h,6fh,75h,6eh,64h,20h,42h,6ch,61h
-db	73h,74h,65h,72h,20h,50h,72h,6fh,20h,20h,20h,20h,20h,20h,0ah,0
+db	"   3 = Sound Blaster Pro      ",0ah,0
 ___184dc8h:
-db	20h,20h,20h,34h,20h,3dh,20h,53h,6fh,75h,6eh,64h,20h,42h,6ch,61h
-db	73h,74h,65h,72h,20h,31h,36h,20h,20h,20h,20h,20h,20h,20h,0ah,0
+db	"   4 = Sound Blaster 16       ",0ah,0
 ___184de8h:
-db	20h,20h,20h,35h,20h,3dh,20h,53h,42h,20h,43h,6fh,6dh,70h,61h,74h
-db	69h,62h,6ch,65h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0ah,0
+db	"   5 = SB Compatible          ",0ah,0
 ___184e08h:
-db	3eh,20h,0,0
+db	"> ",0,0
 ___184e0ch:
-db	2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh
-db	2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,0ah,0,0
+db	"-----------------------------",0ah,0,0
 ___184e2ch:
-db	53h,45h,4ch,45h,43h,54h,20h,50h,4fh,52h,54h,3ah,20h,20h,20h,20h
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0ah,0,0,0,0
+db	"SELECT PORT:               ",0ah,0,0,0,0
 ___184e4ch:
-db	20h,20h,20h,31h,20h,3dh,20h,32h,31h,30h,68h,20h,20h,20h,20h,20h
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0ah,0
+db	"   1 = 210h                   ",0ah,0
 ___184e6ch:
-db	20h,20h,20h,32h,20h,3dh,20h,32h,32h,30h,68h,20h,20h,20h,20h,20h
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0ah,0
+db	"   2 = 220h                   ",0ah,0
 ___184e8ch:
-db	20h,20h,20h,33h,20h,3dh,20h,32h,33h,30h,68h,20h,20h,20h,20h,20h
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0ah,0
+db	"   3 = 230h                   ",0ah,0
 ___184each:
-db	20h,20h,20h,34h,20h,3dh,20h,32h,34h,30h,68h,20h,20h,20h,20h,20h
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0ah,0
+db	"   4 = 240h                   ",0ah,0
 ___184ecch:
-db	20h,20h,20h,35h,20h,3dh,20h,32h,35h,30h,68h,20h,20h,20h,20h,20h
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0ah,0
+db	"   5 = 250h                   ",0ah,0
 ___184eech:
-db	20h,20h,20h,36h,20h,3dh,20h,32h,36h,30h,68h,20h,20h,20h,20h,20h
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0ah,0
+db	"   6 = 260h                   ",0ah,0
 ___184f0ch:
-db	2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh
-db	2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,0ah,0,0
+db	"-----------------------------",0ah,0,0
 ___184f2ch:
-db	53h,45h,4ch,45h,43h,54h,20h,49h,52h,51h,3ah,20h,20h,20h,20h,20h
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0ah,0,0,0,0
+db	"SELECT IRQ:                ",0ah,0,0,0,0
 ___184f4ch:
-db	20h,20h,20h,31h,20h,3dh,20h,32h,20h,20h,20h,20h,20h,20h,20h,20h
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0ah,0
+db	"   1 = 2                      ",0ah,0
 ___184f6ch:
-db	20h,20h,20h,32h,20h,3dh,20h,33h,20h,20h,20h,20h,20h,20h,20h,20h
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0ah,0
+db	"   2 = 3                      ",0ah,0
 ___184f8ch:
-db	20h,20h,20h,33h,20h,3dh,20h,35h,20h,20h,20h,20h,20h,20h,20h,20h
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0ah,0
+db	"   3 = 5                      ",0ah,0
 ___184fach:
-db	20h,20h,20h,34h,20h,3dh,20h,37h,20h,20h,20h,20h,20h,20h,20h,20h
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0ah,0
+db	"   4 = 7                      ",0ah,0
 ___184fcch:
-db	20h,20h,20h,35h,20h,3dh,20h,31h,31h,20h,20h,20h,20h,20h,20h,20h
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0ah,0
+db	"   5 = 11                     ",0ah,0
 ___184fech:
-db	20h,20h,20h,36h,20h,3dh,20h,31h,35h,20h,20h,20h,20h,20h,20h,20h
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0ah,0
+db	"   6 = 15                     ",0ah,0
 ___18500ch:
-db	2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh
-db	2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,0ah,0,0
+db	"-----------------------------",0ah,0,0
 ___18502ch:
-db	53h,45h,4ch,45h,43h,54h,20h,44h,4dh,41h,3ah,20h,20h,20h,20h,20h
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0ah,0,0,0,0
+db	"SELECT DMA:                ",0ah,0,0,0,0
 ___18504ch:
-db	20h,20h,20h,30h,20h,3dh,20h,30h,20h,20h,20h,20h,20h,20h,20h,20h
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0ah,0
+db	"   0 = 0                      ",0ah,0
 ___18506ch:
-db	20h,20h,20h,31h,20h,3dh,20h,31h,20h,20h,20h,20h,20h,20h,20h,20h
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0ah,0
+db	"   1 = 1                      ",0ah,0
 ___18508ch:
-db	20h,20h,20h,33h,20h,3dh,20h,33h,20h,20h,20h,20h,20h,20h,20h,20h
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0ah,0
+db	"   3 = 3                      ",0ah,0
 ___1850ach:
 db	0,0,0,0
 ___1850b0h:
-db	55h,4ch,54h,52h,41h,53h,4eh,44h,0,0,0,0
+db	"ULTRASND",0,0,0,0
 ___1850bch:
-db	25h,78h,2ch,25h,64h,2ch,25h,64h,2ch,25h,64h,2ch,25h,64h,0,0
+db	"%x,%d,%d,%d,%d",0,0
 ___1850cch:
-db	42h,4ch,41h,53h,54h,45h,52h,0
+db	"BLASTER",0
 ___1850d4h:
-db	25h,78h,0,0
+db	"%x",0,0
 ___1850d8h:
-db	25h,64h,0,0
+db	"%d",0,0
 ___1850dch:
 db	0,0,0,0,0,0,0f0h,0bfh
 ___1850e4h:
-db	4eh,6fh,74h,20h,65h,6eh,6fh,75h,67h,68h,20h,6dh,65h,6dh,6fh,72h
-db	79h,20h,74h,6fh,20h,61h,6ch,6ch,6fh,63h,61h,74h,65h,20h,66h,69h
-db	6ch,65h,20h,73h,74h,72h,75h,63h,74h,75h,72h,65h,73h,0dh,0ah,0
-___185114h:
-db	53h,43h,52h,4dh,0,0,0,0
-___18511ch:
-db	45h,78h,74h,65h,6eh,64h,65h,64h,20h,4dh,6fh,64h,75h,6ch,65h,3ah
-db	20h,0,0,0
+db	"Not enough memory to allocate file structures",0dh,0ah,0
+__GDECL(__CEXT_V(string__SCRM))
+db	"SCRM",0,0,0,0
+__GDECL(__CEXT_V(string__Extended_Module))
+db	"Extended Module: ",0,0,0
 ___185130h:
-db	46h,6ch,6fh,61h,74h,69h,6eh,67h,2dh,70h,6fh,69h,6eh,74h,20h,73h
-db	75h,70h,70h,6fh,72h,74h,20h,6eh,6fh,74h,20h,6ch,6fh,61h,64h,65h
-db	64h,0dh,0ah,0
+db	"Floating-point support not loaded",0dh,0ah,0
 ___185154h:
-db	52h,41h,54h,49h,4fh,4eh,41h,4ch,20h,44h,4fh,53h,2fh,34h,47h,0
+db	"RATIONAL DOS/4G",0
 ___185164h:
-db	56h,47h,41h,3dh,0
+db	"VGA=",0
 ___185169h:
-db	28h,63h,29h,0
+db	"(c)",0
 ___18516dh:
-db	37h,36h,31h,32h,39h,35h,35h,32h,30h,0
+db	"761295520",0
 ___185177h:
-db	4fh,41h,4bh,0
+db	"OAK",0
 ___18517bh:
-db	54h,52h,49h,44h,45h,4eh,54h,0,0
+db	"TRIDENT",0,0
 ___185184h:
-db	69h,6eh,66h,0
+db	"inf",0
 ___185188h:
-db	6eh,61h,6eh,0
+db	"nan",0
 ___18518ch:
-db	41h,42h,4eh,4fh,52h,4dh,41h,4ch,20h,54h,45h,52h,4dh,49h,4eh,41h
-db	54h,49h,4fh,4eh,0dh,0ah,0,0
+db	"ABNORMAL TERMINATION",0dh,0ah,0,0
 ___1851a4h:
-db	61h,63h,6fh,73h,0
+db	"acos",0
 ___1851a9h:
-db	61h,73h,69h,6eh,0
+db	"asin",0
 ___1851aeh:
-db	73h,71h,72h,74h,0
+db	"sqrt",0
 ___1851b3h:
-db	65h,78h,70h,0
+db	"exp",0
 ___1851b7h:
-db	63h,6fh,73h,68h,0
+db	"cosh",0
 ___1851bch:
-db	73h,69h,6eh,68h,0
+db	"sinh",0
 ___1851c1h:
-db	70h,6fh,77h,0
+db	"pow",0
 ___1851c5h:
-db	61h,63h,6fh,73h,68h,0
+db	"acosh",0
 ___1851cbh:
-db	6ch,6fh,67h,32h,0
+db	"log2",0
 ___1851d0h:
-db	6ch,6fh,67h,0
+db	"log",0
 ___1851d4h:
-db	6ch,6fh,67h,31h,30h,0
+db	"log10",0
 ___1851dah:
-db	61h,74h,61h,6eh,68h,0
+db	"atanh",0
 ___1851e0h:
-db	61h,74h,61h,6eh,32h,0
+db	"atan2",0
 ___1851e6h:
-db	69h,70h,6fh,77h,0
+db	"ipow",0
 ___1851ebh:
-db	64h,70h,6fh,77h,69h,0
+db	"dpowi",0
 ___1851f1h:
-db	63h,6fh,73h,0
+db	"cos",0
 ___1851f5h:
-db	73h,69h,6eh,0
+db	"sin",0
 ___1851f9h:
-db	74h,61h,6eh,0
+db	"tan",0
 ___1851fdh:
-db	79h,30h,0
+db	"y0",0
 ___185200h:
-db	79h,31h,0
+db	"y1",0
 ___185203h:
-db	79h,6eh,0
+db	"yn",0
 ___185206h:
-db	6dh,6fh,64h,0
+db	"mod",0
 ___18520ah:
-db	63h,6fh,74h,61h,6eh,0
+db	"cotan",0
 ___185210h:
 db	3ah,8ch,30h,0e2h,8eh,79h,45h,3eh
 ___185218h:
-db	44h,6fh,6dh,61h,69h,6eh,20h,65h,72h,72h,6fh,72h,0
+db	"Domain error",0
 ___185225h:
-db	41h,72h,67h,75h,6dh,65h,6eh,74h,20h,73h,69h,6eh,67h,75h,6ch,61h
-db	72h,69h,74h,79h,0
+db	"Argument singularity",0
 ___18523ah:
-db	4fh,76h,65h,72h,66h,6ch,6fh,77h,20h,72h,61h,6eh,67h,65h,20h,65h
-db	72h,72h,6fh,72h,0
+db	"Overflow range error",0
 ___18524fh:
-db	55h,6eh,64h,65h,72h,66h,6ch,6fh,77h,20h,72h,61h,6eh,67h,65h,20h
-db	65h,72h,72h,6fh,72h,0
+db	"Underflow range error",0
 ___185265h:
-db	54h,6fh,74h,61h,6ch,20h,6ch,6fh,73h,73h,20h,6fh,66h,20h,73h,69h
-db	67h,6eh,69h,66h,69h,63h,61h,6eh,63h,65h,0
+db	"Total loss of significance",0
 ___185280h:
-db	50h,61h,72h,74h,69h,61h,6ch,20h,6ch,6fh,73h,73h,20h,6fh,66h,20h
-db	73h,69h,67h,6eh,69h,66h,69h,63h,61h,6eh,63h,65h,0
+db	"Partial loss of significance",0
 ___18529dh:
-db	20h,69h,6eh,20h,0,0,0
+db	" in ",0,0,0
 __IsTable:
 db	0,1,1,1,1,1,1,1,1,1,3,3,3,3,3,1
 db	1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
@@ -3133,8 +2642,7 @@ ___1854b0h:
 db	0,80h,2,0,0,80h,2,0
 ___1854b8h:
 db	0,80h,2,0
-global ___1854bch
-___1854bch:
+__GDECL(___1854bch)
 db	0,80h,2,0,0,80h,2,0
 ___1854c4h:
 db	0,80h,2,0
@@ -3363,7 +2871,7 @@ ___185ba0h:
 db	1,1,1,1,1,1,1,1,0
 global ___185ba9h
 ___185ba9h:
-db	20h,20h,14h,9,0eh,14h,15h,18h,15h,0ah,0ch,0bh,10h,15h,9,14h
+db	"  ",14h,9,0eh,14h,15h,18h,15h,0ah,0ch,0bh,10h,15h,9,14h
 db	8,13h,15h,0ah,14h,13h,14h,14h,13h,12h,13h,12h,8,9,10h,15h
 db	10h,0fh,16h,16h,15h,14h,16h,13h,12h,16h,16h,0ah,11h,15h,13h,1bh
 db	15h,16h,14h,16h,15h,14h,14h,16h,18h,1fh,16h,17h,13h,0ch,14h,0ch
@@ -3565,25 +3073,25 @@ db	97h,5,0,0,80h,5,0,0,80h,5,0,0,0a9h,5,0,0
 db	0bbh,5,0,0,0b8h,5,0,0,0b3h,5,0,0,0bfh,5,0,0
 db	0bbh,5,0,0,0a9h,5,0,0,9dh,5,0,0,0a3h,5,0,0
 ___1866b8h:
-db	53h,74h,61h,72h,74h,20h,52h,61h,63h,69h,6eh,67h,0,0,0,0
+db	"Start Racing",0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,4dh,75h,6ch,74h,69h,70h,6ch,61h,79h,65h,72h,20h,52h,61h
+db	0,0,"Multiplayer Ra"
 db	63h,65h,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,43h,6fh,6eh,66h,69h,67h,75h,72h,65h,0,0,0
+db	0,0,0,0,"Configure",0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,0,0,53h,65h,65h,20h,48h,61h,6ch,6ch,20h,4fh
+db	0,0,0,0,0,0,"See Hall O"
 db	66h,20h,46h,61h,6dh,65h,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,0,0,0,0,43h,72h,65h,64h,69h,74h,73h,0
+db	0,0,0,0,0,0,0,0,"Credits",0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,0,0,0,0,0,0,53h,68h,6fh,77h,20h,50h
+db	0,0,0,0,0,0,0,0,0,0,"Show P"
 db	72h,65h,76h,69h,65h,77h,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,0,0,0,0,0,0,0,0,45h,78h,69h,74h
+db	0,0,0,0,0,0,0,0,0,0,0,0,"Exit"
 db	20h,54h,6fh,20h,44h,4fh,53h,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -3595,16 +3103,16 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0
 ___18687ah:
-db	53h,74h,61h,72h,74h,20h,41h,20h,4eh,65h,77h,20h,47h,61h,6dh,65h
+db	"Start A New Game"
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,45h,6eh,64h,20h,43h,75h,72h,72h,65h,6eh,74h,20h,47h,61h
+db	0,0,"End Current Ga"
 db	6dh,65h,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,53h,65h,65h,20h,43h,75h,72h,72h,65h,6eh,74h,20h
+db	0,0,0,0,"See Current "
 db	53h,74h,61h,74h,69h,73h,74h,69h,63h,73h,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,0,0,4ch,6fh,61h,64h,20h,47h,61h,6dh,65h,0
+db	0,0,0,0,0,0,"Load Game",0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,53h,61h,76h,65h,20h,47h,61h,6dh
@@ -3625,37 +3133,37 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0
 ___186a3ch:
-db	49h,6eh,69h,74h,69h,61h,6ch,69h,7ah,65h,20h,41h,20h,4eh,65h,77h
-db	20h,47h,61h,6dh,65h,0,0,0,0,0,0,0,0,0,0,0
+db	"Initialize A New"
+db	" Game",0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0
 global ___186a6eh
 ___186a6eh:
-db	4ah,6fh,69h,6eh,20h,41h,6eh,20h,45h,78h,69h,73h,74h,69h,6eh,67h
-db	20h,47h,61h,6dh,65h,0,0,0,0,0,0,0,0,0,0,0
+db	"Join An Existing"
+db	" Game",0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0
 ___186aa0h:
-db	4eh,65h,74h,77h,6fh,72h,6bh,20h,43h,6fh,6eh,6eh,65h,63h,74h,69h
-db	6fh,6eh,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	"Network Connecti"
+db	"on",0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0
 ___186ad2h:
-db	53h,65h,72h,69h,61h,6ch,20h,43h,6fh,6eh,6eh,65h,63h,74h,69h,6fh
+db	"Serial Connectio"
 db	6eh,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0
 ___186b04h:
-db	44h,69h,61h,6ch,20h,4dh,6fh,64h,65h,6dh,0,0,0,0,0,0
+db	"Dial Modem",0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0
 ___186b36h:
-db	41h,6eh,73h,77h,65h,72h,20h,4dh,6fh,64h,65h,6dh,0,0,0,0
+db	"Answer Modem",0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,53h,65h,72h,69h,61h,6ch,2fh,43h,4fh,4dh,20h,4fh,70h,74h
-db	69h,6fh,6eh,73h,0,0,0,0,0,0,0,0,0,0,0,0
+db	0,0,"Serial/COM Opt"
+db	"ions",0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,50h,72h,65h,76h,69h,6fh,75h,73h,20h,4dh,65h,6eh
 db	75h,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -3673,12 +3181,12 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,44h,65h,66h,69h
 db	6eh,65h,20h,4bh,65h,79h,62h,6fh,61h,72h,64h,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,44h,65h
-db	66h,69h,6eh,65h,20h,47h,61h,6dh,65h,70h,61h,64h,2fh,4ah,6fh,79h
-db	73h,74h,69h,63h,6bh,0,0,0,0,0,0,0,0,0,0,0
+db	"fine Gamepad/Joy"
+db	"stick",0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 global ___186cc6h
 ___186cc6h:
-db	47h,61h,6dh,65h,70h,61h,64h,20h,44h,69h,73h,61h,62h,6ch,65h,64h
+db	"Gamepad Disabled"
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,50h,72h,65h,76h,69h,6fh,75h,73h,20h,4dh,65h,6eh,75h,0
@@ -3693,18 +3201,18 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,0,0,0,0,0,0,53h,65h,6ch,65h,63h,74h
+db	0,0,0,0,0,0,0,0,0,0,"Select"
 db	20h,54h,72h,61h,63h,6bh,73h,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,45h,6eh,74h,65h
-db	72h,20h,4dh,6fh,6eh,65h,79h,0,0,0,0,0,0,0,0,0
+db	"r Money",0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___186e24h:
 db	56h,69h,6fh,6ch,65h,6eh,63h,65h,20h,4fh,6eh,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,49h,6eh,69h,74h,69h,61h,6ch,69h,7ah,65h,20h,47h,61h,6dh
+db	0,0,"Initialize Gam"
 db	65h,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,50h,72h,65h,76h,69h,6fh,75h,73h,20h,4dh,65h,6eh
@@ -3755,69 +3263,69 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0
 ___187144h:
-db	41h,63h,63h,65h,6ch,65h,72h,61h,74h,65h,20h,20h,20h,20h,61h,0
+db	"Accelerate    a",0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0
 ___187176h:
-db	42h,72h,61h,6bh,65h,20h,20h,20h,20h,20h,20h,20h,20h,7ah,0,0
+db	"Brake        z",0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0
 ___1871a8h:
-db	53h,74h,65h,65h,72h,20h,4ch,65h,66h,74h,20h,20h,20h,20h,0fah,0fah
-db	6ch,65h,66h,74h,20h,61h,72h,72h,6fh,77h,0,0,0,0,0,0
+db	"Steer Left    ",0fah,0fah
+db	"left arrow",0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0
 ___1871dah:
-db	53h,74h,65h,65h,72h,20h,52h,69h,67h,68h,74h,20h,20h,20h,0fah,0fah
-db	0fah,0fah,0fah,0fah,72h,69h,67h,68h,74h,20h,61h,72h,72h,6fh,77h,0
+db	"Steer Right   ",0fah,0fah
+db	0fah,0fah,0fah,0fah,"right arrow",0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0
 ___18720ch:
-db	54h,75h,72h,62h,6fh,20h,42h,6fh,6fh,73h,74h,20h,20h,0fah,0fah,0fah
-db	0fah,0fah,0fah,0fah,0fah,0fah,0fah,0fah,0fah,73h,70h,61h,63h,65h,0,0
+db	"Turbo Boost  ",0fah,0fah,0fah
+db	0fah,0fah,0fah,0fah,0fah,0fah,0fah,0fah,0fah,"space",0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0
 ___18723eh:
-db	4dh,61h,63h,68h,69h,6eh,65h,20h,47h,75h,6eh,20h,20h,0fah,0fah,0fah
-db	0fah,0fah,0fah,0fah,0fah,0fah,0fah,0fah,0fah,6ch,65h,66h,74h,20h,63h,6fh
+db	"Machine Gun  ",0fah,0fah,0fah
+db	0fah,0fah,0fah,0fah,0fah,0fah,0fah,0fah,0fah,"left co"
 db	6eh,74h,72h,6fh,6ch,0,0,0,0,0,0,0,0,0,0,0
 db	0,0
 ___187270h:
-db	44h,72h,6fh,70h,20h,4dh,69h,6eh,65h,20h,20h,20h,20h,0fah,0fah,0fah
-db	0fah,0fah,0fah,0fah,0fah,0fah,0fah,0fah,6ch,65h,66h,74h,20h,61h,6ch,74h
+db	"Drop Mine    ",0fah,0fah,0fah
+db	0fah,0fah,0fah,0fah,0fah,0fah,0fah,0fah,"left alt"
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0
 ___1872a2h:
-db	48h,6fh,72h,6eh,20h,20h,20h,20h,20h,20h,20h,20h,0fah,0fah,0fah,0fah
+db	"Horn        ",0fah,0fah,0fah,0fah
 db	0fah,0fah,0fah,0fah,0fah,0fah,0fah,0fah,0fah,0fah,0fah,0fah,0fah,0fah,0fah,73h
 db	70h,61h,63h,65h,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,50h,72h,65h,76h,69h,6fh,75h,73h,20h,4dh,65h,6eh,75h,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,53h,74h,61h,6eh,64h,61h,72h,64h,20h,43h,4fh,4dh
+db	0,0,0,0,"Standard COM"
 db	31h,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,0,0,53h,74h,61h,6eh,64h,61h,72h,64h,20h,43h
+db	0,0,0,0,0,0,"Standard C"
 db	4fh,4dh,32h,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,0,0,0,0,53h,74h,61h,6eh,64h,61h,72h,64h
-db	20h,43h,4fh,4dh,33h,0,0,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,"Standard"
+db	" COM3",0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,0,0,0,0,0,0,53h,74h,61h,6eh,64h,61h
-db	72h,64h,20h,43h,4fh,4dh,34h,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,0,0,"Standa"
+db	"rd COM4",0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,43h,75h,73h,74h
-db	6fh,6dh,20h,43h,4fh,4dh,2dh,70h,6fh,72h,74h,0,0,0,0,0
+db	"om COM-port",0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,4dh,6fh
-db	64h,65h,6dh,20h,49h,6eh,69h,74h,20h,53h,74h,72h,69h,6eh,67h,0
+db	"dem Init String",0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 global ___187432h
 ___187432h:
-db	54h,6fh,6eh,65h,20h,44h,69h,61h,6ch,69h,6eh,67h,0,0,0,0
+db	"Tone Dialing",0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,50h,72h,65h,76h,69h,6fh,75h,73h,20h,4dh,65h,6eh,75h,0
@@ -3828,38 +3336,38 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0
 ___1874c8h:
-db	41h,63h,63h,65h,6ch,65h,72h,61h,74h,65h,20h,20h,20h,20h,61h,0
+db	"Accelerate    a",0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0
 ___1874fah:
-db	42h,72h,61h,6bh,65h,20h,20h,20h,20h,20h,20h,20h,20h,7ah,0,0
+db	"Brake        z",0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0
 ___18752ch:
-db	53h,74h,65h,65h,72h,20h,4ch,65h,66h,74h,20h,20h,20h,20h,0fah,0fah
-db	6ch,65h,66h,74h,20h,61h,72h,72h,6fh,77h,0,0,0,0,0,0
+db	"Steer Left    ",0fah,0fah
+db	"left arrow",0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0
 ___18755eh:
-db	53h,74h,65h,65h,72h,20h,52h,69h,67h,68h,74h,20h,20h,20h,0fah,0fah
-db	0fah,0fah,0fah,0fah,72h,69h,67h,68h,74h,20h,61h,72h,72h,6fh,77h,0
+db	"Steer Right   ",0fah,0fah
+db	0fah,0fah,0fah,0fah,"right arrow",0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0
 ___187590h:
-db	54h,75h,72h,62h,6fh,20h,42h,6fh,6fh,73h,74h,20h,20h,0fah,0fah,0fah
-db	0fah,0fah,0fah,0fah,0fah,0fah,0fah,0fah,0fah,73h,70h,61h,63h,65h,0,0
+db	"Turbo Boost  ",0fah,0fah,0fah
+db	0fah,0fah,0fah,0fah,0fah,0fah,0fah,0fah,0fah,"space",0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0
 ___1875c2h:
-db	4dh,61h,63h,68h,69h,6eh,65h,20h,47h,75h,6eh,20h,20h,0fah,0fah,0fah
-db	0fah,0fah,0fah,0fah,0fah,0fah,0fah,0fah,0fah,6ch,65h,66h,74h,20h,63h,6fh
+db	"Machine Gun  ",0fah,0fah,0fah
+db	0fah,0fah,0fah,0fah,0fah,0fah,0fah,0fah,0fah,"left co"
 db	6eh,74h,72h,6fh,6ch,0,0,0,0,0,0,0,0,0,0,0
 db	0,0
 ___1875f4h:
-db	44h,72h,6fh,70h,20h,4dh,69h,6eh,65h,20h,20h,20h,20h,0fah,0fah,0fah
-db	0fah,0fah,0fah,0fah,0fah,0fah,0fah,0fah,6ch,65h,66h,74h,20h,61h,6ch,74h
+db	"Drop Mine    ",0fah,0fah,0fah
+db	0fah,0fah,0fah,0fah,0fah,0fah,0fah,0fah,"left alt"
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,50h,72h,65h,76h,69h,6fh,75h,73h,20h,4dh,65h,6eh,75h,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -3872,10 +3380,10 @@ ___18768ah:
 db	73h,70h,65h,65h,64h,20h,6dh,61h,6bh,65h,73h,20h,6dh,65h,20h,64h
 db	69h,7ah,7ah,79h,0,0,0,0
 ___1876a2h:
-db	69h,20h,6ch,69h,76h,65h,20h,74h,6fh,20h,72h,69h,64h,65h,0,0
+db	"i live to ride",0,0
 db	0,0,0,0,0,0,0,0
 ___1876bah:
-db	70h,65h,74h,72h,6fh,6ch,20h,69h,6eh,20h,6dh,79h,20h,76h,65h,69h
+db	"petrol in my vei"
 db	6eh,73h,0,0,0,0,0,0
 ___1876d2h:
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -3888,7 +3396,7 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5bh,4eh,6fh,74h,20h,74h,6fh,6fh,20h,73h,68h,61h,62h,62h,79h,2ch
+db	"[Not too shabby,"
 db	20h,64h,72h,69h,76h,65h,72h,2eh,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -3898,33 +3406,33 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5bh,59h,6fh,75h,72h,20h,77h,69h,6ch,64h,20h,77h,69h,6eh,6eh,69h
-db	6eh,67h,20h,73h,74h,72h,65h,61h,6bh,20h,68h,61h,73h,20h,65h,61h
+db	"[Your wild winni"
+db	"ng streak has ea"
 db	72h,6eh,65h,64h,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5bh,79h,6fh,75h,20h,61h,6eh,20h,65h,78h,74h,72h,61h,20h,36h,30h
-db	30h,20h,62h,75h,63h,6bh,73h,2eh,7bh,20h,42h,75h,74h,20h,64h,6fh
+db	"[you an extra 60"
+db	"0 bucks.{ But do"
 db	6eh,27h,74h,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	67h,65h,74h,20h,63h,6fh,63h,6bh,79h,2ch,20h,74h,68h,6fh,73h,65h
-db	20h,6fh,74h,68h,65h,72h,20h,77h,61h,6eh,6eh,61h,62h,65h,0,0
+db	" other wannabe",0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	76h,69h,63h,74h,6fh,72h,79h,20h,68h,6fh,75h,6eh,64h,73h,20h,61h
-db	72h,65h,20h,67h,6fh,69h,6eh,67h,20h,74h,6fh,20h,7ah,65h,72h,6fh
+db	"victory hounds a"
+db	"re going to zero"
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	72h,69h,67h,68h,74h,20h,69h,6eh,74h,6fh,20h,79h,6fh,75h,72h,20h
-db	62h,6ch,61h,7ah,69h,6eh,67h,20h,74h,61h,69h,6ch,6ch,69h,67h,68h
+db	"right into your "
+db	"blazing tailligh"
 db	74h,73h,2eh,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	41h,6eh,64h,20h,74h,68h,65h,79h,20h,77h,61h,6eh,74h,20h,74h,6fh
-db	20h,67h,65h,74h,20h,79h,6fh,75h,20h,62h,61h,64h,2eh,0,0,0
+db	"And they want to"
+db	" get you bad.",0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -3938,7 +3446,7 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5bh,4eh,6fh,74h,20h,74h,6fh,6fh,20h,73h,68h,61h,62h,62h,79h,2ch
+db	"[Not too shabby,"
 db	20h,64h,72h,69h,76h,65h,72h,2eh,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -3948,33 +3456,33 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5bh,59h,6fh,75h,72h,20h,77h,69h,6ch,64h,20h,77h,69h,6eh,6eh,69h
-db	6eh,67h,20h,73h,74h,72h,65h,61h,6bh,20h,68h,61h,73h,20h,65h,61h
+db	"[Your wild winni"
+db	"ng streak has ea"
 db	72h,6eh,65h,64h,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5bh,79h,6fh,75h,20h,61h,6eh,20h,65h,78h,74h,72h,61h,20h,31h,2ch
+db	"[you an extra 1,"
 db	30h,30h,30h,20h,62h,75h,63h,6bh,73h,2eh,7bh,20h,42h,75h,74h,20h
-db	64h,6fh,6eh,27h,74h,0,0,0,0,0,0,0,0,0,0,0
+db	"don't",0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	67h,65h,74h,20h,63h,6fh,63h,6bh,79h,2ch,20h,74h,68h,6fh,73h,65h
-db	20h,6fh,74h,68h,65h,72h,20h,77h,61h,6eh,6eh,61h,62h,65h,0,0
+db	" other wannabe",0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	76h,69h,63h,74h,6fh,72h,79h,20h,68h,6fh,75h,6eh,64h,73h,20h,61h
-db	72h,65h,20h,67h,6fh,69h,6eh,67h,20h,74h,6fh,20h,7ah,65h,72h,6fh
+db	"victory hounds a"
+db	"re going to zero"
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	72h,69h,67h,68h,74h,20h,69h,6eh,74h,6fh,20h,79h,6fh,75h,72h,20h
-db	62h,6ch,61h,7ah,69h,6eh,67h,20h,74h,61h,69h,6ch,6ch,69h,67h,68h
+db	"right into your "
+db	"blazing tailligh"
 db	74h,73h,2eh,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	41h,6eh,64h,20h,74h,68h,65h,79h,20h,77h,61h,6eh,74h,20h,74h,6fh
-db	20h,67h,65h,74h,20h,79h,6fh,75h,20h,62h,61h,64h,2eh,0,0,0
+db	"And they want to"
+db	" get you bad.",0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -3988,7 +3496,7 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5bh,4eh,6fh,74h,20h,74h,6fh,6fh,20h,73h,68h,61h,62h,62h,79h,2ch
+db	"[Not too shabby,"
 db	20h,64h,72h,69h,76h,65h,72h,2eh,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -3998,33 +3506,33 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5bh,59h,6fh,75h,72h,20h,77h,69h,6ch,64h,20h,77h,69h,6eh,6eh,69h
-db	6eh,67h,20h,73h,74h,72h,65h,61h,6bh,20h,68h,61h,73h,20h,65h,61h
+db	"[Your wild winni"
+db	"ng streak has ea"
 db	72h,6eh,65h,64h,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5bh,79h,6fh,75h,20h,61h,6eh,20h,65h,78h,74h,72h,61h,20h,32h,2ch
+db	"[you an extra 2,"
 db	30h,30h,30h,20h,62h,75h,63h,6bh,73h,2eh,7bh,20h,42h,75h,74h,20h
-db	64h,6fh,6eh,27h,74h,0,0,0,0,0,0,0,0,0,0,0
+db	"don't",0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	67h,65h,74h,20h,63h,6fh,63h,6bh,79h,2ch,20h,74h,68h,6fh,73h,65h
-db	20h,6fh,74h,68h,65h,72h,20h,77h,61h,6eh,6eh,61h,62h,65h,0,0
+db	" other wannabe",0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	76h,69h,63h,74h,6fh,72h,79h,20h,68h,6fh,75h,6eh,64h,73h,20h,61h
-db	72h,65h,20h,67h,6fh,69h,6eh,67h,20h,74h,6fh,20h,7ah,65h,72h,6fh
+db	"victory hounds a"
+db	"re going to zero"
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	72h,69h,67h,68h,74h,20h,69h,6eh,74h,6fh,20h,79h,6fh,75h,72h,20h
-db	62h,6ch,61h,7ah,69h,6eh,67h,20h,74h,61h,69h,6ch,6ch,69h,67h,68h
+db	"right into your "
+db	"blazing tailligh"
 db	74h,73h,2eh,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	41h,6eh,64h,20h,74h,68h,65h,79h,20h,77h,61h,6eh,74h,20h,74h,6fh
-db	20h,67h,65h,74h,20h,79h,6fh,75h,20h,62h,61h,64h,2eh,0,0,0
+db	"And they want to"
+db	" get you bad.",0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -4038,7 +3546,7 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5bh,4eh,6fh,74h,20h,74h,6fh,6fh,20h,73h,68h,61h,62h,62h,79h,2ch
+db	"[Not too shabby,"
 db	20h,64h,72h,69h,76h,65h,72h,2eh,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -4048,33 +3556,33 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5bh,59h,6fh,75h,72h,20h,77h,69h,6ch,64h,20h,77h,69h,6eh,6eh,69h
-db	6eh,67h,20h,73h,74h,72h,65h,61h,6bh,20h,68h,61h,73h,20h,65h,61h
+db	"[Your wild winni"
+db	"ng streak has ea"
 db	72h,6eh,65h,64h,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5bh,79h,6fh,75h,20h,61h,6eh,20h,65h,78h,74h,72h,61h,20h,33h,2ch
+db	"[you an extra 3,"
 db	30h,30h,30h,20h,62h,75h,63h,6bh,73h,2eh,7bh,20h,42h,75h,74h,20h
-db	64h,6fh,6eh,27h,74h,0,0,0,0,0,0,0,0,0,0,0
+db	"don't",0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	67h,65h,74h,20h,63h,6fh,63h,6bh,79h,2ch,20h,74h,68h,6fh,73h,65h
-db	20h,6fh,74h,68h,65h,72h,20h,77h,61h,6eh,6eh,61h,62h,65h,0,0
+db	" other wannabe",0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	76h,69h,63h,74h,6fh,72h,79h,20h,68h,6fh,75h,6eh,64h,73h,20h,61h
-db	72h,65h,20h,67h,6fh,69h,6eh,67h,20h,74h,6fh,20h,7ah,65h,72h,6fh
+db	"victory hounds a"
+db	"re going to zero"
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	72h,69h,67h,68h,74h,20h,69h,6eh,74h,6fh,20h,79h,6fh,75h,72h,20h
-db	62h,6ch,61h,7ah,69h,6eh,67h,20h,74h,61h,69h,6ch,6ch,69h,67h,68h
+db	"right into your "
+db	"blazing tailligh"
 db	74h,73h,2eh,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	41h,6eh,64h,20h,74h,68h,65h,79h,20h,77h,61h,6eh,74h,20h,74h,6fh
-db	20h,67h,65h,74h,20h,79h,6fh,75h,20h,62h,61h,64h,2eh,0,0,0
+db	"And they want to"
+db	" get you bad.",0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -4088,7 +3596,7 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5bh,4eh,6fh,74h,20h,74h,6fh,6fh,20h,73h,68h,61h,62h,62h,79h,2ch
+db	"[Not too shabby,"
 db	20h,64h,72h,69h,76h,65h,72h,2eh,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -4098,33 +3606,33 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5bh,59h,6fh,75h,72h,20h,77h,69h,6ch,64h,20h,77h,69h,6eh,6eh,69h
-db	6eh,67h,20h,73h,74h,72h,65h,61h,6bh,20h,68h,61h,73h,20h,65h,61h
+db	"[Your wild winni"
+db	"ng streak has ea"
 db	72h,6eh,65h,64h,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5bh,79h,6fh,75h,20h,61h,6eh,20h,65h,78h,74h,72h,61h,20h,34h,2ch
+db	"[you an extra 4,"
 db	30h,30h,30h,20h,62h,75h,63h,6bh,73h,2eh,7bh,20h,42h,75h,74h,20h
-db	64h,6fh,6eh,27h,74h,0,0,0,0,0,0,0,0,0,0,0
+db	"don't",0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	67h,65h,74h,20h,63h,6fh,63h,6bh,79h,2ch,20h,74h,68h,6fh,73h,65h
-db	20h,6fh,74h,68h,65h,72h,20h,77h,61h,6eh,6eh,61h,62h,65h,0,0
+db	" other wannabe",0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	76h,69h,63h,74h,6fh,72h,79h,20h,68h,6fh,75h,6eh,64h,73h,20h,61h
-db	72h,65h,20h,67h,6fh,69h,6eh,67h,20h,74h,6fh,20h,7ah,65h,72h,6fh
+db	"victory hounds a"
+db	"re going to zero"
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	72h,69h,67h,68h,74h,20h,69h,6eh,74h,6fh,20h,79h,6fh,75h,72h,20h
-db	62h,6ch,61h,7ah,69h,6eh,67h,20h,74h,61h,69h,6ch,6ch,69h,67h,68h
+db	"right into your "
+db	"blazing tailligh"
 db	74h,73h,2eh,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	41h,6eh,64h,20h,74h,68h,65h,79h,20h,77h,61h,6eh,74h,20h,74h,6fh
-db	20h,67h,65h,74h,20h,79h,6fh,75h,20h,62h,61h,64h,2eh,0,0,0
+db	"And they want to"
+db	" get you bad.",0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -4138,7 +3646,7 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5bh,4eh,6fh,74h,20h,74h,6fh,6fh,20h,73h,68h,61h,62h,62h,79h,2ch
+db	"[Not too shabby,"
 db	20h,64h,72h,69h,76h,65h,72h,2eh,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -4148,33 +3656,33 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5bh,59h,6fh,75h,72h,20h,77h,69h,6ch,64h,20h,77h,69h,6eh,6eh,69h
-db	6eh,67h,20h,73h,74h,72h,65h,61h,6bh,20h,68h,61h,73h,20h,65h,61h
+db	"[Your wild winni"
+db	"ng streak has ea"
 db	72h,6eh,65h,64h,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5bh,79h,6fh,75h,20h,61h,6eh,20h,65h,78h,74h,72h,61h,20h,35h,2ch
+db	"[you an extra 5,"
 db	30h,30h,30h,20h,62h,75h,63h,6bh,73h,2eh,7bh,20h,42h,75h,74h,20h
-db	64h,6fh,6eh,27h,74h,0,0,0,0,0,0,0,0,0,0,0
+db	"don't",0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	67h,65h,74h,20h,63h,6fh,63h,6bh,79h,2ch,20h,74h,68h,6fh,73h,65h
-db	20h,6fh,74h,68h,65h,72h,20h,77h,61h,6eh,6eh,61h,62h,65h,0,0
+db	" other wannabe",0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	76h,69h,63h,74h,6fh,72h,79h,20h,68h,6fh,75h,6eh,64h,73h,20h,61h
-db	72h,65h,20h,67h,6fh,69h,6eh,67h,20h,74h,6fh,20h,7ah,65h,72h,6fh
+db	"victory hounds a"
+db	"re going to zero"
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	72h,69h,67h,68h,74h,20h,69h,6eh,74h,6fh,20h,79h,6fh,75h,72h,20h
-db	62h,6ch,61h,7ah,69h,6eh,67h,20h,74h,61h,69h,6ch,6ch,69h,67h,68h
+db	"right into your "
+db	"blazing tailligh"
 db	74h,73h,2eh,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	41h,6eh,64h,20h,74h,68h,65h,79h,20h,77h,61h,6eh,74h,20h,74h,6fh
-db	20h,67h,65h,74h,20h,79h,6fh,75h,20h,62h,61h,64h,2eh,0,0,0
+db	"And they want to"
+db	" get you bad.",0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -4189,7 +3697,7 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5bh,49h,6eh,63h,6fh,6eh,63h,65h,69h,76h,61h,62h,6ch,65h,2ch,20h
+db	"[Inconceivable, "
 db	64h,72h,69h,76h,65h,72h,21h,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -4199,33 +3707,33 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	49h,74h,20h,77h,61h,73h,20h,61h,20h,73h,6eh,6fh,77h,62h,61h,6ch
-db	6ch,27h,73h,20h,63h,68h,61h,6eh,63h,65h,20h,69h,6eh,20h,68h,65h
+db	"It was a snowbal"
+db	"l's chance in he"
 db	6ch,6ch,2eh,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	54h,68h,72h,6fh,75h,67h,68h,20h,74h,68h,61h,74h,20h,62h,6ch,69h
+db	"Through that bli"
 db	74h,7ah,6bh,72h,69h,65h,67h,20h,62h,61h,74h,74h,6ch,65h,2ch,20h
-db	61h,6eh,64h,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	"and",0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5bh,6eh,6fh,74h,20h,61h,20h,73h,68h,61h,64h,6fh,77h,20h,6fh,66h
-db	20h,61h,20h,73h,63h,72h,61h,74h,63h,68h,20h,6fh,6eh,20h,79h,6fh
+db	"[not a shadow of"
+db	" a scratch on yo"
 db	75h,72h,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5bh,70h,61h,69h,6eh,74h,20h,6ah,6fh,62h,2eh,7bh,20h,4dh,79h,20h
-db	62h,65h,74h,20h,77h,61h,73h,20h,6fh,6eh,20h,79h,6fh,75h,2ch,20h
-db	61h,6eh,64h,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	"[paint job.{ My "
+db	"bet was on you, "
+db	"and",0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	69h,74h,20h,70h,61h,69h,64h,20h,6dh,65h,20h,62h,61h,63h,6bh,20h
-db	62h,69h,67h,20h,74h,69h,6dh,65h,2eh,20h,48h,65h,72h,65h,2ch,20h
-db	5bh,79h,6fh,75h,72h,0,0,0,0,0,0,0,0,0,0,0
+db	"it paid me back "
+db	"big time. Here, "
+db	"[your",0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5bh,73h,68h,61h,72h,65h,7bh,2ch,20h,5bh,24h,33h,35h,30h,7bh,2eh
-db	20h,47h,6fh,20h,6bh,6eh,6fh,63h,6bh,20h,79h,6fh,75h,72h,73h,65h
+db	"[share{, [$350{."
+db	" Go knock yourse"
 db	6ch,66h,20h,6fh,75h,74h,2eh,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -4239,7 +3747,7 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5bh,49h,6eh,63h,6fh,6eh,63h,65h,69h,76h,61h,62h,6ch,65h,2ch,20h
+db	"[Inconceivable, "
 db	64h,72h,69h,76h,65h,72h,21h,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -4249,33 +3757,33 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	49h,74h,20h,77h,61h,73h,20h,61h,20h,73h,6eh,6fh,77h,62h,61h,6ch
-db	6ch,27h,73h,20h,63h,68h,61h,6eh,63h,65h,20h,69h,6eh,20h,68h,65h
+db	"It was a snowbal"
+db	"l's chance in he"
 db	6ch,6ch,2eh,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	54h,68h,72h,6fh,75h,67h,68h,20h,74h,68h,61h,74h,20h,62h,6ch,69h
+db	"Through that bli"
 db	74h,7ah,6bh,72h,69h,65h,67h,20h,62h,61h,74h,74h,6ch,65h,2ch,20h
-db	61h,6eh,64h,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	"and",0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5bh,6eh,6fh,74h,20h,61h,20h,73h,68h,61h,64h,6fh,77h,20h,6fh,66h
-db	20h,61h,20h,73h,63h,72h,61h,74h,63h,68h,20h,6fh,6eh,20h,79h,6fh
+db	"[not a shadow of"
+db	" a scratch on yo"
 db	75h,72h,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5bh,70h,61h,69h,6eh,74h,20h,6ah,6fh,62h,2eh,7bh,20h,4dh,79h,20h
-db	62h,65h,74h,20h,77h,61h,73h,20h,6fh,6eh,20h,79h,6fh,75h,2ch,20h
-db	61h,6eh,64h,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	"[paint job.{ My "
+db	"bet was on you, "
+db	"and",0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	69h,74h,20h,70h,61h,69h,64h,20h,6dh,65h,20h,62h,61h,63h,6bh,20h
-db	62h,69h,67h,20h,74h,69h,6dh,65h,2eh,20h,48h,65h,72h,65h,2ch,20h
-db	5bh,79h,6fh,75h,72h,0,0,0,0,0,0,0,0,0,0,0
+db	"it paid me back "
+db	"big time. Here, "
+db	"[your",0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5bh,73h,68h,61h,72h,65h,7bh,2ch,20h,5bh,24h,37h,35h,30h,7bh,2eh
-db	20h,47h,6fh,20h,6bh,6eh,6fh,63h,6bh,20h,79h,6fh,75h,72h,73h,65h
+db	"[share{, [$750{."
+db	" Go knock yourse"
 db	6ch,66h,20h,6fh,75h,74h,2eh,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -4289,7 +3797,7 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5bh,49h,6eh,63h,6fh,6eh,63h,65h,69h,76h,61h,62h,6ch,65h,2ch,20h
+db	"[Inconceivable, "
 db	64h,72h,69h,76h,65h,72h,21h,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -4299,33 +3807,33 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	49h,74h,20h,77h,61h,73h,20h,61h,20h,73h,6eh,6fh,77h,62h,61h,6ch
-db	6ch,27h,73h,20h,63h,68h,61h,6eh,63h,65h,20h,69h,6eh,20h,68h,65h
+db	"It was a snowbal"
+db	"l's chance in he"
 db	6ch,6ch,2eh,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	54h,68h,72h,6fh,75h,67h,68h,20h,74h,68h,61h,74h,20h,62h,6ch,69h
+db	"Through that bli"
 db	74h,7ah,6bh,72h,69h,65h,67h,20h,62h,61h,74h,74h,6ch,65h,2ch,20h
-db	61h,6eh,64h,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	"and",0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5bh,6eh,6fh,74h,20h,61h,20h,73h,68h,61h,64h,6fh,77h,20h,6fh,66h
-db	20h,61h,20h,73h,63h,72h,61h,74h,63h,68h,20h,6fh,6eh,20h,79h,6fh
+db	"[not a shadow of"
+db	" a scratch on yo"
 db	75h,72h,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5bh,70h,61h,69h,6eh,74h,20h,6ah,6fh,62h,2eh,7bh,20h,4dh,79h,20h
-db	62h,65h,74h,20h,77h,61h,73h,20h,6fh,6eh,20h,79h,6fh,75h,2ch,20h
-db	61h,6eh,64h,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	"[paint job.{ My "
+db	"bet was on you, "
+db	"and",0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	69h,74h,20h,70h,61h,69h,64h,20h,6dh,65h,20h,62h,61h,63h,6bh,20h
-db	62h,69h,67h,20h,74h,69h,6dh,65h,2eh,20h,48h,65h,72h,65h,2ch,20h
-db	5bh,79h,6fh,75h,72h,0,0,0,0,0,0,0,0,0,0,0
+db	"it paid me back "
+db	"big time. Here, "
+db	"[your",0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5bh,73h,68h,61h,72h,65h,7bh,2ch,20h,5bh,24h,31h,2ch,35h,30h,30h
-db	7bh,2eh,20h,47h,6fh,20h,6bh,6eh,6fh,63h,6bh,20h,79h,6fh,75h,72h
+db	"[share{, [$1,500"
+db	"{. Go knock your"
 db	73h,65h,6ch,66h,20h,6fh,75h,74h,2eh,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -4339,7 +3847,7 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5bh,49h,6eh,63h,6fh,6eh,63h,65h,69h,76h,61h,62h,6ch,65h,2ch,20h
+db	"[Inconceivable, "
 db	64h,72h,69h,76h,65h,72h,21h,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -4349,33 +3857,33 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	49h,74h,20h,77h,61h,73h,20h,61h,20h,73h,6eh,6fh,77h,62h,61h,6ch
-db	6ch,27h,73h,20h,63h,68h,61h,6eh,63h,65h,20h,69h,6eh,20h,68h,65h
+db	"It was a snowbal"
+db	"l's chance in he"
 db	6ch,6ch,2eh,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	54h,68h,72h,6fh,75h,67h,68h,20h,74h,68h,61h,74h,20h,62h,6ch,69h
+db	"Through that bli"
 db	74h,7ah,6bh,72h,69h,65h,67h,20h,62h,61h,74h,74h,6ch,65h,2ch,20h
-db	61h,6eh,64h,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	"and",0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5bh,6eh,6fh,74h,20h,61h,20h,73h,68h,61h,64h,6fh,77h,20h,6fh,66h
-db	20h,61h,20h,73h,63h,72h,61h,74h,63h,68h,20h,6fh,6eh,20h,79h,6fh
+db	"[not a shadow of"
+db	" a scratch on yo"
 db	75h,72h,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5bh,70h,61h,69h,6eh,74h,20h,6ah,6fh,62h,2eh,7bh,20h,4dh,79h,20h
-db	62h,65h,74h,20h,77h,61h,73h,20h,6fh,6eh,20h,79h,6fh,75h,2ch,20h
-db	61h,6eh,64h,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	"[paint job.{ My "
+db	"bet was on you, "
+db	"and",0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	69h,74h,20h,70h,61h,69h,64h,20h,6dh,65h,20h,62h,61h,63h,6bh,20h
-db	62h,69h,67h,20h,74h,69h,6dh,65h,2eh,20h,48h,65h,72h,65h,2ch,20h
-db	5bh,79h,6fh,75h,72h,0,0,0,0,0,0,0,0,0,0,0
+db	"it paid me back "
+db	"big time. Here, "
+db	"[your",0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5bh,73h,68h,61h,72h,65h,2ch,20h,5bh,24h,33h,2ch,30h,30h,30h,7bh
-db	2eh,20h,47h,6fh,20h,6bh,6eh,6fh,63h,6bh,20h,79h,6fh,75h,72h,73h
+db	"[share, [$3,000{"
+db	". Go knock yours"
 db	65h,6ch,66h,20h,6fh,75h,74h,2eh,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -4389,7 +3897,7 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5bh,49h,6eh,63h,6fh,6eh,63h,65h,69h,76h,61h,62h,6ch,65h,2ch,20h
+db	"[Inconceivable, "
 db	64h,72h,69h,76h,65h,72h,21h,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -4399,33 +3907,33 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	49h,74h,20h,77h,61h,73h,20h,61h,20h,73h,6eh,6fh,77h,62h,61h,6ch
-db	6ch,27h,73h,20h,63h,68h,61h,6eh,63h,65h,20h,69h,6eh,20h,68h,65h
+db	"It was a snowbal"
+db	"l's chance in he"
 db	6ch,6ch,2eh,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	54h,68h,72h,6fh,75h,67h,68h,20h,74h,68h,61h,74h,20h,62h,6ch,69h
+db	"Through that bli"
 db	74h,7ah,6bh,72h,69h,65h,67h,20h,62h,61h,74h,74h,6ch,65h,2ch,20h
-db	61h,6eh,64h,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	"and",0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5bh,6eh,6fh,74h,20h,61h,20h,73h,68h,61h,64h,6fh,77h,20h,6fh,66h
-db	20h,61h,20h,73h,63h,72h,61h,74h,63h,68h,20h,6fh,6eh,20h,79h,6fh
+db	"[not a shadow of"
+db	" a scratch on yo"
 db	75h,72h,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5bh,70h,61h,69h,6eh,74h,20h,6ah,6fh,62h,2eh,7bh,20h,4dh,79h,20h
-db	62h,65h,74h,20h,77h,61h,73h,20h,6fh,6eh,20h,79h,6fh,75h,2ch,20h
-db	61h,6eh,64h,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	"[paint job.{ My "
+db	"bet was on you, "
+db	"and",0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	69h,74h,20h,70h,61h,69h,64h,20h,6dh,65h,20h,62h,61h,63h,6bh,20h
-db	62h,69h,67h,20h,74h,69h,6dh,65h,2eh,20h,48h,65h,72h,65h,2ch,20h
-db	5bh,79h,6fh,75h,72h,0,0,0,0,0,0,0,0,0,0,0
+db	"it paid me back "
+db	"big time. Here, "
+db	"[your",0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5bh,73h,68h,61h,72h,65h,2ch,20h,5bh,24h,34h,2ch,35h,30h,30h,7bh
-db	2eh,20h,47h,6fh,20h,6bh,6eh,6fh,63h,6bh,20h,79h,6fh,75h,72h,73h
+db	"[share, [$4,500{"
+db	". Go knock yours"
 db	65h,6ch,66h,20h,6fh,75h,74h,2eh,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -4439,7 +3947,7 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5bh,49h,6eh,63h,6fh,6eh,63h,65h,69h,76h,61h,62h,6ch,65h,2ch,20h
+db	"[Inconceivable, "
 db	64h,72h,69h,76h,65h,72h,21h,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -4449,33 +3957,33 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	49h,74h,20h,77h,61h,73h,20h,61h,20h,73h,6eh,6fh,77h,62h,61h,6ch
-db	6ch,27h,73h,20h,63h,68h,61h,6eh,63h,65h,20h,69h,6eh,20h,68h,65h
+db	"It was a snowbal"
+db	"l's chance in he"
 db	6ch,6ch,2eh,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	54h,68h,72h,6fh,75h,67h,68h,20h,74h,68h,61h,74h,20h,62h,6ch,69h
+db	"Through that bli"
 db	74h,7ah,6bh,72h,69h,65h,67h,20h,62h,61h,74h,74h,6ch,65h,2ch,20h
-db	61h,6eh,64h,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	"and",0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5bh,6eh,6fh,74h,20h,61h,20h,73h,68h,61h,64h,6fh,77h,20h,6fh,66h
-db	20h,61h,20h,73h,63h,72h,61h,74h,63h,68h,20h,6fh,6eh,20h,79h,6fh
+db	"[not a shadow of"
+db	" a scratch on yo"
 db	75h,72h,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5bh,70h,61h,69h,6eh,74h,20h,6ah,6fh,62h,2eh,7bh,20h,4dh,79h,20h
-db	62h,65h,74h,20h,77h,61h,73h,20h,6fh,6eh,20h,79h,6fh,75h,2ch,20h
-db	61h,6eh,64h,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	"[paint job.{ My "
+db	"bet was on you, "
+db	"and",0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	69h,74h,20h,70h,61h,69h,64h,20h,6dh,65h,20h,62h,61h,63h,6bh,20h
-db	62h,69h,67h,20h,74h,69h,6dh,65h,2eh,20h,48h,65h,72h,65h,2ch,20h
-db	5bh,79h,6fh,75h,72h,0,0,0,0,0,0,0,0,0,0,0
+db	"it paid me back "
+db	"big time. Here, "
+db	"[your",0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5bh,73h,68h,61h,72h,65h,2ch,20h,5bh,24h,36h,2ch,30h,30h,30h,7bh
-db	2eh,20h,47h,6fh,20h,6bh,6eh,6fh,63h,6bh,20h,79h,6fh,75h,72h,73h
+db	"[share, [$6,000{"
+db	". Go knock yours"
 db	65h,6ch,66h,20h,6fh,75h,74h,2eh,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -4490,7 +3998,7 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5bh,49h,20h,61h,6dh,20h,6fh,6eh,65h,20h,67h,72h,61h,74h,65h,66h
+db	"[I am one gratef"
 db	75h,6ch,20h,72h,65h,61h,70h,65h,72h,2ch,20h,64h,72h,69h,76h,65h
 db	72h,2eh,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -4500,37 +4008,33 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5bh,4dh,6fh,72h,65h,20h,63h,61h,72h,20h,63h,6fh,72h,70h,73h,65h
-db	73h,7bh,20h,66h,6fh,72h,20h,6dh,79h,20h,64h,6fh,6dh,61h,69h,6eh
+db	"[More car corpse"
+db	"s{ for my domain"
 db	2eh,20h,59h,6fh,75h,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	61h,72h,65h,20h,6dh,79h,20h,73h,77h,65h,65h,74h,65h,73h,74h,20h
-db	6dh,69h,6eh,69h,6fh,6eh,2eh,20h,59h,6fh,75h,72h,20h,64h,65h,61h
+db	"are my sweetest "
+db	"minion. Your dea"
 db	64h,2dh,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	73h,65h,72h,69h,6fh,75h,73h,20h,64h,65h,64h,69h,63h,61h,74h,69h
-db	6fh,6eh,20h,68h,61h,73h,20h,65h,61h,72h,6eh,65h,64h,20h,79h,6fh
+db	"on has earned yo"
 db	75h,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	61h,20h,70h,61h,72h,6bh,69h,6eh,67h,20h,73h,70h,61h,63h,65h,20h
-db	61h,6dh,6fh,6eh,67h,20h,6dh,79h,20h,68h,6fh,72h,73h,65h,6dh,65h
+db	"a parking space "
+db	"among my horseme"
 db	6eh,2eh,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5bh,41h,20h,62h,6fh,6eh,75h,73h,20h,6fh,66h,20h,24h,36h,30h,30h
-db	20h,74h,6fh,20h,79h,6fh,75h,7bh,2ch,20h,68h,6fh,72h,73h,65h,2dh
+db	"[A bonus of $600"
+db	" to you{, horse-"
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	70h,6fh,77h,65h,72h,65h,64h,20h,73h,65h,72h,69h,61h,6ch,2dh,61h
-db	75h,74h,6fh,2dh,6bh,69h,6ch,6ch,65h,72h,2eh,0,0,0,0,0
-db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	"powered serial-a"
+db	"uto-killer.",0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -4540,7 +4044,11 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5bh,49h,20h,61h,6dh,20h,6fh,6eh,65h,20h,67h,72h,61h,74h,65h,66h
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	"[I am one gratef"
 db	75h,6ch,20h,72h,65h,61h,70h,65h,72h,2ch,20h,64h,72h,69h,76h,65h
 db	72h,2eh,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -4550,33 +4058,33 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5bh,4dh,6fh,72h,65h,20h,63h,61h,72h,20h,63h,6fh,72h,70h,73h,65h
-db	73h,7bh,20h,66h,6fh,72h,20h,6dh,79h,20h,64h,6fh,6dh,61h,69h,6eh
+db	"[More car corpse"
+db	"s{ for my domain"
 db	2eh,20h,59h,6fh,75h,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	61h,72h,65h,20h,6dh,79h,20h,73h,77h,65h,65h,74h,65h,73h,74h,20h
-db	6dh,69h,6eh,69h,6fh,6eh,2eh,20h,59h,6fh,75h,72h,20h,64h,65h,61h
+db	"are my sweetest "
+db	"minion. Your dea"
 db	64h,2dh,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	73h,65h,72h,69h,6fh,75h,73h,20h,64h,65h,64h,69h,63h,61h,74h,69h
-db	6fh,6eh,20h,68h,61h,73h,20h,65h,61h,72h,6eh,65h,64h,20h,79h,6fh
+db	"on has earned yo"
 db	75h,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	61h,20h,70h,61h,72h,6bh,69h,6eh,67h,20h,73h,70h,61h,63h,65h,20h
-db	61h,6dh,6fh,6eh,67h,20h,6dh,79h,20h,68h,6fh,72h,73h,65h,6dh,65h
+db	"a parking space "
+db	"among my horseme"
 db	6eh,2eh,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5bh,41h,20h,62h,6fh,6eh,75h,73h,20h,6fh,66h,20h,24h,31h,2ch,30h
-db	30h,30h,20h,74h,6fh,20h,79h,6fh,75h,7bh,2ch,20h,68h,6fh,72h,73h
+db	"[A bonus of $1,0"
+db	"00 to you{, hors"
 db	65h,2dh,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	70h,6fh,77h,65h,72h,65h,64h,20h,73h,65h,72h,69h,61h,6ch,2dh,61h
-db	75h,74h,6fh,2dh,6bh,69h,6ch,6ch,65h,72h,2eh,0,0,0,0,0
+db	"powered serial-a"
+db	"uto-killer.",0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -4590,7 +4098,7 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5bh,49h,20h,61h,6dh,20h,6fh,6eh,65h,20h,67h,72h,61h,74h,65h,66h
+db	"[I am one gratef"
 db	75h,6ch,20h,72h,65h,61h,70h,65h,72h,2ch,20h,64h,72h,69h,76h,65h
 db	72h,2eh,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -4600,33 +4108,33 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5bh,4dh,6fh,72h,65h,20h,63h,61h,72h,20h,63h,6fh,72h,70h,73h,65h
-db	73h,7bh,20h,66h,6fh,72h,20h,6dh,79h,20h,64h,6fh,6dh,61h,69h,6eh
+db	"[More car corpse"
+db	"s{ for my domain"
 db	2eh,20h,59h,6fh,75h,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	61h,72h,65h,20h,6dh,79h,20h,73h,77h,65h,65h,74h,65h,73h,74h,20h
-db	6dh,69h,6eh,69h,6fh,6eh,2eh,20h,59h,6fh,75h,72h,20h,64h,65h,61h
+db	"are my sweetest "
+db	"minion. Your dea"
 db	64h,2dh,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	73h,65h,72h,69h,6fh,75h,73h,20h,64h,65h,64h,69h,63h,61h,74h,69h
-db	6fh,6eh,20h,68h,61h,73h,20h,65h,61h,72h,6eh,65h,64h,20h,79h,6fh
+db	"on has earned yo"
 db	75h,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	61h,20h,70h,61h,72h,6bh,69h,6eh,67h,20h,73h,70h,61h,63h,65h,20h
-db	61h,6dh,6fh,6eh,67h,20h,6dh,79h,20h,68h,6fh,72h,73h,65h,6dh,65h
+db	"a parking space "
+db	"among my horseme"
 db	6eh,2eh,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5bh,41h,20h,62h,6fh,6eh,75h,73h,20h,6fh,66h,20h,24h,32h,2ch,30h
-db	30h,30h,20h,74h,6fh,20h,79h,6fh,75h,7bh,2ch,20h,68h,6fh,72h,73h
+db	"[A bonus of $2,0"
+db	"00 to you{, hors"
 db	65h,2dh,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	70h,6fh,77h,65h,72h,65h,64h,20h,73h,65h,72h,69h,61h,6ch,2dh,61h
-db	75h,74h,6fh,2dh,6bh,69h,6ch,6ch,65h,72h,2eh,0,0,0,0,0
+db	"powered serial-a"
+db	"uto-killer.",0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -4640,7 +4148,7 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5bh,49h,20h,61h,6dh,20h,6fh,6eh,65h,20h,67h,72h,61h,74h,65h,66h
+db	"[I am one gratef"
 db	75h,6ch,20h,72h,65h,61h,70h,65h,72h,2ch,20h,64h,72h,69h,76h,65h
 db	72h,2eh,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -4650,33 +4158,33 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5bh,4dh,6fh,72h,65h,20h,63h,61h,72h,20h,63h,6fh,72h,70h,73h,65h
-db	73h,7bh,20h,66h,6fh,72h,20h,6dh,79h,20h,64h,6fh,6dh,61h,69h,6eh
+db	"[More car corpse"
+db	"s{ for my domain"
 db	2eh,20h,59h,6fh,75h,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	61h,72h,65h,20h,6dh,79h,20h,73h,77h,65h,65h,74h,65h,73h,74h,20h
-db	6dh,69h,6eh,69h,6fh,6eh,2eh,20h,59h,6fh,75h,72h,20h,64h,65h,61h
+db	"are my sweetest "
+db	"minion. Your dea"
 db	64h,2dh,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	73h,65h,72h,69h,6fh,75h,73h,20h,64h,65h,64h,69h,63h,61h,74h,69h
-db	6fh,6eh,20h,68h,61h,73h,20h,65h,61h,72h,6eh,65h,64h,20h,79h,6fh
+db	"on has earned yo"
 db	75h,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	61h,20h,70h,61h,72h,6bh,69h,6eh,67h,20h,73h,70h,61h,63h,65h,20h
-db	61h,6dh,6fh,6eh,67h,20h,6dh,79h,20h,68h,6fh,72h,73h,65h,6dh,65h
+db	"a parking space "
+db	"among my horseme"
 db	6eh,2eh,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5bh,41h,20h,62h,6fh,6eh,75h,73h,20h,6fh,66h,20h,24h,33h,2ch,30h
-db	30h,30h,20h,74h,6fh,20h,79h,6fh,75h,7bh,2ch,20h,68h,6fh,72h,73h
+db	"[A bonus of $3,0"
+db	"00 to you{, hors"
 db	65h,2dh,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	70h,6fh,77h,65h,72h,65h,64h,20h,73h,65h,72h,69h,61h,6ch,2dh,61h
-db	75h,74h,6fh,2dh,6bh,69h,6ch,6ch,65h,72h,2eh,0,0,0,0,0
+db	"powered serial-a"
+db	"uto-killer.",0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -4690,7 +4198,7 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5bh,49h,20h,61h,6dh,20h,6fh,6eh,65h,20h,67h,72h,61h,74h,65h,66h
+db	"[I am one gratef"
 db	75h,6ch,20h,72h,65h,61h,70h,65h,72h,2ch,20h,64h,72h,69h,76h,65h
 db	72h,2eh,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -4700,33 +4208,33 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5bh,4dh,6fh,72h,65h,20h,63h,61h,72h,20h,63h,6fh,72h,70h,73h,65h
-db	73h,7bh,20h,66h,6fh,72h,20h,6dh,79h,20h,64h,6fh,6dh,61h,69h,6eh
+db	"[More car corpse"
+db	"s{ for my domain"
 db	2eh,20h,59h,6fh,75h,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	61h,72h,65h,20h,6dh,79h,20h,73h,77h,65h,65h,74h,65h,73h,74h,20h
-db	6dh,69h,6eh,69h,6fh,6eh,2eh,20h,59h,6fh,75h,72h,20h,64h,65h,61h
+db	"are my sweetest "
+db	"minion. Your dea"
 db	64h,2dh,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	73h,65h,72h,69h,6fh,75h,73h,20h,64h,65h,64h,69h,63h,61h,74h,69h
-db	6fh,6eh,20h,68h,61h,73h,20h,65h,61h,72h,6eh,65h,64h,20h,79h,6fh
+db	"on has earned yo"
 db	75h,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	61h,20h,70h,61h,72h,6bh,69h,6eh,67h,20h,73h,70h,61h,63h,65h,20h
-db	61h,6dh,6fh,6eh,67h,20h,6dh,79h,20h,68h,6fh,72h,73h,65h,6dh,65h
+db	"a parking space "
+db	"among my horseme"
 db	6eh,2eh,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5bh,41h,20h,62h,6fh,6eh,75h,73h,20h,6fh,66h,20h,24h,34h,2ch,30h
-db	30h,30h,20h,74h,6fh,20h,79h,6fh,75h,7bh,2ch,20h,68h,6fh,72h,73h
+db	"[A bonus of $4,0"
+db	"00 to you{, hors"
 db	65h,2dh,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	70h,6fh,77h,65h,72h,65h,64h,20h,73h,65h,72h,69h,61h,6ch,2dh,61h
-db	75h,74h,6fh,2dh,6bh,69h,6ch,6ch,65h,72h,2eh,0,0,0,0,0
+db	"powered serial-a"
+db	"uto-killer.",0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -4740,7 +4248,7 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5bh,49h,20h,61h,6dh,20h,6fh,6eh,65h,20h,67h,72h,61h,74h,65h,66h
+db	"[I am one gratef"
 db	75h,6ch,20h,72h,65h,61h,70h,65h,72h,2ch,20h,64h,72h,69h,76h,65h
 db	72h,2eh,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -4750,39 +4258,39 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5bh,4dh,6fh,72h,65h,20h,63h,61h,72h,20h,63h,6fh,72h,70h,73h,65h
-db	73h,7bh,20h,66h,6fh,72h,20h,6dh,79h,20h,64h,6fh,6dh,61h,69h,6eh
+db	"[More car corpse"
+db	"s{ for my domain"
 db	2eh,20h,59h,6fh,75h,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	61h,72h,65h,20h,6dh,79h,20h,73h,77h,65h,65h,74h,65h,73h,74h,20h
-db	6dh,69h,6eh,69h,6fh,6eh,2eh,20h,59h,6fh,75h,72h,20h,64h,65h,61h
+db	"are my sweetest "
+db	"minion. Your dea"
 db	64h,2dh,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	73h,65h,72h,69h,6fh,75h,73h,20h,64h,65h,64h,69h,63h,61h,74h,69h
-db	6fh,6eh,20h,68h,61h,73h,20h,65h,61h,72h,6eh,65h,64h,20h,79h,6fh
+db	"on has earned yo"
 db	75h,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	61h,20h,70h,61h,72h,6bh,69h,6eh,67h,20h,73h,70h,61h,63h,65h,20h
-db	61h,6dh,6fh,6eh,67h,20h,6dh,79h,20h,68h,6fh,72h,73h,65h,6dh,65h
+db	"a parking space "
+db	"among my horseme"
 db	6eh,2eh,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5bh,41h,20h,62h,6fh,6eh,75h,73h,20h,6fh,66h,20h,24h,35h,2ch,30h
-db	30h,30h,20h,74h,6fh,20h,79h,6fh,75h,7bh,2ch,20h,68h,6fh,72h,73h
+db	"[A bonus of $5,0"
+db	"00 to you{, hors"
 db	65h,2dh,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	70h,6fh,77h,65h,72h,65h,64h,20h,73h,65h,72h,69h,61h,6ch,2dh,61h
-db	75h,74h,6fh,2dh,6bh,69h,6ch,6ch,65h,72h,2eh,0,0,0,0,0
+db	"powered serial-a"
+db	"uto-killer.",0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18af12h:
-db	5bh,57h,68h,61h,74h,20h,6dh,6fh,74h,6fh,72h,69h,7ah,65h,64h,20h
-db	73h,74h,65h,72h,6fh,69h,64h,20h,70h,65h,64h,64h,6ch,69h,6eh,67h
+db	"[What motorized "
+db	"steroid peddling"
 db	21h,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -4793,37 +4301,37 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18afb2h:
-db	57h,6fh,77h,2ch,20h,6dh,79h,20h,6dh,61h,69h,6eh,20h,6dh,61h,6eh
-db	2eh,20h,49h,20h,64h,69h,64h,6eh,27h,74h,20h,6bh,6eh,6fh,77h,0
+db	"Wow, my main man"
+db	". I didn't know",0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18b002h:
-db	74h,68h,65h,72h,65h,20h,77h,61h,73h,20h,74h,68h,61h,74h,20h,6dh
-db	75h,63h,68h,20h,73h,6dh,6fh,6bh,65h,20h,69h,6eh,20h,74h,68h,65h
+db	"there was that m"
+db	"uch smoke in the"
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18b052h:
-db	77h,68h,6fh,6ch,65h,20h,62h,75h,72h,6eh,69h,6eh,67h,20h,68h,65h
-db	6ch,6ch,2ch,20h,61h,6eh,64h,20h,74h,68h,72h,6fh,75h,67h,68h,0
+db	"whole burning he"
+db	"ll, and through",0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18b0a2h:
-db	69h,74h,20h,61h,6ch,6ch,2ch,20h,62h,65h,61h,72h,69h,6eh,67h,20h
-db	67h,69h,66h,74h,73h,20h,6ch,69h,6bh,65h,20h,73h,6fh,6dh,65h,0
+db	"it all, bearing "
+db	"gifts like some",0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18b0f2h:
-db	62h,6ch,65h,73h,73h,65h,64h,20h,62h,65h,61h,73h,74h,2ch,20h,79h
-db	6fh,75h,20h,63h,61h,6dh,65h,2eh,20h,41h,6eh,64h,20h,5bh,74h,68h
+db	"blessed beast, y"
+db	"ou came. And [th"
 db	69h,73h,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18b142h:
-db	5bh,68h,65h,72h,65h,20h,69h,73h,20h,70h,72h,69h,6dh,65h,20h,73h
+db	"[here is prime s"
 db	74h,75h,66h,66h,21h,20h,24h,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -4841,7 +4349,7 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18b232h:
-db	5bh,57h,68h,65h,72h,65h,27h,72h,65h,20h,6dh,79h,20h,73h,74h,65h
+db	"[Where're my ste"
 db	72h,6fh,69h,64h,73h,3fh,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -4853,38 +4361,38 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18b2d2h:
-db	5bh,54h,68h,65h,20h,77h,68h,6fh,6ch,65h,20h,64h,65h,61h,6ch,20h
-db	77h,65h,6eh,74h,20h,73h,6fh,75h,72h,7bh,20h,62h,65h,63h,61h,75h
+db	"[The whole deal "
+db	"went sour{ becau"
 db	73h,65h,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18b322h:
-db	6fh,66h,20h,79h,6fh,75h,72h,20h,69h,6eh,63h,6fh,6dh,70h,65h,74h
+db	"of your incompet"
 db	65h,6eh,63h,65h,2eh,20h,41h,20h,66h,65h,77h,20h,73h,6ch,69h,63h
 db	6bh,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18b372h:
-db	74h,75h,72h,6eh,73h,20h,6fh,66h,20h,74h,68h,65h,20h,77h,68h,65h
-db	65h,6ch,2ch,20h,62h,75h,74h,20h,6eh,6fh,2ch,20h,6eh,6fh,70h,65h
+db	"turns of the whe"
+db	"el, but no, nope"
 db	21h,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18b3c2h:
-db	49h,27h,6dh,20h,6eh,6fh,74h,20h,68h,61h,70h,70h,79h,2ch,20h,61h
-db	6eh,64h,20h,77h,68h,65h,6eh,20h,49h,27h,6dh,20h,6eh,6fh,74h,0
+db	"I'm not happy, a"
+db	"nd when I'm not",0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18b412h:
 db	68h,61h,70h,70h,79h,20h,49h,20h,61h,6dh,20h,6dh,61h,64h,2ch,20h
-db	61h,6eh,64h,20h,77h,68h,65h,6eh,20h,49h,20h,61h,6dh,0,0,0
+db	"and when I am",0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18b462h:
-db	6dh,61h,64h,20h,5bh,62h,61h,64h,20h,74h,68h,69h,6eh,67h,73h,20h
-db	68h,61h,70h,70h,65h,6eh,20h,2dh,20h,74h,6fh,20h,79h,6fh,75h,21h
+db	"mad [bad things "
+db	"happen - to you!"
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -4901,8 +4409,8 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18b552h:
-db	5bh,59h,6fh,75h,20h,74h,6fh,74h,61h,6ch,6ch,79h,20h,73h,6ch,65h
-db	77h,20h,74h,68h,61h,74h,20h,63h,61h,72h,2eh,0,0,0,0,0
+db	"[You totally sle"
+db	"w that car.",0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -4914,36 +4422,36 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18b5f2h:
 db	41h,20h,6bh,69h,6ch,6ch,65h,72h,20h,72h,61h,63h,65h,21h,20h,54h
-db	68h,65h,20h,62h,75h,6ch,6ch,65h,74h,73h,20h,74h,6fh,6fh,6bh,20h
-db	74h,68h,65h,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	"he bullets took "
+db	"the",0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18b642h:
-db	73h,6bh,79h,20h,6ch,69h,6bh,65h,20h,63h,6ch,6fh,75h,64h,73h,20h
-db	6fh,66h,20h,6ch,6fh,63h,75h,73h,74h,73h,2ch,20h,61h,6eh,64h,0
+db	"sky like clouds "
+db	"of locusts, and",0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18b692h:
-db	74h,68h,65h,20h,73h,63h,72h,65h,61h,6dh,73h,20h,6fh,66h,20h,6dh
-db	6fh,74h,6fh,72h,73h,20h,77h,65h,72h,65h,20h,61h,0,0,0,0
+db	"the screams of m"
+db	"otors were a",0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18b6e2h:
-db	62h,61h,6eh,73h,68h,65h,65h,20h,77h,61h,69h,6ch,2eh,20h,5bh,44h
+db	"banshee wail. [D"
 db	65h,61h,74h,68h,21h,7bh,20h,59h,6fh,75h,20h,77h,65h,72h,65h,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18b732h:
-db	62h,65h,61h,75h,74h,69h,66h,75h,6ch,2ch,20h,5bh,0,0,0,0
+db	"beautiful, [",0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18b782h:
-db	5bh,63h,6fh,66h,66h,69h,6eh,20h,67h,72h,61h,76h,65h,2eh,20h,24h
+db	"[coffin grave. $"
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -4961,7 +4469,7 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18b872h:
-db	5bh,59h,6fh,75h,72h,20h,68h,69h,74h,20h,6dh,69h,73h,73h,65h,64h
+db	"[Your hit missed"
 db	21h,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -4974,37 +4482,37 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18b912h:
 db	59h,6fh,75h,20h,73h,69h,73h,73h,79h,20h,53h,75h,6eh,64h,61h,79h
-db	20h,64h,72h,69h,76h,65h,72h,2eh,20h,5bh,54h,68h,65h,0,0,0
+db	" driver. [The",0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18b962h:
 db	5bh,73h,69h,6dh,70h,6ch,65h,73h,74h,20h,6ah,6fh,62h,2ch,20h,61h
-db	6eh,64h,20h,79h,6fh,75h,20h,73h,63h,72h,65h,77h,20h,69h,74h,20h
-db	75h,70h,21h,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	"nd you screw it "
+db	"up!",0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18b9b2h:
-db	49h,20h,62h,65h,74h,20h,79h,6fh,75h,20h,61h,72h,65h,20h,61h,66h
-db	72h,61h,69h,64h,20h,6fh,66h,20h,74h,68h,65h,20h,64h,61h,72h,6bh
+db	"I bet you are af"
+db	"raid of the dark"
 db	20h,61h,73h,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18ba02h:
-db	77h,65h,6ch,6ch,2eh,20h,49h,27h,6ch,6ch,20h,73h,68h,6fh,77h,20h
-db	79h,6fh,75h,20h,77h,68h,61h,74h,20h,68h,61h,70h,70h,65h,6eh,73h
+db	"well. I'll show "
+db	"you what happens"
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18ba52h:
-db	77h,68h,65h,6eh,20h,79h,6fh,75h,20h,62h,72h,65h,61h,6bh,20h,79h
-db	6fh,75h,72h,20h,70h,72h,6fh,6dh,69h,73h,65h,73h,20h,74h,6fh,20h
+db	"when you break y"
+db	"our promises to "
 db	6dh,65h,2eh,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18baa2h:
-db	5bh,49h,27h,6dh,20h,67h,6fh,6eh,6eh,61h,20h,6dh,61h,6bh,65h,20h
-db	79h,6fh,75h,20h,70h,61h,79h,21h,0,0,0,0,0,0,0,0
+db	"[I'm gonna make "
+db	"you pay!",0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -5027,7 +4535,7 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18bbe2h:
-db	5bh,57h,65h,6ch,63h,6fh,6dh,65h,20h,74h,6fh,20h,54h,68h,65h,20h
+db	"[Welcome to The "
 db	53h,68h,6fh,70h,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -5039,39 +4547,36 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18bc82h:
-db	5ah,69h,6ch,6ch,69h,6fh,6eh,73h,20h,6dh,6fh,72h,65h,20h,6dh,69h
-db	6ch,65h,73h,20h,74h,6fh,20h,67h,6fh,2eh,20h,54h,68h,61h,74h,20h
-db	6ah,75h,6eh,6bh,20h,6fh,66h,20h,79h,6fh,75h,72h,73h,0,0,0
+db	"zillions more mi"
+db	"les to go. That "
+db	"junk of yours",0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18bcd2h:
-db	69h,73h,20h,6eh,6fh,20h,6ah,75h,67h,67h,65h,72h,6eh,61h,75h,74h
-db	2ch,20h,73h,68h,65h,20h,77h,6fh,6eh,27h,74h,20h,74h,61h,6bh,65h
-db	20h,79h,6fh,75h,20h,61h,6ch,6ch,0,0,0,0,0,0,0,0
+db	"is no juggernaut"
+db	", she won't take"
+db	" you all",0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18bd22h:
-db	74h,68h,65h,20h,77h,61h,79h,2eh,20h,5bh,59h,6fh,75h,20h,6eh,65h
-db	65h,64h,20h,74h,6fh,20h,67h,65h,61h,72h,20h,75h,70h,7bh,2ch,20h
-db	74h,6fh,20h,75h,70h,67h,72h,61h,64h,65h,2ch,0,0,0,0,0
+db	"the way. [You ne"
+db	"ed to gear up{, "
+db	"to upgrade,",0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18bd72h:
-db	6dh,61h,6bh,65h,20h,68h,65h,61h,64h,6ch,6fh,6eh,67h,20h,68h,65h
-db	61h,64h,77h,61h,79h,2ch,20h,73h,74h,72h,69h,76h,65h,20h,74h,6fh
-db	20h,73h,74h,72h,69h,64h,65h,2ch,0,0,0,0,0,0,0,0
+db	"make headlong headway, strive to stride,"
+db  0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18bdc2h:
-db	73h,74h,72h,69h,64h,65h,20h,74h,6fh,20h,73h,74h,72h,69h,76h,65h
-db	2ch,20h,65h,76h,6fh,6ch,76h,65h,2ch,20h,69h,6dh,70h,72h,6fh,76h
-db	65h,2ch,20h,62h,65h,74h,74h,65h,72h,2ch,0,0,0,0,0,0
+db	"stride to strive, evolve, improve, better,"
+db  0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18be12h:
-db	62h,65h,73h,74h,2eh,20h,5bh,42h,75h,79h,20h,26h,20h,62h,65h,20h
-db	6fh,6eh,65h,20h,73h,68h,69h,6eh,69h,6eh,67h,20h,70h,65h,72h,66h
-db	65h,63h,74h,69h,6fh,6eh,2eh,7bh,0,0,0,0,0,0,0,0
+db	"best. [Buy & be one shining perfection.{"
+db  0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18be62h:
@@ -5085,8 +4590,8 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5bh,43h,6fh,6eh,67h,72h,61h,74h,75h,6ch,61h,74h,69h,6fh,6eh,73h
-db	2ch,20h,64h,72h,69h,76h,65h,72h,2eh,0,0,0,0,0,0,0
+db	"[Congratulations, driver."
+db  0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -5095,33 +4600,28 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	59h,6fh,75h,27h,76h,65h,20h,6dh,61h,64h,65h,20h,69h,74h,20h,74h
-db	68h,72h,6fh,75h,67h,68h,20h,74h,68h,65h,20h,68h,6fh,74h,20h,72h
-db	6fh,64h,20h,72h,6fh,61h,64h,2dh,68h,65h,6ch,6ch,0,0,0,0
+db	"You've made it through the hot rod road-hell"
+db  0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	70h,75h,72h,67h,61h,74h,6fh,72h,79h,2eh,20h,5bh,59h,6fh,75h,20h
-db	61h,72h,65h,20h,23h,31h,2eh,7bh,20h,4eh,6fh,77h,20h,79h,6fh,75h
-db	20h,6dh,75h,73h,74h,0,0,0,0,0,0,0,0,0,0,0
+db	"purgatory. [You are #1.{ Now you must"
+db  0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	63h,68h,61h,6ch,6ch,65h,6eh,67h,65h,20h,74h,68h,65h,20h,64h,65h
-db	6dh,6fh,6eh,20h,6bh,69h,6eh,67h,20h,6fh,66h,20h,74h,68h,65h,20h
-db	72h,61h,63h,65h,2ch,20h,5bh,74h,68h,65h,0,0,0,0,0,0
+db	"challenge the demon king of the race, [the"
+db  0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5bh,41h,64h,76h,65h,72h,73h,61h,72h,79h,7bh,2ch,20h,66h,6fh,72h
-db	20h,74h,68h,65h,20h,47h,72h,61h,69h,6ch,2ch,20h,66h,6fh,72h,20h
-db	74h,68h,65h,20h,74h,68h,72h,6fh,6eh,65h,2ch,0,0,0,0,0
+db	"[Adversary{, for the Grail, for the throne,"
+db  0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	66h,6fh,72h,20h,74h,68h,65h,20h,68h,61h,6eh,64h,20h,6fh,66h,20h
-db	74h,68h,65h,20h,51h,75h,65h,65h,6eh,20h,52h,6fh,61h,64h,2eh,20h
-db	5bh,57h,69h,6eh,6eh,65h,72h,20h,74h,61h,6bh,65h,73h,0,0,0
+db	"for the hand of the Queen Road. [Winner takes"
+db  0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5bh,69h,74h,20h,61h,6ch,6ch,2eh,7bh,20h,44h,69h,67h,20h,69h,74h
-db	2ch,20h,79h,6fh,75h,20h,68h,61h,76h,65h,20h,74h,6fh,2eh,0,0
+db	"[it all.{ Dig it, you have to."
+db  0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -5137,8 +4637,8 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18c222h:
-db	5bh,50h,73h,73h,74h,2eh,2eh,2eh,79h,65h,61h,68h,20h,79h,6fh,75h
-db	2ch,20h,64h,72h,69h,76h,65h,72h,2eh,0,0,0,0,0,0,0
+db	"[Psst...yeah you, driver."
+db  0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -5149,39 +4649,33 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18c2c2h:
-db	4ah,65h,61h,6ch,6fh,75h,73h,79h,20h,62h,75h,72h,6eh,73h,20h,79h
-db	6fh,75h,20h,6ch,69h,6bh,65h,20h,61h,20h,64h,72h,61h,67h,6fh,6eh
-db	20h,69h,6eh,73h,69h,64h,65h,2ch,20h,79h,6fh,75h,0,0,0,0
+db	"Jealousy burns you like a dragon inside, you"
+db  0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18c312h:
-db	5bh,77h,61h,6eh,74h,20h,74h,68h,61h,74h,20h,72h,6fh,61h,64h,20h
-db	61h,6ch,6ch,20h,74h,6fh,20h,79h,6fh,75h,72h,73h,65h,6ch,66h,3fh
-db	7bh,20h,53h,6fh,20h,6ah,69h,6eh,78h,0,0,0,0,0,0,0
+db	"[want that road all to yourself?{ So jinx"
+db  0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18c362h:
-db	74h,68h,6fh,73h,65h,20h,72h,69h,76h,61h,6ch,20h,73h,75h,63h,6bh
-db	65h,72h,73h,2ch,20h,6ch,65h,74h,20h,74h,68h,65h,6dh,20h,67h,6fh
-db	20h,6fh,75h,74h,20h,69h,6eh,20h,61h,0,0,0,0,0,0,0
+db	"those rival suckers, let them go out in a"
+db  0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18c3b2h:
-db	62h,6ch,61h,7ah,65h,3bh,20h,79h,6fh,75h,20h,74h,61h,6bh,65h,20h
-db	74h,68h,65h,20h,67h,6ch,6fh,72h,79h,2eh,20h,5bh,57h,65h,6ch,63h
-db	6fh,6dh,65h,20h,74h,6fh,20h,74h,68h,65h,0,0,0,0,0,0
+db	"blaze",3bh," you take the glory. [Welcome to the"
+db  0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18c402h:
-db	5bh,55h,6eh,64h,65h,72h,67h,72h,6fh,75h,6eh,64h,20h,4dh,61h,72h
-db	6bh,65h,74h,2eh,7bh,20h,57h,68h,61h,74h,20h,79h,6fh,75h,20h,77h
-db	61h,6eh,74h,2ch,20h,77h,65h,20h,67h,6fh,74h,2eh,0,0,0,0
+db	"[Underground Market.{ What you want, we got."
+db  0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18c452h:
-db	44h,69h,67h,20h,6fh,75h,74h,20h,74h,68h,65h,20h,64h,6fh,75h,67h
-db	68h,2ch,20h,74h,68h,69h,73h,20h,67h,6fh,6eh,6eh,61h,20h,63h,6fh
-db	73h,74h,20h,79h,6fh,75h,2eh,0,0,0,0,0,0,0,0,0
+db	"Dig out the dough, this gonna cost you."
+db  0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18c4a2h:
@@ -5197,8 +4691,8 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18c542h:
-db	5bh,57h,65h,6ch,63h,6fh,6dh,65h,20h,74h,6fh,20h,44h,65h,61h,74h
-db	68h,20h,52h,61h,6ch,6ch,79h,2eh,0,0,0,0,0,0,0,0
+db	"[Welcome to Death Rally."
+db  0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -5209,39 +4703,33 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18c5e2h:
-db	54h,68h,65h,20h,72h,61h,63h,65h,20h,69h,73h,20h,6fh,6eh,2ch,20h
-db	69h,6eh,20h,5bh,44h,65h,61h,74h,68h,20h,52h,61h,6ch,6ch,79h,7bh
-db	2ch,20h,77h,68h,65h,72h,65h,20h,6ch,69h,66h,65h,20h,69h,73h,0
+db	"The race is on, in [Death Rally{, where life is"
+db  0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18c632h:
-db	73h,68h,6fh,72h,74h,20h,26h,20h,68h,6fh,74h,2ch,20h,66h,61h,73h
-db	74h,20h,26h,20h,64h,65h,61h,64h,6ch,79h,2eh,20h,57h,61h,74h,63h
-db	68h,20h,74h,68h,65h,20h,72h,6fh,61h,64h,2ch,0,0,0,0,0
+db	"short & hot, fast ",26h," deadly. Watch the road,"
+db  0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18c682h:
-db	68h,65h,61h,72h,20h,74h,68h,65h,20h,72h,75h,6dh,62h,6ch,65h,2eh
-db	20h,5bh,53h,74h,61h,72h,74h,20h,6fh,75h,74h,20h,65h,61h,73h,79h
-db	7bh,2ch,20h,67h,65h,74h,20h,74h,68h,65h,0,0,0,0,0,0
+db	"hear the rumble. [Start out easy{, get the"
+db  0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18c6d2h:
-db	66h,65h,65h,6ch,20h,6fh,66h,20h,69h,74h,2eh,20h,42h,75h,74h,20h
-db	72h,65h,6dh,65h,6dh,62h,65h,72h,3ah,20h,62h,79h,20h,74h,68h,65h
-db	20h,72h,75h,6ch,65h,73h,20h,6fh,72h,0,0,0,0,0,0,0
+db	"feel of it. But remember: by the rules or"
+db  0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18c722h:
-db	66h,72h,79h,20h,74h,68h,65h,20h,72h,75h,6ch,65h,73h,2ch,20h,5bh
-db	70h,6ch,61h,79h,20h,74h,6fh,20h,77h,69h,6eh,7bh,2eh,20h,27h,6eh
-db	75h,66h,66h,20h,73h,61h,69h,64h,2eh,20h,4eh,6fh,77h,0,0,0
+db	"fry the rules, [play to win{. 'nuff said. Now"
+db	0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18c772h:
-db	5bh,72h,69h,64h,65h,20h,79h,6fh,75h,72h,20h,6dh,61h,63h,68h,69h
-db	6eh,65h,7bh,2ch,20h,79h,6fh,75h,72h,20h,6dh,6fh,74h,6fh,72h,2dh
-db	77h,61h,72h,2dh,63h,68h,61h,72h,69h,6fh,74h,2eh,0,0,0,0
+db	"[ride your machine{, your motor-war-chariot."
+db	0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18c7c2h:
@@ -5257,9 +4745,8 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18c862h:
-db	20h,20h,20h,20h,20h,5bh,49h,74h,27h,73h,20h,70h,61h,79h,2dh,62h
-db	61h,63h,6bh,20h,74h,69h,6dh,65h,2ch,20h,64h,72h,69h,76h,65h,72h
-db	2eh,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	"     [It's pay-back time, driver."
+db  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18c8b2h:
@@ -5269,39 +4756,33 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18c902h:
-db	20h,20h,20h,20h,20h,54h,68h,69h,73h,20h,69h,73h,20h,77h,68h,61h
-db	74h,20h,49h,20h,6ch,69h,6bh,65h,20h,74h,6fh,20h,73h,65h,65h,2ch
-db	20h,61h,20h,67h,75h,79h,0,0,0,0,0,0,0,0,0,0
+db	"     This is what I like to see, a guy"
+db	0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18c952h:
-db	20h,20h,20h,20h,20h,77h,68h,6fh,20h,6bh,65h,65h,70h,73h,20h,68h
-db	69h,73h,20h,70h,61h,72h,74h,20h,6fh,66h,20h,74h,68h,65h,20h,62h
-db	61h,72h,67h,61h,69h,6eh,2eh,0,0,0,0,0,0,0,0,0
+db	"     who keeps his part of the bargain."
+db  0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18c9a2h:
-db	20h,20h,20h,20h,20h,41h,68h,2ch,20h,74h,68h,65h,20h,73h,77h,65h
-db	65h,74h,20h,73h,6dh,65h,6ch,6ch,20h,6fh,66h,20h,6dh,6fh,6eh,65h
-db	79h,2eh,20h,43h,6fh,6dh,65h,0,0,0,0,0,0,0,0,0
+db	"     Ah, the sweet smell of money. Come"
+db	0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18c9f2h:
-db	20h,20h,20h,20h,20h,74h,6fh,20h,70h,61h,70h,61h,2ch,20h,6dh,79h
-db	20h,62h,61h,62h,69h,65h,73h,2eh,20h,5bh,52h,65h,61h,6ch,20h,6eh
-db	69h,63h,65h,20h,64h,6fh,69h,6eh,67h,0,0,0,0,0,0,0
+db	"     to papa, my babies. [Real nice doing"
+db  0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18ca42h:
-db	20h,20h,20h,20h,20h,5bh,62h,75h,73h,69h,6eh,65h,73h,73h,20h,77h
-db	69h,74h,68h,20h,79h,6fh,75h,7bh,2ch,20h,74h,68h,75h,6eh,64h,65h
-db	72h,62h,6fh,79h,2eh,7bh,0,0,0,0,0,0,0,0,0,0
+db	"     [business with you{, thunderboy.{"
+db	0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18ca92h:
-db	20h,20h,20h,20h,20h,54h,68h,61h,6eh,6bh,73h,2ch,20h,61h,6eh,64h
-db	20h,67h,6fh,6fh,64h,20h,72h,61h,63h,69h,6eh,67h,20h,72h,69h,64h
-db	64h,61h,6eh,63h,65h,2eh,0,0,0,0,0,0,0,0,0,0
+db	"     Thanks, and good racing riddance."
+db	0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18cae2h:
@@ -5317,9 +4798,8 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18cb82h:
-db	20h,20h,20h,20h,20h,5bh,49h,74h,27h,73h,20h,70h,61h,79h,2dh,62h
-db	61h,63h,6bh,20h,74h,69h,6dh,65h,2ch,20h,64h,72h,69h,76h,65h,72h
-db	2eh,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	"     [It's pay-back time, driver."
+db  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18cbd2h:
@@ -5329,39 +4809,33 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18cc22h:
-db	20h,20h,20h,20h,20h,54h,75h,74h,20h,74h,75h,74h,2ch,20h,68h,6fh
-db	74h,73h,68h,6fh,74h,2ch,20h,5bh,49h,20h,63h,61h,6eh,27h,74h,20h
-db	73h,65h,65h,20h,6dh,79h,0,0,0,0,0,0,0,0,0,0
+db	"     Tut tut, hotshot, [I can't see my"
+db  0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18cc72h:
-db	20h,20h,20h,20h,20h,5bh,6dh,6fh,6eh,65h,79h,20h,61h,6eh,79h,77h
-db	68h,65h,72h,65h,2eh,7bh,20h,49h,20h,61h,69h,6eh,27h,74h,20h,61h
-db	6dh,75h,73h,65h,64h,2ch,0,0,0,0,0,0,0,0,0,0
+db	"     [money anywhere.{ I ain't amused,"
+db  0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18ccc2h:
-db	20h,20h,20h,20h,20h,6ah,6fh,6bh,65h,72h,2eh,20h,41h,20h,64h,65h
-db	61h,6ch,20h,69h,73h,20h,61h,20h,64h,65h,61h,6ch,2eh,20h,49h,20h
-db	67h,6fh,74h,20h,61h,0,0,0,0,0,0,0,0,0,0,0
+db	"     joker. A deal is a deal, I got a"
+db  0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18cd12h:
-db	20h,20h,20h,20h,20h,72h,65h,70h,75h,74h,61h,74h,69h,6fh,6eh,20h
-db	74h,6fh,20h,6ch,6fh,6fh,6bh,20h,61h,66h,74h,65h,72h,2eh,20h,54h
-db	6fh,6fh,20h,62h,61h,64h,2eh,0,0,0,0,0,0,0,0,0
+db	"     reputation to look after. Too bad."
+db  0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18cd62h:
-db	20h,20h,20h,20h,20h,4eh,6fh,74h,68h,69h,6eh,67h,20h,70h,65h,72h
-db	73h,6fh,6eh,61h,6ch,2ch,20h,62h,75h,74h,20h,5bh,49h,20h,67h,6fh
-db	74h,20h,74h,6fh,20h,68h,75h,72h,74h,0,0,0,0,0,0,0
+db	"     Nothing personal, but [I got to hurt"
+db  0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18cdb2h:
-db	20h,20h,20h,20h,20h,5bh,79h,6fh,75h,20h,73h,6fh,6dh,65h,20h,6eh
-db	6fh,77h,2eh,7bh,20h,48h,75h,72h,74h,20h,27h,69h,6dh,2ch,20h,62h
-db	6fh,79h,7ah,2eh,0,0,0,0,0,0,0,0,0,0,0,0
+db	"     [you some now.{ Hurt 'im, boyz."
+db  0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18ce02h:
@@ -5383,8 +4857,8 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18cef2h:
-db	5bh,59h,6fh,75h,20h,77h,65h,72h,65h,20h,6ch,61h,70h,70h,65h,64h
-db	2ch,20h,79h,6fh,75h,20h,6ch,6fh,73h,65h,72h,21h,0,0,0,0
+db	"[You were lapped, you loser!"
+db  0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -5395,37 +4869,34 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18cf92h:
-db	54h,68h,65h,20h,70h,61h,69h,6eh,2ch,20h,74h,68h,65h,20h,68h,75h
-db	6dh,69h,6ch,69h,61h,74h,69h,6fh,6eh,21h,20h,59h,6fh,75h,72h,20h
-db	73h,74h,75h,6eh,74h,0,0,0,0,0,0,0,0,0,0,0
+db	"The pain, the humiliation! your stunt"
+db	0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18cfe2h:
-db	6dh,61h,64h,65h,20h,6dh,65h,20h,74h,68h,65h,20h,6ch,61h,75h,67h
-db	68h,69h,6eh,67h,20h,73h,74h,6fh,63h,6bh,20h,6fh,66h,20h,74h,68h
-db	65h,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	"made me the laughing stock of the"
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18d032h:
 db	72h,61h,63h,65h,73h,2eh,20h,57h,68h,61h,74h,20h,77h,65h,72h,65h
-db	20h,79h,6fh,75h,20h,74h,72h,79h,69h,6eh,67h,20h,74h,6fh,20h,64h
+db	" you trying to d"
 db	6fh,2ch,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18d082h:
 db	6dh,69h,6dh,69h,63h,20h,73h,6ch,6fh,77h,2dh,6dh,6fh,74h,69h,6fh
-db	6eh,3fh,20h,4eh,6fh,20h,6fh,6eh,65h,20h,69h,73h,20h,67h,6fh,69h
+db	"n? No one is goi"
 db	6eh,67h,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18d0d2h:
-db	74h,6fh,20h,74h,61h,6bh,65h,20h,6dh,65h,20h,73h,65h,72h,69h,6fh
-db	75h,73h,6ch,79h,20h,61h,66h,74h,65h,72h,20h,74h,68h,69h,73h,2eh
+db	"to take me seriously after this."
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18d122h:
-db	5bh,4eh,6fh,20h,6dh,6fh,6eh,65h,79h,20h,6fh,72h,20h,70h,6fh,69h
+db	"[No money or poi"
 db	6eh,74h,73h,20h,61h,77h,61h,72h,64h,65h,64h,2eh,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -5443,8 +4914,8 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18d212h:
-db	5bh,54h,6fh,6fh,20h,73h,6ch,6fh,77h,2ch,20h,6eh,6fh,20h,64h,6fh
-db	75h,67h,68h,21h,0,0,0,0,0,0,0,0,0,0,0,0
+db	"[Too slow, no dough!"
+db	0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -5455,94 +4926,90 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18d2b2h:
-db	44h,65h,61h,74h,68h,20h,52h,61h,6ch,6ch,79h,20h,69h,73h,20h,66h
-db	6fh,72h,20h,77h,69h,6eh,6eh,65h,72h,73h,2eh,20h,59h,6fh,75h,0
+db	"Death Rally is for winners. you",0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18d302h:
-db	74h,6fh,74h,61h,6ch,6ch,79h,20h,6ch,6fh,73h,74h,20h,74h,68h,69h
-db	73h,20h,72h,61h,63h,65h,2eh,20h,5bh,41h,6ch,6ch,20h,74h,68h,65h
+db	"totally lost this race. [All the"
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18d352h:
-db	5bh,62h,6fh,6eh,75h,73h,20h,24h,24h,20h,79h,6fh,75h,20h,63h,6fh
-db	6ch,6ch,65h,63h,74h,65h,64h,20h,6fh,6eh,20h,74h,68h,65h,20h,77h
+db	"[bonus $$ you collected on the w"
 db	61h,79h,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18d3a2h:
-db	5bh,61h,72h,65h,20h,6eh,75h,6ch,6ch,20h,61h,6eh,64h,20h,76h,6fh
-db	69h,64h,2eh,7bh,20h,59h,6fh,75h,20h,67h,65h,74h,20h,6eh,6fh,74h
-db	68h,69h,6eh,67h,2ch,0,0,0,0,0,0,0,0,0,0,0
+db	"[are null and void.{ You get nothing,"
+db  0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18d3f2h:
-db	67h,65h,74h,20h,69h,74h,3fh,20h,5ah,65h,72h,6fh,2ch,20h,6eh,6fh
+db	"get it? zero, no"
 db	6eh,65h,2ch,20h,6eh,61h,75h,67h,68h,74h,2ch,20h,6eh,69h,78h,2ch
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18d442h:
 db	6eh,61h,64h,61h,2ch,20h,7ah,69h,6ch,63h,68h,2eh,20h,4eh,65h,78h
-db	74h,20h,74h,69h,6dh,65h,2ch,20h,62h,65h,20h,62h,65h,74h,74h,65h
+db	"t time, be bette"
 db	72h,2eh,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18d492h:
 db	53h,75h,62h,75h,72h,62h,69h,61h,0,0,0,0,0,0,0,44h
-db	6fh,77h,6eh,74h,6fh,77h,6eh,0,0,0,0,0,0,0,55h,74h
+db	"owntown",0,0,0,0,0,0,0,55h,74h
 db	6fh,70h,69h,61h,0,0,0,0,0,0,0,0,0,52h,6fh,63h
-db	6bh,20h,5ah,6fh,6eh,65h,0,0,0,0,0,0,53h,6eh,61h,6bh
+db	"k zone",0,0,0,0,0,0,53h,6eh,61h,6bh
 db	65h,20h,41h,6ch,6ch,65h,79h,0,0,0,0,4fh,61h,73h,69h,73h
 db	0,0,0,0,0,0,0,0,0,0,56h,65h,6ch,6fh,64h,72h
 db	6fh,6dh,65h,0,0,0,0,0,0,48h,6fh,6ch,6fh,63h,61h,75h
 db	73h,74h,0,0,0,0,0,0,42h,6fh,67h,6fh,74h,61h,0,0
 db	0,0,0,0,0,0,0,57h,65h,73h,74h,20h,45h,6eh,64h,0
-db	0,0,0,0,0,0,4eh,65h,77h,61h,72h,6bh,0,0,0,0
+db	0,0,0,0,0,0,"Newark",0,0,0,0
 db	0,0,0,0,0,43h,6fh,6dh,70h,6ch,65h,78h,0,0,0,0
 db	0,0,0,0,48h,65h,6ch,6ch,20h,4dh,6fh,75h,6eh,74h,61h,69h
 db	6eh,0,0,44h,65h,73h,65h,72h,74h,20h,52h,75h,6eh,0,0,0
 db	0,0,50h,61h,6ch,6dh,20h,53h,69h,64h,65h,0,0,0,0,0
-db	0,45h,69h,64h,6fh,6ch,6fh,6eh,0,0,0,0,0,0,0,0
+db	0,"Eidolon",0,0,0,0,0,0,0,0
 db	54h,6fh,78h,69h,63h,20h,44h,75h,6dh,70h,0,0,0,0,0,42h
-db	6fh,72h,6eh,65h,6fh,0,0,0,0,0,0,0,0,0
+db	"orneo",0,0,0,0,0,0,0,0,0
 ___18d5a0h:
 db	7dh,53h,75h,62h,75h,72h,62h,69h,61h,2ch,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,0,0,0,0,7bh,4eh,75h,6dh,62h,65h,72h,20h
-db	6fh,66h,20h,6ch,61h,70h,73h,3ah,20h,35h,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,"{Number "
+db	"of laps: 5",0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	7bh,44h,69h,66h,66h,69h,63h,75h,6ch,74h,79h,3ah,20h,45h,61h,73h
 db	79h,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	7dh,44h,6fh,77h,6eh,74h,6fh,77h,6eh,2ch,0,0,0,0,0,0
+db	"}Downtown,",0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,0,0,0,0,7bh,4eh,75h,6dh,62h,65h,72h,20h
-db	6fh,66h,20h,6ch,61h,70h,73h,3ah,20h,35h,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,"{Number "
+db	"of laps: 5",0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	7bh,44h,69h,66h,66h,69h,63h,75h,6ch,74h,79h,3ah,20h,48h,61h,72h
 db	64h,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	7dh,55h,74h,6fh,70h,69h,61h,2ch,0,0,0,0,0,0,0,0
+db	"}Utopia,",0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,0,0,0,0,7bh,4eh,75h,6dh,62h,65h,72h,20h
-db	6fh,66h,20h,6ch,61h,70h,73h,3ah,20h,35h,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,"{Number "
+db	"of laps: 5",0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	7bh,44h,69h,66h,66h,69h,63h,75h,6ch,74h,79h,3ah,20h,4dh,65h,64h
 db	69h,75h,6dh,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	7dh,52h,6fh,63h,6bh,20h,5ah,6fh,6eh,65h,2ch,0,0,0,0,0
+db	"}Rock zone,",0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,0,0,0,0,7bh,4eh,75h,6dh,62h,65h,72h,20h
-db	6fh,66h,20h,6ch,61h,70h,73h,3ah,20h,35h,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,"{Number "
+db	"of laps: 5",0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	7bh,44h,69h,66h,66h,69h,63h,75h,6ch,74h,79h,3ah,20h,48h,61h,72h
 db	64h,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -5551,8 +5018,8 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	7dh,53h,6eh,61h,6bh,65h,20h,41h,6ch,6ch,65h,79h,2ch,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,0,0,0,0,7bh,4eh,75h,6dh,62h,65h,72h,20h
-db	6fh,66h,20h,6ch,61h,70h,73h,3ah,20h,35h,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,"{Number "
+db	"of laps: 5",0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	7bh,44h,69h,66h,66h,69h,63h,75h,6ch,74h,79h,3ah,20h,4dh,65h,64h
 db	69h,75h,6dh,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -5561,8 +5028,8 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	7dh,4fh,61h,73h,69h,73h,2ch,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,0,0,0,0,7bh,4eh,75h,6dh,62h,65h,72h,20h
-db	6fh,66h,20h,6ch,61h,70h,73h,3ah,20h,35h,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,"{Number "
+db	"of laps: 5",0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	7bh,44h,69h,66h,66h,69h,63h,75h,6ch,74h,79h,3ah,20h,4dh,65h,64h
 db	69h,75h,6dh,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -5571,8 +5038,8 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	7dh,56h,65h,6ch,6fh,64h,72h,6fh,6dh,65h,2ch,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,0,0,0,0,7bh,4eh,75h,6dh,62h,65h,72h,20h
-db	6fh,66h,20h,6ch,61h,70h,73h,3ah,20h,35h,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,"{Number "
+db	"of laps: 5",0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	7bh,44h,69h,66h,66h,69h,63h,75h,6ch,74h,79h,3ah,20h,45h,61h,73h
 db	79h,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -5581,8 +5048,8 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	7dh,48h,6fh,6ch,6fh,63h,61h,75h,73h,74h,2ch,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,0,0,0,0,7bh,4eh,75h,6dh,62h,65h,72h,20h
-db	6fh,66h,20h,6ch,61h,70h,73h,3ah,20h,35h,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,"{Number "
+db	"of laps: 5",0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	7bh,44h,69h,66h,66h,69h,63h,75h,6ch,74h,79h,3ah,20h,4dh,65h,64h
 db	69h,75h,6dh,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -5591,8 +5058,8 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	7dh,42h,6fh,67h,6fh,74h,61h,2ch,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,0,0,0,0,7bh,4eh,75h,6dh,62h,65h,72h,20h
-db	6fh,66h,20h,6ch,61h,70h,73h,3ah,20h,35h,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,"{Number "
+db	"of laps: 5",0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	7bh,44h,69h,66h,66h,69h,63h,75h,6ch,74h,79h,3ah,20h,4dh,65h,64h
 db	69h,75h,6dh,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -5601,18 +5068,18 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	7dh,57h,65h,73h,74h,20h,45h,6eh,64h,2ch,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,0,0,0,0,7bh,4eh,75h,6dh,62h,65h,72h,20h
-db	6fh,66h,20h,6ch,61h,70h,73h,3ah,20h,35h,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,"{Number "
+db	"of laps: 5",0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	7bh,44h,69h,66h,66h,69h,63h,75h,6ch,74h,79h,3ah,20h,45h,61h,73h
 db	79h,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	7dh,4eh,65h,77h,61h,72h,6bh,2ch,0,0,0,0,0,0,0,0
+db	"}Newark,",0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,0,0,0,0,7bh,4eh,75h,6dh,62h,65h,72h,20h
-db	6fh,66h,20h,6ch,61h,70h,73h,3ah,20h,35h,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,"{Number "
+db	"of laps: 5",0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	7bh,44h,69h,66h,66h,69h,63h,75h,6ch,74h,79h,3ah,20h,48h,61h,72h
 db	64h,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -5621,18 +5088,18 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	7dh,43h,6fh,6dh,70h,6ch,65h,78h,2ch,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,0,0,0,0,7bh,4eh,75h,6dh,62h,65h,72h,20h
-db	6fh,66h,20h,6ch,61h,70h,73h,3ah,20h,35h,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,"{Number "
+db	"of laps: 5",0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	7bh,44h,69h,66h,66h,69h,63h,75h,6ch,74h,79h,3ah,20h,4dh,65h,64h
 db	69h,75h,6dh,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	7dh,48h,65h,6ch,6ch,20h,4dh,6fh,75h,6eh,74h,61h,69h,6eh,2ch,0
+db	"}Hell Mountain,",0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,0,0,0,0,7bh,4eh,75h,6dh,62h,65h,72h,20h
-db	6fh,66h,20h,6ch,61h,70h,73h,3ah,20h,35h,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,"{Number "
+db	"of laps: 5",0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	7bh,44h,69h,66h,66h,69h,63h,75h,6ch,74h,79h,3ah,20h,48h,61h,72h
 db	64h,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -5641,9 +5108,9 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	7dh,44h,65h,73h,65h,72h,74h,20h,52h,75h,6eh,2ch,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,0,0,0,0,7bh,4eh,75h,6dh,62h,65h,72h,20h
-db	6fh,66h,20h,6ch,61h,70h,73h,3ah,20h,35h,0,0,0,0,0,0
-db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0
+db  "{Number of laps: 5"
+db  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	7bh,44h,69h,66h,66h,69h,63h,75h,6ch,74h,79h,3ah,20h,4dh,65h,64h
 db	69h,75h,6dh,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -5651,18 +5118,18 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	7dh,50h,61h,6ch,6dh,20h,53h,69h,64h,65h,2ch,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,0,0,0,0,7bh,4eh,75h,6dh,62h,65h,72h,20h
-db	6fh,66h,20h,6ch,61h,70h,73h,3ah,20h,35h,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,"{Number "
+db	"of laps: 5",0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	7bh,44h,69h,66h,66h,69h,63h,75h,6ch,74h,79h,3ah,20h,4dh,65h,64h
 db	69h,75h,6dh,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	7dh,45h,69h,64h,6fh,6ch,6fh,6eh,2ch,0,0,0,0,0,0,0
+db	"}Eidolon,",0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,0,0,0,0,7bh,4eh,75h,6dh,62h,65h,72h,20h
-db	6fh,66h,20h,6ch,61h,70h,73h,3ah,20h,35h,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,"{Number "
+db	"of laps: 5",0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	7bh,44h,69h,66h,66h,69h,63h,75h,6ch,74h,79h,3ah,20h,45h,61h,73h
 db	79h,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -5671,18 +5138,18 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	7dh,54h,6fh,78h,69h,63h,20h,44h,75h,6dh,70h,2ch,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,0,0,0,0,7bh,4eh,75h,6dh,62h,65h,72h,20h
-db	6fh,66h,20h,6ch,61h,70h,73h,3ah,20h,35h,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,"{Number "
+db	"of laps: 5",0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	7bh,44h,69h,66h,66h,69h,63h,75h,6ch,74h,79h,3ah,20h,4dh,65h,64h
 db	69h,75h,6dh,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	7dh,42h,6fh,72h,6eh,65h,6fh,2ch,0,0,0,0,0,0,0,0
+db	"}Borneo,",0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,0,0,0,0,7bh,4eh,75h,6dh,62h,65h,72h,20h
-db	6fh,66h,20h,6ch,61h,70h,73h,3ah,20h,35h,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,"{Number "
+db	"of laps: 5",0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	7bh,44h,69h,66h,66h,69h,63h,75h,6ch,74h,79h,3ah,20h,4dh,65h,64h
 db	69h,75h,6dh,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -5690,11 +5157,11 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18e0e0h:
-db	5bh,43h,6ch,65h,61h,72h,20h,79h,6fh,75h,72h,20h,6ch,61h,74h,65h
-db	73h,74h,20h,74h,72h,61h,63h,6bh,0,0,0,0,0,0,0,0
+db	"[Clear your late"
+db	"st track",0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0
 ___18e108h:
-db	5bh,73h,65h,6ch,65h,63h,74h,69h,6fh,6eh,21h,0,0,0,0,0
+db	"[selection!",0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0
 ___18e130h:
@@ -5706,11 +5173,10 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0
 ___18e180h:
-db	5bh,41h,63h,63h,65h,70h,74h,20h,74h,68h,65h,20h,63h,75h,72h,72h
-db	65h,6eh,74h,20h,74h,72h,61h,63h,6bh,0,0,0,0,0,0,0
-db	0,0,0,0,0,0,0,0
+db	"[Accept the current track"
+db  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___18e1a8h:
-db	5bh,73h,65h,6ch,65h,63h,74h,69h,6fh,6eh,21h,0,0,0,0,0
+db	"[selection!",0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0
 ___18e1d0h:
@@ -5731,66 +5197,66 @@ db	73h,0,0,0,78h,0,0,0,7dh,0,0,0,82h,0,0,0
 db	0,0,0,0,8ch,0,0,0,91h,0,0,0,96h,0,0,0
 db	9bh,0,0,0,0a0h,0,0,0
 ___18e298h:
-db	56h,61h,67h,61h,62h,6fh,6eh,64h,0,0,0,0
+db	"Vagabond",0,0,0,0
 ___18e2a4h:
-db	0f4h,1,0,0,5bh,56h,61h,67h,61h,62h,6fh,6eh,64h,20h,2dh,20h
+db	0f4h,1,0,0,"[Vagabond - "
 db	53h,70h,65h,65h,64h,20h,35h,35h,20h,6dh,70h,68h,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,53h,70h,65h,65h,64h,20h,63h,61h,6eh,20h,62h,65h
-db	20h,62h,6fh,6fh,73h,74h,65h,64h,20h,74h,6fh,20h,5bh,36h,30h,7bh
+db	0,0,0,0,"Speed can be"
+db	" boosted to [60{"
 db	20h,6dh,70h,68h,2eh,0,0,0,0,0,0,0,4fh,6eh,6ch,79h
-db	20h,5bh,32h,7bh,20h,74h,69h,72h,65h,20h,61h,6eh,64h,20h,5bh,31h
-db	7bh,20h,61h,72h,6dh,6fh,72h,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,75h,70h,67h,72h,61h,64h,65h,73h,2eh,0,0,0
+db	" [2{ tire and [1"
+db	"{ armor",0,0,0,0,0,0,0,0,0
+db	0,0,0,0,"upgrades.",0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,5bh,56h,61h,67h,61h,62h,6fh,6eh,64h,20h,2dh,20h
+db	0,0,0,0,"[Vagabond - "
 db	53h,70h,65h,65h,64h,20h,35h,35h,20h,6dh,70h,68h,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,53h,70h,65h,65h,64h,20h,63h,61h,6eh,20h,62h,65h
-db	20h,62h,6fh,6fh,73h,74h,65h,64h,20h,74h,6fh,20h,5bh,36h,30h,7bh
+db	0,0,0,0,"Speed can be"
+db	" boosted to [60{"
 db	20h,6dh,70h,68h,2eh,0,0,0,0,0,0,0,41h,20h,73h,69h
 db	6eh,67h,6ch,65h,20h,72h,65h,76h,6fh,6ch,76h,65h,72h,2eh,20h,4fh
-db	6eh,6ch,79h,20h,5bh,32h,7bh,20h,74h,69h,72h,65h,0,0,0,0
-db	0,0,0,0,61h,6eh,64h,20h,5bh,31h,7bh,20h,61h,72h,6dh,6fh
-db	72h,20h,75h,70h,67h,72h,61h,64h,65h,73h,2eh,0,0,0,0,0
+db	"nly [2{ tire",0,0,0,0
+db	0,0,0,0,"and [1{ armo"
+db	"r upgrades.",0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,5bh,56h,61h,67h,61h,62h,6fh,6eh,64h,20h,62h,6fh
+db	0,0,0,0,"[Vagabond bo"
 db	75h,67h,68h,74h,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,46h,61h,63h,65h,20h,69h,74h,2ch,20h,6eh,6fh,74h
-db	20h,74h,68h,65h,20h,68h,6fh,74h,74h,65h,73h,74h,20h,74h,68h,69h
+db	0,0,0,0,"Face it, not"
+db	" the hottest thi"
 db	6eh,67h,0,0,0,0,0,0,0,0,0,0,61h,72h,6fh,75h
-db	6eh,64h,2ch,20h,62h,75h,74h,20h,73h,68h,65h,27h,6ch,6ch,20h,67h
-db	65h,74h,20h,79h,6fh,75h,20h,74h,68h,65h,72h,65h,0,0,0,0
-db	0,0,0,0,2dh,20h,6fh,6eh,20h,68h,65h,72h,20h,6fh,77h,6eh
-db	20h,73h,77h,65h,65h,74h,20h,74h,69h,6dh,65h,2ch,20h,69h,73h,20h
-db	61h,6ch,6ch,2eh,0,0,0,0,0,0,0,0,0,0,0,0
+db	"nd, but she'll g"
+db	"et you there",0,0,0,0
+db	0,0,0,0,"- on her own"
+db	" sweet time, is "
+db	"all.",0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,5bh,34h,20h,63h,79h,6ch,69h,6eh,64h,65h,72h,20h
-db	6dh,6fh,74h,6fh,72h,20h,2dh,20h,53h,70h,65h,65h,64h,3ah,20h,5bh
+db	0,0,0,0,"[4 cylinder "
+db	"motor - Speed: ["
 db	36h,30h,20h,6dh,70h,68h,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,53h,69h,63h,6bh,20h,6fh,66h,20h,68h,65h,61h,72h
-db	69h,6eh,67h,20h,79h,6fh,75h,72h,20h,6fh,6ch,64h,20h,73h,70h,69h
-db	72h,69h,74h,2dh,0,0,0,0,0,0,0,0,62h,75h,72h,6eh
-db	65h,72h,20h,6dh,6fh,61h,6eh,20h,69h,6eh,20h,63h,6fh,6eh,73h,74h
+db	0,0,0,0,"Sick of hear"
+db	"ing your old spi"
+db	"rit-",0,0,0,0,0,0,0,0,62h,75h,72h,6eh
+db	"er moan in const"
 db	61h,6eh,74h,20h,6fh,76h,65h,72h,2dh,72h,65h,76h,3fh,0,0,0
-db	0,0,0,0,54h,68h,69h,73h,20h,6dh,6fh,74h,6fh,72h,20h,69h
-db	73h,20h,74h,68h,65h,20h,73h,77h,65h,65h,74h,20h,73h,6fh,6ch,75h
-db	74h,69h,6fh,6eh,2eh,0,0,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,"This motor i"
+db	"s the sweet solu"
+db	"tion.",0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,4eh,2fh,41h,0,0,0,0,0,0,0,0,0
@@ -5865,11 +5331,11 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,43h,61h,6eh,20h,64h,61h,6eh,63h,65h,2eh,20h,53h
-db	70h,65h,65h,64h,20h,63h,61h,6eh,20h,62h,65h,20h,62h,6fh,6fh,73h
-db	74h,65h,64h,0,0,0,0,0,0,0,0,0,74h,6fh,20h,5bh
-db	37h,35h,7bh,20h,6dh,70h,68h,2eh,20h,4fh,6eh,6ch,79h,20h,5bh,32h
-db	7bh,20h,74h,69h,72h,65h,20h,61h,6eh,64h,0,0,0,0,0,0
-db	0,0,0,0,61h,72h,6dh,6fh,72h,20h,75h,70h,67h,72h,61h,64h
+db	"peed can be boos"
+db	74h,65h,64h,0,0,0,0,0,0,0,0,0,"to ["
+db	"75{ mph. Only [2"
+db	"{ tire and",0,0,0,0,0,0
+db	0,0,0,0,"armor upgrad"
 db	65h,73h,2eh,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -5880,12 +5346,12 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,43h,61h,6eh,20h,64h,61h,6eh,63h,65h,2eh,20h,53h
-db	70h,65h,65h,64h,20h,63h,61h,6eh,20h,62h,65h,20h,62h,6fh,6fh,73h
-db	74h,65h,64h,0,0,0,0,0,0,0,0,0,74h,6fh,20h,5bh
-db	37h,35h,7bh,20h,6dh,70h,68h,2eh,20h,53h,6dh,61h,6ch,6ch,20h,67h
-db	75h,6eh,73h,2eh,20h,4fh,6eh,6ch,79h,20h,5bh,32h,7bh,0,0,0
-db	0,0,0,0,74h,69h,72h,65h,20h,61h,6eh,64h,20h,61h,72h,6dh
-db	6fh,72h,20h,75h,70h,67h,72h,61h,64h,65h,73h,2eh,0,0,0,0
+db	"peed can be boos"
+db	74h,65h,64h,0,0,0,0,0,0,0,0,0,"to ["
+db	"75{ mph. Small g"
+db	"uns. Only [2{",0,0,0
+db	0,0,0,0,"tire and arm"
+db	"or upgrades.",0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -5894,42 +5360,42 @@ db	67h,68h,74h,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,43h,79h,62h,65h,72h,6eh,65h,74h,69h,63h,20h,72h
-db	6fh,61h,64h,77h,61h,72h,72h,69h,6fh,72h,2ch,20h,79h,6fh,75h,72h
-db	20h,63h,61h,72h,0,0,0,0,0,0,0,0,69h,73h,20h,79h
-db	6fh,75h,72h,20h,62h,6fh,64h,79h,2eh,20h,54h,68h,69h,73h,20h,68h
-db	65h,72h,65h,20h,69h,73h,20h,6eh,6fh,74h,0,0,0,0,0,0
-db	0,0,0,0,6ah,75h,73h,74h,20h,61h,6eh,79h,20h,62h,6fh,64h
-db	79h,3bh,20h,69h,74h,20h,69h,73h,20h,73h,6fh,6dh,65h,20h,62h,6fh
+db	0,0,0,0,"Cybernetic r"
+db	"oadwarrior, your"
+db	" car",0,0,0,0,0,0,0,0,"is y"
+db	"our body. This h"
+db	"ere is not",0,0,0,0,0,0
+db	0,0,0,0,"just any bod"
+db	79h,3bh," it is some bo"
 db	64h,79h,2eh,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,5bh,34h,20h,63h,79h,6ch,69h,6eh,64h,65h,72h,20h
-db	6dh,6fh,74h,6fh,72h,20h,2dh,20h,53h,70h,65h,65h,64h,3ah,20h,5bh
+db	0,0,0,0,"[4 cylinder "
+db	"motor - Speed: ["
 db	37h,30h,20h,6dh,70h,68h,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,53h,69h,63h,6bh,20h,6fh,66h,20h,68h,65h,61h,72h
-db	69h,6eh,67h,20h,79h,6fh,75h,72h,20h,6fh,6ch,64h,20h,73h,70h,69h
-db	72h,69h,74h,2dh,0,0,0,0,0,0,0,0,62h,75h,72h,6eh
-db	65h,72h,20h,6dh,6fh,61h,6eh,20h,69h,6eh,20h,63h,6fh,6eh,73h,74h
+db	0,0,0,0,"Sick of hear"
+db	"ing your old spi"
+db	"rit-",0,0,0,0,0,0,0,0,62h,75h,72h,6eh
+db	"er moan in const"
 db	61h,6eh,74h,20h,6fh,76h,65h,72h,2dh,72h,65h,76h,3fh,0,0,0
-db	0,0,0,0,54h,68h,69h,73h,20h,6dh,6fh,74h,6fh,72h,20h,69h
-db	73h,20h,74h,68h,65h,20h,73h,77h,65h,65h,74h,20h,73h,6fh,6ch,75h
-db	74h,69h,6fh,6eh,2eh,0,0,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,"This motor i"
+db	"s the sweet solu"
+db	"tion.",0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,5bh,45h,6eh,68h,61h,6eh,63h,65h,64h,20h,34h,20h
-db	63h,79h,6ch,69h,6eh,64h,65h,72h,20h,2dh,20h,53h,70h,65h,65h,64h
-db	3ah,20h,5bh,37h,35h,20h,6dh,70h,68h,0,0,0,0,0,0,0
+db	"cylinder - Speed"
+db	": [75 mph",0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,46h,65h,65h,64h,69h,6eh,67h,20h,74h,68h,65h,20h
-db	62h,65h,61h,73h,74h,20h,77h,69h,74h,68h,20h,73h,70h,65h,65h,64h
+db	0,0,0,0,"Feeding the "
+db	"beast with speed"
 db	2ch,20h,67h,6fh,74h,0,0,0,0,0,0,0,61h,6eh,20h,75h
-db	6eh,62h,65h,61h,72h,61h,62h,6ch,65h,20h,6eh,65h,65h,64h,20h,66h
-db	6fh,72h,20h,73h,70h,65h,65h,64h,3fh,20h,54h,68h,69h,73h,0,0
-db	0,0,0,0,69h,73h,20h,74h,68h,65h,20h,72h,65h,6dh,65h,64h
+db	"nbearable need f"
+db	"or speed? This",0,0
+db	0,0,0,0,"is the remed"
 db	79h,2eh,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -5968,78 +5434,78 @@ db	0,0,0,0,2,0,0,0,2,0,0,0,2,0,0,0
 db	0e2h,4,0,0,0c4h,9,0,0,0,0,0,0,0,0,0,0
 db	0e8h,3,0,0,0d0h,7,0,0,0,0,0,0,0,0,0,0
 db	0c8h,0,0,0,58h,2,0,0,0,0,0,0,0,0,0,0
-db	7dh,0,0,0,53h,65h,6eh,74h,69h,6eh,65h,6ch,0,0,0,0
-db	64h,19h,0,0,5bh,53h,65h,6eh,74h,69h,6eh,65h,6ch,20h,2dh,20h
+db	7dh,0,0,0,"Sentinel",0,0,0,0
+db	64h,19h,0,0,"[Sentinel - "
 db	53h,70h,65h,65h,64h,20h,38h,30h,20h,6dh,70h,68h,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,56h,69h,67h,69h,6ch,61h,6eh,74h,2eh,20h,53h,70h
-db	65h,65h,64h,20h,63h,61h,6eh,20h,62h,65h,20h,62h,6fh,6fh,73h,74h
-db	65h,64h,20h,74h,6fh,0,0,0,0,0,0,0,5bh,39h,30h,7bh
-db	20h,6dh,70h,68h,2eh,20h,4ah,75h,73h,74h,20h,5bh,33h,7bh,20h,74h
-db	69h,72h,65h,20h,61h,6eh,64h,20h,5bh,32h,7bh,20h,61h,72h,6dh,6fh
-db	72h,0,0,0,75h,70h,67h,72h,61h,64h,65h,73h,2eh,0,0,0
+db	"eed can be boost"
+db	"ed to",0,0,0,0,0,0,0,5bh,39h,30h,7bh
+db	" mph. Just [3{ t"
+db	"ire and [2{ armo"
+db	72h,0,0,0,"upgrades.",0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,5bh,53h,65h,6eh,74h,69h,6eh,65h,6ch,20h,2dh,20h
+db	0,0,0,0,"[Sentinel - "
 db	53h,70h,65h,65h,64h,20h,38h,30h,20h,6dh,70h,68h,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,56h,69h,67h,69h,6ch,61h,6eh,74h,2eh,20h,53h,70h
-db	65h,65h,64h,20h,63h,61h,6eh,20h,62h,65h,20h,62h,6fh,6fh,73h,74h
-db	65h,64h,20h,74h,6fh,0,0,0,0,0,0,0,5bh,39h,30h,7bh
+db	"eed can be boost"
+db	"ed to",0,0,0,0,0,0,0,5bh,39h,30h,7bh
 db	20h,6dh,70h,68h,2eh,20h,4dh,65h,64h,69h,75h,6dh,20h,67h,75h,6eh
-db	73h,2eh,20h,4ah,75h,73h,74h,20h,5bh,33h,7bh,20h,74h,69h,72h,65h
-db	0,0,0,0,61h,6eh,64h,20h,5bh,32h,7bh,20h,61h,72h,6dh,6fh
-db	72h,20h,75h,70h,67h,72h,61h,64h,65h,73h,2eh,0,0,0,0,0
+db	"s. Just [3{ tire"
+db	0,0,0,0,"and [2{ armo"
+db	"r upgrades.",0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,5bh,53h,65h,6eh,74h,69h,6eh,65h,6ch,20h,62h,6fh
+db	0,0,0,0,"[Sentinel bo"
 db	75h,67h,68h,74h,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,54h,68h,69h,73h,20h,69h,73h,20h,6ah,75h,73h,74h
-db	20h,77h,68h,61h,74h,20h,79h,6fh,75h,20h,6eh,65h,65h,64h,20h,74h
-db	6fh,20h,72h,69h,73h,65h,0,0,0,0,0,0,69h,6eh,20h,74h
-db	68h,65h,20h,6fh,63h,74h,61h,6eh,65h,20h,6fh,63h,74h,61h,76h,65h
-db	20h,6fh,66h,20h,74h,68h,69h,73h,20h,67h,61h,73h,2dh,0,0,0
+db	0,0,0,0,"This is just"
+db	" what you need t"
+db	6fh,20h,72h,69h,73h,65h,0,0,0,0,0,0,"in t"
+db	"he octane octave"
+db	" of this gas-",0,0,0
 db	0,0,0,0,70h,65h,64h,61h,6ch,20h,67h,6fh,73h,70h,65h,6ch
 db	2eh,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,5bh,34h,20h,63h,79h,6ch,69h,6eh,64h,65h,72h,20h
-db	6dh,6fh,74h,6fh,72h,20h,2dh,20h,53h,70h,65h,65h,64h,3ah,20h,5bh
+db	0,0,0,0,"[4 cylinder "
+db	"motor - Speed: ["
 db	38h,35h,20h,6dh,70h,68h,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,53h,69h,63h,6bh,20h,6fh,66h,20h,68h,65h,61h,72h
-db	69h,6eh,67h,20h,79h,6fh,75h,72h,20h,6fh,6ch,64h,20h,73h,70h,69h
-db	72h,69h,74h,0,0,0,0,0,0,0,0,0,62h,75h,72h,6eh
-db	65h,72h,20h,6dh,6fh,61h,6eh,20h,69h,6eh,20h,63h,6fh,6eh,73h,74h
+db	0,0,0,0,"Sick of hear"
+db	"ing your old spi"
+db	"rit",0,0,0,0,0,0,0,0,0,62h,75h,72h,6eh
+db	"er moan in const"
 db	61h,6eh,74h,20h,6fh,76h,65h,72h,2dh,72h,65h,76h,3fh,0,0,0
-db	0,0,0,0,54h,68h,69h,73h,20h,6dh,6fh,74h,6fh,72h,20h,69h
-db	73h,20h,74h,68h,65h,20h,73h,77h,65h,65h,74h,20h,73h,6fh,6ch,75h
-db	74h,69h,6fh,6eh,2eh,0,0,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,"This motor i"
+db	"s the sweet solu"
+db	"tion.",0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,5bh,45h,6eh,68h,61h,6eh,63h,65h,64h,20h,34h,20h
-db	63h,79h,6ch,69h,6eh,64h,65h,72h,20h,2dh,20h,53h,70h,65h,65h,64h
-db	3ah,20h,5bh,39h,30h,20h,6dh,70h,68h,0,0,0,0,0,0,0
+db	"cylinder - Speed"
+db	": [90 mph",0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,46h,65h,65h,64h,69h,6eh,67h,20h,74h,68h,65h,20h
-db	62h,65h,61h,73h,74h,20h,77h,69h,74h,68h,20h,73h,70h,65h,65h,64h
+db	0,0,0,0,"Feeding the "
+db	"beast with speed"
 db	2ch,20h,67h,6fh,74h,0,0,0,0,0,0,0,61h,6eh,20h,75h
-db	6eh,62h,65h,61h,72h,61h,62h,6ch,65h,20h,6eh,65h,65h,64h,20h,66h
-db	6fh,72h,20h,73h,70h,65h,65h,64h,3fh,20h,54h,68h,69h,73h,0,0
-db	0,0,0,0,69h,73h,20h,74h,68h,65h,20h,72h,65h,6dh,65h,64h
+db	"nbearable need f"
+db	"or speed? This",0,0
+db	0,0,0,0,"is the remed"
 db	79h,2eh,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -6084,12 +5550,12 @@ db	53h,70h,65h,65h,64h,20h,39h,30h,20h,6dh,70h,68h,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,52h,6fh,61h,72h,69h,6eh,67h,2eh,20h,53h,70h,65h
-db	65h,64h,20h,63h,61h,6eh,20h,62h,65h,20h,62h,6fh,6fh,73h,74h,65h
-db	64h,20h,74h,6fh,0,0,0,0,0,0,0,0,5bh,31h,31h,30h
-db	7bh,20h,6dh,70h,68h,2eh,20h,55h,70h,20h,74h,6fh,20h,5bh,33h,7bh
-db	20h,74h,69h,72h,65h,20h,26h,20h,61h,72h,6dh,6fh,72h,0,0,0
-db	0,0,0,0,75h,70h,67h,72h,61h,64h,65h,73h,2eh,0,0,0
+db	0,0,0,0,"Roaring. Spe"
+db	"ed can be booste"
+db	"d to",0,0,0,0,0,0,0,0,5bh,31h,31h,30h
+db	"{ mph. Up to [3{"
+db	" tire & armor",0,0,0
+db	0,0,0,0,"upgrades.",0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -6099,13 +5565,13 @@ db	53h,70h,65h,65h,64h,20h,39h,30h,20h,6dh,70h,68h,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,52h,6fh,61h,72h,69h,6eh,67h,2eh,20h,53h,70h,65h
-db	65h,64h,20h,63h,61h,6eh,20h,62h,65h,20h,62h,6fh,6fh,73h,74h,65h
-db	64h,20h,74h,6fh,0,0,0,0,0,0,0,0,5bh,31h,31h,30h
+db	0,0,0,0,"Roaring. Spe"
+db	"ed can be booste"
+db	"d to",0,0,0,0,0,0,0,0,5bh,31h,31h,30h
 db	7bh,20h,6dh,70h,68h,2eh,20h,48h,65h,61h,76h,79h,20h,64h,75h,74h
-db	79h,20h,67h,75h,6eh,73h,2eh,20h,55h,70h,20h,74h,6fh,0,0,0
-db	0,0,0,0,5bh,33h,7bh,20h,74h,69h,72h,65h,20h,26h,20h,61h
-db	72h,6dh,6fh,72h,20h,75h,70h,67h,72h,61h,64h,65h,73h,2eh,0,0
+db	"y guns. Up to",0,0,0
+db	0,0,0,0,"[3{ tire & a"
+db	"rmor upgrades.",0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -6114,57 +5580,57 @@ db	75h,67h,68h,74h,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,41h,20h,72h,61h,63h,69h,6eh,67h,2dh,63h,61h,72h
-db	20h,62h,6fh,64h,79h,20h,74h,68h,61h,74h,20h,6dh,61h,74h,63h,68h
-db	65h,73h,20h,79h,6fh,75h,72h,0,0,0,0,0,68h,61h,72h,64h
+db	0,0,0,0,"A racing-car"
+db	" body that match"
+db	"es your",0,0,0,0,0,"hard"
 db	65h,6eh,65h,64h,20h,70h,65h,74h,72h,6fh,6ch,68h,65h,61h,64h,20h
-db	73h,6fh,75h,6ch,20h,69h,6eh,20h,74h,68h,69h,73h,0,0,0,0
-db	0,0,0,0,65h,78h,70h,6fh,6eh,65h,6eh,74h,69h,61h,6ch,6ch
-db	79h,20h,61h,63h,63h,65h,6ch,65h,72h,61h,74h,69h,6eh,67h,20h,65h
-db	71h,75h,61h,74h,69h,6fh,6eh,2eh,0,0,0,0,0,0,0,0
+db	"soul in this",0,0,0,0
+db	0,0,0,0,"exponentiall"
+db	"y accelerating e"
+db	"quation.",0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,5bh,34h,20h,63h,79h,6ch,69h,6eh,64h,65h,72h,20h
-db	6dh,6fh,74h,6fh,72h,20h,2dh,20h,53h,70h,65h,65h,64h,3ah,20h,5bh
+db	0,0,0,0,"[4 cylinder "
+db	"motor - Speed: ["
 db	31h,30h,30h,20h,6dh,70h,68h,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,53h,69h,63h,6bh,20h,6fh,66h,20h,68h,65h,61h,72h
-db	69h,6eh,67h,20h,79h,6fh,75h,72h,20h,6fh,6ch,64h,20h,73h,70h,69h
-db	72h,69h,74h,2dh,0,0,0,0,0,0,0,0,62h,75h,72h,6eh
-db	65h,72h,20h,6dh,6fh,61h,6eh,20h,69h,6eh,20h,63h,6fh,6eh,73h,74h
+db	0,0,0,0,"Sick of hear"
+db	"ing your old spi"
+db	"rit-",0,0,0,0,0,0,0,0,62h,75h,72h,6eh
+db	"er moan in const"
 db	61h,6eh,74h,20h,6fh,76h,65h,72h,2dh,72h,65h,76h,3fh,0,0,0
-db	0,0,0,0,54h,68h,69h,73h,20h,6dh,6fh,74h,6fh,72h,20h,69h
-db	73h,20h,74h,68h,65h,20h,73h,77h,65h,65h,74h,20h,73h,6fh,6ch,75h
-db	74h,69h,6fh,6eh,2eh,0,0,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,"This motor i"
+db	"s the sweet solu"
+db	"tion.",0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,5bh,45h,6eh,68h,61h,6eh,63h,65h,64h,20h,34h,20h
-db	63h,79h,6ch,69h,6eh,64h,65h,72h,20h,2dh,20h,53h,70h,65h,65h,64h
-db	3ah,20h,5bh,31h,30h,35h,20h,6dh,70h,68h,0,0,0,0,0,0
+db	"cylinder - Speed"
+db	": [105 mph",0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,46h,65h,65h,64h,69h,6eh,67h,20h,74h,68h,65h,20h
-db	62h,65h,61h,73h,74h,20h,77h,69h,74h,68h,20h,73h,70h,65h,65h,64h
+db	0,0,0,0,"Feeding the "
+db	"beast with speed"
 db	2ch,20h,67h,6fh,74h,0,0,0,0,0,0,0,61h,6eh,20h,75h
-db	6eh,62h,65h,61h,72h,61h,62h,6ch,65h,20h,6eh,65h,65h,64h,20h,66h
-db	6fh,72h,20h,73h,70h,65h,65h,64h,3fh,20h,54h,68h,69h,73h,0,0
-db	0,0,0,0,69h,73h,20h,74h,68h,65h,20h,72h,65h,6dh,65h,64h
+db	"nbearable need f"
+db	"or speed? This",0,0
+db	0,0,0,0,"is the remed"
 db	79h,2eh,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,5bh,56h,36h,20h,49h,6eh,6ah,65h,63h,74h,69h,6fh
-db	6eh,20h,2dh,20h,53h,70h,65h,65h,64h,3ah,20h,5bh,31h,31h,30h,20h
+db	"n - Speed: [110 "
 db	6dh,70h,68h,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,57h,69h,74h,68h,20h,74h,68h,69h,73h,20h,62h,61h
-db	62h,65h,20h,69h,6eh,73h,74h,61h,6ch,6ch,65h,64h,2ch,20h,62h,65h
-db	20h,79h,6fh,75h,72h,0,0,0,0,0,0,0,64h,65h,73h,74h
-db	69h,6eh,61h,74h,69h,6fh,6eh,20h,68h,65h,6ch,6ch,20h,6fh,72h,20h
-db	68h,61h,6ch,6ch,65h,6ch,75h,6ah,61h,68h,2ch,0,0,0,0,0
-db	0,0,0,0,79h,6fh,75h,27h,6ch,6ch,20h,67h,65h,74h,20h,74h
+db	0,0,0,0,"With this ba"
+db	"be installed, be"
+db	" your",0,0,0,0,0,0,0,64h,65h,73h,74h
+db	"ination hell or "
+db	"hallelujah,",0,0,0,0,0
+db	0,0,0,0,"you'll get t"
 db	68h,65h,72h,65h,20h,73h,6fh,20h,66h,61h,73h,74h,2ch,20h,73h,6fh
 db	20h,66h,61h,73h,74h,2eh,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -6188,109 +5654,109 @@ db	0,0,0,0,3,0,0,0,3,0,0,0,3,0,0,0
 db	0c4h,9,0,0,0a6h,0eh,0,0,88h,13h,0,0,0,0,0,0
 db	0c4h,9,0,0,0b8h,0bh,0,0,0a0h,0fh,0,0,0,0,0,0
 db	0e9h,7,0,0,55h,0fh,0,0,3eh,17h,0,0,0,0,0,0
-db	3fh,2,0,0,57h,72h,61h,69h,74h,68h,0,0,0,0,0,0
-db	0a8h,61h,0,0,5bh,57h,72h,61h,69h,74h,68h,20h,2dh,20h,53h,70h
+db	3fh,2,0,0,"Wraith",0,0,0,0,0,0
+db	0a8h,61h,0,0,"[Wraith - Sp"
 db	65h,65h,64h,20h,31h,31h,35h,20h,6dh,70h,68h,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,53h,75h,70h,65h,72h,6eh,61h,74h,75h,72h,61h,6ch
-db	2eh,20h,53h,70h,65h,65h,64h,20h,63h,61h,6eh,20h,62h,65h,20h,62h
-db	6fh,6fh,73h,74h,65h,64h,0,0,0,0,0,0,75h,70h,20h,74h
-db	6fh,20h,5bh,31h,33h,30h,7bh,20h,6dh,70h,68h,2eh,20h,45h,76h,65h
-db	72h,79h,20h,74h,69h,72h,65h,20h,66h,69h,74h,73h,2eh,20h,5bh,33h
-db	7bh,0,0,0,61h,72h,6dh,6fh,72h,20h,75h,70h,67h,72h,61h,64h
+db	0,0,0,0,"Supernatural"
+db	". Speed can be b"
+db	6fh,6fh,73h,74h,65h,64h,0,0,0,0,0,0,"up t"
+db	"o [130{ mph. Eve"
+db	"ry tire fits. [3"
+db	7bh,0,0,0,"armor upgrad"
 db	65h,73h,2eh,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,5bh,57h,72h,61h,69h,74h,68h,20h,2dh,20h,53h,70h
+db	0,0,0,0,"[Wraith - Sp"
 db	65h,65h,64h,20h,31h,31h,35h,20h,6dh,70h,68h,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,53h,75h,70h,65h,72h,6eh,61h,74h,75h,72h,61h,6ch
-db	2eh,20h,53h,70h,65h,65h,64h,20h,63h,61h,6eh,20h,62h,65h,20h,62h
-db	6fh,6fh,73h,74h,65h,64h,0,0,0,0,0,0,74h,6fh,20h,5bh
+db	0,0,0,0,"Supernatural"
+db	". Speed can be b"
+db	6fh,6fh,73h,74h,65h,64h,0,0,0,0,0,0,"to ["
 db	31h,33h,30h,7bh,20h,6dh,70h,68h,2eh,20h,53h,65h,72h,69h,6fh,75h
 db	73h,20h,61h,72h,73h,65h,6eh,61h,6ch,2eh,20h,45h,76h,65h,72h,79h
-db	0,0,0,0,74h,69h,72h,65h,20h,66h,69h,74h,73h,2eh,20h,5bh
-db	33h,7bh,20h,61h,72h,6dh,6fh,72h,20h,75h,70h,67h,72h,61h,64h,65h
+db	0,0,0,0,"tire fits. ["
+db	"3{ armor upgrade"
 db	73h,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,5bh,57h,72h,61h,69h,74h,68h,20h,62h,6fh,75h,67h
+db	0,0,0,0,"[Wraith boug"
 db	68h,74h,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,54h,68h,69h,73h,2ch,20h,73h,77h,65h,65h,74h,20h
-db	64h,72h,69h,76h,65h,72h,2ch,20h,69h,73h,20h,74h,68h,65h,20h,63h
-db	68h,65h,72h,75h,62h,69h,6dh,0,0,0,0,0,6fh,66h,20h,63h
-db	61h,72h,73h,2eh,20h,4fh,6eh,6ch,79h,20h,74h,68h,65h,20h,61h,72h
+db	"driver, is the c"
+db	68h,65h,72h,75h,62h,69h,6dh,0,0,0,0,0,"of c"
+db	"ars. Only the ar"
 db	63h,68h,61h,6eh,67h,65h,6ch,2dh,0,0,0,0,0,0,0,0
-db	0,0,0,0,61h,75h,74h,6fh,6dh,6fh,62h,69h,6ch,65h,20h,44h
-db	65h,6ch,69h,76h,65h,72h,61h,74h,6fh,72h,20h,73h,68h,69h,6eh,65h
+db	0,0,0,0,"automobile D"
+db	"eliverator shine"
 db	73h,20h,61h,62h,6fh,76h,65h,2eh,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,5bh,34h,20h,63h,79h,6ch,69h,6eh,64h,65h,72h,20h
-db	6dh,6fh,74h,6fh,72h,20h,2dh,20h,53h,70h,65h,65h,64h,3ah,20h,5bh
+db	0,0,0,0,"[4 cylinder "
+db	"motor - Speed: ["
 db	31h,32h,30h,20h,6dh,70h,68h,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,53h,69h,63h,6bh,20h,6fh,66h,20h,68h,65h,61h,72h
-db	69h,6eh,67h,20h,79h,6fh,75h,72h,20h,6fh,6ch,64h,20h,73h,70h,69h
-db	72h,69h,74h,2dh,0,0,0,0,0,0,0,0,62h,75h,72h,6eh
-db	65h,72h,20h,6dh,6fh,61h,6eh,20h,69h,6eh,20h,63h,6fh,6eh,73h,74h
+db	0,0,0,0,"Sick of hear"
+db	"ing your old spi"
+db	"rit-",0,0,0,0,0,0,0,0,62h,75h,72h,6eh
+db	"er moan in const"
 db	61h,6eh,74h,20h,6fh,76h,65h,72h,2dh,72h,65h,76h,3fh,0,0,0
-db	0,0,0,0,54h,68h,69h,73h,20h,6dh,6fh,74h,6fh,72h,20h,69h
-db	73h,20h,74h,68h,65h,20h,73h,77h,65h,65h,74h,20h,73h,6fh,6ch,75h
-db	74h,69h,6fh,6eh,2eh,0,0,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,"This motor i"
+db	"s the sweet solu"
+db	"tion.",0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,5bh,45h,6eh,68h,61h,6eh,63h,65h,64h,20h,34h,20h
-db	63h,79h,6ch,69h,6eh,64h,65h,72h,20h,2dh,20h,53h,70h,65h,65h,64h
-db	3ah,20h,5bh,31h,32h,35h,20h,6dh,70h,68h,0,0,0,0,0,0
+db	"cylinder - Speed"
+db	": [125 mph",0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,46h,65h,65h,64h,69h,6eh,67h,20h,74h,68h,65h,20h
-db	62h,65h,61h,73h,74h,20h,77h,69h,74h,68h,20h,73h,70h,65h,65h,64h
+db	0,0,0,0,"Feeding the "
+db	"beast with speed"
 db	2ch,20h,67h,6fh,74h,0,0,0,0,0,0,0,61h,6eh,20h,75h
-db	6eh,62h,65h,61h,72h,61h,62h,6ch,65h,20h,6eh,65h,65h,64h,20h,66h
-db	6fh,72h,20h,73h,70h,65h,65h,64h,3fh,20h,54h,68h,69h,73h,0,0
-db	0,0,0,0,69h,73h,20h,74h,68h,65h,20h,72h,65h,6dh,65h,64h
+db	"nbearable need f"
+db	"or speed? This",0,0
+db	0,0,0,0,"is the remed"
 db	79h,2eh,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,5bh,56h,36h,20h,49h,6eh,6ah,65h,63h,74h,69h,6fh
-db	6eh,20h,2dh,20h,53h,70h,65h,65h,64h,3ah,20h,5bh,31h,33h,30h,20h
+db	"n - Speed: [130 "
 db	6dh,70h,68h,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,57h,69h,74h,68h,20h,74h,68h,69h,73h,20h,62h,61h
-db	62h,65h,20h,69h,6eh,73h,74h,61h,6ch,6ch,65h,64h,2ch,20h,62h,65h
-db	20h,79h,6fh,75h,72h,0,0,0,0,0,0,0,64h,65h,73h,74h
-db	69h,6eh,61h,74h,69h,6fh,6eh,20h,68h,65h,6ch,6ch,20h,6fh,72h,20h
-db	68h,61h,6ch,6ch,65h,6ch,75h,6ah,61h,68h,2ch,0,0,0,0,0
-db	0,0,0,0,79h,6fh,75h,27h,6ch,6ch,20h,67h,65h,74h,20h,74h
+db	0,0,0,0,"With this ba"
+db	"be installed, be"
+db	" your",0,0,0,0,0,0,0,64h,65h,73h,74h
+db	"ination hell or "
+db	"hallelujah,",0,0,0,0,0
+db	0,0,0,0,"you'll get t"
 db	68h,65h,72h,65h,20h,73h,6fh,20h,66h,61h,73h,74h,2ch,20h,73h,6fh
 db	20h,66h,61h,73h,74h,2eh,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,5bh,56h,38h,20h,54h,75h,72h,62h,6fh,20h,49h,6eh
-db	6ah,65h,63h,74h,69h,6fh,6eh,20h,2dh,20h,53h,70h,65h,65h,64h,3ah
-db	20h,5bh,31h,33h,35h,20h,6dh,70h,68h,0,0,0,0,0,0,0
+db	0,0,0,0,"[V8 Turbo In"
+db	"jection - Speed:"
+db	" [135 mph",0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,44h,65h,66h,69h,6eh,69h,74h,69h,6fh,6eh,20h,6fh
-db	66h,20h,6eh,69h,72h,76h,61h,6eh,61h,3ah,20h,72h,69h,64h,69h,6eh
-db	67h,20h,74h,68h,61h,74h,0,0,0,0,0,0,72h,61h,63h,65h
-db	20h,77h,69h,74h,68h,20h,56h,38h,20h,54h,49h,2eh,20h,4eh,65h,78h
-db	74h,20h,73h,74h,6fh,70h,3ah,20h,6eh,6fh,0,0,0,0,0,0
-db	0,0,0,0,73h,74h,6fh,70h,2ch,20h,6eh,65h,76h,65h,72h,20h
-db	73h,74h,6fh,70h,2eh,20h,0,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,"Definition o"
+db	"f nirvana: ridin"
+db	"g that",0,0,0,0,0,0,72h,61h,63h,65h
+db	" with V8 TI. Nex"
+db	"t stop: no",0,0,0,0,0,0
+db	0,0,0,0,"stop, never "
+db	"stop. ",0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -6298,109 +5764,109 @@ db	0,0,0,0,3,0,0,0,4,0,0,0,3,0,0,0
 db	88h,13h,0,0,4ch,1dh,0,0,10h,27h,0,0,98h,3ah,0,0
 db	0a0h,0fh,0,0,7ch,15h,0,0,70h,17h,0,0,4ch,1dh,0,0
 db	80h,0ch,0,0,0c6h,11h,0,0,26h,1bh,0,0,0,0,0,0
-db	39h,3,0,0,44h,65h,6ch,69h,76h,65h,72h,61h,74h,6fh,72h,0
-db	0c8h,0afh,0,0,5bh,44h,65h,6ch,69h,76h,65h,72h,61h,74h,6fh,72h
+db	39h,3,0,0,"Deliverator",0
+db	0c8h,0afh,0,0,"[Deliverator"
 db	20h,2dh,20h,53h,70h,65h,65h,64h,20h,31h,34h,30h,20h,6dh,70h,68h
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,53h,75h,70h,72h,65h,6dh,65h,2eh,20h,53h,70h,65h
-db	65h,64h,20h,63h,61h,6eh,20h,62h,65h,20h,62h,6fh,6fh,73h,74h,65h
-db	64h,20h,74h,6fh,0,0,0,0,0,0,0,0,5bh,31h,36h,30h
+db	0,0,0,0,"Supreme. Spe"
+db	"ed can be booste"
+db	"d to",0,0,0,0,0,0,0,0,5bh,31h,36h,30h
 db	7bh,20h,6dh,70h,68h,2eh,20h,45h,76h,65h,72h,79h,20h,74h,69h,72h
-db	65h,20h,26h,20h,61h,6ch,6ch,20h,61h,72h,6dh,6fh,72h,73h,0,0
-db	0,0,0,0,66h,69h,74h,2eh,0,0,0,0,0,0,0,0
+db	65h,20h,26h," all armors",0,0
+db	0,0,0,0,"fit.",0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,5bh,44h,65h,6ch,69h,76h,65h,72h,61h,74h,6fh,72h
+db	0,0,0,0,"[Deliverator"
 db	20h,2dh,20h,53h,70h,65h,65h,64h,20h,31h,34h,30h,20h,6dh,70h,68h
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,53h,75h,70h,72h,65h,6dh,65h,2eh,20h,53h,70h,65h
-db	65h,64h,20h,63h,61h,6eh,20h,62h,65h,20h,62h,6fh,6fh,73h,74h,65h
-db	64h,20h,74h,6fh,0,0,0,0,0,0,0,0,5bh,31h,36h,30h
-db	7bh,20h,6dh,70h,68h,2eh,20h,41h,72h,6dh,61h,67h,65h,64h,64h,6fh
-db	6eh,27h,73h,20h,61h,72h,6dh,61h,6dh,65h,6eh,74h,73h,2eh,0,0
-db	0,0,0,0,45h,76h,65h,72h,79h,20h,74h,69h,72h,65h,20h,26h
-db	20h,61h,6ch,6ch,20h,61h,72h,6dh,6fh,72h,73h,20h,66h,69h,74h,2eh
+db	0,0,0,0,"Supreme. Spe"
+db	"ed can be booste"
+db	"d to",0,0,0,0,0,0,0,0,5bh,31h,36h,30h
+db	7bh," mph. Armageddo"
+db	"n's armaments.",0,0
+db	0,0,0,0,"Every tire &"
+db	" all armors fit."
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,5bh,44h,65h,6ch,69h,76h,65h,72h,61h,74h,6fh,72h
+db	0,0,0,0,"[Deliverator"
 db	20h,62h,6fh,75h,67h,68h,74h,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,50h,72h,69h,6eh,63h,65h,20h,6fh,66h,20h,74h,68h
-db	65h,20h,72h,61h,63h,65h,21h,20h,54h,68h,69h,73h,20h,69h,73h,20h
-db	74h,68h,65h,0,0,0,0,0,0,0,0,0,62h,65h,73h,74h
-db	20h,74h,68h,65h,72h,65h,20h,69h,73h,2ch,20h,74h,68h,65h,20h,64h
-db	72h,65h,61h,6dh,20h,6dh,61h,63h,68h,69h,6eh,65h,2ch,0,0,0
-db	0,0,0,0,74h,68h,65h,20h,67h,6fh,6ch,64h,2dh,68h,6fh,6eh
+db	0,0,0,0,"Prince of th"
+db	65h,20h,72h,61h,63h,65h,21h," This is "
+db	"the",0,0,0,0,0,0,0,0,0,"best"
+db	" there is, the d"
+db	"ream machine,",0,0,0
+db	0,0,0,0,"the gold-hon"
 db	65h,79h,20h,63h,68h,61h,72h,69h,6fh,74h,2eh,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,5bh,34h,20h,63h,79h,6ch,69h,6eh,64h,65h,72h,20h
-db	6dh,6fh,74h,6fh,72h,20h,2dh,20h,53h,70h,65h,65h,64h,3ah,20h,5bh
+db	0,0,0,0,"[4 cylinder "
+db	"motor - Speed: ["
 db	31h,34h,35h,20h,6dh,70h,68h,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,53h,69h,63h,6bh,20h,6fh,66h,20h,68h,65h,61h,72h
-db	69h,6eh,67h,20h,79h,6fh,75h,72h,20h,6fh,6ch,64h,20h,73h,70h,69h
-db	72h,69h,74h,2dh,0,0,0,0,0,0,0,0,62h,75h,72h,6eh
-db	65h,72h,20h,6dh,6fh,61h,6eh,20h,69h,6eh,20h,63h,6fh,6eh,73h,74h
+db	0,0,0,0,"Sick of hear"
+db	"ing your old spi"
+db	"rit-",0,0,0,0,0,0,0,0,62h,75h,72h,6eh
+db	"er moan in const"
 db	61h,6eh,74h,20h,6fh,76h,65h,72h,2dh,72h,65h,76h,3fh,0,0,0
-db	0,0,0,0,54h,68h,69h,73h,20h,6dh,6fh,74h,6fh,72h,20h,69h
-db	73h,20h,74h,68h,65h,20h,73h,77h,65h,65h,74h,20h,73h,6fh,6ch,75h
-db	74h,69h,6fh,6eh,2eh,0,0,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,"This motor i"
+db	"s the sweet solu"
+db	"tion.",0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,5bh,45h,6eh,68h,61h,6eh,63h,65h,64h,20h,34h,20h
-db	63h,79h,6ch,69h,6eh,64h,65h,72h,20h,2dh,20h,53h,70h,65h,65h,64h
-db	3ah,20h,5bh,31h,35h,30h,20h,6dh,70h,68h,0,0,0,0,0,0
+db	"cylinder - Speed"
+db	": [150 mph",0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,46h,65h,65h,64h,69h,6eh,67h,20h,74h,68h,65h,20h
-db	62h,65h,61h,73h,74h,20h,77h,69h,74h,68h,20h,73h,70h,65h,65h,64h
+db	0,0,0,0,"Feeding the "
+db	"beast with speed"
 db	2ch,20h,67h,6fh,74h,0,0,0,0,0,0,0,61h,6eh,20h,75h
-db	6eh,62h,65h,61h,72h,61h,62h,6ch,65h,20h,6eh,65h,65h,64h,20h,66h
-db	6fh,72h,20h,73h,70h,65h,65h,64h,3fh,20h,54h,68h,69h,73h,0,0
-db	0,0,0,0,69h,73h,20h,74h,68h,65h,20h,72h,65h,6dh,65h,64h
+db	"nbearable need f"
+db	"or speed? This",0,0
+db	0,0,0,0,"is the remed"
 db	79h,2eh,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,5bh,56h,36h,20h,49h,6eh,6ah,65h,63h,74h,69h,6fh
-db	6eh,20h,2dh,20h,53h,70h,65h,65h,64h,3ah,20h,5bh,31h,35h,35h,20h
+db	"n - Speed: [155 "
 db	6dh,70h,68h,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,57h,69h,74h,68h,20h,74h,68h,69h,73h,20h,62h,61h
-db	62h,65h,20h,69h,6eh,73h,74h,61h,6ch,6ch,65h,64h,2ch,20h,62h,65h
-db	20h,79h,6fh,75h,72h,0,0,0,0,0,0,0,64h,65h,73h,74h
-db	69h,6eh,61h,74h,69h,6fh,6eh,20h,68h,65h,6ch,6ch,20h,6fh,72h,20h
-db	68h,61h,6ch,6ch,65h,6ch,75h,6ah,61h,68h,2ch,0,0,0,0,0
-db	0,0,0,0,79h,6fh,75h,27h,6ch,6ch,20h,67h,65h,74h,20h,74h
+db	0,0,0,0,"With this ba"
+db	"be installed, be"
+db	" your",0,0,0,0,0,0,0,64h,65h,73h,74h
+db	"ination hell or "
+db	"hallelujah,",0,0,0,0,0
+db	0,0,0,0,"you'll get t"
 db	68h,65h,72h,65h,20h,73h,6fh,20h,66h,61h,73h,74h,2ch,20h,73h,6fh
 db	20h,66h,61h,73h,74h,2eh,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,5bh,56h,38h,20h,54h,75h,72h,62h,6fh,20h,49h,6eh
-db	6ah,65h,63h,74h,69h,6fh,6eh,20h,2dh,20h,53h,70h,65h,65h,64h,3ah
-db	20h,5bh,31h,36h,30h,20h,6dh,70h,68h,0,0,0,0,0,0,0
+db	0,0,0,0,"[V8 Turbo In"
+db	"jection - Speed:"
+db	" [160 mph",0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,44h,65h,66h,69h,6eh,69h,74h,69h,6fh,6eh,20h,6fh
-db	66h,20h,6eh,69h,72h,76h,61h,6eh,61h,3ah,20h,72h,69h,64h,69h,6eh
-db	67h,20h,74h,68h,61h,74h,0,0,0,0,0,0,72h,61h,63h,65h
-db	20h,77h,69h,74h,68h,20h,56h,38h,20h,54h,49h,2eh,20h,4eh,65h,78h
-db	74h,20h,73h,74h,6fh,70h,3ah,20h,6eh,6fh,0,0,0,0,0,0
-db	0,0,0,0,73h,74h,6fh,70h,2ch,20h,6eh,65h,76h,65h,72h,20h
-db	73h,74h,6fh,70h,2eh,20h,0,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,"Definition o"
+db	"f nirvana: ridin"
+db	"g that",0,0,0,0,0,0,72h,61h,63h,65h
+db	" with V8 TI. Nex"
+db	"t stop: no",0,0,0,0,0,0
+db	0,0,0,0,"stop, never "
+db	"stop. ",0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -6413,59 +5879,59 @@ ___190bd8h:
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,0,0,0,0,0,0,0,0,20h,20h,20h,20h
-db	20h,20h,5bh,48h,6fh,6ch,64h,20h,6fh,6eh,20h,74h,6fh,20h,79h,6fh
-db	75h,72h,20h,72h,65h,69h,6eh,73h,7bh,2ch,20h,79h,6fh,75h,20h,6dh
-db	61h,64h,2ch,20h,6dh,6fh,74h,6fh,72h,69h,7ah,65h,64h,0,0,0
-db	0,0,0,0,0,0,0,0,20h,20h,20h,62h,65h,72h,73h,65h
-db	72h,6bh,65h,72h,21h,20h,54h,68h,65h,79h,20h,77h,6fh,75h,6ch,64h
-db	20h,6dh,6fh,77h,20h,79h,6fh,75h,20h,64h,65h,61h,64h,20h,6fh,75h
-db	74h,20h,74h,68h,65h,72h,65h,2eh,0,0,0,0,0,0,0,0
-db	0,0,0,0,20h,20h,20h,20h,20h,5bh,53h,69h,67h,6eh,20h,75h
-db	70h,20h,68h,65h,72h,65h,20h,6fh,6eh,6ch,79h,20h,77h,68h,65h,6eh
-db	20h,79h,6fh,75h,20h,68h,61h,76h,65h,20h,61h,20h,53h,65h,6eh,74h
-db	69h,6eh,65h,6ch,0,0,0,0,0,0,0,0,0,0,0,0
-db	20h,20h,20h,20h,20h,20h,5bh,6fh,72h,20h,73h,6fh,6dh,65h,74h,68h
-db	69h,6eh,67h,20h,65h,76h,65h,6eh,20h,77h,69h,6ch,64h,65h,72h,20h
-db	75h,6eh,64h,65h,72h,20h,79h,6fh,75h,72h,20h,74h,61h,69h,6ch,2eh
+db	0,0,0,0,0,0,0,0,0,0,0,0,"    "
+db	"  [Hold on to yo"
+db	"ur reins{, you m"
+db	"ad, motorized",0,0,0
+db	0,0,0,0,0,0,0,0,"   berse"
+db	72h,6bh,65h,72h,21h," They would"
+db	" mow you dead ou"
+db	"t there.",0,0,0,0,0,0,0,0
+db	0,0,0,0,"     [Sign u"
+db	"p here only when"
+db	" you have a Sent"
+db	"inel",0,0,0,0,0,0,0,0,0,0,0,0
+db	"      [or someth"
+db	"ing even wilder "
+db	"under your tail."
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,0,0,0,0,20h,20h,20h,20h,20h,20h,5bh,48h
-db	6fh,6ch,64h,20h,6fh,6eh,20h,74h,6fh,20h,79h,6fh,75h,72h,20h,72h
-db	65h,69h,6eh,73h,7bh,2ch,20h,79h,6fh,75h,20h,6dh,61h,64h,2ch,20h
-db	6dh,6fh,74h,6fh,72h,69h,7ah,65h,64h,0,0,0,0,0,0,0
-db	0,0,0,0,20h,20h,20h,62h,65h,72h,73h,65h,72h,6bh,65h,72h
-db	21h,20h,54h,68h,65h,79h,20h,77h,6fh,75h,6ch,64h,20h,6dh,6fh,77h
-db	20h,79h,6fh,75h,20h,64h,65h,61h,64h,20h,6fh,75h,74h,20h,74h,68h
-db	65h,72h,65h,2eh,0,0,0,0,0,0,0,0,0,0,0,0
-db	20h,20h,20h,20h,20h,5bh,53h,69h,67h,6eh,20h,75h,70h,20h,68h,65h
-db	72h,65h,20h,6fh,6eh,6ch,79h,20h,77h,68h,65h,6eh,20h,79h,6fh,75h
-db	20h,68h,61h,76h,65h,20h,61h,20h,57h,72h,61h,69h,74h,68h,0,0
-db	0,0,0,0,0,0,0,0,0,0,0,0,20h,20h,20h,20h
-db	20h,20h,5bh,6fh,72h,20h,73h,6fh,6dh,65h,74h,68h,69h,6eh,67h,20h
+db	0,0,0,0,0,0,0,0,"      [H"
+db	"old on to your r"
+db	"eins{, you mad, "
+db	"motorized",0,0,0,0,0,0,0
+db	0,0,0,0,"   berserker"
+db	21h," They would mow"
+db	" you dead out th"
+db	"ere.",0,0,0,0,0,0,0,0,0,0,0,0
+db	"     [Sign up he"
+db	"re only when you"
+db	" have a Wraith",0,0
+db	0,0,0,0,0,0,0,0,0,0,0,0,"    "
+db	"  [or something "
 db	65h,76h,65h,6eh,20h,77h,69h,6ch,64h,65h,72h,20h,75h,6eh,64h,65h
-db	72h,20h,79h,6fh,75h,72h,20h,74h,61h,69h,6ch,2eh,0,0,0,0
+db	"r your tail.",0,0,0,0
 db	0,0,0,0,0,0,0,0
 ___190e30h:
 db	5bh,4eh,4fh,20h,4dh,4fh,52h,45h,20h,45h,4eh,47h,49h,4eh,45h,20h
-db	55h,50h,47h,52h,41h,44h,45h,53h,0,0,0,0,0,0,0,0
+db	"UPGRADES",0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0
 ___190e58h:
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0
 ___190e80h:
-db	59h,6fh,75h,27h,76h,65h,20h,67h,6fh,74h,20h,74h,68h,65h,20h,6dh
-db	6fh,73h,74h,20h,62h,65h,61h,73h,74h,6ch,79h,20h,6dh,6fh,74h,6fh
+db	"You've got the m"
+db	"ost beastly moto"
 db	72h,0,0,0,0,0,0,0
 ___190ea8h:
-db	6dh,6fh,6eh,73h,74h,65h,72h,20h,74h,68h,69h,73h,20h,76h,65h,68h
-db	69h,63h,6ch,65h,20h,63h,61h,6eh,20h,63h,61h,72h,72h,79h,2eh,0
+db	"monster this veh"
+db	"icle can carry.",0
 db	0,0,0,0,0,0,0,0
 ___190ed0h:
-db	48h,65h,61h,72h,20h,69h,74h,73h,20h,70h,6fh,77h,65h,72h,66h,75h
+db	"Hear its powerfu"
 db	6ch,20h,26h,20h,73h,75h,62h,6ch,69h,6dh,65h,20h,73h,6fh,75h,6eh
 db	64h,2eh,0,0,0,0,0,0
 ___190ef8h:
@@ -6473,7 +5939,7 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0
 ___190f20h:
-db	5bh,4eh,4fh,20h,4dh,4fh,52h,45h,20h,54h,49h,52h,45h,20h,55h,50h
+db	"[NO MORE TIRE UP"
 db	47h,52h,41h,44h,45h,53h,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0
 ___190f48h:
@@ -6481,16 +5947,16 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0
 ___190f70h:
-db	59h,6fh,75h,27h,76h,65h,20h,67h,6fh,74h,20h,74h,68h,65h,20h,62h
-db	65h,73h,74h,20h,66h,61h,74h,2ch,20h,73h,74h,69h,63h,6bh,79h,0
+db	"You've got the b"
+db	"est fat, sticky",0
 db	0,0,0,0,0,0,0,0
 ___190f98h:
-db	74h,69h,72h,65h,73h,20h,74h,68h,69h,73h,20h,76h,65h,68h,69h,63h
+db	"tires this vehic"
 db	6ch,65h,20h,63h,61h,6eh,20h,62h,6fh,61h,73h,74h,2eh,20h,59h,6fh
 db	75h,0,0,0,0,0,0,0
 ___190fc0h:
-db	61h,72h,65h,20h,69h,6eh,20h,63h,6ch,6fh,73h,65h,20h,74h,6fh,75h
-db	63h,68h,20h,77h,69h,74h,68h,20h,74h,68h,65h,20h,72h,6fh,61h,64h
+db	"are in close tou"
+db	"ch with the road"
 db	2eh,0,0,0,0,0,0,0
 ___190fe8h:
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -6505,15 +5971,15 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0
 ___191060h:
-db	59h,6fh,75h,20h,67h,6fh,74h,20h,74h,68h,65h,20h,62h,65h,73h,74h
-db	20h,73h,68h,69h,6eh,69h,6eh,67h,20h,6bh,6eh,69h,67h,68h,74h,27h
+db	"You got the best"
+db	" shining knight'"
 db	73h,0,0,0,0,0,0,0
 ___191088h:
-db	61h,72h,6dh,6fh,72h,20h,74h,68h,69h,73h,20h,77h,61h,72h,68h,6fh
-db	72h,73h,65h,70h,6fh,77h,65h,72h,20h,63h,68h,61h,72h,69h,6fh,74h
+db	"armor this warho"
+db	"rsepower chariot"
 db	0,0,0,0,0,0,0,0
 ___1910b0h:
-db	63h,61h,6eh,20h,63h,61h,72h,72h,79h,20h,74h,6fh,20h,61h,6eh,79h
+db	"can carry to any"
 db	20h,72h,6fh,61h,64h,20h,62h,61h,74h,74h,6ch,65h,2eh,0,0,0
 db	0,0,0,0,0,0,0,0
 ___1910d8h:
@@ -6521,63 +5987,63 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0
 ___191100h:
-db	5bh,34h,20h,63h,79h,6ch,69h,6eh,64h,65h,72h,20h,6dh,6fh,74h,6fh
-db	72h,20h,69h,6eh,73h,74h,61h,6ch,6ch,65h,64h,0,0,0,0,0
+db	"[4 cylinder moto"
+db	"r installed",0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	54h,68h,69h,73h,20h,65h,6eh,67h,69h,6eh,65h,20h,67h,65h,6eh,69h
-db	65h,20h,77h,69h,6ch,6ch,20h,6ch,65h,74h,20h,79h,6fh,75h,0,0
-db	0,0,0,0,0,0,0,0,77h,69h,6eh,2eh,20h,49h,74h,20h
-db	77h,69h,6ch,6ch,20h,67h,72h,61h,6eh,74h,20h,79h,6fh,75h,72h,20h
+db	"This engine geni"
+db	"e will let you",0,0
+db	0,0,0,0,0,0,0,0,"win. It "
+db	"will grant your "
 db	62h,6fh,79h,20h,72h,61h,63h,65h,72h,0,0,0,0,0,0,0
-db	77h,69h,73h,68h,65h,73h,2eh,0,0,0,0,0,0,0,0,0
+db	"wishes.",0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	5bh,45h,6eh,68h,61h,6eh,63h,65h,64h,20h,34h,20h,63h,79h,6ch,69h
-db	6eh,64h,65h,72h,20h,69h,6eh,73h,74h,61h,6ch,6ch,65h,64h,0,0
+db	"nder installed",0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	4eh,6fh,77h,20h,61h,6eh,79h,20h,62h,69h,74h,74h,65h,72h,20h,72h
-db	65h,67h,72h,65h,74h,73h,20h,61h,72h,65h,20h,69h,6eh,20h,74h,68h
+db	"Now any bitter r"
+db	"egrets are in th"
 db	65h,0,0,0,0,0,0,0,70h,61h,73h,74h,2ch,20h,6ah,75h
 db	73h,74h,20h,62h,6ch,75h,72h,72h,65h,64h,2ch,20h,73h,77h,65h,65h
-db	74h,20h,73h,74h,72h,65h,65h,74h,2dh,0,0,0,0,0,0,0
-db	6ch,69h,67h,68h,74h,73h,20h,73h,70h,65h,65h,64h,69h,6eh,67h,20h
+db	"t street-",0,0,0,0,0,0,0
+db	"lights speeding "
 db	70h,61h,73h,74h,20h,66h,61h,73h,74h,2eh,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5bh,56h,36h,20h,49h,6eh,6ah,65h,63h,74h,69h,6fh,6eh,20h,6dh,6fh
-db	74h,6fh,72h,20h,69h,6eh,73h,74h,61h,6ch,6ch,65h,64h,0,0,0
+db	"[V6 Injection mo"
+db	"tor installed",0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	49h,66h,20h,73h,70h,65h,65h,64h,69h,6eh,67h,20h,69h,73h,20h,74h
+db	"If speeding is t"
 db	68h,65h,20h,38h,74h,68h,20h,64h,65h,61h,64h,6ch,79h,20h,73h,69h
-db	6eh,2ch,0,0,0,0,0,0,77h,69h,74h,68h,20h,74h,68h,69h
-db	73h,20h,62h,61h,62h,65h,20h,75h,6eh,64h,65h,72h,20h,79h,6fh,75h
+db	6eh,2ch,0,0,0,0,0,0,"with thi"
+db	"s babe under you"
 db	72h,20h,68h,6fh,6fh,64h,2ch,0,0,0,0,0,0,0,0,0
-db	79h,6fh,75h,20h,61h,72h,65h,20h,6eh,6fh,77h,20h,70h,61h,73h,74h
-db	20h,72h,65h,64h,65h,6dh,70h,74h,69h,6fh,6eh,2eh,0,0,0,0
+db	"you are now past"
+db	" redemption.",0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5bh,56h,38h,20h,54h,75h,72h,62h,6fh,20h,49h,6eh,6ah,65h,63h,74h
-db	69h,6fh,6eh,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	"[V8 Turbo Inject"
+db	"ion",0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	47h,6ch,65h,61h,6dh,69h,6eh,67h,20h,70h,69h,73h,74h,6fh,6eh,73h
-db	20h,70h,75h,6dh,70h,69h,6eh,67h,20h,69h,6eh,20h,63h,68h,6fh,72h
-db	75h,73h,0,0,0,0,0,0,77h,69h,74h,68h,20h,79h,6fh,75h
+db	"Gleaming pistons"
+db	" pumping in chor"
+db	75h,73h,0,0,0,0,0,0,"with you"
 db	72h,20h,68h,75h,6eh,67h,72h,79h,20h,68h,65h,61h,72h,74h,2eh,20h
-db	54h,68h,69h,73h,20h,73h,77h,65h,65h,74h,0,0,0,0,0,0
-db	73h,79h,6dh,62h,69h,6fh,73h,69h,73h,20h,63h,61h,6eh,20h,63h,61h
-db	75h,73h,65h,20h,61h,64h,64h,69h,63h,74h,69h,6fh,6eh,2eh,0,0
+db	"This sweet",0,0,0,0,0,0
+db	"symbiosis can ca"
+db	"use addiction.",0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -6587,12 +6053,12 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	54h,68h,65h,73h,65h,20h,77h,68h,65h,65h,6ch,73h,20h,77h,69h,6ch
-db	6ch,20h,6ch,65h,74h,20h,79h,6fh,75h,20h,64h,6fh,20h,73h,6fh,6dh
+db	"These wheels wil"
+db	"l let you do som"
 db	65h,0,0,0,0,0,0,0,72h,61h,70h,69h,64h,20h,66h,69h
-db	72h,65h,20h,63h,6fh,72h,6eh,65h,72h,69h,6eh,67h,73h,20h,6fh,6eh
-db	20h,74h,68h,61h,74h,0,0,0,0,0,0,0,0,0,0,0
-db	73h,68h,69h,6dh,6dh,65h,72h,69h,6eh,67h,20h,73h,69h,6ch,76h,65h
+db	"re cornerings on"
+db	" that",0,0,0,0,0,0,0,0,0,0,0
+db	"shimmering silve"
 db	72h,20h,73h,74h,72h,65h,65h,74h,2eh,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -6602,28 +6068,28 @@ db	37h,35h,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	57h,69h,74h,68h,20h,74h,68h,65h,73h,65h,20h,66h,61h,74h,20h,74h
-db	69h,72h,65h,73h,2ch,20h,79h,6fh,75h,27h,6ch,6ch,20h,73h,68h,6fh
-db	6fh,74h,0,0,0,0,0,0,66h,72h,6fh,6dh,20h,74h,68h,65h
-db	20h,73h,74h,61h,72h,74h,69h,6eh,67h,2dh,6ch,69h,6eh,65h,20h,6ch
+db	"With these fat t"
+db	"ires, you'll sho"
+db	6fh,74h,0,0,0,0,0,0,"from the"
+db	" starting-line l"
 db	69h,6bh,65h,20h,61h,0,0,0,0,0,0,0,0,0,0,0
-db	62h,6ch,6fh,6fh,64h,20h,6ch,75h,73h,74h,69h,6eh,67h,20h,62h,75h
+db	"blood lusting bu"
 db	6ch,6ch,65h,74h,2eh,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5bh,53h,6ch,69h,64h,65h,73h,74h,6fh,70h,20h,32h,30h,30h,0,0
+db	"[Slidestop 200",0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	54h,68h,65h,73h,65h,20h,66h,61h,74h,20h,62h,6fh,74h,74h,6fh,6dh
-db	65h,64h,20h,74h,69h,72h,65h,73h,27h,6ch,6ch,20h,6bh,69h,73h,73h
-db	0,0,0,0,0,0,0,0,74h,68h,65h,20h,72h,6fh,61h,64h
-db	20h,6ch,69h,6bh,65h,20h,63h,72h,61h,7ah,79h,2ch,20h,74h,68h,65h
+db	"These fat bottom"
+db	"ed tires'll kiss"
+db	0,0,0,0,0,0,0,0,"the road"
+db	" like crazy, the"
 db	79h,20h,6ah,75h,73h,74h,0,0,0,0,0,0,0,0,0,0
-db	63h,61h,6eh,27h,74h,20h,67h,65h,74h,20h,65h,6eh,6fh,75h,67h,68h
-db	2eh,20h,54h,68h,65h,79h,27h,72h,65h,20h,68h,6fh,74h,2eh,0,0
+db	"can't get enough"
+db	". They're hot.",0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -6632,13 +6098,13 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5ah,6fh,72h,72h,6fh,27h,73h,20h,5ah,73h,20h,77h,65h,72h,65h,20h
-db	6eh,6fh,74h,68h,69h,6eh,67h,2eh,20h,43h,61h,72h,76h,65h,0,0
-db	0,0,0,0,0,0,0,0,79h,6fh,75h,72h,20h,77h,68h,6fh
-db	6ch,65h,20h,73h,69h,67h,6eh,61h,74h,75h,72h,65h,2ch,20h,74h,6fh
-db	20h,74h,68h,65h,0,0,0,0,0,0,0,0,0,0,0,0
-db	72h,61h,69h,6eh,62h,6fh,77h,2dh,6fh,69h,6ch,65h,64h,20h,72h,6fh
-db	61h,64h,2ch,20h,64h,6fh,69h,6eh,67h,20h,31h,36h,30h,2eh,0,0
+db	"zorro's Zs were "
+db	"nothing. Carve",0,0
+db	0,0,0,0,0,0,0,0,"your who"
+db	"le signature, to"
+db	" the",0,0,0,0,0,0,0,0,0,0,0,0
+db	"rainbow-oiled ro"
+db	"ad, doing 160.",0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -6648,12 +6114,12 @@ db	20h,62h,6fh,75h,67h,68h,74h,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	57h,61h,72h,70h,20h,39h,2ch,20h,43h,61h,70h,74h,61h,69h,6eh,2eh
-db	20h,4eh,6fh,20h,70h,72h,6fh,62h,6ch,65h,6dh,73h,20h,77h,69h,74h
-db	68h,0,0,0,0,0,0,0,74h,72h,61h,63h,74h,69h,6fh,6eh
-db	20h,6eh,6fh,77h,2eh,20h,54h,68h,65h,20h,66h,69h,6eh,69h,73h,68h
-db	20h,6ch,69h,6eh,65h,2ch,0,0,0,0,0,0,0,0,0,0
-db	73h,68h,65h,27h,73h,20h,63h,6ch,6fh,73h,69h,6eh,67h,20h,66h,61h
+db	57h,61h,72h,70h,20h,39h,", Captain."
+db	" No problems wit"
+db	68h,0,0,0,0,0,0,0,"traction"
+db	" now. The finish"
+db	" line,",0,0,0,0,0,0,0,0,0,0
+db	"she's closing fa"
 db	73h,74h,2eh,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -6663,27 +6129,27 @@ db	37h,35h,20h,62h,6fh,75h,67h,68h,74h,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	4fh,6eh,20h,74h,68h,65h,73h,65h,20h,77h,68h,65h,65h,6ch,73h,2ch
-db	20h,79h,6fh,75h,72h,20h,76h,65h,68h,69h,63h,6ch,65h,0,0,0
-db	0,0,0,0,0,0,0,0,73h,74h,61h,72h,74h,73h,20h,6ch
+db	"On these wheels,"
+db	" your vehicle",0,0,0
+db	0,0,0,0,0,0,0,0,"starts l"
 db	69h,6bh,65h,20h,61h,20h,6eh,75h,63h,6ch,65h,61h,72h,20h,62h,6ch
-db	61h,73h,74h,2ch,20h,61h,6eh,64h,0,0,0,0,0,0,0,0
-db	73h,74h,6fh,70h,73h,20h,79h,6fh,75h,20h,6ch,69h,6bh,65h,20h,61h
-db	20h,63h,61h,72h,64h,69h,61h,63h,20h,61h,72h,72h,65h,73h,74h,2eh
+db	"ast, and",0,0,0,0,0,0,0,0
+db	"stops you like a"
+db	" cardiac arrest."
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5bh,53h,6ch,69h,64h,65h,73h,74h,6fh,70h,20h,32h,30h,30h,20h,62h
+db	"[Slidestop 200 b"
 db	6fh,75h,67h,68h,74h,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	4eh,6fh,77h,20h,66h,61h,73h,74h,20h,74h,61h,6ch,6bh,20h,74h,6fh
-db	20h,74h,68h,61h,74h,20h,61h,73h,70h,68h,61h,6ch,74h,2ch,0,0
-db	0,0,0,0,0,0,0,0,6dh,6fh,74h,6fh,72h,6dh,6fh,75h
-db	74h,68h,2eh,20h,54h,69h,6dh,65h,20h,74h,6fh,20h,6dh,61h,6bh,65h
-db	20h,73h,6fh,6dh,65h,0,0,0,0,0,0,0,0,0,0,0
-db	62h,65h,61h,75h,74h,69h,66h,75h,6ch,20h,61h,75h,74h,6fh,6dh,6fh
+db	"Now fast talk to"
+db	" that asphalt,",0,0
+db	0,0,0,0,0,0,0,0,"motormou"
+db	"th. Time to make"
+db	" some",0,0,0,0,0,0,0,0,0,0,0
+db	"beautiful automo"
 db	62h,69h,6ch,65h,20h,70h,6fh,65h,74h,72h,79h,2eh,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -6693,10 +6159,10 @@ db	68h,74h,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	53h,6dh,61h,72h,74h,20h,6dh,6fh,76h,65h,2ch,20h,6dh,6fh,74h,6fh
+db	"Smart move, moto"
 db	72h,6dh,61h,6eh,2eh,20h,4eh,6fh,77h,20h,67h,65h,74h,20h,6fh,75h
-db	74h,0,0,0,0,0,0,0,74h,68h,65h,72h,65h,2ch,20h,61h
-db	6eh,64h,20h,64h,6fh,20h,73h,6fh,6dh,65h,20h,64h,61h,73h,68h,69h
+db	74h,0,0,0,0,0,0,0,"there, a"
+db	"nd do some dashi"
 db	6eh,67h,2ch,20h,64h,61h,72h,65h,2dh,0,0,0,0,0,0,0
 db	64h,65h,76h,69h,6ch,69h,73h,68h,20h,64h,61h,6dh,61h,67h,65h,2eh
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -6705,61 +6171,60 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___191c40h:
 db	5bh,53h,74h,65h,65h,6ch,20h,54h,72h,69h,75h,6dh,70h,68h,20h,50h
-db	6ch,61h,74h,69h,6eh,67h,0,0,0,0,0,0,0,0,0,0
+db	"lating",0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	53h,74h,65h,65h,6ch,20h,54h,72h,69h,75h,6dh,70h,68h,20h,77h,6fh
-db	6eh,27h,74h,20h,73h,74h,6fh,70h,20h,74h,68h,65h,20h,68h,75h,72h
-db	74h,2ch,0,0,0,0,0,0,62h,75h,74h,20h,69h,74h,20h,6ah
+db	"n't stop the hur"
+db	74h,2ch,0,0,0,0,0,0,"but it j"
 db	75h,73h,74h,20h,6dh,69h,67h,68h,74h,20h,6bh,65h,65h,70h,20h,79h
-db	6fh,75h,20h,69h,6eh,20h,6fh,6eh,65h,0,0,0,0,0,0,0
-db	70h,69h,65h,63h,65h,20h,74h,6fh,20h,74h,68h,65h,20h,66h,69h,6eh
-db	69h,73h,68h,20h,6ch,69h,6eh,65h,2eh,0,0,0,0,0,0,0
+db	"ou in one",0,0,0,0,0,0,0
+db	"piece to the fin"
+db	"ish line.",0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	5bh,46h,65h,72h,72h,6fh,43h,68h,72h,6fh,6dh,69h,75h,6dh,20h,41h
-db	72h,6dh,6fh,72h,0,0,0,0,0,0,0,0,0,0,0,0
+db	"rmor",0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	57h,68h,61h,74h,20h,74h,68h,65h,20h,72h,69h,76h,61h,6ch,20h,67h
-db	75h,6eh,73h,20h,67h,69h,76h,65h,2ch,20h,74h,68h,69h,73h,0,0
-db	0,0,0,0,0,0,0,0,61h,72h,6dh,6fh,72h,20h,63h,61h
-db	6eh,20h,74h,61h,6bh,65h,2ch,20h,62h,75h,74h,20h,79h,6fh,75h,27h
-db	64h,20h,62h,65h,74h,74h,65h,72h,0,0,0,0,0,0,0,0
-db	73h,68h,6fh,6fh,74h,20h,62h,61h,63h,6bh,2ch,20h,74h,68h,65h,72h
-db	65h,27h,73h,20h,61h,20h,6ch,69h,6dh,69h,74h,2eh,0,0,0,0
+db	"What the rival g"
+db	"uns give, this",0,0
+db	0,0,0,0,0,0,0,0,"armor ca"
+db	"n take, but you'"
+db	"d better",0,0,0,0,0,0,0,0
+db	"shoot back, ther"
+db	"e's a limit.",0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5bh,54h,69h,74h,61h,6eh,69h,75h,6dh,20h,50h,6ch,61h,74h,69h,6eh
-db	67h,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	"[Titanium Plating"
+db  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	53h,65h,65h,20h,74h,68h,69h,73h,20h,62h,69h,67h,20h,67h,75h,6eh
-db	3bh,20h,73h,65h,65h,20h,74h,68h,69h,73h,20h,61h,72h,6dh,6fh,72h
+db	"See this big gun"
+db	3bh," see this armor"
 db	2eh,0,0,0,0,0,0,0,5bh,42h,41h,4eh,47h,21h,7bh,20h
-db	4eh,6fh,77h,20h,73h,65h,65h,20h,74h,68h,65h,20h,61h,72h,6dh,6fh
-db	72h,2eh,20h,53h,6dh,69h,6ch,65h,20h,74h,6fh,0,0,0,0,0
-db	79h,6fh,75h,72h,20h,72h,65h,66h,6ch,65h,63h,74h,69h,6fh,6eh,2eh
-db	20h,4ch,6fh,6fh,6bh,69h,6eh,67h,20h,67h,6fh,6fh,64h,2eh,0,0
+db	"Now see the armo"
+db	"r. Smile to",0,0,0,0,0
+db	"your reflection."
+db	" Looking good.",0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5bh,41h,63h,63h,65h,73h,74h,65h,65h,6ch,20h,41h,72h,6dh,6fh,72h
+db	"[Accesteel Armor"
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	41h,6ch,6ch,20h,62h,75h,74h,20h,74h,68h,65h,20h,6dh,6fh,73h,74h
-db	20h,65h,78h,74h,72h,65h,6dh,65h,20h,73h,68h,6fh,74h,73h,0,0
-db	0,0,0,0,0,0,0,0,62h,6fh,75h,6eh,63h,65h,20h,6fh
-db	66h,66h,20h,6ch,69h,6bh,65h,20h,68h,61h,69h,6ch,20h,6fh,6eh,20h
-db	68h,61h,72h,64h,0,0,0,0,0,0,0,0,0,0,0,0
-db	63h,6fh,6eh,63h,72h,65h,74h,65h,2eh,0,0,0,0,0,0,0
+db	"All but the most extreme shots"
+db  0,0,0,0,0,0,0,0,0,0
+db  "bounce off like hail on hard"
+db  0,0,0,0,0,0,0,0,0,0,0,0
+db	"concrete.",0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -6770,232 +6235,222 @@ db	6fh,75h,67h,68h,74h,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	53h,74h,72h,61h,69h,67h,68h,74h,20h,66h,72h,6fh,6dh,20h,74h,68h
-db	65h,20h,62h,65h,73h,74h,20h,52h,26h,44h,20h,4ch,61h,62h,73h,2ch
-db	0,0,0,0,0,0,0,0,73h,68h,69h,65h,6ch,64h,69h,6eh
+db	"Straight from th"
+db	"e best R&D Labs,"
+db	0,0,0,0,0,0,0,0,"shieldin"
 db	67h,20h,53h,74h,65h,65h,6ch,20h,54h,72h,69h,75h,6dh,70h,68h,20h
-db	67h,69h,76h,65h,73h,20h,79h,6fh,75h,0,0,0,0,0,0,0
-db	74h,68h,61h,74h,20h,65h,78h,74h,72h,61h,20h,65h,64h,67h,65h,20h
-db	79h,6fh,75h,20h,63h,72h,61h,76h,65h,2eh,0,0,0,0,0,0
+db	"gives you",0,0,0,0,0,0,0
+db	"that extra edge "
+db	"you crave.",0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	5bh,46h,65h,72h,72h,6fh,43h,68h,72h,6fh,6dh,69h,75h,6dh,20h,41h
-db	72h,6dh,6fh,72h,0,0,0,0,0,0,0,0,0,0,0,0
+db	"rmor",0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	44h,65h,66h,6ch,65h,63h,74h,73h,20h,62h,75h,6ch,6ch,65h,74h,73h
-db	2ch,20h,61h,6eh,64h,20h,6dh,6fh,73h,74h,20h,6fh,74h,68h,65h,72h
+db	", and most other"
 db	0,0,0,0,0,0,0,0,62h,61h,64h,20h,73h,74h,75h,66h
-db	66h,20h,74h,68h,61h,74h,20h,67h,6fh,65h,73h,20h,62h,61h,6eh,67h
-db	20h,69h,6eh,20h,74h,68h,65h,0,0,0,0,0,0,0,0,0
-db	6eh,69h,67h,68h,74h,2ch,20h,74h,6fh,6fh,2eh,0,0,0,0,0
+db	"f that goes bang"
+db	" in the",0,0,0,0,0,0,0,0,0
+db	"night, too.",0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5bh,54h,69h,74h,61h,6eh,69h,75h,6dh,20h,50h,6ch,61h,74h,65h,73h
-db	20h,69h,6eh,73h,74h,61h,6ch,6ch,65h,64h,0,0,0,0,0,0
+db	"[Titanium Plates"
+db	" installed",0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	53h,68h,69h,6eh,79h,20h,68h,61h,72h,64h,20h,73h,74h,75h,66h,66h
-db	2eh,20h,4eh,6fh,20h,65h,78h,70h,6ch,6fh,73h,69h,76h,65h,20h,63h
-db	61h,6eh,0,0,0,0,0,0,73h,68h,61h,64h,6fh,77h,20h,69h
-db	74h,73h,20h,74h,61h,6eh,6eh,69h,6eh,67h,20h,72h,61h,64h,69h,61h
-db	6eh,63h,65h,2eh,20h,44h,6fh,6eh,27h,74h,0,0,0,0,0,0
-db	66h,6fh,72h,67h,65h,74h,20h,79h,6fh,75h,72h,20h,73h,68h,61h,64h
+db	"Shiny hard stuff"
+db	". No explosive c"
+db	61h,6eh,0,0,0,0,0,0,"shadow i"
+db	"ts tanning radia"
+db	"nce. Don't",0,0,0,0,0,0
+db	"forget your shad"
 db	65h,73h,21h,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5bh,41h,63h,63h,65h,73h,74h,65h,65h,6ch,20h,41h,72h,6dh,6fh,72h
-db	20h,69h,6eh,73h,74h,61h,6ch,6ch,65h,64h,0,0,0,0,0,0
+db	"[Accesteel Armor"
+db	" installed",0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	4eh,6fh,74h,20h,65h,76h,65h,6eh,20h,61h,20h,73h,68h,65h,6ch,6ch
+db	"Not even a shell"
 db	2dh,73h,68h,6fh,63h,6bh,20h,73h,65h,72h,69h,6fh,75h,73h,0,0
 db	0,0,0,0,0,0,0,0,62h,61h,7ah,6fh,6fh,6bh,61h,20h
-db	63h,61h,6eh,20h,66h,61h,7ah,65h,20h,74h,68h,65h,20h,63h,6fh,6fh
-db	6ch,20h,6dh,69h,72h,72h,6fh,72h,0,0,0,0,0,0,0,0
-db	62h,65h,61h,75h,74h,79h,20h,6fh,66h,20h,41h,63h,63h,65h,73h,74h
+db	"can faze the coo"
+db	"l mirror",0,0,0,0,0,0,0,0
+db	"beauty of Accest"
 db	65h,65h,6ch,2eh,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___1923c0h:
-db	5bh,42h,6fh,72h,72h,6fh,77h,20h,24h,31h,32h,2ch,30h,30h,30h,20h
+db	"[Borrow $12,000 "
 db	2dh,20h,50h,61h,79h,20h,24h,31h,38h,2ch,30h,30h,30h,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	57h,69h,74h,68h,20h,62h,65h,74h,74h,65h,72h,20h,67h,65h,61h,72h
-db	20h,79h,6fh,75h,27h,64h,20h,61h,6ch,72h,65h,61h,64h,79h,20h,62h
-db	65h,0,0,0,0,0,0,0,6fh,6eh,20h,74h,68h,65h,20h,74h
-db	6fh,70h,2ch,20h,65h,68h,3fh,20h,53h,6fh,20h,68h,6fh,77h,20h,64h
+db	"With better gear"
+db	" you'd already b"
+db	65h,0,0,0,0,0,0,0,"on the t"
+db	"op, eh? So how d"
 db	6fh,65h,73h,20h,61h,0,0,0,0,0,0,0,0,0,0,0
-db	73h,68h,6fh,72h,74h,2dh,74h,65h,72h,6dh,20h,6ch,6fh,61h,6eh,20h
-db	6fh,66h,20h,5bh,24h,31h,32h,2ch,30h,30h,30h,7bh,20h,73h,6fh,75h
+db	"short-term loan "
+db	"of [$12,000{ sou"
 db	6eh,64h,3fh,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5bh,42h,6fh,72h,72h,6fh,77h,20h,24h,39h,2ch,30h,30h,30h,20h,2dh
+db	"[Borrow $9,000 -"
 db	20h,50h,61h,79h,20h,24h,31h,33h,2ch,35h,30h,30h,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	57h,69h,74h,68h,20h,62h,65h,74h,74h,65h,72h,20h,67h,65h,61h,72h
-db	20h,79h,6fh,75h,27h,64h,20h,61h,6ch,72h,65h,61h,64h,79h,20h,62h
-db	65h,0,0,0,0,0,0,0,6fh,6eh,20h,74h,68h,65h,20h,74h
-db	6fh,70h,2ch,20h,65h,68h,3fh,20h,53h,6fh,20h,68h,6fh,77h,20h,64h
+db	"With better gear"
+db	" you'd already b"
+db	65h,0,0,0,0,0,0,0,"on the t"
+db	"op, eh? So how d"
 db	6fh,65h,73h,20h,61h,0,0,0,0,0,0,0,0,0,0,0
-db	73h,68h,6fh,72h,74h,2dh,74h,65h,72h,6dh,20h,6ch,6fh,61h,6eh,20h
-db	6fh,66h,20h,5bh,24h,39h,2ch,30h,30h,30h,7bh,20h,73h,6fh,75h,6eh
+db	"short-term loan "
+db	"of [$9,000{ soun"
 db	64h,3fh,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5bh,42h,6fh,72h,72h,6fh,77h,20h,24h,36h,2ch,30h,30h,30h,20h,2dh
+db	"[Borrow $6,000 -"
 db	20h,50h,61h,79h,20h,24h,39h,2ch,30h,30h,30h,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	57h,69h,74h,68h,20h,62h,65h,74h,74h,65h,72h,20h,67h,65h,61h,72h
-db	20h,79h,6fh,75h,27h,64h,20h,61h,6ch,72h,65h,61h,64h,79h,20h,62h
-db	65h,0,0,0,0,0,0,0,6fh,6eh,20h,74h,68h,65h,20h,74h
-db	6fh,70h,2ch,20h,65h,68h,3fh,20h,53h,6fh,20h,68h,6fh,77h,20h,64h
+db	"With better gear"
+db	" you'd already b"
+db	65h,0,0,0,0,0,0,0,"on the t"
+db	"op, eh? So how d"
 db	6fh,65h,73h,20h,61h,0,0,0,0,0,0,0,0,0,0,0
-db	73h,68h,6fh,72h,74h,2dh,74h,65h,72h,6dh,20h,6ch,6fh,61h,6eh,20h
-db	6fh,66h,20h,5bh,24h,36h,2ch,30h,30h,30h,7bh,20h,73h,6fh,75h,6eh
+db	"short-term loan "
+db	"of [$6,000{ soun"
 db	64h,3fh,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5bh,42h,6fh,72h,72h,6fh,77h,20h,24h,33h,2ch,30h,30h,30h,20h,2dh
+db	"[Borrow $3,000 -"
 db	20h,50h,61h,79h,20h,24h,34h,2ch,35h,30h,30h,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	57h,69h,74h,68h,20h,62h,65h,74h,74h,65h,72h,20h,67h,65h,61h,72h
-db	20h,79h,6fh,75h,27h,64h,20h,61h,6ch,72h,65h,61h,64h,79h,20h,62h
-db	65h,0,0,0,0,0,0,0,6fh,6eh,20h,74h,68h,65h,20h,74h
-db	6fh,70h,2ch,20h,65h,68h,3fh,20h,53h,6fh,20h,68h,6fh,77h,20h,64h
+db	"With better gear"
+db	" you'd already b"
+db	65h,0,0,0,0,0,0,0,"on the t"
+db	"op, eh? So how d"
 db	6fh,65h,73h,20h,61h,0,0,0,0,0,0,0,0,0,0,0
-db	73h,68h,6fh,72h,74h,2dh,74h,65h,72h,6dh,20h,6ch,6fh,61h,6eh,20h
-db	6fh,66h,20h,5bh,24h,33h,2ch,30h,30h,30h,7bh,20h,73h,6fh,75h,6eh
+db	"short-term loan "
+db	"of [$3,000{ soun"
 db	64h,3fh,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5bh,42h,6fh,72h,72h,6fh,77h,20h,24h,31h,2ch,35h,30h,30h,20h,2dh
+db	"[Borrow $1,500 -"
 db	20h,50h,61h,79h,20h,24h,32h,2ch,32h,35h,30h,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	57h,69h,74h,68h,20h,62h,65h,74h,74h,65h,72h,20h,67h,65h,61h,72h
-db	20h,79h,6fh,75h,27h,64h,20h,61h,6ch,72h,65h,61h,64h,79h,20h,62h
-db	65h,0,0,0,0,0,0,0,6fh,6eh,20h,74h,68h,65h,20h,74h
-db	6fh,70h,2ch,20h,65h,68h,3fh,20h,53h,6fh,20h,68h,6fh,77h,20h,64h
+db	"With better gear"
+db	" you'd already b"
+db	65h,0,0,0,0,0,0,0,"on the t"
+db	"op, eh? So how d"
 db	6fh,65h,73h,20h,61h,0,0,0,0,0,0,0,0,0,0,0
-db	73h,68h,6fh,72h,74h,2dh,74h,65h,72h,6dh,20h,6ch,6fh,61h,6eh,20h
-db	6fh,66h,20h,5bh,24h,31h,2ch,35h,30h,30h,7bh,20h,73h,6fh,75h,6eh
+db	"short-term loan "
+db	"of [$1,500{ soun"
 db	64h,3fh,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___192870h:
-db	5bh,4ch,6fh,61h,6eh,20h,6fh,66h,20h,24h,31h,32h,2ch,30h,30h,30h
+db	"[Loan of $12,000"
 db	20h,67h,72h,61h,6eh,74h,65h,64h,2eh,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	59h,6fh,75h,20h,68h,61h,76h,65h,20h,33h,20h,72h,61h,63h,65h,73h
-db	20h,74h,6fh,20h,70h,61h,79h,20h,6dh,65h,20h,62h,61h,63h,6bh,20h
-db	74h,68h,65h,0,0,0,0,0,5bh,24h,31h,38h,2ch,30h,30h,30h
-db	7bh,2eh,20h,46h,61h,69h,72h,20h,69h,73h,20h,66h,61h,69h,72h,20h
+db	"You have 3 races"
+db	" to pay me back "
+db	"the",0,0,0,0,0,5bh,24h,31h,38h,2ch,30h,30h,30h
+db	"{. Fair is fair "
 db	5bh,3ch,47h,52h,49h,4eh,3eh,7bh,2eh,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,0,0,0,0,50h,72h,65h,73h,73h,20h,5bh,45h
-db	53h,43h,7bh,20h,74h,6fh,20h,67h,6fh,20h,62h,61h,63h,6bh,20h,74h
-db	6fh,20h,74h,68h,65h,20h,73h,68h,6fh,70h,2eh,0,0,0,0,0
-db	5bh,4ch,6fh,61h,6eh,20h,6fh,66h,20h,24h,39h,2ch,30h,30h,30h,20h
+db	0,0,0,0,0,0,0,0,"Press [E"
+db	"SC{ to go back t"
+db	"o the shop.",0,0,0,0,0
+db	"[Loan of $9,000 "
 db	67h,72h,61h,6eh,74h,65h,64h,2eh,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	59h,6fh,75h,20h,68h,61h,76h,65h,20h,33h,20h,72h,61h,63h,65h,73h
-db	20h,74h,6fh,20h,70h,61h,79h,20h,6dh,65h,20h,62h,61h,63h,6bh,20h
-db	74h,68h,65h,0,0,0,0,0,5bh,24h,31h,33h,2ch,35h,30h,30h
-db	7bh,2eh,20h,46h,61h,69h,72h,20h,69h,73h,20h,66h,61h,69h,72h,20h
+db	"You have 3 races to pay me back the"
+db  0,0,0,0,0,5bh,24h,31h,33h,2ch,35h,30h,30h
+db	"{. Fair is fair "
 db	5bh,3ch,47h,52h,49h,4eh,3eh,7bh,2eh,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,0,0,0,0,50h,72h,65h,73h,73h,20h,5bh,45h
-db	53h,43h,7bh,20h,74h,6fh,20h,67h,6fh,20h,62h,61h,63h,6bh,20h,74h
-db	6fh,20h,74h,68h,65h,20h,73h,68h,6fh,70h,2eh,0,0,0,0,0
-db	5bh,4ch,6fh,61h,6eh,20h,6fh,66h,20h,24h,36h,2ch,30h,30h,30h,20h
+db	0,0,0,0,0,0,0,0
+db  "Press [ESC{ to go back to the shop."
+db  0,0,0,0,0
+db	"[Loan of $6,000 "
 db	67h,72h,61h,6eh,74h,65h,64h,2eh,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	59h,6fh,75h,20h,68h,61h,76h,65h,20h,33h,20h,72h,61h,63h,65h,73h
-db	20h,74h,6fh,20h,70h,61h,79h,20h,6dh,65h,20h,62h,61h,63h,6bh,20h
-db	74h,68h,65h,0,0,0,0,0,5bh,24h,39h,2ch,30h,30h,30h,7bh
-db	2eh,20h,46h,61h,69h,72h,20h,69h,73h,20h,66h,61h,69h,72h,20h,5bh
+db	"You have 3 races to pay me back the"
+db  0,0,0,0,0,5bh,24h,39h,2ch,30h,30h,30h,7bh
+db	". Fair is fair ["
 db	3ch,47h,52h,49h,4eh,3eh,7bh,2eh,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,0,0,0,0,50h,72h,65h,73h,73h,20h,5bh,45h
-db	53h,43h,7bh,20h,74h,6fh,20h,67h,6fh,20h,62h,61h,63h,6bh,20h,74h
-db	6fh,20h,74h,68h,65h,20h,73h,68h,6fh,70h,2eh,0,0,0,0,0
-db	5bh,4ch,6fh,61h,6eh,20h,6fh,66h,20h,24h,33h,2ch,30h,30h,30h,20h
+db	0,0,0,0,0,0,0,0
+db  "Press [ESC{ to go back to the shop.",0,0,0,0,0
+db	"[Loan of $3,000 "
 db	67h,72h,61h,6eh,74h,65h,64h,2eh,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	59h,6fh,75h,20h,68h,61h,76h,65h,20h,33h,20h,72h,61h,63h,65h,73h
-db	20h,74h,6fh,20h,70h,61h,79h,20h,6dh,65h,20h,62h,61h,63h,6bh,20h
-db	74h,68h,65h,0,0,0,0,0,5bh,24h,34h,2ch,35h,30h,30h,7bh
-db	2eh,20h,46h,61h,69h,72h,20h,69h,73h,20h,66h,61h,69h,72h,20h,5bh
+db	"You have 3 races to pay me back the"
+db  0,0,0,0,0,5bh,24h,34h,2ch,35h,30h,30h,7bh
+db	". Fair is fair ["
 db	3ch,47h,52h,49h,4eh,3eh,7bh,2eh,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,0,0,0,0,50h,72h,65h,73h,73h,20h,5bh,45h
-db	53h,43h,7bh,20h,74h,6fh,20h,67h,6fh,20h,62h,61h,63h,6bh,20h,74h
-db	6fh,20h,74h,68h,65h,20h,73h,68h,6fh,70h,2eh,0,0,0,0,0
-db	5bh,4ch,6fh,61h,6eh,20h,6fh,66h,20h,24h,31h,2ch,35h,30h,30h,20h
+db	0,0,0,0,0,0,0,0
+db  "Press [ESC{ to go back to the shop.",0,0,0,0,0
+db	"[Loan of $1,500 "
 db	67h,72h,61h,6eh,74h,65h,64h,2eh,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	59h,6fh,75h,20h,68h,61h,76h,65h,20h,33h,20h,72h,61h,63h,65h,73h
-db	20h,74h,6fh,20h,70h,61h,79h,20h,6dh,65h,20h,62h,61h,63h,6bh,20h
-db	74h,68h,65h,0,0,0,0,0,5bh,24h,32h,2ch,32h,35h,30h,7bh
-db	2eh,20h,46h,61h,69h,72h,20h,69h,73h,20h,66h,61h,69h,72h,20h,5bh
+db	"You have 3 races to pay me back the"
+db  0,0,0,0,0,5bh,24h,32h,2ch,32h,35h,30h,7bh
+db	". Fair is fair ["
 db	3ch,47h,52h,49h,4eh,3eh,7bh,2eh,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,0,0,0,0,50h,72h,65h,73h,73h,20h,5bh,45h
-db	53h,43h,7bh,20h,74h,6fh,20h,67h,6fh,20h,62h,61h,63h,6bh,20h,74h
-db	6fh,20h,74h,68h,65h,20h,73h,68h,6fh,70h,2eh,0,0,0,0,0
+db	0,0,0,0,0,0,0,0
+db  "Press [ESC{ to go back to the shop."
+db  0,0,0,0,0
 ___192d20h:
 db	5bh,4ch,6fh,61h,6eh,20h,64h,65h,6eh,69h,65h,64h,2ch,20h,56h,61h
-db	67h,61h,62h,6fh,6eh,64h,20h,64h,72h,69h,76h,65h,72h,2eh,0,0
+db	"gabond driver.",0,0
 db	0,0,0,0,0,0,0,0
 ___192d48h:
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0
 ___192d70h:
-db	54h,68h,69h,73h,20h,69h,73h,20h,61h,20h,62h,75h,73h,69h,6eh,65h
-db	73h,73h,2ch,20h,6eh,6fh,74h,20h,61h,20h,63h,68h,61h,72h,69h,74h
-db	79h,2eh,0,0,0,0,0,0
+db	"This is a business, not a charity.",0,0,0,0,0,0
 ___192d98h:
-db	57h,65h,20h,64h,6fh,6eh,27h,74h,20h,69h,6eh,76h,65h,73h,74h,20h
-db	69h,6eh,20h,75h,6eh,70h,72h,6fh,76h,65h,6eh,20h,77h,69h,6ch,64h
+db	"We don't invest in unproven wild"
 db	0,0,0,0,0,0,0,0
 ___192dc0h:
-db	63h,61h,72h,64h,73h,2eh,20h,53h,6fh,20h,62h,75h,7ah,7ah,20h,6fh
-db	66h,66h,2ch,20h,62h,75h,67h,2eh,0,0,0,0,0,0,0,0
+db	"cards. So buzz off, bug.",0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0
 ___192de8h:
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -7010,16 +6465,15 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0
 ___192e60h:
-db	50h,65h,74h,72h,6fh,6ch,20h,62h,72h,61h,69h,6eh,2ch,20h,79h,6fh
+db	"Petrol brain, yo"
 db	75h,20h,6fh,77h,65h,20h,6dh,65h,2eh,20h,59h,6fh,75h,27h,64h,0
 db	0,0,0,0,0,0,0,0
 ___192e88h:
-db	62h,65h,74h,74h,65h,72h,20h,62h,65h,20h,68h,65h,72h,65h,20h,74h
+db	"better be here t"
 db	6fh,20h,70h,61h,79h,20h,6dh,65h,20h,62h,61h,63h,6bh,2ch,20h,6fh
 db	72h,0,0,0,0,0,0,0
 ___192eb0h:
-db	65h,6ch,73h,65h,20h,77h,65h,20h,68h,61h,76h,65h,20h,6eh,6fh,74h
-db	68h,69h,6eh,67h,20h,74h,6fh,20h,64h,69h,73h,63h,75h,73h,73h,2eh
+db	"else we have nothing to discuss."
 db	0,0,0,0,0,0,0,0
 ___192ed8h:
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -7034,48 +6488,30 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0
 ___192f50h:
-db	49h,74h,27h,73h,20h,61h,6ch,6ch,20h,68h,65h,72h,65h,2eh,20h,49h
-db	20h,6bh,6eh,65h,77h,20h,72h,69h,67h,68h,74h,20h,66h,72h,6fh,6dh
-db	0,0,0,0,0,0,0,0
+db	"It's all here. I knew right from",0,0,0,0,0,0,0,0
 ___192f78h:
-db	74h,68h,65h,20h,73h,74h,61h,72h,74h,20h,74h,68h,61h,74h,20h,49h
-db	20h,63h,6fh,75h,6ch,64h,20h,74h,72h,75h,73h,74h,20h,79h,6fh,75h
-db	2eh,0,0,0,0,0,0,0
+db	"the start that I could trust you.",0,0,0,0,0,0,0
 ___192fa0h:
-db	4ch,65h,74h,27h,73h,20h,64h,6fh,20h,74h,68h,69h,73h,20h,61h,67h
-db	61h,69h,6eh,20h,61h,6eh,79h,74h,69h,6dh,65h,2eh,0,0,0,0
-db	0,0,0,0,0,0,0,0
+db	"Let's do this again anytime.",0,0,0,0,0,0,0,0,0,0,0,0
 ___192fc8h:
-db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___192ff0h:
-db	4dh,6fh,6eh,65h,79h,20h,74h,61h,6ch,6bh,73h,2ch,20h,61h,6eh,64h
-db	20h,5bh,74h,68h,65h,20h,64h,61h,6dh,61h,67h,65h,20h,69h,73h,0
-db	0,0,0,0,0,0,0,0
+db	"Money talks, and [the damage is",0,0,0,0,0,0,0,0,0
 ___193018h:
-db	5bh,64h,6fh,6eh,65h,2ch,20h,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,0,0,0,0
+db	"[done, ",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___193040h:
-db	5bh,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,0,0,0,0
+db	"[",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___193068h:
-db	64h,6fh,77h,6eh,2eh,20h,54h,68h,61h,74h,27h,73h,20h,64h,6fh,75h
-db	67h,68h,20h,62h,61h,6bh,65h,64h,20h,6ch,75h,63h,6bh,20h,66h,6fh
-db	72h,0,0,0,0,0,0,0
+db	"down. That's dough baked luck for",0,0,0,0,0,0,0
 ___193090h:
-db	79h,6fh,75h,2eh,20h,41h,6eh,64h,20h,6ch,75h,63h,6bh,2ch,20h,73h
-db	68h,65h,20h,61h,69h,6eh,27h,74h,20h,6eh,6fh,20h,6ch,61h,64h,79h
-db	2eh,0,0,0,0,0,0,0
+db	"you. And luck, she ain't no lady.",0,0,0,0,0,0,0
 ___1930b8h:
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0
 ___1930e0h:
 db	5bh,41h,20h,73h,6ch,69h,63h,6bh,20h,73h,74h,65h,72h,6fh,69h,64h
-db	20h,72h,75h,6eh,2ch,20h,61h,6eh,79h,6fh,6eh,65h,3fh,0,0,0
+db	" run, anyone?",0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -7092,32 +6528,27 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___1931d0h:
-db	65h,61h,73h,79h,20h,61h,73h,20h,73h,68h,69h,66h,74h,69h,6eh,67h
+db	"easy as shifting"
 db	20h,67h,65h,61h,72h,73h,20h,31h,2dh,32h,2dh,33h,2eh,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___193220h:
-db	5bh,4ah,75h,73h,74h,20h,70h,69h,63h,6bh,20h,75h,70h,20h,73h,6fh
-db	6dh,65h,20h,70h,69h,6ch,6ch,73h,20h,61h,6ch,6fh,6eh,67h,20h,74h
-db	68h,65h,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	"[Just pick up some pills along the"
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___193270h:
-db	5bh,77h,61h,79h,2ch,20h,61h,6eh,64h,20h,67h,65h,74h,20h,74h,68h
-db	65h,6dh,20h,74h,6fh,20h,74h,68h,65h,20h,66h,69h,6eh,69h,73h,68h
+db	"[way, and get them to the finish"
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___1932c0h:
-db	5bh,6ch,69h,6eh,65h,20h,62h,65h,66h,6fh,72h,65h,20h,74h,68h,69h
-db	6eh,67h,73h,20h,67h,65h,74h,20h,63h,72h,6fh,77h,64h,65h,64h,7bh
-db	2ch,20h,62h,65h,0,0,0,0,0,0,0,0,0,0,0,0
+db	"[line before things get crowded{, be",0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___193310h:
-db	66h,69h,72h,73h,74h,2ch,20h,6ch,69h,6bh,65h,2ch,20h,66h,6ch,6fh
-db	6fh,72h,20h,69h,74h,2ch,20h,6ch,69h,6bh,65h,2eh,0,0,0,0
+db	"first, like, floor it, like.",0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -7134,8 +6565,7 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___193400h:
-db	5bh,57h,61h,6eh,6eh,61h,20h,62h,65h,20h,6dh,79h,20h,68h,69h,74h
-db	6dh,61h,6eh,2ch,20h,64h,72h,69h,76h,65h,72h,3fh,0,0,0,0
+db	"[Wanna be my hitman, driver?",0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -7147,36 +6577,34 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___1934a0h:
 db	57h,61h,6eh,6eh,61h,20h,67h,65h,74h,20h,72h,69h,63h,68h,2ch,20h
-db	74h,6fh,75h,67h,68h,20h,67h,75h,79h,3fh,20h,4fh,4bh,2eh,0,0
+db	"tough guy? OK.",0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___1934f0h:
-db	5bh,48h,65h,72h,65h,27h,73h,20h,74h,68h,65h,20h,64h,65h,61h,6ch
-db	7bh,2eh,20h,49h,20h,68h,61h,76h,65h,20h,70h,75h,74h,20h,73h,6fh
-db	6dh,65h,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	"[Here's the deal{. I have put some"
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___193540h:
-db	6dh,61h,6ah,6fh,72h,20h,66h,75h,6eh,64h,73h,20h,6fh,6eh,20h,74h
-db	68h,69h,73h,20h,72h,61h,63h,65h,2ch,20h,62h,65h,74h,74h,69h,6eh
-db	67h,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	"major funds on this race, betting"
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___193590h:
-db	74h,68h,61h,74h,20h,5bh,0,0,0,0,0,0,0,0,0,0
+db	"that ["
+db  0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___1935e0h:
-db	5bh,66h,69h,6eh,69h,73h,68h,20h,6ch,69h,6eh,65h,7bh,2eh,20h,4dh
-db	61h,6bh,65h,20h,6dh,65h,20h,72h,69h,67h,68h,74h,2ch,20h,61h,6eh
-db	64h,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	"[finish line{. Make me right, and"
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___193630h:
-db	5bh,69h,74h,27h,6ch,6ch,20h,70h,61h,79h,20h,79h,6fh,75h,20h,24h
+db	"[it'll pay you $"
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -7194,18 +6622,16 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___193720h:
-db	5bh,4dh,69h,6eh,65h,73h,0,0,0,0,0,0,0,0,0,0
+db	"[Mines",0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	53h,6fh,77h,20h,74h,68h,65h,73h,65h,20h,73h,65h,65h,64h,73h,20h
-db	6fh,66h,20h,64h,65h,73h,74h,72h,75h,63h,74h,69h,6fh,6eh,0,0
+db	"Sow these seeds of destruction",0,0
 db	0,0,0,0,0,0,0,0,61h,66h,74h,65h,72h,20h,61h,20h
-db	62h,6ch,69h,6eh,64h,20h,62h,65h,6eh,64h,20h,77h,68h,65h,72h,65h
+db	"blind bend where"
 db	20h,68h,65h,61h,64h,6ch,69h,67h,68h,74h,0,0,0,0,0,0
-db	65h,79h,65h,73h,20h,61h,72h,65h,20h,74h,69h,72h,65h,2dh,73h,6dh
-db	6fh,6bh,65h,20h,74h,69h,72h,65h,64h,2eh,0,0,0,0,0,0
+db	"eyes are tire-smoke tired.",0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -7214,12 +6640,11 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	4eh,6fh,74h,68h,69h,6eh,67h,20h,77h,61h,6bh,65h,73h,20h,79h,6fh
-db	75h,20h,75h,70h,20h,6ch,69h,6bh,65h,20h,61h,6eh,20h,65h,6eh,65h
-db	6dh,79h,0,0,0,0,0,0,63h,61h,72h,2ch,20h,63h,6ch,6fh
-db	73h,69h,6eh,67h,20h,69h,6eh,20h,74h,6fh,20h,67h,69h,76h,65h,20h
-db	79h,6fh,75h,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	61h,20h,73h,68h,61h,72h,70h,20h,6bh,69h,73h,73h,20h,77h,69h,74h
+db	"Nothing wakes you up like an enemy"
+db  0,0,0,0,0,0
+db  "car, closing in to give you"
+db  0,0,0,0,0,0,0,0,0,0,0,0,0
+db	"a Sharp kiss wit"
 db	68h,20h,73h,70h,69h,6bh,65h,64h,20h,62h,75h,6dh,70h,65h,72h,73h
 db	2eh,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -7229,13 +6654,10 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	54h,68h,69h,73h,20h,6eh,65h,63h,74h,61h,72h,20h,69h,6eh,20h,74h
-db	68h,65h,20h,76h,65h,69h,6eh,73h,20h,6fh,66h,20h,79h,6fh,75h,72h
+db	"This nectar in the veins of your"
 db	0,0,0,0,0,0,0,0,76h,65h,68h,69h,63h,6ch,65h,20h
-db	74h,61h,6bh,65h,73h,20h,79h,6fh,75h,20h,72h,69h,67h,68h,74h,20h
-db	69h,6eh,74h,6fh,0,0,0,0,0,0,0,0,0,0,0,0
-db	6fh,72h,62h,69h,74h,2ch,20h,72h,65h,61h,6ch,20h,73h,70h,65h,65h
-db	64h,79h,20h,6ch,69h,6bh,65h,2eh,0,0,0,0,0,0,0,0
+db	"takes you right into",0,0,0,0,0,0,0,0,0,0,0,0
+db	"orbit, real speedy like.",0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -7244,13 +6666,11 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	44h,6fh,20h,79h,6fh,75h,20h,68h,61h,76h,65h,20h,62h,61h,64h,20h
-db	6ch,75h,63h,6bh,20h,61h,6ch,77h,61h,79h,73h,20h,72h,69h,64h,69h
+db	"Do you have bad luck always ridi"
 db	6eh,67h,0,0,0,0,0,0,73h,68h,6fh,74h,67h,75h,6eh,3fh
-db	20h,54h,69h,6dh,65h,20h,66h,6fh,72h,20h,74h,68h,61h,74h,20h,67h
+db	" Time for that g"
 db	6fh,6ch,64h,65h,6eh,0,0,0,0,0,0,0,0,0,0,0
-db	72h,61h,63h,65h,72h,20h,62h,6fh,79h,20h,74h,6fh,20h,67h,65h,74h
-db	20h,73h,6fh,6dh,65h,2eh,20h,52h,69h,67h,68h,74h,3fh,0,0,0
+db	"racer boy to get some. Right?",0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -7264,22 +6684,20 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0
 ___193b30h:
 db	57h,68h,61h,74h,3fh,20h,59h,6fh,75h,20h,63h,72h,61h,7ah,79h,2ch
-db	20h,6dh,61h,6eh,3fh,20h,4eh,6fh,62h,6fh,64h,79h,0,0,0,0
+db	" man? Nobody",0,0,0,0
 db	0,0,0,0,0,0,0,0
 ___193b58h:
-db	74h,6fh,75h,63h,68h,65h,73h,20h,74h,68h,65h,20h,41h,64h,76h,65h
-db	72h,73h,61h,72h,79h,27h,73h,20h,61h,75h,74h,6fh,2dh,0,0,0
+db	"touches the Adversary's auto-",0,0,0
 db	0,0,0,0,0,0,0,0
 ___193b80h:
-db	6dh,6fh,62h,69h,6ch,65h,20h,61h,6eh,64h,20h,6ch,69h,76h,65h,73h
-db	2ch,20h,6eh,6fh,62h,6fh,64h,79h,2eh,0,0,0,0,0,0,0
+db	"mobile and lives, nobody.",0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0
 ___193ba8h:
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0
 ___193bd0h:
-db	5bh,4fh,55h,54h,20h,4fh,46h,20h,53h,54h,4fh,43h,4bh,0,0,0
+db	"[OUT OF STOCK",0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0
 ___193bf8h:
@@ -7287,15 +6705,13 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0
 ___193c20h:
-db	53h,6fh,72h,72h,79h,2ch,20h,6eh,6fh,20h,63h,61h,6eh,20h,64h,6fh
-db	2eh,20h,54h,68h,61h,74h,27h,73h,20h,6fh,75h,74h,20h,6fh,66h,0
+db	"Sorry, no can do. That's out of",0
 db	0,0,0,0,0,0,0,0
 ___193c48h:
-db	73h,74h,6fh,63h,6bh,2eh,20h,48h,6fh,6ch,64h,20h,79h,6fh,75h,72h
-db	20h,68h,6fh,72h,73h,65h,28h,70h,6fh,77h,65h,72h,29h,73h,0,0
+db	"stock. Hold your horse(power)s",0,0
 db	0,0,0,0,0,0,0,0
 ___193c70h:
-db	74h,69h,6ch,6ch,20h,61h,66h,74h,65h,72h,20h,74h,68h,65h,20h,6eh
+db	"till after the n"
 db	65h,78h,74h,20h,72h,61h,63h,65h,2eh,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0
 ___193c98h:
@@ -7304,55 +6720,45 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0
 ___193cc0h:
 db	5bh,48h,45h,4ch,44h,20h,46h,52h,4fh,4dh,20h,54h,48h,49h,53h,20h
-db	52h,41h,43h,45h,0,0,0,0,0,0,0,0,0,0,0,0
+db	"RACE",0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0
 ___193ce8h:
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0
 ___193d10h:
-db	54h,68h,69h,73h,20h,69h,74h,65h,6dh,20h,69h,73h,20h,61h,6ch,77h
-db	61h,79h,73h,20h,61h,76h,61h,69h,6ch,61h,62h,6ch,65h,20h,69h,6eh
-db	20h,74h,68h,65h,0,0,0,0
+db	"This item is always available in the",0,0,0,0
 ___193d38h:
-db	66h,75h,6ch,6ch,20h,76h,65h,72h,73h,69h,6fh,6eh,2eh,20h,52h,65h
-db	67h,69h,73h,74h,65h,72h,20h,6eh,6fh,77h,20h,74h,6fh,20h,67h,65h
-db	74h,20h,61h,6ch,6ch,0,0,0
+db	"full version. Register now to get all",0,0,0
 ___193d60h:
-db	74h,68h,65h,20h,64h,69h,72h,74h,79h,20h,73h,74h,75h,66h,66h,20h
-db	69h,6eh,20h,65h,76h,65h,72h,79h,20h,72h,61h,63h,65h,2eh,0,0
+db	"the dirty stuff in every race.",0,0
 db	0,0,0,0,0,0,0,0
 ___193d88h:
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0
 ___193db0h:
-db	5bh,38h,20h,4dh,69h,6eh,65h,73h,20h,6ch,6fh,61h,64h,65h,64h,20h
-db	69h,6eh,74h,6fh,20h,79h,6fh,75h,72h,20h,63h,61h,72h,0,0,0
+db	"[8 Mines loaded into your car",0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	4eh,6fh,77h,20h,74h,68h,6fh,73h,65h,20h,72h,69h,76h,61h,6ch,20h
 db	77h,68h,65h,65h,6ch,73h,20h,77h,69h,6ch,6ch,20h,72h,65h,61h,70h
-db	0,0,0,0,0,0,0,0,6fh,6eh,6ch,79h,20h,62h,75h,72h
-db	6eh,69h,6eh,67h,20h,65h,6eh,67h,69h,6eh,65h,20h,64h,65h,61h,74h
-db	68h,2ch,20h,61h,6eh,64h,0,0,0,0,0,0,0,0,0,0
-db	74h,68h,61h,74h,20h,72h,6fh,61h,64h,20h,77h,69h,6ch,6ch,20h,62h
-db	65h,20h,61h,6ch,6ch,20h,79h,6fh,75h,72h,73h,2eh,0,0,0,0
+db	0,0,0,0,0,0,0,0,"only burning engine death, and",0,0,0,0,0,0,0,0,0,0
+db	"that road will b"
+db	"e all yours.",0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	5bh,53h,70h,69h,6bh,65h,64h,20h,62h,75h,6dh,70h,65h,72h,73h,20h
-db	69h,6eh,73h,74h,61h,6ch,6ch,65h,64h,0,0,0,0,0,0,0
+db	"installed",0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	4eh,6fh,77h,20h,79h,6fh,75h,20h,61h,72h,65h,20h,73h,61h,79h,69h
+db	"Now you are sayi"
 db	6eh,67h,3ah,20h,27h,53h,74h,61h,79h,20h,62h,61h,63h,6bh,20h,6fh
-db	72h,0,0,0,0,0,0,0,79h,6fh,75h,20h,73h,6fh,72h,72h
-db	79h,2ch,20h,79h,6fh,75h,20h,64h,65h,61h,64h,2eh,27h,20h,4eh,6fh
-db	77h,20h,74h,68h,61h,74h,27h,73h,0,0,0,0,0,0,0,0
-db	74h,68h,65h,20h,61h,74h,74h,69h,74h,75h,64h,65h,2eh,0,0,0
+db	72h,0,0,0,0,0,0,0,"you sorry, you dead.' Now that's",0,0,0,0,0,0,0,0
+db	"the attitude.",0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -7362,28 +6768,25 @@ db	67h,68h,74h,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	57h,61h,72h,6eh,69h,6eh,67h,21h,20h,57h,65h,27h,72h,65h,20h,74h
-db	61h,6ch,6bh,69h,6eh,67h,20h,27h,62h,6fh,75h,74h,20h,61h,0,0
+db	"Warning! We're talking 'bout a",0,0
 db	0,0,0,0,0,0,0,0,62h,61h,63h,6bh,64h,72h,61h,66h
-db	74h,20h,62h,61h,72h,62h,65h,63h,75h,65h,20h,70h,61h,72h,74h,79h
-db	20h,68h,65h,72h,65h,2eh,0,0,0,0,0,0,0,0,0,0
-db	5bh,55h,73h,69h,6eh,67h,20h,74h,68h,65h,20h,66h,75h,65h,6ch,20h
-db	63h,61h,75h,73h,65h,73h,20h,64h,61h,6dh,61h,67h,65h,21h,7bh,0
+db	"t barbecue party"
+db	" here.",0,0,0,0,0,0,0,0,0,0
+db	"[Using the fuel causes damage!{",0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	5bh,53h,61h,62h,6fh,74h,61h,67h,65h,20h,69h,6eh,20h,70h,72h,6fh
+db	"[Sabotage in pro"
 db	67h,72h,65h,73h,73h,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	53h,77h,65h,65h,74h,20h,64h,65h,61h,6ch,2eh,20h,4eh,6fh,77h,20h
-db	79h,6fh,75h,72h,20h,61h,72h,63h,68h,2dh,72h,61h,63h,69h,6eh,67h
+db	"your arch-racing"
 db	2dh,0,0,0,0,0,0,0,72h,69h,76h,61h,6ch,20h,77h,69h
-db	6ch,6ch,20h,74h,61h,69h,6ch,73h,6ch,69h,64h,65h,20h,64h,6fh,77h
-db	6eh,20h,74h,68h,61h,74h,0,0,0,0,0,0,0,0,0,0
-db	76h,69h,6ch,65h,20h,72h,6fh,61h,64h,20h,74h,6fh,20h,77h,72h,65h
-db	63h,6bh,68h,6fh,6fh,64h,20h,6fh,62h,6ch,69h,76h,69h,6fh,6eh,2eh
+db	"ll tailslide down that",0,0,0,0,0,0,0,0,0,0
+db	"vile road to wre"
+db	"ckhood oblivion."
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -7393,12 +6796,10 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	54h,68h,69h,73h,20h,75h,73h,65h,64h,20h,74h,6fh,20h,62h,65h,20h
-db	61h,20h,63h,61h,72h,2ch,20h,68h,75h,68h,3fh,20h,43h,61h,72h,72h
-db	79h,0,0,0,0,0,0,0,74h,68h,65h,20h,72h,65h,73h,74h
-db	20h,6fh,66h,20h,69h,74h,20h,69h,6eh,20h,68h,65h,72h,65h,20h,26h
+db	"This used to be a car, huh? Carr"
+db	79h,0,0,0,0,0,0,0,"the rest of it in here &"
 db	20h,77h,65h,27h,6ch,6ch,20h,73h,65h,65h,0,0,0,0,0,0
-db	77h,68h,61h,74h,20h,63h,61h,6eh,20h,62h,65h,20h,64h,6fh,6eh,65h
+db	"what can be done"
 db	2eh,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -7408,13 +6809,11 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	53h,6fh,72h,72h,79h,2ch,20h,74h,68h,69h,73h,20h,76h,65h,68h,69h
-db	63h,6ch,65h,20h,69h,73h,20h,67h,6fh,6eh,65h,20h,66h,6fh,72h,0
-db	0,0,0,0,0,0,0,0,67h,6fh,6fh,64h,2eh,2eh,2eh,20h
-db	4ah,75h,73h,74h,20h,6bh,69h,64h,64h,69h,6eh,67h,2eh,20h,4dh,65h
+db	"Sorry, this vehicle is gone for",0
+db	0,0,0,0,0,0,0,0,"good... Just kidding. Me"
 db	64h,69h,63h,2ch,20h,66h,61h,73h,74h,21h,0,0,0,0,0,0
-db	57h,65h,27h,76h,65h,20h,67h,6fh,74h,20h,61h,20h,64h,72h,69h,76h
-db	65h,72h,20h,69h,6eh,20h,73h,68h,6fh,63h,6bh,2eh,0,0,0,0
+db	"We've got a driv"
+db	"er in shock.",0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -7423,14 +6822,12 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	44h,6fh,6eh,27h,74h,20h,74h,65h,6ch,6ch,20h,6dh,65h,2eh,20h,59h
-db	6fh,75h,20h,70h,61h,72h,6bh,65h,64h,20h,79h,6fh,75h,72h,20h,63h
-db	61h,72h,0,0,0,0,0,0,69h,6eh,20h,61h,20h,6eh,75h,63h
-db	6ch,65h,61h,72h,20h,74h,65h,73h,74h,20h,7ah,6fh,6eh,65h,3fh,20h
-db	54h,68h,65h,73h,65h,0,0,0,0,0,0,0,0,0,0,0
-db	68h,6fh,6ch,65h,73h,20h,6eh,65h,65h,64h,20h,73h,6fh,6dh,65h,20h
-db	67h,75h,6dh,2ch,20h,73h,74h,61h,72h,74h,20h,63h,68h,65h,77h,69h
-db	6eh,67h,2eh,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	"Don't tell me. You parked your car"
+db  0,0,0,0,0,0
+db  "in a nuclear test zone? These"
+db  0,0,0,0,0,0,0,0,0,0,0
+db	"holes need some gum, start chewing."
+db  0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	5bh,52h,65h,70h,61h,69h,72h,0,0,0,0,0,0,0,0,0
@@ -7438,13 +6835,11 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	57h,68h,6fh,20h,68h,65h,6ch,70h,65h,64h,20h,79h,6fh,75h,20h,74h
-db	6fh,77h,20h,74h,68h,69h,73h,20h,70h,69h,65h,63h,65h,20h,6fh,66h
+db	"Who helped you tow this piece of"
 db	0,0,0,0,0,0,0,0,6ah,75h,6eh,6bh,20h,6fh,76h,65h
-db	72h,20h,74h,68h,65h,20h,66h,69h,6eh,69h,73h,68h,20h,6ch,69h,6eh
+db	"r the finish lin"
 db	65h,3fh,20h,4eh,6fh,0,0,0,0,0,0,0,0,0,0,0
-db	73h,77h,65h,61h,74h,2ch,20h,74h,68h,69h,73h,20h,63h,61h,6eh,20h
-db	62h,65h,20h,66h,69h,78h,65h,64h,2eh,0,0,0,0,0,0,0
+db	"sweat, this can be fixed.",0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -7453,13 +6848,12 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	53h,6fh,2eh,20h,59h,6fh,75h,72h,20h,63h,61h,72h,27h,73h,20h,73h
-db	6fh,72h,72h,79h,20h,61h,73h,73h,20h,67h,6fh,74h,20h,62h,6ch,6fh
-db	77h,6eh,0,0,0,0,0,0,63h,6ch,65h,61h,6eh,20h,6fh,66h
+db	"So. Your car's sorry ass got blo"
+db	77h,6eh,0,0,0,0,0,0,"clean of"
 db	66h,2eh,20h,41h,63h,6dh,65h,20h,67h,6ch,75h,65h,20h,77h,69h,6ch
-db	6ch,20h,66h,69h,78h,20h,79h,6fh,75h,72h,0,0,0,0,0,0
+db	"l fix your",0,0,0,0,0,0
 db	6dh,69h,73h,68h,61h,70h,2dh,72h,69h,64h,64h,65h,6eh,20h,64h,61h
-db	79h,20h,61h,74h,20h,74h,68h,65h,20h,72h,61h,63h,65h,73h,2eh,0
+db	"y at the races.",0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -7468,12 +6862,11 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	41h,73h,20h,4dh,72h,2eh,20h,4eh,75h,6bh,65h,6dh,20h,73h,6fh,6dh
-db	65h,74h,69h,6dh,65h,73h,20h,70h,75h,74h,73h,20h,69h,74h,3ah,0
+db	"As Mr. Nukem sometimes puts it:",0
 db	0,0,0,0,0,0,0,0,27h,55h,68h,2dh,6fh,68h,2ch,20h
-db	74h,68h,61h,74h,27h,73h,20h,67h,6fh,74h,74h,61h,20h,68h,75h,72h
+db	"that's gotta hur"
 db	74h,2eh,27h,20h,54h,68h,69h,73h,0,0,0,0,0,0,0,0
-db	63h,61h,6ch,6ch,73h,20h,66h,6fh,72h,20h,61h,20h,73h,63h,72h,65h
+db	"calls for a scre"
 db	77h,64h,72h,69h,76h,65h,72h,20h,26h,20h,61h,73h,70h,69h,72h,69h
 db	6eh,2eh,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -7483,13 +6876,11 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	59h,6fh,75h,72h,20h,63h,6fh,6eh,76h,65h,79h,61h,6eh,63h,65h,27h
+db	"Your conveyance'"
 db	73h,20h,6dh,65h,74h,68h,79h,6ch,61h,74h,65h,64h,0,0,0,0
-db	0,0,0,0,0,0,0,0,73h,70h,69h,72h,69h,74h,20h,72h
-db	65h,63h,65h,70h,74h,61h,63h,6ch,65h,20h,68h,61h,73h,20h,64h,65h
+db	0,0,0,0,0,0,0,0,"spirit receptacle has de"
 db	76h,65h,6ch,6fh,70h,65h,64h,20h,61h,0,0,0,0,0,0,0
-db	63h,68h,72h,6fh,6eh,69h,63h,20h,68h,65h,72h,6eh,69h,61h,2ch,20h
-db	6fh,72h,20h,73h,6fh,6dh,65h,74h,68h,69h,6eh,67h,2eh,2eh,2eh,0
+db	"chronic hernia, or something...",0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -7498,13 +6889,12 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	54h,68h,69h,73h,20h,69h,73h,20h,6eh,6fh,20h,74h,69h,6dh,65h,20h
-db	74h,6fh,20h,72h,65h,73h,74h,20h,69h,6eh,20h,70h,69h,65h,63h,65h
-db	73h,2eh,0,0,0,0,0,0,54h,68h,65h,20h,72h,61h,63h,65h
-db	20h,61h,77h,61h,69h,74h,73h,21h,20h,53h,68h,65h,27h,6ch,6ch,20h
-db	62h,65h,20h,62h,61h,63h,6bh,20h,6fh,6eh,0,0,0,0,0,0
-db	68h,65h,72h,20h,77h,68h,65h,65h,6ch,73h,20h,69h,6eh,20h,6eh,6fh
-db	20h,74h,69h,6dh,65h,2eh,0,0,0,0,0,0,0,0,0,0
+db	"This is no time to rest in pieces."
+db  0,0,0,0,0,0
+db  "The race awaits! She'll be back on"
+db  0,0,0,0,0,0
+db  "her wheels in no time."
+db  0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -7517,8 +6907,8 @@ db	54h,61h,6bh,65h,20h,66h,69h,76h,65h,2ch,20h,64h,72h,69h,76h,65h
 db	72h,2eh,20h,41h,20h,73h,74h,72h,61h,69h,67h,68h,74h,20h,26h,0
 db	0,0,0,0,0,0,0,0,73h,69h,6dh,70h,6ch,65h,20h,73h
 db	6ch,65h,64h,67h,65h,68h,61h,6dh,6dh,65h,72h,20h,6ah,6fh,62h,20h
-db	68h,65h,72h,65h,2eh,0,0,0,0,0,0,0,0,0,0,0
-db	54h,68h,65h,73h,65h,20h,70h,65h,72h,63h,75h,73h,73h,69h,6fh,6eh
+db	"here.",0,0,0,0,0,0,0,0,0,0,0
+db	"These percussion"
 db	73h,2ch,20h,67h,6fh,74h,74h,61h,20h,6ch,6fh,76h,65h,20h,27h,65h
 db	6dh,2eh,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -7528,12 +6918,9 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	4eh,6fh,74h,68h,69h,6eh,67h,20h,61h,20h,66h,72h,65h,73h,68h,20h
-db	70h,61h,69h,6eh,74h,2dh,6ah,6fh,62h,20h,63h,61h,6eh,27h,74h,0
-db	0,0,0,0,0,0,0,0,66h,69h,78h,2eh,20h,59h,6fh,75h
-db	27h,6ch,6ch,20h,62h,65h,20h,62h,61h,63h,6bh,20h,6fh,6eh,20h,74h
-db	68h,65h,20h,74h,72h,61h,63h,6bh,0,0,0,0,0,0,0,0
-db	69h,6eh,20h,61h,20h,70h,69h,74h,2dh,73h,74h,6fh,70h,20h,6dh,69h
+db	"Nothing a fresh paint-job can't",0
+db	0,0,0,0,0,0,0,0,"fix. You'll be back on the track",0,0,0,0,0,0,0,0
+db	"in a pit-stop mi"
 db	6eh,75h,74h,65h,2eh,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -7543,12 +6930,10 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	47h,6fh,74h,20h,79h,6fh,75h,72h,20h,77h,61h,78h,20h,63h,6fh,61h
-db	74h,20h,73h,63h,72h,61h,74h,63h,68h,65h,64h,3fh,20h,57h,61h,6eh
-db	74h,0,0,0,0,0,0,0,74h,6fh,20h,62h,65h,20h,79h,6fh
-db	75h,72h,20h,73h,68h,69h,6eh,69h,6eh,67h,20h,62h,65h,73h,74h,3fh
+db	"Got your wax coat scratched? Wan"
+db	74h,0,0,0,0,0,0,0,"to be your shining best?"
 db	20h,48h,65h,79h,2ch,20h,77h,68h,61h,74h,2dh,0,0,0,0,0
-db	65h,76h,65h,72h,20h,6ch,69h,67h,68h,74h,73h,20h,75h,70h,20h,79h
+db	"ever lights up y"
 db	6fh,75h,72h,20h,64h,61h,73h,68h,62h,6fh,61h,72h,64h,2eh,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -7558,13 +6943,12 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	50h,65h,72h,66h,65h,63h,74h,20h,69h,73h,20h,70h,65h,72h,66h,65h
-db	63h,74h,2eh,20h,57h,68h,61h,74h,20h,61h,69h,6eh,27h,74h,0,0
+db	"Perfect is perfe"
+db	"ct. What ain't",0,0
 db	0,0,0,0,0,0,0,0,62h,72h,6fh,6bh,65h,6eh,2ch,20h
-db	63h,61h,6eh,27h,74h,20h,62h,65h,20h,66h,69h,78h,65h,64h,2eh,20h
+db	"can't be fixed. "
 db	43h,6fh,6dh,65h,20h,62h,61h,63h,6bh,0,0,0,0,0,0,0
-db	61h,66h,74h,65h,72h,20h,79h,6fh,75h,27h,76h,65h,20h,74h,61h,6bh
-db	65h,6eh,20h,69h,6eh,20h,73h,6fh,6dh,65h,2eh,0,0,0,0,0
+db	"after you've taken in some.",0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -7577,21 +6961,19 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0
 ___194d00h:
-db	45h,78h,69h,74h,20h,74h,68h,65h,20h,53h,68h,6fh,70h,20h,61h,6eh
-db	64h,20h,65h,6eh,74h,65h,72h,20h,74h,68h,65h,20h,52h,61h,63h,65h
+db	"Exit the Shop and enter the Race"
 db	0,0,0,0,0,0,0,0
 ___194d28h:
-db	53h,69h,67h,6eh,2dh,55h,70h,2eh,0,0,0,0,0,0,0,0
-db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,0,0,0,0
+db	"Sign-Up."
+db  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___194d50h:
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0
 ___194d78h:
-db	50h,72h,65h,73h,73h,20h,5bh,45h,73h,63h,7bh,20h,66h,6fh,72h,20h
-db	70h,72h,65h,76h,69h,6fh,75h,73h,20h,6dh,65h,6eh,75h,0,0,0
-db	0,0,0,0,0,0,0,0
+db	"Press [Esc{ for previous menu"
+db  0,0,0,0,0,0,0,0,0,0,0
 ___194da0h:
 db	5bh,43h,4fh,4eh,54h,49h,4eh,55h,45h,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -7601,9 +6983,8 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0
 ___194df0h:
-db	45h,78h,69h,74h,20h,74h,68h,65h,20h,53h,68h,6fh,70h,20h,61h,6eh
-db	64h,20h,65h,6eh,74h,65h,72h,20h,74h,68h,65h,0,0,0,0,0
-db	0,0,0,0,0,0,0,0
+db	"Exit the Shop and enter the"
+db  0,0,0,0,0,0,0,0,0,0,0,0,0
 ___194e18h:
 db	55h,6eh,64h,65h,72h,67h,72h,6fh,75h,6eh,64h,20h,4dh,61h,72h,6bh
 db	65h,74h,2eh,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -7613,9 +6994,8 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0
 ___194e68h:
-db	50h,72h,65h,73h,73h,20h,5bh,45h,73h,63h,7bh,20h,66h,6fh,72h,20h
-db	70h,72h,65h,76h,69h,6fh,75h,73h,20h,6dh,65h,6eh,75h,0,0,0
-db	0,0,0,0,0,0,0,0
+db	"Press [Esc{ for previous menu"
+db  0,0,0,0,0,0,0,0,0,0,0
 ___194e90h:
 db	5bh,43h,4fh,4eh,54h,49h,4eh,55h,45h,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -7625,21 +7005,18 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0
 ___194ee0h:
-db	45h,78h,69h,74h,20h,74h,68h,65h,20h,55h,6eh,64h,65h,72h,67h,72h
-db	6fh,75h,6eh,64h,20h,4dh,61h,72h,6bh,65h,74h,20h,61h,6eh,64h,0
-db	0,0,0,0,0,0,0,0
+db	"Exit the Underground Market and"
+db	0,0,0,0,0,0,0,0,0
 ___194f08h:
-db	65h,6eh,74h,65h,72h,20h,74h,68h,65h,20h,52h,61h,63h,65h,20h,53h
-db	69h,67h,6eh,2dh,55h,70h,2eh,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,0,0,0,0
+db	"enter the Race Sign-Up."
+db  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___194f30h:
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0
 ___194f58h:
-db	50h,72h,65h,73h,73h,20h,5bh,45h,73h,63h,7bh,20h,66h,6fh,72h,20h
-db	70h,72h,65h,76h,69h,6fh,75h,73h,20h,6dh,65h,6eh,75h,0,0,0
-db	0,0,0,0,0,0,0,0
+db	"Press [Esc{ for previous menu"
+db  0,0,0,0,0,0,0,0,0,0,0
 ___194f80h:
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -7647,8 +7024,8 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___194fd0h:
-db	5bh,45h,6eh,64h,20h,6fh,66h,20h,74h,68h,65h,20h,72h,6fh,61h,64h
-db	2ch,20h,64h,72h,69h,76h,65h,72h,2eh,0,0,0,0,0,0,0
+db	"[End of the road, driver."
+db  0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -7659,39 +7036,31 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___195070h:
-db	5bh,54h,68h,69h,73h,20h,74h,68h,65h,6eh,20h,69h,73h,20h,68h,6fh
-db	77h,20h,69h,74h,20h,65h,6eh,64h,73h,7bh,2ch,20h,6eh,6fh,74h,20h
-db	77h,69h,74h,68h,20h,61h,20h,62h,61h,6eh,67h,2ch,20h,62h,75h,74h
+db	"[This then is how it ends{, not with a bang, but"
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___1950c0h:
-db	77h,69h,74h,68h,20h,61h,20h,77h,68h,69h,6dh,70h,65h,72h,2eh,20h
-db	59h,6fh,75h,20h,68h,61h,64h,20h,79h,6fh,75h,72h,20h,73h,68h,6fh
-db	74h,20h,61h,74h,20h,67h,6ch,6fh,72h,79h,0,0,0,0,0,0
+db	"with a whimper. You had your shot at glory"
+db  0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___195110h:
-db	72h,6fh,61h,64h,2ch,20h,62h,75h,74h,20h,5bh,79h,6fh,75h,20h,62h
-db	6ch,65h,77h,20h,69h,74h,7bh,2eh,20h,4ch,69h,66h,65h,20h,69h,73h
-db	20h,68h,61h,72h,64h,20h,61h,6eh,64h,20h,61h,6ch,6ch,0,0,0
+db	"road, but [you blew it{. Life is hard and all"
+db  0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___195160h:
-db	74h,68h,61h,74h,2eh,20h,49h,6eh,20h,5bh,44h,65h,61h,74h,68h,20h
-db	52h,61h,6ch,6ch,79h,7bh,2ch,20h,79h,6fh,75h,20h,67h,65h,74h,20h
-db	6fh,6eh,6ch,79h,20h,6fh,6eh,65h,20h,67h,6fh,2ch,20h,6fh,6eh,6ch
-db	79h,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	"that. In [Death Rally{, you get only one go, only"
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___1951b0h:
-db	74h,68h,65h,20h,62h,65h,73h,74h,20h,63h,61h,6eh,20h,6dh,61h,6bh
-db	65h,20h,69h,74h,2eh,20h,42h,75h,74h,20h,6ch,6fh,6fh,6bh,20h,61h
-db	74h,20h,74h,68h,65h,20h,62h,72h,69h,67h,68h,74h,0,0,0,0
+db	"the best can make it. But look at the bright"
+db  0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___195200h:
-db	73h,69h,64h,65h,2ch,20h,61h,74h,20h,6ch,65h,61h,73h,74h,20h,79h
-db	6fh,75h,20h,6ch,69h,76h,65h,64h,20h,74h,6fh,20h,74h,65h,6ch,6ch
-db	20h,74h,68h,65h,20h,74h,61h,6ch,65h,2eh,0,0,0,0,0,0
+db	"side, at least you lived to tell the tale."
+db  0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___195250h:
@@ -7711,401 +7080,337 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0
 ___195304h:
-db	5bh,49h,74h,20h,61h,69h,6eh,27h,74h,20h,6fh,76h,65h,72h,20h,74h
-db	69h,6ch,6ch,20h,49h,20h,73h,61h,79h,20h,73h,6fh,21h,0,0,0
-db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0
+db	"[It ain't over till I say so!"
+db  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___195336h:
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0
 ___195368h:
-db	53h,6fh,20h,74h,68h,65h,79h,20h,74h,68h,69h,6eh,6bh,20h,74h,68h
-db	65h,79h,20h,67h,6fh,74h,20h,79h,6fh,75h,20h,62h,65h,61h,74h,65h
-db	6eh,2ch,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0
+db	"So they think they got you beaten,"
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___19539ah:
-db	65h,68h,3fh,20h,49h,20h,74h,68h,69h,6eh,6bh,20h,74h,68h,61h,74h
-db	20h,74h,68h,69h,73h,20h,63h,61h,72h,2dh,77h,72h,65h,63h,6bh,20h
-db	68h,61h,73h,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0
+db	"eh? I think that this car-wreck has"
+db  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___1953cch:
-db	6fh,6eh,6ch,79h,20h,6dh,61h,64h,65h,20h,79h,6fh,75h,20h,73h,74h
-db	72h,6fh,6eh,67h,65h,72h,2ch,20h,69h,72h,6fh,6eh,0,0,0,0
-db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0
+db	"only made you stronger, iron"
+db  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___1953feh:
-db	74h,65h,6dh,70h,65h,72h,65h,64h,2ch,20h,77h,69h,63h,6bh,65h,64h
-db	2eh,20h,53h,6fh,20h,5bh,67h,65h,74h,20h,62h,61h,63h,6bh,20h,6fh
-db	75h,74h,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0
+db	"tempered, wicked. So [get back out"
+db  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___195430h:
-db	5bh,74h,68h,65h,72h,65h,7bh,20h,61h,6eh,64h,20h,6ch,65h,74h,20h
-db	74h,68h,65h,6dh,20h,66h,69h,6eh,64h,20h,6fh,75h,74h,20h,74h,6fh
-db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0
+db	"[there{ and let them find out to"
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___195462h:
-db	74h,68h,65h,69h,72h,20h,63h,6fh,73h,74h,2eh,20h,5bh,54h,68h,69h
-db	73h,20h,6fh,6eh,65h,27h,73h,20h,6fh,6eh,20h,6dh,65h,2eh,0,0
-db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0
+db	"their cost. [This one's on me."
+db  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___195494h:
-db	54h,68h,69h,73h,20h,69h,73h,20h,69h,74h,2eh,20h,48h,65h,72h,65h
-db	2eh,20h,4eh,6fh,77h,2eh,20h,49h,6eh,20h,44h,65h,61h,74h,68h,20h
-db	52h,61h,6ch,6ch,79h,2ch,20h,77h,68h,65h,72h,65h,20h,6ch,69h,66h
-db	65h,20h,69h,73h,20h,73h,68h,6fh,72h,74h,20h,61h,6eh,64h,20h,68h
-db	6fh,74h,2ch,0,0,0,66h,61h,73h,74h,20h,61h,6eh,64h,20h,64h
-db	65h,61h,64h,6ch,79h,2eh,20h,54h,68h,65h,20h,72h,61h,63h,65h,20h
-db	69h,73h,20h,6fh,6eh,2eh,20h,57h,61h,74h,63h,68h,20h,74h,68h,65h
-db	20h,72h,6fh,61h,64h,2eh,20h,48h,65h,61h,72h,20h,74h,68h,65h,0
-db	0,0,0,0,0,0,0,0,0,0,0,0,72h,75h,6dh,62h
-db	6ch,65h,2eh,20h,57h,61h,6eh,6eh,61h,20h,70h,6ch,61h,79h,20h,69h
-db	74h,20h,73h,77h,65h,65h,74h,20h,6fh,72h,20h,70h,6ch,61h,79h,20h
-db	69h,74h,20h,64h,69h,72h,74h,79h,2ch,20h,62h,79h,20h,74h,68h,65h
-db	20h,72h,75h,6ch,65h,73h,20h,6fh,72h,0,0,0,0,0,0,0
-db	0,0,66h,72h,79h,20h,74h,68h,65h,20h,72h,75h,6ch,65h,73h,2ch
-db	20h,74h,68h,65h,72h,65h,27h,73h,20h,6fh,6eh,6ch,79h,20h,6fh,6eh
-db	65h,20h,77h,61h,79h,20h,74h,6fh,20h,64h,6fh,20h,69h,74h,2ch,20h
-db	70h,6ch,61h,79h,20h,74h,6fh,20h,77h,69h,6eh,2eh,0,0,0,0
-db	0,0,0,0,0,0,0,0,52h,69h,64h,65h,20h,79h,6fh,75h
-db	72h,20h,6dh,61h,63h,68h,69h,6eh,65h,2ch,20h,79h,6fh,75h,72h,20h
-db	6dh,6fh,74h,6fh,72h,2dh,77h,61h,72h,2dh,63h,68h,61h,72h,69h,6fh
-db	74h,2eh,20h,47h,6fh,20h,66h,6fh,72h,20h,74h,68h,61h,74h,20h,47h
-db	72h,61h,69h,6ch,2eh,0,0,0,0,0,0,0,0,0,4fh,6eh
-db	6ch,79h,20h,6fh,6eh,65h,20h,63h,61h,6eh,20h,62h,65h,20h,74h,68h
-db	65h,20h,6bh,69h,6eh,67h,20h,6fh,66h,20h,74h,68h,65h,20h,72h,61h
-db	63h,65h,2ch,20h,74h,68h,65h,20h,66h,61h,73h,74h,65h,73h,74h,20h
-db	6dh,61h,6eh,20h,6fh,6eh,20h,74h,68h,65h,0,0,0,0,0,0
-db	0,0,0,0,74h,72h,61h,63h,6bh,2ch,20h,74h,68h,65h,20h,6eh
-db	75h,6dh,62h,65h,72h,20h,6fh,6eh,65h,2eh,20h,41h,6eh,64h,20h,74h
-db	68h,65h,72h,65h,20h,61h,72h,65h,20h,70h,6ch,65h,6eh,74h,79h,20h
-db	6fh,66h,20h,74h,61h,6bh,65h,72h,73h,2eh,20h,47h,61h,73h,20h,69h
-db	73h,0,0,0,0,0,0,0,0,0,74h,68h,65h,20h,6fh,6eh
-db	6ch,79h,20h,70h,65h,64h,61h,6ch,2eh,20h,46h,6ch,6fh,6fh,72h,20h
-db	69h,74h,2eh,20h,59h,6fh,75h,20h,68h,61h,76h,65h,20h,62h,65h,65h
-db	6eh,20h,77h,61h,72h,6eh,65h,64h,2eh,0,0,0,0,0,0,0
-db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	50h,65h,72h,6bh,20h,75h,70h,2eh,20h,54h,68h,69h,73h,20h,69h,73h
+db	"This is it. Here. Now. In Death Rally, where life is short and hot,"
+db  0,0,0
+db  "fast and deadly. The race is on. Watch the road. Hear the"
+db  0,0,0,0,0,0,0,0,0,0,0,0,0
+db  "rumble. Wanna play it sweet or play it dirty, by the rules or"
+db  0,0,0,0,0,0,0,0,0
+db  "fry the rules, there's only one way to do it, play to win."
+db  0,0,0,0,0,0,0,0,0,0,0,0
+db  "Ride your machine, your motor-war-chariot. Go for that Grail."
+db  0,0,0,0,0,0,0,0,0
+db  "Only one can be the king of the race, the fastest man on the"
+db  0,0,0,0,0,0,0,0,0,0
+db  "track, the number one. And there are plenty of takers. Gas is"
+db  0,0,0,0,0,0,0,0,0
+db  "the only pedal. Floor it. You have been warned."
+db  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	"Perk up. This is"
 db	20h,61h,20h,66h,72h,65h,65h,20h,6eh,65h,77h,73h,66h,6ch,61h,73h
 db	68h,2eh,20h,49h,20h,61h,6dh,20h,54h,72h,75h,65h,20h,54h,6fh,6dh
-db	20h,52h,68h,79h,6dh,65h,72h,2ch,20h,61h,6eh,64h,20h,49h,0,0
-db	0,0,0,0,0,0,6bh,6eh,6fh,77h,20h,74h,68h,65h,20h,72h
+db	" Rhymer, and I",0,0
+db	0,0,0,0,0,0,"know the r"
 db	6fh,61h,64h,2eh,20h,49h,20h,67h,6fh,74h,20h,70h,65h,74h,72h,6fh
-db	6ch,20h,69h,6eh,20h,6dh,79h,20h,76h,65h,69h,6eh,73h,2ch,20h,49h
-db	20h,67h,6fh,74h,20h,77h,69h,6eh,64h,20h,69h,6eh,20h,6dh,79h,20h
-db	65h,6eh,67h,69h,6eh,65h,2dh,0,0,0,0,0,6fh,69h,6ch,65h
-db	64h,20h,68h,61h,69h,72h,2eh,20h,49h,27h,76h,65h,20h,62h,65h,65h
-db	6eh,20h,77h,68h,65h,72h,65h,20h,79h,6fh,75h,20h,61h,72h,65h,20h
-db	6eh,6fh,77h,2ch,20h,68h,6fh,74h,73h,68h,6fh,74h,2ch,20h,74h,68h
+db	"l in my veins, I got wind in my engine-",0,0,0,0,0,6fh,69h,6ch,65h
+db	"d hair. I've bee"
+db	"n where you are "
+db	"now, hotshot, th"
 db	75h,6eh,64h,65h,72h,62h,6fh,79h,2ch,0,0,0,0,0,0,0
-db	0,0,79h,6fh,75h,6eh,67h,62h,6ch,6fh,6fh,64h,2eh,20h,49h,27h
-db	76h,65h,20h,62h,65h,65h,6eh,20h,66h,61h,72h,74h,68h,65h,72h,20h
-db	64h,6fh,77h,6eh,20h,74h,68h,65h,20h,72h,6fh,61h,64h,20h,74h,68h
-db	61h,6eh,20h,79h,6fh,75h,27h,6ch,6ch,20h,65h,76h,65h,72h,20h,67h
+db	0,0,"youngblood. I'"
+db	"ve been farther "
+db	"down the road th"
+db	"an you'll ever g"
 db	65h,74h,2eh,0,0,0,0,0,4ch,69h,73h,74h,65h,6eh,2eh,20h
-db	54h,68h,69h,73h,20h,69h,73h,20h,54h,72h,75h,65h,20h,54h,6fh,6dh
-db	20h,74h,61h,6ch,6bh,69h,6eh,67h,2eh,20h,49h,20h,73h,70h,65h,61h
-db	6bh,20h,74h,6fh,20h,79h,6fh,75h,20h,74h,68h,72h,6fh,75h,67h,68h
-db	20h,74h,68h,65h,0,0,0,0,0,0,0,0,0,0,6dh,79h
-db	73h,74h,69h,63h,20h,72h,69h,6eh,67h,2dh,73h,68h,61h,70h,65h,73h
-db	20h,6fh,66h,20h,79h,6fh,75h,72h,20h,77h,68h,65h,65h,6ch,73h,2eh
-db	20h,41h,20h,67h,65h,6eh,69h,65h,20h,69h,6eh,20h,61h,20h,62h,6fh
-db	74h,74h,6ch,65h,2ch,20h,49h,20h,73h,69h,6eh,67h,0,0,0,0
-db	0,0,0,0,74h,6fh,20h,79h,6fh,75h,20h,66h,72h,6fh,6dh,20h
-db	74h,68h,61h,74h,20h,62h,65h,65h,72h,20h,62h,6fh,74h,74h,6ch,65h
-db	2ch,20h,68h,61h,6ch,66h,20h,64h,72h,61h,6eh,6bh,2ch,20h,6fh,6eh
-db	20h,74h,68h,65h,20h,73h,69h,64h,65h,20h,6fh,66h,20h,74h,68h,65h
+db	"This is True ",54h,6fh,6dh
+db	" talking. I spea"
+db	"k to you through"
+db	" the",0,0,0,0,0,0,0,0,0,0,"my"
+db	"stic ring-shapes"
+db	" of your wheels."
+db	" A genie in a bo"
+db	"ttle, I sing",0,0,0,0
+db	0,0,0,0,"to you from "
+db	"that beer bottle"
+db	", half drank, on"
+db	" the side of the"
 db	0,0,0,0,0,0,0,0,0,0,72h,6fh,61h,64h,2eh,20h
-db	53h,6dh,65h,6ch,6ch,20h,6dh,79h,20h,73h,77h,65h,61h,74h,20h,69h
-db	6eh,20h,74h,68h,65h,20h,72h,65h,65h,6bh,20h,61h,6eh,64h,20h,65h
-db	78h,63h,69h,74h,65h,6dh,65h,6eh,74h,20h,6fh,66h,20h,70h,65h,74h
+db	"Smell my sweat i"
+db	"n the reek and e"
+db	"xcitement of pet"
 db	72h,6fh,6ch,20h,70h,75h,6dh,70h,73h,2eh,0,0,0,0,0,0
-db	4ch,69h,73h,74h,65h,6eh,2eh,20h,54h,68h,69h,73h,20h,69h,73h,20h
-db	54h,72h,75h,65h,20h,54h,6fh,6dh,20h,74h,61h,6ch,6bh,69h,6eh,67h
+db	"Listen. This is "
+db	"True Tom talking"
 db	2eh,20h,48h,65h,61h,72h,20h,6dh,65h,20h,67h,72h,6fh,61h,6eh,20h
-db	6dh,61h,6eh,74h,72h,61h,73h,20h,61h,6eh,64h,0,0,0,0,0
-db	0,0,0,0,0,0,6dh,79h,73h,74h,65h,72h,69h,65h,73h,20h
-db	6fh,76h,65h,72h,20h,74h,68h,65h,20h,72h,6fh,61h,72h,20h,61h,6eh
-db	64h,20h,72h,75h,6dh,62h,6ch,65h,20h,6fh,66h,20h,62h,6fh,61h,73h
-db	74h,66h,75h,6ch,20h,6dh,6fh,74h,6fh,72h,20h,6dh,6fh,6eh,73h,74h
+db	"mantras and",0,0,0,0,0
+db	0,0,0,0,0,0,"mysteries "
+db	"over the roar an"
+db	"d rumble of boas"
+db	"tful motor monst"
 db	65h,72h,73h,2eh,0,0,0,0,0,0,0,0,49h,20h,61h,6dh
-db	20h,74h,68h,65h,20h,6dh,61h,6eh,20h,69h,6eh,20h,74h,68h,65h,20h
-db	6dh,61h,63h,68h,69h,6eh,65h,2ch,20h,74h,68h,65h,20h,67h,75h,72h
-db	75h,20h,6fh,66h,20h,63h,61h,72h,73h,2ch,20h,74h,68h,65h,20h,72h
+db	" the man in the "
+db	"machine, the gur"
+db	"u of cars, the r"
 db	6fh,63h,6bh,65h,74h,20h,70h,65h,74h,72h,6fh,6ch,0,0,0,0
-db	0,0,64h,61h,64h,64h,79h,2eh,20h,49h,20h,6bh,6eh,6fh,77h,20h
-db	74h,68h,61h,74h,20h,74h,77h,69h,73h,74h,65h,64h,20h,72h,6fh,61h
-db	64h,2eh,20h,4ch,69h,73h,74h,65h,6eh,20h,63h,6ch,6fh,73h,65h,2eh
-db	20h,49h,20h,74h,65h,6ch,6ch,20h,6eh,6fh,20h,6ch,69h,65h,73h,2eh
-db	0,0,0,0,0,0,0,0,41h,72h,65h,20h,79h,6fh,75h,20h
-db	72h,65h,61h,64h,79h,20h,66h,6fh,72h,20h,74h,68h,65h,20h,72h,69h
-db	64h,65h,2ch,20h,6dh,61h,67h,69h,63h,61h,6ch,20h,61h,6eh,64h,20h
-db	6dh,79h,73h,74h,65h,72h,69h,6fh,75h,73h,3fh,20h,41h,20h,6ch,6fh
-db	6eh,67h,20h,6ch,6fh,6eh,67h,0,0,0,0,0,0,0,77h,61h
-db	79h,20h,64h,6fh,77h,6eh,20h,74h,68h,65h,20h,79h,65h,6ch,6ch,6fh
+db	0,0,"daddy. I know "
+db	"that twisted roa"
+db	"d. Listen close."
+db	" I tell no lies."
+db	0,0,0,0,0,0,0,0,"Are you "
+db	"ready for the ri"
+db	"de, magical and "
+db	"mysterious? A lo"
+db	"ng long",0,0,0,0,0,0,0,77h,61h
+db	"y down the yello"
 db	77h,20h,62h,72h,69h,63h,6bh,20h,72h,6fh,61h,64h,3fh,20h,54h,68h
-db	72h,6fh,75h,67h,68h,20h,7ah,69h,6ch,6ch,69h,6fh,6eh,73h,20h,6dh
-db	69h,6ch,65h,73h,20h,6fh,66h,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,62h,6ch,69h,74h,7ah,6bh,72h,69h,65h,67h,20h,62h
-db	61h,74h,74h,6ch,65h,2ch,20h,70h,72h,6fh,6ch,6fh,6eh,67h,65h,64h
-db	20h,61h,6eh,64h,20h,62h,6ch,61h,7ah,69h,6eh,67h,3fh,20h,54h,72h
+db	"rough zillions m"
+db	"iles of",0,0,0,0,0,0,0,0,0
+db	0,0,0,0,"blitzkrieg b"
+db	"attle, prolonged"
+db	" and blazing? Tr"
 db	61h,69h,6ch,62h,6ch,61h,7ah,65h,20h,74h,68h,72h,6fh,75h,67h,68h
-db	20h,74h,68h,65h,0,0,0,0,0,0,6dh,75h,6ch,74h,69h,74h
-db	75h,64h,65h,20h,6fh,66h,20h,75h,6eh,6bh,6eh,6fh,77h,6eh,20h,75h
+db	" the",0,0,0,0,0,0,"multit"
+db	"ude of unknown u"
 db	70h,68h,69h,6ch,6ch,20h,73h,74h,72h,75h,67h,67h,6ch,65h,73h,20h
-db	74h,68h,65h,20h,72h,6fh,61h,64h,20h,73h,65h,6eh,64h,73h,20h,79h
+db	"the road sends y"
 db	6fh,75h,72h,20h,77h,61h,79h,2eh,0,0,0,0,0,0,0,0
-db	54h,68h,61h,74h,20h,6ah,75h,6eh,6bh,20h,6fh,66h,20h,79h,6fh,75h
-db	72h,73h,20h,69h,73h,20h,6eh,6fh,20h,6ah,75h,67h,67h,65h,72h,6eh
-db	61h,75h,74h,2ch,20h,73h,68h,65h,20h,77h,6fh,6eh,27h,74h,20h,68h
-db	6fh,6ch,64h,2ch,20h,73h,68h,65h,20h,77h,6fh,6eh,27h,74h,0,0
-db	0,0,0,0,0,0,74h,61h,6bh,65h,20h,79h,6fh,75h,20h,61h
-db	6ch,6ch,20h,74h,68h,65h,20h,77h,61h,79h,2ch,20h,68h,61h,6ch,66h
-db	20h,74h,68h,65h,20h,77h,61h,79h,2eh,20h,59h,6fh,75h,20h,6eh,65h
-db	65h,64h,20h,74h,6fh,20h,67h,65h,61h,72h,20h,75h,70h,2ch,20h,74h
-db	6fh,0,0,0,0,0,0,0,0,0,0,0,75h,70h,67h,72h
+db	"That junk of you"
+db	"rs is no juggern"
+db	"aut, she won't h"
+db	"old, she won't",0,0
+db	0,0,0,0,0,0,"take you a"
+db	"ll the way, half"
+db	" the way. you ne"
+db	"ed to gear up, t"
+db	6fh,0,0,0,0,0,0,0,0,0,0,0,"upgr"
 db	61h,64h,65h,2ch,20h,6dh,61h,6bh,65h,20h,68h,65h,61h,64h,6ch,6fh
 db	6eh,67h,20h,68h,65h,61h,64h,77h,61h,79h,2ch,20h,73h,74h,72h,69h
-db	76h,65h,20h,74h,6fh,20h,73h,74h,72h,69h,64h,65h,2ch,20h,73h,74h
-db	72h,69h,64h,65h,20h,74h,6fh,20h,73h,74h,72h,69h,76h,65h,2ch,0
+db	"ve to stride, st"
+db	"ride to strive,",0
 db	0,0,65h,76h,6fh,6ch,76h,65h,2ch,20h,69h,6dh,70h,72h,6fh,76h
-db	65h,2ch,20h,62h,65h,74h,74h,65h,72h,2ch,20h,62h,65h,73h,74h,2eh
-db	20h,42h,75h,79h,20h,61h,6eh,64h,20h,62h,65h,20h,6fh,6eh,65h,20h
-db	73h,68h,69h,6eh,69h,6eh,67h,20h,70h,65h,72h,66h,65h,63h,74h,69h
-db	6fh,6eh,2eh,0,0,0,0,0,52h,69h,64h,65h,20h,74h,68h,61h
-db	74h,20h,77h,68h,69h,72h,6ch,77h,69h,6eh,64h,2eh,20h,50h,75h,74h
-db	20h,73h,6fh,6dh,65h,20h,68h,65h,61h,76h,79h,2dh,6dh,65h,74h,61h
-db	6ch,20h,74h,6fh,20h,74h,68h,65h,20h,70h,65h,64h,61h,6ch,2ch,20h
-db	70h,75h,74h,20h,74h,68h,61h,74h,0,0,0,0,0,0,68h,61h
-db	6dh,6dh,65h,72h,20h,64h,6fh,77h,6eh,2ch,20h,61h,6eh,64h,20h,61h
-db	69h,6dh,20h,79h,6fh,75h,72h,20h,6eh,6fh,73h,65h,20h,74h,6fh,77h
-db	61h,72h,64h,73h,20h,74h,68h,61h,74h,20h,6dh,79h,74h,68h,2dh,73h
-db	68h,72h,6fh,75h,64h,65h,64h,20h,66h,69h,6eh,61h,6ch,0,0,0
-db	0,0,0,0,63h,68h,61h,6ch,6ch,65h,6eh,67h,65h,2eh,20h,54h
+db	"e, better, best."
+db	" Buy and be one "
+db	"shining perfecti"
+db	"on.",0,0,0,0,0,52h,69h,64h,65h,20h,74h,68h,61h
+db	"t whirlwind. Put"
+db	" some heavy-meta"
+db	"l to the pedal, "
+db	"put that",0,0,0,0,0,0,68h,61h
+db	"mmer down, and a"
+db	"im your nose tow"
+db	"ards that myth-s"
+db	"hrouded final",0,0,0
+db	0,0,0,0,"challenge. T"
 db	68h,65h,20h,41h,64h,76h,65h,72h,73h,61h,72h,79h,20h,61h,77h,61h
-db	69h,74h,73h,2eh,20h,48h,65h,72h,65h,20h,79h,6fh,75h,20h,63h,6fh
-db	6dh,65h,20h,6eh,6fh,77h,2ch,20h,74h,68h,65h,72h,65h,27h,73h,20h
-db	6eh,6fh,0,0,0,0,0,0,0,0,74h,75h,72h,6eh,69h,6eh
-db	67h,20h,62h,61h,63h,6bh,20h,6eh,6fh,77h,2eh,20h,54h,72h,75h,65h
-db	20h,54h,6fh,6dh,20h,63h,61h,6eh,20h,73h,65h,65h,20h,79h,6fh,75h
-db	20h,63h,6fh,6dh,69h,6eh,67h,2eh,20h,49h,20h,74h,65h,6ch,6ch,20h
-db	6eh,6fh,20h,6ch,69h,65h,73h,2eh,0,0,0,0,0,0,0,0
-db	54h,68h,69h,73h,20h,69h,73h,20h,68h,6fh,77h,20h,69h,74h,20h,67h
+db	"its. Here you co"
+db	"me now, there's "
+db	"no",0,0,0,0,0,0,0,0,"turnin"
+db	"g back now. True"
+db	" Tom can see you"
+db	" coming. I tell "
+db	"no lies.",0,0,0,0,0,0,0,0
+db	"This is how it g"
 db	6fh,65h,73h,2eh,20h,59h,6fh,75h,20h,61h,72h,65h,20h,64h,72h,69h
-db	76h,69h,6eh,67h,2eh,20h,59h,6fh,75h,20h,61h,72h,65h,20h,73h,61h
-db	79h,69h,6eh,67h,2ch,20h,27h,48h,61h,6eh,67h,20h,6fh,6eh,0,0
-db	0,0,0,0,0,0,62h,61h,62h,79h,2ch,20h,74h,68h,69h,73h
-db	20h,69h,73h,20h,77h,68h,61h,74h,20h,49h,20h,64h,6fh,2eh,27h,20h
-db	49h,74h,27h,73h,20h,64h,6fh,61h,62h,6ch,65h,2ch,20h,61h,6ch,6ch
-db	20h,72h,69h,67h,68h,74h,3fh,20h,57h,69h,6eh,6eh,61h,62h,6ch,65h
-db	2eh,20h,41h,6eh,64h,20h,74h,68h,65h,0,0,0,62h,75h,6ch,6ch
-db	65h,74h,73h,20h,74h,61h,6bh,65h,20h,74h,68h,65h,20h,73h,6bh,79h
-db	2ch,20h,6ch,69h,6bh,65h,20h,63h,6ch,6fh,75h,64h,73h,20h,6fh,66h
-db	20h,6ch,6fh,63h,75h,73h,74h,73h,2eh,20h,54h,68h,65h,20h,65h,6eh
-db	64h,20h,69h,73h,20h,6eh,69h,67h,68h,2eh,0,0,0,0,0,0
+db	"ving. you are sa"
+db	"ying, 'Hang on",0,0
+db	0,0,0,0,0,0,"baby, this"
+db	" is what I do.' "
+db	"It's doable, all"
+db	" right? Winnable"
+db	". And the",0,0,0,62h,75h,6ch,6ch
+db	"ets take the sky"
+db	", like clouds of"
+db	" locusts. The en"
+db	"d is nigh.",0,0,0,0,0,0
 db	0,0,52h,61h,63h,65h,20h,6fh,76h,65h,72h,2ch,20h,67h,65h,74h
-db	20h,69h,74h,3fh,20h,42h,75h,64h,64h,61h,20h,62h,75h,64h,64h,61h
-db	20h,62h,75h,64h,64h,61h,2eh,20h,59h,6fh,75h,20h,68h,61h,76h,65h
-db	20h,62h,65h,65h,6eh,20h,77h,61h,72h,6eh,65h,64h,2eh,0,0,0
-db	0,0,0,0,0,0,0,0,54h,68h,69h,73h,20h,69h,73h,20h
-db	68h,6fh,77h,20h,69h,74h,20h,67h,6fh,65h,73h,2eh,20h,41h,6ch,6ch
-db	20h,79h,6fh,75h,20h,63h,61h,6eh,20h,73h,65h,65h,20h,66h,72h,6fh
-db	6dh,20h,74h,68h,65h,20h,72h,65h,61h,72h,20h,6dh,69h,72h,72h,6fh
+db	" it? Budda budda"
+db	" budda. You have"
+db	" been warned.",0,0,0
+db	0,0,0,0,0,0,0,0,"This is "
+db	"how it goes. All"
+db	" you can see fro"
+db	"m the rear mirro"
 db	72h,20h,69h,73h,0,0,0,0,0,0,0,0,0,0,72h,6fh
-db	63h,6bh,65h,74h,20h,66h,75h,6dh,65h,2ch,20h,61h,6eh,64h,20h,79h
-db	6fh,75h,20h,6bh,6eh,6fh,77h,20h,74h,68h,65h,72h,65h,20h,69h,73h
-db	6eh,27h,74h,20h,74h,68h,61h,74h,20h,6dh,75h,63h,68h,20h,73h,6dh
-db	6fh,6bh,65h,20h,69h,6eh,20h,74h,68h,65h,0,0,0,0,0,0
-db	0,0,0,0,77h,68h,6fh,6ch,65h,20h,62h,75h,72h,6eh,69h,6eh
-db	67h,20h,68h,65h,6ch,6ch,2eh,20h,41h,6eh,64h,20h,79h,6fh,75h,72h
-db	20h,65h,6eh,67h,69h,6eh,65h,2ch,20h,69h,74h,20h,73h,63h,72h,65h
-db	61h,6dh,73h,20h,61h,6eh,64h,20h,6dh,6fh,61h,6eh,73h,20h,6ch,69h
-db	6bh,65h,20h,61h,0,0,0,0,0,0,62h,61h,6eh,73h,68h,65h
-db	65h,2eh,20h,44h,65h,61h,74h,68h,20h,69h,73h,20h,63h,6fh,6dh,69h
-db	6eh,67h,2ch,20h,64h,65h,61h,74h,68h,20h,69h,73h,20h,63h,6fh,6dh
-db	69h,6eh,67h,2ch,20h,74h,68h,61h,74h,27h,73h,20h,77h,68h,61h,74h
-db	20h,69h,74h,27h,73h,20h,73h,61h,79h,69h,6eh,67h,2eh,0,0,0
-db	54h,68h,69h,73h,20h,69h,73h,20h,68h,6fh,77h,20h,69h,74h,20h,67h
+db	"cket fume, and y"
+db	"ou know there is"
+db	"n't that much sm"
+db	"oke in the",0,0,0,0,0,0
+db	0,0,0,0,"whole burnin"
+db	"g hell. And your"
+db	" engine, it scre"
+db	"ams and moans li"
+db	6bh,65h,20h,61h,0,0,0,0,0,0,"banshe"
+db	"e. Death is comi"
+db	"ng, death is com"
+db	"ing, that's what"
+db	" it's saying.",0,0,0
+db	"This is how it g"
 db	6fh,65h,73h,2eh,20h,59h,6fh,75h,72h,20h,68h,65h,61h,72h,74h,20h
-db	70h,75h,6dh,70h,73h,20h,74h,68h,61h,74h,20h,77h,69h,6eh,6eh,69h
-db	6eh,67h,20h,62h,65h,61h,74h,2eh,20h,54h,68h,69h,73h,20h,69h,73h
+db	"pumps that winni"
+db	"ng beat. This is"
 db	0,0,0,0,0,0,72h,61h,63h,65h,20h,74h,69h,6dh,65h,2ch
-db	20h,72h,65h,61h,6ch,20h,74h,69h,6dh,65h,2eh,20h,41h,6eh,64h,20h
-db	79h,6fh,75h,72h,20h,62h,72h,61h,6bh,65h,73h,20h,61h,72h,65h,20h
-db	67h,6fh,6eh,65h,2eh,20h,44h,6fh,6eh,27h,74h,20h,6dh,69h,73h,73h
-db	20h,74h,68h,65h,6dh,2ch,0,0,0,0,0,0,64h,6fh,6eh,27h
-db	74h,20h,63h,61h,72h,65h,2eh,20h,47h,61h,73h,20h,69h,73h,20h,74h
-db	68h,65h,20h,6fh,6eh,6ch,79h,20h,70h,65h,64h,61h,6ch,2eh,20h,46h
-db	6ch,6fh,6fh,72h,20h,69h,74h,3bh,20h,64h,69h,64h,20h,6ch,6fh,6eh
+db	" real time. And "
+db	"your brakes are "
+db	"gone. Don't miss"
+db	" them,",0,0,0,0,0,0,"don'"
+db	"t care. Gas is t"
+db	"he only pedal. f"
+db	"loor it",3bh," did lon"
 db	67h,20h,74h,69h,6dh,65h,20h,61h,67h,6fh,2eh,0,0,0,0,0
-db	0,0,53h,65h,65h,20h,74h,68h,65h,20h,6ch,61h,70h,20h,6fh,66h
-db	20h,68h,6fh,6eh,6fh,72h,2ch,20h,62h,75h,6ch,6ch,65h,74h,73h,20h
-db	74h,75h,72h,6eh,65h,64h,20h,69h,6eh,74h,6fh,20h,63h,6fh,6eh,66h
-db	65h,74h,74h,69h,2eh,20h,57h,69h,6eh,2ch,20h,77h,69h,6eh,2ch,20h
-db	77h,69h,6eh,21h,0,0,0,0,54h,68h,72h,6fh,75h,67h,68h,20h
-db	74h,68h,65h,20h,68h,6fh,74h,20h,72h,6fh,64h,20h,72h,6fh,61h,64h
-db	2dh,68h,65h,6ch,6ch,20h,70h,75h,72h,67h,61h,74h,6fh,72h,79h,2ch
-db	20h,77h,68h,65h,72h,65h,20h,6dh,6fh,74h,6fh,72h,20h,73h,6fh,75h
+db	0,0,"See the lap of"
+db	" honor, bullets "
+db	"turned into conf"
+db	"etti. Win, win, "
+db	"win!",0,0,0,0,54h,68h,72h,6fh,75h,67h,68h,20h
+db	"the hot rod road"
+db	"-hell purgatory,"
+db	" where motor sou"
 db	6ch,73h,0,0,0,0,0,0,0,0,0,0,0,0,73h,63h
-db	72h,65h,61h,6dh,20h,61h,6eh,64h,20h,77h,61h,79h,2dh,74h,69h,72h
+db	"ream and way-tir"
 db	65h,64h,20h,77h,68h,65h,65h,6ch,73h,20h,62h,75h,72h,6eh,2eh,20h
-db	54h,6fh,20h,74h,68h,65h,20h,66h,69h,6eh,61h,6ch,20h,63h,68h,61h
+db	"To the final cha"
 db	6ch,6ch,65h,6eh,67h,65h,2eh,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,54h,68h,65h,72h,65h,20h,61h,77h,61h,69h,74h,73h
-db	20h,74h,68h,65h,20h,64h,65h,6dh,6fh,6eh,20h,6bh,69h,6eh,67h,20h
-db	6fh,66h,20h,74h,68h,65h,20h,72h,61h,63h,65h,2eh,20h,54h,68h,65h
+db	0,0,0,0,"There awaits"
+db	" the demon king "
+db	"of the race. The"
 db	20h,66h,6ch,61h,6dh,65h,2dh,63h,72h,6fh,77h,6eh,65h,64h,20h,64h
-db	65h,6dh,6fh,6eh,0,0,0,0,0,0,6bh,69h,6eh,67h,2eh,20h
-db	54h,68h,65h,20h,41h,64h,76h,65h,72h,73h,61h,72h,79h,2eh,20h,46h
+db	"emon",0,0,0,0,0,0,"king. "
+db	"The Adversary. f"
 db	65h,61h,72h,20h,68h,69h,6dh,2eh,20h,4ch,69h,73h,74h,65h,6eh,20h
-db	74h,6fh,20h,54h,72h,75h,65h,20h,54h,6fh,6dh,2eh,20h,49h,20h,74h
-db	65h,6ch,6ch,20h,6eh,6fh,20h,6ch,69h,65h,73h,2eh,0,0,0,0
-db	4ch,69h,73h,74h,65h,6eh,2eh,20h,54h,68h,69h,73h,20h,69h,73h,20h
-db	54h,72h,75h,65h,20h,54h,6fh,6dh,20h,74h,61h,6ch,6bh,69h,6eh,67h
+db	"to True Tom. I t"
+db	"ell no lies.",0,0,0,0
+db	"Listen. This is "
+db	"True Tom talking"
 db	2eh,20h,4fh,6eh,63h,65h,2ch,20h,49h,20h,74h,72h,69h,65h,64h,20h
-db	74h,6fh,20h,70h,72h,6fh,76h,65h,20h,6dh,79h,20h,67h,61h,73h,2dh
+db	"to prove my gas-"
 db	0,0,0,0,0,0,70h,65h,64h,61h,6ch,20h,6dh,65h,74h,74h
-db	6ch,65h,20h,69h,6eh,20h,61h,20h,72h,61h,63h,65h,20h,61h,67h,61h
-db	69h,6eh,73h,74h,20h,74h,68h,65h,20h,41h,64h,76h,65h,72h,73h,61h
+db	"le in a race aga"
+db	"inst the Adversa"
 db	72h,79h,2eh,20h,49h,20h,6ch,6fh,73h,74h,2eh,20h,4fh,6eh,6ch,79h
-db	20h,6fh,6eh,63h,65h,20h,64h,69h,64h,0,0,0,49h,20h,68h,65h
-db	61h,72h,20h,68h,69h,6dh,20h,73h,70h,65h,61h,6bh,2eh,20h,49h,74h
-db	20h,77h,61h,73h,20h,77h,68h,65h,6eh,20h,68h,65h,20h,72h,61h,69h
-db	73h,65h,64h,20h,68h,69h,73h,20h,66h,69h,72h,65h,2dh,63h,72h,6fh
-db	77h,6eh,65h,64h,20h,68h,65h,61h,64h,2ch,20h,61h,6eh,64h,0,0
+db	" once did",0,0,0,49h,20h,68h,65h
+db	"ar him speak. It"
+db	" was when he rai"
+db	"sed his fire-cro"
+db	"wned head, and",0,0
 db	0,0,73h,61h,69h,64h,2ch,20h,27h,52h,61h,63h,65h,72h,20h,62h
-db	6fh,79h,2ch,20h,6eh,6fh,77h,20h,49h,27h,6dh,20h,67h,6fh,69h,6eh
-db	67h,20h,74h,6fh,20h,6dh,6fh,77h,20h,79h,6fh,75h,20h,64h,65h,61h
+db	"oy, now I'm goin"
+db	"g to mow you dea"
 db	64h,2eh,27h,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,4ch,69h,73h,74h,65h,6eh,2eh,20h
-db	54h,68h,69h,73h,20h,69h,73h,20h,54h,72h,75h,65h,20h,54h,6fh,6dh
-db	20h,54h,61h,6ch,6bh,69h,6eh,67h,2eh,20h,59h,65h,73h,2ch,20h,49h
-db	20h,73h,70h,65h,61h,6bh,20h,74h,6fh,20h,79h,6fh,75h,20h,6eh,6fh
-db	77h,20h,66h,72h,6fh,6dh,20h,6dh,79h,0,0,0,0,0,63h,61h
-db	72h,2dh,63h,6fh,66h,66h,69h,6eh,20h,67h,72h,61h,76h,65h,2eh,20h
-db	49h,74h,20h,77h,61h,73h,20h,74h,68h,65h,20h,41h,64h,76h,65h,72h
-db	73h,61h,72h,79h,20h,74h,68h,61h,74h,20h,70h,75h,74h,20h,6dh,65h
-db	20h,68h,65h,72h,65h,2ch,20h,74h,68h,65h,0,0,0,0,0,0
-db	0,0,0,0,64h,65h,6dh,6fh,6eh,20h,6bh,69h,6eh,67h,20h,6fh
-db	66h,20h,74h,68h,65h,20h,72h,61h,63h,65h,2eh,20h,59h,6fh,75h,20h
-db	77h,6fh,75h,6ch,64h,20h,64h,6fh,20h,77h,65h,6ch,6ch,20h,74h,6fh
-db	20h,66h,65h,61h,72h,20h,68h,69h,6dh,2eh,20h,49h,20h,74h,65h,6ch
-db	6ch,20h,6eh,6fh,0,0,0,0,0,0,6ch,69h,65h,73h,2eh,20h
-db	49h,20h,6bh,6eh,6fh,77h,2ch,20h,54h,72h,75h,65h,20h,54h,6fh,6dh
-db	20h,64h,6fh,65h,73h,2eh,20h,4ch,69h,73h,74h,65h,6eh,2ch,20h,61h
-db	6eh,64h,20h,6ch,69h,73h,74h,65h,6eh,20h,63h,6ch,6fh,73h,65h,2eh
-db	20h,46h,65h,61h,72h,20h,68h,69h,6dh,2eh,0,0,0,0,0,0
-db	42h,6fh,64h,79h,20h,61h,6eh,64h,20h,73h,6fh,75h,6ch,3bh,20h,79h
-db	69h,6eh,20h,61h,6eh,64h,20h,79h,61h,6eh,67h,2eh,20h,59h,6fh,75h
-db	2ch,20h,6dh,79h,20h,72h,6fh,61h,64h,77h,61h,72h,64h,20h,61h,70h
-db	70h,72h,65h,6eh,74h,69h,63h,65h,2ch,20h,61h,72h,65h,20h,74h,68h
-db	65h,0,0,0,0,0,73h,6fh,75h,6ch,20h,69h,6eh,20h,74h,68h
-db	69h,73h,20h,65h,78h,70h,6fh,6eh,65h,6eh,74h,69h,61h,6ch,6ch,79h
-db	20h,61h,63h,63h,65h,6ch,65h,72h,61h,74h,69h,6eh,67h,20h,65h,71h
-db	75h,61h,74h,69h,6fh,6eh,2eh,20h,59h,6fh,75h,72h,20h,76h,65h,68h
-db	69h,63h,6ch,65h,20h,69h,73h,0,0,0,0,0,74h,68h,65h,20h
-db	62h,6fh,64h,79h,2eh,20h,43h,61h,6eh,20h,79h,6fh,75h,20h,66h,65h
-db	65h,6ch,20h,74h,68h,65h,20h,70h,72h,65h,63h,69h,6fh,75h,73h,20h
-db	65h,71h,75h,69h,6ch,69h,62h,72h,69h,75h,6dh,20h,73h,6ch,69h,70h
-db	70h,69h,6eh,67h,20h,61h,6eh,64h,20h,74h,61h,69h,6ch,2dh,0,0
-db	0,0,73h,6ch,69h,64h,69h,6eh,67h,20h,66h,72h,6fh,6dh,20h,79h
-db	6fh,75h,72h,20h,63h,6fh,6eh,74h,72h,6fh,6ch,3fh,20h,44h,6fh,6eh
-db	27h,74h,20h,6ch,6fh,73h,65h,20h,69h,74h,20h,6eh,6fh,77h,2ch,20h
+db	"This is True ",54h,6fh,6dh
+db	" Talking. yes, I"
+db	" speak to you no"
+db	"w from my",0,0,0,0,0,63h,61h
+db	"r-coffin grave. "
+db	"It was the Adver"
+db	"sary that put me"
+db	" here, the",0,0,0,0,0,0
+db	0,0,0,0
+db  "demon king of the race. you would do well to fear him. I tell no"
+db  0,0,0,0,0,0
+db  "lies. I know, True Tom does. Listen, and listen close. Fear him."
+db  0,0,0,0,0,0
+db	"Body and soul",3bh," yin and yang. you, my roadward apprentice, are the"
+db	0,0,0,0,0
+db  "soul in this exponentially accelerating equation. Your vehicle is"
+db  0,0,0,0,0
+db  "the body. Can you feel the precious equilibrium slipping and tail-"
+db  0,0,0,0
+db  "sliding from your control? Don't lose it now, "
 db	73h,74h,61h,79h,20h,74h,75h,6eh,65h,64h,3ah,20h,72h,61h,63h,65h
 db	20h,74h,69h,6dh,65h,21h,0,0,54h,68h,6fh,73h,65h,20h,6fh,74h
-db	68h,65h,72h,20h,77h,61h,6eh,6eh,61h,62h,65h,20h,76h,69h,63h,74h
-db	6fh,72h,79h,20h,68h,6fh,75h,6eh,64h,73h,20h,61h,72h,65h,20h,6ah
+db	"her wannabe victory hounds are j"
 db	75h,73h,74h,20h,74h,61h,69h,6ch,6ch,69h,67h,68h,74h,73h,20h,62h
-db	6ch,61h,7ah,69h,6eh,67h,0,0,0,0,0,0,0,0,61h,77h
-db	61h,79h,20h,69h,6eh,20h,74h,68h,65h,20h,66h,61h,72h,20h,68h,6fh
-db	72h,69h,7ah,6fh,6eh,2eh,20h,47h,6fh,6eh,65h,20h,64h,61h,64h,64h
-db	79h,20h,67h,6fh,6eh,65h,21h,20h,4eh,6fh,74h,20h,65h,6eh,6fh,75h
-db	67h,68h,20h,6ah,75h,69h,63h,65h,2ch,20h,6eh,6fh,74h,0,0,0
-db	0,0,0,0,65h,6eh,6fh,75h,67h,68h,20h,70h,6fh,74h,65h,6eh
-db	74h,69h,61h,6ch,20h,70h,6fh,77h,65h,72h,20h,69h,6eh,20h,79h,6fh
-db	75h,72h,20h,65h,6eh,67h,69h,6eh,65h,20h,62h,6fh,78h,2eh,20h,54h
-db	72h,75h,65h,20h,54h,6fh,6dh,20h,74h,6fh,6fh,2ch,20h,68h,61h,73h
-db	20h,62h,65h,65h,6eh,0,0,0,0,0,69h,6eh,20h,74h,68h,65h
-db	20h,73h,61h,6dh,65h,20h,66h,69h,78h,20h,79h,6fh,75h,20h,61h,72h
-db	65h,20h,6eh,6fh,77h,2ch,20h,6fh,68h,20h,79h,65h,61h,68h,2eh,20h
-db	53h,68h,6fh,6fh,74h,20h,27h,65h,6dh,20h,64h,6fh,77h,6eh,2eh,0
-db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	59h,6fh,75h,20h,77h,61h,6eh,6eh,61h,20h,6bh,6eh,6fh,77h,20h,69h
-db	66h,20h,69h,74h,27h,73h,20h,73h,61h,66h,65h,2eh,20h,4ch,69h,73h
-db	74h,65h,6eh,20h,74h,6fh,20h,54h,72h,75h,65h,20h,54h,6fh,6dh,2ch
-db	20h,74h,68h,69h,73h,20h,69h,73h,20h,74h,68h,65h,20h,73h,63h,6fh
-db	72h,65h,2eh,0,0,0,54h,68h,69h,6eh,67h,73h,20h,63h,61h,6eh
-db	20h,67h,65h,74h,20h,6fh,75h,74h,20h,6fh,66h,20h,68h,61h,6eh,64h
-db	20h,72h,65h,61h,6ch,20h,73h,70h,65h,65h,64h,79h,20h,6ch,69h,6bh
-db	65h,2eh,20h,49h,27h,6dh,20h,74h,61h,6ch,6bh,69h,6eh,67h,20h,27h
-db	62h,6fh,75h,74h,20h,74h,68h,65h,0,0,0,0,77h,6fh,72h,6ch
-db	64h,20h,6ch,69h,67h,68h,74h,69h,6eh,67h,20h,75h,70h,20h,73h,68h
-db	69h,6eh,69h,6eh,67h,20h,62h,6ch,61h,73h,74h,20h,77h,68h,69h,74h
-db	65h,20h,61h,6eh,64h,20h,74h,68h,65h,6eh,20h,6eh,6fh,74h,68h,69h
-db	6eh,67h,2ch,20h,49h,27h,6dh,20h,74h,61h,6ch,6bh,69h,6eh,67h,0
-db	0,0,27h,62h,6fh,75h,74h,20h,67h,6fh,69h,6eh,67h,20h,6fh,75h
-db	74h,20h,69h,6eh,20h,61h,20h,62h,6ch,61h,7ah,65h,20h,6fh,66h,20h
-db	67h,6ch,6fh,72h,79h,2eh,20h,59h,6fh,75h,20h,68h,61h,76h,65h,20h
-db	62h,65h,65h,6eh,20h,77h,61h,72h,6eh,65h,64h,2eh,0,0,0,0
+db	"lazing",0,0,0,0,0,0,0,0,61h,77h
+db	"ay in the far horizon. Gone daddy gone! Not enou"
+db	"gh juice, not",0,0,0
+db	0,0,0,0
+db  "enough potential power in your engine box. True Tom too, has been"
+db  0,0,0,0,0
+db  "in the same fix you are now, oh yeah. Shoot 'em down."
+db  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	"You wanna know if it's safe. Listen to True Tom, this is the score."
+db  0,0,0
+db  "Things can get out of hand real speedy like. I'm talking 'bout the"
+db  0,0,0,0
+db  "world lighting up shining blast white and then nothing, I'm talking"
+db  0,0,0
+db  "'bout going out in a blaze of glory. You have been warned."
+db  0,0,0,0
 db	0,0,0,0,0,0,0,0,53h,6fh,20h,6ah,65h,61h,6ch,6fh
-db	75h,73h,79h,20h,62h,75h,72h,6eh,73h,20h,79h,6fh,75h,20h,6ch,69h
-db	6bh,65h,20h,61h,20h,64h,69h,65h,73h,65h,6ch,20h,65h,6eh,67h,69h
-db	6eh,65h,20h,69h,6eh,73h,69h,64h,65h,2ch,20h,79h,6fh,75h,20h,77h
-db	61h,6eh,74h,20h,74h,68h,61h,74h,0,0,0,0,0,0,72h,6fh
-db	61h,64h,20h,61h,6ch,6ch,20h,74h,6fh,20h,79h,6fh,75h,72h,73h,65h
-db	6ch,66h,3fh,20h,54h,68h,65h,20h,62h,6ch,61h,63h,6bh,20h,63h,61h
-db	74h,20h,6fh,66h,20h,62h,61h,64h,20h,6ch,75h,63h,6bh,20h,68h,61h
-db	75h,6eh,74h,73h,20h,79h,6fh,75h,3fh,20h,4ah,69h,6eh,78h,0,0
+db	"usy burns you li"
+db	"ke a diesel engi"
+db	"ne inside, you w"
+db	"ant that",0,0,0,0,0,0,72h,6fh
+db	"ad all to yourse"
+db	"lf? The black ca"
+db	"t of bad luck ha"
+db	"unts you? Jinx",0,0
 db	0,0,0,0,74h,68h,6fh,73h,65h,20h,72h,69h,76h,61h,6ch,20h
-db	77h,68h,65h,65h,6ch,73h,20h,73h,6fh,20h,74h,68h,65h,79h,27h,6ch
-db	6ch,20h,72h,65h,61h,70h,20h,6fh,6eh,6ch,79h,20h,62h,75h,72h,6eh
-db	69h,6eh,67h,20h,65h,6eh,67h,69h,6eh,65h,20h,64h,65h,61h,74h,68h
-db	2ch,20h,61h,6eh,64h,0,0,0,0,0,74h,68h,65h,20h,72h,6fh
-db	61h,64h,20h,69h,73h,20h,61h,6ch,6ch,20h,79h,6fh,75h,72h,73h,2eh
-db	20h,42h,75h,74h,20h,62h,65h,77h,61h,72h,65h,2ch,20h,74h,68h,65h
-db	20h,72h,6fh,61h,64h,20h,63h,61h,6eh,20h,62h,65h,20h,61h,20h,66h
+db	"wheels so they'l"
+db	"l reap only burn"
+db	"ing engine death"
+db	", and",0,0,0,0,0,"the ro"
+db	"ad is all yours."
+db	" But beware, the"
+db	" road can be a f"
 db	69h,63h,6bh,6ch,65h,20h,6ch,6fh,76h,65h,72h,2eh,0,0,0,0
-db	53h,6fh,20h,6dh,79h,20h,62h,61h,62h,79h,20h,77h,61h,6ch,6bh,65h
-db	64h,20h,77h,68h,65h,6eh,20h,49h,20h,62h,6fh,75h,67h,68h,74h,20h
-db	6dh,65h,20h,61h,20h,6eh,65h,77h,20h,73h,65h,74h,20h,6fh,66h,20h
-db	77h,68h,65h,65h,6ch,73h,20h,69h,6eh,73h,74h,65h,61h,64h,0,0
-db	0,0,0,0,0,0,6fh,66h,20h,61h,20h,77h,65h,64h,64h,69h
-db	6eh,67h,20h,72h,69h,6eh,67h,2eh,20h,41h,6eh,79h,20h,72h,65h,67h
-db	72h,65h,74h,73h,3fh,20h,46h,6fh,72h,20h,61h,20h,77h,68h,69h,6ch
-db	65h,20h,74h,68h,65h,72h,65h,2ch,20h,62h,75h,74h,20h,6eh,6fh,77h
-db	20h,61h,6ch,6ch,0,0,0,0,0,0,0,0,62h,69h,74h,74h
+db	"So my baby walke"
+db	"d when I bought "
+db	"me a new set of "
+db	"wheels instead",0,0
+db	0,0,0,0,0,0,"of a weddi"
+db	"ng ring. Any reg"
+db	"rets? For a whil"
+db	"e there, but now"
+db	" all",0,0,0,0,0,0,0,0,"bitt"
 db	65h,72h,20h,72h,65h,67h,72h,65h,74h,73h,20h,61h,72h,65h,20h,69h
-db	6eh,20h,74h,68h,65h,20h,70h,61h,73h,74h,2ch,20h,62h,6ch,75h,72h
-db	72h,65h,64h,20h,73h,77h,65h,65h,74h,20h,73h,74h,72h,65h,65h,74h
-db	6ch,69h,67h,68h,74h,73h,20h,73h,70h,65h,65h,64h,69h,6eh,67h,0
+db	"n the past, blur"
+db	"red sweet street"
+db	"lights speeding",0
 db	0,0,70h,61h,73h,74h,2ch,20h,66h,61h,73h,74h,2eh,20h,54h,68h
-db	65h,20h,72h,75h,73h,68h,2ch,20h,74h,68h,65h,20h,68h,69h,67h,68h
-db	2ch,20h,44h,65h,61h,74h,68h,20h,52h,61h,6ch,6ch,79h,21h,20h,44h
-db	72h,69h,76h,65h,20h,69h,74h,2eh,20h,4ch,6fh,76h,65h,20h,69h,74h
+db	"e rush, the high"
+db	", Death Rally! D"
+db	"rive it. Love it"
 db	2eh,0,0,0,0,0,0,0
 ___19695ch:
-db	41h,68h,2ch,20h,66h,6fh,72h,74h,75h,6eh,65h,20h,61h,6eh,64h,20h
-db	67h,6ch,6fh,72h,79h,21h,20h,59h,6fh,75h,20h,61h,72h,65h,20h,73h
+db	"Ah, fortune and "
+db	"glory! you are s"
 db	70h,65h,63h,69h,61h,6ch,2ch,20h,54h,72h,75h,65h,20h,54h,6fh,6dh
-db	20h,74h,65h,6ch,6ch,73h,20h,6eh,6fh,20h,6ch,69h,65h,73h,2eh,0
+db	" tells no lies.",0
 db	0,0,0,0,0,0
 ___1969a2h:
-db	53h,77h,65h,65h,74h,20h,64h,72h,69h,76h,65h,72h,2ch,20h,69h,74h
-db	27h,73h,20h,62h,65h,65h,6eh,20h,61h,20h,6ch,6fh,6eh,67h,20h,61h
-db	6eh,64h,20h,77h,69h,6eh,64h,69h,6eh,67h,20h,72h,6fh,61h,64h,2ch
-db	20h,62h,75h,74h,20h,6eh,6fh,77h,20h,79h,6fh,75h,20h,68h,61h,76h
+db	53h,"weet driver, it"
+db	"'s been a long a"
+db	"nd winding road,"
+db	" but now you hav"
 db	65h,0,0,0,0,0
 ___1969e8h:
-db	66h,69h,6eh,61h,6ch,6ch,79h,20h,61h,72h,72h,69h,76h,65h,64h,2eh
-db	20h,54h,68h,65h,20h,41h,64h,76h,65h,72h,73h,61h,72h,79h,27h,73h
-db	20h,65h,76h,69h,6ch,20h,72h,65h,69h,67h,6eh,20h,69h,73h,20h,6fh
-db	76h,65h,72h,2eh,20h,54h,68h,65h,20h,64h,65h,6dh,6fh,6eh,2dh,0
+db	"finally arrived."
+db	" The Adversary's"
+db	" evil reign is o"
+db	"ver. The demon-",0
 db	0,0,0,0,0,0
 ___196a2eh:
-db	6bh,69h,6eh,67h,20h,69h,73h,20h,64h,65h,61h,64h,2ch,20h,6ch,6fh
-db	6eh,67h,20h,6ch,69h,76h,65h,20h,74h,68h,65h,20h,6bh,69h,6eh,67h
-db	20h,6fh,66h,20h,44h,65h,61h,74h,68h,20h,52h,61h,6ch,6ch,79h,21h
+db	"king is dead, lo"
+db	"ng live the king"
+db	" of Death Rally!"
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0
 ___196a74h:
@@ -8216,11 +7521,9 @@ db	0,1,80h,2,1,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-global drfiles_list
-drfiles_list:
+__GDECL(__CEXT_V(drfiles_list))
 db	"ENGINE.BPA",0,0,0
-global drfile_size
-drfile_size:
+__GDECL(__CEXT_V(drfile_size))
 db	79h,0e8h,5,0
 db  "IBFILES.BPA",0,0
 db  0e5h,4fh,1,0
@@ -8321,13 +7624,14 @@ db	0,0,0,0
 ___196df8h:
 db	0,80h,2,0
 ___196dfch:
-db	4bh,55h,50h,4ch,41h,0,0,0,0,0,0,0,0,0,50h,49h
-db	43h,4bh,55h,50h,0,0,0,0,0,0,0,0,53h,45h,44h,41h
-db	4eh,0,0,0,0,0,0,0,0,0,43h,41h,4dh,41h,52h,4fh
-db	0,0,0,0,0,0,0,0,50h,4fh,52h,43h,48h,45h,0,0
-db	0,0,0,0,0,0,4ch,4fh,54h,55h,53h,0,0,0,0,0
-db	0,0,0,0,53h,50h,45h,43h,49h,41h,4ch,0,0,0,0,0
-db	0,0,0,0
+db	"KUPLA",0,0,0,0,0,0,0,0,0
+db  "PICKUP",0,0,0,0,0,0,0,0
+db  "SEDAN",0,0,0,0,0,0,0,0,0
+db  "CAMARO",0,0,0,0,0,0,0,0
+db  "PORCHE",0,0,0,0,0,0,0,0
+db  "LOTUS",0,0,0,0,0,0,0,0,0
+db  "SPECIAL",0,0,0,0,0,0,0
+db  0,0
 ___196e60h:
 db	0,0,0,0
 ___196e64h:
@@ -9203,7 +8507,7 @@ db	0,0,0,0
 ___199f7ch:
 db	0,0
 ___199f7eh:
-db	53h,74h,61h,63h,6bh,20h,4fh,76h,65h,72h,66h,6ch,6fh,77h,21h,0dh
+db	"Stack Overflow!",0dh
 db	0ah,0
 ___atexit:
 dd	_null_exit_rtn
@@ -9721,7 +9025,7 @@ db	0adh,6eh,0c7h,6eh,0e0h,6eh,0fah,6eh,13h,6fh,2dh,6fh,47h,6fh,61h,6fh
 db	7ah,6fh,94h,6fh,0aeh,6fh,0c8h,6fh,0e2h,6fh,0fbh,6fh,15h,70h,2fh,70h
 db	49h,70h,63h,70h,7dh,70h,97h,70h,0b1h,70h,0cbh,70h,0e5h,70h,0ffh,70h
 db	19h,71h,34h,71h,4eh,71h,68h,71h,82h,71h,9ch,71h,0b7h,71h,0d1h,71h
-db	0ebh,71h,6,72h,20h,72h,3ah,72h,55h,72h,6fh,72h,8ah,72h,0a4h,72h
+db	0ebh,71h,6,"r r:rUror",8ah,72h,0a4h,72h
 db	0bfh,72h,0d9h,72h,0f4h,72h,0eh,73h,29h,73h,43h,73h,5eh,73h,79h,73h
 db	93h,73h,0aeh,73h,0c9h,73h,0e4h,73h,0feh,73h,19h,74h,34h,74h,4fh,74h
 db	6ah,74h,85h,74h,0a0h,74h,0bbh,74h,0d6h,74h,0f1h,74h,0ch,75h,27h,75h

@@ -1,3 +1,4 @@
+%include "macros.inc"
 
     extern  __CHK
     extern  fread__clib3r
@@ -6,9 +7,9 @@
     extern  strcmp__clib3r
     extern  ___180108h
     extern  ___180118h
-    extern  ___18011ch
+    extern  __CEXT_V(___18011ch)
     extern  exitErrorMsg__dr
-    extern  ___180104h
+    extern  __CEXT_V(rb_m_0)
     extern  fopen__clib3r
     extern  fseek__clib3r
     extern  ___19bd81h
@@ -18,8 +19,7 @@
 
 section @text
 
-global ___10240h
-___10240h:
+__GDECL(___10240h)
 		push    88h
 		call    __CHK
 		push    ebx
@@ -46,7 +46,7 @@ ___10261h:
 		jne     ___10261h
 ___10279h:
 		pop     edi
-		mov     edx, ___180104h
+		mov     edx, __CEXT_V(rb_m_0)
 		mov     eax, [esp+68h]
 		mov     ebx, 1
 		call    fopen__clib3r
@@ -185,7 +185,7 @@ ___103b8h:
 		jne     ___103b8h
 ___103d0h:
 		pop     edi
-		mov     esi, ___18011ch
+		mov     esi, __CEXT_V(___18011ch)
 		mov     edi, esp
 		push    edi
 		sub     ecx, ecx
@@ -209,7 +209,7 @@ ___103f9h:
 		mov     eax, esp
 		call    exitErrorMsg__dr
 ___10401h:
-		mov     edx, ___180104h
+		mov     edx, __CEXT_V(rb_m_0)
 		mov     eax, [esp+68h]
 		call    fopen__clib3r
 		xor     ebx, ebx

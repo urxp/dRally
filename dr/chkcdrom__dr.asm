@@ -2,11 +2,11 @@
 
     extern  __CHK
     extern  cdrom_ini
-    extern  ___182bf0h
+    extern  __CEXT_V(string__DR_IDF)
     extern  getFileSize__dr
     extern  malloc__clib3r
     extern  free__clib3r
-    extern  ___180134h
+    extern  __CEXT_V(rb_m)
     extern  fopen__clib3r
     extern  fread__clib3r
     extern  fseek__clib3r
@@ -41,7 +41,7 @@ ___3e4beh:
 		jne     ___3e4beh
 ___3e4d6h:
 		pop     edi
-		mov     esi, ___182bf0h		;; "DR.IDF"
+		mov     esi, __CEXT_V(string__DR_IDF)		;; "DR.IDF"
 		mov     edi, esp
 		mov     edx, 1
 		push    edi
@@ -93,7 +93,7 @@ ___3e53dh:
 		pop     ebx
 		retn    
 ___3e555h:
-		mov     edx, ___180134h
+		mov     edx, __CEXT_V(rb_m)
 		mov     eax, esp
 		call    fopen__clib3r
 		mov     ebp, eax

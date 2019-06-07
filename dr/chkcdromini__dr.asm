@@ -1,7 +1,8 @@
+%include "macros.inc"
 
     extern  __CHK
-    extern  ___180134h
-    extern  ___182bbch
+    extern  __CEXT_V(rb_m)
+    extern  __CEXT_V(string__CDROM_INI)
     extern  fopen__clib3r
     extern  cdrom_ini
     extern  ___182bc8h
@@ -25,8 +26,8 @@ chkcdromini__dr:
 		push    edx
 		push    esi
 		push    edi
-		mov     edx, ___180134h         ;; "rb"
-		mov     eax, ___182bbch         ;; "CDROM.INI"
+		mov     edx, __CEXT_V(rb_m)         ;; "rb"
+		mov     eax, __CEXT_V(string__CDROM_INI)         ;; "CDROM.INI"
 		call    fopen__clib3r
 		test    eax, eax
 		je      @nocdromini

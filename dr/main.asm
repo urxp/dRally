@@ -1,7 +1,7 @@
 %include "macros.inc"
 
     extern  __CHK
-    extern  ___100dch
+    extern  __CEXT_F(___100dch)
     extern  ___19bd54h
     extern  ___19bd20h
     extern  __CEXT_F(welcome__dr)
@@ -17,8 +17,8 @@
     extern  ___623d4h
     extern  ___5ec04h
     extern  restrdos__dr
-    extern  ___1800f0h
-    extern  ___1800f8h
+    extern  __CEXT_V(dr_bin)
+    extern  __CEXT_V(MENU_BPA_0)
     extern  read__bpa
 
 %include "layout.inc"
@@ -54,7 +54,7 @@ ___101dch:
 		mov     eax, 46h
 ___101e6h:
 		call    install__timer
-		mov     dword [___2432c8h], ___100dch
+		mov     dword [___2432c8h], __CEXT_F(___100dch)
 		call    install__keyboard
 		call    startup__dr
 		call    restore__keyboard
@@ -64,9 +64,9 @@ ___101e6h:
 ___10212h:
 		call    ___5ec04h
 		call    restrdos__dr
-		mov     ebx, ___1800f0h
+		mov     ebx, __CEXT_V(dr_bin)
 		mov     edx, 0b8000h
-		mov     eax, ___1800f8h
+		mov     eax, __CEXT_V(MENU_BPA_0)
 		call    read__bpa
 		pop     ebx
 		retn

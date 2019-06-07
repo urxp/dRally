@@ -1,3 +1,4 @@
+%include "macros.inc"
 
     extern  __CHK
     extern  strupr__clib3r
@@ -18,8 +19,7 @@
 
 section @text
 
-global read__bpa
-read__bpa:
+__GDECL(read__bpa)
 		push    88h
 		call    __CHK
 		push    ecx
