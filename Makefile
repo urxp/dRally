@@ -1,6 +1,6 @@
 subdirs = clib3r bpa dpmi dr serial video
 
-segs = @text.inc @data.inc @bss.inc
+segs = @text.asm @data.asm @bss.asm
 
 clib3r = clib3r/clib3r.lib
 

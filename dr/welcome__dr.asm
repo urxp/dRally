@@ -6,7 +6,7 @@
     extern  ___18005ch
     extern  ___180060h
     extern  __CEXT_F(chkarg__dr)
-    extern  __CEXT_V(WINDIR)
+    extern  __CEXT_V(string__WINDIR)
     extern  getenv__clib3r
     extern  ___19bd48h
     extern  ___18006ch
@@ -33,7 +33,7 @@ __GDECL(__CEXT_F(welcome__dr))
 		je      ___1009dh
 		mov     dword [___19bd4ch], 1
 ___1009dh:
-		mov     eax, __CEXT_V(WINDIR)
+		mov     eax, __CEXT_V(string__WINDIR)
 		call    getenv__clib3r
 		mov     [___19bd48h], eax
 		test    eax, eax

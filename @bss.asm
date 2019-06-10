@@ -1,4 +1,3 @@
-;UNINITIALIZED DATA
 ;_edata:
 __GDECL(___19bd20h)
     resb    28h
@@ -1616,8 +1615,10 @@ ___24e79eh:	resb	2
 ___24e7a0h:	resb	2
 ___24e7a2h:	resb	2
 ___24e7a4h:	resb	1
-___24e7a5h:	resb	1
-___24e7a6h:	resb	2
+__GDECL(___24e7a5h)
+    resb	1
+__GDECL(___24e7a6h)
+    resb	2
 _errno:	resb	4
 __doserrno:	resb	4
 ___nheap_clean:	resb	8
@@ -1676,95 +1677,186 @@ ___24e86eh:	resb	1
 ___24e86fh:	resb	1
 ___24e870h:	resb	1
 ___24e871h:	resb	1
-___24e872h:	resb	2
-___24e874h:	resb	4
-___24e878h:	resb	1
-___24e879h:	resb	1
-___24e87ah:	resb	2
-___24e87ch:	resb	1
-___24e87dh:	resb	1
-___24e87eh:	resb	1
-___24e87fh:	resb	1
-___24e880h:	resb	20h
-___24e8a0h:	resb	3
-___24e8a3h:	resb	1
-___24e8a4h:	resb	100h
-___24e9a4h:	resb	4
-___24e9a8h:	resb	4
-___24e9ach:	resb	4
-___24e9b0h:	resb	4
-___24e9b4h:	resb	4
-___24e9b8h:	resb	4
-___24e9bch:	resb	4
-___24e9c0h:	resb	4
-___24e9c4h:	resb	4
-___24e9c8h:	resb	4
-___24e9cch:	resb	2
-___24e9ceh:	resb	2
-___24e9d0h:	resb	2
-___24e9d2h:	resb	2
-___24e9d4h:	resb	2
-___24e9d6h:	resb	1
-___24e9d7h:	resb	1
-___24e9d8h:	resb	1
-___24e9d9h:	resb	1
-___24e9dah:	resb	2
-___24e9dch:	resb	7dh
-___24ea59h:	resb	3
-___24ea5ch:	resb	20h
-___24ea7ch:	resb	4
-___24ea80h:	resb	4
-___24ea84h:	resb	4
-___24ea88h:	resb	4
-___24ea8ch:	resb	4
-___24ea90h:	resb	4
-___24ea94h:	resb	4
-___24ea98h:	resb	4
-___24ea9ch:	resb	1
-___24ea9dh:	resb	41fh
-___24eebch:	resb	20h
-___24eedch:	resb	20h
-___24eefch:	resb	20h
-___24ef1ch:	resb	20h
-___24ef3ch:	resb	20h
-___24ef5ch:	resb	20h
-___24ef7ch:	resb	20h
-___24ef9ch:	resb	20h
-___24efbch:	resb	20h
-___24efdch:	resb	80h
-___24f05ch:	resb	40h
-___24f09ch:	resb	40h
-___24f0dch:	resb	20h
-___24f0fch:	resb	20h
-___24f11ch:	resb	20h
-___24f13ch:	resb	20h
-___24f15ch:	resb	20h
-___24f17ch:	resb	20h
-___24f19ch:	resb	20h
-___24f1bch:	resb	80h
-___24f23ch:	resb	40h
-___24f27ch:	resb	3dh
-___24f2b9h:	resb	3
-___24f2bch:	resb	1
-___24f2bdh:	resb	1
-___24f2beh:	resb	1
-___24f2bfh:	resb	1
-___24f2c0h:	resb	1
-___24f2c1h:	resb	1
-___24f2c2h:	resb	1
-___24f2c3h:	resb	1
-___24f2c4h:	resb	1
-___24f2c5h:	resb	1
-___24f2c6h:	resb	2
-___24f2c8h:	resb	4
-___24f2cch:	resb	4
-___24f2d0h:	resb	6
-___24f2d6h:	resb	6
-___minreal:	resb	2
-___24f2deh:	resb	2
-_FPArea:	resb	80h
-_my_stack:	resb	400h
-___24f760h:	resb	68h
-___24f7c8h:	resb	10h
-___24f7d8h:	resb	10h
+__GDECL(___24e872h)
+	resb	2
+__GDECL(___24e874h)
+	resb	4
+__GDECL(___24e878h)
+    resb	1
+__GDECL(___24e879h)
+    resb	1
+__GDECL(___24e87ah)
+    resb	2
+__GDECL(___24e87ch)
+    resb	1
+__GDECL(___24e87dh)
+    resb	1
+__GDECL(___24e87eh)
+    resb	1
+__GDECL(___24e87fh)
+    resb	1
+__GDECL(___24e880h)
+    resb	20h
+__GDECL(___24e8a0h)
+    resb	3
+__GDECL(___24e8a3h)
+    resb	1
+__GDECL(___24e8a4h)
+    resb	100h
+__GDECL(___24e9a4h)
+    resb	4
+__GDECL(___24e9a8h)
+    resb	4
+__GDECL(___24e9ach)
+    resb	4
+__GDECL(___24e9b0h)
+    resb	4
+__GDECL(___24e9b4h)
+    resb	4
+__GDECL(___24e9b8h)
+    resb	4
+__GDECL(___24e9bch)
+    resb	4
+__GDECL(___24e9c0h)
+    resb	4
+__GDECL(___24e9c4h)
+    resb	4
+__GDECL(___24e9c8h)
+    resb	4
+__GDECL(___24e9cch)
+    resb	2
+__GDECL(___24e9ceh)
+    resb	2
+__GDECL(___24e9d0h)
+    resb	2
+__GDECL(___24e9d2h)
+    resb	2
+__GDECL(___24e9d4h)
+    resb	2
+__GDECL(___24e9d6h)
+    resb	1
+__GDECL(___24e9d7h)
+    resb	1
+__GDECL(___24e9d8h)
+    resb	1
+__GDECL(___24e9d9h)
+    resb	1
+__GDECL(___24e9dah)
+    resb	2
+__GDECL(___24e9dch)
+    resb	7dh
+__GDECL(___24ea59h)
+    resb	3
+__GDECL(___24ea5ch)
+    resb	20h
+__GDECL(___24ea7ch)
+    resb	4
+__GDECL(___24ea80h)
+    resb	4
+__GDECL(___24ea84h)
+    resb	4
+__GDECL(___24ea88h)
+    resb	4
+__GDECL(___24ea8ch)
+    resb	4
+__GDECL(___24ea90h)
+    resb	4
+__GDECL(___24ea94h)
+    resb	4
+__GDECL(___24ea98h)
+    resb	4
+__GDECL(___24ea9ch)
+    resb	1
+__GDECL(___24ea9dh)
+    resb	41fh
+__GDECL(___24eebch)
+    resb	20h
+__GDECL(___24eedch)
+    resb	20h
+__GDECL(___24eefch)
+    resb	20h
+__GDECL(___24ef1ch)
+    resb	20h
+__GDECL(___24ef3ch)
+    resb	20h
+__GDECL(___24ef5ch)
+    resb	20h
+__GDECL(___24ef7ch)
+    resb	20h
+__GDECL(___24ef9ch)
+    resb	20h
+__GDECL(___24efbch)
+    resb	20h
+__GDECL(___24efdch)
+    resb	80h
+__GDECL(___24f05ch)
+    resb	40h
+__GDECL(___24f09ch)
+    resb	40h
+__GDECL(___24f0dch)
+    resb	20h
+__GDECL(___24f0fch)
+    resb	20h
+__GDECL(___24f11ch)
+    resb	20h
+__GDECL(___24f13ch)
+    resb	20h
+__GDECL(___24f15ch)
+    resb	20h
+__GDECL(___24f17ch)
+    resb	20h
+__GDECL(___24f19ch)
+    resb	20h
+__GDECL(___24f1bch)
+    resb	80h
+__GDECL(___24f23ch)
+    resb	40h
+__GDECL(___24f27ch)
+    resb	3dh
+__GDECL(___24f2b9h)
+    resb	3
+__GDECL(___24f2bch)
+    resb	1
+__GDECL(___24f2bdh)
+    resb	1
+__GDECL(___24f2beh)
+    resb	1
+__GDECL(___24f2bfh)
+    resb	1
+__GDECL(___24f2c0h)
+    resb	1
+__GDECL(___24f2c1h)
+    resb	1
+__GDECL(___24f2c2h)
+    resb	1
+__GDECL(___24f2c3h)
+    resb	1
+__GDECL(___24f2c4h)
+    resb	1
+__GDECL(___24f2c5h)
+    resb	1
+__GDECL(___24f2c6h)
+    resb	2
+__GDECL(___24f2c8h)
+    resb	4
+__GDECL(___24f2cch)
+    resb	4
+__GDECL(___24f2d0h)
+    resb	6
+__GDECL(___24f2d6h)
+    resb	6
+__GDECL(___minreal)
+    resb	2
+__GDECL(___24f2deh)
+    resb	2
+__GDECL(_FPArea)
+    resb	80h
+__GDECL(_my_stack)
+    resb	400h
+__GDECL(___24f760h)
+	resb	68h
+__GDECL(___24f7c8h)
+	resb	10h
+__GDECL(___24f7d8h)
+	resb	10h
 ;_end:
