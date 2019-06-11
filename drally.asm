@@ -12,7 +12,7 @@
     extern  allocateDOSMemoryBlock__dpmi
     extern  footer__dr
     extern  read__bpa
-    extern  __CEXT_F(___10240h)
+    extern  __CEXT_F(getentrysize__bpa)
 
     extern  ___68d4ch
     extern  ___68d58h

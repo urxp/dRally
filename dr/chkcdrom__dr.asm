@@ -7,9 +7,9 @@
     extern  malloc__clib3r
     extern  free__clib3r
     extern  __CEXT_V(rb_m)
-    extern  fopen__clib3r
-    extern  fread__clib3r
-    extern  fseek__clib3r
+    extern  __CEXT_F(fopen__clib3r)
+    extern  __CEXT_F(fread__clib3r)
+    extern  __CEXT_F(fseek__clib3r)
 
 %include "layout.inc"
 
@@ -95,7 +95,7 @@ ___3e53dh:
 ___3e555h:
 		mov     edx, __CEXT_V(rb_m)
 		mov     eax, esp
-		call    fopen__clib3r
+		call    __CEXT_F(fopen__clib3r)
 		mov     ebp, eax
 		mov     [esp+104h], eax
 		test    eax, eax
@@ -104,7 +104,7 @@ ___3e555h:
 		mov     edx, 4
 		mov     ecx, eax
 		lea     eax, [esp+100h]
-		call    fread__clib3r
+		call    __CEXT_F(fread__clib3r)
 		mov     eax, [esp+100h]
 		mov     ebx, 1
 		sub     eax, 2b7916f1h
@@ -112,11 +112,11 @@ ___3e555h:
 		mov     [esp+108h], eax
 		mov     eax, ebp
 		mov     ecx, ebp
-		call    fseek__clib3r
+		call    __CEXT_F(fseek__clib3r)
 		mov     ebx, 1
 		mov     edx, 10000h
 		mov     eax, edi
-		call    fread__clib3r
+		call    __CEXT_F(fread__clib3r)
 		mov     dl, [edi+7cd1h]
 		sub     dl, [edi+1403h]
 		mov     dh, [edi+9ab2h]
@@ -156,7 +156,7 @@ ___3e62dh:
 		sub     edx, 4
 		mov     eax, [esp+104h]
 		shl     edx, 10h
-		call    fseek__clib3r
+		call    __CEXT_F(fseek__clib3r)
 		mov     dl, [esi+7cd1h]
 		mov     dh, [esi+1403h]
 		mov     bl, [esi+9ab2h]

@@ -1,19 +1,19 @@
 %include "macros.inc"
 
     extern  __CHK
-    extern  strupr__clib3r
+    extern  __CEXT_F(strupr__clib3r)
     extern  ___24bb60h
-    extern  strcmp__clib3r
+    extern  __CEXT_F(strcmp__clib3r)
     extern  ___18309ch
     extern  ___1830ach
     extern  ___1830b0h
-    extern  exitErrorMsg__dr
+    extern  __CEXT_F(exitErrorMsg__dr)
     extern  ___183098h
-    extern  fopen__clib3r
-    extern  fseek__clib3r
+    extern  __CEXT_F(fopen__clib3r)
+    extern  __CEXT_F(fseek__clib3r)
     extern  ___24bb6dh
-    extern  fread__clib3r
-    extern  fclose__clib3r
+    extern  __CEXT_F(fread__clib3r)
+    extern  __CEXT_F(fclose__clib3r)
 
 %include "layout.inc"
 
@@ -49,23 +49,23 @@ ___429c9h:
 		pop     edi
 		mov     eax, [esp+68h]
 		mov     ebx, 1
-		call    fopen__clib3r
+		call    __CEXT_F(fopen__clib3r)
 		mov     edx, 4
 		mov     edi, eax
 		mov     ecx, eax
 		lea     eax, [esp+60h]
-		call    fread__clib3r
+		call    __CEXT_F(fread__clib3r)
 		mov     ebx, 1
 		mov     edx, 10efh
 		mov     eax, ___24bb60h
 		mov     ecx, edi
-		call    fread__clib3r
+		call    __CEXT_F(fread__clib3r)
 		mov     eax, edi
-		call    fclose__clib3r
+		call    __CEXT_F(fclose__clib3r)
 		xor     edx, edx
 		lea     eax, [esp+50h]
 		mov     [esp+70h], edx
-		call    strupr__clib3r
+		call    __CEXT_F(strupr__clib3r)
 		mov     al, [esp+70h]
 		mov     ah, 3
 		mul     ah
@@ -99,7 +99,7 @@ ___42a35h:
 ___42a63h:
 		lea     edx, [esp+50h]
 		mov     eax, ebx
-		call    strcmp__clib3r
+		call    __CEXT_F(strcmp__clib3r)
 		test    eax, eax
 		jne     ___42a76h
 		mov     ebp, [esp+70h]
@@ -207,15 +207,15 @@ ___42b2ch:
 ___42b44h:
 		pop     edi
 		mov     eax, esp
-		call    exitErrorMsg__dr
+		call    __CEXT_F(exitErrorMsg__dr)
 ___42b4ch:
 		mov     edx, ___183098h
 		mov     eax, [esp+68h]
-		call    fopen__clib3r
+		call    __CEXT_F(fopen__clib3r)
 		xor     ebx, ebx
 		mov     edx, 10f3h
 		mov     edi, eax
-		call    fseek__clib3r
+		call    __CEXT_F(fseek__clib3r)
 		xor     edx, edx
 		mov     [esp+70h], edx
 		test    ebp, ebp
@@ -236,16 +236,16 @@ ___42b7bh:
 ___42b93h:
 		mov     ebx, 1
 		mov     eax, edi
-		call    fseek__clib3r
+		call    __CEXT_F(fseek__clib3r)
 		mov     eax, ebp
 		mov     ecx, edi
 		shl     eax, 4
 		mov     ebx, 1
 		mov     edx, [eax+ebp+___24bb6dh]
 		mov     eax, [esp+6ch]
-		call    fread__clib3r
+		call    __CEXT_F(fread__clib3r)
 		mov     eax, edi
-		call    fclose__clib3r
+		call    __CEXT_F(fclose__clib3r)
 		add     esp, 74h
 		pop     ebp
 		pop     edi

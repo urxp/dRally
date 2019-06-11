@@ -11,7 +11,7 @@ ___10490h:
 		mov     [esp+4], dl
 		mov     edx, eax
 		mov     eax, __CEXT_V(string__MUSICS_BPA)
-		call    near __CEXT_F(___10240h)
+		call    near __CEXT_F(getentrysize__bpa)
 		xor     edx, edx
 		mov     ecx, eax
 		mov     dl, [esp+4]
@@ -582,7 +582,7 @@ ___10c8ah:
 ___10cb2h:
 		mov     edx, __CEXT_V(rb_m)
 		lea     eax, [esp+300h]
-		call    near fopen__clib3r
+		call    near __CEXT_F(fopen__clib3r)
 		mov     edi, [eax+4]
 		mov     ebp, eax
 		test    edi, edi
@@ -858,7 +858,7 @@ ___10fa9h:
 		mov     ebx, 1
 		add     edx, eax
 		mov     eax, [___1a1f0ch]
-		call    near fread__clib3r
+		call    near __CEXT_F(fread__clib3r)
 		call    near ___108e8h
 		mov     eax, [___1a1f1ch]
 		add     eax, [___185a0ch]
@@ -965,7 +965,7 @@ ___11100h:
 		jl      near ___10f0fh
 ___11119h:
 		mov     eax, ebp
-		call    near fclose__clib3r
+		call    near __CEXT_F(fclose__clib3r)
 		xor     ecx, ecx
 		mov     esi, 3c9h
 		mov     ebx, 3c8h
@@ -1027,7 +1027,7 @@ ___11160h:
 ;		mov     [esp+80h], edx
 ;		mov     edx, __CEXT_V(append_m)
 ;		mov     edi, esp
-;		call    near fopen__clib3r
+;		call    near __CEXT_F(fopen__clib3r)
 ;		mov     edx, 1
 ;		mov     esi, eax
 ;		sub     ecx, ecx
@@ -1041,7 +1041,7 @@ ___11160h:
 ;		mov     ecx, esi
 ;		call    near fwrite__clib3r
 ;		mov     eax, esi
-;		call    near fclose__clib3r
+;		call    near __CEXT_F(fclose__clib3r)
 ;		add     esp, 84h
 ;		pop     edi
 ;		pop     esi
@@ -9594,15 +9594,15 @@ ___18808h:
 		mov     edx, __CEXT_V(rb_m)
 		mov     eax, edi
 		mov     ebx, 1
-		call    near fopen__clib3r
+		call    near __CEXT_F(fopen__clib3r)
 		mov     edx, 883h
 		mov     esi, [___1a0f9ch]
 		mov     edi, eax
 		mov     eax, esi
 		mov     ecx, edi
-		call    near fread__clib3r
+		call    near __CEXT_F(fread__clib3r)
 		mov     eax, edi
-		call    near fclose__clib3r
+		call    near __CEXT_F(fclose__clib3r)
 		mov     esi, [___1a0f9ch]
 		mov     al, [esi]
 		mov     edx, 1
@@ -9864,14 +9864,14 @@ ___18b63h:
 		pop     edi
 		mov     eax, esp
 		mov     ebx, 1
-		call    near fopen__clib3r
+		call    near __CEXT_F(fopen__clib3r)
 		mov     edx, 883h
 		mov     esi, eax
 		mov     eax, [___1a0f9ch]
 		mov     ecx, esi
-		call    near fread__clib3r
+		call    near __CEXT_F(fread__clib3r)
 		mov     eax, esi
-		call    near fclose__clib3r
+		call    near __CEXT_F(fclose__clib3r)
 		mov     eax, [___1a0f9ch]
 		mov     al, [eax]
 		mov     ebp, 1
@@ -10105,7 +10105,7 @@ ___18db5h:
 		add     esi, ___186f82h
 		mov     edx, __CEXT_V(string__empty_slot)
 		mov     eax, esi
-		call    near strcmp__clib3r
+		call    near __CEXT_F(strcmp__clib3r)
 		test    eax, eax
 		je      short ___18ea6h
 		mov     edi, esp
@@ -10272,14 +10272,14 @@ ___1904dh:
 		pop     edi
 		lea     eax, [esp+10h]
 		mov     ebx, 1
-		call    near fopen__clib3r
+		call    near __CEXT_F(fopen__clib3r)
 		mov     esi, eax
 		mov     edx, ebp
 		mov     eax, [___1a0f9ch]
 		mov     ecx, esi
 		call    near fwrite__clib3r
 		mov     eax, esi
-		call    near fclose__clib3r
+		call    near __CEXT_F(fclose__clib3r)
 		mov     eax, [___1a0f9ch]
 		xor     edx, edx
 		call    near ___3f77ch
@@ -10659,7 +10659,7 @@ ___1955ah:
 		mov     edx, ___1807ech
 		mov     eax, ___18687ah
 		mov     [esp], ecx
-		call    near strcmp__clib3r
+		call    near __CEXT_F(strcmp__clib3r)
 		test    eax, eax
 		jne     near ___1961dh
 		mov     eax, ecx
@@ -17854,7 +17854,7 @@ ___1ee20h:
 		xor     esi, esi
 		mov     eax, ___186a3ch
 		mov     [___196a78h], esi
-		call    near strcmp__clib3r
+		call    near __CEXT_F(strcmp__clib3r)
 		test    eax, eax
 		jne     short ___1ee50h
 		mov     edi, 1
@@ -17869,7 +17869,7 @@ ___1ee5ah:
 		mov     edx, ___180ba0h
 		mov     [___196a78h], eax
 		mov     eax, ___186a6eh
-		call    near strcmp__clib3r
+		call    near __CEXT_F(strcmp__clib3r)
 		test    eax, eax
 		jne     near ___1efcch
 		mov     eax, 2
@@ -18320,7 +18320,7 @@ ___1f40dh:
 		mov     eax, [___199fa4h]
 		call    near itoa
 		mov     eax, esp
-		call    near strupr__clib3r
+		call    near __CEXT_F(strupr__clib3r)
 		push    byte 0
 		push    byte 1
 		push    byte 1
@@ -18365,7 +18365,7 @@ ___1f40dh:
 		mov     eax, [___199fa8h]
 		call    near itoa
 		mov     eax, esp
-		call    near strupr__clib3r
+		call    near __CEXT_F(strupr__clib3r)
 		push    byte 0
 		push    byte 1
 		push    byte 1
@@ -22228,7 +22228,7 @@ ___22181h:
 		pop     edi
 		lea     eax, [esp+14h]
 		mov     esi, [esp+54h]
-		call    near strupr__clib3r
+		call    near __CEXT_F(strupr__clib3r)
 		mov     eax, [___1a10b8h]
 		lea     edi, [esp+14h]
 		call    near renderTextToBuffer__video
@@ -22250,7 +22250,7 @@ ___221b6h:
 		mov     ecx, [esp+58h]
 		lea     ebx, [esp+14h]
 		mov     edx, ___185c7ah
-		call    near strupr__clib3r
+		call    near __CEXT_F(strupr__clib3r)
 		mov     eax, [___1a10b8h]
 		call    near renderTextToBuffer__video
 		mov     ebx, 0ah
@@ -22580,7 +22580,7 @@ ___2252ch:
 ___22544h:
 		pop     edi
 		mov     eax, edx
-		call    near strupr__clib3r
+		call    near __CEXT_F(strupr__clib3r)
 		mov     edx, [___1a1ef8h]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
@@ -22677,7 +22677,7 @@ ___2266bh:
 		pop     edi
 		mov     eax, esp
 		mov     edi, [esp+40h]
-		call    near strupr__clib3r
+		call    near __CEXT_F(strupr__clib3r)
 		imul    eax, edi, byte 16h
 		add     eax, 90h
 		imul    esi, eax, 280h
@@ -22742,7 +22742,7 @@ ___22749h:
 		pop     edi
 		mov     eax, esp
 		mov     edi, [esp+40h]
-		call    near strupr__clib3r
+		call    near __CEXT_F(strupr__clib3r)
 		mov     esi, [___1a10b8h]
 		mov     ebx, eax
 		mov     eax, esi
@@ -23123,7 +23123,7 @@ ___22bdbh:
 		pop     edi
 		mov     eax, esp
 		mov     ecx, [esp+28h]
-		call    near strupr__clib3r
+		call    near __CEXT_F(strupr__clib3r)
 		imul    eax, ecx, byte 16h
 		add     eax, 90h
 		imul    esi, eax, 280h
@@ -23188,7 +23188,7 @@ ___22cb9h:
 		pop     edi
 		mov     eax, esp
 		mov     edi, [esp+28h]
-		call    near strupr__clib3r
+		call    near __CEXT_F(strupr__clib3r)
 		mov     esi, [___1a10b8h]
 		mov     ebx, eax
 		mov     eax, esi
@@ -24223,7 +24223,7 @@ ___23a28h:
 		jl      short ___23a0ah
 		mov     edx, __CEXT_V(string__memavail)
 		mov     eax, esp
-		call    near strcmp__clib3r
+		call    near __CEXT_F(strcmp__clib3r)
 		test    eax, eax
 		jne     short ___23ac0h
 		mov     edi, ___1a1dbah
@@ -26165,7 +26165,7 @@ ___25404h:
 ___2541ch:
 		pop     edi
 		lea     eax, [esp+14h]
-		call    near strupr__clib3r
+		call    near __CEXT_F(strupr__clib3r)
 		lea     eax, [esp+14h]
 		lea     ebx, [esp+14h]
 		call    near ___25230h
@@ -32373,7 +32373,7 @@ ___2a498h:
 ;		movsd   
 ;		movsd   
 ;		movsb   
-;		call    near fopen__clib3r
+;		call    near __CEXT_F(fopen__clib3r)
 ;		mov     edi, esp
 ;		mov     edx, 1
 ;		mov     esi, eax
@@ -32391,7 +32391,7 @@ ___2a498h:
 ;		mov     edx, esi
 ;		call    near fputc__clib3r
 ;		mov     eax, esi
-;		call    near fclose__clib3r
+;		call    near __CEXT_F(fclose__clib3r)
 ;		add     esp, byte 20h
 ;		pop     edi
 ;		pop     esi
@@ -32443,7 +32443,7 @@ ___2a498h:
 ;		pop     edi
 ;		mov     eax, __CEXT_V(dr_log)
 ;		lea     edi, [esp+50h]
-;		call    near fopen__clib3r
+;		call    near __CEXT_F(fopen__clib3r)
 ;		mov     edx, 1
 ;		mov     esi, eax
 ;		sub     ecx, ecx
@@ -32460,7 +32460,7 @@ ___2a498h:
 ;		mov     edx, esi
 ;		call    near fputc__clib3r
 ;		mov     eax, esi
-;		call    near fclose__clib3r
+;		call    near __CEXT_F(fclose__clib3r)
 ;		add     esp, 0a0h
 ;		pop     edi
 ;		pop     esi
@@ -32638,14 +32638,14 @@ ___2a801h:
 		mov     edx, __CEXT_V(string__wb_m)
 		mov     eax, ___182164h
 		mov     ebx, 1
-		call    near fopen__clib3r
+		call    near __CEXT_F(fopen__clib3r)
 		mov     edi, eax
 		mov     edx, ebp
 		mov     eax, [___1a0f9ch]
 		mov     ecx, edi
 		call    near fwrite__clib3r
 		mov     eax, edi
-		call    near fclose__clib3r
+		call    near __CEXT_F(fclose__clib3r)
 		mov     eax, [___1a0f9ch]
 		call    near ___3f77ch
 ___2a836h:
@@ -32664,7 +32664,7 @@ ___2a836h:
 		mov     edx, __CEXT_V(rb_m)
 		mov     eax, ___182164h
 		mov     [esp+14h], ebp
-		call    near fopen__clib3r
+		call    near __CEXT_F(fopen__clib3r)
 		mov     edi, eax
 		test    eax, eax
 		je      near ___2a9f2h
@@ -32672,9 +32672,9 @@ ___2a836h:
 		mov     edx, 883h
 		mov     eax, [___1a0f9ch]
 		mov     ecx, edi
-		call    near fread__clib3r
+		call    near __CEXT_F(fread__clib3r)
 		mov     eax, edi
-		call    near fclose__clib3r
+		call    near __CEXT_F(fclose__clib3r)
 		mov     eax, [___1a0f9ch]
 		mov     al, [eax]
 		mov     ecx, 1
@@ -42540,7 +42540,7 @@ ___32b91h:
 		lea     eax, [esp+50h]
 		lea     esi, [esp+50h]
 		mov     edi, esp
-		call    near strupr__clib3r
+		call    near __CEXT_F(strupr__clib3r)
 		push    edi
 		sub     ecx, ecx
 		dec     ecx
@@ -43703,7 +43703,7 @@ ___33915h:
 		movsd   
 		movsd   
 		movsw   
-		call    near strupr__clib3r
+		call    near __CEXT_F(strupr__clib3r)
 		mov     ecx, [esp+0a8h]
 		mov     eax, [___1a10b8h]
 		call    near renderTextToBuffer__video
@@ -43795,7 +43795,7 @@ ___33a74h:
 		pop     edi
 		lea     eax, [esp+4ch]
 		mov     edx, ___185c7ah
-		call    near strupr__clib3r
+		call    near __CEXT_F(strupr__clib3r)
 		mov     ecx, [esp+0ach]
 		mov     eax, [___1a10b8h]
 		call    near renderTextToBuffer__video
@@ -43900,7 +43900,7 @@ ___33bd8h:
 		pop     edi
 		lea     eax, [esp+4ch]
 		mov     edx, ___185c7ah
-		call    near strupr__clib3r
+		call    near __CEXT_F(strupr__clib3r)
 		mov     eax, [___1a10b8h]
 		mov     ecx, [esp+ecx+0a8h]
 		call    near renderTextToBuffer__video
@@ -44138,7 +44138,7 @@ ___33f78h:
 ___33f90h:
 		pop     edi
 		mov     eax, ecx
-		call    near strupr__clib3r
+		call    near __CEXT_F(strupr__clib3r)
 		mov     eax, [esp+0d0h]
 		xor     edx, edx
 		mov     dl, [esp+eax+0cch]
@@ -48376,7 +48376,7 @@ ___377bah:
 		sub     eax, edx
 		shl     eax, 3
 		add     eax, ebx
-		call    near strupr__clib3r
+		call    near __CEXT_F(strupr__clib3r)
 		mov     edx, [___1a1ef8h]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
@@ -48473,7 +48473,7 @@ ___37941h:
 		sub     eax, edx
 		shl     eax, 3
 		add     eax, ebx
-		call    near strupr__clib3r
+		call    near __CEXT_F(strupr__clib3r)
 		mov     edx, [___1a1ef8h]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
@@ -49161,7 +49161,7 @@ ___380dfh:
 		mov     ebx, esp
 		mov     edx, ___185c7ah
 		mov     esi, [esp+28h]
-		call    near strupr__clib3r
+		call    near __CEXT_F(strupr__clib3r)
 		mov     eax, [___1a10b8h]
 		mov     edi, [esp+20h]
 		call    near renderTextToBuffer__video
@@ -49339,7 +49339,7 @@ ___3830ch:
 		pop     edi
 		mov     eax, esp
 		mov     edx, ___185c7ah
-		call    near strupr__clib3r
+		call    near __CEXT_F(strupr__clib3r)
 		mov     eax, [___1a10b8h]
 		call    near renderTextToBuffer__video
 		xor     eax, eax
@@ -50914,7 +50914,7 @@ ___397c6h:
 		pop     edi
 		mov     eax, esp
 		mov     edx, ___185c7ah
-		call    near strupr__clib3r
+		call    near __CEXT_F(strupr__clib3r)
 		mov     eax, [___1a10b8h]
 		call    near renderTextToBuffer__video
 		mov     eax, [___196adch]
@@ -52142,7 +52142,7 @@ ___3a512h:
 		mov     edx, __CEXT_V(string__wb_m)
 		mov     eax, esp
 		mov     ebx, 80h
-		call    near fopen__clib3r
+		call    near __CEXT_F(fopen__clib3r)
 		mov     edx, 1
 		mov     [___1a0ef4h], eax
 		mov     ecx, eax
@@ -52199,7 +52199,7 @@ ___3a578h:
 		cmp     esi, 0ffh
 		jle     short ___3a578h
 		mov     eax, [___1a0ef4h]
-		call    near fclose__clib3r
+		call    near __CEXT_F(fclose__clib3r)
 		add     esp, byte 20h
 		pop     ebp
 		pop     edi
@@ -53916,29 +53916,29 @@ ___3bbach:
 		call    near close__clib3r
 		mov     eax, DR_CFG
 		mov     ebx, 1
-		call    near fopen__clib3r
+		call    near __CEXT_F(fopen__clib3r)
 		mov     esi, eax
 		mov     ecx, eax
 		mov     edx, ebx
 		mov     eax, CFGSound_CardType
-		call    near fread__clib3r
+		call    near __CEXT_F(fread__clib3r)
 		mov     ebx, 1
 		mov     eax, CFGSound_IRQ
 		mov     ecx, esi
 		mov     edx, ebx
-		call    near fread__clib3r
+		call    near __CEXT_F(fread__clib3r)
 		mov     ebx, 1
 		mov     eax, CFGSound_DMA
 		mov     ecx, esi
 		mov     edx, ebx
-		call    near fread__clib3r
+		call    near __CEXT_F(fread__clib3r)
 		mov     ebx, 1
 		mov     edx, 4
 		mov     eax, CFGSound_Address
 		mov     ecx, esi
-		call    near fread__clib3r
+		call    near __CEXT_F(fread__clib3r)
 		mov     eax, esi
-		call    near fclose__clib3r
+		call    near __CEXT_F(fclose__clib3r)
 		call    near ___3c668h
 		jmp     near ___3c13ah
 ___3bc30h:
@@ -53950,27 +53950,27 @@ ___3bc30h:
 		mov     ebp, eax
 		mov     eax, DR_CFG
 		mov     ebx, 1
-		call    near fopen__clib3r
+		call    near __CEXT_F(fopen__clib3r)
 		mov     esi, eax
 		mov     ecx, eax
 		mov     edx, ebx
 		mov     eax, CFGSound_CardType
-		call    near fread__clib3r
+		call    near __CEXT_F(fread__clib3r)
 		mov     ebx, 1
 		mov     eax, CFGSound_IRQ
 		mov     ecx, esi
 		mov     edx, ebx
-		call    near fread__clib3r
+		call    near __CEXT_F(fread__clib3r)
 		mov     ebx, 1
 		mov     eax, CFGSound_DMA
 		mov     ecx, esi
 		mov     edx, ebx
-		call    near fread__clib3r
+		call    near __CEXT_F(fread__clib3r)
 		mov     ebx, 1
 		mov     edx, 4
 		mov     eax, CFGSound_Address
 		mov     ecx, esi
-		call    near fread__clib3r
+		call    near __CEXT_F(fread__clib3r)
 		mov     ebx, [esp]
 		mov     eax, esi
 		mov     edx, 1
@@ -53978,12 +53978,12 @@ ___3bc30h:
 		mov     ecx, esi
 		mov     [esp+8], al
 		mov     eax, ebp
-		call    near fread__clib3r
+		call    near __CEXT_F(fread__clib3r)
 		mov     edx, eax
 		mov     edi, eax
 		mov     eax, esi
 		xor     ebx, ebx
-		call    near fclose__clib3r
+		call    near __CEXT_F(fclose__clib3r)
 		mov     [esp+4], ebx
 		test    edx, edx
 		jle     short ___3bd28h
@@ -54768,33 +54768,33 @@ ___3c528h:
 		mov     edx, __CEXT_V(rb_m)
 		mov     eax, DR_CFG
 		mov     ebx, 1
-		call    near fopen__clib3r
+		call    near __CEXT_F(fopen__clib3r)
 		mov     esi, eax
 		mov     ecx, eax
 		mov     edx, ebx
 		mov     eax, CFGSound_CardType
-		call    near fread__clib3r
+		call    near __CEXT_F(fread__clib3r)
 		mov     ebx, 1
 		mov     eax, CFGSound_IRQ
 		mov     ecx, esi
 		mov     edx, ebx
-		call    near fread__clib3r
+		call    near __CEXT_F(fread__clib3r)
 		mov     ebx, 1
 		mov     eax, CFGSound_DMA
 		mov     ecx, esi
 		mov     edx, ebx
-		call    near fread__clib3r
+		call    near __CEXT_F(fread__clib3r)
 		mov     ebx, 1
 		mov     edx, 4
 		mov     eax, CFGSound_Address
 		mov     ecx, esi
-		call    near fread__clib3r
+		call    near __CEXT_F(fread__clib3r)
 		mov     eax, esi
 		mov     edx, __CEXT_V(string__wb_m)
-		call    near fclose__clib3r
+		call    near __CEXT_F(fclose__clib3r)
 		mov     eax, DR_CFG
 		mov     ebx, 1
-		call    near fopen__clib3r
+		call    near __CEXT_F(fopen__clib3r)
 		mov     esi, eax
 		mov     ecx, eax
 		mov     edx, ebx
@@ -54825,7 +54825,7 @@ ___3c528h:
 		mov     eax, ebp
 		call    near fwrite__clib3r
 		mov     eax, esi
-		call    near fclose__clib3r
+		call    near __CEXT_F(fclose__clib3r)
 		add     esp, byte 0ch
 		pop     ebp
 		pop     edi
@@ -57011,7 +57011,7 @@ ___3f78ch:
 ;		mov     eax, ___182each
 ;		rep movsd   
 ;		movsw   
-;		call    near fopen__clib3r
+;		call    near __CEXT_F(fopen__clib3r)
 ;		lea     edi, [esp+50h]
 ;		mov     edx, 1
 ;		mov     esi, eax
@@ -57033,7 +57033,7 @@ ___3f78ch:
 ;		call    near fputc__clib3r
 ;		mov     eax, esi
 ;		mov     edx, esp
-;		call    near fclose__clib3r
+;		call    near __CEXT_F(fclose__clib3r)
 ;		mov     esi, ___182eb4h
 ;		call    near ___3f78ch
 ;		call    near itoa
@@ -57063,7 +57063,7 @@ ___3f78ch:
 ;		pop     edi
 ;		mov     eax, ___182each
 ;		lea     edi, [esp+50h]
-;		call    near fopen__clib3r
+;		call    near __CEXT_F(fopen__clib3r)
 ;		mov     edx, 1
 ;		mov     esi, eax
 ;		sub     ecx, ecx
@@ -57080,7 +57080,7 @@ ___3f78ch:
 ;		mov     edx, esi
 ;		call    near fputc__clib3r
 ;		mov     eax, esi
-;		call    near fclose__clib3r
+;		call    near __CEXT_F(fclose__clib3r)
 ;		add     esp, 0a0h
 ;		pop     edi
 ;		pop     esi
@@ -57108,7 +57108,7 @@ ___3f78ch:
 ;		mov     [esp+80h], edx
 ;		mov     edx, ___182ea8h
 ;		mov     edi, esp
-;		call    near fopen__clib3r
+;		call    near __CEXT_F(fopen__clib3r)
 ;		mov     edx, 1
 ;		mov     esi, eax
 ;		sub     ecx, ecx
@@ -57122,7 +57122,7 @@ ___3f78ch:
 ;		mov     ecx, esi
 ;		call    near fwrite__clib3r
 ;		mov     eax, esi
-;		call    near fclose__clib3r
+;		call    near __CEXT_F(fclose__clib3r)
 ;		add     esp, 84h
 ;		pop     edi
 ;		pop     esi
@@ -57258,7 +57258,7 @@ ___3fa6ah:
 ___3fb95h:
 		mov     edx, ___182ed4h
 		mov     eax, esi
-		call    near strcmp__clib3r
+		call    near __CEXT_F(strcmp__clib3r)
 		test    eax, eax
 		jne     short ___3fbc0h
 		fild    dword [ebx+___1de59ch]
@@ -58524,7 +58524,7 @@ ___40d27h:
 		shl     eax, 2
 		mov     edx, ___182ed4h
 		add     eax, ___1de7d0h
-		call    near strcmp__clib3r
+		call    near __CEXT_F(strcmp__clib3r)
 		test    eax, eax
 		jne     short ___40da3h
 		cmp     dword [___196df4h], byte 0
@@ -59825,7 +59825,7 @@ ___41eb8h:
 		shl     eax, 2
 		mov     edx, ___182ed4h
 		add     eax, ___1de7d0h
-		call    near strcmp__clib3r
+		call    near __CEXT_F(strcmp__clib3r)
 		test    eax, eax
 		jne     short ___41f32h
 		mov     ebx, [___196df4h]
@@ -60678,8 +60678,7 @@ ___4287bh:
 		pop     esi
 		pop     ecx
 		retn       
-global exitErrorMsg__dr
-exitErrorMsg__dr:
+__GDECL(__CEXT_F(exitErrorMsg__dr))
 		push    1ch
 		call    near __CHK
 		push    ebx
@@ -61092,20 +61091,20 @@ ___430aah:
 ___430c2h:
 		pop     edi
 		lea     eax, [esp+300h]
-		call    near fopen__clib3r
+		call    near __CEXT_F(fopen__clib3r)
 		mov     esi, eax
 		test    eax, eax
 		je      short ___430fbh
 		mov     edx, 0ah
 		xor     ebx, ebx
-		call    near fseek__clib3r
+		call    near __CEXT_F(fseek__clib3r)
 		mov     ecx, esi
 		mov     ebx, 300h
 		mov     edx, 1
 		mov     eax, esp
-		call    near fread__clib3r
+		call    near __CEXT_F(fread__clib3r)
 		mov     eax, esi
-		call    near fclose__clib3r
+		call    near __CEXT_F(fclose__clib3r)
 ___430fbh:
 		xor     eax, eax
 ___430fdh:
@@ -69150,7 +69149,7 @@ ___4944eh:
 		mov     edx, ___183f38h
 		mov     eax, esp
 		mov     ebx, 80h
-		call    near fopen__clib3r
+		call    near __CEXT_F(fopen__clib3r)
 		mov     edx, 1
 		mov     [___1a0ef4h], eax
 		mov     ecx, eax
@@ -69211,7 +69210,7 @@ ___494bdh:
 		cmp     ebx, 0ffh
 		jle     short ___494bdh
 		mov     eax, [___1a0ef4h]
-		call    near fclose__clib3r
+		call    near __CEXT_F(fclose__clib3r)
 		add     esp, byte 20h
 		pop     ebp
 		pop     edi
@@ -69287,7 +69286,7 @@ ___494bdh:
 ;		mov     [esp+17h], al
 ;		mov     eax, esp
 ;		mov     ebx, 0ah
-;		call    near fopen__clib3r
+;		call    near __CEXT_F(fopen__clib3r)
 ;		mov     edx, 1
 ;		mov     esi, eax
 ;		mov     ecx, eax
@@ -69338,7 +69337,7 @@ ___494bdh:
 ;		mov     ecx, esi
 ;		call    near fwrite__clib3r
 ;		mov     eax, esi
-;		call    near fclose__clib3r
+;		call    near __CEXT_F(fclose__clib3r)
 ;		add     esp, byte 28h
 ;		pop     ebp
 ;		pop     edi
@@ -80786,71 +80785,71 @@ ___53ac9h:
 ;		mov     ebp, [___243d08h]
 ;		mov     edx, ___183098h
 ;		mov     eax, ___184290h
-;		call    near fopen__clib3r
+;		call    near __CEXT_F(fopen__clib3r)
 ;		mov     esi, eax
 ;		test    eax, eax
 ;		je      short ___53b27h
 ;		mov     edx, 30ah
 ;		xor     ebx, ebx
-;		call    near fseek__clib3r
+;		call    near __CEXT_F(fseek__clib3r)
 ;		mov     ecx, esi
 ;		mov     ebx, 1800h
 ;		mov     edx, 1
 ;		mov     eax, ___243298h
-;		call    near fread__clib3r
+;		call    near __CEXT_F(fread__clib3r)
 ;		mov     eax, esi
-;		call    near fclose__clib3r
+;		call    near __CEXT_F(fclose__clib3r)
 ;___53b27h:
 ;		mov     edx, ___183098h
 ;		mov     eax, ___18429ch
-;		call    near fopen__clib3r
+;		call    near __CEXT_F(fopen__clib3r)
 ;		mov     esi, eax
 ;		test    eax, eax
 ;		je      short ___53b65h
 ;		mov     edx, 30ah
 ;		xor     ebx, ebx
-;		call    near fseek__clib3r
+;		call    near __CEXT_F(fseek__clib3r)
 ;		mov     ecx, esi
 ;		mov     ebx, 140h
 ;		mov     edx, 1
 ;		mov     eax, [___243d8ch]
-;		call    near fread__clib3r
+;		call    near __CEXT_F(fread__clib3r)
 ;		mov     eax, esi
-;		call    near fclose__clib3r
+;		call    near __CEXT_F(fclose__clib3r)
 ;___53b65h:
 ;		mov     edx, ___183098h
 ;		mov     eax, ___1842a8h
-;		call    near fopen__clib3r
+;		call    near __CEXT_F(fopen__clib3r)
 ;		mov     esi, eax
 ;		test    eax, eax
 ;		je      short ___53ba3h
 ;		mov     edx, 30ah
 ;		xor     ebx, ebx
-;		call    near fseek__clib3r
+;		call    near __CEXT_F(fseek__clib3r)
 ;		mov     ecx, esi
 ;		mov     ebx, 600h
 ;		mov     edx, 1
 ;		mov     eax, [___243d7ch]
-;		call    near fread__clib3r
+;		call    near __CEXT_F(fread__clib3r)
 ;		mov     eax, esi
-;		call    near fclose__clib3r
+;		call    near __CEXT_F(fclose__clib3r)
 ;___53ba3h:
 ;		mov     edx, ___183098h
 ;		mov     eax, ___1842b4h
-;		call    near fopen__clib3r
+;		call    near __CEXT_F(fopen__clib3r)
 ;		mov     esi, eax
 ;		test    eax, eax
 ;		je      short ___53be1h
 ;		mov     edx, 30ah
 ;		xor     ebx, ebx
-;		call    near fseek__clib3r
+;		call    near __CEXT_F(fseek__clib3r)
 ;		mov     ecx, esi
 ;		mov     ebx, 480h
 ;		mov     edx, 1
 ;		mov     eax, [___243d88h]
-;		call    near fread__clib3r
+;		call    near __CEXT_F(fread__clib3r)
 ;		mov     eax, esi
-;		call    near fclose__clib3r
+;		call    near __CEXT_F(fclose__clib3r)
 ;___53be1h:
 ;		mov     esi, ___19bd64h
 ;		mov     edi, esp
@@ -80891,7 +80890,7 @@ ___53ac9h:
 ;___53c2fh:
 ;		pop     edi
 ;		mov     eax, esp
-;		call    near fopen__clib3r
+;		call    near __CEXT_F(fopen__clib3r)
 ;		mov     esi, eax
 ;		test    eax, eax
 ;		je      short ___53c5ah
@@ -80899,9 +80898,9 @@ ___53ac9h:
 ;		mov     edx, 1
 ;		mov     ecx, eax
 ;		mov     eax, ___242178h
-;		call    near fread__clib3r
+;		call    near __CEXT_F(fread__clib3r)
 ;		mov     eax, esi
-;		call    near fclose__clib3r
+;		call    near __CEXT_F(fclose__clib3r)
 ;___53c5ah:
 ;		mov     esi, ___19bd64h
 ;		mov     edi, esp
@@ -80942,7 +80941,7 @@ ___53ac9h:
 ;___53ca8h:
 ;		pop     edi
 ;		mov     eax, esp
-;		call    near fopen__clib3r
+;		call    near __CEXT_F(fopen__clib3r)
 ;		mov     esi, eax
 ;		test    eax, eax
 ;		je      short ___53ce9h
@@ -80950,14 +80949,14 @@ ___53ac9h:
 ;		mov     edx, 1
 ;		mov     ecx, eax
 ;		mov     eax, ___242578h
-;		call    near fread__clib3r
+;		call    near __CEXT_F(fread__clib3r)
 ;		mov     ebx, 400h
 ;		mov     edx, 1
 ;		mov     eax, ___241d78h
 ;		mov     ecx, esi
-;		call    near fread__clib3r
+;		call    near __CEXT_F(fread__clib3r)
 ;		mov     eax, esi
-;		call    near fclose__clib3r
+;		call    near __CEXT_F(fclose__clib3r)
 ;___53ce9h:
 ;		mov     esi, ___19bd64h
 ;		mov     edi, esp
@@ -80998,21 +80997,21 @@ ___53ac9h:
 ;___53d37h:
 ;		pop     edi
 ;		mov     eax, esp
-;		call    near fopen__clib3r
+;		call    near __CEXT_F(fopen__clib3r)
 ;		mov     esi, eax
 ;		test    eax, eax
 ;		je      short ___53d76h
 ;		mov     edx, 30ah
 ;		xor     ebx, ebx
-;		call    near fseek__clib3r
+;		call    near __CEXT_F(fseek__clib3r)
 ;		mov     ebx, [___243d30h]
 ;		imul    ebx, [___243d04h]
 ;		mov     ecx, esi
 ;		mov     eax, [___243d78h]
 ;		mov     edx, 1
-;		call    near fread__clib3r
+;		call    near __CEXT_F(fread__clib3r)
 ;		mov     eax, esi
-;		call    near fclose__clib3r
+;		call    near __CEXT_F(fclose__clib3r)
 ;___53d76h:
 ;		mov     esi, ___19bd64h
 ;		mov     edi, esp
@@ -81053,22 +81052,22 @@ ___53ac9h:
 ;___53dc4h:
 ;		pop     edi
 ;		mov     eax, esp
-;		call    near fopen__clib3r
+;		call    near __CEXT_F(fopen__clib3r)
 ;		mov     esi, eax
 ;		test    eax, eax
 ;		je      short ___53e04h
 ;		mov     edx, 30ah
 ;		xor     ebx, ebx
-;		call    near fseek__clib3r
+;		call    near __CEXT_F(fseek__clib3r)
 ;		mov     eax, [___243cf8h]
 ;		mov     ebx, [___243d10h]
 ;		imul    ebx, eax
 ;		mov     ecx, esi
 ;		mov     edx, 1
 ;		mov     eax, [___243d54h]
-;		call    near fread__clib3r
+;		call    near __CEXT_F(fread__clib3r)
 ;		mov     eax, esi
-;		call    near fclose__clib3r
+;		call    near __CEXT_F(fclose__clib3r)
 ;___53e04h:
 ;		mov     esi, ___19bd64h
 ;		mov     edi, esp
@@ -81109,7 +81108,7 @@ ___53ac9h:
 ;___53e52h:
 ;		pop     edi
 ;		mov     eax, esp
-;		call    near fopen__clib3r
+;		call    near __CEXT_F(fopen__clib3r)
 ;		mov     esi, eax
 ;		test    eax, eax
 ;		je      short ___53e7dh
@@ -81117,9 +81116,9 @@ ___53ac9h:
 ;		mov     edx, 1
 ;		mov     ecx, eax
 ;		mov     eax, ___243188h
-;		call    near fread__clib3r
+;		call    near __CEXT_F(fread__clib3r)
 ;		mov     eax, esi
-;		call    near fclose__clib3r
+;		call    near __CEXT_F(fclose__clib3r)
 ;___53e7dh:
 ;		mov     esi, ___19bd64h
 ;		mov     edi, esp
@@ -81160,7 +81159,7 @@ ___53ac9h:
 ;___53ecbh:
 ;		pop     edi
 ;		mov     eax, esp
-;		call    near fopen__clib3r
+;		call    near __CEXT_F(fopen__clib3r)
 ;		mov     esi, eax
 ;		test    eax, eax
 ;		je      short ___53ef6h
@@ -81168,9 +81167,9 @@ ___53ac9h:
 ;		mov     edx, 1
 ;		mov     ecx, eax
 ;		mov     eax, ___242f78h
-;		call    near fread__clib3r
+;		call    near __CEXT_F(fread__clib3r)
 ;		mov     eax, esi
-;		call    near fclose__clib3r
+;		call    near __CEXT_F(fclose__clib3r)
 ;___53ef6h:
 ;		mov     esi, ___19bd64h
 ;		mov     edi, esp
@@ -81211,7 +81210,7 @@ ___53ac9h:
 ;___53f44h:
 ;		pop     edi
 ;		mov     eax, esp
-;		call    near fopen__clib3r
+;		call    near __CEXT_F(fopen__clib3r)
 ;		mov     esi, eax
 ;		test    eax, eax
 ;		je      short ___53f6fh
@@ -81219,9 +81218,9 @@ ___53ac9h:
 ;		mov     edx, 1
 ;		mov     ecx, eax
 ;		mov     eax, ___242e78h
-;		call    near fread__clib3r
+;		call    near __CEXT_F(fread__clib3r)
 ;		mov     eax, esi
-;		call    near fclose__clib3r
+;		call    near __CEXT_F(fclose__clib3r)
 ;___53f6fh:
 ;		mov     esi, ___19bd64h
 ;		mov     edi, esp
@@ -81262,7 +81261,7 @@ ___53ac9h:
 ;___53fbdh:
 ;		pop     edi
 ;		mov     eax, esp
-;		call    near fopen__clib3r
+;		call    near __CEXT_F(fopen__clib3r)
 ;		mov     esi, eax
 ;		test    eax, eax
 ;		je      short ___53fe8h
@@ -81270,9 +81269,9 @@ ___53ac9h:
 ;		mov     edx, 1
 ;		mov     ecx, eax
 ;		mov     eax, ___243078h
-;		call    near fread__clib3r
+;		call    near __CEXT_F(fread__clib3r)
 ;		mov     eax, esi
-;		call    near fclose__clib3r
+;		call    near __CEXT_F(fclose__clib3r)
 ;___53fe8h:
 ;		mov     esi, ___19bd64h
 ;		mov     edi, esp
@@ -81313,7 +81312,7 @@ ___53ac9h:
 ;___54036h:
 ;		pop     edi
 ;		mov     eax, esp
-;		call    near fopen__clib3r
+;		call    near __CEXT_F(fopen__clib3r)
 ;		mov     esi, eax
 ;		test    eax, eax
 ;		je      short ___54061h
@@ -81321,9 +81320,9 @@ ___53ac9h:
 ;		mov     edx, 1
 ;		mov     ecx, eax
 ;		mov     eax, ___242d78h
-;		call    near fread__clib3r
+;		call    near __CEXT_F(fread__clib3r)
 ;		mov     eax, esi
-;		call    near fclose__clib3r
+;		call    near __CEXT_F(fclose__clib3r)
 ;___54061h:
 ;		mov     esi, ___19bd64h
 ;		mov     edi, esp
@@ -81364,7 +81363,7 @@ ___53ac9h:
 ;___540afh:
 ;		pop     edi
 ;		mov     eax, esp
-;		call    near fopen__clib3r
+;		call    near __CEXT_F(fopen__clib3r)
 ;		mov     esi, eax
 ;		test    eax, eax
 ;		je      short ___540dah
@@ -81372,13 +81371,13 @@ ___53ac9h:
 ;		mov     edx, 1
 ;		mov     ecx, eax
 ;		mov     eax, ___241c78h
-;		call    near fread__clib3r
+;		call    near __CEXT_F(fread__clib3r)
 ;		mov     eax, esi
-;		call    near fclose__clib3r
+;		call    near __CEXT_F(fclose__clib3r)
 ;___540dah:
 ;		mov     edx, ___183098h
 ;		mov     eax, ___184308h
-;		call    near fopen__clib3r
+;		call    near __CEXT_F(fopen__clib3r)
 ;		mov     esi, eax
 ;		test    eax, eax
 ;		je      short ___5410ch
@@ -81386,19 +81385,19 @@ ___53ac9h:
 ;		mov     edx, 1
 ;		mov     ecx, eax
 ;		mov     eax, ___240a48h
-;		call    near fread__clib3r
+;		call    near __CEXT_F(fread__clib3r)
 ;		mov     eax, esi
-;		call    near fclose__clib3r
+;		call    near __CEXT_F(fclose__clib3r)
 ;___5410ch:
 ;		mov     edx, ___183098h
 ;		mov     eax, ___184314h
-;		call    near fopen__clib3r
+;		call    near __CEXT_F(fopen__clib3r)
 ;		mov     esi, eax
 ;		test    eax, eax
 ;		je      near ___5422dh
 ;		mov     edx, 0ah
 ;		xor     ebx, ebx
-;		call    near fseek__clib3r
+;		call    near __CEXT_F(fseek__clib3r)
 ;		xor     ecx, ecx
 ;		xor     edi, edi
 ;		mov     [esp+10h], ecx
@@ -81497,17 +81496,17 @@ ___53ac9h:
 ;		cmp     edx, 100h
 ;		jl      near ___54139h
 ;		mov     eax, esi
-;		call    near fclose__clib3r
+;		call    near __CEXT_F(fclose__clib3r)
 ;___5422dh:
 ;		mov     edx, ___183098h
 ;		mov     eax, ___184320h
-;		call    near fopen__clib3r
+;		call    near __CEXT_F(fopen__clib3r)
 ;		mov     esi, eax
 ;		test    eax, eax
 ;		je      near ___5434bh
 ;		mov     edx, 0ah
 ;		xor     ebx, ebx
-;		call    near fseek__clib3r
+;		call    near __CEXT_F(fseek__clib3r)
 ;		xor     ecx, ecx
 ;		xor     edi, edi
 ;		mov     [esp+10h], ecx
@@ -81610,25 +81609,25 @@ ___53ac9h:
 ;		cmp     ecx, byte 50h
 ;		jl      near ___5425ah
 ;		mov     eax, esi
-;		call    near fclose__clib3r
+;		call    near __CEXT_F(fclose__clib3r)
 ;___5434bh:
 ;		mov     edx, ___183098h
 ;		mov     eax, ___184314h
-;		call    near fopen__clib3r
+;		call    near __CEXT_F(fopen__clib3r)
 ;		mov     esi, eax
 ;		test    eax, eax
 ;		je      short ___543aeh
 ;		mov     edx, 30ah
 ;		xor     ebx, ebx
-;		call    near fseek__clib3r
+;		call    near __CEXT_F(fseek__clib3r)
 ;		mov     ebx, [___243d28h]
 ;		imul    ebx, [___243d2ch]
 ;		mov     ecx, esi
 ;		mov     eax, [___243d58h]
 ;		mov     edx, 1
-;		call    near fread__clib3r
+;		call    near __CEXT_F(fread__clib3r)
 ;		mov     eax, esi
-;		call    near fclose__clib3r
+;		call    near __CEXT_F(fclose__clib3r)
 ;		mov     eax, [___243d28h]
 ;		mov     ebx, [___243d2ch]
 ;		imul    ebx, eax
@@ -81675,25 +81674,25 @@ ___53ac9h:
 ;___543fch:
 ;		pop     edi
 ;		mov     eax, esp
-;		call    near fopen__clib3r
+;		call    near __CEXT_F(fopen__clib3r)
 ;		mov     esi, eax
 ;		test    eax, eax
 ;		je      short ___5443bh
 ;		mov     edx, 30ah
 ;		xor     ebx, ebx
-;		call    near fseek__clib3r
+;		call    near __CEXT_F(fseek__clib3r)
 ;		mov     ebx, [___243d28h]
 ;		imul    ebx, [___243d2ch]
 ;		mov     edx, 1
 ;		mov     eax, [___243d60h]
 ;		mov     ecx, esi
-;		call    near fread__clib3r
+;		call    near __CEXT_F(fread__clib3r)
 ;		mov     eax, esi
-;		call    near fclose__clib3r
+;		call    near __CEXT_F(fclose__clib3r)
 ;___5443bh:
 ;		mov     edx, ___183098h
 ;		mov     eax, ___184338h
-;		call    near fopen__clib3r
+;		call    near __CEXT_F(fopen__clib3r)
 ;		mov     esi, eax
 ;		test    eax, eax
 ;		je      short ___54475h
@@ -81702,13 +81701,13 @@ ___53ac9h:
 ;		mov     edx, 1
 ;		mov     eax, [___243d60h]
 ;		mov     ecx, esi
-;		call    near fread__clib3r
+;		call    near __CEXT_F(fread__clib3r)
 ;		mov     eax, esi
-;		call    near fclose__clib3r
+;		call    near __CEXT_F(fclose__clib3r)
 ;___54475h:
 ;		mov     edx, ___183098h
 ;		mov     eax, ___184348h
-;		call    near fopen__clib3r
+;		call    near __CEXT_F(fopen__clib3r)
 ;		mov     esi, eax
 ;		test    eax, eax
 ;		je      short ___544afh
@@ -81717,13 +81716,13 @@ ___53ac9h:
 ;		mov     eax, [___243d54h]
 ;		mov     ecx, esi
 ;		mov     edx, 1
-;		call    near fread__clib3r
+;		call    near __CEXT_F(fread__clib3r)
 ;		mov     eax, esi
-;		call    near fclose__clib3r
+;		call    near __CEXT_F(fclose__clib3r)
 ;___544afh:
 ;		mov     edx, ___183098h
 ;		mov     eax, ___184354h
-;		call    near fopen__clib3r
+;		call    near __CEXT_F(fopen__clib3r)
 ;		mov     esi, eax
 ;		test    eax, eax
 ;		je      short ___544e1h
@@ -81731,13 +81730,13 @@ ___53ac9h:
 ;		mov     edx, 1
 ;		mov     eax, [___243d74h]
 ;		mov     ecx, esi
-;		call    near fread__clib3r
+;		call    near __CEXT_F(fread__clib3r)
 ;		mov     eax, esi
-;		call    near fclose__clib3r
+;		call    near __CEXT_F(fclose__clib3r)
 ;___544e1h:
 ;		mov     edx, ___183098h
 ;		mov     eax, ___184360h
-;		call    near fopen__clib3r
+;		call    near __CEXT_F(fopen__clib3r)
 ;		mov     esi, eax
 ;		test    eax, eax
 ;		je      short ___54518h
@@ -81746,13 +81745,13 @@ ___53ac9h:
 ;		mov     eax, [___243d74h]
 ;		mov     ecx, esi
 ;		add     eax, 25800h
-;		call    near fread__clib3r
+;		call    near __CEXT_F(fread__clib3r)
 ;		mov     eax, esi
-;		call    near fclose__clib3r
+;		call    near __CEXT_F(fclose__clib3r)
 ;___54518h:
 ;		mov     edx, ___183098h
 ;		mov     eax, ___18436ch
-;		call    near fopen__clib3r
+;		call    near __CEXT_F(fopen__clib3r)
 ;		mov     esi, eax
 ;		test    eax, eax
 ;		je      short ___5454fh
@@ -81761,13 +81760,13 @@ ___53ac9h:
 ;		mov     eax, [___243d74h]
 ;		mov     ecx, esi
 ;		add     eax, 4b000h
-;		call    near fread__clib3r
+;		call    near __CEXT_F(fread__clib3r)
 ;		mov     eax, esi
-;		call    near fclose__clib3r
+;		call    near __CEXT_F(fclose__clib3r)
 ;___5454fh:
 ;		mov     edx, ___183098h
 ;		mov     eax, ___184378h
-;		call    near fopen__clib3r
+;		call    near __CEXT_F(fopen__clib3r)
 ;		mov     esi, eax
 ;		test    eax, eax
 ;		je      short ___54586h
@@ -81776,13 +81775,13 @@ ___53ac9h:
 ;		mov     eax, [___243d74h]
 ;		mov     ecx, esi
 ;		add     eax, 70800h
-;		call    near fread__clib3r
+;		call    near __CEXT_F(fread__clib3r)
 ;		mov     eax, esi
-;		call    near fclose__clib3r
+;		call    near __CEXT_F(fclose__clib3r)
 ;___54586h:
 ;		mov     edx, ___183098h
 ;		mov     eax, ___184384h
-;		call    near fopen__clib3r
+;		call    near __CEXT_F(fopen__clib3r)
 ;		mov     esi, eax
 ;		test    eax, eax
 ;		je      near ___54657h
@@ -81799,7 +81798,7 @@ ___53ac9h:
 ;		mov     ebx, edi
 ;		add     eax, ___1f3b08h
 ;		mov     [___243d08h], ebp
-;		call    near fread__clib3r
+;		call    near __CEXT_F(fread__clib3r)
 ;		mov     ebp, [___243d08h]
 ;		mov     ebx, [___243c88h]
 ;		inc     ebp
@@ -81822,7 +81821,7 @@ ___53ac9h:
 ;		mov     ecx, esi
 ;		mov     ebx, edi
 ;		add     eax, ___240b48h
-;		call    near fread__clib3r
+;		call    near __CEXT_F(fread__clib3r)
 ;		mov     ebp, [___243d08h]
 ;		inc     ebp
 ;		mov     ecx, [___243c94h]
@@ -81834,9 +81833,9 @@ ___53ac9h:
 ;		mov     edx, 1
 ;		mov     eax, [___243d5ch]
 ;		mov     ecx, esi
-;		call    near fread__clib3r
+;		call    near __CEXT_F(fread__clib3r)
 ;		mov     eax, esi
-;		call    near fclose__clib3r
+;		call    near __CEXT_F(fclose__clib3r)
 ;___54657h:
 ;		mov     ebp, [___243d08h]
 ;		add     esp, byte 14h
@@ -83414,7 +83413,7 @@ ___55f3ah:
 		mov     [___196dd4h], ebp
 		add     eax, ___1de7d0h
 		mov     [___243c60h], esi
-		call    near strcmp__clib3r
+		call    near __CEXT_F(strcmp__clib3r)
 		mov     esi, [___243c60h]
 		test    eax, eax
 		jne     short ___55fa4h
@@ -85017,7 +85016,7 @@ ___57660h:
 		mov     ebx, eax
 		mov     eax, ___19bd64h
 		and     ebx, 0ff00h
-		call    near strcmp__clib3r
+		call    near __CEXT_F(strcmp__clib3r)
 		test    eax, eax
 		jne     short ___576adh
 		mov     eax, 1e00h
@@ -85025,7 +85024,7 @@ ___57660h:
 ___576adh:
 		mov     edx, ___18440ch
 		mov     eax, ___19bd64h
-		call    near strcmp__clib3r
+		call    near __CEXT_F(strcmp__clib3r)
 		test    eax, eax
 		jne     short ___576cah
 		mov     eax, 3700h
@@ -85033,7 +85032,7 @@ ___576adh:
 ___576cah:
 		mov     edx, ___184410h
 		mov     eax, ___19bd64h
-		call    near strcmp__clib3r
+		call    near __CEXT_F(strcmp__clib3r)
 		test    eax, eax
 		jne     short ___576e7h
 		mov     eax, 2d00h
@@ -85041,7 +85040,7 @@ ___576cah:
 ___576e7h:
 		mov     edx, ___184414h
 		mov     eax, ___19bd64h
-		call    near strcmp__clib3r
+		call    near __CEXT_F(strcmp__clib3r)
 		test    eax, eax
 		jne     short ___57704h
 		mov     eax, 3200h
@@ -85049,7 +85048,7 @@ ___576e7h:
 ___57704h:
 		mov     edx, ___184418h
 		mov     eax, ___19bd64h
-		call    near strcmp__clib3r
+		call    near __CEXT_F(strcmp__clib3r)
 		test    eax, eax
 		jne     short ___57721h
 		mov     eax, 2d00h
@@ -85057,7 +85056,7 @@ ___57704h:
 ___57721h:
 		mov     edx, ___18441ch
 		mov     eax, ___19bd64h
-		call    near strcmp__clib3r
+		call    near __CEXT_F(strcmp__clib3r)
 		test    eax, eax
 		jne     short ___5773eh
 		mov     eax, 3700h
@@ -85065,7 +85064,7 @@ ___57721h:
 ___5773eh:
 		mov     edx, ___184420h
 		mov     eax, ___19bd64h
-		call    near strcmp__clib3r
+		call    near __CEXT_F(strcmp__clib3r)
 		test    eax, eax
 		jne     short ___5775bh
 		mov     eax, 3200h
@@ -85073,7 +85072,7 @@ ___5773eh:
 ___5775bh:
 		mov     edx, ___184424h
 		mov     eax, ___19bd64h
-		call    near strcmp__clib3r
+		call    near __CEXT_F(strcmp__clib3r)
 		test    eax, eax
 		jne     short ___57778h
 		mov     eax, 3200h
@@ -85081,7 +85080,7 @@ ___5775bh:
 ___57778h:
 		mov     edx, ___184428h
 		mov     eax, ___19bd64h
-		call    near strcmp__clib3r
+		call    near __CEXT_F(strcmp__clib3r)
 		test    eax, eax
 		jne     short ___57795h
 		mov     eax, 3200h
@@ -85089,7 +85088,7 @@ ___57778h:
 ___57795h:
 		mov     edx, ___18442ch
 		mov     eax, ___19bd64h
-		call    near strcmp__clib3r
+		call    near __CEXT_F(strcmp__clib3r)
 		test    eax, eax
 		jne     short ___577b2h
 		mov     eax, 3200h
@@ -85211,7 +85210,7 @@ ___57943h:
 		mov     ecx, eax
 		mov     eax, ___19bd64h
 		and     ecx, 0ff00h
-		call    near strcmp__clib3r
+		call    near __CEXT_F(strcmp__clib3r)
 		test    eax, eax
 		jne     short ___57990h
 		mov     eax, 1e00h
@@ -85219,7 +85218,7 @@ ___57943h:
 ___57990h:
 		mov     edx, ___18440ch
 		mov     eax, ___19bd64h
-		call    near strcmp__clib3r
+		call    near __CEXT_F(strcmp__clib3r)
 		test    eax, eax
 		jne     short ___579adh
 		mov     eax, 3700h
@@ -85227,7 +85226,7 @@ ___57990h:
 ___579adh:
 		mov     edx, ___184410h
 		mov     eax, ___19bd64h
-		call    near strcmp__clib3r
+		call    near __CEXT_F(strcmp__clib3r)
 		test    eax, eax
 		jne     short ___579cah
 		mov     eax, 2d00h
@@ -85235,7 +85234,7 @@ ___579adh:
 ___579cah:
 		mov     edx, ___184414h
 		mov     eax, ___19bd64h
-		call    near strcmp__clib3r
+		call    near __CEXT_F(strcmp__clib3r)
 		test    eax, eax
 		jne     short ___579e7h
 		mov     eax, 3200h
@@ -85243,7 +85242,7 @@ ___579cah:
 ___579e7h:
 		mov     edx, ___184418h
 		mov     eax, ___19bd64h
-		call    near strcmp__clib3r
+		call    near __CEXT_F(strcmp__clib3r)
 		test    eax, eax
 		jne     short ___57a04h
 		mov     eax, 2d00h
@@ -85251,7 +85250,7 @@ ___579e7h:
 ___57a04h:
 		mov     edx, ___18441ch
 		mov     eax, ___19bd64h
-		call    near strcmp__clib3r
+		call    near __CEXT_F(strcmp__clib3r)
 		test    eax, eax
 		jne     short ___57a21h
 		mov     eax, 3700h
@@ -85259,7 +85258,7 @@ ___57a04h:
 ___57a21h:
 		mov     edx, ___184420h
 		mov     eax, ___19bd64h
-		call    near strcmp__clib3r
+		call    near __CEXT_F(strcmp__clib3r)
 		test    eax, eax
 		jne     short ___57a3eh
 		mov     eax, 3200h
@@ -85267,7 +85266,7 @@ ___57a21h:
 ___57a3eh:
 		mov     edx, ___184424h
 		mov     eax, ___19bd64h
-		call    near strcmp__clib3r
+		call    near __CEXT_F(strcmp__clib3r)
 		test    eax, eax
 		jne     short ___57a5bh
 		mov     eax, 3200h
@@ -85275,7 +85274,7 @@ ___57a3eh:
 ___57a5bh:
 		mov     edx, ___184428h
 		mov     eax, ___19bd64h
-		call    near strcmp__clib3r
+		call    near __CEXT_F(strcmp__clib3r)
 		test    eax, eax
 		jne     short ___57a78h
 		mov     eax, 3200h
@@ -85283,7 +85282,7 @@ ___57a5bh:
 ___57a78h:
 		mov     edx, ___18442ch
 		mov     eax, ___19bd64h
-		call    near strcmp__clib3r
+		call    near __CEXT_F(strcmp__clib3r)
 		test    eax, eax
 		jne     short ___57a95h
 		mov     eax, 3200h
@@ -86275,7 +86274,7 @@ ___58c72h:
 ;		mov     edx, eax
 ;		xor     ebx, ebx
 ;		mov     eax, ecx
-;		call    near strlen
+;		call    near __CEXT_F(strlen__clib3r)
 ;		cmp     ebx, eax
 ;		jl      short ___58ca2h
 ;		pop     edx
@@ -86289,7 +86288,7 @@ ___58ca2h:
 		inc     ebx
 		call    near putch
 		mov     eax, ecx
-		call    near strlen
+		call    near __CEXT_F(strlen__clib3r)
 		cmp     ebx, eax
 		jl      short ___58ca2h
 		pop     edx
@@ -94887,7 +94886,7 @@ ___631d4h:
 		mov     ecx, eax
 		xor     ebx, ebx
 		mov     eax, ecx
-		call    near strlen
+		call    near __CEXT_F(strlen__clib3r)
 		cmp     ebx, eax
 		jb      short ___631f4h
 		pop     edx
@@ -94906,7 +94905,7 @@ ___631f4h:
 		call    near outp
 		inc     ebx
 		mov     eax, ecx
-		call    near strlen
+		call    near __CEXT_F(strlen__clib3r)
 		cmp     ebx, eax
 		jb      short ___631f4h
 		pop     edx
@@ -94919,7 +94918,7 @@ ___63228h:
 		push    edx
 		mov     edx, ___1850ach
 		mov     eax, ___24e328h
-		call    near strcpy
+		call    near __CEXT_F(strcpy__clib3r)
 		pop     edx
 		retn    
 ___63244h:
@@ -94952,10 +94951,10 @@ ___63261h:
 		jmp     short ___63261h
 ___6329bh:
 		mov     eax, ebx
-		call    near strupr__clib3r
+		call    near __CEXT_F(strupr__clib3r)
 		mov     edx, eax
 		mov     eax, ___24e328h
-		call    near strupr__clib3r
+		call    near __CEXT_F(strupr__clib3r)
 		call    near ___67088h
 		test    eax, eax
 		setnz   al
@@ -95904,7 +95903,7 @@ ___640d0h:
 		mov     ebx, 2
 		mov     eax, ecx
 		xor     edx, edx
-		call    near fseek__clib3r
+		call    near __CEXT_F(fseek__clib3r)
 ___640f8h:
 		mov     eax, ecx
 		call    near __chktty
@@ -95940,8 +95939,7 @@ ___6413ah:
 		pop     esi
 		pop     ecx
 		retn    
-global fopen__clib3r
-fopen__clib3r:
+__GDECL(__CEXT_F(fopen__clib3r))
 		push    ebx
 		xor     ebx, ebx
 		call    near _fsopen
@@ -96029,8 +96027,7 @@ ___641eeh:
 		pop     esi
 		pop     ecx
 		retn    
-global fread__clib3r
-fread__clib3r:
+__GDECL(__CEXT_F(fread__clib3r))
 		push    esi
 		push    edi
 		push    ebp
@@ -96213,8 +96210,7 @@ ___643c6h:
 		pop     edi
 		pop     esi
 		retn    
-global fclose__clib3r
-fclose__clib3r:
+__GDECL(__CEXT_F(fclose__clib3r))
 		push    ebx
 		push    edx
 		mov     ebx, eax
@@ -96358,8 +96354,7 @@ ___64507h:
 		pop     ecx
 		pop     ebx
 		retn    
-global strupr__clib3r
-strupr__clib3r:
+__GDECL(__CEXT_F(strupr__clib3r))
 		push    ebx
 		push    ecx
 		push    edx
@@ -96386,8 +96381,7 @@ ___6452fh:
 		pop     ebx
 		retn    
 db	0,0,0,0,0,0,0,0,0,0,0
-global strcmp__clib3r
-strcmp__clib3r:
+__GDECL(__CEXT_F(strcmp__clib3r))
 		push    ebx
 		push    ecx
 		mov     ebx, eax
@@ -96493,8 +96487,7 @@ ___6460dh:
 		pop     ecx
 		pop     ebx
 		retn    
-global fseek__clib3r
-fseek__clib3r:
+__GDECL(__CEXT_F(fseek__clib3r))
 		push    ecx
 		push    esi
 		push    edi
@@ -99240,15 +99233,13 @@ ___66793h:
 		pop     ecx
 		pop     ebx
 		retn    
-strlen:
+__GDECL(__CEXT_F(strlen__clib3r))
 		push    ecx
 		push    edi
 		mov     edi, eax
 		push    es
-		;mov     eax, ds
-		db	8ch,0d8h
-		;mov     es, eax
-		db	8eh,0c0h
+		mov     eax, ds
+		mov     es, eax
 		sub     ecx, ecx
 		dec     ecx
 		xor     eax, eax
@@ -100092,7 +100083,7 @@ _dos_gettime:
 		pop     ecx
 		pop     edx
 		retn    
-strcpy:
+__GDECL(__CEXT_F(strcpy__clib3r))
 		push    ecx
 		push    eax
 ___67038h:

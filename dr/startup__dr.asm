@@ -69,7 +69,7 @@
 	extern 	lastScanCode__keyboard	
 	extern 	hallOfFameMenu__dr	
 	extern 	___182de4h	
-	extern 	strcmp__clib3r	
+	extern 	__CEXT_F(strcmp__clib3r)	
 	extern 	__CEXT_V(___180864h)	
 	extern 	___1a1dbah	
 	extern 	___24e4d0h	
@@ -794,7 +794,7 @@ ___3efdch:
 		je      ___3f1bah
 		mov     edx, ___180ba0h
 		mov     eax, ___186a6eh			;; "Join An Existing Game"
-		call    strcmp__clib3r
+		call    __CEXT_F(strcmp__clib3r)
 		mov     edx, [___1a1ef8h]
 		mov     ecx, eax
 		lea     eax, [edx*8+0]

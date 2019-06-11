@@ -1,25 +1,25 @@
 %include "macros.inc"
 
     extern  __CHK
-    extern  fread__clib3r
-    extern  strupr__clib3r
-    extern  ___19bd74h
-    extern  strcmp__clib3r
-    extern  ___180108h
-    extern  ___180118h
+    extern  __CEXT_F(fread__clib3r)
+    extern  __CEXT_F(strupr__clib3r)
+    extern  __CEXT_V(TmpBPAHeader)
+    extern  __CEXT_F(strcmp__clib3r)
+    extern  __CEXT_V(___180108h)
+    extern  __CEXT_V(___180118h)
     extern  __CEXT_V(___18011ch)
-    extern  exitErrorMsg__dr
+    extern  __CEXT_F(exitErrorMsg__dr)
     extern  __CEXT_V(rb_m_0)
-    extern  fopen__clib3r
-    extern  fseek__clib3r
-    extern  ___19bd81h
-    extern  fclose__clib3r
+    extern  __CEXT_F(fopen__clib3r)
+    extern  __CEXT_F(fseek__clib3r)
+    extern  __CEXT_V(___19bd81h)
+    extern  __CEXT_F(fclose__clib3r)
 
 %include "layout.inc"
 
 section @text
 
-__GDECL(__CEXT_F(___10240h))
+__GDECL(__CEXT_F(getentrysize__bpa))
 		push    88h
 		call    __CHK
 		push    ebx
@@ -49,23 +49,23 @@ ___10279h:
 		mov     edx, __CEXT_V(rb_m_0)
 		mov     eax, [esp+68h]
 		mov     ebx, 1
-		call    fopen__clib3r
+		call    __CEXT_F(fopen__clib3r)
 		mov     edx, 4
 		mov     edi, eax
 		mov     ecx, eax
 		lea     eax, [esp+60h]
-		call    fread__clib3r
+		call    __CEXT_F(fread__clib3r)
 		mov     ebx, 1
 		mov     edx, 10efh
-		mov     eax, ___19bd74h
+		mov     eax, __CEXT_V(TmpBPAHeader)
 		mov     ecx, edi
-		call    fread__clib3r
+		call    __CEXT_F(fread__clib3r)
 		mov     eax, edi
-		call    fclose__clib3r
+		call    __CEXT_F(fclose__clib3r)
 		xor     edx, edx
 		lea     eax, [esp+50h]
 		mov     [esp+6ch], edx
-		call    strupr__clib3r
+		call    __CEXT_F(strupr__clib3r)
 		mov     al, [esp+6ch]
 		mov     ah, 3
 		mul     ah
@@ -95,11 +95,11 @@ ___102eah:
 		mov     [esp+6ch], edi
 		test    eax, eax
 		jle     ___10344h
-		mov     ebx, ___19bd74h
+		mov     ebx, __CEXT_V(TmpBPAHeader)
 ___10318h:
 		lea     edx, [esp+50h]
 		mov     eax, ebx
-		call    strcmp__clib3r
+		call    __CEXT_F(strcmp__clib3r)
 		test    eax, eax
 		jne     ___1032bh
 		mov     ebp, [esp+6ch]
@@ -117,7 +117,7 @@ ___10344h:
 		cmp     ebp, 0ffffffffh
 		jne     ___10401h
 		mov     edi, esp
-		mov     esi, ___180108h
+		mov     esi, __CEXT_V(___180108h)
 		movsd   
 		movsd   
 		movsd   
@@ -143,7 +143,7 @@ ___10367h:
 		jne     ___10367h
 ___1037fh:
 		pop     edi
-		mov     esi, ___180118h
+		mov     esi, __CEXT_V(___180118h)
 		mov     edi, esp
 		push    edi
 		sub     ecx, ecx
@@ -207,15 +207,15 @@ ___103e1h:
 ___103f9h:
 		pop     edi
 		mov     eax, esp
-		call    exitErrorMsg__dr
+		call    __CEXT_F(exitErrorMsg__dr)
 ___10401h:
 		mov     edx, __CEXT_V(rb_m_0)
 		mov     eax, [esp+68h]
-		call    fopen__clib3r
+		call    __CEXT_F(fopen__clib3r)
 		xor     ebx, ebx
 		mov     edx, 10f3h
 		mov     ecx, eax
-		call    fseek__clib3r
+		call    __CEXT_F(fseek__clib3r)
 		xor     edx, edx
 		mov     [esp+6ch], edx
 		test    ebp, ebp
@@ -226,7 +226,7 @@ ___10401h:
 		add     ebx, ebp
 ___10430h:
 		mov     edi, [esp+6ch]
-		mov     esi, [eax+___19bd81h]
+		mov     esi, [eax+__CEXT_V(___19bd81h)]
 		add     eax, 11h
 		inc     edi
 		add     edx, esi
@@ -236,12 +236,12 @@ ___10430h:
 ___10448h:
 		mov     ebx, 1
 		mov     eax, ecx
-		call    fseek__clib3r
+		call    __CEXT_F(fseek__clib3r)
 		mov     eax, ebp
 		shl     eax, 4
-		mov     edx, [eax+ebp+___19bd81h]
+		mov     edx, [eax+ebp+__CEXT_V(___19bd81h)]
 		mov     eax, ecx
-		call    fclose__clib3r
+		call    __CEXT_F(fclose__clib3r)
 		mov     eax, edx
 		add     esp, 70h
 		pop     ebp

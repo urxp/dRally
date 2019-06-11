@@ -19,9 +19,9 @@ __GDECL(__CEXT_V(string__MENU_BPA))
 db	"MENU.BPA",0,0,0,0
 __GDECL(__CEXT_V(rb_m_0))
 db	"rb",0,0
-__GDECL(___180108h)
+__GDECL(__CEXT_V(___180108h))
 db	"Problems with [",0
-__GDECL(___180118h)
+__GDECL(__CEXT_V(___180118h))
 db	"] ",0,0
 __GDECL(__CEXT_V(___18011ch))
 db  " file!",0,0  

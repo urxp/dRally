@@ -15,9 +15,9 @@ __GDECL(___19bd64h)
     resb	2
 __GDECL(___19bd66h)
     resb	0eh
-__GDECL(___19bd74h)
+__GDECL(__CEXT_V(TmpBPAHeader))
     resb	0dh
-__GDECL(___19bd81h)
+__GDECL(__CEXT_V(___19bd81h))
     resb	10efh
 __GDECL(___19ce70h)
     resb	0fh

@@ -3,7 +3,7 @@
     extern  __CHK
     extern  __CEXT_V(rb_m)
     extern  __CEXT_V(string__CDROM_INI)
-    extern  fopen__clib3r
+    extern  __CEXT_F(fopen__clib3r)
     extern  cdrom_ini
     extern  ___182bc8h
     extern  fscanf__clib3r
@@ -28,7 +28,7 @@ chkcdromini__dr:
 		push    edi
 		mov     edx, __CEXT_V(rb_m)         ;; "rb"
 		mov     eax, __CEXT_V(string__CDROM_INI)         ;; "CDROM.INI"
-		call    fopen__clib3r
+		call    __CEXT_F(fopen__clib3r)
 		test    eax, eax
 		je      @nocdromini
 		push    cdrom_ini
