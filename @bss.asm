@@ -11,48 +11,86 @@ __GDECL(Gamepad)
     resb	8
 __GDECL(___19bd60h)
     resb	4
-___19bd64h:	resb	2
-___19bd66h:	resb	0eh
+__GDECL(___19bd64h)
+    resb	2
+__GDECL(___19bd66h)
+    resb	0eh
 __GDECL(___19bd74h)
     resb	0dh
 __GDECL(___19bd81h)
     resb	10efh
-___19ce70h:	resb	0fh
-___19ce7fh:	resb	0fh
-___19ce8eh:	resb	0fh
-___19ce9dh:	resb	0fh
-___19ceach:	resb	0fh
-___19cebbh:	resb	0fh
-___19cecah:	resb	0fh
-___19ced9h:	resb	0fh
-___19cee8h:	resb	0fh
-___19cef7h:	resb	0fh
-___19cf06h:	resb	0fh
-___19cf15h:	resb	0fh
-___19cf24h:	resb	0fh
-___19cf33h:	resb	0fh
-___19cf42h:	resb	0fh
-___19cf51h:	resb	0fh
-___19cf60h:	resb	0fh
-___19cf6fh:	resb	0fh
-___19cf7eh:	resb	0fh
-___19cf8dh:	resb	0fh
-___19cf9ch:	resb	0fh
-___19cfabh:	resb	0fh
-___19cfbah:	resb	0fh
-___19cfc9h:	resb	0fh
-___19cfd8h:	resb	0fh
-___19cfe7h:	resb	0fh
-___19cff6h:	resb	0fh
-___19d005h:	resb	0fh
-___19d014h:	resb	0fh
-___19d023h:	resb	0fh
-___19d032h:	resb	0fh
-___19d041h:	resb	0fh
-___19d050h:	resb	0fh
-___19d05fh:	resb	0fh
-___19d06eh:	resb	0fh
-___19d07dh:	resb	0fh
+__GDECL(___19ce70h)
+    resb	0fh
+__GDECL(___19ce7fh)
+    resb	0fh
+__GDECL(___19ce8eh)
+    resb	0fh
+__GDECL(___19ce9dh)
+    resb	0fh
+__GDECL(___19ceach)
+    resb	0fh
+__GDECL(___19cebbh)
+    resb	0fh
+__GDECL(___19cecah)
+    resb	0fh
+__GDECL(___19ced9h)
+    resb	0fh
+__GDECL(___19cee8h)
+    resb	0fh
+__GDECL(___19cef7h)
+    resb	0fh
+__GDECL(___19cf06h)
+    resb	0fh
+__GDECL(___19cf15h)
+    resb	0fh
+__GDECL(___19cf24h)
+    resb	0fh
+__GDECL(___19cf33h)
+    resb	0fh
+__GDECL(___19cf42h)
+    resb	0fh
+__GDECL(___19cf51h)
+    resb	0fh
+__GDECL(___19cf60h)
+    resb	0fh
+__GDECL(___19cf6fh)
+    resb	0fh
+__GDECL(___19cf7eh)
+    resb	0fh
+__GDECL(___19cf8dh)
+    resb	0fh
+__GDECL(___19cf9ch)
+    resb	0fh
+__GDECL(___19cfabh)
+    resb	0fh
+__GDECL(___19cfbah)
+    resb	0fh
+__GDECL(___19cfc9h)
+    resb	0fh
+__GDECL(___19cfd8h)
+    resb	0fh
+__GDECL(___19cfe7h)
+    resb	0fh
+__GDECL(___19cff6h)
+    resb	0fh
+__GDECL(___19d005h)
+    resb	0fh
+__GDECL(___19d014h)
+    resb	0fh
+__GDECL(___19d023h)
+    resb	0fh
+__GDECL(___19d032h)
+    resb	0fh
+__GDECL(___19d041h)
+    resb	0fh
+__GDECL(___19d050h)
+    resb	0fh
+__GDECL(___19d05fh)
+    resb	0fh
+__GDECL(___19d06eh)
+    resb	0fh
+__GDECL(___19d07dh)
+    resb	0fh
 ___19d08ch:	resb	0fh
 ___19d09bh:	resb	0fh
 ___19d0aah:	resb	0fh

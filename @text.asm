@@ -1,12 +1,3 @@
-___10474h:
-		push    8
-		call    near __CHK
-		push    edx
-		mov     edx, eax
-		mov     eax, __CEXT_V(string__MUSICS_BPA)
-		call    near ___10240h
-		pop     edx
-		retn
 ___10490h:
 		push    24h
 		call    near __CHK
@@ -20,7 +11,7 @@ ___10490h:
 		mov     [esp+4], dl
 		mov     edx, eax
 		mov     eax, __CEXT_V(string__MUSICS_BPA)
-		call    near ___10240h
+		call    near __CEXT_F(___10240h)
 		xor     edx, edx
 		mov     ecx, eax
 		mov     dl, [esp+4]
@@ -110221,7 +110212,7 @@ ___715e3h:
 ___715e9h:
 		mov     eax, esi
 		mov     esi, [esp]
-		call    near ___10474h
+		call    near __CEXT_F(___10474h)
 		mov     [esi], eax
 		xor     eax, eax
 		mov     ax, [ecx+22h]
@@ -110837,7 +110828,7 @@ ___755b5h:
 ___755c1h:
 		mov     eax, esi
 		mov     edx, [esp]
-		call    near ___10474h
+		call    near __CEXT_F(___10474h)
 		mov     [edx], eax
 		test    ebp, ebp
 		je      short ___75631h

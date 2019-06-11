@@ -12,7 +12,7 @@
     extern  allocateDOSMemoryBlock__dpmi
     extern  footer__dr
     extern  read__bpa
-    extern  ___10240h
+    extern  __CEXT_F(___10240h)
 
     extern  ___68d4ch
     extern  ___68d58h
@@ -44,6 +44,7 @@
 
     extern  __CEXT_F(chkarg__dr)
     extern  __CEXT_F(___71da4h)
+    extern  __CEXT_F(___10474h)
 
 %include "layout.inc"
 

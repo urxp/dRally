@@ -19,7 +19,7 @@
 
 section @text
 
-__GDECL(___10240h)
+__GDECL(__CEXT_F(___10240h))
 		push    88h
 		call    __CHK
 		push    ebx
