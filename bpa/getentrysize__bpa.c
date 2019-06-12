@@ -58,9 +58,9 @@ dword getentrysize__bpa(const char * bpa, const char * elm){
 	n = NumberOfEntries;
 	while(n--&&strcmp__clib3r(TmpBPAHeader[n].EntryName, EntryName));
 
-	if((n == -1)&&(n++)){
+	if(n == -1){
 
-		strcpy__clib3r(&Buffer[n], ___180108h);
+		strcpy__clib3r(&Buffer[++n], ___180108h);
 		while(Buffer[n]) n++;
 		strcpy__clib3r(&Buffer[n], bpa);
 		while(Buffer[n]) n++;

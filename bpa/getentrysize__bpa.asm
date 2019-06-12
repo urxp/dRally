@@ -14,7 +14,7 @@
     extern  __CEXT_F(fseek__clib3r)
     extern  __CEXT_V(___19bd81h)
     extern  __CEXT_F(fclose__clib3r)
-	extern  __CEXT_V(string__MUSICS_BPA)
+	extern	__CEXT_V(string__MUSICS_BPA)
 
 %include "layout.inc"
 
