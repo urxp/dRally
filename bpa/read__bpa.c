@@ -24,7 +24,6 @@ typedef struct {
 	char * strupr__clib3r(char * s);
 	int strcmp__clib3r(const char * s1, const char * s2);
     char * strcpy__clib3r(char * dest, const char * src);
-    dword strlen__clib3r(const char * s);
 
 	void exitErrorMsg__dr(const char * errmsg);
 
@@ -54,26 +53,26 @@ void read__bpa(const char * bpa, void * dst, const char * elm){
 
         e_off -= BPA0Header[n].EntrySize;
 
-        if(!strcmp__clib3r(BPA0Header[n].EntryName, EntryName)) break;
+        if(!strcmp__clib3r(BPA0Header[n].EntryName, EntryName)){
+
+			fd = fopen__clib3r(bpa, ___183098h);
+			fseek__clib3r(fd, e_off, SEEK_END);
+			fread__clib3r(dst, BPA0Header[n].EntrySize, 1, fd);
+			fclose__clib3r(fd);
+
+			return;
+		}
     }
 
-	if(n == -1){
+	strcpy__clib3r(&Buffer[++n], ___18309ch);
+	while(Buffer[n]) n++;
+	strcpy__clib3r(&Buffer[n], bpa);
+	while(Buffer[n]) n++;
+	strcpy__clib3r(&Buffer[n], ___1830ach);
+	while(Buffer[n]) n++;
+	strcpy__clib3r(&Buffer[n], elm);
+	while(Buffer[n]) n++;
+	strcpy__clib3r(&Buffer[n], ___1830b0h);
 
-		strcpy__clib3r(&Buffer[++n], ___18309ch);
-		while(Buffer[n]) n++;
-		strcpy__clib3r(&Buffer[n], bpa);
-		while(Buffer[n]) n++;
-		strcpy__clib3r(&Buffer[n], ___1830ach);
-		while(Buffer[n]) n++;
-		strcpy__clib3r(&Buffer[n], elm);
-		while(Buffer[n]) n++;
-		strcpy__clib3r(&Buffer[n], ___1830b0h);
-
-		exitErrorMsg__dr(Buffer);
-	}
-
-	fd = fopen__clib3r(bpa, ___183098h);
-	fseek__clib3r(fd, e_off, SEEK_END);
-	fread__clib3r(dst, BPA0Header[n].EntrySize, 1, fd);
-	fclose__clib3r(fd);
+	exitErrorMsg__dr(Buffer);
 }

@@ -12,7 +12,6 @@
     extern  __CEXT_V(rb_m_0)
     extern  __CEXT_F(fopen__clib3r)
     extern  __CEXT_F(fseek__clib3r)
-    extern  __CEXT_V(___19bd81h)
     extern  __CEXT_F(fclose__clib3r)
 	extern	__CEXT_V(string__MUSICS_BPA)
 
@@ -237,7 +236,7 @@ ___10401h:
 		add     ebx, ebp
 ___10430h:
 		mov     edi, [esp+6ch]
-		mov     esi, [eax+__CEXT_V(___19bd81h)]
+		mov     esi, [eax+__CEXT_V(TmpBPAHeader)+0dh]
 		add     eax, 11h
 		inc     edi
 		add     edx, esi
@@ -250,7 +249,7 @@ ___10448h:
 		call    __CEXT_F(fseek__clib3r)
 		mov     eax, ebp
 		shl     eax, 4
-		mov     edx, [eax+ebp+__CEXT_V(___19bd81h)]
+		mov     edx, [eax+ebp+__CEXT_V(TmpBPAHeader)+0dh]
 		mov     eax, ecx
 		call    __CEXT_F(fclose__clib3r)
 		mov     eax, edx

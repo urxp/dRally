@@ -11,7 +11,6 @@
     extern  __CEXT_V(___183098h)
     extern  __CEXT_F(fopen__clib3r)
     extern  __CEXT_F(fseek__clib3r)
-    extern  __CEXT_V(___24bb6dh)
     extern  __CEXT_F(fread__clib3r)
     extern  __CEXT_F(fclose__clib3r)
 
@@ -226,7 +225,7 @@ ___42b4ch:
 		add     ebx, ebp
 ___42b7bh:
 		mov     esi, [esp+70h]
-		mov     ecx, [eax+__CEXT_V(___24bb6dh)]
+		mov     ecx, [eax+__CEXT_V(BPA0Header)+0dh]
 		add     eax, 11h
 		inc     esi
 		add     edx, ecx
@@ -241,7 +240,7 @@ ___42b93h:
 		mov     ecx, edi
 		shl     eax, 4
 		mov     ebx, 1
-		mov     edx, [eax+ebp+__CEXT_V(___24bb6dh)]
+		mov     edx, [eax+ebp+__CEXT_V(BPA0Header)+0dh]
 		mov     eax, [esp+6ch]
 		call    __CEXT_F(fread__clib3r)
 		mov     eax, edi

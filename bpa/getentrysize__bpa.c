@@ -23,7 +23,6 @@ typedef struct {
 	char * strupr__clib3r(char * s);
 	int strcmp__clib3r(const char * s1, const char * s2);
 	char * strcpy__clib3r(char * dest, const char * src);
-	dword strlen__clib3r(const char * s);
 
 	void exitErrorMsg__dr(const char * errmsg);
 

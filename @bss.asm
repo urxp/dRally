@@ -16,9 +16,7 @@ __GDECL(___19bd64h)
 __GDECL(___19bd66h)
     resb	0eh
 __GDECL(__CEXT_V(TmpBPAHeader))
-    resb	0dh
-__GDECL(__CEXT_V(___19bd81h))
-    resb	10efh
+    resb	10fch
 __GDECL(___19ce70h)
     resb	0fh
 __GDECL(___19ce7fh)
@@ -1490,9 +1488,7 @@ ___243e7ch:	resb	4
 ___243e80h:	resb	14h
 ___243e94h:	resb	7ccch
 __GDECL(__CEXT_V(BPA0Header))
-    resb	0dh
-__GDECL(__CEXT_V(___24bb6dh))
-    resb	10e7h
+    resb	10f4h
 __GDECL(ConfigSFXVolume)
     resb	4
 __GDECL(ConfigMusicVolume)
