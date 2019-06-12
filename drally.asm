@@ -2,8 +2,8 @@
 
     extern  __CEXT_F(main)
     extern  __CommonInit__clib3r
-    extern  setbank__video
-    extern  chkbankswitch__video
+    extern  __CEXT_F(setbank__video)
+    extern  __CEXT_F(chkbankswitch__video)
     extern  __GETDS
     extern  __exit_
     extern  __do_exit_with_msg__

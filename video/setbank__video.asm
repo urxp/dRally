@@ -7,8 +7,7 @@
 
 section @text
 
-global setbank__video
-setbank__video:
+__GDECL(__CEXT_F(setbank__video))
 		push    0ch
 		call    __CHK
 		push    ebx
@@ -16,14 +15,14 @@ setbank__video:
 		mov     edx, eax
 		mov     eax, [__CEXT_V(GXType)]
 		cmp     eax, 1
-		jb      ___12bf6h
+		jb      @is_vbe
 		jbe     ___12c10h
 		cmp     eax, 2
 		je      @is_cirrus
 		pop     edx
 		pop     ebx
 		retn    
-___12bf6h:
+@is_vbe:
 		test    eax, eax
 		jne     ___12c35h
 		push    edx

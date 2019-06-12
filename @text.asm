@@ -2632,33 +2632,33 @@ ___12cb8h:
 		mov     ecx, 4000h
 		xor     eax, eax
 		mov     edi, 0a0000h
-		call    near setbank__video
+		call    near __CEXT_F(setbank__video)
 		mov     esi, [VGABufferPtr_0]
 		rep movsd   
 		mov     eax, 1
 		mov     ecx, 4000h
-		call    near setbank__video
+		call    near __CEXT_F(setbank__video)
 		mov     esi, [VGABufferPtr_0]
 		mov     edi, 0a0000h
 		add     esi, 10000h
 		rep movsd   
 		mov     eax, 2
 		mov     ecx, 4000h
-		call    near setbank__video
+		call    near __CEXT_F(setbank__video)
 		mov     esi, [VGABufferPtr_0]
 		mov     edi, 0a0000h
 		add     esi, 20000h
 		rep movsd   
 		mov     eax, 3
 		mov     ecx, 4000h
-		call    near setbank__video
+		call    near __CEXT_F(setbank__video)
 		mov     esi, [VGABufferPtr_0]
 		mov     edi, 0a0000h
 		add     esi, 30000h
 		rep movsd   
 		mov     eax, 4
 		mov     ecx, 2c00h
-		call    near setbank__video
+		call    near __CEXT_F(setbank__video)
 		mov     esi, [VGABufferPtr_0]
 		mov     edi, 0a0000h
 		add     esi, 40000h
@@ -2676,14 +2676,14 @@ ___12d6ch:
 		push    edi
 		mov     eax, 3
 		mov     ecx, 4000h
-		call    near setbank__video
+		call    near __CEXT_F(setbank__video)
 		mov     esi, [VGABufferPtr_0]
 		mov     edi, 0a0000h
 		add     esi, 30000h
 		rep movsd   
 		mov     eax, 4
 		mov     ecx, 2c00h
-		call    near setbank__video
+		call    near __CEXT_F(setbank__video)
 		mov     esi, [VGABufferPtr_0]
 		mov     edi, 0a0000h
 		add     esi, 40000h
@@ -2703,33 +2703,33 @@ ___12dc4h:
 		mov     ecx, 4000h
 		xor     eax, eax
 		mov     edi, 0a0000h
-		call    near setbank__video
+		call    near __CEXT_F(setbank__video)
 		mov     esi, [VGABufferPtr_0]
 		rep movsd   
 		mov     eax, 1
 		mov     ecx, 4000h
-		call    near setbank__video
+		call    near __CEXT_F(setbank__video)
 		mov     esi, [VGABufferPtr_0]
 		mov     edi, 0a0000h
 		add     esi, 10000h
 		rep movsd   
 		mov     eax, 2
 		mov     ecx, 4000h
-		call    near setbank__video
+		call    near __CEXT_F(setbank__video)
 		mov     esi, [VGABufferPtr_0]
 		mov     edi, 0a0000h
 		add     esi, 20000h
 		rep movsd   
 		mov     eax, 3
 		mov     ecx, 4000h
-		call    near setbank__video
+		call    near __CEXT_F(setbank__video)
 		mov     esi, [VGABufferPtr_0]
 		mov     edi, 0a0000h
 		add     esi, 30000h
 		rep movsd   
 		mov     eax, 4
 		mov     ecx, 2c00h
-		call    near setbank__video
+		call    near __CEXT_F(setbank__video)
 		mov     esi, [VGABufferPtr_0]
 		mov     edi, 0a0000h
 		add     esi, 40000h
@@ -3758,7 +3758,7 @@ ___1398ch:
 		sar     eax, 10h
 		xor     edx, edx
 		mov     esi, eax
-		call    near setbank__video
+		call    near __CEXT_F(setbank__video)
 		mov     [esp+8], edx
 		test    ecx, ecx
 		jle     near ___13a91h
@@ -3778,7 +3778,7 @@ ___139c8h:
 		sar     eax, 10h
 		cmp     esi, eax
 		je      short ___139eeh
-		call    near setbank__video
+		call    near __CEXT_F(setbank__video)
 ___139eeh:
 		mov     ecx, 10000h
 		mov     edx, ebp
@@ -3812,7 +3812,7 @@ ___13a31h:
 		sar     eax, 10h
 		cmp     esi, eax
 		je      short ___13a3fh
-		call    near setbank__video
+		call    near __CEXT_F(setbank__video)
 ___13a3fh:
 		mov     esi, 10000h
 		mov     edx, ebp

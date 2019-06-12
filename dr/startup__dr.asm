@@ -47,7 +47,7 @@
 	extern 	__CEXT_V(string__pulse_dialing)	
 	extern 	srand__clib3r	
 	extern 	___606dfh	
-	extern 	chkbankswitch__video	
+	extern 	__CEXT_F(chkbankswitch__video)	
 	extern 	setmode3h__video	
 	extern 	___182c24h	
 	extern 	___182cb8h		
@@ -266,7 +266,7 @@ ___3e88bh:
 		mov     ax, 4f02h
 		mov     bx, 101h
 		int     10h
-		call    chkbankswitch__video
+		call    __CEXT_F(chkbankswitch__video)
 		test    eax, eax
 		je      @bs_ok
 		call    setmode3h__video
