@@ -14,10 +14,21 @@
     extern  __CEXT_F(fseek__clib3r)
     extern  __CEXT_V(___19bd81h)
     extern  __CEXT_F(fclose__clib3r)
+	extern  __CEXT_V(string__MUSICS_BPA)
 
 %include "layout.inc"
 
 section @text
+
+__GDECL(__CEXT_F(getentrysize__musics_bpa))
+		push    8
+		call    __CHK
+		push    edx
+		mov     edx, eax
+		mov     eax, __CEXT_V(string__MUSICS_BPA)
+		call    __CEXT_F(getentrysize__bpa)
+		pop     edx
+		retn
 
 __GDECL(__CEXT_F(getentrysize__bpa))
 		push    88h

@@ -110203,7 +110203,7 @@ ___715e3h:
 ___715e9h:
 		mov     eax, esi
 		mov     esi, [esp]
-		call    near __CEXT_F(___10474h)
+		call    near __CEXT_F(getentrysize__musics_bpa)
 		mov     [esi], eax
 		xor     eax, eax
 		mov     ax, [ecx+22h]
@@ -110819,7 +110819,7 @@ ___755b5h:
 ___755c1h:
 		mov     eax, esi
 		mov     edx, [esp]
-		call    near __CEXT_F(___10474h)
+		call    near __CEXT_F(getentrysize__musics_bpa)
 		mov     [edx], eax
 		test    ebp, ebp
 		je      short ___75631h

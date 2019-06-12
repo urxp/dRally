@@ -44,7 +44,7 @@
 
     extern  __CEXT_F(chkarg__dr)
     extern  __CEXT_F(___71da4h)
-    extern  __CEXT_F(___10474h)
+    extern  __CEXT_F(getentrysize__musics_bpa)
 
 %include "layout.inc"
 
