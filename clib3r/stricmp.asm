@@ -1,9 +1,9 @@
+%include "macros.inc"
 %include "layout.inc"
 
 section @text
 
-global stricmp__clib3r
-stricmp__clib3r:
+__GDECL(__CEXT_F(stricmp__clib3r))
 		push    ebx
 		push    ecx
 		mov     ebx, eax

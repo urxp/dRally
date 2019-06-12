@@ -1417,13 +1417,13 @@ ___183030h:
 db	"DEATH RALLY Error: %s",0ah,0,0
 ___183048h:
 db	"Please consult DRHELP.EXE for more information on how to resolve this problem.",0ah,0
-__GDECL(___183098h)
+__GDECL(__CEXT_V(___183098h))
 db	"rb",0,0
-__GDECL(___18309ch)
+__GDECL(__CEXT_V(___18309ch))
 db	"Problems with [",0
-__GDECL(___1830ach)
+__GDECL(__CEXT_V(___1830ach))
 db	"] ",0,0
-__GDECL(___1830b0h)
+__GDECL(__CEXT_V(___1830b0h))
 db	" file!",0,0
 ___1830b8h:
 db	"BOARDS.BPK",0,0

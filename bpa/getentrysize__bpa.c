@@ -44,12 +44,13 @@ dword getentrysize__bpa(const char * bpa, const char * elm){
 	dword 	NumberOfEntries;
 	char 	EntryName[0x10];
 
-	strcpy__clib3r(EntryName, elm);
+
 	fd = fopen__clib3r(bpa, rb_m_0);
 	fread__clib3r(&NumberOfEntries, sizeof(dword), 1, fd);
 	fread__clib3r(TmpBPAHeader, sizeof(BPAHeaderEntry), 255, fd);
 	fclose__clib3r(fd);
-	
+
+	strcpy__clib3r(EntryName, elm);	
 	strupr__clib3r(EntryName);
 
 	// encode EntryName to search ...

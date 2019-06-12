@@ -3,7 +3,7 @@
     extern  __CHK
     extern  ___19bd54h
     extern  ___19bd20h
-    extern  stricmp__clib3r
+    extern  __CEXT_F(stricmp__clib3r)
 
 %include "layout.inc"
 
@@ -25,7 +25,7 @@ __GDECL(__CEXT_F(chkarg__dr))
 ___10033h:
 		mov     eax, esi
 		mov     edx, [ecx+___19bd20h]
-		call    stricmp__clib3r
+		call    __CEXT_F(stricmp__clib3r)
 		test    eax, eax
 		jne     ___10048h
 		mov     eax, ebx

@@ -19,7 +19,7 @@
     extern  restrdos__dr
     extern  __CEXT_V(string__dr_bin)
     extern  __CEXT_V(string__MENU_BPA)
-    extern  read__bpa
+    extern  __CEXT_F(read__bpa)
 
 %include "layout.inc"
 
@@ -67,6 +67,6 @@ ___10212h:
 		mov     ebx, __CEXT_V(string__dr_bin)
 		mov     edx, 0b8000h
 		mov     eax, __CEXT_V(string__MENU_BPA)
-		call    read__bpa
+		call    __CEXT_F(read__bpa)
 		pop     ebx
 		retn

@@ -11,7 +11,7 @@
     extern  install__serial
     extern  allocateDOSMemoryBlock__dpmi
     extern  footer__dr
-    extern  read__bpa
+    extern  __CEXT_F(read__bpa)
     extern  __CEXT_F(getentrysize__bpa)
 
     extern  ___68d4ch

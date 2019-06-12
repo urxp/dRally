@@ -1489,9 +1489,9 @@ ___243e78h:	resb	4
 ___243e7ch:	resb	4
 ___243e80h:	resb	14h
 ___243e94h:	resb	7ccch
-__GDECL(___24bb60h)
+__GDECL(__CEXT_V(BPA0Header))
     resb	0dh
-__GDECL(___24bb6dh)
+__GDECL(__CEXT_V(___24bb6dh))
     resb	10e7h
 __GDECL(ConfigSFXVolume)
     resb	4

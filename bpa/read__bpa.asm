@@ -2,16 +2,16 @@
 
     extern  __CHK
     extern  __CEXT_F(strupr__clib3r)
-    extern  ___24bb60h
+    extern  __CEXT_V(BPA0Header)
     extern  __CEXT_F(strcmp__clib3r)
-    extern  ___18309ch
-    extern  ___1830ach
-    extern  ___1830b0h
+    extern  __CEXT_V(___18309ch)
+    extern  __CEXT_V(___1830ach)
+    extern  __CEXT_V(___1830b0h)
     extern  __CEXT_F(exitErrorMsg__dr)
-    extern  ___183098h
+    extern  __CEXT_V(___183098h)
     extern  __CEXT_F(fopen__clib3r)
     extern  __CEXT_F(fseek__clib3r)
-    extern  ___24bb6dh
+    extern  __CEXT_V(___24bb6dh)
     extern  __CEXT_F(fread__clib3r)
     extern  __CEXT_F(fclose__clib3r)
 
@@ -19,7 +19,7 @@
 
 section @text
 
-__GDECL(read__bpa)
+__GDECL(__CEXT_F(read__bpa))
 		push    88h
 		call    __CHK
 		push    ecx
@@ -32,7 +32,7 @@ __GDECL(read__bpa)
 		mov     [esp+64h], ebx
 		lea     edi, [esp+50h]
 		mov     esi, ebx
-		mov     edx, ___183098h
+		mov     edx, __CEXT_V(___183098h)
 		push    edi
 ___429b1h:
 		mov     al, [esi]
@@ -57,7 +57,7 @@ ___429c9h:
 		call    __CEXT_F(fread__clib3r)
 		mov     ebx, 1
 		mov     edx, 10efh
-		mov     eax, ___24bb60h
+		mov     eax, __CEXT_V(BPA0Header)
 		mov     ecx, edi
 		call    __CEXT_F(fread__clib3r)
 		mov     eax, edi
@@ -95,7 +95,7 @@ ___42a35h:
 		mov     [esp+70h], edi
 		test    eax, eax
 		jle     ___42a8fh
-		mov     ebx, ___24bb60h
+		mov     ebx, __CEXT_V(BPA0Header)
 ___42a63h:
 		lea     edx, [esp+50h]
 		mov     eax, ebx
@@ -117,7 +117,7 @@ ___42a8fh:
 		cmp     ebp, 0ffffffffh
 		jne     ___42b4ch
 		mov     edi, esp
-		mov     esi, ___18309ch
+		mov     esi, __CEXT_V(___18309ch)
 		movsd   
 		movsd   
 		movsd   
@@ -143,7 +143,7 @@ ___42ab2h:
 		jne     ___42ab2h
 ___42acah:
 		pop     edi
-		mov     esi, ___1830ach
+		mov     esi, __CEXT_V(___1830ach)
 		mov     edi, esp
 		push    edi
 		sub     ecx, ecx
@@ -185,7 +185,7 @@ ___42b03h:
 		jne     ___42b03h
 ___42b1bh:
 		pop     edi
-		mov     esi, ___1830b0h
+		mov     esi, __CEXT_V(___1830b0h)
 		mov     edi, esp
 		push    edi
 		sub     ecx, ecx
@@ -209,7 +209,7 @@ ___42b44h:
 		mov     eax, esp
 		call    __CEXT_F(exitErrorMsg__dr)
 ___42b4ch:
-		mov     edx, ___183098h
+		mov     edx, __CEXT_V(___183098h)
 		mov     eax, [esp+68h]
 		call    __CEXT_F(fopen__clib3r)
 		xor     ebx, ebx
@@ -226,7 +226,7 @@ ___42b4ch:
 		add     ebx, ebp
 ___42b7bh:
 		mov     esi, [esp+70h]
-		mov     ecx, [eax+___24bb6dh]
+		mov     ecx, [eax+__CEXT_V(___24bb6dh)]
 		add     eax, 11h
 		inc     esi
 		add     edx, ecx
@@ -241,7 +241,7 @@ ___42b93h:
 		mov     ecx, edi
 		shl     eax, 4
 		mov     ebx, 1
-		mov     edx, [eax+ebp+___24bb6dh]
+		mov     edx, [eax+ebp+__CEXT_V(___24bb6dh)]
 		mov     eax, [esp+6ch]
 		call    __CEXT_F(fread__clib3r)
 		mov     eax, edi
