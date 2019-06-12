@@ -1,7 +1,7 @@
 typedef unsigned char 	byte;
 typedef unsigned long	dword;
 
-	extern GXType;
+	extern dword GXType;
 
     void * memcpy__clib3r(void * dest, const void * src, dword n);
 
