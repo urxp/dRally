@@ -1,3 +1,4 @@
+%include "macros.inc"
 
 	extern 	__CHK
 	extern 	GXBackBuffer
@@ -10,7 +11,7 @@
 	extern 	GreyFont0Ptr
 	extern 	LightBlueFont0Ptr
 
-	extern 	memcpy__clib3r
+	extern 	__CEXT_F(memcpy__clib3r)
 
 %include "layout.inc"
 

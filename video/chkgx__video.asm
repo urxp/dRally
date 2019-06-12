@@ -1,13 +1,13 @@
+%include "macros.inc"
 
 	extern 	__CHK
-	extern 	GXType
+	extern 	__CEXT_V(GXType)
 
 %include 'layout.inc'
 
 section @text
 
-global chkgx__video
-chkgx__video:
+__GDECL(__CEXT_F(chkgx__video))
 		push    1a8h
 		call    __CHK
 		push    ebx
@@ -16,7 +16,7 @@ chkgx__video:
 		push    esi
 		push    edi
 		sub     esp, 190h
-		mov     edx, [GXType]
+		mov     edx, [__CEXT_V(GXType)]
 		mov     ecx, 190h
 		mov     esi, 0c0000h
 		mov     edi, esp
@@ -67,7 +67,7 @@ ___1135dh:
 		cmp     eax, 190h
 		jl      short ___1132eh
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-		mov     [GXType], edx
+		mov     [__CEXT_V(GXType)], edx
 		add     esp, 190h
 		pop     edi
 		pop     esi

@@ -1,3 +1,4 @@
+%include "macros.inc"
 
     extern  __CHK
     extern  ___24e47ch
@@ -17,7 +18,7 @@
     extern  ___199fbch
     extern  ___199fc4h
     extern  RMSerialPtr
-    extern  memcpy__clib3r
+    extern  __CEXT_F(memcpy__clib3r)
     extern  ___199fa4h
     extern  ___24e468h
     extern  ___24e488h
@@ -135,7 +136,7 @@ ___62dcbh:
 		mov     eax, [RMSerialPtr]
 		mov     ebx, 2
 		mov     edx, esp
-		call    near memcpy__clib3r
+		call    near __CEXT_F(memcpy__clib3r)
 		mov     eax, [___24e46ch]
 		shr     eax, 4
 		and     eax, 0ffffh
@@ -144,7 +145,7 @@ ___62dcbh:
 		add     eax, byte 2
 		mov     ebx, 2
 		lea     edx, [esp+4]
-		call    near memcpy__clib3r
+		call    near __CEXT_F(memcpy__clib3r)
 		mov     eax, [___24e46ch]
 		and     eax, byte 0fh
 		mov     [esp+4], eax
@@ -152,7 +153,7 @@ ___62dcbh:
 		add     eax, byte 4
 		mov     ebx, 2
 		lea     edx, [esp+4]
-		call    near memcpy__clib3r
+		call    near __CEXT_F(memcpy__clib3r)
 		mov     eax, [___24e4c4h]
 		shr     eax, 4
 		and     eax, 0ffffh
@@ -161,7 +162,7 @@ ___62dcbh:
 		add     eax, byte 6
 		mov     ebx, 2
 		lea     edx, [esp+4]
-		call    near memcpy__clib3r
+		call    near __CEXT_F(memcpy__clib3r)
 		mov     eax, [___24e4c4h]
 		and     eax, byte 0fh
 		mov     [esp+4], eax
@@ -169,14 +170,14 @@ ___62dcbh:
 		add     eax, byte 8
 		mov     ebx, 2
 		lea     edx, [esp+4]
-		call    near memcpy__clib3r
+		call    near __CEXT_F(memcpy__clib3r)
 		mov     eax, [___199fc4h]
 		mov     [esp+4], eax
 		mov     eax, [RMSerialPtr]
 		add     eax, byte 0ah
 		mov     ebx, 2
 		lea     edx, [esp+4]
-		call    near memcpy__clib3r
+		call    near __CEXT_F(memcpy__clib3r)
 		mov     cl, [esp+8]
 		mov     eax, 1
 		shl     eax, cl
@@ -185,7 +186,7 @@ ___62dcbh:
 		add     eax, byte 0ch
 		mov     ebx, 2
 		lea     edx, [esp+4]
-		call    near memcpy__clib3r
+		call    near __CEXT_F(memcpy__clib3r)
 		mov     eax, [RMSerialPtr]
 		mov     [esp+4], eax
 		lea     esi, [eax+0eh]

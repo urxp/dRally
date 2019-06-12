@@ -1,6 +1,7 @@
+%include "macros.inc"
 
 	extern 	__CHK
-	extern 	chkgx__video
+	extern 	__CEXT_F(chkgx__video)
 	extern 	setbank__video
 
 %include 'layout.inc'
@@ -11,7 +12,7 @@ global chkbankswitch__video
 chkbankswitch__video:
 		push    4
 		call    __CHK
-		call    chkgx__video
+		call    __CEXT_F(chkgx__video)
 		xor     eax, eax
 		call    setbank__video
 		mov     eax, 0a0000h

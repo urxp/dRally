@@ -7373,8 +7373,7 @@ ___196a84h:
 db	0,0,0,0
 ___196a88h:
 db	0,0,0,0
-global GXType
-GXType:
+__GDECL(__CEXT_V(GXType))
 db	0,0,0,0
 global ToneDialing
 ToneDialing:

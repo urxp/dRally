@@ -1,9 +1,9 @@
+%include "macros.inc"
 %include "layout.inc"
 
 section @text
 
-global memcpy__clib3r
-memcpy__clib3r:
+__GDECL(__CEXT_F(memcpy__clib3r))
 		push    ecx
 		push    esi
 		push    edi

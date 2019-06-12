@@ -1,6 +1,7 @@
+%include "macros.inc"
 
 	extern 	__CHK
-	extern 	GXType
+	extern 	__CEXT_V(GXType)
 
 %include 'layout.inc'
 
@@ -13,7 +14,7 @@ setbank__video:
 		push    ebx
 		push    edx
 		mov     edx, eax
-		mov     eax, [GXType]
+		mov     eax, [__CEXT_V(GXType)]
 		cmp     eax, 1
 		jb      ___12bf6h
 		jbe     ___12c10h
