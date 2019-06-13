@@ -33,7 +33,7 @@
     extern  ___68d44h
     extern  ___68d30h
 
-    extern  printf__clib3r
+    extern  __CEXT_F(printf__clib3r)
     extern  strncmp__clib3r
     extern  getenv__clib3r
     extern  int386__clib3r

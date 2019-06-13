@@ -1,9 +1,9 @@
 %include "macros.inc"
 
     extern  __CHK
-    extern  cdrom_ini
+    extern  __CEXT_V(cdrom_ini)
     extern  __CEXT_V(string__DR_IDF)
-    extern  getFileSize__dr
+    extern  __CEXT_F(getFileSize__dr)
     extern  malloc__clib3r
     extern  free__clib3r
     extern  __CEXT_V(rb_m)
@@ -25,7 +25,7 @@ __GDECL(__CEXT_F(chkcdrom__dr))
 		push    edi
 		push    ebp
 		sub     esp, 110h
-		mov     esi, cdrom_ini
+		mov     esi, __CEXT_V(cdrom_ini)
 		mov     edi, esp
 		push    edi
 ___3e4beh:
@@ -65,7 +65,7 @@ ___3e504h:
 		pop     edi
 		mov     eax, esp
 		mov     [esp+10ch], edx
-		call 	getFileSize__dr
+		call 	__CEXT_F(getFileSize__dr)
 		cmp     eax, 186cf392h
 		jge     ___3e521h
 		xor     edx, edx
@@ -76,7 +76,7 @@ ___3e521h:
 		mov     edi, eax
 		mov     esi, eax
 		mov     eax, esp
-		call    getFileSize__dr
+		call    __CEXT_F(getFileSize__dr)
 		cmp     eax, 18033688h
 		jge     ___3e555h
 ___3e53dh:

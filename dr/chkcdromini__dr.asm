@@ -4,15 +4,15 @@
     extern  __CEXT_V(rb_m)
     extern  __CEXT_V(string__CDROM_INI)
     extern  __CEXT_F(fopen__clib3r)
-    extern  cdrom_ini
+    extern  __CEXT_V(cdrom_ini)
     extern  ___182bc8h
     extern  fscanf__clib3r
     extern  ___182bcch
     extern  ___182bd0h
-    extern  printf__clib3r
-    extern  restore__keyboard
-    extern  ___5ec04h
-    extern  exit__clib3r
+    extern  __CEXT_F(printf__clib3r)
+    extern  __CEXT_F(restore__keyboard)
+    extern  __CEXT_F(___5ec04h)
+    extern  __CEXT_F(exit__clib3r)
 
 %include "layout.inc"
 
@@ -31,22 +31,22 @@ chkcdromini__dr:
 		call    __CEXT_F(fopen__clib3r)
 		test    eax, eax
 		je      @nocdromini
-		push    cdrom_ini
+		push    __CEXT_V(cdrom_ini)
 		push    ___182bc8h              ;; "%s"
 		push    eax
 		call    fscanf__clib3r
 		add     esp, 0ch
-		mov     edi, cdrom_ini
+		mov     edi, __CEXT_V(cdrom_ini)
 		sub     ecx, ecx
 		dec     ecx
 		xor     eax, eax
 		repne scasb   
 		not     ecx
 		dec     ecx
-		cmp     byte [ecx+cdrom_ini-1], 5ch  ;; '\'
+		cmp     byte [ecx+__CEXT_V(cdrom_ini)-1], 5ch  ;; '\'
 		je      @ok
 		mov     esi, ___182bcch             ;; "\"
-		mov     edi, cdrom_ini
+		mov     edi, __CEXT_V(cdrom_ini)
 		push    edi
 		sub     ecx, ecx
 		dec     ecx
@@ -73,12 +73,12 @@ ___3e443h:
 		retn    
 @nocdromini:
 		push    ___182bd0h
-		call    printf__clib3r
+		call    __CEXT_F(printf__clib3r)
 		add     esp, 4
-		call    restore__keyboard
-		call    ___5ec04h
+		call    __CEXT_F(restore__keyboard)
+		call    __CEXT_F(___5ec04h)
 		mov     eax, 70h
-		call    exit__clib3r
+		call    __CEXT_F(exit__clib3r)
 @ok:
 		pop     edi
 		pop     esi

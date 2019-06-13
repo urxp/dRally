@@ -27,7 +27,7 @@ __GDECL(__CEXT_V(___18011ch))
 db  " file!",0,0  
 __GDECL(__CEXT_V(string__MUSICS_BPA))
 db	"MUSICS.BPA",0,0
-__GDECL(___180130h)
+__GDECL(__CEXT_V(___180130h))
 db	0,0,0,0
 __GDECL(__CEXT_V(rb_m))
 db	"rb",0,0
@@ -1302,17 +1302,17 @@ ___182990h:
 db	"command should report 6,500K (or 6.7 megs) free extended or expanded memory.",0ah,0,0,0
 ___1829e0h:
 db	"Please consult DRHELP.EXE for more information on how to resolve this problem.",0ah,0
-__GDECL(___182a30h)
+__GDECL(__CEXT_V(___182a30h))
 db	0ah,"DEATH RALLY ERROR: File %s is not found!",0ah,0,0
-__GDECL(___182a5ch)
+__GDECL(__CEXT_V(___182a5ch))
 db	"Please consult DRHELP.EXE for more information on how to resolve this problem.",0ah,0
-__GDECL(___182aach)
+__GDECL(__CEXT_V(___182aach))
 db	0ah,"DEATH RALLY ERROR: File %s is not in original form!",0ah,0,0,0
-__GDECL(___182ae4h)
+__GDECL(__CEXT_V(___182ae4h))
 db	"Please consult DRHELP.EXE for more information on how to resolve this problem.",0ah,0
-__GDECL(___182b34h)
+__GDECL(__CEXT_V(___182b34h))
 db	0ah,"DEATH RALLY ERROR: File %s is not in original form!",0ah,0,0,0
-__GDECL(___182b6ch)
+__GDECL(__CEXT_V(___182b6ch))
 db	"Please consult DRHELP.EXE for more information on how to resolve this problem.",0ah,0
 __GDECL(__CEXT_V(string__CDROM_INI))
 db	"CDROM.INI",0,0,0
@@ -7469,7 +7469,6 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 __GDECL(__CEXT_V(drfiles_list))
 db	"ENGINE.BPA",0,0,0
-__GDECL(__CEXT_V(drfile_size))
 db	79h,0e8h,5,0
 db  "IBFILES.BPA",0,0
 db  0e5h,4fh,1,0
@@ -7498,11 +7497,8 @@ db  12h,0ddh,3,0
 db	"TR9.BPA",0,0,0,0,0,0
 db  23h,86h,6,0
 db  0,0
-global animfiles_list
-animfiles_list:
+__GDECL(__CEXT_V(animfiles_list))
 db	"SANIM.HAF",0,0,0,0
-global animfile_size
-animfile_size:
 db	40h,50h,48h,1
 db  "ENDANI.HAF",0,0,0
 db  6bh,0edh,39h,0

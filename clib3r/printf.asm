@@ -1,4 +1,4 @@
-
+%include "macros.inc"
     extern  ___iob
     extern  __fprtf__clib3r
 
@@ -6,8 +6,7 @@
 
 section @text
 
-global printf__clib3r		   
-printf__clib3r:
+__GDECL(__CEXT_F(printf__clib3r))
 		push    ebx
 		push    edx
 		sub     esp, 4

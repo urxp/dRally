@@ -493,14 +493,14 @@ ___10b80h:
 		mov     [esp+408h], dl
 		mov     edx, ebx
 		mov     bl, cl
-		mov     al, [___180130h]
+		mov     al, [__CEXT_V(___180130h)]
 		mov     ecx, 1
 		mov     [esp+300h], al
-		mov     ah, [___1a214ah]
+		mov     ah, [__CEXT_V(CDPath)]
 		mov     [esp+404h], ecx
 		cmp     ah, 2
 		jne     short ___10bf1h
-		mov     esi, cdrom_ini
+		mov     esi, __CEXT_V(cdrom_ini)
 		lea     edi, [esp+300h]
 		push    edi
 		sub     ecx, ecx
@@ -1067,8 +1067,8 @@ ___1123ch:
 		call    near ___24ec0h
 		call    near ___2fc50h
 		call    near ___64a28h
-		call    near ___5ec04h
-		call    near restore__keyboard
+		call    near __CEXT_F(___5ec04h)
+		call    near __CEXT_F(restore__keyboard)
 		call    near setmode3h__video
 		mov     eax, [___199fbch]
 		sub     eax, byte 64h
@@ -1093,13 +1093,13 @@ ___112a2h:
 ___112a9h:
 		push    __CEXT_V(___180268h)
 ___112aeh:
-		call    near printf__clib3r
+		call    near __CEXT_F(printf__clib3r)
 		add     esp, byte 4
 		push    __CEXT_V(___180290h)
-		call    near printf__clib3r
+		call    near __CEXT_F(printf__clib3r)
 		add     esp, byte 4
 		mov     eax, 70h
-		call    near exit__clib3r
+		call    near __CEXT_F(exit__clib3r)
 		pop     edx
 		pop     ecx
 		pop     ebx
@@ -9722,7 +9722,7 @@ ___1899ah:
 		xor     dh, dh
 		mov     [esp+eax+10h], dh
 		mov     eax, esp
-		call    near getFileSize__dr
+		call    near __CEXT_F(getFileSize__dr)
 		test    eax, eax
 		jle     short ___189c7h
 		mov     eax, [esp+18h]
@@ -10032,7 +10032,7 @@ ___18d52h:
 ___18d6ah:
 		pop     edi
 		lea     eax, [esp+10h]
-		call    near getFileSize__dr
+		call    near __CEXT_F(getFileSize__dr)
 		test    eax, eax
 		jle     short ___18d88h
 		mov     eax, ___186f82h
@@ -10125,7 +10125,7 @@ ___18ea3h:
 		pop     edi
 		jmp     short ___18eaeh
 ___18ea6h:
-		mov     al, [___180130h]
+		mov     al, [__CEXT_V(___180130h)]
 		mov     [esp], al
 ___18eaeh:
 		push    byte 0
@@ -11181,7 +11181,7 @@ ___19be4h:
 		call    near ___23488h
 		call    near footer__dr
 		call    near ___12d6ch
-		mov     dl, [___180130h]
+		mov     dl, [__CEXT_V(___180130h)]
 		mov     [esp+108h], edi
 		xor     eax, eax
 ___19c27h:
@@ -11783,7 +11783,7 @@ ___1a3e7h:
 		jne     short ___1a446h
 ___1a422h:
 		imul    ebx, ebx, byte 0bh
-		mov     al, [___180130h]
+		mov     al, [__CEXT_V(___180130h)]
 		mov     [ebx+___1a0ffch], al
 		xor     eax, eax
 		mov     ecx, 1
@@ -12874,14 +12874,14 @@ ___1b140h:
 		xor     edx, edx
 		mov     [esp+0ch], ebx
 		call    near __STOSB
-		mov     dl, [___180130h]
+		mov     dl, [__CEXT_V(___180130h)]
 		xor     eax, eax
 ___1b18eh:
 		add     eax, byte 20h
 		mov     [eax+___19deb0h], dl
 		cmp     eax, dword 80h
 		jne     short ___1b18eh
-		mov     dl, [___180130h]
+		mov     dl, [__CEXT_V(___180130h)]
 		xor     eax, eax
 ___1b1a6h:
 		add     eax, byte 20h
@@ -13016,13 +13016,13 @@ ___1b333h:
 		xor     edx, edx
 		mov     dl, [ebp+0]
 		mov     ebx, edx
-		mov     dl, [___180130h]
+		mov     dl, [__CEXT_V(___180130h)]
 		shl     ebx, 5
 		inc     eax
 		mov     [ebx+___19ded0h], dl
 		cmp     eax, byte 4
 		jl      short ___1b333h
-		mov     dl, [___180130h]
+		mov     dl, [__CEXT_V(___180130h)]
 		xor     eax, eax
 ___1b357h:
 		xor     ebx, ebx
@@ -13105,7 +13105,7 @@ ___1b423h:
 		xor     edx, edx
 		mov     dl, [ebp+0]
 		mov     ebx, edx
-		mov     dl, [___180130h]
+		mov     dl, [__CEXT_V(___180130h)]
 		shl     ebx, 5
 		inc     eax
 		mov     [ebx+___19ded0h], dl
@@ -13116,7 +13116,7 @@ ___1b441h:
 		xor     edx, edx
 		mov     dl, [ebp+0]
 		mov     ebx, edx
-		mov     dl, [___180130h]
+		mov     dl, [__CEXT_V(___180130h)]
 		shl     ebx, 5
 		inc     eax
 		mov     [ebx+___19dedbh], dl
@@ -13273,7 +13273,7 @@ ___1b5f6h:
 		xor     edx, edx
 		mov     dl, [ebp+0]
 		mov     ebx, edx
-		mov     dl, [___180130h]
+		mov     dl, [__CEXT_V(___180130h)]
 		shl     ebx, 5
 		inc     eax
 		mov     [ebx+___19ded0h], dl
@@ -13284,7 +13284,7 @@ ___1b614h:
 		xor     edx, edx
 		mov     dl, [ebp+0]
 		mov     ebx, edx
-		mov     dl, [___180130h]
+		mov     dl, [__CEXT_V(___180130h)]
 		shl     ebx, 5
 		inc     eax
 		mov     [ebx+___19dedbh], dl
@@ -13403,13 +13403,13 @@ ___1b74dh:
 		xor     edx, edx
 		mov     dl, [ebp+0]
 		mov     ebx, edx
-		mov     dl, [___180130h]
+		mov     dl, [__CEXT_V(___180130h)]
 		shl     ebx, 5
 		inc     eax
 		mov     [ebx+___19ded0h], dl
 		cmp     eax, byte 4
 		jl      short ___1b74dh
-		mov     bl, [___180130h]
+		mov     bl, [__CEXT_V(___180130h)]
 		xor     eax, eax
 ___1b771h:
 		xor     edx, edx
@@ -13644,7 +13644,7 @@ ___1ba53h:
 		xor     edx, edx
 		mov     dl, [esp+20h]
 		mov     ebx, edx
-		mov     dl, [___180130h]
+		mov     dl, [__CEXT_V(___180130h)]
 		shl     ebx, 5
 		inc     eax
 		mov     [ebx+___19ded0h], dl
@@ -13655,7 +13655,7 @@ ___1ba72h:
 		xor     edx, edx
 		mov     dl, [esp+20h]
 		mov     ebx, edx
-		mov     dl, [___180130h]
+		mov     dl, [__CEXT_V(___180130h)]
 		shl     ebx, 5
 		inc     eax
 		mov     [ebx+___19dedbh], dl
@@ -15149,7 +15149,7 @@ ___1ccaah:
 		cmp     edx, byte 15h
 		jl      short ___1cc8ch
 		mov     ebx, RowBoxBuffers
-		mov     al, [___180130h]
+		mov     al, [__CEXT_V(___180130h)]
 		xor     edx, edx
 		mov     [___1a1dbah], al
 		lea     ecx, [ebx+96h]
@@ -15552,7 +15552,7 @@ ___1d134h:
 		mov     ecx, 6dh
 		mov     ebx, 27fh
 		mov     edx, 173h
-		mov     al, [___180130h]
+		mov     al, [__CEXT_V(___180130h)]
 		mov     edi, ___186a3ch
 		mov     [___1a1dbah], al
 		xor     eax, eax
@@ -15950,7 +15950,7 @@ ___1d602h:
 		cmp     edx, byte 15h
 		jl      short ___1d5e4h
 		mov     ecx, 6dh
-		mov     al, [___180130h]
+		mov     al, [__CEXT_V(___180130h)]
 		mov     edx, 173h
 		mov     [___1a1dbah], al
 		xor     eax, eax
@@ -17420,7 +17420,7 @@ ___1e7ebh:
 		mov     [edx+___1a1f4dh], al
 		cmp     edx, byte 15h
 		jl      short ___1e7cdh
-		mov     al, [___180130h]
+		mov     al, [__CEXT_V(___180130h)]
 		mov     [___1a1dbah], al
 ___1e813h:
 		cmp     dword [___196a78h], byte 0
@@ -22806,11 +22806,11 @@ ___22808h:
 		push    edi
 		push    ebp
 		sub     esp, byte 70h
-		mov     al, [___180130h]
+		mov     al, [__CEXT_V(___180130h)]
 		mov     [esp], al
-		cmp     byte [___1a214ah], 2
+		cmp     byte [__CEXT_V(CDPath)], 2
 		jne     short ___22855h
-		mov     esi, cdrom_ini
+		mov     esi, __CEXT_V(cdrom_ini)
 		mov     edi, esp
 		push    edi
 		sub     ecx, ecx
@@ -22854,7 +22854,7 @@ ___22865h:
 ___2287dh:
 		pop     edi
 		mov     eax, esp
-		call    near getFileSize__dr
+		call    near __CEXT_F(getFileSize__dr)
 		test    eax, eax
 		jle     short ___228abh
 		push    byte 78h
@@ -24654,7 +24654,7 @@ ___23e96h:
 		lea     edx, [ecx+1]
 		call    near ___23488h
 		call    near ___232f8h
-		mov     al, [___180130h]
+		mov     al, [__CEXT_V(___180130h)]
 		lea     edi, [esp+98h]
 		mov     [esp], al
 		sub     ecx, ecx
@@ -26237,7 +26237,7 @@ ___254ceh:
 		mov     eax, [edx+eax*4+___18e220h]
 		mov     edx, esp
 		call    near itoa
-		mov     al, [___180130h]
+		mov     al, [__CEXT_V(___180130h)]
 		mov     edi, esp
 		mov     [esp+14h], al
 		sub     ecx, ecx
@@ -26286,7 +26286,7 @@ ___2558ch:
 		mov     edx, esp
 		mov     eax, [eax*4+___1a0228h]
 		call    near itoa
-		mov     al, [___180130h]
+		mov     al, [__CEXT_V(___180130h)]
 		mov     edi, esp
 		mov     [esp+14h], al
 		sub     ecx, ecx
@@ -32114,7 +32114,7 @@ ___2a1afh:
 		mov     eax, ___1820b0h
 		call    near ___13094h
 		mov     edx, 15eaah
-		mov     eax, ___180130h
+		mov     eax, __CEXT_V(___180130h)
 		call    near ___13094h
 		mov     edx, 186aah
 		mov     eax, ___1820c8h
@@ -37483,7 +37483,7 @@ ___2eb07h:
 		mov     eax, ___1820b0h
 		call    near ___13094h
 		mov     edx, 15eaah
-		mov     eax, ___180130h
+		mov     eax, __CEXT_V(___180130h)
 		call    near ___13094h
 		mov     edx, 186aah
 		mov     eax, ___18224ch
@@ -39708,7 +39708,7 @@ ___308efh:
 		mov     [ebp+___1a1f67h], bl
 		mov     ebx, 0ah
 		call    near itoa
-		mov     al, [___180130h]
+		mov     al, [__CEXT_V(___180130h)]
 		lea     edi, [esp+50h]
 		mov     [esp], al
 		sub     ecx, ecx
@@ -42445,7 +42445,7 @@ ___32aa7h:
 		lea     edx, [esp+3ch]
 		mov     eax, [eax+___1a0228h]
 		call    near itoa
-		mov     al, [___180130h]
+		mov     al, [__CEXT_V(___180130h)]
 		lea     edi, [esp+3ch]
 		mov     [esp], al
 		sub     ecx, ecx
@@ -45315,7 +45315,7 @@ ___352e8h:
 		mov     [ecx+___1a1f4dh], al
 		cmp     ecx, byte 15h
 		jl      short ___352c4h
-		mov     al, [___180130h]
+		mov     al, [__CEXT_V(___180130h)]
 		xor     cl, cl
 		mov     [___1a1dbah], al
 		mov     [RowBox0Colors_R5], cl
@@ -45490,7 +45490,7 @@ ___354c1h:
 		mov     [ecx+___1a1f4dh], al
 		cmp     ecx, byte 15h
 		jl      short ___3549dh
-		mov     al, [___180130h]
+		mov     al, [__CEXT_V(___180130h)]
 		xor     bl, bl
 		mov     [___1a1dbah], al
 		mov     [RowBox0Colors_R5], bl
@@ -50441,11 +50441,11 @@ ___391b2h:
 		jne     near ___39617h
 		call    near ___649a8h
 		call    near ___64a28h
-		mov     al, [___180130h]
+		mov     al, [__CEXT_V(___180130h)]
 		mov     [esp], al
-		cmp     byte [___1a214ah], 2
+		cmp     byte [__CEXT_V(CDPath)], 2
 		jne     short ___39215h
-		mov     esi, cdrom_ini
+		mov     esi, __CEXT_V(cdrom_ini)
 		mov     edi, esp
 		push    edi
 		sub     ecx, ecx
@@ -50489,7 +50489,7 @@ ___39225h:
 ___3923dh:
 		pop     edi
 		mov     eax, esp
-		call    near getFileSize__dr
+		call    near __CEXT_F(getFileSize__dr)
 		test    eax, eax
 		jle     short ___39275h
 		push    byte 78h
@@ -50632,12 +50632,12 @@ ___39439h:
 		jne     near ___39617h
 		call    near ___649a8h
 		call    near ___64a28h
-		mov     al, [___180130h]
-		mov     bl, [___1a214ah]
+		mov     al, [__CEXT_V(___180130h)]
+		mov     bl, [__CEXT_V(CDPath)]
 		mov     [esp], al
 		cmp     bl, 2
 		jne     short ___3949eh
-		mov     esi, cdrom_ini
+		mov     esi, __CEXT_V(cdrom_ini)
 		mov     edi, esp
 		push    edi
 		sub     ecx, ecx
@@ -50681,7 +50681,7 @@ ___394aeh:
 ___394c6h:
 		pop     edi
 		mov     eax, esp
-		call    near getFileSize__dr
+		call    near __CEXT_F(getFileSize__dr)
 		test    eax, eax
 		jle     short ___394feh
 		push    byte 78h
@@ -51778,8 +51778,7 @@ ___3a1c7h:
 		pop     ebx
 		retn    
 db	8dh,40h,0
-global getFileSize__dr
-getFileSize__dr:
+__GDECL(__CEXT_F(getFileSize__dr))
 		push    14h
 		call    near __CHK
 		push    ebx
@@ -52132,7 +52131,7 @@ ___3a4e3h:
 ___3a4fbh:
 		pop     edi
 		mov     eax, esp
-		call    near getFileSize__dr
+		call    near __CEXT_F(getFileSize__dr)
 		cmp     eax, byte 1
 		jl      short ___3a512h
 		inc     ebp
@@ -52631,18 +52630,18 @@ ___3aaf8h:
 		call    near ___24ec0h
 		call    near ___2fc50h
 		call    near ___64a28h
-		call    near ___5ec04h
-		call    near restore__keyboard
+		call    near __CEXT_F(___5ec04h)
+		call    near __CEXT_F(restore__keyboard)
 		cmp     dword [___19bd60h], byte 0
 		je      short ___3ab3bh
 		call    near ___623d4h
 ___3ab3bh:
 		call    near setmode3h__video
 		push    ___1826f4h
-		call    near printf__clib3r
+		call    near __CEXT_F(printf__clib3r)
 		add     esp, byte 4
 		mov     eax, 70h
-		call    near exit__clib3r
+		call    near __CEXT_F(exit__clib3r)
 		pop     edx
 		pop     ecx
 		pop     ebx
@@ -53054,7 +53053,7 @@ ___3b04fh:
 		shl     eax, 2
 		push    12ch
 		sub     eax, edx
-		mov     dl, [___180130h]
+		mov     dl, [__CEXT_V(___180130h)]
 		shl     eax, 2
 		push    byte 0ah
 		mov     [eax+___1a01e0h], dl
@@ -53896,16 +53895,16 @@ readConfig__dr:
 		call    near filelength__clib3r
 		test    eax, eax
 		jg      short ___3bbach
-		call    near ___5ec04h
-		call    near restore__keyboard
+		call    near __CEXT_F(___5ec04h)
+		call    near __CEXT_F(restore__keyboard)
 		call    near setmode3h__video
 		push    ___18274ch
-		call    near printf__clib3r
+		call    near __CEXT_F(printf__clib3r)
 		add     esp, byte 4
 		mov     eax, edi
 		call    near close__clib3r
 		mov     eax, 70h
-		call    near exit__clib3r
+		call    near __CEXT_F(exit__clib3r)
 ___3bbach:
 		mov     eax, esi
 		call    near filelength__clib3r
@@ -54849,7 +54848,7 @@ ___3c668h:
 		mov     edi, 4
 		mov     ebp, 1
 		mov     edx, 8000h
-		mov     al, [___180130h]
+		mov     al, [__CEXT_V(___180130h)]
 		xor     ecx, ecx
 		mov     [ConfigSFXVolume], ebx
 		mov     [___1a1e50h], ecx
@@ -56062,11 +56061,11 @@ intro__anim:
 		push    esi
 		push    edi
 		sub     esp, byte 64h
-		mov     al, [___180130h]
+		mov     al, [__CEXT_V(___180130h)]
 		mov     [esp], al
-		cmp     byte [___1a214ah], 2
+		cmp     byte [__CEXT_V(CDPath)], 2
 		jne     short ___3d954h
-		mov     esi, cdrom_ini
+		mov     esi, __CEXT_V(cdrom_ini)
 		mov     edi, esp
 		push    edi
 		sub     ecx, ecx
@@ -56110,7 +56109,7 @@ ___3d964h:
 ___3d97ch:
 		pop     edi
 		mov     eax, esp
-		call    near getFileSize__dr
+		call    near __CEXT_F(getFileSize__dr)
 		test    eax, eax
 		jle     short ___3d9b4h
 		push    byte 78h
@@ -56195,11 +56194,11 @@ showPreviewMenu__dr:
 		push    edi
 		push    ebp
 		sub     esp, byte 74h
-		mov     al, [___180130h]
+		mov     al, [__CEXT_V(___180130h)]
 		mov     [esp], al
-		cmp     byte [___1a214ah], 2
+		cmp     byte [__CEXT_V(CDPath)], 2
 		jne     short ___3da95h
-		mov     esi, cdrom_ini
+		mov     esi, __CEXT_V(cdrom_ini)
 		mov     edi, esp
 		push    edi
 		sub     ecx, ecx
@@ -56243,7 +56242,7 @@ ___3daa5h:
 ___3dabdh:
 		pop     edi
 		mov     eax, esp
-		call    near getFileSize__dr
+		call    near __CEXT_F(getFileSize__dr)
 		test    eax, eax
 		setg    al
 		mov     ecx, 4b000h
@@ -56808,21 +56807,21 @@ chkmemory__dr:
 		cmp     eax, dword 57b0cch
 		jge     short ___3e1c2h
 		push    ___182940h
-		call    near printf__clib3r
+		call    near __CEXT_F(printf__clib3r)
 		add     esp, byte 4
 		push    ___182944h
-		call    near printf__clib3r
+		call    near __CEXT_F(printf__clib3r)
 		add     esp, byte 4
 		push    ___182990h
-		call    near printf__clib3r
+		call    near __CEXT_F(printf__clib3r)
 		add     esp, byte 4
 		push    ___1829e0h
-		call    near printf__clib3r
+		call    near __CEXT_F(printf__clib3r)
 		add     esp, byte 4
-		call    near restore__keyboard
-		call    near ___5ec04h
+		call    near __CEXT_F(restore__keyboard)
+		call    near __CEXT_F(___5ec04h)
 		mov     eax, 70h
-		call    near exit__clib3r
+		call    near __CEXT_F(exit__clib3r)
 ___3e1c2h:
 		retn    
 ;db	90h    
@@ -56938,13 +56937,13 @@ allocMemSafe:
 		mov     esi, eax
 		test    eax, eax
 		jne     short ___3f774h
-		call    near ___5ec04h
+		call    near __CEXT_F(___5ec04h)
 		call    near setmode3h__video
 		push    ___182df4h
-		call    near printf__clib3r
+		call    near __CEXT_F(printf__clib3r)
 		add     esp, byte 4
 		push    ___182e20h
-		call    near printf__clib3r
+		call    near __CEXT_F(printf__clib3r)
 		mov     edx, [___19bd60h]
 		add     esp, byte 4
 		test    edx, edx
@@ -56952,7 +56951,7 @@ allocMemSafe:
 		call    near ___623d4h
 ___3f76ah:
 		mov     eax, 70h
-		call    near exit__clib3r
+		call    near __CEXT_F(exit__clib3r)
 ___3f774h:
 		mov     eax, esi
 		pop     esi
@@ -60689,14 +60688,14 @@ __GDECL(__CEXT_F(exitErrorMsg__dr))
 		call    near setmode3h__video
 		push    esi
 		push    ___183030h
-		call    near printf__clib3r
+		call    near __CEXT_F(printf__clib3r)
 		add     esp, byte 8
 		push    ___183048h
-		call    near printf__clib3r
+		call    near __CEXT_F(printf__clib3r)
 		add     esp, byte 4
-		call    near restore__keyboard
+		call    near __CEXT_F(restore__keyboard)
 		mov     eax, 70h
-		call    near exit__clib3r
+		call    near __CEXT_F(exit__clib3r)
 		pop     esi
 		pop     edx
 		pop     ecx
@@ -62301,14 +62300,14 @@ dd	___4402bh
 		mov     [___199f9ch], edx
 		mov     [___199fach], ecx
 		mov     [___243cf4h], esi
-		call    near printf__clib3r
+		call    near __CEXT_F(printf__clib3r)
 		add     esp, byte 4
 		mov     eax, 3f8h
 		call    near ___61b88h
 		test    eax, eax
 		je      short ___43f03h
 		push    ___1833ach
-		call    near printf__clib3r
+		call    near __CEXT_F(printf__clib3r)
 		add     esp, byte 4
 ___43f03h:
 		mov     eax, 2f8h
@@ -62316,7 +62315,7 @@ ___43f03h:
 		test    eax, eax
 		je      short ___43f1eh
 		push    ___1833b0h
-		call    near printf__clib3r
+		call    near __CEXT_F(printf__clib3r)
 		add     esp, byte 4
 ___43f1eh:
 		mov     eax, 3e8h
@@ -62324,7 +62323,7 @@ ___43f1eh:
 		test    eax, eax
 		je      short ___43f39h
 		push    ___1833b4h
-		call    near printf__clib3r
+		call    near __CEXT_F(printf__clib3r)
 		add     esp, byte 4
 ___43f39h:
 		mov     eax, 2e8h
@@ -62332,18 +62331,18 @@ ___43f39h:
 		test    eax, eax
 		je      short ___43f54h
 		push    ___1833b8h
-		call    near printf__clib3r
+		call    near __CEXT_F(printf__clib3r)
 		add     esp, byte 4
 ___43f54h:
 		call    near ___633d8h
 		test    eax, eax
 		je      short ___43f6ah
 		push    ___1833bch
-		call    near printf__clib3r
+		call    near __CEXT_F(printf__clib3r)
 		add     esp, byte 4
 ___43f6ah:
 		push    ___1833c0h
-		call    near printf__clib3r
+		call    near __CEXT_F(printf__clib3r)
 		add     esp, byte 4
 		mov     eax, esp
 		push    eax
@@ -62405,7 +62404,7 @@ ___44050h:
 		mov     edx, [___243cf4h]
 		push    edx
 		push    ___1833c8h
-		call    near printf__clib3r
+		call    near __CEXT_F(printf__clib3r)
 		add     esp, byte 8
 		xor     bl, bl
 		call    near ___60a84h
@@ -62428,7 +62427,7 @@ ___44070h:
 		and     eax, 0ffh
 		push    eax
 		push    ___18340ch
-		call    near printf__clib3r
+		call    near __CEXT_F(printf__clib3r)
 		add     esp, byte 8
 ___440b1h:
 		mov     bl, dl
@@ -62439,7 +62438,7 @@ ___440b5h:
 		je      short ___440cdh
 		call    near ___623d4h
 		mov     eax, 70h
-		call    near exit__clib3r
+		call    near __CEXT_F(exit__clib3r)
 ___440cdh:
 		xor     edx, edx
 		xor     eax, eax
@@ -62459,7 +62458,7 @@ ___440cdh:
 		push    ___183438h
 		mov     [___1a116bh], bl
 		mov     [___1a116ah], dh
-		call    near printf__clib3r
+		call    near __CEXT_F(printf__clib3r)
 		mov     eax, [___243ce8h]
 		add     esp, byte 8
 		add     esp, byte 4
@@ -69015,11 +69014,11 @@ ___492f4h:
 		push    ebx
 		push    ecx
 		push    edx
-		call    near restore__keyboard
-		call    near ___5ec04h
+		call    near __CEXT_F(restore__keyboard)
+		call    near __CEXT_F(___5ec04h)
 		call    near setmode3h__video
 		push    ___183e84h
-		call    near printf__clib3r
+		call    near __CEXT_F(printf__clib3r)
 		mov     edx, [___19bd60h]
 		add     esp, byte 4
 		test    edx, edx
@@ -69027,7 +69026,7 @@ ___492f4h:
 		call    near ___623d4h
 ___4932ch:
 		mov     eax, 70h
-		call    near exit__clib3r
+		call    near __CEXT_F(exit__clib3r)
 		pop     edx
 		pop     ecx
 		pop     ebx
@@ -69038,14 +69037,14 @@ ___4932ch:
 ;		push    ebx
 ;		push    ecx
 ;		push    edx
-;		call    near restore__keyboard
-;		call    near ___5ec04h
+;		call    near __CEXT_F(restore__keyboard)
+;		call    near __CEXT_F(___5ec04h)
 ;		call    near setmode3h__video
 ;		push    ___183eb0h
-;		call    near printf__clib3r
+;		call    near __CEXT_F(printf__clib3r)
 ;		add     esp, byte 4
 ;		push    ___183ed8h
-;		call    near printf__clib3r
+;		call    near __CEXT_F(printf__clib3r)
 ;		mov     edx, [___19bd60h]
 ;		add     esp, byte 4
 ;		test    edx, edx
@@ -69053,7 +69052,7 @@ ___4932ch:
 ;		call    near ___623d4h
 ;___49381h:
 ;		mov     eax, 70h
-;		call    near exit__clib3r
+;		call    near __CEXT_F(exit__clib3r)
 ;		pop     edx
 ;		pop     ecx
 ;		pop     ebx
@@ -69139,7 +69138,7 @@ ___4941fh:
 ___49437h:
 		pop     edi
 		mov     eax, esp
-		call    near getFileSize__dr
+		call    near __CEXT_F(getFileSize__dr)
 		cmp     eax, byte 1
 		jl      short ___4944eh
 		inc     ebp
@@ -83750,7 +83749,7 @@ ___56360h:
 ;		call    near _settextposition
 ;		push    esi
 ;		push    ___1843dch
-;		call    near printf__clib3r
+;		call    near __CEXT_F(printf__clib3r)
 ;		add     esp, byte 8
 ;		pop     esi
 ;		pop     edx
@@ -86161,7 +86160,7 @@ ___58b5bh:
 		cmp     byte [edx], 0ffh
 		jne     short ___58b50h
 ___58b69h:
-		call    near ___5ec04h
+		call    near __CEXT_F(___5ec04h)
 		cmp     dword [___19bd60h], byte 0
 		je      short ___58b7ch
 		call    near ___623d4h
@@ -86174,10 +86173,10 @@ ___58b7ch:
 		mov     al, [esp+488h]
 		push    eax
 		push    ___184bf4h
-		call    near printf__clib3r
+		call    near __CEXT_F(printf__clib3r)
 		add     esp, byte 8
 		mov     eax, 0ffh
-		call    near exit__clib3r
+		call    near __CEXT_F(exit__clib3r)
 ___58ba9h:
 		xor     eax, eax
 		mov     al, [esp+488h]
@@ -86185,7 +86184,7 @@ ___58ba9h:
 		push    ___184c3ch
 		inc     edx
 		lea     ecx, [esp+494h]
-		call    near printf__clib3r
+		call    near __CEXT_F(printf__clib3r)
 		mov     al, [edx]
 		add     esp, byte 8
 		test    al, al
@@ -86208,7 +86207,7 @@ ___58beah:
 		push    edi
 		push    ___184c68h
 		mov     ecx, eax
-		call    near printf__clib3r
+		call    near __CEXT_F(printf__clib3r)
 		add     esp, byte 8
 		jmp     short ___58c23h
 ___58bffh:
@@ -86216,7 +86215,7 @@ ___58bffh:
 		push    esi
 		push    ___184c6ch
 		mov     ecx, eax
-		call    near printf__clib3r
+		call    near __CEXT_F(printf__clib3r)
 		add     esp, byte 8
 		jmp     short ___58c23h
 ___58c14h:
@@ -86235,14 +86234,14 @@ ___58c23h:
 		jne     short ___58bceh
 ___58c2bh:
 		push    ___184c70h
-		call    near printf__clib3r
+		call    near __CEXT_F(printf__clib3r)
 		add     esp, byte 4
 		push    ___184c74h
-		call    near printf__clib3r
+		call    near __CEXT_F(printf__clib3r)
 		add     esp, byte 4
 		xor     eax, eax
 		mov     al, [esp+488h]
-		call    near exit__clib3r
+		call    near __CEXT_F(exit__clib3r)
 		add     esp, 470h
 		pop     edi
 		pop     esi
@@ -86326,7 +86325,7 @@ ___58d08h:
 		cmp     byte [esp+8], 20h
 		jne     short ___58d2eh
 		push    ___184cc8h
-		call    near printf__clib3r
+		call    near __CEXT_F(printf__clib3r)
 		add     esp, byte 4
 ___58d2eh:
 		mov     bh, [esp+8]
@@ -86336,7 +86335,7 @@ ___58d2eh:
 		mov     al, bh
 		push    eax
 		push    ___184ce4h
-		call    near printf__clib3r
+		call    near __CEXT_F(printf__clib3r)
 		add     esp, byte 8
 ___58d49h:
 		cmp     byte [esp+8], 20h
@@ -86345,7 +86344,7 @@ ___58d49h:
 		mov     ax, [esp]
 		push    eax
 		push    ___184cf0h
-		call    near printf__clib3r
+		call    near __CEXT_F(printf__clib3r)
 		add     esp, byte 8
 ___58d64h:
 		cmp     byte [esp+8], 20h
@@ -86354,7 +86353,7 @@ ___58d64h:
 		mov     al, [esp+0ch]
 		push    eax
 		push    ___184cfch
-		call    near printf__clib3r
+		call    near __CEXT_F(printf__clib3r)
 		add     esp, byte 8
 ___58d7fh:
 		cmp     byte [esp+8], 20h
@@ -86363,35 +86362,35 @@ ___58d7fh:
 		mov     al, [esp+4]
 		push    eax
 		push    ___184d04h
-		call    near printf__clib3r
+		call    near __CEXT_F(printf__clib3r)
 		jmp     near ___5901ch
 ___58da0h:
 		push    ___184d0ch
-		call    near printf__clib3r
+		call    near __CEXT_F(printf__clib3r)
 		add     esp, byte 4
 		push    ___184d2ch
-		call    near printf__clib3r
+		call    near __CEXT_F(printf__clib3r)
 		add     esp, byte 4
 		push    ___184d48h
-		call    near printf__clib3r
+		call    near __CEXT_F(printf__clib3r)
 		add     esp, byte 4
 		push    ___184d68h
-		call    near printf__clib3r
+		call    near __CEXT_F(printf__clib3r)
 		add     esp, byte 4
 		push    ___184d88h
-		call    near printf__clib3r
+		call    near __CEXT_F(printf__clib3r)
 		add     esp, byte 4
 		push    ___184da8h
-		call    near printf__clib3r
+		call    near __CEXT_F(printf__clib3r)
 		add     esp, byte 4
 		push    ___184dc8h
-		call    near printf__clib3r
+		call    near __CEXT_F(printf__clib3r)
 		add     esp, byte 4
 		push    ___184de8h
-		call    near printf__clib3r
+		call    near __CEXT_F(printf__clib3r)
 		add     esp, byte 4
 		push    ___184e08h
-		call    near printf__clib3r
+		call    near __CEXT_F(printf__clib3r)
 		add     esp, byte 4
 		lea     eax, [esp+8]
 		push    eax
@@ -86421,31 +86420,31 @@ ___58e63h:
 		cmp     byte [esp+8], 0
 		je      near ___5901fh
 		push    ___184e0ch
-		call    near printf__clib3r
+		call    near __CEXT_F(printf__clib3r)
 		add     esp, byte 4
 		push    ___184e2ch
-		call    near printf__clib3r
+		call    near __CEXT_F(printf__clib3r)
 		add     esp, byte 4
 		push    ___184e4ch
-		call    near printf__clib3r
+		call    near __CEXT_F(printf__clib3r)
 		add     esp, byte 4
 		push    ___184e6ch
-		call    near printf__clib3r
+		call    near __CEXT_F(printf__clib3r)
 		add     esp, byte 4
 		push    ___184e8ch
-		call    near printf__clib3r
+		call    near __CEXT_F(printf__clib3r)
 		add     esp, byte 4
 		push    ___184each
-		call    near printf__clib3r
+		call    near __CEXT_F(printf__clib3r)
 		add     esp, byte 4
 		push    ___184ecch
-		call    near printf__clib3r
+		call    near __CEXT_F(printf__clib3r)
 		add     esp, byte 4
 		push    ___184eech
-		call    near printf__clib3r
+		call    near __CEXT_F(printf__clib3r)
 		add     esp, byte 4
 		push    ___184e08h
-		call    near printf__clib3r
+		call    near __CEXT_F(printf__clib3r)
 		add     esp, byte 4
 		mov     eax, esp
 		push    eax
@@ -86457,31 +86456,31 @@ ___58e63h:
 		add     ah, 2
 		push    ___184f0ch
 		mov     [esp+4], eax
-		call    near printf__clib3r
+		call    near __CEXT_F(printf__clib3r)
 		add     esp, byte 4
 		push    ___184f2ch
-		call    near printf__clib3r
+		call    near __CEXT_F(printf__clib3r)
 		add     esp, byte 4
 		push    ___184f4ch
-		call    near printf__clib3r
+		call    near __CEXT_F(printf__clib3r)
 		add     esp, byte 4
 		push    ___184f6ch
-		call    near printf__clib3r
+		call    near __CEXT_F(printf__clib3r)
 		add     esp, byte 4
 		push    ___184f8ch
-		call    near printf__clib3r
+		call    near __CEXT_F(printf__clib3r)
 		add     esp, byte 4
 		push    ___184fach
-		call    near printf__clib3r
+		call    near __CEXT_F(printf__clib3r)
 		add     esp, byte 4
 		push    ___184fcch
-		call    near printf__clib3r
+		call    near __CEXT_F(printf__clib3r)
 		add     esp, byte 4
 		push    ___184fech
-		call    near printf__clib3r
+		call    near __CEXT_F(printf__clib3r)
 		add     esp, byte 4
 		push    ___184e08h
-		call    near printf__clib3r
+		call    near __CEXT_F(printf__clib3r)
 		add     esp, byte 4
 		lea     eax, [esp+0ch]
 		push    eax
@@ -86510,22 +86509,22 @@ ___58fbah:
 		mov     byte [esp+0ch], 0fh
 ___58fbfh:
 		push    ___18500ch
-		call    near printf__clib3r
+		call    near __CEXT_F(printf__clib3r)
 		add     esp, byte 4
 		push    ___18502ch
-		call    near printf__clib3r
+		call    near __CEXT_F(printf__clib3r)
 		add     esp, byte 4
 		push    ___18504ch
-		call    near printf__clib3r
+		call    near __CEXT_F(printf__clib3r)
 		add     esp, byte 4
 		push    ___18506ch
-		call    near printf__clib3r
+		call    near __CEXT_F(printf__clib3r)
 		add     esp, byte 4
 		push    ___18508ch
-		call    near printf__clib3r
+		call    near __CEXT_F(printf__clib3r)
 		add     esp, byte 4
 		push    ___184e08h
-		call    near printf__clib3r
+		call    near __CEXT_F(printf__clib3r)
 		add     esp, byte 4
 		lea     eax, [esp+4]
 		push    eax
@@ -86552,7 +86551,7 @@ ___5901fh:
 ;		push    4
 ;		call    near __CHK
 ;		call    near ___64a28h
-;		call    near ___5ec04h
+;		call    near __CEXT_F(___5ec04h)
 ;		retn    
 ;db	0,0,0
 memcpy__bpa:
@@ -87748,8 +87747,7 @@ install__keyboard:
 		sti     
 ___5a100h:
 		retn 
-global restore__keyboard   
-restore__keyboard:
+__GDECL(__CEXT_F(restore__keyboard))
 		cmp     byte [___5a0c1h], 0
 		je      short ___5a12eh
 		nop     
@@ -89800,8 +89798,7 @@ __STKOVERFLOW:
 		call    near __fatal_runtime_error
 _null_exit_rtn:
 		retn
-global exit__clib3r   
-exit__clib3r:
+__GDECL(__CEXT_F(exit__clib3r))
 		push    edx
 		mov     edx, eax
 		call    dword [___atexit]
@@ -89861,8 +89858,7 @@ ___5ebd7h:
 		pop     edx
 		pop     ebx
 		retn   
-global ___5ec04h 
-___5ec04h:
+__GDECL(__CEXT_F(___5ec04h))
 		push    ebx
 		push    ecx
 		push    edx
@@ -100286,7 +100282,7 @@ ___67169h:
 		mov     edx, [____Argv]
 		mov     eax, [____Argc]
 		call    near __CEXT_F(main)
-		call    near exit__clib3r
+		call    near __CEXT_F(exit__clib3r)
 		mov     esp, ebp
 		pop     ebp
 		pop     edx

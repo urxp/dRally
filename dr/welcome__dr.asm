@@ -2,7 +2,7 @@
 
     extern  __CHK
     extern  __CEXT_V(___180004h)
-    extern  printf__clib3r
+    extern  __CEXT_F(printf__clib3r)
     extern  ___18005ch
     extern  ___180060h
     extern  __CEXT_F(chkarg__dr)
@@ -22,10 +22,10 @@ __GDECL(__CEXT_F(welcome__dr))
 		call    __CHK
 		push    ebx
 		push    __CEXT_V(___180004h)
-		call    printf__clib3r
+		call    __CEXT_F(printf__clib3r)
 		add     esp, 4
 		push    ___18005ch
-		call    printf__clib3r
+		call    __CEXT_F(printf__clib3r)
 		add     esp, 4
 		mov     eax, ___180060h
 		call    __CEXT_F(chkarg__dr)
@@ -40,14 +40,14 @@ ___1009dh:
 		je      ___100cah
 		push    ___18006ch
 		mov     ebx, 1
-		call    printf__clib3r
+		call    __CEXT_F(printf__clib3r)
 		add     esp, 4
 		mov     [___19bd4ch], ebx
 		pop     ebx
 		retn    
 ___100cah:
 		push    ___180084h
-		call    printf__clib3r
+		call    __CEXT_F(printf__clib3r)
 		add     esp, 4
 		pop     ebx
 		retn

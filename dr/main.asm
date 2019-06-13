@@ -12,10 +12,10 @@
     extern  ___2432c8h
     extern  install__keyboard
     extern  startup__dr
-    extern  restore__keyboard
+    extern  __CEXT_F(restore__keyboard)
     extern  ___19bd60h
     extern  ___623d4h
-    extern  ___5ec04h
+    extern  __CEXT_F(___5ec04h)
     extern  restrdos__dr
     extern  __CEXT_V(string__dr_bin)
     extern  __CEXT_V(string__MENU_BPA)
@@ -57,12 +57,12 @@ ___101e6h:
 		mov     dword [___2432c8h], __CEXT_F(exitcb0)
 		call    install__keyboard
 		call    startup__dr
-		call    restore__keyboard
+		call    __CEXT_F(restore__keyboard)
 		cmp     dword [___19bd60h], 0
 		je      ___10212h
 		call    ___623d4h
 ___10212h:
-		call    ___5ec04h
+		call    __CEXT_F(___5ec04h)
 		call    restrdos__dr
 		mov     ebx, __CEXT_V(string__dr_bin)
 		mov     edx, 0b8000h

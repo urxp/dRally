@@ -3,7 +3,7 @@
 	extern 	__CHK	
 	extern 	chkcdromini__dr	
 	extern 	chkmemory__dr	
-	extern 	chkfiles__dr	
+	extern 	__CEXT_F(chkfiles__dr)	
 	extern 	___1a202fh	
 	extern 	___199fa0h	
 	extern 	__STOSB	
@@ -15,7 +15,7 @@
 	extern 	TimesPlayed	
 	extern 	writeConfig__dr	
 	extern 	___182bf8h	
-	extern 	printf__clib3r	
+	extern 	__CEXT_F(printf__clib3r)	
 	extern 	___181c9ch	
 	extern 	intro__anim	
 	extern 	___181ca8h	
@@ -51,9 +51,9 @@
 	extern 	setmode3h__video	
 	extern 	___182c24h	
 	extern 	___182cb8h		
-	extern 	___5ec04h	
-	extern 	restore__keyboard	
-	extern 	exit__clib3r	
+	extern 	__CEXT_F(___5ec04h)	
+	extern 	__CEXT_F(restore__keyboard)	
+	extern 	__CEXT_F(exit__clib3r)	
 	extern 	___605deh	
 	extern 	allocVGABuffer	
 	extern 	___3d38ch	
@@ -86,7 +86,7 @@
 	extern 	___1a0fb8h	
 	extern 	___11564h	
 	extern 	GXBackBuffer
-	extern 	___180130h	
+	extern 	__CEXT_V(___180130h)	
 	extern 	___1a0220h	
 	extern 	___1a01e0h	
 	extern 	RowBoxBuffers	
@@ -182,7 +182,7 @@ startup__dr:
 		mov     [esp+18h], ecx
 		call    chkcdromini__dr
 		call    chkmemory__dr
-		call    chkfiles__dr
+		call    __CEXT_F(chkfiles__dr)
 		mov     ecx, 13h
 		mov     eax, ___1a202fh
 		mov     [___199fa0h], edx
@@ -200,7 +200,7 @@ startup__dr:
 		call    writeConfig__dr
 		push    ___182bf8h 			;; "Loading music & ..."
 		mov     [esp+24h], esi
-		call    printf__clib3r
+		call    __CEXT_F(printf__clib3r)
 		add     esp, byte 4
 		mov     ebx, 2
 		mov     ecx, ___181c9ch		;; "MEN-SAM.CMF"
@@ -271,16 +271,16 @@ ___3e88bh:
 		je      @bs_ok
 		call    setmode3h__video
 		push    ___182c24h
-		call    printf__clib3r
+		call    __CEXT_F(printf__clib3r)
 		add     esp, byte 4
 		push    ___182cb8h
-		call    printf__clib3r
+		call    __CEXT_F(printf__clib3r)
 		add     esp, byte 4
 		call    ___64a28h
-		call    ___5ec04h
-		call    restore__keyboard
+		call    __CEXT_F(___5ec04h)
+		call    __CEXT_F(restore__keyboard)
 		mov     eax, 70h
-		call    exit__clib3r
+		call    __CEXT_F(exit__clib3r)
 @bs_ok:
 		mov     eax, 3ch
 		xor     ebx, ebx
@@ -341,13 +341,13 @@ ___3e88bh:
 		shl     eax, 2
 		sub     eax, edx
 		xor     edi, edi
-		mov     dl, [___180130h]
+		mov     dl, [__CEXT_V(___180130h)]
 		mov     [eax*4+___1a0220h], edi
 		mov     [esp+8], edi
 		mov     [eax*4+___1a01e0h], dl
 		xor     eax, eax
 ___3e9dfh:
-		mov     dl, [___180130h]
+		mov     dl, [__CEXT_V(___180130h)]
 		mov     [eax+RowBoxBuffers], dl
 		mov     edx, [esp+8]
 		inc     edx
@@ -434,7 +434,7 @@ ___3eac1h:
 		jl      ___3eaa4h
 		mov     byte [RowBox0Colors_R5], 1
 		xor     ecx, ecx
-		mov     al, [___180130h]
+		mov     al, [__CEXT_V(___180130h)]
 		mov     [esp+8], ecx
 		mov     ecx, RowBoxBuffers
 		mov     [___1a1dbah], al
@@ -506,7 +506,7 @@ ___3eba1h:
 		cmp     eax, byte 15h
 		jl      ___3eb84h
 		mov     ecx, 6dh
-		mov     al, [___180130h]
+		mov     al, [__CEXT_V(___180130h)]
 		mov     ebx, 27fh
 		mov     [___1a1dbah], al
 		mov     ah, 1

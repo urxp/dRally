@@ -525,7 +525,7 @@ ___1a0a5ch:	resb	2
 ___1a0a5eh:	resb	1
 ___1a0a5fh:	resb	1
 ___1a0a60h:	resb	300h
-__GDECL(cdrom_ini)
+__GDECL(__CEXT_V(cdrom_ini))
     resb	0c4h
 ___1a0e24h:	resb	4
 ___1a0e28h:	resb	0ch
@@ -809,7 +809,7 @@ ___1a2147h:	resb	1
 __GDECL(___1a2148h)
     resb	1
 ___1a2149h:	resb	1
-__GDECL(___1a214ah)
+__GDECL(__CEXT_V(CDPath))
     resb	56h
 ___1a21a0h:	resb	0fh
 ___1a21afh:	resb	0fh

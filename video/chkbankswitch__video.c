@@ -6,10 +6,10 @@ typedef unsigned long 	dword;
 
 dword chkbankswitch__video(void){
 
-
 	chkgx__video();
-	setbank__video(0);
-	*(byte *)0xa0000 = 0;
+
+//	setbank__video(0);
+//	*(byte *)0xa0000 = 0;
 	setbank__video(1);
 	*(byte *)0xa0000 = 0;
 	setbank__video(0);
@@ -20,8 +20,8 @@ dword chkbankswitch__video(void){
 
 	setbank__video(0);
 	*(byte *)0xa0000 = 0;
-	setbank__video(1);
-	*(byte *)0xa0000 = 0;
+//	setbank__video(1);
+//	*(byte *)0xa0000 = 0;
 
 	return 0;
 }

@@ -1,31 +1,30 @@
 %include "macros.inc"
 
 	extern 	__CHK
-	extern 	getFileSize__dr
-	extern 	___182a30h
-	extern 	___182a5ch
-	extern 	printf__clib3r
-	extern 	restore__keyboard
-	extern 	__CEXT_V(drfile_size)
+	extern 	__CEXT_F(getFileSize__dr)
+	extern 	__CEXT_V(___182a30h)
+	extern 	__CEXT_V(___182a5ch)
+	extern 	__CEXT_F(printf__clib3r)
+	extern 	__CEXT_F(restore__keyboard)
+	extern 	__CEXT_V(drfile_size)+0dh
 	extern 	__CEXT_V(drfiles_list)
-	extern 	___182aach
-	extern 	___182ae4h
-	extern 	___5ec04h
-	extern 	cdrom_ini
-	extern 	animfiles_list
-	extern 	___180130h
-	extern 	___1a214ah
-	extern 	animfile_size
-	extern 	exit__clib3r
-	extern 	___182b34h
-	extern 	___182b6ch
+	extern 	__CEXT_V(___182aach)
+	extern 	__CEXT_V(___182ae4h)
+	extern 	__CEXT_F(___5ec04h)
+	extern 	__CEXT_V(cdrom_ini)
+	extern 	__CEXT_V(animfiles_list)
+	extern 	__CEXT_V(___180130h)
+	extern 	__CEXT_V(CDPath)
+	extern 	__CEXT_V(animfile_size)+0dh
+	extern 	__CEXT_F(exit__clib3r)
+	extern 	__CEXT_V(___182b34h)
+	extern 	__CEXT_V(___182b6ch)
 
 %include "layout.inc"
 
 section @text
 
-global chkfiles__dr
-chkfiles__dr:
+__GDECL(__CEXT_F(chkfiles__dr))
 		push    124h
 		call    __CHK
 		push    ebx
@@ -40,46 +39,46 @@ chkfiles__dr:
 		mov     ebp, 70h
 @file_chk:
 		mov     eax, ebx
-		call    getFileSize__dr
+		call    __CEXT_F(getFileSize__dr)
 		mov     edi, eax
 		cmp     eax, 1
 		jge     @file_exists
 		push    ebx
-		push    ___182a30h
-		call    printf__clib3r
+		push    __CEXT_V(___182a30h)
+		call    __CEXT_F(printf__clib3r)
 		add     esp, 8
-		push    ___182a5ch
-		call    printf__clib3r
+		push    __CEXT_V(___182a5ch)
+		call    __CEXT_F(printf__clib3r)
 		add     esp, 4
-		call    restore__keyboard
-		call    ___5ec04h
+		call    __CEXT_F(restore__keyboard)
+		call    __CEXT_F(___5ec04h)
 		mov     eax, ebp
-		call    exit__clib3r
+		call    __CEXT_F(exit__clib3r)
 @file_exists:
-		cmp     edi, [edx+__CEXT_V(drfile_size)]
+		cmp     edi, [edx+__CEXT_V(drfile_size)+0dh]
 		je      @file_original
 		mov     eax, __CEXT_V(drfiles_list)
 		add     eax, edx
 		push    eax
-		push    ___182aach
-		call    printf__clib3r
+		push    __CEXT_V(___182aach)
+		call    __CEXT_F(printf__clib3r)
 		add     esp, 8
-		push    ___182ae4h
-		call    printf__clib3r
+		push    __CEXT_V(___182ae4h)
+		call    __CEXT_F(printf__clib3r)
 		add     esp, 4
-		call    restore__keyboard
-		call    ___5ec04h
+		call    __CEXT_F(restore__keyboard)
+		call    __CEXT_F(___5ec04h)
 		mov     eax, ebp
-		call    exit__clib3r
+		call    __CEXT_F(exit__clib3r)
 @file_original:
 		add     edx, 11h
 		add     ebx, 11h
 		cmp     edx, 0eeh
 		jne     @file_chk
 		mov     ah, 2
-		mov     esi, cdrom_ini
+		mov     esi, __CEXT_V(cdrom_ini)
 		mov     edi, esp
-		mov     [___1a214ah], ah
+		mov     [__CEXT_V(CDPath)], ah
 		push    edi
 ___3e27dh:
 		mov     al, [esi]
@@ -94,7 +93,7 @@ ___3e27dh:
 		jne     ___3e27dh
 ___3e295h:
 		pop     edi
-		mov     esi, animfiles_list
+		mov     esi, __CEXT_V(animfiles_list)
 		mov     edi, esp
 		push    edi
 		sub     ecx, ecx
@@ -116,20 +115,20 @@ ___3e2a6h:
 ___3e2beh:
 		pop     edi
 		mov     eax, esp
-		call    getFileSize__dr
+		call    __CEXT_F(getFileSize__dr)
 		cmp     eax, 1
 		jge     ___3e2d2h
-		mov     byte [___1a214ah], 1
+		mov     byte [__CEXT_V(CDPath)], 1
 ___3e2d2h:
-		mov     edx, animfiles_list
+		mov     edx, __CEXT_V(animfiles_list)
 		xor     ebx, ebx
 @anim_chk:
-		mov     al, [___180130h]
-		mov     cl, [___1a214ah]
+		mov     al, [__CEXT_V(___180130h)]
+		mov     cl, [__CEXT_V(CDPath)]
 		mov     [esp], al
 		cmp     cl, 2
 		jne     ___3e315h
-		mov     esi, cdrom_ini
+		mov     esi, __CEXT_V(cdrom_ini)
 		mov     edi, esp
 		push    edi
 		sub     ecx, ecx
@@ -174,22 +173,22 @@ ___3e325h:
 ___3e33dh:
 		pop     edi
 		mov     eax, esp
-		call    getFileSize__dr
+		call    __CEXT_F(getFileSize__dr)
 		test    eax, eax
 		jle     @anim_original
-		cmp     eax, [ebp+animfile_size]
+		cmp     eax, [ebp+__CEXT_V(animfile_size)+0dh]
 		je      @anim_original
 		push    edx
-		push    ___182b34h
-		call    printf__clib3r
+		push    __CEXT_V(___182b34h)
+		call    __CEXT_F(printf__clib3r)
 		add     esp, 8
-		push    ___182b6ch
-		call    printf__clib3r
+		push    __CEXT_V(___182b6ch)
+		call    __CEXT_F(printf__clib3r)
 		add     esp, 4
-		call    restore__keyboard
-		call    ___5ec04h
+		call    __CEXT_F(restore__keyboard)
+		call    __CEXT_F(___5ec04h)
 		mov     eax, 70h
-		call    exit__clib3r
+		call    __CEXT_F(exit__clib3r)
 @anim_original:
 		inc     ebx
 		add     edx, 11h
