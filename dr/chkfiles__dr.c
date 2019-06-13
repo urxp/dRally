@@ -1,7 +1,3 @@
-#define al  ((byte *)&n)[0]
-#define ah  ((byte *)&n)[1]
-#define cl  ((byte *)&ecx)[0]
-
 typedef unsigned char   byte;
 typedef unsigned long   dword;
 
