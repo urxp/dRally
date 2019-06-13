@@ -160,7 +160,7 @@ ___10754h:
 		push    8
 		call    near __CHK
 		push    edx
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      short ___10781h
 		cmp     dword [___24e4d0h], byte 2
 		jne     short ___10781h
@@ -562,7 +562,7 @@ ___10c62h:
 		call    near ___606dfh
 		mov     eax, 13h
 		int     10h
-		cmp     dword [___19bd4ch], byte 0
+		cmp     dword [__CEXT_V(___19bd4ch)], byte 0
 		je      short ___10c80h
 		mov     eax, 46h
 		xor     ebx, ebx
@@ -571,7 +571,7 @@ ___10c80h:
 		mov     ebx, 1
 		mov     eax, 46h
 ___10c8ah:
-		call    near install__timer
+		call    near __CEXT_F(install__timer)
 		cmp     byte [esp+408h], 0
 		je      short ___10cb2h
 		mov     eax, 5622h
@@ -864,7 +864,7 @@ ___10fa9h:
 		add     eax, [___185a0ch]
 		xor     ecx, ecx
 		mov     cl, [eax]
-		mov     ebx, [___19bd4ch]
+		mov     ebx, [__CEXT_V(___19bd4ch)]
 		add     ecx, esi
 		test    ebx, ebx
 		jne     short ___10ff8h
@@ -877,7 +877,7 @@ ___10ff8h:
 		call    near ___606d9h
 		cmp     eax, ecx
 		jb      short ___10ff8h
-		cmp     dword [___19bd4ch], byte 0
+		cmp     dword [__CEXT_V(___19bd4ch)], byte 0
 		je      short ___1101ah
 		cli     
 		mov     dx, 3dah
@@ -4897,7 +4897,7 @@ ___1481fh:
 		mov     ebp, [ebp+___185a74h]
 		jmp     short ___148a4h
 ___14848h:
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      short ___148a9h
 		call    near ___23758h
 		jmp     short ___148a9h
@@ -5090,7 +5090,7 @@ ___14aa4h:
 		je      near ___14bf2h
 		jmp     near ___14c08h
 ___14ab1h:
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      near ___14c08h
 		call    near ___23758h
 		jmp     near ___14c08h
@@ -7018,7 +7018,7 @@ ___165ach:
 		mov     eax, 21h
 		mov     edx, ebp
 		call    near ___13248h
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		jne     near ___1667ch
 		mov     edx, 160bch
 		mov     eax, ___194f80h
@@ -8389,7 +8389,7 @@ ___178d2h:
 ___178efh:
 		cmp     dword [esp+0b4h], byte 0
 		je      near ___1834dh
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      near ___1834dh
 		call    near ___23758h
 		jmp     near ___1834dh
@@ -9308,7 +9308,7 @@ ___184c8h:
 ___184ddh:
 		cmp     dword [esp+84h], byte 0
 		je      near ___1861ah
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      near ___1861ah
 		call    near ___23758h
 		jmp     near ___1861ah
@@ -10457,7 +10457,7 @@ ___191b4h:
 		mov     edx, 173h
 		xor     eax, eax
 		call    near frameFooter__dr
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      short ___192f6h
 		mov     ecx, 390a3h
 		mov     ebx, ___1807cch
@@ -12121,7 +12121,7 @@ ___1a81ch:
 		mov     eax, ebp
 		call    near ___3f77ch
 		call    near ___61278h
-		call    near ___623d4h
+		call    near __CEXT_F(___623d4h)
 		mov     eax, [esp+0d8h]
 		inc     eax
 		mov     [___199f9ch], eax
@@ -12134,7 +12134,7 @@ ___1a883h:
 		mov     edx, 1
 		mov     ebx, [___24e4d0h]
 		mov     [___196adch], eax
-		mov     [___19bd60h], edx
+		mov     [__CEXT_V(___19bd60h)], edx
 		cmp     ebx, byte 2
 		jne     short ___1a8afh
 		mov     eax, ___10754h
@@ -13752,7 +13752,7 @@ ___1bb42h:
 		test    ebp, ebp
 		je      short ___1bc14h
 		call    near ___61278h
-		call    near ___623d4h
+		call    near __CEXT_F(___623d4h)
 		xor     eax, eax
 		mov     al, [esp+20h]
 		inc     eax
@@ -13762,7 +13762,7 @@ ___1bb42h:
 		jne     short ___1bbd1h
 		call    near ___1123ch
 ___1bbd1h:
-		mov     dword [___19bd60h], 1
+		mov     dword [__CEXT_V(___19bd60h)], 1
 		mov     eax, [___1a1098h]
 		mov     edx, [___24e4d0h]
 		mov     [___196adch], eax
@@ -14145,7 +14145,7 @@ ___1bfd6h:
 		mov     ebp, 1
 		mov     [___196adch], eax
 		mov     eax, [___185a54h]
-		mov     [___19bd60h], ebp
+		mov     [__CEXT_V(___19bd60h)], ebp
 		call    near ___1c6bch
 		call    near ___2b8ach
 		mov     eax, ebp
@@ -14388,7 +14388,7 @@ ___1c2c3h:
 		call    near memset__clib3r
 		mov     ebx, 2
 		mov     eax, [___185a54h]
-		mov     [___19bd60h], ecx
+		mov     [__CEXT_V(___19bd60h)], ecx
 		mov     [___1a1098h], ebx
 		mov     [___196adch], ebx
 		call    near ___1c6bch
@@ -15091,7 +15091,7 @@ ___1cbf9h:
 		mov     ecx, 1
 		mov     esi, [GXBackBuffer]
 		mov     edi, [VGABufferPtr_0]
-		mov     [___19bd60h], ecx
+		mov     [__CEXT_V(___19bd60h)], ecx
 		add     esi, 10680h
 		add     edi, 10680h
 		mov     ecx, 28f00h
@@ -15434,7 +15434,7 @@ ___1d00ch:
 		push    edx
 		push    esi
 		push    edi
-		mov     edx, [___19bd60h]
+		mov     edx, [__CEXT_V(___19bd60h)]
 		test    edx, edx
 		je      near ___1d21eh
 		mov     ecx, RowBoxBuffers
@@ -15561,7 +15561,7 @@ ___1d134h:
 		call    near footer__dr
 		call    near ___12cb8h
 		call    near ___61278h
-		call    near ___623d4h
+		call    near __CEXT_F(___623d4h)
 		movsd   
 		movsd   
 		movsd   
@@ -15586,7 +15586,7 @@ ___1d134h:
 		mov     [___185b6dh], dl
 		xor     edi, edi
 		mov     [___185b6eh], dl
-		mov     [___19bd60h], edi
+		mov     [__CEXT_V(___19bd60h)], edi
 		mov     [___24e4d0h], edi
 		mov     edi, ___186aa0h
 		mov     [___185b6fh], dl
@@ -15663,7 +15663,7 @@ ___1d2a8h:
 		sub     esp, byte 0ch
 		mov     ebx, 0c5h
 		mov     edx, 97h
-		mov     ecx, [___19bd60h]
+		mov     ecx, [__CEXT_V(___19bd60h)]
 		mov     [esp+4], ebx
 		mov     [esp], edx
 		test    ecx, ecx
@@ -15964,7 +15964,7 @@ ___1d602h:
 		call    near ___12cb8h
 		xor     ecx, ecx
 		mov     edx, 1
-		mov     [___19bd60h], ecx
+		mov     [__CEXT_V(___19bd60h)], ecx
 		mov     [___24e4d0h], ecx
 		call    near ___2415ch
 		mov     eax, 2
@@ -16256,7 +16256,7 @@ ___1d9f8h:
 		sub     esp, byte 70h
 		mov     edx, 0beh
 		mov     ebp, 92h
-		mov     ebx, [___19bd60h]
+		mov     ebx, [__CEXT_V(___19bd60h)]
 		mov     [esp+50h], edx
 		test    ebx, ebx
 		je      short ___1da2dh
@@ -16776,7 +16776,7 @@ ___1e049h:
 		movsb   
 		jmp     short ___1e076h
 ___1e071h:
-		call    near ___623d4h
+		call    near __CEXT_F(___623d4h)
 ___1e076h:
 		call    near lastScanCode__keyboard
 		call    near nullScanCode__keyboard
@@ -16789,7 +16789,7 @@ ___1e076h:
 		pop     ebx
 		retn    
 ___1e08ah:
-		call    near ___623d4h
+		call    near __CEXT_F(___623d4h)
 ___1e08fh:
 		add     esp, byte 70h
 		pop     ebp
@@ -16843,7 +16843,7 @@ ___1e0deh:
 		jne     short ___1e0deh
 ___1e0f6h:
 		pop     edi
-		mov     ebx, [___19bd60h]
+		mov     ebx, [__CEXT_V(___19bd60h)]
 		mov     ebp, 0b4h
 		test    ebx, ebx
 		je      short ___1e110h
@@ -17135,7 +17135,7 @@ ___1e4a8h:
 		movsb   
 		jmp     short ___1e4d5h
 ___1e4d0h:
-		call    near ___623d4h
+		call    near __CEXT_F(___623d4h)
 ___1e4d5h:
 		call    near lastScanCode__keyboard
 		call    near nullScanCode__keyboard
@@ -17148,7 +17148,7 @@ ___1e4d5h:
 		pop     ebx
 		retn    
 ___1e4e9h:
-		call    near ___623d4h
+		call    near __CEXT_F(___623d4h)
 ___1e4eeh:
 		add     esp, byte 44h
 		pop     ebp
@@ -17220,7 +17220,7 @@ ___1e598h:
 ___1e5c2h:
 		cmp     dword [___24e4d0h], byte 2
 		jne     short ___1e61ch
-		call    near ___623d4h
+		call    near __CEXT_F(___623d4h)
 		xor     ecx, ecx
 		mov     edx, [___199f9ch]
 		mov     [___199f9ch], ecx
@@ -17229,20 +17229,20 @@ ___1e5c2h:
 		jne     short ___1e5ech
 		call    near ___1123ch
 ___1e5ech:
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      short ___1e603h
 		cmp     dword [___24e4d0h], byte 2
 		jne     short ___1e603h
 		call    near ___60719h
 ___1e603h:
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      short ___1e61ch
 		cmp     dword [___24e4d0h], byte 2
 		jne     short ___1e61ch
 		xor     eax, eax
 		call    near ___63b20h
 ___1e61ch:
-		mov     dword [___19bd60h], 1
+		mov     dword [__CEXT_V(___19bd60h)], 1
 		pop     edi
 		pop     esi
 		pop     edx
@@ -17309,7 +17309,7 @@ ___1e62ch:
 		mov     [___185b6bh], bl
 		mov     [___185aach], esi
 		call    near ___61278h
-		call    near ___623d4h
+		call    near __CEXT_F(___623d4h)
 		cmp     edx, byte 1
 		jne     near ___1e813h
 		mov     ebx, RowBoxBuffers
@@ -17434,7 +17434,7 @@ ___1e813h:
 		mov     edx, 173h
 		mov     [___196a84h], eax
 		mov     [___196a7ch], eax
-		mov     [___19bd60h], eax
+		mov     [__CEXT_V(___19bd60h)], eax
 		mov     [___24e4d0h], eax
 		call    near frameFooter__dr
 		call    near footer__dr
@@ -17471,7 +17471,7 @@ multiplayerRaceMenu__dr:
 		je      near ___1f080h
 ___1e8a4h:
 		mov     edx, 1
-		mov     ebx, [___19bd60h]
+		mov     ebx, [__CEXT_V(___19bd60h)]
 		mov     [___196a78h], edx
 		test    ebx, ebx
 		je      near ___1eaddh
@@ -17644,7 +17644,7 @@ ___1eb0ah:
 		mov     edx, 1
 		mov     eax, 2
 		call    near ___13710h
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      near ___1edd6h
 		cmp     dword [___196a84h], byte 0
 		je      near ___1edd6h
@@ -17776,7 +17776,7 @@ ___1ec38h:
 		cmp     dword [___24e4d0h], byte 2
 		je      short ___1ed10h
 		xor     ecx, ecx
-		mov     [___19bd60h], ecx
+		mov     [__CEXT_V(___19bd60h)], ecx
 		mov     [___24e4d0h], ecx
 ___1ed10h:
 		mov     ebx, 1
@@ -21666,7 +21666,7 @@ ___21a65h:
 ___21a7fh:
 		cmp     byte [esp+14h], 3bh
 		jne     short ___21a94h
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      short ___21a94h
 		call    near ___23758h
 ___21a94h:
@@ -21895,7 +21895,7 @@ ___21d41h:
 ___21d5bh:
 		cmp     byte [esp+14h], 3bh
 		jne     short ___21d70h
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      short ___21d70h
 		call    near ___23758h
 ___21d70h:
@@ -22778,7 +22778,7 @@ ___227cfh:
 		mov     ah, al
 		cmp     al, 3bh
 		jne     short ___227eeh
-		cmp     edx, [___19bd60h]
+		cmp     edx, [__CEXT_V(___19bd60h)]
 		je      short ___227eeh
 		call    near ___23758h
 		mov     ah, dl
@@ -23232,7 +23232,7 @@ ___22d67h:
 		mov     ah, al
 		cmp     al, 3bh
 		jne     short ___22d86h
-		cmp     edx, [___19bd60h]
+		cmp     edx, [__CEXT_V(___19bd60h)]
 		je      short ___22d86h
 		call    near ___23758h
 		mov     ah, dl
@@ -23396,7 +23396,7 @@ ___22f76h:
 		je      near ___231eeh
 		jmp     near ___231f3h
 ___22f83h:
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      near ___231f3h
 		call    near ___23758h
 		jmp     near ___231f3h
@@ -23767,7 +23767,7 @@ ___23488h:
 		mov     esi, eax
 		mov     [esp+4], edx
 		mov     [esp], ebx
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      near ___23587h
 		mov     al, [esp]
 		mov     ah, 0ah
@@ -23859,7 +23859,7 @@ ___23594h:
 		sub     esp, byte 8
 		mov     [esp+4], eax
 		mov     ebx, edx
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      near ___2374bh
 		call    near ___6168ch
 		mov     eax, ebx
@@ -24738,7 +24738,7 @@ ___23f72h:
 		jne     short ___23f86h
 		mov     dword [esp+138h], 0ffffffffh
 ___23f86h:
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      short ___23fa3h
 		cmp     dword [___196a84h], byte 0
 		je      short ___23fa3h
@@ -24759,7 +24759,7 @@ ___23fa3h:
 		and     cl, 3
 		rep movsb   
 		pop     edi
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      short ___23ff6h
 		cmp     dword [___196a84h], byte 0
 		jne     short ___23ff6h
@@ -31275,7 +31275,7 @@ ___2959dh:
 		je      near ___29712h
 		jmp     near ___29720h
 ___295abh:
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      near ___29720h
 		call    near ___23758h
 		jmp     near ___29720h
@@ -31489,7 +31489,7 @@ ___298d0h:
 		mov     [esp+5ch], al
 		cmp     al, 3bh
 		jne     short ___29903h
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      short ___29903h
 		call    near ___23758h
 ___29903h:
@@ -32143,7 +32143,7 @@ ___2a1afh:
 		pop     ebx
 		retn    
 ___2a276h:
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      short ___2a2e7h
 		xor     esi, esi
 		mov     [___1a1028h], esi
@@ -32528,7 +32528,7 @@ ___2a6a8h:
 		push    ebp
 		sub     esp, byte 24h
 		xor     edx, edx
-		mov     ebx, [___19bd60h]
+		mov     ebx, [__CEXT_V(___19bd60h)]
 		mov     [esp+14h], edx
 		test    ebx, ebx
 		jne     near ___2a9fah
@@ -32989,7 +32989,7 @@ ___2ac47h:
 		cmp     ebp, byte 20h
 		jl      near ___2ac47h
 ___2acebh:
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      near ___2b30bh
 		call    near ___6168ch
 		mov     edx, 1
@@ -33785,7 +33785,7 @@ ___2b6a4h:
 		push    edx
 		push    esi
 		push    edi
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		jne     short ___2b6d4h
 		mov     ecx, 10h
 		mov     edx, 280h
@@ -34019,7 +34019,7 @@ ___2b9a7h:
 		jne     near ___2ba9eh
 		cmp     dword [___185a3ch], byte 0
 		je      short ___2b9cah
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      near ___2ba9eh
 ___2b9cah:
 		mov     ecx, 4b000h
@@ -34094,7 +34094,7 @@ ___2bab5h:
 		jne     near ___2cfbch
 		cmp     dword [___185a3ch], byte 0
 		je      short ___2bae9h
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		jne     short ___2bae9h
 		call    near ___2b318h
 		call    near ___3266ch
@@ -34211,7 +34211,7 @@ ___2bc81h:
 		mov     [___1a1ec4h], ebx
 		mov     ebx, 27fh
 		call    near frameFooter__dr
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      short ___2bcddh
 		mov     ecx, 390a3h
 		mov     ebx, ___1807cch
@@ -34447,7 +34447,7 @@ ___2bf8ch:
 		jne     near ___2c103h
 		cmp     dword [___196ab0h], byte 1
 		je      near ___2c103h
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		jne     short ___2c0aeh
 		imul    eax, [___1a1ef8h], byte 6ch
 		cmp     dword [eax+___1a0228h], byte 7
@@ -34482,7 +34482,7 @@ ___2c119h:
 		call    near ___12dc4h
 		call    near ___17324h
 		mov     edx, 1
-		mov     ebx, [___19bd60h]
+		mov     ebx, [__CEXT_V(___19bd60h)]
 		mov     [esp+28h], edx
 		test    ebx, ebx
 		je      short ___2c17dh
@@ -34545,7 +34545,7 @@ ___2c1f9h:
 ___2c208h:
 		cmp     dword [esp+24h], byte 8
 		jne     short ___2c25bh
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      short ___2c253h
 		imul    edx, [___1a1ef8h], byte 6ch
 		fild    dword [___185a54h]
@@ -34627,7 +34627,7 @@ ___2c334h:
 		call    near ___165ach
 		call    near ___12dc4h
 		call    near ___17324h
-		mov     esi, [___19bd60h]
+		mov     esi, [__CEXT_V(___19bd60h)]
 		mov     [esp+28h], ebx
 		mov     [esp+10h], edx
 		cmp     edx, esi
@@ -34667,7 +34667,7 @@ ___2c3d1h:
 		call    near ___165ach
 		call    near ___12dc4h
 		call    near ___17324h
-		mov     esi, [___19bd60h]
+		mov     esi, [__CEXT_V(___19bd60h)]
 		mov     [esp+28h], ebx
 		mov     [esp+10h], edx
 		cmp     edx, esi
@@ -34710,7 +34710,7 @@ ___2c476h:
 		call    near ___165ach
 		call    near ___12dc4h
 		call    near ___17324h
-		mov     eax, [___19bd60h]
+		mov     eax, [__CEXT_V(___19bd60h)]
 		mov     [esp+28h], edi
 		mov     [esp+10h], edx
 		cmp     edx, eax
@@ -34749,7 +34749,7 @@ ___2c506h:
 		call    near ___165ach
 		call    near ___12dc4h
 		call    near ___17324h
-		mov     edi, [___19bd60h]
+		mov     edi, [__CEXT_V(___19bd60h)]
 		mov     [esp+28h], ebx
 		cmp     edx, edi
 		je      short ___2c592h
@@ -34774,7 +34774,7 @@ ___2c5a0h:
 ___2c5a8h:
 		cmp     dword [___185a18h], byte 4
 		jne     short ___2c5ceh
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		jne     short ___2c5c6h
 		cmp     dword [esp+28h], byte 0
 		jne     short ___2c5c6h
@@ -34804,7 +34804,7 @@ ___2c5ceh:
 		mov     ecx, 6dh
 		xor     eax, eax
 		call    near frameFooter__dr
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      short ___2c65ch
 		mov     ecx, 390a3h
 		mov     ebx, ___1807cch
@@ -35040,7 +35040,7 @@ ___2ca13h:
 		cmp     ebp, byte 9
 		jl      short ___2ca13h
 		mov     al, [esp+3ch]
-		mov     edx, [___19bd60h]
+		mov     edx, [__CEXT_V(___19bd60h)]
 		mov     [esp+9], al
 		test    edx, edx
 		jne     short ___2ca74h
@@ -35057,7 +35057,7 @@ ___2ca13h:
 		call    near ___25330h
 		call    near ___12dc4h
 ___2ca74h:
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		jne     short ___2cae2h
 		cmp     byte [esp+5], 20h
 		jne     short ___2cae2h
@@ -35084,7 +35084,7 @@ ___2ca74h:
 		call    near ___25330h
 		call    near ___12dc4h
 ___2cae2h:
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		jne     short ___2cb44h
 		cmp     byte [esp+5], 20h
 		jne     short ___2cb44h
@@ -35108,7 +35108,7 @@ ___2cae2h:
 		call    near ___25330h
 		call    near ___12dc4h
 ___2cb44h:
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		jne     short ___2cb9fh
 		cmp     byte [esp+6], 20h
 		jne     short ___2cb9fh
@@ -35172,7 +35172,7 @@ ___2cc12h:
 		je      short ___2cc4ch
 		jmp     short ___2cc5bh
 ___2cc20h:
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      short ___2cc5bh
 		call    near ___23758h
 		jmp     short ___2cc5bh
@@ -35351,7 +35351,7 @@ ___2cec8h:
 		mov     edx, 173h
 		xor     eax, eax
 		call    near frameFooter__dr
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      short ___2cf19h
 		mov     ecx, 390a3h
 		mov     ebx, ___1807cch
@@ -35405,7 +35405,7 @@ ___2cf71h:
 		pop     edi
 		call    near ___12cb8h
 ___2cf97h:
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      short ___2cfb1h
 		cmp     dword [___196a84h], byte 0
 		je      short ___2cfb1h
@@ -35436,7 +35436,7 @@ ___2cfc8h:
 		mov     [VGABufferPtr_0], eax
 		xor     eax, eax
 		call    near frameFooter__dr
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      short ___2d044h
 		mov     ecx, 390a3h
 		mov     ebx, ___1807cch
@@ -36438,7 +36438,7 @@ ___2dca5h:
 		shr     dl, 2
 		dec     cl
 		jne     short ___2dca3h
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		jne     near ___2dd66h
 		mov     edx, [___1a1ef8h]
 		lea     eax, [edx*8+0]
@@ -37520,7 +37520,7 @@ ___2ebc1h:
 		xor     ebx, ebx
 		mov     ecx, [ConfigSFXVolume]
 		call    near playSFX__sound
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      short ___2ebf9h
 		mov     eax, [___196adch]
 		call    near ___33010h
@@ -37581,7 +37581,7 @@ ___2ec68h:
 		mov     edx, 1
 		mov     eax, ___1a0a50h
 		call    near __STOSD
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      short ___2ecb6h
 		mov     ecx, 4
 		mov     edx, 1
@@ -37606,7 +37606,7 @@ ___2ecd2h:
 		add     eax, byte 6ch
 		cmp     edx, byte 14h
 		jl      short ___2ecc2h
-		mov     edi, [___19bd60h]
+		mov     edi, [__CEXT_V(___19bd60h)]
 		test    edi, edi
 		jne     short ___2ed04h
 		lea     eax, [esi*8+0]
@@ -37620,7 +37620,7 @@ ___2ecd2h:
 ___2ed04h:
 		mov     dword [___1a0a5ch], 1
 ___2ed0eh:
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      short ___2ed1fh
 		xor     ecx, ecx
 		mov     [___1a0a5ch], ecx
@@ -37654,7 +37654,7 @@ ___2ed2ch:
 		and     cl, 3
 		rep movsb   
 		pop     edi
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		jne     short ___2ed89h
 		mov     ecx, 10h
 		mov     edx, 280h
@@ -37774,7 +37774,7 @@ ___2eea9h:
 		mov     [esp], edi
 		cmp     edi, byte 14h
 		jl      short ___2ee98h
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		jne     short ___2eee6h
 		mov     ebx, [___1a1ef8h]
 		lea     eax, [ebx*8+0]
@@ -38215,7 +38215,7 @@ ___2f506h:
 		je      short ___2f53eh
 		jmp     short ___2f559h
 ___2f512h:
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      short ___2f559h
 		call    near ___23758h
 		jmp     short ___2f559h
@@ -38393,7 +38393,7 @@ ___2f7b8h:
 		mov     edx, 173h
 		xor     eax, eax
 		call    near frameFooter__dr
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      short ___2f809h
 		mov     ecx, 390a3h
 		mov     ebx, ___1807cch
@@ -38447,7 +38447,7 @@ ___2f861h:
 		pop     edi
 		call    near ___12cb8h
 ___2f887h:
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      short ___2f8a1h
 		cmp     dword [___196a84h], byte 0
 		je      short ___2f8a1h
@@ -38883,7 +38883,7 @@ ___2fe64h:
 		mov     [VGABufferPtr_0], eax
 		xor     eax, eax
 		call    near frameFooter__dr
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      short ___2fefbh
 		mov     ecx, 390a3h
 		mov     ebx, ___1807cch
@@ -39080,7 +39080,7 @@ ___30149h:
 		je      near ___306e6h
 		jmp     near ___306edh
 ___30157h:
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      near ___306edh
 		call    near ___23758h
 		jmp     near ___306edh
@@ -39541,7 +39541,7 @@ ___30711h:
 		mov     [VGABufferPtr_0], eax
 		xor     eax, eax
 		call    near frameFooter__dr
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      short ___3078dh
 		mov     ecx, 390a3h
 		mov     ebx, ___1807cch
@@ -39931,7 +39931,7 @@ ___30b0fh:
 		and     cl, 3
 		rep movsb   
 		pop     edi
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      near ___30c20h
 		mov     esi, [esp+0ch]
 		xor     eax, eax
@@ -40107,7 +40107,7 @@ ___30d36h:
 		cmp     eax, ebp
 		jl      short ___30d19h
 ___30d47h:
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      near ___30dedh
 		mov     eax, 870h
 		mov     ecx, 870h
@@ -40732,7 +40732,7 @@ ___31529h:
 		mov     [esp+28h], edi
 		cmp     edi, byte 14h
 		jl      short ___31517h
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		jne     short ___3156ah
 		mov     esi, [___1a1ef8h]
 		lea     eax, [esi*8+0]
@@ -41799,7 +41799,7 @@ ___32230h:
 		mov     [esp+7bh], al
 		xor     edx, edx
 		xor     eax, eax
-		mov     esi, [___19bd60h]
+		mov     esi, [__CEXT_V(___19bd60h)]
 		mov     ebx, [___1a1ef8h]
 		xor     ecx, ecx
 ___3229ah:
@@ -41836,7 +41836,7 @@ ___322e6h:
 		add     edx, byte 6ch
 		cmp     eax, byte 14h
 		jl      short ___322d6h
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		jne     near ___32654h
 		mov     edx, [___1a1ef8h]
 		lea     eax, [edx*8+0]
@@ -43034,7 +43034,7 @@ ___331d2h:
 		cmp     eax, byte 5bh
 		jl      short ___331a6h
 ___331ech:
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      near ___3337ah
 		mov     cl, 2
 		xor     bl, bl
@@ -43553,7 +43553,7 @@ ___337b9h:
 		movsd   
 		movsd   
 		movsw   
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      short ___33845h
 		mov     esi, ___180728h
 		lea     edi, [esp+4ch]
@@ -43946,7 +43946,7 @@ ___33c89h:
 		mov     [VGABufferPtr_0], eax
 		mov     eax, 0ffffffffh
 		call    near ___3a968h
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      short ___33cadh
 		mov     eax, 1e00h
 		jmp     short ___33cb2h
@@ -43957,7 +43957,7 @@ ___33cb2h:
 		mov     eax, 10000h
 		call    near ___65710h
 		call    near ___12dc4h
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      near ___33e7eh
 		cmp     dword [___196a84h], byte 0
 		je      short ___33ce6h
@@ -44100,7 +44100,7 @@ ___33f01h:
 		mov     [esp+0d0h], esi
 		cmp     esi, byte 14h
 		jl      short ___33eech
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		jne     short ___33f36h
 		cmp     dword [___196aa4h], byte 0
 		jle     short ___33f36h
@@ -44177,7 +44177,7 @@ ___34007h:
 		mov     [ebx+___1de7f8h], eax
 		cmp     edx, esi
 		je      near ___340efh
-		mov     edi, [___19bd60h]
+		mov     edi, [__CEXT_V(___19bd60h)]
 		test    edi, edi
 		jne     near ___340efh
 		mov     [ebx+___1de7f8h], edi
@@ -44222,7 +44222,7 @@ ___340efh:
 		mov     al, [esp+edx+0cch]
 		cmp     eax, edi
 		je      short ___34112h
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      short ___34132h
 ___34112h:
 		mov     edx, [esp+0d0h]
@@ -44248,7 +44248,7 @@ ___34140h:
 		mov     al, [eax+2]
 		and     eax, 0ffh
 		mov     [ebx+___1de80ch], eax
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      short ___341abh
 		mov     eax, [___196adch]
 		mov     edi, [esp+0d0h]
@@ -44275,7 +44275,7 @@ ___341abh:
 		cmp     eax, edx
 		jl      near ___33f5dh
 ___341cfh:
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      short ___3423eh
 		mov     eax, [esp+0c8h]
 		mov     [esp+0d0h], eax
@@ -44334,7 +44334,7 @@ ___3428eh:
 		sub     eax, ebx
 		cmp     edx, [eax*4+___1a0224h]
 		jge     near ___3435fh
-		mov     ecx, [___19bd60h]
+		mov     ecx, [__CEXT_V(___19bd60h)]
 		test    ecx, ecx
 		jne     near ___3435fh
 		mov     edi, ___1de7d0h
@@ -44400,7 +44400,7 @@ ___3435fh:
 		mov     [___2438b8h], ebx
 		mov     [___2438c0h], eax
 		xor     eax, eax
-		mov     ebx, [___19bd60h]
+		mov     ebx, [__CEXT_V(___19bd60h)]
 		mov     [___1de820h], eax
 		test    ebx, ebx
 		jne     near ___3452ch
@@ -44486,14 +44486,14 @@ ___34519h:
 		jne     short ___3452ch
 		mov     dword [___1de820h], 50h
 ___3452ch:
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      short ___3454ch
 		fild    dword [___185a54h]
 		fmul    qword [___1824b4h]
 		call    near __CHP
 		fistp   dword [___1de820h]
 ___3454ch:
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		jne     short ___3457ch
 		mov     ebx, [___1a1ef8h]
 		lea     eax, [ebx*8+0]
@@ -44508,12 +44508,12 @@ ___3457ch:
 		call    near ___12a54h
 		call    near ___24ec0h
 		call    near ___2fc50h
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      short ___345a3h
 		mov     eax, [___1a1ef8h]
 		mov     [___1a103ch], eax
 ___345a3h:
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      short ___345bah
 		cmp     dword [___24e4d0h], byte 2
 		jne     short ___345bah
@@ -44522,7 +44522,7 @@ ___345bah:
 		mov     edx, [esp+0c8h]
 		mov     eax, [___1a103ch]
 		call    near ___56774h
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      short ___345e7h
 		cmp     dword [___24e4d0h], byte 2
 		jne     short ___345e7h
@@ -44561,7 +44561,7 @@ ___34634h:
 		sub     eax, ebx
 		cmp     edx, [eax*4+___1a0224h]
 		jge     short ___34675h
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      near ___34826h
 ___34675h:
 		xor     eax, eax
@@ -44604,7 +44604,7 @@ ___346f5h:
 		add     edx, ebx
 		shl     edx, 2
 		add     edx, ebx
-		mov     ebx, [___19bd60h]
+		mov     ebx, [__CEXT_V(___19bd60h)]
 		shl     edx, 2
 		test    ebx, ebx
 		je      short ___34732h
@@ -44634,7 +44634,7 @@ ___34768h:
 		xor     edx, edx
 		mov     [___196a98h], edx
 ___34770h:
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		jne     short ___347b9h
 		cmp     dword [___196aa4h], byte 0
 		jle     short ___347b9h
@@ -44653,7 +44653,7 @@ ___34770h:
 ___347b3h:
 		neg     dword [___196aa4h]
 ___347b9h:
-		mov     esi, [___19bd60h]
+		mov     esi, [__CEXT_V(___19bd60h)]
 		test    esi, esi
 		jne     short ___34826h
 		cmp     dword [___196aa8h], byte 0
@@ -44742,7 +44742,7 @@ ___348f0h:
 		mov     [esp+0d0h], edi
 		cmp     edi, byte 14h
 		jl      short ___348dbh
-		mov     ecx, [___19bd60h]
+		mov     ecx, [__CEXT_V(___19bd60h)]
 		test    ecx, ecx
 		jne     near ___35101h
 		mov     edx, [___1a1ef8h]
@@ -45157,7 +45157,7 @@ ___350e6h:
 		cmp     edx, byte 4
 		jl      near ___34960h
 ___35101h:
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		jne     near ___3518fh
 		mov     edx, [___1a1ef8h]
 		lea     eax, [edx*8+0]
@@ -45189,7 +45189,7 @@ ___35101h:
 		mov     eax, [___196af0h]
 		mov     [edx+___1a0234h], eax
 ___3518fh:
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      near ___357bbh
 		mov     ecx, [___196ad4h]
 		inc     ecx
@@ -45661,7 +45661,7 @@ ___357e1h:
 		mov     [esp+0d0h], ebx
 		cmp     ebx, byte 14h
 		jl      short ___357cch
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		jne     short ___3583bh
 		mov     ebx, [___1a1ef8h]
 		lea     eax, [ebx*8+0]
@@ -45702,7 +45702,7 @@ ___35858h:
 		cmp     esi, edi
 		jl      short ___35858h
 ___3589ah:
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		jne     short ___358a8h
 		call    near ___3deb8h
 ___358a8h:
@@ -45735,7 +45735,7 @@ ___358d8h:
 		jge     short ___35922h
 		cmp     dword [___196ae8h], byte 1
 		jne     short ___35922h
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      near ___359f6h
 ___35922h:
 		mov     edx, [___1a1ef8h]
@@ -45805,7 +45805,7 @@ ___35a06h:
 		mov     [esp+0d0h], edx
 		cmp     edx, 100h
 		jl      short ___35a06h
-		mov     ecx, [___19bd60h]
+		mov     ecx, [__CEXT_V(___19bd60h)]
 		test    ecx, ecx
 		je      short ___35a55h
 		call    near ___3986ch
@@ -46123,7 +46123,7 @@ ___35dd0h:
 		push    ebp
 		sub     esp, byte 18h
 		mov     edx, 4
-		mov     ebx, [___19bd60h]
+		mov     ebx, [__CEXT_V(___19bd60h)]
 		mov     [esp+8], edx
 		test    ebx, ebx
 		je      short ___35dffh
@@ -47218,7 +47218,7 @@ ___36b6fh:
 		sub     ebx, edx
 		dec     ecx
 		jne     short ___36b65h
-		mov     edx, [___19bd60h]
+		mov     edx, [__CEXT_V(___19bd60h)]
 		mov     ebp, 20eh
 		test    edx, edx
 		je      near ___36c64h
@@ -47306,7 +47306,7 @@ ___36c54h:
 		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
 ___36c64h:
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      short ___36c86h
 		mov     ecx, 0d738h
 		mov     ebx, ___182580h
@@ -47482,7 +47482,7 @@ ___36e51h:
 		jne     short ___36e51h
 ___36e69h:
 		pop     edi
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      short ___36ed7h
 		mov     esi, ___1825d0h
 		mov     edi, esp
@@ -47656,7 +47656,7 @@ ___3703ah:
 		jne     short ___3703ah
 ___37052h:
 		pop     edi
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      short ___37098h
 		mov     edx, [___196ad4h]
 		mov     dl, [edx+___1a2010h]
@@ -47682,7 +47682,7 @@ ___3707fh:
 ___37097h:
 		pop     edi
 ___37098h:
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		jne     short ___370d3h
 		cmp     dword [___1a1028h], byte 0
 		jne     short ___370d3h
@@ -47708,7 +47708,7 @@ ___370bah:
 ___370d2h:
 		pop     edi
 ___370d3h:
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		jne     short ___3710eh
 		cmp     dword [___1a1028h], byte 1
 		jne     short ___3710eh
@@ -47734,7 +47734,7 @@ ___370f5h:
 ___3710dh:
 		pop     edi
 ___3710eh:
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		jne     short ___37149h
 		cmp     dword [___1a1028h], byte 2
 		jne     short ___37149h
@@ -47760,7 +47760,7 @@ ___37130h:
 ___37148h:
 		pop     edi
 ___37149h:
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		jne     short ___37167h
 		cmp     dword [___1a1028h], byte 3
 		jne     short ___37167h
@@ -47771,7 +47771,7 @@ ___37149h:
 		movsw   
 		movsb   
 ___37167h:
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      near ___37201h
 		mov     ebx, 0ah
 		lea     edx, [esp+64h]
@@ -49427,7 +49427,7 @@ ___38426h:
 		mov     dl, [esp+14h]
 		cmp     edx, ebp
 		je      short ___38444h
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      short ___38470h
 ___38444h:
 		xor     edx, edx
@@ -49477,7 +49477,7 @@ ___38494h:
 		mov     dl, [esp+15h]
 		cmp     edx, ebx
 		je      short ___384f1h
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      short ___3851dh
 ___384f1h:
 		xor     edx, edx
@@ -49527,7 +49527,7 @@ ___38541h:
 		mov     al, [esp+16h]
 		cmp     eax, esi
 		je      short ___385a7h
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      short ___385d3h
 		cmp     dword [___196adch], byte 2
 		jle     short ___385d3h
@@ -49581,7 +49581,7 @@ ___385fdh:
 		mov     al, [esp+17h]
 		cmp     eax, edx
 		je      short ___38663h
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      short ___3868fh
 		cmp     dword [___196adch], byte 3
 		jle     short ___3868fh
@@ -52632,9 +52632,9 @@ ___3aaf8h:
 		call    near ___64a28h
 		call    near __CEXT_F(___5ec04h)
 		call    near __CEXT_F(restore__keyboard)
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      short ___3ab3bh
-		call    near ___623d4h
+		call    near __CEXT_F(___623d4h)
 ___3ab3bh:
 		call    near setmode3h__video
 		push    ___1826f4h
@@ -53841,7 +53841,7 @@ ___3bad4h:
 		pop     edi
 		mov     [esp+54h], dl
 ___3bad9h:
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      short ___3bb14h
 		mov     ecx, 390a3h
 		mov     ebx, ___1807cch
@@ -56944,11 +56944,11 @@ allocMemSafe:
 		add     esp, byte 4
 		push    ___182e20h
 		call    near __CEXT_F(printf__clib3r)
-		mov     edx, [___19bd60h]
+		mov     edx, [__CEXT_V(___19bd60h)]
 		add     esp, byte 4
 		test    edx, edx
 		je      short ___3f76ah
-		call    near ___623d4h
+		call    near __CEXT_F(___623d4h)
 ___3f76ah:
 		mov     eax, 70h
 		call    near __CEXT_F(exit__clib3r)
@@ -57385,7 +57385,7 @@ ___3fdech:
 ___3fe06h:
 		cmp     dword [___1de580h], byte 6
 		jne     near ___3ffd9h
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		jne     near ___3ffd9h
 		mov     ebx, [___243ce8h]
 		lea     eax, [ebx*8+0]
@@ -57620,7 +57620,7 @@ ___40164h:
 		push    esi
 		push    edi
 		push    ebp
-		mov     edx, [___19bd60h]
+		mov     edx, [__CEXT_V(___19bd60h)]
 		xor     bl, bl
 		test    edx, edx
 		je      short ___40199h
@@ -57876,7 +57876,7 @@ ___404c9h:
 		xor     edx, edx
 		mov     [eax+___1e6f70h], edx
 ___40502h:
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      short ___4052bh
 		cmp     dword [___24387ch], byte 0
 		je      short ___4052bh
@@ -60149,7 +60149,7 @@ ___422deh:
 		mov     edx, [___196de0h]
 		cmp     edx, byte 1
 		jne     near ___42379h
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      short ___42318h
 		mov     eax, edx
 		call    near ___44130h
@@ -60223,7 +60223,7 @@ ___42402h:
 		jg      near ___424beh
 		cmp     dword [___196de0h], byte 0
 		jne     short ___4246ch
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      short ___4244ch
 		cmp     dword [___24e4d0h], byte 2
 		jne     short ___42442h
@@ -62436,7 +62436,7 @@ ___440b5h:
 		call    near kbhit_
 		test    eax, eax
 		je      short ___440cdh
-		call    near ___623d4h
+		call    near __CEXT_F(___623d4h)
 		mov     eax, 70h
 		call    near __CEXT_F(exit__clib3r)
 ___440cdh:
@@ -62446,7 +62446,7 @@ ___440cdh:
 		call    near ___611c0h
 		mov     dl, 1
 		mov     [___243ce8h], eax
-		mov     [___19bd60h], ebx
+		mov     [__CEXT_V(___19bd60h)], ebx
 		call    near ___61278h
 		mov     bl, 3
 		mov     ecx, [___243ce8h]
@@ -67016,7 +67016,7 @@ ___47d8ch:
 		push    ebp
 		sub     esp, byte 10h
 		mov     cl, al
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      near ___47e84h
 		call    near ___61518h
 		xor     ebx, ebx
@@ -67106,7 +67106,7 @@ ___47e90h:
 		push    ecx
 		push    edx
 		mov     cl, al
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      short ___47ed1h
 		xor     edx, edx
 ___47eaah:
@@ -69019,11 +69019,11 @@ ___492f4h:
 		call    near setmode3h__video
 		push    ___183e84h
 		call    near __CEXT_F(printf__clib3r)
-		mov     edx, [___19bd60h]
+		mov     edx, [__CEXT_V(___19bd60h)]
 		add     esp, byte 4
 		test    edx, edx
 		je      short ___4932ch
-		call    near ___623d4h
+		call    near __CEXT_F(___623d4h)
 ___4932ch:
 		mov     eax, 70h
 		call    near __CEXT_F(exit__clib3r)
@@ -69045,11 +69045,11 @@ ___4932ch:
 ;		add     esp, byte 4
 ;		push    ___183ed8h
 ;		call    near __CEXT_F(printf__clib3r)
-;		mov     edx, [___19bd60h]
+;		mov     edx, [__CEXT_V(___19bd60h)]
 ;		add     esp, byte 4
 ;		test    edx, edx
 ;		je      short ___49381h
-;		call    near ___623d4h
+;		call    near __CEXT_F(___623d4h)
 ;___49381h:
 ;		mov     eax, 70h
 ;		call    near __CEXT_F(exit__clib3r)
@@ -69511,7 +69511,7 @@ ___498a5h:
 ___498c8h:
 		cmp     dword [___1de81ch], byte 1
 		jne     near ___49a21h
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		jne     near ___49a21h
 		call    near rand
 		mov     edx, eax
@@ -77166,7 +77166,7 @@ ___506bbh:
 		mov     [esp+0e0h], ecx
 		mov     [edx+___1e707ah], eax
 ___507b3h:
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		jne     near ___509b4h
 		call    near rand
 		mov     edx, eax
@@ -83471,7 +83471,7 @@ ___55ff2h:
 		jne     short ___5606ch
 		cmp     dword [___1de580h], byte 6
 		je      short ___5606ch
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		jne     short ___5606ch
 		mov     ebx, 1
 		push    8000h
@@ -83499,7 +83499,7 @@ ___5606ch:
 		jne     short ___560c0h
 		cmp     dword [___1de580h], byte 6
 		je      short ___560c0h
-		mov     eax, [___19bd60h]
+		mov     eax, [__CEXT_V(___19bd60h)]
 		test    eax, eax
 		jne     short ___560c0h
 		mov     [___196ab0h], eax
@@ -84023,7 +84023,7 @@ ___56774h:
 		mov     [___243cf4h], edx
 		call    near ___3f970h
 		call    near ___49a34h
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      near ___568c6h
 		xor     ebx, ebx
 		mov     esi, [___243cf4h]
@@ -84211,7 +84211,7 @@ ___568c6h:
 		call    near allocMemSafe
 		mov     [___243d64h], eax
 		call    near ___4539ch
-		mov     dword [___2432c8h], ___492f4h
+		mov     dword [__CEXT_V(___2432c8h)], ___492f4h
 		call    near ___42824h
 		call    near ___4a25ch
 		call    near ___405bch
@@ -84223,9 +84223,9 @@ ___568c6h:
 		call    near ___64a28h
 		call    near ___606dfh
 		call    near setmode13h__video
-		cmp     dword [___19bd4ch], byte 0
+		cmp     dword [__CEXT_V(___19bd4ch)], byte 0
 		jne     short ___56b34h
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      short ___56b3dh
 ___56b34h:
 		mov     eax, 46h
@@ -84368,7 +84368,7 @@ ___56cb5h:
 		xor     edx, edx
 		mov     [___196df0h], edx
 ___56d25h:
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      short ___56d3ch
 		cmp     dword [___24387ch], byte 0
 		je      short ___56d3ch
@@ -84427,7 +84427,7 @@ ___56df9h:
 		mov     edi, [___243ce8h]
 		cmp     edi, [___243c60h]
 		je      short ___56e1eh
-		cmp     ecx, [___19bd60h]
+		cmp     ecx, [__CEXT_V(___19bd60h)]
 		jne     short ___56e1eh
 ___56e19h:
 		call    near ___4b62ch
@@ -84520,7 +84520,7 @@ ___56f27h:
 		cmp     ebx, ecx
 		jl      short ___56f27h
 ___56f43h:
-		mov     edi, [___19bd60h]
+		mov     edi, [__CEXT_V(___19bd60h)]
 		test    edi, edi
 		jne     short ___56f79h
 		mov     edx, [___243cf4h]
@@ -84917,7 +84917,7 @@ ___574c5h:
 		call    near ___655b0h
 		call    near ___54668h
 		call    near ___55ae0h
-		mov     eax, [___19bd60h]
+		mov     eax, [__CEXT_V(___19bd60h)]
 		test    eax, eax
 		je      short ___57539h
 		je      short ___5753eh
@@ -84926,7 +84926,7 @@ ___574c5h:
 ___57539h:
 		call    near ___56170h
 ___5753eh:
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		jne     short ___57571h
 		mov     edi, [___243ce8h]
 		imul    eax, edi, 35eh
@@ -84978,13 +84978,13 @@ ___575eah:
 		cmp     dword [___243874h], byte 0
 		jg      near ___56dceh
 ___57603h:
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		jne     short ___5761ah
 		cmp     dword [___1de580h], byte 6
 		je      short ___5761ah
 		call    near ___4c21ch
 ___5761ah:
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      short ___57631h
 		cmp     dword [___24387ch], byte 0
 		je      short ___57631h
@@ -84996,7 +84996,7 @@ ___57631h:
 ___5763fh:
 		cmp     byte [___59e4bh], 0
 		je      near ___57803h
-		mov     edi, [___19bd60h]
+		mov     edi, [__CEXT_V(___19bd60h)]
 		test    edi, edi
 		jne     near ___57803h
 		mov     [___243d08h], edi
@@ -85190,7 +85190,7 @@ ___578fdh:
 ___57922h:
 		cmp     byte [___59e29h], 0
 		je      near ___57b8eh
-		mov     ecx, [___19bd60h]
+		mov     ecx, [__CEXT_V(___19bd60h)]
 		test    ecx, ecx
 		jne     near ___57b8eh
 		mov     [___243d08h], ecx
@@ -85382,7 +85382,7 @@ ___57ba6h:
 		mov     [___243d0ch], ecx
 		cmp     ebx, 19000h
 		jl      short ___57ba6h
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		jne     short ___57c2ah
 		call    near ___52d7ch
 ___57c2ah:
@@ -85451,7 +85451,7 @@ ___57ce6h:
 		jl      short ___57ce6h
 ___57d02h:
 		call    near ___51eb4h
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		jne     short ___57d15h
 		call    near ___56594h
 ___57d15h:
@@ -85488,7 +85488,7 @@ ___57d71h:
 ___57d88h:
 		cmp     dword [___2438c8h], 12ch
 		jle     near ___57ea9h
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      short ___57da9h
 		xor     edi, edi
 		mov     [___24387ch], edi
@@ -85665,14 +85665,14 @@ ___5803eh:
 		mov     [___196d8ch], eax
 		mov     eax, [___196d88h]
 		sub     edx, eax
-		mov     eax, [___19bd60h]
+		mov     eax, [__CEXT_V(___19bd60h)]
 		mov     [___196d98h], edx
 		test    eax, eax
 		jne     short ___5806eh
 		cmp     byte [___59e11h], 0
 		jne     short ___580a1h
 ___5806eh:
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      near ___5831ah
 		cmp     byte [___59e11h], 0
 		jne     short ___58091h
@@ -85682,12 +85682,12 @@ ___58091h:
 		cmp     dword [___243ca4h], 0c8h
 		jle     near ___5831ah
 ___580a1h:
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      short ___580b2h
 		xor     edi, edi
 		mov     [___24387ch], edi
 ___580b2h:
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      short ___580ceh
 		cmp     dword [___243cd8h], byte 0
 		jne     short ___580ceh
@@ -85709,7 +85709,7 @@ ___580e6h:
 		mov     [___243d08h], esi
 		cmp     esi, byte 0eh
 		jl      short ___580e6h
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      near ___581c5h
 		cmp     dword [___243cd8h], byte 0
 		je      near ___581c5h
@@ -85796,21 +85796,21 @@ ___58207h:
 		xor     eax, eax
 		call    near ___47808h
 ___58268h:
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      short ___58281h
 		cmp     dword [___243cd8h], byte 0
 		jne     short ___58281h
 		xor     eax, eax
 		call    near ___47ed8h
 ___58281h:
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		jne     short ___58291h
 		xor     eax, eax
 		call    near ___478c8h
 ___58291h:
 		cmp     dword [___243d14h], byte 1
 		jne     short ___582b1h
-		mov     esi, [___19bd60h]
+		mov     esi, [__CEXT_V(___19bd60h)]
 		test    esi, esi
 		jne     short ___582f7h
 		call    near ___560d8h
@@ -85833,7 +85833,7 @@ ___582b1h:
 		jne     short ___582f7h
 		call    near ___46738h
 ___582f7h:
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      short ___5831ah
 		mov     edx, [___243d14h]
 		test    edx, edx
@@ -85841,7 +85841,7 @@ ___582f7h:
 		mov     dword [___24387ch], 1
 		mov     [___243cd8h], edx
 ___5831ah:
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      near ___583ffh
 		mov     edi, [___243318h]
 		cmp     edi, byte 1
@@ -85901,7 +85901,7 @@ ___583ffh:
 		cmp     esi, byte 1
 		jne     near ___584ddh
 		call    near ___45d3ch
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		jne     near ___584ddh
 		cmp     dword [___243d44h], byte 0
 		je      near ___584ddh
@@ -86161,9 +86161,9 @@ ___58b5bh:
 		jne     short ___58b50h
 ___58b69h:
 		call    near __CEXT_F(___5ec04h)
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      short ___58b7ch
-		call    near ___623d4h
+		call    near __CEXT_F(___623d4h)
 ___58b7ch:
 		mov     eax, 3
 		int     10h
@@ -87717,8 +87717,7 @@ ___5a0bfh:
 db	0,0
 ___5a0c1h:
 db	0
-global install__keyboard
-install__keyboard:
+__GDECL(__CEXT_F(install__keyboard))
 		cmp     byte [___5a0c1h], 1
 		je      short ___5a100h
 		nop     
@@ -87845,7 +87844,7 @@ ___5a1c1h:
 		nop     
 		mov     al, 20h
 		out     20h, al
-		jmp     near dword [___2432c8h]
+		jmp     near dword [__CEXT_V(___2432c8h)]
 ___5a204h:
 		jmp     short ___5a223h
 db	90h,90h,90h
@@ -89814,8 +89813,7 @@ _exit:
 		call    dword [___FPE_handler_exit]
 		mov     eax, edx
 		jmp     near __exit_
-global ___5eb70h
-___5eb70h:
+__GDECL(__CEXT_F(___5eb70h))
 		push    ebx
 		push    edx
 		call    near ___60030h
@@ -89854,7 +89852,7 @@ ___5ebd7h:
 		xor     edx, edx
 		call    near memset__clib3r
 		xor     bh, bh
-		mov     [___5ff98h], bh
+		mov     [__CEXT_V(___5ff98h)], bh
 		pop     edx
 		pop     ebx
 		retn   
@@ -91153,8 +91151,7 @@ db	2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh
 db	2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh
 db	2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,0dh,0ah
 db	0dh,0ah,7,24h
-global ___5ff98h
-___5ff98h:
+__GDECL(__CEXT_V(___5ff98h))
 db	0
 ___5ff99h:
 		pushad  
@@ -91668,8 +91665,7 @@ ___60460h:
 db	0,0,0,0
 ___60464h:
 db	1,0
-global install__timer
-install__timer:
+__GDECL(__CEXT_F(install__timer))
 		pushad  
 		push    eax
 		push    ebx
@@ -91789,7 +91785,7 @@ ___605f8h:
 		mov     eax, [___60458h]
 		mov     ebx, [___6045ch]
 ___60603h:
-		cmp     byte [___5ff98h], 0
+		cmp     byte [__CEXT_V(___5ff98h)], 0
 		jne     short ___60610h
 		test    ebx, ebx
 		jne     short ___60634h
@@ -91954,7 +91950,7 @@ ___60777h:
 ___60799h:
 		cmp     dword [___6045ch], byte 0
 		je      short ___607d7h
-		cmp     byte [___5ff98h], 0
+		cmp     byte [__CEXT_V(___5ff98h)], 0
 		jne     short ___607d7h
 		cmp     byte [___60441h], 0
 		jne     short ___607bdh
@@ -94139,8 +94135,7 @@ ___623bch:
 		pop     ebx
 		retn    
 db	8bh,0c0h
-global ___623d4h
-___623d4h:
+__GDECL(__CEXT_F(___623d4h))
 		push    1ch
 		call    near __CHK
 		push    ebx
@@ -97816,7 +97811,7 @@ db	8dh,40h,0
 		jmp     near ___6879ch
 db	8dh,40h,0
 setup__sound:
-		cmp     byte [___5ff98h], 0
+		cmp     byte [__CEXT_V(___5ff98h)], 0
 		je      short @sound_enabled
 		cmp     al, 1
 		je      short @sound_disabled
@@ -113993,7 +113988,7 @@ ___77bbch:
 		call    near ___77f18h
 		mov     ebx, 1
 		mov     eax, 0ffffffffh
-		call    near install__timer
+		call    near __CEXT_F(install__timer)
 		pop     ebx
 		retn    
 db	8bh,0c0h
@@ -114121,7 +114116,7 @@ ___77d2ch:
 ___77d54h:
 		mov     ebx, 1
 		mov     eax, 0ffffffffh
-		call    near install__timer
+		call    near __CEXT_F(install__timer)
 		pop     ebx
 		retn    
 db	8dh,40h,0

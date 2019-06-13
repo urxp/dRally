@@ -10,7 +10,7 @@
     extern  getenv__clib3r
     extern  ___19bd48h
     extern  ___18006ch
-    extern  ___19bd4ch
+    extern  __CEXT_V(___19bd4ch)
     extern  ___180084h
 
 %include "layout.inc"
@@ -31,7 +31,7 @@ __GDECL(__CEXT_F(welcome__dr))
 		call    __CEXT_F(chkarg__dr)
 		test    eax, eax
 		je      ___1009dh
-		mov     dword [___19bd4ch], 1
+		mov     dword [__CEXT_V(___19bd4ch)], 1
 ___1009dh:
 		mov     eax, __CEXT_V(string__WINDIR)
 		call    getenv__clib3r
@@ -42,7 +42,7 @@ ___1009dh:
 		mov     ebx, 1
 		call    __CEXT_F(printf__clib3r)
 		add     esp, 4
-		mov     [___19bd4ch], ebx
+		mov     [__CEXT_V(___19bd4ch)], ebx
 		pop     ebx
 		retn    
 ___100cah:

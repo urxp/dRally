@@ -7,7 +7,7 @@
     extern  __GETDS
     extern  __exit_
     extern  __do_exit_with_msg__
-    extern  startup__dr
+    extern  __CEXT_F(startup__dr)
     extern  install__serial
     extern  allocateDOSMemoryBlock__dpmi
     extern  footer__dr

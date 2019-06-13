@@ -1,7 +1,7 @@
 %include "macros.inc"
 	
 	extern 	__CHK	
-	extern 	__CEXT_F(chkcdromini__dr)	
+	extern 	__CEXT_F(loadcdromini__dr)	
 	extern 	chkmemory__dr	
 	extern 	__CEXT_F(chkfiles__dr)	
 	extern 	___1a202fh	
@@ -11,7 +11,7 @@
 	extern 	___2415ch	
 	extern 	readConfig__dr	
 	extern 	___3aaf8h	
-	extern 	___2432c8h	
+	extern 	__CEXT_V(___2432c8h)	
 	extern 	TimesPlayed	
 	extern 	writeConfig__dr	
 	extern 	___182bf8h	
@@ -133,7 +133,7 @@
 	extern 	creditsMenu__dr	
 	extern 	showPreviewMenu__dr	
 	extern 	___148cch	
-	extern 	___19bd60h	
+	extern 	__CEXT_V(___19bd60h)	
 	extern 	___180ba0h	
 	extern 	___186a6eh	
 	extern 	___1a1ef8h	
@@ -142,7 +142,7 @@
 	extern 	___23488h		
 	extern 	___18108ch
 	extern 	___61278h	
-	extern 	___623d4h	
+	extern 	__CEXT_F(___623d4h)	
 	extern 	___3d79ch	
 	extern 	___12200h	
 	extern 	___12a54h	
@@ -164,8 +164,7 @@ dd	@drhof
 dd	@drcredits
 dd	@drpreview
 dd	@drexit
-global startup__dr
-startup__dr:
+__GDECL(__CEXT_F(startup__dr))
 		push    58h
 		call    __CHK
 		push    ebx
@@ -180,7 +179,7 @@ startup__dr:
 		mov     [esp+24h], edx
 		mov     [esp+0ch], edx
 		mov     [esp+18h], ecx
-		call    __CEXT_F(chkcdromini__dr)
+		call    __CEXT_F(loadcdromini__dr)
 		call    chkmemory__dr
 		call    __CEXT_F(chkfiles__dr)
 		mov     ecx, 13h
@@ -195,7 +194,7 @@ startup__dr:
 		mov     eax, [TimesPlayed]
 		mov     ebp, ___3aaf8h
 		inc     eax
-		mov     [___2432c8h], ebp
+		mov     [__CEXT_V(___2432c8h)], ebp
 		mov     [TimesPlayed], eax
 		call    writeConfig__dr
 		push    ___182bf8h 			;; "Loading music & ..."
@@ -790,7 +789,7 @@ ___3efd1h:
 		cmp     dword [esp+0ch], byte 0
 		je      ___3ec59h
 ___3efdch:
-		cmp     dword [___19bd60h], byte 0
+		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      ___3f1bah
 		mov     edx, ___180ba0h
 		mov     eax, ___186a6eh			;; "Join An Existing Game"
@@ -969,8 +968,8 @@ ___3f19dh:
 		call    ___23488h
 		call    ___61278h
 		xor     esi, esi
-		call    ___623d4h
-		mov     [___19bd60h], esi
+		call    __CEXT_F(___623d4h)
+		mov     [__CEXT_V(___19bd60h)], esi
 		mov     [___24e4d0h], esi
 ___3f1bah:
 		call    ___3d79ch

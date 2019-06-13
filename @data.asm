@@ -8500,6 +8500,7 @@ __D16Infoseg:
 db	20h,0
 __x386_zero_base_selector:
 db	0,0
+global __argc
 __argc:
 db	0,0,0,0
 __argv:

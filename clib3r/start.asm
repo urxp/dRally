@@ -1,3 +1,4 @@
+%include "macros.inc"
 
 ;	extern 	___begtext
 	extern 	__STACKTOP
@@ -45,7 +46,10 @@ ___begtext:
 		nop	;F
 
 section @text
-;..start:
+
+global _cstart_
+_cstart_
+
 global start
 start:
 		jmp     short around

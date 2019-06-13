@@ -1,3 +1,4 @@
+%include "macros.inc"
 
     extern  __CHK
     extern  int386__clib3r
@@ -6,8 +7,7 @@
 
 section @text
 
-global restrdos__dr
-restrdos__dr:
+__GDECL(__CEXT_F(restrdos__dr))
 		push    34h
 		call    __CHK
 		push    ebx

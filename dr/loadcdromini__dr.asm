@@ -18,7 +18,7 @@
 
 section @text
 
-__GDECL(__CEXT_F(chkcdromini__dr))
+__GDECL(__CEXT_F(loadcdromini__dr))
 		push    20h
 		call    __CHK
 		push    ecx

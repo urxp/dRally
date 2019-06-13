@@ -1,15 +1,15 @@
 ;_edata:
-__GDECL(___19bd20h)
+__GDECL(__CEXT_V(CLArgv))
     resb    28h
 __GDECL(___19bd48h)
     resb	4
-__GDECL(___19bd4ch)
+__GDECL(__CEXT_V(___19bd4ch))
     resb	8
-__GDECL(___19bd54h)
+__GDECL(__CEXT_V(CLArgc))
     resb	4
 __GDECL(Gamepad)
     resb	8
-__GDECL(___19bd60h)
+__GDECL(__CEXT_V(___19bd60h))
     resb	4
 __GDECL(___19bd64h)
     resb	2
@@ -1318,7 +1318,7 @@ ___2432b8h:	resb	4
 ___2432bch:	resb	4
 ___2432c0h:	resb	4
 ___2432c4h:	resb	4
-__GDECL(___2432c8h)
+__GDECL(__CEXT_V(___2432c8h))
     resb	4
 ___2432cch:	resb	4
 ___2432d0h:	resb	4
