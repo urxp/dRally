@@ -1316,11 +1316,11 @@ __GDECL(__CEXT_V(___182b6ch))
 db	"Please consult DRHELP.EXE for more information on how to resolve this problem.",0ah,0
 __GDECL(__CEXT_V(string__CDROM_INI))
 db	"CDROM.INI",0,0,0
-__GDECL(___182bc8h)
+__GDECL(__CEXT_V(___182bc8h))
 db	"%s",0,0
-__GDECL(___182bcch)
+__GDECL(__CEXT_V(___182bcch))
 db	"\",0,0,0
-__GDECL(___182bd0h)
+__GDECL(__CEXT_V(___182bd0h))
 db	"Error reading CDROM.INI file!",0ah,0,0
 __GDECL(__CEXT_V(string__DR_IDF))
 db	"DR.IDF",0,0

@@ -98869,8 +98869,7 @@ vfscanf:
 		pop     esi
 		pop     ecx
 		retn    
-global fscanf__clib3r
-fscanf__clib3r:
+__GDECL(__CEXT_F(fscanf__clib3r))
 		push    ebx
 		push    edx
 		sub     esp, byte 4

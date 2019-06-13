@@ -1,7 +1,7 @@
 %include "macros.inc"
 	
 	extern 	__CHK	
-	extern 	chkcdromini__dr	
+	extern 	__CEXT_F(chkcdromini__dr)	
 	extern 	chkmemory__dr	
 	extern 	__CEXT_F(chkfiles__dr)	
 	extern 	___1a202fh	
@@ -180,7 +180,7 @@ startup__dr:
 		mov     [esp+24h], edx
 		mov     [esp+0ch], edx
 		mov     [esp+18h], ecx
-		call    chkcdromini__dr
+		call    __CEXT_F(chkcdromini__dr)
 		call    chkmemory__dr
 		call    __CEXT_F(chkfiles__dr)
 		mov     ecx, 13h

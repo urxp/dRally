@@ -5,10 +5,10 @@
     extern  __CEXT_V(string__CDROM_INI)
     extern  __CEXT_F(fopen__clib3r)
     extern  __CEXT_V(cdrom_ini)
-    extern  ___182bc8h
-    extern  fscanf__clib3r
-    extern  ___182bcch
-    extern  ___182bd0h
+    extern  __CEXT_V(___182bc8h)
+    extern  __CEXT_F(fscanf__clib3r)
+    extern  __CEXT_V(___182bcch)
+    extern  __CEXT_V(___182bd0h)
     extern  __CEXT_F(printf__clib3r)
     extern  __CEXT_F(restore__keyboard)
     extern  __CEXT_F(___5ec04h)
@@ -18,8 +18,7 @@
 
 section @text
 
-global chkcdromini__dr
-chkcdromini__dr:
+__GDECL(__CEXT_F(chkcdromini__dr))
 		push    20h
 		call    __CHK
 		push    ecx
@@ -32,9 +31,9 @@ chkcdromini__dr:
 		test    eax, eax
 		je      @nocdromini
 		push    __CEXT_V(cdrom_ini)
-		push    ___182bc8h              ;; "%s"
+		push    __CEXT_V(___182bc8h)              ;; "%s"
 		push    eax
-		call    fscanf__clib3r
+		call    __CEXT_F(fscanf__clib3r)
 		add     esp, 0ch
 		mov     edi, __CEXT_V(cdrom_ini)
 		sub     ecx, ecx
@@ -45,7 +44,7 @@ chkcdromini__dr:
 		dec     ecx
 		cmp     byte [ecx+__CEXT_V(cdrom_ini)-1], 5ch  ;; '\'
 		je      @ok
-		mov     esi, ___182bcch             ;; "\"
+		mov     esi, __CEXT_V(___182bcch)             ;; "\"
 		mov     edi, __CEXT_V(cdrom_ini)
 		push    edi
 		sub     ecx, ecx
@@ -72,7 +71,7 @@ ___3e443h:
 		pop     ecx
 		retn    
 @nocdromini:
-		push    ___182bd0h
+		push    __CEXT_V(___182bd0h)
 		call    __CEXT_F(printf__clib3r)
 		add     esp, 4
 		call    __CEXT_F(restore__keyboard)
