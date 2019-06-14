@@ -1,8 +1,8 @@
-TARGET = dpmi
+TARGET = timer
 
 LIB_NAME = $(TARGET).lib
 
-OBJS = allocdos.obj
+OBJS = install__timer.obj
 
 $(TARGET): $(LIB_NAME) $(OBJS)
 

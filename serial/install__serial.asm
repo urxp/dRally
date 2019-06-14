@@ -5,7 +5,7 @@
     extern  REGS0
 	extern	REGS0_EAX
     extern  REGS0_EBX
-    extern  int386__clib3r
+    extern  __CEXT_F(int386__clib3r)
     extern  REGS0_ECX
     extern  ___24e4b0h
     extern  REGS0_EDX
@@ -64,7 +64,7 @@ install__serial:
 		mov     ebx, REGS0
 		mov     edx, ebx
 		mov     eax, 31h
-		call    near int386__clib3r
+		call    near __CEXT_F(int386__clib3r)
 		mov     eax, [REGS0_ECX]
 		mov     [___24e4b0h], eax
 		mov     eax, [REGS0_EDX]
@@ -75,7 +75,7 @@ install__serial:
 		mov     ebx, REGS0
 		mov     edx, ebx
 		mov     eax, 31h
-		call    near int386__clib3r
+		call    near __CEXT_F(int386__clib3r)
 		mov     eax, [REGS0_ECX]
 		mov     [___24e468h], eax
 		mov     eax, [REGS0_EDX]
@@ -214,7 +214,7 @@ ___62dcbh:
 		mov     ebx, REGS0
 		mov     edx, ebx
 		mov     eax, 31h
-		call    near int386__clib3r
+		call    near __CEXT_F(int386__clib3r)
 		mov     dword [REGS0_EAX], 201h
 		mov     [REGS0_EBX], ecx
 		mov     eax, [RMSerialPtr]
@@ -227,7 +227,7 @@ ___62dcbh:
 		mov     ebx, REGS0
 		mov     edx, ebx
 		mov     eax, 31h
-		call    near int386__clib3r
+		call    near __CEXT_F(int386__clib3r)
 		mov     eax, [___199fa4h]
 		add     eax, byte 2
 		cmp     dword [___199fb0h], byte 4

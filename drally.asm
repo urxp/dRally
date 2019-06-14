@@ -9,7 +9,7 @@
     extern  __do_exit_with_msg__
     extern  __CEXT_F(startup__dr)
     extern  install__serial
-    extern  allocateDOSMemoryBlock__dpmi
+    extern  __CEXT_F(allocDOSMemBlock__dpmi)
     extern  footer__dr
     extern  __CEXT_F(read__bpa)
     extern  __CEXT_F(getentrysize__bpa)
@@ -36,7 +36,7 @@
     extern  __CEXT_F(printf__clib3r)
     extern  strncmp__clib3r
     extern  getenv__clib3r
-    extern  int386__clib3r
+    extern  __CEXT_F(int386__clib3r)
     extern  int386x__clib3r
     extern  fwrite__clib3r
     extern  ftell__clib3r
@@ -45,6 +45,7 @@
     extern  __CEXT_F(chkarg__dr)
     extern  __CEXT_F(___71da4h)
     extern  __CEXT_F(getentrysize__musics_bpa)
+    extern  __CEXT_F(install__timer)
 
 %include "layout.inc"
 

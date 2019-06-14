@@ -54,7 +54,7 @@
 	extern 	__CEXT_F(___5ec04h)	
 	extern 	__CEXT_F(restore__keyboard)	
 	extern 	__CEXT_F(exit__clib3r)	
-	extern 	___605deh	
+	extern 	__CEXT_F(___605deh)	
 	extern 	allocVGABuffer	
 	extern 	___3d38ch	
 	extern 	___3d890h	
@@ -283,7 +283,7 @@ ___3e88bh:
 @bs_ok:
 		mov     eax, 3ch
 		xor     ebx, ebx
-		call    ___605deh
+		call    __CEXT_F(___605deh)
 		call    allocVGABuffer
 		call    ___3d38ch
 		call    ___3d890h

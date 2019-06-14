@@ -1,13 +1,13 @@
+%include "macros.inc"
 
     extern  __CHK
-    extern int386__clib3r
+    extern __CEXT_F(int386__clib3r)
 
 %include "layout.inc"
 
 section @text
 
-global allocateDOSMemoryBlock__dpmi
-allocateDOSMemoryBlock__dpmi:
+__GDECL(__CEXT_F(allocDOSMemBlock__dpmi))
 		push    28h
 		call    __CHK
 		push    ebx
@@ -21,7 +21,7 @@ allocateDOSMemoryBlock__dpmi:
 		mov     ebx, esp
 		mov     edx, esp
 		mov     eax, 31h
-		call    int386__clib3r
+		call    __CEXT_F(int386__clib3r)
 		mov     eax, [esp+0ch]
 		mov     [ecx], eax
 		cmp     dword [esp+18h], 0

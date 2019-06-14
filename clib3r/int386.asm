@@ -1,3 +1,4 @@
+%include "macros.inc"
 
     extern  segread__clib3r
     extern  int386x__clib3r
@@ -6,8 +7,7 @@
 
 section @text
 
-global int386__clib3r
-int386__clib3r:
+__GDECL(__CEXT_F(int386__clib3r))
 		push    ecx
 		push    esi
 		sub     esp, 0ch

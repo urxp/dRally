@@ -1,8 +1,8 @@
-TARGET = dpmi
+TARGET = template
 
 LIB_NAME = $(TARGET).lib
 
-OBJS = allocdos.obj
+OBJS = 
 
 $(TARGET): $(LIB_NAME) $(OBJS)
 

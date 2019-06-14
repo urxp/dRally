@@ -1,7 +1,7 @@
 %include "macros.inc"
 
     extern  __CHK
-    extern  int386__clib3r
+    extern  __CEXT_F(int386__clib3r)
 
 %include "layout.inc"
 
@@ -24,14 +24,14 @@ __GDECL(__CEXT_F(restrdos__dr))
 		mov     [esp], dx
 		mov     edx, esp
 		xor     edi, edi
-		call    int386__clib3r
+		call    __CEXT_F(int386__clib3r)
 		mov     ebx, 100h
 		mov     edx, esp
 		mov     eax, 10h
 		mov     [esp], bx
 		mov     ebx, esp
 		mov     [esp+8], cx
-		call    int386__clib3r
+		call    __CEXT_F(int386__clib3r)
 		mov     eax, 1700h
 		mov     ebx, esp
 		mov     edx, esp
@@ -39,7 +39,7 @@ __GDECL(__CEXT_F(restrdos__dr))
 		mov     [esp+0ch], ax
 		mov     eax, 10h
 		mov     [esp+4], di
-		call    int386__clib3r
+		call    __CEXT_F(int386__clib3r)
 		add     esp, 1ch
 		pop     edi
 		pop     esi
