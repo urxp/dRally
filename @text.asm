@@ -96302,7 +96302,7 @@ ___644d7h:
 		test    byte [ecx+0ch], 8
 		je      short ___644ech
 		mov     eax, [ecx+8]
-		call    near free__clib3r
+		call    near __CEXT_F(free__clib3r)
 		mov     dword [ecx+8], 0
 ___644ech:
 		test    byte [ecx+0dh], 8
@@ -98856,8 +98856,7 @@ __GDECL(__CEXT_F(fscanf__clib3r))
 		pop     edx
 		pop     ebx
 		retn    
-global malloc__clib3r
-malloc__clib3r:
+__GDECL(__CEXT_F(malloc__clib3r))
 		push    ebx
 		push    ecx
 		push    edx
@@ -98956,8 +98955,7 @@ ___664fbh:
 		pop     ecx
 		pop     ebx
 		retn    
-global free__clib3r
-free__clib3r:
+__GDECL(__CEXT_F(free__clib3r))
 		push    ebx
 		push    ecx
 		push    edx
@@ -100383,7 +100381,7 @@ __Init_Argv:
 		mov     [esp+4], eax
 		add     eax, byte 4
 		add     eax, ecx
-		call    near malloc__clib3r
+		call    near __CEXT_F(malloc__clib3r)
 		mov     ebp, eax
 		test    eax, eax
 		je      short ___672cah
@@ -100624,7 +100622,7 @@ ___67471h:
 		test    byte [ecx+0ch], 3
 		jne     short ___6748eh
 		mov     eax, 8
-		call    near malloc__clib3r
+		call    near __CEXT_F(malloc__clib3r)
 		mov     esi, eax
 		test    eax, eax
 		je      short ___674d6h
@@ -100637,7 +100635,7 @@ ___67491h:
 		jb      short ___67471h
 		mov     eax, 22h
 		mov     edi, 4003h
-		call    near malloc__clib3r
+		call    near __CEXT_F(malloc__clib3r)
 		mov     esi, eax
 		test    eax, eax
 		je      short ___674d6h
@@ -100702,7 +100700,7 @@ ___67522h:
 		je      short ___6753dh
 		mov     eax, edx
 		mov     edx, [edx]
-		call    near free__clib3r
+		call    near __CEXT_F(free__clib3r)
 		mov     [___ClosedStreams], edx
 		jmp     short ___67522h
 ___6753dh:
@@ -100754,7 +100752,7 @@ ___6759eh:
 		mov     dword [edx+14h], 1000h
 ___675a5h:
 		mov     eax, [edx+14h]
-		call    near malloc__clib3r
+		call    near __CEXT_F(malloc__clib3r)
 		mov     [edx+8], eax
 		test    eax, eax
 		jne     short ___675d4h
@@ -106067,7 +106065,7 @@ ___6df22h:
 		inc     edi
 		add     eax, byte 4
 		mov     [ebx+18h], edi
-		call    near free__clib3r
+		call    near __CEXT_F(free__clib3r)
 		jmp     short ___6df7ch
 ___6df79h:
 		or      byte [eax], 1
@@ -106327,7 +106325,7 @@ ___6e18bh:
 		inc     edi
 		lea     eax, [ebx+4]
 		mov     [edx+18h], edi
-		call    near free__clib3r
+		call    near __CEXT_F(free__clib3r)
 		mov     eax, 1
 		jmp     near ___6e11fh
 __ExpandDGROUP:
@@ -106452,7 +106450,7 @@ ___6e2fdh:
 		inc     dword [edx+18h]
 		lea     eax, [ebx+4]
 		mov     dword [edx+14h], 0ffffffffh
-		call    near free__clib3r
+		call    near __CEXT_F(free__clib3r)
 		mov     eax, 1
 ___6e31bh:
 		add     esp, byte 4
@@ -107268,7 +107266,7 @@ ___6ebb8h:
 		jne     short ___6ebc1h
 		mov     eax, 1
 ___6ebc1h:
-		call    near malloc__clib3r
+		call    near __CEXT_F(malloc__clib3r)
 		mov     edx, eax
 		mov     ebx, eax
 		test    eax, eax
@@ -107277,7 +107275,7 @@ ___6ebc1h:
 		shl     eax, 2
 		add     eax, byte 4
 		add     eax, ecx
-		call    near malloc__clib3r
+		call    near __CEXT_F(malloc__clib3r)
 		test    eax, eax
 		je      short ___6ec39h
 		mov     [_environ], eax
@@ -107316,7 +107314,7 @@ ___6ec14h:
 		jmp     short ___6ec40h
 ___6ec39h:
 		mov     eax, edx
-		call    near free__clib3r
+		call    near __CEXT_F(free__clib3r)
 ___6ec40h:
 		pop     fs
 		pop     es
@@ -107344,12 +107342,12 @@ __InitFiles:
 		jmp     short ___6ed21h
 ___6ecdfh:
 		mov     eax, 8
-		call    near malloc__clib3r
+		call    near __CEXT_F(malloc__clib3r)
 		mov     ebx, eax
 		test    eax, eax
 		jne     short ___6ed0eh
 		mov     eax, 8
-		call    near malloc__clib3r
+		call    near __CEXT_F(malloc__clib3r)
 		mov     ebx, eax
 		test    eax, eax
 		jne     short ___6ed0eh

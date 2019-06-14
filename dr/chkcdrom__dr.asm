@@ -4,8 +4,8 @@
     extern  __CEXT_V(cdrom_ini)
     extern  __CEXT_V(string__DR_IDF)
     extern  __CEXT_F(getFileSize__dr)
-    extern  malloc__clib3r
-    extern  free__clib3r
+    extern  __CEXT_F(malloc__clib3r)
+    extern  __CEXT_F(free__clib3r)
     extern  __CEXT_V(rb_m)
     extern  __CEXT_F(fopen__clib3r)
     extern  __CEXT_F(fread__clib3r)
@@ -72,7 +72,7 @@ ___3e504h:
 		jmp     ___3e6efh
 ___3e521h:
 		mov     eax, 10000h
-		call    malloc__clib3r
+		call    __CEXT_F(malloc__clib3r)
 		mov     edi, eax
 		mov     esi, eax
 		mov     eax, esp
@@ -81,7 +81,7 @@ ___3e521h:
 		jge     ___3e555h
 ___3e53dh:
 		mov     eax, edi
-		call    free__clib3r
+		call    __CEXT_F(free__clib3r)
 		xor     edx, edx
 		mov     eax, edx
 		add     esp, 110h
@@ -197,7 +197,7 @@ ___3e6c1h:
 		cmp     dword [esp+10ch], 1
 		jne     ___3e6e3h
 		mov     eax, esi
-		call    free__clib3r
+		call    __CEXT_F(free__clib3r)
 		xor     edx, edx
 		mov     eax, edx
 		add     esp, 110h
@@ -211,7 +211,7 @@ ___3e6c1h:
 ___3e6e3h:
 		mov     eax, esi
 		mov     edx, 1
-		call    free__clib3r
+		call    __CEXT_F(free__clib3r)
 ___3e6efh:
 		mov     eax, edx
 		add     esp, 110h
