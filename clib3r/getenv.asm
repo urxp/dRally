@@ -1,3 +1,4 @@
+%include "macros.inc"
 
     extern  _environ
     extern  strnicmp__clib3r
@@ -6,8 +7,7 @@
 
 section @text
 
-global getenv__clib3r
-getenv__clib3r:
+__GDECL(__CEXT_F(getenv__clib3r))
 		push    ebx
 		push    ecx
 		push    edx

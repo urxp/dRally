@@ -35,7 +35,7 @@
 
     extern  __CEXT_F(printf__clib3r)
     extern  strncmp__clib3r
-    extern  getenv__clib3r
+    extern  __CEXT_F(getenv__clib3r)
     extern  __CEXT_F(int386__clib3r)
     extern  int386x__clib3r
     extern  fwrite__clib3r

@@ -1,7 +1,7 @@
 ;_edata:
 __GDECL(__CEXT_V(CLArgv))
     resb    28h
-__GDECL(___19bd48h)
+__GDECL(__CEXT_V(ENV_WINDIR))
     resb	4
 __GDECL(__CEXT_V(___19bd4ch))
     resb	8

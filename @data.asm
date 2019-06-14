@@ -1,15 +1,15 @@
 db	1,1,1,0
 __GDECL(__CEXT_V(___180004h))
 db	0ah,"Death Rally *** Full Version 1.1",0ah,"Copyright (c) 1995, 1996 Remedy Entertainment, Ltd.",0ah,0,0
-__GDECL(___18005ch)
+__GDECL(__CEXT_V(___18005ch))
 db	0ah,0,0,0
-__GDECL(___180060h)
+__GDECL(__CEXT_V(___180060h))
 db	"/w",0,0
 __GDECL(__CEXT_V(string__WINDIR))
 db	"WINDIR",0,0
-__GDECL(___18006ch)
+__GDECL(__CEXT_V(___18006ch))
 db	"Windows 95 detected.",0ah,0,0,0
-__GDECL(___180084h)
+__GDECL(__CEXT_V(___180084h))
 db	"Use ",22h,"/W",22h," parameter, if you are running under Windows 95 shell.",0ah,0
 __GDECL(__CEXT_V(___1800c4h))
 db	"DEATH RALLY Exit: CTRL+ALT+DEL pressed!",0ah,0,0,0,0

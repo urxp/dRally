@@ -99378,7 +99378,7 @@ ___668e0h:
 		sub     esp, byte 1ch
 		mov     esi, eax
 		mov     eax, ___1850b0h
-		call    near getenv__clib3r
+		call    near __CEXT_F(getenv__clib3r)
 		mov     edi, eax
 		test    eax, eax
 		je      near ___669ebh
@@ -99515,7 +99515,7 @@ ___669f4h:
 		mov     edi, ebx
 		mov     ebp, ecx
 		mov     eax, ___1850cch
-		call    near getenv__clib3r
+		call    near __CEXT_F(getenv__clib3r)
 		mov     edx, eax
 		mov     esi, eax
 		test    eax, eax
@@ -102548,7 +102548,7 @@ lifesuxx__dr:
 		inc     bh
 		mov     [esp+3], cl
 		mov     [esp+2], bh
-		call    near getenv__clib3r
+		call    near __CEXT_F(getenv__clib3r)
 		test    eax, eax
 		je      short ___688a9h
 		call    near __lifesuxx__dr
