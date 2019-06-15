@@ -2,7 +2,7 @@ TARGET = bpa
 
 LIB_NAME = $(TARGET).lib
 
-OBJS = read__bpa.obj getentrysize__bpa.obj
+OBJS = extract__bpa.obj getentrysize__bpa.obj read__bpa.obj
 
 $(TARGET): $(LIB_NAME) $(OBJS)
 

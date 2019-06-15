@@ -1,72 +1,3 @@
-___10490h:
-		push    24h
-		call    near __CHK
-		push    ebx
-		push    ecx
-		push    esi
-		push    edi
-		push    ebp
-		sub     esp, byte 0ch
-		mov     ebx, eax
-		mov     [esp+4], dl
-		mov     edx, eax
-		mov     eax, __CEXT_V(string__MUSICS_BPA)
-		call    near __CEXT_F(getentrysize__bpa)
-		xor     edx, edx
-		mov     ecx, eax
-		mov     dl, [esp+4]
-		mov     edi, eax
-		call    near allocMemoryLock
-		mov     esi, eax
-		mov     ebp, eax
-		mov     edx, eax
-		mov     eax, __CEXT_V(string__MUSICS_BPA)
-		call    near __CEXT_F(read__bpa)
-		xor     edx, edx
-		mov     [esp], edx
-		test    ecx, ecx
-		jbe     short ___10527h
-		mov     al, [esp]
-		mov     dl, 11h
-		mul     dl
-		mov     [esp+8], al
-___104e7h:
-		mov     eax, [esp]
-		mov     edx, eax
-		mov     ebx, 7
-		sar     edx, 1fh
-		idiv    ebx
-		mov     ecx, edx
-		mov     ebx, esi
-		mov     eax, [ebx]
-		rol     al, cl
-		mov     [ebx], eax
-		mov     ah, [esi]
-		add     ah, 93h
-		mov     [esi], ah
-		mov     al, [esp+8]
-		mov     dl, ah
-		inc     esi
-		sub     dl, al
-		mov     ebx, [esp]
-		mov     [esi-1], dl
-		mov     dh, al
-		inc     ebx
-		add     dh, 11h
-		mov     [esp], ebx
-		mov     [esp+8], dh
-		cmp     edi, ebx
-		ja      short ___104e7h
-___10527h:
-		mov     eax, ebp
-		add     esp, byte 0ch
-		pop     ebp
-		pop     edi
-		pop     esi
-		pop     ecx
-		pop     ebx
-		retn    
-db	8bh,0c0h
 ___10534h:
 		push    1ch
 		call    near __CHK
@@ -56899,7 +56830,7 @@ allocMemSafe:
 		push    edx
 		push    esi
 		xor     edx, edx
-		call    near allocMemoryLock
+		call    near __CEXT_F(allocMemoryLock)
 		mov     esi, eax
 		test    eax, eax
 		jne     short ___3f774h
@@ -89885,7 +89816,7 @@ ___5ed0eh:
 		pop     ebx
 		retn    
 db	8bh,0c0h
-allocMemoryLock:
+__GDECL(__CEXT_F(allocMemoryLock))
 		push    ebx
 		push    ecx
 		push    esi
@@ -90293,7 +90224,7 @@ ___5f248h:
 		push    ebx
 		mov     ebx, eax
 		and     edx, 0ffh
-		call    near allocMemoryLock
+		call    near __CEXT_F(allocMemoryLock)
 		mov     [___24cc7ch], eax
 		mov     [___24cc84h], eax
 		lea     edx, [eax+ebx]
@@ -97269,14 +97200,14 @@ ___652e8h:
 		add     ebx, esi
 		mov     edx, 1
 		mov     eax, ebx
-		call    near allocMemoryLock
+		call    near __CEXT_F(allocMemoryLock)
 		xor     edx, edx
 		mov     [___199ff8h], eax
 		call    near memset__clib3r
 		lea     ebx, [esi*4+0]
 		mov     edx, 1
 		mov     eax, ebx
-		call    near allocMemoryLock
+		call    near __CEXT_F(allocMemoryLock)
 		xor     edx, edx
 		mov     [___24e640h], eax
 		call    near memset__clib3r
@@ -100938,7 +100869,7 @@ ___6782ch:
 		mov     edx, 1
 		add     eax, byte 2
 		mov     ebx, 2
-		call    near allocMemoryLock
+		call    near __CEXT_F(allocMemoryLock)
 		xor     edx, edx
 		mov     [___24e794h], eax
 		call    near memset__clib3r
@@ -100959,7 +100890,7 @@ ___6782ch:
 		add     eax, edx
 		mov     edx, 1
 		lea     esi, [ecx*4+0]
-		call    near allocMemoryLock
+		call    near __CEXT_F(allocMemoryLock)
 		lea     edx, [esi+4]
 		mov     [___24e79ch], eax
 		add     eax, edx
@@ -101274,7 +101205,7 @@ ___67bbch:
 		sub     ebp, [___24e794h]
 		mov     edx, 1
 		mov     eax, ebp
-		call    near allocMemoryLock
+		call    near __CEXT_F(allocMemoryLock)
 		mov     ecx, ebp
 		mov     ebx, [___24e794h]
 		mov     [esp+0ch], eax
@@ -110085,7 +110016,7 @@ ___71590h:
 		mov     edx, 1
 		mov     eax, esi
 		mov     ebx, 4
-		call    near ___10490h
+		call    near __CEXT_F(extract__musics_bpa)
 		mov     edx, __CEXT_V(string__SCRM)
 		mov     ecx, eax
 		add     eax, byte 2ch
@@ -110679,7 +110610,7 @@ ___7552ch:
 		mov     edx, 1
 		mov     eax, esi
 		mov     ebx, 11h
-		call    near ___10490h
+		call    near __CEXT_F(extract__musics_bpa)
 		mov     edx, __CEXT_V(string__Extended_Module)
 		mov     edi, eax
 		call    near strncmp__clib3r
@@ -113841,7 +113772,7 @@ ___77a60h:
 		sub     eax, edx
 		mov     edx, 1
 		mov     [___77e30h], eax
-		call    near allocMemoryLock
+		call    near __CEXT_F(allocMemoryLock)
 		mov     ecx, eax
 		mov     [___77e2ch], eax
 		mov     eax, [___77e30h]
@@ -113979,7 +113910,7 @@ ___77c14h:
 		mov     edx, 1
 		mov     eax, ecx
 		mov     [___77e30h], ecx
-		call    near allocMemoryLock
+		call    near __CEXT_F(allocMemoryLock)
 		mov     ecx, eax
 		mov     [___77e2ch], eax
 		mov     eax, [___77e30h]
@@ -120611,7 +120542,7 @@ ___7c6d4h:
 		shl     esi, 2
 		mov     ebx, 23e00h
 		mov     [___68d3ch], esi
-		call    near allocMemoryLock
+		call    near __CEXT_F(allocMemoryLock)
 		xor     edx, edx
 		mov     [___68d40h], eax
 		call    near memset__clib3r
@@ -120684,7 +120615,7 @@ ___7c7e6h:
 		mov     eax, 3fe0h
 		mov     ebx, 0ffffe040h
 		mov     [___68d48h], ebp
-		call    near allocMemoryLock
+		call    near __CEXT_F(allocMemoryLock)
 		mov     edx, 0ffffff01h
 		mov     ebp, eax
 		mov     [esp], ebx
