@@ -30,21 +30,21 @@ static int idiv_rem(int, int);
     parm [eax] [ebx]        \
     value [edx]
 #else
-static int idiv_rem(int A, int B){
+static inline int idiv_rem(int A, int B){
 
     return A % B;
 }
 #endif
 
 #if defined(__WATCOMC__)
-static void rolb_p(byte *, dword);
-#pragma aux rolb_p =                  \
-    "rol    byte ptr [eax], cl"         \
+static dword rolb(dword, dword);
+#pragma aux rolb =          \
+    "rol    al, cl"         \
     parm [eax] [ecx]
 #else
-static void rolb_p(byte * A, dword B){
+static inline dword rolb(dword A, dword B){
 
-    *A = (0x101**A) >> (8 - B);
+    return (0x101*(byte)A) >> (8 - B);
 }
 #endif
 
@@ -65,48 +65,22 @@ void * extract__musics_bpa(const char * elm, dword lock){
 
     while(n < n7){
 /*
-        mem[n] = (0x101*mem[n]) >> 8;
         mem[n] += 0x93 - 0x11*n;
-  
-        mem[n+1] = (0x101*mem[n+1]) >> 7;
-        mem[n+1] += 0x82 - 0x11*n;
-
-        mem[n+2] = (0x101*mem[n+2]) >> 6;
-        mem[n+2] += 0x71 - 0x11*n;
-
-        mem[n+3] = (0x101*mem[n+3]) >> 5;
-        mem[n+3] += 0x60 - 0x11*n;
-
-        mem[n+4] = (0x101*mem[n+4]) >> 4;
-        mem[n+4] += 0x4f - 0x11*n;
-
-        mem[n+5] = (0x101*mem[n+5]) >> 3;
-        mem[n+5] += 0x3e - 0x11*n;
-
-        mem[n+6] = (0x101*mem[n+6]) >> 2;
-        mem[n+6] += 0x2d - 0x11*n;
+        mem[n+1] = ((0x101*mem[n+1]) >> 7) + 0x82 - 0x11*n;
+        mem[n+2] = ((0x101*mem[n+2]) >> 6) + 0x71 - 0x11*n;
+        mem[n+3] = ((0x101*mem[n+3]) >> 5) + 0x60 - 0x11*n;
+        mem[n+4] = ((0x101*mem[n+4]) >> 4) + 0x4f - 0x11*n;
+        mem[n+5] = ((0x101*mem[n+5]) >> 3) + 0x3e - 0x11*n;
+        mem[n+6] = ((0x101*mem[n+6]) >> 2) + 0x2d - 0x11*n;
 */
 
-        rolb_p(&mem[n], 0);
         mem[n] += 0x93 - 0x11*n;
-  
-        rolb_p(&mem[n+1], 1);
-        mem[n+1] += 0x82 - 0x11*n;
-
-        rolb_p(&mem[n+2], 2);
-        mem[n+2] += 0x71 - 0x11*n;
-
-        rolb_p(&mem[n+3], 3);
-        mem[n+3] += 0x60 - 0x11*n;
-
-        rolb_p(&mem[n+4], 4);
-        mem[n+4] += 0x4f - 0x11*n;
-
-        rolb_p(&mem[n+5], 5);
-        mem[n+5] += 0x3e - 0x11*n;
-
-        rolb_p(&mem[n+6], 6);
-        mem[n+6] += 0x2d - 0x11*n;
+        mem[n+1] = rolb(*(dword *)&mem[n+1], 1) + 0x82 - 0x11*n;
+        mem[n+2] = rolb(*(dword *)&mem[n+2], 2) + 0x71 - 0x11*n;
+        mem[n+3] = rolb(*(dword *)&mem[n+3], 3) + 0x60 - 0x11*n;
+        mem[n+4] = rolb(*(dword *)&mem[n+4], 4) + 0x4f - 0x11*n;
+        mem[n+5] = rolb(*(dword *)&mem[n+5], 5) + 0x3e - 0x11*n;
+        mem[n+6] = rolb(*(dword *)&mem[n+6], 6) + 0x2d - 0x11*n;
 
         n += 7;
     }
@@ -114,9 +88,7 @@ void * extract__musics_bpa(const char * elm, dword lock){
     while(n < n0){
 
 //      mem[n] = (0x101*mem[n]) >> (n7 - n + 8);
-//      mem[n] = rolb(*(dword *)&mem[n], n - n7);
-        rolb_p(&mem[n], n - n7);
-        mem[n] += 0x93 - 0x11*n;
+        mem[n] = rolb(*(dword *)&mem[n], n - n7) + 0x93 - 0x11*n;
 
         n++;
     }
