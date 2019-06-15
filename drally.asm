@@ -43,6 +43,7 @@
     extern  tell__clib3r
 
     extern  __CEXT_F(chkarg__dr)
+    extern  __CEXT_F(exitcb1__dr)
     extern  __CEXT_F(___71da4h)
     extern  __CEXT_F(getentrysize__musics_bpa)
     extern  __CEXT_F(install__timer)

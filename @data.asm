@@ -1212,7 +1212,7 @@ ___1826e4h:
 db	"HS-PIC",0,0
 ___1826ech:
 db	".PCX",0,0,0,0
-___1826f4h:
+__GDECL(__CEXT_V(___1826f4h))
 db	"DEATH RALLY Exit: CTRL+ALT+DEL pressed.",0ah,0,0,0,0
 ___182720h:
 db	"licence3.bpk",0,0,0,0
@@ -1905,7 +1905,7 @@ ___183e6ch:
 db	"INFO2.BPK",0,0,0
 ___183e78h:
 db	"INFO2.PAL",0,0,0
-___183e84h:
+__GDECL(__CEXT_V(___183e84h))
 db	"DEATH RALLY Exit: CTRL+ALT+DEL pressed!",0ah,0,0,0,0
 ___183eb0h:
 db	"DEATH RALLY Error: Hardware conflict.",0ah,0,0

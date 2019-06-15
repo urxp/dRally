@@ -9,7 +9,7 @@ typedef unsigned long   dword;
     extern byte ___5ff98h;
     extern dword ___19bd4ch;
     
-    extern void (*___2432c8h)(void);
+    extern void (*ExitCB)(void);
     void install__keyboard(void);
     void startup__dr(void);
     void restore__keyboard(void);
@@ -43,7 +43,7 @@ int main(int argc, const char * argv[]){
     }
 
 	
-	___2432c8h = exitcb0;
+	ExitCB = exitcb0;
 	install__keyboard();
 	startup__dr();
 	restore__keyboard();

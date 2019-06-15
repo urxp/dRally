@@ -10,10 +10,10 @@
 	extern 	___1a2148h	
 	extern 	___2415ch	
 	extern 	readConfig__dr	
-	extern 	___3aaf8h	
-	extern 	__CEXT_V(___2432c8h)	
+	extern 	__CEXT_F(exitcb2__dr)	
+	extern 	__CEXT_V(ExitCB)	
 	extern 	TimesPlayed	
-	extern 	writeConfig__dr	
+	extern 	__CEXT_F(writeConfig__dr)	
 	extern 	___182bf8h	
 	extern 	__CEXT_F(printf__clib3r)	
 	extern 	___181c9ch	
@@ -48,7 +48,7 @@
 	extern 	srand__clib3r	
 	extern 	___606dfh	
 	extern 	__CEXT_F(chkbankswitch__video)	
-	extern 	setmode3h__video	
+	extern 	__CEXT_F(setmode3h__video)	
 	extern 	___182c24h	
 	extern 	___182cb8h		
 	extern 	__CEXT_F(___5ec04h)	
@@ -73,7 +73,7 @@
 	extern 	__CEXT_V(___180864h)	
 	extern 	___1a1dbah	
 	extern 	___24e4d0h	
-	extern 	___64a28h	
+	extern 	__CEXT_F(___64a28h)	
 	extern 	___117f4h	
 	extern 	___1240ch	
 	extern 	___117c8h	
@@ -144,10 +144,10 @@
 	extern 	___61278h	
 	extern 	__CEXT_F(___623d4h)	
 	extern 	___3d79ch	
-	extern 	___12200h	
-	extern 	___12a54h	
-	extern 	___24ec0h	
-	extern 	___2fc50h	
+	extern 	__CEXT_F(___12200h)	
+	extern 	__CEXT_F(___12a54h)	
+	extern 	__CEXT_F(___24ec0h)	
+	extern 	__CEXT_F(___2fc50h)	
 	extern 	___649a8h
 
 
@@ -192,11 +192,11 @@ __GDECL(__CEXT_F(startup__dr))
 		call    ___2415ch
 		call    readConfig__dr
 		mov     eax, [TimesPlayed]
-		mov     ebp, ___3aaf8h
+		mov     ebp, __CEXT_F(exitcb2__dr)
 		inc     eax
-		mov     [__CEXT_V(___2432c8h)], ebp
+		mov     [__CEXT_V(ExitCB)], ebp
 		mov     [TimesPlayed], eax
-		call    writeConfig__dr
+		call    __CEXT_F(writeConfig__dr)
 		push    ___182bf8h 			;; "Loading music & ..."
 		mov     [esp+24h], esi
 		call    __CEXT_F(printf__clib3r)
@@ -268,14 +268,14 @@ ___3e88bh:
 		call    __CEXT_F(chkbankswitch__video)
 		test    eax, eax
 		je      @bs_ok
-		call    setmode3h__video
+		call    __CEXT_F(setmode3h__video)
 		push    ___182c24h
 		call    __CEXT_F(printf__clib3r)
 		add     esp, byte 4
 		push    ___182cb8h
 		call    __CEXT_F(printf__clib3r)
 		add     esp, byte 4
-		call    ___64a28h
+		call    __CEXT_F(___64a28h)
 		call    __CEXT_F(___5ec04h)
 		call    __CEXT_F(restore__keyboard)
 		mov     eax, 70h
@@ -973,13 +973,13 @@ ___3f19dh:
 		mov     [___24e4d0h], esi
 ___3f1bah:
 		call    ___3d79ch
-		call    writeConfig__dr
-		call    ___12200h
-		call    ___12a54h
-		call    ___24ec0h
-		call    ___2fc50h
+		call    __CEXT_F(writeConfig__dr)
+		call    __CEXT_F(___12200h)
+		call    __CEXT_F(___12a54h)
+		call    __CEXT_F(___24ec0h)
+		call    __CEXT_F(___2fc50h)
 		call    ___649a8h
-		call    ___64a28h
+		call    __CEXT_F(___64a28h)
 		add     esp, byte 2ch
 		pop     ebp
 		pop     edi

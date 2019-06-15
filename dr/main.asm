@@ -9,7 +9,7 @@
     extern  __CEXT_V(___5ff98h)
     extern  __CEXT_V(___19bd4ch)
     extern  __CEXT_F(install__timer)
-    extern  __CEXT_V(___2432c8h)
+    extern  __CEXT_V(ExitCB)
     extern  __CEXT_F(install__keyboard)
     extern  __CEXT_F(startup__dr)
     extern  __CEXT_F(restore__keyboard)
@@ -54,7 +54,7 @@ ___101dch:
 		mov     eax, 46h
 ___101e6h:
 		call    __CEXT_F(install__timer)
-		mov     dword [__CEXT_V(___2432c8h)], __CEXT_F(exitcb0)
+		mov     dword [__CEXT_V(ExitCB)], __CEXT_F(exitcb0)
 		call    __CEXT_F(install__keyboard)
 		call    __CEXT_F(startup__dr)
 		call    __CEXT_F(restore__keyboard)

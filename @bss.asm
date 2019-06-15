@@ -1318,7 +1318,7 @@ ___2432b8h:	resb	4
 ___2432bch:	resb	4
 ___2432c0h:	resb	4
 ___2432c4h:	resb	4
-__GDECL(__CEXT_V(___2432c8h))
+__GDECL(__CEXT_V(ExitCB))
     resb	4
 ___2432cch:	resb	4
 ___2432d0h:	resb	4
