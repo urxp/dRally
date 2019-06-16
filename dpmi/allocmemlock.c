@@ -1,26 +1,9 @@
-#define al 	((byte *)&eax)[0]
-#define ah 	((byte *)&eax)[1]
-#define ax 	((word *)&eax)[0]
-#define bl 	((byte *)&ebx)[0]
-#define bh 	((byte *)&ebx)[1]
-#define bx 	((word *)&ebx)[0]
-#define cl 	((byte *)&ecx)[0]
-#define ch 	((byte *)&ecx)[1]
-#define cx 	((word *)&ecx)[0]
-#define dl 	((byte *)&edx)[0]
-#define dh 	((byte *)&edx)[1]
-#define dx 	((word *)&edx)[0]
-#define di 	((word *)&edi)[0]
-
-#define B(b)	(*(byte *)(b))
-#define W(w)	(*(word *)(w))
-#define D(d)	(*(dword *)(d))
-
 typedef unsigned char   byte;
 typedef unsigned short 	word;
 typedef unsigned long   dword;
 
 #pragma pack(1)
+
 typedef struct {
 	dword   eax;
 	dword   ebx;
@@ -31,16 +14,17 @@ typedef struct {
 	dword   cflag;
 } dwordregs;
 
-typedef struct {
-	byte 	el0;	// +0
-	dword 	el1;	// +1
-	dword 	el2;	// +5
-	dword 	el3;	// +9
-	dword 	el4;	// +0dh
-	byte 	el5;	// +11h
-} UnkStruct;
+typedef struct AllocInfo {
+	byte 	type;		// +0
+	dword 	linear;		// +1
+	dword 	nbytes;		// +5
+	dword 	handle;		// +9
+	word 	selector;	// +0dh
+	word 	segment;	// +0dh
+	byte 	lock;		// +11h
+} AllocInfo;
 
-    extern UnkStruct * ___24ccb0h;
+    extern AllocInfo * ___24ccb0h;
     extern dwordregs REGS1;
 
     void ___58b20h(int errn);
@@ -48,11 +32,11 @@ typedef struct {
 
 void * allocMemoryLock(dword nsize, dword lock){
 
-	dword 	eax, ebx, n, edx, edi, ebp;
+	dword n;
 
 	n = 0;
 
-	while((___24ccb0h[n].el0)&&(++n < 0xe38));
+	while((___24ccb0h[n].type)&&(++n < 0xe38));
 	
 	if(n == 0xe38) ___58b20h(0xd);
 
@@ -62,43 +46,57 @@ void * allocMemoryLock(dword nsize, dword lock){
 		nsize++;
 	}
 
-	REGS1.eax = 0x501;
+	// ALLOCATE MEMORY BLOCK
+	REGS1.eax = 0x501;				
+	// BX:CX = size in bytes	
 	REGS1.ebx = nsize >> 0x10;
-	REGS1.ecx = nsize;
+	REGS1.ecx = nsize;					
 	int386__clib3r(0x31, &REGS1, &REGS1);
 
-	if(REGS1.cflag){
+	if(REGS1.cflag){	
+		// failed
 
-		REGS1.eax = 0x100;
-		REGS1.ebx = (nsize+0xf) >> 4;
+		// ALLOCATE DOS MEMORY BLOCK
+		REGS1.eax = 0x100;			
+		// BX = number of paragraphs to allocate	
+		REGS1.ebx = (nsize + 0xf) >> 4;	
 		int386__clib3r(0x31, &REGS1, &REGS1);
 
 		if(REGS1.cflag) ___58b20h(0xd);
 
-		___24ccb0h[n].el0 = 2;
-		___24ccb0h[n].el1 = REGS1.eax << 4;
-		___24ccb0h[n].el4 = (word)REGS1.edx + (REGS1.eax << 0x10);
+		___24ccb0h[n].type = 2;
+		// AX = real mode segment of allocated block
+		___24ccb0h[n].linear = REGS1.eax << 4;
+		___24ccb0h[n].segment = REGS1.eax;
+		// DX = first selector for allocated block
+		___24ccb0h[n].selector = REGS1.edx;
 	}
-	else {
+	else {				
+		// succeed
 
-		___24ccb0h[n].el0 = 1;
-		___24ccb0h[n].el1 = (word)REGS1.ecx + (REGS1.ebx << 0x10);
-		___24ccb0h[n].el3 = (word)REGS1.edi + (REGS1.esi << 0x10);
+		___24ccb0h[n].type = 1;
+		// BX:CX = linear address of block
+		___24ccb0h[n].linear = (word)REGS1.ecx + (REGS1.ebx << 0x10);
+		// SI:DI = memory block handle for resizing and freeing block
+		___24ccb0h[n].handle = (word)REGS1.edi + (REGS1.esi << 0x10);
 	}
 
-	___24ccb0h[n].el2 = nsize;
+	___24ccb0h[n].nbytes = nsize;
 
 	if(lock){
 
+		// LOCK LINEAR REGION
 		REGS1.eax = 0x600;
-		REGS1.ebx = ___24ccb0h[n].el1 >> 0x10;
-		REGS1.esi = ___24ccb0h[n].el2 >> 0x10;
-		REGS1.edi = ___24ccb0h[n].el2;
-		REGS1.ecx = ___24ccb0h[n].el1;
+		// BX:CX = starting linear address
+		REGS1.ebx = ___24ccb0h[n].linear >> 0x10;
+		REGS1.ecx = ___24ccb0h[n].linear;
+		// SI:DI = size of region in bytes
+		REGS1.esi = ___24ccb0h[n].nbytes >> 0x10;
+		REGS1.edi = ___24ccb0h[n].nbytes;
 		int386__clib3r(0x31, &REGS1, &REGS1);
 	}
 
-	___24ccb0h[n].el5 = lock; 
+	___24ccb0h[n].lock = lock; 
 
-	return ___24ccb0h[n].el1;
+	return ___24ccb0h[n].linear;
 }
