@@ -19,9 +19,6 @@ typedef unsigned long	dword;
     void * allocMemoryLock(dword, dword);
 	void read__bpa(const char *, void *, const char *);
 
-    int printf__clib3r(const char * format, ...);
-
-
 #if defined(__WATCOMC__)
 static int idiv_rem(int, int);
 #pragma aux idiv_rem =      \

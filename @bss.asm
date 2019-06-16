@@ -1498,19 +1498,27 @@ ___24cc6ch:	resb	10h
 ___24cc7ch:	resb	4
 ___24cc80h:	resb	4
 ___24cc84h:	resb	4
-REGS1:
-REGS1_EAX:	resb	4
-REGS1_EBX:	resb	4
-REGS1_ECX:	resb	4
-REGS1_EDX:	resb	4
-REGS1_ESI:	resb	4
-REGS1_EDI:	resb	4
-REGS1_CFLAG:	resb	4
+__GDECL(__CEXT_V(REGS1))
+__GDECL(__CEXT_V(REGS1_EAX))
+    resb	4
+__GDECL(__CEXT_V(REGS1_EBX))
+    resb	4
+__GDECL(__CEXT_V(REGS1_ECX))
+    resb	4
+__GDECL(__CEXT_V(REGS1_EDX))
+    resb	4
+__GDECL(__CEXT_V(REGS1_ESI))
+    resb	4
+__GDECL(__CEXT_V(REGS1_EDI))
+    resb	4
+__GDECL(__CEXT_V(REGS1_CFLAG))
+    resb	4
 ___24cca4h:	resb	6
 ___24ccaah:	resb	2
 ___24ccach:	resb	2
 ___24ccaeh:	resb	2
-___24ccb0h:	resb	4
+__GDECL(__CEXT_V(___24ccb0h))
+    resb	4
 ___24ccb4h:	resb	0ah
 ___24ccbeh:	resb	2
 ___24ccc0h:	resb	4

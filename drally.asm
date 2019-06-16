@@ -48,6 +48,7 @@
     extern  __CEXT_F(extract__musics_bpa)
     extern  __CEXT_F(getentrysize__musics_bpa)
     extern  __CEXT_F(install__timer)
+    extern  __CEXT_F(allocMemoryLock)
 
 %include "layout.inc"
 

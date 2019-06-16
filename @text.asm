@@ -86002,7 +86002,7 @@ db	6eh,76h,61h,6ch,69h,64h,21h,0,29h,53h,6fh,75h,6eh,64h,20h,4dh
 db	6fh,64h,75h,6ch,65h,20h,27h,25h,73h,27h,20h,64h,6fh,65h,73h,6eh
 db	27h,74h,20h,63h,6fh,6eh,74h,61h,69h,6eh,20h,61h,6eh,79h,20h,64h
 db	61h,74h,61h,20h,74h,6fh,20h,70h,6ch,61h,79h,21h,0,0ffh,0,90h
-___58b20h:
+__GDECL(__CEXT_F(___58b20h))
 		push    490h
 		call    near __CHK
 		push    ebx
@@ -89691,7 +89691,7 @@ __GDECL(__CEXT_F(___5eb70h))
 		push    edx
 		call    near ___60030h
 		mov     ebx, 1ch
-		mov     eax, REGS1
+		mov     eax, __CEXT_V(REGS1)
 		xor     edx, edx
 		call    near memset__clib3r
 		mov     ebx, 0ch
@@ -89700,11 +89700,11 @@ __GDECL(__CEXT_F(___5eb70h))
 		call    near memset__clib3r
 		mov     edx, 1a00h
 		mov     eax, 10h
-		mov     [REGS1_EAX], dx
+		mov     [__CEXT_V(REGS1_EAX)], dx
 		call    near int386_REGS1
-		cmp     byte [REGS1_EAX], 1ah
+		cmp     byte [__CEXT_V(REGS1_EAX)], 1ah
 		jne     short ___5ebcdh
-		mov     dl, [REGS1_EBX]
+		mov     dl, [__CEXT_V(REGS1_EBX)]
 		cmp     dl, 6
 		jbe     short ___5ebcdh
 		cmp     dl, 9
@@ -89713,15 +89713,15 @@ __GDECL(__CEXT_F(___5eb70h))
 		ja      short ___5ebd7h
 ___5ebcdh:
 		push    byte 10h
-		call    near ___58b20h
+		call    near __CEXT_F(___58b20h)
 		add     esp, byte 4
 ___5ebd7h:
 		mov     edx, 10000h
-		mov     eax, ___24ccb0h
+		mov     eax, __CEXT_V(___24ccb0h)
 		xor     ebx, ebx
 		call    near ___5f2e4h
 		mov     ebx, 10000h
-		mov     eax, [___24ccb0h]
+		mov     eax, [__CEXT_V(___24ccb0h)]
 		xor     edx, edx
 		call    near memset__clib3r
 		xor     bh, bh
@@ -89735,7 +89735,7 @@ __GDECL(__CEXT_F(___5ec04h))
 		push    edx
 		push    esi
 		call    near ___5ff99h
-		mov     ebx, [___24ccb0h]
+		mov     ebx, [__CEXT_V(___24ccb0h)]
 ___5ec13h:
 		mov     edx, ebx
 		mov     cl, [ebx]
@@ -89759,49 +89759,49 @@ ___5ec2fh:
 		jmp     short ___5ec13h
 ___5ec44h:
 		mov     al, [___24ccbeh]
-		mov     edx, ___24ccb0h
+		mov     edx, __CEXT_V(___24ccb0h)
 		test    al, al
 		je      short ___5ec9ch
-		mov     eax, [___24ccb0h]
+		mov     eax, [__CEXT_V(___24ccb0h)]
 		shr     eax, 10h
-		mov     [REGS1_EBX], ax
-		mov     ax, [___24ccb0h]
-		mov     [REGS1_ECX], ax
+		mov     [__CEXT_V(REGS1_EBX)], ax
+		mov     ax, [__CEXT_V(___24ccb0h)]
+		mov     [__CEXT_V(REGS1_ECX)], ax
 		mov     eax, [___24ccb4h]
 		shr     eax, 10h
-		mov     [REGS1_ESI], ax
+		mov     [__CEXT_V(REGS1_ESI)], ax
 		mov     ax, [___24ccb4h]
 		mov     ebx, 601h
-		mov     [REGS1_EDI], ax
+		mov     [__CEXT_V(REGS1_EDI)], ax
 		mov     eax, 31h
-		mov     [REGS1_EAX], bx
+		mov     [__CEXT_V(REGS1_EAX)], bx
 		call    near int386_REGS1
 ___5ec9ch:
 		mov     ax, [edx+8]
-		mov     [REGS1_EDI], ax
+		mov     [__CEXT_V(REGS1_EDI)], ax
 		mov     eax, [edx+8]
 		shr     eax, 10h
 		mov     ecx, 502h
-		mov     [REGS1_ESI], ax
+		mov     [__CEXT_V(REGS1_ESI)], ax
 		mov     eax, 31h
-		mov     [REGS1_EAX], cx
+		mov     [__CEXT_V(REGS1_EAX)], cx
 		call    near int386_REGS1
-		cmp     dword [REGS1_CFLAG], byte 0
+		cmp     dword [__CEXT_V(REGS1_CFLAG)], byte 0
 		je      short ___5ecdbh
 		push    byte 5
-		call    near ___58b20h
+		call    near __CEXT_F(___58b20h)
 		add     esp, byte 4
 ___5ecdbh:
 		mov     ax, [edx+0ch]
 		mov     esi, 1
-		mov     [REGS1_EBX], ax
+		mov     [__CEXT_V(REGS1_EBX)], ax
 		mov     eax, 31h
-		mov     [REGS1_EAX], si
+		mov     [__CEXT_V(REGS1_EAX)], si
 		call    near int386_REGS1
-		cmp     dword [REGS1_CFLAG], byte 0
+		cmp     dword [__CEXT_V(REGS1_CFLAG)], byte 0
 		je      short ___5ed0eh
 		push    byte 9
-		call    near ___58b20h
+		call    near __CEXT_F(___58b20h)
 		add     esp, byte 4
 ___5ed0eh:
 		mov     dword [edx+8], 0
@@ -89815,141 +89815,6 @@ ___5ed0eh:
 		pop     ecx
 		pop     ebx
 		retn    
-db	8bh,0c0h
-__GDECL(__CEXT_F(allocMemoryLock))
-		push    ebx
-		push    ecx
-		push    esi
-		push    edi
-		sub     esp, byte 4
-		mov     esi, eax
-		mov     [esp], dl
-		mov     edi, [___24ccb0h]
-		xor     ecx, ecx
-		mov     dl, [edi]
-		mov     eax, edi
-		test    dl, dl
-		je      short ___5ed67h
-___5ed54h:
-		cmp     ecx, 0e38h
-		jae     short ___5ed67h
-		mov     dh, [eax+12h]
-		add     eax, byte 12h
-		inc     ecx
-		test    dh, dh
-		jne     short ___5ed54h
-___5ed67h:
-		cmp     ecx, 0e38h
-		jne     short ___5ed79h
-		push    byte 0dh
-		call    near ___58b20h
-		add     esp, byte 4
-___5ed79h:
-		cmp     esi, 100000h
-		jb      short ___5ed87h
-		or      si, 0fffh
-		inc     esi
-___5ed87h:
-		mov     edx, 501h
-		mov     eax, esi
-		mov     ebx, REGS1
-		shr     eax, 10h
-		mov     [REGS1_EAX], dx
-		mov     [REGS1_EBX], ax
-		mov     edx, ebx
-		mov     eax, 31h
-		mov     [REGS1_ECX], si
-		call    near __CEXT_F(int386__clib3r)
-		cmp     dword [REGS1_CFLAG], byte 0
-		jne     short ___5ee09h
-		xor     eax, eax
-		mov     ax, [REGS1_ESI]
-		mov     edx, eax
-		xor     eax, eax
-		shl     edx, 10h
-		mov     ax, [REGS1_EDI]
-		lea     ebx, [edx+eax]
-		mov     edx, ecx
-		lea     eax, [ecx*8+0]
-		add     eax, ecx
-		xor     edx, ecx
-		mov     [edi+eax*2+9], ebx
-		mov     dx, [REGS1_EBX]
-		mov     ebx, edx
-		xor     edx, edx
-		shl     ebx, 10h
-		mov     dx, [REGS1_ECX]
-		mov     byte [edi+eax*2], 1
-		add     edx, ebx
-		mov     [edi+eax*2+1], edx
-		jmp     short ___5ee7ah
-___5ee09h:
-		mov     ebx, 100h
-		lea     eax, [esi+0fh]
-		mov     [REGS1_EAX], bx
-		shr     eax, 4
-		mov     ebx, REGS1
-		mov     [REGS1_EBX], ax
-		mov     eax, 31h
-		mov     edx, ebx
-		call    near __CEXT_F(int386__clib3r)
-		cmp     dword [REGS1_CFLAG], byte 0
-		je      short ___5ee45h
-		push    byte 0dh
-		call    near ___58b20h
-		add     esp, byte 4
-___5ee45h:
-		lea     eax, [ecx*8+0]
-		add     eax, ecx
-		mov     dx, [REGS1_EAX]
-		mov     [edi+eax*2+0fh], dx
-		xor     edx, edx
-		mov     dx, [REGS1_EAX]
-		shl     edx, 4
-		mov     [edi+eax*2+1], edx
-		mov     dx, [REGS1_EDX]
-		mov     byte [edi+eax*2], 2
-		mov     [edi+eax*2+0dh], dx
-___5ee7ah:
-		lea     eax, [ecx*8+0]
-		add     eax, ecx
-		add     eax, eax
-		add     eax, edi
-		mov     bl, [esp]
-		mov     [eax+5], esi
-		test    bl, bl
-		je      short ___5eeddh
-		mov     esi, 600h
-		mov     edx, [eax+1]
-		mov     ebx, REGS1
-		shr     edx, 10h
-		mov     [REGS1_EAX], si
-		mov     [REGS1_EBX], dx
-		mov     edx, [eax+5]
-		mov     si, [eax+1]
-		shr     edx, 10h
-		mov     ax, [eax+5]
-		mov     [REGS1_ESI], dx
-		mov     [REGS1_EDI], ax
-		mov     eax, 31h
-		mov     edx, ebx
-		mov     [REGS1_ECX], si
-		call    near __CEXT_F(int386__clib3r)
-___5eeddh:
-		lea     eax, [ecx*8+0]
-		add     eax, ecx
-		add     eax, eax
-		add     edi, eax
-		mov     al, [esp]
-		mov     [edi+11h], al
-		mov     eax, [edi+1]
-		add     esp, byte 4
-		pop     edi
-		pop     esi
-		pop     ecx
-		pop     ebx
-		retn    
-db	90h
 ___5eefch:
 		push    ebx
 		push    ecx
@@ -89957,7 +89822,7 @@ ___5eefch:
 		push    esi
 		push    edi
 		mov     edx, eax
-		mov     esi, [___24ccb0h]
+		mov     esi, [__CEXT_V(___24ccb0h)]
 		xor     ecx, ecx
 		mov     ebx, [esi+1]
 		mov     eax, esi
@@ -89980,7 +89845,7 @@ ___5ef27h:
 		jne     short ___5ef48h
 ___5ef3eh:
 		push    byte 0eh
-		call    near ___58b20h
+		call    near __CEXT_F(___58b20h)
 		add     esp, byte 4
 ___5ef48h:
 		lea     eax, [ecx*8+0]
@@ -89991,18 +89856,18 @@ ___5ef48h:
 		je      short ___5efa9h
 		mov     eax, [edi+1]
 		shr     eax, 10h
-		mov     [REGS1_EBX], ax
+		mov     [__CEXT_V(REGS1_EBX)], ax
 		mov     ax, [edi+1]
 		mov     edx, 601h
-		mov     [REGS1_ECX], ax
+		mov     [__CEXT_V(REGS1_ECX)], ax
 		mov     eax, [edi+5]
-		mov     ebx, REGS1
+		mov     ebx, __CEXT_V(REGS1)
 		shr     eax, 10h
-		mov     [REGS1_EAX], dx
-		mov     [REGS1_ESI], ax
+		mov     [__CEXT_V(REGS1_EAX)], dx
+		mov     [__CEXT_V(REGS1_ESI)], ax
 		mov     ax, [edi+5]
 		mov     edx, ebx
-		mov     [REGS1_EDI], ax
+		mov     [__CEXT_V(REGS1_EDI)], ax
 		mov     eax, 31h
 		call    near __CEXT_F(int386__clib3r)
 		mov     byte [edi+11h], 0
@@ -90020,31 +89885,31 @@ ___5efa9h:
 		jmp     short ___5f01eh
 ___5efc6h:
 		mov     edi, 502h
-		mov     ebx, REGS1
+		mov     ebx, __CEXT_V(REGS1)
 		mov     dx, [eax+9]
 		mov     eax, [eax+9]
-		mov     [REGS1_EDI], dx
+		mov     [__CEXT_V(REGS1_EDI)], dx
 		shr     eax, 10h
 		mov     edx, ebx
-		mov     [REGS1_ESI], ax
+		mov     [__CEXT_V(REGS1_ESI)], ax
 		mov     eax, 31h
-		mov     [REGS1_EAX], di
+		mov     [__CEXT_V(REGS1_EAX)], di
 		jmp     short ___5f019h
 ___5eff7h:
 		mov     ebx, 101h
 		mov     ax, [eax+0dh]
-		mov     [REGS1_EAX], bx
-		mov     [REGS1_EDX], ax
-		mov     ebx, REGS1
+		mov     [__CEXT_V(REGS1_EAX)], bx
+		mov     [__CEXT_V(REGS1_EDX)], ax
+		mov     ebx, __CEXT_V(REGS1)
 		mov     eax, 31h
 		mov     edx, ebx
 ___5f019h:
 		call    near __CEXT_F(int386__clib3r)
 ___5f01eh:
-		cmp     dword [REGS1_CFLAG], byte 0
+		cmp     dword [__CEXT_V(REGS1_CFLAG)], byte 0
 		je      short ___5f031h
 		push    byte 0eh
-		call    near ___58b20h
+		call    near __CEXT_F(___58b20h)
 		add     esp, byte 4
 ___5f031h:
 		lea     eax, [ecx*8+0]
@@ -90060,7 +89925,7 @@ ___5f040h:
 ;		push    ebx
 ;		push    ecx
 ;		push    edx
-;		mov     ebx, [___24ccb0h]
+;		mov     ebx, [__CEXT_V(___24ccb0h)]
 ;___5f04dh:
 ;		mov     edx, ebx
 ;		mov     cl, [ebx]
@@ -90091,7 +89956,7 @@ ___5f080h:
 		push    ebp
 		mov     ebx, eax
 		mov     edi, edx
-		mov     esi, [___24ccb0h]
+		mov     esi, [__CEXT_V(___24ccb0h)]
 		xor     ecx, ecx
 		mov     edx, [esi+1]
 		mov     eax, esi
@@ -90114,7 +89979,7 @@ ___5f0adh:
 		jne     short ___5f0ceh
 ___5f0c4h:
 		push    byte 0fh
-		call    near ___58b20h
+		call    near __CEXT_F(___58b20h)
 		add     esp, byte 4
 ___5f0ceh:
 		lea     eax, [ecx*8+0]
@@ -90125,17 +89990,17 @@ ___5f0ceh:
 		je      short ___5f12dh
 		mov     ebx, [eax+1]
 		shr     ebx, 10h
-		mov     [REGS1_EBX], bx
+		mov     [__CEXT_V(REGS1_EBX)], bx
 		mov     bx, [eax+1]
 		mov     edx, 601h
-		mov     [REGS1_ECX], bx
+		mov     [__CEXT_V(REGS1_ECX)], bx
 		mov     ebx, [eax+5]
-		mov     [REGS1_EAX], dx
+		mov     [__CEXT_V(REGS1_EAX)], dx
 		shr     ebx, 10h
 		mov     ax, [eax+5]
-		mov     [REGS1_ESI], bx
-		mov     [REGS1_EDI], ax
-		mov     ebx, REGS1
+		mov     [__CEXT_V(REGS1_ESI)], bx
+		mov     [__CEXT_V(REGS1_EDI)], ax
+		mov     ebx, __CEXT_V(REGS1)
 		mov     eax, 31h
 		mov     edx, ebx
 		call    near __CEXT_F(int386__clib3r)
@@ -90155,35 +90020,35 @@ ___5f14eh:
 		mov     edx, 503h
 		mov     bx, [eax+9]
 		mov     eax, [eax+9]
-		mov     [REGS1_EAX], dx
+		mov     [__CEXT_V(REGS1_EAX)], dx
 		shr     eax, 10h
-		mov     [REGS1_EDI], bx
-		mov     [REGS1_ESI], ax
+		mov     [__CEXT_V(REGS1_EDI)], bx
+		mov     [__CEXT_V(REGS1_ESI)], ax
 		mov     eax, edi
-		mov     ebx, REGS1
+		mov     ebx, __CEXT_V(REGS1)
 		shr     eax, 10h
 		mov     edx, ebx
-		mov     [REGS1_EBX], ax
+		mov     [__CEXT_V(REGS1_EBX)], ax
 		mov     eax, 31h
-		mov     [REGS1_ECX], di
+		mov     [__CEXT_V(REGS1_ECX)], di
 		jmp     short ___5f1bdh
 ___5f191h:
-		mov     word [REGS1_EAX], 102h
+		mov     word [__CEXT_V(REGS1_EAX)], 102h
 		lea     ebx, [edi+0fh]
 		mov     ax, [eax+0dh]
 		shr     ebx, 4
-		mov     [REGS1_EDX], ax
-		mov     [REGS1_EBX], bx
-		mov     ebx, REGS1
+		mov     [__CEXT_V(REGS1_EDX)], ax
+		mov     [__CEXT_V(REGS1_EBX)], bx
+		mov     ebx, __CEXT_V(REGS1)
 		mov     eax, 31h
 		mov     edx, ebx
 ___5f1bdh:
 		call    near __CEXT_F(int386__clib3r)
 ___5f1c2h:
-		cmp     dword [REGS1_CFLAG], byte 0
+		cmp     dword [__CEXT_V(REGS1_CFLAG)], byte 0
 		je      short ___5f1d5h
 		push    byte 0fh
-		call    near ___58b20h
+		call    near __CEXT_F(___58b20h)
 		add     esp, byte 4
 ___5f1d5h:
 		lea     eax, [ecx*8+0]
@@ -90194,18 +90059,18 @@ ___5f1d5h:
 		mov     [eax+5], edi
 		test    bl, bl
 		je      short ___5f234h
-		mov     word [REGS1_EAX], 600h
+		mov     word [__CEXT_V(REGS1_EAX)], 600h
 		mov     ebx, [eax+1]
 		shr     ebx, 10h
-		mov     [REGS1_EBX], bx
+		mov     [__CEXT_V(REGS1_EBX)], bx
 		mov     bx, [eax+1]
-		mov     [REGS1_ECX], bx
+		mov     [__CEXT_V(REGS1_ECX)], bx
 		mov     ebx, edi
 		mov     ax, [eax+5]
 		shr     ebx, 10h
-		mov     [REGS1_EDI], ax
-		mov     [REGS1_ESI], bx
-		mov     ebx, REGS1
+		mov     [__CEXT_V(REGS1_EDI)], ax
+		mov     [__CEXT_V(REGS1_ESI)], bx
+		mov     ebx, __CEXT_V(REGS1)
 		mov     eax, 31h
 		mov     edx, ebx
 		call    near __CEXT_F(int386__clib3r)
@@ -90243,7 +90108,7 @@ ___5f26ch:
 		cmp     eax, ecx
 		jbe     short ___5f28dh
 		push    byte 17h
-		call    near ___58b20h
+		call    near __CEXT_F(___58b20h)
 		add     esp, byte 4
 ___5f28dh:
 		mov     eax, [___24cc7ch]
@@ -90297,85 +90162,85 @@ ___5f2e4h:
 ___5f2ffh:
 		mov     edx, 501h
 		mov     eax, esi
-		mov     ebx, REGS1
+		mov     ebx, __CEXT_V(REGS1)
 		shr     eax, 10h
-		mov     [REGS1_EAX], dx
-		mov     [REGS1_EBX], ax
+		mov     [__CEXT_V(REGS1_EAX)], dx
+		mov     [__CEXT_V(REGS1_EBX)], ax
 		mov     edx, ebx
 		mov     eax, 31h
-		mov     [REGS1_ECX], si
+		mov     [__CEXT_V(REGS1_ECX)], si
 		call    near __CEXT_F(int386__clib3r)
-		cmp     dword [REGS1_CFLAG], byte 0
+		cmp     dword [__CEXT_V(REGS1_CFLAG)], byte 0
 		je      short ___5f341h
 		push    byte 4
-		call    near ___58b20h
+		call    near __CEXT_F(___58b20h)
 		add     esp, byte 4
 ___5f341h:
 		xor     edx, edx
 		xor     eax, eax
-		mov     dx, [REGS1_ESI]
-		mov     ax, [REGS1_EDI]
+		mov     dx, [__CEXT_V(REGS1_ESI)]
+		mov     ax, [__CEXT_V(REGS1_EDI)]
 		shl     edx, 10h
 		add     edx, eax
 		xor     eax, eax
 		mov     [ecx+8], edx
-		mov     ax, [REGS1_EBX]
+		mov     ax, [__CEXT_V(REGS1_EBX)]
 		mov     edx, eax
 		xor     eax, eax
 		shl     edx, 10h
-		mov     ax, [REGS1_ECX]
+		mov     ax, [__CEXT_V(REGS1_ECX)]
 		add     edx, eax
 		mov     [ecx+4], esi
 		xor     ebx, ebx
 		mov     [ecx], edx
 		mov     edi, 1
-		mov     [REGS1_EAX], bx
-		mov     ebx, REGS1
+		mov     [__CEXT_V(REGS1_EAX)], bx
+		mov     ebx, __CEXT_V(REGS1)
 		mov     eax, 31h
 		mov     edx, ebx
-		mov     [REGS1_ECX], di
+		mov     [__CEXT_V(REGS1_ECX)], di
 		call    near __CEXT_F(int386__clib3r)
-		cmp     dword [REGS1_CFLAG], byte 0
+		cmp     dword [__CEXT_V(REGS1_CFLAG)], byte 0
 		je      short ___5f3afh
 		push    byte 8
-		call    near ___58b20h
+		call    near __CEXT_F(___58b20h)
 		add     esp, byte 4
 ___5f3afh:
-		mov     ax, [REGS1_EAX]
+		mov     ax, [__CEXT_V(REGS1_EAX)]
 		mov     [ecx+0ch], ax
-		mov     word [REGS1_EAX], 7
+		mov     word [__CEXT_V(REGS1_EAX)], 7
 		mov     ax, [ecx+0ch]
-		mov     [REGS1_EBX], ax
+		mov     [__CEXT_V(REGS1_EBX)], ax
 		mov     ax, [ecx]
-		mov     [REGS1_EDX], ax
+		mov     [__CEXT_V(REGS1_EDX)], ax
 		mov     eax, [ecx]
-		mov     ebx, REGS1
+		mov     ebx, __CEXT_V(REGS1)
 		shr     eax, 10h
 		mov     edx, ebx
-		mov     [REGS1_ECX], ax
+		mov     [__CEXT_V(REGS1_ECX)], ax
 		mov     eax, 31h
 		call    near __CEXT_F(int386__clib3r)
-		cmp     dword [REGS1_CFLAG], byte 0
+		cmp     dword [__CEXT_V(REGS1_CFLAG)], byte 0
 		je      short ___5f404h
 		push    byte 0ah
-		call    near ___58b20h
+		call    near __CEXT_F(___58b20h)
 		add     esp, byte 4
 ___5f404h:
 		mov     edx, 8
-		mov     ebx, REGS1
-		mov     [REGS1_EDX], si
+		mov     ebx, __CEXT_V(REGS1)
+		mov     [__CEXT_V(REGS1_EDX)], si
 		mov     ax, [ecx+0ch]
-		mov     [REGS1_EAX], dx
-		mov     [REGS1_EBX], ax
+		mov     [__CEXT_V(REGS1_EAX)], dx
+		mov     [__CEXT_V(REGS1_EBX)], ax
 		shr     esi, 10h
 		mov     eax, 31h
 		mov     edx, ebx
-		mov     [REGS1_ECX], si
+		mov     [__CEXT_V(REGS1_ECX)], si
 		call    near __CEXT_F(int386__clib3r)
-		cmp     dword [REGS1_CFLAG], byte 0
+		cmp     dword [__CEXT_V(REGS1_CFLAG)], byte 0
 		je      short ___5f44fh
 		push    byte 0bh
-		call    near ___58b20h
+		call    near __CEXT_F(___58b20h)
 		add     esp, byte 4
 ___5f44fh:
 		mov     al, [esp]
@@ -90386,17 +90251,17 @@ ___5f44fh:
 		mov     esi, [ecx]
 		mov     eax, 31h
 		shr     esi, 10h
-		mov     [REGS1_EAX], bx
-		mov     [REGS1_EBX], si
+		mov     [__CEXT_V(REGS1_EAX)], bx
+		mov     [__CEXT_V(REGS1_EBX)], si
 		mov     si, [ecx]
-		mov     ebx, REGS1
-		mov     [REGS1_ECX], si
+		mov     ebx, __CEXT_V(REGS1)
+		mov     [__CEXT_V(REGS1_ECX)], si
 		mov     esi, [ecx+4]
 		mov     edx, ebx
 		shr     esi, 10h
 		mov     cx, [ecx+4]
-		mov     [REGS1_ESI], si
-		mov     [REGS1_EDI], cx
+		mov     [__CEXT_V(REGS1_ESI)], si
+		mov     [__CEXT_V(REGS1_EDI)], cx
 		call    near __CEXT_F(int386__clib3r)
 ___5f4a4h:
 		add     esp, byte 4
@@ -90414,50 +90279,50 @@ ___5f4a4h:
 ;		je      short ___5f4ffh
 ;		mov     eax, [ecx]
 ;		shr     eax, 10h
-;		mov     [REGS1_EBX], ax
+;		mov     [__CEXT_V(REGS1_EBX)], ax
 ;		mov     ax, [ecx]
 ;		mov     edx, 601h
-;		mov     [REGS1_ECX], ax
+;		mov     [__CEXT_V(REGS1_ECX)], ax
 ;		mov     eax, [ecx+4]
-;		mov     ebx, REGS1
+;		mov     ebx, __CEXT_V(REGS1)
 ;		shr     eax, 10h
-;		mov     [REGS1_EAX], dx
-;		mov     [REGS1_ESI], ax
+;		mov     [__CEXT_V(REGS1_EAX)], dx
+;		mov     [__CEXT_V(REGS1_ESI)], ax
 ;		mov     ax, [ecx+4]
 ;		mov     edx, ebx
-;		mov     [REGS1_EDI], ax
+;		mov     [__CEXT_V(REGS1_EDI)], ax
 ;		mov     eax, 31h
 ;		call    near __CEXT_F(int386__clib3r)
 ;___5f4ffh:
 ;		mov     ebx, 502h
 ;		mov     ax, [ecx+8]
-;		mov     [REGS1_EAX], bx
-;		mov     [REGS1_EDI], ax
+;		mov     [__CEXT_V(REGS1_EAX)], bx
+;		mov     [__CEXT_V(REGS1_EDI)], ax
 ;		mov     eax, [ecx+8]
-;		mov     ebx, REGS1
+;		mov     ebx, __CEXT_V(REGS1)
 ;		shr     eax, 10h
 ;		mov     edx, ebx
-;		mov     [REGS1_ESI], ax
+;		mov     [__CEXT_V(REGS1_ESI)], ax
 ;		mov     eax, 31h
 ;		call    near __CEXT_F(int386__clib3r)
-;		cmp     dword [REGS1_CFLAG], byte 0
+;		cmp     dword [__CEXT_V(REGS1_CFLAG)], byte 0
 ;		je      short ___5f545h
 ;		push    byte 5
-;		call    near ___58b20h
+;		call    near __CEXT_F(___58b20h)
 ;		add     esp, byte 4
 ;___5f545h:
 ;		mov     esi, 1
 ;		mov     ax, [ecx+0ch]
-;		mov     ebx, REGS1
-;		mov     [REGS1_EBX], ax
+;		mov     ebx, __CEXT_V(REGS1)
+;		mov     [__CEXT_V(REGS1_EBX)], ax
 ;		mov     edx, ebx
 ;		mov     eax, 31h
-;		mov     [REGS1_EAX], si
+;		mov     [__CEXT_V(REGS1_EAX)], si
 ;		call    near __CEXT_F(int386__clib3r)
-;		cmp     dword [REGS1_CFLAG], byte 0
+;		cmp     dword [__CEXT_V(REGS1_CFLAG)], byte 0
 ;		je      short ___5f57fh
 ;		push    byte 9
-;		call    near ___58b20h
+;		call    near __CEXT_F(___58b20h)
 ;		add     esp, byte 4
 ;___5f57fh:
 ;		mov     word [ecx+0ch], 0
@@ -90481,101 +90346,101 @@ ___5f4a4h:
 ;		je      short ___5f5f9h
 ;		mov     eax, [ecx]
 ;		shr     eax, 10h
-;		mov     [REGS1_EBX], ax
+;		mov     [__CEXT_V(REGS1_EBX)], ax
 ;		mov     ax, [ecx]
 ;		mov     edx, 601h
-;		mov     [REGS1_ECX], ax
+;		mov     [__CEXT_V(REGS1_ECX)], ax
 ;		mov     eax, [ecx+4]
-;		mov     ebx, REGS1
+;		mov     ebx, __CEXT_V(REGS1)
 ;		shr     eax, 10h
-;		mov     [REGS1_EAX], dx
-;		mov     [REGS1_ESI], ax
+;		mov     [__CEXT_V(REGS1_EAX)], dx
+;		mov     [__CEXT_V(REGS1_ESI)], ax
 ;		mov     ax, [ecx+4]
 ;		mov     edx, ebx
-;		mov     [REGS1_EDI], ax
+;		mov     [__CEXT_V(REGS1_EDI)], ax
 ;		mov     eax, 31h
 ;		call    near __CEXT_F(int386__clib3r)
 ;___5f5f9h:
 ;		mov     ax, [ecx+8]
-;		mov     [REGS1_EDI], ax
+;		mov     [__CEXT_V(REGS1_EDI)], ax
 ;		mov     eax, [ecx+8]
 ;		mov     ebx, 503h
 ;		shr     eax, 10h
-;		mov     [REGS1_EAX], bx
-;		mov     [REGS1_ESI], ax
+;		mov     [__CEXT_V(REGS1_EAX)], bx
+;		mov     [__CEXT_V(REGS1_ESI)], ax
 ;		mov     eax, esi
-;		mov     ebx, REGS1
+;		mov     ebx, __CEXT_V(REGS1)
 ;		shr     eax, 10h
 ;		mov     edx, ebx
-;		mov     [REGS1_EBX], ax
+;		mov     [__CEXT_V(REGS1_EBX)], ax
 ;		mov     eax, 31h
-;		mov     [REGS1_ECX], si
+;		mov     [__CEXT_V(REGS1_ECX)], si
 ;		call    near __CEXT_F(int386__clib3r)
-;		cmp     dword [REGS1_CFLAG], byte 0
+;		cmp     dword [__CEXT_V(REGS1_CFLAG)], byte 0
 ;		je      short ___5f651h
 ;		push    byte 6
-;		call    near ___58b20h
+;		call    near __CEXT_F(___58b20h)
 ;		add     esp, byte 4
 ;___5f651h:
 ;		xor     eax, eax
-;		mov     ax, [REGS1_ESI]
+;		mov     ax, [__CEXT_V(REGS1_ESI)]
 ;		mov     edx, eax
 ;		xor     eax, eax
 ;		shl     edx, 10h
-;		mov     ax, [REGS1_EDI]
+;		mov     ax, [__CEXT_V(REGS1_EDI)]
 ;		mov     ebx, [ecx+8]
 ;		add     eax, edx
 ;		cmp     eax, ebx
 ;		jne     short ___5f68ch
 ;		xor     eax, ebx
-;		mov     ax, [REGS1_EBX]
+;		mov     ax, [__CEXT_V(REGS1_EBX)]
 ;		mov     edx, eax
 ;		xor     eax, eax
 ;		shl     edx, 10h
-;		mov     ax, [REGS1_ECX]
+;		mov     ax, [__CEXT_V(REGS1_ECX)]
 ;		mov     edi, [ecx]
 ;		add     eax, edx
 ;		cmp     eax, edi
 ;		je      short ___5f696h
 ;___5f68ch:
 ;		push    byte 7
-;		call    near ___58b20h
+;		call    near __CEXT_F(___58b20h)
 ;		add     esp, byte 4
 ;___5f696h:
 ;		mov     edi, 8
 ;		mov     [ecx+4], esi
-;		mov     ebx, REGS1
+;		mov     ebx, __CEXT_V(REGS1)
 ;		mov     ax, [ecx+0ch]
-;		mov     [REGS1_EAX], di
-;		mov     [REGS1_EBX], ax
-;		mov     [REGS1_EDX], si
+;		mov     [__CEXT_V(REGS1_EAX)], di
+;		mov     [__CEXT_V(REGS1_EBX)], ax
+;		mov     [__CEXT_V(REGS1_EDX)], si
 ;		mov     edx, ebx
 ;		shr     esi, 10h
 ;		mov     eax, 31h
-;		mov     [REGS1_ECX], si
+;		mov     [__CEXT_V(REGS1_ECX)], si
 ;		call    near __CEXT_F(int386__clib3r)
-;		cmp     dword [REGS1_CFLAG], byte 0
+;		cmp     dword [__CEXT_V(REGS1_CFLAG)], byte 0
 ;		je      short ___5f6e4h
 ;		push    byte 0bh
-;		call    near ___58b20h
+;		call    near __CEXT_F(___58b20h)
 ;		add     esp, byte 4
 ;___5f6e4h:
 ;		cmp     byte [ecx+0eh], 0
 ;		je      short ___5f72fh
-;		mov     word [REGS1_EAX], 600h
+;		mov     word [__CEXT_V(REGS1_EAX)], 600h
 ;		mov     ax, [ecx]
-;		mov     ebx, REGS1
-;		mov     [REGS1_ECX], ax
+;		mov     ebx, __CEXT_V(REGS1)
+;		mov     [__CEXT_V(REGS1_ECX)], ax
 ;		mov     eax, [ecx+4]
 ;		mov     esi, [ecx]
 ;		shr     eax, 10h
 ;		shr     esi, 10h
-;		mov     [REGS1_ESI], ax
+;		mov     [__CEXT_V(REGS1_ESI)], ax
 ;		mov     ax, [ecx+4]
 ;		mov     edx, ebx
-;		mov     [REGS1_EDI], ax
+;		mov     [__CEXT_V(REGS1_EDI)], ax
 ;		mov     eax, 31h
-;		mov     [REGS1_EBX], si
+;		mov     [__CEXT_V(REGS1_EBX)], si
 ;		call    near __CEXT_F(int386__clib3r)
 ;___5f72fh:
 ;		pop     edi
@@ -90592,26 +90457,26 @@ ___5f734h:
 		mov     [esp], bl
 		mov     edx, 100h
 		lea     eax, [esi+0fh]
-		mov     ebx, REGS1
+		mov     ebx, __CEXT_V(REGS1)
 		shr     eax, 4
-		mov     [REGS1_EAX], dx
-		mov     [REGS1_EBX], ax
+		mov     [__CEXT_V(REGS1_EAX)], dx
+		mov     [__CEXT_V(REGS1_EBX)], ax
 		mov     edx, ebx
 		mov     eax, 31h
 		call    near __CEXT_F(int386__clib3r)
-		cmp     dword [REGS1_CFLAG], byte 0
+		cmp     dword [__CEXT_V(REGS1_CFLAG)], byte 0
 		je      short ___5f77ch
 		push    byte 1
-		call    near ___58b20h
+		call    near __CEXT_F(___58b20h)
 		add     esp, byte 4
 ___5f77ch:
-		mov     ax, [REGS1_EAX]
+		mov     ax, [__CEXT_V(REGS1_EAX)]
 		mov     [ecx+0ah], ax
 		xor     eax, eax
-		mov     ax, [REGS1_EAX]
+		mov     ax, [__CEXT_V(REGS1_EAX)]
 		shl     eax, 4
 		mov     [ecx], eax
-		mov     ax, [REGS1_EDX]
+		mov     ax, [__CEXT_V(REGS1_EDX)]
 		mov     [ecx+8], ax
 		mov     [ecx+4], esi
 		mov     al, [esp]
@@ -90621,18 +90486,18 @@ ___5f77ch:
 		mov     ebx, 600h
 		mov     eax, [ecx]
 		mov     si, [ecx]
-		mov     [REGS1_EAX], bx
+		mov     [__CEXT_V(REGS1_EAX)], bx
 		shr     eax, 10h
-		mov     [REGS1_ECX], si
-		mov     ebx, REGS1
-		mov     [REGS1_EBX], ax
+		mov     [__CEXT_V(REGS1_ECX)], si
+		mov     ebx, __CEXT_V(REGS1)
+		mov     [__CEXT_V(REGS1_EBX)], ax
 		mov     eax, [ecx+4]
 		mov     edx, ebx
 		shr     eax, 10h
 		mov     cx, [ecx+4]
-		mov     [REGS1_ESI], ax
+		mov     [__CEXT_V(REGS1_ESI)], ax
 		mov     eax, 31h
-		mov     [REGS1_EDI], cx
+		mov     [__CEXT_V(REGS1_EDI)], cx
 		call    near __CEXT_F(int386__clib3r)
 ___5f7f3h:
 		add     esp, byte 4
@@ -90649,33 +90514,33 @@ ___5f7fch:
 		je      short ___5f84eh
 		mov     eax, [ecx]
 		shr     eax, 10h
-		mov     [REGS1_EBX], ax
+		mov     [__CEXT_V(REGS1_EBX)], ax
 		mov     ax, [ecx]
 		mov     edx, 601h
-		mov     [REGS1_ECX], ax
+		mov     [__CEXT_V(REGS1_ECX)], ax
 		mov     eax, [ecx+4]
-		mov     ebx, REGS1
+		mov     ebx, __CEXT_V(REGS1)
 		shr     eax, 10h
-		mov     [REGS1_EAX], dx
-		mov     [REGS1_ESI], ax
+		mov     [__CEXT_V(REGS1_EAX)], dx
+		mov     [__CEXT_V(REGS1_ESI)], ax
 		mov     ax, [ecx+4]
 		mov     edx, ebx
-		mov     [REGS1_EDI], ax
+		mov     [__CEXT_V(REGS1_EDI)], ax
 		mov     eax, 31h
 		call    near __CEXT_F(int386__clib3r)
 ___5f84eh:
 		mov     ebx, 101h
 		mov     ax, [ecx+8]
-		mov     [REGS1_EAX], bx
-		mov     [REGS1_EDX], ax
-		mov     ebx, REGS1
+		mov     [__CEXT_V(REGS1_EAX)], bx
+		mov     [__CEXT_V(REGS1_EDX)], ax
+		mov     ebx, __CEXT_V(REGS1)
 		mov     eax, 31h
 		mov     edx, ebx
 		call    near __CEXT_F(int386__clib3r)
-		cmp     dword [REGS1_CFLAG], byte 0
+		cmp     dword [__CEXT_V(REGS1_CFLAG)], byte 0
 		je      short ___5f888h
 		push    byte 2
-		call    near ___58b20h
+		call    near __CEXT_F(___58b20h)
 		add     esp, byte 4
 ___5f888h:
 		mov     dword [ecx], 0
@@ -90696,36 +90561,36 @@ ___5f888h:
 ;		je      short ___5f8fch
 ;		mov     eax, [ecx]
 ;		shr     eax, 10h
-;		mov     [REGS1_EBX], ax
+;		mov     [__CEXT_V(REGS1_EBX)], ax
 ;		mov     ax, [ecx]
 ;		mov     edx, 601h
-;		mov     [REGS1_ECX], ax
+;		mov     [__CEXT_V(REGS1_ECX)], ax
 ;		mov     eax, [ecx+4]
-;		mov     ebx, REGS1
+;		mov     ebx, __CEXT_V(REGS1)
 ;		shr     eax, 10h
-;		mov     [REGS1_EAX], dx
-;		mov     [REGS1_ESI], ax
+;		mov     [__CEXT_V(REGS1_EAX)], dx
+;		mov     [__CEXT_V(REGS1_ESI)], ax
 ;		mov     ax, [ecx+4]
 ;		mov     edx, ebx
-;		mov     [REGS1_EDI], ax
+;		mov     [__CEXT_V(REGS1_EDI)], ax
 ;		mov     eax, 31h
 ;		call    near __CEXT_F(int386__clib3r)
 ;___5f8fch:
 ;		mov     ebx, 102h
 ;		lea     eax, [esi+0fh]
-;		mov     [REGS1_EAX], bx
+;		mov     [__CEXT_V(REGS1_EAX)], bx
 ;		shr     eax, 4
-;		mov     ebx, REGS1
-;		mov     [REGS1_EBX], ax
+;		mov     ebx, __CEXT_V(REGS1)
+;		mov     [__CEXT_V(REGS1_EBX)], ax
 ;		mov     ax, [ecx+8]
 ;		mov     edx, ebx
-;		mov     [REGS1_EDX], ax
+;		mov     [__CEXT_V(REGS1_EDX)], ax
 ;		mov     eax, 31h
 ;		call    near __CEXT_F(int386__clib3r)
-;		cmp     dword [REGS1_CFLAG], byte 0
+;		cmp     dword [__CEXT_V(REGS1_CFLAG)], byte 0
 ;		je      short ___5f942h
 ;		push    byte 3
-;		call    near ___58b20h
+;		call    near __CEXT_F(___58b20h)
 ;		add     esp, byte 4
 ;___5f942h:
 ;		mov     dl, [ecx+0ch]
@@ -90734,19 +90599,19 @@ ___5f888h:
 ;		je      short ___5f993h
 ;		mov     eax, [ecx]
 ;		shr     eax, 10h
-;		mov     [REGS1_EBX], ax
+;		mov     [__CEXT_V(REGS1_EBX)], ax
 ;		mov     ax, [ecx]
-;		mov     [REGS1_ECX], ax
+;		mov     [__CEXT_V(REGS1_ECX)], ax
 ;		mov     eax, [ecx+4]
 ;		mov     esi, 601h
 ;		shr     eax, 10h
-;		mov     ebx, REGS1
-;		mov     [REGS1_ESI], ax
+;		mov     ebx, __CEXT_V(REGS1)
+;		mov     [__CEXT_V(REGS1_ESI)], ax
 ;		mov     ax, [ecx+4]
 ;		mov     edx, ebx
-;		mov     [REGS1_EDI], ax
+;		mov     [__CEXT_V(REGS1_EDI)], ax
 ;		mov     eax, 31h
-;		mov     [REGS1_EAX], si
+;		mov     [__CEXT_V(REGS1_EAX)], si
 ;		call    near __CEXT_F(int386__clib3r)
 ;___5f993h:
 ;		pop     esi
@@ -90757,7 +90622,7 @@ ___5f888h:
 ;		push    ebx
 ;		push    edx
 ;		mov     ebx, 1ch
-;		mov     eax, REGS1
+;		mov     eax, __CEXT_V(REGS1)
 ;		xor     edx, edx
 ;		call    near memset__clib3r
 ;		mov     ebx, 0ch
@@ -90771,7 +90636,7 @@ ___5f888h:
 int386_REGS1:
 		push    ebx
 		push    edx
-		mov     ebx, REGS1
+		mov     ebx, __CEXT_V(REGS1)
 		and     eax, 0ffh
 		mov     edx, ebx
 		call    near __CEXT_F(int386__clib3r)
@@ -90783,7 +90648,7 @@ int386_REGS1:
 ;		push    ecx
 ;		push    edx
 ;		mov     ecx, ___24cca4h
-;		mov     ebx, REGS1
+;		mov     ebx, __CEXT_V(REGS1)
 ;		and     eax, 0ffh
 ;		mov     edx, ebx
 ;		call    near int386x__clib3r
@@ -90801,63 +90666,63 @@ int386_REGS1:
 ;		mov     eax, ___24ccc0h
 ;		xor     edx, edx
 ;		call    near memset__clib3r
-;		mov     eax, [REGS1_EAX]
+;		mov     eax, [__CEXT_V(REGS1_EAX)]
 ;		mov     edi, ___24ccc0h
 ;		mov     [___24ccdch], eax
-;		mov     eax, [REGS1_EBX]
+;		mov     eax, [__CEXT_V(REGS1_EBX)]
 ;		mov     edx, 300h
 ;		mov     [___24ccd0h], eax
-;		mov     eax, [REGS1_ECX]
+;		mov     eax, [__CEXT_V(REGS1_ECX)]
 ;		xor     ebx, ebx
 ;		mov     [___24ccd8h], eax
-;		mov     eax, [REGS1_EDX]
-;		mov     [REGS1_EAX], edx
+;		mov     eax, [__CEXT_V(REGS1_EDX)]
+;		mov     [__CEXT_V(REGS1_EAX)], edx
 ;		mov     [___24ccd4h], eax
-;		mov     eax, [REGS1_ESI]
+;		mov     eax, [__CEXT_V(REGS1_ESI)]
 ;		xor     edx, edx
 ;		mov     [___24ccc4h], eax
-;		mov     eax, [REGS1_EDI]
-;		mov     [REGS1_ECX], ebx
+;		mov     eax, [__CEXT_V(REGS1_EDI)]
+;		mov     [__CEXT_V(REGS1_ECX)], ebx
 ;		mov     [___24ccc0h], eax
 ;		mov     ax, [___24ccaah]
-;		mov     [REGS1_EDX], ebx
+;		mov     [__CEXT_V(REGS1_EDX)], ebx
 ;		mov     [___24cce4h], ax
 ;		mov     ax, [___24cca4h]
-;		mov     [REGS1_ESI], ebx
+;		mov     [__CEXT_V(REGS1_ESI)], ebx
 ;		mov     [___24cce2h], ax
 ;		mov     ax, [___24ccach]
 ;		xor     ebx, ebx
 ;		mov     [___24cce6h], ax
 ;		mov     ax, [___24ccaeh]
-;		mov     [REGS1_EDI], edi
+;		mov     [__CEXT_V(REGS1_EDI)], edi
 ;		mov     [___24cce8h], ax
 ;		xor     eax, eax
 ;		mov     [___24ccaah], dx
 ;		mov     al, cl
 ;		;mov     edx, ds
 ;		db	8ch,0dah
-;		mov     [REGS1_EBX], eax
+;		mov     [__CEXT_V(REGS1_EBX)], eax
 ;		mov     eax, edi
 ;		mov     ecx, ___24cca4h
 ;		mov     eax, 31h
 ;		mov     [___24ccach], bx
 ;		mov     [___24ccaeh], bx
-;		mov     ebx, REGS1
+;		mov     ebx, __CEXT_V(REGS1)
 ;		mov     [___24cca4h], dx
 ;		mov     edx, ebx
 ;		call    near int386x__clib3r
 ;		mov     eax, [___24ccdch]
-;		mov     [REGS1_EAX], eax
+;		mov     [__CEXT_V(REGS1_EAX)], eax
 ;		mov     eax, [___24ccd0h]
-;		mov     [REGS1_EBX], eax
+;		mov     [__CEXT_V(REGS1_EBX)], eax
 ;		mov     eax, [___24ccd8h]
-;		mov     [REGS1_ECX], eax
+;		mov     [__CEXT_V(REGS1_ECX)], eax
 ;		mov     eax, [___24ccd4h]
-;		mov     [REGS1_EDX], eax
+;		mov     [__CEXT_V(REGS1_EDX)], eax
 ;		mov     eax, [___24ccc4h]
-;		mov     [REGS1_ESI], eax
+;		mov     [__CEXT_V(REGS1_ESI)], eax
 ;		mov     eax, [___24ccc0h]
-;		mov     [REGS1_EDI], eax
+;		mov     [__CEXT_V(REGS1_EDI)], eax
 ;		mov     ax, [___24cce4h]
 ;		mov     [___24ccaah], ax
 ;		mov     ax, [___24cce2h]
@@ -90870,7 +90735,7 @@ int386_REGS1:
 ;		xor     ah, ah
 ;		and     al, 1
 ;		cwde    
-;		mov     [REGS1_CFLAG], eax
+;		mov     [__CEXT_V(REGS1_CFLAG)], eax
 ;		pop     edi
 ;		pop     edx
 ;		pop     ecx
@@ -90880,14 +90745,14 @@ int386_REGS1:
 ;		push    ebx
 ;		push    edx
 ;		mov     edx, 1a00h
-;		mov     ebx, REGS1
+;		mov     ebx, __CEXT_V(REGS1)
 ;		mov     eax, 10h
-;		mov     [REGS1_EAX], dx
+;		mov     [__CEXT_V(REGS1_EAX)], dx
 ;		mov     edx, ebx
 ;		call    near __CEXT_F(int386__clib3r)
-;		cmp     byte [REGS1_EAX], 1ah
+;		cmp     byte [__CEXT_V(REGS1_EAX)], 1ah
 ;		jne     short ___5fba9h
-;		mov     dl, [REGS1_EBX]
+;		mov     dl, [__CEXT_V(REGS1_EBX)]
 ;		cmp     dl, 6
 ;		jbe     short ___5fba9h
 ;		cmp     dl, 9
@@ -90896,7 +90761,7 @@ int386_REGS1:
 ;		ja      short ___5fbb3h
 ;___5fba9h:
 ;		push    byte 10h
-;		call    near ___58b20h
+;		call    near __CEXT_F(___58b20h)
 ;		add     esp, byte 4
 ;___5fbb3h:
 ;		pop     edx
@@ -91420,7 +91285,7 @@ ___60384h:
 ___60391h:
 		pop     ecx
 		push    byte 8
-		call    near ___58b20h
+		call    near __CEXT_F(___58b20h)
 		add     esp, byte 4
 ___6039ch:
 		push    eax
@@ -91442,7 +91307,7 @@ ___603b7h:
 		pop     ecx
 		pop     eax
 		push    byte 0ah
-		call    near ___58b20h
+		call    near __CEXT_F(___58b20h)
 		add     esp, byte 4
 ___603c4h:
 		push    eax
@@ -91468,7 +91333,7 @@ ___603ech:
 		pop     ecx
 		pop     eax
 		push    byte 0bh
-		call    near ___58b20h
+		call    near __CEXT_F(___58b20h)
 		add     esp, byte 4
 ___603f9h:
 		push    eax
@@ -91487,7 +91352,7 @@ ___6040eh:
 		pop     ebx
 		pop     eax
 		push    byte 9
-		call    near ___58b20h
+		call    near __CEXT_F(___58b20h)
 		add     esp, byte 4
 db	0,0,0,0,0,0
 
@@ -110025,7 +109890,7 @@ ___71590h:
 		je      short ___715ceh
 		push    esi
 		push    byte 28h
-		call    near ___58b20h
+		call    near __CEXT_F(___58b20h)
 		add     esp, byte 8
 ___715ceh:
 		test    ebp, ebp
@@ -110034,7 +109899,7 @@ ___715ceh:
 		jne     short ___715e3h
 		push    esi
 		push    byte 29h
-		call    near ___58b20h
+		call    near __CEXT_F(___58b20h)
 		add     esp, byte 8
 ___715e3h:
 		mov     [___24e868h], ecx
@@ -110618,21 +110483,21 @@ ___7552ch:
 		je      short ___75569h
 		push    esi
 		push    byte 28h
-		call    near ___58b20h
+		call    near __CEXT_F(___58b20h)
 		add     esp, byte 8
 ___75569h:
 		cmp     byte [edi+25h], 1ah
 		je      short ___7557ah
 		push    esi
 		push    byte 28h
-		call    near ___58b20h
+		call    near __CEXT_F(___58b20h)
 		add     esp, byte 8
 ___7557ah:
 		cmp     word [edi+3ah], 104h
 		jae     short ___7558dh
 		push    esi
 		push    byte 28h
-		call    near ___58b20h
+		call    near __CEXT_F(___58b20h)
 		add     esp, byte 8
 ___7558dh:
 		test    ebp, ebp
@@ -110641,14 +110506,14 @@ ___7558dh:
 		jne     short ___755a3h
 		push    esi
 		push    byte 29h
-		call    near ___58b20h
+		call    near __CEXT_F(___58b20h)
 		add     esp, byte 8
 ___755a3h:
 		cmp     word [edi+46h], byte 0
 		jne     short ___755b5h
 		push    esi
 		push    byte 29h
-		call    near ___58b20h
+		call    near __CEXT_F(___58b20h)
 		add     esp, byte 8
 ___755b5h:
 		lea     eax, [edi+11h]
@@ -113657,7 +113522,7 @@ ___77983h:
 		retn    
 ___77997h:
 		push    byte 21h
-		call    near ___58b20h
+		call    near __CEXT_F(___58b20h)
 		add     esp, byte 4
 ___779a1h:
 		pushad  
@@ -113701,7 +113566,7 @@ ___779e2h:
 		retn    
 ___779efh:
 		push    byte 20h
-		call    near ___58b20h
+		call    near __CEXT_F(___58b20h)
 		add     esp, byte 4
 ___779f9h:
 		mov     [___775b0h], ax
