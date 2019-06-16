@@ -14,17 +14,17 @@ typedef struct {
 	dword   cflag;
 } dwordregs;
 
-typedef struct AllocInfo {
+typedef struct AllocEntry {
 	byte 	type;		// +0
-	dword 	linear;		// +1
+	void * 	linear;		// +1
 	dword 	nbytes;		// +5
 	dword 	handle;		// +9
 	word 	selector;	// +0dh
 	word 	segment;	// +0dh
 	byte 	lock;		// +11h
-} AllocInfo;
+} AllocEntry;
 
-    extern AllocInfo * ___24ccb0h;
+    extern AllocEntry * AllocEntries;
     extern dwordregs REGS1;
 
     void ___58b20h(int errn);
@@ -36,7 +36,7 @@ void * allocMemoryLock(dword nsize, dword lock){
 
 	n = 0;
 
-	while((___24ccb0h[n].type)&&(++n < 0xe38));
+	while((AllocEntries[n].type)&&(++n < 0xe38));
 	
 	if(n == 0xe38) ___58b20h(0xd);
 
@@ -64,39 +64,39 @@ void * allocMemoryLock(dword nsize, dword lock){
 
 		if(REGS1.cflag) ___58b20h(0xd);
 
-		___24ccb0h[n].type = 2;
+		AllocEntries[n].type = 2;
 		// AX = real mode segment of allocated block
-		___24ccb0h[n].linear = REGS1.eax << 4;
-		___24ccb0h[n].segment = REGS1.eax;
+		AllocEntries[n].linear = (void *)(REGS1.eax << 4);
+		AllocEntries[n].segment = REGS1.eax;
 		// DX = first selector for allocated block
-		___24ccb0h[n].selector = REGS1.edx;
+		AllocEntries[n].selector = REGS1.edx;
 	}
 	else {				
 		// succeed
 
-		___24ccb0h[n].type = 1;
+		AllocEntries[n].type = 1;
 		// BX:CX = linear address of block
-		___24ccb0h[n].linear = (word)REGS1.ecx + (REGS1.ebx << 0x10);
+		AllocEntries[n].linear = (void *)((word)REGS1.ecx + (REGS1.ebx << 0x10));
 		// SI:DI = memory block handle for resizing and freeing block
-		___24ccb0h[n].handle = (word)REGS1.edi + (REGS1.esi << 0x10);
+		AllocEntries[n].handle = (word)REGS1.edi + (REGS1.esi << 0x10);
 	}
 
-	___24ccb0h[n].nbytes = nsize;
+	AllocEntries[n].nbytes = nsize;
 
 	if(lock){
 
 		// LOCK LINEAR REGION
 		REGS1.eax = 0x600;
 		// BX:CX = starting linear address
-		REGS1.ebx = ___24ccb0h[n].linear >> 0x10;
-		REGS1.ecx = ___24ccb0h[n].linear;
+		REGS1.ebx = (dword)AllocEntries[n].linear >> 0x10;
+		REGS1.ecx = (dword)AllocEntries[n].linear;
 		// SI:DI = size of region in bytes
-		REGS1.esi = ___24ccb0h[n].nbytes >> 0x10;
-		REGS1.edi = ___24ccb0h[n].nbytes;
+		REGS1.esi = AllocEntries[n].nbytes >> 0x10;
+		REGS1.edi = AllocEntries[n].nbytes;
 		int386__clib3r(0x31, &REGS1, &REGS1);
 	}
 
-	___24ccb0h[n].lock = lock; 
+	AllocEntries[n].lock = lock; 
 
-	return ___24ccb0h[n].linear;
+	return AllocEntries[n].linear;
 }

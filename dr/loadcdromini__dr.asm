@@ -11,7 +11,7 @@
     extern  __CEXT_V(___182bd0h)
     extern  __CEXT_F(printf__clib3r)
     extern  __CEXT_F(restore__keyboard)
-    extern  __CEXT_F(___5ec04h)
+    extern  __CEXT_F(freeAllocInfoTable)
     extern  __CEXT_F(exit__clib3r)
 
 %include "layout.inc"
@@ -75,7 +75,7 @@ ___3e443h:
 		call    __CEXT_F(printf__clib3r)
 		add     esp, 4
 		call    __CEXT_F(restore__keyboard)
-		call    __CEXT_F(___5ec04h)
+		call    __CEXT_F(freeAllocInfoTable)
 		mov     eax, 70h
 		call    __CEXT_F(exit__clib3r)
 @ok:

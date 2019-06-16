@@ -32,7 +32,7 @@ typedef struct {
 	dword   cflag;
 } dwordregs;
 
-    extern byte ___24ccb0h[];
+    extern byte AllocEntries[];
     extern byte REGS1[];
     extern byte REGS1_EAX[];
     extern byte REGS1_EBX[];
@@ -62,8 +62,8 @@ void * allocMemoryLock(dword A1, dword A2){
 	esi = eax;
 //		mov     [esp], dl
 	B(esp) = dl;
-//		mov     edi, [__CEXT_V(___24ccb0h)]
-	edi = D(___24ccb0h);
+//		mov     edi, [__CEXT_V(AllocEntries)]
+	edi = D(AllocEntries);
 //		xor     ecx, ecx
 	ecx = 0;
 //		mov     dl, [edi]

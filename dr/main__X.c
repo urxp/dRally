@@ -15,7 +15,7 @@ typedef unsigned long   dword;
     void restore__keyboard();
     extern byte ___19bd60h[];
     void ___623d4h(void);
-    void ___5ec04h(void);
+    void freeAllocInfoTable(void);
     void restrdos__dr();
     extern byte string__dr_bin[];
     extern byte string__MENU_BPA[];
@@ -92,8 +92,8 @@ ___101e6h:
 //		call    __CEXT_F(___623d4h)
 	___623d4h();
 ___10212h:
-//		call    __CEXT_F(___5ec04h)
-	___5ec04h();
+//		call    __CEXT_F(freeAllocInfoTable)
+	freeAllocInfoTable();
 //		call    __CEXT_F(restrdos__dr)
 	restrdos__dr();
 //		mov     ebx, __CEXT_V(string__dr_bin)

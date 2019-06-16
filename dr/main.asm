@@ -15,7 +15,7 @@
     extern  __CEXT_F(restore__keyboard)
     extern  __CEXT_V(___19bd60h)
     extern  __CEXT_F(___623d4h)
-    extern  __CEXT_F(___5ec04h)
+    extern  __CEXT_F(freeAllocInfoTable)
     extern  __CEXT_F(restrdos__dr)
     extern  __CEXT_V(string__dr_bin)
     extern  __CEXT_V(string__MENU_BPA)
@@ -62,7 +62,7 @@ ___101e6h:
 		je      ___10212h
 		call    __CEXT_F(___623d4h)
 ___10212h:
-		call    __CEXT_F(___5ec04h)
+		call    __CEXT_F(freeAllocInfoTable)
 		call    __CEXT_F(restrdos__dr)
 		mov     ebx, __CEXT_V(string__dr_bin)
 		mov     edx, 0b8000h

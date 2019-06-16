@@ -10,7 +10,7 @@
 	extern 	__CEXT_V(drfiles_list)
 	extern 	__CEXT_V(___182aach)
 	extern 	__CEXT_V(___182ae4h)
-	extern 	__CEXT_F(___5ec04h)
+	extern 	__CEXT_F(freeAllocInfoTable)
 	extern 	__CEXT_V(cdrom_ini)
 	extern 	__CEXT_V(animfiles_list)
 	extern 	__CEXT_V(___180130h)
@@ -51,7 +51,7 @@ __GDECL(__CEXT_F(chkfiles__dr))
 		call    __CEXT_F(printf__clib3r)
 		add     esp, 4
 		call    __CEXT_F(restore__keyboard)
-		call    __CEXT_F(___5ec04h)
+		call    __CEXT_F(freeAllocInfoTable)
 		mov     eax, ebp
 		call    __CEXT_F(exit__clib3r)
 @file_exists:
@@ -67,7 +67,7 @@ __GDECL(__CEXT_F(chkfiles__dr))
 		call    __CEXT_F(printf__clib3r)
 		add     esp, 4
 		call    __CEXT_F(restore__keyboard)
-		call    __CEXT_F(___5ec04h)
+		call    __CEXT_F(freeAllocInfoTable)
 		mov     eax, ebp
 		call    __CEXT_F(exit__clib3r)
 @file_original:
@@ -186,7 +186,7 @@ ___3e33dh:
 		call    __CEXT_F(printf__clib3r)
 		add     esp, 4
 		call    __CEXT_F(restore__keyboard)
-		call    __CEXT_F(___5ec04h)
+		call    __CEXT_F(freeAllocInfoTable)
 		mov     eax, 70h
 		call    __CEXT_F(exit__clib3r)
 @anim_original:

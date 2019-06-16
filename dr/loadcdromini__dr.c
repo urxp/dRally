@@ -11,7 +11,7 @@ typedef unsigned long   dword;
     
     extern char cdrom_ini[];
     
-    void ___5ec04h(void);
+    void freeAllocInfoTable(void);
     void restore__keyboard(void);
     int printf__clib3r(const char * format, ...);
     void exit__clib3r(int status);
@@ -33,7 +33,7 @@ void loadcdromini__dr(void){
 
         printf__clib3r(___182bd0h);
         restore__keyboard();
-        ___5ec04h();
+        freeAllocInfoTable();
         exit__clib3r(0x70);
     }
 

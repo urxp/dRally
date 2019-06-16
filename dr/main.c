@@ -15,7 +15,7 @@ typedef unsigned long   dword;
     void restore__keyboard(void);
     extern dword ___19bd60h;
     void ___623d4h(void);
-    void ___5ec04h(void);
+    void freeAllocInfoTable(void);
     void restrdos__dr(void);
     extern const char string__dr_bin[];
     extern const char string__MENU_BPA[];
@@ -50,7 +50,7 @@ int main(int argc, const char * argv[]){
 
 	if(___19bd60h) ___623d4h();
 
-	___5ec04h();
+	freeAllocInfoTable();
 	restrdos__dr();
 	read__bpa(string__MENU_BPA, (void *)0xb8000, string__dr_bin);
 

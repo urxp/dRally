@@ -2,7 +2,7 @@ TARGET = dpmi
 
 LIB_NAME = $(TARGET).lib
 
-OBJS = allocdos.obj allocmemlock.obj
+OBJS = allocdos.obj allocmemlock.obj freeallocs.obj freemem.obj
 
 $(TARGET): $(LIB_NAME) $(OBJS)
 

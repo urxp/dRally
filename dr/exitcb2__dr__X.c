@@ -1,6 +1,6 @@
 typedef unsigned long	dword;
 
-	void ___5ec04h(void);
+	void freeAllocInfoTable(void);
 	void ___623d4h(void);
 	void restore__keyboard(void);
 	int printf__clib3r(const char * format, ...);
@@ -38,8 +38,8 @@ void exitcb2__dr(void){
 	___2fc50h();
 //		call    __CEXT_F(___64a28h)
 	___64a28h();
-//		call    __CEXT_F(___5ec04h)
-	___5ec04h();
+//		call    __CEXT_F(freeAllocInfoTable)
+	freeAllocInfoTable();
 //		call    __CEXT_F(restore__keyboard)
 	restore__keyboard();
 //		cmp     dword [__CEXT_V(___19bd60h)], 0

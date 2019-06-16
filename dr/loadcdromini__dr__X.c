@@ -13,7 +13,7 @@ typedef unsigned long   dword;
 	// "Error reading CDROM.INI file!\n"
     extern const char ___182bd0h[];
 
-    void ___5ec04h(void);
+    void freeAllocInfoTable(void);
     void restore__keyboard(void);
     int printf__clib3r(const char * format, ...);
     void exit__clib3r(int status);
@@ -112,8 +112,8 @@ nocdromini:
 //		add     esp, 4
 //		call    __CEXT_F(restore__keyboard)
 	restore__keyboard();
-//		call    __CEXT_F(___5ec04h)
-	___5ec04h();
+//		call    __CEXT_F(freeAllocInfoTable)
+	freeAllocInfoTable();
 //		mov     eax, 70h
 	eax = 0x70;
 //		call    __CEXT_F(exit__clib3r)

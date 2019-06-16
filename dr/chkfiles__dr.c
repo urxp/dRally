@@ -33,7 +33,7 @@ typedef struct {
     extern byte CDPath;
 
     dword getFileSize__dr(const char *);
-    void ___5ec04h(void);
+    void freeAllocInfoTable(void);
     void restore__keyboard(void);
     int printf__clib3r(const char * format, ...);
     void exit__clib3r(int status);
@@ -57,7 +57,7 @@ void chkfiles__dr(void){
             printf__clib3r(___182a30h, entry->EntryName);
             printf__clib3r(___182a5ch);
             restore__keyboard();
-            ___5ec04h();
+            freeAllocInfoTable();
             exit__clib3r(0x70);
         }
 
@@ -66,7 +66,7 @@ void chkfiles__dr(void){
             printf__clib3r(___182aach, entry->EntryName);
             printf__clib3r(___182ae4h);
             restore__keyboard();
-            ___5ec04h();
+            freeAllocInfoTable();
             exit__clib3r(0x70);
         }
     }
@@ -101,7 +101,7 @@ void chkfiles__dr(void){
             printf__clib3r(___182b34h, entry->EntryName);
             printf__clib3r(___182b6ch);
             restore__keyboard();
-            ___5ec04h();
+            freeAllocInfoTable();
             exit__clib3r(0x70);
         }
     }

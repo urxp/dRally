@@ -1,6 +1,6 @@
 typedef unsigned long	dword;
 
-	void ___5ec04h(void);
+	void freeAllocInfoTable(void);
 	void ___623d4h(void);
 	void restore__keyboard(void);
 	int printf__clib3r(const char * format, ...);
@@ -15,7 +15,7 @@ typedef unsigned long	dword;
 void exitcb1__dr(void){
 
 	restore__keyboard();
-	___5ec04h();
+	freeAllocInfoTable();
 	setmode3h__video();
 	printf__clib3r(___183e84h);
 

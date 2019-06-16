@@ -13,7 +13,7 @@
     extern  __CEXT_F(printf__clib3r)
     extern  __CEXT_F(exit__clib3r)
     extern  __CEXT_F(setmode3h__video)
-    extern  __CEXT_F(___5ec04h)
+    extern  __CEXT_F(freeAllocInfoTable)
     extern  __CEXT_F(restore__keyboard)
 
 %include "layout.inc"
@@ -32,7 +32,7 @@ __GDECL(__CEXT_F(exitcb2__dr))
 		call    __CEXT_F(___24ec0h)
 		call    __CEXT_F(___2fc50h)
 		call    __CEXT_F(___64a28h)
-		call    __CEXT_F(___5ec04h)
+		call    __CEXT_F(freeAllocInfoTable)
 		call    __CEXT_F(restore__keyboard)
 		cmp     dword [__CEXT_V(___19bd60h)], 0
 		je      ___3ab3bh

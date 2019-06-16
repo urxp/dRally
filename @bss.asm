@@ -1517,10 +1517,13 @@ ___24cca4h:	resb	6
 ___24ccaah:	resb	2
 ___24ccach:	resb	2
 ___24ccaeh:	resb	2
-__GDECL(__CEXT_V(___24ccb0h))
+__GDECL(__CEXT_V(AllocTable))
+__GDECL(__CEXT_V(AllocEntries))
     resb	4
-___24ccb4h:	resb	0ah
-___24ccbeh:	resb	2
+__GDECL(__CEXT_V(___24ccb4h))
+    resb	0ah
+__GDECL(__CEXT_V(___24ccbeh))
+    resb	2
 ___24ccc0h:	resb	4
 ___24ccc4h:	resb	0ch
 ___24ccd0h:	resb	4

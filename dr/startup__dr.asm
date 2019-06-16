@@ -51,7 +51,7 @@
 	extern 	__CEXT_F(setmode3h__video)	
 	extern 	___182c24h	
 	extern 	___182cb8h		
-	extern 	__CEXT_F(___5ec04h)	
+	extern 	__CEXT_F(freeAllocInfoTable)	
 	extern 	__CEXT_F(restore__keyboard)	
 	extern 	__CEXT_F(exit__clib3r)	
 	extern 	__CEXT_F(___605deh)	
@@ -276,7 +276,7 @@ ___3e88bh:
 		call    __CEXT_F(printf__clib3r)
 		add     esp, byte 4
 		call    __CEXT_F(___64a28h)
-		call    __CEXT_F(___5ec04h)
+		call    __CEXT_F(freeAllocInfoTable)
 		call    __CEXT_F(restore__keyboard)
 		mov     eax, 70h
 		call    __CEXT_F(exit__clib3r)

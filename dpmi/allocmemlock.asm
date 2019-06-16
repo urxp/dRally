@@ -1,6 +1,6 @@
 %include "macros.inc"
 
-    extern  __CEXT_V(___24ccb0h)
+    extern  __CEXT_V(AllocEntries)
     extern  __CEXT_F(___58b20h)
     extern  __CEXT_V(REGS1)
     extern  __CEXT_V(REGS1_EAX)
@@ -24,7 +24,7 @@ __GDECL(__CEXT_F(allocMemoryLock))
 		sub     esp, byte 4
 		mov     esi, eax
 		mov     [esp], dl
-		mov     edi, [__CEXT_V(___24ccb0h)]
+		mov     edi, [__CEXT_V(AllocEntries)]
 		xor     ecx, ecx
 		mov     dl, [edi]
 		mov     eax, edi

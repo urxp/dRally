@@ -2,7 +2,7 @@
 
     extern  __CHK
     extern  __CEXT_F(restore__keyboard)
-    extern  __CEXT_F(___5ec04h)
+    extern  __CEXT_F(freeAllocInfoTable)
     extern  __CEXT_F(setmode3h__video)
     extern  __CEXT_V(___183e84h)
     extern  __CEXT_F(printf__clib3r)
@@ -21,7 +21,7 @@ __GDECL(__CEXT_F(exitcb1__dr))
 		push    ecx
 		push    edx
 		call    __CEXT_F(restore__keyboard)
-		call    __CEXT_F(___5ec04h)
+		call    __CEXT_F(freeAllocInfoTable)
 		call    __CEXT_F(setmode3h__video)
 		push    __CEXT_V(___183e84h)
 		call    __CEXT_F(printf__clib3r)
