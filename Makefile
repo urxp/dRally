@@ -1,9 +1,10 @@
-subdirs = clib3r bpa dpmi dr serial timer video
+subdirs = clib3r audio bpa dpmi dr serial timer video
 
 segs = @text.asm @data.asm @bss.asm
 
 clib3r = clib3r/clib3r.lib
 
+audio = audio/audio.lib
 bpa = bpa/bpa.lib
 dpmi = dpmi/dpmi.lib
 dr = dr/dr.lib
@@ -11,7 +12,7 @@ serial = serial/serial.lib
 timer = timer/timer.lib
 video = video/video.lib
 
-libs = $(clib3r) $(bpa) $(dpmi) $(dr) $(serial) $(timer) $(video)
+libs = $(clib3r) $(audio) $(bpa) $(dpmi) $(dr) $(serial) $(timer) $(video)
 
 default: $(subdirs) drally.exe drally.le drally.lx
 	@rm -f drally.lnk drle.lnk drlx.lnk
@@ -34,6 +35,7 @@ drally.obj: drally.asm Makefile
 drally.lib: $(libs) drally.obj Makefile
 	wlib -fo -c -b -n $@
 	wlib -fo -c -b $@ +-$(clib3r)
+	wlib -fo -c -b $@ +-$(audio)
 	wlib -fo -c -b $@ +-$(bpa)
 	wlib -fo -c -b $@ +-$(dpmi)
 	wlib -fo -c -b $@ +-$(dr)
