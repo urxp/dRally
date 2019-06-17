@@ -44,13 +44,15 @@
 
     extern  __CEXT_F(chkarg__dr)
     extern  __CEXT_F(exitcb1__dr)
-    extern  __CEXT_F(___71da4h)
+    extern  __CEXT_F(___71da4h__audio)
     extern  __CEXT_F(extract__musics_bpa)
     extern  __CEXT_F(getentrysize__musics_bpa)
     extern  __CEXT_F(install__timer)
     extern  __CEXT_F(allocMemoryLock)
     extern  __CEXT_F(freeAllocInfoTable)
     extern  __CEXT_F(freeMemory)
+
+    extern  __CEXT_F(___6ef2ch__audio)
 
 %include "layout.inc"
 

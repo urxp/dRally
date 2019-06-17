@@ -209,7 +209,8 @@ dd	___7531ah
 dd	___7535ch
 dd	___753c5h
 dd	___753fdh
-__GDECL(__CEXT_F(___71da4h))
+;; 71da4h
+__GDECL(__CEXT_F(___71da4h__audio))
 		push    ebx
 		push    ecx
 		push    edx

@@ -1657,7 +1657,8 @@ ___24e794h:	resb	4
 ___24e798h:	resb	4
 ___24e79ch:	resb	2
 ___24e79eh:	resb	2
-___24e7a0h:	resb	2
+__GDECL(___24e7a0h)
+    resb	2
 ___24e7a2h:	resb	2
 ___24e7a4h:	resb	1
 __GDECL(___24e7a5h)
@@ -1709,19 +1710,32 @@ __IsDBCS:	resb	4
 ____Argc:	resb	4
 ____Argv:	resb	4
 ___historical_splitparms:	resb	4
-___24e830h:	resb	20h
-___24e850h:	resb	4
-___24e854h:	resb	4
-___24e858h:	resb	4
-___24e85ch:	resb	4
-___24e860h:	resb	4
-___24e864h:	resb	4
-___24e868h:	resb	4
-___24e86ch:	resb	2
-___24e86eh:	resb	1
-___24e86fh:	resb	1
-___24e870h:	resb	1
-___24e871h:	resb	1
+__GDECL(___24e830h)
+    resb	20h
+__GDECL(___24e850h)
+    resb	4
+__GDECL(___24e854h)
+    resb	4
+__GDECL(___24e858h)
+    resb	4
+__GDECL(___24e85ch)
+    resb	4
+__GDECL(___24e860h)
+    resb	4
+__GDECL(___24e864h)
+    resb	4
+__GDECL(___24e868h)
+    resb	4
+__GDECL(___24e86ch)
+    resb	2
+__GDECL(___24e86eh)
+    resb	1
+__GDECL(___24e86fh)
+    resb	1
+__GDECL(___24e870h)
+    resb	1
+__GDECL(___24e871h)
+    resb	1
 __GDECL(___24e872h)
 	resb	2
 __GDECL(___24e874h)
