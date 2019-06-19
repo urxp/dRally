@@ -1,7 +1,8 @@
+%include "macros.inc"
 
     extern  ___68c30h
     extern  ___68c34h
-    extern  ___68c40h
+    extern  __CEXT_V(___68c40h)
     extern  ___688cch
     extern  ___68c38h
     extern  ___688d0h
@@ -9,7 +10,7 @@
     extern  ___68a10h
     extern  ___68bb0h
     extern  ___68990h
-    extern  ___68a90h
+    extern  __CEXT_V(___68a90h)
     extern  ___68b30h
     extern  ___68b10h
     extern  ___68c3ch
@@ -337,7 +338,7 @@ ___691ffh:
 		call    dword [___68c30h]
 		call    dword [___68c34h]
 		popad   
-		movzx   edx, word [___68c40h]
+		movzx   edx, word [__CEXT_V(___68c40h)]
 		movzx   eax, word [___688cch]
 		imul    edx
 		shld    edx, eax, 10h
@@ -450,7 +451,7 @@ ___6934dh:
 		shl     edi, 2
 		test    byte [___68d5ch], 1
 		je      ___693ceh
-		mov     eax, [esi*4+___68a90h]
+		mov     eax, [esi*4+__CEXT_V(___68a90h)]
 		shr     eax, 0ch
 		je      ___693ceh
 		cmp     al, 0fh

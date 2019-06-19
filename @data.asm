@@ -8651,7 +8651,7 @@ __GDECL(___19a279h)
 db	0
 ___19a27ah:
 db	0
-IsSoundEnabled:
+__GDECL(__CEXT_V(IsSoundEnabled))
 db	0
 ___19a27ch:
 db	0
@@ -8659,11 +8659,11 @@ ___19a27dh:
 db	0
 ___19a27eh:
 db	0,0
-___19a280h:
+__GDECL(__CEXT_V(___19a280h))
 db	0
-__GDECL(___19a281h)
+__GDECL(__CEXT_V(___19a281h))
 db	0,0,0
-___19a284h:
+__GDECL(__CEXT_V(S3M_Ptr))
 db	0,0,0,0
 ___19a288h:
 db	0,0,0,0
@@ -8763,7 +8763,7 @@ ___WD_Present:
 db	0,0,0,0
 __GDECL(___19a464h)
 db	0,0,0,0
-__GDECL(___19a468h)
+__GDECL(__CEXT_V(___19a468h))
 db	0
 __GDECL(___19a469h)
 db	0

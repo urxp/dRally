@@ -1,9 +1,9 @@
+%include "macros.inc"
 %include "layout.inc"
 
 section @text
 
-global strncmp__clib3r
-strncmp__clib3r:
+__GDECL(__CEXT_F(strncmp__clib3r))
 		push    ecx
 ___7c4a8h:
 		test    ebx, ebx

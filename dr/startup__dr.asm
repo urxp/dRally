@@ -6,7 +6,7 @@
 	extern 	__CEXT_F(chkfiles__dr)	
 	extern 	___1a202fh	
 	extern 	___199fa0h	
-	extern 	__STOSB	
+	extern 	__CEXT_F(__STOSB__clib3r)	
 	extern 	___1a2148h	
 	extern 	___2415ch	
 	extern 	readConfig__dr	
@@ -185,7 +185,7 @@ __GDECL(__CEXT_F(startup__dr))
 		mov     ecx, 13h
 		mov     eax, ___1a202fh
 		mov     [___199fa0h], edx
-		call    __STOSB
+		call    __CEXT_F(__STOSB__clib3r)
 		xor     ah, ah
 		mov     esi, 0afh
 		mov     [___1a2148h], ah

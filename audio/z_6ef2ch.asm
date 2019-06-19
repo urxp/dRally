@@ -6,13 +6,13 @@
     extern  ___68910h
     extern  ___68990h
     extern  ___68a10h
-    extern  ___68a90h
-    extern  ___68c40h
+    extern  __CEXT_V(___68a90h)
+    extern  __CEXT_V(___68c40h)
     extern  ___68c42h
     extern  ___19a279h
-    extern  ___19a281h
+    extern  __CEXT_V(___19a281h)
     extern  ___19a28ch
-    extern  ___19a468h
+    extern  __CEXT_V(___19a468h)
     extern  ___19a469h
     extern  ___19a46ah
     extern  ___19a46ch
@@ -53,15 +53,15 @@
     extern  ___24e7a0h
     extern  ___24e7a5h
     extern  ___24e7a6h
-    extern  ___24e830h
+    extern  __CEXT_V(___24e830h)
     extern  ___24e850h
     extern  ___24e854h
     extern  ___24e85ch
     extern  ___24e864h
     extern  ___24e86eh
-    extern  ___24e86fh
-    extern  ___24e870h
-    extern  ___24e871h
+    extern  __CEXT_V(S3M_InitialTempo)
+    extern  __CEXT_V(S3M_GlobalVolume)
+    extern  __CEXT_V(S3M_InitialSpeed)
     extern  ___24e872h
     extern  ___24e874h
     extern  ___24e878h
@@ -181,10 +181,10 @@ __GDECL(__CEXT_F(___6ef2ch__audio))
 		push    esi
 		push    edi
 		push    ebp
-		mov     ah, [___19a281h]
+		mov     ah, [__CEXT_V(___19a281h)]
 		test    ah, ah
 		jne     ___71588h
-		cmp     byte [___19a468h], 0
+		cmp     byte [__CEXT_V(___19a468h)], 0
 		je      ___6f02fh
 		mov     [___19a469h], ah
 		mov     bl, 1
@@ -228,7 +228,7 @@ ___6ef9dh:
 		jne     ___6ef9dh
 		call    ___68c42h
 		xor     al, al
-		mov     [___19a468h], al
+		mov     [__CEXT_V(___19a468h)], al
 ___6f02fh:
 		mov     edx, [___19a46ch]
 		cmp     edx, byte 0ffffffffh
@@ -410,7 +410,7 @@ ___6f2e3h:
 		xor     dh, dh
 		xor     ebx, ebx
 		mov     [___24e87dh], dh
-		mov     al, [eax+___24e830h]
+		mov     al, [eax+__CEXT_V(___24e830h)]
 		mov     [___24e87ah], bx
 		mov     [___24e87eh], al
 		cmp     al, 0ffh
@@ -660,13 +660,13 @@ ___6f6d0h:
 		mov     al, [___24e878h]
 		xor     ebx, ebx
 		mov     edx, esi
-		mov     bl, [___24e86fh]
-		mov     [___24e871h], al
+		mov     bl, [__CEXT_V(S3M_InitialTempo)]
+		mov     [__CEXT_V(S3M_InitialSpeed)], al
 		sar     edx, 1fh
 		mov     eax, esi
 		idiv    ebx
 		xor     bh, bh
-		mov     [___68c40h], ax
+		mov     [__CEXT_V(___68c40h)], ax
 		mov     [___24e879h], bh
 		mov     [___24e878h], bh
 		jmp     ___6ffe5h
@@ -1163,7 +1163,7 @@ ___6fe1ah:
 		mov     al, [___24e87eh]
 		shl     edx, 0ch
 		mov     [___24e878h], bl
-		mov     [eax*4+___68a90h], edx
+		mov     [eax*4+__CEXT_V(___68a90h)], edx
 		jmp     ___6ffe5h
 ___6fe4dh:
 		xor     dl, dl
@@ -1256,8 +1256,8 @@ ___6ff7dh:
 		mov     bl, cl
 		sar     edx, 1fh
 		idiv    ebx
-		mov     [___24e86fh], cl
-		mov     [___68c40h], ax
+		mov     [__CEXT_V(S3M_InitialTempo)], cl
+		mov     [__CEXT_V(___68c40h)], ax
 ___6ffa0h:
 		xor     ch, ch
 		mov     [___24e878h], ch
@@ -1266,7 +1266,7 @@ ___6ffa0h:
 ___6ffb0h:
 		mov     al, [___24e878h]
 		xor     bl, bl
-		mov     [___24e870h], al
+		mov     [__CEXT_V(S3M_GlobalVolume)], al
 		mov     [___24e879h], bl
 		mov     [___24e878h], bl
 		jmp     ___6ffe5h
@@ -1343,7 +1343,7 @@ ___700bch:
 		xor     edx, edx
 		mov     al, [___24e87eh]
 		xor     ebx, ebx
-		mov     dl, [___24e870h]
+		mov     dl, [__CEXT_V(S3M_GlobalVolume)]
 		mov     bl, [eax+___19a582h]
 		imul    edx, ebx
 		shl     edx, 4
@@ -1357,7 +1357,7 @@ ___700ech:
 		mov     byte [___19a53ch], 1
 ___70107h:
 		mov     dl, [___19a540h]
-		mov     al, [___24e871h]
+		mov     al, [__CEXT_V(S3M_InitialSpeed)]
 		mul     dl
 		mov     [___19a53eh], al
 ___70119h:
@@ -1385,7 +1385,7 @@ ___7017ah:
 		mov     cl, [___24e878h]
 		test    cl, 0fh
 		jne     ___701cdh
-		mov     ch, [___24e871h]
+		mov     ch, [__CEXT_V(S3M_InitialSpeed)]
 		cmp     ch, [___19a53eh]
 		je      ___701cdh
 		xor     ebx, ebx
@@ -1407,7 +1407,7 @@ ___7017ah:
 ___701cdh:
 		test    byte [___24e878h], 0f0h
 		jne     ___70218h
-		mov     bh, [___24e871h]
+		mov     bh, [__CEXT_V(S3M_InitialSpeed)]
 		cmp     bh, [___19a53eh]
 		je      ___70218h
 		mov     dl, [___24e878h]
@@ -1432,7 +1432,7 @@ ___70218h:
 		xor     edx, edx
 		mov     al, [___24e87eh]
 		xor     ebx, ebx
-		mov     dl, [___24e870h]
+		mov     dl, [__CEXT_V(S3M_GlobalVolume)]
 		mov     bl, [eax+___19a582h]
 		imul    edx, ebx
 		shl     edx, 4
@@ -1673,7 +1673,7 @@ ___705cch:
 		mov     [___24e874h], eax
 ___705d1h:
 		mov     al, [___19a53eh]
-		cmp     al, [___24e871h]
+		cmp     al, [__CEXT_V(S3M_InitialSpeed)]
 		je      ___70612h
 		xor     eax, eax
 		mov     al, [___24e87eh]
@@ -1721,7 +1721,7 @@ ___7064bh:
 		xor     ebx, ebx
 		mov     bl, [edx+___19a582h]
 		xor     edx, edx
-		mov     dl, [___24e870h]
+		mov     dl, [__CEXT_V(S3M_GlobalVolume)]
 		imul    ebx, edx
 		mov     ch, [eax+___19a664h]
 		xor     edx, edx
@@ -1911,7 +1911,7 @@ ___70902h:
 ___7092dh:
 		mov     [___24e874h], eax
 ___70932h:
-		mov     dh, [___24e871h]
+		mov     dh, [__CEXT_V(S3M_InitialSpeed)]
 		cmp     dh, [___19a53eh]
 		je      ___70974h
 		xor     eax, eax
@@ -1962,7 +1962,7 @@ ___709c3h:
 		test    cl, 0fh
 		jne     ___70a19h
 		mov     dl, [___19a53eh]
-		cmp     dl, [___24e871h]
+		cmp     dl, [__CEXT_V(S3M_InitialSpeed)]
 		je      ___70a19h
 		xor     edx, edx
 		mov     dl, cl
@@ -1979,7 +1979,7 @@ ___70a19h:
 		mov     cl, [___24e878h]
 		test    cl, 0f0h
 		jne     ___70a59h
-		mov     ch, [___24e871h]
+		mov     ch, [__CEXT_V(S3M_InitialSpeed)]
 		cmp     ch, [___19a53eh]
 		je      ___70a59h
 		xor     eax, eax
@@ -1998,7 +1998,7 @@ ___70a59h:
 		xor     ebx, ebx
 		mov     al, [___24e87eh]
 		xor     edx, edx
-		mov     bl, [___24e870h]
+		mov     bl, [__CEXT_V(S3M_GlobalVolume)]
 		mov     dl, [eax+___19a582h]
 		imul    edx, ebx
 		shl     edx, 4
@@ -2118,7 +2118,7 @@ ___70c51h:
 		test    ch, 0fh
 		jne     ___70c9dh
 		mov     al, [___19a53eh]
-		cmp     al, [___24e871h]
+		cmp     al, [__CEXT_V(S3M_InitialSpeed)]
 		je      ___70c9dh
 		xor     edx, edx
 		xor     eax, eax
@@ -2137,7 +2137,7 @@ ___70c9dh:
 		mov     bl, [___24e878h]
 		test    bl, 0f0h
 		jne     ___70cddh
-		mov     bh, [___24e871h]
+		mov     bh, [__CEXT_V(S3M_InitialSpeed)]
 		cmp     bh, [___19a53eh]
 		je      ___70cddh
 		xor     eax, eax
@@ -2156,7 +2156,7 @@ ___70cddh:
 		xor     edx, edx
 		mov     al, [___24e87eh]
 		xor     ebx, ebx
-		mov     dl, [___24e870h]
+		mov     dl, [__CEXT_V(S3M_GlobalVolume)]
 		mov     bl, [eax+___19a582h]
 		imul    edx, ebx
 		shl     edx, 4
@@ -2166,7 +2166,7 @@ ___70d06h:
 		xor     eax, eax
 		xor     edx, edx
 		mov     al, [___19a540h]
-		mov     dl, [___24e871h]
+		mov     dl, [__CEXT_V(S3M_InitialSpeed)]
 		imul    edx, eax
 		xor     eax, eax
 		mov     al, [___19a53eh]
@@ -2181,7 +2181,7 @@ ___70d06h:
 		test    edx, edx
 		jne     ___71566h
 		xor     eax, eax
-		mov     dl, [___24e871h]
+		mov     dl, [__CEXT_V(S3M_InitialSpeed)]
 		mov     al, [___19a540h]
 		imul    edx, eax
 		xor     eax, eax
@@ -2383,7 +2383,7 @@ ___71017h:
 		xor     edx, edx
 		mov     al, [___24e87eh]
 		xor     ebx, ebx
-		mov     dl, [___24e870h]
+		mov     dl, [__CEXT_V(S3M_GlobalVolume)]
 		mov     bl, [eax+___19a582h]
 		imul    edx, ebx
 		shl     edx, 4
@@ -2456,7 +2456,7 @@ ___7110dh:
 ___71129h:
 		mov     [___24e874h], eax
 ___7112eh:
-		mov     cl, [___24e871h]
+		mov     cl, [__CEXT_V(S3M_InitialSpeed)]
 		cmp     cl, [___19a53eh]
 		je      ___7116bh
 		xor     eax, eax
@@ -2490,7 +2490,7 @@ ___71196h:
 		mov     dword [___24e874h], 40h
 ___711a9h:
 		xor     eax, eax
-		mov     al, [___24e870h]
+		mov     al, [__CEXT_V(S3M_GlobalVolume)]
 		mov     ecx, [___24e874h]
 		mov     edx, eax
 		imul    edx, ecx
@@ -2637,7 +2637,7 @@ ___713beh:
 		mov     [eax*4+___68990h], edx
 		xor     edx, edx
 		mov     bl, [eax+___19a582h]
-		mov     dl, [___24e870h]
+		mov     dl, [__CEXT_V(S3M_GlobalVolume)]
 		imul    edx, ebx
 		shl     edx, 4
 		xor     bl, bl
@@ -2703,7 +2703,7 @@ ___714a3h:
 ___714bfh:
 		mov     [___24e874h], eax
 ___714c4h:
-		mov     dh, [___24e871h]
+		mov     dh, [__CEXT_V(S3M_InitialSpeed)]
 		cmp     dh, [___19a53eh]
 		je      ___71506h
 		xor     eax, eax

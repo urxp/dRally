@@ -1651,7 +1651,8 @@ ___MiniHeapFreeRover:	resb	4
 ___ClosedStreams:	resb	4
 ___OpenStreams:	resb	80h
 ___24e6cch:	resb	84h
-___24e750h:	resb	40h
+__GDECL(__CEXT_V(___24e750h))
+    resb	40h
 ___24e790h:	resb	4
 ___24e794h:	resb	4
 ___24e798h:	resb	4
@@ -1710,31 +1711,31 @@ __IsDBCS:	resb	4
 ____Argc:	resb	4
 ____Argv:	resb	4
 ___historical_splitparms:	resb	4
-__GDECL(___24e830h)
+__GDECL(__CEXT_V(___24e830h))
     resb	20h
 __GDECL(___24e850h)
     resb	4
 __GDECL(___24e854h)
     resb	4
-__GDECL(___24e858h)
+__GDECL(__CEXT_V(___24e858h))
     resb	4
 __GDECL(___24e85ch)
     resb	4
-__GDECL(___24e860h)
+__GDECL(__CEXT_V(___24e860h))
     resb	4
 __GDECL(___24e864h)
     resb	4
-__GDECL(___24e868h)
+__GDECL(__CEXT_V(___24e868h))
     resb	4
 __GDECL(___24e86ch)
     resb	2
 __GDECL(___24e86eh)
     resb	1
-__GDECL(___24e86fh)
+__GDECL(__CEXT_V(S3M_InitialTempo))
     resb	1
-__GDECL(___24e870h)
+__GDECL(__CEXT_V(S3M_GlobalVolume))
     resb	1
-__GDECL(___24e871h)
+__GDECL(__CEXT_V(S3M_InitialSpeed))
     resb	1
 __GDECL(___24e872h)
 	resb	2
@@ -1774,7 +1775,7 @@ __GDECL(___24e9b4h)
     resb	4
 __GDECL(___24e9b8h)
     resb	4
-__GDECL(___24e9bch)
+__GDECL(__CEXT_V(___24e9bch))
     resb	4
 __GDECL(___24e9c0h)
     resb	4

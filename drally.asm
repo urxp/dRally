@@ -34,7 +34,7 @@
     extern  ___68d30h
 
     extern  __CEXT_F(printf__clib3r)
-    extern  strncmp__clib3r
+    extern  __CEXT_F(strncmp__clib3r)
     extern  __CEXT_F(getenv__clib3r)
     extern  __CEXT_F(int386__clib3r)
     extern  int386x__clib3r
@@ -53,6 +53,9 @@
     extern  __CEXT_F(freeMemory)
 
     extern  __CEXT_F(___6ef2ch__audio)
+    extern  __CEXT_F(___718ech)
+    extern  __CEXT_F(loadS3M)
+    extern  __CEXT_F(loadXM)
 
 %include "layout.inc"
 
