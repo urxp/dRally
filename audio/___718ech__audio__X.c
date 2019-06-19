@@ -10,7 +10,7 @@
 	extern byte Sound_CardType[];
 	extern byte IsSoundEnabled[];
 	extern byte ___19a280h[];
-	extern byte S3M_Ptr[];
+	extern byte MSX_Ptr[];
 	extern byte ___19a468h[];
 	extern byte S3M_GlobalVolume[];
 	extern byte S3M_InitialTempo[];
@@ -60,8 +60,8 @@ void ___718ech(void){
 //		cmp     byte [__CEXT_V(___19a280h)], 0
 //		jne     ___71a2fh
 	if(B(___19a280h) != 0) goto ___71a2fh;
-//		mov     edx, [__CEXT_V(S3M_Ptr)]
-	edx = D(S3M_Ptr);
+//		mov     edx, [__CEXT_V(MSX_Ptr)]
+	edx = D(MSX_Ptr);
 //		test    edx, edx
 //		je      ___71a2fh
 	if(edx == 0) goto ___71a2fh;

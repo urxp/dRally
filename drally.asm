@@ -15,7 +15,7 @@
     extern  __CEXT_F(getentrysize__bpa)
 
     extern  ___68d4ch
-    extern  ___68d58h
+    extern  __CEXT_V(___68d58h)
     extern  ___68e94h
     extern  ___68d94h
     extern  ___68ec4h
@@ -56,6 +56,7 @@
     extern  __CEXT_F(___718ech)
     extern  __CEXT_F(loadS3M)
     extern  __CEXT_F(loadXM)
+    extern  __CEXT_F(___67e48h__tbd)
 
 %include "layout.inc"
 

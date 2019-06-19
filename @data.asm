@@ -8647,29 +8647,29 @@ ___env_mask:
 db	0,0,0,0
 ___19a278h:
 db	0
-__GDECL(___19a279h)
+__GDECL(__CEXT_V(___19a279h))
 db	0
 ___19a27ah:
 db	0
 __GDECL(__CEXT_V(IsSoundEnabled))
 db	0
-___19a27ch:
+__GDECL(__CEXT_V(___19a27ch))
 db	0
-___19a27dh:
+__GDECL(__CEXT_V(SFX_Number))
 db	0
-___19a27eh:
+__GDECL(__CEXT_V(___19a27eh))
 db	0,0
 __GDECL(__CEXT_V(___19a280h))
 db	0
 __GDECL(__CEXT_V(___19a281h))
 db	0,0,0
-__GDECL(__CEXT_V(S3M_Ptr))
+__GDECL(__CEXT_V(MSX_Ptr))
 db	0,0,0,0
-___19a288h:
+__GDECL(__CEXT_V(MSX_Tracker))
 db	0,0,0,0
-__GDECL(___19a28ch)
+__GDECL(__CEXT_V(SFX_Ptr))
 db	0,0,0,0
-___19a290h:
+__GDECL(__CEXT_V(SFX_Tracker))
 db	0
 ___19a291h:
 db	0,0,0

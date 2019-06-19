@@ -5,7 +5,7 @@
 	extern	__CEXT_F(__STOSB__clib3r)
 	extern	__CEXT_V(Sound_CardType)
 	extern	__CEXT_V(IsSoundEnabled)
-	extern	__CEXT_V(S3M_Ptr)
+	extern	__CEXT_V(MSX_Ptr)
 	extern	__CEXT_V(___19a468h)
 	extern	__CEXT_V(S3M_GlobalVolume)
 	extern	__CEXT_V(S3M_InitialTempo)
@@ -41,7 +41,7 @@ __GDECL(__CEXT_F(___718ech))
 		je      ___71a2fh
 		cmp     byte [__CEXT_V(___19a280h)], 0
 		jne     ___71a2fh
-		mov     edx, [__CEXT_V(S3M_Ptr)]
+		mov     edx, [__CEXT_V(MSX_Ptr)]
 		test    edx, edx
 		je      ___71a2fh
 		mov     byte [__CEXT_V(___19a468h)], 1

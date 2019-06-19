@@ -9,9 +9,9 @@
     extern  __CEXT_V(___68a90h)
     extern  __CEXT_V(___68c40h)
     extern  ___68c42h
-    extern  ___19a279h
+    extern  __CEXT_V(___19a279h)
     extern  __CEXT_V(___19a281h)
-    extern  ___19a28ch
+    extern  __CEXT_V(SFX_Ptr)
     extern  __CEXT_V(___19a468h)
     extern  ___19a469h
     extern  ___19a46ah
@@ -50,7 +50,7 @@
     extern  ___19a684h
     extern  ___19a685h
     extern  ___19a686h
-    extern  ___24e7a0h
+    extern  __CEXT_V(___24e7a0h)
     extern  ___24e7a5h
     extern  ___24e7a6h
     extern  __CEXT_V(___24e830h)
@@ -259,7 +259,7 @@ ___6f079h:
 		cmp     ch, [___19a53ch]
 		jne     ___6f2b8h
 		mov     ecx, 0ffffh
-		mov     esi, [___19a28ch]
+		mov     esi, [__CEXT_V(SFX_Ptr)]
 		xor     ebx, ebx
 ___6f0b4h:
 		cmp     bl, [___19a53dh]
@@ -276,7 +276,7 @@ ___6f0e4h:
 		mov     [___19a469h], bl
 		cmp     ebx, esi
 		je      ___6f0f8h
-		mov     eax, [___19a279h]
+		mov     eax, [__CEXT_V(___19a279h)]
 		sar     eax, 18h
 		jmp     ___6f0fdh
 ___6f0f8h:
@@ -449,7 +449,7 @@ ___6f38bh:
 		xor     ebx, ebx
 		mov     [___24e87ah], dx
 		mov     bl, dl
-		mov     edx, [___24e7a0h]
+		mov     edx, [__CEXT_V(___24e7a0h)]
 		inc     eax
 		sar     edx, 10h
 		mov     [___24e8a0h], eax
@@ -583,7 +583,7 @@ ___6f582h:
 		xor     edx, edx
 		mov     [___24e87ah], ax
 		mov     dx, ax
-		mov     eax, [___24e7a0h]
+		mov     eax, [__CEXT_V(___24e7a0h)]
 		sar     eax, 10h
 		cmp     edx, eax
 		jle     ___6f5e5h

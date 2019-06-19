@@ -79,7 +79,7 @@
     extern  ___24e7a5h
     extern  ___24e9d4h
     extern  ___24e9ceh
-    extern  ___19a28ch
+    extern  __CEXT_V(SFX_Ptr)
     extern  ___24e9a8h
     extern  ___24e9c8h
     extern  ___24e9c4h
@@ -402,7 +402,7 @@ ___71ff6h:
 		mov     [eax*4+___68910h], ecx
 		inc     dword [esp+8]
 ___72131h:
-		cmp     ecx, [___19a28ch]
+		cmp     ecx, [__CEXT_V(SFX_Ptr)]
 		je      ___72140h
 		mov     eax, [___24e9b4h]
 		jmp     ___72142h

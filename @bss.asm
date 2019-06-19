@@ -1653,15 +1653,20 @@ ___OpenStreams:	resb	80h
 ___24e6cch:	resb	84h
 __GDECL(__CEXT_V(___24e750h))
     resb	40h
-___24e790h:	resb	4
-___24e794h:	resb	4
+__GDECL(__CEXT_V(___24e790h))
+    resb	4
+__GDECL(__CEXT_V(___24e794h))
+    resb	4
 ___24e798h:	resb	4
 ___24e79ch:	resb	2
-___24e79eh:	resb	2
-__GDECL(___24e7a0h)
+__GDECL(__CEXT_V(___24e79eh))
     resb	2
-___24e7a2h:	resb	2
-___24e7a4h:	resb	1
+__GDECL(__CEXT_V(___24e7a0h))
+    resb	2
+__GDECL(__CEXT_V(___24e7a2h))
+    resb	2
+__GDECL(__CEXT_V(___24e7a4h))
+    resb	1
 __GDECL(___24e7a5h)
     resb	1
 __GDECL(___24e7a6h)

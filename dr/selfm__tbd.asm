@@ -13,7 +13,7 @@
     extern  __CEXT_V(___68a90h)
     extern  ___68b30h
     extern  ___68b10h
-    extern  ___68c3ch
+    extern  __CEXT_V(___68c3ch)
 
 %include "layout.inc"
 
@@ -43,8 +43,7 @@ db	0,0,0,0
 global ___68d4ch
 ___68d4ch:
 db	0,0,0,0,0,0,0,0,0,8dh,40h,0
-global ___68d58h
-___68d58h:
+__GDECL(__CEXT_V(___68d58h))
 db	0,0,0,0
 global ___68d5ch
 ___68d5ch:
@@ -2328,7 +2327,7 @@ ___6a5e2h:
 		mov     byte [esi+___68b10h], 1
 ___6a600h:
 		inc     esi
-		cmp     esi, [___68c3ch]
+		cmp     esi, [__CEXT_V(___68c3ch)]
 		jbe     ___6925dh
 		mov     eax, [___68d74h]
 		add     [___68d78h], eax
