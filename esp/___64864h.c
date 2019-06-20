@@ -22,14 +22,13 @@ typedef enum TrackerType {
 	void ___649a8h(void);
 	void ___680c8h(void);
 	void ___64a28h(void);
+	void ___65788h(void);
 
 	void ___67e48h__esp(TrackerType tMSX, const char * fMSX,
                     TrackerType tSFX, const char * fSFX, int nSFX);
 
 	void __STOSD__clib3r(void *, dword, dword);
     #pragma aux __STOSD__clib3r parm [eax][edx][ecx]
-
-	void ___65788h(void);
 
 	void ___5fff2h(void (*)(void));
 	void ___6000fh(void (*)(void));
