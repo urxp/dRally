@@ -56,7 +56,7 @@
     extern  __CEXT_F(___718ech)
     extern  __CEXT_F(loadS3M)
     extern  __CEXT_F(loadXM)
-    extern  __CEXT_F(___67e48h__tbd)
+    extern  __CEXT_F(___64864h__esp)
 
 %include "layout.inc"
 

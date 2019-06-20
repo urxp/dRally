@@ -10,7 +10,7 @@ $(LIB_NAME): Makefile
 	wlib -fo -c -b -n $@
 
 %.obj: %.c Makefile
-	wcc386 -fo=$@ $< -3r -zl -nt=@text
+	wcc386 -fo=$@ $< -3r -zl -nt=@text -I../include
 	wlib -fo -c -b $(LIB_NAME) +-$@
 
 %.obj: %.asm Makefile

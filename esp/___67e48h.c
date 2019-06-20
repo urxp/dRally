@@ -1,7 +1,7 @@
 #include "x86.h"
 
 typedef enum TrackerType {
-	NONE, SCREAM_TRACKER_3, FAST_TRACKER_2
+	NO_TRACKER, SCREAM_TRACKER_3, FAST_TRACKER_2
 } TrackerType;
 
     dword ___5f080h(dword, dword);
@@ -10,8 +10,8 @@ typedef enum TrackerType {
     void ___68398h(void);
     extern byte ___68c3ch[];
     extern byte ___68d58h[];
-    dword ___716fch(dword, dword, dword);
-    dword ___75840h(dword, dword, dword);
+    dword ___716fch(dword, void *, dword);
+    dword ___75840h(dword, void *, dword);
     extern byte ___19a279h[];
     extern byte ___19a27ch[];
     extern byte ___19a27eh[];
@@ -29,27 +29,26 @@ typedef enum TrackerType {
     extern TrackerType SFX_Tracker;
     extern byte SFX_Number;
     void * loadXM(dword A, const char * cmf, dword * size, dword * instrumentCount);
-    void freeMemory(dword);
+    void freeMemory(void *);
     extern byte Sound_CardType;
     extern byte IsSoundEnabled;
 
 // 67e48h
-void ___67e48h__tbd(TrackerType tMSX, const char * fMSX,
+void ___67e48h__esp(TrackerType tMSX, const char * fMSX,
                     TrackerType tSFX, const char * fSFX, int nSFX){
 
 	dword   s0, s1, i0, i1;
 
 	if(!(tSFX&&fSFX)){
+        if(!(tMSX&&fMSX)) return;
 
 		nSFX = 0;
-
-		if(!(tMSX&&fMSX)) return;
 	}
-	else if(nSFX < 1) nSFX = 1;
+	else nSFX = (nSFX < 1) ? 1 : nSFX;
 
 	s0 = s1 = i0 = i1 = 0;
 
-	MSX_Tracker = (tMSX&&fMSX) ? tMSX : NONE;
+	MSX_Tracker = (tMSX&&fMSX) ? tMSX : NO_TRACKER;
 
     switch(MSX_Tracker){
     case SCREAM_TRACKER_3:
@@ -59,10 +58,10 @@ void ___67e48h__tbd(TrackerType tMSX, const char * fMSX,
         MSX_Ptr = loadXM(1, fMSX, &s0, &i0);
         break;
     default:
-	    MSX_Tracker = NONE;
+	    MSX_Tracker = NO_TRACKER;
     }
 
-	SFX_Tracker = (tSFX&&fSFX) ? tSFX : NONE;
+	SFX_Tracker = (tSFX&&fSFX) ? tSFX : NO_TRACKER;
 
     switch(SFX_Tracker){
     case SCREAM_TRACKER_3:
@@ -72,7 +71,7 @@ void ___67e48h__tbd(TrackerType tMSX, const char * fMSX,
         SFX_Ptr = loadXM(0, fSFX, &s1, &i1);
         break;
     default:
-	    SFX_Tracker = NONE;
+	    SFX_Tracker = NO_TRACKER;
     }
 
 	___677cch(s0 + s1, i0 + i1, 0);
@@ -90,7 +89,7 @@ void ___67e48h__tbd(TrackerType tMSX, const char * fMSX,
 
 	W(___19a27eh) = B(___24e7a4h);
 	___24e7a2h = B(___24e7a4h);
-	SFX_Number = nSFX;
+    SFX_Number = nSFX;
 
     switch(SFX_Tracker){
     case SCREAM_TRACKER_3:

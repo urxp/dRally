@@ -1645,7 +1645,8 @@ ___24e596h:	resb	9
 ___24e59fh:	resb	1
 ___24e5a0h:	resb	1ch
 ___24e5bch:	resb	4
-___24e5c0h:	resb	80h
+__GDECL(__CEXT_V(___24e5c0h))
+    resb	80h
 ___24e640h:	resb	4
 ___MiniHeapFreeRover:	resb	4
 ___ClosedStreams:	resb	4

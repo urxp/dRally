@@ -31,7 +31,7 @@
 
 
 // 67e48h
-void ___67e48h__tbd(dword A1, dword A2, dword A3, dword A4, dword A5){
+void ___67e48h__esp(dword A1, dword A2, dword A3, dword A4, dword A5){
 
 	dword 	eax, ebx, ecx, edx, esi, edi, ebp;
 	byte 	esp[0x24];

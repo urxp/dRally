@@ -8505,11 +8505,11 @@ __argc:
 db	0,0,0,0
 __argv:
 db	0,0,0,0
-___199fe8h:
+__GDECL(__CEXT_V(AMP_Volume))
 db	0,0,1,0
-MusicVolume:
+__GDECL(__CEXT_V(MSX_Volume))
 db	0,0,1,0
-SFXVolume:
+__GDECL(__CEXT_V(SFX_Volume))
 db	0,0,1,0
 ___199ff4h:
 db	0,0,0,0

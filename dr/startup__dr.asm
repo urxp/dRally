@@ -19,7 +19,7 @@
 	extern 	___181c9ch	
 	extern 	intro__anim	
 	extern 	___181ca8h	
-	extern 	___64864h	
+	extern 	__CEXT_F(___64864h__esp)	
 	extern 	ConfigMusicVolume	
 	extern 	___6572ch	
 	extern 	ConfigSFXVolume	
@@ -110,7 +110,7 @@
 	extern 	___1a10e4h	
 	extern 	___1a1124h	
 	extern 	___3a7e0h	
-	extern 	___649a8h	
+	extern 	__CEXT_F(___649a8h)	
 	extern 	___1a1ef4h	
 	extern 	___65710h		
 	extern 	___12dc4h	
@@ -148,7 +148,7 @@
 	extern 	__CEXT_F(___12a54h)	
 	extern 	__CEXT_F(___24ec0h)	
 	extern 	__CEXT_F(___2fc50h)	
-	extern 	___649a8h
+	extern 	__CEXT_F(___649a8h)
 
 
 %include "layout.inc"
@@ -207,7 +207,7 @@ __GDECL(__CEXT_F(startup__dr))
 		push    byte 5
 		mov     edx, ___181ca8h		;; "MEN-MUS.CMF"
 		mov     eax, 1
-		call    ___64864h
+		call    __CEXT_F(___64864h__esp)
 		mov     eax, [ConfigMusicVolume]
 		call    ___6572ch
 		mov     eax, [ConfigSFXVolume]
@@ -662,7 +662,7 @@ ___3edeah:
 		mov     [VGABufferPtr_0], eax
 		mov     eax, 0ffffffffh
 		call    ___3a7e0h
-		call    ___649a8h
+		call    __CEXT_F(___649a8h)
 		call    ___648d8h
 		mov     eax, [___1a1ef4h]
 		call    ___658b8h
@@ -978,7 +978,7 @@ ___3f1bah:
 		call    __CEXT_F(___12a54h)
 		call    __CEXT_F(___24ec0h)
 		call    __CEXT_F(___2fc50h)
-		call    ___649a8h
+		call    __CEXT_F(___649a8h)
 		call    __CEXT_F(___64a28h)
 		add     esp, byte 2ch
 		pop     ebp

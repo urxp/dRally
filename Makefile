@@ -1,4 +1,4 @@
-subdirs = clib3r audio bpa dpmi dr serial timer video
+subdirs = clib3r audio bpa dpmi dr esp serial timer video
 
 segs = @text.asm @data.asm @bss.asm
 
@@ -8,11 +8,12 @@ audio = audio/audio.lib
 bpa = bpa/bpa.lib
 dpmi = dpmi/dpmi.lib
 dr = dr/dr.lib
+esp = esp/esp.lib
 serial = serial/serial.lib
 timer = timer/timer.lib
 video = video/video.lib
 
-libs = $(clib3r) $(audio) $(bpa) $(dpmi) $(dr) $(serial) $(timer) $(video)
+libs = $(clib3r) $(audio) $(bpa) $(dpmi) $(dr) $(esp) $(serial) $(timer) $(video)
 
 default: $(subdirs) drally.exe drally.le drally.lx
 	@rm -f drally.lnk drle.lnk drlx.lnk
@@ -33,16 +34,7 @@ drally.obj: drally.asm Makefile
 	nasm -f obj -o $@ $< -Iinclude -w-all
 
 drally.lib: $(libs) drally.obj Makefile
-	wlib -fo -c -b -n $@
-	wlib -fo -c -b $@ +-$(clib3r)
-	wlib -fo -c -b $@ +-$(audio)
-	wlib -fo -c -b $@ +-$(bpa)
-	wlib -fo -c -b $@ +-$(dpmi)
-	wlib -fo -c -b $@ +-$(dr)
-	wlib -fo -c -b $@ +-$(serial)
-	wlib -fo -c -b $@ +-$(timer)
-	wlib -fo -c -b $@ +-$(video)
-	wlib -fo -c -b $@ +-drally.obj
+	wlib -fo -c -b -n -t $@ +-$(clib3r) +-$(audio) +-$(bpa) +-$(dpmi) +-$(dr) +-$(esp) +-$(serial) +-$(timer) +-$(video) +-drally.obj
 
 drally.lnk: Makefile drally.lib
 #	@echo option osname="'DOS/4G'"                  > $@

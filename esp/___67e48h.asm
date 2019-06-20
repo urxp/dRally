@@ -34,7 +34,7 @@
 section @text
 
 ;; 67e48h
-__GDECL(__CEXT_F(___67e48h__tbd))
+__GDECL(__CEXT_F(___67e48h__esp))
 		push    esi
 		push    edi
 		push    ebp
