@@ -1,6 +1,5 @@
 %include "macros.inc"
 
-;	extern 	___begtext
 	extern 	__STACKTOP
 	extern 	__psp
 	extern 	__osmajor
@@ -310,11 +309,8 @@ ok:
 		mov     ah, 4ch
 		int     21h
 		db	8dh,40h,0
-global __GETDS
-__GETDS:
-		;mov     ds, [cs:__saved_DS]
-		db	66h,2eh,8eh,1dh
-		dd	__saved_DS
+__GDECL(__GETDS)
+		mov     ds, [cs:__saved_DS]
 		retn    
 __saved_DS:
 db	0,0

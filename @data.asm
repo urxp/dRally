@@ -8583,7 +8583,7 @@ db	0
 global __osminor
 __osminor:
 db	0
-__FPE_handler:
+__GDECL(__FPE_handler)
 dd	__null_FPE_rtn
 db	0,0,0
 global ___iob
@@ -9000,7 +9000,7 @@ db	1,0,0,0
 global __amblksiz
 __amblksiz:
 db	10h,0,0,0
-___19ae1ch:
+__GDECL(___19ae1ch)     ;; emu387.asm
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0

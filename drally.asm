@@ -58,6 +58,13 @@
     extern  __CEXT_F(loadXM)
     extern  __CEXT_F(___64864h__esp)
 
+
+
+    extern  __init_387_emulator
+    extern  __fini_387_emulator
+    extern  __int7_pl3
+    extern  __int7
+
 %include "layout.inc"
 
 section @text
