@@ -1,7 +1,7 @@
 %include "macros.inc"
 
-    extern  __CEXT_V(BPASrc)
-    extern  __CEXT_V(BPADst)
+    extern  __CEXT_V(BPK_Src)
+    extern  __CEXT_V(BPK_Dst)
     extern  __CEXT_V(___196f00h)
     extern  __CEXT_V(___199f00h)
     extern  __CEXT_V(___199f08h)
@@ -20,14 +20,15 @@
 
 section @text
 
-__GDECL(__CEXT_F(decode__bpa))
+;; 5905ch
+__GDECL(__CEXT_F(decode2__bpk))
 		push    ebp
 		mov     ebp, esp
 		pushad  
 		mov     eax, [ebp+0ch]
-		mov     [__CEXT_V(BPASrc)], eax
+		mov     [__CEXT_V(BPK_Src)], eax
 		mov     eax, [ebp+8]
-		mov     [__CEXT_V(BPADst)], eax
+		mov     [__CEXT_V(BPK_Dst)], eax
 		xor     eax, eax
 		mov     [__CEXT_V(___199f0ch)], eax
 		mov     [__CEXT_V(___199f08h)], eax
@@ -42,7 +43,7 @@ ___5909dh:
 		mov     ecx, 8
 		xor     edx, edx
 		div     ecx
-		add     eax, [__CEXT_V(BPASrc)]
+		add     eax, [__CEXT_V(BPK_Src)]
 		mov     esi, eax
 		lodsw   
 		mov     bx, ax
@@ -73,7 +74,7 @@ ___590d1h:
 		mov     ecx, 8
 		xor     edx, edx
 		div     ecx
-		add     eax, [__CEXT_V(BPASrc)]
+		add     eax, [__CEXT_V(BPK_Src)]
 		mov     esi, eax
 		lodsw   
 		mov     bx, ax
@@ -96,7 +97,7 @@ ___5914ch:
 		mov     [__CEXT_V(___199f1eh)], al
 		mov     [__CEXT_V(___199f1fh)], al
 		mov     edi, [__CEXT_V(___199f28h)]
-		add     edi, [__CEXT_V(BPADst)]
+		add     edi, [__CEXT_V(BPK_Dst)]
 		ror     al, 3
 		mov     [edi], al
 		inc     dword [__CEXT_V(___199f28h)]
@@ -146,7 +147,7 @@ ___59205h:
 ___59225h:
 		pop     eax
 		mov     edi, [__CEXT_V(___199f28h)]
-		add     edi, [__CEXT_V(BPADst)]
+		add     edi, [__CEXT_V(BPK_Dst)]
 		ror     al, 3
 		mov     [edi], al
 		inc     dword [__CEXT_V(___199f28h)]

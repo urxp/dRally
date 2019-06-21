@@ -8390,19 +8390,19 @@ __GDECL(__CEXT_V(___199f1eh))
 db	0
 __GDECL(__CEXT_V(___199f1fh))
 db	0
-__GDECL(__CEXT_V(BPASrc))
+__GDECL(__CEXT_V(BPK_Src))
 db	0,0,0,0
-__GDECL(__CEXT_V(BPADst))
+__GDECL(__CEXT_V(BPK_Dst))
 db	0,0,0,0
 __GDECL(__CEXT_V(___199f28h))
 db	0,0,0,0
-___199f2ch:
+__GDECL(__CEXT_V(___199f2ch))
 db	0,0,0,0
-___199f30h:
+__GDECL(__CEXT_V(___199f30h))
 db	0,0,0,0
-___199f34h:
+__GDECL(__CEXT_V(___199f34h))
 db	0,0,0,0
-___199f38h:
+__GDECL(__CEXT_V(___199f38h))
 db	0,0,0,0
 ___199f3ch:
 db	0

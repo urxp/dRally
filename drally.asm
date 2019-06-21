@@ -52,7 +52,8 @@
     extern  __CEXT_F(freeAllocInfoTable)
     extern  __CEXT_F(freeMemory)
 
-    extern  __CEXT_F(decode__bpa)
+    extern  __CEXT_F(decode2__bpk)
+    extern  __CEXT_F(decode4__bpk)
 
     extern  __CEXT_F(___6ef2ch__audio)
     extern  __CEXT_F(___718ech)

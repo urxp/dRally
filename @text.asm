@@ -678,13 +678,13 @@ ___10e2ch:
 		push    eax
 		push    byte 0
 		push    300h
-		call    near ___592c8h
+		call    near __CEXT_F(decode4__bpk)
 		mov     ecx, [___1a1f0ch]
 		push    ecx
 		push    0a0000h
 		push    300h
 		push    0fa00h
-		call    near ___592c8h
+		call    near __CEXT_F(decode4__bpk)
 		xor     ebx, ebx
 		xor     ecx, ecx
 ___10ea5h:
@@ -1544,7 +1544,7 @@ ___117f4h:
 		push    ___1a54d0h
 		mov     edx, [___1a10c4h]
 		push    edx
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___180328h
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -1552,7 +1552,7 @@ ___117f4h:
 		push    ___1a54d0h
 		mov     ebx, [___1a10cch]
 		push    ebx
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___180334h
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -1560,7 +1560,7 @@ ___117f4h:
 		push    ___1a54d0h
 		mov     ecx, [WhiteFont0Ptr]
 		push    ecx
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___180340h
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -1568,7 +1568,7 @@ ___117f4h:
 		push    ___1a54d0h
 		mov     esi, [GreyFont0Ptr]
 		push    esi
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___18034ch
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -1576,7 +1576,7 @@ ___117f4h:
 		push    ___1a54d0h
 		mov     edi, [LightBlueFont0Ptr]
 		push    edi
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___180358h
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -1584,7 +1584,7 @@ ___117f4h:
 		push    ___1a54d0h
 		mov     ebp, [___1a10b8h]
 		push    ebp
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, __CEXT_V(rank1c_bpk)
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -1592,7 +1592,7 @@ ___117f4h:
 		push    ___1a54d0h
 		mov     eax, [___1a0fbch]
 		push    eax
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___180370h
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -1600,7 +1600,7 @@ ___117f4h:
 		push    ___1a54d0h
 		mov     edx, [___1a0fd8h]
 		push    edx
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___180380h
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -1608,7 +1608,7 @@ ___117f4h:
 		push    ___1a54d0h
 		mov     ebx, [___1a0fe8h]
 		push    ebx
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___18038ch
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -1616,7 +1616,7 @@ ___117f4h:
 		push    ___1a54d0h
 		mov     ecx, [___1a0fcch]
 		push    ecx
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___18039ch
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -1624,7 +1624,7 @@ ___117f4h:
 		push    ___1a54d0h
 		mov     esi, [___1a0fd0h]
 		push    esi
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___1803ach
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -1632,7 +1632,7 @@ ___117f4h:
 		push    ___1a54d0h
 		mov     edi, [___1a0fd4h]
 		push    edi
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___1803bch
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -1640,7 +1640,7 @@ ___117f4h:
 		push    ___1a54d0h
 		mov     ebp, [___1a0fech]
 		push    ebp
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___1803cch
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -1648,7 +1648,7 @@ ___117f4h:
 		push    ___1a54d0h
 		mov     eax, [___1a0fc4h]
 		push    eax
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___1803dch
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -1656,7 +1656,7 @@ ___117f4h:
 		push    ___1a54d0h
 		mov     edx, [___1a0fe4h]
 		push    edx
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___1803ech
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -1664,7 +1664,7 @@ ___117f4h:
 		push    ___1a54d0h
 		mov     ebx, [___1a0fdch]
 		push    ebx
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___1803f8h
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -1672,7 +1672,7 @@ ___117f4h:
 		push    ___1a54d0h
 		mov     ecx, [___1a0fach]
 		push    ecx
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___180404h
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -1680,7 +1680,7 @@ ___117f4h:
 		push    ___1a54d0h
 		mov     esi, [___1a0fc8h]
 		push    esi
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___180410h
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -1688,7 +1688,7 @@ ___117f4h:
 		push    ___1a54d0h
 		mov     edi, [___1a0fb0h]
 		push    edi
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___180420h
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -1696,7 +1696,7 @@ ___117f4h:
 		push    ___1a54d0h
 		mov     ebp, [___1a0ff0h]
 		push    ebp
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___18042ch
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -1704,7 +1704,7 @@ ___117f4h:
 		push    ___1a54d0h
 		mov     eax, [___1a0fa8h]
 		push    eax
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___18043ch
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -1712,7 +1712,7 @@ ___117f4h:
 		push    ___1a54d0h
 		mov     edx, [___1a0fc0h]
 		push    edx
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___180448h
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -1720,7 +1720,7 @@ ___117f4h:
 		push    ___1a54d0h
 		mov     ebx, [___1a0fa4h]
 		push    ebx
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___180454h
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -1728,7 +1728,7 @@ ___117f4h:
 		push    ___1a54d0h
 		mov     ecx, [___19de70h]
 		push    ecx
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___180460h
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -1736,7 +1736,7 @@ ___117f4h:
 		push    ___1a54d0h
 		mov     esi, [___19de74h]
 		push    esi
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___18046ch
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -1744,7 +1744,7 @@ ___117f4h:
 		push    ___1a54d0h
 		mov     edi, [___19de78h]
 		push    edi
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___180478h
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -1752,7 +1752,7 @@ ___117f4h:
 		push    ___1a54d0h
 		mov     ebp, [___19de7ch]
 		push    ebp
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___180484h
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -1760,7 +1760,7 @@ ___117f4h:
 		push    ___1a54d0h
 		mov     eax, [___19de80h]
 		push    eax
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___180490h
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -1768,7 +1768,7 @@ ___117f4h:
 		push    ___1a54d0h
 		mov     edx, [___19de84h]
 		push    edx
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___18049ch
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -1776,7 +1776,7 @@ ___117f4h:
 		push    ___1a54d0h
 		mov     ebx, [___19de88h]
 		push    ebx
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___1804a8h
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -1784,7 +1784,7 @@ ___117f4h:
 		push    ___1a54d0h
 		mov     ecx, [___19de8ch]
 		push    ecx
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___1804b4h
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -1792,7 +1792,7 @@ ___117f4h:
 		push    ___1a54d0h
 		mov     esi, [___19de90h]
 		push    esi
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___1804c0h
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -1800,7 +1800,7 @@ ___117f4h:
 		push    ___1a54d0h
 		mov     edi, [___19de94h]
 		push    edi
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___1804cch
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -1808,7 +1808,7 @@ ___117f4h:
 		push    ___1a54d0h
 		mov     ebp, [___19de98h]
 		push    ebp
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___1804d8h
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -1816,7 +1816,7 @@ ___117f4h:
 		push    ___1a54d0h
 		mov     eax, [___19de9ch]
 		push    eax
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___1804e4h
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -1824,7 +1824,7 @@ ___117f4h:
 		push    ___1a54d0h
 		mov     edx, [___19dea0h]
 		push    edx
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___1804f0h
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -1832,7 +1832,7 @@ ___117f4h:
 		push    ___1a54d0h
 		mov     ebx, [___19dea4h]
 		push    ebx
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___1804fch
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -1840,7 +1840,7 @@ ___117f4h:
 		push    ___1a54d0h
 		mov     ecx, [___19dea8h]
 		push    ecx
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___180508h
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -1848,7 +1848,7 @@ ___117f4h:
 		push    ___1a54d0h
 		mov     esi, [___19deach]
 		push    esi
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___180514h
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -1856,7 +1856,7 @@ ___117f4h:
 		push    ___1a54d0h
 		mov     edi, [___19deb0h]
 		push    edi
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___180520h
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -1864,7 +1864,7 @@ ___117f4h:
 		push    ___1a54d0h
 		mov     ebp, [___19deb4h]
 		push    ebp
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___18052ch
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -1872,7 +1872,7 @@ ___117f4h:
 		push    ___1a54d0h
 		mov     eax, [___19deb8h]
 		push    eax
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___180538h
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -1880,7 +1880,7 @@ ___117f4h:
 		push    ___1a54d0h
 		mov     edx, [___19debch]
 		push    edx
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___180544h
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -1888,7 +1888,7 @@ ___117f4h:
 		push    ___1a54d0h
 		mov     ebx, [___1a0fb4h]
 		push    ebx
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___180550h
 		mov     eax, __CEXT_V(MENU_BPA)
 		mov     edx, [___1a0fb8h]
@@ -1904,7 +1904,7 @@ ___117f4h:
 		push    ___1a54d0h
 		mov     ecx, [___1a10f0h]
 		push    ecx
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___180574h
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -1912,7 +1912,7 @@ ___117f4h:
 		push    ___1a54d0h
 		mov     esi, [___1a10d8h]
 		push    esi
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___180580h
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -1920,7 +1920,7 @@ ___117f4h:
 		push    ___1a54d0h
 		mov     edi, [GXBackBuffer]
 		push    edi
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		pop     ebp
 		pop     edi
 		pop     esi
@@ -2170,7 +2170,7 @@ ___12653h:
 		push    edi
 		push    3800h
 		add     esi, byte 4
-		call    near ___592c8h
+		call    near __CEXT_F(decode4__bpk)
 		add     edi, 3800h
 		cmp     esi, byte 4ch
 		jne     short ___12653h
@@ -2183,7 +2183,7 @@ ___12653h:
 		push    ecx
 		push    3f000h
 		push    3800h
-		call    near ___592c8h
+		call    near __CEXT_F(decode4__bpk)
 		mov     ebx, ___18058ch
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -2193,7 +2193,7 @@ ___12653h:
 		push    esi
 		push    42800h
 		push    3800h
-		call    near ___592c8h
+		call    near __CEXT_F(decode4__bpk)
 		mov     ebx, ___18059ch
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -2201,7 +2201,7 @@ ___12653h:
 		push    ___1a54d0h
 		mov     edi, [___1a10f4h]
 		push    edi
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___1805a8h
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -2209,7 +2209,7 @@ ___12653h:
 		push    ___1a54d0h
 		mov     ebp, [___1a10e0h]
 		push    ebp
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___1805b4h
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -2217,7 +2217,7 @@ ___12653h:
 		push    ___1a54d0h
 		mov     eax, [___1a10d0h]
 		push    eax
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___1805c0h
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -2225,7 +2225,7 @@ ___12653h:
 		push    ___1a54d0h
 		mov     edx, [___1a10b4h]
 		push    edx
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___1805d0h
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -2233,7 +2233,7 @@ ___12653h:
 		push    ___1a54d0h
 		mov     ebx, [___1a1128h]
 		push    ebx
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___1805e0h
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -2241,7 +2241,7 @@ ___12653h:
 		push    ___1a54d0h
 		mov     ecx, [___1a10d4h]
 		push    ecx
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___1805f0h
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -2249,7 +2249,7 @@ ___12653h:
 		push    ___1a54d0h
 		mov     esi, [___1a10bch]
 		push    esi
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___180600h
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -2257,7 +2257,7 @@ ___12653h:
 		push    ___1a54d0h
 		mov     edi, [___1a10e8h]
 		push    edi
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___180610h
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -2265,7 +2265,7 @@ ___12653h:
 		push    ___1a54d0h
 		mov     ebp, [___1a10dch]
 		push    ebp
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___18061ch
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -2273,7 +2273,7 @@ ___12653h:
 		push    ___1a54d0h
 		mov     eax, [___1a10ach]
 		push    eax
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___180628h
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -2281,7 +2281,7 @@ ___12653h:
 		push    ___1a54d0h
 		mov     edx, [___1a10c0h]
 		push    edx
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___180634h
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -2289,7 +2289,7 @@ ___12653h:
 		push    ___1a54d0h
 		mov     ebx, [___1a10ech]
 		push    ebx
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___180644h
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -2297,7 +2297,7 @@ ___12653h:
 		push    ___1a54d0h
 		mov     ecx, [___1a10f8h]
 		push    ecx
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___180654h
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -2305,7 +2305,7 @@ ___12653h:
 		push    ___1a54d0h
 		mov     esi, [___1a1104h]
 		push    esi
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___180664h
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -2313,7 +2313,7 @@ ___12653h:
 		push    ___1a54d0h
 		mov     edi, [___1a0ff8h]
 		push    edi
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___180674h
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -2321,7 +2321,7 @@ ___12653h:
 		push    ___1a54d0h
 		mov     ebp, [___1a10a4h]
 		push    ebp
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		pop     ebp
 		pop     edi
 		pop     esi
@@ -7442,7 +7442,7 @@ ___16e6ch:
 		push    edx
 		push    ___1a54d0h
 		mov     esi, ___1a54d0h
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ecx, 117h
 		mov     ebx, [VGABufferPtr_0]
 		mov     edx, 1e9h
@@ -25100,7 +25100,7 @@ ___245cbh:
 		push    ___1a54d0h
 		mov     edi, [___1a1ed4h]
 		push    edi
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___181d34h
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -25108,7 +25108,7 @@ ___245cbh:
 		push    ___1a54d0h
 		mov     ebp, [___1a1e90h]
 		push    ebp
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___181d44h
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -25116,7 +25116,7 @@ ___245cbh:
 		push    ___1a54d0h
 		mov     eax, [___1a10b0h]
 		push    eax
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___181d50h
 		mov     eax, __CEXT_V(MENU_BPA)
 		mov     edx, [___1a01b8h]
@@ -25204,7 +25204,7 @@ ___245cbh:
 		push    ___1a54d0h
 		mov     edx, [___1a1e6ch]
 		push    edx
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___181e4ch
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -25212,7 +25212,7 @@ ___245cbh:
 		push    ___1a54d0h
 		mov     ebx, [___1a1e74h]
 		push    ebx
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___181e58h
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -25220,7 +25220,7 @@ ___245cbh:
 		push    ___1a54d0h
 		mov     ecx, [___1a1e80h]
 		push    ecx
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___181e68h
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -25228,7 +25228,7 @@ ___245cbh:
 		push    ___1a54d0h
 		mov     esi, [___1a1e84h]
 		push    esi
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___181e74h
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -25236,7 +25236,7 @@ ___245cbh:
 		push    ___1a54d0h
 		mov     edi, [___1a1e60h]
 		push    edi
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___181e84h
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -25244,7 +25244,7 @@ ___245cbh:
 		push    ___1a54d0h
 		mov     ebp, [___1a1e54h]
 		push    ebp
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___181e94h
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -25252,7 +25252,7 @@ ___245cbh:
 		push    ___1a54d0h
 		mov     eax, [___1a1e64h]
 		push    eax
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___181ea4h
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -25260,7 +25260,7 @@ ___245cbh:
 		push    ___1a54d0h
 		mov     edx, [___1a1e58h]
 		push    edx
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___181eb4h
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -25268,7 +25268,7 @@ ___245cbh:
 		push    ___1a54d0h
 		mov     ebx, [___1a1e5ch]
 		push    ebx
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___181ec4h
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -25278,31 +25278,31 @@ ___245cbh:
 		push    ecx
 		push    byte 0
 		push    2400h
-		call    near ___592c8h
+		call    near __CEXT_F(decode4__bpk)
 		push    ___1a54d0h
 		mov     esi, [___1a1each]
 		push    esi
 		push    2400h
 		push    2400h
-		call    near ___592c8h
+		call    near __CEXT_F(decode4__bpk)
 		push    ___1a54d0h
 		mov     edi, [___1a1e94h]
 		push    edi
 		push    4800h
 		push    2400h
-		call    near ___592c8h
+		call    near __CEXT_F(decode4__bpk)
 		push    ___1a54d0h
 		mov     ebp, [___1a1e9ch]
 		push    ebp
 		push    6c00h
 		push    2400h
-		call    near ___592c8h
+		call    near __CEXT_F(decode4__bpk)
 		push    ___1a54d0h
 		mov     eax, [___1a1e70h]
 		push    eax
 		push    9000h
 		push    2400h
-		call    near ___592c8h
+		call    near __CEXT_F(decode4__bpk)
 		mov     ebx, ___181ed0h
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -25312,37 +25312,37 @@ ___245cbh:
 		push    edx
 		push    byte 0
 		push    1800h
-		call    near ___592c8h
+		call    near __CEXT_F(decode4__bpk)
 		push    ___1a54d0h
 		mov     ebx, [___1a0184h]
 		push    ebx
 		push    1800h
 		push    1800h
-		call    near ___592c8h
+		call    near __CEXT_F(decode4__bpk)
 		push    ___1a54d0h
 		mov     ecx, [___1a0188h]
 		push    ecx
 		push    3000h
 		push    1800h
-		call    near ___592c8h
+		call    near __CEXT_F(decode4__bpk)
 		push    ___1a54d0h
 		mov     esi, [___1a018ch]
 		push    esi
 		push    4800h
 		push    1800h
-		call    near ___592c8h
+		call    near __CEXT_F(decode4__bpk)
 		push    ___1a54d0h
 		mov     edi, [___1a0190h]
 		push    edi
 		push    6000h
 		push    1800h
-		call    near ___592c8h
+		call    near __CEXT_F(decode4__bpk)
 		push    ___1a54d0h
 		mov     ebp, [___1a0194h]
 		push    ebp
 		push    7800h
 		push    1800h
-		call    near ___592c8h
+		call    near __CEXT_F(decode4__bpk)
 		mov     ebx, ___181ee0h
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -25350,7 +25350,7 @@ ___245cbh:
 		push    ___1a54d0h
 		mov     eax, [___1a1eb0h]
 		push    eax
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___181eech
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -25358,7 +25358,7 @@ ___245cbh:
 		push    ___1a54d0h
 		mov     edx, [___1a1e78h]
 		push    edx
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___181efch
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -25366,7 +25366,7 @@ ___245cbh:
 		push    ___1a54d0h
 		mov     ebx, [___1a1eb8h]
 		push    ebx
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___181f08h
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -25374,7 +25374,7 @@ ___245cbh:
 		push    ___1a54d0h
 		mov     ecx, [___1a1ea8h]
 		push    ecx
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___181f14h
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -25382,7 +25382,7 @@ ___245cbh:
 		push    ___1a54d0h
 		mov     esi, [___1a1ea4h]
 		push    esi
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___181f24h
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -25390,7 +25390,7 @@ ___245cbh:
 		push    ___1a54d0h
 		mov     edi, [___1a1eb4h]
 		push    edi
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___181f34h
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -25398,7 +25398,7 @@ ___245cbh:
 		push    ___1a54d0h
 		mov     ebp, [___1a1ebch]
 		push    ebp
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___181f40h
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -25406,7 +25406,7 @@ ___245cbh:
 		push    ___1a54d0h
 		mov     eax, [___1a1e88h]
 		push    eax
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		pop     ebp
 		pop     edi
 		pop     esi
@@ -26378,7 +26378,7 @@ ___25a0fh:
 		push    ebx
 		mov     eax, [___1a1e7ch]
 		push    eax
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, [esp]
 		lea     eax, [edi*4+0]
 		mov     ecx, 40h
@@ -38211,7 +38211,7 @@ ___2faf0h:
 		push    ___1a54d0h
 		mov     edx, [___1a0f90h]
 		push    edx
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___1822fch
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -38219,7 +38219,7 @@ ___2faf0h:
 		push    ___1a54d0h
 		mov     ebx, [___1a0f88h]
 		push    ebx
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___182308h
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -38227,7 +38227,7 @@ ___2faf0h:
 		push    ___1a54d0h
 		mov     ecx, [___1a0f84h]
 		push    ecx
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___182314h
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -38235,7 +38235,7 @@ ___2faf0h:
 		push    ___1a54d0h
 		mov     esi, [___1a0f8ch]
 		push    esi
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___182320h
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -38243,7 +38243,7 @@ ___2faf0h:
 		push    ___1a54d0h
 		mov     edi, [___1a0f98h]
 		push    edi
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___182330h
 		mov     edx, ___1a54d0h
 		mov     eax, __CEXT_V(MENU_BPA)
@@ -38251,7 +38251,7 @@ ___2faf0h:
 		push    ___1a54d0h
 		mov     ebp, [___1a0f94h]
 		push    ebp
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		pop     ebp
 		pop     edi
 		pop     esi
@@ -42646,7 +42646,7 @@ ___332bbh:
 		push    ___1a54d0h
 		mov     edx, [___1a1114h]
 		push    edx
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ecx, 112h
 		mov     edx, 168h
 		mov     ebx, [VGABufferPtr_0]
@@ -42760,7 +42760,7 @@ ___3340fh:
 		push    ___1a54d0h
 		mov     esi, [___1a1114h]
 		push    esi
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ecx, 112h
 		mov     edx, 168h
 		mov     ebx, [VGABufferPtr_0]
@@ -42854,7 +42854,7 @@ ___33506h:
 		push    ___1a54d0h
 		mov     ebx, [___1a1114h]
 		push    ebx
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ecx, 112h
 		mov     edx, 168h
 		mov     ebx, [VGABufferPtr_0]
@@ -42949,7 +42949,7 @@ ___335feh:
 		push    ___1a54d0h
 		mov     eax, [___1a1114h]
 		push    eax
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ecx, 112h
 		mov     edx, 168h
 		mov     ebx, [VGABufferPtr_0]
@@ -43008,7 +43008,7 @@ ___3368ch:
 		push    ___1a54d0h
 		mov     ecx, [___1a1114h]
 		push    ecx
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ecx, 112h
 		mov     edx, 168h
 		mov     ebx, [VGABufferPtr_0]
@@ -52078,7 +52078,7 @@ ___3ab5ch:
 		mov     ebx, [___1a1114h]
 		push    ebx
 		push    ___1a54d0h
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ah, 1
 		mov     edx, [___1a1ef8h]
 		mov     [esp+54h], ah
@@ -55051,7 +55051,7 @@ ___3d3a4h:
 		xor     edi, edi
 		push    esi
 		mov     [esp+8], edi
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		call    near ___12cb8h
 		call    near ___3d1f0h
 ___3d403h:
@@ -55075,7 +55075,7 @@ ___3d420h:
 		push    ___1a54d0h
 		mov     edx, [VGABufferPtr_0]
 		push    edx
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		call    near ___12cb8h
 		xor     ebx, ebx
 		call    near ___3d1f0h
@@ -55103,7 +55103,7 @@ ___3d480h:
 		xor     ebp, ebp
 		push    edi
 		mov     [esp+8], ebp
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		call    near ___12cb8h
 		call    near ___3d1f0h
 ___3d4c4h:
@@ -55222,7 +55222,7 @@ ___3d55fh:
 		push    ___1a54d0h
 		mov     ecx, [VGABufferPtr_0]
 		push    ecx
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		call    near ___12cb8h
 		call    near ___3d1f0h
 ___3d63dh:
@@ -55239,7 +55239,7 @@ ___3d63dh:
 		push    ___1a54d0h
 		mov     edi, [VGABufferPtr_0]
 		push    edi
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		call    near ___12cb8h
 		call    near ___3d1f0h
 ___3d684h:
@@ -55444,7 +55444,7 @@ ___3d8a6h:
 		push    ___1a54d0h
 		mov     esi, [VGABufferPtr_0]
 		push    esi
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		call    near ___12cb8h
 		call    near ___3d1f0h
 		add     esp, byte 4
@@ -55546,7 +55546,7 @@ ___3d9c0h:
 		push    ___1a54d0h
 		mov     edx, [VGABufferPtr_0]
 		push    edx
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		call    near ___12cb8h
 		call    near ___3d1f0h
 		mov     eax, esi
@@ -59924,7 +59924,7 @@ ___42c3bh:
 ___42c5ch:
 		push    eax
 		push    1a00h
-		call    near ___592c8h
+		call    near __CEXT_F(decode4__bpk)
 		mov     ebx, [___243ce8h]
 		xor     esi, esi
 		test    ebx, ebx
@@ -59941,7 +59941,7 @@ ___42c78h:
 		push    eax
 		push    800h
 		inc     esi
-		call    near ___592c8h
+		call    near __CEXT_F(decode4__bpk)
 		mov     ecx, [___243ce8h]
 		cmp     esi, ecx
 		jne     short ___42caah
@@ -59957,7 +59957,7 @@ ___42caah:
 		push    eax
 		push    800h
 		inc     esi
-		call    near ___592c8h
+		call    near __CEXT_F(decode4__bpk)
 		mov     edi, [___243ce8h]
 		cmp     esi, edi
 		jne     short ___42cdch
@@ -59972,7 +59972,7 @@ ___42cdch:
 		add     eax, 1a00h
 		push    eax
 		push    800h
-		call    near ___592c8h
+		call    near __CEXT_F(decode4__bpk)
 		mov     ebx, ___1830d0h
 		mov     edx, ___1a54d0h
 		mov     eax, ___1830c4h
@@ -59980,7 +59980,7 @@ ___42cdch:
 		push    ___1a54d0h
 		mov     ebp, [___243d84h]
 		push    ebp
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     eax, [___243ce8h]
 		lea     esi, [eax*8+0]
 		add     esi, eax
@@ -60021,42 +60021,42 @@ ___42d83h:
 		shl     eax, 7
 		push    eax
 		push    1f80h
-		call    near ___592c8h
+		call    near __CEXT_F(decode4__bpk)
 		mov     ebx, ___183124h
 		mov     edx, ___1a54d0h
 		mov     eax, ___1830c4h
 		call    near __CEXT_F(read__bpa)
 		push    ___1a54d0h
 		push    ___1de210h
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___183130h
 		mov     edx, ___1a54d0h
 		mov     eax, ___1830c4h
 		call    near __CEXT_F(read__bpa)
 		push    ___1a54d0h
 		push    ___1d7810h
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___183140h
 		mov     edx, ___1a54d0h
 		mov     eax, ___1830c4h
 		call    near __CEXT_F(read__bpa)
 		push    ___1a54d0h
 		push    ___1d8910h
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___18314ch
 		mov     edx, ___1a54d0h
 		mov     eax, ___1830c4h
 		call    near __CEXT_F(read__bpa)
 		push    ___1a54d0h
 		push    ___1d8a10h
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___18315ch
 		mov     edx, ___1a54d0h
 		mov     eax, ___1830c4h
 		call    near __CEXT_F(read__bpa)
 		push    ___1a54d0h
 		push    ___1d2710h
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___18316ch
 		mov     edx, ___1a54d0h
 		mov     eax, ___1830c4h
@@ -60064,7 +60064,7 @@ ___42d83h:
 		push    ___1a54d0h
 		mov     eax, [___243d3ch]
 		push    eax
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___18317ch
 		mov     edx, ___1a54d0h
 		mov     eax, ___1830c4h
@@ -60072,7 +60072,7 @@ ___42d83h:
 		push    ___1a54d0h
 		mov     edx, [___243d34h]
 		push    edx
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___18318ch
 		mov     edx, ___1a54d0h
 		mov     eax, ___1830c4h
@@ -60096,7 +60096,7 @@ ___42ee1h:
 ___42ef0h:
 		push    eax
 		push    800h
-		call    near ___592c8h
+		call    near __CEXT_F(decode4__bpk)
 		pop     ebp
 		pop     edi
 		pop     esi
@@ -60160,7 +60160,7 @@ ___42f73h:
 		push    eax
 		push    byte 0ah
 		push    300h
-		call    near ___592c8h
+		call    near __CEXT_F(decode4__bpk)
 		xor     eax, eax
 ___42f9eh:
 		add     eax, byte 3
@@ -60182,7 +60182,7 @@ ___42f9eh:
 		mov     ebx, 100h
 		push    eax
 		mov     [___243d08h], ebx
-		call    near ___592c8h
+		call    near __CEXT_F(decode4__bpk)
 		cmp     dword [___196dach], byte 0
 		je      near ___43125h
 		mov     esi, ___19bd64h
@@ -60359,7 +60359,7 @@ ___4319eh:
 		push    eax
 		mov     esi, ___19bd64h
 		lea     edi, [esp+10h]
-		call    near ___592c8h
+		call    near __CEXT_F(decode4__bpk)
 		push    edi
 ___431d6h:
 		mov     al, [esi]
@@ -60408,7 +60408,7 @@ ___4321eh:
 		push    eax
 		lea     edi, [esp+10h]
 		mov     esi, ___19bd64h
-		call    near ___592c8h
+		call    near __CEXT_F(decode4__bpk)
 		push    edi
 ___43256h:
 		mov     al, [esi]
@@ -60455,7 +60455,7 @@ ___4329eh:
 		push    edi
 		push    30ah
 		push    eax
-		call    near ___592c8h
+		call    near __CEXT_F(decode4__bpk)
 		add     esp, byte 10h
 		pop     edi
 		pop     esi
@@ -60547,7 +60547,7 @@ ___4339ch:
 		push    ___1a54d0h
 		lea     eax, [esi+ebp]
 		push    eax
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     cl, [esp+24h]
 		mov     ebx, [esp+20h]
 		mov     ebp, [___243d74h]
@@ -60666,21 +60666,21 @@ ___434ebh:
 		push    ___243c88h
 		push    byte 0
 		push    byte 1
-		call    near ___592c8h
+		call    near __CEXT_F(decode4__bpk)
 		imul    eax, [___243c88h], 0c50h
 		push    ___1a54d0h
 		push    ___1f3b08h
 		push    byte 1
 		inc     eax
 		push    eax
-		call    near ___592c8h
+		call    near __CEXT_F(decode4__bpk)
 		imul    eax, [___243c88h], 0c50h
 		push    ___1a54d0h
 		push    ___243c94h
 		inc     eax
 		push    eax
 		push    byte 1
-		call    near ___592c8h
+		call    near __CEXT_F(decode4__bpk)
 		mov     edx, [___243c94h]
 		lea     eax, [edx*4+0]
 		sub     eax, edx
@@ -60695,7 +60695,7 @@ ___434ebh:
 		add     edx, byte 2
 		push    edx
 		push    eax
-		call    near ___592c8h
+		call    near __CEXT_F(decode4__bpk)
 ___4357ch:
 		mov     al, [___19bd66h]
 		sub     al, 30h
@@ -60718,7 +60718,7 @@ ___43598h:
 		add     eax, ebx
 		push    eax
 		push    5f370h
-		call    near ___592c8h
+		call    near __CEXT_F(decode4__bpk)
 		add     esp, byte 10h
 		pop     ebp
 		pop     edi
@@ -60742,7 +60742,7 @@ ___435dfh:
 		add     eax, ebx
 		push    eax
 		push    5f370h
-		call    near ___592c8h
+		call    near __CEXT_F(decode4__bpk)
 		add     esp, byte 10h
 		pop     ebp
 		pop     edi
@@ -60822,7 +60822,7 @@ ___4372ch:
 ___4372eh:
 		push    eax
 		push    493e0h
-		call    near ___592c8h
+		call    near __CEXT_F(decode4__bpk)
 ___43739h:
 		add     esp, byte 10h
 		pop     ebp
@@ -61140,19 +61140,19 @@ ___439e6h:
 		push    ___243c5ch
 		push    byte 0
 		push    byte 4
-		call    near ___592c8h
+		call    near __CEXT_F(decode4__bpk)
 		push    ___1a54d0h
 		push    ___2438c4h
 		push    byte 4
 		push    byte 4
-		call    near ___592c8h
+		call    near __CEXT_F(decode4__bpk)
 		push    ___1a54d0h
 		push    ___1de920h
 		mov     eax, [___243c5ch]
 		push    byte 8
 		shl     eax, 2
 		push    eax
-		call    near ___592c8h
+		call    near __CEXT_F(decode4__bpk)
 		mov     eax, [___243c5ch]
 		push    ___1a54d0h
 		shl     eax, 2
@@ -61160,7 +61160,7 @@ ___439e6h:
 		lea     ebx, [eax+8]
 		push    ebx
 		push    eax
-		call    near ___592c8h
+		call    near __CEXT_F(decode4__bpk)
 		mov     eax, [___243c5ch]
 		push    ___1a54d0h
 		shl     eax, 3
@@ -61170,7 +61170,7 @@ ___439e6h:
 		mov     eax, [___243c5ch]
 		shl     eax, 2
 		push    eax
-		call    near ___592c8h
+		call    near __CEXT_F(decode4__bpk)
 		mov     edi, [___243c5ch]
 		lea     eax, [edi*4+0]
 		sub     eax, edi
@@ -61182,7 +61182,7 @@ ___439e6h:
 		mov     eax, [___2438c4h]
 		shl     eax, 2
 		push    eax
-		call    near ___592c8h
+		call    near __CEXT_F(decode4__bpk)
 		mov     edi, [___243c5ch]
 		lea     ebx, [edi*4+0]
 		push    ___1a54d0h
@@ -61195,7 +61195,7 @@ ___439e6h:
 		add     ebx, eax
 		push    ebx
 		push    eax
-		call    near ___592c8h
+		call    near __CEXT_F(decode4__bpk)
 		mov     edi, [___243c5ch]
 		lea     eax, [edi*4+0]
 		push    ___1a54d0h
@@ -61210,7 +61210,7 @@ ___439e6h:
 		mov     eax, [___2438c4h]
 		shl     eax, 2
 		push    eax
-		call    near ___592c8h
+		call    near __CEXT_F(decode4__bpk)
 		add     esp, byte 10h
 		pop     edi
 		pop     esi
@@ -61234,7 +61234,7 @@ ___43b14h:
 		push    ___1a54d0h
 		mov     edx, [___243d8ch]
 		push    edx
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___18326ch
 		mov     edx, ___1a54d0h
 		mov     eax, ___1831f4h
@@ -61242,7 +61242,7 @@ ___43b14h:
 		push    ___1a54d0h
 		mov     ebx, [___243d7ch]
 		push    ebx
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___183278h
 		mov     edx, ___1a54d0h
 		mov     eax, ___1831f4h
@@ -61250,7 +61250,7 @@ ___43b14h:
 		push    ___1a54d0h
 		mov     ecx, [___243298h]
 		push    ecx
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___183284h
 		mov     edx, ___1a54d0h
 		mov     eax, ___1831f4h
@@ -61258,7 +61258,7 @@ ___43b14h:
 		push    ___1a54d0h
 		mov     esi, [___24329ch]
 		push    esi
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___183290h
 		mov     edx, ___1a54d0h
 		mov     eax, ___1831f4h
@@ -61266,7 +61266,7 @@ ___43b14h:
 		push    ___1a54d0h
 		mov     edi, [___2432a0h]
 		push    edi
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___18329ch
 		mov     edx, ___1a54d0h
 		mov     eax, ___1831f4h
@@ -61274,7 +61274,7 @@ ___43b14h:
 		push    ___1a54d0h
 		mov     ebp, [___2432a4h]
 		push    ebp
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___1832a8h
 		mov     edx, ___1a54d0h
 		mov     eax, ___1831f4h
@@ -61282,7 +61282,7 @@ ___43b14h:
 		push    ___1a54d0h
 		mov     eax, [___2432a8h]
 		push    eax
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___1832b4h
 		mov     edx, ___1a54d0h
 		mov     eax, ___1831f4h
@@ -61290,7 +61290,7 @@ ___43b14h:
 		push    ___1a54d0h
 		mov     edx, [___2432ach]
 		push    edx
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___1832c0h
 		mov     edx, ___1a54d0h
 		mov     eax, ___1831f4h
@@ -61298,7 +61298,7 @@ ___43b14h:
 		push    ___1a54d0h
 		mov     ebx, [___243d88h]
 		push    ebx
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		cmp     dword [___196dach], byte 0
 		je      short ___43c80h
 		mov     ebx, ___1832cch
@@ -61312,7 +61312,7 @@ ___43c85h:
 		push    ___1a54d0h
 		mov     esi, [___243d38h]
 		push    esi
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___1832ech
 		mov     edx, ___1a54d0h
 		mov     eax, ___1831f4h
@@ -61320,7 +61320,7 @@ ___43c85h:
 		push    ___1a54d0h
 		mov     edi, [___243d40h]
 		push    edi
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___1832f8h
 		mov     edx, ___1a54d0h
 		mov     eax, ___1831f4h
@@ -61328,7 +61328,7 @@ ___43c85h:
 		push    ___1a54d0h
 		mov     ebp, [___243288h]
 		push    ebp
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___183304h
 		mov     edx, ___1a54d0h
 		mov     eax, ___1831f4h
@@ -61336,7 +61336,7 @@ ___43c85h:
 		push    ___1a54d0h
 		mov     eax, [___24328ch]
 		push    eax
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___183310h
 		mov     edx, ___1a54d0h
 		mov     eax, ___1831f4h
@@ -61344,7 +61344,7 @@ ___43c85h:
 		push    ___1a54d0h
 		mov     edx, [___243290h]
 		push    edx
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___18331ch
 		mov     edx, ___1a54d0h
 		mov     eax, ___1831f4h
@@ -61352,7 +61352,7 @@ ___43c85h:
 		push    ___1a54d0h
 		mov     ebx, [___243294h]
 		push    ebx
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___183328h
 		mov     edx, ___1a54d0h
 		mov     eax, ___1831f4h
@@ -61360,7 +61360,7 @@ ___43c85h:
 		push    ___1a54d0h
 		mov     ecx, [___243d68h]
 		push    ecx
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___183334h
 		mov     edx, ___1a54d0h
 		mov     eax, ___1831f4h
@@ -61368,7 +61368,7 @@ ___43c85h:
 		push    ___1a54d0h
 		mov     esi, [___243d64h]
 		push    esi
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		pop     ebp
 		pop     edi
 		pop     esi
@@ -61389,7 +61389,7 @@ ___43db0h:
 		push    ___1a54d0h
 		mov     edx, [___243d50h]
 		push    edx
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		pop     edx
 		pop     ecx
 		pop     ebx
@@ -61407,7 +61407,7 @@ ___43de8h:
 		push    ___1a54d0h
 		mov     edx, [___243d6ch]
 		push    edx
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		pop     edx
 		pop     ecx
 		pop     ebx
@@ -61425,7 +61425,7 @@ ___43e20h:
 		push    ___1a54d0h
 		mov     edx, [___243d4ch]
 		push    edx
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___183364h
 		mov     edx, ___1a54d0h
 		mov     eax, ___1830c4h
@@ -61433,7 +61433,7 @@ ___43e20h:
 		push    ___1a54d0h
 		mov     ebx, [___243d48h]
 		push    ebx
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		pop     edx
 		pop     ecx
 		pop     ebx
@@ -66994,7 +66994,7 @@ ___48bc7h:
 		call    near __CEXT_F(read__bpa)
 		push    ___1a54d0h
 		push    0a0000h
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___183c8ch
 		mov     edx, ___1a4ec0h
 		mov     eax, ___1831f4h
@@ -67613,7 +67613,7 @@ ___491b4h:
 		call    near __CEXT_F(read__bpa)
 		push    ___1a54d0h
 		push    0a0000h
-		call    near __CEXT_F(decode__bpa)
+		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___183e78h
 		mov     edx, ___1a4ec0h
 		mov     eax, ___1831f4h
@@ -83917,243 +83917,6 @@ ___5901fh:
 		pop     ecx
 		pop     ebx
 		retn    
-___592c8h:
-		push    ebp
-		mov     ebp, esp
-		pushad  
-		mov     eax, [ebp+14h]
-		mov     [__CEXT_V(BPASrc)], eax
-		mov     eax, [ebp+10h]
-		mov     [__CEXT_V(BPADst)], eax
-		mov     eax, [ebp+0ch]
-		mov     [___199f30h], eax
-		mov     eax, [ebp+8]
-		mov     [___199f34h], eax
-		xor     eax, eax
-		mov     [__CEXT_V(___199f0ch)], eax
-		mov     [__CEXT_V(___199f08h)], eax
-		mov     [__CEXT_V(___199f28h)], eax
-		mov     [___199f2ch], eax
-		mov     [___199f38h], al
-		mov     dword [__CEXT_V(___199f10h)], 9
-		mov     word [__CEXT_V(___199f14h)], 200h
-		mov     word [__CEXT_V(___199f1ch)], 102h
-___59323h:
-		mov     eax, [__CEXT_V(___199f0ch)]
-		add     eax, [__CEXT_V(___199f10h)]
-		xchg    eax, [__CEXT_V(___199f0ch)]
-		mov     ecx, 8
-		xor     edx, edx
-		div     ecx
-		add     eax, [__CEXT_V(BPASrc)]
-		mov     esi, eax
-		lodsw   
-		mov     bx, ax
-		lodsb   
-		mov     ecx, edx
-		jcxz    ___59357h
-___59350h:
-		shr     al, 1
-		rcr     bx, 1
-		loop    ___59350h
-___59357h:
-		mov     ax, bx
-		xor     ebx, ebx
-		mov     ebx, [__CEXT_V(___199f10h)]
-		sub     ebx, byte 9
-		shl     ebx, 1
-		and     ax, [ebx+__CEXT_V(___199f00h)]
-		cmp     ax, word 100h
-		je      near ___595c4h
-		cmp     byte [___199f38h], 0
-		jne     near ___595c4h
-		cmp     ax, word 101h
-		jne     near ___59465h
-		mov     dword [__CEXT_V(___199f10h)], 9
-		mov     word [__CEXT_V(___199f14h)], 200h
-		mov     word [__CEXT_V(___199f1ch)], 102h
-		mov     eax, [__CEXT_V(___199f0ch)]
-		add     eax, [__CEXT_V(___199f10h)]
-		xchg    eax, [__CEXT_V(___199f0ch)]
-		mov     ecx, 8
-		xor     edx, edx
-		div     ecx
-		add     eax, [__CEXT_V(BPASrc)]
-		mov     esi, eax
-		lodsw   
-		mov     bx, ax
-		lodsb   
-		mov     ecx, edx
-		jcxz    ___593dfh
-___593d8h:
-		shr     al, 1
-		rcr     bx, 1
-		loop    ___593d8h
-___593dfh:
-		mov     ax, bx
-		xor     ebx, ebx
-		mov     ebx, [__CEXT_V(___199f10h)]
-		sub     ebx, byte 9
-		shl     ebx, 1
-		and     ax, [ebx+__CEXT_V(___199f00h)]
-		mov     [__CEXT_V(___199f18h)], ax
-		mov     [__CEXT_V(___199f16h)], ax
-		mov     [__CEXT_V(___199f1eh)], al
-		mov     [__CEXT_V(___199f1fh)], al
-		mov     edi, [___199f2ch]
-		cmp     edi, [___199f30h]
-		jl      short ___5945ah
-		nop     
-		nop     
-		nop     
-		nop     
-		mov     edi, [__CEXT_V(___199f28h)]
-		cmp     dword [___199f34h], byte 0
-		je      short ___59449h
-		nop     
-		nop     
-		nop     
-		nop     
-		cmp     edi, [___199f34h]
-		jne     short ___59449h
-		nop     
-		nop     
-		nop     
-		nop     
-		mov     byte [___199f38h], 1
-		jmp     short ___5945ah
-		nop     
-		nop     
-		nop
-___59449h:
-		add     edi, [__CEXT_V(BPADst)]
-		ror     al, 3
-		mov     [edi], al
-		inc     dword [__CEXT_V(___199f28h)]
-___5945ah:
-		inc     dword [___199f2ch]
-		jmp     near ___59323h
-___59465h:
-		mov     [__CEXT_V(___199f18h)], ax
-		mov     [__CEXT_V(___199f1ah)], ax
-		cmp     ax, [__CEXT_V(___199f1ch)]
-		jl      short ___59496h
-		nop     
-		nop     
-		nop     
-		nop     
-		mov     ax, [__CEXT_V(___199f16h)]
-		mov     [__CEXT_V(___199f18h)], ax
-		mov     al, [__CEXT_V(___199f1fh)]
-		push    eax
-		inc     dword [__CEXT_V(___199f08h)]
-___59496h:
-		cmp     word [__CEXT_V(___199f18h)], 0ffh
-		jle     short ___594d5h
-		nop     
-		nop     
-		nop     
-		nop     
-		mov     bx, [__CEXT_V(___199f18h)]
-		mov     cx, bx
-		xor     ebx, ebx
-		mov     bx, cx
-		shl     bx, 1
-		add     bx, cx
-		add     ebx, __CEXT_V(___196f00h)
-		mov     al, [ebx+2]
-		push    eax
-		inc     dword [__CEXT_V(___199f08h)]
-		mov     ax, [ebx]
-		mov     [__CEXT_V(___199f18h)], ax
-		jmp     short ___59496h
-___594d5h:
-		mov     ax, [__CEXT_V(___199f18h)]
-		mov     [__CEXT_V(___199f1fh)], al
-		mov     [__CEXT_V(___199f1eh)], al
-		push    eax
-		inc     dword [__CEXT_V(___199f08h)]
-		mov     ecx, [__CEXT_V(___199f08h)]
-		jcxz    ___5954ch
-___594f5h:
-		pop     eax
-		mov     edi, [___199f2ch]
-		cmp     edi, [___199f30h]
-		jl      short ___59544h
-		nop     
-		nop     
-		nop     
-		nop     
-		mov     edi, [__CEXT_V(___199f28h)]
-		cmp     dword [___199f34h], byte 0
-		je      short ___59533h
-		nop     
-		nop     
-		nop     
-		nop     
-		cmp     edi, [___199f34h]
-		jne     short ___59533h
-		nop     
-		nop     
-		nop     
-		nop     
-		mov     byte [___199f38h], 1
-		jmp     short ___59544h
-		nop     
-		nop     
-		nop
-___59533h:
-		add     edi, [__CEXT_V(BPADst)]
-		ror     al, 3
-		mov     [edi], al
-		inc     dword [__CEXT_V(___199f28h)]
-___59544h:
-		inc     dword [___199f2ch]
-		loop    ___594f5h
-___5954ch:
-		mov     [__CEXT_V(___199f08h)], ecx
-		mov     bx, [__CEXT_V(___199f1ch)]
-		mov     cx, bx
-		xor     ebx, ebx
-		mov     bx, cx
-		shl     bx, 1
-		add     bx, cx
-		add     ebx, __CEXT_V(___196f00h)
-		mov     al, [__CEXT_V(___199f1eh)]
-		mov     [ebx+2], al
-		mov     ax, [__CEXT_V(___199f16h)]
-		mov     [ebx], ax
-		inc     word [__CEXT_V(___199f1ch)]
-		mov     ax, [__CEXT_V(___199f1ah)]
-		mov     [__CEXT_V(___199f16h)], ax
-		mov     bx, [__CEXT_V(___199f1ch)]
-		cmp     bx, [__CEXT_V(___199f14h)]
-		jl      short ___595bfh
-		nop     
-		nop     
-		nop     
-		nop     
-		cmp     dword [__CEXT_V(___199f10h)], byte 0ch
-		je      short ___595bfh
-		nop     
-		nop     
-		nop     
-		nop     
-		inc     dword [__CEXT_V(___199f10h)]
-		shl     word [__CEXT_V(___199f14h)], 1
-___595bfh:
-		jmp     near ___59323h
-___595c4h:
-		mov     ecx, [__CEXT_V(___199f08h)]
-		jcxz    ___595d0h
-___595cdh:
-		pop     eax
-		loop    ___595cdh
-___595d0h:
-		popad   
-		pop     ebp
-		ret     10h   
-db	0,0,0,0,0,0,0,0
 global ___596f0h
 ___596f0h:
 		push    4
