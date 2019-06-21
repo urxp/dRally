@@ -18,7 +18,7 @@
     extern  __CEXT_V(___199f1ah)
     extern  __CEXT_V(___199f16h)
     extern  __CEXT_V(___199f1ch)
-    extern  __CEXT_V(___199f08h)
+    extern  __CEXT_V(BPK_Push)
 
 %include "layout.inc"
 
@@ -39,7 +39,7 @@ __GDECL(__CEXT_F(decode4__bpk))
 		mov     [__CEXT_V(___199f34h)], eax
 		xor     eax, eax
 		mov     [__CEXT_V(___199f0ch)], eax
-		mov     [__CEXT_V(___199f08h)], eax
+		mov     [__CEXT_V(BPK_Push)], eax
 		mov     [__CEXT_V(___199f28h)], eax
 		mov     [__CEXT_V(___199f2ch)], eax
 		mov     [__CEXT_V(___199f38h)], al
@@ -154,7 +154,7 @@ ___59465h:
 		mov     [__CEXT_V(___199f18h)], ax
 		mov     al, [__CEXT_V(___199f1fh)]
 		push    eax
-		inc     dword [__CEXT_V(___199f08h)]
+		inc     dword [__CEXT_V(BPK_Push)]
 ___59496h:
 		cmp     word [__CEXT_V(___199f18h)], 0ffh
 		jle     ___594d5h
@@ -171,7 +171,7 @@ ___59496h:
 		add     ebx, __CEXT_V(___196f00h)
 		mov     al, [ebx+2]
 		push    eax
-		inc     dword [__CEXT_V(___199f08h)]
+		inc     dword [__CEXT_V(BPK_Push)]
 		mov     ax, [ebx]
 		mov     [__CEXT_V(___199f18h)], ax
 		jmp     ___59496h
@@ -180,8 +180,8 @@ ___594d5h:
 		mov     [__CEXT_V(___199f1fh)], al
 		mov     [__CEXT_V(___199f1eh)], al
 		push    eax
-		inc     dword [__CEXT_V(___199f08h)]
-		mov     ecx, [__CEXT_V(___199f08h)]
+		inc     dword [__CEXT_V(BPK_Push)]
+		mov     ecx, [__CEXT_V(BPK_Push)]
 		jcxz    ___5954ch
 ___594f5h:
 		pop     eax
@@ -219,7 +219,7 @@ ___59544h:
 		inc     dword [__CEXT_V(___199f2ch)]
 		loop    ___594f5h
 ___5954ch:
-		mov     [__CEXT_V(___199f08h)], ecx
+		mov     [__CEXT_V(BPK_Push)], ecx
 		mov     bx, [__CEXT_V(___199f1ch)]
 		mov     cx, bx
 		xor     ebx, ebx
@@ -251,7 +251,7 @@ ___5954ch:
 		shl     word [__CEXT_V(___199f14h)], 1
 		jmp     ___59323h
 ___595c4h:
-		mov     ecx, [__CEXT_V(___199f08h)]
+		mov     ecx, [__CEXT_V(BPK_Push)]
 		jcxz    ___595d0h
 ___595cdh:
 		pop     eax

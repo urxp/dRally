@@ -18,7 +18,7 @@
     extern byte ___199f1ah[];
     extern byte ___199f16h[];
     extern byte ___199f1ch[];
-    extern byte ___199f08h[];
+    extern byte BPK_Push[];
 
 // 592c8h
 #pragma aux decode4__bpk parm routine []
@@ -37,7 +37,7 @@ void decode4__bpk(dword A1, dword A2, void * dst, void * src){
 	D(___199f30h) = A2;
 	D(___199f34h) = A1;
 	D(___199f0ch) = 0;
-	D(___199f08h) = 0;
+	D(BPK_Push) = 0;
 	D(___199f28h) = 0;
 	D(___199f2ch) = 0;
 	B(___199f38h) = 0;
@@ -82,7 +82,7 @@ void decode4__bpk(dword A1, dword A2, void * dst, void * src){
         
         if((ax == 0x100) || (B(___199f38h) != 0)){
 
-            ecx = D(___199f08h);
+            ecx = D(BPK_Push);
 
             while(ecx--){
                 
@@ -106,7 +106,7 @@ void decode4__bpk(dword A1, dword A2, void * dst, void * src){
                 al = B(___199f1fh);
                 esp -= 4;
                 D(esp) = eax;
-                D(___199f08h)++;
+                D(BPK_Push)++;
             }
 
             while((short)W(___199f18h) > (short)0xff){
@@ -121,7 +121,7 @@ void decode4__bpk(dword A1, dword A2, void * dst, void * src){
                 al = B(ebx+2);
                 esp -= 4;
                 D(esp) = eax;
-                D(___199f08h)++;
+                D(BPK_Push)++;
                 ax = W(ebx);
                 W(___199f18h) = ax;
             }
@@ -131,8 +131,8 @@ void decode4__bpk(dword A1, dword A2, void * dst, void * src){
             B(___199f1eh) = al;
             esp -= 4;
             D(esp) = eax;
-            D(___199f08h)++;
-            ecx = D(___199f08h);
+            D(BPK_Push)++;
+            ecx = D(BPK_Push);
 
 
             while(ecx--){
@@ -171,7 +171,7 @@ void decode4__bpk(dword A1, dword A2, void * dst, void * src){
                 D(___199f2ch)++;
             }
 
-            D(___199f08h) = ++ecx;
+            D(BPK_Push) = ++ecx;
             bx = W(___199f1ch);
             cx = bx;
             ebx = 0;

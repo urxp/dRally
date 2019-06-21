@@ -18,7 +18,7 @@
     extern byte ___199f1ah[];
     extern byte ___199f16h[];
     extern byte ___199f1ch[];
-    extern byte ___199f08h[];
+    extern byte BPK_Push[];
 
 // 592c8h
 #pragma aux decode4__bpk parm routine []
@@ -55,8 +55,8 @@ void decode4__bpk(dword A1, dword A2, void * dst, void * src){
 	eax = 0;
 //		mov     [__CEXT_V(___199f0ch)], eax
 	D(___199f0ch) = eax;
-//		mov     [__CEXT_V(___199f08h)], eax
-	D(___199f08h) = eax;
+//		mov     [__CEXT_V(BPK_Push)], eax
+	D(BPK_Push) = eax;
 //		mov     [__CEXT_V(___199f28h)], eax
 	D(___199f28h) = eax;
 //		mov     [__CEXT_V(___199f2ch)], eax
@@ -247,8 +247,8 @@ ___59465h:
 //		push    eax
 	esp -= 4;
 	D(esp) = eax;
-//		inc     dword [__CEXT_V(___199f08h)]
-    D(___199f08h)++;
+//		inc     dword [__CEXT_V(BPK_Push)]
+    D(BPK_Push)++;
 ___59496h:
 //		cmp     word [__CEXT_V(___199f18h)], 0ffh
 //		jle     ___594d5h
@@ -272,8 +272,8 @@ ___59496h:
 //		push    eax
 	esp -= 4;
 	D(esp) = eax;
-//		inc     dword [__CEXT_V(___199f08h)]
-    D(___199f08h)++;
+//		inc     dword [__CEXT_V(BPK_Push)]
+    D(BPK_Push)++;
 //		mov     ax, [ebx]
     ax = W(ebx);
 //		mov     [__CEXT_V(___199f18h)], ax
@@ -290,10 +290,10 @@ ___594d5h:
 //		push    eax
 	esp -= 4;
 	D(esp) = eax;
-//		inc     dword [__CEXT_V(___199f08h)]
-    D(___199f08h)++;
-//		mov     ecx, [__CEXT_V(___199f08h)]
-    ecx = D(___199f08h);
+//		inc     dword [__CEXT_V(BPK_Push)]
+    D(BPK_Push)++;
+//		mov     ecx, [__CEXT_V(BPK_Push)]
+    ecx = D(BPK_Push);
 //		jcxz    ___5954ch
     if(cx == 0) goto ___5954ch;
 ___594f5h:
@@ -332,8 +332,8 @@ ___59544h:
 //		loop    ___594f5h
 	if(--ecx) goto ___594f5h;
 ___5954ch:
-//		mov     [__CEXT_V(___199f08h)], ecx
-    D(___199f08h) = ecx;
+//		mov     [__CEXT_V(BPK_Push)], ecx
+    D(BPK_Push) = ecx;
 //		mov     bx, [__CEXT_V(___199f1ch)]
     bx = W(___199f1ch);
 //		mov     cx, bx
@@ -377,8 +377,8 @@ ___5954ch:
 //		jmp     ___59323h
     goto ___59323h;
 ___595c4h:
-//		mov     ecx, [__CEXT_V(___199f08h)]
-    ecx = D(___199f08h);
+//		mov     ecx, [__CEXT_V(BPK_Push)]
+    ecx = D(BPK_Push);
 //		jcxz    ___595d0h
     if(cx == 0) goto ___595d0h;
 ___595cdh:

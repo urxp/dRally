@@ -4,7 +4,7 @@
     extern byte BPK_Dst[];
     extern byte ___196f00h[];
     extern byte ___199f00h[];
-    extern byte ___199f08h[];
+    extern byte BPK_Push[];
     extern byte ___199f0ch[];
     extern byte ___199f10h[];
     extern byte ___199f14h[];
@@ -39,7 +39,7 @@ void decode2__bpk(void * dst, void * src){
     D(BPK_Dst) = eax;
     eax = 0;
     D(___199f0ch) = eax;
-    D(___199f08h) = eax;
+    D(BPK_Push) = eax;
     D(___199f28h) = eax;
     D(___199f10h) = 9;
     W(___199f14h) = 0x200;
@@ -131,7 +131,7 @@ ___59195h:
     al = B(___199f1fh);
 	esp -= 4;
 	D(esp) = eax;
-    D(___199f08h)++;
+    D(BPK_Push)++;
 ___591c6h:
     if((short)W(___199f18h) <= (short)0xff) goto ___59205h;
     bx = W(___199f18h);
@@ -144,7 +144,7 @@ ___591c6h:
     al = B(ebx+2);
 	esp -= 4;
 	D(esp) = eax;
-    D(___199f08h)++;
+    D(BPK_Push)++;
     ax = W(ebx);
     W(___199f18h) = ax;
     goto ___591c6h;
@@ -154,8 +154,8 @@ ___59205h:
     B(___199f1eh) = al;
 	esp -= 4;
 	D(esp) = eax;
-    D(___199f08h)++;
-    ecx = D(___199f08h);
+    D(BPK_Push)++;
+    ecx = D(BPK_Push);
     if(cx == 0) goto ___5923fh;
 ___59225h:
 	eax = D(esp);
@@ -167,7 +167,7 @@ ___59225h:
     D(___199f28h)++;
     if(--ecx) goto ___59225h;
 ___5923fh:
-    D(___199f08h) = ecx;
+    D(BPK_Push) = ecx;
     bx = W(___199f1ch);
     cx = bx;
     ebx = 0;
@@ -189,7 +189,7 @@ ___5923fh:
     W(___199f14h) <<= 1;
     goto ___5909dh;
 ___592b7h:
-    ecx = D(___199f08h);
+    ecx = D(BPK_Push);
     if(cx == 0) goto ___592c3h;
 ___592c0h:
 	eax = D(esp);
