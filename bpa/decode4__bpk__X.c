@@ -2,19 +2,19 @@
 
     extern byte BPK_Src[];
     extern byte BPK_Dst[];
-    extern byte BPK_Src_Offset[];
+    extern byte BPK_Dst_Offset[];
     extern byte BPK_Bytes[];
     extern byte BPK_Src_BitsOffset[];
     extern byte ___199f14h[];
     extern byte BPK_Src_BitsToRead[];
     extern byte ___199f00h[];
-    extern byte ___196f00h[];
+    extern byte BPK_Dict[];
     extern byte BPK_Work[];
     extern byte BPK_End[];
     extern byte ___199f38h[];
     extern byte BPK_Dst_i[];
     extern byte BPK_Src_i[];
-    extern byte ___199f1eh[];
+    extern byte BPK_Next[];
     extern byte BPK_Current[];
     extern byte BPK_Previous[];
     extern byte ___199f1ch[];
@@ -45,8 +45,8 @@ void decode4__bpk(dword A1, dword A2, void * dst, void * src){
 	D(BPK_Dst) = eax;
 //		mov     eax, [ebp+0ch]
 	eax = A2;
-//		mov     [__CEXT_V(BPK_Src_Offset)], eax
-	D(BPK_Src_Offset) = eax;
+//		mov     [__CEXT_V(BPK_Dst_Offset)], eax
+	D(BPK_Dst_Offset) = eax;
 //		mov     eax, [ebp+8]
 	eax = A1;
 //		mov     [__CEXT_V(BPK_Bytes)], eax
@@ -195,15 +195,15 @@ ___593dfh:
     W(BPK_Work) = ax;
 //		mov     [__CEXT_V(BPK_Previous)], ax
     W(BPK_Previous) = ax;
-//		mov     [__CEXT_V(___199f1eh)], al
-    B(___199f1eh) = al;
+//		mov     [__CEXT_V(BPK_Next)], al
+    B(BPK_Next) = al;
 //		mov     [__CEXT_V(BPK_End)], al
     B(BPK_End) = al;
 //		mov     edi, [__CEXT_V(BPK_Src_i)]
 	edi = D(BPK_Src_i);
-//		cmp     edi, [__CEXT_V(BPK_Src_Offset)]
+//		cmp     edi, [__CEXT_V(BPK_Dst_Offset)]
 //		jl      ___5945ah  
-	if((int)edi < (int)D(BPK_Src_Offset)) goto ___5945ah;
+	if((int)edi < (int)D(BPK_Dst_Offset)) goto ___5945ah;
 //		mov     edi, [__CEXT_V(BPK_Dst_i)]
     edi = D(BPK_Dst_i);
 //		cmp     dword [__CEXT_V(BPK_Bytes)], byte 0
@@ -265,8 +265,8 @@ ___59496h:
     bx <<= 1;
 //		add     bx, cx
     bx += cx;
-//		add     ebx, __CEXT_V(___196f00h)
-    ebx += (dword)___196f00h;
+//		add     ebx, __CEXT_V(BPK_Dict)
+    ebx += (dword)BPK_Dict;
 //		mov     al, [ebx+2]
     al = B(ebx+2);
 //		push    eax
@@ -285,8 +285,8 @@ ___594d5h:
     ax = W(BPK_Work);
 //		mov     [__CEXT_V(BPK_End)], al
     B(BPK_End) = al;
-//		mov     [__CEXT_V(___199f1eh)], al
-    B(___199f1eh) = al;
+//		mov     [__CEXT_V(BPK_Next)], al
+    B(BPK_Next) = al;
 //		push    eax
 	esp -= 4;
 	D(esp) = eax;
@@ -302,9 +302,9 @@ ___594f5h:
 	esp += 4;
 //		mov     edi, [__CEXT_V(BPK_Src_i)]
 	edi = D(BPK_Src_i);
-//		cmp     edi, [__CEXT_V(BPK_Src_Offset)]
+//		cmp     edi, [__CEXT_V(BPK_Dst_Offset)]
 //		jl      ___59544h
-	if((int)edi < (int)D(BPK_Src_Offset)) goto ___59544h;
+	if((int)edi < (int)D(BPK_Dst_Offset)) goto ___59544h;
 //		mov     edi, [__CEXT_V(BPK_Dst_i)]
 	edi = D(BPK_Dst_i);
 //		cmp     dword [__CEXT_V(BPK_Bytes)], byte 0
@@ -346,10 +346,10 @@ ___5954ch:
     bx <<= 1;
 //		add     bx, cx
     bx += cx;
-//		add     ebx, __CEXT_V(___196f00h)
-    ebx += (dword)___196f00h;
-//		mov     al, [__CEXT_V(___199f1eh)]
-    al = B(___199f1eh);
+//		add     ebx, __CEXT_V(BPK_Dict)
+    ebx += (dword)BPK_Dict;
+//		mov     al, [__CEXT_V(BPK_Next)]
+    al = B(BPK_Next);
 //		mov     [ebx+2], al
     B(ebx+2) = al;
 //		mov     ax, [__CEXT_V(BPK_Previous)]

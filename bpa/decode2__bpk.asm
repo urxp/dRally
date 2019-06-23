@@ -2,7 +2,7 @@
 
     extern  __CEXT_V(BPK_Src)
     extern  __CEXT_V(BPK_Dst)
-    extern  __CEXT_V(___196f00h)
+    extern  __CEXT_V(BPK_Dict)
     extern  __CEXT_V(___199f00h)
     extern  __CEXT_V(BPK_Push)
     extern  __CEXT_V(BPK_Src_BitsOffset)
@@ -12,7 +12,7 @@
     extern  __CEXT_V(BPK_Work)
     extern  __CEXT_V(BPK_Current)
     extern  __CEXT_V(___199f1ch)
-    extern  __CEXT_V(___199f1eh)
+    extern  __CEXT_V(BPK_Next)
     extern  __CEXT_V(BPK_End)
     extern  __CEXT_V(BPK_Dst_i)
 
@@ -94,7 +94,7 @@ ___5914ch:
 		and     ax, [ebx+__CEXT_V(___199f00h)]
 		mov     [__CEXT_V(BPK_Work)], ax
 		mov     [__CEXT_V(BPK_Previous)], ax
-		mov     [__CEXT_V(___199f1eh)], al
+		mov     [__CEXT_V(BPK_Next)], al
 		mov     [__CEXT_V(BPK_End)], al
 		mov     edi, [__CEXT_V(BPK_Dst_i)]
 		add     edi, [__CEXT_V(BPK_Dst)]
@@ -129,7 +129,7 @@ ___591c6h:
 		mov     bx, cx
 		shl     bx, 1
 		add     bx, cx
-		add     ebx, __CEXT_V(___196f00h)
+		add     ebx, __CEXT_V(BPK_Dict)
 		mov     al, [ebx+2]
 		push    eax
 		inc     dword [__CEXT_V(BPK_Push)]
@@ -139,7 +139,7 @@ ___591c6h:
 ___59205h:
 		mov     ax, [__CEXT_V(BPK_Work)]
 		mov     [__CEXT_V(BPK_End)], al
-		mov     [__CEXT_V(___199f1eh)], al
+		mov     [__CEXT_V(BPK_Next)], al
 		push    eax
 		inc     dword [__CEXT_V(BPK_Push)]
 		mov     ecx, [__CEXT_V(BPK_Push)]
@@ -160,8 +160,8 @@ ___5923fh:
 		mov     bx, cx
 		shl     bx, 1
 		add     bx, cx
-		add     ebx, __CEXT_V(___196f00h)
-		mov     al, [__CEXT_V(___199f1eh)]
+		add     ebx, __CEXT_V(BPK_Dict)
+		mov     al, [__CEXT_V(BPK_Next)]
 		mov     [ebx+2], al
 		mov     ax, [__CEXT_V(BPK_Previous)]
 		mov     [ebx], ax

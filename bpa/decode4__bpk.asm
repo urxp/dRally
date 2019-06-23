@@ -2,19 +2,19 @@
 
     extern  __CEXT_V(BPK_Src)
     extern  __CEXT_V(BPK_Dst)
-    extern  __CEXT_V(BPK_Src_Offset)
+    extern  __CEXT_V(BPK_Dst_Offset)
     extern  __CEXT_V(BPK_Bytes)
     extern  __CEXT_V(BPK_Src_BitsOffset)
     extern  __CEXT_V(___199f14h)
     extern  __CEXT_V(BPK_Src_BitsToRead)
     extern  __CEXT_V(___199f00h)
-    extern  __CEXT_V(___196f00h)
+    extern  __CEXT_V(BPK_Dict)
     extern  __CEXT_V(BPK_Work)
     extern  __CEXT_V(BPK_End)
     extern  __CEXT_V(___199f38h)
     extern  __CEXT_V(BPK_Dst_i)
     extern  __CEXT_V(BPK_Src_i)
-    extern  __CEXT_V(___199f1eh)
+    extern  __CEXT_V(BPK_Next)
     extern  __CEXT_V(BPK_Current)
     extern  __CEXT_V(BPK_Previous)
     extern  __CEXT_V(___199f1ch)
@@ -34,7 +34,7 @@ __GDECL(__CEXT_F(decode4__bpk))
 		mov     eax, [ebp+10h]
 		mov     [__CEXT_V(BPK_Dst)], eax
 		mov     eax, [ebp+0ch]
-		mov     [__CEXT_V(BPK_Src_Offset)], eax
+		mov     [__CEXT_V(BPK_Dst_Offset)], eax
 		mov     eax, [ebp+8]
 		mov     [__CEXT_V(BPK_Bytes)], eax
 		xor     eax, eax
@@ -106,10 +106,10 @@ ___593dfh:
 		and     ax, [ebx+__CEXT_V(___199f00h)]
 		mov     [__CEXT_V(BPK_Work)], ax
 		mov     [__CEXT_V(BPK_Previous)], ax
-		mov     [__CEXT_V(___199f1eh)], al
+		mov     [__CEXT_V(BPK_Next)], al
 		mov     [__CEXT_V(BPK_End)], al
 		mov     edi, [__CEXT_V(BPK_Src_i)]
-		cmp     edi, [__CEXT_V(BPK_Src_Offset)]
+		cmp     edi, [__CEXT_V(BPK_Dst_Offset)]
 		jl      ___5945ah
 		nop     
 		nop     
@@ -168,7 +168,7 @@ ___59496h:
 		mov     bx, cx
 		shl     bx, 1
 		add     bx, cx
-		add     ebx, __CEXT_V(___196f00h)
+		add     ebx, __CEXT_V(BPK_Dict)
 		mov     al, [ebx+2]
 		push    eax
 		inc     dword [__CEXT_V(BPK_Push)]
@@ -178,7 +178,7 @@ ___59496h:
 ___594d5h:
 		mov     ax, [__CEXT_V(BPK_Work)]
 		mov     [__CEXT_V(BPK_End)], al
-		mov     [__CEXT_V(___199f1eh)], al
+		mov     [__CEXT_V(BPK_Next)], al
 		push    eax
 		inc     dword [__CEXT_V(BPK_Push)]
 		mov     ecx, [__CEXT_V(BPK_Push)]
@@ -186,7 +186,7 @@ ___594d5h:
 ___594f5h:
 		pop     eax
 		mov     edi, [__CEXT_V(BPK_Src_i)]
-		cmp     edi, [__CEXT_V(BPK_Src_Offset)]
+		cmp     edi, [__CEXT_V(BPK_Dst_Offset)]
 		jl      ___59544h
 		nop     
 		nop     
@@ -226,8 +226,8 @@ ___5954ch:
 		mov     bx, cx
 		shl     bx, 1
 		add     bx, cx
-		add     ebx, __CEXT_V(___196f00h)
-		mov     al, [__CEXT_V(___199f1eh)]
+		add     ebx, __CEXT_V(BPK_Dict)
+		mov     al, [__CEXT_V(BPK_Next)]
 		mov     [ebx+2], al
 		mov     ax, [__CEXT_V(BPK_Previous)]
 		mov     [ebx], ax

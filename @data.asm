@@ -7599,7 +7599,7 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___196efch:
 db	0,0,0,0
-__GDECL(__CEXT_V(___196f00h))
+__GDECL(__CEXT_V(BPK_Dict))
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -8386,7 +8386,7 @@ __GDECL(__CEXT_V(BPK_Current))
 db	0,0
 __GDECL(__CEXT_V(___199f1ch))
 db	2,1
-__GDECL(__CEXT_V(___199f1eh))
+__GDECL(__CEXT_V(BPK_Next))
 db	0
 __GDECL(__CEXT_V(BPK_End))
 db	0
@@ -8398,7 +8398,7 @@ __GDECL(__CEXT_V(BPK_Dst_i))
 db	0,0,0,0
 __GDECL(__CEXT_V(BPK_Src_i))
 db	0,0,0,0
-__GDECL(__CEXT_V(BPK_Src_Offset))
+__GDECL(__CEXT_V(BPK_Dst_Offset))
 db	0,0,0,0
 __GDECL(__CEXT_V(BPK_Bytes))
 db	0,0,0,0

@@ -2,7 +2,7 @@
 
     extern byte BPK_Src[];
     extern byte BPK_Dst[];
-    extern byte ___196f00h[];
+    extern byte BPK_Dict[];
     extern byte ___199f00h[];
     extern byte BPK_Push[];
     extern byte BPK_Src_BitsOffset[];
@@ -12,7 +12,7 @@
     extern byte BPK_Work[];
     extern byte BPK_Current[];
     extern byte ___199f1ch[];
-    extern byte ___199f1eh[];
+    extern byte BPK_Next[];
     extern byte BPK_End[];
     extern byte BPK_Dst_i[];
 
@@ -175,8 +175,8 @@ ___5914ch:
     W(BPK_Work) = ax;
 //		mov     [__CEXT_V(BPK_Previous)], ax
     W(BPK_Previous) = ax;
-//		mov     [__CEXT_V(___199f1eh)], al
-    B(___199f1eh) = al;
+//		mov     [__CEXT_V(BPK_Next)], al
+    B(BPK_Next) = al;
 //		mov     [__CEXT_V(BPK_End)], al
     B(BPK_End) = al;
 //		mov     edi, [__CEXT_V(BPK_Dst_i)]
@@ -226,8 +226,8 @@ ___591c6h:
     bx <<= 1;
 //		add     bx, cx
     bx += cx;
-//		add     ebx, __CEXT_V(___196f00h)
-    ebx += (dword)___196f00h;
+//		add     ebx, __CEXT_V(BPK_Dict)
+    ebx += (dword)BPK_Dict;
 //		mov     al, [ebx+2]
     al = B(ebx+2);
 //		push    eax
@@ -246,8 +246,8 @@ ___59205h:
     ax = W(BPK_Work);
 //		mov     [__CEXT_V(BPK_End)], al
     B(BPK_End) = al;
-//		mov     [__CEXT_V(___199f1eh)], al
-    B(___199f1eh) = al;
+//		mov     [__CEXT_V(BPK_Next)], al
+    B(BPK_Next) = al;
 //		push    eax
 	esp -= 4;
 	D(esp) = eax;
@@ -288,10 +288,10 @@ ___5923fh:
     bx <<= 1;
 //		add     bx, cx
     bx += cx;
-//		add     ebx, __CEXT_V(___196f00h)
-    ebx += (dword)___196f00h;
-//		mov     al, [__CEXT_V(___199f1eh)]
-    al = B(___199f1eh);
+//		add     ebx, __CEXT_V(BPK_Dict)
+    ebx += (dword)BPK_Dict;
+//		mov     al, [__CEXT_V(BPK_Next)]
+    al = B(BPK_Next);
 //		mov     [ebx+2], al
     B(ebx+2) = al;
 //		mov     ax, [__CEXT_V(BPK_Previous)]
