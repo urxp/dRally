@@ -5,16 +5,16 @@
     extern byte ___196f00h[];
     extern byte ___199f00h[];
     extern byte BPK_Push[];
-    extern byte ___199f0ch[];
-    extern byte ___199f10h[];
+    extern byte BPK_Src_BitsOffset[];
+    extern byte BPK_Src_BitsToRead[];
     extern byte ___199f14h[];
-    extern byte ___199f16h[];
-    extern byte ___199f18h[];
-    extern byte ___199f1ah[];
+    extern byte BPK_Previous[];
+    extern byte BPK_Work[];
+    extern byte BPK_Current[];
     extern byte ___199f1ch[];
     extern byte ___199f1eh[];
-    extern byte ___199f1fh[];
-    extern byte ___199f28h[];
+    extern byte BPK_End[];
+    extern byte BPK_Dst_i[];
 
     #pragma aux decode4__bpk parm routine []
     void decode4__bpk(dword, dword, void *, void *);
@@ -38,18 +38,18 @@ void decode2__bpk(void * dst, void * src){
     eax = dst;
     D(BPK_Dst) = eax;
     eax = 0;
-    D(___199f0ch) = eax;
+    D(BPK_Src_BitsOffset) = eax;
     D(BPK_Push) = eax;
-    D(___199f28h) = eax;
-    D(___199f10h) = 9;
+    D(BPK_Dst_i) = eax;
+    D(BPK_Src_BitsToRead) = 9;
     W(___199f14h) = 0x200;
     W(___199f1ch) = 0x102;
 ___5909dh:
-    eax = D(___199f0ch);
-    eax += D(___199f10h);
+    eax = D(BPK_Src_BitsOffset);
+    eax += D(BPK_Src_BitsToRead);
     tmp = eax;
-    eax = D(___199f0ch);
-    D(___199f0ch) = tmp;
+    eax = D(BPK_Src_BitsOffset);
+    D(BPK_Src_BitsOffset) = tmp;
     ecx = 8;
     edx = 0;
 	edx = eax & 7;
@@ -72,20 +72,20 @@ ___590cah:
 ___590d1h:
     ax = bx;
     ebx = 0;
-    ebx = D(___199f10h);
+    ebx = D(BPK_Src_BitsToRead);
     ebx -= 9;
     ebx <<= 1;
     ax &= W(ebx+___199f00h);
     if(ax == 0x100) goto ___592b7h;
     if(ax != 0x101) goto ___59195h;
-    D(___199f10h) = 9;
+    D(BPK_Src_BitsToRead) = 9;
     W(___199f14h) = 0x200;
     W(___199f1ch) = 0x102;
-    eax = D(___199f0ch);
-    eax += D(___199f10h);
+    eax = D(BPK_Src_BitsOffset);
+    eax += D(BPK_Src_BitsToRead);
     tmp = eax;
-    eax = D(___199f0ch);
-    D(___199f0ch) = tmp;
+    eax = D(BPK_Src_BitsOffset);
+    D(BPK_Src_BitsOffset) = tmp;
     ecx = 8;
     edx = 0;
 	edx = eax & 7;
@@ -108,33 +108,33 @@ ___59145h:
 ___5914ch:
     ax = bx;
     ebx = 0;
-    ebx = D(___199f10h);
+    ebx = D(BPK_Src_BitsToRead);
     ebx -= 9;
     ebx <<= 1;
     ax &= W(ebx+___199f00h);
-    W(___199f18h) = ax;
-    W(___199f16h) = ax;
+    W(BPK_Work) = ax;
+    W(BPK_Previous) = ax;
     B(___199f1eh) = al;
-    B(___199f1fh) = al;
-    edi = D(___199f28h);
+    B(BPK_End) = al;
+    edi = D(BPK_Dst_i);
     edi += D(BPK_Dst);
     al = (al >> 3) | (al << 5);
     B(edi) = al;
-    D(___199f28h)++;
+    D(BPK_Dst_i)++;
     goto ___5909dh;
 ___59195h:
-    W(___199f18h) = ax;
-    W(___199f1ah) = ax;
+    W(BPK_Work) = ax;
+    W(BPK_Current) = ax;
     if((short)ax < (short)W(___199f1ch)) goto ___591c6h;
-    ax = W(___199f16h);
-    W(___199f18h) = ax;
-    al = B(___199f1fh);
+    ax = W(BPK_Previous);
+    W(BPK_Work) = ax;
+    al = B(BPK_End);
 	esp -= 4;
 	D(esp) = eax;
     D(BPK_Push)++;
 ___591c6h:
-    if((short)W(___199f18h) <= (short)0xff) goto ___59205h;
-    bx = W(___199f18h);
+    if((short)W(BPK_Work) <= (short)0xff) goto ___59205h;
+    bx = W(BPK_Work);
     cx = bx;
     ebx = 0;
     bx = cx;
@@ -146,11 +146,11 @@ ___591c6h:
 	D(esp) = eax;
     D(BPK_Push)++;
     ax = W(ebx);
-    W(___199f18h) = ax;
+    W(BPK_Work) = ax;
     goto ___591c6h;
 ___59205h:
-    ax = W(___199f18h);
-    B(___199f1fh) = al;
+    ax = W(BPK_Work);
+    B(BPK_End) = al;
     B(___199f1eh) = al;
 	esp -= 4;
 	D(esp) = eax;
@@ -160,11 +160,11 @@ ___59205h:
 ___59225h:
 	eax = D(esp);
 	esp += 4;
-    edi = D(___199f28h);
+    edi = D(BPK_Dst_i);
     edi += D(BPK_Dst);
     al = (al >> 3) | (al << 5);
     B(edi) = al;
-    D(___199f28h)++;
+    D(BPK_Dst_i)++;
     if(--ecx) goto ___59225h;
 ___5923fh:
     D(BPK_Push) = ecx;
@@ -177,15 +177,15 @@ ___5923fh:
     ebx += (dword)___196f00h;
     al = B(___199f1eh);
     B(ebx+2) = al;
-    ax = W(___199f16h);
+    ax = W(BPK_Previous);
     W(ebx) = ax;
     W(___199f1ch)++;
-    ax = W(___199f1ah);
-    W(___199f16h) = ax;
+    ax = W(BPK_Current);
+    W(BPK_Previous) = ax;
     bx = W(___199f1ch);
     if((short)bx < (short)W(___199f14h)) goto ___5909dh;
-    if(D(___199f10h) == 0xc) goto ___5909dh;
-    D(___199f10h)++;
+    if(D(BPK_Src_BitsToRead) == 0xc) goto ___5909dh;
+    D(BPK_Src_BitsToRead)++;
     W(___199f14h) <<= 1;
     goto ___5909dh;
 ___592b7h:

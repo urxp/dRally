@@ -5,16 +5,16 @@
     extern  __CEXT_V(___196f00h)
     extern  __CEXT_V(___199f00h)
     extern  __CEXT_V(BPK_Push)
-    extern  __CEXT_V(___199f0ch)
-    extern  __CEXT_V(___199f10h)
+    extern  __CEXT_V(BPK_Src_BitsOffset)
+    extern  __CEXT_V(BPK_Src_BitsToRead)
     extern  __CEXT_V(___199f14h)
-    extern  __CEXT_V(___199f16h)
-    extern  __CEXT_V(___199f18h)
-    extern  __CEXT_V(___199f1ah)
+    extern  __CEXT_V(BPK_Previous)
+    extern  __CEXT_V(BPK_Work)
+    extern  __CEXT_V(BPK_Current)
     extern  __CEXT_V(___199f1ch)
     extern  __CEXT_V(___199f1eh)
-    extern  __CEXT_V(___199f1fh)
-    extern  __CEXT_V(___199f28h)
+    extern  __CEXT_V(BPK_End)
+    extern  __CEXT_V(BPK_Dst_i)
 
 %include "layout.inc"
 
@@ -30,16 +30,16 @@ __GDECL(__CEXT_F(decode2__bpk))
 		mov     eax, [ebp+8]
 		mov     [__CEXT_V(BPK_Dst)], eax
 		xor     eax, eax
-		mov     [__CEXT_V(___199f0ch)], eax
+		mov     [__CEXT_V(BPK_Src_BitsOffset)], eax
 		mov     [__CEXT_V(BPK_Push)], eax
-		mov     [__CEXT_V(___199f28h)], eax
-		mov     dword [__CEXT_V(___199f10h)], 9
+		mov     [__CEXT_V(BPK_Dst_i)], eax
+		mov     dword [__CEXT_V(BPK_Src_BitsToRead)], 9
 		mov     word [__CEXT_V(___199f14h)], 200h
 		mov     word [__CEXT_V(___199f1ch)], 102h
 ___5909dh:
-		mov     eax, [__CEXT_V(___199f0ch)]
-		add     eax, [__CEXT_V(___199f10h)]
-		xchg    eax, [__CEXT_V(___199f0ch)]
+		mov     eax, [__CEXT_V(BPK_Src_BitsOffset)]
+		add     eax, [__CEXT_V(BPK_Src_BitsToRead)]
+		xchg    eax, [__CEXT_V(BPK_Src_BitsOffset)]
 		mov     ecx, 8
 		xor     edx, edx
 		div     ecx
@@ -57,7 +57,7 @@ ___590cah:
 ___590d1h:
 		mov     ax, bx
 		xor     ebx, ebx
-		mov     ebx, [__CEXT_V(___199f10h)]
+		mov     ebx, [__CEXT_V(BPK_Src_BitsToRead)]
 		sub     ebx, byte 9
 		shl     ebx, 1
 		and     ax, [ebx+__CEXT_V(___199f00h)]
@@ -65,12 +65,12 @@ ___590d1h:
 		je      ___592b7h
 		cmp     ax, word 101h
 		jne     ___59195h
-		mov     dword [__CEXT_V(___199f10h)], 9
+		mov     dword [__CEXT_V(BPK_Src_BitsToRead)], 9
 		mov     word [__CEXT_V(___199f14h)], 200h
 		mov     word [__CEXT_V(___199f1ch)], 102h
-		mov     eax, [__CEXT_V(___199f0ch)]
-		add     eax, [__CEXT_V(___199f10h)]
-		xchg    eax, [__CEXT_V(___199f0ch)]
+		mov     eax, [__CEXT_V(BPK_Src_BitsOffset)]
+		add     eax, [__CEXT_V(BPK_Src_BitsToRead)]
+		xchg    eax, [__CEXT_V(BPK_Src_BitsOffset)]
 		mov     ecx, 8
 		xor     edx, edx
 		div     ecx
@@ -88,42 +88,42 @@ ___59145h:
 ___5914ch:
 		mov     ax, bx
 		xor     ebx, ebx
-		mov     ebx, [__CEXT_V(___199f10h)]
+		mov     ebx, [__CEXT_V(BPK_Src_BitsToRead)]
 		sub     ebx, byte 9
 		shl     ebx, 1
 		and     ax, [ebx+__CEXT_V(___199f00h)]
-		mov     [__CEXT_V(___199f18h)], ax
-		mov     [__CEXT_V(___199f16h)], ax
+		mov     [__CEXT_V(BPK_Work)], ax
+		mov     [__CEXT_V(BPK_Previous)], ax
 		mov     [__CEXT_V(___199f1eh)], al
-		mov     [__CEXT_V(___199f1fh)], al
-		mov     edi, [__CEXT_V(___199f28h)]
+		mov     [__CEXT_V(BPK_End)], al
+		mov     edi, [__CEXT_V(BPK_Dst_i)]
 		add     edi, [__CEXT_V(BPK_Dst)]
 		ror     al, 3
 		mov     [edi], al
-		inc     dword [__CEXT_V(___199f28h)]
+		inc     dword [__CEXT_V(BPK_Dst_i)]
 		jmp     ___5909dh
 ___59195h:
-		mov     [__CEXT_V(___199f18h)], ax
-		mov     [__CEXT_V(___199f1ah)], ax
+		mov     [__CEXT_V(BPK_Work)], ax
+		mov     [__CEXT_V(BPK_Current)], ax
 		cmp     ax, [__CEXT_V(___199f1ch)]
 		jl      ___591c6h
 		nop     
 		nop     
 		nop     
 		nop     
-		mov     ax, [__CEXT_V(___199f16h)]
-		mov     [__CEXT_V(___199f18h)], ax
-		mov     al, [__CEXT_V(___199f1fh)]
+		mov     ax, [__CEXT_V(BPK_Previous)]
+		mov     [__CEXT_V(BPK_Work)], ax
+		mov     al, [__CEXT_V(BPK_End)]
 		push    eax
 		inc     dword [__CEXT_V(BPK_Push)]
 ___591c6h:
-		cmp     word [__CEXT_V(___199f18h)], 0ffh
+		cmp     word [__CEXT_V(BPK_Work)], 0ffh
 		jle     ___59205h
 		nop     
 		nop     
 		nop     
 		nop     
-		mov     bx, [__CEXT_V(___199f18h)]
+		mov     bx, [__CEXT_V(BPK_Work)]
 		mov     cx, bx
 		xor     ebx, ebx
 		mov     bx, cx
@@ -134,11 +134,11 @@ ___591c6h:
 		push    eax
 		inc     dword [__CEXT_V(BPK_Push)]
 		mov     ax, [ebx]
-		mov     [__CEXT_V(___199f18h)], ax
+		mov     [__CEXT_V(BPK_Work)], ax
 		jmp     ___591c6h
 ___59205h:
-		mov     ax, [__CEXT_V(___199f18h)]
-		mov     [__CEXT_V(___199f1fh)], al
+		mov     ax, [__CEXT_V(BPK_Work)]
+		mov     [__CEXT_V(BPK_End)], al
 		mov     [__CEXT_V(___199f1eh)], al
 		push    eax
 		inc     dword [__CEXT_V(BPK_Push)]
@@ -146,11 +146,11 @@ ___59205h:
 		jcxz    ___5923fh
 ___59225h:
 		pop     eax
-		mov     edi, [__CEXT_V(___199f28h)]
+		mov     edi, [__CEXT_V(BPK_Dst_i)]
 		add     edi, [__CEXT_V(BPK_Dst)]
 		ror     al, 3
 		mov     [edi], al
-		inc     dword [__CEXT_V(___199f28h)]
+		inc     dword [__CEXT_V(BPK_Dst_i)]
 		loop    ___59225h
 ___5923fh:
 		mov     [__CEXT_V(BPK_Push)], ecx
@@ -163,11 +163,11 @@ ___5923fh:
 		add     ebx, __CEXT_V(___196f00h)
 		mov     al, [__CEXT_V(___199f1eh)]
 		mov     [ebx+2], al
-		mov     ax, [__CEXT_V(___199f16h)]
+		mov     ax, [__CEXT_V(BPK_Previous)]
 		mov     [ebx], ax
 		inc     word [__CEXT_V(___199f1ch)]
-		mov     ax, [__CEXT_V(___199f1ah)]
-		mov     [__CEXT_V(___199f16h)], ax
+		mov     ax, [__CEXT_V(BPK_Current)]
+		mov     [__CEXT_V(BPK_Previous)], ax
 		mov     bx, [__CEXT_V(___199f1ch)]
 		cmp     bx, [__CEXT_V(___199f14h)]
 		jl      ___5909dh
@@ -175,13 +175,13 @@ ___5923fh:
 		nop     
 		nop     
 		nop     
-		cmp     dword [__CEXT_V(___199f10h)], byte 0ch
+		cmp     dword [__CEXT_V(BPK_Src_BitsToRead)], byte 0ch
 		je      ___5909dh
 		nop     
 		nop     
 		nop     
 		nop     
-		inc     dword [__CEXT_V(___199f10h)]
+		inc     dword [__CEXT_V(BPK_Src_BitsToRead)]
 		shl     word [__CEXT_V(___199f14h)], 1
 		jmp     ___5909dh
 ___592b7h:

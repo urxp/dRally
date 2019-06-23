@@ -8372,35 +8372,35 @@ __GDECL(__CEXT_V(___199f00h))
 db	0ffh,1,0ffh,3,0ffh,7,0ffh,0fh
 __GDECL(__CEXT_V(BPK_Push))
 db	0,0,0,0
-__GDECL(__CEXT_V(___199f0ch))
+__GDECL(__CEXT_V(BPK_Src_BitsOffset))
 db	0,0,0,0
-__GDECL(__CEXT_V(___199f10h))
+__GDECL(__CEXT_V(BPK_Src_BitsToRead))
 db	9,0,0,0
 __GDECL(__CEXT_V(___199f14h))
 db	0,2
-__GDECL(__CEXT_V(___199f16h))
+__GDECL(__CEXT_V(BPK_Previous))
 db	0,0
-__GDECL(__CEXT_V(___199f18h))
+__GDECL(__CEXT_V(BPK_Work))
 db	0,0
-__GDECL(__CEXT_V(___199f1ah))
+__GDECL(__CEXT_V(BPK_Current))
 db	0,0
 __GDECL(__CEXT_V(___199f1ch))
 db	2,1
 __GDECL(__CEXT_V(___199f1eh))
 db	0
-__GDECL(__CEXT_V(___199f1fh))
+__GDECL(__CEXT_V(BPK_End))
 db	0
 __GDECL(__CEXT_V(BPK_Src))
 db	0,0,0,0
 __GDECL(__CEXT_V(BPK_Dst))
 db	0,0,0,0
-__GDECL(__CEXT_V(___199f28h))
+__GDECL(__CEXT_V(BPK_Dst_i))
 db	0,0,0,0
-__GDECL(__CEXT_V(___199f2ch))
+__GDECL(__CEXT_V(BPK_Src_i))
 db	0,0,0,0
-__GDECL(__CEXT_V(___199f30h))
+__GDECL(__CEXT_V(BPK_Src_Offset))
 db	0,0,0,0
-__GDECL(__CEXT_V(___199f34h))
+__GDECL(__CEXT_V(BPK_Bytes))
 db	0,0,0,0
 __GDECL(__CEXT_V(___199f38h))
 db	0,0,0,0
