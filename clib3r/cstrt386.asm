@@ -5,8 +5,6 @@
 	extern 	__osmajor
 	extern 	__osminor
 	extern 	__curbrk
-	extern 	__GDAptr
-	extern 	__D16Infoseg
 	extern 	__ExtenderSubtype
 	extern 	__Envptr
 	extern 	__Envseg
@@ -22,14 +20,15 @@
 	extern 	__CMain
 	extern 	__FiniRtns
 
+	extern 	__DOSseg__
+
 %include "layout.inc"
 
-section BEGTEXT
+section @begtext
 forever:
 		int3
 		jmp     forever
-global ___begtext
-___begtext:
+__GDECL(___begtext)
 		nop	;3
 		nop	;4
 		nop	;5
@@ -46,11 +45,9 @@ ___begtext:
 
 section @text
 
-global _cstart_
-_cstart_
+__GDECL(_cstart_)
 
-global start
-start:
+__GDECL(start)
 		jmp     short around
 
 db	"WATCOM C/C++32 Run-Time system. "
@@ -276,11 +273,9 @@ zerobss:
 		call    near __InitRtns
 		sub     ebp, ebp
 		call    near __CMain
-global __exit_
-__exit_:
+__GDECL(__exit_)
 		jmp     short ok
-global __do_exit_with_msg__
-__do_exit_with_msg__:
+__GDECL(__do_exit_with_msg__)
 		push    edx
 		push    eax
 		mov     edx, ConsoleName
@@ -309,10 +304,30 @@ ok:
 		mov     ah, 4ch
 		int     21h
 		db	8dh,40h,0
+__GDECL(___GETDSStart_)
 __GDECL(__GETDS)
 		mov     ds, [cs:__saved_DS]
 		retn    
 __saved_DS:
 db	0,0
-global ___GETDSEnd_
-___GETDSEnd_:
+__GDECL(___GETDSEnd_)
+
+
+section @data
+
+__GDECL(__GDAptr)
+db	0,0,0,0
+__GDECL(__D16Infoseg)
+db	20h,0
+__GDECL(__x386_zero_base_selector)
+db	0,0
+
+
+section @null
+
+__nullarea:
+db	1,1,1,0
+
+section @stack
+
+	resb	01000h

@@ -1,9 +1,11 @@
-subdirs = clib3r emu387 audio bpa dpmi dr esp serial timer video
+subdirs = clib3r emu387 graph math387r audio bpa dpmi dr esp serial timer video
 
 segs = @text.asm @data.asm @bss.asm
 
 clib3r = clib3r/clib3r.lib
 emu387 = emu387/emu387.lib
+graph = graph/graph.lib
+math387r = math387r/math387r.lib
 
 audio = audio/audio.lib
 bpa = bpa/bpa.lib
@@ -14,7 +16,7 @@ serial = serial/serial.lib
 timer = timer/timer.lib
 video = video/video.lib
 
-libs = $(clib3r) $(emu387) $(audio) $(bpa) $(dpmi) $(dr) $(esp) $(serial) $(timer) $(video)
+libs = $(clib3r) $(emu387) $(graph) $(math387r) $(audio) $(bpa) $(dpmi) $(dr) $(esp) $(serial) $(timer) $(video)
 
 default: $(subdirs) drally.exe drally.le drally.lx
 	@rm -f drally.lnk drle.lnk drlx.lnk
@@ -35,7 +37,7 @@ drally.obj: drally.asm Makefile
 	nasm -f obj -o $@ $< -Iinclude -w-all
 
 drally.lib: $(libs) drally.obj Makefile
-	wlib -fo -c -b -n -t $@ +-$(clib3r) +-$(emu387) +-$(audio) +-$(bpa) +-$(dpmi) +-$(dr) +-$(esp) +-$(serial) +-$(timer) +-$(video) +-drally.obj
+	wlib -fo -c -b -n -t $@ +-$(clib3r) +-$(emu387) +-$(graph) +-$(math387r) +-$(audio) +-$(bpa) +-$(dpmi) +-$(dr) +-$(esp) +-$(serial) +-$(timer) +-$(video) +-drally.obj
 
 drally.lnk: Makefile drally.lib
 #	@echo option osname="'DOS/4G'"                  > $@

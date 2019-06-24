@@ -1,6 +1,8 @@
+%include "macros.inc"
 
     extern  __ioalloc__clib3r
     extern  file_putc
+	extern 	fputc__clib3r
     extern  __prtf__clib3r
     extern  __flush__clib3r
 
@@ -8,8 +10,16 @@
 
 section @text
 
-global __fprtf__clib3r
-__fprtf__clib3r:
+file_putc:
+		push    ebx
+		mov     ebx, eax
+		mov     eax, edx
+		mov     edx, [ebx]
+		call    fputc__clib3r
+		inc     dword [ebx+10h]
+		pop     ebx
+		retn    
+__GDECL(__fprtf__clib3r)
 		push    ecx
 		push    esi
 		push    edi

@@ -2,7 +2,7 @@ TARGET = audio
 
 LIB_NAME = $(TARGET).lib
 
-OBJS = z_6ef2ch.obj z_71da4h.obj ___718ech__audio.obj load__s3m.obj load__xm.obj
+OBJS = ___dma.obj z_6ef2ch.obj z_71da4h.obj ___718ech__audio.obj load__s3m.obj load__xm.obj
 
 $(TARGET): $(LIB_NAME) $(OBJS)
 

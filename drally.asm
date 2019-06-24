@@ -61,12 +61,87 @@
     extern  __CEXT_F(loadXM)
     extern  __CEXT_F(___64864h__esp)
 
+    extern  ___7c970h__dma
+    extern  ___7c9e2h__dma
 
 
-    extern  __init_387_emulator
-    extern  __fini_387_emulator
-    extern  __int7_pl3
-    extern  __int7
+
+
+;; CLIB3R.LIB
+    extern  __CHK
+    extern  open__clib3r
+    extern  close__clib3r
+    extern  __CEXT_F(fopen__clib3r)
+    extern  __CEXT_F(fclose__clib3r)
+    extern  __CEXT_F(fread__clib3r)
+    extern  __CEXT_F(fseek__clib3r)
+    extern  __CEXT_F(malloc__clib3r)
+    extern  __CEXT_F(free__clib3r)
+    extern  __CEXT_F(__STOSB__clib3r)
+    extern  __CEXT_F(__STOSD__clib3r)
+    extern  filelength__clib3r
+    extern  memset__clib3r
+    extern  tolower
+    extern  raise
+    extern  fgetc
+    extern  ungetc
+    extern  fputc__clib3r
+;    extern  __terminate
+;    extern  _no_support_loaded_
+    extern  itoa
+
+;    extern  verify_pentium_fdiv_bug_
+    extern  sscanf
+    extern  scanf
+    extern  strcat
+    extern  strstr
+    extern  strlwr
+    extern  inp
+    extern  outp
+    extern  atoi
+    extern  __CEXT_F(rand__clib3r)
+    extern  srand__clib3r
+    extern  _dos_gettime
+    extern  kbhit_
+    extern  ltoa
+    extern  ultoa
+    extern  __CEXT_F(strcpy__clib3r)
+    extern  __CEXT_F(strlen__clib3r)
+    extern  __CEXT_F(strcmp__clib3r)
+    extern  __CEXT_F(strupr__clib3r)
+    extern  __CEXT_F(exit__clib3r)
+;    extern  _null_exit_rtn
+    extern  toupper
+    extern  putch
+    extern  putchar
+
+
+;; MATH387R.LIB
+;    extern  _matherr
+;    extern  __cnvs2d
+;    extern  _Scale
+;    extern  _Scale10V
+;    extern  __Bin2String
+;    extern  IF@LOG10
+;    extern  __grab_fpe
+    extern  ceil
+;    extern  _FtoS
+    extern  __CHP
+;    extern  __matherr
+
+
+;    extern  __setEFGfmt
+;    extern  __init_387_emulator
+;    extern  __chk8087_
+;    extern  __setenvp
+;    extern  __InitFiles
+;    extern  __fini_387_emulator
+;    extern  __full_io_exit
+
+
+;; GRAPH.LIB
+    
+    extern  _settextposition
 
 %include "layout.inc"
 
@@ -83,4 +158,4 @@ section @bss
 %include "@bss.asm"
 
 section @stack
-    resb 2000h
+    resb 1000h

@@ -1648,9 +1648,11 @@ ___24e5bch:	resb	4
 __GDECL(__CEXT_V(___24e5c0h))
     resb	80h
 ___24e640h:	resb	4
-___MiniHeapFreeRover:	resb	4
-___ClosedStreams:	resb	4
-___OpenStreams:	resb	80h
+;__GDECL(___MiniHeapFreeRover)
+    resb	4
+;__GDECL(___ClosedStreams)
+    resb	4
+___24e64ch: resb	80h
 ___24e6cch:	resb	84h
 __GDECL(__CEXT_V(___24e750h))
     resb	40h
@@ -1672,51 +1674,72 @@ __GDECL(___24e7a5h)
     resb	1
 __GDECL(___24e7a6h)
     resb	2
-_errno:	resb	4
-__doserrno:	resb	4
-___nheap_clean:	resb	8
-__Screen:	resb	4
-___24e7bch:	resb	2
-___24e7beh:	resb	2
-___24e7c0h:	resb	4
-__TextPos:	resb	2
-___24e7c6h:	resb	2
-__ConfigBuffer:	resb	2
-___24e7cah:	resb	2
-___24e7cch:	resb	2
-___24e7ceh:	resb	2
-___24e7d0h:	resb	2
-___24e7d2h:	resb	2
-___24e7d4h:	resb	2
-___24e7d6h:	resb	2
-___24e7d8h:	resb	2
-___24e7dah:	resb	2
-___24e7dch:	resb	2
-___24e7deh:	resb	4
-___24e7e2h:	resb	2
-___24e7e4h:	resb	2
-___24e7e6h:	resb	2
-___24e7e8h:	resb	0ah
-___24e7f2h:	resb	2
-___24e7f4h:	resb	4
-___24e7f8h:	resb	2
-___24e7fah:	resb	4
-___24e7feh:	resb	2
-___24e800h:	resb	2
-__DBCSPairs:	resb	0ah
-__SVGAType:	resb	2
-__StackSeg:	resb	2
-__DefMode:	resb	2
-__DefTextRows:	resb	2
-__CursorShape:	resb	2
-__Tx_Col_Min:	resb	2
-__Tx_Row_Max:	resb	2
-__Tx_Col_Max:	resb	2
-__Tx_Row_Min:	resb	4
-__IsDBCS:	resb	4
-____Argc:	resb	4
-____Argv:	resb	4
-___historical_splitparms:	resb	4
+;__GDECL(_errno)
+    resb	4
+;__GDECL(__doserrno)
+    resb	4
+;__GDECL(___nheap_clean)
+    resb	4
+    resb    4
+;__Screen
+    resb	4
+    resb	2
+    resb	2
+    resb	4
+;__TextPos:
+    resb	2
+    resb	2
+;__ConfigBuffer:	
+    resb	2
+    resb	2
+    resb	2
+    resb	2
+    resb	2
+    resb	2
+    resb	2
+    resb	2
+    resb	2
+    resb	2
+    resb	2
+    resb	4
+    resb	2
+    resb	2
+    resb	2
+    resb	0ah
+    resb	2
+    resb	4
+    resb	2
+    resb	4
+    resb	2
+    resb	2
+;__DBCSPairs:
+    resb	0ah
+;__SVGAType:
+    resb	2
+;__StackSeg:
+    resb	2
+;__DefMode:
+    resb	2
+;__DefTextRows:
+    resb	2
+;__CursorShape:
+    resb	2
+;__Tx_Col_Min:
+    resb	2
+;__Tx_Row_Max:
+    resb	2
+;__Tx_Col_Max:
+    resb	2
+;__Tx_Row_Min:
+    resb	4
+;__IsDBCS:
+    resb	4
+;__GDECL(____Argc)
+    resb	4
+;__GDECL(____Argv)
+    resb	4
+;__GDECL(___historical_splitparms)
+    resb	4
 __GDECL(__CEXT_V(___24e830h))
     resb	20h
 __GDECL(___24e850h)
@@ -1915,9 +1938,9 @@ __GDECL(___minreal)
     resb	2
 __GDECL(___24f2deh)
     resb	2
-__GDECL(_FPArea)
+;__GDECL(_FPArea)
     resb	80h
-__GDECL(_my_stack)
+;__GDECL(_my_stack)
     resb	400h
 __GDECL(___24f760h)
 	resb	68h

@@ -1,3 +1,4 @@
+%include "macros.inc"
 
     extern  __Extender
     extern  __amblksiz
@@ -9,8 +10,7 @@
 
 section @text
 
-global __CommonInit__clib3r
-__CommonInit__clib3r:
+__GDECL(__CommonInit__clib3r)
 		push    ebx
 		push    ecx
 		push    edx
