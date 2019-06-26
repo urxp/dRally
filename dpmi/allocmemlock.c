@@ -20,7 +20,7 @@ typedef struct AllocEntry {
 	dword 	nbytes;		// +5
 	dword 	handle;		// +9
 	word 	selector;	// +0dh
-	word 	segment;	// +0dh
+	word 	segment;	// +0fh
 	byte 	lock;		// +11h
 } AllocEntry;
 

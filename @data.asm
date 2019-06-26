@@ -8871,7 +8871,7 @@ db	0f9h,1,0f6h,1,0f2h,1,0eeh,1,0ebh,1,0e7h,1,0e4h,1,0e0h,1
 db	0ddh,1,0dah,1,0d6h,1,0d3h,1,0cfh,1,0cch,1,0c9h,1,0c6h,1
 db	0c2h,1,0bfh,1,0bbh,1,0b8h,1,0b5h,1,0b2h,1,0afh,1,0ach,1
 db	0a9h,1,0a6h,1,0a3h,1,0a0h,1,9dh,1,9ah,1,97h,1
-___19a804h:
+__GDECL(__CEXT_V(___19a804h))
 db	56h,41h,65h,41h,74h,41h,83h,41h,92h,41h,0a1h,41h,0b0h,41h,0c0h,41h
 db	0cfh,41h,0deh,41h,0edh,41h,0fch,41h,0ch,42h,1bh,42h,2ah,42h,39h,42h
 db	49h,42h,58h,42h,67h,42h,77h,42h,86h,42h,96h,42h,0a5h,42h,0b4h,42h
@@ -8949,7 +8949,7 @@ db	0adh,6eh,0c7h,6eh,0e0h,6eh,0fah,6eh,13h,6fh,2dh,6fh,47h,6fh,61h,6fh
 db	7ah,6fh,94h,6fh,0aeh,6fh,0c8h,6fh,0e2h,6fh,0fbh,6fh,15h,70h,2fh,70h
 db	49h,70h,63h,70h,7dh,70h,97h,70h,0b1h,70h,0cbh,70h,0e5h,70h,0ffh,70h
 db	19h,71h,34h,71h,4eh,71h,68h,71h,82h,71h,9ch,71h,0b7h,71h,0d1h,71h
-db	0ebh,71h,6,"r r:rUror",8ah,72h,0a4h,72h
+db	0ebh,71h,6,72h,20h,72h,3ah,72h,55h,72h,6fh,72h,8ah,72h,0a4h,72h
 db	0bfh,72h,0d9h,72h,0f4h,72h,0eh,73h,29h,73h,43h,73h,5eh,73h,79h,73h
 db	93h,73h,0aeh,73h,0c9h,73h,0e4h,73h,0feh,73h,19h,74h,34h,74h,4fh,74h
 db	6ah,74h,85h,74h,0a0h,74h,0bbh,74h,0d6h,74h,0f1h,74h,0ch,75h,27h,75h

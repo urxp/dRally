@@ -29,7 +29,7 @@
     extern  ___24ea9ch
     extern  ___19a694h
     extern  ___24ea98h
-    extern  ___71b70h
+    extern  __CEXT_F(___71b70h)
     extern  ___68990h
     extern  ___24f2c1h
     extern  ___24f2c2h
@@ -70,7 +70,7 @@
     extern  ___24f2bch
     extern  ___24f2c3h
     extern  ___24f2c5h
-    extern  ___24e9dah
+    extern  __CEXT_V(___24e9dah)
     extern  __CEXT_V(___19a281h)
     extern  ___68c42h
     extern  ___19a68ch
@@ -90,7 +90,7 @@
 section @text
 
 ___71bfch:
-		cmp     byte [___24e9dah], 0
+		cmp     byte [__CEXT_V(___24e9dah)], 0
 		jne     ___71c06h
 		retn    
 ___71c06h:
@@ -1708,7 +1708,7 @@ ___73397h:
 		jne     ___733d2h
 		mov     eax, [esp+8]
 		mov     eax, [eax*4+___24f1bch]
-		call    ___71b70h
+		call    __CEXT_F(___71b70h)
 		mov     edx, [esp+8]
 		mov     [edx*4+___68990h], eax
 		jmp     ___733feh
@@ -1718,7 +1718,7 @@ ___733d2h:
 		mov     al, [esp+4]
 		sar     edx, 18h
 		call    ___71ab0h
-		call    ___71b70h
+		call    __CEXT_F(___71b70h)
 		mov     edx, [esp+8]
 		xor     bh, bh
 		mov     [edx*4+___68990h], eax
@@ -1926,7 +1926,7 @@ ___736f9h:
 		mov     edi, [esp]
 		mov     eax, [eax*4+___24f1bch]
 		add     eax, edi
-		call    ___71b70h
+		call    __CEXT_F(___71b70h)
 		mov     edx, [esp+8]
 		mov     [edx*4+___68990h], eax
 		mov     eax, [esp+8]
@@ -2053,7 +2053,7 @@ ___738e8h:
 		mov     eax, [eax+___24f1bch]
 		call    ___71bfch
 ___738f3h:
-		call    ___71b70h
+		call    __CEXT_F(___71b70h)
 		mov     edx, [esp+8]
 		mov     [edx*4+___68990h], eax
 ___73903h:
@@ -2148,7 +2148,7 @@ ___73a26h:
 		mov     eax, ebx
 		sar     edx, 18h
 		call    ___71ab0h
-		call    ___71b70h
+		call    __CEXT_F(___71b70h)
 		mov     edx, [esp+8]
 		mov     [edx*4+___68990h], eax
 		mov     eax, [esp+8]
@@ -2186,7 +2186,7 @@ ___73aceh:
 ___73addh:
 		mov     eax, [esp+8]
 		mov     eax, [eax*4+___24f1bch]
-		call    ___71b70h
+		call    __CEXT_F(___71b70h)
 		mov     edx, [esp+8]
 		mov     [edx*4+___68990h], eax
 		jmp     ___74b66h
@@ -2212,7 +2212,7 @@ ___73b2eh:
 ___73b3dh:
 		mov     eax, [esp+8]
 		mov     eax, [eax*4+___24f1bch]
-		call    ___71b70h
+		call    __CEXT_F(___71b70h)
 		mov     edx, [esp+8]
 		mov     [edx*4+___68990h], eax
 		jmp     ___74b66h
@@ -2263,14 +2263,14 @@ ___73c06h:
 		test    bl, bl
 		jne     ___73c32h
 		mov     eax, [eax+___24f1bch]
-		call    ___71b70h
+		call    __CEXT_F(___71b70h)
 		mov     edx, [esp+8]
 		mov     [edx*4+___68990h], eax
 		jmp     ___74b66h
 ___73c32h:
 		mov     eax, [eax+___24f1bch]
 		call    ___71bfch
-		call    ___71b70h
+		call    __CEXT_F(___71b70h)
 		mov     edx, [esp+8]
 		mov     [edx*4+___68990h], eax
 		jmp     ___74b66h
@@ -2352,7 +2352,7 @@ ___73d61h:
 		mov     edx, [esp]
 		mov     eax, [eax*4+___24f1bch]
 		add     eax, edx
-		call    ___71b70h
+		call    __CEXT_F(___71b70h)
 		mov     edx, [esp+8]
 		mov     [edx*4+___68990h], eax
 		mov     eax, [esp+8]
@@ -2424,7 +2424,7 @@ ___73e9ah:
 		mov     eax, [eax+___24f1bch]
 		call    ___71bfch
 ___73ea5h:
-		call    ___71b70h
+		call    __CEXT_F(___71b70h)
 		mov     edx, [esp+8]
 		mov     [edx*4+___68990h], eax
 ___73eb5h:
@@ -2547,7 +2547,7 @@ ___74059h:
 		mov     ecx, [esp]
 		mov     eax, [eax*4+___24f1bch]
 		add     eax, ecx
-		call    ___71b70h
+		call    __CEXT_F(___71b70h)
 		mov     edx, [esp+8]
 		mov     [edx*4+___68990h], eax
 		mov     eax, [esp+8]
@@ -3840,7 +3840,7 @@ ___754ech:
 		mov     eax, [esp]
 ___754efh:
 		add     eax, ebx
-		call    ___71b70h
+		call    __CEXT_F(___71b70h)
 		mov     edx, [esp+8]
 		mov     [edx*4+___68990h], eax
 ___75501h:

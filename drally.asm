@@ -51,12 +51,17 @@
     extern  __CEXT_F(allocMemoryLock)
     extern  __CEXT_F(freeAllocInfoTable)
     extern  __CEXT_F(freeMemory)
+    extern  __CEXT_F(freedosmem__dpmi)
+    extern  __CEXT_F(allocdoslock__dpmi)
+    extern  __CEXT_F(int386_REGS1)
 
     extern  __CEXT_F(decode2__bpk)
     extern  __CEXT_F(decode4__bpk)
 
     extern  __CEXT_F(___6ef2ch__audio)
     extern  __CEXT_F(___718ech)
+    extern  __CEXT_F(___71b70h)
+    extern  __CEXT_F(___7c69ch)
     extern  __CEXT_F(loadS3M)
     extern  __CEXT_F(loadXM)
     extern  __CEXT_F(___64864h__esp)

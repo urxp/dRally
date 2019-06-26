@@ -1830,7 +1830,7 @@ __GDECL(___24e9d8h)
     resb	1
 __GDECL(___24e9d9h)
     resb	1
-__GDECL(___24e9dah)
+__GDECL(__CEXT_V(___24e9dah))
     resb	2
 __GDECL(___24e9dch)
     resb	7dh
@@ -1942,7 +1942,7 @@ __GDECL(___24f2deh)
     resb	80h
 ;__GDECL(_my_stack)
     resb	400h
-__GDECL(___24f760h)
+__GDECL(__CEXT_V(___24f760h))
 	resb	68h
 __GDECL(___24f7c8h)
 	resb	10h
