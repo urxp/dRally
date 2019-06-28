@@ -15,53 +15,58 @@ typedef struct duo {
 	extern byte * BPK_Src;
 	extern byte * BPK_Dst;
 	extern dword BPK_Bytes;
-	extern dword BPK_Src_BitsOffset;
-	extern short ___199f14h;
+	extern dword BPK_Src_BitsPosition;
+	extern word ___199f14h;
 	extern dword BPK_Src_BitsToRead;
 	extern duo BPK_Dict[];
-	extern short BPK_Work;
+	extern word BPK_Work;
 	extern int BPK_Dst_i;
-	extern short BPK_Current;
+	extern word BPK_Current;
 	extern word BPK_Previous;
-	extern short ___199f1ch;
-	extern dword BPK_Push;
+	extern word BPK_DictTop;
+	extern dword BPK_Pushed;
 
 
 #if defined(BPK_MEMORY)
 
-	#define S_PUSH(v)   s_bpk[BPK_Push++] = v
-	#define S_POP()     ((byte)((0x101 * s_bpk[BPK_Push]) >> 3))
+	#define S_PUSH(v)   s_bpk[BPK_Pushed++] = v
+	#define S_POP()     (((0x101 * s_bpk[--BPK_Pushed]) >> 3) & 0xff)
 
 #else
 
-	#define S_PUSH(v)   BPK_Push++; s__push(v)
+	#define S_PUSH(v)   s__push(v)
 	#define S_POP()     s__pop()
 
 	static inline void s__push(dword);
-	#pragma aux s__push = parm []
+	#pragma aux s__push = 	\
+		"push 	eax"		\
+		"inc 	BPK_Pushed"	\
+		parm [eax]
 
 	static inline dword s__pop();
 	#pragma aux s__pop =    \
 		"pop    eax"        \
 		"ror    al, 3"      \
-		modify  [eax esp]
+		"dec 	BPK_Pushed"	\
+		modify  [eax]
 
 #endif
 
 
 static inline dword readBits(){
 
-	dword result = D(BPK_Src + (BPK_Src_BitsOffset >> 3));
-	result >>= (BPK_Src_BitsOffset & 7);
+	dword result = D(BPK_Src + (BPK_Src_BitsPosition >> 3));
+	result >>= (BPK_Src_BitsPosition & 7);
 	result &= ~(~0 << BPK_Src_BitsToRead);
 
-	BPK_Src_BitsOffset += BPK_Src_BitsToRead;
+	BPK_Src_BitsPosition += BPK_Src_BitsToRead;
 
 	return result;
 }
 
 
 // 592c8h
+// LZW decompression, decoded bytes rotated right by 3 bits
 #pragma aux decode4__bpk parm routine []
 void decode4__bpk(dword nbytes, int dst_offset, void * dst, void * src){
 
@@ -74,32 +79,33 @@ void decode4__bpk(dword nbytes, int dst_offset, void * dst, void * src){
 	BPK_Bytes = nbytes;
 
 	BPK_Dst_i = ~dst_offset;
-	BPK_Src_BitsOffset = 0;
+	BPK_Src_BitsPosition = 0;
 	BPK_Src_BitsToRead = 9;
 	___199f14h = 0x200;
-	___199f1ch = 0x102;
+	BPK_DictTop = 0x102;
+	BPK_Pushed = 0;
 
 	while((BPK_Current = readBits()) != 0x100){
-
-		BPK_Push = 0;
 
 		if(BPK_Current == 0x101){
 
 			BPK_Src_BitsToRead = 9;
 			___199f14h = 0x200;
-			___199f1ch = 0x102;
+			BPK_DictTop = 0x102;
 
 			BPK_Current = readBits();
 			BPK_Work = BPK_Current;
+
+			S_PUSH(BPK_Work);
 		}
 		else {
 
-			if(BPK_Current >= ___199f1ch){
+			if(BPK_Current == BPK_DictTop){
 
 				S_PUSH(BPK_Work);
 				BPK_Work = BPK_Previous;
 			}
-			else BPK_Work = BPK_Current;
+			else BPK_Work = BPK_Current;	// is in dictionary
 
 			while(BPK_Work > 0xff){
 
@@ -107,10 +113,12 @@ void decode4__bpk(dword nbytes, int dst_offset, void * dst, void * src){
 				BPK_Work = BPK_Dict[BPK_Work].prev;
 			}
 
-			BPK_Dict[___199f1ch].data = BPK_Work;
-			BPK_Dict[___199f1ch].prev = BPK_Previous;
+			S_PUSH(BPK_Work);
 
-			if((++___199f1ch >= ___199f14h)&&(BPK_Src_BitsToRead != 0xc)){
+			BPK_Dict[BPK_DictTop].data = BPK_Work;
+			BPK_Dict[BPK_DictTop].prev = BPK_Previous;
+
+			if((++BPK_DictTop >= ___199f14h)&&(BPK_Src_BitsToRead != 0xc)){
 
 				BPK_Src_BitsToRead++;
 				___199f14h <<= 1;
@@ -118,9 +126,8 @@ void decode4__bpk(dword nbytes, int dst_offset, void * dst, void * src){
 		}
 
 		BPK_Previous = BPK_Current;
-		S_PUSH(BPK_Work);
 
-		while(BPK_Push--){
+		while(BPK_Pushed){
 
 			if(++BPK_Dst_i >= 0){
 
@@ -128,7 +135,16 @@ void decode4__bpk(dword nbytes, int dst_offset, void * dst, void * src){
 
 					BPK_Dst[BPK_Dst_i] = S_POP();
 				}
-				else return;
+				else {
+
+				#if !defined(BPK_MEMORY)
+
+					while(BPK_Pushed) S_POP();
+
+				#endif
+
+					return;
+				}
 			}
 			else S_POP();
 		}

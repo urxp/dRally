@@ -4,14 +4,14 @@
     extern byte BPK_Dst[];
     extern byte BPK_Dict[];
     extern byte ___199f00h[];
-    extern byte BPK_Push[];
-    extern byte BPK_Src_BitsOffset[];
+    extern byte BPK_Pushed[];
+    extern byte BPK_Src_BitsPosition[];
     extern byte BPK_Src_BitsToRead[];
     extern byte ___199f14h[];
     extern byte BPK_Previous[];
     extern byte BPK_Work[];
     extern byte BPK_Current[];
-    extern byte ___199f1ch[];
+    extern byte BPK_DictTop[];
     extern byte BPK_Next[];
     extern byte BPK_End[];
     extern byte BPK_Dst_i[];
@@ -40,27 +40,27 @@ void decode2__bpk(void * dst, void * src){
     D(BPK_Dst) = eax;
 //		xor     eax, eax
     eax = 0;
-//		mov     [__CEXT_V(BPK_Src_BitsOffset)], eax
-    D(BPK_Src_BitsOffset) = eax;
-//		mov     [__CEXT_V(BPK_Push)], eax
-    D(BPK_Push) = eax;
+//		mov     [__CEXT_V(BPK_Src_BitsPosition)], eax
+    D(BPK_Src_BitsPosition) = eax;
+//		mov     [__CEXT_V(BPK_Pushed)], eax
+    D(BPK_Pushed) = eax;
 //		mov     [__CEXT_V(BPK_Dst_i)], eax
     D(BPK_Dst_i) = eax;
 //		mov     dword [__CEXT_V(BPK_Src_BitsToRead)], 9
     D(BPK_Src_BitsToRead) = 9;
 //		mov     word [__CEXT_V(___199f14h)], 200h
     W(___199f14h) = 0x200;
-//		mov     word [__CEXT_V(___199f1ch)], 102h
-    W(___199f1ch) = 0x102;
+//		mov     word [__CEXT_V(BPK_DictTop)], 102h
+    W(BPK_DictTop) = 0x102;
 ___5909dh:
-//		mov     eax, [__CEXT_V(BPK_Src_BitsOffset)]
-    eax = D(BPK_Src_BitsOffset);
+//		mov     eax, [__CEXT_V(BPK_Src_BitsPosition)]
+    eax = D(BPK_Src_BitsPosition);
 //		add     eax, [__CEXT_V(BPK_Src_BitsToRead)]
     eax += D(BPK_Src_BitsToRead);
-//		xchg    eax, [__CEXT_V(BPK_Src_BitsOffset)]
+//		xchg    eax, [__CEXT_V(BPK_Src_BitsPosition)]
     tmp = eax;
-    eax = D(BPK_Src_BitsOffset);
-    D(BPK_Src_BitsOffset) = tmp;
+    eax = D(BPK_Src_BitsPosition);
+    D(BPK_Src_BitsPosition) = tmp;
 //		mov     ecx, 8
     ecx = 8;
 //		xor     edx, edx
@@ -116,16 +116,16 @@ ___590d1h:
     D(BPK_Src_BitsToRead) = 9;
 //		mov     word [__CEXT_V(___199f14h)], 200h
     W(___199f14h) = 0x200;
-//		mov     word [__CEXT_V(___199f1ch)], 102h
-    W(___199f1ch) = 0x102;
-//		mov     eax, [__CEXT_V(BPK_Src_BitsOffset)]
-    eax = D(BPK_Src_BitsOffset);
+//		mov     word [__CEXT_V(BPK_DictTop)], 102h
+    W(BPK_DictTop) = 0x102;
+//		mov     eax, [__CEXT_V(BPK_Src_BitsPosition)]
+    eax = D(BPK_Src_BitsPosition);
 //		add     eax, [__CEXT_V(BPK_Src_BitsToRead)]
     eax += D(BPK_Src_BitsToRead);
-//		xchg    eax, [__CEXT_V(BPK_Src_BitsOffset)]
+//		xchg    eax, [__CEXT_V(BPK_Src_BitsPosition)]
     tmp = eax;
-    eax = D(BPK_Src_BitsOffset);
-    D(BPK_Src_BitsOffset) = tmp;
+    eax = D(BPK_Src_BitsPosition);
+    D(BPK_Src_BitsPosition) = tmp;
 //		mov     ecx, 8
     ecx = 8;
 //		xor     edx, edx
@@ -196,9 +196,9 @@ ___59195h:
     W(BPK_Work) = ax;
 //		mov     [__CEXT_V(BPK_Current)], ax
     W(BPK_Current) = ax;
-//		cmp     ax, [__CEXT_V(___199f1ch)]
+//		cmp     ax, [__CEXT_V(BPK_DictTop)]
 //		jl      ___591c6h
-    if((short)ax < (short)W(___199f1ch)) goto ___591c6h;
+    if((short)ax < (short)W(BPK_DictTop)) goto ___591c6h;
 //		mov     ax, [__CEXT_V(BPK_Previous)]
     ax = W(BPK_Previous);
 //		mov     [__CEXT_V(BPK_Work)], ax
@@ -208,8 +208,8 @@ ___59195h:
 //		push    eax
 	esp -= 4;
 	D(esp) = eax;
-//		inc     dword [__CEXT_V(BPK_Push)]
-    D(BPK_Push)++;
+//		inc     dword [__CEXT_V(BPK_Pushed)]
+    D(BPK_Pushed)++;
 ___591c6h:
 //		cmp     word [__CEXT_V(BPK_Work)], 0ffh
 //		jle     ___59205h
@@ -233,8 +233,8 @@ ___591c6h:
 //		push    eax
 	esp -= 4;
 	D(esp) = eax;
-//		inc     dword [__CEXT_V(BPK_Push)]
-    D(BPK_Push)++;
+//		inc     dword [__CEXT_V(BPK_Pushed)]
+    D(BPK_Pushed)++;
 //		mov     ax, [ebx]
     ax = W(ebx);
 //		mov     [__CEXT_V(BPK_Work)], ax
@@ -251,10 +251,10 @@ ___59205h:
 //		push    eax
 	esp -= 4;
 	D(esp) = eax;
-//		inc     dword [__CEXT_V(BPK_Push)]
-    D(BPK_Push)++;
-//		mov     ecx, [__CEXT_V(BPK_Push)]
-    ecx = D(BPK_Push);
+//		inc     dword [__CEXT_V(BPK_Pushed)]
+    D(BPK_Pushed)++;
+//		mov     ecx, [__CEXT_V(BPK_Pushed)]
+    ecx = D(BPK_Pushed);
 //		jcxz    ___5923fh
     if(cx == 0) goto ___5923fh;
 ___59225h:
@@ -274,10 +274,10 @@ ___59225h:
 //		loop    ___59225h
     if(--ecx) goto ___59225h;
 ___5923fh:
-//		mov     [__CEXT_V(BPK_Push)], ecx
-    D(BPK_Push) = ecx;
-//		mov     bx, [__CEXT_V(___199f1ch)]
-    bx = W(___199f1ch);
+//		mov     [__CEXT_V(BPK_Pushed)], ecx
+    D(BPK_Pushed) = ecx;
+//		mov     bx, [__CEXT_V(BPK_DictTop)]
+    bx = W(BPK_DictTop);
 //		mov     cx, bx
     cx = bx;
 //		xor     ebx, ebx
@@ -298,14 +298,14 @@ ___5923fh:
     ax = W(BPK_Previous);
 //		mov     [ebx], ax
     W(ebx) = ax;
-//		inc     word [__CEXT_V(___199f1ch)]
-    W(___199f1ch)++;
+//		inc     word [__CEXT_V(BPK_DictTop)]
+    W(BPK_DictTop)++;
 //		mov     ax, [__CEXT_V(BPK_Current)]
     ax = W(BPK_Current);
 //		mov     [__CEXT_V(BPK_Previous)], ax
     W(BPK_Previous) = ax;
-//		mov     bx, [__CEXT_V(___199f1ch)]
-    bx = W(___199f1ch);
+//		mov     bx, [__CEXT_V(BPK_DictTop)]
+    bx = W(BPK_DictTop);
 //		cmp     bx, [__CEXT_V(___199f14h)]
 //		jl      ___5909dh
     if((short)bx < (short)W(___199f14h)) goto ___5909dh;
@@ -319,8 +319,8 @@ ___5923fh:
 //		jmp     ___5909dh
     goto ___5909dh;
 ___592b7h:
-//		mov     ecx, [__CEXT_V(BPK_Push)]
-    ecx = D(BPK_Push);
+//		mov     ecx, [__CEXT_V(BPK_Pushed)]
+    ecx = D(BPK_Pushed);
 //		jcxz    ___592c3h
     if(cx == 0) goto ___592c3h;
 ___592c0h:
