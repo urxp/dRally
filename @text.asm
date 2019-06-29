@@ -260,13 +260,13 @@ ___10911h:
 		mov     bh, [edx+eax]
 		mov     eax, 1001h
 		mov     [___1859d0h], ecx
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a1f18h], eax
 		mov     eax, 1001h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a1f14h], eax
 		mov     eax, 4004h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a1f24h], eax
 		xor     eax, eax
 		mov     al, bh
@@ -471,11 +471,11 @@ ___10c03h:
 ___10c1bh:
 		pop     edi
 		mov     eax, 0fa00h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a1f20h], eax
 		mov     eax, 0fa00h
 		mov     bh, [esp+408h]
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a1f0ch], eax
 		test    bh, bh
 		je      short ___10c62h
@@ -570,11 +570,11 @@ ___10d41h:
 		mov     dl, bl
 		add     eax, edx
 		mov     [___1a1f00h], eax
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a1f10h], eax
 		mov     eax, [___1a1f00h]
 		xor     ecx, ecx
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     edi, [___1a1f00h]
 		mov     [___1a1f1ch], eax
 		test    edi, edi
@@ -1369,7 +1369,7 @@ allocVGABuffer:
 		push    4
 		call    near __CHK
 		mov     eax, 4b000h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [VGABufferPtr_0], eax
 		mov     [___VGABufferPtr_0], eax
 		retn    
@@ -1384,508 +1384,508 @@ ___117f4h:
 		push    edi
 		push    ebp
 		mov     eax, 0a00h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a10d8h], eax
 		mov     eax, 0a00h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a10f0h], eax
 		mov     eax, 300h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a0fb8h], eax
 		mov     eax, 300h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a0fe0h], eax
 		mov     eax, 600h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [BGCOP_PAL_Ptr], eax
 		mov     eax, 8cah
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a10c4h], eax
 		mov     eax, 18000h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a10cch], eax
 		mov     eax, 6000h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [GreyFont0Ptr], eax
 		mov     eax, 6000h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [LightBlueFont0Ptr], eax
 		mov     eax, 6000h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [WhiteFont0Ptr], eax
 		mov     eax, 1a28h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a10b8h], eax
 		mov     eax, 4b000h 		;; 640x480
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [GXBackBuffer], eax
 		mov     eax, 2e00h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a0fe8h], eax
 		mov     eax, 516ch
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a0fbch], eax
 		mov     eax, 19a20h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a0fd8h], eax
 		mov     eax, 22eh
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a0fcch], eax
 		mov     eax, 71ah
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a0fd0h], eax
 		mov     eax, 3bah
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a0fd4h], eax
 		mov     eax, 3fc0h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a0fech], eax
 		mov     eax, 3fc0h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a0fc4h], eax
 		mov     eax, 3fc0h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a0fe4h], eax
 		mov     eax, 71ah
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a0fdch], eax
 		mov     eax, 3bah
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a0fach], eax
 		mov     eax, 22eh
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a0fc8h], eax
 		mov     eax, 2f4h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a0fb0h], eax
 		mov     eax, 2f4h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a0ff0h], eax
 		mov     eax, 2f4h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a0fa8h], eax
 		mov     eax, 3a64h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a0fc0h], eax
 		mov     eax, 1e780h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a0fa4h], eax
 		mov     eax, 1000h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___19de70h], eax
 		mov     eax, 1000h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___19de74h], eax
 		mov     eax, 1000h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___19de78h], eax
 		mov     eax, 1000h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___19de7ch], eax
 		mov     eax, 1000h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___19de80h], eax
 		mov     eax, 1000h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___19de84h], eax
 		mov     eax, 1000h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___19de88h], eax
 		mov     eax, 1000h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___19de8ch], eax
 		mov     eax, 1000h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___19de90h], eax
 		mov     eax, 1000h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___19de94h], eax
 		mov     eax, 1000h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___19de98h], eax
 		mov     eax, 1000h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___19de9ch], eax
 		mov     eax, 1000h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___19dea0h], eax
 		mov     eax, 1000h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___19dea4h], eax
 		mov     eax, 1000h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___19dea8h], eax
 		mov     eax, 1000h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___19deach], eax
 		mov     eax, 1000h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___19deb0h], eax
 		mov     eax, 1000h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___19deb4h], eax
 		mov     eax, 1000h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___19deb8h], eax
 		mov     eax, 1000h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___19debch], eax
 		mov     eax, 1000h
 		mov     ebx, bgcop_pal
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     edx, [BGCOP_PAL_Ptr]
 		mov     [___1a0fb4h], eax
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
 		mov     ebx, _15x150_bpk
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     edx, [___1a10c4h]
 		push    edx
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___180328h
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     ebx, [___1a10cch]
 		push    ebx
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___180334h
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     ecx, [WhiteFont0Ptr]
 		push    ecx
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___180340h
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     esi, [GreyFont0Ptr]
 		push    esi
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___18034ch
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     edi, [LightBlueFont0Ptr]
 		push    edi
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___180358h
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     ebp, [___1a10b8h]
 		push    ebp
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, __CEXT_V(rank1c_bpk)
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     eax, [___1a0fbch]
 		push    eax
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___180370h
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     edx, [___1a0fd8h]
 		push    edx
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___180380h
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     ebx, [___1a0fe8h]
 		push    ebx
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___18038ch
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     ecx, [___1a0fcch]
 		push    ecx
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___18039ch
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     esi, [___1a0fd0h]
 		push    esi
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___1803ach
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     edi, [___1a0fd4h]
 		push    edi
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___1803bch
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     ebp, [___1a0fech]
 		push    ebp
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___1803cch
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     eax, [___1a0fc4h]
 		push    eax
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___1803dch
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     edx, [___1a0fe4h]
 		push    edx
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___1803ech
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     ebx, [___1a0fdch]
 		push    ebx
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___1803f8h
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     ecx, [___1a0fach]
 		push    ecx
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___180404h
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     esi, [___1a0fc8h]
 		push    esi
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___180410h
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     edi, [___1a0fb0h]
 		push    edi
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___180420h
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     ebp, [___1a0ff0h]
 		push    ebp
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___18042ch
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     eax, [___1a0fa8h]
 		push    eax
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___18043ch
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     edx, [___1a0fc0h]
 		push    edx
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___180448h
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     ebx, [___1a0fa4h]
 		push    ebx
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___180454h
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     ecx, [___19de70h]
 		push    ecx
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___180460h
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     esi, [___19de74h]
 		push    esi
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___18046ch
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     edi, [___19de78h]
 		push    edi
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___180478h
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     ebp, [___19de7ch]
 		push    ebp
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___180484h
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     eax, [___19de80h]
 		push    eax
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___180490h
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     edx, [___19de84h]
 		push    edx
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___18049ch
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     ebx, [___19de88h]
 		push    ebx
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___1804a8h
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     ecx, [___19de8ch]
 		push    ecx
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___1804b4h
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     esi, [___19de90h]
 		push    esi
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___1804c0h
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     edi, [___19de94h]
 		push    edi
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___1804cch
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     ebp, [___19de98h]
 		push    ebp
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___1804d8h
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     eax, [___19de9ch]
 		push    eax
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___1804e4h
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     edx, [___19dea0h]
 		push    edx
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___1804f0h
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     ebx, [___19dea4h]
 		push    ebx
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___1804fch
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     ecx, [___19dea8h]
 		push    ecx
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___180508h
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     esi, [___19deach]
 		push    esi
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___180514h
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     edi, [___19deb0h]
 		push    edi
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___180520h
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     ebp, [___19deb4h]
 		push    ebp
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___18052ch
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     eax, [___19deb8h]
 		push    eax
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___180538h
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     edx, [___19debch]
 		push    edx
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___180544h
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     ebx, [___1a0fb4h]
 		push    ebx
 		call    near __CEXT_F(decode2__bpk)
@@ -1898,26 +1898,26 @@ ___117f4h:
 		mov     edx, [___1a0fe0h]
 		call    near __CEXT_F(read__bpa)
 		mov     ebx, ___180568h
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     ecx, [___1a10f0h]
 		push    ecx
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___180574h
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     esi, [___1a10d8h]
 		push    esi
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___180580h
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     edi, [GXBackBuffer]
 		push    edi
 		call    near __CEXT_F(decode2__bpk)
@@ -2047,124 +2047,124 @@ ___1240ch:
 		xor     edx, edx
 		mov     eax, 7530h
 		mov     [___1a1e68h], edx
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a1128h], eax
 		mov     eax, 1b18h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a10f8h], eax
 		mov     eax, 1100h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a1104h], eax
 		mov     eax, 5000h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a10d4h], eax
 		mov     eax, 2800h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a10bch], eax
 		mov     eax, 2800h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a10e8h], eax
 		mov     eax, 8700h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a10dch], eax
 		mov     eax, 2800h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a10ach], eax
 		mov     eax, 0aa00h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a10c0h], eax
 		mov     eax, 111ch
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a10ech], eax
 		mov     eax, 1900h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a10b4h], eax
 		mov     eax, 4e20h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a10f4h], eax
 		mov     eax, 18000h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a10d0h], eax
 		mov     eax, 18000h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a10e0h], eax
 		mov     eax, 2800h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a0ff8h], eax
 		mov     eax, 1500h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a10a4h], eax
 		mov     eax, 3800h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a1040h], eax
 		mov     eax, 3800h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a1044h], eax
 		mov     eax, 3800h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a1048h], eax
 		mov     eax, 3800h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a104ch], eax
 		mov     eax, 3800h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a1050h], eax
 		mov     eax, 3800h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a1054h], eax
 		mov     eax, 3800h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a1058h], eax
 		mov     eax, 3800h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a105ch], eax
 		mov     eax, 3800h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a1060h], eax
 		mov     eax, 3800h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a1064h], eax
 		mov     eax, 3800h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a1068h], eax
 		mov     eax, 3800h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a106ch], eax
 		mov     eax, 3800h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a1070h], eax
 		mov     eax, 3800h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a1074h], eax
 		mov     eax, 3800h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a1078h], eax
 		mov     eax, 3800h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a107ch], eax
 		mov     eax, 3800h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a1080h], eax
 		mov     eax, 3800h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a1084h], eax
 		mov     eax, 3800h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a1088h], eax
 		mov     eax, 3800h
 		xor     edi, edi
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a1030h], eax
 		mov     eax, 3800h
 		xor     esi, esi
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a1038h], eax
 ___12653h:
 		mov     ebx, ___18058ch
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     ebx, [esi+___1a1040h]
 		push    ebx
 		push    edi
@@ -2175,150 +2175,150 @@ ___12653h:
 		cmp     esi, byte 4ch
 		jne     short ___12653h
 		mov     ebx, ___18058ch
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     ecx, [___1a1030h]
 		push    ecx
 		push    3f000h
 		push    3800h
 		call    near __CEXT_F(decode4__bpk)
 		mov     ebx, ___18058ch
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     esi, [___1a1038h]
 		push    esi
 		push    42800h
 		push    3800h
 		call    near __CEXT_F(decode4__bpk)
 		mov     ebx, ___18059ch
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     edi, [___1a10f4h]
 		push    edi
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___1805a8h
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     ebp, [___1a10e0h]
 		push    ebp
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___1805b4h
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     eax, [___1a10d0h]
 		push    eax
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___1805c0h
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     edx, [___1a10b4h]
 		push    edx
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___1805d0h
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     ebx, [___1a1128h]
 		push    ebx
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___1805e0h
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     ecx, [___1a10d4h]
 		push    ecx
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___1805f0h
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     esi, [___1a10bch]
 		push    esi
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___180600h
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     edi, [___1a10e8h]
 		push    edi
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___180610h
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     ebp, [___1a10dch]
 		push    ebp
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___18061ch
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     eax, [___1a10ach]
 		push    eax
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___180628h
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     edx, [___1a10c0h]
 		push    edx
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___180634h
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     ebx, [___1a10ech]
 		push    ebx
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___180644h
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     ecx, [___1a10f8h]
 		push    ecx
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___180654h
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     esi, [___1a1104h]
 		push    esi
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___180664h
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     edi, [___1a0ff8h]
 		push    edi
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___180674h
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     ebp, [___1a10a4h]
 		push    ebp
 		call    near __CEXT_F(decode2__bpk)
@@ -2729,7 +2729,7 @@ ___12fabh:
 		mov     ecx, [esp+8]
 		mov     edx, [esp+0ch]
 		mov     ebx, [VGABufferPtr_0]
-		mov     esi, [___1a10b0h]
+		mov     esi, [__CEXT_V(___1a10b0h)]
 		add     ebx, ebp
 		shr     dl, 2
 ___12fcdh:
@@ -2759,7 +2759,7 @@ ___12ff9h:
 		imul    ecx, edi
 		mov     edx, [esp+0ch]
 		mov     ebx, [VGABufferPtr_0]
-		mov     esi, [___1a10b0h]
+		mov     esi, [__CEXT_V(___1a10b0h)]
 		add     ebx, ebp
 		add     esi, ecx
 		mov     ecx, [esp+8]
@@ -5065,7 +5065,7 @@ ___14c50h:
 		push    ebx
 		push    ecx
 		push    edx
-		mov     ebx, [___1a1ef8h]
+		mov     ebx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [ebx*8+0]
 		sub     eax, ebx
 		shl     eax, 2
@@ -5110,7 +5110,7 @@ ___14cach:
 		mov     ecx, 80h
 		mov     edx, 68h
 		mov     ebx, [VGABufferPtr_0]
-		mov     esi, [___1a1e74h]
+		mov     esi, [__CEXT_V(___1a1e74h)]
 		add     ebx, 1a42dh
 ___14cf2h:
 		mov     edi, edx
@@ -5193,7 +5193,7 @@ ___14dc4h:
 		mov     ecx, 80h
 		mov     edx, 68h
 		mov     ebx, [VGABufferPtr_0]
-		mov     esi, [___1a1e74h]
+		mov     esi, [__CEXT_V(___1a1e74h)]
 		add     ebx, 1a42dh
 ___14e1fh:
 		mov     edi, edx
@@ -5211,13 +5211,13 @@ ___14e29h:
 		sub     ebx, edx
 		dec     ecx
 		jne     short ___14e1fh
-		mov     ebx, [___1a1ef8h]
+		mov     ebx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [ebx*8+0]
 		sub     eax, ebx
 		shl     eax, 2
 		sub     eax, ebx
 		shl     eax, 2
-		mov     ecx, [eax+___1a01fch]
+		mov     ecx, [eax+__CEXT_V(___1a01fch)]
 		cmp     ecx, byte 5
 		jne     short ___14e70h
 		mov     edi, [eax+___1a0210h]
@@ -5225,13 +5225,13 @@ ___14e29h:
 		mov     [esp], ecx
 		mov     [eax+___1a0210h], edi
 ___14e70h:
-		mov     ebx, [___1a1ef8h]
+		mov     ebx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [ebx*8+0]
 		sub     eax, ebx
 		shl     eax, 2
 		sub     eax, ebx
 		shl     eax, 2
-		mov     edx, [eax+___1a01fch]
+		mov     edx, [eax+__CEXT_V(___1a01fch)]
 		cmp     edx, byte 4
 		jne     short ___14ea7h
 		mov     ecx, [eax+___1a0210h]
@@ -5239,13 +5239,13 @@ ___14e70h:
 		mov     [esp], edx
 		mov     [eax+___1a0210h], ecx
 ___14ea7h:
-		mov     ebx, [___1a1ef8h]
+		mov     ebx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [ebx*8+0]
 		sub     eax, ebx
 		shl     eax, 2
 		sub     eax, ebx
 		shl     eax, 2
-		mov     esi, [eax+___1a01fch]
+		mov     esi, [eax+__CEXT_V(___1a01fch)]
 		cmp     esi, byte 3
 		jne     short ___14edeh
 		mov     edx, [eax+___1a0210h]
@@ -5253,13 +5253,13 @@ ___14ea7h:
 		mov     [esp], esi
 		mov     [eax+___1a0210h], edx
 ___14edeh:
-		mov     ebx, [___1a1ef8h]
+		mov     ebx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [ebx*8+0]
 		sub     eax, ebx
 		shl     eax, 2
 		sub     eax, ebx
 		shl     eax, 2
-		mov     ebx, [eax+___1a01fch]
+		mov     ebx, [eax+__CEXT_V(___1a01fch)]
 		cmp     ebx, byte 2
 		jne     short ___14f15h
 		mov     esi, [eax+___1a0210h]
@@ -5267,13 +5267,13 @@ ___14edeh:
 		mov     [esp], ebx
 		mov     [eax+___1a0210h], esi
 ___14f15h:
-		mov     ebx, [___1a1ef8h]
+		mov     ebx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [ebx*8+0]
 		sub     eax, ebx
 		shl     eax, 2
 		sub     eax, ebx
 		shl     eax, 2
-		mov     edi, [eax+___1a01fch]
+		mov     edi, [eax+__CEXT_V(___1a01fch)]
 		cmp     edi, byte 1
 		jne     short ___14f4ch
 		mov     ebx, [eax+___1a0210h]
@@ -5281,13 +5281,13 @@ ___14f15h:
 		mov     [esp], edi
 		mov     [eax+___1a0210h], ebx
 ___14f4ch:
-		mov     ebx, [___1a1ef8h]
+		mov     ebx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [ebx*8+0]
 		sub     eax, ebx
 		shl     eax, 2
 		sub     eax, ebx
 		shl     eax, 2
-		mov     ecx, [eax+___1a01fch]
+		mov     ecx, [eax+__CEXT_V(___1a01fch)]
 		test    ecx, ecx
 		jne     short ___14f82h
 		mov     edi, [eax+___1a0210h]
@@ -5424,7 +5424,7 @@ ___15130h:
 		mov     ecx, 80h
 		mov     edx, 68h
 		mov     ebx, [VGABufferPtr_0]
-		mov     esi, [___1a1e84h]
+		mov     esi, [__CEXT_V(___1a1e84h)]
 		add     ebx, 1a42dh
 ___1518bh:
 		mov     edi, edx
@@ -5442,13 +5442,13 @@ ___15195h:
 		sub     ebx, edx
 		dec     ecx
 		jne     short ___1518bh
-		mov     ebx, [___1a1ef8h]
+		mov     ebx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [ebx*8+0]
 		sub     eax, ebx
 		shl     eax, 2
 		sub     eax, ebx
 		shl     eax, 2
-		mov     ecx, [eax+___1a01fch]
+		mov     ecx, [eax+__CEXT_V(___1a01fch)]
 		cmp     ecx, byte 5
 		jne     short ___151dch
 		mov     edi, [eax+___1a0210h]
@@ -5456,13 +5456,13 @@ ___15195h:
 		mov     [esp], ecx
 		mov     [eax+___1a0210h], edi
 ___151dch:
-		mov     ebx, [___1a1ef8h]
+		mov     ebx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [ebx*8+0]
 		sub     eax, ebx
 		shl     eax, 2
 		sub     eax, ebx
 		shl     eax, 2
-		mov     edx, [eax+___1a01fch]
+		mov     edx, [eax+__CEXT_V(___1a01fch)]
 		cmp     edx, byte 4
 		jne     short ___15213h
 		mov     ecx, [eax+___1a0210h]
@@ -5470,13 +5470,13 @@ ___151dch:
 		mov     [esp], edx
 		mov     [eax+___1a0210h], ecx
 ___15213h:
-		mov     ebx, [___1a1ef8h]
+		mov     ebx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [ebx*8+0]
 		sub     eax, ebx
 		shl     eax, 2
 		sub     eax, ebx
 		shl     eax, 2
-		mov     esi, [eax+___1a01fch]
+		mov     esi, [eax+__CEXT_V(___1a01fch)]
 		cmp     esi, byte 3
 		jne     short ___1524ah
 		mov     edx, [eax+___1a0210h]
@@ -5484,13 +5484,13 @@ ___15213h:
 		mov     [esp], esi
 		mov     [eax+___1a0210h], edx
 ___1524ah:
-		mov     ebx, [___1a1ef8h]
+		mov     ebx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [ebx*8+0]
 		sub     eax, ebx
 		shl     eax, 2
 		sub     eax, ebx
 		shl     eax, 2
-		mov     ebx, [eax+___1a01fch]
+		mov     ebx, [eax+__CEXT_V(___1a01fch)]
 		cmp     ebx, byte 2
 		jne     short ___15281h
 		mov     esi, [eax+___1a0210h]
@@ -5498,13 +5498,13 @@ ___1524ah:
 		mov     [esp], ebx
 		mov     [eax+___1a0210h], esi
 ___15281h:
-		mov     ebx, [___1a1ef8h]
+		mov     ebx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [ebx*8+0]
 		sub     eax, ebx
 		shl     eax, 2
 		sub     eax, ebx
 		shl     eax, 2
-		mov     edi, [eax+___1a01fch]
+		mov     edi, [eax+__CEXT_V(___1a01fch)]
 		cmp     edi, byte 1
 		jne     short ___152b8h
 		mov     ebx, [eax+___1a0210h]
@@ -5512,13 +5512,13 @@ ___15281h:
 		mov     [esp], edi
 		mov     [eax+___1a0210h], ebx
 ___152b8h:
-		mov     ebx, [___1a1ef8h]
+		mov     ebx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [ebx*8+0]
 		sub     eax, ebx
 		shl     eax, 2
 		sub     eax, ebx
 		shl     eax, 2
-		mov     ecx, [eax+___1a01fch]
+		mov     ecx, [eax+__CEXT_V(___1a01fch)]
 		test    ecx, ecx
 		jne     short ___152eeh
 		mov     edi, [eax+___1a0210h]
@@ -5655,7 +5655,7 @@ ___1549ch:
 		mov     ecx, 80h
 		mov     edx, 68h
 		mov     ebx, [VGABufferPtr_0]
-		mov     esi, [___1a1e60h]
+		mov     esi, [__CEXT_V(___1a1e60h)]
 		add     ebx, 1a42dh
 ___154f7h:
 		mov     edi, edx
@@ -5673,13 +5673,13 @@ ___15501h:
 		sub     ebx, edx
 		dec     ecx
 		jne     short ___154f7h
-		mov     ebx, [___1a1ef8h]
+		mov     ebx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [ebx*8+0]
 		sub     eax, ebx
 		shl     eax, 2
 		sub     eax, ebx
 		shl     eax, 2
-		mov     ecx, [eax+___1a01fch]
+		mov     ecx, [eax+__CEXT_V(___1a01fch)]
 		cmp     ecx, byte 5
 		jne     short ___15548h
 		mov     edi, [eax+___1a0210h]
@@ -5687,13 +5687,13 @@ ___15501h:
 		mov     [esp], ecx
 		mov     [eax+___1a0210h], edi
 ___15548h:
-		mov     ebx, [___1a1ef8h]
+		mov     ebx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [ebx*8+0]
 		sub     eax, ebx
 		shl     eax, 2
 		sub     eax, ebx
 		shl     eax, 2
-		mov     edx, [eax+___1a01fch]
+		mov     edx, [eax+__CEXT_V(___1a01fch)]
 		cmp     edx, byte 4
 		jne     short ___1557fh
 		mov     ecx, [eax+___1a0210h]
@@ -5701,13 +5701,13 @@ ___15548h:
 		mov     [esp], edx
 		mov     [eax+___1a0210h], ecx
 ___1557fh:
-		mov     ebx, [___1a1ef8h]
+		mov     ebx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [ebx*8+0]
 		sub     eax, ebx
 		shl     eax, 2
 		sub     eax, ebx
 		shl     eax, 2
-		mov     esi, [eax+___1a01fch]
+		mov     esi, [eax+__CEXT_V(___1a01fch)]
 		cmp     esi, byte 3
 		jne     short ___155b6h
 		mov     edx, [eax+___1a0210h]
@@ -5715,13 +5715,13 @@ ___1557fh:
 		mov     [esp], esi
 		mov     [eax+___1a0210h], edx
 ___155b6h:
-		mov     ebx, [___1a1ef8h]
+		mov     ebx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [ebx*8+0]
 		sub     eax, ebx
 		shl     eax, 2
 		sub     eax, ebx
 		shl     eax, 2
-		mov     ebx, [eax+___1a01fch]
+		mov     ebx, [eax+__CEXT_V(___1a01fch)]
 		cmp     ebx, byte 2
 		jne     short ___155edh
 		mov     esi, [eax+___1a0210h]
@@ -5729,13 +5729,13 @@ ___155b6h:
 		mov     [esp], ebx
 		mov     [eax+___1a0210h], esi
 ___155edh:
-		mov     ebx, [___1a1ef8h]
+		mov     ebx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [ebx*8+0]
 		sub     eax, ebx
 		shl     eax, 2
 		sub     eax, ebx
 		shl     eax, 2
-		mov     edi, [eax+___1a01fch]
+		mov     edi, [eax+__CEXT_V(___1a01fch)]
 		cmp     edi, byte 1
 		jne     short ___15624h
 		mov     ebx, [eax+___1a0210h]
@@ -5743,13 +5743,13 @@ ___155edh:
 		mov     [esp], edi
 		mov     [eax+___1a0210h], ebx
 ___15624h:
-		mov     ebx, [___1a1ef8h]
+		mov     ebx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [ebx*8+0]
 		sub     eax, ebx
 		shl     eax, 2
 		sub     eax, ebx
 		shl     eax, 2
-		mov     ecx, [eax+___1a01fch]
+		mov     ecx, [eax+__CEXT_V(___1a01fch)]
 		test    ecx, ecx
 		jne     short ___1565ah
 		mov     edi, [eax+___1a0210h]
@@ -5886,7 +5886,7 @@ ___15808h:
 		mov     ecx, 80h
 		mov     edx, 68h
 		mov     ebx, [VGABufferPtr_0]
-		mov     esi, [___1a1e80h]
+		mov     esi, [__CEXT_V(___1a1e80h)]
 		add     ebx, 1a42dh
 ___15863h:
 		mov     edi, edx
@@ -5909,7 +5909,7 @@ ___1586dh:
 		jle     near ___15bb6h
 		cmp     ecx, byte 1
 		jne     short ___158bbh
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		lea     edi, [esp+34h]
@@ -5922,7 +5922,7 @@ ___1586dh:
 ___158bbh:
 		cmp     dword [___196aa4h], byte 2
 		jne     short ___158f7h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -5937,7 +5937,7 @@ ___158bbh:
 ___158f7h:
 		cmp     dword [___196aa4h], byte 3
 		jne     short ___15933h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -5952,7 +5952,7 @@ ___158f7h:
 ___15933h:
 		cmp     dword [___196aa4h], byte 4
 		jne     short ___15966h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		lea     edi, [esp+34h]
@@ -5965,7 +5965,7 @@ ___15933h:
 ___15966h:
 		cmp     dword [___196aa4h], byte 5
 		jne     short ___159a2h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -5980,7 +5980,7 @@ ___15966h:
 ___159a2h:
 		cmp     dword [___196aa4h], byte 6
 		jne     short ___159deh
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -6269,7 +6269,7 @@ ___15c5ch:
 		mov     eax, ___18b502h
 		add     edx, 80h
 		call    near ___13094h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -6330,7 +6330,7 @@ ___15e3ch:
 		mov     ecx, 80h
 		mov     edx, 68h
 		mov     ebx, [VGABufferPtr_0]
-		mov     esi, [___1a1e84h]
+		mov     esi, [__CEXT_V(___1a1e84h)]
 		add     ebx, 1a42dh
 ___15e97h:
 		mov     edi, edx
@@ -6353,7 +6353,7 @@ ___15ea1h:
 		jle     near ___16258h
 		cmp     ecx, byte 1
 		jne     short ___15eeeh
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		lea     edi, [esp+34h]
@@ -6366,7 +6366,7 @@ ___15ea1h:
 ___15eeeh:
 		cmp     dword [___196aa8h], byte 2
 		jne     short ___15f2ah
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -6381,7 +6381,7 @@ ___15eeeh:
 ___15f2ah:
 		cmp     dword [___196aa8h], byte 3
 		jne     short ___15f66h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -6396,7 +6396,7 @@ ___15f2ah:
 ___15f66h:
 		cmp     dword [___196aa8h], byte 4
 		jne     short ___15f99h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		lea     edi, [esp+34h]
@@ -6409,7 +6409,7 @@ ___15f66h:
 ___15f99h:
 		cmp     dword [___196aa8h], byte 5
 		jne     short ___15fd5h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -6425,7 +6425,7 @@ ___15fd5h:
 		cmp     dword [___196aa8h], byte 6
 		jne     short ___16006h
 		mov     eax, [___1806e4h]
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		mov     [esp+34h], eax
 		lea     eax, [edx*8+0]
 		sub     eax, edx
@@ -6764,7 +6764,7 @@ ___162fbh:
 		lea     edx, [eax+80h]
 		mov     eax, ___18bb42h
 		call    near ___13094h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -6904,7 +6904,7 @@ ___1667ch:
 		mov     ecx, 80h
 		mov     edx, 68h
 		mov     ebx, [VGABufferPtr_0]
-		mov     esi, [___1a1e84h]
+		mov     esi, [__CEXT_V(___1a1e84h)]
 		add     ebx, 1a42dh
 ___16698h:
 		mov     edi, edx
@@ -6990,7 +6990,7 @@ ___1678ch:
 		mov     ecx, 80h
 		mov     edx, 68h
 		mov     ebx, [VGABufferPtr_0]
-		mov     esi, [___1a1e74h]
+		mov     esi, [__CEXT_V(___1a1e74h)]
 		add     ebx, 1a42dh
 ___167d2h:
 		mov     edi, edx
@@ -7063,7 +7063,7 @@ ___168b4h:
 		push    edi
 		push    ebp
 		sub     esp, byte 54h
-		mov     ebx, [___1a1ef8h]
+		mov     ebx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [ebx*8+0]
 		sub     eax, ebx
 		mov     edi, 83h
@@ -7081,7 +7081,7 @@ ___168b4h:
 		jge     short ___16910h
 		mov     dword [esp+50h], 1
 ___16910h:
-		mov     ebx, [___1a1ef8h]
+		mov     ebx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [ebx*8+0]
 		sub     eax, ebx
 		shl     eax, 2
@@ -7094,7 +7094,7 @@ ___16910h:
 		jge     short ___16942h
 		mov     [esp+50h], ecx
 ___16942h:
-		mov     ebx, [___1a1ef8h]
+		mov     ebx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [ebx*8+0]
 		sub     eax, ebx
 		shl     eax, 2
@@ -7106,7 +7106,7 @@ ___16942h:
 		jge     short ___16976h
 		mov     dword [esp+50h], 1
 ___16976h:
-		mov     ebx, [___1a1ef8h]
+		mov     ebx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [ebx*8+0]
 		sub     eax, ebx
 		shl     eax, 2
@@ -7118,7 +7118,7 @@ ___16976h:
 		jge     short ___169aah
 		mov     dword [esp+50h], 1
 ___169aah:
-		mov     ebx, [___1a1ef8h]
+		mov     ebx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [ebx*8+0]
 		sub     eax, ebx
 		shl     eax, 2
@@ -7146,7 +7146,7 @@ ___169deh:
 		add     eax, ecx
 		mov     ecx, 60h
 		add     eax, esi
-		mov     esi, [___1a1e58h]
+		mov     esi, [__CEXT_V(___1a1e58h)]
 		lea     ebx, [eax+0ch]
 		mov     edx, ecx
 		shr     dl, 2
@@ -7276,7 +7276,7 @@ ___16a26h:
 		mov     eax, ___18cae2h
 		mov     edx, ebx
 		call    near ___13094h
-		mov     ebx, [___1a1ef8h]
+		mov     ebx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [ebx*8+0]
 		sub     eax, ebx
 		shl     eax, 2
@@ -7286,7 +7286,7 @@ ___16a26h:
 		jne     short ___16c41h
 		sub     dword [eax+___1a0210h], 4650h
 ___16c41h:
-		mov     ebx, [___1a1ef8h]
+		mov     ebx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [ebx*8+0]
 		sub     eax, ebx
 		shl     eax, 2
@@ -7296,7 +7296,7 @@ ___16c41h:
 		jne     short ___16c6bh
 		sub     dword [eax+___1a0210h], 34bch
 ___16c6bh:
-		mov     ebx, [___1a1ef8h]
+		mov     ebx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [ebx*8+0]
 		sub     eax, ebx
 		shl     eax, 2
@@ -7306,7 +7306,7 @@ ___16c6bh:
 		jne     short ___16c95h
 		sub     dword [eax+___1a0210h], 2328h
 ___16c95h:
-		mov     ebx, [___1a1ef8h]
+		mov     ebx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [ebx*8+0]
 		sub     eax, ebx
 		shl     eax, 2
@@ -7316,7 +7316,7 @@ ___16c95h:
 		jne     short ___16cbfh
 		sub     dword [eax+___1a0210h], 1194h
 ___16cbfh:
-		mov     ebx, [___1a1ef8h]
+		mov     ebx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [ebx*8+0]
 		sub     eax, ebx
 		shl     eax, 2
@@ -7357,7 +7357,7 @@ ___16cf2h:
 		mov     eax, ___18ce02h
 		mov     edx, ebx
 		call    near ___13094h
-		mov     ebx, [___1a1ef8h]
+		mov     ebx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [ebx*8+0]
 		sub     eax, ebx
 		shl     eax, 2
@@ -7366,7 +7366,7 @@ ___16cf2h:
 		jne     short ___16d99h
 		mov     ebp, 4650h
 ___16d99h:
-		mov     ebx, [___1a1ef8h]
+		mov     ebx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [ebx*8+0]
 		sub     eax, ebx
 		shl     eax, 2
@@ -7375,7 +7375,7 @@ ___16d99h:
 		jne     short ___16dbch
 		mov     ebp, 34bch
 ___16dbch:
-		mov     ebx, [___1a1ef8h]
+		mov     ebx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [ebx*8+0]
 		sub     eax, ebx
 		shl     eax, 2
@@ -7384,7 +7384,7 @@ ___16dbch:
 		jne     short ___16ddfh
 		mov     ebp, 2328h
 ___16ddfh:
-		mov     ebx, [___1a1ef8h]
+		mov     ebx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [ebx*8+0]
 		sub     eax, ebx
 		shl     eax, 2
@@ -7393,7 +7393,7 @@ ___16ddfh:
 		jne     short ___16e02h
 		mov     ebp, 1194h
 ___16e02h:
-		mov     ebx, [___1a1ef8h]
+		mov     ebx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [ebx*8+0]
 		sub     eax, ebx
 		shl     eax, 2
@@ -7440,8 +7440,8 @@ ___16e6ch:
 		call    near __CEXT_F(read__bpa)
 		mov     edx, [___1a1114h]
 		push    edx
-		push    ___1a54d0h
-		mov     esi, ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
+		mov     esi, __CEXT_V(BPA_Buffer)
 		call    near __CEXT_F(decode2__bpk)
 		mov     ecx, 117h
 		mov     ebx, [VGABufferPtr_0]
@@ -7478,7 +7478,7 @@ ___16ecah:
 ___16f0eh:
 		mov     eax, [___196adch]
 		sub     eax, ebp
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		dec     eax
 		cmp     eax, edx
 		jne     short ___16f28h
@@ -7539,7 +7539,7 @@ ___16f97h:
 		call    near ___13094h
 		mov     eax, [___196adch]
 		sub     eax, ebp
-		mov     ebx, [___1a1ef8h]
+		mov     ebx, [__CEXT_V(___1a1ef8h)]
 		dec     eax
 		cmp     eax, ebx
 		jne     short ___16fb9h
@@ -7580,7 +7580,7 @@ ___16ffch:
 		call    near ___13094h
 		mov     eax, [___196adch]
 		sub     eax, ebp
-		mov     ecx, [___1a1ef8h]
+		mov     ecx, [__CEXT_V(___1a1ef8h)]
 		dec     eax
 		cmp     eax, ecx
 		jne     short ___1701eh
@@ -7624,7 +7624,7 @@ ___1706eh:
 		call    near ___13094h
 		mov     eax, [___196adch]
 		sub     eax, ebp
-		mov     esi, [___1a1ef8h]
+		mov     esi, [__CEXT_V(___1a1ef8h)]
 		dec     eax
 		cmp     eax, esi
 		jne     short ___17094h
@@ -7920,8 +7920,8 @@ ___17431h:
 		push    ___185cbch
 		mov     esi, [esp+20h]
 		mov     eax, [esp+1ch]
-		mov     ecx, [___1a01b8h]
-		mov     ebx, [___1a1ed0h]
+		mov     ecx, [__CEXT_V(___1a01b8h)]
+		mov     ebx, [__CEXT_V(___1a1ed0h)]
 		add     esi, byte 50h
 		add     eax, 1a0h
 		mov     edx, esi
@@ -7939,13 +7939,13 @@ ___17431h:
 		add     edx, 1a0h
 		add     eax, 1a0h
 		call    near ___1398ch
-		mov     edi, [___1a1ed0h]
+		mov     edi, [__CEXT_V(___1a1ed0h)]
 		inc     edi
-		mov     [___1a1ed0h], edi
+		mov     [__CEXT_V(___1a1ed0h)], edi
 		cmp     edi, byte 3fh
 		jle     short ___174eah
 		xor     eax, eax
-		mov     [___1a1ed0h], eax
+		mov     [__CEXT_V(___1a1ed0h)], eax
 ___174eah:
 		mov     dword [___196ae4h], 1
 		add     esp, byte 8
@@ -8389,7 +8389,7 @@ ___17ad7h:
 		mov     ebx, 44h
 		mov     eax, [esp+68h]
 		call    near ___1398ch
-		imul    eax, [___1a1ef8h], byte 6ch
+		imul    eax, [__CEXT_V(___1a1ef8h)], byte 6ch
 		xor     esi, esi
 		mov     edx, [esp+7ch]
 		mov     [esp+88h], esi
@@ -8550,7 +8550,7 @@ ___17cfdh:
 		mov     ebx, 44h
 		mov     eax, [esp+5ch]
 		call    near ___1398ch
-		imul    eax, [___1a1ef8h], byte 6ch
+		imul    eax, [__CEXT_V(___1a1ef8h)], byte 6ch
 		xor     esi, esi
 		mov     edx, [esp+7ch]
 		mov     [esp+88h], esi
@@ -8609,7 +8609,7 @@ ___17df7h:
 		mov     eax, [VGABufferPtr_0]
 		mov     edx, 126h
 		add     eax, ebx
-		mov     esi, [___1a1e88h]
+		mov     esi, [__CEXT_V(___1a1e88h)]
 		add     eax, ecx
 		mov     ecx, 10h
 		lea     ebx, [eax+6bh]
@@ -8639,7 +8639,7 @@ ___17e51h:
 		add     eax, edi
 		mov     ecx, 18h
 		add     eax, edx
-		mov     esi, [___1a1eb4h]
+		mov     esi, [__CEXT_V(___1a1eb4h)]
 		add     eax, byte 79h
 		mov     edx, 0ah
 		add     ebx, eax
@@ -8732,7 +8732,7 @@ ___17fa1h:
 		mov     ebx, [esp+90h]
 		mov     edx, 126h
 		add     ebx, eax
-		mov     esi, [___1a1e88h]
+		mov     esi, [__CEXT_V(___1a1e88h)]
 		add     ebx, byte 6bh
 ___17ff1h:
 		mov     edi, edx
@@ -8762,7 +8762,7 @@ ___17ffbh:
 		add     eax, edi
 		mov     ecx, 18h
 		add     eax, byte 79h
-		mov     esi, [___1a1eb4h]
+		mov     esi, [__CEXT_V(___1a1eb4h)]
 		add     ebx, eax
 ___18049h:
 		mov     edi, edx
@@ -8822,13 +8822,13 @@ ___180ceh:
 ___180e6h:
 		cmp     dword [esp+0bch], byte 0
 		je      short ___18101h
-		imul    eax, [___1a1ef8h], byte 6ch
+		imul    eax, [__CEXT_V(___1a1ef8h)], byte 6ch
 		mov     edx, [esp+7ch]
 		mov     [eax+___1a0220h], edx
 ___18101h:
 		cmp     dword [esp+0bch], byte 0
 		je      near ___1834dh
-		imul    eax, [___1a1ef8h], byte 6ch
+		imul    eax, [__CEXT_V(___1a1ef8h)], byte 6ch
 		mov     edx, [esp+80h]
 		mov     [eax+___1a020ch], edx
 		jmp     near ___1834dh
@@ -9386,7 +9386,7 @@ ___18808h:
 		mov     edi, edx
 		mov     eax, 883h
 		mov     ebx, 883h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		xor     edx, edx
 		mov     [___1a0f9ch], eax
 		call    near memset__clib3r
@@ -9629,7 +9629,7 @@ ___18a9ah:
 		mov     eax, 883h
 		mov     edi, esp
 		mov     esi, ___180754h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a0f9ch], eax
 		call    near memset__clib3r
 		mov     ebx, 0ah
@@ -9712,7 +9712,7 @@ ___18bafh:
 		jl      short ___18bafh
 		xor     edx, edx
 		mov     dl, [eax+1]
-		mov     [___1a1ef8h], edx
+		mov     [__CEXT_V(___1a1ef8h)], edx
 		xor     edx, edx
 		mov     dl, [eax+2]
 		mov     ecx, 870h
@@ -9732,7 +9732,7 @@ ___18bafh:
 		pop     edi
 		mov     eax, [___1a0f9ch]
 		call    near ___3f77ch
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -9947,7 +9947,7 @@ ___18ee0h:
 		mov     ebp, 883h
 		mov     eax, ebp
 		xor     edx, edx
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     ebx, ebp
 		mov     [___1a0f9ch], eax
 		call    near memset__clib3r
@@ -9960,7 +9960,7 @@ ___18ee0h:
 		mov     eax, [___1a0f9ch]
 		mov     dl, [esp+20h]
 		mov     [eax], dl
-		mov     dl, [___1a1ef8h]
+		mov     dl, [__CEXT_V(___1a1ef8h)]
 		mov     [eax+1], dl
 		mov     dl, [___185a14h]
 		mov     [eax+2], dl
@@ -10467,7 +10467,7 @@ ___1955ah:
 		je      near ___1961dh
 		xor     bh, bh
 		mov     [___185b59h], bh
-		imul    edx, [___1a1ef8h], byte 6ch
+		imul    edx, [__CEXT_V(___1a1ef8h)], byte 6ch
 		mov     cl, 1
 		mov     esi, 1
 		mov     [___185b62h], cl
@@ -10479,7 +10479,7 @@ ___1955ah:
 		mov     [___185a3ch], esi
 		mov     edx, [edx+___1a020ch]
 		call    near ___2415ch
-		imul    eax, [___1a1ef8h], byte 6ch
+		imul    eax, [__CEXT_V(___1a1ef8h)], byte 6ch
 		mov     edi, ___18687ah
 		mov     [eax+___1a020ch], edx
 		call    near ___2b5f0h
@@ -10727,14 +10727,14 @@ ___198a0h:
 		mov     edx, 58h
 		mov     eax, 1fh
 		mov     ebx, 68h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [esp+0c4h], edx
 		mov     [esp+0dch], ebx
 		mov     [esp+0fch], eax
 		mov     eax, 1fh
 		mov     ebx, 0ah
 		lea     edx, [esp+0ach]
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     ebp, eax
 		mov     eax, [___185a54h]
 		mov     ecx, 6dh
@@ -10910,7 +10910,7 @@ ___19b51h:
 		cmp     edx, byte 15h
 		jl      short ___19b33h
 		mov     eax, [__CEXT_V(___180864h)]
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		mov     [___1a1dbah], eax
 		lea     eax, [edx*8+0]
 		sub     eax, edx
@@ -10993,7 +10993,7 @@ ___19c27h:
 		mov     byte [edx+1], 1
 		xor     eax, edx
 ___19c5eh:
-		imul    ebx, [___1a1ef8h], byte 6ch
+		imul    ebx, [__CEXT_V(___1a1ef8h)], byte 6ch
 		inc     edx
 		mov     bl, [ebx+eax+___1a01e0h]
 		inc     eax
@@ -11029,7 +11029,7 @@ ___19ca1h:
 		mov     edx, [esp+0e0h]
 		mov     eax, [esp+0c8h]
 		call    near ___13248h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -11223,7 +11223,7 @@ ___19ea0h:
 		mov     ebx, [esp+0c4h]
 		add     eax, edx
 		add     eax, ebx
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     ebx, [eax+17h]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
@@ -11357,7 +11357,7 @@ ___19fb3h:
 		sub     ecx, eax
 		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		mov     ebx, ___1a01e0h
 		sub     eax, edx
@@ -11665,7 +11665,7 @@ ___1a557h:
 		mov     edx, 3
 		xor     eax, eax
 		call    near ___197d0h
-		imul    ebx, [___1a1ef8h], byte 6ch
+		imul    ebx, [__CEXT_V(___1a1ef8h)], byte 6ch
 		mov     edx, Font0Props
 		mov     eax, [WhiteFont0Ptr]
 		mov     ecx, [esp+0e8h]
@@ -11758,7 +11758,7 @@ ___1a6cfh:
 		cmp     ebx, byte 15h
 		jl      short ___1a6b1h
 		mov     eax, [__CEXT_V(___180864h)]
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		mov     [___1a1dbah], eax
 		lea     eax, [edx*8+0]
 		sub     eax, edx
@@ -11976,7 +11976,7 @@ ___1a903h:
 		cmp     ebx, byte 15h
 		jl      short ___1a8e5h
 		mov     eax, [__CEXT_V(___180864h)]
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		mov     [___1a1dbah], eax
 		lea     eax, [edx*8+0]
 		sub     eax, edx
@@ -12079,11 +12079,11 @@ ___1aa28h:
 		mov     edi, ebx
 		mov     eax, 1fh
 		mov     ecx, 51h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [esp+8], eax
 		mov     eax, 1fh
 		mov     ebx, 14eh
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		push    byte 1
 		mov     esi, eax
 		mov     eax, [esp+4]
@@ -12139,7 +12139,7 @@ ___1aaddh:
 		mov     edx, ebx
 		xor     eax, ebx
 ___1ab17h:
-		imul    ebp, [___1a1ef8h], byte 6ch
+		imul    ebp, [__CEXT_V(___1a1ef8h)], byte 6ch
 		inc     edx
 		mov     bl, [eax+ebp+___1a01e0h]
 		inc     eax
@@ -12654,7 +12654,7 @@ ___1b140h:
 		mov     edx, 50h
 		mov     eax, 64h
 		mov     ebx, 60h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		xor     ecx, ecx
 		mov     [esp+10h], edx
 		mov     [esp], ecx
@@ -13595,11 +13595,11 @@ ___1bc20h:
 		call    near itoa
 		mov     eax, 12h
 		mov     ecx, 28f00h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     ebp, eax
 		mov     eax, 12h
 		xor     edx, edx
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     esi, [GXBackBuffer]
 		mov     edi, [VGABufferPtr_0]
 		add     esi, 10680h
@@ -13688,7 +13688,7 @@ ___1bd73h:
 		cmp     edx, byte 15h
 		jl      short ___1bd55h
 		mov     eax, [__CEXT_V(___180864h)]
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		mov     [___1a1dbah], eax
 		lea     eax, [edx*8+0]
 		sub     eax, edx
@@ -13814,7 +13814,7 @@ ___1bee0h:
 		cmp     edx, byte 15h
 		jl      short ___1bec2h
 		mov     eax, [__CEXT_V(___180864h)]
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		mov     [___1a1dbah], eax
 		lea     eax, [edx*8+0]
 		sub     eax, edx
@@ -13976,7 +13976,7 @@ ___1c083h:
 		cmp     edx, byte 15h
 		jl      short ___1c065h
 		mov     eax, [__CEXT_V(___180864h)]
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		mov     [___1a1dbah], eax
 		lea     eax, [edx*8+0]
 		sub     eax, edx
@@ -14069,11 +14069,11 @@ ___1c178h:
 		sub     esp, byte 0ch
 		mov     eax, 12h
 		mov     ecx, 28f00h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     ebp, eax
 		mov     eax, 1
 		xor     edx, edx
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     esi, [GXBackBuffer]
 		mov     edi, [VGABufferPtr_0]
 		add     esi, 10680h
@@ -14531,7 +14531,7 @@ ___1c76ch:
 		call    near ___611c0h
 		mov     edx, eax
 		mov     [___1a103ch], eax
-		mov     eax, [___1a1ef8h]
+		mov     eax, [__CEXT_V(___1a1ef8h)]
 		cmp     edx, eax
 		je      short ___1c7d2h
 		mov     ebx, eax
@@ -14562,7 +14562,7 @@ ___1c76ch:
 ___1c7d2h:
 		mov     eax, [___1a103ch]
 		xor     edx, edx
-		mov     [___1a1ef8h], eax
+		mov     [__CEXT_V(___1a1ef8h)], eax
 		mov     [___196ad4h], edx
 		mov     [___196a84h], edx
 		mov     [___196a98h], edx
@@ -14580,7 +14580,7 @@ ___1c7d2h:
 		mov     [edx+___1a01f0h], ebx
 		mov     [edx+___1a01f4h], ebx
 		mov     [edx+___1a01f8h], ebx
-		mov     [edx+___1a01fch], ebx
+		mov     [edx+__CEXT_V(___1a01fch)], ebx
 		lea     eax, [ebx*8+0]
 		mov     [edx+___1a0210h], ebp
 		shl     eax, 3
@@ -14621,7 +14621,7 @@ ___1c8bah:
 		idiv    ebp
 		cmp     edx, byte 1
 		jne     short ___1c8f2h
-		imul    ebx, [___1a1ef8h], byte 6ch
+		imul    ebx, [__CEXT_V(___1a1ef8h)], byte 6ch
 		mov     ecx, edi
 		mov     eax, esi
 		mov     edx, [___196adch]
@@ -14970,7 +14970,7 @@ ___1ccfdh:
 		mov     eax, 64h
 		rep movsd   
 		movsw   
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     esi, [___24e4d0h]
 		mov     [___1a0f9ch], eax
 		cmp     esi, byte 2
@@ -15081,7 +15081,7 @@ ___1ce59h:
 		cmp     edx, byte 15h
 		jl      short ___1ce3bh
 		mov     eax, [__CEXT_V(___180864h)]
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		mov     [___1a1dbah], eax
 		lea     eax, [edx*8+0]
 		sub     eax, edx
@@ -15250,7 +15250,7 @@ ___1d05ch:
 		mov     [edx+___1a1f4dh], al
 		cmp     edx, byte 15h
 		jl      short ___1d03eh
-		mov     ebx, [___1a1ef8h]
+		mov     ebx, [__CEXT_V(___1a1ef8h)]
 		lea     edx, [ebx*8+0]
 		sub     edx, ebx
 		shl     edx, 2
@@ -15385,7 +15385,7 @@ ___1d134h:
 		mov     eax, 2
 		call    near ___13710h
 		call    near ___12dc4h
-		mov     dword [___1a1ef8h], 13h
+		mov     dword [__CEXT_V(___1a1ef8h)], 13h
 		pop     edi
 		pop     esi
 		pop     edx
@@ -15400,7 +15400,7 @@ ___1d21eh:
 		test    eax, eax
 		je      short ___1d29fh
 		mov     dword [___24e4d0h], 2
-		mov     ebx, [___1a1ef8h]
+		mov     ebx, [__CEXT_V(___1a1ef8h)]
 		lea     edx, [ebx*8+0]
 		sub     edx, ebx
 		shl     edx, 2
@@ -15409,7 +15409,7 @@ ___1d21eh:
 		mov     [___199f9ch], ecx
 		mov     ecx, [edx*4+___1a020ch]
 		call    near ___2415ch
-		mov     ebx, [___1a1ef8h]
+		mov     ebx, [__CEXT_V(___1a1ef8h)]
 		lea     edx, [ebx*8+0]
 		sub     edx, ebx
 		shl     edx, 2
@@ -15475,7 +15475,7 @@ ___1d2fdh:
 		call    near ___3ab5ch
 		test    eax, eax
 		je      near ___1d4ddh
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		mov     esi, 1
@@ -15486,7 +15486,7 @@ ___1d2fdh:
 		mov     [___199fach], edi
 		mov     ebx, [eax*4+___1a020ch]
 		call    near ___2415ch
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -15649,7 +15649,7 @@ ___1d528h:
 		cmp     edx, byte 15h
 		jl      short ___1d50ah
 		mov     edx, [__CEXT_V(___180864h)]
-		mov     ebx, [___1a1ef8h]
+		mov     ebx, [__CEXT_V(___1a1ef8h)]
 		mov     [___1a1dbah], edx
 		lea     edx, [ebx*8+0]
 		sub     edx, ebx
@@ -15919,7 +15919,7 @@ ___1d83ch:
 		push    edi
 		mov     ecx, 4b000h
 		mov     esi, [VGABufferPtr_0]
-		mov     edi, [___1a1124h]
+		mov     edi, [__CEXT_V(___1a1124h)]
 		push    edi
 		mov     eax, ecx
 		shr     ecx, 2
@@ -16008,7 +16008,7 @@ ___1d9b9h:
 		call    near lastScanCode__keyboard
 		call    near nullScanCode__keyboard
 		mov     ecx, 4b000h
-		mov     esi, [___1a1124h]
+		mov     esi, [__CEXT_V(___1a1124h)]
 		mov     edi, [VGABufferPtr_0]
 		push    edi
 		mov     eax, ecx
@@ -16109,7 +16109,7 @@ ___1da4fh:
 		call    near ___17510h
 		test    eax, eax
 		je      near ___1e08fh
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		mov     ecx, 3
@@ -16120,7 +16120,7 @@ ___1da4fh:
 		mov     [___199fach], esi
 		mov     ebx, [eax*4+___1a020ch]
 		call    near ___2415ch
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -16652,7 +16652,7 @@ ___1e132h:
 		call    near ___3ab5ch
 		test    eax, eax
 		je      near ___1e4eeh
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		mov     ecx, 4
@@ -16663,7 +16663,7 @@ ___1e132h:
 		mov     [___199fach], esi
 		mov     ebx, [eax*4+___1a020ch]
 		call    near ___2415ch
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -17122,7 +17122,7 @@ ___1e722h:
 		cmp     edx, byte 15h
 		jl      short ___1e704h
 		mov     edx, [__CEXT_V(___180864h)]
-		mov     ebx, [___1a1ef8h]
+		mov     ebx, [__CEXT_V(___1a1ef8h)]
 		mov     [___1a1dbah], edx
 		lea     edx, [ebx*8+0]
 		sub     edx, ebx
@@ -17431,7 +17431,7 @@ ___1eb0ah:
 		je      short ___1eb4ah
 		call    near ___16e6ch
 ___1eb4ah:
-		mov     dword [___1a1ef8h], 13h
+		mov     dword [__CEXT_V(___1a1ef8h)], 13h
 		call    near ___12cb8h
 		call    near ___2b318h
 		cmp     dword [___185a34h], byte 0
@@ -17706,7 +17706,7 @@ ___1ef14h:
 		jl      short ___1eef6h
 		mov     eax, [__CEXT_V(___180864h)]
 		mov     [___1a1dbah], eax
-		imul    esi, [___1a1ef8h], byte 6ch
+		imul    esi, [__CEXT_V(___1a1ef8h)], byte 6ch
 		mov     edi, ___1a1dbah
 		add     esi, ___1a01e0h
 		mov     ebx, 14h
@@ -19592,7 +19592,7 @@ ___203bah:
 		mov     ecx, 4b000h
 		mov     ebx, 253h
 		mov     esi, [VGABufferPtr_0]
-		mov     edi, [___1a1124h]
+		mov     edi, [__CEXT_V(___1a1124h)]
 		mov     edx, 0c2h
 		push    edi
 		mov     eax, ecx
@@ -19643,7 +19643,7 @@ ___20473h:
 		call    near lastScanCode__keyboard
 		call    near nullScanCode__keyboard
 		mov     ecx, 4b000h
-		mov     esi, [___1a1124h]
+		mov     esi, [__CEXT_V(___1a1124h)]
 		mov     edi, [VGABufferPtr_0]
 		push    edi
 		mov     eax, ecx
@@ -19675,6 +19675,28 @@ ___204c1h:
 		pop     ecx
 		pop     ebx
 		retn    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ___204d4h:
 dd	___20cafh
 dd	___20617h
@@ -20354,6 +20376,27 @@ ___20d0eh:
 		xor     ecx, ecx
 		mov     [___185b1ch], ecx
 		jmp     short ___20ce9h
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ___20d18h:
 		push    4ch
 		call    near __CHK
@@ -20462,7 +20505,7 @@ ___20e51h:
 		mov     ecx, 4b000h
 		mov     ebx, 253h
 		mov     esi, [VGABufferPtr_0]
-		mov     edi, [___1a1124h]
+		mov     edi, [__CEXT_V(___1a1124h)]
 		mov     edx, 0c2h
 		push    edi
 		mov     eax, ecx
@@ -20513,7 +20556,7 @@ ___20f18h:
 		call    near lastScanCode__keyboard
 		call    near nullScanCode__keyboard
 		mov     ecx, 4b000h
-		mov     esi, [___1a1124h]
+		mov     esi, [__CEXT_V(___1a1124h)]
 		mov     edi, [VGABufferPtr_0]
 		push    edi
 		mov     eax, ecx
@@ -21371,7 +21414,7 @@ ___21976h:
 		mov     ecx, 18h
 		mov     edx, 0ach
 		mov     ebx, [VGABufferPtr_0]
-		mov     esi, [___1a1ea4h]
+		mov     esi, [__CEXT_V(___1a1ea4h)]
 		add     ebx, 2723ah
 ___219d2h:
 		mov     edi, edx
@@ -21456,7 +21499,7 @@ ___21aa3h:
 		mov     ecx, 18h
 		mov     edx, 0ach
 		mov     ebx, [VGABufferPtr_0]
-		mov     esi, [___1a1ea4h]
+		mov     esi, [__CEXT_V(___1a1ea4h)]
 		add     ebx, 2723ah
 ___21ae2h:
 		mov     edi, edx
@@ -21480,7 +21523,7 @@ ___21aech:
 		add     eax, 2723ah
 		mov     edx, 0ah
 		add     eax, edi
-		mov     esi, [___1a1ebch]
+		mov     esi, [__CEXT_V(___1a1ebch)]
 		lea     ebx, [eax+0fh]
 ___21b1fh:
 		mov     edi, edx
@@ -21600,7 +21643,7 @@ ___21c52h:
 		mov     ecx, 18h
 		mov     edx, 0ach
 		mov     ebx, [VGABufferPtr_0]
-		mov     esi, [___1a1ea4h]
+		mov     esi, [__CEXT_V(___1a1ea4h)]
 		add     ebx, 2723ah
 ___21caeh:
 		mov     edi, edx
@@ -21685,7 +21728,7 @@ ___21d7fh:
 		mov     ecx, 18h
 		mov     edx, 0ach
 		mov     ebx, [VGABufferPtr_0]
-		mov     esi, [___1a1ea4h]
+		mov     esi, [__CEXT_V(___1a1ea4h)]
 		add     ebx, 2723ah
 ___21dbeh:
 		mov     edi, edx
@@ -21709,7 +21752,7 @@ ___21dc8h:
 		add     eax, 2723ah
 		mov     edx, 0ah
 		add     eax, edi
-		mov     esi, [___1a1ebch]
+		mov     esi, [__CEXT_V(___1a1ebch)]
 		lea     ebx, [eax+0fh]
 ___21dfbh:
 		mov     edi, edx
@@ -22263,7 +22306,7 @@ ___2243eh:
 		sub     ebx, edx
 		dec     ecx
 		jne     short ___22434h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -22319,7 +22362,7 @@ ___224cch:
 		cmp     ebx, ecx
 		jg      short ___224cch
 ___224f4h:
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -22350,7 +22393,7 @@ ___22544h:
 		pop     edi
 		mov     eax, edx
 		call    near __CEXT_F(strupr__clib3r)
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -22643,11 +22686,11 @@ ___228abh:
 		call    near __CEXT_F(___605deh)
 		call    near ___3d890h
 		call    near ___1240ch
-		call    near ___24548h
+		call    near __CEXT_F(___24548h)
 		call    near ___2faf0h
 		call    near ___3d2bch
 		call    near ___12940h
-		mov     esi, [___1a1ef8h]
+		mov     esi, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [esi*8+0]
 		sub     eax, esi
 		shl     eax, 2
@@ -22773,7 +22816,7 @@ hallOfFameMenu__dr:
 		mov     ecx, 4b000h
 		mov     edx, 280h
 		mov     esi, [VGABufferPtr_0]
-		mov     edi, [___1a10e4h]
+		mov     edi, [__CEXT_V(___1a10e4h)]
 		mov     ebp, 169adh
 		push    edi
 		mov     eax, ecx
@@ -22784,7 +22827,7 @@ hallOfFameMenu__dr:
 		rep movsb   
 		pop     edi
 		mov     ecx, 28f00h
-		mov     eax, [___1a10e4h]
+		mov     eax, [__CEXT_V(___1a10e4h)]
 		mov     esi, [GXBackBuffer]
 		mov     [VGABufferPtr_0], eax
 		add     esi, 10680h
@@ -23010,7 +23053,7 @@ ___22d86h:
 		call    near nullScanCode__keyboard
 		mov     ecx, 4b000h
 		mov     esi, [VGABufferPtr_0]
-		mov     edi, [___1a10e4h]
+		mov     edi, [__CEXT_V(___1a10e4h)]
 		push    edi
 		mov     eax, ecx
 		shr     ecx, 2
@@ -23020,7 +23063,7 @@ ___22d86h:
 		rep movsb   
 		pop     edi
 		mov     ecx, 2c380h
-		mov     eax, [___1a10e4h]
+		mov     eax, [__CEXT_V(___1a10e4h)]
 		mov     esi, [GXBackBuffer]
 		mov     [VGABufferPtr_0], eax
 		add     esi, 0d200h
@@ -23362,7 +23405,7 @@ ___231f3h:
 		je      near ___22f25h
 		mov     ecx, 4b000h
 		mov     esi, [VGABufferPtr_0]
-		mov     edi, [___1a10e4h]
+		mov     edi, [__CEXT_V(___1a10e4h)]
 		push    edi
 		mov     eax, ecx
 		shr     ecx, 2
@@ -23371,7 +23414,7 @@ ___231f3h:
 		and     cl, 3
 		rep movsb   
 		pop     edi
-		mov     eax, [___1a10e4h]
+		mov     eax, [__CEXT_V(___1a10e4h)]
 		mov     [VGABufferPtr_0], eax
 		add     esp, byte 40h
 		pop     ebp
@@ -23781,7 +23824,7 @@ ___23758h:
 		setnz   al
 		mov     ebx, 27fh
 		mov     esi, [VGABufferPtr_0]
-		mov     edi, [___1a1124h]
+		mov     edi, [__CEXT_V(___1a1124h)]
 		xor     ecx, ecx
 		and     eax, 0ffh
 		mov     [___196a78h], ecx
@@ -23999,7 +24042,7 @@ ___23a28h:
 		movsd   
 		movsd   
 		movsw   
-		call    near ___2a498h
+		call    near __CEXT_F(getAvailableMemory)
 		call    near itoa
 		lea     esi, [esp+98h]
 		mov     edi, ___1a1dbah
@@ -24030,7 +24073,7 @@ ___23aach:
 ___23ac0h:
 		mov     ax, [___181cf8h]
 		mov     [___1a1dbah], ax
-		imul    esi, [___1a1ef8h], byte 6ch
+		imul    esi, [__CEXT_V(___1a1ef8h)], byte 6ch
 		mov     edi, ___1a1dbah
 		add     esi, ___1a01e0h
 		push    edi
@@ -24340,7 +24383,7 @@ ___23deeh:
 		mov     [edx+___1a1f4dh], al
 		cmp     edx, byte 15h
 		jl      short ___23dd0h
-		imul    esi, [___1a1ef8h], byte 6ch
+		imul    esi, [__CEXT_V(___1a1ef8h)], byte 6ch
 		mov     edi, ___1a1dbah
 		mov     ax, [___181cf8h]
 		add     esi, ___1a01e0h
@@ -24510,7 +24553,7 @@ ___23fa3h:
 		cmp     dword [esp+138h], byte 0
 		je      near ___238c3h
 		mov     ecx, 4b000h
-		mov     esi, [___1a1124h]
+		mov     esi, [__CEXT_V(___1a1124h)]
 		xor     edx, edx
 		mov     edi, [VGABufferPtr_0]
 		mov     [___185a1ch], edx
@@ -24645,8 +24688,7 @@ ___240ebh:
 		pop     ecx
 		pop     ebx
 		ret     0ch
-global ___2415ch
-___2415ch:
+__GDECL(___2415ch)
 		push    11ch
 		call    near __CHK
 		push    ebx
@@ -24673,7 +24715,7 @@ ___2415ch:
 		mov     [___196a9ch], ebx
 		mov     [___196aa0h], ebx
 		mov     [___185a50h], ebx
-		mov     [___1a1ef8h], edx
+		mov     [__CEXT_V(___1a1ef8h)], edx
 		call    near ___2ec68h
 		mov     [___199f54h], ebx
 		mov     [___185a30h], ebx
@@ -24681,47 +24723,47 @@ ___2415ch:
 		xor     eax, eax
 ___241d8h:
 		add     eax, byte 6ch
-		mov     [eax+___1a01d4h], edx
-		mov     [eax+___1a01d8h], edx
-		mov     [eax+___1a01dch], edx
-		mov     [eax+___1a01d0h], edx
+		mov     [eax+__CEXT_V(___1a01d4h)], edx
+		mov     [eax+__CEXT_V(___1a01d8h)], edx
+		mov     [eax+__CEXT_V(___1a01dch)], edx
+		mov     [eax+__CEXT_V(___1a01d0h)], edx
 		cmp     eax, dword 870h
 		jne     short ___241d8h
 		mov     ecx, 5
 		xor     eax, eax
 ___24201h:
 		add     eax, byte 6ch
-		mov     [eax+___1a0190h], ecx
+		mov     [eax+__CEXT_V(___1a0190h)], ecx
 		cmp     eax, dword 144h
 		jne     short ___24201h
 		mov     esi, 4
 ___24216h:
 		add     eax, byte 6ch
-		mov     [eax+___1a0190h], esi
+		mov     [eax+__CEXT_V(___1a0190h)], esi
 		cmp     eax, dword 2f4h
 		jne     short ___24216h
 		mov     edi, 3
 ___2422bh:
 		add     eax, byte 6ch
-		mov     [eax+___1a0190h], edi
+		mov     [eax+__CEXT_V(___1a0190h)], edi
 		cmp     eax, dword 438h
 		jne     short ___2422bh
 		mov     edx, 2
 ___24240h:
 		add     eax, byte 6ch
-		mov     [eax+___1a0190h], edx
+		mov     [eax+__CEXT_V(___1a0190h)], edx
 		cmp     eax, dword 5e8h
 		jne     short ___24240h
 		mov     ebx, 1
 ___24255h:
 		add     eax, byte 6ch
-		mov     [eax+___1a0190h], ebx
+		mov     [eax+__CEXT_V(___1a0190h)], ebx
 		cmp     eax, dword 72ch
 		jne     short ___24255h
 ___24265h:
 		add     eax, byte 6ch
 		xor     ecx, ecx
-		mov     [eax+___1a0190h], ecx
+		mov     [eax+__CEXT_V(___1a0190h)], ecx
 		cmp     eax, dword 870h
 		jne     short ___24265h
 		mov     esi, 1
@@ -24752,7 +24794,7 @@ ___242afh:
 		fistp   dword [esp+0f0h]
 		mov     eax, [esp+0f0h]
 		mov     ebx, [esp+0fch]
-		mov     [edx+___1a01b8h], eax
+		mov     [edx+__CEXT_V(___1a01b8h)], eax
 		mov     eax, [esp+0f8h]
 		dec     ebx
 		inc     eax
@@ -24780,7 +24822,7 @@ ___2432eh:
 		mov     ecx, 186a0h
 		sar     edx, 1fh
 		idiv    ecx
-		imul    ecx, [esi+___1a01fch], 6e0h
+		imul    ecx, [esi+__CEXT_V(___1a01fch)], 6e0h
 		mov     [esi+___1a01ech], edi
 		mov     [esi+___1a0210h], edx
 		mov     ecx, [ecx+___18e938h]
@@ -24789,13 +24831,13 @@ ___2432eh:
 		sar     edx, 1fh
 		idiv    ecx
 		mov     [esi+___1a01f0h], edx
-		imul    ecx, [esi+___1a01fch], 6e0h
+		imul    ecx, [esi+__CEXT_V(___1a01fch)], 6e0h
 		mov     ecx, [ecx+___18e93ch]
 		call    near __CEXT_F(rand__clib3r)
 		mov     edx, eax
 		sar     edx, 1fh
 		idiv    ecx
-		imul    ecx, [esi+___1a01fch], 6e0h
+		imul    ecx, [esi+__CEXT_V(___1a01fch)], 6e0h
 		mov     [esi+___1a01f4h], edx
 		mov     ecx, [ecx+___18e940h]
 		call    near __CEXT_F(rand__clib3r)
@@ -24803,11 +24845,11 @@ ___2432eh:
 		sar     edx, 1fh
 		idiv    ecx
 		mov     [esi+___1a01f8h], edx
-		imul    eax, [esi+___1a01fch], 6e0h
+		imul    eax, [esi+__CEXT_V(___1a01fch)], 6e0h
 		mov     eax, [eax+___18e2a4h]
 		mov     [esi+___1a021ch], eax
 		lea     eax, [ebx+1]
-		mov     ecx, [___1a1ef8h]
+		mov     ecx, [__CEXT_V(___1a1ef8h)]
 		mov     edx, ebx
 		mov     [esi+___1a0228h], eax
 		imul    esi, ecx, byte 6ch
@@ -24847,7 +24889,7 @@ ___2443fh:
 		mov     [ecx+___1a020ch], edx
 		cmp     ebx, byte 13h
 		jl      near ___2432eh
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -24858,7 +24900,7 @@ ___2443fh:
 		mov     [eax*4+___1a01f8h], ebx
 		mov     [eax*4+___1a01f4h], ebx
 		xor     ecx, ecx
-		mov     [eax*4+___1a01fch], ebx
+		mov     [eax*4+__CEXT_V(___1a01fch)], ebx
 		mov     [eax*4+___1a022ch], ecx
 		mov     [eax*4+___1a0230h], ecx
 		mov     [eax*4+___1a0234h], ecx
@@ -24878,16 +24920,16 @@ ___2443fh:
 		xor     edi, edi
 		mov     [eax*4+___1a021ch], edx
 		call    near ___2b318h
-		mov     [___1a1ee8h], edi
-		mov     [___1a1ec0h], edi
+		mov     [__CEXT_V(___1a1ee8h)], edi
+		mov     [__CEXT_V(___1a1ec0h)], edi
 		xor     edx, edx
 		xor     eax, eax
 		mov     edi, 1
-		mov     [___1a1ee0h], eax
-		mov     [___1a1eech], edx
-		mov     [___1a1ec8h], edx
-		mov     [___1a1ed0h], edx
-		mov     [___1a1ee4h], edi
+		mov     [__CEXT_V(___1a1ee0h)], eax
+		mov     [__CEXT_V(___1a1eech)], edx
+		mov     [__CEXT_V(___1a1ec8h)], edx
+		mov     [__CEXT_V(___1a1ed0h)], edx
+		mov     [__CEXT_V(___1a1ee4h)], edi
 		mov     esp, ebp
 		pop     ebp
 		pop     edi
@@ -24896,632 +24938,126 @@ ___2443fh:
 		pop     ecx
 		pop     ebx
 		retn    
-global ___24548h
-___24548h:
-		push    2ch
-		call    near __CHK
-		push    ebx
-		push    ecx
-		push    edx
-		push    esi
-		push    edi
-		push    ebp
-		mov     edx, 64h
-		xor     ebx, ebx
-		mov     [___1a1edch], edx
-		mov     [___1a1ecch], ebx
-		mov     [___1a1ee8h], ebx
-		mov     edx, [___1a1ef8h]
-		mov     [___1a1ee0h], ebx
-		lea     eax, [edx*8+0]
-		mov     [___1a1eech], ebx
-		sub     eax, edx
-		mov     [___1a1ec0h], ebx
-		shl     eax, 2
-		mov     [___1a1ec8h], ebx
-		sub     eax, edx
-		mov     [___1a1ed0h], ebx
-		shl     eax, 2
-		mov     ebx, 5
-		mov     ecx, [eax+___1a01fch]
-		mov     [___1a1ec4h], ebx
-		cmp     ecx, ebx
-		jge     short ___245c5h
-		lea     eax, [ecx+1]
-		mov     [___1a1ee4h], eax
-		jmp     short ___245cbh
-___245c5h:
-		mov     [___1a1ee4h], ebx
-___245cbh:
-		mov     eax, 4b000h
-		call    near allocMemSafe
-		mov     [___1a1124h], eax
-		mov     [___1a10e4h], eax
-		mov     eax, 3400h
-		call    near allocMemSafe
-		mov     [___1a1e80h], eax
-		mov     eax, 3400h
-		call    near allocMemSafe
-		mov     [___1a1e74h], eax
-		mov     eax, 3400h
-		call    near allocMemSafe
-		mov     [___1a1e84h], eax
-		mov     eax, 3400h
-		call    near allocMemSafe
-		mov     [___1a1e60h], eax
-		mov     eax, 5400h
-		call    near allocMemSafe
-		mov     [___1a1ed4h], eax
-		mov     eax, 4b0h
-		call    near allocMemSafe
-		mov     [___1a1e90h], eax
-		mov     eax, 8f0h
-		call    near allocMemSafe
-		mov     [___1a10b0h], eax
-		mov     eax, 900h
-		call    near allocMemSafe
-		mov     [___1a1eb0h], eax
-		mov     eax, 1000h
-		call    near allocMemSafe
-		mov     [___1a1e78h], eax
-		mov     eax, 12000h
-		call    near allocMemSafe
-		mov     [___1a1eb8h], eax
-		mov     eax, 1af00h
-		call    near allocMemSafe
-		mov     [___1a01b8h], eax
-		mov     eax, 1a77bh
-		call    near allocMemSafe
-		mov     [___1a01bch], eax
-		mov     eax, 18f14h
-		call    near allocMemSafe
-		mov     [___1a01c0h], eax
-		mov     eax, 18f51h
-		call    near allocMemSafe
-		mov     [___1a01c4h], eax
-		mov     eax, 1a060h
-		call    near allocMemSafe
-		mov     [___1a01c8h], eax
-		mov     eax, 1bea2h
-		call    near allocMemSafe
-		mov     [___1a01cch], eax
-		mov     eax, 1800h
-		call    near allocMemSafe
-		mov     [___1a0180h], eax
-		mov     eax, 1800h
-		call    near allocMemSafe
-		mov     [___1a0184h], eax
-		mov     eax, 1800h
-		call    near allocMemSafe
-		mov     [___1a0188h], eax
-		mov     eax, 1800h
-		call    near allocMemSafe
-		mov     [___1a018ch], eax
-		mov     eax, 1800h
-		call    near allocMemSafe
-		mov     [___1a0190h], eax
-		mov     eax, 1800h
-		call    near allocMemSafe
-		mov     [___1a0194h], eax
-		mov     eax, 0a235h
-		call    near allocMemSafe
-		mov     [___1a01a8h], eax
-		mov     eax, 0ae36h
-		call    near allocMemSafe
-		mov     [___1a01ach], eax
-		mov     eax, 0b413h
-		call    near allocMemSafe
-		mov     [___1a01b0h], eax
-		mov     eax, 0d788h
-		call    near allocMemSafe
-		mov     [___1a01b4h], eax
-		mov     eax, 511ch
-		call    near allocMemSafe
-		mov     [___1a0198h], eax
-		mov     eax, 52b8h
-		call    near allocMemSafe
-		mov     [___1a019ch], eax
-		mov     eax, 5724h
-		call    near allocMemSafe
-		mov     [___1a01a0h], eax
-		mov     eax, 5f1eh
-		call    near allocMemSafe
-		mov     [___1a01a4h], eax
-		mov     eax, 5ffbh
-		call    near allocMemSafe
-		mov     [___1a01d0h], eax
-		mov     eax, 6dd9h
-		call    near allocMemSafe
-		mov     [___1a01d4h], eax
-		mov     eax, 7922h
-		call    near allocMemSafe
-		mov     [___1a01d8h], eax
-		mov     eax, 7801h
-		call    near allocMemSafe
-		mov     [___1a01dch], eax
-		mov     eax, 878bh
-		call    near allocMemSafe
-		mov     [___1a1e8ch], eax
-		mov     eax, 8ae9h
-		call    near allocMemSafe
-		mov     [___1a1ea0h], eax
-		mov     eax, 1800h
-		call    near allocMemSafe
-		mov     [___1a1e7ch], eax
-		mov     eax, 0f0h
-		call    near allocMemSafe
-		mov     [___1a1ebch], eax
-		mov     eax, 0f0h
-		call    near allocMemSafe
-		mov     [___1a1eb4h], eax
-		mov     eax, 1260h
-		call    near allocMemSafe
-		mov     [___1a1e88h], eax
-		mov     eax, 1020h
-		call    near allocMemSafe
-		mov     [___1a1ea4h], eax
-		mov     eax, 2400h
-		call    near allocMemSafe
-		mov     [___1a1ea8h], eax
-		mov     eax, 2400h
-		call    near allocMemSafe
-		mov     [___1a1e6ch], eax
-		mov     eax, 2400h
-		call    near allocMemSafe
-		mov     [___1a1e98h], eax
-		mov     eax, 2400h
-		call    near allocMemSafe
-		mov     [___1a1each], eax
-		mov     eax, 2400h
-		call    near allocMemSafe
-		mov     [___1a1e94h], eax
-		mov     eax, 2400h
-		call    near allocMemSafe
-		mov     [___1a1e9ch], eax
-		mov     eax, 2400h
-		call    near allocMemSafe
-		mov     [___1a1e70h], eax
-		mov     eax, 1b000h
-		call    near allocMemSafe
-		mov     [___1a1e5ch], eax
-		mov     eax, 2400h
-		call    near allocMemSafe
-		mov     [___1a1e58h], eax
-		mov     eax, 2800h
-		mov     ebx, ___181d24h
-		call    near allocMemSafe
-		mov     [___1a1e54h], eax
-		mov     eax, 2800h
-		mov     edx, ___1a54d0h
-		call    near allocMemSafe
-		mov     [___1a1e64h], eax
-		mov     eax, __CEXT_V(MENU_BPA)
-		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
-		mov     edi, [___1a1ed4h]
-		push    edi
-		call    near __CEXT_F(decode2__bpk)
-		mov     ebx, ___181d34h
-		mov     edx, ___1a54d0h
-		mov     eax, __CEXT_V(MENU_BPA)
-		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
-		mov     ebp, [___1a1e90h]
-		push    ebp
-		call    near __CEXT_F(decode2__bpk)
-		mov     ebx, ___181d44h
-		mov     edx, ___1a54d0h
-		mov     eax, __CEXT_V(MENU_BPA)
-		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
-		mov     eax, [___1a10b0h]
-		push    eax
-		call    near __CEXT_F(decode2__bpk)
-		mov     ebx, ___181d50h
-		mov     eax, __CEXT_V(MENU_BPA)
-		mov     edx, [___1a01b8h]
-		call    near __CEXT_F(read__bpa)
-		mov     ebx, ___181d5ch
-		mov     eax, __CEXT_V(MENU_BPA)
-		mov     edx, [___1a01bch]
-		call    near __CEXT_F(read__bpa)
-		mov     ebx, ___181d68h
-		mov     eax, __CEXT_V(MENU_BPA)
-		mov     edx, [___1a01c0h]
-		call    near __CEXT_F(read__bpa)
-		mov     ebx, ___181d74h
-		mov     eax, __CEXT_V(MENU_BPA)
-		mov     edx, [___1a01c4h]
-		call    near __CEXT_F(read__bpa)
-		mov     ebx, ___181d80h
-		mov     eax, __CEXT_V(MENU_BPA)
-		mov     edx, [___1a01c8h]
-		call    near __CEXT_F(read__bpa)
-		mov     ebx, ___181d8ch
-		mov     eax, __CEXT_V(MENU_BPA)
-		mov     edx, [___1a01cch]
-		call    near __CEXT_F(read__bpa)
-		mov     ebx, ___181d98h
-		mov     eax, __CEXT_V(MENU_BPA)
-		mov     edx, [___1a01a8h]
-		call    near __CEXT_F(read__bpa)
-		mov     ebx, ___181da4h
-		mov     eax, __CEXT_V(MENU_BPA)
-		mov     edx, [___1a01ach]
-		call    near __CEXT_F(read__bpa)
-		mov     ebx, ___181db0h
-		mov     eax, __CEXT_V(MENU_BPA)
-		mov     edx, [___1a01b0h]
-		call    near __CEXT_F(read__bpa)
-		mov     ebx, ___181dbch
-		mov     eax, __CEXT_V(MENU_BPA)
-		mov     edx, [___1a01b4h]
-		call    near __CEXT_F(read__bpa)
-		mov     ebx, ___181dc8h
-		mov     eax, __CEXT_V(MENU_BPA)
-		mov     edx, [___1a0198h]
-		call    near __CEXT_F(read__bpa)
-		mov     ebx, ___181dd4h
-		mov     eax, __CEXT_V(MENU_BPA)
-		mov     edx, [___1a019ch]
-		call    near __CEXT_F(read__bpa)
-		mov     ebx, ___181de0h
-		mov     eax, __CEXT_V(MENU_BPA)
-		mov     edx, [___1a01a0h]
-		call    near __CEXT_F(read__bpa)
-		mov     ebx, ___181dech
-		mov     eax, __CEXT_V(MENU_BPA)
-		mov     edx, [___1a01a4h]
-		call    near __CEXT_F(read__bpa)
-		mov     ebx, ___181df8h
-		mov     eax, __CEXT_V(MENU_BPA)
-		mov     edx, [___1a01d0h]
-		call    near __CEXT_F(read__bpa)
-		mov     ebx, ___181e04h
-		mov     eax, __CEXT_V(MENU_BPA)
-		mov     edx, [___1a01d4h]
-		call    near __CEXT_F(read__bpa)
-		mov     ebx, ___181e10h
-		mov     eax, __CEXT_V(MENU_BPA)
-		mov     edx, [___1a01d8h]
-		call    near __CEXT_F(read__bpa)
-		mov     ebx, ___181e1ch
-		mov     eax, __CEXT_V(MENU_BPA)
-		mov     edx, [___1a01dch]
-		call    near __CEXT_F(read__bpa)
-		mov     ebx, ___181e28h
-		mov     eax, __CEXT_V(MENU_BPA)
-		mov     edx, [___1a1ea0h]
-		call    near __CEXT_F(read__bpa)
-		mov     ebx, ___181e34h
-		mov     eax, __CEXT_V(MENU_BPA)
-		mov     edx, [___1a1e8ch]
-		call    near __CEXT_F(read__bpa)
-		mov     ebx, ___181e40h
-		mov     edx, ___1a54d0h
-		mov     eax, __CEXT_V(MENU_BPA)
-		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
-		mov     edx, [___1a1e6ch]
-		push    edx
-		call    near __CEXT_F(decode2__bpk)
-		mov     ebx, ___181e4ch
-		mov     edx, ___1a54d0h
-		mov     eax, __CEXT_V(MENU_BPA)
-		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
-		mov     ebx, [___1a1e74h]
-		push    ebx
-		call    near __CEXT_F(decode2__bpk)
-		mov     ebx, ___181e58h
-		mov     edx, ___1a54d0h
-		mov     eax, __CEXT_V(MENU_BPA)
-		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
-		mov     ecx, [___1a1e80h]
-		push    ecx
-		call    near __CEXT_F(decode2__bpk)
-		mov     ebx, ___181e68h
-		mov     edx, ___1a54d0h
-		mov     eax, __CEXT_V(MENU_BPA)
-		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
-		mov     esi, [___1a1e84h]
-		push    esi
-		call    near __CEXT_F(decode2__bpk)
-		mov     ebx, ___181e74h
-		mov     edx, ___1a54d0h
-		mov     eax, __CEXT_V(MENU_BPA)
-		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
-		mov     edi, [___1a1e60h]
-		push    edi
-		call    near __CEXT_F(decode2__bpk)
-		mov     ebx, ___181e84h
-		mov     edx, ___1a54d0h
-		mov     eax, __CEXT_V(MENU_BPA)
-		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
-		mov     ebp, [___1a1e54h]
-		push    ebp
-		call    near __CEXT_F(decode2__bpk)
-		mov     ebx, ___181e94h
-		mov     edx, ___1a54d0h
-		mov     eax, __CEXT_V(MENU_BPA)
-		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
-		mov     eax, [___1a1e64h]
-		push    eax
-		call    near __CEXT_F(decode2__bpk)
-		mov     ebx, ___181ea4h
-		mov     edx, ___1a54d0h
-		mov     eax, __CEXT_V(MENU_BPA)
-		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
-		mov     edx, [___1a1e58h]
-		push    edx
-		call    near __CEXT_F(decode2__bpk)
-		mov     ebx, ___181eb4h
-		mov     edx, ___1a54d0h
-		mov     eax, __CEXT_V(MENU_BPA)
-		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
-		mov     ebx, [___1a1e5ch]
-		push    ebx
-		call    near __CEXT_F(decode2__bpk)
-		mov     ebx, ___181ec4h
-		mov     edx, ___1a54d0h
-		mov     eax, __CEXT_V(MENU_BPA)
-		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
-		mov     ecx, [___1a1e98h]
-		push    ecx
-		push    byte 0
-		push    2400h
-		call    near __CEXT_F(decode4__bpk)
-		push    ___1a54d0h
-		mov     esi, [___1a1each]
-		push    esi
-		push    2400h
-		push    2400h
-		call    near __CEXT_F(decode4__bpk)
-		push    ___1a54d0h
-		mov     edi, [___1a1e94h]
-		push    edi
-		push    4800h
-		push    2400h
-		call    near __CEXT_F(decode4__bpk)
-		push    ___1a54d0h
-		mov     ebp, [___1a1e9ch]
-		push    ebp
-		push    6c00h
-		push    2400h
-		call    near __CEXT_F(decode4__bpk)
-		push    ___1a54d0h
-		mov     eax, [___1a1e70h]
-		push    eax
-		push    9000h
-		push    2400h
-		call    near __CEXT_F(decode4__bpk)
-		mov     ebx, ___181ed0h
-		mov     edx, ___1a54d0h
-		mov     eax, __CEXT_V(MENU_BPA)
-		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
-		mov     edx, [___1a0180h]
-		push    edx
-		push    byte 0
-		push    1800h
-		call    near __CEXT_F(decode4__bpk)
-		push    ___1a54d0h
-		mov     ebx, [___1a0184h]
-		push    ebx
-		push    1800h
-		push    1800h
-		call    near __CEXT_F(decode4__bpk)
-		push    ___1a54d0h
-		mov     ecx, [___1a0188h]
-		push    ecx
-		push    3000h
-		push    1800h
-		call    near __CEXT_F(decode4__bpk)
-		push    ___1a54d0h
-		mov     esi, [___1a018ch]
-		push    esi
-		push    4800h
-		push    1800h
-		call    near __CEXT_F(decode4__bpk)
-		push    ___1a54d0h
-		mov     edi, [___1a0190h]
-		push    edi
-		push    6000h
-		push    1800h
-		call    near __CEXT_F(decode4__bpk)
-		push    ___1a54d0h
-		mov     ebp, [___1a0194h]
-		push    ebp
-		push    7800h
-		push    1800h
-		call    near __CEXT_F(decode4__bpk)
-		mov     ebx, ___181ee0h
-		mov     edx, ___1a54d0h
-		mov     eax, __CEXT_V(MENU_BPA)
-		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
-		mov     eax, [___1a1eb0h]
-		push    eax
-		call    near __CEXT_F(decode2__bpk)
-		mov     ebx, ___181eech
-		mov     edx, ___1a54d0h
-		mov     eax, __CEXT_V(MENU_BPA)
-		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
-		mov     edx, [___1a1e78h]
-		push    edx
-		call    near __CEXT_F(decode2__bpk)
-		mov     ebx, ___181efch
-		mov     edx, ___1a54d0h
-		mov     eax, __CEXT_V(MENU_BPA)
-		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
-		mov     ebx, [___1a1eb8h]
-		push    ebx
-		call    near __CEXT_F(decode2__bpk)
-		mov     ebx, ___181f08h
-		mov     edx, ___1a54d0h
-		mov     eax, __CEXT_V(MENU_BPA)
-		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
-		mov     ecx, [___1a1ea8h]
-		push    ecx
-		call    near __CEXT_F(decode2__bpk)
-		mov     ebx, ___181f14h
-		mov     edx, ___1a54d0h
-		mov     eax, __CEXT_V(MENU_BPA)
-		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
-		mov     esi, [___1a1ea4h]
-		push    esi
-		call    near __CEXT_F(decode2__bpk)
-		mov     ebx, ___181f24h
-		mov     edx, ___1a54d0h
-		mov     eax, __CEXT_V(MENU_BPA)
-		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
-		mov     edi, [___1a1eb4h]
-		push    edi
-		call    near __CEXT_F(decode2__bpk)
-		mov     ebx, ___181f34h
-		mov     edx, ___1a54d0h
-		mov     eax, __CEXT_V(MENU_BPA)
-		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
-		mov     ebp, [___1a1ebch]
-		push    ebp
-		call    near __CEXT_F(decode2__bpk)
-		mov     ebx, ___181f40h
-		mov     edx, ___1a54d0h
-		mov     eax, __CEXT_V(MENU_BPA)
-		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
-		mov     eax, [___1a1e88h]
-		push    eax
-		call    near __CEXT_F(decode2__bpk)
-		pop     ebp
-		pop     edi
-		pop     esi
-		pop     edx
-		pop     ecx
-		pop     ebx
-		retn   
+
+
+
+
+
+
+
+
+
+
+
+
 __GDECL(__CEXT_F(___24ec0h))
 		push    4
 		call    near __CHK
-		mov     eax, [___1a1124h]
+		mov     eax, [__CEXT_V(___1a1124h)]
 		call    near ___3f77ch
-		mov     eax, [___1a1ed4h]
+		mov     eax, [__CEXT_V(___1a1ed4h)]
 		call    near ___3f77ch
-		mov     eax, [___1a1e90h]
+		mov     eax, [__CEXT_V(___1a1e90h)]
 		call    near ___3f77ch
-		mov     eax, [___1a10b0h]
+		mov     eax, [__CEXT_V(___1a10b0h)]
 		call    near ___3f77ch
-		mov     eax, [___1a1eb0h]
+		mov     eax, [__CEXT_V(___1a1eb0h)]
 		call    near ___3f77ch
-		mov     eax, [___1a1e78h]
+		mov     eax, [__CEXT_V(___1a1e78h)]
 		call    near ___3f77ch
-		mov     eax, [___1a1eb8h]
+		mov     eax, [__CEXT_V(___1a1eb8h)]
 		call    near ___3f77ch
-		mov     eax, [___1a0180h]
+		mov     eax, [__CEXT_V(___1a0180h)]
 		call    near ___3f77ch
-		mov     eax, [___1a0184h]
+		mov     eax, [__CEXT_V(___1a0184h)]
 		call    near ___3f77ch
-		mov     eax, [___1a0188h]
+		mov     eax, [__CEXT_V(___1a0188h)]
 		call    near ___3f77ch
-		mov     eax, [___1a018ch]
+		mov     eax, [__CEXT_V(___1a018ch)]
 		call    near ___3f77ch
-		mov     eax, [___1a0190h]
+		mov     eax, [__CEXT_V(___1a0190h)]
 		call    near ___3f77ch
-		mov     eax, [___1a0194h]
+		mov     eax, [__CEXT_V(___1a0194h)]
 		call    near ___3f77ch
-		mov     eax, [___1a01b8h]
+		mov     eax, [__CEXT_V(___1a01b8h)]
 		call    near ___3f77ch
-		mov     eax, [___1a01bch]
+		mov     eax, [__CEXT_V(___1a01bch)]
 		call    near ___3f77ch
-		mov     eax, [___1a01c0h]
+		mov     eax, [__CEXT_V(___1a01c0h)]
 		call    near ___3f77ch
-		mov     eax, [___1a01c4h]
+		mov     eax, [__CEXT_V(___1a01c4h)]
 		call    near ___3f77ch
-		mov     eax, [___1a01c8h]
+		mov     eax, [__CEXT_V(___1a01c8h)]
 		call    near ___3f77ch
-		mov     eax, [___1a01cch]
+		mov     eax, [__CEXT_V(___1a01cch)]
 		call    near ___3f77ch
-		mov     eax, [___1a01a8h]
+		mov     eax, [__CEXT_V(___1a01a8h)]
 		call    near ___3f77ch
-		mov     eax, [___1a01ach]
+		mov     eax, [__CEXT_V(___1a01ach)]
 		call    near ___3f77ch
-		mov     eax, [___1a01b0h]
+		mov     eax, [__CEXT_V(___1a01b0h)]
 		call    near ___3f77ch
-		mov     eax, [___1a01b4h]
+		mov     eax, [__CEXT_V(___1a01b4h)]
 		call    near ___3f77ch
-		mov     eax, [___1a0198h]
+		mov     eax, [__CEXT_V(___1a0198h)]
 		call    near ___3f77ch
-		mov     eax, [___1a019ch]
+		mov     eax, [__CEXT_V(___1a019ch)]
 		call    near ___3f77ch
-		mov     eax, [___1a01a0h]
+		mov     eax, [__CEXT_V(___1a01a0h)]
 		call    near ___3f77ch
-		mov     eax, [___1a01a4h]
+		mov     eax, [__CEXT_V(___1a01a4h)]
 		call    near ___3f77ch
-		mov     eax, [___1a01d0h]
+		mov     eax, [__CEXT_V(___1a01d0h)]
 		call    near ___3f77ch
-		mov     eax, [___1a01d4h]
+		mov     eax, [__CEXT_V(___1a01d4h)]
 		call    near ___3f77ch
-		mov     eax, [___1a01d8h]
+		mov     eax, [__CEXT_V(___1a01d8h)]
 		call    near ___3f77ch
-		mov     eax, [___1a01dch]
+		mov     eax, [__CEXT_V(___1a01dch)]
 		call    near ___3f77ch
-		mov     eax, [___1a1e8ch]
+		mov     eax, [__CEXT_V(___1a1e8ch)]
 		call    near ___3f77ch
-		mov     eax, [___1a1ea0h]
+		mov     eax, [__CEXT_V(___1a1ea0h)]
 		call    near ___3f77ch
-		mov     eax, [___1a1e7ch]
+		mov     eax, [__CEXT_V(___1a1e7ch)]
 		call    near ___3f77ch
-		mov     eax, [___1a1e80h]
+		mov     eax, [__CEXT_V(___1a1e80h)]
 		call    near ___3f77ch
-		mov     eax, [___1a1e74h]
+		mov     eax, [__CEXT_V(___1a1e74h)]
 		call    near ___3f77ch
-		mov     eax, [___1a1e84h]
+		mov     eax, [__CEXT_V(___1a1e84h)]
 		call    near ___3f77ch
-		mov     eax, [___1a1e60h]
+		mov     eax, [__CEXT_V(___1a1e60h)]
 		call    near ___3f77ch
-		mov     eax, [___1a1ebch]
+		mov     eax, [__CEXT_V(___1a1ebch)]
 		call    near ___3f77ch
-		mov     eax, [___1a1eb4h]
+		mov     eax, [__CEXT_V(___1a1eb4h)]
 		call    near ___3f77ch
-		mov     eax, [___1a1e88h]
+		mov     eax, [__CEXT_V(___1a1e88h)]
 		call    near ___3f77ch
-		mov     eax, [___1a1ea4h]
+		mov     eax, [__CEXT_V(___1a1ea4h)]
 		call    near ___3f77ch
-		mov     eax, [___1a1ea8h]
+		mov     eax, [__CEXT_V(___1a1ea8h)]
 		call    near ___3f77ch
-		mov     eax, [___1a1e6ch]
+		mov     eax, [__CEXT_V(___1a1e6ch)]
 		call    near ___3f77ch
-		mov     eax, [___1a1e98h]
+		mov     eax, [__CEXT_V(___1a1e98h)]
 		call    near ___3f77ch
-		mov     eax, [___1a1each]
+		mov     eax, [__CEXT_V(___1a1each)]
 		call    near ___3f77ch
-		mov     eax, [___1a1e94h]
+		mov     eax, [__CEXT_V(___1a1e94h)]
 		call    near ___3f77ch
-		mov     eax, [___1a1e9ch]
+		mov     eax, [__CEXT_V(___1a1e9ch)]
 		call    near ___3f77ch
-		mov     eax, [___1a1e70h]
+		mov     eax, [__CEXT_V(___1a1e70h)]
 		call    near ___3f77ch
-		mov     eax, [___1a1e5ch]
+		mov     eax, [__CEXT_V(___1a1e5ch)]
 		call    near ___3f77ch
-		mov     eax, [___1a1e58h]
+		mov     eax, [__CEXT_V(___1a1e58h)]
 		call    near ___3f77ch
-		mov     eax, [___1a1e54h]
+		mov     eax, [__CEXT_V(___1a1e54h)]
 		call    near ___3f77ch
-		mov     eax, [___1a1e64h]
+		mov     eax, [__CEXT_V(___1a1e64h)]
 		call    near ___3f77ch
 		retn    
 ___250e0h:
@@ -25804,7 +25340,7 @@ ___25330h:
 		mov     ecx, 0e0h
 		mov     edx, 60h
 		mov     ebx, [VGABufferPtr_0]
-		mov     esi, [___1a1ed4h]
+		mov     esi, [__CEXT_V(___1a1ed4h)]
 		add     ebx, 13aa0h
 		shr     dl, 2
 ___25362h:
@@ -25822,17 +25358,17 @@ ___25364h:
 		shr     dl, 2
 		dec     cl
 		jne     short ___25362h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
 		sub     eax, edx
 		mov     ecx, 40h
 		mov     ebx, [VGABufferPtr_0]
-		mov     esi, [eax*4+___1a01fch]
+		mov     esi, [eax*4+__CEXT_V(___1a01fch)]
 		add     ebx, 162a0h
 		mov     edx, 60h
-		mov     esi, [esi*4+___1a0180h]
+		mov     esi, [esi*4+__CEXT_V(___1a0180h)]
 		shr     dl, 2
 ___253bfh:
 		mov     ch, dl
@@ -25849,7 +25385,7 @@ ___253c1h:
 		shr     dl, 2
 		dec     cl
 		jne     short ___253bfh
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -25881,7 +25417,7 @@ ___2541ch:
 		mov     edx, ___185c7ah
 		mov     eax, [___1a10b8h]
 		call    near renderTextToBuffer__video
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -25891,7 +25427,7 @@ ___2541ch:
 		jle     short ___25475h
 		mov     dword [eax+___1a0210h], 98967fh
 ___25475h:
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -25930,13 +25466,13 @@ ___254ceh:
 		mov     edx, Font0Props
 		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
 		sub     eax, edx
 		lea     edx, [eax*4+0]
-		mov     ebx, [edx+___1a01fch]
+		mov     ebx, [edx+__CEXT_V(___1a01fch)]
 		lea     eax, [ebx*4+0]
 		mov     edx, [edx+___1a01f0h]
 		add     eax, ebx
@@ -25985,7 +25521,7 @@ ___2558ch:
 		mov     ecx, 31fe0h
 		mov     eax, [___1a10b8h]
 		call    near renderTextToBuffer__video
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -26058,7 +25594,7 @@ ___25643h:
 		mov     ecx, 2fd00h
 		mov     esi, 3fh
 ___2565dh:
-		imul    eax, [___1a1ef8h], byte 6ch
+		imul    eax, [__CEXT_V(___1a1ef8h)], byte 6ch
 		fild    dword [eax+___1a01ech]
 		fmul    qword [___181f56h]
 		sub     esp, byte 8
@@ -26075,7 +25611,7 @@ ___2565dh:
 		call    near memset__clib3r
 		cmp     ecx, 30980h
 		jne     short ___2565dh
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -26133,7 +25669,7 @@ ___2573ch:
 		mov     ecx, 0ah
 		mov     edx, 14h
 		mov     eax, [VGABufferPtr_0]
-		mov     esi, [___1a1e90h]
+		mov     esi, [__CEXT_V(___1a1e90h)]
 		add     eax, 248a3h
 		add     esi, 320h
 		lea     ebx, [eax+ebp]
@@ -26156,8 +25692,8 @@ ___25765h:
 		jne     short ___25763h
 		add     ebp, byte 17h
 ___25788h:
-		imul    eax, [___1a1ef8h], byte 6ch
-		imul    eax, [eax+___1a01fch], 6e0h
+		imul    eax, [__CEXT_V(___1a1ef8h)], byte 6ch
+		imul    eax, [eax+__CEXT_V(___1a01fch)], 6e0h
 		cmp     edi, [eax+___18e938h]
 		jl      short ___2573ch
 		xor     edi, edi
@@ -26167,7 +25703,7 @@ ___257a7h:
 		mov     ecx, 0ah
 		mov     edx, 14h
 		mov     eax, [VGABufferPtr_0]
-		mov     esi, [___1a1e90h]
+		mov     esi, [__CEXT_V(___1a1e90h)]
 		add     eax, 284a3h
 		add     esi, 320h
 		lea     ebx, [eax+edi]
@@ -26190,8 +25726,8 @@ ___257d0h:
 		jne     short ___257ceh
 		add     edi, byte 17h
 ___257f3h:
-		imul    eax, [___1a1ef8h], byte 6ch
-		imul    eax, [eax+___1a01fch], 6e0h
+		imul    eax, [__CEXT_V(___1a1ef8h)], byte 6ch
+		imul    eax, [eax+__CEXT_V(___1a01fch)], 6e0h
 		cmp     ebp, [eax+___18e93ch]
 		jl      short ___257a7h
 		xor     edi, edi
@@ -26201,7 +25737,7 @@ ___25812h:
 		mov     ecx, 0ah
 		mov     edx, 14h
 		mov     ebx, [VGABufferPtr_0]
-		mov     esi, [___1a1e90h]
+		mov     esi, [__CEXT_V(___1a1e90h)]
 		add     ebx, 2c0a3h
 		add     esi, 320h
 		add     ebx, edi
@@ -26224,8 +25760,8 @@ ___2583ch:
 		jne     short ___2583ah
 		add     edi, byte 17h
 ___2585fh:
-		imul    eax, [___1a1ef8h], byte 6ch
-		imul    eax, [eax+___1a01fch], 6e0h
+		imul    eax, [__CEXT_V(___1a1ef8h)], byte 6ch
+		imul    eax, [eax+__CEXT_V(___1a01fch)], 6e0h
 		cmp     ebp, [eax+___18e940h]
 		jl      short ___25812h
 		xor     ebx, ebx
@@ -26237,7 +25773,7 @@ ___25884h:
 		mov     ecx, 0ah
 		mov     edx, 14h
 		mov     eax, [VGABufferPtr_0]
-		mov     esi, [___1a1e90h]
+		mov     esi, [__CEXT_V(___1a1e90h)]
 		add     eax, 248a3h
 		add     esi, ebp
 		lea     ebx, [eax+edi]
@@ -26263,7 +25799,7 @@ ___258a8h:
 		add     edi, byte 17h
 		mov     [esp+38h], edx
 ___258dah:
-		imul    eax, [___1a1ef8h], byte 6ch
+		imul    eax, [__CEXT_V(___1a1ef8h)], byte 6ch
 		mov     edx, [esp+38h]
 		cmp     edx, [eax+___1a01f0h]
 		jl      short ___25884h
@@ -26276,7 +25812,7 @@ ___258f7h:
 		mov     ecx, 0ah
 		mov     edx, 14h
 		mov     ebx, [VGABufferPtr_0]
-		mov     esi, [___1a1e90h]
+		mov     esi, [__CEXT_V(___1a1e90h)]
 		add     ebx, 284a3h
 		add     esi, ebp
 		add     ebx, eax
@@ -26302,7 +25838,7 @@ ___25920h:
 		add     ebp, 0c8h
 		mov     [esp+30h], edx
 ___25952h:
-		imul    eax, [___1a1ef8h], byte 6ch
+		imul    eax, [__CEXT_V(___1a1ef8h)], byte 6ch
 		cmp     edi, [eax+___1a01f4h]
 		jl      short ___258f7h
 		xor     edi, edi
@@ -26315,7 +25851,7 @@ ___2596bh:
 		add     ebx, 2c0a3h
 		mov     ecx, 0ah
 		add     ebx, esi
-		mov     esi, [___1a1e90h]
+		mov     esi, [__CEXT_V(___1a1e90h)]
 		mov     edx, 14h
 		add     esi, ebp
 		shr     dl, 2
@@ -26340,7 +25876,7 @@ ___25994h:
 		add     ebp, 0c8h
 		mov     [esp+34h], eax
 ___259c6h:
-		imul    eax, [___1a1ef8h], byte 6ch
+		imul    eax, [__CEXT_V(___1a1ef8h)], byte 6ch
 		cmp     edi, [eax+___1a01f8h]
 		jl      short ___2596bh
 		add     esp, byte 3ch
@@ -26376,7 +25912,7 @@ ___25a03h:
 ___25a0fh:
 		add     ebx, ecx
 		push    ebx
-		mov     eax, [___1a1e7ch]
+		mov     eax, [__CEXT_V(___1a1e7ch)]
 		push    eax
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, [esp]
@@ -26385,7 +25921,7 @@ ___25a0fh:
 		add     eax, edi
 		mov     edx, [VGABufferPtr_0]
 		shl     eax, 7
-		mov     esi, [___1a1e7ch]
+		mov     esi, [__CEXT_V(___1a1e7ch)]
 		add     eax, edx
 		mov     edx, 60h
 		add     ebx, eax
@@ -26421,7 +25957,7 @@ ___25a74h:
 		sub     esp, byte 28h
 		mov     ecx, 60h
 		mov     ebx, [VGABufferPtr_0]
-		mov     esi, [___1a1e6ch]
+		mov     esi, [__CEXT_V(___1a1e6ch)]
 		add     ebx, 13890h
 		mov     edx, ecx
 		shr     dl, 2
@@ -26441,10 +25977,10 @@ ___25aa4h:
 		dec     cl
 		jne     short ___25aa2h
 		mov     ecx, 10h
-		mov     edx, [___1a1ee4h]
+		mov     edx, [__CEXT_V(___1a1ee4h)]
 		mov     ebx, [VGABufferPtr_0]
 		lea     eax, [edx*4+0]
-		mov     esi, [___1a1ea8h]
+		mov     esi, [__CEXT_V(___1a1ea8h)]
 		sub     eax, edx
 		add     ebx, 13890h
 		shl     eax, 9
@@ -26466,17 +26002,17 @@ ___25af9h:
 		shr     dl, 2
 		dec     cl
 		jne     short ___25af7h
-		mov     eax, [___1a1ee4h]
+		mov     eax, [__CEXT_V(___1a1ee4h)]
 		mov     edx, 8dh
 		shl     eax, 8
-		mov     ecx, [___1a1ee4h]
+		mov     ecx, [__CEXT_V(___1a1ee4h)]
 		add     eax, ___185cbch
-		mov     ebx, [___1a1ed0h]
+		mov     ebx, [__CEXT_V(___1a1ed0h)]
 		push    eax
-		mov     ecx, [ecx*4+___1a01b8h]
+		mov     ecx, [ecx*4+__CEXT_V(___1a01b8h)]
 		mov     eax, 10h
 		call    near ___259e0h
-		mov     edx, [___1a1ee4h]
+		mov     edx, [__CEXT_V(___1a1ee4h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 3
@@ -26520,7 +26056,7 @@ ___25ba5h:
 		mov     edx, 72h
 		mov     eax, 90h
 		call    near ___13248h
-		mov     edx, [___1a1ee4h]
+		mov     edx, [__CEXT_V(___1a1ee4h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 3
@@ -26533,7 +26069,7 @@ ___25ba5h:
 		mov     edx, 136aah
 		add     eax, 100h
 		call    near ___13094h
-		mov     edx, [___1a1ee4h]
+		mov     edx, [__CEXT_V(___1a1ee4h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 3
@@ -26543,7 +26079,7 @@ ___25ba5h:
 		mov     edx, 15eaah
 		add     eax, 128h
 		call    near ___13094h
-		mov     edx, [___1a1ee4h]
+		mov     edx, [__CEXT_V(___1a1ee4h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 3
@@ -26553,7 +26089,7 @@ ___25ba5h:
 		mov     edx, 186aah
 		add     eax, 150h
 		call    near ___13094h
-		mov     edx, [___1a1ee4h]
+		mov     edx, [__CEXT_V(___1a1ee4h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 3
@@ -26563,7 +26099,7 @@ ___25ba5h:
 		mov     edx, 1aeaah
 		add     eax, 178h
 		call    near ___13094h
-		mov     edx, [___1a1ee4h]
+		mov     edx, [__CEXT_V(___1a1ee4h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 3
@@ -26573,7 +26109,7 @@ ___25ba5h:
 		mov     edx, 1d6aah
 		add     eax, 1a0h
 		call    near ___13094h
-		mov     edx, [___1a1ee4h]
+		mov     edx, [__CEXT_V(___1a1ee4h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 3
@@ -26587,7 +26123,7 @@ ___25ce5h:
 		mov     edx, 136aah
 		add     eax, byte 10h
 		call    near ___13094h
-		mov     edx, [___1a1ee4h]
+		mov     edx, [__CEXT_V(___1a1ee4h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 3
@@ -26597,7 +26133,7 @@ ___25ce5h:
 		mov     edx, 15eaah
 		add     eax, byte 38h
 		call    near ___13094h
-		mov     edx, [___1a1ee4h]
+		mov     edx, [__CEXT_V(___1a1ee4h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 3
@@ -26607,7 +26143,7 @@ ___25ce5h:
 		mov     edx, 186aah
 		add     eax, byte 60h
 		call    near ___13094h
-		mov     edx, [___1a1ee4h]
+		mov     edx, [__CEXT_V(___1a1ee4h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 3
@@ -26617,7 +26153,7 @@ ___25ce5h:
 		mov     edx, 1aeaah
 		add     eax, 88h
 		call    near ___13094h
-		mov     edx, [___1a1ee4h]
+		mov     edx, [__CEXT_V(___1a1ee4h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 3
@@ -26627,7 +26163,7 @@ ___25ce5h:
 		mov     edx, 1d6aah
 		add     eax, 0b0h
 		call    near ___13094h
-		mov     edx, [___1a1ee4h]
+		mov     edx, [__CEXT_V(___1a1ee4h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 3
@@ -26641,7 +26177,7 @@ ___25dc0h:
 		mov     ecx, 40h
 		mov     edx, 10h
 		mov     ebx, [VGABufferPtr_0]
-		mov     esi, [___1a1e78h]
+		mov     esi, [__CEXT_V(___1a1e78h)]
 		add     ebx, 16080h
 ___25de1h:
 		mov     edi, edx
@@ -26662,7 +26198,7 @@ ___25debh:
 		mov     ecx, 40h
 		mov     edx, 10h
 		mov     ebx, [VGABufferPtr_0]
-		mov     esi, [___1a1e78h]
+		mov     esi, [__CEXT_V(___1a1e78h)]
 		add     ebx, 160f0h
 		add     esi, 400h
 ___25e1dh:
@@ -26699,7 +26235,7 @@ ___25e40h:
 		sub     esp, byte 28h
 		mov     ecx, 60h
 		mov     ebx, [VGABufferPtr_0]
-		mov     esi, [___1a1e98h]
+		mov     esi, [__CEXT_V(___1a1e98h)]
 		add     ebx, 27890h
 		mov     edx, ecx
 		shr     dl, 2
@@ -26718,13 +26254,13 @@ ___25e70h:
 		shr     dl, 2
 		dec     cl
 		jne     short ___25e6eh
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
 		sub     eax, edx
 		lea     edx, [eax*4+0]
-		mov     ebx, [edx+___1a01fch]
+		mov     ebx, [edx+__CEXT_V(___1a01fch)]
 		lea     eax, [ebx*8+0]
 		sub     eax, ebx
 		shl     eax, 3
@@ -26739,18 +26275,18 @@ ___25e70h:
 		shl     eax, 5
 		mov     edx, 10dh
 		add     eax, ___1862bch
-		mov     ecx, [ebx*4+___1a01a8h]
+		mov     ecx, [ebx*4+__CEXT_V(___1a01a8h)]
 		push    eax
-		mov     ebx, [___1a1ec8h]
+		mov     ebx, [__CEXT_V(___1a1ec8h)]
 		mov     eax, 10h
 		call    near ___259e0h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     ebx, [edx*8+0]
 		sub     ebx, edx
 		shl     ebx, 2
 		sub     ebx, edx
 		shl     ebx, 2
-		mov     edx, [ebx+___1a01fch]
+		mov     edx, [ebx+__CEXT_V(___1a01fch)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 3
@@ -26796,13 +26332,13 @@ ___25f7fh:
 		mov     edx, 72h
 		mov     eax, 90h
 		call    near ___13248h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     ebx, [edx*8+0]
 		sub     ebx, edx
 		shl     ebx, 2
 		sub     ebx, edx
 		shl     ebx, 2
-		mov     edx, [ebx+___1a01fch]
+		mov     edx, [ebx+__CEXT_V(___1a01fch)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 3
@@ -26820,13 +26356,13 @@ ___25f7fh:
 		add     eax, edx
 		mov     edx, 136aah
 		call    near ___13094h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     ebx, [edx*8+0]
 		sub     ebx, edx
 		shl     ebx, 2
 		sub     ebx, edx
 		shl     ebx, 2
-		mov     edx, [ebx+___1a01fch]
+		mov     edx, [ebx+__CEXT_V(___1a01fch)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 3
@@ -26845,13 +26381,13 @@ ___25f7fh:
 		mov     edx, 15eaah
 		add     eax, byte 28h
 		call    near ___13094h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     ebx, [edx*8+0]
 		sub     ebx, edx
 		shl     ebx, 2
 		sub     ebx, edx
 		shl     ebx, 2
-		mov     edx, [ebx+___1a01fch]
+		mov     edx, [ebx+__CEXT_V(___1a01fch)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 3
@@ -26870,13 +26406,13 @@ ___25f7fh:
 		mov     edx, 186aah
 		add     eax, byte 50h
 		call    near ___13094h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     esi, [edx*8+0]
 		sub     esi, edx
 		shl     esi, 2
 		sub     esi, edx
 		shl     esi, 2
-		mov     edx, [esi+___1a01fch]
+		mov     edx, [esi+__CEXT_V(___1a01fch)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 3
@@ -26895,13 +26431,13 @@ ___25f7fh:
 		mov     edx, 1aeaah
 		add     eax, byte 78h
 		call    near ___13094h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     ebx, [edx*8+0]
 		sub     ebx, edx
 		shl     ebx, 2
 		sub     ebx, edx
 		shl     ebx, 2
-		mov     edx, [ebx+___1a01fch]
+		mov     edx, [ebx+__CEXT_V(___1a01fch)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 3
@@ -26919,13 +26455,13 @@ ___25f7fh:
 		mov     edx, 1d6aah
 		add     eax, 0a0h
 		call    near ___13094h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     ebx, [edx*8+0]
 		sub     ebx, edx
 		shl     ebx, 2
 		sub     ebx, edx
 		shl     ebx, 2
-		mov     edx, [ebx+___1a01fch]
+		mov     edx, [ebx+__CEXT_V(___1a01fch)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 3
@@ -26953,7 +26489,7 @@ ___25f7fh:
 ___261e1h:
 		mov     ebx, [VGABufferPtr_0]
 		lea     edx, [ecx-1]
-		mov     esi, [___1a1eb8h]
+		mov     esi, [__CEXT_V(___1a1eb8h)]
 		lea     eax, [edx*4+0]
 		mov     ecx, 40h
 		sub     eax, edx
@@ -27019,7 +26555,7 @@ ___262b4h:
 		sub     esp, byte 28h
 		mov     ecx, 60h
 		mov     ebx, [VGABufferPtr_0]
-		mov     esi, [___1a1each]
+		mov     esi, [__CEXT_V(___1a1each)]
 		add     ebx, 278f8h
 		mov     edx, ecx
 		shr     dl, 2
@@ -27038,13 +26574,13 @@ ___262e4h:
 		shr     dl, 2
 		dec     cl
 		jne     short ___262e2h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
 		sub     eax, edx
 		lea     edx, [eax*4+0]
-		mov     ebx, [edx+___1a01fch]
+		mov     ebx, [edx+__CEXT_V(___1a01fch)]
 		lea     eax, [ebx*8+0]
 		sub     eax, ebx
 		shl     eax, 3
@@ -27059,18 +26595,18 @@ ___262e4h:
 		shl     eax, 4
 		mov     edx, 10dh
 		add     eax, ___18643ch
-		mov     ecx, [ebx*4+___1a0198h]
+		mov     ecx, [ebx*4+__CEXT_V(___1a0198h)]
 		push    eax
-		mov     ebx, [___1a1ec0h]
+		mov     ebx, [__CEXT_V(___1a1ec0h)]
 		mov     eax, 78h
 		call    near ___259e0h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     ebx, [edx*8+0]
 		sub     ebx, edx
 		shl     ebx, 2
 		sub     ebx, edx
 		shl     ebx, 2
-		mov     edx, [ebx+___1a01fch]
+		mov     edx, [ebx+__CEXT_V(___1a01fch)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 3
@@ -27116,7 +26652,7 @@ ___263f3h:
 		mov     edx, 72h
 		mov     eax, 90h
 		call    near ___13248h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -27129,7 +26665,7 @@ ___263f3h:
 		mov     edx, 136aah
 		add     eax, ___1914c0h
 		call    near ___13094h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -27143,7 +26679,7 @@ ___263f3h:
 		mov     edx, 15eaah
 		add     eax, byte 28h
 		call    near ___13094h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -27157,7 +26693,7 @@ ___263f3h:
 		mov     edx, 186aah
 		add     eax, byte 50h
 		call    near ___13094h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -27171,7 +26707,7 @@ ___263f3h:
 		mov     edx, 1aeaah
 		add     eax, byte 78h
 		call    near ___13094h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -27185,7 +26721,7 @@ ___263f3h:
 		mov     edx, 1d6aah
 		add     eax, 0a0h
 		call    near ___13094h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -27209,7 +26745,7 @@ ___263f3h:
 ___2657bh:
 		mov     ebx, [VGABufferPtr_0]
 		lea     edx, [ecx-1]
-		mov     eax, [___1a1eb8h]
+		mov     eax, [__CEXT_V(___1a1eb8h)]
 		mov     ecx, 40h
 		lea     esi, [edx*4+0]
 		add     ebx, 2a0f8h
@@ -27276,7 +26812,7 @@ ___26650h:
 		sub     esp, byte 28h
 		mov     ecx, 60h
 		mov     ebx, [VGABufferPtr_0]
-		mov     esi, [___1a1e94h]
+		mov     esi, [__CEXT_V(___1a1e94h)]
 		add     ebx, 27960h
 		mov     edx, ecx
 		shr     dl, 2
@@ -27295,13 +26831,13 @@ ___26680h:
 		shr     dl, 2
 		dec     cl
 		jne     short ___2667eh
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
 		sub     eax, edx
 		lea     edx, [eax*4+0]
-		mov     ebx, [edx+___1a01fch]
+		mov     ebx, [edx+__CEXT_V(___1a01fch)]
 		lea     eax, [ebx*8+0]
 		sub     eax, ebx
 		shl     eax, 3
@@ -27315,18 +26851,18 @@ ___26680h:
 		shl     eax, 6
 		mov     edx, 10dh
 		add     eax, ___1864fch
-		mov     ecx, [ebx*4+___1a01d0h]
+		mov     ecx, [ebx*4+__CEXT_V(___1a01d0h)]
 		push    eax
-		mov     ebx, [___1a1eech]
+		mov     ebx, [__CEXT_V(___1a1eech)]
 		mov     eax, 0e0h
 		call    near ___259e0h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     ebx, [edx*8+0]
 		sub     ebx, edx
 		shl     ebx, 2
 		sub     ebx, edx
 		shl     ebx, 2
-		mov     edx, [ebx+___1a01fch]
+		mov     edx, [ebx+__CEXT_V(___1a01fch)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 3
@@ -27372,7 +26908,7 @@ ___26788h:
 		mov     edx, 72h
 		mov     eax, 90h
 		call    near ___13248h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -27385,7 +26921,7 @@ ___26788h:
 		mov     edx, 136aah
 		add     eax, ___191c40h
 		call    near ___13094h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -27399,7 +26935,7 @@ ___26788h:
 		mov     edx, 15eaah
 		add     eax, byte 28h
 		call    near ___13094h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -27413,7 +26949,7 @@ ___26788h:
 		mov     edx, 186aah
 		add     eax, byte 50h
 		call    near ___13094h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -27427,7 +26963,7 @@ ___26788h:
 		mov     edx, 1aeaah
 		add     eax, byte 78h
 		call    near ___13094h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -27441,7 +26977,7 @@ ___26788h:
 		mov     edx, 1d6aah
 		add     eax, 0a0h
 		call    near ___13094h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -27465,7 +27001,7 @@ ___26788h:
 ___26910h:
 		mov     ebx, [VGABufferPtr_0]
 		lea     edx, [ecx-1]
-		mov     eax, [___1a1eb8h]
+		mov     eax, [__CEXT_V(___1a1eb8h)]
 		mov     ecx, 40h
 		lea     esi, [edx*4+0]
 		add     ebx, 2a160h
@@ -27533,7 +27069,7 @@ ___269e4h:
 		sub     esp, byte 28h
 		mov     ecx, 60h
 		mov     ebx, [VGABufferPtr_0]
-		mov     esi, [___1a1e9ch]
+		mov     esi, [__CEXT_V(___1a1e9ch)]
 		add     ebx, 279c8h
 		mov     edx, ecx
 		shr     dl, 2
@@ -27555,10 +27091,10 @@ ___26a15h:
 		push    ___186658h
 		mov     edx, 10dh
 		mov     eax, 148h
-		mov     ecx, [___1a1e8ch]
+		mov     ecx, [__CEXT_V(___1a1e8ch)]
 		mov     ebx, [___1a1ed8h]
 		call    near ___259e0h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -27579,7 +27115,7 @@ ___26a15h:
 		sub     ecx, eax
 		mov     eax, [___1a10b8h]
 		call    near renderTextToBuffer__video
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     ebx, [edx*8+0]
 		sub     ebx, edx
 		shl     ebx, 2
@@ -27588,7 +27124,7 @@ ___26a15h:
 		shl     ebx, 2
 		test    ecx, ecx
 		je      short ___26affh
-		mov     edx, [ebx+___1a01fch]
+		mov     edx, [ebx+__CEXT_V(___1a01fch)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 3
@@ -27606,7 +27142,7 @@ ___26a15h:
 		sar     eax, 1
 		jmp     short ___26b2ah
 ___26affh:
-		mov     edx, [ebx+___1a01fch]
+		mov     edx, [ebx+__CEXT_V(___1a01fch)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 3
@@ -27633,7 +27169,7 @@ ___26b3fh:
 		sub     ecx, eax
 		mov     eax, [___1a10b8h]
 		call    near renderTextToBuffer__video
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -27642,7 +27178,7 @@ ___26b3fh:
 		shl     eax, 2
 		test    ebx, ebx
 		je      short ___26bb6h
-		mov     edx, [eax+___1a01fch]
+		mov     edx, [eax+__CEXT_V(___1a01fch)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 3
@@ -27658,7 +27194,7 @@ ___26b3fh:
 		mov     edx, esp
 		jmp     short ___26bdah
 ___26bb6h:
-		mov     eax, [eax+___1a01fch]
+		mov     eax, [eax+__CEXT_V(___1a01fch)]
 		lea     esi, [eax*8+0]
 		sub     esi, eax
 		shl     esi, 3
@@ -27698,7 +27234,7 @@ ___26c11h:
 		lea     edx, [eax+346c8h]
 		lea     eax, [esp+14h]
 		call    near ___12f60h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -27706,7 +27242,7 @@ ___26c11h:
 		mov     ebp, [eax*4+___1a01ech]
 		xor     esi, esi
 		cmp     ebp, byte 64h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -27715,7 +27251,7 @@ ___26c11h:
 		jge     short ___26c6dh
 		mov     esi, 1
 ___26c6dh:
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -27724,7 +27260,7 @@ ___26c6dh:
 		jge     short ___26c90h
 		mov     esi, 2
 ___26c90h:
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -27733,7 +27269,7 @@ ___26c90h:
 		jge     short ___26cb3h
 		mov     esi, 3
 ___26cb3h:
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -27742,7 +27278,7 @@ ___26cb3h:
 		jge     short ___26cd6h
 		mov     esi, 4
 ___26cd6h:
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -27751,7 +27287,7 @@ ___26cd6h:
 		jge     short ___26cf9h
 		mov     esi, 5
 ___26cf9h:
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -27760,7 +27296,7 @@ ___26cf9h:
 		jge     short ___26d1ch
 		mov     esi, 6
 ___26d1ch:
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -27769,7 +27305,7 @@ ___26d1ch:
 		jge     short ___26d3fh
 		mov     esi, 7
 ___26d3fh:
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -27778,7 +27314,7 @@ ___26d3fh:
 		jge     short ___26d62h
 		mov     esi, 8
 ___26d62h:
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -27787,7 +27323,7 @@ ___26d62h:
 		jge     short ___26d85h
 		mov     esi, 9
 ___26d85h:
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -27796,7 +27332,7 @@ ___26d85h:
 		jge     short ___26da8h
 		mov     esi, 0ah
 ___26da8h:
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -27852,7 +27388,7 @@ ___26e54h:
 		push    esi
 		mov     ecx, 60h
 		mov     ebx, [VGABufferPtr_0]
-		mov     esi, [___1a1e70h]
+		mov     esi, [__CEXT_V(___1a1e70h)]
 		add     ebx, 27a30h
 		mov     edx, ecx
 		shr     dl, 2
@@ -27925,8 +27461,8 @@ ___26f7fh:
 		push    ___1865fch
 		mov     edx, 10dh
 		mov     eax, 1b0h
-		mov     ecx, [___1a1ea0h]
-		mov     ebx, [___1a1ee8h]
+		mov     ecx, [__CEXT_V(___1a1ea0h)]
+		mov     ebx, [__CEXT_V(___1a1ee8h)]
 		call    near ___259e0h
 		pop     esi
 		pop     edx
@@ -27940,14 +27476,14 @@ ___26fach:
 		push    ecx
 		push    edx
 		sub     esp, byte 4
-		mov     ebx, [___1a1ef8h]
+		mov     ebx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [ebx*8+0]
 		sub     eax, ebx
 		shl     eax, 2
 		sub     eax, ebx
 		mov     bl, 5
-		sub     bl, [eax*4+___1a01fch]
-		mov     edx, [eax*4+___1a01fch]
+		sub     bl, [eax*4+__CEXT_V(___1a01fch)]
+		mov     edx, [eax*4+__CEXT_V(___1a01fch)]
 		mov     [esp], bl
 		test    edx, edx
 		jne     short ___26febh
@@ -28001,7 +27537,7 @@ ___27078h:
 		sub     esp, byte 28h
 		mov     ecx, 60h
 		mov     ebx, [VGABufferPtr_0]
-		mov     esi, [___1a1e6ch]
+		mov     esi, [__CEXT_V(___1a1e6ch)]
 		add     ebx, 13890h
 		mov     edx, ecx
 		shr     dl, 2
@@ -28021,10 +27557,10 @@ ___270a8h:
 		dec     cl
 		jne     short ___270a6h
 		mov     ecx, 10h
-		mov     edx, [___1a1ee4h]
+		mov     edx, [__CEXT_V(___1a1ee4h)]
 		mov     ebx, [VGABufferPtr_0]
 		lea     eax, [edx*4+0]
-		mov     esi, [___1a1ea8h]
+		mov     esi, [__CEXT_V(___1a1ea8h)]
 		sub     eax, edx
 		add     ebx, 13890h
 		shl     eax, 9
@@ -28046,17 +27582,17 @@ ___270fdh:
 		shr     dl, 2
 		dec     cl
 		jne     short ___270fbh
-		mov     eax, [___1a1ee4h]
+		mov     eax, [__CEXT_V(___1a1ee4h)]
 		mov     edx, 8dh
 		shl     eax, 8
-		mov     ecx, [___1a1ee4h]
+		mov     ecx, [__CEXT_V(___1a1ee4h)]
 		add     eax, ___185cbch
-		mov     ebx, [___1a1ed0h]
+		mov     ebx, [__CEXT_V(___1a1ed0h)]
 		push    eax
-		mov     ecx, [ecx*4+___1a01b8h]
+		mov     ecx, [ecx*4+__CEXT_V(___1a01b8h)]
 		mov     eax, 10h
 		call    near ___259e0h
-		mov     edx, [___1a1ee4h]
+		mov     edx, [__CEXT_V(___1a1ee4h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 3
@@ -28100,12 +27636,12 @@ ___271a8h:
 		mov     edx, 72h
 		mov     eax, 90h
 		call    near ___13248h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
 		sub     eax, edx
-		mov     edx, [eax*4+___1a01fch]
+		mov     edx, [eax*4+__CEXT_V(___1a01fch)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 3
@@ -28115,12 +27651,12 @@ ___271a8h:
 		mov     edx, 136aah
 		add     eax, 1f0h
 		call    near ___13094h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
 		sub     eax, edx
-		mov     edx, [eax*4+___1a01fch]
+		mov     edx, [eax*4+__CEXT_V(___1a01fch)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 3
@@ -28130,12 +27666,12 @@ ___271a8h:
 		mov     edx, 15eaah
 		add     eax, 218h
 		call    near ___13094h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
 		sub     eax, edx
-		mov     edx, [eax*4+___1a01fch]
+		mov     edx, [eax*4+__CEXT_V(___1a01fch)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 3
@@ -28145,12 +27681,12 @@ ___271a8h:
 		mov     edx, 186aah
 		add     eax, 240h
 		call    near ___13094h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
 		sub     eax, edx
-		mov     edx, [eax*4+___1a01fch]
+		mov     edx, [eax*4+__CEXT_V(___1a01fch)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 3
@@ -28160,12 +27696,12 @@ ___271a8h:
 		mov     edx, 1aeaah
 		add     eax, 268h
 		call    near ___13094h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
 		sub     eax, edx
-		mov     edx, [eax*4+___1a01fch]
+		mov     edx, [eax*4+__CEXT_V(___1a01fch)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 3
@@ -28175,12 +27711,12 @@ ___271a8h:
 		mov     edx, 1d6aah
 		add     eax, 290h
 		call    near ___13094h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
 		sub     eax, edx
-		mov     edx, [eax*4+___1a01fch]
+		mov     edx, [eax*4+__CEXT_V(___1a01fch)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 3
@@ -28193,7 +27729,7 @@ ___271a8h:
 		call    near ___13094h
 		mov     edx, 10h
 		mov     ebx, [VGABufferPtr_0]
-		mov     esi, [___1a1e78h]
+		mov     esi, [__CEXT_V(___1a1e78h)]
 		add     ebx, 16080h
 ___27378h:
 		mov     edi, edx
@@ -28214,7 +27750,7 @@ ___27382h:
 		mov     ecx, 40h
 		mov     edx, 10h
 		mov     ebx, [VGABufferPtr_0]
-		mov     esi, [___1a1e78h]
+		mov     esi, [__CEXT_V(___1a1e78h)]
 		add     ebx, 160f0h
 		add     esi, 400h
 ___273b4h:
@@ -28251,7 +27787,7 @@ ___273d8h:
 		sub     esp, byte 28h
 		mov     ecx, 60h
 		mov     ebx, [VGABufferPtr_0]
-		mov     esi, [___1a1e98h]
+		mov     esi, [__CEXT_V(___1a1e98h)]
 		add     ebx, 27890h
 		mov     edx, ecx
 		shr     dl, 2
@@ -28270,13 +27806,13 @@ ___27408h:
 		shr     dl, 2
 		dec     cl
 		jne     short ___27406h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
 		sub     eax, edx
 		lea     edx, [eax*4+0]
-		mov     ebx, [edx+___1a01fch]
+		mov     ebx, [edx+__CEXT_V(___1a01fch)]
 		lea     eax, [ebx*8+0]
 		sub     eax, ebx
 		shl     eax, 3
@@ -28291,7 +27827,7 @@ ___27408h:
 		mov     ebx, [VGABufferPtr_0]
 		mov     edx, eax
 		shl     eax, 2
-		mov     esi, [___1a1eb8h]
+		mov     esi, [__CEXT_V(___1a1eb8h)]
 		sub     eax, edx
 		add     ebx, 2a090h
 		shl     eax, 0bh
@@ -28320,18 +27856,18 @@ ___274bdh:
 		shl     eax, 5
 		mov     edx, 10dh
 		add     eax, ___1862bch
-		mov     ecx, [ebx*4+___1a01a8h]
+		mov     ecx, [ebx*4+__CEXT_V(___1a01a8h)]
 		push    eax
-		mov     ebx, [___1a1ec8h]
+		mov     ebx, [__CEXT_V(___1a1ec8h)]
 		mov     eax, 10h
 		call    near ___259e0h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     ebx, [edx*8+0]
 		sub     ebx, edx
 		shl     ebx, 2
 		sub     ebx, edx
 		shl     ebx, 2
-		mov     edx, [ebx+___1a01fch]
+		mov     edx, [ebx+__CEXT_V(___1a01fch)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 3
@@ -28378,7 +27914,7 @@ ___2757fh:
 		mov     edx, 72h
 		mov     eax, 90h
 		call    near ___13248h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -28391,7 +27927,7 @@ ___2757fh:
 		mov     edx, 136aah
 		add     eax, ___191100h
 		call    near ___13094h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -28405,7 +27941,7 @@ ___2757fh:
 		mov     edx, 15eaah
 		add     eax, byte 28h
 		call    near ___13094h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -28419,7 +27955,7 @@ ___2757fh:
 		mov     edx, 186aah
 		add     eax, byte 50h
 		call    near ___13094h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -28433,7 +27969,7 @@ ___2757fh:
 		mov     edx, 1aeaah
 		add     eax, byte 78h
 		call    near ___13094h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -28447,7 +27983,7 @@ ___2757fh:
 		mov     edx, 1d6aah
 		add     eax, 0a0h
 		call    near ___13094h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -28479,7 +28015,7 @@ ___276f0h:
 		sub     esp, byte 28h
 		mov     ecx, 60h
 		mov     ebx, [VGABufferPtr_0]
-		mov     esi, [___1a1each]
+		mov     esi, [__CEXT_V(___1a1each)]
 		add     ebx, 278f8h
 		mov     edx, ecx
 		shr     dl, 2
@@ -28498,13 +28034,13 @@ ___27720h:
 		shr     dl, 2
 		dec     cl
 		jne     short ___2771eh
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
 		sub     eax, edx
 		lea     edx, [eax*4+0]
-		mov     ebx, [edx+___1a01fch]
+		mov     ebx, [edx+__CEXT_V(___1a01fch)]
 		lea     eax, [ebx*8+0]
 		sub     eax, ebx
 		shl     eax, 3
@@ -28518,7 +28054,7 @@ ___27720h:
 		mov     ecx, 40h
 		mov     ebx, [VGABufferPtr_0]
 		mov     edx, eax
-		mov     eax, [___1a1eb8h]
+		mov     eax, [__CEXT_V(___1a1eb8h)]
 		lea     esi, [edx*4+0]
 		add     ebx, 2a0f8h
 		sub     esi, edx
@@ -28549,18 +28085,18 @@ ___277ddh:
 		shl     eax, 4
 		mov     edx, 10dh
 		add     eax, ___18643ch
-		mov     ecx, [ebx*4+___1a0198h]
+		mov     ecx, [ebx*4+__CEXT_V(___1a0198h)]
 		push    eax
-		mov     ebx, [___1a1ec0h]
+		mov     ebx, [__CEXT_V(___1a1ec0h)]
 		mov     eax, 78h
 		call    near ___259e0h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     ebx, [edx*8+0]
 		sub     ebx, edx
 		shl     ebx, 2
 		sub     ebx, edx
 		shl     ebx, 2
-		mov     edx, [ebx+___1a01fch]
+		mov     edx, [ebx+__CEXT_V(___1a01fch)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 3
@@ -28607,7 +28143,7 @@ ___2789fh:
 		mov     edx, 72h
 		mov     eax, 90h
 		call    near ___13248h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -28620,7 +28156,7 @@ ___2789fh:
 		mov     edx, 136aah
 		add     eax, ___191880h
 		call    near ___13094h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -28634,7 +28170,7 @@ ___2789fh:
 		mov     edx, 15eaah
 		add     eax, byte 28h
 		call    near ___13094h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -28648,7 +28184,7 @@ ___2789fh:
 		mov     edx, 186aah
 		add     eax, byte 50h
 		call    near ___13094h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -28662,7 +28198,7 @@ ___2789fh:
 		mov     edx, 1aeaah
 		add     eax, byte 78h
 		call    near ___13094h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -28676,7 +28212,7 @@ ___2789fh:
 		mov     edx, 1d6aah
 		add     eax, 0a0h
 		call    near ___13094h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -28708,7 +28244,7 @@ ___27a10h:
 		sub     esp, byte 28h
 		mov     ecx, 60h
 		mov     ebx, [VGABufferPtr_0]
-		mov     esi, [___1a1e94h]
+		mov     esi, [__CEXT_V(___1a1e94h)]
 		add     ebx, 27960h
 		mov     edx, ecx
 		shr     dl, 2
@@ -28727,13 +28263,13 @@ ___27a40h:
 		shr     dl, 2
 		dec     cl
 		jne     short ___27a3eh
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
 		sub     eax, edx
 		lea     edx, [eax*4+0]
-		mov     ebx, [edx+___1a01fch]
+		mov     ebx, [edx+__CEXT_V(___1a01fch)]
 		lea     eax, [ebx*8+0]
 		sub     eax, ebx
 		shl     eax, 3
@@ -28746,7 +28282,7 @@ ___27a40h:
 		jne     short ___27afbh
 		mov     ecx, 40h
 		mov     ebx, [VGABufferPtr_0]
-		mov     esi, [___1a1eb8h]
+		mov     esi, [__CEXT_V(___1a1eb8h)]
 		mov     edx, eax
 		shl     eax, 2
 		add     ebx, 2a160h
@@ -28777,18 +28313,18 @@ ___27afbh:
 		shl     eax, 6
 		mov     edx, 10dh
 		add     eax, ___1864fch
-		mov     ecx, [ebx*4+___1a01d0h]
+		mov     ecx, [ebx*4+__CEXT_V(___1a01d0h)]
 		push    eax
-		mov     ebx, [___1a1eech]
+		mov     ebx, [__CEXT_V(___1a1eech)]
 		mov     eax, 0e0h
 		call    near ___259e0h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     ebx, [edx*8+0]
 		sub     ebx, edx
 		shl     ebx, 2
 		sub     ebx, edx
 		shl     ebx, 2
-		mov     edx, [ebx+___1a01fch]
+		mov     edx, [ebx+__CEXT_V(___1a01fch)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 3
@@ -28834,7 +28370,7 @@ ___27bb4h:
 		mov     edx, 72h
 		mov     eax, 90h
 		call    near ___13248h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -28847,7 +28383,7 @@ ___27bb4h:
 		mov     edx, 136aah
 		add     eax, ___192000h
 		call    near ___13094h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -28861,7 +28397,7 @@ ___27bb4h:
 		mov     edx, 15eaah
 		add     eax, byte 28h
 		call    near ___13094h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -28875,7 +28411,7 @@ ___27bb4h:
 		mov     edx, 186aah
 		add     eax, byte 50h
 		call    near ___13094h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -28889,7 +28425,7 @@ ___27bb4h:
 		mov     edx, 1aeaah
 		add     eax, byte 78h
 		call    near ___13094h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -28903,7 +28439,7 @@ ___27bb4h:
 		mov     edx, 1d6aah
 		add     eax, 0a0h
 		call    near ___13094h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -28942,7 +28478,7 @@ ___27d24h:
 		mov     ecx, 0ch
 		mov     edx, [esp]
 		mov     eax, [VGABufferPtr_0]
-		mov     esi, [___1a1eb0h]
+		mov     esi, [__CEXT_V(___1a1eb0h)]
 		add     eax, edx
 		mov     edx, 18h
 		lea     ebx, [eax+ebp]
@@ -28969,7 +28505,7 @@ ___27d78h:
 		add     eax, ebx
 		mov     ebx, [esp+0ch]
 		add     eax, ebp
-		mov     esi, [___1a1eb0h]
+		mov     esi, [__CEXT_V(___1a1eb0h)]
 		add     ebx, eax
 		add     esi, 240h
 		sub     ebx, byte 18h
@@ -29001,7 +28537,7 @@ ___27dbdh:
 		mov     eax, [VGABufferPtr_0]
 		mov     edx, 18h
 		add     eax, esi
-		mov     esi, [___1a1eb0h]
+		mov     esi, [__CEXT_V(___1a1eb0h)]
 		lea     ebx, [eax+ebp]
 		add     esi, 5a0h
 ___27e0ah:
@@ -29027,7 +28563,7 @@ ___27e14h:
 		add     eax, edi
 		mov     edx, 18h
 		add     eax, ebp
-		mov     esi, [___1a1eb0h]
+		mov     esi, [__CEXT_V(___1a1eb0h)]
 		add     ebx, eax
 		add     esi, 7e0h
 		sub     ebx, byte 18h
@@ -29158,7 +28694,7 @@ ___27f80h:
 		mov     ecx, 18h
 		mov     edx, [esp]
 		mov     eax, [VGABufferPtr_0]
-		mov     esi, [___1a1eb0h]
+		mov     esi, [__CEXT_V(___1a1eb0h)]
 		add     eax, edx
 		mov     edx, ecx
 		lea     ebx, [eax+ebp]
@@ -29181,7 +28717,7 @@ ___27fd1h:
 		mov     ebx, [esp]
 		mov     ecx, 18h
 		mov     eax, [VGABufferPtr_0]
-		mov     esi, [___1a1eb0h]
+		mov     esi, [__CEXT_V(___1a1eb0h)]
 		add     eax, ebx
 		mov     ebx, [esp+0ch]
 		add     eax, ebp
@@ -29217,7 +28753,7 @@ ___28013h:
 		mov     eax, [VGABufferPtr_0]
 		mov     edx, ecx
 		add     eax, esi
-		mov     esi, [___1a1eb0h]
+		mov     esi, [__CEXT_V(___1a1eb0h)]
 		lea     ebx, [eax+ebp]
 		add     esi, 480h
 ___2805dh:
@@ -29241,7 +28777,7 @@ ___28067h:
 		mov     eax, [VGABufferPtr_0]
 		mov     ecx, 18h
 		add     eax, edi
-		mov     esi, [___1a1eb0h]
+		mov     esi, [__CEXT_V(___1a1eb0h)]
 		add     eax, ebp
 		add     esi, 6c0h
 		add     ebx, eax
@@ -29506,7 +29042,7 @@ ___2836ch:
 		push    ebx
 		push    ecx
 		push    edx
-		mov     ecx, [___1a1ec4h]
+		mov     ecx, [__CEXT_V(___1a1ec4h)]
 		cmp     ecx, byte 1
 		jne     short ___283e8h
 		push    8000h
@@ -29520,7 +29056,7 @@ ___2836ch:
 		mov     ecx, 72h
 		xor     ebx, ebx
 		mov     edx, 0f3h
-		mov     [___1a1ec4h], ebx
+		mov     [__CEXT_V(___1a1ec4h)], ebx
 		call    near ___25a74h
 		mov     ebx, 6ch
 		mov     eax, 0ah
@@ -29542,7 +29078,7 @@ ___283ech:
 		push    ebx
 		push    ecx
 		push    edx
-		mov     ecx, [___1a1ec4h]
+		mov     ecx, [__CEXT_V(___1a1ec4h)]
 		test    ecx, ecx
 		jne     short ___2846ah
 		push    8000h
@@ -29556,7 +29092,7 @@ ___283ech:
 		mov     ebx, 1
 		mov     ecx, 72h
 		mov     edx, 73h
-		mov     [___1a1ec4h], ebx
+		mov     [__CEXT_V(___1a1ec4h)], ebx
 		call    near ___25e40h
 		mov     ebx, 80h
 		xor     eax, eax
@@ -29583,83 +29119,83 @@ ___28470h:
 		push    ebp
 		call    near delay_TBD
 		call    near delay_TBD
-		mov     ebx, [___1a1ee4h]
+		mov     ebx, [__CEXT_V(___1a1ee4h)]
 		mov     edx, 8dh
 		shl     ebx, 8
-		mov     ecx, [___1a1ee4h]
+		mov     ecx, [__CEXT_V(___1a1ee4h)]
 		add     ebx, ___185cbch
 		mov     eax, 10h
 		push    ebx
-		mov     ecx, [ecx*4+___1a01b8h]
-		mov     ebx, [___1a1ed0h]
+		mov     ecx, [ecx*4+__CEXT_V(___1a01b8h)]
+		mov     ebx, [__CEXT_V(___1a1ed0h)]
 		call    near ___259e0h
-		mov     edx, [___1a1ed0h]
+		mov     edx, [__CEXT_V(___1a1ed0h)]
 		inc     edx
-		mov     [___1a1ed0h], edx
+		mov     [__CEXT_V(___1a1ed0h)], edx
 		cmp     edx, byte 3fh
 		jle     short ___284d6h
 		xor     ecx, ecx
-		mov     [___1a1ed0h], ecx
+		mov     [__CEXT_V(___1a1ed0h)], ecx
 ___284d6h:
 		call    near delay_TBD
 		call    near delay_TBD
-		mov     ebx, [___1a1ee4h]
+		mov     ebx, [__CEXT_V(___1a1ee4h)]
 		mov     edx, 8dh
 		shl     ebx, 8
-		mov     ecx, [___1a1ee4h]
+		mov     ecx, [__CEXT_V(___1a1ee4h)]
 		add     ebx, ___185cbch
 		mov     eax, 10h
 		push    ebx
-		mov     ecx, [ecx*4+___1a01b8h]
-		mov     ebx, [___1a1ed0h]
+		mov     ecx, [ecx*4+__CEXT_V(___1a01b8h)]
+		mov     ebx, [__CEXT_V(___1a1ed0h)]
 		call    near ___259e0h
-		mov     esi, [___1a1ed0h]
+		mov     esi, [__CEXT_V(___1a1ed0h)]
 		inc     esi
-		mov     [___1a1ed0h], esi
+		mov     [__CEXT_V(___1a1ed0h)], esi
 		cmp     esi, byte 3fh
 		jle     short ___2852ch
 		xor     ebp, ebp
-		mov     [___1a1ed0h], ebp
+		mov     [__CEXT_V(___1a1ed0h)], ebp
 ___2852ch:
 		call    near delay_TBD
 		call    near delay_TBD
-		mov     ebx, [___1a1ee4h]
+		mov     ebx, [__CEXT_V(___1a1ee4h)]
 		mov     edx, 8dh
 		shl     ebx, 8
-		mov     ecx, [___1a1ee4h]
+		mov     ecx, [__CEXT_V(___1a1ee4h)]
 		add     ebx, ___185cbch
 		mov     eax, 10h
 		push    ebx
-		mov     ecx, [ecx*4+___1a01b8h]
-		mov     ebx, [___1a1ed0h]
+		mov     ecx, [ecx*4+__CEXT_V(___1a01b8h)]
+		mov     ebx, [__CEXT_V(___1a1ed0h)]
 		call    near ___259e0h
-		mov     eax, [___1a1ed0h]
+		mov     eax, [__CEXT_V(___1a1ed0h)]
 		inc     eax
-		mov     [___1a1ed0h], eax
+		mov     [__CEXT_V(___1a1ed0h)], eax
 		cmp     eax, byte 3fh
 		jle     short ___28580h
 		xor     ebx, ebx
-		mov     [___1a1ed0h], ebx
+		mov     [__CEXT_V(___1a1ed0h)], ebx
 ___28580h:
 		call    near delay_TBD
 		call    near delay_TBD
-		mov     ebx, [___1a1ee4h]
+		mov     ebx, [__CEXT_V(___1a1ee4h)]
 		mov     edx, 8dh
 		shl     ebx, 8
-		mov     ecx, [___1a1ee4h]
+		mov     ecx, [__CEXT_V(___1a1ee4h)]
 		add     ebx, ___185cbch
 		mov     eax, 10h
 		push    ebx
-		mov     ecx, [ecx*4+___1a01b8h]
-		mov     ebx, [___1a1ed0h]
+		mov     ecx, [ecx*4+__CEXT_V(___1a01b8h)]
+		mov     ebx, [__CEXT_V(___1a1ed0h)]
 		call    near ___259e0h
-		mov     ecx, [___1a1ed0h]
+		mov     ecx, [__CEXT_V(___1a1ed0h)]
 		inc     ecx
-		mov     [___1a1ed0h], ecx
+		mov     [__CEXT_V(___1a1ed0h)], ecx
 		cmp     ecx, byte 3fh
 		jle     short ___285d6h
 		xor     edi, edi
-		mov     [___1a1ed0h], edi
+		mov     [__CEXT_V(___1a1ed0h)], edi
 ___285d6h:
 		pop     ebp
 		pop     edi
@@ -29692,25 +29228,25 @@ ___285f8h:
 		xor     ebx, ebx
 		mov     edx, 1ah
 		call    near playSFX__sound
-		mov     eax, [___1a1ec4h]
+		mov     eax, [__CEXT_V(___1a1ec4h)]
 		cmp     eax, byte 5
 		ja      near ___28864h
 		jmp     near dword [cs:eax*4+___285e0h]
 ___28641h:
-		mov     eax, [___1a1ee4h]
+		mov     eax, [__CEXT_V(___1a1ee4h)]
 		test    eax, eax
 		jle     short ___28655h
 		lea     ebx, [eax-1]
-		mov     [___1a1ee4h], ebx
+		mov     [__CEXT_V(___1a1ee4h)], ebx
 		jmp     short ___2865fh
 ___28655h:
-		mov     dword [___1a1ee4h], 5
+		mov     dword [__CEXT_V(___1a1ee4h)], 5
 ___2865fh:
 		call    near ___25a74h
 		mov     ecx, 40h
 		mov     edx, 10h
 		mov     ebx, [VGABufferPtr_0]
-		mov     esi, [___1a1e78h]
+		mov     esi, [__CEXT_V(___1a1e78h)]
 		add     ebx, 16080h
 		add     esi, 800h
 ___28686h:
@@ -29735,7 +29271,7 @@ ___28690h:
 		mov     ecx, 40h
 		mov     edx, 10h
 		mov     ebx, [VGABufferPtr_0]
-		mov     esi, [___1a1e78h]
+		mov     esi, [__CEXT_V(___1a1e78h)]
 		add     ebx, 16080h
 ___286cbh:
 		mov     edi, edx
@@ -29766,7 +29302,7 @@ ___286f1h:
 		mov     ebx, 6ch
 		xor     ebp, ebp
 		mov     edx, 0f3h
-		mov     [___1a1ec4h], ebp
+		mov     [__CEXT_V(___1a1ec4h)], ebp
 		call    near ___25a74h
 		mov     eax, 0ah
 		call    near ___281d0h
@@ -29788,7 +29324,7 @@ ___28739h:
 		mov     ecx, 72h
 		mov     ebx, 6ch
 		mov     edx, 0f3h
-		mov     [___1a1ec4h], edi
+		mov     [__CEXT_V(___1a1ec4h)], edi
 		call    near ___25e40h
 		mov     eax, ecx
 		call    near ___281d0h
@@ -29810,7 +29346,7 @@ ___28784h:
 		mov     ecx, 72h
 		mov     ebx, 6ch
 		mov     edx, 0f3h
-		mov     [___1a1ec4h], esi
+		mov     [__CEXT_V(___1a1ec4h)], esi
 		call    near ___262b4h
 		mov     eax, 0dah
 		call    near ___281d0h
@@ -29831,7 +29367,7 @@ ___287cfh:
 		mov     ecx, 3
 		mov     ebx, 6ch
 		mov     edx, 0f3h
-		mov     [___1a1ec4h], ecx
+		mov     [__CEXT_V(___1a1ec4h)], ecx
 		call    near ___26650h
 		mov     ecx, 72h
 		mov     eax, 142h
@@ -29853,7 +29389,7 @@ ___2881dh:
 		mov     ebx, 4
 		mov     ecx, 72h
 		mov     edx, 0f3h
-		mov     [___1a1ec4h], ebx
+		mov     [__CEXT_V(___1a1ec4h)], ebx
 		call    near ___269e4h
 		mov     ebx, 6ch
 		mov     eax, 1aah
@@ -29887,7 +29423,7 @@ ___28880h:
 		push    esi
 		push    edi
 		push    ebp
-		cmp     dword [___1a1ec4h], byte 5
+		cmp     dword [__CEXT_V(___1a1ec4h)], byte 5
 		jge     short ___288bch
 		push    8000h
 		mov     edx, 1ah
@@ -29898,26 +29434,26 @@ ___28880h:
 		xor     ebx, ebx
 		call    near playSFX__sound
 ___288bch:
-		mov     eax, [___1a1ec4h]
+		mov     eax, [__CEXT_V(___1a1ec4h)]
 		cmp     eax, byte 4
 		ja      near ___28aadh
 		jmp     near dword [cs:eax*4+___2886ch]
 ___288d2h:
-		mov     eax, [___1a1ee4h]
+		mov     eax, [__CEXT_V(___1a1ee4h)]
 		cmp     eax, byte 5
 		jge     short ___288e7h
 		lea     ebx, [eax+1]
-		mov     [___1a1ee4h], ebx
+		mov     [__CEXT_V(___1a1ee4h)], ebx
 		jmp     short ___288efh
 ___288e7h:
 		xor     edx, edx
-		mov     [___1a1ee4h], edx
+		mov     [__CEXT_V(___1a1ee4h)], edx
 ___288efh:
 		call    near ___25a74h
 		mov     ecx, 40h
 		mov     edx, 10h
 		mov     ebx, [VGABufferPtr_0]
-		mov     esi, [___1a1e78h]
+		mov     esi, [__CEXT_V(___1a1e78h)]
 		add     ebx, 160f0h
 		add     esi, 0c00h
 ___28916h:
@@ -29941,7 +29477,7 @@ ___28920h:
 		mov     ecx, 40h
 		mov     edx, 10h
 		mov     ebx, [VGABufferPtr_0]
-		mov     esi, [___1a1e78h]
+		mov     esi, [__CEXT_V(___1a1e78h)]
 		add     ebx, 160f0h
 		add     esi, 400h
 ___2895ch:
@@ -29973,7 +29509,7 @@ ___28982h:
 		mov     ecx, 72h
 		mov     ebx, 6ch
 		mov     edx, 0f3h
-		mov     [___1a1ec4h], ebp
+		mov     [__CEXT_V(___1a1ec4h)], ebp
 		call    near ___262b4h
 		mov     eax, 0ah
 		call    near ___281d0h
@@ -29995,7 +29531,7 @@ ___289cdh:
 		mov     ecx, 72h
 		mov     ebx, 6ch
 		mov     edx, 0f3h
-		mov     [___1a1ec4h], edi
+		mov     [__CEXT_V(___1a1ec4h)], edi
 		call    near ___26650h
 		mov     eax, ecx
 		call    near ___281d0h
@@ -30017,7 +29553,7 @@ ___28a18h:
 		mov     ecx, 72h
 		mov     ebx, 6ch
 		mov     edx, 0f3h
-		mov     [___1a1ec4h], esi
+		mov     [__CEXT_V(___1a1ec4h)], esi
 		call    near ___269e4h
 		mov     eax, 0dah
 		call    near ___281d0h
@@ -30038,7 +29574,7 @@ ___28a66h:
 		mov     ecx, 5
 		mov     ebx, 6ch
 		mov     edx, 0f3h
-		mov     [___1a1ec4h], ecx
+		mov     [__CEXT_V(___1a1ec4h)], ecx
 		call    near ___26e54h
 		mov     ecx, 72h
 		mov     eax, 142h
@@ -30067,7 +29603,7 @@ ___28ab4h:
 		push    edi
 		sub     esp, byte 34h
 		mov     esi, eax
-		mov     ecx, [___1a1ef8h]
+		mov     ecx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [ecx*8+0]
 		sub     eax, ecx
 		shl     eax, 2
@@ -30086,7 +29622,7 @@ ___28af3h:
 		call    near memset__clib3r
 		cmp     ecx, 22600h
 		jne     short ___28af3h
-		mov     ecx, [___1a1ef8h]
+		mov     ecx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [ecx*8+0]
 		sub     eax, ecx
 		shl     eax, 2
@@ -30191,12 +29727,12 @@ ___28c1ch:
 		push    esi
 		push    edi
 		push    ebp
-		mov     ebx, [___1a1ef8h]
+		mov     ebx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [ebx*8+0]
 		sub     eax, ebx
 		shl     eax, 2
 		sub     eax, ebx
-		cmp     dword [eax*4+___1a01fch], byte 5
+		cmp     dword [eax*4+__CEXT_V(___1a01fch)], byte 5
 		jne     short ___28c75h
 		mov     esi, 0abeh
 		mov     edi, 0ccbh
@@ -30211,7 +29747,7 @@ ___28c75h:
 		sub     eax, ebx
 		shl     eax, 2
 		sub     eax, ebx
-		cmp     dword [eax*4+___1a01fch], byte 4
+		cmp     dword [eax*4+__CEXT_V(___1a01fch)], byte 4
 		jne     short ___28cb9h
 		mov     esi, 6d6h
 		mov     edi, 8cah
@@ -30226,7 +29762,7 @@ ___28cb9h:
 		sub     eax, ebx
 		shl     eax, 2
 		sub     eax, ebx
-		cmp     dword [eax*4+___1a01fch], byte 3
+		cmp     dword [eax*4+__CEXT_V(___1a01fch)], byte 3
 		jne     short ___28cfdh
 		mov     esi, 226h
 		mov     edi, 271h
@@ -30241,7 +29777,7 @@ ___28cfdh:
 		sub     eax, ebx
 		shl     eax, 2
 		sub     eax, ebx
-		cmp     dword [eax*4+___1a01fch], byte 2
+		cmp     dword [eax*4+__CEXT_V(___1a01fch)], byte 2
 		jne     short ___28d41h
 		mov     esi, 1f4h
 		mov     edi, 2a3h
@@ -30256,7 +29792,7 @@ ___28d41h:
 		sub     eax, ebx
 		shl     eax, 2
 		sub     eax, ebx
-		cmp     dword [eax*4+___1a01fch], byte 1
+		cmp     dword [eax*4+__CEXT_V(___1a01fch)], byte 1
 		jne     short ___28d85h
 		mov     esi, 0e1h
 		mov     edi, 15eh
@@ -30271,7 +29807,7 @@ ___28d85h:
 		sub     eax, ebx
 		shl     eax, 2
 		sub     eax, ebx
-		cmp     dword [eax*4+___1a01fch], byte 0
+		cmp     dword [eax*4+__CEXT_V(___1a01fch)], byte 0
 		jne     short ___28dc9h
 		mov     esi, 0c8h
 		mov     edi, 113h
@@ -30306,7 +29842,7 @@ ___28e05h:
 		cmp     dword [___1a0a5ch], byte 1
 ___28e14h:
 		mov     eax, 1
-		mov     [___1a1ef8h], ebx
+		mov     [__CEXT_V(___1a1ef8h)], ebx
 		pop     ebp
 		pop     edi
 		pop     esi
@@ -30330,7 +29866,7 @@ ___28e40h:
 		push    edi
 		push    ebp
 		sub     esp, byte 60h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -30340,7 +29876,7 @@ ___28e40h:
 		sub     esp, byte 8
 		fstp    qword [esp]
 		call    near ceil
-		mov     eax, [___1a1ef8h]
+		mov     eax, [__CEXT_V(___1a1ef8h)]
 		lea     ebx, [eax*8+0]
 		sub     ebx, eax
 		call    near __CHP
@@ -30351,7 +29887,7 @@ ___28e40h:
 		shl     ebx, 2
 		test    edx, edx
 		je      short ___28ee7h
-		mov     eax, [ebx+___1a01fch]
+		mov     eax, [ebx+__CEXT_V(___1a01fch)]
 		lea     edx, [eax*8+0]
 		sub     edx, eax
 		shl     edx, 3
@@ -30371,7 +29907,7 @@ ___28e40h:
 		mov     esi, eax
 		jmp     short ___28f19h
 ___28ee7h:
-		mov     eax, [ebx+___1a01fch]
+		mov     eax, [ebx+__CEXT_V(___1a01fch)]
 		lea     edx, [eax*8+0]
 		sub     edx, eax
 		shl     edx, 3
@@ -30409,12 +29945,12 @@ ___28f2dh:
 		call    near atoi
 		mov     ebp, eax
 		mov     [esp+50h], eax
-		mov     eax, [___1a1ec4h]
+		mov     eax, [__CEXT_V(___1a1ec4h)]
 		cmp     eax, byte 5
 		ja      near ___2a387h
 		jmp     near dword [cs:eax*4+___28e28h]
 ___28f77h:
-		mov     edx, [___1a1ee4h]
+		mov     edx, [__CEXT_V(___1a1ee4h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 3
@@ -30508,7 +30044,7 @@ ___2905fh:
 		mov     eax, [LightBlueFont0Ptr]
 		mov     ecx, 15eaah
 		call    near renderTextToBuffer__video
-		mov     edx, [___1a1ee4h]
+		mov     edx, [__CEXT_V(___1a1ee4h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 3
@@ -30576,7 +30112,7 @@ ___29128h:
 		mov     ecx, 186aah
 		mov     eax, [LightBlueFont0Ptr]
 		call    near renderTextToBuffer__video
-		mov     edx, [___1a1ee4h]
+		mov     edx, [__CEXT_V(___1a1ee4h)]
 		lea     eax, [edx*8+0]
 		mov     edi, esp
 		sub     eax, edx
@@ -30720,7 +30256,7 @@ ___29284h:
 		mov     eax, [LightBlueFont0Ptr]
 		mov     ecx, 15eaah
 		call    near renderTextToBuffer__video
-		mov     edx, [___1a1ee4h]
+		mov     edx, [__CEXT_V(___1a1ee4h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 3
@@ -30764,7 +30300,7 @@ ___29302h:
 		jne     short ___29302h
 ___2931ah:
 		pop     edi
-		mov     edx, [___1a1ee4h]
+		mov     edx, [__CEXT_V(___1a1ee4h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 3
@@ -30852,14 +30388,14 @@ ___29410h:
 		imul    esi, ebp, 0aah
 		call    near delay_TBD
 		call    near delay_TBD
-		mov     eax, [___1a1ee4h]
+		mov     eax, [__CEXT_V(___1a1ee4h)]
 		mov     edx, 8dh
 		shl     eax, 8
-		mov     ecx, [___1a1ee4h]
+		mov     ecx, [__CEXT_V(___1a1ee4h)]
 		add     eax, ___185cbch
-		mov     ebx, [___1a1ed0h]
+		mov     ebx, [__CEXT_V(___1a1ed0h)]
 		push    eax
-		mov     ecx, [ecx*4+___1a01b8h]
+		mov     ecx, [ecx*4+__CEXT_V(___1a01b8h)]
 		mov     eax, 10h
 		call    near ___259e0h
 		mov     ecx, 40h
@@ -30868,14 +30404,14 @@ ___29410h:
 		mov     eax, 16090h
 		add     edx, 16090h
 		call    near ___1398ch
-		mov     eax, [___1a1ed0h]
+		mov     eax, [__CEXT_V(___1a1ed0h)]
 		inc     eax
 		add     esi, 1e0d9h
-		mov     [___1a1ed0h], eax
+		mov     [__CEXT_V(___1a1ed0h)], eax
 		cmp     eax, byte 3fh
 		jle     short ___2948eh
 		xor     ebx, ebx
-		mov     [___1a1ed0h], ebx
+		mov     [__CEXT_V(___1a1ed0h)], ebx
 ___2948eh:
 		xor     ecx, ecx
 		mov     edi, 0c4h
@@ -31072,13 +30608,13 @@ ___29720h:
 		mov     ecx, [ConfigSFXVolume]
 		xor     ebx, ebx
 		call    near playSFX__sound
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
 		sub     eax, edx
-		mov     ebx, [___1a1ee4h]
-		mov     [eax*4+___1a01fch], ebx
+		mov     ebx, [__CEXT_V(___1a1ee4h)]
+		mov     [eax*4+__CEXT_V(___1a01fch)], ebx
 		lea     edx, [ebx*8+0]
 		sub     edx, ebx
 		shl     edx, 3
@@ -31089,7 +30625,7 @@ ___29720h:
 		mov     edx, [edx+___18e2a4h]
 		mov     [eax*4+___1a01ech], ebp
 		sub     edx, ebx
-		mov     ebx, [eax*4+___1a01fch]
+		mov     ebx, [eax*4+__CEXT_V(___1a01fch)]
 		sub     ecx, edx
 		lea     edx, [ebx*8+0]
 		mov     [eax*4+___1a01f0h], ebp
@@ -31117,7 +30653,7 @@ ___29720h:
 		mov     ecx, 10h
 		mov     edx, 126h
 		mov     ebx, [VGABufferPtr_0]
-		mov     esi, [___1a1e88h]
+		mov     esi, [__CEXT_V(___1a1e88h)]
 		add     ebx, 1e83ch
 ___29838h:
 		mov     edi, edx
@@ -31186,7 +30722,7 @@ ___298d0h:
 ___29903h:
 		cmp     byte [esp+5ch], 0cbh
 		jne     short ___29924h
-		imul    eax, [___1a1ef8h], byte 6ch
+		imul    eax, [__CEXT_V(___1a1ef8h)], byte 6ch
 		mov     edi, [eax+___1a020ch]
 		test    edi, edi
 		jle     short ___29924h
@@ -31195,7 +30731,7 @@ ___29903h:
 ___29924h:
 		cmp     byte [esp+5ch], 4bh
 		jne     short ___29945h
-		imul    eax, [___1a1ef8h], byte 6ch
+		imul    eax, [__CEXT_V(___1a1ef8h)], byte 6ch
 		mov     ecx, [eax+___1a020ch]
 		test    ecx, ecx
 		jle     short ___29945h
@@ -31204,7 +30740,7 @@ ___29924h:
 ___29945h:
 		cmp     byte [esp+5ch], 0cdh
 		jne     short ___2996ah
-		imul    eax, [___1a1ef8h], byte 6ch
+		imul    eax, [__CEXT_V(___1a1ef8h)], byte 6ch
 		mov     edx, [eax+___1a020ch]
 		cmp     edx, 0fdh
 		jge     short ___2996ah
@@ -31213,14 +30749,14 @@ ___29945h:
 ___2996ah:
 		cmp     byte [esp+5ch], 4dh
 		jne     short ___2998fh
-		imul    eax, [___1a1ef8h], byte 6ch
+		imul    eax, [__CEXT_V(___1a1ef8h)], byte 6ch
 		mov     esi, [eax+___1a020ch]
 		cmp     esi, 0fdh
 		jge     short ___2998fh
 		lea     edi, [esi+2]
 		mov     [eax+___1a020ch], edi
 ___2998fh:
-		imul    eax, [___1a1ef8h], byte 6ch
+		imul    eax, [__CEXT_V(___1a1ef8h)], byte 6ch
 		mov     edx, [eax+___1a020ch]
 		mov     eax, [___1a0fb8h]
 		lea     edx, [edx+edx*2]
@@ -31258,7 +30794,7 @@ ___299edh:
 		jne     short ___299edh
 		mov     ecx, 10h
 		mov     ebx, [VGABufferPtr_0]
-		mov     esi, [___1a1e88h]
+		mov     esi, [__CEXT_V(___1a1e88h)]
 		mov     edx, ebp
 		add     ebx, 1e83ch
 ___29a29h:
@@ -31277,12 +30813,12 @@ ___29a33h:
 		sub     ebx, edx
 		dec     ecx
 		jne     short ___29a29h
-		imul    edx, [___1a1ef8h], byte 6ch
+		imul    edx, [__CEXT_V(___1a1ef8h)], byte 6ch
 		mov     eax, [VGABufferPtr_0]
 		mov     ecx, 18h
 		add     eax, 1de3ch
 		mov     ebx, [edx+___1a020ch]
-		mov     esi, [___1a1eb4h]
+		mov     esi, [__CEXT_V(___1a1eb4h)]
 		add     ebx, eax
 		mov     edx, 0ah
 		add     ebx, byte 0eh
@@ -31304,7 +30840,7 @@ ___29a79h:
 		jne     short ___29a6fh
 		call    near delay_TBD
 		call    near delay_TBD
-		imul    eax, [___1a1ef8h], byte 6ch
+		imul    eax, [__CEXT_V(___1a1ef8h)], byte 6ch
 		mov     edx, [VGABufferPtr_0]
 		add     edx, 1de3ch
 		mov     esi, [eax+___1a020ch]
@@ -31314,14 +30850,14 @@ ___29a79h:
 		add     edx, byte 0ch
 		lea     eax, [esi+1de48h]
 		call    near ___1398ch
-		mov     eax, [___1a1ee4h]
+		mov     eax, [__CEXT_V(___1a1ee4h)]
 		mov     edx, 8dh
 		shl     eax, 8
-		mov     ecx, [___1a1ee4h]
+		mov     ecx, [__CEXT_V(___1a1ee4h)]
 		add     eax, ___185cbch
-		mov     ebx, [___1a1ed0h]
+		mov     ebx, [__CEXT_V(___1a1ed0h)]
 		push    eax
-		mov     ecx, [ecx*4+___1a01b8h]
+		mov     ecx, [ecx*4+__CEXT_V(___1a01b8h)]
 		mov     eax, 10h
 		call    near ___259e0h
 		mov     ecx, 40h
@@ -31330,31 +30866,31 @@ ___29a79h:
 		mov     eax, 16090h
 		add     edx, 16090h
 		call    near ___1398ch
-		mov     edi, [___1a1ed0h]
+		mov     edi, [__CEXT_V(___1a1ed0h)]
 		inc     edi
-		mov     [___1a1ed0h], edi
+		mov     [__CEXT_V(___1a1ed0h)], edi
 		cmp     edi, byte 3fh
 		jle     short ___29b30h
 		xor     edx, edx
-		mov     [___1a1ed0h], edx
+		mov     [__CEXT_V(___1a1ed0h)], edx
 ___29b30h:
 		cmp     byte [esp+5ch], 1ch
 		jne     near ___298d0h
 ___29b3bh:
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
 		sub     eax, edx
 		shl     eax, 2
-		mov     ebx, [eax+___1a01fch]
+		mov     ebx, [eax+__CEXT_V(___1a01fch)]
 		cmp     ebx, byte 5
 		jge     short ___29b67h
 		lea     eax, [ebx+1]
-		mov     [___1a1ee4h], eax
+		mov     [__CEXT_V(___1a1ee4h)], eax
 		jmp     short ___29b71h
 ___29b67h:
-		mov     dword [___1a1ee4h], 5
+		mov     dword [__CEXT_V(___1a1ee4h)], 5
 ___29b71h:
 		mov     esi, 136h
 		call    near ___27078h
@@ -31380,12 +30916,12 @@ ___29b90h:
 		pop     ebx
 		retn    
 ___29ba4h:
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
 		sub     eax, edx
-		mov     ebx, [eax*4+___1a01fch]
+		mov     ebx, [eax*4+__CEXT_V(___1a01fch)]
 		lea     edx, [ebx*8+0]
 		sub     edx, ebx
 		shl     edx, 3
@@ -31406,12 +30942,12 @@ ___29ba4h:
 		xor     ebx, ebx
 		mov     eax, 1
 		call    near playSFX__sound
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
 		sub     eax, edx
-		mov     ebx, [eax*4+___1a01fch]
+		mov     ebx, [eax*4+__CEXT_V(___1a01fch)]
 		lea     edx, [ebx*8+0]
 		sub     edx, ebx
 		shl     edx, 3
@@ -31420,7 +30956,7 @@ ___29ba4h:
 		mov     ebx, [eax*4+___1a01f0h]
 		mov     edx, [edx+ebx*4+___18e944h]
 		sub     [eax*4+___1a0210h], edx
-		mov     ebx, [eax*4+___1a01fch]
+		mov     ebx, [eax*4+__CEXT_V(___1a01fch)]
 		lea     edx, [ebx*8+0]
 		sub     edx, ebx
 		shl     edx, 3
@@ -31432,7 +30968,7 @@ ___29ba4h:
 		add     ecx, edx
 		mov     [eax*4+___1a021ch], ecx
 		call    near ___273d8h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -31464,12 +31000,12 @@ ___29cd7h:
 		pop     ebx
 		retn    
 ___29cebh:
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
 		sub     eax, edx
-		mov     ebx, [eax*4+___1a01fch]
+		mov     ebx, [eax*4+__CEXT_V(___1a01fch)]
 		lea     edx, [ebx*8+0]
 		sub     edx, ebx
 		shl     edx, 3
@@ -31490,12 +31026,12 @@ ___29cebh:
 		mov     ecx, [ConfigSFXVolume]
 		xor     ebx, ebx
 		call    near playSFX__sound
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
 		sub     eax, edx
-		mov     ebx, [eax*4+___1a01fch]
+		mov     ebx, [eax*4+__CEXT_V(___1a01fch)]
 		lea     edx, [ebx*8+0]
 		sub     edx, ebx
 		shl     edx, 3
@@ -31504,7 +31040,7 @@ ___29cebh:
 		mov     ebx, [eax*4+___1a01f4h]
 		mov     edx, [edx+ebx*4+___18e954h]
 		sub     [eax*4+___1a0210h], edx
-		mov     ebx, [eax*4+___1a01fch]
+		mov     ebx, [eax*4+__CEXT_V(___1a01fch)]
 		lea     edx, [ebx*8+0]
 		sub     edx, ebx
 		shl     edx, 3
@@ -31516,7 +31052,7 @@ ___29cebh:
 		add     ecx, edx
 		mov     [eax*4+___1a021ch], ecx
 		call    near ___276f0h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -31548,12 +31084,12 @@ ___29e1fh:
 		pop     ebx
 		retn    
 ___29e33h:
-		mov     eax, [___1a1ef8h]
+		mov     eax, [__CEXT_V(___1a1ef8h)]
 		lea     edx, [eax*8+0]
 		sub     edx, eax
 		shl     edx, 2
 		sub     edx, eax
-		mov     ebx, [edx*4+___1a01fch]
+		mov     ebx, [edx*4+__CEXT_V(___1a01fch)]
 		lea     eax, [ebx*8+0]
 		sub     eax, ebx
 		shl     eax, 3
@@ -31574,12 +31110,12 @@ ___29e33h:
 		mov     ecx, [ConfigSFXVolume]
 		xor     ebx, ebx
 		call    near playSFX__sound
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
 		sub     eax, edx
-		mov     ebx, [eax*4+___1a01fch]
+		mov     ebx, [eax*4+__CEXT_V(___1a01fch)]
 		lea     edx, [ebx*8+0]
 		sub     edx, ebx
 		shl     edx, 3
@@ -31588,7 +31124,7 @@ ___29e33h:
 		shl     edx, 5
 		mov     ebp, [eax*4+___1a0210h]
 		mov     edx, [edx+ebx*4+___18e964h]
-		mov     ebx, [eax*4+___1a01fch]
+		mov     ebx, [eax*4+__CEXT_V(___1a01fch)]
 		sub     ebp, edx
 		lea     edx, [ebx*8+0]
 		sub     edx, ebx
@@ -31602,7 +31138,7 @@ ___29e33h:
 		add     ebx, edx
 		mov     [eax*4+___1a021ch], ebx
 		call    near ___27a10h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -31634,7 +31170,7 @@ ___29f6fh:
 		pop     ebx
 		retn    
 ___29f83h:
-		mov     eax, [___1a1ef8h]
+		mov     eax, [__CEXT_V(___1a1ef8h)]
 		lea     ebx, [eax*8+0]
 		sub     ebx, eax
 		shl     ebx, 2
@@ -31644,7 +31180,7 @@ ___29f83h:
 		jge     short ___29fe8h
 		cmp     dword [___185a14h], byte 0
 		je      short ___29fe8h
-		mov     eax, [ebx+___1a01fch]
+		mov     eax, [ebx+__CEXT_V(___1a01fch)]
 		lea     edx, [eax*8+0]
 		sub     edx, eax
 		shl     edx, 3
@@ -31663,7 +31199,7 @@ ___29f83h:
 		sar     eax, 1
 		mov     esi, eax
 ___29fe8h:
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -31673,7 +31209,7 @@ ___29fe8h:
 		jl      short ___2a039h
 		cmp     dword [___185a14h], byte 0
 		je      short ___2a039h
-		mov     eax, [eax+___1a01fch]
+		mov     eax, [eax+__CEXT_V(___1a01fch)]
 		lea     edx, [eax*8+0]
 		sub     edx, eax
 		shl     edx, 3
@@ -31686,7 +31222,7 @@ ___29fe8h:
 		sar     eax, 1
 		mov     esi, eax
 ___2a039h:
-		mov     eax, [___1a1ef8h]
+		mov     eax, [__CEXT_V(___1a1ef8h)]
 		lea     ebx, [eax*8+0]
 		sub     ebx, eax
 		shl     ebx, 2
@@ -31696,7 +31232,7 @@ ___2a039h:
 		jge     short ___2a093h
 		cmp     dword [___185a14h], byte 0
 		jne     short ___2a093h
-		mov     eax, [ebx+___1a01fch]
+		mov     eax, [ebx+__CEXT_V(___1a01fch)]
 		lea     edx, [eax*8+0]
 		sub     edx, eax
 		shl     edx, 3
@@ -31710,7 +31246,7 @@ ___2a039h:
 		mov     esi, [ebx+___1a01ech]
 		imul    esi, eax
 ___2a093h:
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -31720,7 +31256,7 @@ ___2a093h:
 		jl      short ___2a0d9h
 		cmp     dword [___185a14h], byte 0
 		jne     short ___2a0d9h
-		mov     eax, [eax+___1a01fch]
+		mov     eax, [eax+__CEXT_V(___1a01fch)]
 		lea     esi, [eax*8+0]
 		sub     esi, eax
 		shl     esi, 3
@@ -31728,7 +31264,7 @@ ___2a093h:
 		shl     esi, 5
 		mov     esi, [esi+___18e974h]
 ___2a0d9h:
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -31747,7 +31283,7 @@ ___2a0d9h:
 		xor     ebx, ebx
 		mov     ecx, [ConfigSFXVolume]
 		call    near playSFX__sound
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -31763,7 +31299,7 @@ ___2a159h:
 		lea     ebp, [edi-0ah]
 		mov     [eax+___1a01ech], ebp
 ___2a162h:
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -31786,7 +31322,7 @@ ___2a162h:
 		pop     ebx
 		retn    
 ___2a1afh:
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -31894,7 +31430,7 @@ ___2a30eh:
 		xor     ebx, ebx
 		mov     ecx, [ConfigSFXVolume]
 		call    near playSFX__sound
-		mov     edi, [___1a1ef8h]
+		mov     edi, [__CEXT_V(___1a1ef8h)]
 		xor     ecx, ecx
 		xor     edx, edx
 		xor     eax, eax
@@ -31910,7 +31446,7 @@ ___2a34dh:
 		add     eax, byte 6ch
 		cmp     edx, byte 14h
 		jl      short ___2a33dh
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -31951,7 +31487,7 @@ ___2a394h:
 ___2a3b2h:
 		xor     eax, eax
 		mov     al, [esp]
-		mov     edx, [___1a1edch]
+		mov     edx, [__CEXT_V(___1a1edch)]
 		push    eax
 		shl     edx, 10h
 		mov     eax, [esi+___19df50h]
@@ -31962,7 +31498,7 @@ ___2a3b2h:
 		add     eax, 8000h
 		sar     eax, 10h
 		and     eax, 0ffh
-		mov     edx, [___1a1edch]
+		mov     edx, [__CEXT_V(___1a1edch)]
 		push    eax
 		shl     edx, 10h
 		mov     eax, [esi+___19df54h]
@@ -31973,7 +31509,7 @@ ___2a3b2h:
 		add     eax, 8000h
 		sar     eax, 10h
 		and     eax, 0ffh
-		mov     edx, [___1a1edch]
+		mov     edx, [__CEXT_V(___1a1edch)]
 		push    eax
 		shl     edx, 10h
 		mov     eax, [esi+___19df58h]
@@ -31992,21 +31528,21 @@ ___2a3b2h:
 		mov     [esp], ebx
 		cmp     ebx, byte 20h
 		jl      near ___2a3b2h
-		cmp     dword [___1a1edch], byte 31h
+		cmp     dword [__CEXT_V(___1a1edch)], byte 31h
 		jne     short ___2a464h
-		mov     dword [___1a1ecch], 1
+		mov     dword [__CEXT_V(___1a1ecch)], 1
 ___2a464h:
-		cmp     dword [___1a1edch], byte 64h
+		cmp     dword [__CEXT_V(___1a1edch)], byte 64h
 		jne     short ___2a474h
 		xor     eax, eax
-		mov     [___1a1ecch], eax
+		mov     [__CEXT_V(___1a1ecch)], eax
 ___2a474h:
-		cmp     dword [___1a1ecch], byte 0
+		cmp     dword [__CEXT_V(___1a1ecch)], byte 0
 		jne     short ___2a486h
-		sub     dword [___1a1edch], byte 3
+		sub     dword [__CEXT_V(___1a1edch)], byte 3
 		jmp     short ___2a48dh
 ___2a486h:
-		add     dword [___1a1edch], byte 3
+		add     dword [__CEXT_V(___1a1edch)], byte 3
 ___2a48dh:
 		add     esp, byte 4
 		pop     esi
@@ -32014,7 +31550,7 @@ ___2a48dh:
 		pop     ecx
 		pop     ebx
 		retn    
-___2a498h:
+__GDECL(__CEXT_F(getAvailableMemory))
 		push    68h
 		call    near __CHK
 		push    ebx
@@ -32110,7 +31646,7 @@ ___2a6a8h:
 		je      near ___2a836h
 		mov     ebp, 883h
 		mov     eax, ebp
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     ebx, ebp
 		mov     [___1a0f9ch], eax
 		call    near memset__clib3r
@@ -32123,7 +31659,7 @@ ___2a6a8h:
 		mov     eax, [___1a0f9ch]
 		mov     dl, [esp+10h]
 		mov     [eax], dl
-		mov     dl, [___1a1ef8h]
+		mov     dl, [__CEXT_V(___1a1ef8h)]
 		mov     [eax+1], dl
 		mov     dl, [___185a14h]
 		mov     edi, esp
@@ -32232,7 +31768,7 @@ ___2a836h:
 		mov     [___196ab4h], eax
 		mov     eax, 883h
 		xor     edx, edx
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a0f9ch], eax
 		call    near memset__clib3r
 		mov     edx, __CEXT_V(rb_m)
@@ -32291,7 +31827,7 @@ ___2a8ceh:
 		jl      short ___2a8ceh
 		xor     eax, eax
 		mov     al, [edx+1]
-		mov     [___1a1ef8h], eax
+		mov     [__CEXT_V(___1a1ef8h)], eax
 		xor     eax, eax
 		mov     al, [edx+2]
 		mov     ecx, 870h
@@ -32311,7 +31847,7 @@ ___2a8ceh:
 		pop     edi
 		mov     eax, [___1a0f9ch]
 		call    near ___3f77ch
-		mov     eax, [___1a1ef8h]
+		mov     eax, [__CEXT_V(___1a1ef8h)]
 		lea     edx, [eax*8+0]
 		sub     edx, eax
 		shl     edx, 2
@@ -32705,11 +32241,11 @@ ___2ae9bh:
 		test    eax, eax
 		je      near ___2af52h
 		mov     eax, 64h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     edi, eax
 		mov     [___1a0f9ch], eax
 		mov     eax, [__CEXT_V(___180864h)]
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		mov     [edi], eax
 		lea     eax, [edx*8+0]
 		sub     eax, edx
@@ -32834,7 +32370,7 @@ ___2b00eh:
 ___2b021h:
 		mov     edx, 13h
 		call    near ___1e4f8h
-		mov     [___1a1ef8h], edx
+		mov     [__CEXT_V(___1a1ef8h)], edx
 ___2b031h:
 		mov     edx, 9
 		mov     eax, esp
@@ -33091,7 +32627,7 @@ ___2b318h:
 		sub     esp, byte 14h
 		and     esp, byte 0fffffff8h
 		call    near ___12940h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -33120,7 +32656,7 @@ ___2b318h:
 		sub     esp, byte 4
 		fstp    dword [esp]
 		call    near ___11564h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -33225,7 +32761,7 @@ ___2b416h:
 		mov     ecx, 0c0h
 		mov     esi, 640000h
 ___2b516h:
-		mov     edx, [___1a1edch]
+		mov     edx, [__CEXT_V(___1a1edch)]
 		mov     eax, [ecx+___19df50h]
 		shl     edx, 10h
 		imul    edx
@@ -33242,7 +32778,7 @@ ___2b516h:
 		shrd    eax, edx, 10h
 		sar     edx, 10h
 		idiv    ebx
-		mov     edx, [___1a1edch]
+		mov     edx, [__CEXT_V(___1a1edch)]
 		mov     [ecx+___19eb50h], eax
 		shl     edx, 10h
 		mov     eax, [ecx+___19df54h]
@@ -33260,7 +32796,7 @@ ___2b516h:
 		shrd    eax, edx, 10h
 		sar     edx, 10h
 		idiv    ebx
-		mov     edx, [___1a1edch]
+		mov     edx, [__CEXT_V(___1a1edch)]
 		mov     [ecx+___19eb54h], eax
 		shl     edx, 10h
 		mov     eax, [ecx+___19df58h]
@@ -33401,7 +32937,7 @@ ___2b6fah:
 		jne     short ___2b77ch
 		cmp     dword [___196aa8h], byte 0
 		jne     short ___2b77ch
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -33470,7 +33006,7 @@ ___2b81ch:
 		push    8
 		call    near __CHK
 		push    edx
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -33479,7 +33015,7 @@ ___2b81ch:
 		shl     eax, 2
 		test    edx, edx
 		je      short ___2b872h
-		mov     edx, [eax+___1a01fch]
+		mov     edx, [eax+__CEXT_V(___1a01fch)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 3
@@ -33494,7 +33030,7 @@ ___2b81ch:
 		pop     edx
 		retn    
 ___2b872h:
-		mov     edx, [eax+___1a01fch]
+		mov     edx, [eax+__CEXT_V(___1a01fch)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 3
@@ -33524,7 +33060,7 @@ ___2b8ach:
 		mov     [esp+30h], edx
 		mov     [esp+10h], edx
 		mov     [esp+18h], edx
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -33534,7 +33070,7 @@ ___2b8ach:
 		sub     esp, byte 8
 		fstp    qword [esp]
 		call    near ceil
-		mov     eax, [___1a1ef8h]
+		mov     eax, [__CEXT_V(___1a1ef8h)]
 		lea     ebx, [eax*8+0]
 		sub     ebx, eax
 		call    near __CHP
@@ -33545,7 +33081,7 @@ ___2b8ach:
 		shl     ebx, 2
 		test    esi, esi
 		je      short ___2b961h
-		mov     eax, [ebx+___1a01fch]
+		mov     eax, [ebx+__CEXT_V(___1a01fch)]
 		lea     edx, [eax*8+0]
 		sub     edx, eax
 		shl     edx, 3
@@ -33565,7 +33101,7 @@ ___2b8ach:
 		mov     edx, eax
 		jmp     short ___2b993h
 ___2b961h:
-		mov     eax, [ebx+___1a01fch]
+		mov     eax, [ebx+__CEXT_V(___1a01fch)]
 		lea     edx, [eax*8+0]
 		sub     edx, eax
 		shl     edx, 3
@@ -33596,7 +33132,7 @@ ___2b9a7h:
 ___2b9cah:
 		mov     ecx, 4b000h
 		mov     esi, [VGABufferPtr_0]
-		mov     edi, [___1a10e4h]
+		mov     edi, [__CEXT_V(___1a10e4h)]
 		push    edi
 		mov     eax, ecx
 		shr     ecx, 2
@@ -33606,7 +33142,7 @@ ___2b9cah:
 		rep movsb   
 		pop     edi
 		mov     ecx, 29b80h
-		mov     eax, [___1a10e4h]
+		mov     eax, [__CEXT_V(___1a10e4h)]
 		mov     esi, [GXBackBuffer]
 		mov     [VGABufferPtr_0], eax
 		add     esi, 0f000h
@@ -33620,7 +33156,7 @@ ___2b9cah:
 		rep movsb   
 		pop     edi
 		call    near ___2b6a4h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -33658,7 +33194,7 @@ ___2ba9eh:
 		mov     esi, 5
 		mov     [esp+1ch], edi
 		mov     [___185a20h], edi
-		mov     [___1a1ec4h], esi
+		mov     [__CEXT_V(___1a1ec4h)], esi
 ___2bab5h:
 		cmp     dword [___185a2ch], byte 0
 		jne     near ___2cfbch
@@ -33748,7 +33284,7 @@ ___2bc02h:
 		mov     dword [esp+24h], 6
 		jmp     near ___2bc81h
 ___2bc0fh:
-		imul    edx, [___1a1ef8h], byte 6ch
+		imul    edx, [__CEXT_V(___1a1ef8h)], byte 6ch
 		cmp     dword [edx+___1a0218h], byte 4
 		jne     short ___2bc3ah
 		call    near ___168b4h
@@ -33767,7 +33303,7 @@ ___2bc3ah:
 		call    near ___2b81ch
 		cmp     eax, [edx+___1a0210h]
 		jle     short ___2bc81h
-		imul    eax, [___1a1ef8h], byte 6ch
+		imul    eax, [__CEXT_V(___1a1ef8h)], byte 6ch
 		cmp     dword [eax+___1a01ech], byte 5fh
 		jle     short ___2bc81h
 		call    near ___165ach
@@ -33780,7 +33316,7 @@ ___2bc81h:
 		mov     ecx, 6dh
 		mov     edx, 173h
 		xor     eax, eax
-		mov     [___1a1ec4h], ebx
+		mov     [__CEXT_V(___1a1ec4h)], ebx
 		mov     ebx, 27fh
 		call    near frameFooter__dr
 		cmp     dword [__CEXT_V(___19bd60h)], byte 0
@@ -33835,7 +33371,7 @@ ___2bd20h:
 		jne     near ___2be33h
 		cmp     dword [___196ab0h], byte 1
 		je      near ___2be33h
-		imul    esi, [___1a1ef8h], byte 6ch
+		imul    esi, [__CEXT_V(___1a1ef8h)], byte 6ch
 		cmp     dword [esi+___1a0218h], byte 4
 		je      near ___2be33h
 		mov     edx, [esp+0ch]
@@ -33846,14 +33382,14 @@ ___2bd20h:
 		call    near ___2b81ch
 		cmp     eax, [esi+___1a0210h]
 		jg      short ___2be33h
-		imul    eax, [___1a1ef8h], byte 6ch
+		imul    eax, [__CEXT_V(___1a1ef8h)], byte 6ch
 		cmp     dword [eax+___1a01ech], byte 5fh
 		jg      short ___2be33h
 		push    ___1865fch
 		mov     edx, 10dh
 		mov     eax, 1b0h
-		mov     ecx, [___1a1ea0h]
-		mov     ebx, [___1a1ee8h]
+		mov     ecx, [__CEXT_V(___1a1ea0h)]
+		mov     ebx, [__CEXT_V(___1a1ee8h)]
 		call    near ___259e0h
 		mov     ecx, 40h
 		mov     ebx, 60h
@@ -33861,13 +33397,13 @@ ___2bd20h:
 		mov     eax, 2a230h
 		add     edx, 2a230h
 		call    near ___1398ch
-		mov     edi, [___1a1ee8h]
+		mov     edi, [__CEXT_V(___1a1ee8h)]
 		inc     edi
-		mov     [___1a1ee8h], edi
+		mov     [__CEXT_V(___1a1ee8h)], edi
 		cmp     edi, byte 16h
 		jle     short ___2be33h
 		xor     edx, edx
-		mov     [___1a1ee8h], edx
+		mov     [__CEXT_V(___1a1ee8h)], edx
 ___2be33h:
 		mov     ebx, 2
 		mov     edx, ebp
@@ -33890,7 +33426,7 @@ ___2be33h:
 		jne     short ___2bed4h
 		cmp     dword [___196ab0h], byte 1
 		je      short ___2bed4h
-		imul    esi, [___1a1ef8h], byte 6ch
+		imul    esi, [__CEXT_V(___1a1ef8h)], byte 6ch
 		cmp     dword [esi+___1a0218h], byte 4
 		je      short ___2bed4h
 		mov     edx, [esp+0ch]
@@ -33901,7 +33437,7 @@ ___2be33h:
 		call    near ___2b81ch
 		cmp     eax, [esi+___1a0210h]
 		jle     short ___2bee3h
-		imul    eax, [___1a1ef8h], byte 6ch
+		imul    eax, [__CEXT_V(___1a1ef8h)], byte 6ch
 		cmp     dword [eax+___1a01ech], byte 5fh
 		jle     short ___2bee3h
 ___2bed4h:
@@ -34021,13 +33557,13 @@ ___2bf8ch:
 		je      near ___2c103h
 		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		jne     short ___2c0aeh
-		imul    eax, [___1a1ef8h], byte 6ch
+		imul    eax, [__CEXT_V(___1a1ef8h)], byte 6ch
 		cmp     dword [eax+___1a0228h], byte 7
 		jle     short ___2c103h
 ___2c0aeh:
 		cmp     dword [___185a18h], byte 4
 		je      short ___2c103h
-		imul    edx, [___1a1ef8h], byte 6ch
+		imul    edx, [__CEXT_V(___1a1ef8h)], byte 6ch
 		cmp     dword [edx+___1a0218h], byte 4
 		je      short ___2c103h
 		mov     ebx, [esp+0ch]
@@ -34038,7 +33574,7 @@ ___2c0aeh:
 		call    near ___2b81ch
 		cmp     eax, [edx+___1a0210h]
 		jle     near ___2c67fh
-		imul    eax, [___1a1ef8h], byte 6ch
+		imul    eax, [__CEXT_V(___1a1ef8h)], byte 6ch
 		cmp     dword [eax+___1a01ech], byte 5fh
 		jle     near ___2c67fh
 ___2c103h:
@@ -34058,7 +33594,7 @@ ___2c119h:
 		mov     [esp+28h], edx
 		test    ebx, ebx
 		je      short ___2c17dh
-		imul    edx, [___1a1ef8h], byte 6ch
+		imul    edx, [__CEXT_V(___1a1ef8h)], byte 6ch
 		fild    dword [___185a54h]
 		fmul    qword [___182204h]
 		mov     edi, 1efh
@@ -34105,7 +33641,7 @@ ___2c1cbh:
 ___2c1dah:
 		cmp     dword [esp+24h], byte 7
 		jne     short ___2c1f9h
-		imul    eax, [___1a1ef8h], byte 6ch
+		imul    eax, [__CEXT_V(___1a1ef8h)], byte 6ch
 		mov     edx, 0ffffffffh
 		mov     [eax+___1a0214h], edx
 		mov     [eax+___1a0218h], edx
@@ -34119,7 +33655,7 @@ ___2c208h:
 		jne     short ___2c25bh
 		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      short ___2c253h
-		imul    edx, [___1a1ef8h], byte 6ch
+		imul    edx, [__CEXT_V(___1a1ef8h)], byte 6ch
 		fild    dword [___185a54h]
 		fmul    qword [___182204h]
 		mov     ebx, 1efh
@@ -34204,7 +33740,7 @@ ___2c334h:
 		mov     [esp+10h], edx
 		cmp     edx, esi
 		je      short ___2c3a3h
-		imul    esi, [___1a1ef8h], byte 6ch
+		imul    esi, [__CEXT_V(___1a1ef8h)], byte 6ch
 		fild    dword [___185a54h]
 		fmul    qword [___182204h]
 		call    near __CHP
@@ -34244,7 +33780,7 @@ ___2c3d1h:
 		mov     [esp+10h], edx
 		cmp     edx, esi
 		je      short ___2c440h
-		imul    esi, [___1a1ef8h], byte 6ch
+		imul    esi, [__CEXT_V(___1a1ef8h)], byte 6ch
 		fild    dword [___185a54h]
 		fmul    qword [___182204h]
 		call    near __CHP
@@ -34263,7 +33799,7 @@ ___2c444h:
 		mov     esi, edx
 		jmp     near ___2c5a0h
 ___2c455h:
-		imul    edi, [___1a1ef8h], byte 6ch
+		imul    edi, [__CEXT_V(___1a1ef8h)], byte 6ch
 		cmp     dword [edi+___1a0218h], byte 4
 		jne     near ___2c506h
 		call    near ___168b4h
@@ -34273,7 +33809,7 @@ ___2c455h:
 ___2c476h:
 		call    near ___12dc4h
 		call    near ___17324h
-		imul    eax, [___1a1ef8h], byte 6ch
+		imul    eax, [__CEXT_V(___1a1ef8h)], byte 6ch
 		mov     [eax+___1a0218h], ebp
 		mov     edi, [esp+10h]
 		mov     [eax+___1a0214h], ebp
@@ -34287,7 +33823,7 @@ ___2c476h:
 		mov     [esp+10h], edx
 		cmp     edx, eax
 		je      short ___2c4f1h
-		imul    esi, [___1a1ef8h], byte 6ch
+		imul    esi, [__CEXT_V(___1a1ef8h)], byte 6ch
 		fild    dword [___185a54h]
 		fmul    qword [___182204h]
 		call    near __CHP
@@ -34313,7 +33849,7 @@ ___2c506h:
 		call    near ___2b81ch
 		cmp     eax, [edi+___1a0210h]
 		jle     near ___2c5a0h
-		imul    eax, [___1a1ef8h], byte 6ch
+		imul    eax, [__CEXT_V(___1a1ef8h)], byte 6ch
 		cmp     dword [eax+___1a01ech], byte 5fh
 		jle     short ___2c5a0h
 		cmp     edx, [esp+30h]
@@ -34325,7 +33861,7 @@ ___2c506h:
 		mov     [esp+28h], ebx
 		cmp     edx, edi
 		je      short ___2c592h
-		imul    edi, [___1a1ef8h], byte 6ch
+		imul    edi, [__CEXT_V(___1a1ef8h)], byte 6ch
 		fild    dword [___185a54h]
 		fmul    qword [___182204h]
 		call    near __CHP
@@ -34410,19 +33946,19 @@ ___2c687h:
 		lea     edx, [eax-1]
 		mov     [___185a38h], edx
 ___2c6aeh:
-		mov     eax, [___1a1ec4h]
+		mov     eax, [__CEXT_V(___1a1ec4h)]
 		cmp     eax, byte 5
 		ja      near ___2c9fch
 		jmp     near dword [cs:eax*4+___2b894h]
 ___2c6c4h:
-		mov     eax, [___1a1ee4h]
+		mov     eax, [__CEXT_V(___1a1ee4h)]
 		mov     edx, 8dh
 		shl     eax, 8
-		mov     ecx, [___1a1ee4h]
+		mov     ecx, [__CEXT_V(___1a1ee4h)]
 		add     eax, ___185cbch
-		mov     ebx, [___1a1ed0h]
+		mov     ebx, [__CEXT_V(___1a1ed0h)]
 		push    eax
-		mov     ecx, [ecx*4+___1a01b8h]
+		mov     ecx, [ecx*4+__CEXT_V(___1a01b8h)]
 		mov     eax, 10h
 		call    near ___259e0h
 		mov     ecx, 40h
@@ -34431,13 +33967,13 @@ ___2c6c4h:
 		mov     eax, 16090h
 		add     edx, 16090h
 		call    near ___1398ch
-		mov     edx, [___1a1ed0h]
+		mov     edx, [__CEXT_V(___1a1ed0h)]
 		inc     edx
-		mov     [___1a1ed0h], edx
+		mov     [__CEXT_V(___1a1ed0h)], edx
 		cmp     edx, byte 3fh
 		jle     short ___2c72eh
 		xor     ecx, ecx
-		mov     [___1a1ed0h], ecx
+		mov     [__CEXT_V(___1a1ed0h)], ecx
 ___2c72eh:
 		cmp     dword [___185a38h], byte 1
 		jne     near ___2c9fch
@@ -34445,15 +33981,15 @@ ___2c72eh:
 		call    near ___12dc4h
 		jmp     near ___2c9fch
 ___2c74ah:
-		imul    eax, [___1a1ef8h], byte 6ch
-		imul    edx, [eax+___1a01fch], 6e0h
+		imul    eax, [__CEXT_V(___1a1ef8h)], byte 6ch
+		imul    edx, [eax+__CEXT_V(___1a01fch)], 6e0h
 		mov     eax, [eax+___1a01f0h]
 		cmp     eax, [edx+___18e938h]
 		jge     short ___2c7c9h
 		imul    edx, eax, byte 60h
-		mov     ebx, [___1a1ec8h]
+		mov     ebx, [__CEXT_V(___1a1ec8h)]
 		add     edx, ___1862bch
-		mov     ecx, [eax*4+___1a01a8h]
+		mov     ecx, [eax*4+__CEXT_V(___1a01a8h)]
 		push    edx
 		mov     eax, 10h
 		mov     edx, 10dh
@@ -34464,13 +34000,13 @@ ___2c74ah:
 		mov     eax, 2a090h
 		add     edx, 2a090h
 		call    near ___1398ch
-		mov     esi, [___1a1ec8h]
+		mov     esi, [__CEXT_V(___1a1ec8h)]
 		inc     esi
-		mov     [___1a1ec8h], esi
+		mov     [__CEXT_V(___1a1ec8h)], esi
 		cmp     esi, byte 17h
 		jle     short ___2c7c9h
 		xor     ebp, ebp
-		mov     [___1a1ec8h], ebp
+		mov     [__CEXT_V(___1a1ec8h)], ebp
 ___2c7c9h:
 		cmp     dword [___185a38h], byte 1
 		jne     near ___2c9fch
@@ -34478,15 +34014,15 @@ ___2c7c9h:
 		call    near ___12dc4h
 		jmp     near ___2c9fch
 ___2c7e5h:
-		imul    eax, [___1a1ef8h], byte 6ch
-		imul    edx, [eax+___1a01fch], 6e0h
+		imul    eax, [__CEXT_V(___1a1ef8h)], byte 6ch
+		imul    edx, [eax+__CEXT_V(___1a01fch)], 6e0h
 		mov     eax, [eax+___1a01f4h]
 		cmp     eax, [edx+___18e93ch]
 		jge     short ___2c864h
 		imul    edx, eax, byte 30h
-		mov     ebx, [___1a1ec0h]
+		mov     ebx, [__CEXT_V(___1a1ec0h)]
 		add     edx, ___18643ch
-		mov     ecx, [eax*4+___1a0198h]
+		mov     ecx, [eax*4+__CEXT_V(___1a0198h)]
 		push    edx
 		mov     eax, 78h
 		mov     edx, 10dh
@@ -34497,13 +34033,13 @@ ___2c7e5h:
 		mov     eax, 2a0f8h
 		add     edx, 2a0f8h
 		call    near ___1398ch
-		mov     ecx, [___1a1ec0h]
+		mov     ecx, [__CEXT_V(___1a1ec0h)]
 		inc     ecx
-		mov     [___1a1ec0h], ecx
+		mov     [__CEXT_V(___1a1ec0h)], ecx
 		cmp     ecx, byte 0bh
 		jle     short ___2c864h
 		xor     edi, edi
-		mov     [___1a1ec0h], edi
+		mov     [__CEXT_V(___1a1ec0h)], edi
 ___2c864h:
 		cmp     dword [___185a38h], byte 1
 		jne     near ___2c9fch
@@ -34511,16 +34047,16 @@ ___2c864h:
 		call    near ___12dc4h
 		jmp     near ___2c9fch
 ___2c880h:
-		imul    eax, [___1a1ef8h], byte 6ch
-		imul    edx, [eax+___1a01fch], 6e0h
+		imul    eax, [__CEXT_V(___1a1ef8h)], byte 6ch
+		imul    edx, [eax+__CEXT_V(___1a01fch)], 6e0h
 		mov     eax, [eax+___1a01f8h]
 		cmp     eax, [edx+___18e940h]
 		jge     near ___2c92bh
 		mov     edx, eax
 		shl     edx, 6
-		mov     ebx, [___1a1eech]
+		mov     ebx, [__CEXT_V(___1a1eech)]
 		add     edx, ___1864fch
-		mov     ecx, [eax*4+___1a01d0h]
+		mov     ecx, [eax*4+__CEXT_V(___1a01d0h)]
 		push    edx
 		mov     eax, 0e0h
 		mov     edx, 10dh
@@ -34531,23 +34067,23 @@ ___2c880h:
 		mov     eax, 2a160h
 		add     edx, 2a160h
 		call    near ___1398ch
-		cmp     dword [___1a1ee0h], byte 0
+		cmp     dword [__CEXT_V(___1a1ee0h)], byte 0
 		jne     short ___2c912h
-		mov     edx, [___1a1eech]
+		mov     edx, [__CEXT_V(___1a1eech)]
 		inc     edx
-		mov     [___1a1eech], edx
+		mov     [__CEXT_V(___1a1eech)], edx
 		cmp     edx, byte 0eh
 		jle     short ___2c92bh
-		mov     dword [___1a1ee0h], 1
+		mov     dword [__CEXT_V(___1a1ee0h)], 1
 		jmp     short ___2c92bh
 ___2c912h:
-		mov     edi, [___1a1eech]
+		mov     edi, [__CEXT_V(___1a1eech)]
 		dec     edi
-		mov     [___1a1eech], edi
+		mov     [__CEXT_V(___1a1eech)], edi
 		cmp     edi, byte 1
 		jge     short ___2c92bh
 		xor     eax, eax
-		mov     [___1a1ee0h], eax
+		mov     [__CEXT_V(___1a1ee0h)], eax
 ___2c92bh:
 		cmp     dword [___185a38h], byte 1
 		jne     near ___2c9fch
@@ -34558,7 +34094,7 @@ ___2c947h:
 		push    ___186658h
 		mov     edx, 10dh
 		mov     eax, 148h
-		mov     ecx, [___1a1e8ch]
+		mov     ecx, [__CEXT_V(___1a1e8ch)]
 		mov     ebx, [___1a1ed8h]
 		call    near ___259e0h
 		mov     ecx, 40h
@@ -34579,8 +34115,8 @@ ___2c9a2h:
 		push    ___1865fch
 		mov     edx, 10dh
 		mov     eax, 1b0h
-		mov     ecx, [___1a1ea0h]
-		mov     ebx, [___1a1ee8h]
+		mov     ecx, [__CEXT_V(___1a1ea0h)]
+		mov     ebx, [__CEXT_V(___1a1ee8h)]
 		call    near ___259e0h
 		mov     ecx, 40h
 		mov     ebx, 60h
@@ -34588,13 +34124,13 @@ ___2c9a2h:
 		mov     eax, 2a230h
 		add     edx, 2a230h
 		call    near ___1398ch
-		mov     ebx, [___1a1ee8h]
+		mov     ebx, [__CEXT_V(___1a1ee8h)]
 		inc     ebx
-		mov     [___1a1ee8h], ebx
+		mov     [__CEXT_V(___1a1ee8h)], ebx
 		cmp     ebx, byte 16h
 		jle     short ___2c9fch
 		xor     esi, esi
-		mov     [___1a1ee8h], esi
+		mov     [__CEXT_V(___1a1ee8h)], esi
 ___2c9fch:
 		call    near lastScanCode__keyboard
 		mov     [esp+3ch], al
@@ -34624,7 +34160,7 @@ ___2ca13h:
 		jne     short ___2ca74h
 		cmp     al, 11h
 		jne     short ___2ca74h
-		imul    eax, [___1a1ef8h], byte 6ch
+		imul    eax, [__CEXT_V(___1a1ef8h)], byte 6ch
 		add     dword [eax+___1a0210h], 3e8h
 		call    near ___25330h
 		call    near ___12dc4h
@@ -34651,7 +34187,7 @@ ___2ca74h:
 		xor     ebx, ebx
 		mov     eax, 2
 		call    near playSFX__sound
-		imul    eax, [___1a1ef8h], byte 6ch
+		imul    eax, [__CEXT_V(___1a1ef8h)], byte 6ch
 		mov     dword [eax+___1a0210h], 7a120h
 		call    near ___25330h
 		call    near ___12dc4h
@@ -34668,7 +34204,7 @@ ___2cae2h:
 		jne     short ___2cb44h
 		cmp     byte [esp+9], 12h
 		jne     short ___2cb44h
-		imul    eax, [___1a1ef8h], byte 6ch
+		imul    eax, [__CEXT_V(___1a1ef8h)], byte 6ch
 		mov     ebx, [eax+___1a0224h]
 		add     ebx, byte 0ah
 		mov     edx, 13h
@@ -34690,7 +34226,7 @@ ___2cb44h:
 		jne     short ___2cb9fh
 		cmp     byte [esp+9], 19h
 		jne     short ___2cb9fh
-		imul    eax, [___1a1ef8h], byte 6ch
+		imul    eax, [__CEXT_V(___1a1ef8h)], byte 6ch
 		mov     edi, [eax+___1a0224h]
 		sub     edi, byte 0ah
 		mov     edx, 13h
@@ -34864,7 +34400,7 @@ ___2ccc4h:
 		mov     edx, 0f3h
 		mov     eax, 142h
 		call    near ___281d0h
-		cmp     dword [___1a1ec4h], byte 0
+		cmp     dword [__CEXT_V(___1a1ec4h)], byte 0
 		jne     short ___2ce08h
 		mov     ecx, 72h
 		mov     ebx, 80h
@@ -34873,7 +34409,7 @@ ___2ccc4h:
 		call    near ___27f80h
 		call    near ___25a74h
 ___2ce08h:
-		cmp     dword [___1a1ec4h], byte 1
+		cmp     dword [__CEXT_V(___1a1ec4h)], byte 1
 		jne     short ___2ce2fh
 		mov     ecx, 72h
 		mov     ebx, 6ch
@@ -34882,7 +34418,7 @@ ___2ce08h:
 		call    near ___27f80h
 		call    near ___25e40h
 ___2ce2fh:
-		cmp     dword [___1a1ec4h], byte 2
+		cmp     dword [__CEXT_V(___1a1ec4h)], byte 2
 		jne     short ___2ce53h
 		mov     ecx, 72h
 		mov     ebx, 6ch
@@ -34891,7 +34427,7 @@ ___2ce2fh:
 		call    near ___27f80h
 		call    near ___262b4h
 ___2ce53h:
-		cmp     dword [___1a1ec4h], byte 3
+		cmp     dword [__CEXT_V(___1a1ec4h)], byte 3
 		jne     short ___2ce7ah
 		mov     ecx, 72h
 		mov     ebx, 6ch
@@ -34900,7 +34436,7 @@ ___2ce53h:
 		call    near ___27f80h
 		call    near ___26650h
 ___2ce7ah:
-		cmp     dword [___1a1ec4h], byte 4
+		cmp     dword [__CEXT_V(___1a1ec4h)], byte 4
 		jne     short ___2cea1h
 		mov     ecx, 72h
 		mov     ebx, 6ch
@@ -34909,7 +34445,7 @@ ___2ce7ah:
 		call    near ___27f80h
 		call    near ___269e4h
 ___2cea1h:
-		cmp     dword [___1a1ec4h], byte 5
+		cmp     dword [__CEXT_V(___1a1ec4h)], byte 5
 		jne     short ___2cec8h
 		mov     ecx, 72h
 		mov     ebx, 6ch
@@ -34940,7 +34476,7 @@ ___2cf19h:
 		call    near ___12cb8h
 		mov     ecx, 4b000h
 		mov     esi, [VGABufferPtr_0]
-		mov     edi, [___1a1124h]
+		mov     edi, [__CEXT_V(___1a1124h)]
 		push    edi
 		mov     eax, ecx
 		shr     ecx, 2
@@ -34965,7 +34501,7 @@ ___2cf62h:
 		call    near ___2a608h
 ___2cf71h:
 		mov     ecx, 4b000h
-		mov     esi, [___1a1124h]
+		mov     esi, [__CEXT_V(___1a1124h)]
 		mov     edi, [VGABufferPtr_0]
 		push    edi
 		mov     eax, ecx
@@ -34993,7 +34529,7 @@ ___2cfc8h:
 		mov     ecx, 4b000h
 		mov     ebx, 27fh
 		mov     esi, [GXBackBuffer]
-		mov     edi, [___1a10e4h]
+		mov     edi, [__CEXT_V(___1a10e4h)]
 		mov     edx, 173h
 		push    edi
 		mov     eax, ecx
@@ -35003,7 +34539,7 @@ ___2cfc8h:
 		and     cl, 3
 		rep movsb   
 		pop     edi
-		mov     eax, [___1a10e4h]
+		mov     eax, [__CEXT_V(___1a10e4h)]
 		mov     ecx, 6dh
 		mov     [VGABufferPtr_0], eax
 		xor     eax, eax
@@ -35201,20 +34737,20 @@ ___2d294h:
 		mov     edx, 72h
 		mov     eax, 90h
 		call    near ___13248h
-		mov     ebx, [___1a1ef8h]
+		mov     ebx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [ebx*8+0]
 		sub     eax, ebx
 		shl     eax, 2
 		sub     eax, ebx
 		mov     dl, 5
-		mov     dh, [eax*4+___1a01fch]
-		mov     ebx, [eax*4+___1a01fch]
+		mov     dh, [eax*4+__CEXT_V(___1a01fch)]
+		mov     ebx, [eax*4+__CEXT_V(___1a01fch)]
 		sub     dl, dh
 		test    ebx, ebx
 		jne     short ___2d2edh
 		mov     dl, 4
 ___2d2edh:
-		mov     ebx, [___1a1ef8h]
+		mov     ebx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [ebx*8+0]
 		sub     eax, ebx
 		shl     eax, 2
@@ -35263,7 +34799,7 @@ ___2d37dh:
 		jne     short ___2d37dh
 ___2d395h:
 		pop     edi
-		mov     ebx, [___1a1ef8h]
+		mov     ebx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [ebx*8+0]
 		sub     eax, ebx
 		shl     eax, 2
@@ -35285,7 +34821,7 @@ ___2d395h:
 		mov     eax, [esp+60h]
 		call    near itoa
 ___2d3f2h:
-		mov     ebx, [___1a1ef8h]
+		mov     ebx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [ebx*8+0]
 		sub     eax, ebx
 		shl     eax, 2
@@ -35308,7 +34844,7 @@ ___2d3f2h:
 		mov     eax, [esp+60h]
 		call    near itoa
 ___2d451h:
-		mov     ebx, [___1a1ef8h]
+		mov     ebx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [ebx*8+0]
 		sub     eax, ebx
 		shl     eax, 2
@@ -35330,7 +34866,7 @@ ___2d451h:
 		mov     eax, [esp+60h]
 		call    near itoa
 ___2d4adh:
-		mov     ebx, [___1a1ef8h]
+		mov     ebx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [ebx*8+0]
 		sub     eax, ebx
 		shl     eax, 2
@@ -35352,7 +34888,7 @@ ___2d4adh:
 		mov     eax, [esp+60h]
 		call    near itoa
 ___2d509h:
-		mov     ebx, [___1a1ef8h]
+		mov     ebx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [ebx*8+0]
 		sub     eax, ebx
 		shl     eax, 2
@@ -35523,7 +35059,7 @@ ___2d728h:
 		jne     near ___2d7e8h
 		mov     ecx, 60h
 		mov     ebx, [VGABufferPtr_0]
-		mov     esi, [___1a1e5ch]
+		mov     esi, [__CEXT_V(___1a1e5ch)]
 		add     ebx, 27890h
 		mov     edx, ecx
 		shr     dl, 2
@@ -35581,7 +35117,7 @@ ___2d7e8h:
 		jne     short ___2d83ah
 		mov     ecx, 60h
 		mov     ebx, [VGABufferPtr_0]
-		mov     esi, [___1a1e5ch]
+		mov     esi, [__CEXT_V(___1a1e5ch)]
 		add     ebx, 27890h
 		add     esi, 12000h
 		mov     edx, ecx
@@ -35607,7 +35143,7 @@ ___2d83ah:
 		jne     short ___2d88ch
 		mov     ecx, 60h
 		mov     ebx, [VGABufferPtr_0]
-		mov     esi, [___1a1e5ch]
+		mov     esi, [__CEXT_V(___1a1e5ch)]
 		add     ebx, 27890h
 		add     esi, 9000h
 		mov     edx, ecx
@@ -35649,7 +35185,7 @@ ___2d898h:
 		jne     near ___2d961h
 		mov     ecx, 60h
 		mov     ebx, [VGABufferPtr_0]
-		mov     esi, [___1a1e5ch]
+		mov     esi, [__CEXT_V(___1a1e5ch)]
 		add     ebx, 278f8h
 		add     esi, 2400h
 		mov     edx, ecx
@@ -35708,7 +35244,7 @@ ___2d961h:
 		jne     short ___2d9b3h
 		mov     ecx, 60h
 		mov     ebx, [VGABufferPtr_0]
-		mov     esi, [___1a1e5ch]
+		mov     esi, [__CEXT_V(___1a1e5ch)]
 		add     ebx, 278f8h
 		add     esi, 14400h
 		mov     edx, ecx
@@ -35734,7 +35270,7 @@ ___2d9b3h:
 		jne     short ___2da05h
 		mov     ecx, 60h
 		mov     ebx, [VGABufferPtr_0]
-		mov     esi, [___1a1e5ch]
+		mov     esi, [__CEXT_V(___1a1e5ch)]
 		add     ebx, 278f8h
 		add     esi, 0b400h
 		mov     edx, ecx
@@ -35776,7 +35312,7 @@ ___2da10h:
 		jne     near ___2dad9h
 		mov     ecx, 60h
 		mov     ebx, [VGABufferPtr_0]
-		mov     esi, [___1a1e5ch]
+		mov     esi, [__CEXT_V(___1a1e5ch)]
 		add     ebx, 27960h
 		add     esi, 4800h
 		mov     edx, ecx
@@ -35835,7 +35371,7 @@ ___2dad9h:
 		jne     short ___2db2bh
 		mov     ecx, 60h
 		mov     ebx, [VGABufferPtr_0]
-		mov     esi, [___1a1e5ch]
+		mov     esi, [__CEXT_V(___1a1e5ch)]
 		add     ebx, 27960h
 		add     esi, 16800h
 		mov     edx, ecx
@@ -35861,7 +35397,7 @@ ___2db2bh:
 		jne     short ___2db7dh
 		mov     ecx, 60h
 		mov     ebx, [VGABufferPtr_0]
-		mov     esi, [___1a1e5ch]
+		mov     esi, [__CEXT_V(___1a1e5ch)]
 		add     ebx, 27960h
 		add     esi, 0d800h
 		mov     edx, ecx
@@ -35900,7 +35436,7 @@ ___2db88h:
 		push    edi
 		push    ebp
 		sub     esp, byte 28h
-		mov     ecx, [___1a1ef8h]
+		mov     ecx, [__CEXT_V(___1a1ef8h)]
 		xor     edx, edx
 		xor     eax, eax
 		xor     ebp, ebp
@@ -35920,7 +35456,7 @@ ___2dbb7h:
 		jne     near ___2dc74h
 		mov     ecx, 60h
 		mov     ebx, [VGABufferPtr_0]
-		mov     esi, [___1a1e5ch]
+		mov     esi, [__CEXT_V(___1a1e5ch)]
 		add     ebx, 279c8h
 		add     esi, 6c00h
 		mov     edx, ecx
@@ -35979,7 +35515,7 @@ ___2dc74h:
 		jne     near ___2dd6bh
 		mov     ecx, 60h
 		mov     ebx, [VGABufferPtr_0]
-		mov     esi, [___1a1e5ch]
+		mov     esi, [__CEXT_V(___1a1e5ch)]
 		add     ebx, 279c8h
 		add     esi, 18c00h
 		mov     edx, ecx
@@ -36001,7 +35537,7 @@ ___2dca5h:
 		jne     short ___2dca3h
 		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		jne     near ___2dd66h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -36040,7 +35576,7 @@ ___2dd6bh:
 		jne     short ___2ddbdh
 		mov     ecx, 60h
 		mov     ebx, [VGABufferPtr_0]
-		mov     esi, [___1a1e5ch]
+		mov     esi, [__CEXT_V(___1a1e5ch)]
 		add     ebx, 279c8h
 		add     esi, 0fc00h
 		mov     edx, ecx
@@ -36079,7 +35615,7 @@ ___2ddc8h:
 		push    esi
 		mov     ecx, 60h
 		mov     ebx, [VGABufferPtr_0]
-		mov     esi, [___1a1e70h]
+		mov     esi, [__CEXT_V(___1a1e70h)]
 		add     ebx, 27a30h
 		mov     edx, ecx
 		shr     dl, 2
@@ -36125,8 +35661,8 @@ ___2ddf4h:
 		push    ___1865fch
 		mov     edx, 10dh
 		mov     eax, 1b0h
-		mov     ecx, [___1a1ea0h]
-		mov     ebx, [___1a1ee8h]
+		mov     ecx, [__CEXT_V(___1a1ea0h)]
+		mov     ebx, [__CEXT_V(___1a1ee8h)]
 		call    near ___259e0h
 		pop     esi
 		pop     edx
@@ -36483,16 +36019,16 @@ ___2e350h:
 		push    edi
 		push    ebp
 		sub     esp, byte 0ch
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
 		sub     eax, edx
 		mov     dl, 5
-		mov     dh, [eax*4+___1a01fch]
+		mov     dh, [eax*4+__CEXT_V(___1a01fch)]
 		sub     dl, dh
 		mov     [esp+8], dl
-		cmp     dword [eax*4+___1a01fch], byte 0
+		cmp     dword [eax*4+__CEXT_V(___1a01fch)], byte 0
 		jne     short ___2e395h
 		mov     byte [esp+8], 4
 ___2e395h:
@@ -36501,7 +36037,7 @@ ___2e395h:
 		ja      near ___2ec5eh
 		jmp     near dword [cs:eax*4+___2e338h]
 ___2e3abh:
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -36509,7 +36045,7 @@ ___2e3abh:
 		shl     eax, 2
 		cmp     dword [eax+___1a0218h], byte 0ffffffffh
 		jne     near ___2e4f7h
-		cmp     dword [eax+___1a01fch], byte 0
+		cmp     dword [eax+__CEXT_V(___1a01fch)], byte 0
 		je      near ___2e4f7h
 		push    8000h
 		mov     eax, 1
@@ -36519,7 +36055,7 @@ ___2e3abh:
 		xor     ebx, ebx
 		mov     edx, 1dh
 		call    near playSFX__sound
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -36536,7 +36072,7 @@ ___2e3abh:
 ___2e43bh:
 		cmp     byte [esp+8], 1
 		jne     short ___2e461h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -36545,7 +36081,7 @@ ___2e43bh:
 ___2e461h:
 		cmp     byte [esp+8], 2
 		jne     short ___2e487h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -36554,7 +36090,7 @@ ___2e461h:
 ___2e487h:
 		cmp     byte [esp+8], 3
 		jne     short ___2e4adh
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -36563,7 +36099,7 @@ ___2e487h:
 ___2e4adh:
 		cmp     byte [esp+8], 4
 		jne     short ___2e4d3h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -36584,7 +36120,7 @@ ___2e4d3h:
 		pop     ebx
 		retn    
 ___2e4f7h:
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -36592,7 +36128,7 @@ ___2e4f7h:
 		shl     eax, 2
 		cmp     dword [eax+___1a0218h], byte 0ffffffffh
 		jne     short ___2e558h
-		cmp     dword [eax+___1a01fch], byte 0
+		cmp     dword [eax+__CEXT_V(___1a01fch)], byte 0
 		jne     short ___2e558h
 		push    8000h
 		mov     edx, 17h
@@ -36607,7 +36143,7 @@ ___2e4f7h:
 		call    near ___2d618h
 		call    near ___12dc4h
 ___2e558h:
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -36629,7 +36165,7 @@ ___2e558h:
 		call    near __CHP
 		fistp   dword [esp+4]
 ___2e5aeh:
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -36648,7 +36184,7 @@ ___2e5aeh:
 		call    near __CHP
 		fistp   dword [esp+4]
 ___2e5f9h:
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -36666,7 +36202,7 @@ ___2e5f9h:
 		call    near __CHP
 		fistp   dword [esp+4]
 ___2e641h:
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -36684,7 +36220,7 @@ ___2e641h:
 		call    near __CHP
 		fistp   dword [esp+4]
 ___2e689h:
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -36702,7 +36238,7 @@ ___2e689h:
 		call    near __CHP
 		fistp   dword [esp+4]
 ___2e6d1h:
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -36722,7 +36258,7 @@ ___2e6f4h:
 		xor     ebx, ebx
 		mov     ecx, [ConfigSFXVolume]
 		call    near playSFX__sound
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -36801,7 +36337,7 @@ ___2e7f3h:
 		call    near playSFX__sound
 		xor     edx, edx
 		mov     [___1a0a50h], edx
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -36809,7 +36345,7 @@ ___2e7f3h:
 		mov     edx, [___1a0170h]
 		sub     [eax*4+___1a0210h], edx
 		call    near ___2d728h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -36865,7 +36401,7 @@ ___2e8cbh:
 		call    near playSFX__sound
 		xor     edx, edx
 		mov     [___1a0a54h], edx
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -36873,7 +36409,7 @@ ___2e8cbh:
 		mov     edx, [___1a0174h]
 		sub     [eax*4+___1a0210h], edx
 		call    near ___2d898h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -36929,7 +36465,7 @@ ___2e99fh:
 		call    near playSFX__sound
 		xor     edx, edx
 		mov     [___1a0a58h], edx
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -36937,7 +36473,7 @@ ___2e99fh:
 		mov     edx, [___1a0178h]
 		sub     [eax*4+___1a0210h], edx
 		call    near ___2da10h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -36993,7 +36529,7 @@ ___2ea76h:
 		call    near playSFX__sound
 		xor     edx, edx
 		mov     [___1a0a5ch], edx
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -37001,7 +36537,7 @@ ___2ea76h:
 		mov     edx, [___1a017ch]
 		sub     [eax*4+___1a0210h], edx
 		call    near ___2db88h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -37022,7 +36558,7 @@ ___2ea76h:
 		pop     ebx
 		retn    
 ___2eb07h:
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -37082,7 +36618,7 @@ ___2ebc1h:
 		call    near ___33010h
 		jmp     short ___2ec49h
 ___2ebf9h:
-		mov     ebp, [___1a1ef8h]
+		mov     ebp, [__CEXT_V(___1a1ef8h)]
 		xor     al, al
 		xor     ecx, ecx
 ___2ec03h:
@@ -37099,7 +36635,7 @@ ___2ec1ah:
 		inc     al
 		cmp     al, 14h
 		jb      short ___2ec03h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -37132,7 +36668,7 @@ ___2ec68h:
 		push    edx
 		push    esi
 		push    edi
-		mov     esi, [___1a1ef8h]
+		mov     esi, [__CEXT_V(___1a1ef8h)]
 		mov     ecx, 4
 		mov     edx, 1
 		mov     eax, ___1a0a50h
@@ -37146,7 +36682,7 @@ ___2ec68h:
 		call    near __CEXT_F(__STOSD__clib3r)
 		mov     [___1a0a5ch], ebx
 ___2ecb6h:
-		mov     esi, [___1a1ef8h]
+		mov     esi, [__CEXT_V(___1a1ef8h)]
 		xor     edx, edx
 		xor     eax, eax
 		xor     ebx, ebx
@@ -37181,7 +36717,7 @@ ___2ed0eh:
 		xor     ecx, ecx
 		mov     [___1a0a5ch], ecx
 ___2ed1fh:
-		mov     [___1a1ef8h], esi
+		mov     [__CEXT_V(___1a1ef8h)], esi
 		pop     edi
 		pop     esi
 		pop     edx
@@ -37214,13 +36750,13 @@ ___2ed2ch:
 		mov     ecx, 10h
 		mov     edx, 280h
 		mov     ebx, [VGABufferPtr_0]
-		mov     esi, [___1a1e54h]
+		mov     esi, [__CEXT_V(___1a1e54h)]
 		jmp     short ___2ed9fh
 ___2ed89h:
 		mov     ecx, 10h
 		mov     edx, 280h
 		mov     ebx, [VGABufferPtr_0]
-		mov     esi, [___1a1e64h]
+		mov     esi, [__CEXT_V(___1a1e64h)]
 ___2ed9fh:
 		add     ebx, 0e600h
 ___2eda5h:
@@ -37242,7 +36778,7 @@ ___2edafh:
 		call    near ___25330h
 		mov     ecx, 60h
 		mov     ebx, [VGABufferPtr_0]
-		mov     esi, [___1a1e58h]
+		mov     esi, [__CEXT_V(___1a1e58h)]
 		add     ebx, 13890h
 		mov     edx, ecx
 		shr     dl, 2
@@ -37263,7 +36799,7 @@ ___2ede2h:
 		jne     short ___2ede0h
 		mov     ecx, 60h
 		mov     ebx, [VGABufferPtr_0]
-		mov     esi, [___1a1e70h]
+		mov     esi, [__CEXT_V(___1a1e70h)]
 		add     ebx, 27a30h
 		mov     edx, ecx
 		shr     dl, 2
@@ -37310,7 +36846,7 @@ ___2ee78h:
 		push    edi
 		push    ebp
 		sub     esp, byte 20h
-		mov     esi, [___1a1ef8h]
+		mov     esi, [__CEXT_V(___1a1ef8h)]
 		xor     edx, edx
 		xor     eax, eax
 		mov     [esp], edx
@@ -37330,7 +36866,7 @@ ___2eea9h:
 		jl      short ___2ee98h
 		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		jne     short ___2eee6h
-		mov     ebx, [___1a1ef8h]
+		mov     ebx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [ebx*8+0]
 		sub     eax, ebx
 		shl     eax, 2
@@ -37360,8 +36896,8 @@ ___2ef02h:
 		push    ___1865fch
 		mov     edx, 10dh
 		mov     eax, 1b0h
-		mov     ecx, [___1a1ea0h]
-		mov     ebx, [___1a1ee8h]
+		mov     ecx, [__CEXT_V(___1a1ea0h)]
+		mov     ebx, [__CEXT_V(___1a1ee8h)]
 		call    near ___259e0h
 		mov     ecx, 40h
 		mov     ebx, 60h
@@ -37369,13 +36905,13 @@ ___2ef02h:
 		mov     eax, 2a230h
 		add     edx, 2a230h
 		call    near ___1398ch
-		mov     eax, [___1a1ee8h]
+		mov     eax, [__CEXT_V(___1a1ee8h)]
 		inc     eax
-		mov     [___1a1ee8h], eax
+		mov     [__CEXT_V(___1a1ee8h)], eax
 		cmp     eax, byte 16h
 		jle     short ___2ef7ah
 		xor     ebx, ebx
-		mov     [___1a1ee8h], ebx
+		mov     [__CEXT_V(___1a1ee8h)], ebx
 ___2ef7ah:
 		mov     esi, [esp+14h]
 		xor     ecx, ecx
@@ -37517,8 +37053,8 @@ ___2f13fh:
 		push    ___1865fch
 		mov     edx, 10dh
 		mov     eax, 1b0h
-		mov     ecx, [___1a1ea0h]
-		mov     ebx, [___1a1ee8h]
+		mov     ecx, [__CEXT_V(___1a1ea0h)]
+		mov     ebx, [__CEXT_V(___1a1ee8h)]
 		call    near ___259e0h
 		mov     ecx, 40h
 		mov     ebx, 60h
@@ -37526,13 +37062,13 @@ ___2f13fh:
 		mov     eax, 2a230h
 		add     edx, 2a230h
 		call    near ___1398ch
-		mov     ecx, [___1a1ee8h]
+		mov     ecx, [__CEXT_V(___1a1ee8h)]
 		inc     ecx
-		mov     [___1a1ee8h], ecx
+		mov     [__CEXT_V(___1a1ee8h)], ecx
 		cmp     ecx, byte 16h
 		jle     short ___2f1c2h
 		xor     edi, edi
-		mov     [___1a1ee8h], edi
+		mov     [__CEXT_V(___1a1ee8h)], edi
 ___2f1c2h:
 		mov     ebx, 2
 		mov     edx, ebp
@@ -37710,8 +37246,8 @@ ___2f442h:
 		push    ___1865fch
 		mov     edx, 10dh
 		mov     eax, 1b0h
-		mov     ecx, [___1a1ea0h]
-		mov     ebx, [___1a1ee8h]
+		mov     ecx, [__CEXT_V(___1a1ea0h)]
+		mov     ebx, [__CEXT_V(___1a1ee8h)]
 		call    near ___259e0h
 		mov     ecx, 40h
 		mov     ebx, 60h
@@ -37719,13 +37255,13 @@ ___2f442h:
 		mov     eax, 2a230h
 		add     edx, 2a230h
 		call    near ___1398ch
-		mov     ebx, [___1a1ee8h]
+		mov     ebx, [__CEXT_V(___1a1ee8h)]
 		inc     ebx
-		mov     [___1a1ee8h], ebx
+		mov     [__CEXT_V(___1a1ee8h)], ebx
 		cmp     ebx, byte 16h
 		jle     short ___2f49ch
 		xor     esi, esi
-		mov     [___1a1ee8h], esi
+		mov     [__CEXT_V(___1a1ee8h)], esi
 ___2f49ch:
 		call    near lastScanCode__keyboard
 		cmp     al, 4dh
@@ -37964,7 +37500,7 @@ ___2f809h:
 		call    near ___12cb8h
 		mov     ecx, 4b000h
 		mov     esi, [VGABufferPtr_0]
-		mov     edi, [___1a1124h]
+		mov     edi, [__CEXT_V(___1a1124h)]
 		push    edi
 		mov     eax, ecx
 		shr     ecx, 2
@@ -37989,7 +37525,7 @@ ___2f852h:
 		call    near ___2a608h
 ___2f861h:
 		mov     ecx, 4b000h
-		mov     esi, [___1a1124h]
+		mov     esi, [__CEXT_V(___1a1124h)]
 		mov     edi, [VGABufferPtr_0]
 		push    edi
 		mov     eax, ecx
@@ -38043,8 +37579,8 @@ ___2f8fdh:
 		push    ___1865fch
 		mov     edx, 10dh
 		mov     eax, 1b0h
-		mov     ecx, [___1a1ea0h]
-		mov     ebx, [___1a1ee8h]
+		mov     ecx, [__CEXT_V(___1a1ea0h)]
+		mov     ebx, [__CEXT_V(___1a1ee8h)]
 		call    near ___259e0h
 		mov     ecx, 40h
 		mov     ebx, 60h
@@ -38052,13 +37588,13 @@ ___2f8fdh:
 		mov     eax, 2a230h
 		add     edx, 2a230h
 		call    near ___1398ch
-		mov     esi, [___1a1ee8h]
+		mov     esi, [__CEXT_V(___1a1ee8h)]
 		inc     esi
-		mov     [___1a1ee8h], esi
+		mov     [__CEXT_V(___1a1ee8h)], esi
 		cmp     esi, byte 16h
 		jle     short ___2f97dh
 		xor     eax, eax
-		mov     [___1a1ee8h], eax
+		mov     [__CEXT_V(___1a1ee8h)], eax
 ___2f97dh:
 		cmp     dword [esp+4], byte 0ffffffffh
 		jne     short ___2f98dh
@@ -38184,71 +37720,71 @@ ___2faf0h:
 		push    edi
 		push    ebp
 		mov     eax, 1b80h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a0f90h], eax
 		mov     eax, 0e400h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a0f88h], eax
 		mov     eax, 2eb8h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a0f84h], eax
 		mov     eax, 110h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a0f98h], eax
 		mov     eax, 8700h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a0f8ch], eax
 		mov     eax, 18150h
 		mov     ebx, ___1822f0h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a1114h], eax
 		mov     eax, 0f0d2h
-		mov     edx, ___1a54d0h
-		call    near allocMemSafe
+		mov     edx, __CEXT_V(BPA_Buffer)
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a0f94h], eax
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     edx, [___1a0f90h]
 		push    edx
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___1822fch
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     ebx, [___1a0f88h]
 		push    ebx
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___182308h
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     ecx, [___1a0f84h]
 		push    ecx
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___182314h
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     esi, [___1a0f8ch]
 		push    esi
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___182320h
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     edi, [___1a0f98h]
 		push    edi
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___182330h
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     ebp, [___1a0f94h]
 		push    ebp
 		call    near __CEXT_F(decode2__bpk)
@@ -38416,7 +37952,7 @@ ___2fe64h:
 		mov     ebx, 27fh
 		mov     esi, [GXBackBuffer]
 		xor     edx, edx
-		mov     edi, [___1a10e4h]
+		mov     edi, [__CEXT_V(___1a10e4h)]
 		mov     [___1a1160h], edx
 		push    edi
 		mov     eax, ecx
@@ -38427,7 +37963,7 @@ ___2fe64h:
 		rep movsb   
 		pop     edi
 		mov     ecx, 6dh
-		mov     eax, [___1a10e4h]
+		mov     eax, [__CEXT_V(___1a10e4h)]
 		mov     edx, 173h
 		mov     [VGABufferPtr_0], eax
 		xor     eax, eax
@@ -39075,7 +38611,7 @@ ___30711h:
 		mov     ecx, 4b000h
 		mov     ebx, 27fh
 		mov     esi, [GXBackBuffer]
-		mov     edi, [___1a10e4h]
+		mov     edi, [__CEXT_V(___1a10e4h)]
 		mov     edx, 173h
 		push    edi
 		mov     eax, ecx
@@ -39085,7 +38621,7 @@ ___30711h:
 		and     cl, 3
 		rep movsb   
 		pop     edi
-		mov     eax, [___1a10e4h]
+		mov     eax, [__CEXT_V(___1a10e4h)]
 		mov     ecx, 6dh
 		mov     [VGABufferPtr_0], eax
 		xor     eax, eax
@@ -39160,7 +38696,7 @@ ___30805h:
 		idiv    esi
 		mov     [esp+68h], edx
 		imul    edx, edx, byte 6ch
-		mov     eax, [edx+___1a01fch]
+		mov     eax, [edx+__CEXT_V(___1a01fch)]
 		inc     ebx
 		cmp     edi, eax
 		je      short ___30831h
@@ -39181,30 +38717,30 @@ ___30841h:
 		mov     dword [esp+64h], 14h
 		sar     edx, 1fh
 		idiv    dword [esp+64h]
-		mov     eax, [___1a1ef8h]
+		mov     eax, [__CEXT_V(___1a1ef8h)]
 		mov     [esp+68h], edx
 		imul    edx, eax, byte 6ch
-		mov     eax, [edx+___1a01fch]
+		mov     eax, [edx+__CEXT_V(___1a01fch)]
 		inc     ebx
 		cmp     edi, eax
 		jg      short ___30886h
 		cmp     ecx, eax
 		jl      short ___30886h
 		imul    edx, [esp+68h], byte 6ch
-		mov     eax, [edx+___1a01fch]
+		mov     eax, [edx+__CEXT_V(___1a01fch)]
 		cmp     eax, byte 1
 		jl      short ___30886h
 		cmp     esi, eax
 		jge     short ___308b5h
 ___30886h:
-		imul    edx, [___1a1ef8h], byte 6ch
-		mov     eax, [edx+___1a01fch]
+		imul    edx, [__CEXT_V(___1a1ef8h)], byte 6ch
+		mov     eax, [edx+__CEXT_V(___1a01fch)]
 		cmp     esi, eax
 		jg      short ___308b0h
 		cmp     eax, byte 5
 		jg      short ___308b0h
 		imul    edx, [esp+68h], byte 6ch
-		mov     eax, [edx+___1a01fch]
+		mov     eax, [edx+__CEXT_V(___1a01fch)]
 		cmp     ecx, eax
 		jg      short ___308b0h
 		cmp     eax, byte 4
@@ -39224,7 +38760,7 @@ ___308c1h:
 		idiv    esi
 		mov     [esp+68h], edx
 		imul    edx, edx, byte 6ch
-		mov     eax, [edx+___1a01fch]
+		mov     eax, [edx+__CEXT_V(___1a01fch)]
 		inc     ebx
 		cmp     eax, byte 3
 		je      short ___308efh
@@ -39430,15 +38966,15 @@ ___30ae8h:
 		mov     eax, [esp+0ch]
 		cmp     ebx, eax
 		jg      near ___30c2ah
-		mov     ecx, [___1a1ef8h]
+		mov     ecx, [__CEXT_V(___1a1ef8h)]
 		cmp     ebx, ecx
 		jne     short ___30b05h
-		mov     [___1a1ef8h], eax
+		mov     [__CEXT_V(___1a1ef8h)], eax
 		jmp     short ___30b0fh
 ___30b05h:
 		cmp     ecx, eax
 		jne     short ___30b0fh
-		mov     [___1a1ef8h], ebx
+		mov     [__CEXT_V(___1a1ef8h)], ebx
 ___30b0fh:
 		imul    ebp, ebx, byte 6ch
 		mov     ecx, 6ch
@@ -39578,7 +39114,7 @@ ___30c60h:
 		mov     eax, 870h
 		mov     ecx, 870h
 		mov     esi, ___1a01e0h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     ebx, eax
 		mov     edi, eax
 		mov     [esp], eax
@@ -39628,9 +39164,9 @@ ___30cf3h:
 		mov     eax, [esp]
 		mov     edx, [esp+8]
 		call    near ___3f77ch
-		mov     eax, [___1a1ef8h]
+		mov     eax, [__CEXT_V(___1a1ef8h)]
 		sub     edx, eax
-		mov     [___1a1ef8h], edx
+		mov     [__CEXT_V(___1a1ef8h)], edx
 		xor     eax, eax
 		test    ebp, ebp
 		jle     short ___30d47h
@@ -39659,7 +39195,7 @@ ___30d47h:
 		mov     eax, 870h
 		mov     ecx, 870h
 		mov     esi, ___1a01e0h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     ebx, eax
 		mov     edi, eax
 		mov     [esp+4], eax
@@ -39708,9 +39244,9 @@ ___30dd3h:
 		mov     eax, [esp+4]
 		mov     edx, [esp+0ch]
 		call    near ___3f77ch
-		mov     eax, [___1a1ef8h]
+		mov     eax, [__CEXT_V(___1a1ef8h)]
 		sub     edx, eax
-		mov     [___1a1ef8h], edx
+		mov     [__CEXT_V(___1a1ef8h)], edx
 ___30dedh:
 		add     esp, byte 18h
 		pop     ebp
@@ -39934,7 +39470,7 @@ ___3102eh:
 		jl      near ___3102eh
 		mov     ecx, 4b000h
 		mov     esi, [VGABufferPtr_0]
-		mov     edi, [___1a10e4h]
+		mov     edi, [__CEXT_V(___1a10e4h)]
 		push    edi
 		mov     eax, ecx
 		shr     ecx, 2
@@ -39944,7 +39480,7 @@ ___3102eh:
 		rep movsb   
 		pop     edi
 		mov     ecx, 2aa80h
-		mov     eax, [___1a10e4h]
+		mov     eax, [__CEXT_V(___1a10e4h)]
 		mov     esi, [GXBackBuffer]
 		mov     [VGABufferPtr_0], eax
 		add     esi, 0e100h
@@ -40258,7 +39794,7 @@ ___314cah:
 		call    near ___3892ch
 		mov     edx, ebx
 		mov     [esp+28h], ebx
-		mov     esi, [___1a1ef8h]
+		mov     esi, [__CEXT_V(___1a1ef8h)]
 		xor     edx, ebx
 		xor     ebx, ebx
 		xor     eax, eax
@@ -40279,7 +39815,7 @@ ___31529h:
 		jl      short ___31517h
 		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		jne     short ___3156ah
-		mov     esi, [___1a1ef8h]
+		mov     esi, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [esi*8+0]
 		sub     eax, esi
 		shl     eax, 2
@@ -40311,7 +39847,7 @@ ___31588h:
 		push    esi
 		push    edi
 		sub     esp, byte 4
-		mov     edi, [___1a1ef8h]
+		mov     edi, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edi-7]
 		mov     [esp], eax
 		test    eax, eax
@@ -40343,17 +39879,17 @@ ___315c8h:
 		mov     eax, ___1a0f04h
 		mov     esi, 4
 		xor     edx, edx
-		mov     [___1a1ef8h], edi
+		mov     [__CEXT_V(___1a1ef8h)], edi
 		call    near __CEXT_F(__STOSB__clib3r)
 		mov     dl, 1
-		mov     edi, [___1a1ef8h]
+		mov     edi, [__CEXT_V(___1a1ef8h)]
 		mov     ecx, 3
 		mov     eax, ___1a1f67h
 		mov     [edi+___1a0f04h], dl
 		xor     edx, edx
 		xor     ebx, ebx
 		call    near __CEXT_F(__STOSB__clib3r)
-		mov     edi, [___1a1ef8h]
+		mov     edi, [__CEXT_V(___1a1ef8h)]
 ___3161eh:
 		mov     edx, esi
 		lea     eax, [ebx*4+0]
@@ -40367,7 +39903,7 @@ ___31627h:
 		add     esi, byte 4
 		cmp     ebx, byte 3
 		jl      short ___3161eh
-		mov     [___1a1ef8h], edi
+		mov     [__CEXT_V(___1a1ef8h)], edi
 ___31643h:
 		call    near __CEXT_F(rand__clib3r)
 		mov     edx, eax
@@ -40440,7 +39976,7 @@ ___3171fh:
 		je      short ___316e7h
 		cmp     al, [___1a1f65h]
 		je      short ___316e7h
-		mov     edi, [___1a1ef8h]
+		mov     edi, [__CEXT_V(___1a1ef8h)]
 		mov     [___196b20h], eax
 		add     esp, byte 4
 		pop     edi
@@ -40462,7 +39998,7 @@ ___3174ch:
 		mov     ecx, 1f400h
 		mov     ebx, 244h
 		mov     esi, [VGABufferPtr_0]
-		mov     edi, [___1a1124h]
+		mov     edi, [__CEXT_V(___1a1124h)]
 		add     esi, 1a900h
 		mov     edx, 0b6h
 		push    edi
@@ -40519,7 +40055,7 @@ ___31824h:
 		je      short ___31824h
 		mov     ecx, 1f400h
 		mov     edi, [VGABufferPtr_0]
-		mov     esi, [___1a1124h]
+		mov     esi, [__CEXT_V(___1a1124h)]
 		add     edi, 1a900h
 		push    edi
 		mov     eax, ecx
@@ -40576,7 +40112,7 @@ ___3189eh:
 		sar     edx, 1fh
 		idiv    ebx
 		mov     ebx, edx
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -40584,7 +40120,7 @@ ___3189eh:
 		shl     eax, 2
 		cmp     ebx, byte 32h
 		jge     near ___31d05h
-		cmp     ecx, [eax+___1a01fch]
+		cmp     ecx, [eax+__CEXT_V(___1a01fch)]
 		jne     short ___31929h
 		mov     ebx, 1
 		lea     edi, [esp+34h]
@@ -40593,12 +40129,12 @@ ___3189eh:
 		movsd   
 		movsw   
 ___31929h:
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
 		sub     eax, edx
-		cmp     dword [eax*4+___1a01fch], byte 4
+		cmp     dword [eax*4+__CEXT_V(___1a01fch)], byte 4
 		jne     short ___3195ah
 		lea     edi, [esp+34h]
 		mov     esi, ___1806a8h
@@ -40606,12 +40142,12 @@ ___31929h:
 		movsb   
 		mov     dword [esp+48h], 2
 ___3195ah:
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
 		sub     eax, edx
-		cmp     dword [eax*4+___1a01fch], byte 3
+		cmp     dword [eax*4+__CEXT_V(___1a01fch)], byte 3
 		jne     short ___3198ch
 		mov     ebp, 3
 		lea     edi, [esp+34h]
@@ -40620,12 +40156,12 @@ ___3195ah:
 		movsd   
 		movsb   
 ___3198ch:
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
 		sub     eax, edx
-		cmp     dword [eax*4+___1a01fch], byte 2
+		cmp     dword [eax*4+__CEXT_V(___1a01fch)], byte 2
 		jne     short ___319beh
 		mov     ebx, 4
 		lea     edi, [esp+34h]
@@ -40634,12 +40170,12 @@ ___3198ch:
 		movsd   
 		movsb   
 ___319beh:
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
 		sub     eax, edx
-		cmp     dword [eax*4+___1a01fch], byte 1
+		cmp     dword [eax*4+__CEXT_V(___1a01fch)], byte 1
 		jne     short ___319efh
 		lea     edi, [esp+34h]
 		mov     esi, ___1806c0h
@@ -40647,12 +40183,12 @@ ___319beh:
 		movsb   
 		mov     dword [esp+48h], 5
 ___319efh:
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
 		sub     eax, edx
-		cmp     dword [eax*4+___1a01fch], byte 0
+		cmp     dword [eax*4+__CEXT_V(___1a01fch)], byte 0
 		jne     short ___31a21h
 		mov     ebp, 6
 		lea     edi, [esp+34h]
@@ -40676,7 +40212,7 @@ ___31a21h:
 		shl     ebp, 7
 		mov     ecx, 80h
 		add     eax, ebp
-		mov     esi, [___1a1e80h]
+		mov     esi, [__CEXT_V(___1a1e80h)]
 		add     ebx, eax
 		mov     edx, 68h
 		add     ebx, byte 0ch
@@ -40888,7 +40424,7 @@ ___31ca8h:
 		pop     ebx
 		retn    
 ___31d05h:
-		cmp     ecx, [eax+___1a01fch]
+		cmp     ecx, [eax+__CEXT_V(___1a01fch)]
 		jne     short ___31d20h
 		lea     edi, [esp+34h]
 		mov     esi, ___1806b0h
@@ -40896,12 +40432,12 @@ ___31d05h:
 		movsb   
 		mov     dword [esp+48h], 1
 ___31d20h:
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
 		sub     eax, edx
-		cmp     dword [eax*4+___1a01fch], byte 4
+		cmp     dword [eax*4+__CEXT_V(___1a01fch)], byte 4
 		jne     short ___31d52h
 		mov     eax, 2
 		lea     edi, [esp+34h]
@@ -40910,12 +40446,12 @@ ___31d20h:
 		movsd   
 		movsb   
 ___31d52h:
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
 		sub     eax, edx
-		mov     edx, [eax*4+___1a01fch]
+		mov     edx, [eax*4+__CEXT_V(___1a01fch)]
 		cmp     edx, byte 3
 		jne     short ___31d81h
 		lea     edi, [esp+34h]
@@ -40924,12 +40460,12 @@ ___31d52h:
 		movsd   
 		movsb   
 ___31d81h:
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
 		sub     eax, edx
-		cmp     dword [eax*4+___1a01fch], byte 2
+		cmp     dword [eax*4+__CEXT_V(___1a01fch)], byte 2
 		jne     short ___31db2h
 		lea     edi, [esp+34h]
 		mov     esi, ___1806c0h
@@ -40937,12 +40473,12 @@ ___31d81h:
 		movsb   
 		mov     dword [esp+48h], 4
 ___31db2h:
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
 		sub     eax, edx
-		cmp     dword [eax*4+___1a01fch], byte 1
+		cmp     dword [eax*4+__CEXT_V(___1a01fch)], byte 1
 		jne     short ___31de4h
 		mov     ebp, 5
 		lea     edi, [esp+34h]
@@ -40951,12 +40487,12 @@ ___31db2h:
 		movsd   
 		movsb   
 ___31de4h:
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
 		sub     eax, edx
-		cmp     dword [eax*4+___1a01fch], byte 0
+		cmp     dword [eax*4+__CEXT_V(___1a01fch)], byte 0
 		jne     short ___31e14h
 		mov     ebx, 6
 		mov     eax, [___1806e4h]
@@ -40978,7 +40514,7 @@ ___31e14h:
 		shl     ebp, 7
 		mov     edx, 68h
 		add     eax, ebp
-		mov     esi, [___1a1e84h]
+		mov     esi, [__CEXT_V(___1a1e84h)]
 		add     eax, ecx
 		mov     ecx, 80h
 		lea     ebx, [eax+0ch]
@@ -41049,7 +40585,7 @@ ___31f2eh:
 		mov     eax, [___1a1028h]
 		mov     ebp, edx
 		mov     al, [ebp+eax*4+___1a0ef8h]
-		mov     esi, [___1a1ef8h]
+		mov     esi, [__CEXT_V(___1a1ef8h)]
 		and     eax, 0ffh
 		cmp     eax, esi
 		je      short ___31f2eh
@@ -41343,7 +40879,7 @@ ___32230h:
 		xor     edx, edx
 		xor     eax, eax
 		mov     esi, [__CEXT_V(___19bd60h)]
-		mov     ebx, [___1a1ef8h]
+		mov     ebx, [__CEXT_V(___1a1ef8h)]
 		xor     ecx, ecx
 ___3229ah:
 		cmp     eax, ebx
@@ -41362,7 +40898,7 @@ ___322a8h:
 		jmp     near ___3265eh
 ___322c1h:
 		mov     eax, 1
-		mov     ecx, [___1a1ef8h]
+		mov     ecx, [__CEXT_V(___1a1ef8h)]
 		xor     esi, esi
 		xor     edx, edx
 		mov     [esp+7ch], eax
@@ -41381,7 +40917,7 @@ ___322e6h:
 		jl      short ___322d6h
 		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		jne     near ___32654h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -41403,7 +40939,7 @@ ___3233bh:
 		mov     [esp+eax+33h], dl
 		cmp     eax, byte 4
 		jl      short ___3233bh
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -41413,7 +40949,7 @@ ___3233bh:
 		jne     short ___3237bh
 		movzx   edi, byte [esp+35h]
 ___3237bh:
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     esi, [edx*8+0]
 		sub     esi, edx
 		shl     esi, 2
@@ -41752,7 +41288,7 @@ ___326a2h:
 		jl      near ___326a2h
 		mov     ecx, 4b000h
 		mov     esi, [GXBackBuffer]
-		mov     edi, [___1a10e4h]
+		mov     edi, [__CEXT_V(___1a10e4h)]
 		push    edi
 		mov     eax, ecx
 		shr     ecx, 2
@@ -41762,7 +41298,7 @@ ___326a2h:
 		rep movsb   
 		pop     edi
 		mov     ecx, 28a00h
-		mov     eax, [___1a10e4h]
+		mov     eax, [__CEXT_V(___1a10e4h)]
 		mov     esi, [GXBackBuffer]
 		mov     [VGABufferPtr_0], eax
 		add     esi, 10180h
@@ -41917,8 +41453,8 @@ ___329b8h:
 		jne     short ___329efh
 		cmp     ebx, [___185a44h]
 		jne     short ___329efh
-		imul    eax, [___1a1ef8h], byte 6ch
-		cmp     dword [eax+___1a01fch], byte 2
+		imul    eax, [__CEXT_V(___1a1ef8h)], byte 6ch
+		cmp     dword [eax+__CEXT_V(___1a01fch)], byte 2
 		jge     short ___329efh
 		xor     eax, eax
 		xor     edi, edi
@@ -41931,8 +41467,8 @@ ___329efh:
 		mov     edx, [___185a48h]
 		cmp     edx, byte 1
 		jne     short ___32a27h
-		imul    eax, [___1a1ef8h], byte 6ch
-		cmp     dword [eax+___1a01fch], byte 4
+		imul    eax, [__CEXT_V(___1a1ef8h)], byte 6ch
+		cmp     dword [eax+__CEXT_V(___1a01fch)], byte 4
 		jge     short ___32a27h
 		mov     eax, edx
 		xor     ecx, ecx
@@ -41982,7 +41518,7 @@ ___32aa7h:
 		sub     ebx, edx
 		dec     ecx
 		jne     short ___32a9dh
-		imul    eax, [___1a1ef8h], byte 6ch
+		imul    eax, [__CEXT_V(___1a1ef8h)], byte 6ch
 		mov     ebx, 0ah
 		lea     edx, [esp+3ch]
 		mov     eax, [eax+___1a0228h]
@@ -42062,7 +41598,7 @@ ___32b4eh:
 		jne     short ___32b4eh
 ___32b66h:
 		pop     edi
-		imul    esi, [___1a1ef8h], byte 6ch
+		imul    esi, [__CEXT_V(___1a1ef8h)], byte 6ch
 		lea     edi, [esp+50h]
 		add     esi, ___1a01e0h
 		push    edi
@@ -42120,7 +41656,7 @@ ___32bc2h:
 		xor     ebx, ebx
 		mov     edx, eax
 		mov     bl, [eax+___1a1f67h]
-		mov     cl, [___1a1ef8h]
+		mov     cl, [__CEXT_V(___1a1ef8h)]
 		mov     [___1a1028h], eax
 		mov     [ebx+edx*4+___1a0ef8h], cl
 		mov     dh, bl
@@ -42197,7 +41733,7 @@ ___32cfeh:
 		mov     eax, [esp+5ch]
 		mov     byte [esp+eax+3ch], 1
 		mov     al, [esp+5ch]
-		mov     ebx, [___1a1ef8h]
+		mov     ebx, [__CEXT_V(___1a1ef8h)]
 		mov     [edi+___1a0ef8h], al
 		cmp     ebx, [esp+5ch]
 		jne     short ___32d23h
@@ -42454,7 +41990,7 @@ ___33010h:
 		movsd   
 		mov     ecx, 4b000h
 		mov     esi, [VGABufferPtr_0]
-		mov     edi, [___1a10e4h]
+		mov     edi, [__CEXT_V(___1a10e4h)]
 		mov     edx, 280h
 		push    edi
 		mov     eax, ecx
@@ -42465,7 +42001,7 @@ ___33010h:
 		rep movsb   
 		pop     edi
 		mov     ecx, 4b000h
-		mov     eax, [___1a10e4h]
+		mov     eax, [__CEXT_V(___1a10e4h)]
 		mov     esi, [GXBackBuffer]
 		mov     edi, eax
 		mov     [VGABufferPtr_0], eax
@@ -42587,8 +42123,8 @@ ___331ech:
 		mov     ch, 3
 		mov     [esp+0cdh], bh
 		mov     [esp+0cfh], ch
-		call    near allocMemSafe
-		mov     dl, [___1a1ef8h]
+		call    near __CEXT_F(allocMemSafe)
+		mov     dl, [__CEXT_V(___1a1ef8h)]
 		mov     ebx, 13h
 		mov     [eax], dl
 		mov     edx, 1
@@ -42621,7 +42157,7 @@ ___3328bh:
 		pop     edi
 		mov     esi, ___1823f8h
 		lea     edi, [esp+4ch]
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		push    edi
 		sub     ecx, ecx
 		dec     ecx
@@ -42643,7 +42179,7 @@ ___332bbh:
 		pop     edi
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     edx, [___1a1114h]
 		push    edx
 		call    near __CEXT_F(decode2__bpk)
@@ -42735,7 +42271,7 @@ ___333dfh:
 		pop     edi
 		mov     esi, ___1823f8h
 		lea     edi, [esp+4ch]
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		push    edi
 		sub     ecx, ecx
 		dec     ecx
@@ -42757,7 +42293,7 @@ ___3340fh:
 		pop     edi
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     esi, [___1a1114h]
 		push    esi
 		call    near __CEXT_F(decode2__bpk)
@@ -42829,7 +42365,7 @@ ___334d6h:
 		pop     edi
 		mov     esi, ___1823f8h
 		lea     edi, [esp+4ch]
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		push    edi
 		sub     ecx, ecx
 		dec     ecx
@@ -42851,7 +42387,7 @@ ___33506h:
 		pop     edi
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     ebx, [___1a1114h]
 		push    ebx
 		call    near __CEXT_F(decode2__bpk)
@@ -42924,7 +42460,7 @@ ___335ceh:
 		pop     edi
 		mov     esi, ___1823f8h
 		lea     edi, [esp+4ch]
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		push    edi
 		sub     ecx, ecx
 		dec     ecx
@@ -42946,7 +42482,7 @@ ___335feh:
 		pop     edi
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     eax, [___1a1114h]
 		push    eax
 		call    near __CEXT_F(decode2__bpk)
@@ -42998,14 +42534,14 @@ ___3368ch:
 		lea     edi, [esp+4ch]
 		lea     ebx, [esp+4ch]
 		mov     esi, ___182400h
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, __CEXT_V(MENU_BPA)
 		movsd   
 		movsd   
 		movsd   
 		movsb   
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     ecx, [___1a1114h]
 		push    ecx
 		call    near __CEXT_F(decode2__bpk)
@@ -43048,7 +42584,7 @@ ___33710h:
 		mov     [esp+0cfh], al
 		cmp     edx, byte 3
 		jne     short ___33766h
-		mov     al, [___1a1ef8h]
+		mov     al, [__CEXT_V(___1a1ef8h)]
 		mov     [esp+0cch], al
 		mov     [esp+0cdh], al
 ___33766h:
@@ -43551,8 +43087,8 @@ ___33ce6h:
 		add     edx, eax
 		mov     eax, 4
 		mov     [esp+0a4h], edx
-		call    near allocMemSafe
-		mov     dl, [___1a1ef8h]
+		call    near __CEXT_F(allocMemSafe)
+		mov     dl, [__CEXT_V(___1a1ef8h)]
 		mov     [___1a0f9ch], eax
 		mov     [eax], dl
 		call    near ___60a84h
@@ -43570,7 +43106,7 @@ ___33dbah:
 		idiv    ebx
 		cmp     edx, byte 1
 		jne     short ___33e0fh
-		imul    ebx, [___1a1ef8h], byte 6ch
+		imul    ebx, [__CEXT_V(___1a1ef8h)], byte 6ch
 		mov     ecx, 6ch
 		mov     edx, [___196adch]
 		add     ebx, ___1a01e0h
@@ -43614,7 +43150,7 @@ ___33e91h:
 		mov     edi, [___196a84h]
 		test    edi, edi
 		jne     near ___35b5dh
-		mov     ecx, [___1a1ef8h]
+		mov     ecx, [__CEXT_V(___1a1ef8h)]
 		mov     [___1a108ch], edi
 		mov     [___1a1034h], edi
 		mov     [___1a102ch], edi
@@ -43692,9 +43228,9 @@ ___33f90h:
 		mov     esi, [eax+___1a01f4h]
 		mov     [ebx+___1de7e8h], esi
 		mov     esi, [eax+___1a01f8h]
-		mov     eax, [eax+___1a01fch]
+		mov     eax, [eax+__CEXT_V(___1a01fch)]
 		mov     [ebx+___1de800h], eax
-		mov     eax, [___1a1ef8h]
+		mov     eax, [__CEXT_V(___1a1ef8h)]
 		mov     [ebx+___1de7ech], esi
 		cmp     edx, eax
 		jne     short ___33ffch
@@ -43715,7 +43251,7 @@ ___34007h:
 		mov     esi, [eax+___1a0240h]
 		mov     eax, [eax+___1a023ch]
 		mov     [ebx+___1de7f4h], esi
-		mov     esi, [___1a1ef8h]
+		mov     esi, [__CEXT_V(___1a1ef8h)]
 		mov     [ebx+___1de7f8h], eax
 		cmp     edx, esi
 		je      near ___340efh
@@ -43760,7 +43296,7 @@ ___340c7h:
 ___340efh:
 		mov     edx, [esp+0d0h]
 		xor     eax, eax
-		mov     edi, [___1a1ef8h]
+		mov     edi, [__CEXT_V(___1a1ef8h)]
 		mov     al, [esp+edx+0cch]
 		cmp     eax, edi
 		je      short ___34112h
@@ -43853,7 +43389,7 @@ ___3423eh:
 		test    eax, eax
 		jle     short ___3428eh
 		mov     edi, [esp+0c8h]
-		mov     ecx, [___1a1ef8h]
+		mov     ecx, [__CEXT_V(___1a1ef8h)]
 		xor     eax, eax
 ___34261h:
 		cmp     edx, [eax+___1a0224h]
@@ -43869,7 +43405,7 @@ ___34278h:
 		cmp     esi, edi
 		jl      short ___34261h
 ___3428eh:
-		mov     ebx, [___1a1ef8h]
+		mov     ebx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [ebx*8+0]
 		sub     eax, ebx
 		shl     eax, 2
@@ -43918,13 +43454,13 @@ ___34313h:
 		mov     [___1de904h], ebx
 		mov     [___1de908h], eax
 ___3435fh:
-		mov     ebx, [___1a1ef8h]
+		mov     ebx, [__CEXT_V(___1a1ef8h)]
 		lea     ecx, [ebx*8+0]
 		sub     ecx, ebx
 		shl     ecx, 2
 		sub     ecx, ebx
 		shl     ecx, 2
-		mov     ebx, [ecx+___1a01fch]
+		mov     ebx, [ecx+__CEXT_V(___1a01fch)]
 		lea     edi, [ebx*8+0]
 		sub     edi, ebx
 		shl     edi, 2
@@ -43952,7 +43488,7 @@ ___3435fh:
 		jne     short ___343f9h
 		mov     dword [___1de820h], 32h
 ___343f9h:
-		mov     ebx, [___1a1ef8h]
+		mov     ebx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [ebx*8+0]
 		sub     eax, ebx
 		shl     eax, 2
@@ -43971,7 +43507,7 @@ ___34432h:
 		jne     short ___34445h
 		mov     dword [___1de820h], 1f4h
 ___34445h:
-		mov     ebx, [___1a1ef8h]
+		mov     ebx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [ebx*8+0]
 		sub     eax, ebx
 		shl     eax, 2
@@ -43990,7 +43526,7 @@ ___3447fh:
 		jne     short ___34492h
 		mov     dword [___1de820h], 12ch
 ___34492h:
-		mov     ebx, [___1a1ef8h]
+		mov     ebx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [ebx*8+0]
 		sub     eax, ebx
 		shl     eax, 2
@@ -44009,7 +43545,7 @@ ___344cch:
 		jne     short ___344dfh
 		mov     dword [___1de820h], 96h
 ___344dfh:
-		mov     ebx, [___1a1ef8h]
+		mov     ebx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [ebx*8+0]
 		sub     eax, ebx
 		shl     eax, 2
@@ -44037,7 +43573,7 @@ ___3452ch:
 ___3454ch:
 		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		jne     short ___3457ch
-		mov     ebx, [___1a1ef8h]
+		mov     ebx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [ebx*8+0]
 		sub     eax, ebx
 		shl     eax, 2
@@ -44052,7 +43588,7 @@ ___3457ch:
 		call    near __CEXT_F(___2fc50h)
 		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      short ___345a3h
-		mov     eax, [___1a1ef8h]
+		mov     eax, [__CEXT_V(___1a1ef8h)]
 		mov     [___1a103ch], eax
 ___345a3h:
 		cmp     dword [__CEXT_V(___19bd60h)], byte 0
@@ -44076,7 +43612,7 @@ ___345e7h:
 		add     eax, edx
 		shl     eax, 2
 		add     eax, edx
-		mov     ecx, [___1a1ef8h]
+		mov     ecx, [__CEXT_V(___1a1ef8h)]
 		mov     eax, [eax*4+___1de810h]
 		xor     edx, edx
 		mov     [___185a18h], eax
@@ -44096,7 +43632,7 @@ ___34634h:
 		mov     [esp+0d0h], esi
 		cmp     esi, byte 14h
 		jl      short ___3461dh
-		mov     ebx, [___1a1ef8h]
+		mov     ebx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [ebx*8+0]
 		sub     eax, ebx
 		shl     eax, 2
@@ -44226,7 +43762,7 @@ ___347f5h:
 		je      short ___34826h
 		neg     dword [___196aa8h]
 ___34826h:
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -44242,10 +43778,10 @@ ___3484ch:
 		mov     [___243d44h], edi
 ___34858h:
 		add     eax, byte 6ch
-		mov     [eax+___1a01d4h], edx
-		mov     [eax+___1a01d8h], edx
-		mov     [eax+___1a01dch], edx
-		mov     [eax+___1a01d0h], edx
+		mov     [eax+__CEXT_V(___1a01d4h)], edx
+		mov     [eax+__CEXT_V(___1a01d8h)], edx
+		mov     [eax+__CEXT_V(___1a01dch)], edx
+		mov     [eax+__CEXT_V(___1a01d0h)], edx
 		cmp     eax, dword 870h
 		jne     short ___34858h
 		mov     eax, 14h
@@ -44269,7 +43805,7 @@ ___348a0h:
 		mov     [esp+0d0h], esi
 		xor     eax, eax
 		xor     ebx, ebx
-		mov     esi, [___1a1ef8h]
+		mov     esi, [__CEXT_V(___1a1ef8h)]
 ___348dbh:
 		mov     ecx, [eax+___1a0224h]
 		cmp     ebx, ecx
@@ -44287,7 +43823,7 @@ ___348f0h:
 		mov     ecx, [__CEXT_V(___19bd60h)]
 		test    ecx, ecx
 		jne     near ___35101h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -44701,7 +44237,7 @@ ___350e6h:
 ___35101h:
 		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		jne     near ___3518fh
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -44775,7 +44311,7 @@ ___35203h:
 		cmp     edi, byte 15h
 		jl      short ___351dfh
 		mov     eax, [__CEXT_V(___180864h)]
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		mov     [___1a1dbah], eax
 		lea     eax, [edx*8+0]
 		sub     eax, edx
@@ -45185,7 +44721,7 @@ ___3579bh:
 		cmp     eax, ebx
 		jl      near ___3552fh
 ___357bbh:
-		mov     edi, [___1a1ef8h]
+		mov     edi, [__CEXT_V(___1a1ef8h)]
 		xor     edx, edx
 		xor     eax, eax
 		mov     [esp+0d0h], edx
@@ -45205,7 +44741,7 @@ ___357e1h:
 		jl      short ___357cch
 		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		jne     short ___3583bh
-		mov     ebx, [___1a1ef8h]
+		mov     ebx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [ebx*8+0]
 		sub     eax, ebx
 		shl     eax, 2
@@ -45250,7 +44786,7 @@ ___3589ah:
 ___358a8h:
 		call    near allocVGABuffer
 		call    near ___117f4h
-		mov     esi, [___1a1ef8h]
+		mov     esi, [__CEXT_V(___1a1ef8h)]
 		xor     edx, edx
 		xor     eax, eax
 		mov     [esp+0d0h], edx
@@ -45268,7 +44804,7 @@ ___358d8h:
 		mov     [esp+0d0h], edi
 		cmp     edi, byte 14h
 		jl      short ___358c3h
-		mov     ebx, [___1a1ef8h]
+		mov     ebx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [ebx*8+0]
 		sub     eax, ebx
 		shl     eax, 2
@@ -45280,7 +44816,7 @@ ___358d8h:
 		cmp     dword [__CEXT_V(___19bd60h)], byte 0
 		je      near ___359f6h
 ___35922h:
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -45359,7 +44895,7 @@ ___35a55h:
 		mov     [esp+0d0h], ecx
 		xor     eax, eax
 		xor     edx, edx
-		mov     ecx, [___1a1ef8h]
+		mov     ecx, [__CEXT_V(___1a1ef8h)]
 ___35a66h:
 		cmp     edx, [eax+___1a0224h]
 		jge     short ___35a7dh
@@ -45373,7 +44909,7 @@ ___35a7dh:
 		mov     [esp+0d0h], esi
 		cmp     esi, byte 14h
 		jl      short ___35a66h
-		mov     ebx, [___1a1ef8h]
+		mov     ebx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [ebx*8+0]
 		sub     eax, ebx
 		shl     eax, 2
@@ -45794,12 +45330,12 @@ ___35f51h:
 		movzx   edi, byte [eax+ebp+___1a0ef8h]
 		imul    edi, edi, byte 6ch
 		mov     [esp+4], ebp
-		mov     edi, [edi+___1a01fch]
+		mov     edi, [edi+__CEXT_V(___1a01fch)]
 ___35f81h:
 		mov     al, [ecx+ebp+___1a0ef8h]
 		and     eax, 0ffh
 		imul    eax, eax, byte 6ch
-		cmp     edi, [eax+___1a01fch]
+		cmp     edi, [eax+__CEXT_V(___1a01fch)]
 		jle     short ___35f9bh
 		inc     ecx
 		jmp     short ___35f81h
@@ -45811,7 +45347,7 @@ ___35fa1h:
 		mov     bl, [eax+___1a0ef8h]
 		imul    ebx, ebx, byte 6ch
 		lea     edx, [esi-1]
-		cmp     edi, [ebx+___1a01fch]
+		cmp     edi, [ebx+__CEXT_V(___1a01fch)]
 		jge     short ___35fbch
 		mov     esi, edx
 		dec     eax
@@ -45948,7 +45484,7 @@ ___3617fh:
 		imul    edx, eax, byte 6ch
 		cmp     dword [edx+___1a01ech], byte 64h
 		je      short ___361f5h
-		cmp     eax, [___1a1ef8h]
+		cmp     eax, [__CEXT_V(___1a1ef8h)]
 		jne     short ___361ach
 		cmp     dword [___196ab0h], byte 1
 		je      near ___36328h
@@ -45995,7 +45531,7 @@ ___3620ah:
 		imul    edx, eax, byte 6ch
 		cmp     dword [edx+___1a01ech], byte 64h
 		je      near ___3631eh
-		cmp     eax, [___1a1ef8h]
+		cmp     eax, [__CEXT_V(___1a1ef8h)]
 		jne     short ___3623ch
 		cmp     dword [___196ab0h], byte 1
 		je      near ___3631eh
@@ -46016,7 +45552,7 @@ ___36263h:
 		imul    edx, eax, byte 6ch
 		cmp     dword [edx+___1a01ech], byte 64h
 		je      near ___3631eh
-		cmp     eax, [___1a1ef8h]
+		cmp     eax, [__CEXT_V(___1a1ef8h)]
 		jne     short ___3628dh
 		cmp     dword [___196ab0h], byte 1
 		je      near ___3631eh
@@ -46040,7 +45576,7 @@ ___362c1h:
 		imul    edx, eax, byte 6ch
 		cmp     dword [edx+___1a01ech], byte 64h
 		je      short ___3631eh
-		cmp     eax, [___1a1ef8h]
+		cmp     eax, [__CEXT_V(___1a1ef8h)]
 		jne     short ___362e3h
 		cmp     dword [___196ab0h], byte 1
 		je      short ___3631eh
@@ -46190,7 +45726,7 @@ ___36491h:
 		imul    edx, eax, byte 6ch
 		cmp     dword [edx+___1a01ech], byte 64h
 		je      short ___3650fh
-		cmp     eax, [___1a1ef8h]
+		cmp     eax, [__CEXT_V(___1a1ef8h)]
 		jne     short ___364c3h
 		cmp     dword [___196ab0h], byte 1
 		je      near ___36664h
@@ -46239,7 +45775,7 @@ ___3652ch:
 		imul    edx, eax, byte 6ch
 		cmp     dword [edx+___1a01ech], byte 64h
 		je      near ___36652h
-		cmp     eax, [___1a1ef8h]
+		cmp     eax, [__CEXT_V(___1a1ef8h)]
 		jne     short ___3655eh
 		cmp     dword [___196ab0h], byte 1
 		je      near ___36652h
@@ -46265,7 +45801,7 @@ ___3659fh:
 		imul    edx, eax, byte 6ch
 		cmp     dword [edx+___1a01ech], byte 64h
 		je      near ___36652h
-		cmp     eax, [___1a1ef8h]
+		cmp     eax, [__CEXT_V(___1a1ef8h)]
 		jne     short ___365c9h
 		cmp     dword [___196ab0h], byte 1
 		je      near ___36652h
@@ -46287,7 +45823,7 @@ ___365f1h:
 		imul    edx, eax, byte 6ch
 		cmp     dword [edx+___1a01ech], byte 64h
 		je      short ___36652h
-		cmp     eax, [___1a1ef8h]
+		cmp     eax, [__CEXT_V(___1a1ef8h)]
 		jne     short ___36613h
 		cmp     dword [___196ab0h], byte 1
 		je      short ___36652h
@@ -46479,7 +46015,7 @@ ___36851h:
 		imul    eax, edx, byte 6ch
 		cmp     dword [eax+___1a01ech], byte 64h
 		je      short ___368d0h
-		cmp     edx, [___1a1ef8h]
+		cmp     edx, [__CEXT_V(___1a1ef8h)]
 		jne     short ___36883h
 		cmp     dword [___196ab0h], byte 1
 		je      near ___36a27h
@@ -46528,7 +46064,7 @@ ___368edh:
 		imul    eax, edx, byte 6ch
 		cmp     dword [eax+___1a01ech], byte 64h
 		je      near ___36a15h
-		cmp     edx, [___1a1ef8h]
+		cmp     edx, [__CEXT_V(___1a1ef8h)]
 		jne     short ___3691fh
 		cmp     dword [___196ab0h], byte 1
 		je      near ___36a15h
@@ -46554,7 +46090,7 @@ ___36960h:
 		imul    edx, eax, byte 6ch
 		cmp     dword [edx+___1a01ech], byte 64h
 		je      near ___36a15h
-		cmp     eax, [___1a1ef8h]
+		cmp     eax, [__CEXT_V(___1a1ef8h)]
 		jne     short ___3698ah
 		cmp     dword [___196ab0h], byte 1
 		je      near ___36a15h
@@ -46576,7 +46112,7 @@ ___369b2h:
 		imul    edx, eax, byte 6ch
 		cmp     dword [edx+___1a01ech], byte 64h
 		je      short ___36a15h
-		cmp     eax, [___1a1ef8h]
+		cmp     eax, [__CEXT_V(___1a1ef8h)]
 		jne     short ___369d4h
 		cmp     dword [___196ab0h], byte 1
 		je      short ___36a15h
@@ -46749,7 +46285,7 @@ ___36bb8h:
 		sub     ebx, edx
 		dec     ecx
 		jne     short ___36baeh
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		mov     edi, esp
 		lea     eax, [edx*8+0]
 		mov     ebx, 0ah
@@ -46825,7 +46361,7 @@ ___36c86h:
 		mov     edx, Font0Props
 		mov     eax, [WhiteFont0Ptr]
 		call    near renderTextToBuffer__video
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -46895,7 +46431,7 @@ ___36d4bh:
 		mov     eax, [WhiteFont0Ptr]
 		lea     ecx, [ebp+11f80h]
 		call    near renderTextToBuffer__video
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		mov     edi, esp
@@ -46944,7 +46480,7 @@ ___36ddeh:
 		mov     eax, [WhiteFont0Ptr]
 		lea     ecx, [ebp+15900h]
 		call    near renderTextToBuffer__video
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		mov     edi, esp
@@ -47042,7 +46578,7 @@ ___36ed7h:
 		mov     eax, [WhiteFont0Ptr]
 		lea     ecx, [ebp+19280h]
 		call    near renderTextToBuffer__video
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		mov     edi, esp
@@ -47090,7 +46626,7 @@ ___36f6eh:
 		mov     eax, [WhiteFont0Ptr]
 		lea     ecx, [ebp+1cc00h]
 		call    near renderTextToBuffer__video
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		mov     edi, esp
@@ -47793,13 +47329,13 @@ ___3769eh:
 		mov     eax, [WhiteFont0Ptr]
 		lea     ecx, [ebp+3c280h]
 		call    near renderTextToBuffer__video
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     edi, [edx*8+0]
 		sub     edi, edx
 		shl     edi, 2
 		sub     edi, edx
 		shl     edi, 2
-		mov     edx, [edi+___1a01fch]
+		mov     edx, [edi+__CEXT_V(___1a01fch)]
 		lea     ecx, [edx*8+0]
 		sub     ecx, edx
 		shl     ecx, 2
@@ -47862,12 +47398,12 @@ ___377a2h:
 		jne     short ___377a2h
 ___377bah:
 		pop     edi
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
 		sub     eax, edx
-		mov     edx, [eax*4+___1a01fch]
+		mov     edx, [eax*4+__CEXT_V(___1a01fch)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -47883,12 +47419,12 @@ ___377bah:
 		shl     eax, 3
 		add     eax, ebx
 		call    near __CEXT_F(strupr__clib3r)
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
 		sub     eax, edx
-		mov     edx, [eax*4+___1a01fch]
+		mov     edx, [eax*4+__CEXT_V(___1a01fch)]
 		lea     ebx, [edx*8+0]
 		sub     ebx, edx
 		shl     ebx, 2
@@ -47906,13 +47442,13 @@ ___377bah:
 		mov     edx, [___1a0ff4h]
 		mov     [ebx+eax*8+___19f764h], edx
 ___3787ch:
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     esi, [edx*8+0]
 		sub     esi, edx
 		shl     esi, 2
 		sub     esi, edx
 		shl     esi, 2
-		mov     edx, [esi+___1a01fch]
+		mov     edx, [esi+__CEXT_V(___1a01fch)]
 		lea     ebx, [edx*8+0]
 		sub     ebx, edx
 		shl     ebx, 2
@@ -47959,12 +47495,12 @@ ___37929h:
 		jne     short ___37929h
 ___37941h:
 		pop     edi
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
 		sub     eax, edx
-		mov     edx, [eax*4+___1a01fch]
+		mov     edx, [eax*4+__CEXT_V(___1a01fch)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -47980,12 +47516,12 @@ ___37941h:
 		shl     eax, 3
 		add     eax, ebx
 		call    near __CEXT_F(strupr__clib3r)
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
 		sub     eax, edx
-		mov     edx, [eax*4+___1a01fch]
+		mov     edx, [eax*4+__CEXT_V(___1a01fch)]
 		lea     ebx, [edx*8+0]
 		sub     ebx, edx
 		shl     ebx, 2
@@ -48203,12 +47739,12 @@ ___37be5h:
 		mov     eax, [WhiteFont0Ptr]
 		lea     ecx, [ebp+3fc00h]
 		call    near renderTextToBuffer__video
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
 		sub     eax, edx
-		mov     edx, [eax*4+___1a01fch]
+		mov     edx, [eax*4+__CEXT_V(___1a01fch)]
 		lea     ebx, [edx*8+0]
 		sub     ebx, edx
 		shl     ebx, 2
@@ -48223,12 +47759,12 @@ ___37be5h:
 		mov     eax, [ebx+eax*8+___19f75ch]
 		mov     ebx, 0ah
 		call    near itoa
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
 		sub     eax, edx
-		mov     edx, [eax*4+___1a01fch]
+		mov     edx, [eax*4+__CEXT_V(___1a01fch)]
 		lea     ebx, [edx*8+0]
 		sub     ebx, edx
 		shl     ebx, 2
@@ -48243,12 +47779,12 @@ ___37be5h:
 		mov     eax, [ebx+eax*8+___19f760h]
 		mov     ebx, 0ah
 		call    near itoa
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
 		sub     eax, edx
-		mov     edx, [eax*4+___1a01fch]
+		mov     edx, [eax*4+__CEXT_V(___1a01fch)]
 		lea     ebx, [edx*8+0]
 		sub     ebx, edx
 		shl     ebx, 2
@@ -48489,7 +48025,7 @@ ___37ed4h:
 		mov     [esp+24h], edx
 ___37f22h:
 		mov     eax, [esp+2ch]
-		cmp     eax, [___1a1ef8h]
+		cmp     eax, [__CEXT_V(___1a1ef8h)]
 		je      near ___37fb8h
 		mov     ecx, 12h
 		mov     ebx, [VGABufferPtr_0]
@@ -48883,7 +48419,7 @@ ___38357h:
 		xor     eax, eax
 		mov     al, [esp+ebp+14h]
 		imul    eax, eax, byte 6ch
-		imul    esi, [eax+___1a01fch], 5140h
+		imul    esi, [eax+__CEXT_V(___1a01fch)], 5140h
 		inc     ebp
 		mov     eax, [___1a0fa4h]
 		mov     ecx, 34h
@@ -48928,7 +48464,7 @@ ___383c6h:
 ___38426h:
 		call    near ___2b318h
 		xor     edx, edx
-		mov     ebp, [___1a1ef8h]
+		mov     ebp, [__CEXT_V(___1a1ef8h)]
 		mov     dl, [esp+14h]
 		cmp     edx, ebp
 		je      short ___38444h
@@ -48978,7 +48514,7 @@ ___38494h:
 		fstp    dword [esp]
 		call    near ___35b68h
 		xor     edx, edx
-		mov     ebx, [___1a1ef8h]
+		mov     ebx, [__CEXT_V(___1a1ef8h)]
 		mov     dl, [esp+15h]
 		cmp     edx, ebx
 		je      short ___384f1h
@@ -49028,7 +48564,7 @@ ___38541h:
 		fstp    dword [esp]
 		call    near ___35b68h
 		xor     eax, eax
-		mov     esi, [___1a1ef8h]
+		mov     esi, [__CEXT_V(___1a1ef8h)]
 		mov     al, [esp+16h]
 		cmp     eax, esi
 		je      short ___385a7h
@@ -49082,7 +48618,7 @@ ___385fdh:
 		fstp    dword [esp]
 		call    near ___35b68h
 		xor     eax, eax
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		mov     al, [esp+17h]
 		cmp     eax, edx
 		je      short ___38663h
@@ -49704,7 +49240,7 @@ ___38e2fh:
 		call    near ___12cb8h
 		test    esi, esi
 		jne     near ___38f61h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		mov     [esp+68h], esi
 		xor     eax, eax
 ___38e71h:
@@ -49721,7 +49257,7 @@ ___38e83h:
 		mov     [esp+68h], ebx
 		cmp     ebx, byte 14h
 		jl      short ___38e71h
-		mov     edi, [___1a1ef8h]
+		mov     edi, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edi*8+0]
 		sub     eax, edi
 		shl     eax, 2
@@ -49732,7 +49268,7 @@ ___38e83h:
 		jne     short ___38ec1h
 		mov     byte [___1a2147h], 1
 ___38ec1h:
-		mov     edi, [___1a1ef8h]
+		mov     edi, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edi*8+0]
 		sub     eax, edi
 		shl     eax, 2
@@ -49749,7 +49285,7 @@ ___38ec1h:
 		call    near renderTextToBuffer__video
 		call    near ___12cb8h
 		call    near ___1240ch
-		call    near ___24548h
+		call    near __CEXT_F(___24548h)
 		call    near ___2faf0h
 		call    near ___38708h
 		push    8000h
@@ -50547,7 +50083,7 @@ ___3993bh:
 		sub     ebx, edx
 		dec     ecx
 		jne     short ___39931h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		mov     edi, esp
 		lea     eax, [edx*8+0]
 		mov     ebx, 0ah
@@ -50630,17 +50166,17 @@ ___39a0bh:
 		mov     edx, [edx+___1a0238h]
 		cmp     edx, [ebx+___1a0238h]
 		jle     near ___39b5bh
-		mov     ecx, [___1a1ef8h]
+		mov     ecx, [__CEXT_V(___1a1ef8h)]
 		mov     ebx, eax
 		mov     edx, esi
 		cmp     ecx, esi
 		jne     short ___39a51h
-		mov     [___1a1ef8h], eax
+		mov     [__CEXT_V(___1a1ef8h)], eax
 		jmp     short ___39a5bh
 ___39a51h:
 		cmp     eax, ecx
 		jne     short ___39a5bh
-		mov     [___1a1ef8h], esi
+		mov     [__CEXT_V(___1a1ef8h)], esi
 ___39a5bh:
 		imul    eax, edx, byte 6ch
 		imul    ebp, ebx, byte 6ch
@@ -50755,17 +50291,17 @@ ___39b6ah:
 		mov     ebx, [ebx+___1a0224h]
 		cmp     ebx, [edx+___1a0224h]
 		jle     near ___39cadh
-		mov     ecx, [___1a1ef8h]
+		mov     ecx, [__CEXT_V(___1a1ef8h)]
 		mov     ebx, eax
 		mov     edx, edi
 		cmp     ecx, edi
 		jne     short ___39bach
-		mov     [___1a1ef8h], eax
+		mov     [__CEXT_V(___1a1ef8h)], eax
 		jmp     short ___39bb6h
 ___39bach:
 		cmp     eax, ecx
 		jne     short ___39bb6h
-		mov     [___1a1ef8h], edi
+		mov     [__CEXT_V(___1a1ef8h)], edi
 ___39bb6h:
 		imul    ebp, edx, byte 6ch
 		mov     ecx, 6ch
@@ -51112,7 +50648,7 @@ ___39f52h:
 		call    near renderTextToBuffer__video
 		call    near ___12cb8h
 		call    near ___1240ch
-		call    near ___24548h
+		call    near __CEXT_F(___24548h)
 		call    near ___2faf0h
 		call    near ___38708h
 		push    8000h
@@ -51150,7 +50686,7 @@ ___3a008h:
 		xor     eax, eax
 		call    near ___1e62ch
 ___3a02ah:
-		mov     dword [___1a1ef8h], 13h
+		mov     dword [__CEXT_V(___1a1ef8h)], 13h
 		jmp     short ___3a049h
 ___3a036h:
 		mov     ebx, [esp+5ch]
@@ -51735,7 +51271,7 @@ ___3a6f8h:
 		mov     edx, [esp+14h]
 		mov     eax, [esp+1ch]
 		mov     ecx, 0fh
-		mov     esi, [___1a1124h]
+		mov     esi, [__CEXT_V(___1a1124h)]
 		mov     ebx, [VGABufferPtr_0]
 		add     esi, edx
 		add     ebx, edx
@@ -51845,7 +51381,7 @@ ___3a845h:
 		mov     ecx, [esp+20h]
 		mov     eax, [esp+28h]
 		mov     ebx, [VGABufferPtr_0]
-		mov     edi, [___1a1124h]
+		mov     edi, [__CEXT_V(___1a1124h)]
 		mov     esi, [___1a10c4h]
 		add     ebx, ecx
 		add     edi, ecx
@@ -51970,7 +51506,7 @@ ___3a9cch:
 		mov     eax, [esp+20h]
 		mov     ecx, 0fh
 		mov     ebx, [VGABufferPtr_0]
-		mov     edi, [___1a1124h]
+		mov     edi, [__CEXT_V(___1a1124h)]
 		mov     esi, [___1a10c4h]
 		mov     edx, ecx
 		add     ebx, ebp
@@ -52077,10 +51613,10 @@ ___3ab5ch:
 		call    near __CEXT_F(read__bpa)
 		mov     ebx, [___1a1114h]
 		push    ebx
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		call    near __CEXT_F(decode2__bpk)
 		mov     ah, 1
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		mov     [esp+54h], ah
 		lea     eax, [edx*8+0]
 		sub     eax, edx
@@ -52088,7 +51624,7 @@ ___3ab5ch:
 		shl     eax, 2
 		xor     ecx, ecx
 		sub     eax, edx
-		mov     [___1a1ed0h], ecx
+		mov     [__CEXT_V(___1a1ed0h)], ecx
 		mov     edx, 173h
 		mov     [eax*4+___1a020ch], ecx
 		mov     ecx, 6dh
@@ -52126,7 +51662,7 @@ ___3ac47h:
 ___3ac4ch:
 		mov     edx, 212h
 		mov     ebx, [VGABufferPtr_0]
-		mov     esi, ___1a54d0h
+		mov     esi, __CEXT_V(BPA_Buffer)
 		add     ebx, 1183fh
 ___3ac62h:
 		mov     edi, edx
@@ -52260,7 +51796,7 @@ ___3ade2h:
 		shl     edi, 7
 		mov     ecx, 60h
 		add     eax, edi
-		mov     esi, [___1a1e6ch]
+		mov     esi, [__CEXT_V(___1a1e6ch)]
 		add     eax, ebp
 		mov     edx, ecx
 		lea     ebx, [eax+1a0h]
@@ -52285,7 +51821,7 @@ ___3ae16h:
 		add     eax, edi
 		mov     edx, 60h
 		add     eax, ebp
-		mov     esi, [___1a1ea8h]
+		mov     esi, [__CEXT_V(___1a1ea8h)]
 		lea     ebx, [eax+1a0h]
 		lea     edi, [esp+0ch]
 		shr     dl, 2
@@ -52345,8 +51881,8 @@ ___3aecbh:
 		add     esi, byte 50h
 		call    near ___12f60h
 		push    ___185cbch
-		mov     ecx, [___1a01b8h]
-		mov     ebx, [___1a1ed0h]
+		mov     ecx, [__CEXT_V(___1a01b8h)]
+		mov     ebx, [__CEXT_V(___1a1ed0h)]
 		lea     eax, [ebp+1a0h]
 		mov     edx, esi
 		call    near ___259e0h
@@ -52362,13 +51898,13 @@ ___3aecbh:
 		add     edx, 1a0h
 		add     eax, 1a0h
 		call    near ___1398ch
-		mov     ebx, [___1a1ed0h]
+		mov     ebx, [__CEXT_V(___1a1ed0h)]
 		inc     ebx
-		mov     [___1a1ed0h], ebx
+		mov     [__CEXT_V(___1a1ed0h)], ebx
 		cmp     ebx, byte 3fh
 		jle     short ___3af66h
 		xor     esi, esi
-		mov     [___1a1ed0h], esi
+		mov     [__CEXT_V(___1a1ed0h)], esi
 ___3af66h:
 		mov     edx, [esp+44h]
 		add     edx, 8fh
@@ -52378,7 +51914,7 @@ ___3af66h:
 		shl     eax, 7
 		mov     ecx, 10h
 		add     eax, edx
-		mov     esi, [___1a1e88h]
+		mov     esi, [__CEXT_V(___1a1e88h)]
 		add     eax, ebp
 		mov     edx, 126h
 		lea     ebx, [eax+6bh]
@@ -52406,7 +51942,7 @@ ___3afa3h:
 		shl     eax, 7
 		mov     ecx, 18h
 		add     eax, edx
-		mov     esi, [___1a1eb4h]
+		mov     esi, [__CEXT_V(___1a1eb4h)]
 		add     eax, ebp
 		mov     edx, 0ah
 		lea     ebx, [eax+0f9h]
@@ -52429,7 +51965,7 @@ ___3aff3h:
 		call    near ___12cb8h
 		call    near lastScanCode__keyboard
 		call    near nullScanCode__keyboard
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -52455,7 +51991,7 @@ ___3b04fh:
 		pop     edi
 		push    byte 1
 		mov     ecx, ___1858c8h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		push    byte 1
 		lea     eax, [edx*8+0]
 		add     ebx, byte 60h
@@ -52481,7 +52017,7 @@ ___3b04fh:
 		xor     ebx, ebx
 		mov     eax, 1
 		call    near playSFX__sound
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -52504,7 +52040,7 @@ ___3b0feh:
 		add     edx, eax
 		mov     eax, [VGABufferPtr_0]
 		shl     edx, 7
-		mov     esi, ___1a54d0h
+		mov     esi, __CEXT_V(BPA_Buffer)
 		add     eax, edx
 		mov     edx, 212h
 		lea     ebx, [eax+ebp]
@@ -52529,7 +52065,7 @@ ___3b13ch:
 		lea     eax, [edx*4+0]
 		add     eax, edx
 		shl     eax, 7
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     ecx, [eax+ebp]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
@@ -52577,7 +52113,7 @@ ___3b1c7h:
 		mov     edx, [VGABufferPtr_0]
 		shl     eax, 7
 		add     eax, edx
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     ebx, [eax+ebp]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
@@ -52612,7 +52148,7 @@ ___3b236h:
 		shl     edi, 7
 		mov     ecx, 60h
 		add     eax, edi
-		mov     esi, [___1a1e6ch]
+		mov     esi, [__CEXT_V(___1a1e6ch)]
 		add     eax, ebp
 		mov     edx, ecx
 		lea     ebx, [eax+1a0h]
@@ -52637,7 +52173,7 @@ ___3b28ah:
 		add     edi, eax
 		mov     edx, 60h
 		lea     ebx, [edi+ebp]
-		mov     esi, [___1a1ea8h]
+		mov     esi, [__CEXT_V(___1a1ea8h)]
 		add     ebx, 1a0h
 		lea     edi, [esp+0ch]
 		shr     dl, 2
@@ -52697,8 +52233,8 @@ ___3b340h:
 		add     esi, byte 50h
 		call    near ___12f60h
 		push    ___185cbch
-		mov     ecx, [___1a01b8h]
-		mov     ebx, [___1a1ed0h]
+		mov     ecx, [__CEXT_V(___1a01b8h)]
+		mov     ebx, [__CEXT_V(___1a1ed0h)]
 		lea     eax, [ebp+1a0h]
 		mov     edx, esi
 		call    near ___259e0h
@@ -52714,13 +52250,13 @@ ___3b340h:
 		add     edx, 1a0h
 		add     eax, 1a0h
 		call    near ___1398ch
-		mov     ecx, [___1a1ed0h]
+		mov     ecx, [__CEXT_V(___1a1ed0h)]
 		inc     ecx
-		mov     [___1a1ed0h], ecx
+		mov     [__CEXT_V(___1a1ed0h)], ecx
 		cmp     ecx, byte 3fh
 		jle     short ___3b3dbh
 		xor     edi, edi
-		mov     [___1a1ed0h], edi
+		mov     [__CEXT_V(___1a1ed0h)], edi
 ___3b3dbh:
 		mov     edx, [esp+44h]
 		add     edx, 8fh
@@ -52730,7 +52266,7 @@ ___3b3dbh:
 		shl     edx, 7
 		mov     ecx, 10h
 		add     eax, edx
-		mov     esi, [___1a1e88h]
+		mov     esi, [__CEXT_V(___1a1e88h)]
 		add     eax, ebp
 		mov     edx, 126h
 		lea     ebx, [eax+6bh]
@@ -52757,7 +52293,7 @@ ___3b417h:
 		mov     edx, [VGABufferPtr_0]
 		shl     eax, 7
 		add     eax, edx
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     ebx, [eax+ebp]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
@@ -52766,7 +52302,7 @@ ___3b417h:
 		mov     ecx, 18h
 		add     ebx, byte 79h
 		mov     edx, [eax*4+___1a020ch]
-		mov     esi, [___1a1eb4h]
+		mov     esi, [__CEXT_V(___1a1eb4h)]
 		add     ebx, edx
 		mov     edx, 0ah
 ___3b478h:
@@ -53145,7 +52681,7 @@ ___3b964h:
 		cmp     bl, 1
 		jne     near ___3b717h
 ___3b97bh:
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -53153,7 +52689,7 @@ ___3b97bh:
 		shl     eax, 2
 		add     eax, ___1a01e0h
 		call    near strlwr
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -53181,7 +52717,7 @@ ___3b9d8h:
 		inc     edx
 		mov     [___1a1efch], edi
 ___3b9feh:
-		imul    edi, [___1a1ef8h], byte 6ch
+		imul    edi, [__CEXT_V(___1a1ef8h)], byte 6ch
 		add     edi, ___1a01e0h
 		sub     ecx, ecx
 		dec     ecx
@@ -53189,7 +52725,7 @@ ___3b9feh:
 		repne scasb   
 		not     ecx
 		dec     ecx
-		imul    eax, [___1a1ef8h], byte 6ch
+		imul    eax, [__CEXT_V(___1a1ef8h)], byte 6ch
 		cmp     edx, ecx
 		jb      short ___3b9d8h
 		mov     edx, [eax+___1a020ch]
@@ -53226,7 +52762,7 @@ ___3ba76h:
 		mov     ecx, [ConfigSFXVolume]
 		xor     ebx, ebx
 		call    near playSFX__sound
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -53268,7 +52804,7 @@ ___3bb14h:
 		call    near footer__dr
 		call    near ___12cb8h
 		xor     eax, eax
-		mov     [___1a1ed0h], eax
+		mov     [__CEXT_V(___1a1ed0h)], eax
 		mov     al, [esp+54h]
 		add     esp, byte 5ch
 		pop     ebp
@@ -53355,7 +52891,7 @@ ___3bc30h:
 		call    near close__clib3r
 		mov     eax, [esp]
 		mov     edx, __CEXT_V(rb_m)
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     ebp, eax
 		mov     eax, DR_CFG
 		mov     ebx, 1
@@ -53816,7 +53352,7 @@ __GDECL(__CEXT_F(writeConfig__dr))
 		mov     [esp+4], al
 		mov     eax, 1388h
 		mov     esi, ConfigMusicVolume
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     edx, eax
 		mov     edi, eax
 		mov     ebp, eax
@@ -55042,11 +54578,11 @@ ___3d3a4h:
 		jl      short ___3d3a4h
 		mov     eax, ___182818h
 		mov     ebx, ___182824h
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		call    near ___3d154h
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     esi, [VGABufferPtr_0]
 		xor     edi, edi
 		push    esi
@@ -55068,11 +54604,11 @@ ___3d420h:
 		call    near ___3d2bch
 		mov     eax, ___182830h
 		mov     ebx, ___18283ch
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		call    near ___3d154h
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     edx, [VGABufferPtr_0]
 		push    edx
 		call    near __CEXT_F(decode2__bpk)
@@ -55094,11 +54630,11 @@ ___3d480h:
 		call    near ___3d2bch
 		mov     eax, ___182848h
 		mov     ebx, ___182854h
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		call    near ___3d154h
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     edi, [VGABufferPtr_0]
 		xor     ebp, ebp
 		push    edi
@@ -55138,7 +54674,7 @@ creditsMenu__dr:
 		mov     ecx, 4b000h
 		mov     ebp, 32h
 		mov     esi, [VGABufferPtr_0]
-		mov     edi, [___1a1124h]
+		mov     edi, [__CEXT_V(___1a1124h)]
 		mov     edx, 640000h
 		push    edi
 		mov     eax, ecx
@@ -55215,11 +54751,11 @@ ___3d55fh:
 		jge     near ___3d536h
 		mov     eax, ___182860h
 		mov     ebx, ___18286ch
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		call    near ___3d154h
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     ecx, [VGABufferPtr_0]
 		push    ecx
 		call    near __CEXT_F(decode2__bpk)
@@ -55232,11 +54768,11 @@ ___3d63dh:
 		call    near ___3d2bch
 		mov     eax, ___182878h
 		mov     ebx, ___182884h
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		call    near ___3d154h
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     edi, [VGABufferPtr_0]
 		push    edi
 		call    near __CEXT_F(decode2__bpk)
@@ -55249,7 +54785,7 @@ ___3d684h:
 		call    near ___3d2bch
 		call    near ___2b318h
 		mov     ecx, 4b000h
-		mov     esi, [___1a1124h]
+		mov     esi, [__CEXT_V(___1a1124h)]
 		mov     edi, [VGABufferPtr_0]
 		push    edi
 		mov     eax, ecx
@@ -55437,11 +54973,11 @@ ___3d8a6h:
 		jl      short ___3d8a6h
 		mov     eax, ___182890h
 		mov     ebx, ___1828a0h
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		call    near ___3d154h
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     esi, [VGABufferPtr_0]
 		push    esi
 		call    near __CEXT_F(decode2__bpk)
@@ -55541,9 +55077,9 @@ ___3d9c0h:
 		call    near ___3d154h
 		mov     eax, __CEXT_V(MENU_BPA)
 		mov     ebx, edx
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     edx, [VGABufferPtr_0]
 		push    edx
 		call    near __CEXT_F(decode2__bpk)
@@ -55650,7 +55186,7 @@ ___3dabdh:
 		mov     edx, 640000h
 		mov     esi, [VGABufferPtr_0]
 		and     eax, 0ffh
-		mov     edi, [___1a1124h]
+		mov     edi, [__CEXT_V(___1a1124h)]
 		mov     [esp+6ch], eax
 		push    edi
 		mov     eax, ecx
@@ -55839,7 +55375,7 @@ ___3dd9fh:
 ___3ddach:
 		call    near ___2b318h
 		mov     ecx, 4b000h
-		mov     esi, [___1a1124h]
+		mov     esi, [__CEXT_V(___1a1124h)]
 		mov     edi, [VGABufferPtr_0]
 		push    edi
 		mov     eax, ecx
@@ -56195,32 +55731,7 @@ ___3e150h:
 		pop     edx
 		pop     ecx
 		pop     ebx
-		retn    
-global chkmemory__dr
-chkmemory__dr:
-		push    8
-		call    near __CHK
-		call    near ___2a498h
-		cmp     eax, dword 57b0cch
-		jge     short ___3e1c2h
-		push    ___182940h
-		call    near __CEXT_F(printf__clib3r)
-		add     esp, byte 4
-		push    ___182944h
-		call    near __CEXT_F(printf__clib3r)
-		add     esp, byte 4
-		push    ___182990h
-		call    near __CEXT_F(printf__clib3r)
-		add     esp, byte 4
-		push    ___1829e0h
-		call    near __CEXT_F(printf__clib3r)
-		add     esp, byte 4
-		call    near __CEXT_F(restore__keyboard)
-		call    near __CEXT_F(freeAllocInfoTable)
-		mov     eax, 70h
-		call    near __CEXT_F(exit__clib3r)
-___3e1c2h:
-		retn    
+		retn     
 ___3f1f0h:
 db	33h,33h,23h,40h,66h,66h,26h,40h,0,0,80h,3fh,0,0,80h,3fh
 db	0,0,80h,3fh,0cdh,0cch,2ch,40h,0,0,30h,40h,33h,33h,33h,40h
@@ -56315,7 +55826,7 @@ db	0ech,51h,38h,3eh,0ah,0d7h,0a3h,3eh
 ___3f704h:
 db	8fh,0c2h,0f5h,3dh,5ch,8fh,42h,3eh,8fh,0c2h,75h,3dh,8fh,0c2h,0f5h,3dh
 db	8fh,0c2h,0f5h,3ch,8fh,0c2h,75h,3dh
-allocMemSafe:
+__GDECL(__CEXT_F(allocMemSafe))
 		push    18h
 		call    near __CHK
 		push    ebx
@@ -59895,7 +59406,7 @@ ___42be4h:
 		push    edi
 		push    ebp
 		mov     ebx, ___1830b8h
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, ___1830c4h
 		call    near __CEXT_F(read__bpa)
 		mov     eax, [___243ce8h]
@@ -59907,7 +59418,7 @@ ___42be4h:
 		je      short ___42c3bh
 		mov     edx, eax
 		shl     eax, 4
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		add     eax, edx
 		push    ___1c9f10h
 		shl     eax, 9
@@ -59917,7 +59428,7 @@ ___42c3bh:
 		sub     esi, eax
 		shl     esi, 2
 		add     esi, eax
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		shl     esi, 9
 		push    ___1c9f10h
 		lea     eax, [esi+8800h]
@@ -59934,7 +59445,7 @@ ___42c78h:
 		mov     eax, esi
 		shl     eax, 4
 		add     eax, esi
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		shl     eax, 9
 		push    ___1cb910h
 		add     eax, 1a00h
@@ -59950,7 +59461,7 @@ ___42caah:
 		mov     eax, esi
 		shl     eax, 4
 		add     eax, esi
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		shl     eax, 9
 		push    ___1cc110h
 		add     eax, 1a00h
@@ -59966,7 +59477,7 @@ ___42cdch:
 		mov     eax, esi
 		shl     eax, 4
 		add     eax, esi
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		shl     eax, 9
 		push    ___1cc910h
 		add     eax, 1a00h
@@ -59974,10 +59485,10 @@ ___42cdch:
 		push    800h
 		call    near __CEXT_F(decode4__bpk)
 		mov     ebx, ___1830d0h
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, ___1830c4h
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     ebp, [___243d84h]
 		push    ebp
 		call    near __CEXT_F(decode2__bpk)
@@ -60008,14 +59519,14 @@ ___42d68h:
 ___42d6fh:
 		mov     ebx, ___183118h
 ___42d74h:
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, ___1830c4h
 		call    near __CEXT_F(read__bpa)
 ___42d83h:
 		mov     esi, [___243ce8h]
 		mov     eax, esi
 		shl     eax, 6
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		sub     eax, esi
 		push    ___1d5890h
 		shl     eax, 7
@@ -60023,58 +59534,58 @@ ___42d83h:
 		push    1f80h
 		call    near __CEXT_F(decode4__bpk)
 		mov     ebx, ___183124h
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, ___1830c4h
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		push    ___1de210h
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___183130h
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, ___1830c4h
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		push    ___1d7810h
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___183140h
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, ___1830c4h
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		push    ___1d8910h
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___18314ch
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, ___1830c4h
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		push    ___1d8a10h
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___18315ch
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, ___1830c4h
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		push    ___1d2710h
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___18316ch
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, ___1830c4h
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     eax, [___243d3ch]
 		push    eax
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___18317ch
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, ___1830c4h
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     edx, [___243d34h]
 		push    edx
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___18318ch
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, ___1830c4h
 		call    near __CEXT_F(read__bpa)
 		mov     eax, [___243ce8h]
@@ -60086,11 +59597,11 @@ ___42d83h:
 		shl     eax, 0bh
 		test    ebx, ebx
 		je      short ___42ee1h
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		push    ___1d8110h
 		jmp     short ___42ef0h
 ___42ee1h:
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		push    ___1d8110h
 		add     eax, 2000h
 ___42ef0h:
@@ -60328,7 +59839,7 @@ ___43170h:
 		pop     edi
 		mov     esi, ___1831c0h
 		mov     edi, esp
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		push    edi
 		sub     ecx, ecx
 		dec     ecx
@@ -60352,7 +59863,7 @@ ___4319eh:
 		call    near __CEXT_F(read__bpa)
 		mov     eax, [___243d28h]
 		imul    eax, [___243d2ch]
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     edx, [___243d60h]
 		push    edx
 		push    30ah
@@ -60377,7 +59888,7 @@ ___431eeh:
 		mov     esi, ___1831cch
 		mov     edi, esp
 		mov     ebx, esp
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		push    edi
 		sub     ecx, ecx
 		dec     ecx
@@ -60401,7 +59912,7 @@ ___4321eh:
 		call    near __CEXT_F(read__bpa)
 		mov     eax, [___243d30h]
 		imul    eax, [___243d04h]
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     ecx, [___243d78h]
 		push    ecx
 		push    30ah
@@ -60426,7 +59937,7 @@ ___4326eh:
 		mov     esi, ___1831d8h
 		mov     edi, esp
 		mov     ebx, esp
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		push    edi
 		sub     ecx, ecx
 		dec     ecx
@@ -60450,7 +59961,7 @@ ___4329eh:
 		call    near __CEXT_F(read__bpa)
 		mov     eax, [___243cf8h]
 		imul    eax, [___243d10h]
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     edi, [___243d54h]
 		push    edi
 		push    30ah
@@ -60539,12 +60050,12 @@ ___43384h:
 ___4339ch:
 		pop     edi
 		mov     ebx, esp
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, ___1831f4h
 		mov     esi, [esp+18h]
 		call    near __CEXT_F(read__bpa)
 		mov     ebp, [___243d74h]
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		lea     eax, [esi+ebp]
 		push    eax
 		call    near __CEXT_F(decode2__bpk)
@@ -60640,7 +60151,7 @@ ___434bdh:
 		pop     edi
 		mov     esi, ___183200h
 		mov     edi, esp
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		push    edi
 		sub     ecx, ecx
 		dec     ecx
@@ -60662,20 +60173,20 @@ ___434ebh:
 		pop     edi
 		mov     eax, ___243dd0h
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		push    ___243c88h
 		push    byte 0
 		push    byte 1
 		call    near __CEXT_F(decode4__bpk)
 		imul    eax, [___243c88h], 0c50h
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		push    ___1f3b08h
 		push    byte 1
 		inc     eax
 		push    eax
 		call    near __CEXT_F(decode4__bpk)
 		imul    eax, [___243c88h], 0c50h
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		push    ___243c94h
 		inc     eax
 		push    eax
@@ -60690,7 +60201,7 @@ ___434ebh:
 		test    eax, eax
 		jbe     short ___4357ch
 		imul    edx, [___243c88h], 0c50h
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		push    ___240b48h
 		add     edx, byte 2
 		push    edx
@@ -60705,7 +60216,7 @@ ___4357ch:
 		jmp     near dword [cs:eax*4+___43460h]
 ___43598h:
 		imul    ebx, [___243c88h], 0c50h
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     edx, [___243d5ch]
 		push    edx
 		mov     edx, [___243c94h]
@@ -60732,7 +60243,7 @@ ___435dfh:
 		mov     edx, [___243c94h]
 		lea     eax, [edx*4+0]
 		sub     eax, edx
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		shl     eax, 2
 		mov     ebp, [___243d5ch]
 		sub     eax, edx
@@ -60758,7 +60269,7 @@ ___43626h:
 		sub     eax, edx
 		shl     eax, 2
 		sub     eax, edx
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		lea     edx, [eax*4+0]
 		mov     esi, [___243d5ch]
 		lea     eax, [ebx+2]
@@ -60767,7 +60278,7 @@ ___43626h:
 		jmp     near ___4372eh
 ___43661h:
 		imul    ebx, [___243c88h], 0c50h
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     edx, [___243d5ch]
 		push    edx
 		mov     edx, [___243c94h]
@@ -60783,7 +60294,7 @@ ___43696h:
 		mov     edx, [___243c94h]
 		lea     eax, [edx*4+0]
 		sub     eax, edx
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		shl     eax, 2
 		mov     ebp, [___243d5ch]
 		sub     eax, edx
@@ -60797,7 +60308,7 @@ ___436c8h:
 		lea     eax, [edx*4+0]
 		sub     eax, edx
 		shl     eax, 2
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		sub     eax, edx
 		mov     esi, [___243d5ch]
 		shl     eax, 2
@@ -60811,7 +60322,7 @@ ___436fch:
 		lea     eax, [edx*4+0]
 		sub     eax, edx
 		shl     eax, 2
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		sub     eax, edx
 		mov     esi, [___243d5ch]
 		shl     eax, 2
@@ -61114,7 +60625,7 @@ ___439b8h:
 		pop     edi
 		mov     esi, ___183254h
 		mov     edi, esp
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		push    edi
 		sub     ecx, ecx
 		dec     ecx
@@ -61136,17 +60647,17 @@ ___439e6h:
 		pop     edi
 		mov     eax, ___243dd0h
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		push    ___243c5ch
 		push    byte 0
 		push    byte 4
 		call    near __CEXT_F(decode4__bpk)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		push    ___2438c4h
 		push    byte 4
 		push    byte 4
 		call    near __CEXT_F(decode4__bpk)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		push    ___1de920h
 		mov     eax, [___243c5ch]
 		push    byte 8
@@ -61154,7 +60665,7 @@ ___439e6h:
 		push    eax
 		call    near __CEXT_F(decode4__bpk)
 		mov     eax, [___243c5ch]
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		shl     eax, 2
 		push    ___1ded20h
 		lea     ebx, [eax+8]
@@ -61162,7 +60673,7 @@ ___439e6h:
 		push    eax
 		call    near __CEXT_F(decode4__bpk)
 		mov     eax, [___243c5ch]
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		shl     eax, 3
 		push    ___1df120h
 		add     eax, byte 8
@@ -61174,7 +60685,7 @@ ___439e6h:
 		mov     edi, [___243c5ch]
 		lea     eax, [edi*4+0]
 		sub     eax, edi
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		shl     eax, 2
 		push    ___1e8448h
 		add     eax, byte 8
@@ -61185,7 +60696,7 @@ ___439e6h:
 		call    near __CEXT_F(decode4__bpk)
 		mov     edi, [___243c5ch]
 		lea     ebx, [edi*4+0]
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		sub     ebx, edi
 		mov     eax, [___2438c4h]
 		shl     ebx, 2
@@ -61198,7 +60709,7 @@ ___439e6h:
 		call    near __CEXT_F(decode4__bpk)
 		mov     edi, [___243c5ch]
 		lea     eax, [edi*4+0]
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		sub     eax, edi
 		mov     ebx, [___2438c4h]
 		shl     eax, 2
@@ -61228,74 +60739,74 @@ ___43b14h:
 		push    edi
 		push    ebp
 		mov     ebx, ___183260h
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, ___1831f4h
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     edx, [___243d8ch]
 		push    edx
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___18326ch
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, ___1831f4h
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     ebx, [___243d7ch]
 		push    ebx
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___183278h
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, ___1831f4h
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     ecx, [___243298h]
 		push    ecx
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___183284h
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, ___1831f4h
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     esi, [___24329ch]
 		push    esi
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___183290h
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, ___1831f4h
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     edi, [___2432a0h]
 		push    edi
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___18329ch
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, ___1831f4h
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     ebp, [___2432a4h]
 		push    ebp
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___1832a8h
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, ___1831f4h
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     eax, [___2432a8h]
 		push    eax
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___1832b4h
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, ___1831f4h
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     edx, [___2432ach]
 		push    edx
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___1832c0h
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, ___1831f4h
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     ebx, [___243d88h]
 		push    ebx
 		call    near __CEXT_F(decode2__bpk)
@@ -61306,66 +60817,66 @@ ___43b14h:
 ___43c80h:
 		mov     ebx, ___1832dch
 ___43c85h:
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, ___1831f4h
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     esi, [___243d38h]
 		push    esi
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___1832ech
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, ___1831f4h
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     edi, [___243d40h]
 		push    edi
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___1832f8h
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, ___1831f4h
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     ebp, [___243288h]
 		push    ebp
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___183304h
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, ___1831f4h
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     eax, [___24328ch]
 		push    eax
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___183310h
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, ___1831f4h
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     edx, [___243290h]
 		push    edx
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___18331ch
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, ___1831f4h
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     ebx, [___243294h]
 		push    ebx
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___183328h
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, ___1831f4h
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     ecx, [___243d68h]
 		push    ecx
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___183334h
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, ___1831f4h
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     esi, [___243d64h]
 		push    esi
 		call    near __CEXT_F(decode2__bpk)
@@ -61383,10 +60894,10 @@ ___43db0h:
 		push    ecx
 		push    edx
 		mov     ebx, ___183340h
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, ___1831f4h
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     edx, [___243d50h]
 		push    edx
 		call    near __CEXT_F(decode2__bpk)
@@ -61401,10 +60912,10 @@ ___43de8h:
 		push    ecx
 		push    edx
 		mov     ebx, ___18334ch
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, ___1831f4h
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     edx, [___243d6ch]
 		push    edx
 		call    near __CEXT_F(decode2__bpk)
@@ -61419,18 +60930,18 @@ ___43e20h:
 		push    ecx
 		push    edx
 		mov     ebx, ___183358h
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, ___1831f4h
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     edx, [___243d4ch]
 		push    edx
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___183364h
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, ___1830c4h
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		mov     ebx, [___243d48h]
 		push    ebx
 		call    near __CEXT_F(decode2__bpk)
@@ -62741,13 +62252,13 @@ ___4539ch:
 		mov     ecx, [___243310h]
 		mov     esi, [___243314h]
 		mov     eax, 3844h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		xor     edx, edx
 		mov     esi, eax
 		mov     [esp+8], edx
 		mov     eax, 3844h
 		mov     [___243314h], esi
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     esi, [___243314h]
 		mov     ecx, eax
 		fld     qword [___183485h]
@@ -63472,7 +62983,7 @@ ___45ed7h:
 		mov     eax, 0a0000h
 		xor     edx, edx
 		call    near memset__clib3r
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		lea     eax, [edx+0c800h]
 		xor     ebx, ebx
 		mov     [esp+28h], eax
@@ -63495,8 +63006,8 @@ ___45f1ch:
 		add     ebx, 200h
 		cmp     edx, ecx
 		jne     short ___45f1ch
-		mov     eax, ___1a54d0h
-		mov     edx, ___1a54d0h
+		mov     eax, __CEXT_V(BPA_Buffer)
+		mov     edx, __CEXT_V(BPA_Buffer)
 		xor     ebx, ebx
 		add     eax, 0fb00h
 		add     edx, 0c900h
@@ -63606,7 +63117,7 @@ ___460e0h:
 		mov     edi, [esp+40h]
 		sub     esi, edi
 		mov     ecx, edi
-		add     esi, ___1a54d0h
+		add     esi, __CEXT_V(BPA_Buffer)
 		mov     edi, edx
 		add     ebx, byte 40h
 		push    edi
@@ -63659,7 +63170,7 @@ ___4617dh:
 		mov     edi, esi
 		sub     edx, esi
 		sar     edi, 1
-		add     ebx, ___1a54d0h
+		add     ebx, __CEXT_V(BPA_Buffer)
 		add     edi, eax
 		mov     ecx, 100h
 ___461aeh:
@@ -64106,7 +63617,7 @@ ___4683ah:
 		shl     esi, 9
 		add     esi, eax
 		mov     eax, [___243d08h]
-		mov     edi, ___1a54d0h
+		mov     edi, __CEXT_V(BPA_Buffer)
 		shl     eax, 8
 		mov     ecx, edx
 		add     eax, 100h
@@ -64190,7 +63701,7 @@ ___4694fh:
 		sub     edx, ebp
 		sub     ebx, ecx
 		sar     edi, 1
-		add     ebx, ___1a54d0h
+		add     ebx, __CEXT_V(BPA_Buffer)
 		add     edi, esi
 		mov     ecx, 100h
 ___46987h:
@@ -64285,7 +63796,7 @@ ___46a41h:
 		fstp    dword [ecx+___1a42bch]
 		cmp     edi, 100h
 		jl      short ___46a41h
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		fstp    st0
 		lea     eax, [edx+0c800h]
 		xor     ebx, ebx
@@ -64309,8 +63820,8 @@ ___46ab9h:
 		add     ebx, 200h
 		cmp     edx, ecx
 		jne     short ___46ab9h
-		mov     eax, ___1a54d0h
-		mov     edx, ___1a54d0h
+		mov     eax, __CEXT_V(BPA_Buffer)
+		mov     edx, __CEXT_V(BPA_Buffer)
 		xor     ebx, ebx
 		add     eax, 0fb00h
 		add     edx, 0c900h
@@ -64334,7 +63845,7 @@ ___46b0dh:
 		add     ebx, 200h
 		cmp     edx, esi
 		jne     short ___46b0dh
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		lea     ebx, [edx+0c700h]
 		lea     eax, [edx+6400h]
 		mov     [esp+28h], eax
@@ -64469,7 +63980,7 @@ ___46d07h:
 		add     edx, byte 40h
 		sub     esi, ecx
 		add     edi, ebx
-		add     esi, ___1a54d0h
+		add     esi, __CEXT_V(BPA_Buffer)
 		add     ebx, 140h
 		push    edi
 		mov     eax, ecx
@@ -64543,7 +64054,7 @@ ___46e08h:
 		mov     edi, eax
 		sub     edx, eax
 		sar     edi, 1
-		add     ebx, ___1a54d0h
+		add     ebx, __CEXT_V(BPA_Buffer)
 		add     edi, ecx
 		mov     ecx, 100h
 ___46e39h:
@@ -64651,7 +64162,7 @@ ___46f48h:
 		cmp     esi, 100h
 		jl      short ___46f48h
 		fstp    st0
-		mov     ebx, ___1a54d0h
+		mov     ebx, __CEXT_V(BPA_Buffer)
 		xor     edx, edx
 ___46fb6h:
 		mov     ecx, 140h
@@ -64828,7 +64339,7 @@ ___471c5h:
 		shl     eax, 6
 		add     eax, esi
 		lea     esi, [eax+edi]
-		add     esi, ___1a54d0h
+		add     esi, __CEXT_V(BPA_Buffer)
 		mov     edi, edx
 		movsw   
 		add     edi, 13eh
@@ -65397,11 +64908,11 @@ ___478c8h:
 		mov     [___2432d0h], edx
 		mov     [___2432e0h], edx
 		mov     [___2432e8h], edx
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___2432d8h], eax
 		mov     eax, 0fa00h
 		mov     ebx, 0fa00h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___2432d4h], eax
 		mov     eax, [___2432d8h]
 		mov     [esp+330h], edx
@@ -65845,11 +65356,11 @@ ___47ed8h:
 		mov     [___2432d0h], edx
 		mov     [___2432e0h], edx
 		mov     [___2432e8h], edx
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___2432d8h], eax
 		mov     eax, 0fa00h
 		mov     ebx, 0fa00h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___2432d4h], eax
 		mov     eax, [___2432d8h]
 		call    near memset__clib3r
@@ -66989,10 +66500,10 @@ ___48bc7h:
 		cmp     edx, byte 3fh
 		jl      short ___48bc7h
 		mov     ebx, ___183c80h
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, ___1831f4h
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		push    0a0000h
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___183c8ch
@@ -67608,10 +67119,10 @@ ___491b4h:
 		cmp     edx, byte 3fh
 		jl      short ___491b4h
 		mov     ebx, ___183e6ch
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		mov     eax, ___1831f4h
 		call    near __CEXT_F(read__bpa)
-		push    ___1a54d0h
+		push    __CEXT_V(BPA_Buffer)
 		push    0a0000h
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___183e78h
@@ -68291,7 +67802,7 @@ ___49c3dh:
 ___49c55h:
 		pop     edi
 		mov     esi, ___183f50h
-		mov     edx, ___1a54d0h
+		mov     edx, __CEXT_V(BPA_Buffer)
 		push    edi
 		sub     ecx, ecx
 		dec     ecx
@@ -68314,7 +67825,7 @@ ___49c81h:
 		mov     ebx, edi
 		mov     eax, ___243dd0h
 		mov     ecx, 4
-		mov     esi, ___1a54d0h
+		mov     esi, __CEXT_V(BPA_Buffer)
 		mov     edi, ___243d28h
 		call    near __CEXT_F(read__bpa)
 		push    edi
@@ -68325,7 +67836,7 @@ ___49c81h:
 		and     cl, 3
 		rep movsb   
 		pop     edi
-		mov     esi, ___1a54d0h
+		mov     esi, __CEXT_V(BPA_Buffer)
 		mov     ecx, 4
 		mov     edi, ___243d2ch
 		add     esi, byte 4
@@ -68337,7 +67848,7 @@ ___49c81h:
 		and     cl, 3
 		rep movsb   
 		pop     edi
-		mov     esi, ___1a54d0h
+		mov     esi, __CEXT_V(BPA_Buffer)
 		mov     ecx, 4
 		mov     edi, ___243cech
 		add     esi, byte 8
@@ -68349,7 +67860,7 @@ ___49c81h:
 		and     cl, 3
 		rep movsb   
 		pop     edi
-		mov     esi, ___1a54d0h
+		mov     esi, __CEXT_V(BPA_Buffer)
 		mov     ecx, 4
 		mov     edi, esp
 		add     esi, byte 0ch
@@ -68362,7 +67873,7 @@ ___49c81h:
 		rep movsb   
 		pop     edi
 		fild    dword [esp]
-		mov     esi, ___1a54d0h
+		mov     esi, __CEXT_V(BPA_Buffer)
 		mov     ecx, 4
 		mov     edi, esp
 		add     esi, byte 10h
@@ -68376,7 +67887,7 @@ ___49c81h:
 		rep movsb   
 		pop     edi
 		fild    dword [esp]
-		mov     esi, ___1a54d0h
+		mov     esi, __CEXT_V(BPA_Buffer)
 		mov     ecx, 4
 		mov     edi, esp
 		add     esi, byte 14h
@@ -68390,7 +67901,7 @@ ___49c81h:
 		rep movsb   
 		pop     edi
 		mov     eax, [esp]
-		mov     esi, ___1a54d0h
+		mov     esi, __CEXT_V(BPA_Buffer)
 		mov     ecx, 4
 		mov     edi, esp
 		add     esi, byte 18h
@@ -68404,7 +67915,7 @@ ___49c81h:
 		rep movsb   
 		pop     edi
 		fild    dword [esp]
-		mov     esi, ___1a54d0h
+		mov     esi, __CEXT_V(BPA_Buffer)
 		mov     ecx, 4
 		mov     edi, esp
 		add     esi, byte 1ch
@@ -68418,7 +67929,7 @@ ___49c81h:
 		rep movsb   
 		pop     edi
 		fild    dword [esp]
-		mov     esi, ___1a54d0h
+		mov     esi, __CEXT_V(BPA_Buffer)
 		mov     ecx, 4
 		mov     edi, esp
 		add     esi, byte 20h
@@ -68432,7 +67943,7 @@ ___49c81h:
 		rep movsb   
 		pop     edi
 		mov     eax, [esp]
-		mov     esi, ___1a54d0h
+		mov     esi, __CEXT_V(BPA_Buffer)
 		mov     ecx, 4
 		mov     edi, esp
 		add     esi, byte 24h
@@ -68446,7 +67957,7 @@ ___49c81h:
 		rep movsb   
 		pop     edi
 		fild    dword [esp]
-		mov     esi, ___1a54d0h
+		mov     esi, __CEXT_V(BPA_Buffer)
 		mov     ecx, 4
 		mov     edi, esp
 		add     esi, byte 28h
@@ -68460,7 +67971,7 @@ ___49c81h:
 		rep movsb   
 		pop     edi
 		fild    dword [esp]
-		mov     esi, ___1a54d0h
+		mov     esi, __CEXT_V(BPA_Buffer)
 		mov     ecx, 4
 		mov     edi, esp
 		mov     edx, 3ch
@@ -68477,7 +67988,7 @@ ___49c81h:
 		rep movsb   
 		pop     edi
 		mov     eax, [esp]
-		mov     esi, ___1a54d0h
+		mov     esi, __CEXT_V(BPA_Buffer)
 		mov     ecx, 4
 		mov     edi, esp
 		add     esi, byte 30h
@@ -68491,7 +68002,7 @@ ___49c81h:
 		rep movsb   
 		pop     edi
 		fild    dword [esp]
-		mov     esi, ___1a54d0h
+		mov     esi, __CEXT_V(BPA_Buffer)
 		mov     ecx, 4
 		mov     edi, esp
 		add     esi, byte 34h
@@ -68505,7 +68016,7 @@ ___49c81h:
 		rep movsb   
 		pop     edi
 		fild    dword [esp]
-		mov     esi, ___1a54d0h
+		mov     esi, __CEXT_V(BPA_Buffer)
 		mov     ecx, 4
 		mov     edi, esp
 		add     esi, byte 38h
@@ -68523,7 +68034,7 @@ ___49c81h:
 		mov     [___1e78f6h], eax
 ___49edch:
 		imul    edi, ebx, 120h
-		mov     esi, ___1a54d0h
+		mov     esi, __CEXT_V(BPA_Buffer)
 		mov     ecx, 4
 		add     esi, edx
 		add     edi, ___1f2488h
@@ -68536,7 +68047,7 @@ ___49edch:
 		and     cl, 3
 		rep movsb   
 		pop     edi
-		mov     esi, ___1a54d0h
+		mov     esi, __CEXT_V(BPA_Buffer)
 		mov     ecx, 4
 		mov     edi, ebp
 		add     esi, edx
@@ -68572,7 +68083,7 @@ ___49f36h:
 		mov     [esp+4], eax
 		add     ebx, byte 8
 ___49f7ah:
-		mov     esi, ___1a54d0h
+		mov     esi, __CEXT_V(BPA_Buffer)
 		mov     edi, [esp+8]
 		mov     ecx, 4
 		shl     edi, 5
@@ -68587,7 +68098,7 @@ ___49f7ah:
 		rep movsb   
 		pop     edi
 		add     edx, byte 4
-		mov     esi, ___1a54d0h
+		mov     esi, __CEXT_V(BPA_Buffer)
 		mov     ecx, 4
 		mov     edi, ebp
 		add     esi, edx
@@ -68599,7 +68110,7 @@ ___49f7ah:
 		and     cl, 3
 		rep movsb   
 		pop     edi
-		mov     esi, ___1a54d0h
+		mov     esi, __CEXT_V(BPA_Buffer)
 		mov     ecx, 4
 		add     edx, byte 4
 		mov     edi, ebx
@@ -68612,7 +68123,7 @@ ___49f7ah:
 		and     cl, 3
 		rep movsb   
 		pop     edi
-		mov     esi, ___1a54d0h
+		mov     esi, __CEXT_V(BPA_Buffer)
 		mov     ecx, 4
 		add     edx, byte 4
 		mov     edi, [esp+4]
@@ -81497,107 +81008,107 @@ ___568c6h:
 		call    near ___49bd4h
 		mov     eax, [___243d28h]
 		imul    eax, [___243d2ch]
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     esi, [___243d2ch]
 		mov     [___243d58h], eax
 		mov     eax, [___243d28h]
 		imul    eax, esi
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     edi, [___243d04h]
 		mov     [___243d60h], eax
 		mov     eax, [___243d30h]
 		imul    eax, edi
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     ebp, [___243d10h]
 		mov     [___243d78h], eax
 		mov     eax, [___243cf8h]
 		imul    eax, ebp
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___243d54h], eax
 		mov     eax, 5f370h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___243d5ch], eax
 		mov     eax, 19400h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		add     eax, 200h
 		mov     [___243d80h], eax
 		mov     eax, 96000h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___243d74h], eax
 		mov     eax, 4b000h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___243d50h], eax
 		mov     eax, 3840h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___243d6ch], eax
 		mov     eax, 30h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___243d34h], eax
 		mov     eax, 240h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___243d48h], eax
 		mov     eax, 3c90h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___243d4ch], eax
 		mov     eax, 3c90h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___243d70h], eax
 		mov     eax, 800h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___243d84h], eax
 		mov     eax, 268h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___243d3ch], eax
 		mov     eax, 0c00h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___243298h], eax
 		mov     eax, 0c00h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___24329ch], eax
 		mov     eax, 0c00h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___2432a0h], eax
 		mov     eax, 0c00h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___2432a4h], eax
 		mov     eax, 0c00h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___2432a8h], eax
 		mov     eax, 0c00h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___2432ach], eax
 		mov     eax, 140h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___243d8ch], eax
 		mov     eax, 600h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___243d7ch], eax
 		mov     eax, 480h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___243d88h], eax
 		mov     eax, 800h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___243d38h], eax
 		mov     eax, 2400h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___243d40h], eax
 		mov     eax, 800h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___243288h], eax
 		mov     eax, 800h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___24328ch], eax
 		mov     eax, 1800h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___243290h], eax
 		mov     eax, 1800h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___243294h], eax
 		mov     eax, 800h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___243d68h], eax
 		mov     eax, 0c0h
-		call    near allocMemSafe
+		call    near __CEXT_F(allocMemSafe)
 		mov     [___243d64h], eax
 		call    near ___4539ch
 		mov     dword [__CEXT_V(ExitCB)], __CEXT_F(exitcb1__dr)

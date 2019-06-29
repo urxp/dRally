@@ -466,37 +466,66 @@ ___1a0170h:	resb	4
 ___1a0174h:	resb	4
 ___1a0178h:	resb	4
 ___1a017ch:	resb	4
-___1a0180h:	resb	4
-___1a0184h:	resb	4
-___1a0188h:	resb	4
-___1a018ch:	resb	4
-___1a0190h:	resb	4
-___1a0194h:	resb	4
-___1a0198h:	resb	4
-___1a019ch:	resb	4
-___1a01a0h:	resb	4
-___1a01a4h:	resb	4
-___1a01a8h:	resb	4
-___1a01ach:	resb	4
-___1a01b0h:	resb	4
-___1a01b4h:	resb	4
-___1a01b8h:	resb	4
-___1a01bch:	resb	4
-___1a01c0h:	resb	4
-___1a01c4h:	resb	4
-___1a01c8h:	resb	4
-___1a01cch:	resb	4
-___1a01d0h:	resb	4
-___1a01d4h:	resb	4
-___1a01d8h:	resb	4
-___1a01dch:	resb	4
+__GDECL(__CEXT_V(___1a0180h))
+    resb	4
+__GDECL(__CEXT_V(___1a0184h))
+    resb	4
+__GDECL(__CEXT_V(___1a0188h))
+    resb	4
+__GDECL(__CEXT_V(___1a018ch))
+    resb	4
+__GDECL(__CEXT_V(___1a0190h))
+    resb	4
+__GDECL(__CEXT_V(___1a0194h))
+    resb	4
+__GDECL(__CEXT_V(___1a0198h))
+    resb	4
+__GDECL(__CEXT_V(___1a019ch))
+    resb	4
+__GDECL(__CEXT_V(___1a01a0h))
+    resb	4
+__GDECL(__CEXT_V(___1a01a4h))
+    resb	4
+__GDECL(__CEXT_V(___1a01a8h))
+    resb	4
+__GDECL(__CEXT_V(___1a01ach))
+    resb	4
+__GDECL(__CEXT_V(___1a01b0h))
+    resb	4
+__GDECL(__CEXT_V(___1a01b4h))
+    resb	4
+__GDECL(__CEXT_V(___1a01b8h))
+    resb	4
+__GDECL(__CEXT_V(___1a01bch))
+    resb	4
+__GDECL(__CEXT_V(___1a01c0h))
+    resb	4
+__GDECL(__CEXT_V(___1a01c4h))
+    resb	4
+__GDECL(__CEXT_V(___1a01c8h))
+    resb	4
+__GDECL(__CEXT_V(___1a01cch))
+    resb	4
+__GDECL(__CEXT_V(___1a01d0h))
+    resb	4
+__GDECL(__CEXT_V(___1a01d4h))
+    resb	4
+__GDECL(__CEXT_V(___1a01d8h))
+    resb	4
+__GDECL(__CEXT_V(___1a01dch))
+    resb	4
 __GDECL(___1a01e0h)
     resb	0ch
-___1a01ech:	resb	4
-___1a01f0h:	resb	4
-___1a01f4h:	resb	4
-___1a01f8h:	resb	4
-___1a01fch:	resb	10h
+__GDECL(___1a01ech)
+    resb	4
+__GDECL(___1a01f0h)
+    resb	4
+__GDECL(___1a01f4h)
+    resb	4
+__GDECL(___1a01f8h)
+    resb	4
+__GDECL(__CEXT_V(___1a01fch))
+    resb	10h
 __GDECL(___1a020ch)
     resb	4
 ___1a0210h:	resb	4
@@ -633,7 +662,8 @@ ___1a10a0h:	resb	4
 ___1a10a4h:	resb	4
 ___1a10a8h:	resb	4
 ___1a10ach:	resb	4
-___1a10b0h:	resb	4
+__GDECL(__CEXT_V(___1a10b0h))
+    resb	4
 ___1a10b4h:	resb	4
 ___1a10b8h:	resb	4
 ___1a10bch:	resb	4
@@ -647,7 +677,7 @@ ___1a10d4h:	resb	4
 ___1a10d8h:	resb	4
 ___1a10dch:	resb	4
 ___1a10e0h:	resb	4
-__GDECL(___1a10e4h)
+__GDECL(__CEXT_V(___1a10e4h))
     resb	4
 ___1a10e8h:	resb	4
 ___1a10ech:	resb	4
@@ -668,7 +698,7 @@ ___1a1114h:	resb	4
 ___1a1118h:	resb	4
 ___1a111ch:	resb	4
 ___1a1120h:	resb	4
-__GDECL(___1a1124h)
+__GDECL(__CEXT_V(___1a1124h))
     resb	4
 ___1a1128h:	resb	4
 __GDECL(VGABufferPtr_0)
@@ -700,67 +730,124 @@ ___1a1c8eh:	resb	96h
 ___1a1d24h:	resb	96h
 __GDECL(___1a1dbah)
     resb	96h
-___1a1e50h:	resb	4
-___1a1e54h:	resb	4
-___1a1e58h:	resb	4
-___1a1e5ch:	resb	4
-___1a1e60h:	resb	4
-___1a1e64h:	resb	4
-___1a1e68h:	resb	4
-___1a1e6ch:	resb	4
-___1a1e70h:	resb	4
-___1a1e74h:	resb	4
-___1a1e78h:	resb	4
-___1a1e7ch:	resb	4
-___1a1e80h:	resb	4
-___1a1e84h:	resb	4
-___1a1e88h:	resb	4
-___1a1e8ch:	resb	4
-___1a1e90h:	resb	4
-___1a1e94h:	resb	4
-___1a1e98h:	resb	4
-___1a1e9ch:	resb	4
-___1a1ea0h:	resb	4
-___1a1ea4h:	resb	4
-___1a1ea8h:	resb	4
-___1a1each:	resb	4
-___1a1eb0h:	resb	4
-___1a1eb4h:	resb	4
-___1a1eb8h:	resb	4
-___1a1ebch:	resb	4
-___1a1ec0h:	resb	4
-___1a1ec4h:	resb	4
-___1a1ec8h:	resb	4
-___1a1ecch:	resb	4
-___1a1ed0h:	resb	4
-___1a1ed4h:	resb	4
-___1a1ed8h:	resb	4
-___1a1edch:	resb	4
-___1a1ee0h:	resb	4
-___1a1ee4h:	resb	4
-___1a1ee8h:	resb	4
-___1a1eech:	resb	4
-___1a1ef0h:	resb	4
+__GDECL(___1a1e50h)
+    resb	4
+__GDECL(__CEXT_V(___1a1e54h))
+    resb	4
+__GDECL(__CEXT_V(___1a1e58h))
+    resb	4
+__GDECL(__CEXT_V(___1a1e5ch))
+    resb	4
+__GDECL(__CEXT_V(___1a1e60h))
+    resb	4
+__GDECL(__CEXT_V(___1a1e64h))
+    resb	4
+__GDECL(___1a1e68h)
+    resb	4
+__GDECL(__CEXT_V(___1a1e6ch))
+    resb	4
+__GDECL(__CEXT_V(___1a1e70h))
+    resb	4
+__GDECL(__CEXT_V(___1a1e74h))
+    resb	4
+__GDECL(__CEXT_V(___1a1e78h))
+    resb	4
+__GDECL(__CEXT_V(___1a1e7ch))
+    resb	4
+__GDECL(__CEXT_V(___1a1e80h))
+    resb	4
+__GDECL(__CEXT_V(___1a1e84h))
+    resb	4
+__GDECL(__CEXT_V(___1a1e88h))
+    resb	4
+__GDECL(__CEXT_V(___1a1e8ch))
+    resb	4
+__GDECL(__CEXT_V(___1a1e90h))
+    resb	4
+__GDECL(__CEXT_V(___1a1e94h))
+    resb	4
+__GDECL(__CEXT_V(___1a1e98h))
+    resb	4
+__GDECL(__CEXT_V(___1a1e9ch))
+    resb	4
+__GDECL(__CEXT_V(___1a1ea0h))
+    resb	4
+__GDECL(__CEXT_V(___1a1ea4h))
+    resb	4
+__GDECL(__CEXT_V(___1a1ea8h))
+    resb	4
+__GDECL(__CEXT_V(___1a1each))
+    resb	4
+__GDECL(__CEXT_V(___1a1eb0h))
+    resb	4
+__GDECL(__CEXT_V(___1a1eb4h))
+    resb	4
+__GDECL(__CEXT_V(___1a1eb8h))
+    resb	4
+__GDECL(__CEXT_V(___1a1ebch))
+    resb	4
+__GDECL(__CEXT_V(___1a1ec0h))
+    resb	4
+__GDECL(__CEXT_V(___1a1ec4h))
+    resb	4
+__GDECL(__CEXT_V(___1a1ec8h))
+    resb	4
+__GDECL(__CEXT_V(___1a1ecch))
+    resb	4
+__GDECL(__CEXT_V(___1a1ed0h))
+    resb	4
+__GDECL(__CEXT_V(___1a1ed4h))
+    resb	4
+__GDECL(___1a1ed8h)
+    resb	4
+__GDECL(__CEXT_V(___1a1edch))
+    resb	4
+__GDECL(__CEXT_V(___1a1ee0h))
+    resb	4
+__GDECL(__CEXT_V(___1a1ee4h))
+    resb	4
+__GDECL(__CEXT_V(___1a1ee8h))
+    resb	4
+__GDECL(__CEXT_V(___1a1eech))
+    resb	4
+__GDECL(___1a1ef0h)
+    resb	4
 __GDECL(___1a1ef4h)
     resb	4
-__GDECL(___1a1ef8h)
+__GDECL(__CEXT_V(___1a1ef8h))
     resb	4
-___1a1efch:	resb	4
-___1a1f00h:	resb	4
-___1a1f04h:	resb	4
-___1a1f08h:	resb	4
-___1a1f0ch:	resb	4
-___1a1f10h:	resb	4
-___1a1f14h:	resb	4
-___1a1f18h:	resb	4
-___1a1f1ch:	resb	4
-___1a1f20h:	resb	4
-___1a1f24h:	resb	4
-___1a1f28h:	resb	4
-___1a1f2ch:	resb	4
-___1a1f30h:	resb	4
-___1a1f34h:	resb	4
-___1a1f38h:	resb	4
+__GDECL(___1a1efch)
+    resb	4
+__GDECL(___1a1f00h)
+    resb	4
+__GDECL(___1a1f04h)
+    resb	4
+__GDECL(___1a1f08h)
+    resb	4
+__GDECL(___1a1f0ch)
+    resb	4
+__GDECL(___1a1f10h)
+    resb	4
+__GDECL(___1a1f14h)
+    resb	4
+__GDECL(___1a1f18h)
+    resb	4
+__GDECL(___1a1f1ch)
+    resb	4
+__GDECL(___1a1f20h)
+    resb	4
+__GDECL(___1a1f24h)
+    resb	4
+__GDECL(___1a1f28h)
+    resb	4
+__GDECL(___1a1f2ch)
+    resb	4
+__GDECL(___1a1f30h)
+    resb	4
+__GDECL(___1a1f34h)
+    resb	4
+__GDECL(___1a1f38h)
+    resb	4
 __GDECL(TimesPlayed)
     resb	3
 ___1a1f3fh:	resb	0eh
@@ -943,7 +1030,8 @@ ___1a51cfh:	resb	1
 ___1a51d0h:	resb	1
 ___1a51d1h:	resb	1
 ___1a51d2h:	resb	2feh
-___1a54d0h:	resb	0c800h
+__GDECL(__CEXT_V(BPA_Buffer))
+    resb	0c800h
 ___1b1cd0h:	resb	3200h
 ___1b4ed0h:	resb	14ff0h
 ___1c9ec0h:	resb	4

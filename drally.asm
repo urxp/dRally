@@ -69,7 +69,7 @@
     extern  ___7c970h__dma
     extern  ___7c9e2h__dma
 
-
+    extern  __CEXT_F(___24548h)
 
 
 ;; CLIB3R.LIB

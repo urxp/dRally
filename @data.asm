@@ -821,89 +821,89 @@ ___181d1bh:
 db	0,0,0c8h,42h
 ___181d1fh:
 db	0,0,0,40h,0
-___181d24h:
+__GDECL(__CEXT_V(___181d24h))
 db	"statbas7.bpk",0,0,0,0
-___181d34h:
+__GDECL(__CEXT_V(___181d34h))
 db	"statpop4.bpk",0,0,0,0
-___181d44h:
+__GDECL(__CEXT_V(___181d44h))
 db	"f-sma3f.bpk",0
-___181d50h:
+__GDECL(__CEXT_V(___181d50h))
 db	"kupla.bpk",0,0,0
-___181d5ch:
+__GDECL(__CEXT_V(___181d5ch))
 db	"pickup.bpk",0,0
-___181d68h:
+__GDECL(__CEXT_V(___181d68h))
 db	"sedan.bpk",0,0,0
-___181d74h:
+__GDECL(__CEXT_V(___181d74h))
 db	"camaro.bpk",0,0
-___181d80h:
+__GDECL(__CEXT_V(___181d80h))
 db	"porsche.bpk",0
-___181d8ch:
+__GDECL(__CEXT_V(___181d8ch))
 db	"lotus.bpk",0,0,0
-___181d98h:
+__GDECL(__CEXT_V(___181d98h))
 db	"engi1.bpk",0,0,0
-___181da4h:
+__GDECL(__CEXT_V(___181da4h))
 db	"engi2.bpk",0,0,0
-___181db0h:
+__GDECL(__CEXT_V(___181db0h))
 db	"engi3.bpk",0,0,0
-___181dbch:
+__GDECL(__CEXT_V(___181dbch))
 db	"engi4.bpk",0,0,0
-___181dc8h:
+__GDECL(__CEXT_V(___181dc8h))
 db	"tire1.bpk",0,0,0
-___181dd4h:
+__GDECL(__CEXT_V(___181dd4h))
 db	"tire2.bpk",0,0,0
-___181de0h:
+__GDECL(__CEXT_V(___181de0h))
 db	"tire3.bpk",0,0,0
-___181dech:
+__GDECL(__CEXT_V(___181dech))
 db	"tire4.bpk",0,0,0
-___181df8h:
+__GDECL(__CEXT_V(___181df8h))
 db	"armor1.bpk",0,0
-___181e04h:
+__GDECL(__CEXT_V(___181e04h))
 db	"armor2.bpk",0,0
-___181e10h:
+__GDECL(__CEXT_V(___181e10h))
 db	"armor3.bpk",0,0
-___181e1ch:
+__GDECL(__CEXT_V(___181e1ch))
 db	"armor4.bpk",0,0
-___181e28h:
+__GDECL(__CEXT_V(___181e28h))
 db	"contani.bpk",0
-___181e34h:
+__GDECL(__CEXT_V(___181e34h))
 db	"repaani.bpk",0
-___181e40h:
+__GDECL(__CEXT_V(___181e40h))
 db	"carbas2.bpk",0
-___181e4ch:
+__GDECL(__CEXT_V(___181e4ch))
 db	"spons1b.bpk",0
-___181e58h:
+__GDECL(__CEXT_V(___181e58h))
 db	"drugdeal.bpk",0,0,0,0
-___181e68h:
+__GDECL(__CEXT_V(___181e68h))
 db	"event_2.bpk",0
-___181e74h:
+__GDECL(__CEXT_V(___181e74h))
 db	"reaper_x.bpk",0,0,0,0
-___181e84h:
+__GDECL(__CEXT_V(___181e84h))
 db	"blacktx1.bpk",0,0,0,0
-___181e94h:
+__GDECL(__CEXT_V(___181e94h))
 db	"blacktx2.bpk",0,0,0,0
-___181ea4h:
+__GDECL(__CEXT_V(___181ea4h))
 db	"dealer2b.bpk",0,0,0,0
-___181eb4h:
+__GDECL(__CEXT_V(___181eb4h))
 db	"market1e.bpk",0,0,0,0
-___181ec4h:
+__GDECL(__CEXT_V(___181ec4h))
 db	"bases4.bpk",0,0
-___181ed0h:
+__GDECL(__CEXT_V(___181ed0h))
 db	"scenecar.bpk",0,0,0,0
-___181ee0h:
+__GDECL(__CEXT_V(___181ee0h))
 db	"choo2.bpk",0,0,0
-___181eech:
+__GDECL(__CEXT_V(___181eech))
 db	"arrows1d.bpk",0,0,0,0
-___181efch:
+__GDECL(__CEXT_V(___181efch))
 db	"maxi1f.bpk",0,0
-___181f08h:
+__GDECL(__CEXT_V(___181f08h))
 db	"carname.bpk",0
-___181f14h:
+__GDECL(__CEXT_V(___181f14h))
 db	"slidmus2.bpk",0,0,0,0
-___181f24h:
+__GDECL(__CEXT_V(___181f24h))
 db	"slidcur3.bpk",0,0,0,0
-___181f34h:
+__GDECL(__CEXT_V(___181f34h))
 db	"volcur2.bpk",0
-___181f40h:
+__GDECL(__CEXT_V(___181f40h))
 db	"slidcop2.bpk",0,0,0,0
 ___181f50h:
 db	20h,0,0,0
@@ -1294,13 +1294,13 @@ ___182928h:
 db	"slide05.bpk",0
 ___182934h:
 db	"slide05.pal",0
-___182940h:
+__GDECL(__CEXT_V(___182940h))
 db	0ah,0,0,0
-___182944h:
+__GDECL(__CEXT_V(___182944h))
 db	"You don't have enough free XMS/EMS memory to run Death Rally. The DOS MEM",0ah,0,0
-___182990h:
+__GDECL(__CEXT_V(___182990h))
 db	"command should report 6,500K (or 6.7 megs) free extended or expanded memory.",0ah,0,0,0
-___1829e0h:
+__GDECL(__CEXT_V(___1829e0h))
 db	"Please consult DRHELP.EXE for more information on how to resolve this problem.",0ah,0
 __GDECL(__CEXT_V(___182a30h))
 db	0ah,"DEATH RALLY ERROR: File %s is not found!",0ah,0,0

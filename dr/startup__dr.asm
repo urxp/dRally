@@ -2,7 +2,7 @@
 	
 	extern 	__CHK	
 	extern 	__CEXT_F(loadcdromini__dr)	
-	extern 	chkmemory__dr	
+	extern 	__CEXT_F(chkmemory__dr)	
 	extern 	__CEXT_F(chkfiles__dr)	
 	extern 	___1a202fh	
 	extern 	___199fa0h	
@@ -77,11 +77,11 @@
 	extern 	___117f4h	
 	extern 	___1240ch	
 	extern 	___117c8h	
-	extern 	___24548h	
+	extern 	__CEXT_F(___24548h)	
 	extern 	___2faf0h	
 	extern 	___3d2bch	
 	extern 	___12940h	
-	extern 	___1a1ef8h	
+	extern 	__CEXT_V(___1a1ef8h)	
 	extern 	___1a020ch	
 	extern 	___1a0fb8h	
 	extern 	___11564h	
@@ -107,8 +107,8 @@
 	extern 	___19eb50h	
 	extern 	___19eb54h	
 	extern 	___19eb58h	
-	extern 	___1a10e4h	
-	extern 	___1a1124h	
+	extern 	__CEXT_V(___1a10e4h)	
+	extern 	__CEXT_V(___1a1124h)	
 	extern 	___3a7e0h	
 	extern 	__CEXT_F(___649a8h)	
 	extern 	___1a1ef4h	
@@ -136,7 +136,7 @@
 	extern 	__CEXT_V(___19bd60h)	
 	extern 	___180ba0h	
 	extern 	___186a6eh	
-	extern 	___1a1ef8h	
+	extern 	__CEXT_V(___1a1ef8h)	
 	extern 	___1a01e0h	
 	extern 	___180ca4h	
 	extern 	___23488h		
@@ -180,7 +180,7 @@ __GDECL(__CEXT_F(startup__dr))
 		mov     [esp+0ch], edx
 		mov     [esp+18h], ecx
 		call    __CEXT_F(loadcdromini__dr)
-		call    chkmemory__dr
+		call    __CEXT_F(chkmemory__dr)
 		call    __CEXT_F(chkfiles__dr)
 		mov     ecx, 13h
 		mov     eax, ___1a202fh
@@ -290,11 +290,11 @@ ___3e88bh:
 		call    ___117f4h
 		call    ___1240ch
 		call    ___117c8h
-		call    ___24548h
+		call    __CEXT_F(___24548h)
 		call    ___2faf0h
 		call    ___3d2bch
 		call    ___12940h
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -334,7 +334,7 @@ ___3e88bh:
 		and     cl, 3
 		rep movsb   
 		pop     edi
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -639,7 +639,7 @@ ___3ecf0h:
 		mov     ecx, 4b000h
 		mov     edi, [___VGABufferPtr_0]
 		mov     [___185a2ch], esi
-		mov     esi, [___1a1124h]
+		mov     esi, [__CEXT_V(___1a1124h)]
 		push    edi
 		mov     eax, ecx
 		shr     ecx, 2
@@ -650,8 +650,8 @@ ___3ecf0h:
 		pop     edi
 		mov     eax, [___VGABufferPtr_0]
 		mov     [VGABufferPtr_0], eax
-		mov     eax, [___1a10e4h]
-		mov     [___1a1124h], eax
+		mov     eax, [__CEXT_V(___1a10e4h)]
+		mov     [__CEXT_V(___1a1124h)], eax
 ___3edeah:
 		cmp     dword [esp+24h], byte 0
 		je      ___3ee31h
@@ -794,7 +794,7 @@ ___3efdch:
 		mov     edx, ___180ba0h
 		mov     eax, ___186a6eh			;; "Join An Existing Game"
 		call    __CEXT_F(strcmp__clib3r)
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		mov     ecx, eax
 		lea     eax, [edx*8+0]
 		sub     eax, edx
@@ -854,7 +854,7 @@ ___3f07eh:
 		mov     edx, 64h
 		call    ___23488h
 		mov     eax, [__CEXT_V(___180864h)]
-		mov     edx, [___1a1ef8h]
+		mov     edx, [__CEXT_V(___1a1ef8h)]
 		mov     [___1a1dbah], eax
 		lea     eax, [edx*8+0]
 		sub     eax, edx
