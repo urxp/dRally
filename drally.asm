@@ -70,6 +70,7 @@
     extern  ___7c9e2h__dma
 
     extern  __CEXT_F(___24548h)
+    extern  __CEXT_F(___17384h)
 
 
 ;; CLIB3R.LIB
@@ -85,7 +86,7 @@
     extern  __CEXT_F(__STOSB__clib3r)
     extern  __CEXT_F(__STOSD__clib3r)
     extern  filelength__clib3r
-    extern  memset__clib3r
+    extern  __CEXT_F(memset__clib3r)
     extern  tolower
     extern  raise
     extern  fgetc

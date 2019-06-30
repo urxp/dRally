@@ -10,7 +10,7 @@
     extern  ___24e4b0h
     extern  REGS0_EDX
     extern  ___24e4a8h
-    extern  memset__clib3r
+    extern  __CEXT_F(memset__clib3r)
     extern  outp
     extern  ___61bb8h
     extern  ___60a28h
@@ -89,12 +89,12 @@ install__serial:
 		add     eax, byte 4
 		mov     ebx, 1000h
 		xor     edx, edx
-		call    near memset__clib3r
+		call    near __CEXT_F(memset__clib3r)
 		mov     eax, [___24e4c4h]
 		add     eax, byte 4
 		mov     ebx, 1000h
 		xor     edx, edx
-		call    near memset__clib3r
+		call    near __CEXT_F(memset__clib3r)
 		mov     eax, [esp]
 		inc     eax
 		xor     edx, edx

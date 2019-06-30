@@ -5,7 +5,7 @@
     extern  __Envptr
     extern  __CEXT_F(malloc__clib3r)
     extern  ___env_mask
-    extern  memset__clib3r
+    extern  __CEXT_F(memset__clib3r)
     extern  __CEXT_F(free__clib3r)
 
 %include "layout.inc"
@@ -96,7 +96,7 @@ ___6ec14h:
 		mov     [___env_mask], edx
 		mov     eax, edx
 		xor     edx, edx
-		call    memset__clib3r
+		call    __CEXT_F(memset__clib3r)
 		jmp     ___6ec40h
 ___6ec39h:
 		mov     eax, edx

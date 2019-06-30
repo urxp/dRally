@@ -13,7 +13,7 @@
     extern  ___24f23ch
     extern  ___71ab0h
     extern  ___24e9a4h
-    extern  memset__clib3r
+    extern  __CEXT_F(memset__clib3r)
     extern  ___24f27ch
     extern  ___24e9b0h
     extern  ___24f19ch
@@ -291,7 +291,7 @@ ___71e2ah:
 		mov     edx, ecx
 		mov     ebx, edi
 		add     eax, esi
-		call    memset__clib3r
+		call    __CEXT_F(memset__clib3r)
 		inc     dword [esp+8]
 		cmp     dword [esp+8], byte 20h
 		jl      ___71e2ah
@@ -389,7 +389,7 @@ ___71ff6h:
 		mov     edx, ecx
 		add     eax, ___24ea7ch
 		mov     ebx, esi
-		call    memset__clib3r
+		call    __CEXT_F(memset__clib3r)
 		mov     eax, [esp+8]
 		mov     [NoSplit eax*2+___688d0h], di
 		mov     eax, [esp+8]
@@ -680,7 +680,7 @@ ___724c1h:
 		mov     ebx, 22h
 		xor     edx, edx
 		add     eax, ___24ea7ch
-		call    memset__clib3r
+		call    __CEXT_F(memset__clib3r)
 		mov     eax, [esp+8]
 		mov     ax, [NoSplit eax*2+___24f23ch]
 		and     eax, 0ffffh
@@ -800,7 +800,7 @@ ___7269bh:
 		mov     ebx, 22h
 		xor     edx, edx
 		add     eax, ___24ea7ch
-		call    memset__clib3r
+		call    __CEXT_F(memset__clib3r)
 		mov     eax, [esp+8]
 		mov     ax, [NoSplit eax*2+___24f23ch]
 		and     eax, 0ffffh
@@ -939,7 +939,7 @@ ___7280dh:
 		xor     edx, edx
 		mov     ebx, 22h
 		add     eax, ___24ea7ch
-		call    memset__clib3r
+		call    __CEXT_F(memset__clib3r)
 ___728f8h:
 		mov     edi, [esp+4]
 		test    edi, edi
@@ -984,7 +984,7 @@ ___72969h:
 		mov     ebx, 22h
 		xor     edx, edx
 		add     eax, ___24ea7ch
-		call    memset__clib3r
+		call    __CEXT_F(memset__clib3r)
 ___729b5h:
 		cmp     dword [esp+4], byte 0
 		je      ___72b15h
@@ -1062,7 +1062,7 @@ ___72a7fh:
 		mov     ebx, 22h
 		add     eax, ___24ea7ch
 		xor     edx, edx
-		call    memset__clib3r
+		call    __CEXT_F(memset__clib3r)
 ___72b15h:
 		mov     al, [esp+0ch]
 		cmp     al, 10h
@@ -1601,7 +1601,7 @@ ___7324bh:
 		mov     ebx, 22h
 		xor     edx, edx
 		add     eax, ___24ea7ch
-		call    memset__clib3r
+		call    __CEXT_F(memset__clib3r)
 		xor     eax, eax
 		mov     al, cl
 		imul    edx, [esp+8], byte 22h
@@ -2834,7 +2834,7 @@ ___743b2h:
 		imul    eax, [esp+8], byte 22h
 		mov     esi, ___24ea7ch
 		add     eax, esi
-		call    memset__clib3r
+		call    __CEXT_F(memset__clib3r)
 ___744cbh:
 		cmp     dword [esp+4], byte 0
 		je      ___7458ah
@@ -2879,7 +2879,7 @@ ___7453eh:
 		mov     ebx, 22h
 		add     eax, ___24ea7ch
 		xor     edx, edx
-		call    memset__clib3r
+		call    __CEXT_F(memset__clib3r)
 ___7458ah:
 		mov     ebx, [esp+4]
 		test    ebx, ebx
@@ -2960,7 +2960,7 @@ ___7465fh:
 		xor     edx, edx
 		mov     ebx, 22h
 		add     eax, ___24ea7ch
-		call    memset__clib3r
+		call    __CEXT_F(memset__clib3r)
 ___746ebh:
 		mov     eax, [esp+8]
 		mov     byte [eax+___24f13ch], 0ffh

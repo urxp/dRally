@@ -1,7 +1,7 @@
 %include "macros.inc"
 
     extern  __Extender
-	extern  memset__clib3r
+	extern  __CEXT_F(memset__clib3r)
 
 %include "layout.inc"
 
@@ -170,7 +170,7 @@ __GDECL(_RMInterrupt)
 		mov     ebx, 32h
 		lea     eax, [ebp-48h]
 		xor     edx, edx
-		call    near memset__clib3r
+		call    near __CEXT_F(memset__clib3r)
 		movsx   eax, di
 		mov     [ebp-2ch], eax
 		movsx   eax, si
@@ -197,7 +197,7 @@ ___7d5fah:
 		mov     ebx, 12h
 		lea     eax, [ebp-14h]
 		xor     edx, edx
-		call    near memset__clib3r
+		call    near __CEXT_F(memset__clib3r)
 		movsx   ecx, cx
 		mov     eax, [ebp-4ch]
 		lea     edx, [ebp-14h]
@@ -243,7 +243,7 @@ __GDECL(_RMInterrupt2)
 		lea     eax, [ebp-48h]
 		xor     edx, edx
 		lea     edi, [ebp-48h]
-		call    near memset__clib3r
+		call    near __CEXT_F(memset__clib3r)
 		movsx   eax, cx
 		xor     bh, bh
 		push    ds
@@ -261,7 +261,7 @@ ___7d698h:
 		mov     ebx, 12h
 		lea     eax, [ebp-14h]
 		xor     edx, edx
-		call    near memset__clib3r
+		call    near __CEXT_F(memset__clib3r)
 		mov     eax, [ebp-4ch]
 		lea     edx, [ebp-14h]
 		mov     [ebp-14h], ax

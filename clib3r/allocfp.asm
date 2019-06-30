@@ -4,7 +4,7 @@
     extern  ___iob
     extern  __CEXT_F(malloc__clib3r)
     extern  ___tmpfnext
-    extern  memset__clib3r
+    extern  __CEXT_F(memset__clib3r)
     extern  ___OpenStreams
     extern  __set_errno__clib3r
     extern  __CEXT_F(free__clib3r)
@@ -58,7 +58,7 @@ ___674b1h:
 		mov     ebx, 1ah
 		mov     eax, ecx
 		xor     edx, edx
-		call    memset__clib3r
+		call    __CEXT_F(memset__clib3r)
 		mov     [ecx+0ch], edi
 		mov     eax, [___OpenStreams]
 		mov     [esi+4], ecx

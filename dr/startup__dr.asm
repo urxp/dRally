@@ -63,7 +63,7 @@
 	extern 	___2b318h	
 	extern 	___5e0f9h	
 	extern 	___VGABufferPtr_0	
-	extern 	VGABufferPtr_0	
+	extern 	__CEXT_V(VGABufferPtr_0)	
 	extern 	___146c4h	
 	extern 	__CEXT_V(STRING_CONTINUE)		
 	extern 	lastScanCode__keyboard	
@@ -119,14 +119,14 @@
 	extern 	___182db8h	
 	extern 	Font0Props	
 	extern 	WhiteFont0Ptr	
-	extern 	renderTextToBuffer__video	
-	extern 	___185ba9h	
+	extern 	__CEXT_F(renderTextToBuffer__video)	
+	extern 	__CEXT_V(___185ba9h)	
 	extern 	___1a10cch	
 	extern 	updateScreen_TBD		
 	extern 	___1854bch	
 	extern 	playSFX__sound	
 	extern 	nullScanCode__keyboard	
-	extern 	delay_TBD	
+	extern 	__CEXT_F(delay_TBD)	
 	extern 	startRacingMenu__dr	
 	extern 	multiplayerRaceMenu__dr	
 	extern 	configureMenu__dr	
@@ -325,7 +325,7 @@ ___3e88bh:
 		mov     ecx, 4b000h
 		call    ___11564h
 		mov     esi, [GXBackBuffer]
-		mov     edi, [VGABufferPtr_0]
+		mov     edi, [__CEXT_V(VGABufferPtr_0)]
 		push    edi
 		mov     eax, ecx
 		shr     ecx, 2
@@ -541,7 +541,7 @@ ___3eba1h:
 ___3ec59h:
 		mov     ecx, 2c380h
 		mov     esi, [GXBackBuffer]
-		mov     edi, [VGABufferPtr_0]
+		mov     edi, [__CEXT_V(VGABufferPtr_0)]
 		add     esi, 0d200h
 		add     edi, 0d200h
 		mov     edx, 1
@@ -649,7 +649,7 @@ ___3ecf0h:
 		rep movsb   
 		pop     edi
 		mov     eax, [___VGABufferPtr_0]
-		mov     [VGABufferPtr_0], eax
+		mov     [__CEXT_V(VGABufferPtr_0)], eax
 		mov     eax, [__CEXT_V(___1a10e4h)]
 		mov     [__CEXT_V(___1a1124h)], eax
 ___3edeah:
@@ -659,7 +659,7 @@ ___3edeah:
 		test    ebx, ebx
 		jne     ___3ee31h
 		mov     eax, [___VGABufferPtr_0]
-		mov     [VGABufferPtr_0], eax
+		mov     [__CEXT_V(VGABufferPtr_0)], eax
 		mov     eax, 0ffffffffh
 		call    ___3a7e0h
 		call    __CEXT_F(___649a8h)
@@ -696,12 +696,12 @@ ___3ee3fh:
 		mov     ebx, ___182db8h			;; " ... insert cd-rom"
 		mov     edx, Font0Props
 		mov     eax, [WhiteFont0Ptr]
-		call    renderTextToBuffer__video
+		call    __CEXT_F(renderTextToBuffer__video)
 		mov     ecx, [esp+14h]
 		mov     ebx, __CEXT_V(STRING_CONTINUE)			;; "CONTINUE"
-		mov     edx, ___185ba9h
+		mov     edx, __CEXT_V(___185ba9h)
 		mov     eax, [___1a10cch]
-		call    renderTextToBuffer__video
+		call    __CEXT_F(renderTextToBuffer__video)
 		mov     edx, [esp+4]
 		mov     eax, ebp
 		call    updateScreen_TBD
@@ -728,8 +728,8 @@ ___3ee3fh:
 		mov     bl, al
 		mov     edx, [esp+4]
 		mov     bh, al
-		call    delay_TBD
-		call    delay_TBD
+		call    __CEXT_F(delay_TBD)
+		call    __CEXT_F(delay_TBD)
 		mov     eax, ebp
 		call    updateScreen_TBD
 		cmp     bl, 1				;; KEY_ESC
@@ -779,7 +779,7 @@ ___3ee3fh:
 		mov     ebx, ___182de4h			;; "Are you sure?"
 		mov     edx, Font0Props
 		mov     eax, [WhiteFont0Ptr]
-		call    renderTextToBuffer__video
+		call    __CEXT_F(renderTextToBuffer__video)
 		lea     ecx, [esp+0ch]
 		mov     ebx, 1
 		mov     edx, 0eeh

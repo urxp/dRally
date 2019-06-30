@@ -1,6 +1,6 @@
 %include "macros.inc"
 
-    extern  memset__clib3r
+    extern  __CEXT_F(memset__clib3r)
     extern  __Nan_Inf
     extern  IF@LOG10
     extern  floor
@@ -210,7 +210,7 @@ ___7cb72h:
 ___7cb86h:
 		mov     edx, 20h
 		mov     eax, edi
-		call    memset__clib3r
+		call    __CEXT_F(memset__clib3r)
 ___7cb92h:
 		lea     esp, [ebp-0ch]
 		pop     edi
@@ -318,7 +318,7 @@ ___7cc6ah:
 		mov     edx, 2ah
 		mov     eax, [ebp-0ch]
 		mov     ebx, edi
-		call    memset__clib3r
+		call    __CEXT_F(memset__clib3r)
 		jmp     ___7cdcbh
 ___7cc7eh:
 		xor     eax, eax

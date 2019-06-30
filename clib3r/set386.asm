@@ -6,7 +6,7 @@
 
 section @text
 
-__GDECL(memset__clib3r)
+__GDECL(__CEXT_F(memset__clib3r))
 		push    eax
 		push    ecx
 		mov     dh, dl

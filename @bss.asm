@@ -478,6 +478,7 @@ __GDECL(__CEXT_V(___1a0190h))
     resb	4
 __GDECL(__CEXT_V(___1a0194h))
     resb	4
+__GDECL(__CEXT_V(tex_tires))
 __GDECL(__CEXT_V(___1a0198h))
     resb	4
 __GDECL(__CEXT_V(___1a019ch))
@@ -486,6 +487,7 @@ __GDECL(__CEXT_V(___1a01a0h))
     resb	4
 __GDECL(__CEXT_V(___1a01a4h))
     resb	4
+__GDECL(__CEXT_V(tex_engines))
 __GDECL(__CEXT_V(___1a01a8h))
     resb	4
 __GDECL(__CEXT_V(___1a01ach))
@@ -494,18 +496,20 @@ __GDECL(__CEXT_V(___1a01b0h))
     resb	4
 __GDECL(__CEXT_V(___1a01b4h))
     resb	4
-__GDECL(__CEXT_V(___1a01b8h))
+__GDECL(__CEXT_V(tex_cars))
+__GDECL(__CEXT_V(tex_kupla_p))
     resb	4
-__GDECL(__CEXT_V(___1a01bch))
+__GDECL(__CEXT_V(tex_pickup_p))
     resb	4
-__GDECL(__CEXT_V(___1a01c0h))
+__GDECL(__CEXT_V(tex_sedan_p))
     resb	4
-__GDECL(__CEXT_V(___1a01c4h))
+__GDECL(__CEXT_V(tex_camaro_p))
     resb	4
-__GDECL(__CEXT_V(___1a01c8h))
+__GDECL(__CEXT_V(tex_porsche_p))
     resb	4
-__GDECL(__CEXT_V(___1a01cch))
+__GDECL(__CEXT_V(tex_lotus_p))
     resb	4
+__GDECL(__CEXT_V(tex_armors))
 __GDECL(__CEXT_V(___1a01d0h))
     resb	4
 __GDECL(__CEXT_V(___1a01d4h))
@@ -676,7 +680,8 @@ ___1a10d0h:	resb	4
 ___1a10d4h:	resb	4
 ___1a10d8h:	resb	4
 ___1a10dch:	resb	4
-___1a10e0h:	resb	4
+__GDECL(__CEXT_V(___1a10e0h))
+    resb	4
 __GDECL(__CEXT_V(___1a10e4h))
     resb	4
 ___1a10e8h:	resb	4
@@ -701,7 +706,7 @@ ___1a1120h:	resb	4
 __GDECL(__CEXT_V(___1a1124h))
     resb	4
 ___1a1128h:	resb	4
-__GDECL(VGABufferPtr_0)
+__GDECL(__CEXT_V(VGABufferPtr_0))
     resb	4
 ___1a1130h:	resb	4
 ___1a1134h:	resb	4

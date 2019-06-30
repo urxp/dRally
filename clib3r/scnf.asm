@@ -1,7 +1,7 @@
 %include "macros.inc"
 
     extern  __IsTable
-    extern  memset__clib3r
+    extern  __CEXT_F(memset__clib3r)
     extern  ___EFG_scanf
     extern  __FDFS
     extern  tolower
@@ -642,7 +642,7 @@ makelist:
 		mov     ebx, 20h
 		mov     eax, esi
 		xor     edx, edx
-		call    memset__clib3r
+		call    __CEXT_F(memset__clib3r)
 		xor     eax, eax
 		mov     al, [ecx]
 		inc     ecx

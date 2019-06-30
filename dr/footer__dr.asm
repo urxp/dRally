@@ -2,12 +2,12 @@
 
 	extern 	__CHK
 	extern 	GXBackBuffer
-	extern 	VGABufferPtr_0
+	extern 	__CEXT_V(VGABufferPtr_0)
 	extern 	RowBoxBuffers
 	extern 	RowBox0Colors
 	extern 	Font0Props
 	extern 	WhiteFont0Ptr
-	extern 	renderTextToBuffer__video
+	extern 	__CEXT_F(renderTextToBuffer__video)
 	extern 	GreyFont0Ptr
 	extern 	LightBlueFont0Ptr
 
@@ -31,7 +31,7 @@ footer__dr:
 ___23245h:
 		mov     ecx, 280h
 		mov     esi, [GXBackBuffer]
-		mov     edi, [VGABufferPtr_0]
+		mov     edi, [__CEXT_V(VGABufferPtr_0)]
 		add     esi, ebp
 		add     edi, ebp
 		add     ebp, 280h
@@ -56,7 +56,7 @@ ___2328ah:
 		mov     eax, [WhiteFont0Ptr]
 		mov     ecx, esi
 		mov     ebx, edi
-		call    renderTextToBuffer__video
+		call    __CEXT_F(renderTextToBuffer__video)
 ___232a6h:
 		cmp     byte [ebp+RowBox0Colors], 1
 		jne     ___232c2h
@@ -64,7 +64,7 @@ ___232a6h:
 		mov     eax, [GreyFont0Ptr]
 		mov     ecx, esi
 		mov     ebx, edi
-		call    renderTextToBuffer__video
+		call    __CEXT_F(renderTextToBuffer__video)
 ___232c2h:
 		cmp     byte [ebp+RowBox0Colors], 2
 		jne     ___232deh
@@ -72,7 +72,7 @@ ___232c2h:
 		mov     eax, [LightBlueFont0Ptr]
 		mov     ecx, esi
 		mov     ebx, edi
-		call    renderTextToBuffer__video
+		call    __CEXT_F(renderTextToBuffer__video)
 ___232deh:
 		add     esi, 2580h
 		inc     ebp
