@@ -24609,10 +24609,10 @@ __GDECL(___2415ch)
 		xor     eax, eax
 ___241d8h:
 		add     eax, byte 6ch
-		mov     [eax+__CEXT_V(___1a01d4h)], edx
-		mov     [eax+__CEXT_V(___1a01d8h)], edx
-		mov     [eax+__CEXT_V(___1a01dch)], edx
-		mov     [eax+__CEXT_V(___1a01d0h)], edx
+		mov     [eax+__CEXT_V(bpk_armor2_p)], edx
+		mov     [eax+__CEXT_V(bpk_armor3_p)], edx
+		mov     [eax+__CEXT_V(bpk_armor4_p)], edx
+		mov     [eax+__CEXT_V(bpk_armor1_p)], edx
 		cmp     eax, dword 870h
 		jne     short ___241d8h
 		mov     ecx, 5
@@ -24680,7 +24680,7 @@ ___242afh:
 		fistp   dword [esp+0f0h]
 		mov     eax, [esp+0f0h]
 		mov     ebx, [esp+0fch]
-		mov     [edx+__CEXT_V(tex_kupla_p)], eax
+		mov     [edx+__CEXT_V(bpk_kupla_p)], eax
 		mov     eax, [esp+0f8h]
 		dec     ebx
 		inc     eax
@@ -24865,41 +24865,41 @@ __GDECL(__CEXT_F(___24ec0h))
 		call    near ___3f77ch
 		mov     eax, [__CEXT_V(___1a0194h)]
 		call    near ___3f77ch
-		mov     eax, [__CEXT_V(tex_kupla_p)]
+		mov     eax, [__CEXT_V(bpk_kupla_p)]
 		call    near ___3f77ch
-		mov     eax, [__CEXT_V(tex_pickup_p)]
+		mov     eax, [__CEXT_V(bpk_pickup_p)]
 		call    near ___3f77ch
-		mov     eax, [__CEXT_V(tex_sedan_p)]
+		mov     eax, [__CEXT_V(bpk_sedan_p)]
 		call    near ___3f77ch
-		mov     eax, [__CEXT_V(tex_camaro_p)]
+		mov     eax, [__CEXT_V(bpk_camaro_p)]
 		call    near ___3f77ch
-		mov     eax, [__CEXT_V(tex_porsche_p)]
+		mov     eax, [__CEXT_V(bpk_porsche_p)]
 		call    near ___3f77ch
-		mov     eax, [__CEXT_V(tex_lotus_p)]
+		mov     eax, [__CEXT_V(bpk_lotus_p)]
 		call    near ___3f77ch
-		mov     eax, [__CEXT_V(___1a01a8h)]
+		mov     eax, [__CEXT_V(bpk_engi1_p)]
 		call    near ___3f77ch
-		mov     eax, [__CEXT_V(___1a01ach)]
+		mov     eax, [__CEXT_V(bpk_engi2_p)]
 		call    near ___3f77ch
-		mov     eax, [__CEXT_V(___1a01b0h)]
+		mov     eax, [__CEXT_V(bpk_engi3_p)]
 		call    near ___3f77ch
-		mov     eax, [__CEXT_V(___1a01b4h)]
+		mov     eax, [__CEXT_V(bpk_engi4_p)]
 		call    near ___3f77ch
-		mov     eax, [__CEXT_V(___1a0198h)]
+		mov     eax, [__CEXT_V(bpk_tire1_p)]
 		call    near ___3f77ch
-		mov     eax, [__CEXT_V(___1a019ch)]
+		mov     eax, [__CEXT_V(bpk_tire2_p)]
 		call    near ___3f77ch
-		mov     eax, [__CEXT_V(___1a01a0h)]
+		mov     eax, [__CEXT_V(bpk_tire3_p)]
 		call    near ___3f77ch
-		mov     eax, [__CEXT_V(___1a01a4h)]
+		mov     eax, [__CEXT_V(bpk_tire4_p)]
 		call    near ___3f77ch
-		mov     eax, [__CEXT_V(___1a01d0h)]
+		mov     eax, [__CEXT_V(bpk_armor1_p)]
 		call    near ___3f77ch
-		mov     eax, [__CEXT_V(___1a01d4h)]
+		mov     eax, [__CEXT_V(bpk_armor2_p)]
 		call    near ___3f77ch
-		mov     eax, [__CEXT_V(___1a01d8h)]
+		mov     eax, [__CEXT_V(bpk_armor3_p)]
 		call    near ___3f77ch
-		mov     eax, [__CEXT_V(___1a01dch)]
+		mov     eax, [__CEXT_V(bpk_armor4_p)]
 		call    near ___3f77ch
 		mov     eax, [__CEXT_V(___1a1e8ch)]
 		call    near ___3f77ch
@@ -25773,65 +25773,6 @@ ___259c6h:
 		pop     ecx
 		pop     ebx
 		retn    
-__GDECL(__CEXT_F(___259e0h))
-		push    1ch
-		call    near __CHK
-		push    esi
-		push    edi
-		push    ebp
-		sub     esp, byte 4
-		mov     [esp], eax
-		mov     edi, edx
-		mov     esi, ebx
-		xor     eax, eax
-		xor     ebx, ebx
-		test    esi, esi
-		jle     short ___25a0fh
-		mov     edx, [esp+14h]
-___25a03h:
-		mov     ebp, [edx]
-		add     edx, byte 4
-		inc     eax
-		add     ebx, ebp
-		cmp     eax, esi
-		jl      short ___25a03h
-___25a0fh:
-		add     ebx, ecx
-		push    ebx
-		mov     eax, [__CEXT_V(___1a1e7ch)]
-		push    eax
-		call    near __CEXT_F(decode2__bpk)
-		mov     ebx, [esp]
-		lea     eax, [edi*4+0]
-		mov     ecx, 40h
-		add     eax, edi
-		mov     edx, [__CEXT_V(VGABufferPtr_0)]
-		shl     eax, 7
-		mov     esi, [__CEXT_V(___1a1e7ch)]
-		add     eax, edx
-		mov     edx, 60h
-		add     ebx, eax
-		shr     dl, 2
-___25a49h:
-		mov     ch, dl
-___25a4bh:
-		mov     eax, [esi]
-		mov     [ebx], eax
-		add     ebx, byte 4
-		add     esi, byte 4
-		dec     ch
-		jne     short ___25a4bh
-		add     ebx, 280h
-		shl     dl, 2
-		sub     ebx, edx
-		shr     dl, 2
-		dec     cl
-		jne     short ___25a49h
-		add     esp, byte 4
-		pop     ebp
-		pop     edi
-		pop     esi
-		ret     4
 ___25a74h:
 		push    44h
 		call    near __CHK
@@ -25895,9 +25836,9 @@ ___25af9h:
 		add     eax, __CEXT_V(___185cbch)
 		mov     ebx, [__CEXT_V(___1a1ed0h)]
 		push    eax
-		mov     ecx, [ecx*4+__CEXT_V(tex_cars)]
+		mov     ecx, [ecx*4+__CEXT_V(bpk_cars)]
 		mov     eax, 10h
-		call    near __CEXT_F(___259e0h)
+		call    near __CEXT_F(carAnimFrame)
 		mov     edx, [__CEXT_V(___1a1ee4h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
@@ -26161,11 +26102,11 @@ ___25e70h:
 		shl     eax, 5
 		mov     edx, 10dh
 		add     eax, ___1862bch
-		mov     ecx, [ebx*4+__CEXT_V(tex_engines)]
+		mov     ecx, [ebx*4+__CEXT_V(bpk_engines)]
 		push    eax
 		mov     ebx, [__CEXT_V(___1a1ec8h)]
 		mov     eax, 10h
-		call    near __CEXT_F(___259e0h)
+		call    near __CEXT_F(carAnimFrame)
 		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     ebx, [edx*8+0]
 		sub     ebx, edx
@@ -26481,11 +26422,11 @@ ___262e4h:
 		shl     eax, 4
 		mov     edx, 10dh
 		add     eax, ___18643ch
-		mov     ecx, [ebx*4+__CEXT_V(tex_tires)]
+		mov     ecx, [ebx*4+__CEXT_V(bpk_tires)]
 		push    eax
 		mov     ebx, [__CEXT_V(___1a1ec0h)]
 		mov     eax, 78h
-		call    near __CEXT_F(___259e0h)
+		call    near __CEXT_F(carAnimFrame)
 		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     ebx, [edx*8+0]
 		sub     ebx, edx
@@ -26737,11 +26678,11 @@ ___26680h:
 		shl     eax, 6
 		mov     edx, 10dh
 		add     eax, ___1864fch
-		mov     ecx, [ebx*4+__CEXT_V(tex_armors)]
+		mov     ecx, [ebx*4+__CEXT_V(bpk_armors)]
 		push    eax
 		mov     ebx, [__CEXT_V(___1a1eech)]
 		mov     eax, 0e0h
-		call    near __CEXT_F(___259e0h)
+		call    near __CEXT_F(carAnimFrame)
 		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     ebx, [edx*8+0]
 		sub     ebx, edx
@@ -26979,7 +26920,7 @@ ___26a15h:
 		mov     eax, 148h
 		mov     ecx, [__CEXT_V(___1a1e8ch)]
 		mov     ebx, [___1a1ed8h]
-		call    near __CEXT_F(___259e0h)
+		call    near __CEXT_F(carAnimFrame)
 		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
@@ -27349,7 +27290,7 @@ ___26f7fh:
 		mov     eax, 1b0h
 		mov     ecx, [__CEXT_V(___1a1ea0h)]
 		mov     ebx, [__CEXT_V(___1a1ee8h)]
-		call    near __CEXT_F(___259e0h)
+		call    near __CEXT_F(carAnimFrame)
 		pop     esi
 		pop     edx
 		pop     ecx
@@ -27475,9 +27416,9 @@ ___270fdh:
 		add     eax, __CEXT_V(___185cbch)
 		mov     ebx, [__CEXT_V(___1a1ed0h)]
 		push    eax
-		mov     ecx, [ecx*4+__CEXT_V(tex_cars)]
+		mov     ecx, [ecx*4+__CEXT_V(bpk_cars)]
 		mov     eax, 10h
-		call    near __CEXT_F(___259e0h)
+		call    near __CEXT_F(carAnimFrame)
 		mov     edx, [__CEXT_V(___1a1ee4h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
@@ -27742,11 +27683,11 @@ ___274bdh:
 		shl     eax, 5
 		mov     edx, 10dh
 		add     eax, ___1862bch
-		mov     ecx, [ebx*4+__CEXT_V(tex_engines)]
+		mov     ecx, [ebx*4+__CEXT_V(bpk_engines)]
 		push    eax
 		mov     ebx, [__CEXT_V(___1a1ec8h)]
 		mov     eax, 10h
-		call    near __CEXT_F(___259e0h)
+		call    near __CEXT_F(carAnimFrame)
 		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     ebx, [edx*8+0]
 		sub     ebx, edx
@@ -27971,11 +27912,11 @@ ___277ddh:
 		shl     eax, 4
 		mov     edx, 10dh
 		add     eax, ___18643ch
-		mov     ecx, [ebx*4+__CEXT_V(tex_tires)]
+		mov     ecx, [ebx*4+__CEXT_V(bpk_tires)]
 		push    eax
 		mov     ebx, [__CEXT_V(___1a1ec0h)]
 		mov     eax, 78h
-		call    near __CEXT_F(___259e0h)
+		call    near __CEXT_F(carAnimFrame)
 		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     ebx, [edx*8+0]
 		sub     ebx, edx
@@ -28199,11 +28140,11 @@ ___27afbh:
 		shl     eax, 6
 		mov     edx, 10dh
 		add     eax, ___1864fch
-		mov     ecx, [ebx*4+__CEXT_V(tex_armors)]
+		mov     ecx, [ebx*4+__CEXT_V(bpk_armors)]
 		push    eax
 		mov     ebx, [__CEXT_V(___1a1eech)]
 		mov     eax, 0e0h
-		call    near __CEXT_F(___259e0h)
+		call    near __CEXT_F(carAnimFrame)
 		mov     edx, [__CEXT_V(___1a1ef8h)]
 		lea     ebx, [edx*8+0]
 		sub     ebx, edx
@@ -29012,9 +28953,9 @@ ___28470h:
 		add     ebx, __CEXT_V(___185cbch)
 		mov     eax, 10h
 		push    ebx
-		mov     ecx, [ecx*4+__CEXT_V(tex_cars)]
+		mov     ecx, [ecx*4+__CEXT_V(bpk_cars)]
 		mov     ebx, [__CEXT_V(___1a1ed0h)]
-		call    near __CEXT_F(___259e0h)
+		call    near __CEXT_F(carAnimFrame)
 		mov     edx, [__CEXT_V(___1a1ed0h)]
 		inc     edx
 		mov     [__CEXT_V(___1a1ed0h)], edx
@@ -29032,9 +28973,9 @@ ___284d6h:
 		add     ebx, __CEXT_V(___185cbch)
 		mov     eax, 10h
 		push    ebx
-		mov     ecx, [ecx*4+__CEXT_V(tex_cars)]
+		mov     ecx, [ecx*4+__CEXT_V(bpk_cars)]
 		mov     ebx, [__CEXT_V(___1a1ed0h)]
-		call    near __CEXT_F(___259e0h)
+		call    near __CEXT_F(carAnimFrame)
 		mov     esi, [__CEXT_V(___1a1ed0h)]
 		inc     esi
 		mov     [__CEXT_V(___1a1ed0h)], esi
@@ -29052,9 +28993,9 @@ ___2852ch:
 		add     ebx, __CEXT_V(___185cbch)
 		mov     eax, 10h
 		push    ebx
-		mov     ecx, [ecx*4+__CEXT_V(tex_cars)]
+		mov     ecx, [ecx*4+__CEXT_V(bpk_cars)]
 		mov     ebx, [__CEXT_V(___1a1ed0h)]
-		call    near __CEXT_F(___259e0h)
+		call    near __CEXT_F(carAnimFrame)
 		mov     eax, [__CEXT_V(___1a1ed0h)]
 		inc     eax
 		mov     [__CEXT_V(___1a1ed0h)], eax
@@ -29072,9 +29013,9 @@ ___28580h:
 		add     ebx, __CEXT_V(___185cbch)
 		mov     eax, 10h
 		push    ebx
-		mov     ecx, [ecx*4+__CEXT_V(tex_cars)]
+		mov     ecx, [ecx*4+__CEXT_V(bpk_cars)]
 		mov     ebx, [__CEXT_V(___1a1ed0h)]
-		call    near __CEXT_F(___259e0h)
+		call    near __CEXT_F(carAnimFrame)
 		mov     ecx, [__CEXT_V(___1a1ed0h)]
 		inc     ecx
 		mov     [__CEXT_V(___1a1ed0h)], ecx
@@ -30281,9 +30222,9 @@ ___29410h:
 		add     eax, __CEXT_V(___185cbch)
 		mov     ebx, [__CEXT_V(___1a1ed0h)]
 		push    eax
-		mov     ecx, [ecx*4+__CEXT_V(tex_cars)]
+		mov     ecx, [ecx*4+__CEXT_V(bpk_cars)]
 		mov     eax, 10h
-		call    near __CEXT_F(___259e0h)
+		call    near __CEXT_F(carAnimFrame)
 		mov     ecx, 40h
 		mov     ebx, 60h
 		mov     edx, [__CEXT_V(VGABufferPtr_0)]
@@ -30743,9 +30684,9 @@ ___29a79h:
 		add     eax, __CEXT_V(___185cbch)
 		mov     ebx, [__CEXT_V(___1a1ed0h)]
 		push    eax
-		mov     ecx, [ecx*4+__CEXT_V(tex_cars)]
+		mov     ecx, [ecx*4+__CEXT_V(bpk_cars)]
 		mov     eax, 10h
-		call    near __CEXT_F(___259e0h)
+		call    near __CEXT_F(carAnimFrame)
 		mov     ecx, 40h
 		mov     ebx, 60h
 		mov     edx, [__CEXT_V(VGABufferPtr_0)]
@@ -33275,7 +33216,7 @@ ___2bd20h:
 		mov     eax, 1b0h
 		mov     ecx, [__CEXT_V(___1a1ea0h)]
 		mov     ebx, [__CEXT_V(___1a1ee8h)]
-		call    near __CEXT_F(___259e0h)
+		call    near __CEXT_F(carAnimFrame)
 		mov     ecx, 40h
 		mov     ebx, 60h
 		mov     edx, [__CEXT_V(VGABufferPtr_0)]
@@ -33843,9 +33784,9 @@ ___2c6c4h:
 		add     eax, __CEXT_V(___185cbch)
 		mov     ebx, [__CEXT_V(___1a1ed0h)]
 		push    eax
-		mov     ecx, [ecx*4+__CEXT_V(tex_cars)]
+		mov     ecx, [ecx*4+__CEXT_V(bpk_cars)]
 		mov     eax, 10h
-		call    near __CEXT_F(___259e0h)
+		call    near __CEXT_F(carAnimFrame)
 		mov     ecx, 40h
 		mov     ebx, 60h
 		mov     edx, [__CEXT_V(VGABufferPtr_0)]
@@ -33874,11 +33815,11 @@ ___2c74ah:
 		imul    edx, eax, byte 60h
 		mov     ebx, [__CEXT_V(___1a1ec8h)]
 		add     edx, ___1862bch
-		mov     ecx, [eax*4+__CEXT_V(tex_engines)]
+		mov     ecx, [eax*4+__CEXT_V(bpk_engines)]
 		push    edx
 		mov     eax, 10h
 		mov     edx, 10dh
-		call    near __CEXT_F(___259e0h)
+		call    near __CEXT_F(carAnimFrame)
 		mov     ecx, 40h
 		mov     ebx, 60h
 		mov     edx, [__CEXT_V(VGABufferPtr_0)]
@@ -33907,11 +33848,11 @@ ___2c7e5h:
 		imul    edx, eax, byte 30h
 		mov     ebx, [__CEXT_V(___1a1ec0h)]
 		add     edx, ___18643ch
-		mov     ecx, [eax*4+__CEXT_V(tex_tires)]
+		mov     ecx, [eax*4+__CEXT_V(bpk_tires)]
 		push    edx
 		mov     eax, 78h
 		mov     edx, 10dh
-		call    near __CEXT_F(___259e0h)
+		call    near __CEXT_F(carAnimFrame)
 		mov     ecx, 40h
 		mov     ebx, 60h
 		mov     edx, [__CEXT_V(VGABufferPtr_0)]
@@ -33941,11 +33882,11 @@ ___2c880h:
 		shl     edx, 6
 		mov     ebx, [__CEXT_V(___1a1eech)]
 		add     edx, ___1864fch
-		mov     ecx, [eax*4+__CEXT_V(tex_armors)]
+		mov     ecx, [eax*4+__CEXT_V(bpk_armors)]
 		push    edx
 		mov     eax, 0e0h
 		mov     edx, 10dh
-		call    near __CEXT_F(___259e0h)
+		call    near __CEXT_F(carAnimFrame)
 		mov     ecx, 40h
 		mov     ebx, 60h
 		mov     edx, [__CEXT_V(VGABufferPtr_0)]
@@ -33981,7 +33922,7 @@ ___2c947h:
 		mov     eax, 148h
 		mov     ecx, [__CEXT_V(___1a1e8ch)]
 		mov     ebx, [___1a1ed8h]
-		call    near __CEXT_F(___259e0h)
+		call    near __CEXT_F(carAnimFrame)
 		mov     ecx, 40h
 		mov     ebx, 60h
 		mov     edx, [__CEXT_V(VGABufferPtr_0)]
@@ -34002,7 +33943,7 @@ ___2c9a2h:
 		mov     eax, 1b0h
 		mov     ecx, [__CEXT_V(___1a1ea0h)]
 		mov     ebx, [__CEXT_V(___1a1ee8h)]
-		call    near __CEXT_F(___259e0h)
+		call    near __CEXT_F(carAnimFrame)
 		mov     ecx, 40h
 		mov     ebx, 60h
 		mov     edx, [__CEXT_V(VGABufferPtr_0)]
@@ -35548,7 +35489,7 @@ ___2ddf4h:
 		mov     eax, 1b0h
 		mov     ecx, [__CEXT_V(___1a1ea0h)]
 		mov     ebx, [__CEXT_V(___1a1ee8h)]
-		call    near __CEXT_F(___259e0h)
+		call    near __CEXT_F(carAnimFrame)
 		pop     esi
 		pop     edx
 		pop     ecx
@@ -36783,7 +36724,7 @@ ___2ef02h:
 		mov     eax, 1b0h
 		mov     ecx, [__CEXT_V(___1a1ea0h)]
 		mov     ebx, [__CEXT_V(___1a1ee8h)]
-		call    near __CEXT_F(___259e0h)
+		call    near __CEXT_F(carAnimFrame)
 		mov     ecx, 40h
 		mov     ebx, 60h
 		mov     edx, [__CEXT_V(VGABufferPtr_0)]
@@ -36940,7 +36881,7 @@ ___2f13fh:
 		mov     eax, 1b0h
 		mov     ecx, [__CEXT_V(___1a1ea0h)]
 		mov     ebx, [__CEXT_V(___1a1ee8h)]
-		call    near __CEXT_F(___259e0h)
+		call    near __CEXT_F(carAnimFrame)
 		mov     ecx, 40h
 		mov     ebx, 60h
 		mov     edx, [__CEXT_V(VGABufferPtr_0)]
@@ -37133,7 +37074,7 @@ ___2f442h:
 		mov     eax, 1b0h
 		mov     ecx, [__CEXT_V(___1a1ea0h)]
 		mov     ebx, [__CEXT_V(___1a1ee8h)]
-		call    near __CEXT_F(___259e0h)
+		call    near __CEXT_F(carAnimFrame)
 		mov     ecx, 40h
 		mov     ebx, 60h
 		mov     edx, [__CEXT_V(VGABufferPtr_0)]
@@ -37466,7 +37407,7 @@ ___2f8fdh:
 		mov     eax, 1b0h
 		mov     ecx, [__CEXT_V(___1a1ea0h)]
 		mov     ebx, [__CEXT_V(___1a1ee8h)]
-		call    near __CEXT_F(___259e0h)
+		call    near __CEXT_F(carAnimFrame)
 		mov     ecx, 40h
 		mov     ebx, 60h
 		mov     edx, [__CEXT_V(VGABufferPtr_0)]
@@ -43663,10 +43604,10 @@ ___3484ch:
 		mov     [___243d44h], edi
 ___34858h:
 		add     eax, byte 6ch
-		mov     [eax+__CEXT_V(___1a01d4h)], edx
-		mov     [eax+__CEXT_V(___1a01d8h)], edx
-		mov     [eax+__CEXT_V(___1a01dch)], edx
-		mov     [eax+__CEXT_V(___1a01d0h)], edx
+		mov     [eax+__CEXT_V(bpk_armor2_p)], edx
+		mov     [eax+__CEXT_V(bpk_armor3_p)], edx
+		mov     [eax+__CEXT_V(bpk_armor4_p)], edx
+		mov     [eax+__CEXT_V(bpk_armor1_p)], edx
 		cmp     eax, dword 870h
 		jne     short ___34858h
 		mov     eax, 14h
@@ -51766,11 +51707,11 @@ ___3aecbh:
 		add     esi, byte 50h
 		call    near ___12f60h
 		push    __CEXT_V(___185cbch)
-		mov     ecx, [__CEXT_V(tex_kupla_p)]
+		mov     ecx, [__CEXT_V(bpk_kupla_p)]
 		mov     ebx, [__CEXT_V(___1a1ed0h)]
 		lea     eax, [ebp+1a0h]
 		mov     edx, esi
-		call    near __CEXT_F(___259e0h)
+		call    near __CEXT_F(carAnimFrame)
 		lea     eax, [esi*4+0]
 		add     eax, esi
 		mov     edx, [__CEXT_V(VGABufferPtr_0)]
@@ -52118,11 +52059,11 @@ ___3b340h:
 		add     esi, byte 50h
 		call    near ___12f60h
 		push    __CEXT_V(___185cbch)
-		mov     ecx, [__CEXT_V(tex_kupla_p)]
+		mov     ecx, [__CEXT_V(bpk_kupla_p)]
 		mov     ebx, [__CEXT_V(___1a1ed0h)]
 		lea     eax, [ebp+1a0h]
 		mov     edx, esi
-		call    near __CEXT_F(___259e0h)
+		call    near __CEXT_F(carAnimFrame)
 		lea     eax, [esi*4+0]
 		add     eax, esi
 		mov     edx, [__CEXT_V(VGABufferPtr_0)]

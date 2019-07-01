@@ -1,6 +1,11 @@
 #ifndef __X86_H
 #define __X86_H
 
+typedef unsigned char       byte;
+typedef unsigned short 	    word;
+typedef unsigned long       dword;
+typedef unsigned long long  qword;
+
 #define al 	(((byte *)&eax)[0])
 #define ah 	(((byte *)&eax)[1])
 #define ax 	(((word *)&eax)[0])
@@ -19,10 +24,9 @@
 #define B(b)	(*(byte *)(b))
 #define W(w)	(*(word *)(w))
 #define D(d)	(*(dword *)(d))
+#define Q(q)    (*(qword *)(q)) 
 
-typedef unsigned char   byte;
-typedef unsigned short 	word;
-typedef unsigned long   dword;
-
+#define PUSH(v)     esp -= 4; D(esp) = v
+#define POP(v)      v = D(esp); esp += 4
 
 #endif // __X86_H

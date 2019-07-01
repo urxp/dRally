@@ -5,7 +5,7 @@
     extern const char ___18072ch[];
     extern int ___196ae0h;
     extern byte ___185cbch[];
-    extern void * tex_kupla_p;
+    extern void * bpk_kupla_p;
     extern dword ___1a1ed0h;
     extern byte * VGABufferPtr_0;
     extern dword ___196ae4h;
@@ -14,7 +14,7 @@
     void delay_TBD(void);
     void memset__clib3r(void *, dword, dword);
     void ___1398ch(dword, void *, dword w, dword h);
-    void ___259e0h(dword, dword, dword, void *, void *);
+    void carAnimFrame(dword, dword, dword, void *, void *);
     void renderTextToBuffer__video(void *, byte *, const char *, dword);
 
 
@@ -52,7 +52,7 @@ void ___17384h(dword A0, dword A1, dword A2, dword A3, dword A4, dword A5){
 
 		if(A3){
 
-			___259e0h(A4 + 0x1a0, A5 + 0x50, ___1a1ed0h, tex_kupla_p, ___185cbch);
+			carAnimFrame(A4 + 0x1a0, A5 + 0x50, ___1a1ed0h, bpk_kupla_p, ___185cbch);
 
 			___1398ch(640*(A5 + 0x50) + A4 + 0x1a0, 640*(A5 + 0x50) + VGABufferPtr_0 + A4 + 0x1a0, 0x60, 0x40);
 

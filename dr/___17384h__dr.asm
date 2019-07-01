@@ -9,9 +9,9 @@
     extern  __CEXT_F(renderTextToBuffer__video)
     extern  __CEXT_V(___196ae0h)
     extern  __CEXT_V(___185cbch)
-    extern  __CEXT_V(tex_kupla_p)
+    extern  __CEXT_V(bpk_kupla_p)
     extern  __CEXT_V(___1a1ed0h)
-    extern  __CEXT_F(___259e0h)
+    extern  __CEXT_F(carAnimFrame)
     extern  __CEXT_V(VGABufferPtr_0)
     extern  __CEXT_F(___1398ch)
     extern  __CEXT_V(___196ae4h)
@@ -94,12 +94,12 @@ ___17431h:
 		push    __CEXT_V(___185cbch)
 		mov     esi, [esp+20h]
 		mov     eax, [esp+1ch]
-		mov     ecx, [__CEXT_V(tex_kupla_p)]
+		mov     ecx, [__CEXT_V(bpk_kupla_p)]
 		mov     ebx, [__CEXT_V(___1a1ed0h)]
 		add     esi, byte 50h
 		add     eax, 1a0h
 		mov     edx, esi
-		call    __CEXT_F(___259e0h)
+		call    __CEXT_F(carAnimFrame)
 		lea     eax, [esi*4+0]
 		add     eax, esi
 		mov     edx, [__CEXT_V(VGABufferPtr_0)]

@@ -71,6 +71,7 @@
 
     extern  __CEXT_F(___24548h)
     extern  __CEXT_F(___17384h)
+    extern  __CEXT_F(carAnimFrame)
 
 
 ;; CLIB3R.LIB

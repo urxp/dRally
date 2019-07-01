@@ -5,7 +5,7 @@
     extern byte ___18072ch[];
     extern byte ___196ae0h[];
     extern byte ___185cbch[];
-    extern byte tex_kupla_p[];
+    extern byte bpk_kupla_p[];
     extern byte ___1a1ed0h[];
     extern byte VGABufferPtr_0[];
     extern byte ___196ae4h[];
@@ -14,7 +14,7 @@
     void delay_TBD(void);
     void memset__clib3r(dword, dword, dword);
     void ___1398ch(dword, dword, dword, dword);
-    void ___259e0h(dword, dword, dword, dword, dword);
+    void carAnimFrame(dword, dword, dword, dword, dword);
     void renderTextToBuffer__video(dword, dword, dword, dword);
 
 
@@ -168,8 +168,8 @@ ___17431h:
 	esi = D(esp+0x20);
 //		mov     eax, [esp+1ch]
 	eax = D(esp+0x1c);
-//		mov     ecx, [__CEXT_V(tex_kupla_p)]
-	ecx = D(tex_kupla_p);
+//		mov     ecx, [__CEXT_V(bpk_kupla_p)]
+	ecx = D(bpk_kupla_p);
 //		mov     ebx, [__CEXT_V(___1a1ed0h)]
 	ebx = D(___1a1ed0h);
 //		add     esi, byte 50h
@@ -178,8 +178,8 @@ ___17431h:
 	eax += 0x1a0;
 //		mov     edx, esi
 	edx = esi;
-//		call    __CEXT_F(___259e0h)
-	___259e0h(eax, edx, ebx, ecx, D(esp));
+//		call    __CEXT_F(carAnimFrame)
+	carAnimFrame(eax, edx, ebx, ecx, D(esp));
 	esp += 4;
 //		lea     eax, [esi*4+0]
 	eax = 4*esi;

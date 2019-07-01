@@ -31,30 +31,30 @@
     extern  __CEXT_V(___1a1eb0h)
     extern  __CEXT_V(___1a1e78h)
     extern  __CEXT_V(___1a1eb8h)
-    extern  __CEXT_V(tex_kupla_p)
-    extern  __CEXT_V(tex_pickup_p)
-    extern  __CEXT_V(tex_sedan_p)
-    extern  __CEXT_V(tex_camaro_p)
-    extern  __CEXT_V(tex_porsche_p)
-    extern  __CEXT_V(tex_lotus_p)
+    extern  __CEXT_V(bpk_kupla_p)
+    extern  __CEXT_V(bpk_pickup_p)
+    extern  __CEXT_V(bpk_sedan_p)
+    extern  __CEXT_V(bpk_camaro_p)
+    extern  __CEXT_V(bpk_porsche_p)
+    extern  __CEXT_V(bpk_lotus_p)
     extern  __CEXT_V(___1a0180h)
     extern  __CEXT_V(___1a0184h)
     extern  __CEXT_V(___1a0188h)
     extern  __CEXT_V(___1a018ch)
     extern  __CEXT_V(___1a0190h)
     extern  __CEXT_V(___1a0194h)
-    extern  __CEXT_V(___1a01a8h)
-    extern  __CEXT_V(___1a01ach)
-    extern  __CEXT_V(___1a01b0h)
-    extern  __CEXT_V(___1a01b4h)
-    extern  __CEXT_V(___1a0198h)
-    extern  __CEXT_V(___1a019ch)
-    extern  __CEXT_V(___1a01a0h)
-    extern  __CEXT_V(___1a01a4h)
-    extern  __CEXT_V(___1a01d0h)
-    extern  __CEXT_V(___1a01d4h)
-    extern  __CEXT_V(___1a01d8h)
-    extern  __CEXT_V(___1a01dch)
+    extern  __CEXT_V(bpk_engi1_p)
+    extern  __CEXT_V(bpk_engi2_p)
+    extern  __CEXT_V(bpk_engi3_p)
+    extern  __CEXT_V(bpk_engi4_p)
+    extern  __CEXT_V(bpk_tire1_p)
+    extern  __CEXT_V(bpk_tire2_p)
+    extern  __CEXT_V(bpk_tire3_p)
+    extern  __CEXT_V(bpk_tire4_p)
+    extern  __CEXT_V(bpk_armor1_p)
+    extern  __CEXT_V(bpk_armor2_p)
+    extern  __CEXT_V(bpk_armor3_p)
+    extern  __CEXT_V(bpk_armor4_p)
     extern  __CEXT_V(___1a1e8ch)
     extern  __CEXT_V(___1a1ea0h)
     extern  __CEXT_V(___1a1e7ch)
@@ -193,22 +193,22 @@ ___245cbh:
 		mov     [__CEXT_V(___1a1eb8h)], eax
 		mov     eax, 1af00h
 		call    __CEXT_F(allocMemSafe)
-		mov     [__CEXT_V(tex_kupla_p)], eax
+		mov     [__CEXT_V(bpk_kupla_p)], eax
 		mov     eax, 1a77bh
 		call    __CEXT_F(allocMemSafe)
-		mov     [__CEXT_V(tex_pickup_p)], eax
+		mov     [__CEXT_V(bpk_pickup_p)], eax
 		mov     eax, 18f14h
 		call    __CEXT_F(allocMemSafe)
-		mov     [__CEXT_V(tex_sedan_p)], eax
+		mov     [__CEXT_V(bpk_sedan_p)], eax
 		mov     eax, 18f51h
 		call    __CEXT_F(allocMemSafe)
-		mov     [__CEXT_V(tex_camaro_p)], eax
+		mov     [__CEXT_V(bpk_camaro_p)], eax
 		mov     eax, 1a060h
 		call    __CEXT_F(allocMemSafe)
-		mov     [__CEXT_V(tex_porsche_p)], eax
+		mov     [__CEXT_V(bpk_porsche_p)], eax
 		mov     eax, 1bea2h
 		call    __CEXT_F(allocMemSafe)
-		mov     [__CEXT_V(tex_lotus_p)], eax
+		mov     [__CEXT_V(bpk_lotus_p)], eax
 		mov     eax, 1800h
 		call    __CEXT_F(allocMemSafe)
 		mov     [__CEXT_V(___1a0180h)], eax
@@ -229,40 +229,40 @@ ___245cbh:
 		mov     [__CEXT_V(___1a0194h)], eax
 		mov     eax, 0a235h
 		call    __CEXT_F(allocMemSafe)
-		mov     [__CEXT_V(___1a01a8h)], eax
+		mov     [__CEXT_V(bpk_engi1_p)], eax
 		mov     eax, 0ae36h
 		call    __CEXT_F(allocMemSafe)
-		mov     [__CEXT_V(___1a01ach)], eax
+		mov     [__CEXT_V(bpk_engi2_p)], eax
 		mov     eax, 0b413h
 		call    __CEXT_F(allocMemSafe)
-		mov     [__CEXT_V(___1a01b0h)], eax
+		mov     [__CEXT_V(bpk_engi3_p)], eax
 		mov     eax, 0d788h
 		call    __CEXT_F(allocMemSafe)
-		mov     [__CEXT_V(___1a01b4h)], eax
+		mov     [__CEXT_V(bpk_engi4_p)], eax
 		mov     eax, 511ch
 		call    __CEXT_F(allocMemSafe)
-		mov     [__CEXT_V(___1a0198h)], eax
+		mov     [__CEXT_V(bpk_tire1_p)], eax
 		mov     eax, 52b8h
 		call    __CEXT_F(allocMemSafe)
-		mov     [__CEXT_V(___1a019ch)], eax
+		mov     [__CEXT_V(bpk_tire2_p)], eax
 		mov     eax, 5724h
 		call    __CEXT_F(allocMemSafe)
-		mov     [__CEXT_V(___1a01a0h)], eax
+		mov     [__CEXT_V(bpk_tire3_p)], eax
 		mov     eax, 5f1eh
 		call    __CEXT_F(allocMemSafe)
-		mov     [__CEXT_V(___1a01a4h)], eax
+		mov     [__CEXT_V(bpk_tire4_p)], eax
 		mov     eax, 5ffbh
 		call    __CEXT_F(allocMemSafe)
-		mov     [__CEXT_V(___1a01d0h)], eax
+		mov     [__CEXT_V(bpk_armor1_p)], eax
 		mov     eax, 6dd9h
 		call    __CEXT_F(allocMemSafe)
-		mov     [__CEXT_V(___1a01d4h)], eax
+		mov     [__CEXT_V(bpk_armor2_p)], eax
 		mov     eax, 7922h
 		call    __CEXT_F(allocMemSafe)
-		mov     [__CEXT_V(___1a01d8h)], eax
+		mov     [__CEXT_V(bpk_armor3_p)], eax
 		mov     eax, 7801h
 		call    __CEXT_F(allocMemSafe)
-		mov     [__CEXT_V(___1a01dch)], eax
+		mov     [__CEXT_V(bpk_armor4_p)], eax
 		mov     eax, 878bh
 		call    __CEXT_F(allocMemSafe)
 		mov     [__CEXT_V(___1a1e8ch)], eax
@@ -343,75 +343,75 @@ ___245cbh:
 		call    __CEXT_F(decode2__bpk)
 		mov     ebx, __CEXT_V(___181d50h)
 		mov     eax, __CEXT_V(MENU_BPA)
-		mov     edx, [__CEXT_V(tex_kupla_p)]
+		mov     edx, [__CEXT_V(bpk_kupla_p)]
 		call    __CEXT_F(read__bpa)
 		mov     ebx, __CEXT_V(___181d5ch)
 		mov     eax, __CEXT_V(MENU_BPA)
-		mov     edx, [__CEXT_V(tex_pickup_p)]
+		mov     edx, [__CEXT_V(bpk_pickup_p)]
 		call    __CEXT_F(read__bpa)
 		mov     ebx, __CEXT_V(___181d68h)
 		mov     eax, __CEXT_V(MENU_BPA)
-		mov     edx, [__CEXT_V(tex_sedan_p)]
+		mov     edx, [__CEXT_V(bpk_sedan_p)]
 		call    __CEXT_F(read__bpa)
 		mov     ebx, __CEXT_V(___181d74h)
 		mov     eax, __CEXT_V(MENU_BPA)
-		mov     edx, [__CEXT_V(tex_camaro_p)]
+		mov     edx, [__CEXT_V(bpk_camaro_p)]
 		call    __CEXT_F(read__bpa)
 		mov     ebx, __CEXT_V(___181d80h)
 		mov     eax, __CEXT_V(MENU_BPA)
-		mov     edx, [__CEXT_V(tex_porsche_p)]
+		mov     edx, [__CEXT_V(bpk_porsche_p)]
 		call    __CEXT_F(read__bpa)
 		mov     ebx, __CEXT_V(___181d8ch)
 		mov     eax, __CEXT_V(MENU_BPA)
-		mov     edx, [__CEXT_V(tex_lotus_p)]
+		mov     edx, [__CEXT_V(bpk_lotus_p)]
 		call    __CEXT_F(read__bpa)
 		mov     ebx, __CEXT_V(___181d98h)
 		mov     eax, __CEXT_V(MENU_BPA)
-		mov     edx, [__CEXT_V(___1a01a8h)]
+		mov     edx, [__CEXT_V(bpk_engi1_p)]
 		call    __CEXT_F(read__bpa)
 		mov     ebx, __CEXT_V(___181da4h)
 		mov     eax, __CEXT_V(MENU_BPA)
-		mov     edx, [__CEXT_V(___1a01ach)]
+		mov     edx, [__CEXT_V(bpk_engi2_p)]
 		call    __CEXT_F(read__bpa)
 		mov     ebx, __CEXT_V(___181db0h)
 		mov     eax, __CEXT_V(MENU_BPA)
-		mov     edx, [__CEXT_V(___1a01b0h)]
+		mov     edx, [__CEXT_V(bpk_engi3_p)]
 		call    __CEXT_F(read__bpa)
 		mov     ebx, __CEXT_V(___181dbch)
 		mov     eax, __CEXT_V(MENU_BPA)
-		mov     edx, [__CEXT_V(___1a01b4h)]
+		mov     edx, [__CEXT_V(bpk_engi4_p)]
 		call    __CEXT_F(read__bpa)
 		mov     ebx, __CEXT_V(___181dc8h)
 		mov     eax, __CEXT_V(MENU_BPA)
-		mov     edx, [__CEXT_V(___1a0198h)]
+		mov     edx, [__CEXT_V(bpk_tire1_p)]
 		call    __CEXT_F(read__bpa)
 		mov     ebx, __CEXT_V(___181dd4h)
 		mov     eax, __CEXT_V(MENU_BPA)
-		mov     edx, [__CEXT_V(___1a019ch)]
+		mov     edx, [__CEXT_V(bpk_tire2_p)]
 		call    __CEXT_F(read__bpa)
 		mov     ebx, __CEXT_V(___181de0h)
 		mov     eax, __CEXT_V(MENU_BPA)
-		mov     edx, [__CEXT_V(___1a01a0h)]
+		mov     edx, [__CEXT_V(bpk_tire3_p)]
 		call    __CEXT_F(read__bpa)
 		mov     ebx, __CEXT_V(___181dech)
 		mov     eax, __CEXT_V(MENU_BPA)
-		mov     edx, [__CEXT_V(___1a01a4h)]
+		mov     edx, [__CEXT_V(bpk_tire4_p)]
 		call    __CEXT_F(read__bpa)
 		mov     ebx, __CEXT_V(___181df8h)
 		mov     eax, __CEXT_V(MENU_BPA)
-		mov     edx, [__CEXT_V(___1a01d0h)]
+		mov     edx, [__CEXT_V(bpk_armor1_p)]
 		call    __CEXT_F(read__bpa)
 		mov     ebx, __CEXT_V(___181e04h)
 		mov     eax, __CEXT_V(MENU_BPA)
-		mov     edx, [__CEXT_V(___1a01d4h)]
+		mov     edx, [__CEXT_V(bpk_armor2_p)]
 		call    __CEXT_F(read__bpa)
 		mov     ebx, __CEXT_V(___181e10h)
 		mov     eax, __CEXT_V(MENU_BPA)
-		mov     edx, [__CEXT_V(___1a01d8h)]
+		mov     edx, [__CEXT_V(bpk_armor3_p)]
 		call    __CEXT_F(read__bpa)
 		mov     ebx, __CEXT_V(___181e1ch)
 		mov     eax, __CEXT_V(MENU_BPA)
-		mov     edx, [__CEXT_V(___1a01dch)]
+		mov     edx, [__CEXT_V(bpk_armor4_p)]
 		call    __CEXT_F(read__bpa)
 		mov     ebx, __CEXT_V(___181e28h)
 		mov     eax, __CEXT_V(MENU_BPA)

@@ -26,30 +26,30 @@
     extern byte ___1a1eb0h[];
     extern byte ___1a1e78h[];
     extern byte ___1a1eb8h[];
-    extern byte tex_kupla_p[];
-    extern byte tex_pickup_p[];
-    extern byte tex_sedan_p[];
-    extern byte tex_camaro_p[];
-    extern byte tex_porsche_p[];
-    extern byte tex_lotus_p[];
+    extern byte bpk_kupla_p[];
+    extern byte bpk_pickup_p[];
+    extern byte bpk_sedan_p[];
+    extern byte bpk_camaro_p[];
+    extern byte bpk_porsche_p[];
+    extern byte bpk_lotus_p[];
     extern byte ___1a0180h[];
     extern byte ___1a0184h[];
     extern byte ___1a0188h[];
     extern byte ___1a018ch[];
     extern byte ___1a0190h[];
     extern byte ___1a0194h[];
-    extern byte ___1a01a8h[];
-    extern byte ___1a01ach[];
-    extern byte ___1a01b0h[];
-    extern byte ___1a01b4h[];
-    extern byte ___1a0198h[];
-    extern byte ___1a019ch[];
-    extern byte ___1a01a0h[];
-    extern byte ___1a01a4h[];
-    extern byte ___1a01d0h[];
-    extern byte ___1a01d4h[];
-    extern byte ___1a01d8h[];
-    extern byte ___1a01dch[];
+    extern byte bpk_engi1_p[];
+    extern byte bpk_engi2_p[];
+    extern byte bpk_engi3_p[];
+    extern byte bpk_engi4_p[];
+    extern byte bpk_tire1_p[];
+    extern byte bpk_tire2_p[];
+    extern byte bpk_tire3_p[];
+    extern byte bpk_tire4_p[];
+    extern byte bpk_armor1_p[];
+    extern byte bpk_armor2_p[];
+    extern byte bpk_armor3_p[];
+    extern byte bpk_armor4_p[];
     extern byte ___1a1e8ch[];
     extern byte ___1a1ea0h[];
     extern byte ___1a1e7ch[];
@@ -259,38 +259,38 @@ ___245cbh:
 	eax = 0x1af00;
 //		call    __CEXT_F(allocMemSafe)
 	eax = allocMemSafe(eax);
-//		mov     [__CEXT_V(tex_kupla_p)], eax
-	D(tex_kupla_p) = eax;
+//		mov     [__CEXT_V(bpk_kupla_p)], eax
+	D(bpk_kupla_p) = eax;
 //		mov     eax, 1a77bh
 	eax = 0x1a77b;
 //		call    __CEXT_F(allocMemSafe)
 	eax = allocMemSafe(eax);
-//		mov     [__CEXT_V(tex_pickup_p)], eax
-	D(tex_pickup_p) = eax;
+//		mov     [__CEXT_V(bpk_pickup_p)], eax
+	D(bpk_pickup_p) = eax;
 //		mov     eax, 18f14h
 	eax = 0x18f14;
 //		call    __CEXT_F(allocMemSafe)
 	eax = allocMemSafe(eax);
-//		mov     [__CEXT_V(tex_sedan_p)], eax
-	D(tex_sedan_p) = eax;
+//		mov     [__CEXT_V(bpk_sedan_p)], eax
+	D(bpk_sedan_p) = eax;
 //		mov     eax, 18f51h
 	eax = 0x18f51;
 //		call    __CEXT_F(allocMemSafe)
 	eax = allocMemSafe(eax);
-//		mov     [__CEXT_V(tex_camaro_p)], eax
-	D(tex_camaro_p) = eax;
+//		mov     [__CEXT_V(bpk_camaro_p)], eax
+	D(bpk_camaro_p) = eax;
 //		mov     eax, 1a060h
 	eax = 0x1a060;
 //		call    __CEXT_F(allocMemSafe)
 	eax = allocMemSafe(eax);
-//		mov     [__CEXT_V(tex_porsche_p)], eax
-	D(tex_porsche_p) = eax;
+//		mov     [__CEXT_V(bpk_porsche_p)], eax
+	D(bpk_porsche_p) = eax;
 //		mov     eax, 1bea2h
 	eax = 0x1bea2;
 //		call    __CEXT_F(allocMemSafe)
 	eax = allocMemSafe(eax);
-//		mov     [__CEXT_V(tex_lotus_p)], eax
-	D(tex_lotus_p) = eax;
+//		mov     [__CEXT_V(bpk_lotus_p)], eax
+	D(bpk_lotus_p) = eax;
 //		mov     eax, 1800h
 	eax = 0x1800;
 //		call    __CEXT_F(allocMemSafe)
@@ -331,74 +331,74 @@ ___245cbh:
 	eax = 0xa235;
 //		call    __CEXT_F(allocMemSafe)
 	eax = allocMemSafe(eax);
-//		mov     [__CEXT_V(___1a01a8h)], eax
-	D(___1a01a8h) = eax;
+//		mov     [__CEXT_V(bpk_engi1_p)], eax
+	D(bpk_engi1_p) = eax;
 //		mov     eax, 0ae36h
 	eax = 0xae36;
 //		call    __CEXT_F(allocMemSafe)
 	eax = allocMemSafe(eax);
-//		mov     [__CEXT_V(___1a01ach)], eax
-	D(___1a01ach) = eax;
+//		mov     [__CEXT_V(bpk_engi2_p)], eax
+	D(bpk_engi2_p) = eax;
 //		mov     eax, 0b413h
 	eax = 0xb413;
 //		call    __CEXT_F(allocMemSafe)
 	eax = allocMemSafe(eax);
-//		mov     [__CEXT_V(___1a01b0h)], eax
-	D(___1a01b0h) = eax;
+//		mov     [__CEXT_V(bpk_engi3_p)], eax
+	D(bpk_engi3_p) = eax;
 //		mov     eax, 0d788h
 	eax = 0xd788;
 //		call    __CEXT_F(allocMemSafe)
 	eax = allocMemSafe(eax);
-//		mov     [__CEXT_V(___1a01b4h)], eax
-	D(___1a01b4h) = eax;
+//		mov     [__CEXT_V(bpk_engi4_p)], eax
+	D(bpk_engi4_p) = eax;
 //		mov     eax, 511ch
 	eax = 0x511c;
 //		call    __CEXT_F(allocMemSafe)
 	eax = allocMemSafe(eax);
-//		mov     [__CEXT_V(___1a0198h)], eax
-	D(___1a0198h) = eax;
+//		mov     [__CEXT_V(bpk_tire1_p)], eax
+	D(bpk_tire1_p) = eax;
 //		mov     eax, 52b8h
 	eax = 0x52b8;
 //		call    __CEXT_F(allocMemSafe)
 	eax = allocMemSafe(eax);
-//		mov     [__CEXT_V(___1a019ch)], eax
-	D(___1a019ch) = eax;
+//		mov     [__CEXT_V(bpk_tire2_p)], eax
+	D(bpk_tire2_p) = eax;
 //		mov     eax, 5724h
 	eax = 0x5724;
 //		call    __CEXT_F(allocMemSafe)
 	eax = allocMemSafe(eax);
-//		mov     [__CEXT_V(___1a01a0h)], eax
-	D(___1a01a0h) = eax;
+//		mov     [__CEXT_V(bpk_tire3_p)], eax
+	D(bpk_tire3_p) = eax;
 //		mov     eax, 5f1eh
 	eax = 0x5f1e;
 //		call    __CEXT_F(allocMemSafe)
 	eax = allocMemSafe(eax);
-//		mov     [__CEXT_V(___1a01a4h)], eax
-	D(___1a01a4h) = eax;
+//		mov     [__CEXT_V(bpk_tire4_p)], eax
+	D(bpk_tire4_p) = eax;
 //		mov     eax, 5ffbh
 	eax = 0x5ffb;
 //		call    __CEXT_F(allocMemSafe)
 	eax = allocMemSafe(eax);
-//		mov     [__CEXT_V(___1a01d0h)], eax
-	D(___1a01d0h) = eax;
+//		mov     [__CEXT_V(bpk_armor1_p)], eax
+	D(bpk_armor1_p) = eax;
 //		mov     eax, 6dd9h
 	eax = 0x6dd9;
 //		call    __CEXT_F(allocMemSafe)
 	eax = allocMemSafe(eax);
-//		mov     [__CEXT_V(___1a01d4h)], eax
-	D(___1a01d4h) = eax;
+//		mov     [__CEXT_V(bpk_armor2_p)], eax
+	D(bpk_armor2_p) = eax;
 //		mov     eax, 7922h
 	eax = 0x7922;
 //		call    __CEXT_F(allocMemSafe)
 	eax = allocMemSafe(eax);
-//		mov     [__CEXT_V(___1a01d8h)], eax
-	D(___1a01d8h) = eax;
+//		mov     [__CEXT_V(bpk_armor3_p)], eax
+	D(bpk_armor3_p) = eax;
 //		mov     eax, 7801h
 	eax = 0x7801;
 //		call    __CEXT_F(allocMemSafe)
 	eax = allocMemSafe(eax);
-//		mov     [__CEXT_V(___1a01dch)], eax
-	D(___1a01dch) = eax;
+//		mov     [__CEXT_V(bpk_armor4_p)], eax
+	D(bpk_armor4_p) = eax;
 //		mov     eax, 878bh
 	eax = 0x878b;
 //		call    __CEXT_F(allocMemSafe)
@@ -553,144 +553,144 @@ ___245cbh:
 	ebx = ___181d50h;
 //		mov     eax, __CEXT_V(MENU_BPA)
 	eax = MENU_BPA;
-//		mov     edx, [__CEXT_V(tex_kupla_p)]
-	edx = D(tex_kupla_p);
+//		mov     edx, [__CEXT_V(bpk_kupla_p)]
+	edx = D(bpk_kupla_p);
 //		call    __CEXT_F(read__bpa)
 	read__bpa(eax, edx, ebx);
 //		mov     ebx, __CEXT_V(___181d5ch)
 	ebx = ___181d5ch;
 //		mov     eax, __CEXT_V(MENU_BPA)
 	eax = MENU_BPA;
-//		mov     edx, [__CEXT_V(tex_pickup_p)]
-	edx = D(tex_pickup_p);
+//		mov     edx, [__CEXT_V(bpk_pickup_p)]
+	edx = D(bpk_pickup_p);
 //		call    __CEXT_F(read__bpa)
 	read__bpa(eax, edx, ebx);
 //		mov     ebx, __CEXT_V(___181d68h)
 	ebx = ___181d68h;
 //		mov     eax, __CEXT_V(MENU_BPA)
 	eax = MENU_BPA;
-//		mov     edx, [__CEXT_V(tex_sedan_p)]
-	edx = D(tex_sedan_p);
+//		mov     edx, [__CEXT_V(bpk_sedan_p)]
+	edx = D(bpk_sedan_p);
 //		call    __CEXT_F(read__bpa)
 	read__bpa(eax, edx, ebx);
 //		mov     ebx, __CEXT_V(___181d74h)
 	ebx = ___181d74h;
 //		mov     eax, __CEXT_V(MENU_BPA)
 	eax = MENU_BPA;
-//		mov     edx, [__CEXT_V(tex_camaro_p)]
-	edx = D(tex_camaro_p);
+//		mov     edx, [__CEXT_V(bpk_camaro_p)]
+	edx = D(bpk_camaro_p);
 //		call    __CEXT_F(read__bpa)
 	read__bpa(eax, edx, ebx);
 //		mov     ebx, __CEXT_V(___181d80h)
 	ebx = ___181d80h;
 //		mov     eax, __CEXT_V(MENU_BPA)
 	eax = MENU_BPA;
-//		mov     edx, [__CEXT_V(tex_porsche_p)]
-	edx = D(tex_porsche_p);
+//		mov     edx, [__CEXT_V(bpk_porsche_p)]
+	edx = D(bpk_porsche_p);
 //		call    __CEXT_F(read__bpa)
 	read__bpa(eax, edx, ebx);
 //		mov     ebx, __CEXT_V(___181d8ch)
 	ebx = ___181d8ch;
 //		mov     eax, __CEXT_V(MENU_BPA)
 	eax = MENU_BPA;
-//		mov     edx, [__CEXT_V(tex_lotus_p)]
-	edx = D(tex_lotus_p);
+//		mov     edx, [__CEXT_V(bpk_lotus_p)]
+	edx = D(bpk_lotus_p);
 //		call    __CEXT_F(read__bpa)
 	read__bpa(eax, edx, ebx);
 //		mov     ebx, __CEXT_V(___181d98h)
 	ebx = ___181d98h;
 //		mov     eax, __CEXT_V(MENU_BPA)
 	eax = MENU_BPA;
-//		mov     edx, [__CEXT_V(___1a01a8h)]
-	edx = D(___1a01a8h);
+//		mov     edx, [__CEXT_V(bpk_engi1_p)]
+	edx = D(bpk_engi1_p);
 //		call    __CEXT_F(read__bpa)
 	read__bpa(eax, edx, ebx);
 //		mov     ebx, __CEXT_V(___181da4h)
 	ebx = ___181da4h;
 //		mov     eax, __CEXT_V(MENU_BPA)
 	eax = MENU_BPA;
-//		mov     edx, [__CEXT_V(___1a01ach)]
-	edx = D(___1a01ach);
+//		mov     edx, [__CEXT_V(bpk_engi2_p)]
+	edx = D(bpk_engi2_p);
 //		call    __CEXT_F(read__bpa)
 	read__bpa(eax, edx, ebx);
 //		mov     ebx, __CEXT_V(___181db0h)
 	ebx = ___181db0h;
 //		mov     eax, __CEXT_V(MENU_BPA)
 	eax = MENU_BPA;
-//		mov     edx, [__CEXT_V(___1a01b0h)]
-	edx = D(___1a01b0h);
+//		mov     edx, [__CEXT_V(bpk_engi3_p)]
+	edx = D(bpk_engi3_p);
 //		call    __CEXT_F(read__bpa)
 	read__bpa(eax, edx, ebx);
 //		mov     ebx, __CEXT_V(___181dbch)
 	ebx = ___181dbch;
 //		mov     eax, __CEXT_V(MENU_BPA)
 	eax = MENU_BPA;
-//		mov     edx, [__CEXT_V(___1a01b4h)]
-	edx = D(___1a01b4h);
+//		mov     edx, [__CEXT_V(bpk_engi4_p)]
+	edx = D(bpk_engi4_p);
 //		call    __CEXT_F(read__bpa)
 	read__bpa(eax, edx, ebx);
 //		mov     ebx, __CEXT_V(___181dc8h)
 	ebx = ___181dc8h;
 //		mov     eax, __CEXT_V(MENU_BPA)
 	eax = MENU_BPA;
-//		mov     edx, [__CEXT_V(___1a0198h)]
-	edx = D(___1a0198h);
+//		mov     edx, [__CEXT_V(bpk_tire1_p)]
+	edx = D(bpk_tire1_p);
 //		call    __CEXT_F(read__bpa)
 	read__bpa(eax, edx, ebx);
 //		mov     ebx, __CEXT_V(___181dd4h)
 	ebx = ___181dd4h;
 //		mov     eax, __CEXT_V(MENU_BPA)
 	eax = MENU_BPA;
-//		mov     edx, [__CEXT_V(___1a019ch)]
-	edx = D(___1a019ch);
+//		mov     edx, [__CEXT_V(bpk_tire2_p)]
+	edx = D(bpk_tire2_p);
 //		call    __CEXT_F(read__bpa)
 	read__bpa(eax, edx, ebx);
 //		mov     ebx, __CEXT_V(___181de0h)
 	ebx = ___181de0h;
 //		mov     eax, __CEXT_V(MENU_BPA)
 	eax = MENU_BPA;
-//		mov     edx, [__CEXT_V(___1a01a0h)]
-	edx = D(___1a01a0h);
+//		mov     edx, [__CEXT_V(bpk_tire3_p)]
+	edx = D(bpk_tire3_p);
 //		call    __CEXT_F(read__bpa)
 	read__bpa(eax, edx, ebx);
 //		mov     ebx, __CEXT_V(___181dech)
 	ebx = ___181dech;
 //		mov     eax, __CEXT_V(MENU_BPA)
 	eax = MENU_BPA;
-//		mov     edx, [__CEXT_V(___1a01a4h)]
-	edx = D(___1a01a4h);
+//		mov     edx, [__CEXT_V(bpk_tire4_p)]
+	edx = D(bpk_tire4_p);
 //		call    __CEXT_F(read__bpa)
 	read__bpa(eax, edx, ebx);
 //		mov     ebx, __CEXT_V(___181df8h)
 	ebx = ___181df8h;
 //		mov     eax, __CEXT_V(MENU_BPA)
 	eax = MENU_BPA;
-//		mov     edx, [__CEXT_V(___1a01d0h)]
-	edx = D(___1a01d0h);
+//		mov     edx, [__CEXT_V(bpk_armor1_p)]
+	edx = D(bpk_armor1_p);
 //		call    __CEXT_F(read__bpa)
 	read__bpa(eax, edx, ebx);
 //		mov     ebx, __CEXT_V(___181e04h)
 	ebx = ___181e04h;
 //		mov     eax, __CEXT_V(MENU_BPA)
 	eax = MENU_BPA;
-//		mov     edx, [__CEXT_V(___1a01d4h)]
-	edx = D(___1a01d4h);
+//		mov     edx, [__CEXT_V(bpk_armor2_p)]
+	edx = D(bpk_armor2_p);
 //		call    __CEXT_F(read__bpa)
 	read__bpa(eax, edx, ebx);
 //		mov     ebx, __CEXT_V(___181e10h)
 	ebx = ___181e10h;
 //		mov     eax, __CEXT_V(MENU_BPA)
 	eax = MENU_BPA;
-//		mov     edx, [__CEXT_V(___1a01d8h)]
-	edx = D(___1a01d8h);
+//		mov     edx, [__CEXT_V(bpk_armor3_p)]
+	edx = D(bpk_armor3_p);
 //		call    __CEXT_F(read__bpa)
 	read__bpa(eax, edx, ebx);
 //		mov     ebx, __CEXT_V(___181e1ch)
 	ebx = ___181e1ch;
 //		mov     eax, __CEXT_V(MENU_BPA)
 	eax = MENU_BPA;
-//		mov     edx, [__CEXT_V(___1a01dch)]
-	edx = D(___1a01dch);
+//		mov     edx, [__CEXT_V(bpk_armor4_p)]
+	edx = D(bpk_armor4_p);
 //		call    __CEXT_F(read__bpa)
 	read__bpa(eax, edx, ebx);
 //		mov     ebx, __CEXT_V(___181e28h)

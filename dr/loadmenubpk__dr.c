@@ -10,32 +10,32 @@ enum {
 
     extern const char MENU_BPA[];
 
-//    extern void * tex_kupla_p;
-//    extern void * tex_pickup_p;
-//    extern void * tex_sedan_p;
-//    extern void * tex_camaro_p;
-//    extern void * tex_porsche_p;
-//    extern void * tex_lotus_p;
-	extern void * tex_cars[];
+//    extern void * bpk_kupla_p;
+//    extern void * bpk_pickup_p;
+//    extern void * bpk_sedan_p;
+//    extern void * bpk_camaro_p;
+//    extern void * bpk_porsche_p;
+//    extern void * bpk_lotus_p;
+	extern void * bpk_cars[];
 
-//    extern byte ___1a01a8h[];
-//    extern byte ___1a01ach[];
-//    extern byte ___1a01b0h[];
-//    extern byte ___1a01b4h[];
-	extern void * tex_engines[];
+//    extern byte bpk_engi1_p[];
+//    extern byte bpk_engi2_p[];
+//    extern byte bpk_engi3_p[];
+//    extern byte bpk_engi4_p[];
+	extern void * bpk_engines[];
 
 
-//    extern byte ___1a0198h[];
-//    extern byte ___1a019ch[];
-//    extern byte ___1a01a0h[];
-//    extern byte ___1a01a4h[];
-	extern void * tex_tires[];
+//    extern byte bpk_tire1_p[];
+//    extern byte bpk_tire2_p[];
+//    extern byte bpk_tire3_p[];
+//    extern byte bpk_tire4_p[];
+	extern void * bpk_tires[];
 
-//    extern byte ___1a01d0h[];
-//    extern byte ___1a01d4h[];
-//    extern byte ___1a01d8h[];
-//    extern byte ___1a01dch[];
-	extern void * tex_armors[];
+//    extern byte bpk_armor1_p[];
+//    extern byte bpk_armor2_p[];
+//    extern byte bpk_armor3_p[];
+//    extern byte bpk_armor4_p[];
+	extern void * bpk_armors[];
 
     extern byte ___1a1edch[];
     extern byte ___1a1ecch[];
@@ -175,45 +175,45 @@ void ___24548h(void){
 	read__bpa(MENU_BPA, BPA_Buffer, ___181d44h);
 	decode2__bpk(D(___1a10b0h), BPA_Buffer);
 
-	tex_cars[KUPLA] = allocMemSafe(0x1af00);
-	read__bpa(MENU_BPA, tex_cars[KUPLA], ___181d50h);
-	tex_cars[PICKUP] = allocMemSafe(0x1a77b);
-	read__bpa(MENU_BPA, tex_cars[PICKUP], ___181d5ch);
-	tex_cars[SEDAN] = allocMemSafe(0x18f14);
-	read__bpa(MENU_BPA, tex_cars[SEDAN], ___181d68h);
-	tex_cars[CAMARO] = allocMemSafe(0x18f51);
-	read__bpa(MENU_BPA, tex_cars[CAMARO], ___181d74h);
-	tex_cars[PORSCHE] = allocMemSafe(0x1a060);
-	read__bpa(MENU_BPA, tex_cars[PORSCHE], ___181d80h);
-	tex_cars[LOTUS] = allocMemSafe(0x1bea2);
-	read__bpa(MENU_BPA, tex_cars[LOTUS], ___181d8ch);
+	bpk_cars[KUPLA] = allocMemSafe(0x1af00);
+	read__bpa(MENU_BPA, bpk_cars[KUPLA], ___181d50h);
+	bpk_cars[PICKUP] = allocMemSafe(0x1a77b);
+	read__bpa(MENU_BPA, bpk_cars[PICKUP], ___181d5ch);
+	bpk_cars[SEDAN] = allocMemSafe(0x18f14);
+	read__bpa(MENU_BPA, bpk_cars[SEDAN], ___181d68h);
+	bpk_cars[CAMARO] = allocMemSafe(0x18f51);
+	read__bpa(MENU_BPA, bpk_cars[CAMARO], ___181d74h);
+	bpk_cars[PORSCHE] = allocMemSafe(0x1a060);
+	read__bpa(MENU_BPA, bpk_cars[PORSCHE], ___181d80h);
+	bpk_cars[LOTUS] = allocMemSafe(0x1bea2);
+	read__bpa(MENU_BPA, bpk_cars[LOTUS], ___181d8ch);
 
-	tex_engines[LEVEL1] = allocMemSafe(0xa235);
-	read__bpa(MENU_BPA, tex_engines[LEVEL1], ___181d98h);
-	tex_engines[LEVEL2] = allocMemSafe(0xae36);
-	read__bpa(MENU_BPA, tex_engines[LEVEL2], ___181da4h);
-	tex_engines[LEVEL3] = allocMemSafe(0xb413);
-	read__bpa(MENU_BPA, tex_engines[LEVEL3], ___181db0h);
-	tex_engines[LEVEL4] = allocMemSafe(0xd788);
-	read__bpa(MENU_BPA, tex_engines[LEVEL4], ___181dbch);
+	bpk_engines[LEVEL1] = allocMemSafe(0xa235);
+	read__bpa(MENU_BPA, bpk_engines[LEVEL1], ___181d98h);
+	bpk_engines[LEVEL2] = allocMemSafe(0xae36);
+	read__bpa(MENU_BPA, bpk_engines[LEVEL2], ___181da4h);
+	bpk_engines[LEVEL3] = allocMemSafe(0xb413);
+	read__bpa(MENU_BPA, bpk_engines[LEVEL3], ___181db0h);
+	bpk_engines[LEVEL4] = allocMemSafe(0xd788);
+	read__bpa(MENU_BPA, bpk_engines[LEVEL4], ___181dbch);
 
-	tex_tires[LEVEL1] = allocMemSafe(0x511c);
-	read__bpa(MENU_BPA, tex_tires[LEVEL1], ___181dc8h);
-	tex_tires[LEVEL2] = allocMemSafe(0x52b8);
-	read__bpa(MENU_BPA, tex_tires[LEVEL2], ___181dd4h);
-	tex_tires[LEVEL3] = allocMemSafe(0x5724);
-	read__bpa(MENU_BPA, tex_tires[LEVEL3], ___181de0h);
-	tex_tires[LEVEL4] = allocMemSafe(0x5f1e);
-	read__bpa(MENU_BPA, tex_tires[LEVEL4], ___181dech);
+	bpk_tires[LEVEL1] = allocMemSafe(0x511c);
+	read__bpa(MENU_BPA, bpk_tires[LEVEL1], ___181dc8h);
+	bpk_tires[LEVEL2] = allocMemSafe(0x52b8);
+	read__bpa(MENU_BPA, bpk_tires[LEVEL2], ___181dd4h);
+	bpk_tires[LEVEL3] = allocMemSafe(0x5724);
+	read__bpa(MENU_BPA, bpk_tires[LEVEL3], ___181de0h);
+	bpk_tires[LEVEL4] = allocMemSafe(0x5f1e);
+	read__bpa(MENU_BPA, bpk_tires[LEVEL4], ___181dech);
 
-	tex_armors[LEVEL1] = allocMemSafe(0x5ffb);
-	read__bpa(MENU_BPA, tex_armors[LEVEL1], ___181df8h);
-	tex_armors[LEVEL2] = allocMemSafe(0x6dd9);
-	read__bpa(MENU_BPA, tex_armors[LEVEL2], ___181e04h);
-	tex_armors[LEVEL3] = allocMemSafe(0x7922);
-	read__bpa(MENU_BPA, tex_armors[LEVEL3], ___181e10h);
-	tex_armors[LEVEL4] = allocMemSafe(0x7801);
-	read__bpa(MENU_BPA, tex_armors[LEVEL4], ___181e1ch);
+	bpk_armors[LEVEL1] = allocMemSafe(0x5ffb);
+	read__bpa(MENU_BPA, bpk_armors[LEVEL1], ___181df8h);
+	bpk_armors[LEVEL2] = allocMemSafe(0x6dd9);
+	read__bpa(MENU_BPA, bpk_armors[LEVEL2], ___181e04h);
+	bpk_armors[LEVEL3] = allocMemSafe(0x7922);
+	read__bpa(MENU_BPA, bpk_armors[LEVEL3], ___181e10h);
+	bpk_armors[LEVEL4] = allocMemSafe(0x7801);
+	read__bpa(MENU_BPA, bpk_armors[LEVEL4], ___181e1ch);
 
 	D(___1a1ea0h) = allocMemSafe(0x8ae9);
 	read__bpa(MENU_BPA, D(___1a1ea0h), ___181e28h);
