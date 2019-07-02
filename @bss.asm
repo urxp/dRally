@@ -1714,7 +1714,7 @@ __GDECL(___24e4c4h)
     resb	4
 ___24e4c8h:	resb	4
 ___24e4cch:	resb	4
-__GDECL(__CEXT_V(___24e4d0h))
+__GDECL(__CEXT_V(NetworkConnectionType))
     resb	4
 __GDECL(RMSerialPtr)
     resb	4

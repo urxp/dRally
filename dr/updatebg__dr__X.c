@@ -19,7 +19,7 @@
     extern byte ___180864h[];
     extern byte ___1a01e0h[];
     extern byte ___182194h[];
-    extern byte ___24e4d0h[];
+    extern byte NetworkConnectionType[];
     extern byte ___199fc8h[];
     extern byte ___1821c0h[];
 
@@ -1058,8 +1058,8 @@ ___2b223h:
 //		call    __CEXT_F(___12dc4h)
     ___12dc4h();
 ___2b236h:
-//		mov     edx, [__CEXT_V(___24e4d0h)]
-    edx = D(___24e4d0h);
+//		mov     edx, [__CEXT_V(NetworkConnectionType)]
+    edx = D(NetworkConnectionType);
 //		cmp     edx, byte 3
 //		je      ___2b24ah
     if(edx == 3) goto ___2b24ah;

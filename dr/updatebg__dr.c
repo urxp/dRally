@@ -8,6 +8,13 @@ typedef struct pal3 {
     byte    __2;
 } pal3;
 
+typedef byte b96[0x96];
+typedef byte b6c[0x6c];
+
+typedef enum eNetworkConnectionType {
+    NONE, SERIAL_CONNECTION, IPX_NETWORK, DIALUP_MODEM, ANSWER_MODEM
+} eNetworkConnectionType;
+
     extern byte ___59e68h[];
     extern int ___196a88h;
     extern int ___196ad8h;
@@ -19,11 +26,11 @@ typedef struct pal3 {
     extern dword ___185a1ch;
     extern byte RowBox0Colors_R5[];
     extern byte ___196a74h[];
-    extern byte RowBoxBuffers[];
+    extern b96 RowBoxBuffers[];
     extern void * ___1a0f9ch;
-    extern byte ___1a1ef8h[];
-    extern byte ___1a01e0h[];
-    extern byte ___24e4d0h[];
+    extern dword ___1a1ef8h;
+    extern b6c ___1a01e0h[];
+    extern eNetworkConnectionType NetworkConnectionType;
     extern byte ___199fc8h[];
 
     // "-- "
@@ -60,48 +67,49 @@ typedef struct pal3 {
     void footer__dr(void);
     void * allocMemSafe(dword);
 
-    static int idiv_rem(int, int, int);
+    char * strcpy__clib3r(char * dest, const char * src);
+
+#if defined(__WATCOMC__)
+    static inline int idiv_rem(int, int, int);
     #pragma aux idiv_rem =          \
         "idiv   ebx"                \
         parm [eax] [edx] [ebx]      \
         value [edx]
+#else
+    static inline int idiv_rem(int lo, int hi, int d){
 
-	char * strcpy__clib3r(char * dest, const char * src);
-
-
-#define COMMON_HEAD()                       \
-    n = 0;                                  \
-                                            \
-    while(n < 0x15){                        \
-                                            \
-        strcpy__clib3r(                     \
-            RowBoxBuffers + n*0x96,         \
-            RowBoxBuffers + (n+1)*0x96      \
-        );                                  \
-        B(n+___1a1f4eh) = B(n+___1a1f4fh);  \
-        n++;                                \
-    }        
-
-#define COMMON_FOOT(R5)                     \
-    B(RowBox0Colors_R5) = R5;               \
-                                            \
-    if(D(___196a74h) == 1){                 \
-                                            \
-        ___185a1ch?(___233c0h(),___12dc4h()):(footer__dr(),___12d6ch()); \
+        return ((long long)lo + ((long long)hi << 0x20)) % d;
     }
+#endif
+	
 
-#define COMMON(R5)                          \
-    COMMON_HEAD()                           \
-    strcpy__clib3r(___1a1dbah, esp);        \
-    COMMON_FOOT(R5)                          
+    static inline void chatNewLine(void){
+
+        dword n = 0;
+
+        while(n < 0x15){
+
+            strcpy__clib3r(RowBoxBuffers[n], RowBoxBuffers[n+1]);
+            ___1a1f4eh[n] = ___1a1f4fh[n];
+            n++;
+        }      
+    }
+       
+    static inline void updateChat(dword LineColor){
+
+        B(RowBox0Colors_R5) = LineColor;
+
+        if(D(___196a74h) == 1){
+
+            ___185a1ch?(___233c0h(),___12dc4h()):(footer__dr(),___12d6ch());
+        }
+    }
 
 
 // ~2ab74h
 void updateMenuBackgroundAndTextArea(){
 
-	char *  tmp_p;
-	byte 	esp[0x40c];
-
+	char    * tmp_p, buffer[0x400];
     double  __0, __1, __2;
     dword   n;
 
@@ -138,67 +146,73 @@ void updateMenuBackgroundAndTextArea(){
 
         ___6168ch();
 
-        if(___23594h(esp, 1)){
+        if(___23594h(buffer, 1)){
 
-            COMMON(1);
+            chatNewLine();
+            strcpy__clib3r(___1a1dbah, buffer);
+            updateChat(1);    
         }
 
-        if(___23594h(esp, 6)){
+        if(___23594h(buffer, 6)){
 
-            COMMON(0);
+            chatNewLine();
+            strcpy__clib3r(___1a1dbah, buffer);
+            updateChat(0);
         }
 
-        if(___23594h(esp, 7)){
+        if(___23594h(buffer, 7)){
 
-            tmp_p = allocMemSafe(0x64);
-            ___1a0f9ch = tmp_p;
-            D(tmp_p) = D(___180864h);
-            while(*tmp_p++ != 0);
-            tmp_p--;
-            strcpy__clib3r(tmp_p, ___1a01e0h + 0x6c*D(___1a1ef8h));
-            while(*tmp_p++ != 0);
-            tmp_p--;
-            strcpy__clib3r(tmp_p, ___182174h);
+            tmp_p = ___1a0f9ch = allocMemSafe(0x64);
+            strcpy__clib3r(tmp_p, ___180864h);
+            while(*tmp_p++);
+            strcpy__clib3r(--tmp_p, ___1a01e0h[___1a1ef8h]);
+            while(*tmp_p++);
+            strcpy__clib3r(--tmp_p, ___182174h);
             ___23488h(___1a0f9ch, 0x64, 8);
             ___3f77ch(___1a0f9ch);
         }
 
-        if(___23594h(esp, 0x14)){
+        if(___23594h(buffer, 0x14)){
 
-            COMMON(0);
+            chatNewLine();
+            strcpy__clib3r(___1a1dbah, buffer);
+            updateChat(0);
             
             ___1e4f8h();
-            D(___1a1ef8h) = 0x13;
+            ___1a1ef8h = 0x13;
         }
 
-        if(___23594h(esp, 9)){
+        if(___23594h(buffer, 9)){
 
-            COMMON(0);
+            chatNewLine();
+            strcpy__clib3r(___1a1dbah, buffer);
+            updateChat(0);
 
             ___1e62ch(1);
         }
 
-        if(___23594h(esp+0x400, 0x13)){
+        if(___23594h(&n, 0x13)){
 
-            COMMON_HEAD();
+            chatNewLine();
 
-            D(___1a1dbah) = D(___180864h);
             tmp_p = ___1a1dbah;
-            while(*tmp_p++ != 0);
-            tmp_p--;
-            strcpy__clib3r(tmp_p, ___1a01e0h + 0x6c*B(esp+0x400));
-            while(*tmp_p++ != 0);
-            tmp_p--;
-            strcpy__clib3r(tmp_p, ___182194h);
+            strcpy__clib3r(tmp_p, ___180864h);
+            while(*tmp_p++);
+            strcpy__clib3r(--tmp_p, ___1a01e0h[n]);
+            while(*tmp_p++);
+            strcpy__clib3r(--tmp_p, ___182194h);
             
-            COMMON_FOOT(0);
+            updateChat(0);
         }
 
-        if((D(___24e4d0h) == 3)||(D(___24e4d0h) == 4)){
+        if((NetworkConnectionType == DIALUP_MODEM)
+        ||(NetworkConnectionType == ANSWER_MODEM)){
 
             if((B(___199fc8h)&0x80) == 0){
 
-                COMMON(0);
+                chatNewLine();
+                strcpy__clib3r(___1a1dbah, ___1821c0h);
+                updateChat(0);
 
                 ___1e62ch(0);
             }

@@ -35,7 +35,7 @@
     extern  __CEXT_V(___180864h)
     extern  __CEXT_V(___1a01e0h)
     extern  __CEXT_V(___182194h)
-    extern  __CEXT_V(___24e4d0h)
+    extern  __CEXT_V(NetworkConnectionType)
     extern  __CEXT_V(___199fc8h)
     extern  __CEXT_V(___1821c0h)
     extern  __CEXT_F(___1e62ch)
@@ -588,7 +588,7 @@ ___2b223h:
 		call    __CEXT_F(___233c0h)
 		call    __CEXT_F(___12dc4h)
 ___2b236h:
-		mov     edx, [__CEXT_V(___24e4d0h)]
+		mov     edx, [__CEXT_V(NetworkConnectionType)]
 		cmp     edx, byte 3
 		je      ___2b24ah
 		cmp     edx, byte 4

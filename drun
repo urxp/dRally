@@ -7,10 +7,10 @@ cp drally.lx ~/DEATHRAL/drally.lx
 # dosbox ~/DEATHRAL/drally.exe
 # dosbox -c "mount C ~/DEATHRAL" -c "C:" -c "drally.exe"
 # dosbox-x -c "mount C ~/DEATHRAL" -c "C:" -c "DOS4G.EXE drally.lx"
-dosbox -c "mount C ~/DEATHRAL" -c "C:" -c "DOS4G.EXE drally.lx"
+# dosbox -c "mount C ~/DEATHRAL" -c "C:" -c "DOS4G.EXE drally.lx"
 # dosbox-x -c "set windir=c:\windows" -c "mount C ~/DEATHRAL" -c "C:" -c "DOS4G.EXE drally.lx"
 # dosbox -c "set lifesuxx=1" -c "mount C ~/DEATHRAL" -c "C:" -c "pmwbind /B /DPMWRALLY.EXE DRALLY.LE" -c "PMWRALLY.EXE"
 # dosbox -c "mount C ~/DEATHRAL" -c "C:" -c "pmwbind /B /DPMWRALLY.EXE DRALLY.LE" -c "PMWRALLY.EXE"
 # dosbox-x -c "mount C ~/DEATHRAL" -c "C:" -c "pmwbind /B /DPMWRALLY.EXE DRALLY.LE" -c "PMWRALLY.EXE"
 
-# dosbox -c "mount C ~/DEATHRAL" -c "C:" -c "ipxnet startserver 4444" -c "DOS4G.EXE drally.lx" | dosbox -c "mount C ~/DEATHRAL" -c "C:" -c "ipxnet connect localhost 4444" -c "DOS4G.EXE drally.lx"
+dosbox -c "mount C ~/DEATHRAL" -c "C:" -c "ipxnet startserver 4444" -c "DOS4G.EXE drally.lx" | dosbox -c "mount C ~/DEATHRAL" -c "C:" -c "ipxnet connect localhost 4444" -c "DOS4G.EXE drally.lx"

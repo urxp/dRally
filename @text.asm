@@ -92,7 +92,7 @@ ___10754h:
 		push    edx
 		cmp     dword [__CEXT_V(NetworkConnectionEstablished)], byte 0
 		je      short ___10781h
-		cmp     dword [__CEXT_V(___24e4d0h)], byte 2
+		cmp     dword [__CEXT_V(NetworkConnectionType)], byte 2
 		jne     short ___10781h
 		mov     eax, 1
 		mov     edx, [___199f9ch]
@@ -11810,7 +11810,7 @@ ___1a81ch:
 ___1a883h:
 		mov     eax, [esp+108h]
 		mov     edx, 1
-		mov     ebx, [__CEXT_V(___24e4d0h)]
+		mov     ebx, [__CEXT_V(NetworkConnectionType)]
 		mov     [___196adch], eax
 		mov     [__CEXT_V(NetworkConnectionEstablished)], edx
 		cmp     ebx, byte 2
@@ -13439,7 +13439,7 @@ ___1bb42h:
 ___1bbd1h:
 		mov     dword [__CEXT_V(NetworkConnectionEstablished)], 1
 		mov     eax, [___1a1098h]
-		mov     edx, [__CEXT_V(___24e4d0h)]
+		mov     edx, [__CEXT_V(NetworkConnectionType)]
 		mov     [___196adch], eax
 		cmp     edx, byte 2
 		jne     short ___1bbfah
@@ -14300,7 +14300,7 @@ ___1c605h:
 		pop     ebx
 		retn    
 ___1c632h:
-		cmp     dword [__CEXT_V(___24e4d0h)], byte 2
+		cmp     dword [__CEXT_V(NetworkConnectionType)], byte 2
 		jne     short ___1c660h
 		call    near ___198a0h
 		test    eax, eax
@@ -14696,7 +14696,7 @@ ___1caf4h:
 		push    edi
 		push    ebp
 		sub     esp, byte 68h
-		mov     edx, [__CEXT_V(___24e4d0h)]
+		mov     edx, [__CEXT_V(NetworkConnectionType)]
 		xor     ebp, ebp
 		cmp     edx, byte 2
 		jne     near ___1cbdah
@@ -14751,7 +14751,7 @@ ___1cbc7h:
 ___1cbdah:
 		test    ebp, ebp
 		jne     near ___1cffdh
-		cmp     dword [__CEXT_V(___24e4d0h)], byte 2
+		cmp     dword [__CEXT_V(NetworkConnectionType)], byte 2
 		jne     short ___1cbf9h
 		call    near ___61cd0h
 		test    eax, eax
@@ -14856,7 +14856,7 @@ ___1ccfdh:
 		rep movsd   
 		movsw   
 		call    near __CEXT_F(allocMemSafe)
-		mov     esi, [__CEXT_V(___24e4d0h)]
+		mov     esi, [__CEXT_V(NetworkConnectionType)]
 		mov     [__CEXT_V(___1a0f9ch)], eax
 		cmp     esi, byte 2
 		jne     short ___1cd5ch
@@ -15031,7 +15031,7 @@ ___1cef3h:
 		call    near __CEXT_F(___12d6ch)
 		xor     edi, edi
 		xor     bl, bl
-		mov     ebp, [__CEXT_V(___24e4d0h)]
+		mov     ebp, [__CEXT_V(NetworkConnectionType)]
 		mov     [___185b58h], bl
 		mov     bh, 1
 		mov     [___185aach], edi
@@ -15045,15 +15045,15 @@ ___1cef3h:
 		jne     short ___1cf62h
 		mov     [___185b6ch], bh
 ___1cf62h:
-		cmp     dword [__CEXT_V(___24e4d0h)], byte 1
+		cmp     dword [__CEXT_V(NetworkConnectionType)], byte 1
 		jne     short ___1cf72h
 		mov     byte [___185b6dh], 1
 ___1cf72h:
-		cmp     dword [__CEXT_V(___24e4d0h)], byte 3
+		cmp     dword [__CEXT_V(NetworkConnectionType)], byte 3
 		jne     short ___1cf82h
 		mov     byte [___185b6eh], 1
 ___1cf82h:
-		cmp     dword [__CEXT_V(___24e4d0h)], byte 4
+		cmp     dword [__CEXT_V(NetworkConnectionType)], byte 4
 		jne     short ___1cf92h
 		mov     byte [___185b6fh], 1
 ___1cf92h:
@@ -15256,7 +15256,7 @@ ___1d134h:
 		xor     edi, edi
 		mov     [___185b6eh], dl
 		mov     [__CEXT_V(NetworkConnectionEstablished)], edi
-		mov     [__CEXT_V(___24e4d0h)], edi
+		mov     [__CEXT_V(NetworkConnectionType)], edi
 		mov     edi, ___186aa0h
 		mov     [___185b6fh], dl
 		mov     edx, 1
@@ -15284,7 +15284,7 @@ ___1d21eh:
 		call    near ___3ab5ch
 		test    eax, eax
 		je      short ___1d29fh
-		mov     dword [__CEXT_V(___24e4d0h)], 2
+		mov     dword [__CEXT_V(NetworkConnectionType)], 2
 		mov     ebx, [__CEXT_V(___1a1ef8h)]
 		lea     edx, [ebx*8+0]
 		sub     edx, ebx
@@ -15367,7 +15367,7 @@ ___1d2fdh:
 		shl     eax, 2
 		mov     edi, 4b00h
 		sub     eax, edx
-		mov     [__CEXT_V(___24e4d0h)], esi
+		mov     [__CEXT_V(NetworkConnectionType)], esi
 		mov     [___199fach], edi
 		mov     ebx, [eax*4+___1a020ch]
 		call    near ___2415ch
@@ -15632,7 +15632,7 @@ ___1d602h:
 		xor     ecx, ecx
 		mov     edx, 1
 		mov     [__CEXT_V(NetworkConnectionEstablished)], ecx
-		mov     [__CEXT_V(___24e4d0h)], ecx
+		mov     [__CEXT_V(NetworkConnectionType)], ecx
 		call    near ___2415ch
 		mov     eax, 2
 		call    near ___13710h
@@ -16001,7 +16001,7 @@ ___1da4fh:
 		shl     eax, 2
 		mov     esi, 4b00h
 		sub     eax, edx
-		mov     [__CEXT_V(___24e4d0h)], ecx
+		mov     [__CEXT_V(NetworkConnectionType)], ecx
 		mov     [___199fach], esi
 		mov     ebx, [eax*4+___1a020ch]
 		call    near ___2415ch
@@ -16544,7 +16544,7 @@ ___1e132h:
 		shl     eax, 2
 		mov     esi, 4b00h
 		sub     eax, edx
-		mov     [__CEXT_V(___24e4d0h)], ecx
+		mov     [__CEXT_V(NetworkConnectionType)], ecx
 		mov     [___199fach], esi
 		mov     ebx, [eax*4+___1a020ch]
 		call    near ___2415ch
@@ -16834,7 +16834,7 @@ __GDECL(__CEXT_F(___1e4f8h))
 		mov     edx, 1
 		mov     edi, ___186a3ch
 		mov     esi, ___180cc0h
-		mov     ecx, [__CEXT_V(___24e4d0h)]
+		mov     ecx, [__CEXT_V(NetworkConnectionType)]
 		xor     ah, ah
 		xor     ebx, ebx
 		mov     [___185b6ch], ah
@@ -16861,15 +16861,15 @@ __GDECL(__CEXT_F(___1e4f8h))
 		jne     short ___1e568h
 		mov     byte [___185b6ch], 1
 ___1e568h:
-		cmp     dword [__CEXT_V(___24e4d0h)], byte 1
+		cmp     dword [__CEXT_V(NetworkConnectionType)], byte 1
 		jne     short ___1e578h
 		mov     byte [___185b6dh], 1
 ___1e578h:
-		cmp     dword [__CEXT_V(___24e4d0h)], byte 3
+		cmp     dword [__CEXT_V(NetworkConnectionType)], byte 3
 		jne     short ___1e588h
 		mov     byte [___185b6eh], 1
 ___1e588h:
-		cmp     dword [__CEXT_V(___24e4d0h)], byte 4
+		cmp     dword [__CEXT_V(NetworkConnectionType)], byte 4
 		jne     short ___1e598h
 		mov     byte [___185b6fh], 1
 ___1e598h:
@@ -16883,7 +16883,7 @@ ___1e598h:
 		call    near ___2415ch
 		call    near __CEXT_F(___12dc4h)
 ___1e5c2h:
-		cmp     dword [__CEXT_V(___24e4d0h)], byte 2
+		cmp     dword [__CEXT_V(NetworkConnectionType)], byte 2
 		jne     short ___1e61ch
 		call    near __CEXT_F(___623d4h)
 		xor     ecx, ecx
@@ -16896,13 +16896,13 @@ ___1e5c2h:
 ___1e5ech:
 		cmp     dword [__CEXT_V(NetworkConnectionEstablished)], byte 0
 		je      short ___1e603h
-		cmp     dword [__CEXT_V(___24e4d0h)], byte 2
+		cmp     dword [__CEXT_V(NetworkConnectionType)], byte 2
 		jne     short ___1e603h
 		call    near ___60719h
 ___1e603h:
 		cmp     dword [__CEXT_V(NetworkConnectionEstablished)], byte 0
 		je      short ___1e61ch
-		cmp     dword [__CEXT_V(___24e4d0h)], byte 2
+		cmp     dword [__CEXT_V(NetworkConnectionType)], byte 2
 		jne     short ___1e61ch
 		xor     eax, eax
 		call    near ___63b20h
@@ -17100,7 +17100,7 @@ ___1e813h:
 		mov     [___196a84h], eax
 		mov     [___196a7ch], eax
 		mov     [__CEXT_V(NetworkConnectionEstablished)], eax
-		mov     [__CEXT_V(___24e4d0h)], eax
+		mov     [__CEXT_V(NetworkConnectionType)], eax
 		call    near frameFooter__dr
 		call    near __CEXT_F(footer__dr)
 		call    near __CEXT_F(___12dc4h)
@@ -17437,11 +17437,11 @@ ___1ec38h:
 		jne     near ___1eb75h
 		cmp     dword [___196a7ch], byte 1
 		jne     short ___1ed10h
-		cmp     dword [__CEXT_V(___24e4d0h)], byte 2
+		cmp     dword [__CEXT_V(NetworkConnectionType)], byte 2
 		je      short ___1ed10h
 		xor     ecx, ecx
 		mov     [__CEXT_V(NetworkConnectionEstablished)], ecx
-		mov     [__CEXT_V(___24e4d0h)], ecx
+		mov     [__CEXT_V(NetworkConnectionType)], ecx
 ___1ed10h:
 		mov     ebx, 1
 		xor     edi, edi
@@ -17646,7 +17646,7 @@ ___1ef9dh:
 		call    near ___2415ch
 		jmp     near ___1f075h
 ___1efcch:
-		cmp     dword [__CEXT_V(___24e4d0h)], byte 2
+		cmp     dword [__CEXT_V(NetworkConnectionType)], byte 2
 		jne     short ___1efdfh
 		call    near ___1b140h
 		jmp     near ___1f075h
@@ -42804,7 +42804,7 @@ ___3457ch:
 ___345a3h:
 		cmp     dword [__CEXT_V(NetworkConnectionEstablished)], byte 0
 		je      short ___345bah
-		cmp     dword [__CEXT_V(___24e4d0h)], byte 2
+		cmp     dword [__CEXT_V(NetworkConnectionType)], byte 2
 		jne     short ___345bah
 		call    near ___60719h
 ___345bah:
@@ -42813,7 +42813,7 @@ ___345bah:
 		call    near ___56774h
 		cmp     dword [__CEXT_V(NetworkConnectionEstablished)], byte 0
 		je      short ___345e7h
-		cmp     dword [__CEXT_V(___24e4d0h)], byte 2
+		cmp     dword [__CEXT_V(NetworkConnectionType)], byte 2
 		jne     short ___345e7h
 		mov     eax, ___10754h
 		call    near ___60705h
@@ -49892,7 +49892,7 @@ ___3a008h:
 		test    edx, edx
 		jne     short ___3a036h
 		call    near __CEXT_F(___1e4f8h)
-		cmp     dword [__CEXT_V(___24e4d0h)], byte 2
+		cmp     dword [__CEXT_V(NetworkConnectionType)], byte 2
 		je      short ___3a02ah
 		xor     eax, eax
 		call    near __CEXT_F(___1e62ch)
@@ -55598,7 +55598,7 @@ ___40164h:
 		xor     bl, bl
 		test    edx, edx
 		je      short ___40199h
-		cmp     dword [__CEXT_V(___24e4d0h)], byte 2
+		cmp     dword [__CEXT_V(NetworkConnectionType)], byte 2
 		jne     short ___40199h
 		mov     eax, 1
 		mov     edx, [___199f9ch]
@@ -58126,7 +58126,7 @@ ___42402h:
 		jne     short ___4246ch
 		cmp     dword [__CEXT_V(NetworkConnectionEstablished)], byte 0
 		je      short ___4244ch
-		cmp     dword [__CEXT_V(___24e4d0h)], byte 2
+		cmp     dword [__CEXT_V(NetworkConnectionType)], byte 2
 		jne     short ___42442h
 		call    near ___44194h
 		jmp     short ___4244ch
@@ -60184,7 +60184,7 @@ dd	___4402bh
 		mov     esi, 4
 		xor     edx, edx
 		push    ___183370h
-		mov     [__CEXT_V(___24e4d0h)], edx
+		mov     [__CEXT_V(NetworkConnectionType)], edx
 		mov     [___199f9ch], edx
 		mov     [___199fach], ecx
 		mov     [___243cf4h], esi
@@ -60248,7 +60248,7 @@ ___43f9dh:
 		mov     esi, 1
 		mov     [___199fa4h], edi
 		mov     [___199fa8h], ebp
-		mov     [__CEXT_V(___24e4d0h)], esi
+		mov     [__CEXT_V(NetworkConnectionType)], esi
 		jmp     near ___44050h
 ___43fc3h:
 		mov     ebx, 2f8h
@@ -60256,7 +60256,7 @@ ___43fc3h:
 		mov     edx, 1
 		mov     [___199fa4h], ebx
 		mov     [___199fa8h], ecx
-		mov     [__CEXT_V(___24e4d0h)], edx
+		mov     [__CEXT_V(NetworkConnectionType)], edx
 		jmp     short ___44050h
 ___43fe6h:
 		mov     ebp, 3e8h
@@ -60264,7 +60264,7 @@ ___43fe6h:
 		mov     edi, 1
 		mov     [___199fa4h], ebp
 		mov     [___199fa8h], eax
-		mov     [__CEXT_V(___24e4d0h)], edi
+		mov     [__CEXT_V(NetworkConnectionType)], edi
 		jmp     short ___44050h
 ___44008h:
 		mov     ecx, 2e8h
@@ -60272,21 +60272,21 @@ ___44008h:
 		mov     ebx, 1
 		mov     [___199fa4h], ecx
 		mov     [___199fa8h], esi
-		mov     [__CEXT_V(___24e4d0h)], ebx
+		mov     [__CEXT_V(NetworkConnectionType)], ebx
 		jmp     short ___44050h
 ___4402bh:
 		xor     edx, edx
 		mov     eax, 2
 		mov     [___199f9ch], edx
-		mov     [__CEXT_V(___24e4d0h)], eax
+		mov     [__CEXT_V(NetworkConnectionType)], eax
 		jmp     short ___44050h
 ___4403fh:
 		xor     eax, edi
-		mov     [__CEXT_V(___24e4d0h)], eax
+		mov     [__CEXT_V(NetworkConnectionType)], eax
 		jmp     short ___44050h
 ___44048h:
 		xor     ebp, ebp
-		mov     [__CEXT_V(___24e4d0h)], ebp
+		mov     [__CEXT_V(NetworkConnectionType)], ebp
 ___44050h:
 		call    near ___61cd0h
 		mov     edx, [___243cf4h]
@@ -60711,19 +60711,19 @@ ___44304h:
 ___44653h:
 		xor     ebp, ebp
 		mov     [___243cd0h], ebp
-		cmp     dword [__CEXT_V(___24e4d0h)], byte 2
+		cmp     dword [__CEXT_V(NetworkConnectionType)], byte 2
 		jne     short ___4466fh
 		mov     eax, [___243894h]
 		inc     eax
 		mov     [___243878h], eax
 ___4466fh:
-		cmp     dword [__CEXT_V(___24e4d0h)], byte 1
+		cmp     dword [__CEXT_V(NetworkConnectionType)], byte 1
 		jne     short ___44685h
 		mov     eax, [___243894h]
 		add     eax, byte 2
 		mov     [___243878h], eax
 ___44685h:
-		mov     ebx, [__CEXT_V(___24e4d0h)]
+		mov     ebx, [__CEXT_V(NetworkConnectionType)]
 		cmp     ebx, byte 3
 		je      short ___44695h
 		cmp     ebx, byte 4
@@ -61032,7 +61032,7 @@ ___44a78h:
 		mov     edi, 0fffh
 ___44aa9h:
 		mov     eax, [___243c60h]
-		mov     ebx, [__CEXT_V(___24e4d0h)]
+		mov     ebx, [__CEXT_V(NetworkConnectionType)]
 		mov     [___24331ch], eax
 		cmp     ebx, byte 1
 		je      short ___44ac8h
@@ -87471,7 +87471,7 @@ ___61278h:
 		push    ebx
 		push    ecx
 		push    edx
-		mov     ebx, [__CEXT_V(___24e4d0h)]
+		mov     ebx, [__CEXT_V(NetworkConnectionType)]
 		mov     ecx, [___24e4c4h]
 ___61291h:
 		cmp     ebx, byte 2
@@ -87491,7 +87491,7 @@ ___612b3h:
 		ja      short ___612b3h
 ___612b7h:
 		mov     [___24e4c4h], ecx
-		mov     [__CEXT_V(___24e4d0h)], ebx
+		mov     [__CEXT_V(NetworkConnectionType)], ebx
 		pop     edx
 		pop     ecx
 		pop     ebx
@@ -87614,7 +87614,7 @@ ___61418h:
 		push    ebp
 		sub     esp, byte 4
 		mov     [esp], al
-		cmp     dword [__CEXT_V(___24e4d0h)], byte 2
+		cmp     dword [__CEXT_V(NetworkConnectionType)], byte 2
 		jne     near ___614d1h
 		lgs     eax, [___24e54eh]
 		mov     word [gs:eax+2eh], 1
@@ -87654,7 +87654,7 @@ ___61418h:
 		je      short ___614d1h
 		mov     dword [___199fbch], 0cah
 ___614d1h:
-		mov     ebp, [__CEXT_V(___24e4d0h)]
+		mov     ebp, [__CEXT_V(NetworkConnectionType)]
 		cmp     ebp, byte 1
 		je      short ___614e6h
 		cmp     ebp, byte 3
@@ -87690,7 +87690,7 @@ ___61518h:
 		push    esi
 		push    edi
 		sub     esp, byte 4
-		cmp     dword [__CEXT_V(___24e4d0h)], byte 2
+		cmp     dword [__CEXT_V(NetworkConnectionType)], byte 2
 		jne     near ___61625h
 		mov     ebx, 32h
 		xor     edx, edx
@@ -87755,7 +87755,7 @@ ___6161dh:
 		test    ecx, ecx
 		jge     near ___61561h
 ___61625h:
-		mov     ecx, [__CEXT_V(___24e4d0h)]
+		mov     ecx, [__CEXT_V(NetworkConnectionType)]
 		cmp     ecx, byte 1
 		je      short ___6163ah
 		cmp     ecx, byte 3
@@ -87799,7 +87799,7 @@ __GDECL(__CEXT_F(___6168ch))
 		push    edx
 		push    esi
 		push    edi
-		mov     edx, [__CEXT_V(___24e4d0h)]
+		mov     edx, [__CEXT_V(NetworkConnectionType)]
 		cmp     edx, byte 1
 		je      short ___616b0h
 		cmp     edx, byte 3
@@ -87827,7 +87827,7 @@ ___616b0h:
 		inc     word [eax+2]
 		jmp     short ___616b0h
 ___616f0h:
-		cmp     dword [__CEXT_V(___24e4d0h)], byte 2
+		cmp     dword [__CEXT_V(NetworkConnectionType)], byte 2
 		jne     near ___617afh
 		mov     ecx, 0fh
 		jmp     near ___617a7h
@@ -87887,7 +87887,7 @@ ___617b3h:
 		mov     cx, [eax]
 		cmp     cx, [eax+2]
 		je      near ___6186fh
-		mov     eax, [__CEXT_V(___24e4d0h)]
+		mov     eax, [__CEXT_V(NetworkConnectionType)]
 		cmp     eax, byte 1
 		je      short ___617d9h
 		cmp     eax, byte 3
@@ -87915,7 +87915,7 @@ ___617d9h:
 		call    near ___63190h
 		xor     edx, edx
 ___6181dh:
-		cmp     dword [__CEXT_V(___24e4d0h)], byte 2
+		cmp     dword [__CEXT_V(NetworkConnectionType)], byte 2
 		jne     short ___61861h
 		mov     eax, [___24e4c0h]
 		mov     cx, [eax+2]
@@ -87948,7 +87948,7 @@ ___61884h:
 		mov     eax, [___199fa4h]
 		call    near ___63190h
 ___61892h:
-		cmp     dword [__CEXT_V(___24e4d0h)], byte 2
+		cmp     dword [__CEXT_V(NetworkConnectionType)], byte 2
 		jne     short ___618bbh
 		mov     ebx, 32h
 		xor     edx, edx
@@ -87978,7 +87978,7 @@ ___618d7h:
 		mov     cx, [eax]
 		cmp     cx, [eax+2]
 		je      near ___61996h
-		mov     ecx, [__CEXT_V(___24e4d0h)]
+		mov     ecx, [__CEXT_V(NetworkConnectionType)]
 		cmp     ecx, byte 1
 		je      short ___618feh
 		cmp     ecx, byte 3
@@ -88007,7 +88007,7 @@ ___618feh:
 		call    near ___63190h
 		xor     edx, edx
 ___61943h:
-		cmp     dword [__CEXT_V(___24e4d0h)], byte 2
+		cmp     dword [__CEXT_V(NetworkConnectionType)], byte 2
 		jne     short ___61988h
 		mov     eax, [___24e4c0h]
 		mov     cx, [eax+2]
@@ -88039,7 +88039,7 @@ ___619abh:
 		mov     eax, [___199fa4h]
 		call    near ___63190h
 ___619b9h:
-		cmp     dword [__CEXT_V(___24e4d0h)], byte 2
+		cmp     dword [__CEXT_V(NetworkConnectionType)], byte 2
 		jne     short ___619e2h
 		mov     ebx, 32h
 		xor     edx, edx
@@ -88293,7 +88293,7 @@ ___61cd0h:
 		sub     esp, byte 4
 		mov     esi, [___199fb8h]
 		mov     edi, [___199fbch]
-		mov     edx, [__CEXT_V(___24e4d0h)]
+		mov     edx, [__CEXT_V(NetworkConnectionType)]
 		cmp     edx, byte 1
 		je      short ___61d08h
 		cmp     edx, byte 3
@@ -88309,7 +88309,7 @@ ___61d08h:
 		jne     short ___61d35h
 		mov     esi, [___199fb8h]
 		mov     edi, 64h
-		mov     [__CEXT_V(___24e4d0h)], eax
+		mov     [__CEXT_V(NetworkConnectionType)], eax
 		jmp     near ___623bch
 ___61d35h:
 		mov     edx, ___24e480h
@@ -88320,7 +88320,7 @@ ___61d35h:
 		jne     short ___61d62h
 		mov     esi, [___199fb8h]
 		mov     edi, 64h
-		mov     [__CEXT_V(___24e4d0h)], eax
+		mov     [__CEXT_V(NetworkConnectionType)], eax
 		jmp     near ___623bch
 ___61d62h:
 		mov     edx, ___24e4bch
@@ -88331,7 +88331,7 @@ ___61d62h:
 		jne     short ___61d8fh
 		mov     esi, [___199fb8h]
 		mov     edi, 64h
-		mov     [__CEXT_V(___24e4d0h)], eax
+		mov     [__CEXT_V(NetworkConnectionType)], eax
 		jmp     near ___623bch
 ___61d8fh:
 		mov     edx, ___24e4c8h
@@ -88342,7 +88342,7 @@ ___61d8fh:
 		jne     short ___61dbch
 		mov     esi, [___199fb8h]
 		mov     edi, 64h
-		mov     [__CEXT_V(___24e4d0h)], eax
+		mov     [__CEXT_V(NetworkConnectionType)], eax
 		jmp     near ___623bch
 ___61dbch:
 		mov     edx, ___24cf18h
@@ -88353,7 +88353,7 @@ ___61dbch:
 		jne     short ___61de9h
 		mov     esi, [___199fb8h]
 		mov     edi, 64h
-		mov     [__CEXT_V(___24e4d0h)], eax
+		mov     [__CEXT_V(NetworkConnectionType)], eax
 		jmp     near ___623bch
 ___61de9h:
 		mov     edx, ___24cf1ch
@@ -88364,7 +88364,7 @@ ___61de9h:
 		jne     short ___61e16h
 		mov     esi, [___199fb8h]
 		mov     edi, 64h
-		mov     [__CEXT_V(___24e4d0h)], eax
+		mov     [__CEXT_V(NetworkConnectionType)], eax
 		jmp     near ___623bch
 ___61e16h:
 		mov     edx, ___24cf20h
@@ -88375,7 +88375,7 @@ ___61e16h:
 		jne     short ___61e43h
 		mov     esi, [___199fb8h]
 		mov     edi, 64h
-		mov     [__CEXT_V(___24e4d0h)], eax
+		mov     [__CEXT_V(NetworkConnectionType)], eax
 		jmp     near ___623bch
 ___61e43h:
 		mov     edx, ___24cf24h
@@ -88386,7 +88386,7 @@ ___61e43h:
 		jne     short ___61e70h
 		mov     esi, [___199fb8h]
 		mov     edi, 64h
-		mov     [__CEXT_V(___24e4d0h)], eax
+		mov     [__CEXT_V(NetworkConnectionType)], eax
 		jmp     near ___623bch
 ___61e70h:
 		mov     edx, ___24e4b8h
@@ -88397,7 +88397,7 @@ ___61e70h:
 		jne     short ___61e9dh
 		mov     esi, [___199fb8h]
 		mov     edi, 64h
-		mov     [__CEXT_V(___24e4d0h)], eax
+		mov     [__CEXT_V(NetworkConnectionType)], eax
 		jmp     near ___623bch
 ___61e9dh:
 		mov     edx, [___24e4ach]
@@ -88446,7 +88446,7 @@ ___61e9dh:
 		mov     ebx, 1000h
 		xor     edx, edx
 		call    near __CEXT_F(memset__clib3r)
-		mov     ebp, [__CEXT_V(___24e4d0h)]
+		mov     ebp, [__CEXT_V(NetworkConnectionType)]
 		cmp     ebp, byte 1
 		je      short ___61f8bh
 		mov     edi, [___199fbch]
@@ -88466,12 +88466,12 @@ ___61f8bh:
 		jle     short ___61fc8h
 		mov     esi, [___199fb8h]
 		xor     ebp, ebp
-		mov     [__CEXT_V(___24e4d0h)], ebp
+		mov     [__CEXT_V(NetworkConnectionType)], ebp
 		xor     eax, eax
 		jmp     near ___623bch
 ___61fc8h:
 		mov     [___199fbch], edi
-		cmp     dword [__CEXT_V(___24e4d0h)], byte 2
+		cmp     dword [__CEXT_V(NetworkConnectionType)], byte 2
 		jne     near ___62355h
 		mov     edx, ___24e484h
 		mov     eax, 10h
@@ -88481,7 +88481,7 @@ ___61fc8h:
 		jne     short ___62008h
 		mov     esi, [___199fb8h]
 		mov     edi, 64h
-		mov     [__CEXT_V(___24e4d0h)], eax
+		mov     [__CEXT_V(NetworkConnectionType)], eax
 		jmp     near ___623bch
 ___62008h:
 		mov     edx, ___24e460h
@@ -88498,7 +88498,7 @@ ___62008h:
 		mov     esi, [___199fb8h]
 		mov     edi, 64h
 		xor     ebx, ebx
-		mov     [__CEXT_V(___24e4d0h)], ebx
+		mov     [__CEXT_V(NetworkConnectionType)], ebx
 		xor     eax, eax
 		jmp     near ___623bch
 ___6204ah:
@@ -88510,7 +88510,7 @@ ___6204ah:
 		jne     short ___62077h
 		mov     esi, [___199fb8h]
 		mov     edi, 64h
-		mov     [__CEXT_V(___24e4d0h)], eax
+		mov     [__CEXT_V(NetworkConnectionType)], eax
 		jmp     near ___623bch
 ___62077h:
 		mov     edx, ___24e454h
@@ -88527,7 +88527,7 @@ ___62077h:
 		mov     esi, [___199fb8h]
 		mov     edi, 64h
 		xor     eax, eax
-		mov     [__CEXT_V(___24e4d0h)], eax
+		mov     [__CEXT_V(NetworkConnectionType)], eax
 		jmp     near ___623bch
 ___620b6h:
 		mov     edx, ___24e458h
@@ -88544,7 +88544,7 @@ ___620b6h:
 		mov     esi, [___199fb8h]
 		mov     edi, 64h
 		xor     ebp, ebp
-		mov     [__CEXT_V(___24e4d0h)], ebp
+		mov     [__CEXT_V(NetworkConnectionType)], ebp
 		xor     eax, eax
 		jmp     near ___623bch
 ___620f8h:
@@ -88556,7 +88556,7 @@ ___620f8h:
 		jne     short ___62125h
 		mov     esi, [___199fb8h]
 		mov     edi, 64h
-		mov     [__CEXT_V(___24e4d0h)], eax
+		mov     [__CEXT_V(NetworkConnectionType)], eax
 		jmp     near ___623bch
 ___62125h:
 		xor     ebx, ebx
@@ -88581,7 +88581,7 @@ ___62127h:
 		mov     esi, [___199fb8h]
 		mov     edi, 64h
 		xor     ebp, ebp
-		mov     [__CEXT_V(___24e4d0h)], ebp
+		mov     [__CEXT_V(NetworkConnectionType)], ebp
 		xor     eax, eax
 		jmp     near ___623bch
 ___62189h:
@@ -88610,7 +88610,7 @@ ___62191h:
 		mov     esi, [___199fb8h]
 		mov     edi, 64h
 		xor     eax, eax
-		mov     [__CEXT_V(___24e4d0h)], eax
+		mov     [__CEXT_V(NetworkConnectionType)], eax
 		jmp     near ___623bch
 ___621f0h:
 		inc     ebx
@@ -88638,7 +88638,7 @@ ___621f8h:
 		mov     esi, [___199fb8h]
 		mov     edi, 64h
 		xor     ebx, ebx
-		mov     [__CEXT_V(___24e4d0h)], ebx
+		mov     [__CEXT_V(NetworkConnectionType)], ebx
 		xor     eax, eax
 		jmp     near ___623bch
 ___62255h:
@@ -88653,7 +88653,7 @@ ___62255h:
 		jle     short ___62287h
 		mov     esi, [___199fb8h]
 		xor     edx, edx
-		mov     [__CEXT_V(___24e4d0h)], edx
+		mov     [__CEXT_V(NetworkConnectionType)], edx
 		xor     eax, eax
 		jmp     near ___623bch
 ___62287h:
@@ -88691,7 +88691,7 @@ ___62314h:
 		test    edi, edi
 		jle     short ___6232ah
 		xor     eax, eax
-		mov     [__CEXT_V(___24e4d0h)], eax
+		mov     [__CEXT_V(NetworkConnectionType)], eax
 		jmp     near ___623bch
 ___6232ah:
 		xor     ebx, ebx
@@ -88762,7 +88762,7 @@ __GDECL(__CEXT_F(___623d4h))
 		push    esi
 		push    edi
 		push    ebp
-		mov     edx, [__CEXT_V(___24e4d0h)]
+		mov     edx, [__CEXT_V(NetworkConnectionType)]
 		cmp     edx, byte 1
 		je      short ___623f9h
 		cmp     edx, byte 3
@@ -88796,7 +88796,7 @@ ___623f9h:
 		mov     eax, 31h
 		call    near __CEXT_F(int386__clib3r)
 ___62471h:
-		cmp     dword [__CEXT_V(___24e4d0h)], byte 2
+		cmp     dword [__CEXT_V(NetworkConnectionType)], byte 2
 		jne     near ___62631h
 		call    near ___6363ch
 		mov     eax, [___199fa0h]
@@ -89152,7 +89152,7 @@ ___63190h:
 		push    edx
 		lea     ebx, [eax+1]
 		add     eax, byte 5
-		cmp     dword [__CEXT_V(___24e4d0h)], byte 1
+		cmp     dword [__CEXT_V(NetworkConnectionType)], byte 1
 		jne     short ___631bbh
 		call    near inp
 		test    al, 40h

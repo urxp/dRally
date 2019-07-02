@@ -72,7 +72,7 @@
 	extern 	__CEXT_F(strcmp__clib3r)	
 	extern 	__CEXT_V(___180864h)	
 	extern 	__CEXT_V(___1a1dbah)	
-	extern 	__CEXT_V(___24e4d0h)	
+	extern 	__CEXT_V(NetworkConnectionType)	
 	extern 	__CEXT_F(___64a28h)	
 	extern 	___117f4h	
 	extern 	___1240ch	
@@ -903,7 +903,7 @@ ___3f0ebh:
 		jne     ___3f0ebh
 ___3f103h:
 		pop     edi
-		mov     ecx, [__CEXT_V(___24e4d0h)]
+		mov     ecx, [__CEXT_V(NetworkConnectionType)]
 		mov     [__CEXT_V(RowBox0Colors_R5)], bl
 		cmp     ecx, byte 2
 		jne     ___3f123h
@@ -970,7 +970,7 @@ ___3f19dh:
 		xor     esi, esi
 		call    __CEXT_F(___623d4h)
 		mov     [__CEXT_V(NetworkConnectionEstablished)], esi
-		mov     [__CEXT_V(___24e4d0h)], esi
+		mov     [__CEXT_V(NetworkConnectionType)], esi
 ___3f1bah:
 		call    ___3d79ch
 		call    __CEXT_F(writeConfig__dr)
