@@ -52,7 +52,7 @@
     extern byte bpk_armor4_p[];
     extern byte ___1a1e8ch[];
     extern byte ___1a1ea0h[];
-    extern byte ___1a1e7ch[];
+    extern byte tex_carframe[];
     extern byte ___1a1ebch[];
     extern byte ___1a1eb4h[];
     extern byte ___1a1e88h[];
@@ -415,8 +415,8 @@ ___245cbh:
 	eax = 0x1800;
 //		call    __CEXT_F(allocMemSafe)
 	eax = allocMemSafe(eax);
-//		mov     [__CEXT_V(___1a1e7ch)], eax
-	D(___1a1e7ch) = eax;
+//		mov     [__CEXT_V(tex_carframe)], eax
+	D(tex_carframe) = eax;
 //		mov     eax, 0f0h
 	eax = 0xf0;
 //		call    __CEXT_F(allocMemSafe)

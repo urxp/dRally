@@ -10,7 +10,7 @@
     extern  __CEXT_F(startup__dr)
     extern  install__serial
     extern  __CEXT_F(allocDOSMemBlock__dpmi)
-    extern  footer__dr
+    extern  __CEXT_F(footer__dr)
     extern  __CEXT_F(read__bpa)
     extern  __CEXT_F(getentrysize__bpa)
 
@@ -72,6 +72,7 @@
     extern  __CEXT_F(___24548h)
     extern  __CEXT_F(___17384h)
     extern  __CEXT_F(carAnimFrame)
+    extern  __CEXT_F(updateMenuBackgroundAndTextArea)
 
 
 ;; CLIB3R.LIB

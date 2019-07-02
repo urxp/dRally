@@ -8,7 +8,7 @@ typedef unsigned long	dword;
 	void setmode3h__video(void);
 
 	extern const char ___183e84h[];
-	extern dword ___19bd60h;
+	extern dword NetworkConnectionEstablished;
 
 void exitcb1__dr(void){
 
@@ -28,8 +28,8 @@ void exitcb1__dr(void){
 //		push    __CEXT_V(___183e84h)
 //		call    __CEXT_F(printf__clib3r)
 	printf__clib3r(___183e84h);
-//		mov     edx, [__CEXT_V(___19bd60h)]
-	edx = ___19bd60h;
+//		mov     edx, [__CEXT_V(NetworkConnectionEstablished)]
+	edx = NetworkConnectionEstablished;
 //		add     esp, 4
 //		test    edx, edx
 //		je      ___4932ch

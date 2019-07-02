@@ -57,7 +57,7 @@
     extern  __CEXT_V(bpk_armor4_p)
     extern  __CEXT_V(___1a1e8ch)
     extern  __CEXT_V(___1a1ea0h)
-    extern  __CEXT_V(___1a1e7ch)
+    extern  __CEXT_V(tex_carframe)
     extern  __CEXT_V(___1a1ebch)
     extern  __CEXT_V(___1a1eb4h)
     extern  __CEXT_V(___1a1e88h)
@@ -271,7 +271,7 @@ ___245cbh:
 		mov     [__CEXT_V(___1a1ea0h)], eax
 		mov     eax, 1800h
 		call    __CEXT_F(allocMemSafe)
-		mov     [__CEXT_V(___1a1e7ch)], eax
+		mov     [__CEXT_V(tex_carframe)], eax
 		mov     eax, 0f0h
 		call    __CEXT_F(allocMemSafe)
 		mov     [__CEXT_V(___1a1ebch)], eax

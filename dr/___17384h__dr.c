@@ -11,7 +11,7 @@
     extern dword ___196ae4h;
 
 
-    void delay_TBD(void);
+    void updateMenuBackgroundAndTextArea(void);
     void memset__clib3r(void *, dword, dword);
     void ___1398ch(dword, void *, dword w, dword h);
     void carAnimFrame(dword, dword, dword, void *, void *);
@@ -23,7 +23,7 @@ void ___17384h(dword A0, dword A1, dword A2, dword A3, dword A4, dword A5){
 
 	dword 	n;
 
-	delay_TBD();
+	updateMenuBackgroundAndTextArea();
 
 	if(___196ae0h++ < 0xa){
 

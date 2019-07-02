@@ -13,7 +13,7 @@ typedef unsigned long   dword;
     void install__keyboard(void);
     void startup__dr(void);
     void restore__keyboard(void);
-    extern dword ___19bd60h;
+    extern dword NetworkConnectionEstablished;
     void ___623d4h(void);
     void freeAllocInfoTable(void);
     void restrdos__dr(void);
@@ -48,7 +48,7 @@ int main(int argc, const char * argv[]){
 	startup__dr();
 	restore__keyboard();
 
-	if(___19bd60h) ___623d4h();
+	if(NetworkConnectionEstablished) ___623d4h();
 
 	freeAllocInfoTable();
 	restrdos__dr();

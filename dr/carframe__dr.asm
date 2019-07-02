@@ -1,10 +1,10 @@
 %include "macros.inc"
 
     extern  __CHK
-    extern  __CEXT_V(___1a1e7ch)
+    extern  __CEXT_V(tex_carframe)
     extern  __CEXT_F(decode2__bpk)
     extern  __CEXT_V(VGABufferPtr_0)
-    extern  __CEXT_V(___1a1e7ch)
+    extern  __CEXT_V(tex_carframe)
 
 %include "layout.inc"
 
@@ -35,7 +35,7 @@ ___25a03h:
 ___25a0fh:
 		add     ebx, ecx
 		push    ebx
-		mov     eax, [__CEXT_V(___1a1e7ch)]
+		mov     eax, [__CEXT_V(tex_carframe)]
 		push    eax
 		call    __CEXT_F(decode2__bpk)
 		mov     ebx, [esp]
@@ -44,7 +44,7 @@ ___25a0fh:
 		add     eax, edi
 		mov     edx, [__CEXT_V(VGABufferPtr_0)]
 		shl     eax, 7
-		mov     esi, [__CEXT_V(___1a1e7ch)]
+		mov     esi, [__CEXT_V(tex_carframe)]
 		add     eax, edx
 		mov     edx, 60h
 		add     ebx, eax

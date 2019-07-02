@@ -974,23 +974,18 @@ ___182138h:
 db	"----------------"
 db	"----",0,0,0,0
 ___182150h:
-db	"Memory available"
-db	3ah,20h,0,0
+db	"Memory available: ",0,0
 ___182164h:
-db	44h,52h,2eh,53h,47h,37h,0
+db  "DR.SG7",0
 ___18216bh:
 db	0,0,0,0,0,0,90h,3fh,0
-___182174h:
-db	" is currently on"
-db	" Death Rally.",0,0,0
-___182194h:
-db	" is waiting for "
-db	"you to join the "
-db	6eh,"ext race.",0,0
-___1821c0h:
-db	"-- Modem connect"
-db	"ion lost!",0
-___1821dah:
+__GDECL(__CEXT_V(___182174h))
+db	" is currently on Death Rally.",0,0,0
+__GDECL(__CEXT_V(___182194h))
+db	" is waiting for you to join the next race.",0,0
+__GDECL(__CEXT_V(___1821c0h))
+db	"-- Modem connection lost!",0
+__GDECL(__CEXT_V(d_1o64))
 db	0,0,0,0,0,0,90h,3fh
 ___1821e2h:
 db	0,0,0,0,0,0,90h,3fh,0,0
@@ -2746,7 +2741,7 @@ ___185a14h:
 db	1,0,0,0
 ___185a18h:
 db	0,0,0,0
-___185a1ch:
+__GDECL(__CEXT_V(___185a1ch))
 db	0,0,0,0
 ___185a20h:
 db	0,0,0,0
@@ -2754,8 +2749,7 @@ ___185a24h:
 db	0,0,0,0
 ___185a28h:
 db	0,0,0,0
-global ___185a2ch
-___185a2ch:
+__GDECL(___185a2ch)
 db	0,0,0,0
 ___185a30h:
 db	0,0,0,0
@@ -7357,7 +7351,7 @@ db	"ng live the king"
 db	" of Death Rally!"
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0
-___196a74h:
+__GDECL(__CEXT_V(___196a74h))
 db	1,0,0,0
 ___196a78h:
 db	0,0,0,0
@@ -7365,15 +7359,13 @@ ___196a7ch:
 db	0,0,0,0
 ___196a80h:
 db	0,0,0,0
-global ___196a84h
-___196a84h:
+__GDECL(___196a84h)
 db	0,0,0,0
-___196a88h:
+__GDECL(__CEXT_V(___196a88h))
 db	0,0,0,0
 __GDECL(__CEXT_V(GXType))
 db	0,0,0,0
-global ToneDialing
-ToneDialing:
+__GDECL(ToneDialing)
 db	1,0,0,0
 ___196a94h:
 db	1,0,0,0
@@ -7413,7 +7405,7 @@ db	2,8,1,6,9,10h,0eh,0ch,0dh,0bh,11h,0ah,0fh,10h,11h,12h
 db	0,0,0
 ___196ad4h:
 db	0,0,0,0
-___196ad8h:
+__GDECL(__CEXT_V(___196ad8h))
 db	0ffh,1,0,0
 ___196adch:
 db	2,0,0,0
@@ -8466,22 +8458,19 @@ ___199fa8h:
 db	0,0,0,0
 ___199fach:
 db	0,0,0,0
-global ___199fb0h
-___199fb0h:
+__GDECL(___199fb0h)
 db	0,0,0,0,0,0
 ___199fb6h:
 db	1,0
 ___199fb8h:
 db	0,0,0,0
-global ___199fbch
-___199fbch:
+__GDECL(___199fbch)
 db	0,0,0,0
 ___199fc0h:
 db	40h,2,0,0
-global ___199fc4h
-___199fc4h:
+__GDECL(___199fc4h)
 db	1,0,0,0
-___199fc8h:
+__GDECL(__CEXT_V(___199fc8h))
 db	0,0,0,0
 ___199fcch:
 db	0,0,0,0

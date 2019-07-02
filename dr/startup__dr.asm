@@ -58,10 +58,10 @@
 	extern 	allocVGABuffer	
 	extern 	___3d38ch	
 	extern 	___3d890h	
-	extern 	___1a1f4fh	
-	extern 	RowBox0Colors_R5	
+	extern 	__CEXT_V(___1a1f4fh)	
+	extern 	__CEXT_V(RowBox0Colors_R5)	
 	extern 	___2b318h	
-	extern 	___5e0f9h	
+	extern 	__CEXT_F(___5e0f9h)	
 	extern 	___VGABufferPtr_0	
 	extern 	__CEXT_V(VGABufferPtr_0)	
 	extern 	___146c4h	
@@ -71,8 +71,8 @@
 	extern 	___182de4h	
 	extern 	__CEXT_F(strcmp__clib3r)	
 	extern 	__CEXT_V(___180864h)	
-	extern 	___1a1dbah	
-	extern 	___24e4d0h	
+	extern 	__CEXT_V(___1a1dbah)	
+	extern 	__CEXT_V(___24e4d0h)	
 	extern 	__CEXT_F(___64a28h)	
 	extern 	___117f4h	
 	extern 	___1240ch	
@@ -88,21 +88,21 @@
 	extern 	GXBackBuffer
 	extern 	__CEXT_V(___180130h)	
 	extern 	___1a0220h	
-	extern 	___1a01e0h	
-	extern 	RowBoxBuffers	
+	extern 	__CEXT_V(___1a01e0h)	
+	extern 	__CEXT_V(RowBoxBuffers)	
 	extern 	___1a1f4dh	
 	extern 	___182d08h	
 	extern 	___182d3ch	
-	extern 	___1a1f4eh	
+	extern 	__CEXT_V(___1a1f4eh)	
 	extern 	___182d78h		
 	extern 	frameFooter__dr	
-	extern 	footer__dr	
+	extern 	__CEXT_F(footer__dr)	
 	extern 	___13710h	
 	extern 	___196d84h	
 	extern 	___185a2ch	
 	extern 	___196a84h	
 	extern 	___12cb8h	
-	extern 	___58c60h	
+	extern 	__CEXT_F(___58c60h)	
 	extern 	___13a98h	
 	extern 	___19eb50h	
 	extern 	___19eb54h	
@@ -113,7 +113,7 @@
 	extern 	__CEXT_F(___649a8h)	
 	extern 	___1a1ef4h	
 	extern 	___65710h		
-	extern 	___12dc4h	
+	extern 	__CEXT_F(___12dc4h)	
 	extern 	__CEXT_F(chkcdrom__dr)	
 	extern 	___13248h	
 	extern 	___182db8h	
@@ -126,20 +126,20 @@
 	extern 	___1854bch	
 	extern 	playSFX__sound	
 	extern 	nullScanCode__keyboard	
-	extern 	__CEXT_F(delay_TBD)	
+	extern 	__CEXT_F(updateMenuBackgroundAndTextArea)	
 	extern 	startRacingMenu__dr	
 	extern 	multiplayerRaceMenu__dr	
 	extern 	configureMenu__dr	
 	extern 	creditsMenu__dr	
 	extern 	showPreviewMenu__dr	
 	extern 	___148cch	
-	extern 	__CEXT_V(___19bd60h)	
+	extern 	__CEXT_V(NetworkConnectionEstablished)	
 	extern 	___180ba0h	
 	extern 	___186a6eh	
 	extern 	__CEXT_V(___1a1ef8h)	
-	extern 	___1a01e0h	
+	extern 	__CEXT_V(___1a01e0h)	
 	extern 	___180ca4h	
-	extern 	___23488h		
+	extern 	__CEXT_F(___23488h)		
 	extern 	___18108ch
 	extern 	___61278h	
 	extern 	__CEXT_F(___623d4h)	
@@ -343,11 +343,11 @@ ___3e88bh:
 		mov     dl, [__CEXT_V(___180130h)]
 		mov     [eax*4+___1a0220h], edi
 		mov     [esp+8], edi
-		mov     [eax*4+___1a01e0h], dl
+		mov     [eax*4+__CEXT_V(___1a01e0h)], dl
 		xor     eax, eax
 ___3e9dfh:
 		mov     dl, [__CEXT_V(___180130h)]
-		mov     [eax+RowBoxBuffers], dl
+		mov     [eax+__CEXT_V(RowBoxBuffers)], dl
 		mov     edx, [esp+8]
 		inc     edx
 		xor     bl, bl
@@ -357,13 +357,13 @@ ___3e9dfh:
 		cmp     edx, byte 16h
 		jl      ___3e9dfh
 		mov     ecx, 0dh
-		mov     edi, ___1a1dbah
+		mov     edi, __CEXT_V(___1a1dbah)
 		mov     esi, ___182d08h
 		mov     bh, 1
 		rep movsd   
-		mov     edx, RowBoxBuffers
+		mov     edx, __CEXT_V(RowBoxBuffers)
 		xor     ecx, ecx
-		mov     [RowBox0Colors_R5], bh
+		mov     [__CEXT_V(RowBox0Colors_R5)], bh
 		mov     [esp+8], ecx
 		lea     ecx, [edx+96h]
 ___3ea30h:
@@ -388,20 +388,20 @@ ___3ea4dh:
 		add     edx, 96h
 		add     ecx, 96h
 		inc     esi
-		mov     al, [eax+___1a1f4fh]
+		mov     al, [eax+__CEXT_V(___1a1f4fh)]
 		mov     [esp+8], esi
 		mov     [esi+___1a1f4dh], al
 		cmp     esi, byte 15h
 		jl      ___3ea30h
 		mov     ecx, 0eh
-		mov     edi, ___1a1dbah
+		mov     edi, __CEXT_V(___1a1dbah)
 		mov     esi, ___182d3ch
 		rep movsd   
 		movsw   
 		mov     cl, 1
 		xor     ebp, ebp
-		mov     [RowBox0Colors_R5], cl
-		mov     ecx, RowBoxBuffers
+		mov     [__CEXT_V(RowBox0Colors_R5)], cl
+		mov     ecx, __CEXT_V(RowBoxBuffers)
 		mov     [esp+8], ebp
 		lea     edx, [ecx+96h]
 ___3eaa4h:
@@ -423,20 +423,20 @@ ___3eac1h:
 		pop     edi
 		mov     eax, [esp+8]
 		mov     esi, [esp+8]
-		mov     al, [eax+___1a1f4fh]
+		mov     al, [eax+__CEXT_V(___1a1f4fh)]
 		add     ecx, 96h
-		mov     [esi+___1a1f4eh], al
+		mov     [esi+__CEXT_V(___1a1f4eh)], al
 		lea     eax, [esi+1]
 		add     edx, 96h
 		mov     [esp+8], eax
 		cmp     eax, byte 15h
 		jl      ___3eaa4h
-		mov     byte [RowBox0Colors_R5], 1
+		mov     byte [__CEXT_V(RowBox0Colors_R5)], 1
 		xor     ecx, ecx
 		mov     al, [__CEXT_V(___180130h)]
 		mov     [esp+8], ecx
-		mov     ecx, RowBoxBuffers
-		mov     [___1a1dbah], al
+		mov     ecx, __CEXT_V(RowBoxBuffers)
+		mov     [__CEXT_V(___1a1dbah)], al
 		lea     edx, [ecx+96h]
 ___3eb10h:
 		mov     esi, edx
@@ -460,21 +460,21 @@ ___3eb2dh:
 		add     ecx, 96h
 		add     edx, 96h
 		inc     esi
-		mov     al, [eax+___1a1f4fh]
+		mov     al, [eax+__CEXT_V(___1a1f4fh)]
 		mov     [esp+8], esi
 		mov     [esi+___1a1f4dh], al
 		cmp     esi, byte 15h
 		jl      ___3eb10h
 		mov     ecx, 0fh
-		mov     edi, ___1a1dbah
+		mov     edi, __CEXT_V(___1a1dbah)
 		mov     esi, ___182d78h
 		mov     al, 1
 		xor     ebp, ebp
 		rep movsd   
 		movsw   
 		movsb   
-		mov     [RowBox0Colors_R5], al
-		mov     ecx, RowBoxBuffers
+		mov     [__CEXT_V(RowBox0Colors_R5)], al
+		mov     ecx, __CEXT_V(RowBoxBuffers)
 		mov     [esp+8], ebp
 		lea     edx, [ecx+96h]
 ___3eb84h:
@@ -496,9 +496,9 @@ ___3eba1h:
 		pop     edi
 		mov     eax, [esp+8]
 		mov     esi, [esp+8]
-		mov     al, [eax+___1a1f4fh]
+		mov     al, [eax+__CEXT_V(___1a1f4fh)]
 		add     ecx, 96h
-		mov     [esi+___1a1f4eh], al
+		mov     [esi+__CEXT_V(___1a1f4eh)], al
 		lea     eax, [esi+1]
 		add     edx, 96h
 		mov     [esp+8], eax
@@ -507,13 +507,13 @@ ___3eba1h:
 		mov     ecx, 6dh
 		mov     al, [__CEXT_V(___180130h)]
 		mov     ebx, 27fh
-		mov     [___1a1dbah], al
+		mov     [__CEXT_V(___1a1dbah)], al
 		mov     ah, 1
 		mov     edx, 173h
-		mov     [RowBox0Colors_R5], ah
+		mov     [__CEXT_V(RowBox0Colors_R5)], ah
 		xor     eax, eax
 		call    frameFooter__dr
-		call    footer__dr
+		call    __CEXT_F(footer__dr)
 		cmp     dword [esp+0ch], byte 0
 		jne     ___3efdch
 		mov     eax, [esp+20h]
@@ -568,7 +568,7 @@ ___3eca8h:
 		mov     [esp+1ch], ebx
 		mov     [esp], ebx
 ___3ecc7h:
-		call    ___58c60h
+		call    __CEXT_F(___58c60h)
 		mov     eax, [esp+1ch]
 		mov     edx, eax
 		mov     ecx, 2
@@ -616,7 +616,7 @@ ___3ecf0h:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    ___5e0f9h
+		call    __CEXT_F(___5e0f9h)
 		mov     eax, [esp+8]
 		inc     eax
 		add     edi, byte 0ch
@@ -672,7 +672,7 @@ ___3edeah:
 ___3ee31h:
 		cmp     dword [___196a84h], byte 0
 		jne     ___3ee3fh
-		call    ___12dc4h
+		call    __CEXT_F(___12dc4h)
 ___3ee3fh:
 		xor     eax, eax
 		call    ___146c4h
@@ -728,8 +728,8 @@ ___3ee3fh:
 		mov     bl, al
 		mov     edx, [esp+4]
 		mov     bh, al
-		call    __CEXT_F(delay_TBD)
-		call    __CEXT_F(delay_TBD)
+		call    __CEXT_F(updateMenuBackgroundAndTextArea)
+		call    __CEXT_F(updateMenuBackgroundAndTextArea)
 		mov     eax, ebp
 		call    updateScreen_TBD
 		cmp     bl, 1				;; KEY_ESC
@@ -789,7 +789,7 @@ ___3efd1h:
 		cmp     dword [esp+0ch], byte 0
 		je      ___3ec59h
 ___3efdch:
-		cmp     dword [__CEXT_V(___19bd60h)], byte 0
+		cmp     dword [__CEXT_V(NetworkConnectionEstablished)], byte 0
 		je      ___3f1bah
 		mov     edx, ___180ba0h
 		mov     eax, ___186a6eh			;; "Join An Existing Game"
@@ -800,15 +800,15 @@ ___3efdch:
 		sub     eax, edx
 		shl     eax, 2
 		sub     eax, edx
-		mov     esi, ___1a01e0h
+		mov     esi, __CEXT_V(___1a01e0h)
 		shl     eax, 2
 		add     esi, eax
 		test    ecx, ecx
 		jne     ___3f131h
-		mov     edi, ___1a1dbah
+		mov     edi, __CEXT_V(___1a1dbah)
 		mov     eax, [__CEXT_V(___180864h)]
 		mov     ebx, 14h
-		mov     [___1a1dbah], eax
+		mov     [__CEXT_V(___1a1dbah)], eax
 		push    edi
 		sub     ecx, ecx
 		dec     ecx
@@ -849,18 +849,18 @@ ___3f066h:
 		jne     ___3f066h
 ___3f07eh:
 		pop     edi
-		mov     [RowBox0Colors_R5], dh
+		mov     [__CEXT_V(RowBox0Colors_R5)], dh
 		mov     eax, edi
 		mov     edx, 64h
-		call    ___23488h
+		call    __CEXT_F(___23488h)
 		mov     eax, [__CEXT_V(___180864h)]
 		mov     edx, [__CEXT_V(___1a1ef8h)]
-		mov     [___1a1dbah], eax
+		mov     [__CEXT_V(___1a1dbah)], eax
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
 		sub     eax, edx
-		mov     esi, ___1a01e0h
+		mov     esi, __CEXT_V(___1a01e0h)
 		shl     eax, 2
 		add     esi, eax
 		push    edi
@@ -903,8 +903,8 @@ ___3f0ebh:
 		jne     ___3f0ebh
 ___3f103h:
 		pop     edi
-		mov     ecx, [___24e4d0h]
-		mov     [RowBox0Colors_R5], bl
+		mov     ecx, [__CEXT_V(___24e4d0h)]
+		mov     [__CEXT_V(RowBox0Colors_R5)], bl
 		cmp     ecx, byte 2
 		jne     ___3f123h
 		mov     ebx, 6
@@ -917,10 +917,10 @@ ___3f123h:
 		mov     eax, edi
 		jmp     ___3f19dh
 ___3f131h:
-		mov     edi, ___1a1dbah
+		mov     edi, __CEXT_V(___1a1dbah)
 		mov     eax, [__CEXT_V(___180864h)]
 		mov     ebx, 6
-		mov     [___1a1dbah], eax
+		mov     [__CEXT_V(___1a1dbah)], eax
 		push    edi
 		sub     ecx, ecx
 		dec     ecx
@@ -961,16 +961,16 @@ ___3f177h:
 		jne     ___3f177h
 ___3f18fh:
 		pop     edi
-		mov     [RowBox0Colors_R5], dl
+		mov     [__CEXT_V(RowBox0Colors_R5)], dl
 		mov     eax, edi
 		mov     edx, 64h
 ___3f19dh:
-		call    ___23488h
+		call    __CEXT_F(___23488h)
 		call    ___61278h
 		xor     esi, esi
 		call    __CEXT_F(___623d4h)
-		mov     [__CEXT_V(___19bd60h)], esi
-		mov     [___24e4d0h], esi
+		mov     [__CEXT_V(NetworkConnectionEstablished)], esi
+		mov     [__CEXT_V(___24e4d0h)], esi
 ___3f1bah:
 		call    ___3d79ch
 		call    __CEXT_F(writeConfig__dr)

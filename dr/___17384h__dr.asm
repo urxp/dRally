@@ -1,7 +1,7 @@
 %include "macros.inc"
 
     extern  __CHK
-    extern  __CEXT_F(delay_TBD)
+    extern  __CEXT_F(updateMenuBackgroundAndTextArea)
     extern  __CEXT_F(memset__clib3r)
     extern  __CEXT_V(___185ba9h)
     extern  __CEXT_V(___1a10e0h)
@@ -32,7 +32,7 @@ __GDECL(__CEXT_F(___17384h))
 		mov     [esp+4], edx
 		mov     esi, ebx
 		mov     [esp], ecx
-		call    __CEXT_F(delay_TBD)
+		call    __CEXT_F(updateMenuBackgroundAndTextArea)
 		mov     edx, [__CEXT_V(___196ae0h)]
 		inc     edx
 		mov     [__CEXT_V(___196ae0h)], edx

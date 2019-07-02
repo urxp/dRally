@@ -15,7 +15,7 @@ typedef unsigned long	dword;
 
 	// "DEATH RALLY Exit: CTRL+ALT+DEL pressed.\n"
     extern const char ___1826f4h[];
-	extern dword ___19bd60h;
+	extern dword NetworkConnectionEstablished;
 
 void exitcb2__dr(void){
 
@@ -42,9 +42,9 @@ void exitcb2__dr(void){
 	freeAllocInfoTable();
 //		call    __CEXT_F(restore__keyboard)
 	restore__keyboard();
-//		cmp     dword [__CEXT_V(___19bd60h)], 0
+//		cmp     dword [__CEXT_V(NetworkConnectionEstablished)], 0
 //		je      ___3ab3bh
-	if(___19bd60h == 0) goto ___3ab3bh;
+	if(NetworkConnectionEstablished == 0) goto ___3ab3bh;
 //		call    __CEXT_F(___623d4h)
 	___623d4h();
 ___3ab3bh:

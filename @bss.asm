@@ -9,7 +9,7 @@ __GDECL(__CEXT_V(CLArgc))
     resb	4
 __GDECL(Gamepad)
     resb	8
-__GDECL(__CEXT_V(___19bd60h))
+__GDECL(__CEXT_V(NetworkConnectionEstablished))
     resb	4
 __GDECL(___19bd64h)
     resb	2
@@ -518,7 +518,7 @@ __GDECL(__CEXT_V(bpk_armor3_p))
     resb	4
 __GDECL(__CEXT_V(bpk_armor4_p))
     resb	4
-__GDECL(___1a01e0h)
+__GDECL(__CEXT_V(___1a01e0h))
     resb	0ch
 __GDECL(___1a01ech)
     resb	4
@@ -605,7 +605,8 @@ ___1a0f8ch:	resb	4
 ___1a0f90h:	resb	4
 ___1a0f94h:	resb	4
 ___1a0f98h:	resb	4
-___1a0f9ch:	resb	8
+__GDECL(__CEXT_V(___1a0f9ch))
+    resb	8
 ___1a0fa4h:	resb	4
 ___1a0fa8h:	resb	4
 ___1a0fach:	resb	4
@@ -673,7 +674,8 @@ ___1a10b8h:	resb	4
 ___1a10bch:	resb	4
 ___1a10c0h:	resb	4
 ___1a10c4h:	resb	4
-BGCOP_PAL_Ptr:	resb	4
+__GDECL(__CEXT_V(bgcop_pal_p))
+    resb	4
 __GDECL(___1a10cch)
     resb	4
 ___1a10d0h:	resb	4
@@ -727,13 +729,13 @@ ___1a1168h:	resb	1
 ___1a1169h:	resb	1
 ___1a116ah:	resb	1
 ___1a116bh:	resb	1
-__GDECL(RowBoxBuffers)
+__GDECL(__CEXT_V(RowBoxBuffers))
     resb	9f6h
 ___1a1b62h:	resb	96h
 ___1a1bf8h:	resb	96h
 ___1a1c8eh:	resb	96h
 ___1a1d24h:	resb	96h
-__GDECL(___1a1dbah)
+__GDECL(__CEXT_V(___1a1dbah))
     resb	96h
 __GDECL(___1a1e50h)
     resb	4
@@ -757,7 +759,7 @@ __GDECL(__CEXT_V(___1a1e74h))
     resb	4
 __GDECL(__CEXT_V(___1a1e78h))
     resb	4
-__GDECL(__CEXT_V(___1a1e7ch))
+__GDECL(__CEXT_V(tex_carframe))
     resb	4
 __GDECL(__CEXT_V(___1a1e80h))
     resb	4
@@ -858,9 +860,9 @@ __GDECL(TimesPlayed)
 ___1a1f3fh:	resb	0eh
 __GDECL(___1a1f4dh)
     resb	1
-__GDECL(___1a1f4eh)
+__GDECL(__CEXT_V(___1a1f4eh))
     resb	1
-__GDECL(___1a1f4fh)
+__GDECL(__CEXT_V(___1a1f4fh))
     resb	0fh
 __GDECL(RowBox0Colors)
 RowBox0Colors_R0:   resb	1
@@ -869,7 +871,7 @@ RowBox0Colors_R2:	resb	1
 RowBox0Colors_R3:	resb	1
 __GDECL(RowBox0Colors_R4)
     resb	1
-__GDECL(RowBox0Colors_R5)
+__GDECL(__CEXT_V(RowBox0Colors_R5))
     resb	1
 ___1a1f64h:	resb	1
 ___1a1f65h:	resb	1
@@ -1712,7 +1714,7 @@ __GDECL(___24e4c4h)
     resb	4
 ___24e4c8h:	resb	4
 ___24e4cch:	resb	4
-__GDECL(___24e4d0h)
+__GDECL(__CEXT_V(___24e4d0h))
     resb	4
 __GDECL(RMSerialPtr)
     resb	4

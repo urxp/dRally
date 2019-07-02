@@ -11,7 +11,7 @@
     extern byte ___196ae4h[];
 
 
-    void delay_TBD(void);
+    void updateMenuBackgroundAndTextArea(void);
     void memset__clib3r(dword, dword, dword);
     void ___1398ch(dword, dword, dword, dword);
     void carAnimFrame(dword, dword, dword, dword, dword);
@@ -52,8 +52,8 @@ void ___17384h(dword A0, dword A1, dword A2, dword A3, dword A4, dword A5){
 	esi = ebx;
 //		mov     [esp], ecx
 	D(esp) = ecx;
-//		call    __CEXT_F(delay_TBD)
-	delay_TBD();
+//		call    __CEXT_F(updateMenuBackgroundAndTextArea)
+	updateMenuBackgroundAndTextArea();
 //		mov     edx, [__CEXT_V(___196ae0h)]
 	edx = D(___196ae0h);
 //		inc     edx

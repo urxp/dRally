@@ -69,7 +69,7 @@ enum {
     extern byte ___1a0194h[];
     extern byte ___1a1e8ch[];
     extern byte ___1a1ea0h[];
-    extern byte ___1a1e7ch[];
+    extern byte tex_carframe[];
     extern byte ___1a1ebch[];
     extern byte ___1a1eb4h[];
     extern byte ___1a1e88h[];
@@ -160,7 +160,7 @@ void ___24548h(void){
 
 
 	D(___1a1124h) = D(___1a10e4h) = allocMemSafe(0x4b000);
-	D(___1a1e7ch) = allocMemSafe(0x1800);
+	D(tex_carframe) = allocMemSafe(0x1800);
 
 
 	D(___1a1ed4h) = allocMemSafe(0x5400);

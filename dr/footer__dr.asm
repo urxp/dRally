@@ -3,7 +3,7 @@
 	extern 	__CHK
 	extern 	GXBackBuffer
 	extern 	__CEXT_V(VGABufferPtr_0)
-	extern 	RowBoxBuffers
+	extern 	__CEXT_V(RowBoxBuffers)
 	extern 	RowBox0Colors
 	extern 	Font0Props
 	extern 	WhiteFont0Ptr
@@ -17,8 +17,7 @@
 
 section @text
 
-global footer__dr
-footer__dr:
+__GDECL(__CEXT_F(footer__dr))
 		push    1ch
 		call    __CHK
 		push    ebx
@@ -45,7 +44,7 @@ ___23245h:
 		pop     edi
 		cmp     ebp, 49480h
 		jne     ___23245h
-		mov     edi, RowBoxBuffers
+		mov     edi, __CEXT_V(RowBoxBuffers)
 		mov     esi, 3b10ch
 		xor     ebp, ebp
 		add     edi, 960h

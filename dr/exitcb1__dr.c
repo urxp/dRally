@@ -10,7 +10,7 @@ typedef unsigned long	dword;
 	// "DEATH RALLY Exit: CTRL+ALT+DEL pressed!\n"
 	extern const char ___183e84h[];
 
-	extern dword ___19bd60h;
+	extern dword NetworkConnectionEstablished;
 
 void exitcb1__dr(void){
 
@@ -19,7 +19,7 @@ void exitcb1__dr(void){
 	setmode3h__video();
 	printf__clib3r(___183e84h);
 
-	if(___19bd60h) ___623d4h();
+	if(NetworkConnectionEstablished) ___623d4h();
 
 	exit__clib3r(0x70);
 }

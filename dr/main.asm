@@ -13,7 +13,7 @@
     extern  __CEXT_F(install__keyboard)
     extern  __CEXT_F(startup__dr)
     extern  __CEXT_F(restore__keyboard)
-    extern  __CEXT_V(___19bd60h)
+    extern  __CEXT_V(NetworkConnectionEstablished)
     extern  __CEXT_F(___623d4h)
     extern  __CEXT_F(freeAllocInfoTable)
     extern  __CEXT_F(restrdos__dr)
@@ -58,7 +58,7 @@ ___101e6h:
 		call    __CEXT_F(install__keyboard)
 		call    __CEXT_F(startup__dr)
 		call    __CEXT_F(restore__keyboard)
-		cmp     dword [__CEXT_V(___19bd60h)], 0
+		cmp     dword [__CEXT_V(NetworkConnectionEstablished)], 0
 		je      ___10212h
 		call    __CEXT_F(___623d4h)
 ___10212h:

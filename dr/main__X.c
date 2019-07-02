@@ -13,7 +13,7 @@ typedef unsigned long   dword;
     void install__keyboard();
     void startup__dr();
     void restore__keyboard();
-    extern byte ___19bd60h[];
+    extern byte NetworkConnectionEstablished[];
     void ___623d4h(void);
     void freeAllocInfoTable(void);
     void restrdos__dr();
@@ -86,9 +86,9 @@ ___101e6h:
 	startup__dr();
 //		call    __CEXT_F(restore__keyboard)
 	restore__keyboard();
-//		cmp     dword [__CEXT_V(___19bd60h)], 0
+//		cmp     dword [__CEXT_V(NetworkConnectionEstablished)], 0
 //		je      ___10212h
-	if(*(dword *)___19bd60h == 0) goto ___10212h;
+	if(*(dword *)NetworkConnectionEstablished == 0) goto ___10212h;
 //		call    __CEXT_F(___623d4h)
 	___623d4h();
 ___10212h:

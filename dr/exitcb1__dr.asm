@@ -6,7 +6,7 @@
     extern  __CEXT_F(setmode3h__video)
     extern  __CEXT_V(___183e84h)
     extern  __CEXT_F(printf__clib3r)
-    extern  __CEXT_V(___19bd60h)
+    extern  __CEXT_V(NetworkConnectionEstablished)
     extern  __CEXT_F(___623d4h)
     extern  __CEXT_F(exit__clib3r)
 
@@ -25,7 +25,7 @@ __GDECL(__CEXT_F(exitcb1__dr))
 		call    __CEXT_F(setmode3h__video)
 		push    __CEXT_V(___183e84h)
 		call    __CEXT_F(printf__clib3r)
-		mov     edx, [__CEXT_V(___19bd60h)]
+		mov     edx, [__CEXT_V(NetworkConnectionEstablished)]
 		add     esp, 4
 		test    edx, edx
 		je      ___4932ch

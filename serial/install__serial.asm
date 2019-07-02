@@ -28,7 +28,7 @@
     extern  _fmemcpy__clib3r
     extern  ___61a04h
     extern  inp
-    extern  ___24e4d0h
+    extern  __CEXT_V(___24e4d0h)
 
 %include "layout.inc"
 
@@ -282,7 +282,7 @@ ___62fe0h:
 		cli     
 		mov     eax, [esp]
 		inc     eax
-		cmp     dword [___24e4d0h], byte 1
+		cmp     dword [__CEXT_V(___24e4d0h)], byte 1
 		jne     short ___6301dh
 		mov     edx, 3
 		jmp     short ___63022h

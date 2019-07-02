@@ -7,7 +7,7 @@
     extern  __CEXT_F(___24ec0h)
     extern  __CEXT_F(___2fc50h)
     extern  __CEXT_F(___64a28h)
-    extern  __CEXT_V(___19bd60h)
+    extern  __CEXT_V(NetworkConnectionEstablished)
     extern  __CEXT_F(___623d4h)
     extern  __CEXT_V(___1826f4h)
     extern  __CEXT_F(printf__clib3r)
@@ -34,7 +34,7 @@ __GDECL(__CEXT_F(exitcb2__dr))
 		call    __CEXT_F(___64a28h)
 		call    __CEXT_F(freeAllocInfoTable)
 		call    __CEXT_F(restore__keyboard)
-		cmp     dword [__CEXT_V(___19bd60h)], 0
+		cmp     dword [__CEXT_V(NetworkConnectionEstablished)], 0
 		je      ___3ab3bh
 		call    __CEXT_F(___623d4h)
 ___3ab3bh:

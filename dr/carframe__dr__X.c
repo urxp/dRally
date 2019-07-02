@@ -1,8 +1,8 @@
 #include "x86.h"
 
-    extern byte ___1a1e7ch[];
+    extern byte tex_carframe[];
     extern byte VGABufferPtr_0[];
-    extern byte ___1a1e7ch[];
+    extern byte tex_carframe[];
 
     #pragma aux decode2__bpk parm routine []
 	void decode2__bpk(void * dst, void * src);
@@ -62,8 +62,8 @@ ___25a0fh:
 	ebx += ecx;
 //		push    ebx
 	PUSH(ebx);
-//		mov     eax, [__CEXT_V(___1a1e7ch)]
-	eax = D(___1a1e7ch);
+//		mov     eax, [__CEXT_V(tex_carframe)]
+	eax = D(tex_carframe);
 //		push    eax
 	PUSH(eax);
 //		call    __CEXT_F(decode2__bpk)
@@ -81,8 +81,8 @@ ___25a0fh:
 	edx = D(VGABufferPtr_0);
 //		shl     eax, 7
 	eax <<= 7;
-//		mov     esi, [__CEXT_V(___1a1e7ch)]
-	esi = D(___1a1e7ch);
+//		mov     esi, [__CEXT_V(tex_carframe)]
+	esi = D(tex_carframe);
 //		add     eax, edx
 	eax += edx;
 //		mov     edx, 60h
