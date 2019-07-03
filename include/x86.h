@@ -29,4 +29,10 @@ typedef unsigned long long  qword;
 #define PUSH(v)     esp -= 4; D(esp) = v
 #define POP(v)      v = D(esp); esp += 4
 
+#define FPUSH() \
+    st7=st6;st6=st5;st5=st4;st4=st3;st3=st2;st2=st1;st1=st0
+
+#define FPOP()  \
+    st0=st1;st1=st2;st2=st3;st3=st4;st4=st5;st5=st6;st6=st7
+
 #endif // __X86_H

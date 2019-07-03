@@ -52,15 +52,15 @@ IF@LOG2:
 __GDECL(IF@LOG10)
 		mov     al, 0bh
 		jmp     short ___7de3eh
-log:
+__GDECL(__CEXT_F(log))
 		fld     qword [esp+4]
 		call    near IF@LOG
 		ret     8
-log10:
+__GDECL(__CEXT_F(log10))
 		fld     qword [esp+4]
 		call    near IF@LOG10
 		ret     8
-log2:
+__GDECL(__CEXT_F(log2))
 		fld     qword [esp+4]
 		call    near IF@LOG2
 		ret     8

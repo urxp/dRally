@@ -8,7 +8,7 @@
 	extern 	___199fa0h	
 	extern 	__CEXT_F(__STOSB__clib3r)	
 	extern 	___1a2148h	
-	extern 	___2415ch	
+	extern 	__CEXT_F(initDrivers)	
 	extern 	readConfig__dr	
 	extern 	__CEXT_F(exitcb2__dr)	
 	extern 	__CEXT_V(ExitCB)	
@@ -60,7 +60,7 @@
 	extern 	___3d890h	
 	extern 	__CEXT_V(___1a1f4fh)	
 	extern 	__CEXT_V(RowBox0Colors_R5)	
-	extern 	___2b318h	
+	extern 	__CEXT_F(___2b318h)	
 	extern 	__CEXT_F(___5e0f9h)	
 	extern 	___VGABufferPtr_0	
 	extern 	__CEXT_V(VGABufferPtr_0)	
@@ -82,12 +82,12 @@
 	extern 	___3d2bch	
 	extern 	___12940h	
 	extern 	__CEXT_V(___1a1ef8h)	
-	extern 	___1a020ch	
+	extern 	__CEXT_V(___1a020ch)	
 	extern 	___1a0fb8h	
 	extern 	___11564h	
 	extern 	GXBackBuffer
 	extern 	__CEXT_V(___180130h)	
-	extern 	___1a0220h	
+	extern 	__CEXT_V(___1a0220h)	
 	extern 	__CEXT_V(___1a01e0h)	
 	extern 	__CEXT_V(RowBoxBuffers)	
 	extern 	___1a1f4dh	
@@ -100,7 +100,7 @@
 	extern 	___13710h	
 	extern 	___196d84h	
 	extern 	___185a2ch	
-	extern 	___196a84h	
+	extern 	__CEXT_V(___196a84h)	
 	extern 	___12cb8h	
 	extern 	__CEXT_F(___58c60h)	
 	extern 	___13a98h	
@@ -189,7 +189,7 @@ __GDECL(__CEXT_F(startup__dr))
 		xor     ah, ah
 		mov     esi, 0afh
 		mov     [___1a2148h], ah
-		call    ___2415ch
+		call    __CEXT_F(initDrivers)
 		call    readConfig__dr
 		mov     eax, [TimesPlayed]
 		mov     ebp, __CEXT_F(exitcb2__dr)
@@ -299,7 +299,7 @@ ___3e88bh:
 		sub     eax, edx
 		shl     eax, 2
 		sub     eax, edx
-		mov     edx, [eax*4+___1a020ch]
+		mov     edx, [eax*4+__CEXT_V(___1a020ch)]
 		lea     eax, [edx*4+0]
 		sub     eax, edx
 		mov     edx, [___1a0fb8h]
@@ -341,7 +341,7 @@ ___3e88bh:
 		sub     eax, edx
 		xor     edi, edi
 		mov     dl, [__CEXT_V(___180130h)]
-		mov     [eax*4+___1a0220h], edi
+		mov     [eax*4+__CEXT_V(___1a0220h)], edi
 		mov     [esp+8], edi
 		mov     [eax*4+__CEXT_V(___1a01e0h)], dl
 		xor     eax, eax
@@ -560,11 +560,11 @@ ___3ec59h:
 		cmp     dword [___185a2ch], byte 0
 		je      ___3edeah
 ___3eca8h:
-		mov     ebx, [___196a84h]
+		mov     ebx, [__CEXT_V(___196a84h)]
 		test    ebx, ebx
 		jne     ___3edeah
 		call    ___12cb8h
-		call    ___2b318h
+		call    __CEXT_F(___2b318h)
 		mov     [esp+1ch], ebx
 		mov     [esp], ebx
 ___3ecc7h:
@@ -655,7 +655,7 @@ ___3ecf0h:
 ___3edeah:
 		cmp     dword [esp+24h], byte 0
 		je      ___3ee31h
-		mov     ebx, [___196a84h]
+		mov     ebx, [__CEXT_V(___196a84h)]
 		test    ebx, ebx
 		jne     ___3ee31h
 		mov     eax, [___VGABufferPtr_0]
@@ -670,7 +670,7 @@ ___3edeah:
 		mov     [esp+24h], ebx
 		call    ___65710h
 ___3ee31h:
-		cmp     dword [___196a84h], byte 0
+		cmp     dword [__CEXT_V(___196a84h)], byte 0
 		jne     ___3ee3fh
 		call    __CEXT_F(___12dc4h)
 ___3ee3fh:

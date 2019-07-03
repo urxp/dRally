@@ -73,6 +73,8 @@
     extern  __CEXT_F(___17384h)
     extern  __CEXT_F(carAnimFrame)
     extern  __CEXT_F(updateMenuBackgroundAndTextArea)
+    extern  __CEXT_F(procChatData)
+    extern  __CEXT_F(initDrivers)
 
 
 ;; CLIB3R.LIB

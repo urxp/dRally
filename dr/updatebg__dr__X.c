@@ -33,7 +33,7 @@
     void ___23488h(dword, dword, dword);
     void ___233c0h(void);
     void ___12dc4h(void);
-    dword ___23594h(dword, dword);
+    dword procChatData(dword, dword);
 
 	#pragma aux ___5e0f9h parm routine []
     void ___5e0f9h(dword, dword, dword, dword);
@@ -42,7 +42,7 @@
     void footer__dr(void);
     void * allocMemSafe(dword);
 
-    static int idiv_rem(int, int, int);
+    static int idiv_rem(dword, dword, int);
     #pragma aux idiv_rem =          \
         "idiv   ebx"                \
         parm [eax] [edx] [ebx]      \
@@ -272,8 +272,8 @@ ___2acebh:
     edx = 1;
 //		mov     eax, esp
     eax = esp;
-//		call    __CEXT_F(___23594h)
-    eax = ___23594h(eax, edx);
+//		call    __CEXT_F(procChatData)
+    eax = procChatData(eax, edx);
 //		test    eax, eax
 //		je      ___2adcch
     if(eax == 0) goto ___2adcch;
@@ -390,8 +390,8 @@ ___2adcch:
     edx = 6;
 //		mov     eax, esp
     eax = esp;
-//		call    __CEXT_F(___23594h)
-    eax = ___23594h(eax, edx);
+//		call    __CEXT_F(procChatData)
+    eax = procChatData(eax, edx);
 //		test    eax, eax
 //		je      ___2ae9bh
     if(eax == 0) goto ___2ae9bh;
@@ -508,8 +508,8 @@ ___2ae9bh:
     edx = 7;
 //		mov     eax, esp
     eax = esp;
-//		call    __CEXT_F(___23594h)
-    eax = ___23594h(eax, edx);
+//		call    __CEXT_F(procChatData)
+    eax = procChatData(eax, edx);
 //		test    eax, eax
 //		je      ___2af52h
     if(eax == 0) goto ___2af52h;
@@ -630,8 +630,8 @@ ___2af52h:
     edx = 0x14;
 //		mov     eax, esp
     eax = esp;
-//		call    __CEXT_F(___23594h)
-    eax = ___23594h(eax, edx);
+//		call    __CEXT_F(procChatData)
+    eax = procChatData(eax, edx);
 //		test    eax, eax
 //		je      ___2b031h
     if(eax == 0) goto ___2b031h;
@@ -755,8 +755,8 @@ ___2b031h:
     edx = 9;
 //		mov     eax, esp
     eax = esp;
-//		call    __CEXT_F(___23594h)
-    eax = ___23594h(eax, edx);
+//		call    __CEXT_F(procChatData)
+    eax = procChatData(eax, edx);
 //		test    eax, eax
 //		je      ___2b10ah
     if(eax == 0) goto ___2b10ah;
@@ -878,8 +878,8 @@ ___2b10ah:
     edx = 0x13;
 //		lea     eax, [esp+400h]
     eax = esp+0x400;
-//		call    __CEXT_F(___23594h)
-    eax = ___23594h(eax, edx);
+//		call    __CEXT_F(procChatData)
+    eax = procChatData(eax, edx);
 //		test    eax, eax
 //		je      ___2b236h
     if(eax == 0) goto ___2b236h;

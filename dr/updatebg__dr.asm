@@ -23,7 +23,7 @@
     extern  __CEXT_V(___196a74h)
     extern  __CEXT_F(___233c0h)
     extern  __CEXT_F(___12dc4h)
-    extern  __CEXT_F(___23594h)
+    extern  __CEXT_F(procChatData)
     extern  __CEXT_V(RowBoxBuffers)
     extern  __CEXT_F(allocMemSafe)
     extern  __CEXT_V(___182174h)
@@ -147,7 +147,7 @@ ___2acebh:
 		call    __CEXT_F(___6168ch)
 		mov     edx, 1
 		mov     eax, esp
-		call    __CEXT_F(___23594h)
+		call    __CEXT_F(procChatData)
 		test    eax, eax
 		je      ___2adcch
 		xor     ebx, ebx
@@ -214,7 +214,7 @@ ___2adb9h:
 ___2adcch:
 		mov     edx, 6
 		mov     eax, esp
-		call    __CEXT_F(___23594h)
+		call    __CEXT_F(procChatData)
 		test    eax, eax
 		je      ___2ae9bh
 		xor     edx, edx
@@ -281,7 +281,7 @@ ___2ae88h:
 ___2ae9bh:
 		mov     edx, 7
 		mov     eax, esp
-		call    __CEXT_F(___23594h)
+		call    __CEXT_F(procChatData)
 		test    eax, eax
 		je      ___2af52h
 		mov     eax, 64h
@@ -347,7 +347,7 @@ ___2af3dh:
 ___2af52h:
 		mov     edx, 14h
 		mov     eax, esp
-		call    __CEXT_F(___23594h)
+		call    __CEXT_F(procChatData)
 		test    eax, eax
 		je      ___2b031h
 		xor     edx, edx
@@ -418,7 +418,7 @@ ___2b021h:
 ___2b031h:
 		mov     edx, 9
 		mov     eax, esp
-		call    __CEXT_F(___23594h)
+		call    __CEXT_F(procChatData)
 		test    eax, eax
 		je      ___2b10ah
 		xor     ebx, ebx
@@ -488,7 +488,7 @@ ___2b100h:
 ___2b10ah:
 		mov     edx, 13h
 		lea     eax, [esp+400h]
-		call    __CEXT_F(___23594h)
+		call    __CEXT_F(procChatData)
 		test    eax, eax
 		je      ___2b236h
 		xor     edx, edx

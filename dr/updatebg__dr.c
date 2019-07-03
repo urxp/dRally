@@ -8,8 +8,13 @@ typedef struct pal3 {
     byte    __2;
 } pal3;
 
-typedef byte b96[0x96];
-typedef byte b6c[0x6c];
+typedef struct b96 {
+    byte    arr[0x96];
+} b96;
+
+typedef struct b6c {
+    byte    arr[0x6c];
+} b6c;
 
 typedef enum eNetworkConnectionType {
     NONE, SERIAL_CONNECTION, IPX_NETWORK, DIALUP_MODEM, ANSWER_MODEM
@@ -58,7 +63,7 @@ typedef enum eNetworkConnectionType {
     void ___23488h(void *, dword, dword);
     void ___233c0h(void);
     void ___12dc4h(void);
-    dword ___23594h(void *, dword);
+    dword procChatData(void *, dword);
 
 	#pragma aux ___5e0f9h parm routine []
     void ___5e0f9h(dword, dword, dword, dword);
@@ -70,13 +75,13 @@ typedef enum eNetworkConnectionType {
     char * strcpy__clib3r(char * dest, const char * src);
 
 #if defined(__WATCOMC__)
-    static inline int idiv_rem(int, int, int);
+    static inline int idiv_rem(dword, dword, int);
     #pragma aux idiv_rem =          \
         "idiv   ebx"                \
         parm [eax] [edx] [ebx]      \
         value [edx]
 #else
-    static inline int idiv_rem(int lo, int hi, int d){
+    static inline int idiv_rem(dword lo, dword hi, int d){
 
         return ((long long)lo + ((long long)hi << 0x20)) % d;
     }
@@ -89,7 +94,7 @@ typedef enum eNetworkConnectionType {
 
         while(n < 0x15){
 
-            strcpy__clib3r(RowBoxBuffers[n], RowBoxBuffers[n+1]);
+            strcpy__clib3r((void *)&RowBoxBuffers[n], (void *)&RowBoxBuffers[n+1]);
             ___1a1f4eh[n] = ___1a1f4fh[n];
             n++;
         }      
@@ -101,7 +106,14 @@ typedef enum eNetworkConnectionType {
 
         if(D(___196a74h) == 1){
 
-            ___185a1ch?(___233c0h(),___12dc4h()):(footer__dr(),___12d6ch());
+            if(___185a1ch){
+                
+                ___233c0h(); ___12dc4h();
+            }
+            else {
+                
+                footer__dr(); ___12d6ch();
+            }
         }
     }
 
@@ -146,33 +158,33 @@ void updateMenuBackgroundAndTextArea(){
 
         ___6168ch();
 
-        if(___23594h(buffer, 1)){
+        if(procChatData(buffer, 1)){
 
             chatNewLine();
             strcpy__clib3r(___1a1dbah, buffer);
             updateChat(1);    
         }
 
-        if(___23594h(buffer, 6)){
+        if(procChatData(buffer, 6)){
 
             chatNewLine();
             strcpy__clib3r(___1a1dbah, buffer);
             updateChat(0);
         }
 
-        if(___23594h(buffer, 7)){
+        if(procChatData(buffer, 7)){
 
             tmp_p = ___1a0f9ch = allocMemSafe(0x64);
             strcpy__clib3r(tmp_p, ___180864h);
             while(*tmp_p++);
-            strcpy__clib3r(--tmp_p, ___1a01e0h[___1a1ef8h]);
+            strcpy__clib3r(--tmp_p, (void *)&___1a01e0h[___1a1ef8h]);
             while(*tmp_p++);
             strcpy__clib3r(--tmp_p, ___182174h);
             ___23488h(___1a0f9ch, 0x64, 8);
             ___3f77ch(___1a0f9ch);
         }
 
-        if(___23594h(buffer, 0x14)){
+        if(procChatData(buffer, 0x14)){
 
             chatNewLine();
             strcpy__clib3r(___1a1dbah, buffer);
@@ -182,7 +194,7 @@ void updateMenuBackgroundAndTextArea(){
             ___1a1ef8h = 0x13;
         }
 
-        if(___23594h(buffer, 9)){
+        if(procChatData(buffer, 9)){
 
             chatNewLine();
             strcpy__clib3r(___1a1dbah, buffer);
@@ -191,14 +203,14 @@ void updateMenuBackgroundAndTextArea(){
             ___1e62ch(1);
         }
 
-        if(___23594h(&n, 0x13)){
+        if(procChatData(&n, 0x13)){
 
             chatNewLine();
 
             tmp_p = ___1a1dbah;
             strcpy__clib3r(tmp_p, ___180864h);
             while(*tmp_p++);
-            strcpy__clib3r(--tmp_p, ___1a01e0h[n]);
+            strcpy__clib3r(--tmp_p, (void *)&___1a01e0h[n&0xff]);
             while(*tmp_p++);
             strcpy__clib3r(--tmp_p, ___182194h);
             
