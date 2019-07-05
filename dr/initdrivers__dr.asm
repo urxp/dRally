@@ -7,48 +7,23 @@
     extern  __CEXT_V(___196a9ch)
     extern  __CEXT_V(___196aa0h)
     extern  __CEXT_V(___185a50h)
-    extern  __CEXT_V(___1a1ef8h)
-    extern  __CEXT_F(___2ec68h)
+    extern  __CEXT_V(MyFaceId)
+    extern  __CEXT_F(optionsUndergroudMarket)
     extern  __CEXT_V(___199f54h)
     extern  __CEXT_V(___185a30h)
-    extern  __CEXT_V(___1a0240h)
-    extern  __CEXT_V(___1a0244h)
-    extern  __CEXT_V(___1a0248h)
-    extern  __CEXT_V(___1a023ch)
     extern  __CEXT_V(___181d17h)
     extern  __CEXT_V(___181d0fh)
     extern  __CEXT_V(___181d1bh)
     extern  __CEXT_V(___181d1fh)
     extern  __CEXT_V(___181d0bh)
     extern  __CHP
-    extern  __CEXT_V(___1a0224h)
-    extern  __CEXT_V(___1a01e0h)
-    extern  __CEXT_V(___1a0230h)
-    extern  __CEXT_V(___1a0234h)
-    extern  __CEXT_V(___1a0238h)
+    extern  __CEXT_V(Roster)
     extern  __CEXT_F(rand__clib3r)
-    extern  __CEXT_V(___1a01fch)
     extern  __CEXT_V(___18e938h)
-    extern  __CEXT_V(___1a01f0h)
     extern  __CEXT_V(___18e93ch)
-    extern  __CEXT_V(___1a01f4h)
     extern  __CEXT_V(___18e940h)
-    extern  __CEXT_V(___1a01f8h)
     extern  __CEXT_V(___18e2a4h)
-    extern  __CEXT_V(___1a021ch)
-    extern  __CEXT_V(___1a1ef8h)
-    extern  __CEXT_V(___1a0228h)
-    extern  __CEXT_V(___1a0220h)
-    extern  __CEXT_V(___1a020ch)
-    extern  __CEXT_V(___1a01ech)
-    extern  __CEXT_V(___1a022ch)
-    extern  __CEXT_V(___1a0230h)
-    extern  __CEXT_V(___1a0234h)
-    extern  __CEXT_V(___1a0224h)
-    extern  __CEXT_V(___1a0238h)
-    extern  __CEXT_V(___1a0210h)
-    extern  __CEXT_V(___1a0214h)
-    extern  __CEXT_V(___1a0218h)
+    extern  __CEXT_V(MyFaceId)
     extern  __CEXT_F(___2b318h)
     extern  __CEXT_V(___1a1ee8h)
     extern  __CEXT_V(___1a1ec0h)
@@ -112,54 +87,54 @@ __GDECL(__CEXT_F(initDrivers))
 		mov     [__CEXT_V(___196a9ch)], ebx
 		mov     [__CEXT_V(___196aa0h)], ebx
 		mov     [__CEXT_V(___185a50h)], ebx
-		mov     [__CEXT_V(___1a1ef8h)], edx
-		call    __CEXT_F(___2ec68h)
+		mov     [__CEXT_V(MyFaceId)], edx
+		call    __CEXT_F(optionsUndergroudMarket)
 		mov     [__CEXT_V(___199f54h)], ebx
 		mov     [__CEXT_V(___185a30h)], ebx
 		xor     edx, edx
 		xor     eax, eax
 ___241d8h:
-		mov     [eax+__CEXT_V(___1a0240h)], edx
-		mov     [eax+__CEXT_V(___1a0244h)], edx
-		mov     [eax+__CEXT_V(___1a0248h)], edx
-		mov     [eax+__CEXT_V(___1a023ch)], edx
+		mov     [eax+__CEXT_V(Roster)+60h], edx
+		mov     [eax+__CEXT_V(Roster)+64h], edx
+		mov     [eax+__CEXT_V(Roster)+68h], edx
+		mov     [eax+__CEXT_V(Roster)+5ch], edx
         add     eax, byte 6ch
 		cmp     eax, dword 870h
 		jne     ___241d8h
 		mov     ecx, 5
 		xor     eax, eax
 ___24201h:
-		mov     [eax+__CEXT_V(___1a01fch)], ecx
+		mov     [eax+__CEXT_V(Roster)+1ch], ecx
 		add     eax, byte 6ch
 		cmp     eax, dword 144h
 		jne     ___24201h
 		mov     esi, 4
 ___24216h:
-		mov     [eax+__CEXT_V(___1a01fch)], esi
+		mov     [eax+__CEXT_V(Roster)+1ch], esi
 		add     eax, byte 6ch
 		cmp     eax, dword 2f4h
 		jne     ___24216h
 		mov     edi, 3
 ___2422bh:
-		mov     [eax+__CEXT_V(___1a01fch)], edi
+		mov     [eax+__CEXT_V(Roster)+1ch], edi
 		add     eax, byte 6ch
 		cmp     eax, dword 438h
 		jne     ___2422bh
 		mov     edx, 2
 ___24240h:
-		mov     [eax+__CEXT_V(___1a01fch)], edx
+		mov     [eax+__CEXT_V(Roster)+1ch], edx
 		add     eax, byte 6ch
 		cmp     eax, dword 5e8h
 		jne     ___24240h
 		mov     ebx, 1
 ___24255h:
-		mov     [eax+__CEXT_V(___1a01fch)], ebx
+		mov     [eax+__CEXT_V(Roster)+1ch], ebx
 		add     eax, byte 6ch
 		cmp     eax, dword 72ch
 		jne     ___24255h
 ___24265h:
 		xor     ecx, ecx
-		mov     [eax+__CEXT_V(___1a01fch)], ecx
+		mov     [eax+__CEXT_V(Roster)+1ch], ecx
 		add     eax, byte 6ch
 		cmp     eax, dword 870h
 		jne     ___24265h
@@ -190,7 +165,7 @@ ___242afh:
 		fistp   dword [esp+0f0h]
 		mov     eax, [esp+0f0h]
 		mov     ebx, [esp+0fch]
-		mov     [edx+__CEXT_V(___1a0224h)], eax
+		mov     [edx+__CEXT_V(Roster)+44h], eax
 		add     edx, byte 6ch
 		mov     eax, [esp+0f8h]
 		dec     ebx
@@ -200,7 +175,7 @@ ___242afh:
 		cmp     edx, 804h
 		jne     ___242afh
 		fstp    st0
-		mov     ecx, __CEXT_V(___1a01e0h)
+		mov     ecx, __CEXT_V(Roster)
 		fstp    st0
 		xor     ebx, ebx
 		fstp    st0
@@ -210,50 +185,50 @@ ___242afh:
 ___2432eh:
 		imul    esi, ebx, byte 6ch
 		xor     edi, edi
-		mov     [esi+__CEXT_V(___1a022ch)], edi
-		mov     [esi+__CEXT_V(___1a0230h)], edi
-		mov     [esi+__CEXT_V(___1a0234h)], edi
-		mov     [esi+__CEXT_V(___1a0238h)], edi
+		mov     [esi+__CEXT_V(Roster)+4ch], edi
+		mov     [esi+__CEXT_V(Roster)+50h], edi
+		mov     [esi+__CEXT_V(Roster)+54h], edi
+		mov     [esi+__CEXT_V(Roster)+58h], edi
 		call    __CEXT_F(rand__clib3r)
 		mov     edx, eax
 		mov     ecx, 186a0h
 		sar     edx, 1fh
 		idiv    ecx
-		imul    ecx, [esi+__CEXT_V(___1a01fch)], 6e0h
-		mov     [esi+__CEXT_V(___1a01ech)], edi
-		mov     [esi+__CEXT_V(___1a0210h)], edx
+		imul    ecx, [esi+__CEXT_V(Roster)+1ch], 6e0h
+		mov     [esi+__CEXT_V(Roster)+0ch], edi
+		mov     [esi+__CEXT_V(Roster)+30h], edx
 		mov     ecx, [ecx+__CEXT_V(___18e938h)]
 		call    __CEXT_F(rand__clib3r)
 		mov     edx, eax
 		sar     edx, 1fh
 		idiv    ecx
-		mov     [esi+__CEXT_V(___1a01f0h)], edx
-		imul    ecx, [esi+__CEXT_V(___1a01fch)], 6e0h
+		mov     [esi+__CEXT_V(Roster)+10h], edx
+		imul    ecx, [esi+__CEXT_V(Roster)+1ch], 6e0h
 		mov     ecx, [ecx+__CEXT_V(___18e93ch)]
 		call    __CEXT_F(rand__clib3r)
 		mov     edx, eax
 		sar     edx, 1fh
 		idiv    ecx
-		imul    ecx, [esi+__CEXT_V(___1a01fch)], 6e0h
-		mov     [esi+__CEXT_V(___1a01f4h)], edx
+		imul    ecx, [esi+__CEXT_V(Roster)+1ch], 6e0h
+		mov     [esi+__CEXT_V(Roster)+14h], edx
 		mov     ecx, [ecx+__CEXT_V(___18e940h)]
 		call    __CEXT_F(rand__clib3r)
 		mov     edx, eax
 		sar     edx, 1fh
 		idiv    ecx
-		mov     [esi+__CEXT_V(___1a01f8h)], edx
-		imul    eax, [esi+__CEXT_V(___1a01fch)], 6e0h
+		mov     [esi+__CEXT_V(Roster)+18h], edx
+		imul    eax, [esi+__CEXT_V(Roster)+1ch], 6e0h
 		mov     eax, [eax+__CEXT_V(___18e2a4h)]
-		mov     [esi+__CEXT_V(___1a021ch)], eax
+		mov     [esi+__CEXT_V(Roster)+3ch], eax
 		lea     eax, [ebx+1]
-		mov     ecx, [__CEXT_V(___1a1ef8h)]
+		mov     ecx, [__CEXT_V(MyFaceId)]
 		mov     edx, ebx
-		mov     [esi+__CEXT_V(___1a0228h)], eax
+		mov     [esi+__CEXT_V(Roster)+48h], eax
 		imul    esi, ecx, byte 6ch
 ___243f8h:
 		cmp     byte [esp+edx+0dch], 0
 		jne     ___2440ah
-		cmp     edx, [esi+__CEXT_V(___1a0220h)]
+		cmp     edx, [esi+__CEXT_V(Roster)+40h]
 		jne     ___2440dh
 ___2440ah:
 		inc     edx
@@ -281,41 +256,41 @@ ___2443fh:
 		pop     edi
 		lea     eax, [edi+6ch]
 		mov     [esp+0f4h], eax
-		mov     [ecx+__CEXT_V(___1a0220h)], edx
+		mov     [ecx+__CEXT_V(Roster)+40h], edx
 		inc     ebx
-		mov     [ecx+__CEXT_V(___1a020ch)], edx
+		mov     [ecx+__CEXT_V(Roster)+2ch], edx
 		cmp     ebx, byte 13h
 		jl      ___2432eh
-		mov     edx, [__CEXT_V(___1a1ef8h)]
+		mov     edx, [__CEXT_V(MyFaceId)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
 		sub     eax, edx
 		xor     ebx, ebx
-		mov     [eax*4+__CEXT_V(___1a01ech)], ebx
-		mov     [eax*4+__CEXT_V(___1a01f0h)], ebx
-		mov     [eax*4+__CEXT_V(___1a01f8h)], ebx
-		mov     [eax*4+__CEXT_V(___1a01f4h)], ebx
+		mov     [eax*4+__CEXT_V(Roster)+0ch], ebx
+		mov     [eax*4+__CEXT_V(Roster)+10h], ebx
+		mov     [eax*4+__CEXT_V(Roster)+18h], ebx
+		mov     [eax*4+__CEXT_V(Roster)+14h], ebx
 		xor     ecx, ecx
-		mov     [eax*4+__CEXT_V(___1a01fch)], ebx
-		mov     [eax*4+__CEXT_V(___1a022ch)], ecx
-		mov     [eax*4+__CEXT_V(___1a0230h)], ecx
-		mov     [eax*4+__CEXT_V(___1a0234h)], ecx
-		mov     [eax*4+__CEXT_V(___1a0224h)], ecx
+		mov     [eax*4+__CEXT_V(Roster)+1ch], ebx
+		mov     [eax*4+__CEXT_V(Roster)+4ch], ecx
+		mov     [eax*4+__CEXT_V(Roster)+50h], ecx
+		mov     [eax*4+__CEXT_V(Roster)+54h], ecx
+		mov     [eax*4+__CEXT_V(Roster)+44h], ecx
 		mov     edx, 1efh
-		mov     [eax*4+__CEXT_V(___1a0238h)], ecx
+		mov     [eax*4+__CEXT_V(Roster)+58h], ecx
 		mov     ecx, 0ffffffffh
-		mov     [eax*4+__CEXT_V(___1a0210h)], edx
-		mov     [eax*4+__CEXT_V(___1a0214h)], ecx
+		mov     [eax*4+__CEXT_V(Roster)+30h], edx
+		mov     [eax*4+__CEXT_V(Roster)+34h], ecx
 		lea     edx, [ebx*8+0]
-		mov     [eax*4+__CEXT_V(___1a0218h)], ecx
+		mov     [eax*4+__CEXT_V(Roster)+38h], ecx
 		shl     edx, 3
 		mov     ebx, 14h
 		shl     edx, 5
-		mov     [eax*4+__CEXT_V(___1a0228h)], ebx
+		mov     [eax*4+__CEXT_V(Roster)+48h], ebx
 		mov     edx, [edx+__CEXT_V(___18e2a4h)]
 		xor     edi, edi
-		mov     [eax*4+__CEXT_V(___1a021ch)], edx
+		mov     [eax*4+__CEXT_V(Roster)+3ch], edx
 		call    __CEXT_F(___2b318h)
 		mov     [__CEXT_V(___1a1ee8h)], edi
 		mov     [__CEXT_V(___1a1ec0h)], edi

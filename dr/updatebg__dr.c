@@ -12,9 +12,33 @@ typedef struct b96 {
     byte    arr[0x96];
 } b96;
 
-typedef struct b6c {
-    byte    arr[0x6c];
-} b6c;
+typedef struct Driver {
+    char    Name[0xc];      // +0
+    dword   Damage;         // +ch
+    dword   Engine;         // +10h
+    dword   Tire;           // +14h
+    dword   Armor;          // +18h
+    dword   Car;            // +1ch
+    dword   __20;
+    dword   __24;
+    dword   __28;
+    dword   __2c;
+    dword   Money;          // +30h
+    dword   __34;
+    dword   __38;
+    dword   CarPrice;       // +3ch
+    dword   Face;           // +40h
+    dword   Points;         // +44h
+    dword   Standings;      // +48h
+    dword   __4c;
+    dword   __50;
+    dword   __54;
+    dword   __58;
+    dword   __5c;
+    dword   __60;
+    dword   __64;
+    dword   __68;
+} Driver;
 
 typedef enum eNetworkConnectionType {
     NONE, SERIAL_CONNECTION, IPX_NETWORK, DIALUP_MODEM, ANSWER_MODEM
@@ -33,8 +57,8 @@ typedef enum eNetworkConnectionType {
     extern byte ___196a74h[];
     extern b96 RowBoxBuffers[];
     extern void * ___1a0f9ch;
-    extern dword ___1a1ef8h;
-    extern b6c ___1a01e0h[];
+    extern dword MyFaceId;
+    extern Driver Roster[];
     extern eNetworkConnectionType NetworkConnectionType;
     extern byte ___199fc8h[];
 
@@ -177,7 +201,7 @@ void updateMenuBackgroundAndTextArea(){
             tmp_p = ___1a0f9ch = allocMemSafe(0x64);
             strcpy__clib3r(tmp_p, ___180864h);
             while(*tmp_p++);
-            strcpy__clib3r(--tmp_p, (void *)&___1a01e0h[___1a1ef8h]);
+            strcpy__clib3r(--tmp_p, Roster[MyFaceId].Name);
             while(*tmp_p++);
             strcpy__clib3r(--tmp_p, ___182174h);
             ___23488h(___1a0f9ch, 0x64, 8);
@@ -191,7 +215,7 @@ void updateMenuBackgroundAndTextArea(){
             updateChat(0);
             
             ___1e4f8h();
-            ___1a1ef8h = 0x13;
+            MyFaceId = 0x13;
         }
 
         if(procChatData(buffer, 9)){
@@ -210,7 +234,7 @@ void updateMenuBackgroundAndTextArea(){
             tmp_p = ___1a1dbah;
             strcpy__clib3r(tmp_p, ___180864h);
             while(*tmp_p++);
-            strcpy__clib3r(--tmp_p, (void *)&___1a01e0h[n&0xff]);
+            strcpy__clib3r(--tmp_p, Roster[n&0xff].Name);
             while(*tmp_p++);
             strcpy__clib3r(--tmp_p, ___182194h);
             

@@ -81,14 +81,12 @@
 	extern 	___2faf0h	
 	extern 	___3d2bch	
 	extern 	___12940h	
-	extern 	__CEXT_V(___1a1ef8h)	
-	extern 	__CEXT_V(___1a020ch)	
+	extern 	__CEXT_V(MyFaceId)		
 	extern 	___1a0fb8h	
 	extern 	___11564h	
 	extern 	GXBackBuffer
-	extern 	__CEXT_V(___180130h)	
-	extern 	__CEXT_V(___1a0220h)	
-	extern 	__CEXT_V(___1a01e0h)	
+	extern 	__CEXT_V(___180130h)		
+	extern 	__CEXT_V(Roster)	
 	extern 	__CEXT_V(RowBoxBuffers)	
 	extern 	___1a1f4dh	
 	extern 	___182d08h	
@@ -136,8 +134,8 @@
 	extern 	__CEXT_V(NetworkConnectionEstablished)	
 	extern 	___180ba0h	
 	extern 	___186a6eh	
-	extern 	__CEXT_V(___1a1ef8h)	
-	extern 	__CEXT_V(___1a01e0h)	
+	extern 	__CEXT_V(MyFaceId)	
+	extern 	__CEXT_V(Roster)	
 	extern 	___180ca4h	
 	extern 	__CEXT_F(___23488h)		
 	extern 	___18108ch
@@ -294,12 +292,12 @@ ___3e88bh:
 		call    ___2faf0h
 		call    ___3d2bch
 		call    ___12940h
-		mov     edx, [__CEXT_V(___1a1ef8h)]
+		mov     edx, [__CEXT_V(MyFaceId)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
 		sub     eax, edx
-		mov     edx, [eax*4+__CEXT_V(___1a020ch)]
+		mov     edx, [eax*4+__CEXT_V(Roster)+2ch]
 		lea     eax, [edx*4+0]
 		sub     eax, edx
 		mov     edx, [___1a0fb8h]
@@ -334,16 +332,16 @@ ___3e88bh:
 		and     cl, 3
 		rep movsb   
 		pop     edi
-		mov     edx, [__CEXT_V(___1a1ef8h)]
+		mov     edx, [__CEXT_V(MyFaceId)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
 		sub     eax, edx
 		xor     edi, edi
 		mov     dl, [__CEXT_V(___180130h)]
-		mov     [eax*4+__CEXT_V(___1a0220h)], edi
+		mov     [eax*4+__CEXT_V(Roster)+40h], edi
 		mov     [esp+8], edi
-		mov     [eax*4+__CEXT_V(___1a01e0h)], dl
+		mov     [eax*4+__CEXT_V(Roster)], dl
 		xor     eax, eax
 ___3e9dfh:
 		mov     dl, [__CEXT_V(___180130h)]
@@ -794,13 +792,13 @@ ___3efdch:
 		mov     edx, ___180ba0h
 		mov     eax, ___186a6eh			;; "Join An Existing Game"
 		call    __CEXT_F(strcmp__clib3r)
-		mov     edx, [__CEXT_V(___1a1ef8h)]
+		mov     edx, [__CEXT_V(MyFaceId)]
 		mov     ecx, eax
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
 		sub     eax, edx
-		mov     esi, __CEXT_V(___1a01e0h)
+		mov     esi, __CEXT_V(Roster)
 		shl     eax, 2
 		add     esi, eax
 		test    ecx, ecx
@@ -854,13 +852,13 @@ ___3f07eh:
 		mov     edx, 64h
 		call    __CEXT_F(___23488h)
 		mov     eax, [__CEXT_V(___180864h)]
-		mov     edx, [__CEXT_V(___1a1ef8h)]
+		mov     edx, [__CEXT_V(MyFaceId)]
 		mov     [__CEXT_V(___1a1dbah)], eax
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
 		sub     eax, edx
-		mov     esi, __CEXT_V(___1a01e0h)
+		mov     esi, __CEXT_V(Roster)
 		shl     eax, 2
 		add     esi, eax
 		push    edi

@@ -7,23 +7,23 @@ typedef enum CarType {
 } CarType;
 
 typedef struct Driver {
-    char    Name[0xc];
-    dword   Damage;
-    dword   Engine;
-    dword   Tire;
-    dword   Armor;
-    dword   Car;
+    char    Name[0xc];      // +0
+    dword   Damage;         // +ch
+    dword   Engine;         // +10h
+    dword   Tire;           // +14h
+    dword   Armor;          // +18h
+    dword   Car;            // +1ch
     dword   __20;
     dword   __24;
     dword   __28;
     dword   __2c;
-    dword   Money;
+    dword   Money;          // +30h
     dword   __34;
     dword   __38;
-    dword   CarPrice;
-    dword   Face;
-    dword   Points;
-    dword   Standings;
+    dword   CarPrice;       // +3ch
+    dword   Face;           // +40h
+    dword   Points;         // +44h
+    dword   Standings;      // +48h
     dword   __4c;
     dword   __50;
     dword   __54;
@@ -51,7 +51,7 @@ typedef struct CarInfo {
     extern byte ___196a9ch[];
     extern byte ___196aa0h[];
     extern byte ___185a50h[];
-    extern byte ___1a1ef8h[];
+    extern byte MyFaceId[];
     extern byte ___199f54h[];
     extern byte ___185a30h[];  
     extern Driver Roster[];
@@ -67,7 +67,7 @@ typedef struct CarInfo {
 
     int rand__clib3r(void);
     void ___2b318h(void);
-    void ___2ec68h(void);
+    void optionsUndergroudMarket(void);
 
     char * strcpy__clib3r(char * dest, const char * src);
     
@@ -91,9 +91,9 @@ void initDrivers(void){
     D(___196a9ch) = 0;
     D(___196aa0h) = 0;
     D(___185a50h) = 0;
-    D(___1a1ef8h) = 19;
+    D(MyFaceId) = 19;
 
-    ___2ec68h();
+    optionsUndergroudMarket();
 
     D(___199f54h) = 0;
     D(___185a30h) = 0;
@@ -115,17 +115,17 @@ void initDrivers(void){
         Roster[n].Standings = n+1;
 
         Roster[n].Car
-            = (n <= (2)) ? DR_LOTUS
-            : (n <= (6)) ? DR_PORSCHE
-            : (n < (10)) ? DR_CAMARO
-            : (n < (14)) ? DR_SEDAN
-            : (n < (17)) ? DR_PICKUP
+            = (n <= 2) ? DR_LOTUS
+            : (n <= 6) ? DR_PORSCHE
+            : (n < 10) ? DR_CAMARO
+            : (n < 14) ? DR_SEDAN
+            : (n < 17) ? DR_PICKUP
             : DR_KUPLA;
 
         Roster[n].Points = 402 - 11*n - 2*(int)(77*log10((double)(n+1)));
         Roster[n].Points >>= 2;
   
-        if(!i&&(n == Roster[D(___1a1ef8h)].Face)) i++;
+        if(!i&&(n == Roster[D(MyFaceId)].Face)) i++;
 
         strcpy__clib3r(Roster[n].Name, ListOfDrivers[n+i]);
         Roster[n].Face = n+i;
@@ -134,21 +134,21 @@ void initDrivers(void){
         n++;
     }
 
-    Roster[D(___1a1ef8h)].Damage = 0;
-    Roster[D(___1a1ef8h)].Engine = 0;
-    Roster[D(___1a1ef8h)].Tire = 0;
-    Roster[D(___1a1ef8h)].Armor = 0;
-    Roster[D(___1a1ef8h)].Car = DR_KUPLA;
-    Roster[D(___1a1ef8h)].Money = 0x1ef;
-    Roster[D(___1a1ef8h)].__34 = -1;
-    Roster[D(___1a1ef8h)].__38 = -1;
-    Roster[D(___1a1ef8h)].CarPrice = CarSpecs[DR_KUPLA].Price;
-    Roster[D(___1a1ef8h)].Points = 0;
-    Roster[D(___1a1ef8h)].Standings = 0x14;
-    Roster[D(___1a1ef8h)].__4c = 0;
-    Roster[D(___1a1ef8h)].__50 = 0;
-    Roster[D(___1a1ef8h)].__54 = 0;
-    Roster[D(___1a1ef8h)].__58 = 0;
+    Roster[D(MyFaceId)].Damage = 0;
+    Roster[D(MyFaceId)].Engine = 0;
+    Roster[D(MyFaceId)].Tire = 0;
+    Roster[D(MyFaceId)].Armor = 0;
+    Roster[D(MyFaceId)].Car = DR_KUPLA;
+    Roster[D(MyFaceId)].Money = 0x1ef;
+    Roster[D(MyFaceId)].__34 = -1;
+    Roster[D(MyFaceId)].__38 = -1;
+    Roster[D(MyFaceId)].CarPrice = CarSpecs[DR_KUPLA].Price;
+    Roster[D(MyFaceId)].Points = 0;
+    Roster[D(MyFaceId)].Standings = 0x14;
+    Roster[D(MyFaceId)].__4c = 0;
+    Roster[D(MyFaceId)].__50 = 0;
+    Roster[D(MyFaceId)].__54 = 0;
+    Roster[D(MyFaceId)].__58 = 0;
 
     ___2b318h();
 

@@ -5,7 +5,7 @@
     extern byte ___196a9ch[];
     extern byte ___196aa0h[];
     extern byte ___185a50h[];
-    extern byte ___1a1ef8h[];
+    extern byte MyFaceId[];
     extern byte ___199f54h[];
     extern byte ___185a30h[];
     extern byte ___1a0240h[];
@@ -18,7 +18,7 @@
     extern byte ___181d1fh[];
     extern byte ___181d0bh[];
     extern byte ___1a0224h[];
-    extern byte ___1a01e0h[];
+    extern byte Roster[];
     extern byte ___1a0230h[];
     extern byte ___1a0234h[];
     extern byte ___1a0238h[];
@@ -31,7 +31,7 @@
     extern byte ___1a01f8h[];
     extern byte ___18e2a4h[];
     extern byte ___1a021ch[];
-    extern byte ___1a1ef8h[];
+    extern byte MyFaceId[];
     extern byte ___1a0228h[];
     extern byte ___1a0220h[];
     extern byte ___1a020ch[];
@@ -58,7 +58,7 @@
 
     int rand__clib3r(void);
     void ___2b318h(void);
-    void ___2ec68h(void);
+    void optionsUndergroudMarket(void);
 
     
     static inline double fyl2x(double, double); // ST1*LOG2(ST0)
@@ -170,10 +170,10 @@ void initDrivers(void){
     D(___196aa0h) = ebx;
 //		mov     [__CEXT_V(___185a50h)], ebx
     D(___185a50h) = ebx;
-//		mov     [__CEXT_V(___1a1ef8h)], edx
-    D(___1a1ef8h) = edx;
-//		call    __CEXT_F(___2ec68h)
-    ___2ec68h();
+//		mov     [__CEXT_V(MyFaceId)], edx
+    D(MyFaceId) = edx;
+//		call    __CEXT_F(optionsUndergroudMarket)
+    optionsUndergroudMarket();
 //		mov     [__CEXT_V(___199f54h)], ebx
     D(___199f54h) = ebx;
 //		mov     [__CEXT_V(___185a30h)], ebx
@@ -183,13 +183,13 @@ void initDrivers(void){
 //		xor     eax, eax
     eax = 0;
 ___241d8h:
-//		mov     [eax+__CEXT_V(___1a0240h)], edx
+//		mov     [eax+__CEXT_V(Roster)+60h], edx
     D(eax+___1a0240h) = edx;
-//		mov     [eax+__CEXT_V(___1a0244h)], edx
+//		mov     [eax+__CEXT_V(Roster)+64h], edx
     D(eax+___1a0244h) = edx;
-//		mov     [eax+__CEXT_V(___1a0248h)], edx
+//		mov     [eax+__CEXT_V(Roster)+68h], edx
     D(eax+___1a0248h) = edx;
-//		mov     [eax+__CEXT_V(___1a023ch)], edx
+//		mov     [eax+__CEXT_V(Roster)+5ch], edx
     D(eax+___1a023ch) = edx;
 //		add     eax, byte 6ch
     eax += 0x6c;
@@ -201,7 +201,7 @@ ___241d8h:
 //		xor     eax, eax
     eax = 0;
 ___24201h:
-//		mov     [eax+__CEXT_V(___1a01fch)], ecx
+//		mov     [eax+__CEXT_V(Roster)+1ch], ecx
     D(eax+___1a01fch) = ecx;
 //		add     eax, byte 6ch
     eax += 0x6c;
@@ -211,7 +211,7 @@ ___24201h:
 //		mov     esi, 4
     esi = 4;
 ___24216h:
-//		mov     [eax+__CEXT_V(___1a01fch)], esi
+//		mov     [eax+__CEXT_V(Roster)+1ch], esi
     D(eax+___1a01fch) = esi;
 //		add     eax, byte 6ch
     eax += 0x6c;
@@ -221,7 +221,7 @@ ___24216h:
 //		mov     edi, 3
     edi = 3;
 ___2422bh:
-//		mov     [eax+__CEXT_V(___1a01fch)], edi
+//		mov     [eax+__CEXT_V(Roster)+1ch], edi
     D(eax+___1a01fch) = edi;
 //		add     eax, byte 6ch
     eax += 0x6c;
@@ -231,7 +231,7 @@ ___2422bh:
 //		mov     edx, 2
     edx = 2;
 ___24240h:
-//		mov     [eax+__CEXT_V(___1a01fch)], edx
+//		mov     [eax+__CEXT_V(Roster)+1ch], edx
     D(eax+___1a01fch) = edx;
 //		add     eax, byte 6ch
     eax += 0x6c;
@@ -241,7 +241,7 @@ ___24240h:
 //		mov     ebx, 1
     ebx = 1;
 ___24255h:
-//		mov     [eax+__CEXT_V(___1a01fch)], ebx
+//		mov     [eax+__CEXT_V(Roster)+1ch], ebx
     D(eax+___1a01fch) = ebx;
 //		add     eax, byte 6ch
     eax += 0x6c;
@@ -251,7 +251,7 @@ ___24255h:
 ___24265h:
 //		xor     ecx, ecx
     ecx = 0;
-//		mov     [eax+__CEXT_V(___1a01fch)], ecx
+//		mov     [eax+__CEXT_V(Roster)+1ch], ecx
     D(eax+___1a01fch) = ecx;
 //		add     eax, byte 6ch
     eax += 0x6c;
@@ -322,7 +322,7 @@ ___242afh:
     eax = D(esp+0xf0);
 //		mov     ebx, [esp+0fch]
     ebx = D(esp+0xfc);
-//		mov     [edx+__CEXT_V(___1a0224h)], eax
+//		mov     [edx+__CEXT_V(Roster)+44h], eax
     D(edx+___1a0224h) = eax;
 //		add     edx, byte 6ch
     edx += 0x6c;
@@ -341,8 +341,8 @@ ___242afh:
     if(edx != 0x804) goto ___242afh;
 //		fstp    st0
     FPOP();
-//		mov     ecx, __CEXT_V(___1a01e0h)
-    ecx = ___1a01e0h;
+//		mov     ecx, __CEXT_V(Roster)
+    ecx = Roster;
 //		fstp    st0
     FPOP();
 //		xor     ebx, ebx
@@ -360,13 +360,13 @@ ___2432eh:
     esi = ebx*0x6c;
 //		xor     edi, edi
     edi = 0;
-//		mov     [esi+__CEXT_V(___1a022ch)], edi
+//		mov     [esi+__CEXT_V(Roster)+4ch], edi
     D(esi+___1a022ch) = edi;
-//		mov     [esi+__CEXT_V(___1a0230h)], edi
+//		mov     [esi+__CEXT_V(Roster)+50h], edi
     D(esi+___1a0230h) = edi;
-//		mov     [esi+__CEXT_V(___1a0234h)], edi
+//		mov     [esi+__CEXT_V(Roster)+54h], edi
     D(esi+___1a0234h) = edi;
-//		mov     [esi+__CEXT_V(___1a0238h)], edi
+//		mov     [esi+__CEXT_V(Roster)+58h], edi
     D(esi+___1a0238h) = edi;
 //		call    __CEXT_F(rand__clib3r)
     eax = rand__clib3r();
@@ -377,11 +377,11 @@ ___2432eh:
 //		sar     edx, 1fh
 //		idiv    ecx
     edx = eax % ecx;
-//		imul    ecx, [esi+__CEXT_V(___1a01fch)], 6e0h
+//		imul    ecx, [esi+__CEXT_V(Roster)+1ch], 6e0h
     ecx = D(esi+___1a01fch) * 0x6e0;
-//		mov     [esi+__CEXT_V(___1a01ech)], edi
+//		mov     [esi+__CEXT_V(Roster)+0ch], edi
     D(esi+___1a01ech) = edi;
-//		mov     [esi+__CEXT_V(___1a0210h)], edx
+//		mov     [esi+__CEXT_V(Roster)+30h], edx
     D(esi+___1a0210h) = edx;
 //		mov     ecx, [ecx+__CEXT_V(___18e938h)]
     ecx = D(ecx+___18e938h);
@@ -392,9 +392,9 @@ ___2432eh:
 //		sar     edx, 1fh
 //		idiv    ecx
     edx = eax % ecx;
-//		mov     [esi+__CEXT_V(___1a01f0h)], edx
+//		mov     [esi+__CEXT_V(Roster)+10h], edx
     D(esi+___1a01f0h) = edx;
-//		imul    ecx, [esi+__CEXT_V(___1a01fch)], 6e0h
+//		imul    ecx, [esi+__CEXT_V(Roster)+1ch], 6e0h
     ecx = D(esi+___1a01fch) * 0x6e0;
 //		mov     ecx, [ecx+__CEXT_V(___18e93ch)]
     ecx = D(ecx+___18e93ch);
@@ -405,9 +405,9 @@ ___2432eh:
 //		sar     edx, 1fh
 //		idiv    ecx
     edx = eax % ecx;
-//		imul    ecx, [esi+__CEXT_V(___1a01fch)], 6e0h
+//		imul    ecx, [esi+__CEXT_V(Roster)+1ch], 6e0h
     ecx = D(esi+___1a01fch) * 0x6e0;
-//		mov     [esi+__CEXT_V(___1a01f4h)], edx
+//		mov     [esi+__CEXT_V(Roster)+14h], edx
     D(esi+___1a01f4h) = edx;
 //		mov     ecx, [ecx+__CEXT_V(___18e940h)]
     ecx = D(ecx+___18e940h);
@@ -418,21 +418,21 @@ ___2432eh:
 //		sar     edx, 1fh
 //		idiv    ecx
     edx = eax % ecx;
-//		mov     [esi+__CEXT_V(___1a01f8h)], edx
+//		mov     [esi+__CEXT_V(Roster)+18h], edx
     D(esi+___1a01f8h) = edx;
-//		imul    eax, [esi+__CEXT_V(___1a01fch)], 6e0h
+//		imul    eax, [esi+__CEXT_V(Roster)+1ch], 6e0h
     eax = D(esi+___1a01fch) * 0x6e0;
 //		mov     eax, [eax+__CEXT_V(___18e2a4h)]
     eax = D(eax+___18e2a4h);
-//		mov     [esi+__CEXT_V(___1a021ch)], eax
+//		mov     [esi+__CEXT_V(Roster)+3ch], eax
     D(esi+___1a021ch) = eax;
 //		lea     eax, [ebx+1]
     eax = ebx+1;
-//		mov     ecx, [__CEXT_V(___1a1ef8h)]
-    ecx = D(___1a1ef8h);
+//		mov     ecx, [__CEXT_V(MyFaceId)]
+    ecx = D(MyFaceId);
 //		mov     edx, ebx
     edx = ebx;
-//		mov     [esi+__CEXT_V(___1a0228h)], eax
+//		mov     [esi+__CEXT_V(Roster)+48h], eax
     D(esi+___1a0228h) = eax;
 //		imul    esi, ecx, byte 6ch
     esi = ecx * 0x6c;
@@ -440,7 +440,7 @@ ___243f8h:
 //		cmp     byte [esp+edx+0dch], 0
 //		jne     ___2440ah
     if(B(esp+edx+0xdc) != 0) goto ___2440ah;
-//		cmp     edx, [esi+__CEXT_V(___1a0220h)]
+//		cmp     edx, [esi+__CEXT_V(Roster)+40h]
 //		jne     ___2440dh
     if(edx != D(esi+___1a0220h)) goto ___2440dh;
 ___2440ah:
@@ -489,17 +489,17 @@ ___2443fh:
     eax = edi+0x6c;
 //		mov     [esp+0f4h], eax
     D(esp+0xf4) = eax;
-//		mov     [ecx+__CEXT_V(___1a0220h)], edx
+//		mov     [ecx+__CEXT_V(Roster)+40h], edx
     D(ecx+___1a0220h) = edx;
 //		inc     ebx
     ebx++;
-//		mov     [ecx+__CEXT_V(___1a020ch)], edx
+//		mov     [ecx+__CEXT_V(Roster)+2ch], edx
     D(ecx+___1a020ch) = edx;
 //		cmp     ebx, byte 13h
 //		jl      ___2432eh
     if((int)ebx < 0x13) goto ___2432eh;
-//		mov     edx, [__CEXT_V(___1a1ef8h)]
-    edx = D(___1a1ef8h);
+//		mov     edx, [__CEXT_V(MyFaceId)]
+    edx = D(MyFaceId);
 //		lea     eax, [edx*8+0]
     eax = edx*8;
 //		sub     eax, edx
@@ -510,39 +510,39 @@ ___2443fh:
     eax -= edx;
 //		xor     ebx, ebx
     ebx = 0;
-//		mov     [eax*4+__CEXT_V(___1a01ech)], ebx
+//		mov     [eax*4+__CEXT_V(Roster)+0ch], ebx
     D(eax*4+___1a01ech) = ebx;
-//		mov     [eax*4+__CEXT_V(___1a01f0h)], ebx
+//		mov     [eax*4+__CEXT_V(Roster)+10h], ebx
     D(eax*4+___1a01f0h) = ebx;
-//		mov     [eax*4+__CEXT_V(___1a01f8h)], ebx
+//		mov     [eax*4+__CEXT_V(Roster)+18h], ebx
     D(eax*4+___1a01f8h) = ebx;
-//		mov     [eax*4+__CEXT_V(___1a01f4h)], ebx
+//		mov     [eax*4+__CEXT_V(Roster)+14h], ebx
     D(eax*4+___1a01f4h) = ebx;
 //		xor     ecx, ecx
     ecx = 0;
-//		mov     [eax*4+__CEXT_V(___1a01fch)], ebx
+//		mov     [eax*4+__CEXT_V(Roster)+1ch], ebx
     D(eax*4+___1a01fch) = ebx;
-//		mov     [eax*4+__CEXT_V(___1a022ch)], ecx
+//		mov     [eax*4+__CEXT_V(Roster)+4ch], ecx
     D(eax*4+___1a022ch) = ecx;
-//		mov     [eax*4+__CEXT_V(___1a0230h)], ecx
+//		mov     [eax*4+__CEXT_V(Roster)+50h], ecx
     D(eax*4+___1a0230h) = ecx;
-//		mov     [eax*4+__CEXT_V(___1a0234h)], ecx
+//		mov     [eax*4+__CEXT_V(Roster)+54h], ecx
     D(eax*4+___1a0234h) = ecx;
-//		mov     [eax*4+__CEXT_V(___1a0224h)], ecx
+//		mov     [eax*4+__CEXT_V(Roster)+44h], ecx
     D(eax*4+___1a0224h) = ecx;
 //		mov     edx, 1efh
     edx = 0x1ef;
-//		mov     [eax*4+__CEXT_V(___1a0238h)], ecx
+//		mov     [eax*4+__CEXT_V(Roster)+58h], ecx
     D(eax*4+___1a0238h) = ecx;
 //		mov     ecx, 0ffffffffh
     ecx = 0xffffffff;
-//		mov     [eax*4+__CEXT_V(___1a0210h)], edx
+//		mov     [eax*4+__CEXT_V(Roster)+30h], edx
     D(eax*4+___1a0210h) = edx;
-//		mov     [eax*4+__CEXT_V(___1a0214h)], ecx
+//		mov     [eax*4+__CEXT_V(Roster)+34h], ecx
     D(eax*4+___1a0214h) = ecx;
 //		lea     edx, [ebx*8+0]
     edx = ebx*8;
-//		mov     [eax*4+__CEXT_V(___1a0218h)], ecx
+//		mov     [eax*4+__CEXT_V(Roster)+38h], ecx
     D(eax*4+___1a0218h) = ecx;
 //		shl     edx, 3
     edx <<= 3;
@@ -550,13 +550,13 @@ ___2443fh:
     ebx = 0x14;
 //		shl     edx, 5
     edx <<= 5;
-//		mov     [eax*4+__CEXT_V(___1a0228h)], ebx
+//		mov     [eax*4+__CEXT_V(Roster)+48h], ebx
     D(eax*4+___1a0228h) = ebx;
 //		mov     edx, [edx+__CEXT_V(___18e2a4h)]
     edx = D(edx+___18e2a4h);
 //		xor     edi, edi
     edi = 0;
-//		mov     [eax*4+__CEXT_V(___1a021ch)], edx
+//		mov     [eax*4+__CEXT_V(Roster)+3ch], edx
     D(eax*4+___1a021ch) = edx;
 //		call    __CEXT_F(___2b318h)
     ___2b318h();

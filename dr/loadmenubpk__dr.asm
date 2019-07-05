@@ -10,13 +10,13 @@
     extern  __CEXT_V(___1a1edch)
     extern  __CEXT_V(___1a1ecch)
     extern  __CEXT_V(___1a1ee8h)
-    extern  __CEXT_V(___1a1ef8h)
+    extern  __CEXT_V(MyFaceId)
     extern  __CEXT_V(___1a1ee0h)
     extern  __CEXT_V(___1a1eech)
     extern  __CEXT_V(___1a1ec0h)
     extern  __CEXT_V(___1a1ec8h)
     extern  __CEXT_V(___1a1ed0h)
-    extern  __CEXT_V(___1a01fch)
+    extern  __CEXT_V(Roster)+1ch
     extern  __CEXT_V(___1a1ec4h)
     extern  __CEXT_V(___1a1ee4h)
     extern  __CEXT_V(___1a1124h)
@@ -135,7 +135,7 @@ __GDECL(__CEXT_F(___24548h))
 		mov     [__CEXT_V(___1a1edch)], edx
 		mov     [__CEXT_V(___1a1ecch)], ebx
 		mov     [__CEXT_V(___1a1ee8h)], ebx
-		mov     edx, [__CEXT_V(___1a1ef8h)]
+		mov     edx, [__CEXT_V(MyFaceId)]
 		mov     [__CEXT_V(___1a1ee0h)], ebx
 		lea     eax, [edx*8+0]
 		mov     [__CEXT_V(___1a1eech)], ebx
@@ -147,7 +147,7 @@ __GDECL(__CEXT_F(___24548h))
 		mov     [__CEXT_V(___1a1ed0h)], ebx
 		shl     eax, 2
 		mov     ebx, 5
-		mov     ecx, [eax+__CEXT_V(___1a01fch)]
+		mov     ecx, [eax+__CEXT_V(Roster)+1ch]
 		mov     [__CEXT_V(___1a1ec4h)], ebx
 		cmp     ecx, ebx
 		jge     ___245c5h

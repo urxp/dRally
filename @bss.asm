@@ -519,57 +519,15 @@ __GDECL(__CEXT_V(bpk_armor3_p))
 __GDECL(__CEXT_V(bpk_armor4_p))
     resb	4
 __GDECL(__CEXT_V(Roster))
-__GDECL(__CEXT_V(___1a01e0h))
-    resb	0ch
-__GDECL(__CEXT_V(___1a01ech))
-    resb	4
-__GDECL(__CEXT_V(___1a01f0h))
-    resb	4
-__GDECL(__CEXT_V(___1a01f4h))
-    resb	4
-__GDECL(__CEXT_V(___1a01f8h))
-    resb	4
-__GDECL(__CEXT_V(___1a01fch))
-    resb	10h
-__GDECL(__CEXT_V(___1a020ch))
-    resb	4
-__GDECL(__CEXT_V(___1a0210h))
-    resb	4
-__GDECL(__CEXT_V(___1a0214h))
-    resb	4
-__GDECL(__CEXT_V(___1a0218h))
-    resb	4
-__GDECL(__CEXT_V(___1a021ch))
-    resb	4
-__GDECL(__CEXT_V(___1a0220h))
-    resb	4
-__GDECL(__CEXT_V(___1a0224h))
-    resb	4
-__GDECL(__CEXT_V(___1a0228h))
-    resb	4
-__GDECL(__CEXT_V(___1a022ch))
-    resb	4
-__GDECL(__CEXT_V(___1a0230h))
-    resb	4
-__GDECL(__CEXT_V(___1a0234h))
-    resb	4
-__GDECL(__CEXT_V(___1a0238h))
-    resb	4
-__GDECL(__CEXT_V(___1a023ch))
-    resb	4
-__GDECL(__CEXT_V(___1a0240h))
-    resb	4
-__GDECL(__CEXT_V(___1a0244h))
-    resb	4
-__GDECL(__CEXT_V(___1a0248h))
-    resb	4
+    resb	6ch
 ___1a024ch:	resb	6ch
 ___1a02b8h:	resb	6ch
 ___1a0324h:	resb	72ch
-___1a0a50h:	resb	4
-___1a0a54h:	resb	4
-___1a0a58h:	resb	4
-___1a0a5ch:	resb	2
+__GDECL(__CEXT_V(UndergroundMarketOptions)) ; 1a0a50h
+    resb	4
+    resb	4
+    resb	4
+    resb	2
 ___1a0a5eh:	resb	1
 ___1a0a5fh:	resb	1
 ___1a0a60h:	resb	300h
@@ -836,7 +794,7 @@ __GDECL(___1a1ef0h)
     resb	4
 __GDECL(___1a1ef4h)
     resb	4
-__GDECL(__CEXT_V(___1a1ef8h))
+__GDECL(__CEXT_V(MyFaceId))
     resb	4
 __GDECL(___1a1efch)
     resb	4

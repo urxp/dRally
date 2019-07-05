@@ -15,9 +15,9 @@
     extern byte RowBoxBuffers[];
     extern byte ___182174h[];
     extern byte ___1a0f9ch[];
-    extern byte ___1a1ef8h[];
+    extern byte MyFaceId[];
     extern byte ___180864h[];
-    extern byte ___1a01e0h[];
+    extern byte Roster[];
     extern byte ___182194h[];
     extern byte NetworkConnectionType[];
     extern byte ___199fc8h[];
@@ -523,8 +523,8 @@ ___2ae9bh:
     D(___1a0f9ch) = eax;
 //		mov     eax, [__CEXT_V(___180864h)]
     eax = D(___180864h);
-//		mov     edx, [__CEXT_V(___1a1ef8h)]
-    edx = D(___1a1ef8h);
+//		mov     edx, [__CEXT_V(MyFaceId)]
+    edx = D(MyFaceId);
 //		mov     [edi], eax
     D(edi) = eax;
 //		lea     eax, [edx*8+0]
@@ -535,8 +535,8 @@ ___2ae9bh:
     eax <<= 2;
 //		sub     eax, edx
     eax -= edx;
-//		mov     esi, __CEXT_V(___1a01e0h)
-    esi = ___1a01e0h;
+//		mov     esi, __CEXT_V(Roster)
+    esi = Roster;
 //		shl     eax, 2
     eax <<= 2;
 //		add     esi, eax
@@ -748,8 +748,8 @@ ___2b021h:
     edx = 0x13;
 //		call    __CEXT_F(___1e4f8h)
     ___1e4f8h();
-//		mov     [__CEXT_V(___1a1ef8h)], edx
-    D(___1a1ef8h) = edx;
+//		mov     [__CEXT_V(MyFaceId)], edx
+    D(MyFaceId) = edx;
 ___2b031h:
 //		mov     edx, 9
     edx = 9;
@@ -953,8 +953,8 @@ ___2b154h:
     eax <<= 2;
 //		sub     eax, edx
     eax -= edx;
-//		mov     esi, __CEXT_V(___1a01e0h)
-    esi = ___1a01e0h;
+//		mov     esi, __CEXT_V(Roster)
+    esi = Roster;
 //		shl     eax, 2
     eax <<= 2;
 //		mov     edi, __CEXT_V(___1a1dbah)

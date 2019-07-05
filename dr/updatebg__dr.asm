@@ -31,9 +31,9 @@
     extern  __CEXT_V(___1a0f9ch)
     extern  __CEXT_F(___3f77ch)
     extern  __CEXT_F(___1e4f8h)
-    extern  __CEXT_V(___1a1ef8h)
+    extern  __CEXT_V(MyFaceId)
     extern  __CEXT_V(___180864h)
-    extern  __CEXT_V(___1a01e0h)
+    extern  __CEXT_V(Roster)
     extern  __CEXT_V(___182194h)
     extern  __CEXT_V(NetworkConnectionType)
     extern  __CEXT_V(___199fc8h)
@@ -289,13 +289,13 @@ ___2ae9bh:
 		mov     edi, eax
 		mov     [__CEXT_V(___1a0f9ch)], eax
 		mov     eax, [__CEXT_V(___180864h)]
-		mov     edx, [__CEXT_V(___1a1ef8h)]
+		mov     edx, [__CEXT_V(MyFaceId)]
 		mov     [edi], eax
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
 		sub     eax, edx
-		mov     esi, __CEXT_V(___1a01e0h)
+		mov     esi, __CEXT_V(Roster)
 		shl     eax, 2
 		add     esi, eax
 		mov     ebx, 8
@@ -414,7 +414,7 @@ ___2b00eh:
 ___2b021h:
 		mov     edx, 13h
 		call    __CEXT_F(___1e4f8h)
-		mov     [__CEXT_V(___1a1ef8h)], edx
+		mov     [__CEXT_V(MyFaceId)], edx
 ___2b031h:
 		mov     edx, 9
 		mov     eax, esp
@@ -529,7 +529,7 @@ ___2b154h:
 		sub     eax, edx
 		shl     eax, 2
 		sub     eax, edx
-		mov     esi, __CEXT_V(___1a01e0h)
+		mov     esi, __CEXT_V(Roster)
 		shl     eax, 2
 		mov     edi, __CEXT_V(___1a1dbah)
 		add     esi, eax
