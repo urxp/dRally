@@ -31,7 +31,7 @@
     extern  __CEXT_V(___1a0f9ch)
     extern  __CEXT_F(___3f77ch)
     extern  __CEXT_F(___1e4f8h)
-    extern  __CEXT_V(MyFaceId)
+    extern  __CEXT_V(MyID)
     extern  __CEXT_V(___180864h)
     extern  __CEXT_V(Roster)
     extern  __CEXT_V(___182194h)
@@ -289,7 +289,7 @@ ___2ae9bh:
 		mov     edi, eax
 		mov     [__CEXT_V(___1a0f9ch)], eax
 		mov     eax, [__CEXT_V(___180864h)]
-		mov     edx, [__CEXT_V(MyFaceId)]
+		mov     edx, [__CEXT_V(MyID)]
 		mov     [edi], eax
 		lea     eax, [edx*8+0]
 		sub     eax, edx
@@ -414,7 +414,7 @@ ___2b00eh:
 ___2b021h:
 		mov     edx, 13h
 		call    __CEXT_F(___1e4f8h)
-		mov     [__CEXT_V(MyFaceId)], edx
+		mov     [__CEXT_V(MyID)], edx
 ___2b031h:
 		mov     edx, 9
 		mov     eax, esp

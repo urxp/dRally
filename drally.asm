@@ -75,7 +75,8 @@
     extern  __CEXT_F(updateMenuBackgroundAndTextArea)
     extern  __CEXT_F(procChatData)
     extern  __CEXT_F(initDrivers)
-    extern  __CEXT_F(optionsUndergroudMarket)
+    extern  __CEXT_F(optionsUndergroundMarket)
+    extern  __CEXT_F(___2b318h)
 
 
 ;; CLIB3R.LIB

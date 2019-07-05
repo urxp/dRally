@@ -12,7 +12,7 @@ typedef struct Driver {
     dword   __20;
     dword   __24;
     dword   __28;
-    dword   __2c;
+    dword   Color;
     dword   Money;          // +30h
     dword   __34;
     dword   __38;
@@ -40,10 +40,10 @@ typedef struct UndergroundMarket {
     extern UndergroundMarket UndergroundMarketOptions;
     extern Driver Roster[];
     extern dword NetworkConnectionEstablished;
-    extern dword MyFaceId;
+    extern dword MyID;
 
 // 2ec68h
-void optionsUndergroudMarket(void){
+void optionsUndergroundMarket(void){
 
     dword   n;
 
@@ -59,7 +59,7 @@ void optionsUndergroudMarket(void){
 
         n = 0;
 
-        while((n < 20)&&((n == MyFaceId)||(Roster[n].Points < Roster[MyFaceId].Points))) n++;
+        while((n < 20)&&((n == MyID)||(Roster[n].Points < Roster[MyID].Points))) n++;
 
         UndergroundMarketOptions.Sabotage = !(n == 20);
     }

@@ -10,7 +10,7 @@
     extern  __CEXT_V(___1a1edch)
     extern  __CEXT_V(___1a1ecch)
     extern  __CEXT_V(___1a1ee8h)
-    extern  __CEXT_V(MyFaceId)
+    extern  __CEXT_V(MyID)
     extern  __CEXT_V(___1a1ee0h)
     extern  __CEXT_V(___1a1eech)
     extern  __CEXT_V(___1a1ec0h)
@@ -135,7 +135,7 @@ __GDECL(__CEXT_F(___24548h))
 		mov     [__CEXT_V(___1a1edch)], edx
 		mov     [__CEXT_V(___1a1ecch)], ebx
 		mov     [__CEXT_V(___1a1ee8h)], ebx
-		mov     edx, [__CEXT_V(MyFaceId)]
+		mov     edx, [__CEXT_V(MyID)]
 		mov     [__CEXT_V(___1a1ee0h)], ebx
 		lea     eax, [edx*8+0]
 		mov     [__CEXT_V(___1a1eech)], ebx

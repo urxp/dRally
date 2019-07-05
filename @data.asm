@@ -987,7 +987,7 @@ __GDECL(__CEXT_V(___1821c0h))
 db	"-- Modem connection lost!",0
 __GDECL(__CEXT_V(d_1o64))
 db	0,0,0,0,0,0,90h,3fh
-___1821e2h:
+__GDECL(__CEXT_V(___1821e2h))
 db	0,0,0,0,0,0,90h,3fh,0,0
 ___1821ech:
 db	"Game not found.",0

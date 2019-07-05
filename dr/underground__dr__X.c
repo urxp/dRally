@@ -3,12 +3,12 @@
     extern byte UndergroundMarketOptions[];
     extern byte Roster[];
     extern byte NetworkConnectionEstablished[];
-    extern byte MyFaceId[];
+    extern byte MyID[];
 
     #pragma aux __STOSD__clib3r parm [eax][edx][ecx]
     void __STOSD__clib3r(byte *, dword, dword);
 
-void optionsUndergroudMarket(void){
+void optionsUndergroundMarket(void){
 
     dword   eax, ebx, ecx, edx, esi, edi, ebp;
 //    byte    __esp[0x18];
@@ -29,8 +29,8 @@ void optionsUndergroudMarket(void){
     PUSH(esi);
 //		push    edi
     PUSH(edi);
-//		mov     esi, [__CEXT_V(MyFaceId)]
-    esi = D(MyFaceId);
+//		mov     esi, [__CEXT_V(MyID)]
+    esi = D(MyID);
 //		mov     ecx, 4
     ecx = 4;
 //		mov     edx, 1
@@ -55,8 +55,8 @@ void optionsUndergroudMarket(void){
 //		mov     [__CEXT_V(UndergroundMarketOptions)+0ch], ebx
     D(UndergroundMarketOptions+0xc) = ebx;
 ___2ecb6h:
-//		mov     esi, [__CEXT_V(MyFaceId)]
-    esi = D(MyFaceId);
+//		mov     esi, [__CEXT_V(MyID)]
+    esi = D(MyID);
 //		xor     edx, edx
     edx = 0;
 //		xor     eax, eax
@@ -114,8 +114,8 @@ ___2ed0eh:
 //		mov     [__CEXT_V(UndergroundMarketOptions)+0ch], ecx
     D(UndergroundMarketOptions+0xc) = ecx;
 ___2ed1fh:
-//		mov     [__CEXT_V(MyFaceId)], esi
-    D(MyFaceId) = esi;
+//		mov     [__CEXT_V(MyID)], esi
+    D(MyID) = esi;
 //		pop     edi
     POP(edi);
 //		pop     esi

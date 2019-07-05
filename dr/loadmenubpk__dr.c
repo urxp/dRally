@@ -40,7 +40,7 @@ enum {
     extern byte ___1a1edch[];
     extern byte ___1a1ecch[];
     extern byte ___1a1ee8h[];
-    extern byte MyFaceId[];
+    extern byte MyID[];
     extern byte ___1a1ee0h[];
     extern byte ___1a1eech[];
     extern byte ___1a1ec0h[];
@@ -155,7 +155,7 @@ void ___24548h(void){
 	D(___1a1ee8h) = 0;
 	D(___1a1eech) = 0;
 
-	D(___1a1ee4h) = D(0x6c * D(MyFaceId) + Roster + 0x1c) + 1;
+	D(___1a1ee4h) = D(0x6c * D(MyID) + Roster + 0x1c) + 1;
 	if(D(___1a1ee4h) > 5) D(___1a1ee4h) = 5;
 
 	D(___1a1124h) = D(___1a10e4h) = allocMemSafe(0x4b000);

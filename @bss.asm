@@ -232,17 +232,21 @@ ___19dee2h:	resb	1
 ___19dee3h:	resb	9
 ___19deech:	resb	60h
 ___19df4ch:	resb	4
-___19df50h:	resb	4
-___19df54h:	resb	4
-___19df58h:	resb	0bech
+__GDECL(__CEXT_V(___19df50h))
+    resb	4
+__GDECL(__CEXT_V(___19df54h))
+    resb	4
+__GDECL(__CEXT_V(___19df58h))
+    resb	0bech
 ___19eb44h:	resb	4
 ___19eb48h:	resb	4
-___19eb4ch:	resb	4
-__GDECL(___19eb50h)
+__GDECL(__CEXT_V(___19eb4ch))
     resb	4
-__GDECL(___19eb54h)
+__GDECL(__CEXT_V(___19eb50h))
     resb	4
-__GDECL(___19eb58h)
+__GDECL(__CEXT_V(___19eb54h))
+    resb	4
+__GDECL(__CEXT_V(___19eb58h))
     resb	0bf8h
 ___19f750h:	resb	0ch
 ___19f75ch:	resb	4
@@ -585,7 +589,7 @@ ___1a0fa8h:	resb	4
 ___1a0fach:	resb	4
 ___1a0fb0h:	resb	4
 ___1a0fb4h:	resb	4
-__GDECL(___1a0fb8h)
+__GDECL(__CEXT_V(___1a0fb8h))
     resb	4
 ___1a0fbch:	resb	4
 ___1a0fc0h:	resb	4
@@ -794,7 +798,7 @@ __GDECL(___1a1ef0h)
     resb	4
 __GDECL(___1a1ef4h)
     resb	4
-__GDECL(__CEXT_V(MyFaceId))
+__GDECL(__CEXT_V(MyID))
     resb	4
 __GDECL(___1a1efch)
     resb	4

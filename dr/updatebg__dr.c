@@ -22,7 +22,7 @@ typedef struct Driver {
     dword   __20;
     dword   __24;
     dword   __28;
-    dword   __2c;
+    dword   Color;
     dword   Money;          // +30h
     dword   __34;
     dword   __38;
@@ -57,7 +57,7 @@ typedef enum eNetworkConnectionType {
     extern byte ___196a74h[];
     extern b96 RowBoxBuffers[];
     extern void * ___1a0f9ch;
-    extern dword MyFaceId;
+    extern dword MyID;
     extern Driver Roster[];
     extern eNetworkConnectionType NetworkConnectionType;
     extern byte ___199fc8h[];
@@ -201,7 +201,7 @@ void updateMenuBackgroundAndTextArea(){
             tmp_p = ___1a0f9ch = allocMemSafe(0x64);
             strcpy__clib3r(tmp_p, ___180864h);
             while(*tmp_p++);
-            strcpy__clib3r(--tmp_p, Roster[MyFaceId].Name);
+            strcpy__clib3r(--tmp_p, Roster[MyID].Name);
             while(*tmp_p++);
             strcpy__clib3r(--tmp_p, ___182174h);
             ___23488h(___1a0f9ch, 0x64, 8);
@@ -215,7 +215,7 @@ void updateMenuBackgroundAndTextArea(){
             updateChat(0);
             
             ___1e4f8h();
-            MyFaceId = 0x13;
+            MyID = 0x13;
         }
 
         if(procChatData(buffer, 9)){

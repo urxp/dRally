@@ -7,8 +7,8 @@
     extern  __CEXT_V(___196a9ch)
     extern  __CEXT_V(___196aa0h)
     extern  __CEXT_V(___185a50h)
-    extern  __CEXT_V(MyFaceId)
-    extern  __CEXT_F(optionsUndergroudMarket)
+    extern  __CEXT_V(MyID)
+    extern  __CEXT_F(optionsUndergroundMarket)
     extern  __CEXT_V(___199f54h)
     extern  __CEXT_V(___185a30h)
     extern  __CEXT_V(___181d17h)
@@ -23,7 +23,7 @@
     extern  __CEXT_V(___18e93ch)
     extern  __CEXT_V(___18e940h)
     extern  __CEXT_V(___18e2a4h)
-    extern  __CEXT_V(MyFaceId)
+    extern  __CEXT_V(MyID)
     extern  __CEXT_F(___2b318h)
     extern  __CEXT_V(___1a1ee8h)
     extern  __CEXT_V(___1a1ec0h)
@@ -87,8 +87,8 @@ __GDECL(__CEXT_F(initDrivers))
 		mov     [__CEXT_V(___196a9ch)], ebx
 		mov     [__CEXT_V(___196aa0h)], ebx
 		mov     [__CEXT_V(___185a50h)], ebx
-		mov     [__CEXT_V(MyFaceId)], edx
-		call    __CEXT_F(optionsUndergroudMarket)
+		mov     [__CEXT_V(MyID)], edx
+		call    __CEXT_F(optionsUndergroundMarket)
 		mov     [__CEXT_V(___199f54h)], ebx
 		mov     [__CEXT_V(___185a30h)], ebx
 		xor     edx, edx
@@ -221,7 +221,7 @@ ___2432eh:
 		mov     eax, [eax+__CEXT_V(___18e2a4h)]
 		mov     [esi+__CEXT_V(Roster)+3ch], eax
 		lea     eax, [ebx+1]
-		mov     ecx, [__CEXT_V(MyFaceId)]
+		mov     ecx, [__CEXT_V(MyID)]
 		mov     edx, ebx
 		mov     [esi+__CEXT_V(Roster)+48h], eax
 		imul    esi, ecx, byte 6ch
@@ -261,7 +261,7 @@ ___2443fh:
 		mov     [ecx+__CEXT_V(Roster)+2ch], edx
 		cmp     ebx, byte 13h
 		jl      ___2432eh
-		mov     edx, [__CEXT_V(MyFaceId)]
+		mov     edx, [__CEXT_V(MyID)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2

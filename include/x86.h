@@ -29,6 +29,9 @@ typedef unsigned long long  qword;
 #define PUSH(v)     esp -= 4; D(esp) = v
 #define POP(v)      v = D(esp); esp += 4
 
+#define F32(f)  (*(float *)(f))
+#define F64(d)  (*(double *)(d))
+
 #define FPUSH() \
     st7=st6;st6=st5;st5=st4;st4=st3;st3=st2;st2=st1;st1=st0
 

@@ -80,10 +80,10 @@
 	extern 	__CEXT_F(___24548h)	
 	extern 	___2faf0h	
 	extern 	___3d2bch	
-	extern 	___12940h	
-	extern 	__CEXT_V(MyFaceId)		
-	extern 	___1a0fb8h	
-	extern 	___11564h	
+	extern 	__CEXT_F(___12940h)	
+	extern 	__CEXT_V(MyID)		
+	extern 	__CEXT_V(___1a0fb8h)	
+	extern 	__CEXT_F(___11564h)	
 	extern 	GXBackBuffer
 	extern 	__CEXT_V(___180130h)		
 	extern 	__CEXT_V(Roster)	
@@ -102,9 +102,9 @@
 	extern 	___12cb8h	
 	extern 	__CEXT_F(___58c60h)	
 	extern 	___13a98h	
-	extern 	___19eb50h	
-	extern 	___19eb54h	
-	extern 	___19eb58h	
+	extern 	__CEXT_V(___19eb50h)	
+	extern 	__CEXT_V(___19eb54h)	
+	extern 	__CEXT_V(___19eb58h)	
 	extern 	__CEXT_V(___1a10e4h)	
 	extern 	__CEXT_V(___1a1124h)	
 	extern 	___3a7e0h	
@@ -134,7 +134,7 @@
 	extern 	__CEXT_V(NetworkConnectionEstablished)	
 	extern 	___180ba0h	
 	extern 	___186a6eh	
-	extern 	__CEXT_V(MyFaceId)	
+	extern 	__CEXT_V(MyID)	
 	extern 	__CEXT_V(Roster)	
 	extern 	___180ca4h	
 	extern 	__CEXT_F(___23488h)		
@@ -291,8 +291,8 @@ ___3e88bh:
 		call    __CEXT_F(___24548h)
 		call    ___2faf0h
 		call    ___3d2bch
-		call    ___12940h
-		mov     edx, [__CEXT_V(MyFaceId)]
+		call    __CEXT_F(___12940h)
+		mov     edx, [__CEXT_V(MyID)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -300,7 +300,7 @@ ___3e88bh:
 		mov     edx, [eax*4+__CEXT_V(Roster)+2ch]
 		lea     eax, [edx*4+0]
 		sub     eax, edx
-		mov     edx, [___1a0fb8h]
+		mov     edx, [__CEXT_V(___1a0fb8h)]
 		add     edx, eax
 		xor     eax, eax
 		mov     al, [edx+2]
@@ -321,7 +321,7 @@ ___3e88bh:
 		sub     esp, byte 4
 		fstp    dword [esp]
 		mov     ecx, 4b000h
-		call    ___11564h
+		call    __CEXT_F(___11564h)
 		mov     esi, [GXBackBuffer]
 		mov     edi, [__CEXT_V(VGABufferPtr_0)]
 		push    edi
@@ -332,7 +332,7 @@ ___3e88bh:
 		and     cl, 3
 		rep movsb   
 		pop     edi
-		mov     edx, [__CEXT_V(MyFaceId)]
+		mov     edx, [__CEXT_V(MyID)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
@@ -585,7 +585,7 @@ ___3ecf0h:
 		mov     al, [esp+8]
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+___19eb50h]
+		mov     eax, [edi+__CEXT_V(___19eb50h)]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -595,7 +595,7 @@ ___3ecf0h:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+___19eb54h]
+		mov     eax, [edi+__CEXT_V(___19eb54h)]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -605,7 +605,7 @@ ___3ecf0h:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+___19eb58h]
+		mov     eax, [edi+__CEXT_V(___19eb58h)]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -792,7 +792,7 @@ ___3efdch:
 		mov     edx, ___180ba0h
 		mov     eax, ___186a6eh			;; "Join An Existing Game"
 		call    __CEXT_F(strcmp__clib3r)
-		mov     edx, [__CEXT_V(MyFaceId)]
+		mov     edx, [__CEXT_V(MyID)]
 		mov     ecx, eax
 		lea     eax, [edx*8+0]
 		sub     eax, edx
@@ -852,7 +852,7 @@ ___3f07eh:
 		mov     edx, 64h
 		call    __CEXT_F(___23488h)
 		mov     eax, [__CEXT_V(___180864h)]
-		mov     edx, [__CEXT_V(MyFaceId)]
+		mov     edx, [__CEXT_V(MyID)]
 		mov     [__CEXT_V(___1a1dbah)], eax
 		lea     eax, [edx*8+0]
 		sub     eax, edx

@@ -16,7 +16,7 @@ typedef struct Driver {
     dword   __20;
     dword   __24;
     dword   __28;
-    dword   __2c;
+    dword   Color;
     dword   Money;          // +30h
     dword   __34;
     dword   __38;
@@ -51,7 +51,7 @@ typedef struct CarInfo {
     extern byte ___196a9ch[];
     extern byte ___196aa0h[];
     extern byte ___185a50h[];
-    extern byte MyFaceId[];
+    extern dword MyID;
     extern byte ___199f54h[];
     extern byte ___185a30h[];  
     extern Driver Roster[];
@@ -67,7 +67,7 @@ typedef struct CarInfo {
 
     int rand__clib3r(void);
     void ___2b318h(void);
-    void optionsUndergroudMarket(void);
+    void optionsUndergroundMarket(void);
 
     char * strcpy__clib3r(char * dest, const char * src);
     
@@ -91,9 +91,9 @@ void initDrivers(void){
     D(___196a9ch) = 0;
     D(___196aa0h) = 0;
     D(___185a50h) = 0;
-    D(MyFaceId) = 19;
+    MyID = 19;
 
-    optionsUndergroudMarket();
+    optionsUndergroundMarket();
 
     D(___199f54h) = 0;
     D(___185a30h) = 0;
@@ -125,30 +125,30 @@ void initDrivers(void){
         Roster[n].Points = 402 - 11*n - 2*(int)(77*log10((double)(n+1)));
         Roster[n].Points >>= 2;
   
-        if(!i&&(n == Roster[D(MyFaceId)].Face)) i++;
+        if(!i&&(n == Roster[MyID].Face)) i++;
 
         strcpy__clib3r(Roster[n].Name, ListOfDrivers[n+i]);
         Roster[n].Face = n+i;
-        Roster[n].__2c = n+i;
+        Roster[n].Color = n+i;
 
         n++;
     }
 
-    Roster[D(MyFaceId)].Damage = 0;
-    Roster[D(MyFaceId)].Engine = 0;
-    Roster[D(MyFaceId)].Tire = 0;
-    Roster[D(MyFaceId)].Armor = 0;
-    Roster[D(MyFaceId)].Car = DR_KUPLA;
-    Roster[D(MyFaceId)].Money = 0x1ef;
-    Roster[D(MyFaceId)].__34 = -1;
-    Roster[D(MyFaceId)].__38 = -1;
-    Roster[D(MyFaceId)].CarPrice = CarSpecs[DR_KUPLA].Price;
-    Roster[D(MyFaceId)].Points = 0;
-    Roster[D(MyFaceId)].Standings = 0x14;
-    Roster[D(MyFaceId)].__4c = 0;
-    Roster[D(MyFaceId)].__50 = 0;
-    Roster[D(MyFaceId)].__54 = 0;
-    Roster[D(MyFaceId)].__58 = 0;
+    Roster[MyID].Damage = 0;
+    Roster[MyID].Engine = 0;
+    Roster[MyID].Tire = 0;
+    Roster[MyID].Armor = 0;
+    Roster[MyID].Car = DR_KUPLA;
+    Roster[MyID].Money = 0x1ef;
+    Roster[MyID].__34 = -1;
+    Roster[MyID].__38 = -1;
+    Roster[MyID].CarPrice = CarSpecs[DR_KUPLA].Price;
+    Roster[MyID].Points = 0;
+    Roster[MyID].Standings = 0x14;
+    Roster[MyID].__4c = 0;
+    Roster[MyID].__50 = 0;
+    Roster[MyID].__54 = 0;
+    Roster[MyID].__58 = 0;
 
     ___2b318h();
 

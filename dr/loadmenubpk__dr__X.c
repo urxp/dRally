@@ -5,7 +5,7 @@
     extern byte ___1a1edch[];
     extern byte ___1a1ecch[];
     extern byte ___1a1ee8h[];
-    extern byte MyFaceId[];
+    extern byte MyID[];
     extern byte ___1a1ee0h[];
     extern byte ___1a1eech[];
     extern byte ___1a1ec0h[];
@@ -146,8 +146,8 @@ void ___24548h(void){
 	D(___1a1ecch) = ebx;
 //		mov     [__CEXT_V(___1a1ee8h)], ebx
 	D(___1a1ee8h) = ebx;
-//		mov     edx, [__CEXT_V(MyFaceId)]
-	edx = D(MyFaceId);
+//		mov     edx, [__CEXT_V(MyID)]
+	edx = D(MyID);
 //		mov     [__CEXT_V(___1a1ee0h)], ebx
 	D(___1a1ee0h) = ebx;
 //		lea     eax, [edx*8+0]

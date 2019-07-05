@@ -5,14 +5,14 @@
     extern  __CEXT_V(UndergroundMarketOptions)
     extern  __CEXT_V(Roster)
     extern  __CEXT_V(NetworkConnectionEstablished)
-    extern  __CEXT_V(MyFaceId)
+    extern  __CEXT_V(MyID)
 
 %include "layout.inc"
 
 section @text
 
 ; 2ec68h
-__GDECL(__CEXT_F(optionsUndergroudMarket))
+__GDECL(__CEXT_F(optionsUndergroundMarket))
 		push    18h
 		call    __CHK
 		push    ebx
@@ -20,7 +20,7 @@ __GDECL(__CEXT_F(optionsUndergroudMarket))
 		push    edx
 		push    esi
 		push    edi
-		mov     esi, [__CEXT_V(MyFaceId)]
+		mov     esi, [__CEXT_V(MyID)]
 		mov     ecx, 4
 		mov     edx, 1
 		mov     eax, __CEXT_V(UndergroundMarketOptions)
@@ -34,7 +34,7 @@ __GDECL(__CEXT_F(optionsUndergroudMarket))
 		call    __CEXT_F(__STOSD__clib3r)
 		mov     [__CEXT_V(UndergroundMarketOptions)+0ch], ebx
 ___2ecb6h:
-		mov     esi, [__CEXT_V(MyFaceId)]
+		mov     esi, [__CEXT_V(MyID)]
 		xor     edx, edx
 		xor     eax, eax
 		xor     ebx, ebx
@@ -69,7 +69,7 @@ ___2ed0eh:
 		xor     ecx, ecx
 		mov     [__CEXT_V(UndergroundMarketOptions)+0ch], ecx
 ___2ed1fh:
-		mov     [__CEXT_V(MyFaceId)], esi
+		mov     [__CEXT_V(MyID)], esi
 		pop     edi
 		pop     esi
 		pop     edx

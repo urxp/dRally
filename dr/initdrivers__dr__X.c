@@ -5,7 +5,7 @@
     extern byte ___196a9ch[];
     extern byte ___196aa0h[];
     extern byte ___185a50h[];
-    extern byte MyFaceId[];
+    extern byte MyID[];
     extern byte ___199f54h[];
     extern byte ___185a30h[];
     extern byte ___1a0240h[];
@@ -31,7 +31,7 @@
     extern byte ___1a01f8h[];
     extern byte ___18e2a4h[];
     extern byte ___1a021ch[];
-    extern byte MyFaceId[];
+    extern byte MyID[];
     extern byte ___1a0228h[];
     extern byte ___1a0220h[];
     extern byte ___1a020ch[];
@@ -58,7 +58,7 @@
 
     int rand__clib3r(void);
     void ___2b318h(void);
-    void optionsUndergroudMarket(void);
+    void optionsUndergroundMarket(void);
 
     
     static inline double fyl2x(double, double); // ST1*LOG2(ST0)
@@ -170,10 +170,10 @@ void initDrivers(void){
     D(___196aa0h) = ebx;
 //		mov     [__CEXT_V(___185a50h)], ebx
     D(___185a50h) = ebx;
-//		mov     [__CEXT_V(MyFaceId)], edx
-    D(MyFaceId) = edx;
-//		call    __CEXT_F(optionsUndergroudMarket)
-    optionsUndergroudMarket();
+//		mov     [__CEXT_V(MyID)], edx
+    D(MyID) = edx;
+//		call    __CEXT_F(optionsUndergroundMarket)
+    optionsUndergroundMarket();
 //		mov     [__CEXT_V(___199f54h)], ebx
     D(___199f54h) = ebx;
 //		mov     [__CEXT_V(___185a30h)], ebx
@@ -428,8 +428,8 @@ ___2432eh:
     D(esi+___1a021ch) = eax;
 //		lea     eax, [ebx+1]
     eax = ebx+1;
-//		mov     ecx, [__CEXT_V(MyFaceId)]
-    ecx = D(MyFaceId);
+//		mov     ecx, [__CEXT_V(MyID)]
+    ecx = D(MyID);
 //		mov     edx, ebx
     edx = ebx;
 //		mov     [esi+__CEXT_V(Roster)+48h], eax
@@ -498,8 +498,8 @@ ___2443fh:
 //		cmp     ebx, byte 13h
 //		jl      ___2432eh
     if((int)ebx < 0x13) goto ___2432eh;
-//		mov     edx, [__CEXT_V(MyFaceId)]
-    edx = D(MyFaceId);
+//		mov     edx, [__CEXT_V(MyID)]
+    edx = D(MyID);
 //		lea     eax, [edx*8+0]
     eax = edx*8;
 //		sub     eax, edx
