@@ -1,147 +1,146 @@
 %include "macros.inc"
 	
+	
 	extern 	__CHK	
 	extern 	__CEXT_F(loadcdromini__dr)	
 	extern 	__CEXT_F(chkmemory__dr)	
 	extern 	__CEXT_F(chkfiles__dr)	
-	extern 	___1a202fh	
-	extern 	___199fa0h	
+	extern 	__CEXT_V(___1a202fh)	
+	extern 	__CEXT_V(___199fa0h)	
 	extern 	__CEXT_F(__STOSB__clib3r)	
-	extern 	___1a2148h	
+	extern 	__CEXT_V(___1a2148h)	
 	extern 	__CEXT_F(initDrivers)	
-	extern 	readConfig__dr	
+	extern 	__CEXT_F(readConfig__dr)	
 	extern 	__CEXT_F(exitcb2__dr)	
 	extern 	__CEXT_V(ExitCB)	
-	extern 	TimesPlayed	
+	extern 	__CEXT_V(TimesPlayed)	
 	extern 	__CEXT_F(writeConfig__dr)	
-	extern 	___182bf8h	
+	extern 	__CEXT_V(___182bf8h)	
 	extern 	__CEXT_F(printf__clib3r)	
-	extern 	___181c9ch	
-	extern 	intro__anim	
-	extern 	___181ca8h	
+	extern 	__CEXT_V(___181c9ch)	
+	extern 	__CEXT_F(intro__anim)	
+	extern 	__CEXT_V(___181ca8h)	
 	extern 	__CEXT_F(___64864h__esp)	
-	extern 	ConfigMusicVolume	
-	extern 	___6572ch	
-	extern 	ConfigSFXVolume	
-	extern 	___65770h	
-	extern 	___658b8h	
-	extern 	___65990h	
-	extern 	___648d8h	
-	extern 	___659b8h	
-	extern 	___196abch	
-	extern 	___1a2011h	
-	extern 	___196abdh	
-	extern 	___1a2012h	
-	extern 	___196abeh	
-	extern 	Gamepad	
-	extern 	___1a2013h	
-	extern 	___196abfh	
-	extern 	___196ab8h	
-	extern 	___1a2014h	
-	extern 	___181c30h	
-	extern 	___596f0h	
-	extern 	___186cc6h	
-	extern 	___181c4ch	
-	extern 	ToneDialing	
-	extern 	___187432h	
+	extern 	__CEXT_V(ConfigMusicVolume)	
+	extern 	__CEXT_F(___6572ch)	
+	extern 	__CEXT_V(ConfigSFXVolume)	
+	extern 	__CEXT_F(___65770h)	
+	extern 	__CEXT_F(___658b8h)	
+	extern 	__CEXT_F(___65990h)	
+	extern 	__CEXT_F(___648d8h)	
+	extern 	__CEXT_F(___659b8h)	
+	extern 	__CEXT_V(___196abch)	
+	extern 	__CEXT_V(___1a2011h)	
+	extern 	__CEXT_V(___196abdh)	
+	extern 	__CEXT_V(___1a2012h)	
+	extern 	__CEXT_V(___196abeh)	
+	extern 	__CEXT_V(Gamepad)	
+	extern 	__CEXT_V(___1a2013h)	
+	extern 	__CEXT_V(___196abfh)	
+	extern 	__CEXT_V(___196ab8h)	
+	extern 	__CEXT_V(___1a2014h)	
+	extern 	__CEXT_V(___181c30h)	
+	extern 	__CEXT_F(___596f0h)	
+	extern 	__CEXT_V(___186cc6h)	
+	extern 	__CEXT_V(___181c4ch)	
+	extern 	__CEXT_V(ToneDialing)	
+	extern 	__CEXT_V(___187432h)	
 	extern 	__CEXT_V(string__pulse_dialing)	
-	extern 	srand__clib3r	
-	extern 	___606dfh	
+	extern 	__CEXT_F(srand__clib3r)	
+	extern 	__CEXT_F(___606dfh)	
 	extern 	__CEXT_F(chkbankswitch__video)	
 	extern 	__CEXT_F(setmode3h__video)	
-	extern 	___182c24h	
-	extern 	___182cb8h		
+	extern 	__CEXT_V(___182c24h)	
+	extern 	__CEXT_V(___182cb8h)		
 	extern 	__CEXT_F(freeAllocInfoTable)	
 	extern 	__CEXT_F(restore__keyboard)	
 	extern 	__CEXT_F(exit__clib3r)	
 	extern 	__CEXT_F(___605deh)	
-	extern 	allocVGABuffer	
-	extern 	___3d38ch	
-	extern 	___3d890h	
+	extern 	__CEXT_F(allocVGABuffer)	
+	extern 	__CEXT_F(___3d38ch)	
+	extern 	__CEXT_F(___3d890h)	
 	extern 	__CEXT_V(___1a1f4fh)	
 	extern 	__CEXT_V(RowBox0Colors_R5)	
 	extern 	__CEXT_F(___2b318h)	
 	extern 	__CEXT_F(___5e0f9h)	
-	extern 	___VGABufferPtr_0	
+	extern 	__CEXT_V(___VGABufferPtr_0)	
 	extern 	__CEXT_V(VGABufferPtr_0)	
-	extern 	___146c4h	
+	extern 	__CEXT_F(___146c4h)	
 	extern 	__CEXT_V(STRING_CONTINUE)		
-	extern 	lastScanCode__keyboard	
-	extern 	hallOfFameMenu__dr	
-	extern 	___182de4h	
+	extern 	__CEXT_F(lastScanCode__keyboard)	
+	extern 	__CEXT_F(hallOfFameMenu__dr)	
+	extern 	__CEXT_V(___182de4h)	
 	extern 	__CEXT_F(strcmp__clib3r)	
 	extern 	__CEXT_V(___180864h)	
 	extern 	__CEXT_V(___1a1dbah)	
 	extern 	__CEXT_V(NetworkConnectionType)	
 	extern 	__CEXT_F(___64a28h)	
-	extern 	___117f4h	
-	extern 	___1240ch	
-	extern 	___117c8h	
+	extern 	__CEXT_F(___117f4h)	
+	extern 	__CEXT_F(___1240ch)	
+	extern 	__CEXT_F(___117c8h)	
 	extern 	__CEXT_F(___24548h)	
-	extern 	___2faf0h	
-	extern 	___3d2bch	
-	extern 	__CEXT_F(___12940h)	
-	extern 	__CEXT_V(MyID)		
+	extern 	__CEXT_F(___2faf0h)	
+	extern 	__CEXT_F(___3d2bch)	
+	extern 	__CEXT_F(___12940h)		
 	extern 	__CEXT_V(___1a0fb8h)	
 	extern 	__CEXT_F(___11564h)	
-	extern 	GXBackBuffer
-	extern 	__CEXT_V(___180130h)		
-	extern 	__CEXT_V(Roster)	
+	extern 	__CEXT_V(GXBackBuffer)
+	extern 	__CEXT_V(___180130h)	
 	extern 	__CEXT_V(RowBoxBuffers)	
-	extern 	___1a1f4dh	
-	extern 	___182d08h	
-	extern 	___182d3ch	
+	extern 	__CEXT_V(___1a1f4dh)	
+	extern 	__CEXT_V(___182d08h)	
+	extern 	__CEXT_V(___182d3ch)	
 	extern 	__CEXT_V(___1a1f4eh)	
-	extern 	___182d78h		
-	extern 	frameFooter__dr	
+	extern 	__CEXT_V(___182d78h)		
+	extern 	__CEXT_F(frameFooter__dr)	
 	extern 	__CEXT_F(footer__dr)	
-	extern 	___13710h	
-	extern 	___196d84h	
-	extern 	___185a2ch	
+	extern 	__CEXT_F(___13710h)	
+	extern 	__CEXT_V(___196d84h)	
+	extern 	__CEXT_V(___185a2ch)	
 	extern 	__CEXT_V(___196a84h)	
-	extern 	___12cb8h	
+	extern 	__CEXT_F(___12cb8h)	
 	extern 	__CEXT_F(___58c60h)	
-	extern 	___13a98h	
+	extern 	__CEXT_F(___13a98h)	
 	extern 	__CEXT_V(___19eb50h)	
 	extern 	__CEXT_V(___19eb54h)	
 	extern 	__CEXT_V(___19eb58h)	
 	extern 	__CEXT_V(___1a10e4h)	
 	extern 	__CEXT_V(___1a1124h)	
-	extern 	___3a7e0h	
+	extern 	__CEXT_F(___3a7e0h)	
 	extern 	__CEXT_F(___649a8h)	
-	extern 	___1a1ef4h	
-	extern 	___65710h		
+	extern 	__CEXT_V(___1a1ef4h)	
+	extern 	__CEXT_F(___65710h)		
 	extern 	__CEXT_F(___12dc4h)	
 	extern 	__CEXT_F(chkcdrom__dr)	
-	extern 	___13248h	
-	extern 	___182db8h	
-	extern 	Font0Props	
-	extern 	WhiteFont0Ptr	
+	extern 	__CEXT_F(___13248h)	
+	extern 	__CEXT_V(___182db8h)	
+	extern 	__CEXT_V(Font0Props)	
+	extern 	__CEXT_V(WhiteFont0Ptr)	
 	extern 	__CEXT_F(renderTextToBuffer__video)	
 	extern 	__CEXT_V(___185ba9h)	
-	extern 	___1a10cch	
-	extern 	updateScreen_TBD		
-	extern 	___1854bch	
-	extern 	playSFX__sound	
-	extern 	nullScanCode__keyboard	
+	extern 	__CEXT_V(___1a10cch)	
+	extern 	__CEXT_F(updateScreen_TBD)		
+	extern 	__CEXT_V(___1854bch)	
+	extern 	__CEXT_F(playSFX__sound)	
+	extern 	__CEXT_F(nullScanCode__keyboard)	
 	extern 	__CEXT_F(updateMenuBackgroundAndTextArea)	
-	extern 	startRacingMenu__dr	
-	extern 	multiplayerRaceMenu__dr	
-	extern 	configureMenu__dr	
-	extern 	creditsMenu__dr	
-	extern 	showPreviewMenu__dr	
-	extern 	___148cch	
+	extern 	__CEXT_F(startRacingMenu__dr)	
+	extern 	__CEXT_F(multiplayerRaceMenu__dr)	
+	extern 	__CEXT_F(configureMenu__dr)	
+	extern 	__CEXT_F(creditsMenu__dr)	
+	extern 	__CEXT_F(showPreviewMenu__dr)	
+	extern 	__CEXT_F(___148cch)	
 	extern 	__CEXT_V(NetworkConnectionEstablished)	
-	extern 	___180ba0h	
-	extern 	___186a6eh	
+	extern 	__CEXT_V(___180ba0h)	
+	extern 	__CEXT_V(___186a6eh)	
 	extern 	__CEXT_V(MyID)	
 	extern 	__CEXT_V(Roster)	
-	extern 	___180ca4h	
+	extern 	__CEXT_V(___180ca4h)	
 	extern 	__CEXT_F(___23488h)		
-	extern 	___18108ch
-	extern 	___61278h	
+	extern 	__CEXT_V(___18108ch)
+	extern 	__CEXT_F(___61278h)	
 	extern 	__CEXT_F(___623d4h)	
-	extern 	___3d79ch	
+	extern 	__CEXT_F(___3d79ch)	
 	extern 	__CEXT_F(___12200h)	
 	extern 	__CEXT_F(___12a54h)	
 	extern 	__CEXT_F(___24ec0h)	
@@ -181,75 +180,75 @@ __GDECL(__CEXT_F(startup__dr))
 		call    __CEXT_F(chkmemory__dr)
 		call    __CEXT_F(chkfiles__dr)
 		mov     ecx, 13h
-		mov     eax, ___1a202fh
-		mov     [___199fa0h], edx
+		mov     eax, __CEXT_V(___1a202fh)
+		mov     [__CEXT_V(___199fa0h)], edx
 		call    __CEXT_F(__STOSB__clib3r)
 		xor     ah, ah
 		mov     esi, 0afh
-		mov     [___1a2148h], ah
+		mov     [__CEXT_V(___1a2148h)], ah
 		call    __CEXT_F(initDrivers)
-		call    readConfig__dr
-		mov     eax, [TimesPlayed]
+		call    __CEXT_F(readConfig__dr)
+		mov     eax, [__CEXT_V(TimesPlayed)]
 		mov     ebp, __CEXT_F(exitcb2__dr)
 		inc     eax
 		mov     [__CEXT_V(ExitCB)], ebp
-		mov     [TimesPlayed], eax
+		mov     [__CEXT_V(TimesPlayed)], eax
 		call    __CEXT_F(writeConfig__dr)
-		push    ___182bf8h 			;; "Loading music & ..."
+		push    __CEXT_V(___182bf8h) 			;; "Loading music & ..."
 		mov     [esp+24h], esi
 		call    __CEXT_F(printf__clib3r)
 		add     esp, byte 4
 		mov     ebx, 2
-		mov     ecx, ___181c9ch		;; "MEN-SAM.CMF"
-		call    intro__anim
+		mov     ecx, __CEXT_V(___181c9ch)		;; "MEN-SAM.CMF"
+		call    __CEXT_F(intro__anim)
 		push    byte 5
-		mov     edx, ___181ca8h		;; "MEN-MUS.CMF"
+		mov     edx, __CEXT_V(___181ca8h)		;; "MEN-MUS.CMF"
 		mov     eax, 1
 		call    __CEXT_F(___64864h__esp)
-		mov     eax, [ConfigMusicVolume]
-		call    ___6572ch
-		mov     eax, [ConfigSFXVolume]
-		call    ___65770h
+		mov     eax, [__CEXT_V(ConfigMusicVolume)]
+		call    __CEXT_F(___6572ch)
+		mov     eax, [__CEXT_V(ConfigSFXVolume)]
+		call    __CEXT_F(___65770h)
 		mov     eax, 2d00h			;; 11520
-		call    ___658b8h
+		call    __CEXT_F(___658b8h)
 		mov     eax, 5622h			;; 22050
-		call    ___65990h
-		call    ___648d8h
+		call    __CEXT_F(___65990h)
+		call    __CEXT_F(___648d8h)
 		mov     eax, 1
-		call    ___659b8h
-		mov     al, [___196abch]
-		mov     [___1a2011h], al
-		mov     al, [___196abdh]
+		call    __CEXT_F(___659b8h)
+		mov     al, [__CEXT_V(___196abch)]
+		mov     [__CEXT_V(___1a2011h)], al
+		mov     al, [__CEXT_V(___196abdh)]
 		mov     edx, 4
-		mov     [___1a2012h], al
-		mov     al, [___196abeh]
-		mov     ebx, [Gamepad]
-		mov     [___1a2013h], al
-		mov     al, [___196abfh]
-		mov     [___196ab8h], edx
-		mov     [___1a2014h], al
+		mov     [__CEXT_V(___1a2012h)], al
+		mov     al, [__CEXT_V(___196abeh)]
+		mov     ebx, [__CEXT_V(Gamepad)]
+		mov     [__CEXT_V(___1a2013h)], al
+		mov     al, [__CEXT_V(___196abfh)]
+		mov     [__CEXT_V(___196ab8h)], edx
+		mov     [__CEXT_V(___1a2014h)], al
 		cmp     ebx, byte 1
 		je      ___3e847h
 		cmp     ebx, byte 2
 		jne     ___3e860h
 ___3e847h:
 		mov     ecx, 6
-		mov     edi, ___186cc6h
-		mov     esi, ___181c30h		;; "Gamepad/Joystick enabled"
-		call    ___596f0h
+		mov     edi, __CEXT_V(___186cc6h)
+		mov     esi, __CEXT_V(___181c30h)		;; "Gamepad/Joystick enabled"
+		call    __CEXT_F(___596f0h)
 		rep movsd   
 		movsb   
 		jmp     ___3e873h
 ___3e860h:
 		mov     ecx, 6
-		mov     edi, ___186cc6h
-		mov     esi, ___181c4ch		;; "Gamepad/Joystick disabled"
+		mov     edi, __CEXT_V(___186cc6h)
+		mov     esi, __CEXT_V(___181c4ch)		;; "Gamepad/Joystick disabled"
 		rep movsd   
 		movsw   
 ___3e873h:
-		cmp     dword [ToneDialing], byte 0
+		cmp     dword [__CEXT_V(ToneDialing)], byte 0
 		jne     ___3e88bh
-		mov     edi, ___187432h
+		mov     edi, __CEXT_V(___187432h)
 		mov     esi, __CEXT_V(string__pulse_dialing)		;; "Pulse Dialing"
 		movsd   
 		movsd   
@@ -258,19 +257,19 @@ ___3e873h:
 ___3e88bh:
 		mov     eax, 46ch		;; BIOS tick count
 		mov     eax, [eax]
-		call    srand__clib3r
-		call    ___606dfh
+		call    __CEXT_F(srand__clib3r)
+		call    __CEXT_F(___606dfh)
 		mov     ax, 4f02h
 		mov     bx, 101h
 		int     10h
 		call    __CEXT_F(chkbankswitch__video)
 		test    eax, eax
-		je      @bs_ok
+		je      l_bs_ok
 		call    __CEXT_F(setmode3h__video)
-		push    ___182c24h
+		push    __CEXT_V(___182c24h)
 		call    __CEXT_F(printf__clib3r)
 		add     esp, byte 4
-		push    ___182cb8h
+		push    __CEXT_V(___182cb8h)
 		call    __CEXT_F(printf__clib3r)
 		add     esp, byte 4
 		call    __CEXT_F(___64a28h)
@@ -278,19 +277,19 @@ ___3e88bh:
 		call    __CEXT_F(restore__keyboard)
 		mov     eax, 70h
 		call    __CEXT_F(exit__clib3r)
-@bs_ok:
+l_bs_ok:
 		mov     eax, 3ch
 		xor     ebx, ebx
 		call    __CEXT_F(___605deh)
-		call    allocVGABuffer
-		call    ___3d38ch
-		call    ___3d890h
-		call    ___117f4h
-		call    ___1240ch
-		call    ___117c8h
+		call    __CEXT_F(allocVGABuffer)
+		call    __CEXT_F(___3d38ch)
+		call    __CEXT_F(___3d890h)
+		call    __CEXT_F(___117f4h)
+		call    __CEXT_F(___1240ch)
+		call    __CEXT_F(___117c8h)
 		call    __CEXT_F(___24548h)
-		call    ___2faf0h
-		call    ___3d2bch
+		call    __CEXT_F(___2faf0h)
+		call    __CEXT_F(___3d2bch)
 		call    __CEXT_F(___12940h)
 		mov     edx, [__CEXT_V(MyID)]
 		lea     eax, [edx*8+0]
@@ -322,7 +321,7 @@ ___3e88bh:
 		fstp    dword [esp]
 		mov     ecx, 4b000h
 		call    __CEXT_F(___11564h)
-		mov     esi, [GXBackBuffer]
+		mov     esi, [__CEXT_V(GXBackBuffer)]
 		mov     edi, [__CEXT_V(VGABufferPtr_0)]
 		push    edi
 		mov     eax, ecx
@@ -350,13 +349,13 @@ ___3e9dfh:
 		inc     edx
 		xor     bl, bl
 		add     eax, 96h
-		mov     [edx+___1a1f4dh], bl
+		mov     [edx+__CEXT_V(___1a1f4dh)], bl
 		mov     [esp+8], edx
 		cmp     edx, byte 16h
 		jl      ___3e9dfh
 		mov     ecx, 0dh
 		mov     edi, __CEXT_V(___1a1dbah)
-		mov     esi, ___182d08h
+		mov     esi, __CEXT_V(___182d08h)
 		mov     bh, 1
 		rep movsd   
 		mov     edx, __CEXT_V(RowBoxBuffers)
@@ -388,12 +387,12 @@ ___3ea4dh:
 		inc     esi
 		mov     al, [eax+__CEXT_V(___1a1f4fh)]
 		mov     [esp+8], esi
-		mov     [esi+___1a1f4dh], al
+		mov     [esi+__CEXT_V(___1a1f4dh)], al
 		cmp     esi, byte 15h
 		jl      ___3ea30h
 		mov     ecx, 0eh
 		mov     edi, __CEXT_V(___1a1dbah)
-		mov     esi, ___182d3ch
+		mov     esi, __CEXT_V(___182d3ch)
 		rep movsd   
 		movsw   
 		mov     cl, 1
@@ -460,12 +459,12 @@ ___3eb2dh:
 		inc     esi
 		mov     al, [eax+__CEXT_V(___1a1f4fh)]
 		mov     [esp+8], esi
-		mov     [esi+___1a1f4dh], al
+		mov     [esi+__CEXT_V(___1a1f4dh)], al
 		cmp     esi, byte 15h
 		jl      ___3eb10h
 		mov     ecx, 0fh
 		mov     edi, __CEXT_V(___1a1dbah)
-		mov     esi, ___182d78h
+		mov     esi, __CEXT_V(___182d78h)
 		mov     al, 1
 		xor     ebp, ebp
 		rep movsd   
@@ -510,7 +509,7 @@ ___3eba1h:
 		mov     edx, 173h
 		mov     [__CEXT_V(RowBox0Colors_R5)], ah
 		xor     eax, eax
-		call    frameFooter__dr
+		call    __CEXT_F(frameFooter__dr)
 		call    __CEXT_F(footer__dr)
 		cmp     dword [esp+0ch], byte 0
 		jne     ___3efdch
@@ -538,7 +537,7 @@ ___3eba1h:
 		mov     [esp+14h], eax
 ___3ec59h:
 		mov     ecx, 2c380h
-		mov     esi, [GXBackBuffer]
+		mov     esi, [__CEXT_V(GXBackBuffer)]
 		mov     edi, [__CEXT_V(VGABufferPtr_0)]
 		add     esi, 0d200h
 		add     edi, 0d200h
@@ -552,16 +551,16 @@ ___3ec59h:
 		rep movsb   
 		pop     edi
 		xor     eax, eax
-		call    ___13710h
-		cmp     dword [___196d84h], byte 0
+		call    __CEXT_F(___13710h)
+		cmp     dword [__CEXT_V(___196d84h)], byte 0
 		jne     ___3eca8h
-		cmp     dword [___185a2ch], byte 0
+		cmp     dword [__CEXT_V(___185a2ch)], byte 0
 		je      ___3edeah
 ___3eca8h:
 		mov     ebx, [__CEXT_V(___196a84h)]
 		test    ebx, ebx
 		jne     ___3edeah
-		call    ___12cb8h
+		call    __CEXT_F(___12cb8h)
 		call    __CEXT_F(___2b318h)
 		mov     [esp+1ch], ebx
 		mov     [esp], ebx
@@ -575,7 +574,7 @@ ___3ecc7h:
 		test    edx, edx
 		je      ___3ece7h
 		xor     eax, eax
-		call    ___13a98h
+		call    __CEXT_F(___13a98h)
 ___3ece7h:
 		xor     edi, edi
 		mov     esi, [esp]
@@ -630,13 +629,13 @@ ___3ecf0h:
 		cmp     ebx, byte 32h
 		jl      ___3ecc7h
 		xor     esi, esi
-		mov     edi, [___185a2ch]
-		mov     [___196d84h], esi
+		mov     edi, [__CEXT_V(___185a2ch)]
+		mov     [__CEXT_V(___196d84h)], esi
 		test    edi, edi
 		je      ___3edeah
 		mov     ecx, 4b000h
-		mov     edi, [___VGABufferPtr_0]
-		mov     [___185a2ch], esi
+		mov     edi, [__CEXT_V(___VGABufferPtr_0)]
+		mov     [__CEXT_V(___185a2ch)], esi
 		mov     esi, [__CEXT_V(___1a1124h)]
 		push    edi
 		mov     eax, ecx
@@ -646,7 +645,7 @@ ___3ecf0h:
 		and     cl, 3
 		rep movsb   
 		pop     edi
-		mov     eax, [___VGABufferPtr_0]
+		mov     eax, [__CEXT_V(___VGABufferPtr_0)]
 		mov     [__CEXT_V(VGABufferPtr_0)], eax
 		mov     eax, [__CEXT_V(___1a10e4h)]
 		mov     [__CEXT_V(___1a1124h)], eax
@@ -656,24 +655,24 @@ ___3edeah:
 		mov     ebx, [__CEXT_V(___196a84h)]
 		test    ebx, ebx
 		jne     ___3ee31h
-		mov     eax, [___VGABufferPtr_0]
+		mov     eax, [__CEXT_V(___VGABufferPtr_0)]
 		mov     [__CEXT_V(VGABufferPtr_0)], eax
 		mov     eax, 0ffffffffh
-		call    ___3a7e0h
+		call    __CEXT_F(___3a7e0h)
 		call    __CEXT_F(___649a8h)
-		call    ___648d8h
-		mov     eax, [___1a1ef4h]
-		call    ___658b8h
+		call    __CEXT_F(___648d8h)
+		mov     eax, [__CEXT_V(___1a1ef4h)]
+		call    __CEXT_F(___658b8h)
 		mov     eax, 10000h
 		mov     [esp+24h], ebx
-		call    ___65710h
+		call    __CEXT_F(___65710h)
 ___3ee31h:
 		cmp     dword [__CEXT_V(___196a84h)], byte 0
 		jne     ___3ee3fh
 		call    __CEXT_F(___12dc4h)
 ___3ee3fh:
 		xor     eax, eax
-		call    ___146c4h
+		call    __CEXT_F(___146c4h)
 		inc     eax
 		cmp     eax, byte 7
 		ja      ___3efd1h
@@ -685,56 +684,56 @@ ___3ee3fh:
 		mov     ecx, 61h
 		xor     edx, edx
 		mov     ebx, 1e4h
-		call    ___13710h
+		call    __CEXT_F(___13710h)
 		push    byte 1
 		mov     edx, [esp+24h]
 		mov     eax, [esp+1ch]
-		call    ___13248h
+		call    __CEXT_F(___13248h)
 		mov     ecx, [esp+10h]
-		mov     ebx, ___182db8h			;; " ... insert cd-rom"
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     ebx, __CEXT_V(___182db8h)			;; " ... insert cd-rom"
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    __CEXT_F(renderTextToBuffer__video)
 		mov     ecx, [esp+14h]
 		mov     ebx, __CEXT_V(STRING_CONTINUE)			;; "CONTINUE"
 		mov     edx, __CEXT_V(___185ba9h)
-		mov     eax, [___1a10cch]
+		mov     eax, [__CEXT_V(___1a10cch)]
 		call    __CEXT_F(renderTextToBuffer__video)
 		mov     edx, [esp+4]
 		mov     eax, ebp
-		call    updateScreen_TBD
-		call    ___12cb8h
+		call    __CEXT_F(updateScreen_TBD)
+		call    __CEXT_F(___12cb8h)
 		mov     esi, 1dh
 @cdchk_failed:
 		push    8000h
-		mov     eax, [___1854bch]
-		mov     ecx, [ConfigSFXVolume]
+		mov     eax, [__CEXT_V(___1854bch)]
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
 		mov     edx, esi
 		push    eax
 		xor     ebx, ebx
 		mov     eax, 1
-		call    playSFX__sound
-		call    lastScanCode__keyboard
-		call    nullScanCode__keyboard
+		call    __CEXT_F(playSFX__sound)
+		call    __CEXT_F(lastScanCode__keyboard)
+		call    __CEXT_F(nullScanCode__keyboard)
 		xor     bh, bh
 @cdchk_wait:
 		cmp     bh, 1ch			;; KEY_ENTER
 		je      @cdchk_repeat
 		cmp     bh, 9ch			;; KEYPAD_ENTER
 		je      @cdchk_repeat
-		call    lastScanCode__keyboard
+		call    __CEXT_F(lastScanCode__keyboard)
 		mov     bl, al
 		mov     edx, [esp+4]
 		mov     bh, al
 		call    __CEXT_F(updateMenuBackgroundAndTextArea)
 		call    __CEXT_F(updateMenuBackgroundAndTextArea)
 		mov     eax, ebp
-		call    updateScreen_TBD
+		call    __CEXT_F(updateScreen_TBD)
 		cmp     bl, 1				;; KEY_ESC
 		jne     @cdchk_wait
 @cdchk_repeat:
-		call    lastScanCode__keyboard
-		call    nullScanCode__keyboard
+		call    __CEXT_F(lastScanCode__keyboard)
+		call    __CEXT_F(nullScanCode__keyboard)
 		call    __CEXT_F(chkcdrom__dr)
 		test    eax, eax
 		jne     @cdchk_repeat_ok
@@ -744,53 +743,53 @@ ___3ee3fh:
 		cmp     bh, 1				;; KEY_ESC
 		je      ___3efd1h
 @cdchk_ok:
-		call    startRacingMenu__dr
+		call    __CEXT_F(startRacingMenu__dr)
 		jmp     ___3efd1h
 @drmultiplayer:
-		call    multiplayerRaceMenu__dr
+		call    __CEXT_F(multiplayerRaceMenu__dr)
 		jmp     ___3efd1h
 @drconfigure:
-		call    configureMenu__dr
+		call    __CEXT_F(configureMenu__dr)
 		jmp     ___3efd1h
 @drhof:
 		mov     edi, 1
-		call    hallOfFameMenu__dr
+		call    __CEXT_F(hallOfFameMenu__dr)
 		mov     [esp+24h], edi
 		jmp     ___3efd1h
 @drcredits:
-		call    creditsMenu__dr
+		call    __CEXT_F(creditsMenu__dr)
 		jmp     ___3efd1h
 @drpreview:
-		call    showPreviewMenu__dr
+		call    __CEXT_F(showPreviewMenu__dr)
 		jmp     ___3efd1h
 @drexit:
 		mov     ecx, 50h
 		xor     edx, edx
 		xor     eax, eax
 		mov     ebx, 12ch
-		call    ___13710h
+		call    __CEXT_F(___13710h)
 		push    byte 1
 		mov     edx, 0c8h
 		mov     eax, 0aah
-		call    ___13248h
+		call    __CEXT_F(___13248h)
 		mov     ecx, 208fdh
-		mov     ebx, ___182de4h			;; "Are you sure?"
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     ebx, __CEXT_V(___182de4h)			;; "Are you sure?"
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    __CEXT_F(renderTextToBuffer__video)
 		lea     ecx, [esp+0ch]
 		mov     ebx, 1
 		mov     edx, 0eeh
 		mov     eax, 0b4h
-		call    ___148cch
+		call    __CEXT_F(___148cch)
 ___3efd1h:
 		cmp     dword [esp+0ch], byte 0
 		je      ___3ec59h
 ___3efdch:
 		cmp     dword [__CEXT_V(NetworkConnectionEstablished)], byte 0
 		je      ___3f1bah
-		mov     edx, ___180ba0h
-		mov     eax, ___186a6eh			;; "Join An Existing Game"
+		mov     edx, __CEXT_V(___180ba0h)
+		mov     eax, __CEXT_V(___186a6eh)			;; "Join An Existing Game"
 		call    __CEXT_F(strcmp__clib3r)
 		mov     edx, [__CEXT_V(MyID)]
 		mov     ecx, eax
@@ -826,7 +825,7 @@ ___3f03dh:
 		jne     ___3f03dh
 ___3f055h:
 		pop     edi
-		mov     esi, ___180ca4h
+		mov     esi, __CEXT_V(___180ca4h)
 		xor     dh, dh
 		push    edi
 		sub     ecx, ecx
@@ -880,7 +879,7 @@ ___3f0c2h:
 		jne     ___3f0c2h
 ___3f0dah:
 		pop     edi
-		mov     esi, ___18108ch
+		mov     esi, __CEXT_V(___18108ch)
 		xor     bl, bl
 		push    edi
 		sub     ecx, ecx
@@ -938,7 +937,7 @@ ___3f14eh:
 		jne     ___3f14eh
 ___3f166h:
 		pop     edi
-		mov     esi, ___180ca4h
+		mov     esi, __CEXT_V(___180ca4h)
 		xor     dl, dl
 		push    edi
 		sub     ecx, ecx
@@ -964,13 +963,13 @@ ___3f18fh:
 		mov     edx, 64h
 ___3f19dh:
 		call    __CEXT_F(___23488h)
-		call    ___61278h
+		call    __CEXT_F(___61278h)
 		xor     esi, esi
 		call    __CEXT_F(___623d4h)
 		mov     [__CEXT_V(NetworkConnectionEstablished)], esi
 		mov     [__CEXT_V(NetworkConnectionType)], esi
 ___3f1bah:
-		call    ___3d79ch
+		call    __CEXT_F(___3d79ch)
 		call    __CEXT_F(writeConfig__dr)
 		call    __CEXT_F(___12200h)
 		call    __CEXT_F(___12a54h)

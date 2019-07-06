@@ -112,7 +112,7 @@
     extern  outp
     extern  atoi
     extern  __CEXT_F(rand__clib3r)
-    extern  srand__clib3r
+    extern  __CEXT_F(srand__clib3r)
     extern  _dos_gettime
     extern  kbhit_
     extern  ltoa

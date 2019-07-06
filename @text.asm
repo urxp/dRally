@@ -465,7 +465,7 @@ ___10c1bh:
 		mov     al, [esp+40ch]
 		call    near __CEXT_F(___64864h__esp)
 ___10c62h:
-		call    near ___606dfh
+		call    near __CEXT_F(___606dfh)
 		mov     eax, 13h
 		int     10h
 		cmp     dword [__CEXT_V(___19bd4ch)], byte 0
@@ -481,10 +481,10 @@ ___10c8ah:
 		cmp     byte [esp+408h], 0
 		je      short ___10cb2h
 		mov     eax, 5622h
-		call    near ___65990h
-		call    near ___648d8h
+		call    near __CEXT_F(___65990h)
+		call    near __CEXT_F(___648d8h)
 		mov     eax, 1
-		call    near ___659b8h
+		call    near __CEXT_F(___659b8h)
 ___10cb2h:
 		mov     edx, __CEXT_V(rb_m)
 		lea     eax, [esp+300h]
@@ -695,7 +695,7 @@ ___10ea5h:
 		jle     near ___11119h
 ___10f0fh:
 		mov     bl, [esp+420h]
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
 		test    bl, bl
 		je      short ___10f27h
 		test    al, al
@@ -857,7 +857,7 @@ ___11090h:
 		xor     ebx, ebx
 		mov     al, [esp+40ch]
 		inc     edi
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 		mov     [esp+404h], edi
 		cmp     edi, byte 6
 		jle     short ___11100h
@@ -1337,22 +1337,21 @@ ___1170ah:
 		pop     ecx
 		pop     ebx
 		ret     0ch
-global ___117c8h
-___117c8h:
+global __CEXT_F(___117c8h)
+__CEXT_F(___117c8h):
 		push    4
 		call    near __CHK
 		retn    
-global allocVGABuffer
-allocVGABuffer:
+__GDECL(__CEXT_F(allocVGABuffer))
 		push    4
 		call    near __CHK
 		mov     eax, 4b000h
 		call    near __CEXT_F(allocMemSafe)
 		mov     [__CEXT_V(VGABufferPtr_0)], eax
-		mov     [___VGABufferPtr_0], eax
+		mov     [__CEXT_V(___VGABufferPtr_0)], eax
 		retn    
-global ___117f4h
-___117f4h:
+global __CEXT_F(___117f4h)
+__CEXT_F(___117f4h):
 		push    24h
 		call    near __CHK
 		push    ebx
@@ -1381,7 +1380,7 @@ ___117f4h:
 		mov     [___1a10c4h], eax
 		mov     eax, 18000h
 		call    near __CEXT_F(allocMemSafe)
-		mov     [___1a10cch], eax
+		mov     [__CEXT_V(___1a10cch)], eax
 		mov     eax, 6000h
 		call    near __CEXT_F(allocMemSafe)
 		mov     [GreyFont0Ptr], eax
@@ -1390,13 +1389,13 @@ ___117f4h:
 		mov     [LightBlueFont0Ptr], eax
 		mov     eax, 6000h
 		call    near __CEXT_F(allocMemSafe)
-		mov     [WhiteFont0Ptr], eax
+		mov     [__CEXT_V(WhiteFont0Ptr)], eax
 		mov     eax, 1a28h
 		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a10b8h], eax
 		mov     eax, 4b000h 		;; 640x480
 		call    near __CEXT_F(allocMemSafe)
-		mov     [GXBackBuffer], eax
+		mov     [__CEXT_V(GXBackBuffer)], eax
 		mov     eax, 2e00h
 		call    near __CEXT_F(allocMemSafe)
 		mov     [___1a0fe8h], eax
@@ -1528,7 +1527,7 @@ ___117f4h:
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
 		push    __CEXT_V(BPA_Buffer)
-		mov     ebx, [___1a10cch]
+		mov     ebx, [__CEXT_V(___1a10cch)]
 		push    ebx
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___180334h
@@ -1536,7 +1535,7 @@ ___117f4h:
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
 		push    __CEXT_V(BPA_Buffer)
-		mov     ecx, [WhiteFont0Ptr]
+		mov     ecx, [__CEXT_V(WhiteFont0Ptr)]
 		push    ecx
 		call    near __CEXT_F(decode2__bpk)
 		mov     ebx, ___180340h
@@ -1896,7 +1895,7 @@ ___117f4h:
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
 		push    __CEXT_V(BPA_Buffer)
-		mov     edi, [GXBackBuffer]
+		mov     edi, [__CEXT_V(GXBackBuffer)]
 		push    edi
 		call    near __CEXT_F(decode2__bpk)
 		pop     ebp
@@ -1923,15 +1922,15 @@ __GDECL(__CEXT_F(___12200h))
 		call    near __CEXT_F(___3f77ch)
 		mov     eax, [___1a10c4h]
 		call    near __CEXT_F(___3f77ch)
-		mov     eax, [GXBackBuffer]
+		mov     eax, [__CEXT_V(GXBackBuffer)]
 		call    near __CEXT_F(___3f77ch)
-		mov     eax, [___1a10cch]
+		mov     eax, [__CEXT_V(___1a10cch)]
 		call    near __CEXT_F(___3f77ch)
 		mov     eax, [GreyFont0Ptr]
 		call    near __CEXT_F(___3f77ch)
 		mov     eax, [LightBlueFont0Ptr]
 		call    near __CEXT_F(___3f77ch)
-		mov     eax, [WhiteFont0Ptr]
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(___3f77ch)
 		mov     eax, [___1a10b8h]
 		call    near __CEXT_F(___3f77ch)
@@ -2012,8 +2011,8 @@ __GDECL(__CEXT_F(___12200h))
 		mov     eax, [___1a0fb4h]
 		call    near __CEXT_F(___3f77ch)
 		retn    
-global ___1240ch
-___1240ch:
+global __CEXT_F(___1240ch)
+__CEXT_F(___1240ch):
 		push    2ch
 		call    near __CHK
 		push    ebx
@@ -2469,8 +2468,7 @@ __GDECL(__CEXT_F(___12a54h))
 		mov     eax, [___1a1038h]
 		call    near __CEXT_F(___3f77ch)
 		retn    
-global ___12cb8h
-___12cb8h:
+__GDECL(__CEXT_F(___12cb8h))
 		push    10h
 		call    near __CHK
 		push    ecx
@@ -2798,7 +2796,7 @@ ___13094h:
 		mov     [esp+8], eax
 		mov     [esp+18h], edx
 		xor     ebx, ebx
-		mov     bl, [Font0Props]
+		mov     bl, [__CEXT_V(Font0Props)]
 		mov     [esp+14h], ebx
 		xor     ebx, ebx
 		mov     bl, [___185c0ch]
@@ -2906,7 +2904,7 @@ ___131b2h:
 		mov     esi, [esp+4]
 		sub     ecx, byte 20h
 		imul    ecx, esi
-		mov     esi, [WhiteFont0Ptr]
+		mov     esi, [__CEXT_V(WhiteFont0Ptr)]
 		mov     edx, [esp+14h]
 		add     esi, ecx
 		mov     ecx, [esp]
@@ -2957,8 +2955,7 @@ ___13222h:
 		pop     ecx
 		pop     ebx
 		retn    
-global ___13248h
-___13248h:
+__GDECL(__CEXT_F(___13248h))
 		push    28h
 		call    near __CHK
 		push    esi
@@ -3299,8 +3296,7 @@ ___135f1h:
 		pop     edi
 		pop     esi
 		ret     4
-global frameFooter__dr
-frameFooter__dr:
+__GDECL(__CEXT_F(frameFooter__dr))
 		push    1ch
 		call    near __CHK
 		push    esi
@@ -3324,7 +3320,7 @@ frameFooter__dr:
 		sub     ebx, byte 6
 		mov     [esp+8], edi
 ___13646h:
-		mov     esi, [GXBackBuffer]
+		mov     esi, [__CEXT_V(GXBackBuffer)]
 		mov     edi, [__CEXT_V(VGABufferPtr_0)]
 		mov     ecx, ebx
 		add     esi, edx
@@ -3403,8 +3399,7 @@ ___136f9h:
 		pop     edi
 		pop     esi
 		retn    
-global ___13710h
-___13710h:
+__GDECL(__CEXT_F(___13710h))
 		push    48h
 		call    near __CHK
 		push    ebx
@@ -3424,7 +3419,7 @@ ___13710h:
 		mov     edx, [esi+___185a64h]
 		mov     ebx, [esi+___185a6ch]
 		mov     ecx, [esi+___185a70h]
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     [esp+4], esi
 		mov     [esp+0ch], esi
 		xor     ebx, ebx
@@ -3500,7 +3495,7 @@ ___13829h:
 		mov     ecx, [esp+28h]
 		mov     ebx, [esp+24h]
 		add     ecx, eax
-		mov     eax, [___1a10cch]
+		mov     eax, [__CEXT_V(___1a10cch)]
 		jmp     near ___13927h
 ___13864h:
 		imul    eax, [ebp+___185a64h], 280h
@@ -3687,8 +3682,7 @@ ___13a91h:
 		pop     edi
 		pop     esi
 		retn    
-global ___13a98h
-___13a98h:
+__GDECL(__CEXT_F(___13a98h))
 		push    20h
 		call    near __CHK
 		push    ebx
@@ -3793,8 +3787,7 @@ ___13bcah:
 		pop     ecx
 		pop     ebx
 		retn   
-global updateScreen_TBD 
-updateScreen_TBD:
+__GDECL(__CEXT_F(updateScreen_TBD))
 		push    18h
 		call    near __CHK
 		push    ebx
@@ -4047,7 +4040,7 @@ ___13ea7h:
 		add     eax, ___1866b8h
 		mov     edx, __CEXT_V(___185ba9h)
 		add     ebx, eax
-		mov     eax, [___1a10cch]
+		mov     eax, [__CEXT_V(___1a10cch)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     edx, [esi*4+___185a64h]
 		lea     eax, [edx*4+0]
@@ -4295,7 +4288,7 @@ ___141feh:
 		add     eax, ___1866b8h
 		mov     edx, __CEXT_V(___185ba9h)
 		add     ebx, eax
-		mov     eax, [___1a10cch]
+		mov     eax, [__CEXT_V(___1a10cch)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     eax, [esi*4+___185a64h]
 		lea     edx, [eax*4+0]
@@ -4544,7 +4537,7 @@ ___1455ch:
 		add     eax, ___1866b8h
 		mov     edx, __CEXT_V(___185ba9h)
 		add     ebx, eax
-		mov     eax, [___1a10cch]
+		mov     eax, [__CEXT_V(___1a10cch)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     eax, [esi*4+___185a64h]
 		lea     edx, [eax*4+0]
@@ -4618,8 +4611,7 @@ ___14646h:
 		pop     ecx
 		pop     ebx
 		retn    
-global ___146c4h
-___146c4h:
+__GDECL(__CEXT_F(___146c4h))
 		push    28h
 		call    near __CHK
 		push    ebx
@@ -4643,8 +4635,8 @@ ___146efh:
 		call    near __CEXT_F(updateMenuBackgroundAndTextArea)
 		call    near __CEXT_F(updateMenuBackgroundAndTextArea)
 		mov     eax, esi
-		call    near ___13a98h
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(___13a98h)
+		call    near __CEXT_F(lastScanCode__keyboard)
 		mov     dl, al
 		test    esi, esi
 		jne     short ___14731h
@@ -4657,7 +4649,7 @@ ___14720h:
 ___14722h:
 		cmp     edi, 708h
 		jle     short ___14731h
-		call    near showPreviewMenu__dr
+		call    near __CEXT_F(showPreviewMenu__dr)
 		xor     edi, edi
 ___14731h:
 		cmp     edx, byte 3bh			;; KEY_F1
@@ -4706,7 +4698,7 @@ ___147aeh:
 		mov     edx, [___1854ach]
 		mov     eax, 1
 		push    edx
-		mov     ecx, [ConfigSFXVolume]
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
 		mov     edx, 19h
 		jmp     near ___148a4h
 ___147f7h:
@@ -4714,7 +4706,7 @@ ___147f7h:
 		mov     edx, 16h
 		mov     eax, 1
 		mov     ebx, [___1854a0h]
-		mov     ecx, [ConfigSFXVolume]
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
 		push    ebx
 		xor     ebx, ebx
 		mov     ebp, 0ffffffffh
@@ -4724,7 +4716,7 @@ ___1481fh:
 		push    8000h
 		mov     eax, 1
 		mov     edx, [___1854b8h]
-		mov     ecx, [ConfigSFXVolume]
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
 		xor     ebx, ebx
 		push    edx
 		mov     edx, 1ch
@@ -4744,7 +4736,7 @@ ___14858h:
 		xor     ebx, ebx
 		push    ecx
 		mov     eax, 1
-		mov     ecx, [ConfigSFXVolume]
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
 		jmp     short ___148a4h
 ___1487fh:
 		mov     eax, esi
@@ -4754,10 +4746,10 @@ ___1487fh:
 		mov     ebx, [___1854ach]
 		mov     eax, 1
 		push    ebx
-		mov     ecx, [ConfigSFXVolume]
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
 		xor     ebx, ebx
 ___148a4h:
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 ___148a9h:
 		cmp     ebp, byte 0fffffffeh
 		je      near ___146efh
@@ -4775,8 +4767,7 @@ ___148c0h:
 		pop     ecx
 		pop     ebx
 		retn    
-global ___148cch
-___148cch:
+__GDECL(__CEXT_F(___148cch))
 		push    34h
 		call    near __CHK
 		push    esi
@@ -4802,7 +4793,7 @@ ___148cch:
 		jne     short ___1493eh
 		mov     ebx, __CEXT_V(STRING_yes)			;; "YES"
 		mov     edx, __CEXT_V(___185ba9h)
-		mov     eax, [___1a10cch]
+		mov     eax, [__CEXT_V(___1a10cch)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     ebx, __CEXT_V(STRING_no)			;; "NO"
 		mov     edx, __CEXT_V(___185ba9h)
@@ -4815,7 +4806,7 @@ ___1493eh:
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     ebx, __CEXT_V(STRING_no)			;; "NO"
 		mov     edx, __CEXT_V(___185ba9h)
-		mov     eax, [___1a10cch]
+		mov     eax, [__CEXT_V(___1a10cch)]
 ___14961h:
 		mov     ecx, esi
 		call    near __CEXT_F(renderTextToBuffer__video)
@@ -4887,7 +4878,7 @@ ___14a05h:
 		xor     eax, eax
 		mov     [___1a1e68h], eax
 ___14a4ch:
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
 		cmp     al, 15h					;; 'Y'
 		jne     short ___14a57h
 		mov     al, 0cbh
@@ -4936,9 +4927,9 @@ ___14ac8h:
 		mov     edi, [___1854ach]
 		mov     eax, 1
 		push    edi
-		mov     ecx, [ConfigSFXVolume]
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
 		xor     ebx, ebx
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 ___14af2h:
 		mov     eax, 1
 		xor     ecx, ecx
@@ -4958,7 +4949,7 @@ ___14b02h:
 		mov     ecx, [esp+18h]
 		mov     ebx, __CEXT_V(STRING_yes)
 		mov     edx, __CEXT_V(___185ba9h)
-		mov     eax, [___1a10cch]
+		mov     eax, [__CEXT_V(___1a10cch)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     ecx, [esp]
 		mov     ebx, __CEXT_V(STRING_no)
@@ -4974,9 +4965,9 @@ ___14b5ch:
 		mov     ebx, [___1854ach]
 		mov     eax, 1
 		push    ebx
-		mov     ecx, [ConfigSFXVolume]
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
 		xor     ebx, ebx
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 ___14b86h:
 		xor     ecx, ecx
 		mov     [esp+0ch], ecx
@@ -5000,7 +4991,7 @@ ___14b91h:
 		mov     ecx, [esp]
 		mov     ebx, __CEXT_V(STRING_no)
 		mov     edx, __CEXT_V(___185ba9h)
-		mov     eax, [___1a10cch]
+		mov     eax, [__CEXT_V(___1a10cch)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		jmp     short ___14c08h
 ___14be8h:
@@ -5022,9 +5013,9 @@ ___14c13h:
 		mov     ebp, [___1854b8h]
 		mov     eax, 1
 		push    ebp
-		mov     ecx, [ConfigSFXVolume]
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
 		xor     ebx, ebx
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 		mov     edx, [esp+4]
 		mov     eax, [esp+0ch]
 		mov     [edx], eax
@@ -5082,7 +5073,7 @@ ___14cach:
 		mov     ebx, 1e2h
 		mov     edx, 83h
 		mov     eax, 21h
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     ecx, 80h
 		mov     edx, 68h
 		mov     ebx, [__CEXT_V(VGABufferPtr_0)]
@@ -5137,7 +5128,7 @@ ___14cfch:
 		mov     ebx, __CEXT_V(STRING_CONTINUE)
 		call    near ___13094h
 		mov     edx, __CEXT_V(___185ba9h)
-		mov     eax, [___1a10cch]
+		mov     eax, [__CEXT_V(___1a10cch)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		pop     edi
 		pop     esi
@@ -5165,7 +5156,7 @@ ___14dc4h:
 		mov     [esp+4], ebx
 		mov     ebx, 1e2h
 		mov     edx, ebp
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     ecx, 80h
 		mov     edx, 68h
 		mov     ebx, [__CEXT_V(VGABufferPtr_0)]
@@ -5366,7 +5357,7 @@ ___14f82h:
 		mov     ebx, __CEXT_V(STRING_CONTINUE)
 		lea     ecx, [eax+0c0h]
 		mov     edx, __CEXT_V(___185ba9h)
-		mov     eax, [___1a10cch]
+		mov     eax, [__CEXT_V(___1a10cch)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		add     esp, byte 8
 		pop     ebp
@@ -5396,7 +5387,7 @@ ___15130h:
 		mov     [esp+4], ebx
 		mov     ebx, 1e2h
 		mov     edx, ebp
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     ecx, 80h
 		mov     edx, 68h
 		mov     ebx, [__CEXT_V(VGABufferPtr_0)]
@@ -5597,7 +5588,7 @@ ___152eeh:
 		mov     ebx, __CEXT_V(STRING_CONTINUE)
 		lea     ecx, [eax+0c0h]
 		mov     edx, __CEXT_V(___185ba9h)
-		mov     eax, [___1a10cch]
+		mov     eax, [__CEXT_V(___1a10cch)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		add     esp, byte 8
 		pop     ebp
@@ -5627,7 +5618,7 @@ ___1549ch:
 		mov     [esp+4], ebx
 		mov     ebx, 1e2h
 		mov     edx, ebp
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     ecx, 80h
 		mov     edx, 68h
 		mov     ebx, [__CEXT_V(VGABufferPtr_0)]
@@ -5828,7 +5819,7 @@ ___1565ah:
 		mov     ebx, __CEXT_V(STRING_CONTINUE)
 		lea     ecx, [eax+0c0h]
 		mov     edx, __CEXT_V(___185ba9h)
-		mov     eax, [___1a10cch]
+		mov     eax, [__CEXT_V(___1a10cch)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		add     esp, byte 8
 		pop     ebp
@@ -5858,7 +5849,7 @@ ___15808h:
 		mov     [esp+44h], ebx
 		mov     ebx, 1e2h
 		mov     edx, ebp
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     ecx, 80h
 		mov     edx, 68h
 		mov     ebx, [__CEXT_V(VGABufferPtr_0)]
@@ -6271,7 +6262,7 @@ ___15dffh:
 		mov     ebx, __CEXT_V(STRING_CONTINUE)
 		lea     ecx, [eax+0c0h]
 		mov     edx, __CEXT_V(___185ba9h)
-		mov     eax, [___1a10cch]
+		mov     eax, [__CEXT_V(___1a10cch)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     eax, [esp+40h]
 		add     esp, byte 4ch
@@ -6302,7 +6293,7 @@ ___15e3ch:
 		mov     [esp+44h], ebx
 		mov     ebx, 1e2h
 		mov     edx, ebp
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     ecx, 80h
 		mov     edx, 68h
 		mov     ebx, [__CEXT_V(VGABufferPtr_0)]
@@ -6766,7 +6757,7 @@ ___16494h:
 		mov     ebx, __CEXT_V(STRING_CONTINUE)
 		lea     ecx, [eax+0c0h]
 		mov     edx, __CEXT_V(___185ba9h)
-		mov     eax, [___1a10cch]
+		mov     eax, [__CEXT_V(___1a10cch)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     eax, [esp+40h]
 		add     esp, byte 4ch
@@ -6788,7 +6779,7 @@ ___164d0h:
 		mov     ebx, 1cah
 		mov     edx, 83h
 		mov     eax, 2dh
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     edx, 160bch
 		mov     eax, ___18bb92h
 		call    near ___13094h
@@ -6822,7 +6813,7 @@ ___164d0h:
 		mov     ebx, __CEXT_V(STRING_CONTINUE)
 		call    near ___13094h
 		mov     edx, __CEXT_V(___185ba9h)
-		mov     eax, [___1a10cch]
+		mov     eax, [__CEXT_V(___1a10cch)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		pop     edx
 		pop     ecx
@@ -6843,7 +6834,7 @@ ___165ach:
 		mov     ebx, 1e2h
 		mov     eax, 21h
 		mov     edx, ebp
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		cmp     dword [__CEXT_V(NetworkConnectionEstablished)], byte 0
 		jne     near ___1667ch
 		mov     edx, 160bch
@@ -6936,7 +6927,7 @@ ___16743h:
 		mov     ebx, __CEXT_V(STRING_CONTINUE)
 		lea     ecx, [eax+0c0h]
 		mov     edx, __CEXT_V(___185ba9h)
-		mov     eax, [___1a10cch]
+		mov     eax, [__CEXT_V(___1a10cch)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		xor     ebx, ebx
 		xor     ah, ah
@@ -6962,7 +6953,7 @@ ___1678ch:
 		mov     ebx, 1f1h
 		mov     edx, 83h
 		mov     eax, 21h
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     ecx, 80h
 		mov     edx, 68h
 		mov     ebx, [__CEXT_V(VGABufferPtr_0)]
@@ -7017,7 +7008,7 @@ ___167dch:
 		mov     ebx, __CEXT_V(STRING_CONTINUE)
 		call    near ___13094h
 		mov     edx, __CEXT_V(___185ba9h)
-		mov     eax, [___1a10cch]
+		mov     eax, [__CEXT_V(___1a10cch)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		xor     ah, ah
 		mov     [___59e2ch], ah
@@ -7111,7 +7102,7 @@ ___169deh:
 		mov     ebx, 1e2h
 		mov     edx, edi
 		mov     eax, esi
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		lea     ebx, [edi+35h]
 		lea     eax, [ebx*4+0]
 		add     eax, ebx
@@ -7389,7 +7380,7 @@ ___16e30h:
 		mov     edx, __CEXT_V(___185ba9h)
 		lea     ecx, [eax+0c0h]
 		mov     ebx, __CEXT_V(STRING_CONTINUE)
-		mov     eax, [___1a10cch]
+		mov     eax, [__CEXT_V(___1a10cch)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     eax, [esp+34h]
 		add     esp, byte 54h
@@ -7699,7 +7690,7 @@ ___1716ch:
 		mov     ebx, 1cah
 		mov     edx, 83h
 		mov     eax, 2dh
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     edx, 160bch
 		mov     eax, ___18c1d2h
 		call    near ___13094h
@@ -7733,7 +7724,7 @@ ___1716ch:
 		mov     ebx, __CEXT_V(STRING_CONTINUE)
 		call    near ___13094h
 		mov     edx, __CEXT_V(___185ba9h)
-		mov     eax, [___1a10cch]
+		mov     eax, [__CEXT_V(___1a10cch)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		pop     edx
 		pop     ecx
@@ -7750,7 +7741,7 @@ ___17248h:
 		mov     ebx, 1cah
 		mov     edx, 83h
 		mov     eax, 2dh
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     edx, 160bch
 		mov     eax, ___18c4f2h
 		call    near ___13094h
@@ -7784,7 +7775,7 @@ ___17248h:
 		mov     ebx, __CEXT_V(STRING_CONTINUE)
 		call    near ___13094h
 		mov     edx, __CEXT_V(___185ba9h)
-		mov     eax, [___1a10cch]
+		mov     eax, [__CEXT_V(___1a10cch)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		pop     edx
 		pop     ecx
@@ -7795,9 +7786,9 @@ ___17324h:
 		call    near __CHK
 		push    ebx
 		push    edx
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
 		xor     bl, bl
-		call    near nullScanCode__keyboard
+		call    near __CEXT_F(nullScanCode__keyboard)
 		xor     bh, bh
 ___1733eh:
 		cmp     bl, 1ch
@@ -7806,7 +7797,7 @@ ___1733eh:
 		je      short ___17374h
 		cmp     bh, 0ah
 		jbe     short ___17354h
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
 		mov     bl, al
 ___17354h:
 		call    near __CEXT_F(updateMenuBackgroundAndTextArea)
@@ -7814,12 +7805,12 @@ ___17354h:
 		mov     edx, 141h
 		mov     eax, 0a4h
 		inc     bh
-		call    near updateScreen_TBD
+		call    near __CEXT_F(updateScreen_TBD)
 		cmp     bl, 1
 		jne     short ___1733eh
 ___17374h:
-		call    near lastScanCode__keyboard
-		call    near nullScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
+		call    near __CEXT_F(nullScanCode__keyboard)
 		pop     edx
 		pop     ebx
 		retn
@@ -8043,7 +8034,7 @@ ___1780dh:
 		mov     ebx, ebp
 		mov     eax, [esp+44h]
 		call    near __CEXT_F(___17384h)
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
 		and     eax, 0ffh
 		mov     [esp+88h], eax
 		cmp     eax, byte 4dh
@@ -8105,9 +8096,9 @@ ___17914h:
 		mov     edi, [___1854ach]
 		mov     eax, 1
 		push    edi
-		mov     ecx, [ConfigSFXVolume]
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
 		xor     ebx, ebx
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 		mov     eax, [esp+7ch]
 		test    eax, eax
 		jle     short ___17956h
@@ -8263,11 +8254,11 @@ ___17b39h:
 		push    8000h
 		mov     eax, 1
 		mov     edx, [___1854ach]
-		mov     ecx, [ConfigSFXVolume]
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
 		push    edx
 		xor     ebx, ebx
 		mov     edx, 19h
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 		mov     ebx, [esp+7ch]
 		cmp     ebx, byte 13h
 		jge     short ___17b7ch
@@ -9408,7 +9399,7 @@ ___189c7h:
 		movsb   
 ___189f1h:
 		mov     ecx, 28f00h
-		mov     esi, [GXBackBuffer]
+		mov     esi, [__CEXT_V(GXBackBuffer)]
 		mov     edi, [__CEXT_V(VGABufferPtr_0)]
 		add     esi, 10680h
 		add     edi, 10680h
@@ -9422,16 +9413,16 @@ ___189f1h:
 		rep movsb   
 		pop     edi
 		xor     eax, eax
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		mov     eax, 1
 		xor     edx, edx
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		mov     edx, 1
 		mov     eax, 5
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		call    near __CEXT_F(___12dc4h)
 		mov     eax, 5
-		call    near ___146c4h
+		call    near __CEXT_F(___146c4h)
 		mov     bh, [esp+eax+10h]
 		mov     esi, eax
 		test    bh, bh
@@ -9440,12 +9431,12 @@ ___189f1h:
 		je      short ___18a83h
 		push    8000h
 		mov     edx, 1dh
-		mov     edi, [___1854bch]
+		mov     edi, [__CEXT_V(___1854bch)]
 		mov     eax, 1
 		push    edi
-		mov     ecx, [ConfigSFXVolume]
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
 		xor     ebx, ebx
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 ___18a83h:
 		test    esi, esi
 		jl      short ___18a9ah
@@ -9715,7 +9706,7 @@ ___18d88h:
 		mov     dword [esp+24h], 0ffffffffh
 ___18db5h:
 		mov     ecx, 28f00h
-		mov     esi, [GXBackBuffer]
+		mov     esi, [__CEXT_V(GXBackBuffer)]
 		mov     edi, [__CEXT_V(VGABufferPtr_0)]
 		add     esi, 10680h
 		add     edi, 10680h
@@ -9729,16 +9720,16 @@ ___18db5h:
 		rep movsb   
 		pop     edi
 		xor     eax, eax
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		mov     eax, 1
 		xor     edx, edx
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		mov     edx, 1
 		mov     eax, 5
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		call    near __CEXT_F(___12dc4h)
 		mov     eax, 5
-		call    near ___146c4h
+		call    near __CEXT_F(___146c4h)
 		mov     esi, eax
 		mov     ebp, eax
 		test    eax, eax
@@ -9750,17 +9741,17 @@ ___18db5h:
 		mov     ecx, 46h
 		xor     edx, edx
 		mov     ebx, 186h
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		push    byte 1
 		mov     edx, 113h
 		mov     eax, 78h
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     ecx, 2c182h
 		mov     ebx, ___18079ch
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
-		call    near ___12cb8h
+		call    near __CEXT_F(___12cb8h)
 		add     esi, ___186f82h
 		mov     edx, __CEXT_V(string__empty_slot)
 		mov     eax, esi
@@ -9943,14 +9934,14 @@ ___1904dh:
 		xor     edx, edx
 		call    near __CEXT_F(___3f77ch)
 		xor     eax, eax
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		mov     eax, 1
 		xor     edx, edx
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		mov     eax, 5
 		xor     edx, edx
 		mov     edi, ___1870e0h
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		mov     eax, ___1807c0h
 		mov     esi, ___18075ch
 		call    near ___2a608h
@@ -9992,7 +9983,7 @@ ___190eah:
 		test    edx, edx
 		je      short ___1910bh
 		mov     eax, 1
-		call    near ___13a98h
+		call    near __CEXT_F(___13a98h)
 ___1910bh:
 		xor     edi, edi
 		mov     esi, [esp+8]
@@ -10089,12 +10080,12 @@ ___191b4h:
 		mov     [esp+8], ebx
 		test    ebp, ebp
 		jge     near ___190eah
-		call    near nullScanCode__keyboard
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(nullScanCode__keyboard)
+		call    near __CEXT_F(lastScanCode__keyboard)
 		mov     eax, 2
 		mov     ecx, 4b000h
 		call    near ___3892ch
-		mov     esi, [GXBackBuffer]
+		mov     esi, [__CEXT_V(GXBackBuffer)]
 		mov     edi, [__CEXT_V(VGABufferPtr_0)]
 		xor     edx, edx
 		push    edi
@@ -10106,30 +10097,30 @@ ___191b4h:
 		rep movsb   
 		pop     edi
 		xor     eax, eax
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		mov     edx, 1
 		mov     ebx, 27fh
 		mov     eax, edx
 		mov     ecx, 6dh
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		mov     edx, 173h
 		xor     eax, eax
-		call    near frameFooter__dr
+		call    near __CEXT_F(frameFooter__dr)
 		cmp     dword [__CEXT_V(NetworkConnectionEstablished)], byte 0
 		je      short ___192f6h
 		mov     ecx, 390a3h
 		mov     ebx, ___1807cch
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		mov     eax, [GreyFont0Ptr]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     ecx, 390d9h
 		mov     ebx, __CEXT_V(string__F1)
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 ___192f6h:
 		call    near __CEXT_F(footer__dr)
-		call    near ___12cb8h
+		call    near __CEXT_F(___12cb8h)
 		xor     ebp, ebp
 		call    near __CEXT_F(___2b318h)
 		mov     [esp], ebp
@@ -10143,7 +10134,7 @@ ___1930ah:
 		test    edx, edx
 		je      short ___1932bh
 		mov     eax, 1
-		call    near ___13a98h
+		call    near __CEXT_F(___13a98h)
 ___1932bh:
 		mov     esi, [esp]
 		xor     edx, edx
@@ -10241,8 +10232,8 @@ ___193d4h:
 		mov     [esp+2], dx
 		cmp     ebp, byte 32h
 		jl      near ___1930ah
-		call    near nullScanCode__keyboard
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(nullScanCode__keyboard)
+		call    near __CEXT_F(lastScanCode__keyboard)
 		add     esp, byte 0ch
 		pop     ebp
 		pop     edi
@@ -10258,8 +10249,8 @@ dd	___19735h
 dd	___1974dh
 dd	___1977ch
 dd	___19794h
-global startRacingMenu__dr
-startRacingMenu__dr:
+global __CEXT_F(startRacingMenu__dr)
+__CEXT_F(startRacingMenu__dr):
 		push    24h
 		call    near __CHK
 		push    ebx
@@ -10272,11 +10263,11 @@ startRacingMenu__dr:
 		xor     edx, edx
 		mov     [___185a24h], edx
 ___194c3h:
-		mov     ebx, [___185a2ch]
+		mov     ebx, [__CEXT_V(___185a2ch)]
 		test    ebx, ebx
 		jne     near ___1963fh
 		mov     ecx, 2af80h
-		mov     esi, [GXBackBuffer]
+		mov     esi, [__CEXT_V(GXBackBuffer)]
 		mov     edi, [__CEXT_V(VGABufferPtr_0)]
 		add     esi, 0e600h
 		add     edi, 0e600h
@@ -10290,23 +10281,23 @@ ___194c3h:
 		rep movsb   
 		pop     edi
 		xor     eax, eax
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		mov     edx, 1
 		mov     eax, edx
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		cmp     dword [___185a24h], byte 0
 		jne     short ___19523h
-		call    near ___12cb8h
+		call    near __CEXT_F(___12cb8h)
 		jmp     short ___1953dh
 ___19523h:
-		mov     eax, [___VGABufferPtr_0]
+		mov     eax, [__CEXT_V(___VGABufferPtr_0)]
 		mov     [__CEXT_V(VGABufferPtr_0)], eax
 		call    near ___3a6a4h
-		call    near ___12cb8h
+		call    near __CEXT_F(___12cb8h)
 		mov     [___185a24h], ebx
 ___1953dh:
 		mov     eax, 1
-		call    near ___146c4h
+		call    near __CEXT_F(___146c4h)
 		mov     ebp, eax
 		cmp     eax, byte 5
 		ja      near ___19636h
@@ -10321,7 +10312,7 @@ ___1955ah:
 		jne     near ___1961dh
 		mov     eax, ecx
 		xor     edx, edx
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		mov     eax, ecx
 		call    near ___3ab5ch
 		mov     [esp], eax
@@ -10382,15 +10373,15 @@ ___19649h:
 		mov     ecx, 50h
 		xor     edx, edx
 		mov     ebx, 12ch
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		push    byte 1
 		mov     edx, 0dch
 		mov     eax, 0aah
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     ecx, 23ae8h
 		mov     ebx, ___180800h
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     edx, 1
 		mov     ecx, esp
@@ -10398,7 +10389,7 @@ ___19649h:
 		mov     [esp], edx
 		mov     ebx, edx
 		mov     edx, 102h
-		call    near ___148cch
+		call    near __CEXT_F(___148cch)
 		mov     ebx, [esp]
 		and     eax, 0ffh
 		test    ebx, ebx
@@ -10604,23 +10595,23 @@ ___198a0h:
 		mov     ebx, 27fh
 		mov     edx, 173h
 		xor     eax, eax
-		call    near frameFooter__dr
+		call    near __CEXT_F(frameFooter__dr)
 		call    near __CEXT_F(footer__dr)
 		mov     eax, 4
 		xor     edx, edx
 		mov     ecx, 64h
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		push    byte 1
 		mov     edx, 0e9h
 		mov     ebx, 88h
 		mov     eax, edx
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     ecx, 294fah
 		mov     ebx, ___180824h
 		mov     edx, __CEXT_V(___185ba9h)
-		mov     eax, [___1a10cch]
+		mov     eax, [__CEXT_V(___1a10cch)]
 		call    near __CEXT_F(renderTextToBuffer__video)
-		call    near ___12cb8h
+		call    near __CEXT_F(___12cb8h)
 		mov     eax, [__CEXT_V(___24e4ach)]
 		mov     dx, [eax]
 		mov     ecx, 4
@@ -10710,30 +10701,30 @@ ___19a8eh:
 		mov     ecx, 58h
 		xor     edx, edx
 		mov     ebx, 1e2h
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		push    byte 1
 		mov     edx, 0c6h
 		mov     eax, 46h
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     ecx, 20851h
 		mov     ebx, ___18082ch
 		mov     edx, __CEXT_V(___185ba9h)
-		mov     eax, [___1a10cch]
+		mov     eax, [__CEXT_V(___1a10cch)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     ecx, 25851h
 		mov     ebx, ___180848h
 		mov     edx, __CEXT_V(___185ba9h)
-		mov     eax, [___1a10cch]
+		mov     eax, [__CEXT_V(___1a10cch)]
 		call    near __CEXT_F(renderTextToBuffer__video)
-		call    near ___12cb8h
-		call    near lastScanCode__keyboard
-		call    near nullScanCode__keyboard
+		call    near __CEXT_F(___12cb8h)
+		call    near __CEXT_F(lastScanCode__keyboard)
+		call    near __CEXT_F(nullScanCode__keyboard)
 ___19b04h:
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
 		test    al, al
 		je      short ___19b04h
-		call    near lastScanCode__keyboard
-		call    near nullScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
+		call    near __CEXT_F(nullScanCode__keyboard)
 		xor     eax, eax
 		add     esp, 110h
 		pop     ebp
@@ -10768,7 +10759,7 @@ ___19b51h:
 		add     ebx, 96h
 		mov     al, [edx+__CEXT_V(___1a1f4eh)]
 		add     ecx, 96h
-		mov     [edx+___1a1f4dh], al
+		mov     [edx+__CEXT_V(___1a1f4dh)], al
 		cmp     edx, byte 15h
 		jl      short ___19b33h
 		mov     eax, [__CEXT_V(___180864h)]
@@ -10872,12 +10863,12 @@ ___19c7fh:
 		cmp     eax, byte 7
 		jl      short ___19c7fh
 		mov     edx, [esp+0fch]
-		mov     al, [___196ab8h]
+		mov     al, [__CEXT_V(___196ab8h)]
 		mov     [edx+14h], al
 		xor     eax, eax
 ___19ca1h:
 		inc     edx
-		mov     bl, [eax+___1a2011h]
+		mov     bl, [eax+__CEXT_V(___1a2011h)]
 		inc     eax
 		mov     [edx+14h], bl
 		cmp     eax, byte 9
@@ -10890,7 +10881,7 @@ ___19ca1h:
 		mov     [eax+1eh], dl
 		mov     edx, [esp+0e0h]
 		mov     eax, [esp+0c8h]
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     edx, [__CEXT_V(MyID)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
@@ -10945,13 +10936,13 @@ ___19d4ch:
 		add     eax, esi
 		mov     edi, esp
 		lea     ecx, [eax+16h]
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		mov     eax, [LightBlueFont0Ptr]
 		mov     esi, ___180890h
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     ebx, 0ah
 		lea     edx, [esp+50h]
-		mov     eax, [___196ab8h]
+		mov     eax, [__CEXT_V(___196ab8h)]
 		movsd   
 		movsd   
 		movsd   
@@ -10987,7 +10978,7 @@ ___19dc9h:
 		add     eax, edx
 		mov     edi, esp
 		shl     eax, 7
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		add     ecx, eax
 		mov     eax, [LightBlueFont0Ptr]
 		add     ecx, byte 5dh
@@ -11027,7 +11018,7 @@ ___19e34h:
 		add     eax, edx
 		mov     edi, esp
 		shl     eax, 7
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		add     ecx, eax
 		mov     eax, [LightBlueFont0Ptr]
 		add     ecx, byte 5dh
@@ -11073,7 +11064,7 @@ ___19ea0h:
 		add     eax, edx
 		mov     ebx, esp
 		lea     ecx, [eax+5dh]
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		mov     eax, [LightBlueFont0Ptr]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     edx, [esp+0dch]
@@ -11160,8 +11151,8 @@ ___19fb3h:
 		add     eax, edx
 		mov     ebx, esp
 		lea     ecx, [eax+64h]
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     edx, [esp+0dch]
 		mov     edi, esp
@@ -11175,10 +11166,10 @@ ___19fb3h:
 		rep movsd   
 		movsw   
 		add     eax, ebx
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		lea     ecx, [eax+14h]
 		mov     ebx, esp
-		mov     eax, [WhiteFont0Ptr]
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		mov     edi, esp
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     edx, [esp+0dch]
@@ -11194,8 +11185,8 @@ ___19fb3h:
 		add     eax, ecx
 		mov     ebx, esp
 		lea     ecx, [eax+14h]
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     eax, [esp+0dch]
 		mov     edi, esp
@@ -11212,12 +11203,12 @@ ___19fb3h:
 		mov     edi, [esp+0c4h]
 		mov     [esp+0d0h], eax
 		lea     esi, [eax+edi]
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		mov     eax, esp
 		lea     ecx, [esi+27h]
 		call    near ___25138h
 		sub     ecx, eax
-		mov     eax, [WhiteFont0Ptr]
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     edx, [__CEXT_V(MyID)]
 		lea     eax, [edx*8+0]
@@ -11229,9 +11220,9 @@ ___19fb3h:
 		sub     eax, edx
 		mov     ecx, esi
 		shl     eax, 2
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		add     ebx, eax
-		mov     eax, [WhiteFont0Ptr]
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		mov     [esp+0bch], esi
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     eax, [esp+0dch]
@@ -11246,13 +11237,13 @@ ___19fb3h:
 		movsw   
 		movsb   
 		shl     eax, 7
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		add     ecx, eax
 		mov     eax, esp
 		add     ecx, byte 27h
 		call    near ___25138h
 		sub     ecx, eax
-		mov     eax, [WhiteFont0Ptr]
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     edx, [esp+0dch]
 		mov     edi, esp
@@ -11269,9 +11260,9 @@ ___19fb3h:
 		mov     eax, esp
 		lea     ecx, [edx+27h]
 		call    near ___25138h
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		sub     ecx, eax
-		mov     eax, [WhiteFont0Ptr]
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     edx, [esp+0dch]
 		mov     edi, esp
@@ -11288,16 +11279,16 @@ ___19fb3h:
 		mov     eax, esp
 		lea     ecx, [edx+27h]
 		call    near ___25138h
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		sub     ecx, eax
-		mov     eax, [WhiteFont0Ptr]
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
-		call    near ___12cb8h
+		call    near __CEXT_F(___12cb8h)
 		mov     eax, [__CEXT_V(___24e4ach)]
 		mov     dx, [eax]
 		mov     [eax+2], dx
-		call    near lastScanCode__keyboard
-		call    near nullScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
+		call    near __CEXT_F(nullScanCode__keyboard)
 		mov     dword [esp+0f8h], 0ffffffffh
 		mov     eax, [esp+0d0h]
 		mov     [esp+0e0h], eax
@@ -11471,7 +11462,7 @@ ___1a462h:
 		mov     eax, [esp+0fch]
 		call    near __CEXT_F(___23488h)
 ___1a49dh:
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
 		and     eax, 0ffh
 		mov     ebx, [esp+108h]
 		mov     [esp+0f8h], eax
@@ -11528,8 +11519,8 @@ ___1a557h:
 		xor     eax, eax
 		call    near ___197d0h
 		imul    ebx, [__CEXT_V(MyID)], byte 6ch
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		mov     ecx, [esp+0e8h]
 		add     ebx, __CEXT_V(Roster)
 		mov     edi, [esp+0c8h]
@@ -11549,8 +11540,8 @@ ___1a5cfh:
 		test    ecx, ecx
 		jbe     short ___1a5f7h
 		mov     ecx, [esp+0f4h]
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		mov     ebx, esi
 		call    near __CEXT_F(renderTextToBuffer__video)
 ___1a5f7h:
@@ -11577,13 +11568,13 @@ ___1a647h:
 ___1a655h:
 		mov     ecx, 390a3h
 		mov     ebx, ___1807cch
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		mov     eax, [GreyFont0Ptr]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     ecx, 390d9h
 		mov     ebx, __CEXT_V(string__F1)
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		mov     edi, [esp+0f8h]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		call    near __CEXT_F(footer__dr)
@@ -11616,7 +11607,7 @@ ___1a6cfh:
 		add     edx, 96h
 		mov     al, [ebx+__CEXT_V(___1a1f4eh)]
 		add     ecx, 96h
-		mov     [ebx+___1a1f4dh], al
+		mov     [ebx+__CEXT_V(___1a1f4dh)], al
 		cmp     ebx, byte 15h
 		jl      short ___1a6b1h
 		mov     eax, [__CEXT_V(___180864h)]
@@ -11715,7 +11706,7 @@ ___1a7afh:
 		jne     short ___1a7afh
 ___1a7c7h:
 		pop     edi
-		mov     eax, [___196ab8h]
+		mov     eax, [__CEXT_V(___196ab8h)]
 		mov     esi, esp
 		call    near itoa
 		push    edi
@@ -11775,7 +11766,7 @@ ___1a81ch:
 		call    near __CEXT_F(___3f77ch)
 		mov     eax, ebp
 		call    near __CEXT_F(___3f77ch)
-		call    near ___61278h
+		call    near __CEXT_F(___61278h)
 		call    near __CEXT_F(___623d4h)
 		mov     eax, [esp+0d8h]
 		inc     eax
@@ -11834,7 +11825,7 @@ ___1a903h:
 		add     edx, 96h
 		mov     al, [ebx+__CEXT_V(___1a1f4eh)]
 		add     ecx, 96h
-		mov     [ebx+___1a1f4dh], al
+		mov     [ebx+__CEXT_V(___1a1f4dh)], al
 		cmp     ebx, byte 15h
 		jl      short ___1a8e5h
 		mov     eax, [__CEXT_V(___180864h)]
@@ -11913,8 +11904,8 @@ ___1a998h:
 		mov     [eax-2], dx
 		xor     edx, edx
 		call    near __CEXT_F(memset__clib3r)
-		call    near lastScanCode__keyboard
-		call    near nullScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
+		call    near __CEXT_F(nullScanCode__keyboard)
 		mov     eax, [esp+0fch]
 		call    near __CEXT_F(___3f77ch)
 		mov     eax, ebp
@@ -11949,7 +11940,7 @@ ___1aa28h:
 		push    byte 1
 		mov     esi, eax
 		mov     eax, [esp+4]
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     edx, [esp+4]
 		add     edx, byte 0dh
 		lea     eax, [edx*4+0]
@@ -11957,9 +11948,9 @@ ___1aa28h:
 		add     eax, edx
 		mov     ebx, ___180998h
 		shl     eax, 7
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		add     ecx, eax
-		mov     eax, [WhiteFont0Ptr]
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		add     ecx, byte 28h
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     edx, [esp+4]
@@ -11971,8 +11962,8 @@ ___1aa28h:
 		add     eax, edx
 		mov     ebx, ___1809b8h
 		lea     ecx, [eax+28h]
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     edx, 46ch
 		call    near __CEXT_F(___12dc4h)
@@ -12027,14 +12018,14 @@ ___1ab17h:
 		mov     [esp+0ch], eax
 		xor     ecx, ecx
 ___1ab73h:
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
 		xor     ebx, ebx
 		mov     edx, [esp+0ch]
 		mov     bl, al
 		call    near __CEXT_F(updateMenuBackgroundAndTextArea)
 		call    near __CEXT_F(updateMenuBackgroundAndTextArea)
 		mov     eax, ebp
-		call    near updateScreen_TBD
+		call    near __CEXT_F(updateScreen_TBD)
 		mov     edx, 0ah
 		mov     eax, esi
 		call    near __CEXT_F(procChatData)
@@ -12055,8 +12046,8 @@ ___1ab73h:
 		add     eax, ecx
 		mov     ebx, ___1809d4h
 		lea     ecx, [eax+28h]
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		call    near __CEXT_F(___12dc4h)
 		mov     edx, [esp+0ch]
@@ -12106,9 +12097,9 @@ ___1ac53h:
 		add     eax, edx
 		mov     ebx, ___1809ech
 		shl     eax, 7
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		add     ecx, eax
-		mov     eax, [WhiteFont0Ptr]
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		add     ecx, byte 28h
 		call    near __CEXT_F(renderTextToBuffer__video)
 		call    near __CEXT_F(___12dc4h)
@@ -12178,7 +12169,7 @@ ___1ad30h:
 		push    byte 1
 		mov     ecx, 10dh
 		mov     ebx, 1c2h
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		lea     edx, [esi+0dh]
 		lea     eax, [edx*4+0]
 		add     eax, edx
@@ -12186,7 +12177,7 @@ ___1ad30h:
 		add     eax, edi
 		mov     ebx, ___180a04h
 		lea     ecx, [eax+14h]
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		mov     eax, [LightBlueFont0Ptr]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		lea     ecx, [esi+29h]
@@ -12250,16 +12241,16 @@ ___1ae36h:
 		mov     eax, esp
 		mov     ecx, [esp+0a0h]
 		mov     ebx, esp
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		call    near ___25138h
 		sub     ecx, eax
-		mov     eax, [WhiteFont0Ptr]
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		jmp     short ___1ae81h
 ___1ae65h:
 		mov     eax, esp
 		mov     ecx, [esp+0a0h]
 		mov     ebx, esp
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		call    near ___25138h
 		sub     ecx, eax
 		mov     eax, [GreyFont0Ptr]
@@ -12367,12 +12358,12 @@ ___1af5bh:
 		cmp     eax, [esp+0b4h]
 		jne     short ___1af7ah
 		mov     ebx, esp
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		jmp     short ___1af86h
 ___1af7ah:
 		mov     ebx, esp
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		mov     eax, [GreyFont0Ptr]
 ___1af86h:
 		mov     ecx, ebp
@@ -12413,7 +12404,7 @@ ___1afdeh:
 		pop     edi
 		mov     ecx, [esp+0ach]
 		mov     ebx, esp
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		mov     edi, esp
 		mov     eax, [GreyFont0Ptr]
 		mov     esi, ___1808a4h
@@ -12426,7 +12417,7 @@ ___1afdeh:
 		mov     ebx, esp
 		mov     esi, [esp+0a8h]
 		mov     edi, esp
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		push    edi
 		sub     ecx, ecx
 		dec     ecx
@@ -12454,7 +12445,7 @@ ___1b047h:
 		cmp     byte [eax+___19ded0h], 0ffh
 		jne     short ___1b0b1h
 		mov     ebx, ___180a54h
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		mov     edi, esp
 		mov     eax, [GreyFont0Ptr]
 		mov     ecx, ebp
@@ -12462,7 +12453,7 @@ ___1b047h:
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     ecx, 7
 		mov     ebx, esp
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		rep movsd   
 		movsw   
 		movsb   
@@ -12471,7 +12462,7 @@ ___1b047h:
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     ecx, [esp+0b0h]
 		mov     ebx, ___180a54h
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		mov     eax, [GreyFont0Ptr]
 		call    near __CEXT_F(renderTextToBuffer__video)
 ___1b0b1h:
@@ -12574,26 +12565,26 @@ ___1b1f0h:
 		mov     ebx, 27fh
 		mov     edx, 173h
 		xor     eax, eax
-		call    near frameFooter__dr
+		call    near __CEXT_F(frameFooter__dr)
 		call    near __CEXT_F(footer__dr)
 		xor     edx, edx
 		xor     eax, eax
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		mov     eax, 2
 		xor     edx, edx
 		mov     ecx, 64h
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		push    byte 1
 		mov     edx, 0e9h
 		mov     ebx, 88h
 		mov     eax, edx
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     ecx, 294fah
 		mov     ebx, ___180824h
 		mov     edx, __CEXT_V(___185ba9h)
-		mov     eax, [___1a10cch]
+		mov     eax, [__CEXT_V(___1a10cch)]
 		call    near __CEXT_F(renderTextToBuffer__video)
-		call    near ___12cb8h
+		call    near __CEXT_F(___12cb8h)
 		mov     eax, [__CEXT_V(___24e4ach)]
 		mov     dx, [eax+2]
 		mov     [eax], dx
@@ -12817,8 +12808,8 @@ ___1b4b9h:
 		inc     esi
 		cmp     esi, byte 46h
 		jl      near ___1b279h
-		call    near lastScanCode__keyboard
-		call    near nullScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
+		call    near __CEXT_F(nullScanCode__keyboard)
 		mov     eax, [__CEXT_V(___24e4ach)]
 		mov     dx, [eax+2]
 		mov     [eax], dx
@@ -13118,7 +13109,7 @@ ___1b7e9h:
 ___1b7ebh:
 		cmp     esi, byte 1
 		je      near ___1b6e3h
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
 		and     eax, 0ffh
 		mov     [esp+1ch], eax
 		cmp     eax, byte 50h
@@ -13159,7 +13150,7 @@ ___1b861h:
 		mov     [esp+28h], ch
 		push    edx
 		mov     edx, 1ah
-		mov     ecx, [ConfigSFXVolume]
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
 		jmp     near ___1bb0bh
 ___1b88ah:
 		mov     al, [esp+20h]
@@ -13181,7 +13172,7 @@ ___1b8a2h:
 		mov     [esp+28h], dh
 		push    ecx
 		mov     edx, 1ah
-		mov     ecx, [ConfigSFXVolume]
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
 		jmp     near ___1bb0bh
 ___1b8cbh:
 		movzx   esi, byte [esp+20h]
@@ -13206,8 +13197,8 @@ ___1b8cbh:
 		mov     eax, 1
 		push    ecx
 		xor     ebx, ebx
-		mov     ecx, [ConfigSFXVolume]
-		call    near playSFX__sound
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
+		call    near __CEXT_F(playSFX__sound)
 		mov     eax, [esp+14h]
 		add     eax, byte 0bh
 		call    near atoi
@@ -13216,7 +13207,7 @@ ___1b8cbh:
 		mov     [___185a14h], eax
 		xor     eax, eax
 		mov     al, [esi+___19dee2h]
-		mov     [___196ab8h], eax
+		mov     [__CEXT_V(___196ab8h)], eax
 		xor     eax, eax
 ___1b94dh:
 		xor     ebx, ebx
@@ -13229,7 +13220,7 @@ ___1b94dh:
 		cmp     eax, byte 9
 		jl      short ___1b94dh
 		mov     ecx, 2a580h
-		mov     esi, [GXBackBuffer]
+		mov     esi, [__CEXT_V(GXBackBuffer)]
 		mov     edi, [__CEXT_V(VGABufferPtr_0)]
 		add     esi, 0f000h
 		add     edi, 0f000h
@@ -13243,10 +13234,10 @@ ___1b94dh:
 		rep movsb   
 		pop     edi
 		xor     eax, eax
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		mov     eax, 2
 		xor     edx, edx
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		mov     edx, 0c5h
 		mov     eax, 97h
 		call    near ___1aa28h
@@ -13258,7 +13249,7 @@ ___1b94dh:
 		jmp     short ___1ba46h
 ___1b9ceh:
 		mov     ecx, 2a580h
-		mov     esi, [GXBackBuffer]
+		mov     esi, [__CEXT_V(GXBackBuffer)]
 		mov     edi, [__CEXT_V(VGABufferPtr_0)]
 		add     esi, 0f000h
 		add     edi, 0f000h
@@ -13273,19 +13264,19 @@ ___1b9ceh:
 		pop     edi
 		xor     eax, eax
 		mov     ebx, 1c2h
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		mov     eax, 2
 		xor     edx, edx
 		mov     ecx, 10dh
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		push    byte 1
 		mov     edx, [esp+10h]
 		mov     eax, [esp+14h]
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     ecx, [esp+18h]
 		mov     ebx, ___180a78h
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     byte [esp+24h], 1
 ___1ba46h:
@@ -13355,13 +13346,13 @@ ___1bacch:
 ___1baedh:
 		push    8000h
 		mov     edx, 1dh
-		mov     ebx, [___1854bch]
+		mov     ebx, [__CEXT_V(___1854bch)]
 		mov     eax, 1
 		push    ebx
-		mov     ecx, [ConfigSFXVolume]
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
 		xor     ebx, ebx
 ___1bb0bh:
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 ___1bb10h:
 		cmp     dword [esp+1ch], byte 1
 		je      short ___1bb42h
@@ -13386,24 +13377,24 @@ ___1bb42h:
 		xor     edx, edx
 		mov     ecx, 390a3h
 		call    near __CEXT_F(memset__clib3r)
-		call    near lastScanCode__keyboard
-		call    near nullScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
+		call    near __CEXT_F(nullScanCode__keyboard)
 		mov     ebx, ___1807cch
 		mov     eax, ebp
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		call    near __CEXT_F(___3f77ch)
 		mov     eax, [GreyFont0Ptr]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     ecx, 390d9h
 		mov     ebx, __CEXT_V(string__F1)
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		mov     ebp, [esp]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		call    near __CEXT_F(footer__dr)
 		test    ebp, ebp
 		je      short ___1bc14h
-		call    near ___61278h
+		call    near __CEXT_F(___61278h)
 		call    near __CEXT_F(___623d4h)
 		xor     eax, eax
 		mov     al, [esp+20h]
@@ -13462,7 +13453,7 @@ ___1bc20h:
 		mov     eax, 12h
 		xor     edx, edx
 		call    near __CEXT_F(allocMemSafe)
-		mov     esi, [GXBackBuffer]
+		mov     esi, [__CEXT_V(GXBackBuffer)]
 		mov     edi, [__CEXT_V(VGABufferPtr_0)]
 		add     esi, 10680h
 		add     edi, 10680h
@@ -13476,28 +13467,28 @@ ___1bc20h:
 		rep movsb   
 		pop     edi
 		xor     eax, eax
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		mov     eax, 2
 		xor     edx, edx
 		mov     ebx, 14eh
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		mov     eax, 4
 		xor     edx, edx
 		mov     ecx, 41h
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		push    byte 1
 		mov     edx, 0c5h
 		mov     eax, 97h
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     ecx, 20dbfh
 		mov     ebx, ___180aa8h
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     ecx, 2383fh
 		mov     ebx, ___180ac8h
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		call    near __CEXT_F(___12dc4h)
 		mov     ebx, ebp
@@ -13509,13 +13500,13 @@ ___1bd16h:
 		mov     [ebx-1], al
 		cmp     edx, byte 7
 		jl      short ___1bd16h
-		mov     al, [___196ab8h]
+		mov     al, [__CEXT_V(___196ab8h)]
 		mov     ebx, ebp
 		xor     edx, edx
 		mov     [ebp+7], al
 ___1bd30h:
 		inc     ebx
-		mov     al, [edx+___1a2011h]
+		mov     al, [edx+__CEXT_V(___1a2011h)]
 		inc     edx
 		mov     [ebx+7], al
 		cmp     edx, byte 9
@@ -13546,7 +13537,7 @@ ___1bd73h:
 		add     ecx, 96h
 		mov     al, [edx+__CEXT_V(___1a1f4eh)]
 		add     ebx, 96h
-		mov     [edx+___1a1f4dh], al
+		mov     [edx+__CEXT_V(___1a1f4dh)], al
 		cmp     edx, byte 15h
 		jl      short ___1bd55h
 		mov     eax, [__CEXT_V(___180864h)]
@@ -13625,14 +13616,14 @@ ___1be0bh:
 ___1be57h:
 		cmp     dword [__CEXT_V(___196a84h)], byte 0
 		jne     near ___1c058h
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
 		movzx   edi, al
 		call    near __CEXT_F(updateMenuBackgroundAndTextArea)
 		call    near __CEXT_F(updateMenuBackgroundAndTextArea)
 		mov     edx, ecx
 		mov     eax, esi
 		mov     ebx, 0bh
-		call    near updateScreen_TBD
+		call    near __CEXT_F(updateScreen_TBD)
 		mov     edx, 12h
 		mov     eax, ebp
 		call    near __CEXT_F(___23488h)
@@ -13672,7 +13663,7 @@ ___1bee0h:
 		add     ebx, 96h
 		mov     al, [edx+__CEXT_V(___1a1f4eh)]
 		add     ecx, 96h
-		mov     [edx+___1a1f4dh], al
+		mov     [edx+__CEXT_V(___1a1f4dh)], al
 		cmp     edx, byte 15h
 		jl      short ___1bec2h
 		mov     eax, [__CEXT_V(___180864h)]
@@ -13727,7 +13718,7 @@ ___1bf62h:
 		jne     short ___1bf62h
 ___1bf7ah:
 		pop     edi
-		mov     eax, [___196ab8h]
+		mov     eax, [__CEXT_V(___196ab8h)]
 		mov     esi, esp
 		call    near itoa
 		push    edi
@@ -13834,7 +13825,7 @@ ___1c083h:
 		add     ebx, 96h
 		mov     al, [edx+__CEXT_V(___1a1f4eh)]
 		add     ecx, 96h
-		mov     [edx+___1a1f4dh], al
+		mov     [edx+__CEXT_V(___1a1f4dh)], al
 		cmp     edx, byte 15h
 		jl      short ___1c065h
 		mov     eax, [__CEXT_V(___180864h)]
@@ -13936,7 +13927,7 @@ ___1c178h:
 		mov     eax, 1
 		xor     edx, edx
 		call    near __CEXT_F(allocMemSafe)
-		mov     esi, [GXBackBuffer]
+		mov     esi, [__CEXT_V(GXBackBuffer)]
 		mov     edi, [__CEXT_V(VGABufferPtr_0)]
 		add     esi, 10680h
 		add     edi, 10680h
@@ -13951,24 +13942,24 @@ ___1c178h:
 		pop     edi
 		xor     eax, eax
 		mov     ebx, 14eh
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		mov     eax, 2
 		xor     edx, edx
 		mov     ecx, 41h
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		push    byte 1
 		mov     edx, 0c5h
 		mov     eax, 97h
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     ecx, 20dbfh
 		mov     ebx, ___180aa8h
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     ecx, 2383fh
 		mov     ebx, ___180ac8h
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		call    near __CEXT_F(___12dc4h)
 		mov     ebx, 1000h
@@ -13980,14 +13971,14 @@ ___1c178h:
 ___1c252h:
 		cmp     dword [__CEXT_V(___196a84h)], byte 0
 		jne     near ___1c354h
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
 		xor     ebx, ebx
 		mov     edx, 0d8h
 		mov     bl, al
 		call    near __CEXT_F(updateMenuBackgroundAndTextArea)
 		call    near __CEXT_F(updateMenuBackgroundAndTextArea)
 		mov     eax, 0a6h
-		call    near updateScreen_TBD
+		call    near __CEXT_F(updateScreen_TBD)
 		mov     edx, 0bh
 		mov     eax, ebp
 		call    near __CEXT_F(procChatData)
@@ -14008,7 +13999,7 @@ ___1c2a8h:
 		xor     eax, eax
 		mov     al, [ebp+7]
 		mov     edx, ebp
-		mov     [___196ab8h], eax
+		mov     [__CEXT_V(___196ab8h)], eax
 		xor     eax, eax
 ___1c2c3h:
 		inc     eax
@@ -14077,7 +14068,7 @@ ___1c374h:
 		je      near ___1c46ah
 ___1c390h:
 		mov     ecx, 2c380h
-		mov     esi, [GXBackBuffer]
+		mov     esi, [__CEXT_V(GXBackBuffer)]
 		mov     edi, [__CEXT_V(VGABufferPtr_0)]
 		add     esi, 0d200h
 		add     edi, 0d200h
@@ -14107,27 +14098,27 @@ ___1c3d7h:
 ___1c3e4h:
 		xor     edx, edx
 		xor     eax, eax
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		mov     eax, 2
 		xor     edx, edx
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		mov     edx, 1
 		mov     eax, 4
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		cmp     dword [___185a24h], byte 0
 		jne     short ___1c418h
 		call    near __CEXT_F(___12dc4h)
 		jmp     short ___1c434h
 ___1c418h:
-		mov     eax, [___VGABufferPtr_0]
+		mov     eax, [__CEXT_V(___VGABufferPtr_0)]
 		xor     ecx, ecx
 		mov     [__CEXT_V(VGABufferPtr_0)], eax
 		call    near ___3a6a4h
-		call    near ___12cb8h
+		call    near __CEXT_F(___12cb8h)
 		mov     [___185a24h], ecx
 ___1c434h:
 		mov     eax, 4
-		call    near ___146c4h
+		call    near __CEXT_F(___146c4h)
 		mov     ebp, eax
 		cmp     eax, byte 4
 		ja      near ___1c461h
@@ -14153,22 +14144,22 @@ ___1c474h:
 		mov     ecx, 4fh
 		xor     edx, edx
 		mov     ebx, 1aeh
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		push    byte 1
 		mov     edx, 10eh
 		mov     eax, 69h
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     ecx, 2c182h
 		mov     ebx, ___180b38h
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     ecx, 2e982h
 		mov     ebx, ___180728h
 		mov     edx, __CEXT_V(___185ba9h)
 		mov     eax, [__CEXT_V(___1a10e0h)]
 		call    near __CEXT_F(renderTextToBuffer__video)
-		call    near ___12cb8h
+		call    near __CEXT_F(___12cb8h)
 		mov     ebx, 0ah
 		mov     edx, esp
 		mov     eax, [___185a54h]
@@ -14195,18 +14186,18 @@ ___1c522h:
 		mov     ebx, 1aeh
 		mov     edx, 10eh
 		mov     eax, 69h
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     ecx, 2c182h
 		mov     ebx, ___180b60h
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     ecx, 2e982h
 		mov     ebx, ___180728h
 		mov     edx, __CEXT_V(___185ba9h)
 		mov     eax, [__CEXT_V(___1a10e0h)]
 		call    near __CEXT_F(renderTextToBuffer__video)
-		call    near ___12cb8h
+		call    near __CEXT_F(___12cb8h)
 		mov     ebx, 0ah
 		mov     edx, esp
 		mov     eax, edi
@@ -14355,8 +14346,8 @@ ___1c6bch:
 		movsd   
 		movsw   
 		mov     [___185b6eh], ah
-		mov     edi, ___186a6eh
-		mov     esi, ___180ba0h
+		mov     edi, __CEXT_V(___186a6eh)
+		mov     esi, __CEXT_V(___180ba0h)
 		xor     edx, edx
 		mov     [___185b6fh], ah
 		mov     [___185aach], edx
@@ -14532,7 +14523,7 @@ ___1c938h:
 		mov     edx, [___196ad4h]
 		mov     edi, __CEXT_V(___1a1dbah)
 		mov     esi, ___180bb4h
-		mov     dl, [edx+___1a2011h]
+		mov     dl, [edx+__CEXT_V(___1a2011h)]
 		rep movsd   
 		movsb   
 		and     edx, 0ffh
@@ -14603,7 +14594,7 @@ ___1ca00h:
 		push    edi
 		mov     ebx, eax
 		mov     ecx, 28f00h
-		mov     esi, [GXBackBuffer]
+		mov     esi, [__CEXT_V(GXBackBuffer)]
 		mov     edi, [__CEXT_V(VGABufferPtr_0)]
 		add     esi, 10680h
 		add     edi, 10680h
@@ -14617,46 +14608,46 @@ ___1ca00h:
 		rep movsb   
 		pop     edi
 		xor     eax, eax
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		mov     eax, 2
 		xor     edx, edx
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		test    ebx, ebx
 		je      short ___1ca63h
 		mov     eax, 7
 		xor     edx, edx
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 ___1ca63h:
 		push    byte 1
 		mov     ecx, 78h
 		mov     ebx, 1efh
 		mov     edx, 0c6h
 		mov     eax, 46h
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     ecx, 20851h
 		mov     ebx, ___180bd8h
 		mov     edx, __CEXT_V(___185ba9h)
-		mov     eax, [___1a10cch]
+		mov     eax, [__CEXT_V(___1a10cch)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     ecx, 25851h
 		mov     ebx, ___180bech
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     ecx, 2a851h
 		mov     ebx, ___180848h
 		mov     edx, __CEXT_V(___185ba9h)
-		mov     eax, [___1a10cch]
+		mov     eax, [__CEXT_V(___1a10cch)]
 		call    near __CEXT_F(renderTextToBuffer__video)
-		call    near ___12cb8h
-		call    near lastScanCode__keyboard
-		call    near nullScanCode__keyboard
+		call    near __CEXT_F(___12cb8h)
+		call    near __CEXT_F(lastScanCode__keyboard)
+		call    near __CEXT_F(nullScanCode__keyboard)
 ___1cad8h:
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
 		test    al, al
 		je      short ___1cad8h
-		call    near lastScanCode__keyboard
-		call    near nullScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
+		call    near __CEXT_F(nullScanCode__keyboard)
 		pop     edi
 		pop     esi
 		pop     edx
@@ -14682,7 +14673,7 @@ ___1caf4h:
 		jne     near ___1cbdah
 		mov     ebp, 1
 		mov     ecx, 28f00h
-		mov     esi, [GXBackBuffer]
+		mov     esi, [__CEXT_V(GXBackBuffer)]
 		mov     edi, [__CEXT_V(VGABufferPtr_0)]
 		add     esi, 10680h
 		add     edi, 10680h
@@ -14697,34 +14688,34 @@ ___1caf4h:
 		pop     edi
 		xor     eax, eax
 		mov     ebx, 253h
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		mov     eax, 2
 		xor     edx, edx
 		mov     ecx, 56h
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		push    ebp
 		mov     edx, 0c6h
 		mov     eax, 1ch
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     ecx, 20825h
 		mov     ebx, ___180c20h
 		mov     edx, __CEXT_V(___185ba9h)
-		mov     eax, [___1a10cch]
+		mov     eax, [__CEXT_V(___1a10cch)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     ecx, 25861h
 		mov     ebx, ___180848h
 		mov     edx, __CEXT_V(___185ba9h)
-		mov     eax, [___1a10cch]
+		mov     eax, [__CEXT_V(___1a10cch)]
 		call    near __CEXT_F(renderTextToBuffer__video)
-		call    near ___12cb8h
-		call    near lastScanCode__keyboard
-		call    near nullScanCode__keyboard
+		call    near __CEXT_F(___12cb8h)
+		call    near __CEXT_F(lastScanCode__keyboard)
+		call    near __CEXT_F(nullScanCode__keyboard)
 ___1cbc7h:
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
 		test    al, al
 		je      short ___1cbc7h
-		call    near lastScanCode__keyboard
-		call    near nullScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
+		call    near __CEXT_F(nullScanCode__keyboard)
 ___1cbdah:
 		test    ebp, ebp
 		jne     near ___1cffdh
@@ -14736,7 +14727,7 @@ ___1cbdah:
 		call    near ___1123ch
 ___1cbf9h:
 		mov     ecx, 1
-		mov     esi, [GXBackBuffer]
+		mov     esi, [__CEXT_V(GXBackBuffer)]
 		mov     edi, [__CEXT_V(VGABufferPtr_0)]
 		mov     [__CEXT_V(NetworkConnectionEstablished)], ecx
 		add     esi, 10680h
@@ -14753,21 +14744,21 @@ ___1cbf9h:
 		pop     edi
 		xor     eax, eax
 		mov     ebx, 1aeh
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		mov     eax, 2
 		xor     edx, edx
 		mov     ecx, 38h
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		push    byte 1
 		mov     edx, 0c6h
 		mov     eax, 4bh
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     ecx, 20856h
 		mov     ebx, ___180c44h
 		mov     edx, __CEXT_V(___185ba9h)
-		mov     eax, [___1a10cch]
+		mov     eax, [__CEXT_V(___1a10cch)]
 		call    near __CEXT_F(renderTextToBuffer__video)
-		call    near ___12cb8h
+		call    near __CEXT_F(___12cb8h)
 		mov     ecx, __CEXT_V(RowBoxBuffers)
 		xor     edx, edx
 		lea     ebx, [ecx+96h]
@@ -14792,7 +14783,7 @@ ___1ccaah:
 		add     ecx, 96h
 		mov     al, [edx+__CEXT_V(___1a1f4eh)]
 		add     ebx, 96h
-		mov     [edx+___1a1f4dh], al
+		mov     [edx+__CEXT_V(___1a1f4dh)], al
 		cmp     edx, byte 15h
 		jl      short ___1cc8ch
 		mov     ebx, __CEXT_V(RowBoxBuffers)
@@ -14821,7 +14812,7 @@ ___1ccfdh:
 		add     ebx, 96h
 		mov     al, [edx+__CEXT_V(___1a1f4eh)]
 		add     ecx, 96h
-		mov     [edx+___1a1f4dh], al
+		mov     [edx+__CEXT_V(___1a1f4dh)], al
 		cmp     edx, byte 15h
 		jl      short ___1ccdfh
 		mov     ecx, 0ah
@@ -14888,7 +14879,7 @@ ___1cdd3h:
 		add     ecx, 96h
 		mov     al, [edx+__CEXT_V(___1a1f4eh)]
 		add     ebx, 96h
-		mov     [edx+___1a1f4dh], al
+		mov     [edx+__CEXT_V(___1a1f4dh)], al
 		cmp     edx, byte 15h
 		jl      short ___1cdb5h
 		mov     esi, esp
@@ -14939,7 +14930,7 @@ ___1ce59h:
 		add     ecx, 96h
 		mov     al, [edx+__CEXT_V(___1a1f4eh)]
 		add     ebx, 96h
-		mov     [edx+___1a1f4dh], al
+		mov     [edx+__CEXT_V(___1a1f4dh)], al
 		cmp     edx, byte 15h
 		jl      short ___1ce3bh
 		mov     eax, [__CEXT_V(___180864h)]
@@ -15038,21 +15029,21 @@ ___1cf92h:
 		mov     ebx, 27fh
 		mov     edx, 173h
 		xor     eax, eax
-		call    near frameFooter__dr
+		call    near __CEXT_F(frameFooter__dr)
 		mov     ecx, 390a3h
 		mov     ebx, ___1807cch
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		mov     eax, [GreyFont0Ptr]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     ecx, 390d9h
 		mov     ebx, __CEXT_V(string__F1)
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		call    near __CEXT_F(footer__dr)
-		call    near ___12cb8h
-		call    near nullScanCode__keyboard
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(___12cb8h)
+		call    near __CEXT_F(nullScanCode__keyboard)
+		call    near __CEXT_F(lastScanCode__keyboard)
 		mov     eax, 1
 		add     esp, byte 68h
 		pop     ebp
@@ -15109,7 +15100,7 @@ ___1d05ch:
 		add     ecx, 96h
 		mov     al, [edx+__CEXT_V(___1a1f4eh)]
 		add     ebx, 96h
-		mov     [edx+___1a1f4dh], al
+		mov     [edx+__CEXT_V(___1a1f4dh)], al
 		cmp     edx, byte 15h
 		jl      short ___1d03eh
 		mov     ebx, [__CEXT_V(MyID)]
@@ -15142,7 +15133,7 @@ ___1d0b0h:
 		jne     short ___1d0b0h
 ___1d0c8h:
 		pop     edi
-		mov     esi, ___180ca4h
+		mov     esi, __CEXT_V(___180ca4h)
 		mov     ebx, 6
 		push    edi
 		sub     ecx, ecx
@@ -15192,7 +15183,7 @@ ___1d134h:
 		add     ebx, 96h
 		mov     al, [edx+__CEXT_V(___1a1f4eh)]
 		add     ecx, 96h
-		mov     [edx+___1a1f4dh], al
+		mov     [edx+__CEXT_V(___1a1f4dh)], al
 		cmp     edx, byte 15h
 		jl      short ___1d116h
 		mov     ecx, 6dh
@@ -15203,10 +15194,10 @@ ___1d134h:
 		mov     [__CEXT_V(___1a1dbah)], al
 		xor     eax, eax
 		mov     esi, ___180cc0h
-		call    near frameFooter__dr
+		call    near __CEXT_F(frameFooter__dr)
 		call    near __CEXT_F(footer__dr)
-		call    near ___12cb8h
-		call    near ___61278h
+		call    near __CEXT_F(___12cb8h)
+		call    near __CEXT_F(___61278h)
 		call    near __CEXT_F(___623d4h)
 		movsd   
 		movsd   
@@ -15215,7 +15206,7 @@ ___1d134h:
 		movsd   
 		movsw   
 		mov     dl, 1
-		mov     edi, ___186a6eh
+		mov     edi, __CEXT_V(___186a6eh)
 		mov     esi, ___180cd8h
 		mov     [___185b58h], dl
 		movsd   
@@ -15245,7 +15236,7 @@ ___1d134h:
 		movsb   
 		call    near __CEXT_F(initDrivers)
 		mov     eax, 2
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		call    near __CEXT_F(___12dc4h)
 		mov     dword [__CEXT_V(MyID)], 13h
 		pop     edi
@@ -15256,7 +15247,7 @@ ___1d134h:
 		retn    
 ___1d21eh:
 		mov     eax, 2
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		xor     eax, eax
 		call    near ___3ab5ch
 		test    eax, eax
@@ -15332,7 +15323,7 @@ ___1d2e0h:
 ___1d2fdh:
 		mov     eax, 2
 		xor     edx, edx
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		xor     eax, eax
 		call    near ___3ab5ch
 		test    eax, eax
@@ -15361,7 +15352,7 @@ ___1d2fdh:
 		call    near ___1123ch
 ___1d37ch:
 		mov     ecx, 28f00h
-		mov     esi, [GXBackBuffer]
+		mov     esi, [__CEXT_V(GXBackBuffer)]
 		mov     edi, [__CEXT_V(VGABufferPtr_0)]
 		add     esi, 10680h
 		add     edi, 10680h
@@ -15376,15 +15367,15 @@ ___1d37ch:
 		pop     edi
 		xor     eax, eax
 		mov     ebx, 14eh
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		mov     eax, 2
 		xor     edx, edx
 		mov     ecx, 41h
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		push    byte 1
 		mov     edx, [esp+8]
 		mov     eax, [esp+4]
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     edx, [esp+4]
 		add     edx, byte 0dh
 		lea     eax, [edx*4+0]
@@ -15392,9 +15383,9 @@ ___1d37ch:
 		add     eax, edx
 		mov     ebx, ___180aa8h
 		shl     eax, 7
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		add     ecx, eax
-		mov     eax, [WhiteFont0Ptr]
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		add     ecx, byte 28h
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     edx, [esp+4]
@@ -15410,8 +15401,8 @@ ___1d37ch:
 		add     eax, ebp
 		mov     ebx, ___180ac8h
 		lea     ecx, [eax+28h]
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		xor     ebp, ebp
 		call    near __CEXT_F(renderTextToBuffer__video)
 		call    near __CEXT_F(___12dc4h)
@@ -15421,7 +15412,7 @@ ___1d37ch:
 ___1d452h:
 		cmp     ebp, 0ffh
 		je      short ___1d4a8h
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
 		mov     dword [esp+8], 0ah
 		xor     ecx, ecx
 		mov     edx, ebx
@@ -15431,7 +15422,7 @@ ___1d452h:
 		idiv    dword [esp+8]
 		cmp     edx, byte 1
 		jne     short ___1d48fh
-		mov     eax, [___199fa0h]
+		mov     eax, [__CEXT_V(___199fa0h)]
 		mov     edx, 2
 		add     eax, byte 5
 		call    near ___60b48h
@@ -15441,7 +15432,7 @@ ___1d48fh:
 		call    near __CEXT_F(updateMenuBackgroundAndTextArea)
 		mov     edx, esi
 		mov     eax, edi
-		call    near updateScreen_TBD
+		call    near __CEXT_F(updateScreen_TBD)
 		inc     ebx
 		cmp     ecx, byte 1
 		jne     short ___1d452h
@@ -15452,7 +15443,7 @@ ___1d4a8h:
 		xor     eax, eax
 		call    near ___611c0h
 ___1d4b6h:
-		call    near ___61278h
+		call    near __CEXT_F(___61278h)
 		cmp     ecx, byte 1
 		je      short ___1d4ddh
 		mov     edi, ___186ad2h
@@ -15507,7 +15498,7 @@ ___1d528h:
 		add     ecx, 96h
 		mov     al, [edx+__CEXT_V(___1a1f4eh)]
 		add     ebx, 96h
-		mov     [edx+___1a1f4dh], al
+		mov     [edx+__CEXT_V(___1a1f4dh)], al
 		cmp     edx, byte 15h
 		jl      short ___1d50ah
 		mov     edx, [__CEXT_V(___180864h)]
@@ -15540,7 +15531,7 @@ ___1d57eh:
 		jne     short ___1d57eh
 ___1d596h:
 		pop     edi
-		mov     esi, ___180ca4h
+		mov     esi, __CEXT_V(___180ca4h)
 		mov     ebx, 9
 		push    edi
 		sub     ecx, ecx
@@ -15590,7 +15581,7 @@ ___1d602h:
 		add     ecx, 96h
 		mov     al, [edx+__CEXT_V(___1a1f4eh)]
 		add     ebx, 96h
-		mov     [edx+___1a1f4dh], al
+		mov     [edx+__CEXT_V(___1a1f4dh)], al
 		cmp     edx, byte 15h
 		jl      short ___1d5e4h
 		mov     ecx, 6dh
@@ -15603,16 +15594,16 @@ ___1d602h:
 		mov     [__CEXT_V(___196a84h)], ebx
 		xor     eax, eax
 		mov     ebx, 27fh
-		call    near frameFooter__dr
+		call    near __CEXT_F(frameFooter__dr)
 		call    near __CEXT_F(footer__dr)
-		call    near ___12cb8h
+		call    near __CEXT_F(___12cb8h)
 		xor     ecx, ecx
 		mov     edx, 1
 		mov     [__CEXT_V(NetworkConnectionEstablished)], ecx
 		mov     [__CEXT_V(NetworkConnectionType)], ecx
 		call    near __CEXT_F(initDrivers)
 		mov     eax, 2
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		call    near __CEXT_F(___12dc4h)
 		pop     edi
 		pop     esi
@@ -15675,7 +15666,7 @@ ___1d6e5h:
 ___1d6fdh:
 		pop     edi
 		mov     ecx, 28f00h
-		mov     esi, [GXBackBuffer]
+		mov     esi, [__CEXT_V(GXBackBuffer)]
 		mov     edi, [__CEXT_V(VGABufferPtr_0)]
 		add     esi, 10680h
 		add     edi, 10680h
@@ -15690,19 +15681,19 @@ ___1d6fdh:
 		pop     edi
 		xor     eax, eax
 		mov     ebx, 113h
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		mov     eax, 2
 		xor     edx, edx
 		mov     ecx, 41h
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		push    byte 1
 		mov     edx, 0c5h
 		mov     eax, ebp
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     ecx, 20ddch
 		mov     ebx, ___180d2ch
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		call    near __CEXT_F(___12dc4h)
 		mov     eax, esp
@@ -15731,12 +15722,12 @@ ___1d7b2h:
 		mov     edx, 0d8h
 		mov     eax, 0c3h
 		inc     ebx
-		call    near updateScreen_TBD
+		call    near __CEXT_F(updateScreen_TBD)
 		cmp     ebx, 96h
 		jl      short ___1d78dh
 ___1d7d4h:
-		call    near nullScanCode__keyboard
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(nullScanCode__keyboard)
+		call    near __CEXT_F(lastScanCode__keyboard)
 		test    esi, esi
 		jne     short ___1d830h
 		mov     edx, [esp+18h]
@@ -15748,10 +15739,10 @@ ___1d7d4h:
 		lea     eax, [ebx*4+0]
 		add     eax, ebx
 		shl     eax, 7
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		lea     ecx, [eax+ebp]
 		mov     ebx, ___180d48h
-		mov     eax, [WhiteFont0Ptr]
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		add     ecx, byte 28h
 		call    near __CEXT_F(renderTextToBuffer__video)
 		call    near __CEXT_F(___12dc4h)
@@ -15791,7 +15782,7 @@ ___1d83ch:
 		rep movsb   
 		pop     edi
 		mov     ecx, 28f00h
-		mov     esi, [GXBackBuffer]
+		mov     esi, [__CEXT_V(GXBackBuffer)]
 		mov     edi, [__CEXT_V(VGABufferPtr_0)]
 		add     esi, 10680h
 		add     edi, 10680h
@@ -15806,69 +15797,69 @@ ___1d83ch:
 		pop     edi
 		xor     eax, eax
 		mov     ebx, 26ch
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		mov     eax, 2
 		xor     edx, edx
 		mov     ecx, 0c8h
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		push    byte 1
 		mov     edx, 0a3h
 		mov     eax, 0ah
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     ecx, 1ce9bh
 		mov     ebx, ___180d5ch
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     ecx, 1f69bh
 		mov     ebx, ___180d9ch
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     ecx, 21e9bh
 		mov     ebx, ___180dd8h
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     ecx, 2469bh
 		mov     ebx, ___180e14h
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     ecx, 26e9bh
 		mov     ebx, ___180e54h
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     ecx, 2969bh
 		mov     ebx, ___180e8ch
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     ecx, 2be9bh
 		mov     ebx, ___180ecch
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     ecx, 2e69bh
 		mov     ebx, ___180f08h
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     ecx, 327e1h
 		mov     ebx, ___180848h
 		mov     edx, __CEXT_V(___185ba9h)
-		mov     eax, [___1a10cch]
+		mov     eax, [__CEXT_V(___1a10cch)]
 		call    near __CEXT_F(renderTextToBuffer__video)
-		call    near ___12cb8h
-		call    near lastScanCode__keyboard
-		call    near nullScanCode__keyboard
+		call    near __CEXT_F(___12cb8h)
+		call    near __CEXT_F(lastScanCode__keyboard)
+		call    near __CEXT_F(nullScanCode__keyboard)
 ___1d9b9h:
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
 		test    al, al
 		je      short ___1d9b9h
-		call    near lastScanCode__keyboard
-		call    near nullScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
+		call    near __CEXT_F(nullScanCode__keyboard)
 		mov     ecx, 4b000h
 		mov     esi, [__CEXT_V(___1a1124h)]
 		mov     edi, [__CEXT_V(VGABufferPtr_0)]
@@ -15880,7 +15871,7 @@ ___1d9b9h:
 		and     cl, 3
 		rep movsb   
 		pop     edi
-		call    near ___12cb8h
+		call    near __CEXT_F(___12cb8h)
 		pop     edi
 		pop     esi
 		pop     edx
@@ -15923,13 +15914,13 @@ ___1da2dh:
 ___1da4fh:
 		mov     eax, 2
 		xor     edx, edx
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		xor     eax, eax
 		call    near ___3ab5ch
 		test    eax, eax
 		je      near ___1e08fh
 		mov     ecx, 28f00h
-		mov     esi, [GXBackBuffer]
+		mov     esi, [__CEXT_V(GXBackBuffer)]
 		mov     edi, [__CEXT_V(VGABufferPtr_0)]
 		add     esi, 10680h
 		add     edi, 10680h
@@ -15944,21 +15935,21 @@ ___1da4fh:
 		pop     edi
 		xor     eax, eax
 		mov     ebx, 1d9h
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		mov     eax, 2
 		xor     edx, edx
 		mov     ecx, 4fh
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		push    byte 1
 		mov     edx, 0fah
 		mov     eax, 50h
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     ecx, 28f64h
 		mov     ebx, ___180f40h
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
-		call    near ___12cb8h
+		call    near __CEXT_F(___12cb8h)
 		push    byte 0
 		push    byte 1
 		push    byte 0
@@ -15999,7 +15990,7 @@ ___1db77h:
 		je      near ___1e08ah
 		mov     ecx, 28f00h
 		mov     ebx, 159h
-		mov     esi, [GXBackBuffer]
+		mov     esi, [__CEXT_V(GXBackBuffer)]
 		mov     edi, [__CEXT_V(VGABufferPtr_0)]
 		add     esi, 10680h
 		add     edi, 10680h
@@ -16014,16 +16005,16 @@ ___1db77h:
 		pop     edi
 		xor     eax, eax
 		mov     ecx, 52h
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		mov     eax, 2
 		xor     edx, edx
 		mov     edi, esp
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		push    byte 1
 		mov     edx, [esp+54h]
 		mov     eax, ebp
 		mov     esi, ___180f5ch
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		movsd   
 		movsd   
 		movsw   
@@ -16056,8 +16047,8 @@ ___1dc17h:
 		add     eax, ebp
 		mov     ebx, esp
 		lea     ecx, [eax+28h]
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     edx, [esp+50h]
 		add     edx, byte 1eh
@@ -16067,8 +16058,8 @@ ___1dc17h:
 		add     eax, ebp
 		mov     ebx, ___180f68h
 		lea     ecx, [eax+28h]
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     edx, [esp+50h]
 		add     edx, byte 2fh
@@ -16078,22 +16069,22 @@ ___1dc17h:
 		add     eax, ebp
 		mov     ebx, ___180ac8h
 		lea     ecx, [eax+28h]
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		lea     edi, [esp+28h]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     edx, [esp+50h]
 		lea     eax, [ebp+0fh]
 		add     edx, byte 1ah
 		mov     esi, ___180f80h
-		call    near updateScreen_TBD
+		call    near __CEXT_F(updateScreen_TBD)
 		call    near __CEXT_F(___12dc4h)
 		mov     dl, 0dh
 		movsd   
 		movsd   
 		movsw   
 		xor     ah, ah
-		mov     edi, [ToneDialing]
+		mov     edi, [__CEXT_V(ToneDialing)]
 		mov     [esp+6dh], ah
 		mov     [esp+6ch], dl
 		test    edi, edi
@@ -16214,8 +16205,8 @@ ___1ddcdh:
 		jne     short ___1ddcdh
 		mov     ecx, [esp+60h]
 		mov     ebx, ___180f68h
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		call    near __CEXT_F(___12dc4h)
 		mov     ecx, 0ffffffffh
@@ -16246,9 +16237,9 @@ ___1de3bh:
 		jne     short ___1de3bh
 		mov     ecx, [esp+64h]
 		mov     ebx, ___180f9ch
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		lea     edi, [esp+28h]
-		mov     eax, [WhiteFont0Ptr]
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		mov     esi, ___180fb0h
 		call    near __CEXT_F(renderTextToBuffer__video)
 		call    near __CEXT_F(___12dc4h)
@@ -16302,9 +16293,9 @@ ___1dee8h:
 		jne     short ___1dee8h
 		mov     ecx, [esp+68h]
 		mov     ebx, ___180fc0h
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		lea     edi, [esp+28h]
-		mov     eax, [WhiteFont0Ptr]
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		mov     esi, ___180fb0h
 		call    near __CEXT_F(renderTextToBuffer__video)
 		call    near __CEXT_F(___12dc4h)
@@ -16349,7 +16340,7 @@ ___1df93h:
 		call    near __CEXT_F(updateMenuBackgroundAndTextArea)
 		mov     edx, [esp+5ch]
 		mov     eax, [esp+54h]
-		call    near updateScreen_TBD
+		call    near __CEXT_F(updateScreen_TBD)
 		cmp     byte [___59e11h], 0
 		je      near ___1ddb5h
 ___1dfb7h:
@@ -16375,7 +16366,7 @@ ___1dfdfh:
 		je      short ___1e03bh
 		cmp     ebx, byte 1
 		jne     short ___1e03bh
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
 		mov     dword [esp+44h], 0ah
 		mov     cl, al
 		mov     edx, esi
@@ -16384,7 +16375,7 @@ ___1dfdfh:
 		idiv    dword [esp+44h]
 		cmp     edx, ebx
 		jne     short ___1e023h
-		mov     eax, [___199fa0h]
+		mov     eax, [__CEXT_V(___199fa0h)]
 		mov     edx, 2
 		add     eax, byte 6
 		call    near ___60b48h
@@ -16394,7 +16385,7 @@ ___1e023h:
 		call    near __CEXT_F(updateMenuBackgroundAndTextArea)
 		mov     edx, [esp+58h]
 		mov     eax, ebp
-		call    near updateScreen_TBD
+		call    near __CEXT_F(updateScreen_TBD)
 		inc     esi
 		jmp     short ___1dfdfh
 ___1e03bh:
@@ -16404,7 +16395,7 @@ ___1e03bh:
 		xor     eax, eax
 		call    near ___611c0h
 ___1e049h:
-		call    near ___61278h
+		call    near __CEXT_F(___61278h)
 		cmp     cl, 1
 		je      short ___1e071h
 		mov     edi, ___186b04h
@@ -16421,8 +16412,8 @@ ___1e049h:
 ___1e071h:
 		call    near __CEXT_F(___623d4h)
 ___1e076h:
-		call    near lastScanCode__keyboard
-		call    near nullScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
+		call    near __CEXT_F(nullScanCode__keyboard)
 		add     esp, byte 70h
 		pop     ebp
 		pop     edi
@@ -16509,7 +16500,7 @@ ___1e110h:
 ___1e132h:
 		mov     eax, 2
 		xor     edx, edx
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		xor     eax, eax
 		call    near ___3ab5ch
 		test    eax, eax
@@ -16541,7 +16532,7 @@ ___1e1b1h:
 		test    eax, eax
 		je      near ___1e4e9h
 		mov     ecx, 28f00h
-		mov     esi, [GXBackBuffer]
+		mov     esi, [__CEXT_V(GXBackBuffer)]
 		mov     edi, [__CEXT_V(VGABufferPtr_0)]
 		add     esi, 10680h
 		add     edi, 10680h
@@ -16556,15 +16547,15 @@ ___1e1b1h:
 		pop     edi
 		xor     eax, eax
 		mov     ebx, 113h
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		mov     eax, 2
 		xor     edx, edx
 		mov     ecx, 41h
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		push    byte 1
 		mov     edx, [esp+28h]
 		mov     eax, ebp
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     edx, [esp+24h]
 		add     edx, byte 0dh
 		lea     eax, [edx*4+0]
@@ -16573,9 +16564,9 @@ ___1e1b1h:
 		mov     ebx, ___181010h
 		mov     [esp+18h], eax
 		lea     esi, [eax+ebp]
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		add     esi, byte 28h
-		mov     eax, [WhiteFont0Ptr]
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		mov     ecx, esi
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     edx, [esp+24h]
@@ -16585,8 +16576,8 @@ ___1e1b1h:
 		shl     eax, 7
 		mov     ebx, ___180ac8h
 		lea     ecx, [eax+ebp]
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		add     ecx, byte 28h
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     ebx, [esp+24h]
@@ -16594,7 +16585,7 @@ ___1e1b1h:
 		add     ebx, byte 13h
 		mov     eax, edi
 		mov     edx, ebx
-		call    near updateScreen_TBD
+		call    near __CEXT_F(updateScreen_TBD)
 		call    near __CEXT_F(___12dc4h)
 		mov     eax, esp
 		call    near ___631d4h
@@ -16635,8 +16626,8 @@ ___1e2edh:
 		jne     short ___1e2edh
 		mov     ecx, [esp+34h]
 		mov     ebx, ___18102ch
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		lea     esi, [esp+40h]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		call    near __CEXT_F(___12dc4h)
@@ -16688,8 +16679,8 @@ ___1e389h:
 		jne     short ___1e389h
 		mov     ecx, [esp+28h]
 		mov     ebx, ___181010h
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		call    near __CEXT_F(___12dc4h)
 		call    near ___63228h
@@ -16707,7 +16698,7 @@ ___1e3f0h:
 		call    near __CEXT_F(updateMenuBackgroundAndTextArea)
 		mov     edx, [esp+30h]
 		mov     eax, [esp+2ch]
-		call    near updateScreen_TBD
+		call    near __CEXT_F(updateScreen_TBD)
 		cmp     byte [___59e11h], 0
 		je      near ___1e2c7h
 ___1e414h:
@@ -16733,7 +16724,7 @@ ___1e43ch:
 		je      short ___1e49ah
 		cmp     ecx, byte 1
 		jne     short ___1e49ah
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
 		mov     dword [esp+3ch], 0ah
 		mov     bl, al
 		mov     edx, esi
@@ -16742,7 +16733,7 @@ ___1e43ch:
 		idiv    dword [esp+3ch]
 		cmp     edx, ecx
 		jne     short ___1e484h
-		mov     eax, [___199fa0h]
+		mov     eax, [__CEXT_V(___199fa0h)]
 		mov     edx, 2
 		add     eax, byte 6
 		call    near ___60b48h
@@ -16752,7 +16743,7 @@ ___1e484h:
 		call    near __CEXT_F(updateMenuBackgroundAndTextArea)
 		mov     edx, edi
 		mov     eax, ebp
-		call    near updateScreen_TBD
+		call    near __CEXT_F(updateScreen_TBD)
 		inc     esi
 		jmp     short ___1e43ch
 ___1e49ah:
@@ -16762,7 +16753,7 @@ ___1e49ah:
 		xor     eax, eax
 		call    near ___611c0h
 ___1e4a8h:
-		call    near ___61278h
+		call    near __CEXT_F(___61278h)
 		cmp     bl, 1
 		je      short ___1e4d0h
 		mov     edi, ___186b36h
@@ -16779,8 +16770,8 @@ ___1e4a8h:
 ___1e4d0h:
 		call    near __CEXT_F(___623d4h)
 ___1e4d5h:
-		call    near lastScanCode__keyboard
-		call    near nullScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
+		call    near __CEXT_F(nullScanCode__keyboard)
 		add     esp, byte 44h
 		pop     ebp
 		pop     edi
@@ -16824,7 +16815,7 @@ __GDECL(__CEXT_F(___1e4f8h))
 		movsd   
 		movsw   
 		mov     [___185b6fh], ah
-		mov     edi, ___186a6eh
+		mov     edi, __CEXT_V(___186a6eh)
 		mov     esi, ___180cd8h
 		mov     [___185aach], ebx
 		mov     [__CEXT_V(___196a84h)], edx
@@ -16854,7 +16845,7 @@ ___1e598h:
 		je      short ___1e5c2h
 		mov     edx, 1
 		mov     eax, 2
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		xor     edx, edx
 		mov     [__CEXT_V(___196a84h)], edx
 		call    near __CEXT_F(initDrivers)
@@ -16908,7 +16899,7 @@ __GDECL(__CEXT_F(___1e62ch))
 		movsd   
 		movsd   
 		movsw   
-		mov     edi, ___186a6eh
+		mov     edi, __CEXT_V(___186a6eh)
 		mov     esi, ___180cd8h
 		mov     ebx, 1
 		mov     ah, 1
@@ -16950,7 +16941,7 @@ __GDECL(__CEXT_F(___1e62ch))
 		mov     esi, 2
 		mov     [___185b6bh], bl
 		mov     [___185aach], esi
-		call    near ___61278h
+		call    near __CEXT_F(___61278h)
 		call    near __CEXT_F(___623d4h)
 		cmp     edx, byte 1
 		jne     near ___1e813h
@@ -16980,7 +16971,7 @@ ___1e722h:
 		add     ebx, 96h
 		mov     al, [edx+__CEXT_V(___1a1f4eh)]
 		add     ecx, 96h
-		mov     [edx+___1a1f4dh], al
+		mov     [edx+__CEXT_V(___1a1f4dh)], al
 		cmp     edx, byte 15h
 		jl      short ___1e704h
 		mov     edx, [__CEXT_V(___180864h)]
@@ -17013,7 +17004,7 @@ ___1e778h:
 		jne     short ___1e778h
 ___1e790h:
 		pop     edi
-		mov     esi, ___180ca4h
+		mov     esi, __CEXT_V(___180ca4h)
 		xor     bh, bh
 		push    edi
 		sub     ecx, ecx
@@ -17059,7 +17050,7 @@ ___1e7ebh:
 		add     ebx, 96h
 		mov     al, [edx+__CEXT_V(___1a1f4eh)]
 		add     ecx, 96h
-		mov     [edx+___1a1f4dh], al
+		mov     [edx+__CEXT_V(___1a1f4dh)], al
 		cmp     edx, byte 15h
 		jl      short ___1e7cdh
 		mov     al, [__CEXT_V(___180130h)]
@@ -17071,14 +17062,14 @@ ___1e813h:
 		mov     eax, 2
 		mov     ecx, 6dh
 		mov     ebx, 27fh
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		xor     eax, eax
 		mov     edx, 173h
 		mov     [__CEXT_V(___196a84h)], eax
 		mov     [___196a7ch], eax
 		mov     [__CEXT_V(NetworkConnectionEstablished)], eax
 		mov     [__CEXT_V(NetworkConnectionType)], eax
-		call    near frameFooter__dr
+		call    near __CEXT_F(frameFooter__dr)
 		call    near __CEXT_F(footer__dr)
 		call    near __CEXT_F(___12dc4h)
 ___1e85fh:
@@ -17097,8 +17088,7 @@ dd	___1f00dh
 dd	___1f01ch
 dd	___1f02bh
 dd	___1f032h
-global multiplayerRaceMenu__dr
-multiplayerRaceMenu__dr:
+__GDECL(__CEXT_F(multiplayerRaceMenu__dr))
 		push    34h
 		call    near __CHK
 		push    ebx
@@ -17120,7 +17110,7 @@ ___1e8a4h:
 		je      near ___1eaddh
 		mov     ebp, 0ffdch
 		mov     edi, 640000h
-		mov     eax, [___VGABufferPtr_0]
+		mov     eax, [__CEXT_V(___VGABufferPtr_0)]
 		mov     [___185a74h], edx
 		mov     [__CEXT_V(VGABufferPtr_0)], eax
 		call    near __CEXT_F(___2b318h)
@@ -17129,7 +17119,7 @@ ___1e8e9h:
 		cmp     dword [___185a34h], byte 0
 		je      short ___1e8feh
 		mov     eax, ebp
-		call    near ___65710h
+		call    near __CEXT_F(___65710h)
 ___1e8feh:
 		xor     edx, edx
 		mov     esi, edi
@@ -17235,7 +17225,7 @@ ___1e9ach:
 		jne     near ___1e8e9h
 		mov     ecx, 4b000h
 		mov     ebx, 27fh
-		mov     esi, [GXBackBuffer]
+		mov     esi, [__CEXT_V(GXBackBuffer)]
 		mov     edi, [__CEXT_V(VGABufferPtr_0)]
 		mov     edx, 173h
 		push    edi
@@ -17248,25 +17238,25 @@ ___1e9ach:
 		pop     edi
 		mov     ecx, 6dh
 		xor     eax, eax
-		call    near frameFooter__dr
+		call    near __CEXT_F(frameFooter__dr)
 		cmp     dword [___196a7ch], byte 0
 		jne     short ___1ead6h
 		mov     ecx, 390a3h
 		mov     ebx, ___1807cch
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		mov     eax, [GreyFont0Ptr]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     ecx, 390d9h
 		mov     ebx, __CEXT_V(string__F1)
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 ___1ead6h:
 		call    near __CEXT_F(footer__dr)
 		jmp     short ___1eb0ah
 ___1eaddh:
 		mov     ecx, 2c380h
-		mov     esi, [GXBackBuffer]
+		mov     esi, [__CEXT_V(GXBackBuffer)]
 		mov     edi, [__CEXT_V(VGABufferPtr_0)]
 		add     esi, 0d200h
 		add     edi, 0d200h
@@ -17281,10 +17271,10 @@ ___1eaddh:
 ___1eb0ah:
 		xor     edx, edx
 		xor     eax, eax
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		mov     edx, 1
 		mov     eax, 2
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		cmp     dword [__CEXT_V(NetworkConnectionEstablished)], byte 0
 		je      near ___1edd6h
 		cmp     dword [__CEXT_V(___196a84h)], byte 0
@@ -17294,12 +17284,12 @@ ___1eb0ah:
 		call    near ___16e6ch
 ___1eb4ah:
 		mov     dword [__CEXT_V(MyID)], 13h
-		call    near ___12cb8h
+		call    near __CEXT_F(___12cb8h)
 		call    near __CEXT_F(___2b318h)
 		cmp     dword [___185a34h], byte 0
 		je      short ___1eb71h
-		mov     eax, [___1a1ef4h]
-		call    near ___658b8h
+		mov     eax, [__CEXT_V(___1a1ef4h)]
+		call    near __CEXT_F(___658b8h)
 ___1eb71h:
 		xor     edi, edi
 		xor     ebp, ebp
@@ -17308,7 +17298,7 @@ ___1eb75h:
 		cmp     dword [___185a34h], byte 0
 		je      short ___1eb8ah
 		mov     eax, ebp
-		call    near ___65710h
+		call    near __CEXT_F(___65710h)
 ___1eb8ah:
 		xor     edx, edx
 		mov     esi, edi
@@ -17430,8 +17420,8 @@ ___1ed10h:
 		mov     [__CEXT_V(___196a84h)], edi
 		test    ecx, ecx
 		je      near ___1edd6h
-		call    near lastScanCode__keyboard
-		call    near nullScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
+		call    near __CEXT_F(nullScanCode__keyboard)
 		xor     edx, edx
 ___1ed4fh:
 		cmp     edx, byte 1ch
@@ -17439,21 +17429,21 @@ ___1ed4fh:
 		cmp     edx, 9ch
 		je      short ___1ed74h
 		xor     edx, edx
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
 		mov     dl, al
 		call    near __CEXT_F(updateMenuBackgroundAndTextArea)
 		call    near __CEXT_F(updateMenuBackgroundAndTextArea)
 		cmp     edx, byte 1
 		jne     short ___1ed4fh
 ___1ed74h:
-		call    near lastScanCode__keyboard
-		call    near nullScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
+		call    near __CEXT_F(nullScanCode__keyboard)
 		mov     ecx, 2c380h
 		xor     esi, esi
 		mov     edi, [__CEXT_V(VGABufferPtr_0)]
 		mov     [___196a80h], esi
 		mov     [___196ad4h], esi
-		mov     esi, [GXBackBuffer]
+		mov     esi, [__CEXT_V(GXBackBuffer)]
 		add     edi, 0d200h
 		add     esi, 0d200h
 		xor     edx, edx
@@ -17466,10 +17456,10 @@ ___1ed74h:
 		rep movsb   
 		pop     edi
 		xor     eax, eax
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		mov     edx, 1
 		mov     eax, 2
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		call    near __CEXT_F(___12dc4h)
 ___1edd6h:
 		cmp     dword [___185a24h], byte 0
@@ -17477,15 +17467,15 @@ ___1edd6h:
 		call    near __CEXT_F(___12dc4h)
 		jmp     short ___1ee01h
 ___1ede6h:
-		mov     eax, [___VGABufferPtr_0]
+		mov     eax, [__CEXT_V(___VGABufferPtr_0)]
 		mov     [__CEXT_V(VGABufferPtr_0)], eax
 		call    near ___3a6a4h
-		call    near ___12cb8h
+		call    near __CEXT_F(___12cb8h)
 		xor     eax, eax
 		mov     [___185a24h], eax
 ___1ee01h:
 		mov     eax, 2
-		call    near ___146c4h
+		call    near __CEXT_F(___146c4h)
 		mov     [esp+4], eax
 		cmp     eax, byte 7
 		ja      near ___1f075h
@@ -17507,9 +17497,9 @@ ___1ee50h:
 		jmp     near ___1f075h
 ___1ee5ah:
 		xor     eax, eax
-		mov     edx, ___180ba0h
+		mov     edx, __CEXT_V(___180ba0h)
 		mov     [___196a78h], eax
-		mov     eax, ___186a6eh
+		mov     eax, __CEXT_V(___186a6eh)
 		call    near __CEXT_F(strcmp__clib3r)
 		test    eax, eax
 		jne     near ___1efcch
@@ -17517,22 +17507,22 @@ ___1ee5ah:
 		mov     ecx, 50h
 		xor     edx, edx
 		mov     ebx, 12ch
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		push    byte 1
 		mov     edx, 0dch
 		mov     eax, 0aah
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     ecx, 23adah
 		mov     ebx, ___181078h
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     ebx, 1
 		mov     ecx, esp
 		mov     edx, 102h
 		mov     eax, 0b4h
 		mov     [esp], ebx
-		call    near ___148cch
+		call    near __CEXT_F(___148cch)
 		mov     ecx, [esp]
 		and     eax, 0ffh
 		test    ecx, ecx
@@ -17563,7 +17553,7 @@ ___1ef14h:
 		add     ebp, 96h
 		mov     al, [edx+__CEXT_V(___1a1f4eh)]
 		add     ebx, 96h
-		mov     [edx+___1a1f4dh], al
+		mov     [edx+__CEXT_V(___1a1f4dh)], al
 		cmp     edx, byte 15h
 		jl      short ___1eef6h
 		mov     eax, [__CEXT_V(___180864h)]
@@ -17591,7 +17581,7 @@ ___1ef5ch:
 		jne     short ___1ef5ch
 ___1ef74h:
 		pop     edi
-		mov     esi, ___18108ch
+		mov     esi, __CEXT_V(___18108ch)
 		xor     dh, dh
 		push    edi
 		sub     ecx, ecx
@@ -17766,7 +17756,7 @@ ___1f124h:
 		je      near ___1f6ceh
 ___1f140h:
 		mov     ecx, 28f00h
-		mov     esi, [GXBackBuffer]
+		mov     esi, [__CEXT_V(GXBackBuffer)]
 		mov     edi, [__CEXT_V(VGABufferPtr_0)]
 		add     esi, 10680h
 		add     edi, 10680h
@@ -17780,16 +17770,16 @@ ___1f140h:
 		rep movsb   
 		pop     edi
 		xor     eax, eax
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		mov     eax, 2
 		xor     edx, edx
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		mov     edx, 1
 		mov     eax, 7
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		call    near __CEXT_F(___12dc4h)
 		mov     eax, 7
-		call    near ___146c4h
+		call    near __CEXT_F(___146c4h)
 		mov     ebp, eax
 		cmp     eax, byte 7
 		ja      near ___1f6c5h
@@ -17803,18 +17793,18 @@ ___1f1b3h:
 		mov     ecx, 32h
 		xor     edx, edx
 		mov     ebx, 1fah
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		push    byte 1
 		mov     edx, 0deh
 		mov     eax, 4ch
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     ecx, 23cd6h
 		mov     ebx, ___1810a8h
 		mov     edx, __CEXT_V(___185ba9h)
-		mov     eax, [___1a10cch]
+		mov     eax, [__CEXT_V(___1a10cch)]
 		xor     ebp, ebp
 		call    near __CEXT_F(renderTextToBuffer__video)
-		call    near ___12cb8h
+		call    near __CEXT_F(___12cb8h)
 ___1f20ch:
 		inc     ebp
 		call    near __CEXT_F(___58c60h)
@@ -17826,8 +17816,8 @@ ___1f20ch:
 		mov     [___1a1e50h], edi
 		mov     [___199fa4h], ebp
 		mov     [___199fa8h], eax
-		call    near nullScanCode__keyboard
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(nullScanCode__keyboard)
+		call    near __CEXT_F(lastScanCode__keyboard)
 		mov     ebp, 0ffffffffh
 		jmp     near ___1f6c5h
 ___1f248h:
@@ -17839,18 +17829,18 @@ ___1f248h:
 		mov     ecx, 32h
 		xor     edx, edx
 		mov     ebx, 1fah
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		push    byte 1
 		mov     edx, 0deh
 		mov     eax, 4ch
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     ecx, 23cd6h
 		mov     ebx, ___1810c4h
 		mov     edx, __CEXT_V(___185ba9h)
-		mov     eax, [___1a10cch]
+		mov     eax, [__CEXT_V(___1a10cch)]
 		xor     ebp, ebp
 		call    near __CEXT_F(renderTextToBuffer__video)
-		call    near ___12cb8h
+		call    near __CEXT_F(___12cb8h)
 ___1f2a1h:
 		inc     ebp
 		call    near __CEXT_F(___58c60h)
@@ -17863,8 +17853,8 @@ ___1f2a1h:
 		mov     [___1a1e50h], ebx
 		mov     [___199fa4h], ecx
 		mov     [___199fa8h], esi
-		call    near nullScanCode__keyboard
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(nullScanCode__keyboard)
+		call    near __CEXT_F(lastScanCode__keyboard)
 		jmp     near ___1f6c5h
 ___1f2e1h:
 		mov     eax, 3e8h
@@ -17875,17 +17865,17 @@ ___1f2e1h:
 		mov     ecx, 32h
 		xor     edx, edx
 		mov     ebx, 1fah
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		push    byte 1
 		mov     edx, 0deh
 		mov     eax, 4ch
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     ecx, 23cd6h
 		mov     ebx, ___1810e0h
 		mov     edx, __CEXT_V(___185ba9h)
-		mov     eax, [___1a10cch]
+		mov     eax, [__CEXT_V(___1a10cch)]
 		call    near __CEXT_F(renderTextToBuffer__video)
-		call    near ___12cb8h
+		call    near __CEXT_F(___12cb8h)
 		xor     edx, edx
 ___1f33ah:
 		inc     edx
@@ -17898,8 +17888,8 @@ ___1f33ah:
 		mov     [___1a1e50h], ebp
 		mov     [___199fa4h], eax
 		mov     [___199fa8h], edx
-		call    near nullScanCode__keyboard
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(nullScanCode__keyboard)
+		call    near __CEXT_F(lastScanCode__keyboard)
 		mov     ebp, 0ffffffffh
 		jmp     near ___1f6c5h
 ___1f379h:
@@ -17911,17 +17901,17 @@ ___1f379h:
 		mov     ecx, 32h
 		xor     edx, edx
 		mov     ebx, 1fah
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		push    byte 1
 		mov     edx, 0deh
 		mov     eax, 4ch
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     ecx, 23cd6h
 		mov     ebx, ___1810fch
 		mov     edx, __CEXT_V(___185ba9h)
-		mov     eax, [___1a10cch]
+		mov     eax, [__CEXT_V(___1a10cch)]
 		call    near __CEXT_F(renderTextToBuffer__video)
-		call    near ___12cb8h
+		call    near __CEXT_F(___12cb8h)
 		xor     edx, edx
 ___1f3d2h:
 		inc     edx
@@ -17934,25 +17924,25 @@ ___1f3d2h:
 		mov     [___1a1e50h], ecx
 		mov     [___199fa4h], esi
 		mov     [___199fa8h], ecx
-		call    near nullScanCode__keyboard
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(nullScanCode__keyboard)
+		call    near __CEXT_F(lastScanCode__keyboard)
 		jmp     near ___1f6c5h
 ___1f40dh:
 		mov     eax, 7
 		mov     ecx, 42h
 		xor     edx, edx
 		mov     ebx, 1e4h
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		push    byte 1
 		mov     edx, 0e1h
 		mov     eax, 52h
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     ecx, 2445ch
 		mov     ebx, ___181118h
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
-		call    near ___12cb8h
+		call    near __CEXT_F(___12cb8h)
 		mov     ebx, 10h
 		mov     edx, esp
 		mov     eax, [___199fa4h]
@@ -17980,8 +17970,8 @@ ___1f40dh:
 		add     esp, byte 0ch
 		mov     eax, [esp+50h]
 		mov     [___199fa4h], eax
-		call    near nullScanCode__keyboard
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(nullScanCode__keyboard)
+		call    near __CEXT_F(lastScanCode__keyboard)
 		mov     eax, [___199fa4h]
 		call    near ___1f0dch
 		test    eax, eax
@@ -17991,13 +17981,13 @@ ___1f40dh:
 		mov     ebx, 1e4h
 		mov     edx, 0e1h
 		mov     eax, 52h
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     ecx, 2445ch
 		mov     ebx, ___181150h
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
-		call    near ___12cb8h
+		call    near __CEXT_F(___12cb8h)
 		mov     ebx, 0ah
 		mov     edx, esp
 		mov     eax, [___199fa8h]
@@ -18025,9 +18015,9 @@ ___1f40dh:
 		add     esp, byte 0ch
 		mov     ecx, 28f00h
 		mov     [___1a1e50h], ebx
-		call    near nullScanCode__keyboard
-		call    near lastScanCode__keyboard
-		mov     esi, [GXBackBuffer]
+		call    near __CEXT_F(nullScanCode__keyboard)
+		call    near __CEXT_F(lastScanCode__keyboard)
+		mov     esi, [__CEXT_V(GXBackBuffer)]
 		mov     edi, [__CEXT_V(VGABufferPtr_0)]
 		add     esi, 10680h
 		add     edi, 10680h
@@ -18041,33 +18031,33 @@ ___1f40dh:
 		rep movsb   
 		pop     edi
 		xor     eax, eax
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		mov     eax, 2
 		xor     edx, edx
 		mov     ebx, 1fah
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		mov     eax, 7
 		xor     edx, edx
 		mov     ecx, 32h
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		push    byte 1
 		mov     edx, 0deh
 		mov     eax, 4ch
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     ecx, 23cd6h
 		mov     ebx, ___181180h
 		mov     edx, __CEXT_V(___185ba9h)
-		mov     eax, [___1a10cch]
+		mov     eax, [__CEXT_V(___1a10cch)]
 		call    near __CEXT_F(renderTextToBuffer__video)
-		call    near ___12cb8h
+		call    near __CEXT_F(___12cb8h)
 		xor     edx, edx
 ___1f606h:
 		inc     edx
 		call    near __CEXT_F(___58c60h)
 		cmp     edx, byte 32h
 		jl      short ___1f606h
-		call    near nullScanCode__keyboard
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(nullScanCode__keyboard)
+		call    near __CEXT_F(lastScanCode__keyboard)
 ___1f61bh:
 		mov     ebp, 0ffffffffh
 		jmp     near ___1f6c5h
@@ -18076,15 +18066,15 @@ ___1f625h:
 		mov     ecx, 4fh
 		xor     edx, edx
 		mov     ebx, 220h
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		push    byte 1
 		mov     edx, 0fah
 		mov     eax, 2eh
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     ecx, 28f42h
 		mov     ebx, ___18119ch
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		call    near __CEXT_F(___12dc4h)
 		push    byte 1
@@ -18098,12 +18088,12 @@ ___1f625h:
 		call    near ___18394h
 		jmp     short ___1f6c5h
 ___1f690h:
-		cmp     dword [ToneDialing], byte 0
+		cmp     dword [__CEXT_V(ToneDialing)], byte 0
 		setz    al
 		and     eax, 0ffh
-		mov     [ToneDialing], eax
+		mov     [__CEXT_V(ToneDialing)], eax
 		je      short ___1f6b6h
-		mov     edi, ___187432h
+		mov     edi, __CEXT_V(___187432h)
 		mov     esi, ___1811b8h
 		movsd   
 		movsd   
@@ -18111,7 +18101,7 @@ ___1f690h:
 		movsb   
 		jmp     short ___1f6c5h
 ___1f6b6h:
-		mov     edi, ___187432h
+		mov     edi, __CEXT_V(___187432h)
 		mov     esi, __CEXT_V(string__pulse_dialing)
 		movsd   
 		movsd   
@@ -19469,7 +19459,7 @@ ___203bah:
 		mov     eax, 1ah
 		lea     edi, [esp+4]
 		mov     esi, ___181998h
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     ecx, 6
 		mov     eax, esp
 		mov     ebx, esp
@@ -19480,30 +19470,30 @@ ___203bah:
 		mov     ecx, 1fcc2h
 		call    near ___252e0h
 		sub     ecx, eax
-		mov     eax, [___1a10cch]
+		mov     eax, [__CEXT_V(___1a10cch)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     ecx, 24bdfh
 		mov     ebx, ___1819b4h
 		mov     edx, __CEXT_V(___185ba9h)
-		mov     eax, [___1a10cch]
+		mov     eax, [__CEXT_V(___1a10cch)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		call    near __CEXT_F(___12dc4h)
 		push    8000h
 		mov     edx, 1dh
-		mov     edi, [___1854bch]
+		mov     edi, [__CEXT_V(___1854bch)]
 		mov     eax, 1
 		push    edi
-		mov     ecx, [ConfigSFXVolume]
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
 		xor     ebx, ebx
-		call    near playSFX__sound
-		call    near lastScanCode__keyboard
-		call    near nullScanCode__keyboard
+		call    near __CEXT_F(playSFX__sound)
+		call    near __CEXT_F(lastScanCode__keyboard)
+		call    near __CEXT_F(nullScanCode__keyboard)
 ___20473h:
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
 		test    al, al
 		je      short ___20473h
-		call    near lastScanCode__keyboard
-		call    near nullScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
+		call    near __CEXT_F(nullScanCode__keyboard)
 		mov     ecx, 4b000h
 		mov     esi, [__CEXT_V(___1a1124h)]
 		mov     edi, [__CEXT_V(VGABufferPtr_0)]
@@ -19615,7 +19605,7 @@ ___204fch:
 		mov     [esp+30h], edx
 ___205a3h:
 		mov     ecx, 28f00h
-		mov     esi, [GXBackBuffer]
+		mov     esi, [__CEXT_V(GXBackBuffer)]
 		mov     edi, [__CEXT_V(VGABufferPtr_0)]
 		add     esi, 10680h
 		add     edi, 10680h
@@ -19629,16 +19619,16 @@ ___205a3h:
 		rep movsb   
 		pop     edi
 		xor     eax, eax
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		mov     eax, 3
 		xor     edx, edx
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		mov     edx, 1
 		mov     eax, 6
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		call    near __CEXT_F(___12dc4h)
 		mov     eax, 6
-		call    near ___146c4h
+		call    near __CEXT_F(___146c4h)
 		mov     ebp, eax
 		inc     eax
 		cmp     eax, byte 9
@@ -19647,36 +19637,36 @@ ___205a3h:
 ___20617h:
 		xor     edx, edx
 		xor     eax, eax
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		mov     eax, 3
 		xor     edx, edx
 		mov     ecx, 30h
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		mov     eax, 6
 		xor     edx, edx
 		mov     ebx, 143h
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		push    byte 1
 		mov     edx, 79h
 		mov     eax, 127h
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     ecx, [esp+28h]
 		mov     ebx, ___1819d0h
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		call    near __CEXT_F(___12dc4h)
 ___20670h:
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
 		and     eax, 0ffh
 		mov     [___1a1158h], eax
 		je      short ___20670h
 		cmp     eax, dword 0aah
 		je      short ___20670h
-		call    near nullScanCode__keyboard
+		call    near __CEXT_F(nullScanCode__keyboard)
 		mov     edi, ___187144h
 		mov     esi, ___1818d8h
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
 		mov     ebx, [___1a1158h]
 		movsd   
 		movsd   
@@ -19720,27 +19710,27 @@ ___206e1h:
 ___206ebh:
 		xor     edx, edx
 		xor     eax, eax
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		mov     eax, 3
 		xor     edx, edx
 		mov     ecx, 30h
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		mov     eax, 6
 		xor     edx, edx
 		mov     ebx, 143h
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		push    byte 1
 		mov     edx, [esp+14h]
 		mov     eax, 127h
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     ecx, [esp+24h]
 		mov     ebx, ___1819f0h
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		call    near __CEXT_F(___12dc4h)
 ___20743h:
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
 		and     eax, 0ffh
 		mov     [___1a1150h], eax
 		je      short ___20743h
@@ -19748,8 +19738,8 @@ ___20743h:
 		je      short ___20743h
 		mov     edi, ___187176h
 		mov     esi, ___1818e8h
-		call    near nullScanCode__keyboard
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(nullScanCode__keyboard)
+		call    near __CEXT_F(lastScanCode__keyboard)
 		movsd   
 		movsd   
 		movsd   
@@ -19789,36 +19779,36 @@ ___207a7h:
 ___207bbh:
 		xor     edx, edx
 		xor     eax, eax
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		mov     eax, 3
 		xor     edx, edx
 		mov     ecx, 30h
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		mov     eax, 6
 		xor     edx, edx
 		mov     ebx, 143h
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		push    byte 1
 		mov     edx, [esp+18h]
 		mov     eax, 127h
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     ecx, [esp+38h]
 		mov     ebx, ___181a0ch
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		call    near __CEXT_F(___12dc4h)
 ___20813h:
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
 		and     eax, 0ffh
 		mov     [___1a1148h], eax
 		je      short ___20813h
 		cmp     eax, dword 0aah
 		je      short ___20813h
-		call    near nullScanCode__keyboard
+		call    near __CEXT_F(nullScanCode__keyboard)
 		mov     edi, ___1871a8h
 		mov     esi, ___1818f8h
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
 		mov     ebx, [___1a1148h]
 		movsd   
 		movsd   
@@ -19860,27 +19850,27 @@ ___20879h:
 ___2088dh:
 		xor     edx, edx
 		xor     eax, eax
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		mov     eax, 3
 		xor     edx, edx
 		mov     ecx, 30h
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		mov     eax, 6
 		xor     edx, edx
 		mov     ebx, 143h
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		push    byte 1
 		mov     edx, [esp+8]
 		mov     eax, 127h
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     ecx, [esp+1ch]
 		mov     ebx, ___181a2ch
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		call    near __CEXT_F(___12dc4h)
 ___208e5h:
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
 		and     eax, 0ffh
 		mov     [___1a114ch], eax
 		je      short ___208e5h
@@ -19888,8 +19878,8 @@ ___208e5h:
 		je      short ___208e5h
 		mov     edi, ___1871dah
 		mov     esi, ___18190ch
-		call    near nullScanCode__keyboard
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(nullScanCode__keyboard)
+		call    near __CEXT_F(lastScanCode__keyboard)
 		movsd   
 		movsd   
 		movsd   
@@ -19931,37 +19921,37 @@ ___2094ah:
 ___2095eh:
 		xor     edx, edx
 		xor     eax, eax
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		mov     eax, 3
 		xor     edx, edx
 		mov     ecx, 30h
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		mov     eax, 6
 		xor     edx, edx
 		mov     ebx, 143h
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		push    byte 1
 		mov     edx, [esp+0ch]
 		mov     eax, 127h
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     ecx, [esp+18h]
 		mov     ebx, ___181a4ch
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		call    near __CEXT_F(___12dc4h)
 ___209b6h:
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
 		and     eax, 0ffh
 		mov     [___1a1140h], eax
 		je      short ___209b6h
 		cmp     eax, dword 0aah
 		je      short ___209b6h
-		call    near nullScanCode__keyboard
+		call    near __CEXT_F(nullScanCode__keyboard)
 		mov     ecx, 6
 		mov     edi, ___18720ch
 		mov     esi, ___181924h
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
 		mov     ebx, [___1a1140h]
 		rep movsd   
 		movsw   
@@ -20000,27 +19990,27 @@ ___20a20h:
 ___20a34h:
 		xor     edx, edx
 		xor     eax, eax
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		mov     eax, 3
 		xor     edx, edx
 		mov     ecx, 30h
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		mov     eax, 6
 		xor     edx, edx
 		mov     ebx, 143h
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		push    byte 1
 		mov     edx, [esp+30h]
 		mov     eax, 127h
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     ecx, [esp+0ch]
 		mov     ebx, ___181a6ch
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		call    near __CEXT_F(___12dc4h)
 ___20a8ch:
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
 		and     eax, 0ffh
 		mov     [___1a115ch], eax
 		je      short ___20a8ch
@@ -20029,8 +20019,8 @@ ___20a8ch:
 		mov     ecx, 6
 		mov     edi, ___18723eh
 		mov     esi, ___181940h
-		call    near nullScanCode__keyboard
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(nullScanCode__keyboard)
+		call    near __CEXT_F(lastScanCode__keyboard)
 		rep movsd   
 		movsw   
 		imul    esi, [___1a115ch], byte 0fh
@@ -20068,37 +20058,37 @@ ___20af4h:
 ___20b08h:
 		xor     edx, edx
 		xor     eax, eax
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		mov     eax, 3
 		xor     edx, edx
 		mov     ecx, 30h
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		mov     eax, 6
 		xor     edx, edx
 		mov     ebx, 143h
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		push    byte 1
 		mov     edx, [esp+38h]
 		mov     eax, 127h
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     ecx, [esp+20h]
 		mov     ebx, ___181a8ch
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		call    near __CEXT_F(___12dc4h)
 ___20b60h:
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
 		and     eax, 0ffh
 		mov     [___1a1154h], eax
 		je      short ___20b60h
 		cmp     eax, dword 0aah
 		je      short ___20b60h
-		call    near nullScanCode__keyboard
+		call    near __CEXT_F(nullScanCode__keyboard)
 		mov     ecx, 6
 		mov     edi, ___187270h
 		mov     esi, ___18195ch
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
 		mov     ebx, [___1a1154h]
 		rep movsd   
 		movsb   
@@ -20137,27 +20127,27 @@ ___20bc9h:
 ___20bddh:
 		xor     edx, edx
 		xor     eax, eax
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		mov     eax, 3
 		xor     edx, edx
 		mov     ecx, 30h
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		mov     eax, 6
 		xor     edx, edx
 		mov     ebx, 143h
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		push    byte 1
 		mov     edx, [esp+4]
 		mov     eax, 127h
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     ecx, [esp+30h]
 		mov     ebx, ___181aach
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		call    near __CEXT_F(___12dc4h)
 ___20c35h:
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
 		and     eax, 0ffh
 		mov     [___1a1144h], eax
 		je      short ___20c35h
@@ -20166,8 +20156,8 @@ ___20c35h:
 		mov     ecx, 8
 		mov     edi, ___1872a2h
 		mov     esi, ___181ac4h
-		call    near nullScanCode__keyboard
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(nullScanCode__keyboard)
+		call    near __CEXT_F(lastScanCode__keyboard)
 		rep movsd   
 		imul    esi, [___1a1144h], byte 0fh
 		mov     edi, ___1872a2h
@@ -20382,7 +20372,7 @@ ___20e51h:
 		mov     eax, 1ah
 		lea     edi, [esp+4]
 		mov     esi, ___181ae4h
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     ecx, 7
 		mov     eax, esp
 		mov     ebx, esp
@@ -20393,30 +20383,30 @@ ___20e51h:
 		mov     ecx, 1fcc2h
 		call    near ___252e0h
 		sub     ecx, eax
-		mov     eax, [___1a10cch]
+		mov     eax, [__CEXT_V(___1a10cch)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     ecx, 24bdfh
 		mov     ebx, ___1819b4h
 		mov     edx, __CEXT_V(___185ba9h)
-		mov     eax, [___1a10cch]
+		mov     eax, [__CEXT_V(___1a10cch)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		call    near __CEXT_F(___12dc4h)
 		push    8000h
 		mov     edx, 1dh
-		mov     esi, [___1854bch]
+		mov     esi, [__CEXT_V(___1854bch)]
 		mov     eax, 1
 		push    esi
-		mov     ecx, [ConfigSFXVolume]
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
 		xor     ebx, ebx
-		call    near playSFX__sound
-		call    near lastScanCode__keyboard
-		call    near nullScanCode__keyboard
+		call    near __CEXT_F(playSFX__sound)
+		call    near __CEXT_F(lastScanCode__keyboard)
+		call    near __CEXT_F(nullScanCode__keyboard)
 ___20f18h:
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
 		test    al, al
 		je      short ___20f18h
-		call    near lastScanCode__keyboard
-		call    near nullScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
+		call    near __CEXT_F(nullScanCode__keyboard)
 		mov     ecx, 4b000h
 		mov     esi, [__CEXT_V(___1a1124h)]
 		mov     edi, [__CEXT_V(VGABufferPtr_0)]
@@ -20466,7 +20456,7 @@ ___20f78h:
 		mov     ecx, 201h
 ___20f99h:
 		call    near __CEXT_F(updateMenuBackgroundAndTextArea)
-		cmp     dword [Gamepad], byte 0
+		cmp     dword [__CEXT_V(Gamepad)], byte 0
 		jle     near ___2105dh
 		call    near ___59db8h
 		cmp     ebx, byte 0fh
@@ -20523,7 +20513,7 @@ ___2104ch:
 		jne     short ___2105dh
 		mov     dl, [___199f45h]
 ___2105dh:
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
 		cmp     al, 1ch
 		je      short ___2106eh
 		cmp     al, 9ch
@@ -20597,7 +20587,7 @@ ___210b4h:
 		mov     [esp+10h], ebp
 ___21149h:
 		mov     ecx, 28f00h
-		mov     esi, [GXBackBuffer]
+		mov     esi, [__CEXT_V(GXBackBuffer)]
 		mov     edi, [__CEXT_V(VGABufferPtr_0)]
 		add     esi, 10680h
 		add     edi, 10680h
@@ -20611,16 +20601,16 @@ ___21149h:
 		rep movsb   
 		pop     edi
 		xor     eax, eax
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		mov     eax, 3
 		xor     edx, edx
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		mov     edx, 1
 		mov     eax, 8
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		call    near __CEXT_F(___12dc4h)
 		mov     eax, 8
-		call    near ___146c4h
+		call    near __CEXT_F(___146c4h)
 		mov     ebp, eax
 		inc     eax
 		cmp     eax, byte 8
@@ -20629,23 +20619,23 @@ ___21149h:
 ___211bdh:
 		xor     edx, edx
 		xor     eax, eax
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		mov     eax, 3
 		xor     edx, edx
 		mov     ecx, 30h
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		mov     eax, 8
 		xor     edx, edx
 		mov     ebx, 143h
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		push    byte 1
 		mov     edx, 79h
 		mov     eax, 127h
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     ecx, [esp+2ch]
 		mov     ebx, ___181b04h
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		call    near __CEXT_F(___12dc4h)
 		call    near ___20f78h
@@ -20653,8 +20643,8 @@ ___211bdh:
 		and     eax, 0ffh
 		mov     esi, ___1818d8h
 		mov     [___1a1164h], eax
-		call    near nullScanCode__keyboard
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(nullScanCode__keyboard)
+		call    near __CEXT_F(lastScanCode__keyboard)
 		mov     edx, [___1a1164h]
 		movsd   
 		movsd   
@@ -20698,23 +20688,23 @@ ___2127eh:
 ___21288h:
 		xor     edx, edx
 		xor     eax, eax
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		mov     eax, 3
 		xor     edx, edx
 		mov     ecx, 30h
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		mov     eax, 8
 		xor     edx, edx
 		mov     ebx, 143h
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		push    byte 1
 		mov     edx, [esp+28h]
 		mov     eax, 127h
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     ecx, [esp+28h]
 		mov     ebx, ___181b24h
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		call    near __CEXT_F(___12dc4h)
 		call    near ___20f78h
@@ -20722,8 +20712,8 @@ ___21288h:
 		and     eax, 0ffh
 		mov     esi, ___1818e8h
 		mov     [___1a113ch], eax
-		call    near nullScanCode__keyboard
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(nullScanCode__keyboard)
+		call    near __CEXT_F(lastScanCode__keyboard)
 		mov     eax, [___1a113ch]
 		movsd   
 		movsd   
@@ -20764,23 +20754,23 @@ ___2133ch:
 ___21350h:
 		xor     edx, edx
 		xor     eax, eax
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		mov     eax, 3
 		xor     edx, edx
 		mov     ecx, 30h
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		mov     eax, 8
 		xor     edx, edx
 		mov     ebx, 143h
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		push    byte 1
 		mov     edx, [esp+1ch]
 		mov     eax, 127h
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     ecx, [esp+14h]
 		mov     ebx, ___181b40h
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		call    near __CEXT_F(___12dc4h)
 		call    near ___20f78h
@@ -20788,8 +20778,8 @@ ___21350h:
 		and     eax, 0ffh
 		mov     esi, ___1818f8h
 		mov     [___1a1110h], eax
-		call    near nullScanCode__keyboard
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(nullScanCode__keyboard)
+		call    near __CEXT_F(lastScanCode__keyboard)
 		movsd   
 		movsd   
 		movsd   
@@ -20830,23 +20820,23 @@ ___21403h:
 ___21417h:
 		xor     edx, edx
 		xor     eax, eax
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		mov     eax, 3
 		xor     edx, edx
 		mov     ecx, 30h
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		mov     eax, 8
 		xor     edx, edx
 		mov     ebx, 143h
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		push    byte 1
 		mov     edx, [esp+20h]
 		mov     eax, 127h
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     ecx, [esp+8]
 		mov     ebx, ___181b60h
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		call    near __CEXT_F(___12dc4h)
 		call    near ___20f78h
@@ -20854,8 +20844,8 @@ ___21417h:
 		and     eax, 0ffh
 		mov     esi, ___18190ch
 		mov     [___1a1130h], eax
-		call    near nullScanCode__keyboard
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(nullScanCode__keyboard)
+		call    near __CEXT_F(lastScanCode__keyboard)
 		mov     ecx, [___1a1130h]
 		movsd   
 		movsd   
@@ -20898,23 +20888,23 @@ ___214cdh:
 ___214e1h:
 		xor     edx, edx
 		xor     eax, eax
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		mov     eax, 3
 		xor     edx, edx
 		mov     ecx, 30h
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		mov     eax, 8
 		xor     edx, edx
 		mov     ebx, 143h
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		push    byte 1
 		mov     edx, [esp+24h]
 		mov     eax, 127h
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     ecx, [esp+4]
 		mov     ebx, ___181b80h
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		call    near __CEXT_F(___12dc4h)
 		call    near ___20f78h
@@ -20923,8 +20913,8 @@ ___214e1h:
 		and     eax, 0ffh
 		mov     esi, ___181924h
 		mov     [___1a1120h], eax
-		call    near nullScanCode__keyboard
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(nullScanCode__keyboard)
+		call    near __CEXT_F(lastScanCode__keyboard)
 		mov     ebx, [___1a1120h]
 		rep movsd   
 		movsw   
@@ -20963,23 +20953,23 @@ ___2159ah:
 ___215aeh:
 		xor     edx, edx
 		xor     eax, eax
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		mov     eax, 3
 		xor     edx, edx
 		mov     ecx, 30h
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		mov     eax, 8
 		xor     edx, edx
 		mov     ebx, 143h
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		push    byte 1
 		mov     edx, [esp+10h]
 		mov     eax, 127h
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     ecx, [esp+30h]
 		mov     ebx, ___181ba0h
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		call    near __CEXT_F(___12dc4h)
 		call    near ___20f78h
@@ -20988,8 +20978,8 @@ ___215aeh:
 		and     eax, 0ffh
 		mov     esi, ___181940h
 		mov     [___1a1118h], eax
-		call    near nullScanCode__keyboard
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(nullScanCode__keyboard)
+		call    near __CEXT_F(lastScanCode__keyboard)
 		mov     edx, [___1a1118h]
 		rep movsd   
 		movsw   
@@ -21028,23 +21018,23 @@ ___21667h:
 ___2167bh:
 		xor     edx, edx
 		xor     eax, eax
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		mov     eax, 3
 		xor     edx, edx
 		mov     ecx, 30h
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		mov     eax, 8
 		xor     edx, edx
 		mov     ebx, 143h
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		push    byte 1
 		mov     edx, [esp+4]
 		mov     eax, 127h
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     ecx, [esp+10h]
 		mov     ebx, ___181bc4h
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		call    near __CEXT_F(___12dc4h)
 		call    near ___20f78h
@@ -21053,8 +21043,8 @@ ___2167bh:
 		and     eax, 0ffh
 		mov     esi, ___18195ch
 		mov     [___1a111ch], eax
-		call    near nullScanCode__keyboard
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(nullScanCode__keyboard)
+		call    near __CEXT_F(lastScanCode__keyboard)
 		mov     eax, [___1a111ch]
 		rep movsd   
 		movsb   
@@ -21137,14 +21127,14 @@ ___217b0h:
 		push    edi
 		push    8000h
 		mov     eax, 1
-		mov     edx, [___1854bch]
-		mov     ecx, [ConfigSFXVolume]
+		mov     edx, [__CEXT_V(___1854bch)]
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
 		push    edx
 		xor     ebx, ebx
 		mov     edx, 1dh
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 		mov     ecx, 28f00h
-		mov     esi, [GXBackBuffer]
+		mov     esi, [__CEXT_V(GXBackBuffer)]
 		mov     edi, [__CEXT_V(VGABufferPtr_0)]
 		add     esi, 10680h
 		add     edi, 10680h
@@ -21159,34 +21149,34 @@ ___217b0h:
 		pop     edi
 		xor     eax, eax
 		mov     ebx, 253h
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		mov     eax, 3
 		xor     edx, edx
 		mov     ecx, 56h
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		push    byte 1
 		mov     edx, 0c6h
 		mov     eax, 1ch
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     ecx, 2088ch
 		mov     ebx, ___181be4h
 		mov     edx, __CEXT_V(___185ba9h)
-		mov     eax, [___1a10cch]
+		mov     eax, [__CEXT_V(___1a10cch)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     ecx, 25861h
 		mov     ebx, ___180848h
 		mov     edx, __CEXT_V(___185ba9h)
-		mov     eax, [___1a10cch]
+		mov     eax, [__CEXT_V(___1a10cch)]
 		call    near __CEXT_F(renderTextToBuffer__video)
-		call    near ___12cb8h
-		call    near lastScanCode__keyboard
-		call    near nullScanCode__keyboard
+		call    near __CEXT_F(___12cb8h)
+		call    near __CEXT_F(lastScanCode__keyboard)
+		call    near __CEXT_F(nullScanCode__keyboard)
 ___21880h:
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
 		test    al, al
 		je      short ___21880h
-		call    near lastScanCode__keyboard
-		call    near nullScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
+		call    near __CEXT_F(nullScanCode__keyboard)
 		pop     edi
 		pop     esi
 		pop     edx
@@ -21200,8 +21190,7 @@ dd	___21f17h
 dd	___21f21h
 dd	___21f2bh
 dd	___21f93h
-global configureMenu__dr
-configureMenu__dr:
+__GDECL(__CEXT_F(configureMenu__dr))
 		push    44h
 		call    near __CHK
 		push    ebx
@@ -21213,14 +21202,14 @@ configureMenu__dr:
 		mov     ebp, esp
 		sub     esp, byte 20h
 		and     esp, byte 0fffffff8h
-		mov     eax, [ConfigMusicVolume]
+		mov     eax, [__CEXT_V(ConfigMusicVolume)]
 		mov     edx, eax
 		sar     edx, 1fh
 		shl     edx, 9
 		sbb     eax, edx
 		sar     eax, 9
 		mov     [esp+1ch], eax
-		mov     eax, [ConfigSFXVolume]
+		mov     eax, [__CEXT_V(ConfigSFXVolume)]
 		mov     edx, eax
 		sar     edx, 1fh
 		shl     edx, 9
@@ -21234,7 +21223,7 @@ ___21901h:
 		test    edx, edx
 		jne     near ___21c44h
 		mov     ecx, 2c380h
-		mov     esi, [GXBackBuffer]
+		mov     esi, [__CEXT_V(GXBackBuffer)]
 		mov     edi, [__CEXT_V(VGABufferPtr_0)]
 		add     esi, 0d200h
 		add     edi, 0d200h
@@ -21247,13 +21236,13 @@ ___21901h:
 		rep movsb   
 		pop     edi
 		xor     eax, eax
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		mov     edx, 1
 		mov     eax, 3
-		call    near ___13710h
-		call    near ___12cb8h
+		call    near __CEXT_F(___13710h)
+		call    near __CEXT_F(___12cb8h)
 		mov     eax, 3
-		call    near ___146c4h
+		call    near __CEXT_F(___146c4h)
 		mov     [esp+0ch], eax
 		cmp     eax, byte 5
 		ja      near ___21c39h
@@ -21263,15 +21252,15 @@ ___21976h:
 		mov     ecx, 46h
 		xor     edx, edx
 		mov     ebx, 14ah
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		push    byte 1
 		mov     edx, 0dah
 		mov     eax, 0d6h
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     ecx, 235e0h
 		mov     ebx, ___181bfch
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     ecx, 18h
 		mov     edx, 0ach
@@ -21295,7 +21284,7 @@ ___219dch:
 		dec     ecx
 		jne     short ___219d2h
 		xor     dl, dl
-		call    near ___12cb8h
+		call    near __CEXT_F(___12cb8h)
 		mov     [esp+14h], dl
 ___219f7h:
 		mov     dh, [esp+14h]
@@ -21305,7 +21294,7 @@ ___219f7h:
 		je      near ___21c0bh
 		cmp     dword [__CEXT_V(___196a84h)], byte 0
 		jne     near ___21c0bh
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
 		mov     [esp+14h], al
 		cmp     al, 0cbh
 		jne     short ___21a36h
@@ -21448,7 +21437,7 @@ ___21bafh:
 		mov     edx, __CEXT_V(___185ba9h)
 		call    near ___1f094h
 		sub     ecx, eax
-		mov     eax, [___1a10cch]
+		mov     eax, [__CEXT_V(___1a10cch)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     ecx, 20h
 		mov     ebx, 78h
@@ -21458,7 +21447,7 @@ ___21bafh:
 		call    near __CEXT_F(___1398ch)
 		mov     eax, [esp+1ch]
 		shl     eax, 9
-		call    near ___6572ch
+		call    near __CEXT_F(___6572ch)
 		call    near __CEXT_F(updateMenuBackgroundAndTextArea)
 		cmp     byte [esp+14h], 1ch
 		jne     near ___219f7h
@@ -21467,13 +21456,13 @@ ___21c0bh:
 		push    8000h
 		shl     eax, 9
 		mov     edx, 16h
-		mov     [ConfigMusicVolume], eax
+		mov     [__CEXT_V(ConfigMusicVolume)], eax
 		mov     eax, [___1854b8h]
-		mov     ecx, [ConfigSFXVolume]
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
 		push    eax
 		xor     ebx, ebx
 		mov     eax, 1
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 ___21c39h:
 		cmp     dword [esp+0ch], byte 0ffffffffh
 		jne     near ___21901h
@@ -21492,15 +21481,15 @@ ___21c52h:
 		mov     ecx, 46h
 		xor     edx, edx
 		mov     ebx, 14ah
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		push    byte 1
 		mov     edx, 0dah
 		mov     eax, 0d6h
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     ecx, 235e0h
 		mov     ebx, ___181c18h
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     ecx, 18h
 		mov     edx, 0ach
@@ -21523,7 +21512,7 @@ ___21cb8h:
 		sub     ebx, edx
 		dec     ecx
 		jne     short ___21caeh
-		call    near ___12cb8h
+		call    near __CEXT_F(___12cb8h)
 		xor     ah, ah
 		mov     [esp+14h], ah
 ___21cd3h:
@@ -21534,7 +21523,7 @@ ___21cd3h:
 		je      near ___21ee9h
 		cmp     dword [__CEXT_V(___196a84h)], byte 0
 		jne     near ___21ee9h
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
 		mov     [esp+14h], al
 		cmp     al, 0cbh
 		jne     short ___21d12h
@@ -21677,7 +21666,7 @@ ___21e8bh:
 		mov     edx, __CEXT_V(___185ba9h)
 		call    near ___1f094h
 		sub     ecx, eax
-		mov     eax, [___1a10cch]
+		mov     eax, [__CEXT_V(___1a10cch)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     ecx, 20h
 		mov     ebx, 78h
@@ -21688,7 +21677,7 @@ ___21e8bh:
 		mov     eax, [esp+18h]
 		shl     eax, 9
 		mov     dl, [esp+14h]
-		call    near ___65770h
+		call    near __CEXT_F(___65770h)
 		call    near __CEXT_F(updateMenuBackgroundAndTextArea)
 		cmp     dl, 1ch
 		jne     near ___21cd3h
@@ -21701,8 +21690,8 @@ ___21ee9h:
 		shl     ecx, 9
 		push    eax
 		mov     eax, 1
-		mov     [ConfigSFXVolume], ecx
-		call    near playSFX__sound
+		mov     [__CEXT_V(ConfigSFXVolume)], ecx
+		call    near __CEXT_F(playSFX__sound)
 		jmp     near ___21c39h
 ___21f17h:
 		call    near ___204fch
@@ -21711,29 +21700,29 @@ ___21f21h:
 		call    near ___210b4h
 		jmp     near ___21c39h
 ___21f2bh:
-		cmp     dword [Gamepad], byte 0
+		cmp     dword [__CEXT_V(Gamepad)], byte 0
 		setz    al
 		and     eax, 0ffh
-		mov     [Gamepad], eax
+		mov     [__CEXT_V(Gamepad)], eax
 		cmp     eax, byte 1
 		jne     short ___21f6eh
 		call    near ___59db8h
-		cmp     dword [Gamepad], byte 0
+		cmp     dword [__CEXT_V(Gamepad)], byte 0
 		jne     short ___21f57h
 		call    near ___217b0h
 ___21f57h:
 		mov     ecx, 6
-		mov     edi, ___186cc6h
-		mov     esi, ___181c30h
-		call    near ___596f0h
+		mov     edi, __CEXT_V(___186cc6h)
+		mov     esi, __CEXT_V(___181c30h)
+		call    near __CEXT_F(___596f0h)
 		rep movsd   
 		movsb   
 ___21f6eh:
-		cmp     dword [Gamepad], byte 0
+		cmp     dword [__CEXT_V(Gamepad)], byte 0
 		jne     near ___21c39h
 		mov     ecx, 6
-		mov     edi, ___186cc6h
-		mov     esi, ___181c4ch
+		mov     edi, __CEXT_V(___186cc6h)
+		mov     esi, __CEXT_V(___181c4ch)
 		rep movsd   
 		movsw   
 		jmp     near ___21c39h
@@ -21771,7 +21760,7 @@ ___21fd4h:
 		mov     ebp, 14c80h
 		mov     ebx, 17dh
 ___21ff5h:
-		mov     eax, [GXBackBuffer]
+		mov     eax, [__CEXT_V(GXBackBuffer)]
 		add     eax, ebp
 		lea     esi, [eax+0e1h]
 		mov     eax, [__CEXT_V(VGABufferPtr_0)]
@@ -21792,7 +21781,7 @@ ___21ff5h:
 		mov     ebp, 20300h
 		mov     edx, 170h
 ___22039h:
-		mov     eax, [GXBackBuffer]
+		mov     eax, [__CEXT_V(GXBackBuffer)]
 		add     eax, ebp
 		lea     esi, [eax+0e0h]
 		mov     eax, [__CEXT_V(VGABufferPtr_0)]
@@ -21859,7 +21848,7 @@ ___220ddh:
 		sar     eax, 1
 		mov     edx, __CEXT_V(___185ba9h)
 		sub     ecx, eax
-		mov     eax, [___1a10cch]
+		mov     eax, [__CEXT_V(___1a10cch)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     edx, [esp+5ch]
 		mov     esi, 20a02h
@@ -22131,7 +22120,7 @@ ___223c4h:
 		sub     esp, byte 44h
 		mov     ecx, 4b000h
 		mov     ebx, 27fh
-		mov     esi, [GXBackBuffer]
+		mov     esi, [__CEXT_V(GXBackBuffer)]
 		mov     edi, [__CEXT_V(VGABufferPtr_0)]
 		mov     edx, 173h
 		push    edi
@@ -22144,7 +22133,7 @@ ___223c4h:
 		pop     edi
 		mov     ecx, 6dh
 		xor     eax, eax
-		call    near frameFooter__dr
+		call    near __CEXT_F(frameFooter__dr)
 		call    near ___3e03ch
 		call    near __CEXT_F(footer__dr)
 		mov     ecx, 36h
@@ -22440,15 +22429,15 @@ ___22749h:
 		mov     [esp+3ch], esi
 		cmp     edi, byte 0ah
 		jl      near ___225e0h
-		call    near ___12cb8h
+		call    near __CEXT_F(___12cb8h)
 		call    near __CEXT_F(___2b318h)
 		call    near ___3d1f0h
-		call    near lastScanCode__keyboard
-		call    near nullScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
+		call    near __CEXT_F(nullScanCode__keyboard)
 		xor     edx, edx
 ___227cfh:
 		call    near __CEXT_F(updateMenuBackgroundAndTextArea)
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
 		mov     ah, al
 		cmp     al, 3bh
 		jne     short ___227eeh
@@ -22459,8 +22448,8 @@ ___227cfh:
 ___227eeh:
 		test    ah, ah
 		je      short ___227cfh
-		call    near lastScanCode__keyboard
-		call    near nullScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
+		call    near __CEXT_F(nullScanCode__keyboard)
 		add     esp, byte 44h
 		pop     ebp
 		pop     edi
@@ -22539,18 +22528,18 @@ ___2287dh:
 		mov     eax, ___181c74h
 		call    near ___10b80h
 ___228abh:
-		call    near ___606dfh
+		call    near __CEXT_F(___606dfh)
 		mov     ax, 4f02h
 		mov     bx, 101h
 		int     10h
 		mov     eax, 46h
 		xor     ebx, ebx
 		call    near __CEXT_F(___605deh)
-		call    near ___3d890h
-		call    near ___1240ch
+		call    near __CEXT_F(___3d890h)
+		call    near __CEXT_F(___1240ch)
 		call    near __CEXT_F(___24548h)
-		call    near ___2faf0h
-		call    near ___3d2bch
+		call    near __CEXT_F(___2faf0h)
+		call    near __CEXT_F(___3d2bch)
 		call    near __CEXT_F(___12940h)
 		mov     esi, [__CEXT_V(MyID)]
 		lea     eax, [esi*8+0]
@@ -22589,7 +22578,7 @@ ___228abh:
 ___22965h:
 		call    near __CEXT_F(___58c60h)
 		mov     eax, [esp+68h]
-		call    near ___65710h
+		call    near __CEXT_F(___65710h)
 		mov     esi, ebp
 		xor     ecx, ecx
 		xor     edi, edi
@@ -22644,18 +22633,18 @@ ___2297dh:
 		call    near __CEXT_F(___649a8h)
 		call    near __CEXT_F(___64a28h)
 		push    byte 5
-		mov     ecx, ___181c9ch
+		mov     ecx, __CEXT_V(___181c9ch)
 		mov     ebx, 2
-		mov     edx, ___181ca8h
+		mov     edx, __CEXT_V(___181ca8h)
 		mov     eax, 1
 		call    near __CEXT_F(___64864h__esp)
-		mov     eax, [ConfigMusicVolume]
-		call    near ___6572ch
+		mov     eax, [__CEXT_V(ConfigMusicVolume)]
+		call    near __CEXT_F(___6572ch)
 		mov     eax, 5622h
-		call    near ___65990h
-		call    near ___648d8h
+		call    near __CEXT_F(___65990h)
+		call    near __CEXT_F(___648d8h)
 		mov     eax, 1
-		call    near ___659b8h
+		call    near __CEXT_F(___659b8h)
 		add     esp, byte 70h
 		pop     ebp
 		pop     edi
@@ -22664,8 +22653,7 @@ ___2297dh:
 		pop     ecx
 		pop     ebx
 		retn    
-global hallOfFameMenu__dr
-hallOfFameMenu__dr:
+__GDECL(__CEXT_F(hallOfFameMenu__dr))
 		push    64h
 		call    near __CHK
 		push    ebx
@@ -22690,7 +22678,7 @@ hallOfFameMenu__dr:
 		pop     edi
 		mov     ecx, 28f00h
 		mov     eax, [__CEXT_V(___1a10e4h)]
-		mov     esi, [GXBackBuffer]
+		mov     esi, [__CEXT_V(GXBackBuffer)]
 		mov     [__CEXT_V(VGABufferPtr_0)], eax
 		add     esi, 10680h
 		lea     edi, [eax+10680h]
@@ -22884,23 +22872,23 @@ ___22cb9h:
 		mov     [esp+3ch], esi
 		cmp     edi, byte 0ah
 		jl      near ___22b50h
-		mov     eax, [___VGABufferPtr_0]
+		mov     eax, [__CEXT_V(___VGABufferPtr_0)]
 		mov     [__CEXT_V(VGABufferPtr_0)], eax
 		mov     eax, 0ffffffffh
-		call    near ___3a7e0h
+		call    near __CEXT_F(___3a7e0h)
 		call    near ___658b0h
 		and     eax, 0ff00h
-		mov     [___1a1ef4h], eax
+		mov     [__CEXT_V(___1a1ef4h)], eax
 		mov     eax, 5100h
-		call    near ___658b8h
+		call    near __CEXT_F(___658b8h)
 		mov     eax, 10000h
-		call    near ___65710h
-		call    near lastScanCode__keyboard
-		call    near nullScanCode__keyboard
+		call    near __CEXT_F(___65710h)
+		call    near __CEXT_F(lastScanCode__keyboard)
+		call    near __CEXT_F(nullScanCode__keyboard)
 		xor     edx, edx
 ___22d67h:
 		call    near __CEXT_F(updateMenuBackgroundAndTextArea)
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
 		mov     ah, al
 		cmp     al, 3bh
 		jne     short ___22d86h
@@ -22911,8 +22899,8 @@ ___22d67h:
 ___22d86h:
 		test    ah, ah
 		je      short ___22d67h
-		call    near lastScanCode__keyboard
-		call    near nullScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
+		call    near __CEXT_F(nullScanCode__keyboard)
 		mov     ecx, 4b000h
 		mov     esi, [__CEXT_V(VGABufferPtr_0)]
 		mov     edi, [__CEXT_V(___1a10e4h)]
@@ -22926,7 +22914,7 @@ ___22d86h:
 		pop     edi
 		mov     ecx, 2c380h
 		mov     eax, [__CEXT_V(___1a10e4h)]
-		mov     esi, [GXBackBuffer]
+		mov     esi, [__CEXT_V(GXBackBuffer)]
 		mov     [__CEXT_V(VGABufferPtr_0)], eax
 		add     esi, 0d200h
 		lea     edi, [eax+0d200h]
@@ -22961,11 +22949,11 @@ ___22e0ch:
 		jne     short ___22e02h
 		xor     eax, eax
 		mov     ecx, 62h
-		mov     al, [___196abch]
+		mov     al, [__CEXT_V(___196abch)]
 		mov     edx, 80h
 		call    near ___21fd4h
 		mov     ebx, [__CEXT_V(VGABufferPtr_0)]
-		movzx   esi, byte [___196abch]
+		movzx   esi, byte [__CEXT_V(___196abch)]
 		add     ebx, 21728h
 		mov     esi, [esi*4+___1a1040h]
 		shr     dl, 2
@@ -23033,13 +23021,13 @@ ___22ed9h:
 		mov     eax, 0fh
 		xor     ebp, ebp
 		call    near ___27f80h
-		mov     eax, [___VGABufferPtr_0]
+		mov     eax, [__CEXT_V(___VGABufferPtr_0)]
 		xor     edi, edi
 		mov     [__CEXT_V(VGABufferPtr_0)], eax
 		call    near ___3a6a4h
 ___22f25h:
 		call    near __CEXT_F(updateMenuBackgroundAndTextArea)
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
 		cmp     al, 4bh
 		jb      short ___22f63h
 		jbe     short ___22f9ah
@@ -23085,9 +23073,9 @@ ___22fa6h:
 		mov     esi, [___1854b0h]
 		mov     eax, 1
 		push    esi
-		mov     ecx, [ConfigSFXVolume]
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
 		xor     ebx, ebx
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 		mov     ecx, 54h
 		mov     edx, 10h
 		mov     ebx, [__CEXT_V(VGABufferPtr_0)]
@@ -23113,7 +23101,7 @@ ___22ff0h:
 		mov     ecx, 62h
 		mov     edx, 80h
 		mov     ebx, [__CEXT_V(VGABufferPtr_0)]
-		movzx   esi, byte [ebp+___196abch]
+		movzx   esi, byte [ebp+__CEXT_V(___196abch)]
 		add     ebx, 21728h
 		mov     esi, [esi*4+___1a1040h]
 		shr     dl, 2
@@ -23133,7 +23121,7 @@ ___23039h:
 		dec     cl
 		jne     short ___23037h
 		xor     eax, eax
-		mov     al, [ebp+___196abch]
+		mov     al, [ebp+__CEXT_V(___196abch)]
 		xor     edx, edx
 		call    near ___21fd4h
 		call    near __CEXT_F(___12dc4h)
@@ -23179,8 +23167,8 @@ ___230cdh:
 		mov     eax, 1
 		push    ecx
 		xor     ebx, ebx
-		mov     ecx, [ConfigSFXVolume]
-		call    near playSFX__sound
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
+		call    near __CEXT_F(playSFX__sound)
 		mov     ecx, 54h
 		mov     edx, 10h
 		mov     ebx, [__CEXT_V(VGABufferPtr_0)]
@@ -23206,7 +23194,7 @@ ___23117h:
 		mov     ecx, 62h
 		xor     eax, eax
 		mov     ebx, [__CEXT_V(VGABufferPtr_0)]
-		mov     al, [ebp+___196abch]
+		mov     al, [ebp+__CEXT_V(___196abch)]
 		mov     edx, 80h
 		add     ebx, 21728h
 		mov     esi, [eax*4+___1a1040h]
@@ -23227,7 +23215,7 @@ ___23161h:
 		dec     cl
 		jne     short ___2315fh
 		xor     eax, eax
-		mov     al, [ebp+___196abch]
+		mov     al, [ebp+__CEXT_V(___196abch)]
 		xor     edx, edx
 		call    near ___21fd4h
 		call    near __CEXT_F(___12dc4h)
@@ -23297,7 +23285,7 @@ ___232f8h:
 		push    ebp
 		mov     ebp, 12c00h
 ___2330dh:
-		mov     eax, [GXBackBuffer]
+		mov     eax, [__CEXT_V(GXBackBuffer)]
 		add     eax, ebp
 		lea     esi, [eax+0ch]
 		mov     eax, [__CEXT_V(VGABufferPtr_0)]
@@ -23321,15 +23309,15 @@ ___2330dh:
 ___23350h:
 		cmp     byte [ebp+__CEXT_V(___1a1f4eh)], 0
 		jne     short ___2336ch
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		mov     ecx, esi
 		mov     ebx, edi
 		call    near __CEXT_F(renderTextToBuffer__video)
 ___2336ch:
 		cmp     byte [ebp+__CEXT_V(___1a1f4eh)], 1
 		jne     short ___23388h
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		mov     eax, [GreyFont0Ptr]
 		mov     ecx, esi
 		mov     ebx, edi
@@ -23337,7 +23325,7 @@ ___2336ch:
 ___23388h:
 		cmp     byte [ebp+__CEXT_V(___1a1f4eh)], 2
 		jne     short ___233a4h
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		mov     eax, [LightBlueFont0Ptr]
 		mov     ecx, esi
 		mov     ebx, edi
@@ -23366,7 +23354,7 @@ __GDECL(__CEXT_F(___233c0h))
 		push    ebp
 		mov     ebp, 12c00h
 ___233d5h:
-		mov     eax, [GXBackBuffer]
+		mov     eax, [__CEXT_V(GXBackBuffer)]
 		add     eax, ebp
 		lea     esi, [eax+0ch]
 		mov     eax, [__CEXT_V(VGABufferPtr_0)]
@@ -23390,15 +23378,15 @@ ___233d5h:
 ___23418h:
 		cmp     byte [ebp+__CEXT_V(___1a1f4eh)], 0
 		jne     short ___23434h
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		mov     ecx, esi
 		mov     ebx, edi
 		call    near __CEXT_F(renderTextToBuffer__video)
 ___23434h:
 		cmp     byte [ebp+__CEXT_V(___1a1f4eh)], 1
 		jne     short ___23450h
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		mov     eax, [GreyFont0Ptr]
 		mov     ecx, esi
 		mov     ebx, edi
@@ -23406,7 +23394,7 @@ ___23434h:
 ___23450h:
 		cmp     byte [ebp+__CEXT_V(___1a1f4eh)], 2
 		jne     short ___2346ch
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		mov     eax, [LightBlueFont0Ptr]
 		mov     ecx, esi
 		mov     ebx, edi
@@ -23424,8 +23412,7 @@ ___2346ch:
 		pop     ecx
 		pop     ebx
 		retn    
-global __CEXT_F(___23488h)
-__CEXT_F(___23488h):
+__GDECL(__CEXT_F(___23488h))
 		push    18h
 		call    near __CHK
 		push    ecx
@@ -23551,7 +23538,7 @@ ___23758h:
 		rep movsb   
 		pop     edi
 		mov     ecx, 3c500h
-		mov     esi, [GXBackBuffer]
+		mov     esi, [__CEXT_V(GXBackBuffer)]
 		mov     edi, [__CEXT_V(VGABufferPtr_0)]
 		add     esi, 0d200h
 		add     edi, 0d200h
@@ -23567,31 +23554,31 @@ ___23758h:
 		mov     ecx, 171h
 		xor     eax, eax
 		xor     ebp, ebp
-		call    near frameFooter__dr
+		call    near __CEXT_F(frameFooter__dr)
 		mov     ecx, 10923h
 		mov     ebx, ___181cb4h
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		mov     eax, [GreyFont0Ptr]
 		mov     esi, __CEXT_V(RowBoxBuffers)
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     ecx, 10959h
 		mov     ebx, __CEXT_V(string__F1)
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		mov     edi, 1298ch
 		call    near __CEXT_F(renderTextToBuffer__video)
 ___23843h:
 		cmp     byte [ebp+__CEXT_V(___1a1f4eh)], 0
 		jne     short ___2385fh
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		mov     ecx, edi
 		mov     ebx, esi
 		call    near __CEXT_F(renderTextToBuffer__video)
 ___2385fh:
 		cmp     byte [ebp+__CEXT_V(___1a1f4eh)], 1
 		jne     short ___2387bh
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		mov     eax, [GreyFont0Ptr]
 		mov     ecx, edi
 		mov     ebx, esi
@@ -23599,7 +23586,7 @@ ___2385fh:
 ___2387bh:
 		cmp     byte [ebp+__CEXT_V(___1a1f4eh)], 2
 		jne     short ___23897h
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		mov     eax, [LightBlueFont0Ptr]
 		mov     ecx, edi
 		mov     ebx, esi
@@ -23625,7 +23612,7 @@ ___238c3h:
 		jle     short ___23920h
 		mov     edx, 46500h
 ___238e1h:
-		mov     eax, [GXBackBuffer]
+		mov     eax, [__CEXT_V(GXBackBuffer)]
 		add     eax, edx
 		add     eax, byte 0ch
 		lea     esi, [eax+ebp]
@@ -23648,7 +23635,7 @@ ___238e1h:
 		jmp     short ___238e1h
 ___23920h:
 		mov     ebx, __CEXT_V(___18072ch)
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		mov     eax, [LightBlueFont0Ptr]
 		lea     ecx, [ebp+4650ch]
 		call    near __CEXT_F(renderTextToBuffer__video)
@@ -23666,7 +23653,7 @@ ___2394dh:
 		mov     bl, [___185c6ch]
 		lea     eax, [ebp+4650ch]
 		call    near __CEXT_F(___1398ch)
-		call    near nullScanCode__keyboard
+		call    near __CEXT_F(nullScanCode__keyboard)
 		mov     [esp+13ch], al
 		cmp     al, 0dh
 		jb      short ___2398dh
@@ -23695,7 +23682,7 @@ ___239aah:
 		xor     ebp, ebp
 ___239c5h:
 		mov     ecx, 262h
-		mov     esi, [GXBackBuffer]
+		mov     esi, [__CEXT_V(GXBackBuffer)]
 		mov     eax, [__CEXT_V(VGABufferPtr_0)]
 		add     esi, edx
 		add     eax, edx
@@ -23736,7 +23723,7 @@ ___23a28h:
 		add     ecx, 96h
 		mov     al, [edx+__CEXT_V(___1a1f4eh)]
 		add     ebx, 96h
-		mov     [edx+___1a1f4dh], al
+		mov     [edx+__CEXT_V(___1a1f4dh)], al
 		cmp     edx, byte 15h
 		jl      short ___23a0ah
 		mov     edx, __CEXT_V(string__memavail)
@@ -23888,7 +23875,7 @@ ___23b7dh:
 		sub     ebp, eax
 		mov     ebx, 20h
 ___23bbah:
-		mov     eax, [GXBackBuffer]
+		mov     eax, [__CEXT_V(GXBackBuffer)]
 		add     eax, edx
 		add     eax, byte 0ch
 		lea     esi, [eax+ebp]
@@ -23959,7 +23946,7 @@ ___23c88h:
 		pop     edi
 		mov     ebx, 10h
 ___23c8eh:
-		mov     eax, [GXBackBuffer]
+		mov     eax, [__CEXT_V(GXBackBuffer)]
 		add     eax, edx
 		add     eax, byte 0ch
 		lea     esi, [eax+ebp]
@@ -23980,7 +23967,7 @@ ___23c8eh:
 		cmp     edx, 48d00h
 		jne     short ___23c8eh
 		lea     ebx, [esp+13ch]
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		lea     esi, [ebp+4650ch]
 		mov     eax, [LightBlueFont0Ptr]
 		mov     ecx, esi
@@ -24051,7 +24038,7 @@ ___23d87h:
 		mov     [esp+ebp], bh
 ___23d8bh:
 		mov     ecx, 262h
-		mov     esi, [GXBackBuffer]
+		mov     esi, [__CEXT_V(GXBackBuffer)]
 		mov     eax, [__CEXT_V(VGABufferPtr_0)]
 		add     esi, edx
 		add     eax, edx
@@ -24092,7 +24079,7 @@ ___23deeh:
 		add     ecx, 96h
 		mov     al, [edx+__CEXT_V(___1a1f4eh)]
 		add     ebx, 96h
-		mov     [edx+___1a1f4dh], al
+		mov     [edx+__CEXT_V(___1a1f4dh)], al
 		cmp     edx, byte 15h
 		jl      short ___23dd0h
 		imul    esi, [__CEXT_V(MyID)], byte 6ch
@@ -24205,7 +24192,7 @@ ___23f03h:
 		lea     esi, [esp+13ch]
 		mov     edi, esp
 		mov     ebx, esp
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		push    edi
 		sub     ecx, ecx
 		dec     ecx
@@ -24251,7 +24238,7 @@ ___23f5dh:
 ___23f6dh:
 		call    near __CEXT_F(___12dc4h)
 ___23f72h:
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
 		cmp     al, 3bh
 		jne     short ___23f86h
 		mov     dword [esp+138h], 0ffffffffh
@@ -24924,8 +24911,8 @@ ___254ceh:
 		lea     ebx, [esp+14h]
 		call    near ___250e0h
 		lea     ecx, [eax+202a0h]
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     edx, [__CEXT_V(MyID)]
 		lea     eax, [edx*8+0]
@@ -25118,8 +25105,8 @@ ___2570ah:
 		cmp     edx, ecx
 		jb      short ___256f6h
 		mov     ecx, 2f56fh
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		xor     edi, edi
 		sub     ecx, ebx
 		lea     ebx, [esp+14h]
@@ -25457,7 +25444,7 @@ ___25ba5h:
 		push    byte 1
 		mov     edx, 72h
 		mov     eax, 90h
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     edx, [__CEXT_V(___1a1ee4h)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
@@ -25733,7 +25720,7 @@ ___25f7fh:
 		push    byte 1
 		mov     edx, 72h
 		mov     eax, 90h
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     edx, [__CEXT_V(MyID)]
 		lea     ebx, [edx*8+0]
 		sub     ebx, edx
@@ -25920,7 +25907,7 @@ ___26213h:
 		mov     ebx, 180h
 		mov     edx, 72h
 		mov     eax, 90h
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     edx, 136aah
 		mov     eax, ___190e30h
 		call    near ___13094h
@@ -26053,7 +26040,7 @@ ___263f3h:
 		push    byte 1
 		mov     edx, 72h
 		mov     eax, 90h
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     edx, [__CEXT_V(MyID)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
@@ -26177,7 +26164,7 @@ ___265b1h:
 		mov     ebx, 180h
 		mov     edx, 72h
 		mov     eax, 90h
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     edx, 136aah
 		mov     eax, ___190f20h
 		call    near ___13094h
@@ -26309,7 +26296,7 @@ ___26788h:
 		push    byte 1
 		mov     edx, 72h
 		mov     eax, 90h
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     edx, [__CEXT_V(MyID)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
@@ -26433,7 +26420,7 @@ ___26946h:
 		mov     ebx, 180h
 		mov     edx, 72h
 		mov     eax, 90h
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     edx, 136aah
 		mov     eax, ___191010h
 		call    near ___13094h
@@ -26748,7 +26735,7 @@ ___26dcbh:
 		mov     ebx, 180h
 		mov     edx, 72h
 		mov     eax, 90h
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     eax, esi
 		shl     eax, 4
 		sub     eax, esi
@@ -26814,7 +26801,7 @@ ___26e80h:
 		mov     ebx, 180h
 		mov     edx, 72h
 		mov     eax, 90h
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		call    near ___28c1ch
 		mov     edx, [___185a14h]
 		mov     [___185a4ch], eax
@@ -26896,7 +26883,7 @@ ___26febh:
 		mov     ebx, 180h
 		mov     edx, 72h
 		mov     eax, 90h
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		xor     ebx, ebx
 		mov     bl, [esp]
 		mov     eax, ebx
@@ -27037,7 +27024,7 @@ ___271a8h:
 		push    byte 1
 		mov     edx, 72h
 		mov     eax, 90h
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     edx, [__CEXT_V(MyID)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
@@ -27315,7 +27302,7 @@ ___2757fh:
 		mov     ebx, 180h
 		mov     edx, 72h
 		mov     eax, 90h
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     edx, [__CEXT_V(MyID)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
@@ -27544,7 +27531,7 @@ ___2789fh:
 		mov     ebx, 180h
 		mov     edx, 72h
 		mov     eax, 90h
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     edx, [__CEXT_V(MyID)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
@@ -27771,7 +27758,7 @@ ___27bb4h:
 		mov     ebx, 180h
 		mov     edx, 72h
 		mov     eax, 90h
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     edx, [__CEXT_V(MyID)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
@@ -28312,7 +28299,7 @@ ___281d0h:
 		add     eax, 0c80h
 		mov     [esp+10h], eax
 ___281feh:
-		mov     esi, [GXBackBuffer]
+		mov     esi, [__CEXT_V(GXBackBuffer)]
 		mov     edi, [__CEXT_V(VGABufferPtr_0)]
 		mov     ecx, ebx
 		add     esi, edx
@@ -28343,7 +28330,7 @@ ___281feh:
 		add     eax, edi
 		mov     [esp+0ch], eax
 ___2825eh:
-		mov     esi, [GXBackBuffer]
+		mov     esi, [__CEXT_V(GXBackBuffer)]
 		mov     edi, [__CEXT_V(VGABufferPtr_0)]
 		mov     ecx, ebx
 		add     esi, edx
@@ -28378,7 +28365,7 @@ ___2825eh:
 		mov     [esp+8], edi
 ___282c2h:
 		mov     ecx, 5
-		mov     esi, [GXBackBuffer]
+		mov     esi, [__CEXT_V(GXBackBuffer)]
 		mov     edi, [__CEXT_V(VGABufferPtr_0)]
 		add     esi, edx
 		add     edi, edx
@@ -28411,7 +28398,7 @@ ___282f7h:
 		mov     [esp+14h], eax
 ___28325h:
 		mov     ecx, 5
-		mov     esi, [GXBackBuffer]
+		mov     esi, [__CEXT_V(GXBackBuffer)]
 		mov     edi, [__CEXT_V(VGABufferPtr_0)]
 		add     esi, edx
 		add     edi, edx
@@ -28450,11 +28437,11 @@ ___2836ch:
 		push    8000h
 		mov     eax, 1
 		mov     edx, [___1854b0h]
-		mov     ecx, [ConfigSFXVolume]
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
 		push    edx
 		xor     ebx, ebx
 		mov     edx, 1ah
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 		mov     ecx, 72h
 		xor     ebx, ebx
 		mov     edx, 0f3h
@@ -28486,11 +28473,11 @@ ___283ech:
 		push    8000h
 		mov     eax, 1
 		mov     edx, [___1854b0h]
-		mov     ecx, [ConfigSFXVolume]
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
 		push    edx
 		xor     ebx, ebx
 		mov     edx, 1ah
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 		mov     ebx, 1
 		mov     ecx, 72h
 		mov     edx, 73h
@@ -28625,11 +28612,11 @@ ___285f8h:
 		push    8000h
 		mov     eax, 1
 		mov     edx, [___1854b0h]
-		mov     ecx, [ConfigSFXVolume]
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
 		push    edx
 		xor     ebx, ebx
 		mov     edx, 1ah
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 		mov     eax, [__CEXT_V(___1a1ec4h)]
 		cmp     eax, byte 5
 		ja      near ___28864h
@@ -28832,9 +28819,9 @@ ___28880h:
 		mov     ebx, [___1854b0h]
 		mov     eax, 1
 		push    ebx
-		mov     ecx, [ConfigSFXVolume]
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
 		xor     ebx, ebx
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 ___288bch:
 		mov     eax, [__CEXT_V(___1a1ec4h)]
 		cmp     eax, byte 4
@@ -29100,9 +29087,9 @@ ___28ba8h:
 		mov     ecx, [___1854a4h]
 		mov     eax, 2
 		push    ecx
-		mov     ecx, [ConfigSFXVolume]
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
 		mov     esi, 136h
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 		mov     eax, 1
 		mov     [___185a38h], esi
 		add     esp, byte 34h
@@ -29368,19 +29355,19 @@ ___28f77h:
 		push    8000h
 		mov     eax, 1
 		mov     edx, [___1854b8h]
-		mov     ecx, [ConfigSFXVolume]
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
 		xor     ebx, ebx
 		push    edx
 		mov     edx, 1ch
 		lea     edi, [esp+8]
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 		push    byte 1
 		mov     ecx, 77h
 		mov     ebx, 180h
 		mov     edx, 72h
 		mov     eax, 90h
 		mov     esi, ___181fc8h
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     ebx, 0ah
 		lea     edx, [esp+3ch]
 		mov     eax, ebp
@@ -29414,7 +29401,7 @@ ___29031h:
 		pop     edi
 		mov     esi, ___181fdch
 		mov     edi, esp
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		push    edi
 		sub     ecx, ecx
 		dec     ecx
@@ -29441,7 +29428,7 @@ ___2905fh:
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     ecx, 8
 		mov     ebx, esp
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		rep movsd   
 		mov     eax, [LightBlueFont0Ptr]
 		mov     ecx, 15eaah
@@ -29491,7 +29478,7 @@ ___290f9h:
 		lea     esi, [esp+3ch]
 		mov     edi, esp
 		mov     ebx, esp
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		push    edi
 		sub     ecx, ecx
 		dec     ecx
@@ -29550,7 +29537,7 @@ ___29186h:
 		pop     edi
 		mov     esi, ___182020h
 		mov     edi, esp
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		push    edi
 		sub     ecx, ecx
 		dec     ecx
@@ -29580,19 +29567,19 @@ ___291c4h:
 		push    8000h
 		mov     edx, 1ch
 		mov     eax, [___1854b8h]
-		mov     ecx, [ConfigSFXVolume]
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
 		xor     ebx, ebx
 		push    eax
 		mov     eax, 1
 		lea     edi, [esp+8]
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 		push    byte 1
 		mov     ecx, 77h
 		mov     ebx, 180h
 		mov     edx, 72h
 		mov     eax, 90h
 		mov     esi, ___181fc8h
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     ebx, 0ah
 		lea     edx, [esp+3ch]
 		mov     eax, ebp
@@ -29626,7 +29613,7 @@ ___29256h:
 		pop     edi
 		mov     esi, ___181fdch
 		mov     edi, esp
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		push    edi
 		sub     ecx, ecx
 		dec     ecx
@@ -29653,7 +29640,7 @@ ___29284h:
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     ecx, 8
 		mov     ebx, esp
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		rep movsd   
 		mov     eax, [LightBlueFont0Ptr]
 		mov     ecx, 15eaah
@@ -29737,7 +29724,7 @@ ___29370h:
 		lea     esi, [esp+3ch]
 		mov     edi, esp
 		mov     ebx, esp
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		push    edi
 		sub     ecx, ecx
 		dec     ecx
@@ -29764,7 +29751,7 @@ ___2939fh:
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     ecx, 1aeaah
 		mov     ebx, esp
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		mov     eax, [LightBlueFont0Ptr]
 		movsd   
 		movsd   
@@ -29775,7 +29762,7 @@ ___293cch:
 		mov     ecx, 1cf70h
 		mov     ebx, __CEXT_V(STRING_yes)
 		mov     edx, __CEXT_V(___185ba9h)
-		mov     eax, [___1a10cch]
+		mov     eax, [__CEXT_V(___1a10cch)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     ecx, 1d01ah
 		mov     ebx, __CEXT_V(STRING_no)
@@ -29865,7 +29852,7 @@ ___294e4h:
 		xor     eax, eax
 		mov     [___1a1e68h], eax
 ___2952dh:
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
 		mov     [esp+5ch], al
 		cmp     al, 15h
 		jne     short ___2953fh
@@ -29914,11 +29901,11 @@ ___295c2h:
 		push    8000h
 		mov     edx, 19h
 		mov     ebx, [___1854ach]
-		mov     ecx, [ConfigSFXVolume]
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
 		push    ebx
 		mov     eax, ebp
 		xor     ebx, ebx
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 ___295e7h:
 		mov     ecx, 1e000h
 		xor     ebp, ebp
@@ -29937,7 +29924,7 @@ ___295f8h:
 		mov     ecx, 1cf70h
 		mov     ebx, __CEXT_V(STRING_yes)
 		mov     edx, __CEXT_V(___185ba9h)
-		mov     eax, [___1a10cch]
+		mov     eax, [__CEXT_V(___1a10cch)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     ecx, 1d01ah
 		mov     ebx, __CEXT_V(STRING_no)
@@ -29951,11 +29938,11 @@ ___29652h:
 		push    8000h
 		mov     eax, 1
 		mov     edx, [___1854ach]
-		mov     ecx, [ConfigSFXVolume]
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
 		push    edx
 		xor     ebx, ebx
 		mov     edx, 19h
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 ___29679h:
 		mov     ecx, 1e000h
 		mov     ebp, 1
@@ -29979,7 +29966,7 @@ ___2968dh:
 		mov     ecx, 1d01ah
 		mov     ebx, __CEXT_V(STRING_no)
 		mov     edx, __CEXT_V(___185ba9h)
-		mov     eax, [___1a10cch]
+		mov     eax, [__CEXT_V(___1a10cch)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		jmp     short ___29720h
 ___296e4h:
@@ -29987,11 +29974,11 @@ ___296e4h:
 		mov     edx, 1ch
 		mov     eax, 1
 		mov     edi, [___1854b8h]
-		mov     ecx, [ConfigSFXVolume]
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
 		push    edi
 		xor     ebx, ebx
 		mov     esi, 0ffffffffh
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 		mov     [esp+54h], esi
 		jmp     short ___29720h
 ___29712h:
@@ -30007,9 +29994,9 @@ ___29720h:
 		mov     edx, 4
 		mov     eax, 5
 		push    24000h
-		mov     ecx, [ConfigSFXVolume]
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
 		xor     ebx, ebx
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 		mov     edx, [__CEXT_V(MyID)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
@@ -30051,7 +30038,7 @@ ___29720h:
 		push    byte 1
 		mov     edx, 72h
 		mov     eax, 90h
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     ecx, 10h
 		mov     edx, 126h
 		mov     ebx, [__CEXT_V(VGABufferPtr_0)]
@@ -30077,7 +30064,7 @@ ___29842h:
 		mov     edi, esp
 		mov     esi, ___182064h
 		mov     ebx, esp
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		rep movsd   
 		movsw   
 		movsb   
@@ -30088,7 +30075,7 @@ ___29842h:
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     ecx, 7
 		mov     ebx, esp
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		rep movsd   
 		mov     eax, [LightBlueFont0Ptr]
 		mov     ecx, 15eaah
@@ -30097,7 +30084,7 @@ ___29842h:
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     ecx, 186aah
 		mov     ebx, esp
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		mov     eax, [LightBlueFont0Ptr]
 		movsd   
 		movsd   
@@ -30114,7 +30101,7 @@ ___298d0h:
 		je      near ___29b3bh
 		cmp     dword [__CEXT_V(___196a84h)], byte 0
 		jne     near ___29b3bh
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
 		mov     [esp+5ch], al
 		cmp     al, 3bh
 		jne     short ___29903h
@@ -30339,11 +30326,11 @@ ___29ba4h:
 		push    8000h
 		mov     edx, 1ch
 		mov     eax, [___1854b8h]
-		mov     ecx, [ConfigSFXVolume]
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
 		push    eax
 		xor     ebx, ebx
 		mov     eax, 1
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 		mov     edx, [__CEXT_V(MyID)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
@@ -30425,9 +30412,9 @@ ___29cebh:
 		mov     ebp, [___1854b8h]
 		mov     eax, 1
 		push    ebp
-		mov     ecx, [ConfigSFXVolume]
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
 		xor     ebx, ebx
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 		mov     edx, [__CEXT_V(MyID)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
@@ -30509,9 +30496,9 @@ ___29e33h:
 		mov     edi, [___1854b8h]
 		mov     eax, 1
 		push    edi
-		mov     ecx, [ConfigSFXVolume]
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
 		xor     ebx, ebx
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 		mov     edx, [__CEXT_V(MyID)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
@@ -30683,8 +30670,8 @@ ___2a0d9h:
 		mov     eax, 1
 		push    ecx
 		xor     ebx, ebx
-		mov     ecx, [ConfigSFXVolume]
-		call    near playSFX__sound
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
+		call    near __CEXT_F(playSFX__sound)
 		mov     edx, [__CEXT_V(MyID)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
@@ -30738,7 +30725,7 @@ ___2a1afh:
 		mov     ebx, 180h
 		mov     edx, 72h
 		mov     eax, 90h
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     edx, 136aah
 		mov     eax, ___1820b0h
 		call    near ___13094h
@@ -30760,9 +30747,9 @@ ___2a1afh:
 		mov     edx, [___1854a4h]
 		mov     eax, 2
 		push    edx
-		mov     ecx, [ConfigSFXVolume]
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
 		mov     edx, 17h
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 		add     esp, byte 60h
 		pop     ebp
 		pop     edi
@@ -30791,9 +30778,9 @@ ___2a2a6h:
 		mov     ebp, [___1854a8h]
 		mov     eax, 1
 		push    ebp
-		mov     ecx, [ConfigSFXVolume]
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
 		xor     ebx, ebx
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 		mov     eax, [___196adch]
 		call    near ___33010h
 ___2a2d3h:
@@ -30830,8 +30817,8 @@ ___2a30eh:
 		mov     eax, 1
 		push    ecx
 		xor     ebx, ebx
-		mov     ecx, [ConfigSFXVolume]
-		call    near playSFX__sound
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
+		call    near __CEXT_F(playSFX__sound)
 		mov     edi, [__CEXT_V(MyID)]
 		xor     ecx, ecx
 		xor     edx, edx
@@ -30995,25 +30982,25 @@ ___2a608h:
 		mov     ebx, 1ach
 		mov     edx, 0d2h
 		mov     eax, 6eh
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     ecx, 24044h
 		mov     eax, esi
 		mov     edx, __CEXT_V(___185ba9h)
 		call    near ___252e0h
 		mov     ebx, esi
 		sub     ecx, eax
-		mov     eax, [___1a10cch]
+		mov     eax, [__CEXT_V(___1a10cch)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     ecx, 2a650h
 		mov     ebx, ___180848h
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		call    near __CEXT_F(___12dc4h)
-		call    near lastScanCode__keyboard
-		call    near nullScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
+		call    near __CEXT_F(nullScanCode__keyboard)
 ___2a67ah:
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
 		test    al, al
 		jne     short ___2a68ah
 		call    near __CEXT_F(updateMenuBackgroundAndTextArea)
@@ -31022,8 +31009,8 @@ ___2a68ah:
 		xor     ah, ah
 		mov     [___59e4ch], ah
 		mov     [___59e4dh], ah
-		call    near lastScanCode__keyboard
-		call    near nullScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
+		call    near __CEXT_F(nullScanCode__keyboard)
 		pop     esi
 		pop     edx
 		pop     ecx
@@ -31699,7 +31686,7 @@ ___2b993h:
 		xor     eax, eax
 		mov     [esp+0ch], eax
 ___2b9a7h:
-		cmp     dword [___185a2ch], byte 0
+		cmp     dword [__CEXT_V(___185a2ch)], byte 0
 		jne     near ___2ba9eh
 		cmp     dword [___185a3ch], byte 0
 		je      short ___2b9cah
@@ -31719,7 +31706,7 @@ ___2b9cah:
 		pop     edi
 		mov     ecx, 29b80h
 		mov     eax, [__CEXT_V(___1a10e4h)]
-		mov     esi, [GXBackBuffer]
+		mov     esi, [__CEXT_V(GXBackBuffer)]
 		mov     [__CEXT_V(VGABufferPtr_0)], eax
 		add     esi, 0f000h
 		lea     edi, [eax+0f000h]
@@ -31761,7 +31748,7 @@ ___2b9cah:
 		sub     esp, byte 4
 		fstp    dword [esp]
 		call    near ___11378h
-		mov     eax, [___VGABufferPtr_0]
+		mov     eax, [__CEXT_V(___VGABufferPtr_0)]
 		mov     [__CEXT_V(VGABufferPtr_0)], eax
 		call    near ___3a6a4h
 		call    near __CEXT_F(___12dc4h)
@@ -31772,7 +31759,7 @@ ___2ba9eh:
 		mov     [___185a20h], edi
 		mov     [__CEXT_V(___1a1ec4h)], esi
 ___2bab5h:
-		cmp     dword [___185a2ch], byte 0
+		cmp     dword [__CEXT_V(___185a2ch)], byte 0
 		jne     near ___2cfbch
 		cmp     dword [esp+30h], byte 0
 		jne     near ___2cfbch
@@ -31787,7 +31774,7 @@ ___2bae9h:
 		jne     near ___2c687h
 		mov     ecx, 4b000h
 		xor     edi, edi
-		mov     esi, [GXBackBuffer]
+		mov     esi, [__CEXT_V(GXBackBuffer)]
 		mov     [esp+28h], edi
 		mov     [___185a20h], edi
 		mov     edi, [__CEXT_V(VGABufferPtr_0)]
@@ -31894,26 +31881,26 @@ ___2bc81h:
 		xor     eax, eax
 		mov     [__CEXT_V(___1a1ec4h)], ebx
 		mov     ebx, 27fh
-		call    near frameFooter__dr
+		call    near __CEXT_F(frameFooter__dr)
 		cmp     dword [__CEXT_V(NetworkConnectionEstablished)], byte 0
 		je      short ___2bcddh
 		mov     ecx, 390a3h
 		mov     ebx, ___1807cch
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		mov     eax, [GreyFont0Ptr]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     ecx, 390d9h
 		mov     ebx, __CEXT_V(string__F1)
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 ___2bcddh:
 		call    near __CEXT_F(footer__dr)
-		call    near ___12cb8h
+		call    near __CEXT_F(___12cb8h)
 		cmp     dword [___185a28h], byte 0
 		je      short ___2bcfah
-		mov     eax, [___1a1ef4h]
-		call    near ___658b8h
+		mov     eax, [__CEXT_V(___1a1ef4h)]
+		call    near __CEXT_F(___658b8h)
 ___2bcfah:
 		xor     ebp, ebp
 		call    near __CEXT_F(___2b318h)
@@ -31924,7 +31911,7 @@ ___2bd09h:
 		cmp     dword [___185a28h], byte 0
 		je      short ___2bd20h
 		mov     eax, [esp+34h]
-		call    near ___65710h
+		call    near __CEXT_F(___65710h)
 ___2bd20h:
 		mov     ebx, 2
 		mov     edx, ebp
@@ -32019,7 +32006,7 @@ ___2be33h:
 ___2bed4h:
 		mov     edx, 141h
 		mov     eax, 0a4h
-		call    near updateScreen_TBD
+		call    near __CEXT_F(updateScreen_TBD)
 ___2bee3h:
 		xor     edi, edi
 		mov     esi, [esp+2ch]
@@ -32471,7 +32458,7 @@ ___2c5ceh:
 		jne     near ___2c67fh
 		mov     ecx, 29b80h
 		mov     ebx, 27fh
-		mov     esi, [GXBackBuffer]
+		mov     esi, [__CEXT_V(GXBackBuffer)]
 		mov     edi, [__CEXT_V(VGABufferPtr_0)]
 		add     esi, 0f000h
 		add     edi, 0f000h
@@ -32487,18 +32474,18 @@ ___2c5ceh:
 		call    near ___2b6a4h
 		mov     ecx, 6dh
 		xor     eax, eax
-		call    near frameFooter__dr
+		call    near __CEXT_F(frameFooter__dr)
 		cmp     dword [__CEXT_V(NetworkConnectionEstablished)], byte 0
 		je      short ___2c65ch
 		mov     ecx, 390a3h
 		mov     ebx, ___1807cch
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		mov     eax, [GreyFont0Ptr]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     ecx, 390d9h
 		mov     ebx, __CEXT_V(string__F1)
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 ___2c65ch:
 		call    near __CEXT_F(footer__dr)
@@ -32507,7 +32494,7 @@ ___2c65ch:
 		mov     edx, 0f3h
 		mov     eax, 1aah
 		call    near ___27f80h
-		call    near ___12cb8h
+		call    near __CEXT_F(___12cb8h)
 ___2c67fh:
 		xor     edi, edi
 		mov     [___185a28h], edi
@@ -32708,7 +32695,7 @@ ___2c9a2h:
 		xor     esi, esi
 		mov     [__CEXT_V(___1a1ee8h)], esi
 ___2c9fch:
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
 		mov     [esp+3ch], al
 		test    al, al
 		je      near ___2cb9fh
@@ -32762,7 +32749,7 @@ ___2ca74h:
 		push    eax
 		xor     ebx, ebx
 		mov     eax, 2
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 		imul    eax, [__CEXT_V(MyID)], byte 6ch
 		mov     dword [eax+__CEXT_V(Roster)+30h], 7a120h
 		call    near ___25330h
@@ -32887,7 +32874,7 @@ ___2cc6bh:
 		test    eax, eax
 		jle     near ___2cf97h
 		mov     ecx, 29b80h
-		mov     esi, [GXBackBuffer]
+		mov     esi, [__CEXT_V(GXBackBuffer)]
 		mov     edi, [__CEXT_V(VGABufferPtr_0)]
 		add     esi, 0f000h
 		add     edi, 0f000h
@@ -33034,22 +33021,22 @@ ___2cec8h:
 		mov     ebx, 27fh
 		mov     edx, 173h
 		xor     eax, eax
-		call    near frameFooter__dr
+		call    near __CEXT_F(frameFooter__dr)
 		cmp     dword [__CEXT_V(NetworkConnectionEstablished)], byte 0
 		je      short ___2cf19h
 		mov     ecx, 390a3h
 		mov     ebx, ___1807cch
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		mov     eax, [GreyFont0Ptr]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     ecx, 390d9h
 		mov     ebx, __CEXT_V(string__F1)
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 ___2cf19h:
 		call    near __CEXT_F(footer__dr)
-		call    near ___12cb8h
+		call    near __CEXT_F(___12cb8h)
 		mov     ecx, 4b000h
 		mov     esi, [__CEXT_V(VGABufferPtr_0)]
 		mov     edi, [__CEXT_V(___1a1124h)]
@@ -33087,7 +33074,7 @@ ___2cf71h:
 		and     cl, 3
 		rep movsb   
 		pop     edi
-		call    near ___12cb8h
+		call    near __CEXT_F(___12cb8h)
 ___2cf97h:
 		cmp     dword [__CEXT_V(NetworkConnectionEstablished)], byte 0
 		je      short ___2cfb1h
@@ -33104,7 +33091,7 @@ ___2cfbch:
 ___2cfc8h:
 		mov     ecx, 4b000h
 		mov     ebx, 27fh
-		mov     esi, [GXBackBuffer]
+		mov     esi, [__CEXT_V(GXBackBuffer)]
 		mov     edi, [__CEXT_V(___1a10e4h)]
 		mov     edx, 173h
 		push    edi
@@ -33119,18 +33106,18 @@ ___2cfc8h:
 		mov     ecx, 6dh
 		mov     [__CEXT_V(VGABufferPtr_0)], eax
 		xor     eax, eax
-		call    near frameFooter__dr
+		call    near __CEXT_F(frameFooter__dr)
 		cmp     dword [__CEXT_V(NetworkConnectionEstablished)], byte 0
 		je      short ___2d044h
 		mov     ecx, 390a3h
 		mov     ebx, ___1807cch
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		mov     eax, [GreyFont0Ptr]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     ecx, 390d9h
 		mov     ebx, __CEXT_V(string__F1)
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 ___2d044h:
 		call    near __CEXT_F(footer__dr)
@@ -33155,7 +33142,7 @@ ___2d054h:
 		mov     ebx, 180h
 		mov     edx, 72h
 		mov     eax, 90h
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     ebx, esi
 		mov     eax, ebx
 		shl     eax, 4
@@ -33199,7 +33186,7 @@ ___2d0ech:
 		mov     ebx, 180h
 		mov     edx, 72h
 		mov     eax, 90h
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     ebx, esi
 		mov     eax, ebx
 		shl     eax, 4
@@ -33241,7 +33228,7 @@ ___2d184h:
 		mov     ebx, 180h
 		mov     edx, 72h
 		mov     eax, 90h
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     edx, 136aah
 		mov     eax, ___193bd0h
 		call    near ___13094h
@@ -33275,7 +33262,7 @@ ___2d20ch:
 		mov     ebx, 180h
 		mov     edx, 72h
 		mov     eax, 90h
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     edx, 136aah
 		mov     eax, ___193cc0h
 		call    near ___13094h
@@ -33312,7 +33299,7 @@ ___2d294h:
 		mov     ebx, 180h
 		mov     edx, 72h
 		mov     eax, 90h
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     ebx, [__CEXT_V(MyID)]
 		lea     eax, [ebx*8+0]
 		sub     eax, ebx
@@ -33565,7 +33552,7 @@ ___2d618h:
 		mov     ebx, 180h
 		mov     edx, 72h
 		mov     eax, 90h
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     edx, 136aah
 		mov     eax, ___192d20h
 		call    near ___13094h
@@ -33599,7 +33586,7 @@ ___2d6a0h:
 		mov     ebx, 180h
 		mov     edx, 72h
 		mov     eax, 90h
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     edx, 136aah
 		mov     eax, ___192f00h
 		call    near ___13094h
@@ -34125,7 +34112,7 @@ ___2dca5h:
 		mov     ebx, 180h
 		mov     edx, 72h
 		mov     eax, 90h
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     edx, 136aah
 		mov     eax, ___193ae0h
 		call    near ___13094h
@@ -34215,7 +34202,7 @@ ___2ddf4h:
 		mov     ebx, 180h
 		mov     edx, 72h
 		mov     eax, 90h
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     edx, 136aah
 		mov     eax, ___194e90h
 		call    near ___13094h
@@ -34257,11 +34244,11 @@ ___2deb0h:
 		push    8000h
 		mov     eax, 1
 		mov     edx, [___1854b0h]
-		mov     ecx, [ConfigSFXVolume]
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
 		push    edx
 		xor     ebx, ebx
 		mov     edx, 1ah
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 		mov     ecx, 72h
 		xor     ebx, ebx
 		mov     edx, 0f3h
@@ -34293,11 +34280,11 @@ ___2df34h:
 		push    8000h
 		mov     eax, 1
 		mov     edx, [___1854b0h]
-		mov     ecx, [ConfigSFXVolume]
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
 		push    edx
 		xor     ebx, ebx
 		mov     edx, 1ah
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 		mov     ebx, 1
 		mov     ecx, 72h
 		mov     edx, 73h
@@ -34339,9 +34326,9 @@ ___2dfd0h:
 		mov     ebx, [___1854b0h]
 		mov     eax, 1
 		push    ebx
-		mov     ecx, [ConfigSFXVolume]
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
 		xor     ebx, ebx
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 ___2e00ch:
 		mov     ecx, [___1a1ef0h]
 		dec     ecx
@@ -34480,9 +34467,9 @@ ___2e1b0h:
 		mov     ebx, [___1854b0h]
 		mov     eax, 1
 		push    ebx
-		mov     ecx, [ConfigSFXVolume]
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
 		xor     ebx, ebx
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 ___2e1ech:
 		mov     ecx, [___1a1ef0h]
 		dec     ecx
@@ -34625,12 +34612,12 @@ ___2e3abh:
 		je      near ___2e4f7h
 		push    8000h
 		mov     eax, 1
-		mov     edx, [___1854bch]
-		mov     ecx, [ConfigSFXVolume]
+		mov     edx, [__CEXT_V(___1854bch)]
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
 		push    edx
 		xor     ebx, ebx
 		mov     edx, 1dh
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 		mov     edx, [__CEXT_V(MyID)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
@@ -34710,11 +34697,11 @@ ___2e4f7h:
 		mov     edx, 17h
 		mov     eax, 2
 		mov     esi, [___1854a4h]
-		mov     ecx, [ConfigSFXVolume]
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
 		push    esi
 		xor     ebx, ebx
 		mov     edi, 136h
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 		mov     [___185a38h], edi
 		call    near ___2d618h
 		call    near __CEXT_F(___12dc4h)
@@ -34828,12 +34815,12 @@ ___2e6f4h:
 		jne     near ___2e780h
 		push    8000h
 		mov     edx, 1dh
-		mov     ecx, [___1854bch]
+		mov     ecx, [__CEXT_V(___1854bch)]
 		mov     eax, 1
 		push    ecx
 		xor     ebx, ebx
-		mov     ecx, [ConfigSFXVolume]
-		call    near playSFX__sound
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
+		call    near __CEXT_F(playSFX__sound)
 		mov     edx, [__CEXT_V(MyID)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
@@ -34866,9 +34853,9 @@ ___2e780h:
 		mov     ebx, [___1854a4h]
 		mov     eax, 2
 		push    ebx
-		mov     ecx, [ConfigSFXVolume]
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
 		xor     ebx, ebx
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 		add     esp, byte 0ch
 		pop     ebp
 		pop     edi
@@ -34891,9 +34878,9 @@ ___2e7c6h:
 		mov     edi, [___1854a4h]
 		mov     eax, 2
 		push    edi
-		mov     ecx, [ConfigSFXVolume]
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
 		xor     ebx, ebx
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 		add     esp, byte 0ch
 		pop     ebp
 		pop     edi
@@ -34906,11 +34893,11 @@ ___2e7f3h:
 		push    8000h
 		mov     edx, 1ch
 		mov     eax, [___1854b8h]
-		mov     ecx, [ConfigSFXVolume]
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
 		push    eax
 		xor     ebx, ebx
 		mov     eax, ebp
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 		xor     edx, edx
 		mov     [__CEXT_V(UndergroundMarketOptions)], edx
 		mov     edx, [__CEXT_V(MyID)]
@@ -34955,9 +34942,9 @@ ___2e89eh:
 		mov     edi, [___1854a4h]
 		mov     eax, 2
 		push    edi
-		mov     ecx, [ConfigSFXVolume]
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
 		xor     ebx, ebx
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 		add     esp, byte 0ch
 		pop     ebp
 		pop     edi
@@ -34970,11 +34957,11 @@ ___2e8cbh:
 		push    8000h
 		mov     edx, 1ch
 		mov     eax, [___1854b8h]
-		mov     ecx, [ConfigSFXVolume]
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
 		push    eax
 		xor     ebx, ebx
 		mov     eax, ebp
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 		xor     edx, edx
 		mov     [__CEXT_V(UndergroundMarketOptions)+4], edx
 		mov     edx, [__CEXT_V(MyID)]
@@ -35019,9 +35006,9 @@ ___2e972h:
 		mov     edi, [___1854a4h]
 		mov     eax, 2
 		push    edi
-		mov     ecx, [ConfigSFXVolume]
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
 		xor     ebx, ebx
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 		add     esp, byte 0ch
 		pop     ebp
 		pop     edi
@@ -35034,11 +35021,11 @@ ___2e99fh:
 		push    8000h
 		mov     edx, 1ch
 		mov     eax, [___1854b8h]
-		mov     ecx, [ConfigSFXVolume]
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
 		push    eax
 		xor     ebx, ebx
 		mov     eax, ebp
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 		xor     edx, edx
 		mov     [__CEXT_V(UndergroundMarketOptions)+8], edx
 		mov     edx, [__CEXT_V(MyID)]
@@ -35083,9 +35070,9 @@ ___2ea49h:
 		mov     edi, [___1854a4h]
 		mov     eax, 2
 		push    edi
-		mov     ecx, [ConfigSFXVolume]
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
 		xor     ebx, ebx
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 		add     esp, byte 0ch
 		pop     ebp
 		pop     edi
@@ -35098,11 +35085,11 @@ ___2ea76h:
 		push    8000h
 		mov     edx, 1ch
 		mov     eax, [___1854b8h]
-		mov     ecx, [ConfigSFXVolume]
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
 		push    eax
 		xor     ebx, ebx
 		mov     eax, ebp
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 		xor     edx, edx
 		mov     [__CEXT_V(UndergroundMarketOptions)+0ch], edx
 		mov     edx, [__CEXT_V(MyID)]
@@ -35146,7 +35133,7 @@ ___2eb07h:
 		mov     ebx, 180h
 		mov     edx, 72h
 		mov     eax, 90h
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     edx, 136aah
 		mov     eax, ___1820b0h
 		call    near ___13094h
@@ -35169,8 +35156,8 @@ ___2eb07h:
 		mov     edx, 17h
 		push    edi
 		mov     eax, 2
-		mov     ecx, [ConfigSFXVolume]
-		call    near playSFX__sound
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
+		call    near __CEXT_F(playSFX__sound)
 		add     esp, byte 0ch
 		pop     ebp
 		pop     edi
@@ -35186,8 +35173,8 @@ ___2ebc1h:
 		mov     eax, 1
 		push    ecx
 		xor     ebx, ebx
-		mov     ecx, [ConfigSFXVolume]
-		call    near playSFX__sound
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
+		call    near __CEXT_F(playSFX__sound)
 		cmp     dword [__CEXT_V(NetworkConnectionEstablished)], byte 0
 		je      short ___2ebf9h
 		mov     eax, [___196adch]
@@ -35245,7 +35232,7 @@ ___2ed2ch:
 		push    esi
 		push    edi
 		mov     ecx, 2a580h
-		mov     esi, [GXBackBuffer]
+		mov     esi, [__CEXT_V(GXBackBuffer)]
 		mov     edi, [__CEXT_V(VGABufferPtr_0)]
 		add     esi, 0e600h
 		add     edi, 0e600h
@@ -35398,7 +35385,7 @@ ___2ef02h:
 		call    near __CEXT_F(___58c60h)
 		mov     eax, [esp+10h]
 		mov     ebx, 2
-		call    near ___65710h
+		call    near __CEXT_F(___65710h)
 		mov     edx, ebp
 		mov     eax, ebp
 		sar     edx, 1fh
@@ -35526,10 +35513,10 @@ ___2f020h:
 		jge     near ___2ef02h
 		call    near ___658b0h
 		and     eax, 0ff00h
-		mov     [___1a1ef4h], eax
+		mov     [__CEXT_V(___1a1ef4h)], eax
 		mov     eax, 3100h
 		mov     ecx, 5
-		call    near ___658b8h
+		call    near __CEXT_F(___658b8h)
 		mov     [___1a1ef0h], ecx
 		call    near ___2ed2ch
 		cmp     dword [___185a40h], byte 0
@@ -35553,7 +35540,7 @@ ___2f13fh:
 		call    near __CEXT_F(___58c60h)
 		mov     eax, [esp+18h]
 		mov     ebx, 2
-		call    near ___65710h
+		call    near __CEXT_F(___65710h)
 		mov     edx, ebp
 		mov     eax, ebp
 		sar     edx, 1fh
@@ -35593,7 +35580,7 @@ ___2f1c2h:
 		je      short ___2f1ech
 		mov     edx, 141h
 		mov     eax, 0a4h
-		call    near updateScreen_TBD
+		call    near __CEXT_F(updateScreen_TBD)
 ___2f1ech:
 		mov     esi, [esp+8]
 		xor     edx, edx
@@ -35775,7 +35762,7 @@ ___2f442h:
 		xor     esi, esi
 		mov     [__CEXT_V(___1a1ee8h)], esi
 ___2f49ch:
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
 		cmp     al, 4dh
 		jb      short ___2f4f0h
 		jbe     near ___2f537h
@@ -35847,7 +35834,7 @@ ___2f559h:
 		test    eax, eax
 		jle     near ___2f887h
 		mov     ecx, 29b80h
-		mov     esi, [GXBackBuffer]
+		mov     esi, [__CEXT_V(GXBackBuffer)]
 		mov     edi, [__CEXT_V(VGABufferPtr_0)]
 		add     esi, 0f000h
 		add     edi, 0f000h
@@ -35994,22 +35981,22 @@ ___2f7b8h:
 		mov     ebx, 27fh
 		mov     edx, 173h
 		xor     eax, eax
-		call    near frameFooter__dr
+		call    near __CEXT_F(frameFooter__dr)
 		cmp     dword [__CEXT_V(NetworkConnectionEstablished)], byte 0
 		je      short ___2f809h
 		mov     ecx, 390a3h
 		mov     ebx, ___1807cch
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		mov     eax, [GreyFont0Ptr]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     ecx, 390d9h
 		mov     ebx, __CEXT_V(string__F1)
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 ___2f809h:
 		call    near __CEXT_F(footer__dr)
-		call    near ___12cb8h
+		call    near __CEXT_F(___12cb8h)
 		mov     ecx, 4b000h
 		mov     esi, [__CEXT_V(VGABufferPtr_0)]
 		mov     edi, [__CEXT_V(___1a1124h)]
@@ -36047,7 +36034,7 @@ ___2f861h:
 		and     cl, 3
 		rep movsb   
 		pop     edi
-		call    near ___12cb8h
+		call    near __CEXT_F(___12cb8h)
 ___2f887h:
 		cmp     dword [__CEXT_V(NetworkConnectionEstablished)], byte 0
 		je      short ___2f8a1h
@@ -36067,7 +36054,7 @@ ___2f8ach:
 ___2f8c7h:
 		cmp     dword [__CEXT_V(___196a84h)], byte 0
 		jne     near ___2fae5h
-		cmp     dword [___185a2ch], byte 0
+		cmp     dword [__CEXT_V(___185a2ch)], byte 0
 		jne     near ___2fae5h
 		call    near __CEXT_F(___2b318h)
 		mov     ebp, 32h
@@ -36111,7 +36098,7 @@ ___2f97dh:
 		cmp     dword [esp+4], byte 0ffffffffh
 		jne     short ___2f98dh
 		mov     eax, [esp+0ch]
-		call    near ___65710h
+		call    near __CEXT_F(___65710h)
 ___2f98dh:
 		mov     esi, [esp+1ch]
 		xor     ebx, ebx
@@ -36221,8 +36208,8 @@ ___2fae5h:
 		pop     ecx
 		pop     ebx
 		retn    
-global ___2faf0h
-___2faf0h:
+global __CEXT_F(___2faf0h)
+__CEXT_F(___2faf0h):
 		push    24h
 		call    near __CHK
 		push    ebx
@@ -36336,20 +36323,20 @@ ___2fca4h:
 		sub     esp, byte 64h
 		mov     ebx, 0ah
 		lea     edx, [esp+50h]
-		mov     eax, [___196ab8h]
+		mov     eax, [__CEXT_V(___196ab8h)]
 		mov     ecx, 6dh
 		call    near itoa
 		push    byte 1
 		mov     ebx, 12ch
 		mov     edx, 72h
 		mov     eax, 0d0h
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     edx, [___1a1160h]
 		cmp     edx, byte 12h
 		jge     near ___2fda0h
 		mov     eax, edx
 		xor     edx, edx
-		mov     dl, [eax+___196abch]
+		mov     dl, [eax+__CEXT_V(___196abch)]
 		lea     eax, [edx*4+0]
 		add     eax, edx
 		shl     eax, 5
@@ -36357,7 +36344,7 @@ ___2fca4h:
 		add     eax, ___18d5a0h
 		call    near ___13094h
 		mov     edx, [___1a1160h]
-		mov     dl, [edx+___196abch]
+		mov     dl, [edx+__CEXT_V(___196abch)]
 		and     edx, 0ffh
 		lea     eax, [edx*4+0]
 		add     eax, edx
@@ -36367,7 +36354,7 @@ ___2fca4h:
 		add     eax, byte 28h
 		call    near ___13094h
 		mov     edx, [___1a1160h]
-		mov     dl, [edx+___196abch]
+		mov     dl, [edx+__CEXT_V(___196abch)]
 		and     edx, 0ffh
 		lea     eax, [edx*4+0]
 		add     eax, edx
@@ -36378,7 +36365,7 @@ ___2fca4h:
 		call    near ___13094h
 		mov     eax, [___1a1160h]
 		xor     edx, edx
-		mov     dl, [eax+___196abch]
+		mov     dl, [eax+__CEXT_V(___196abch)]
 		lea     eax, [edx*4+0]
 		add     eax, edx
 		shl     eax, 5
@@ -36462,7 +36449,7 @@ ___2fe64h:
 		sub     esp, byte 4
 		mov     ecx, 4b000h
 		mov     ebx, 27fh
-		mov     esi, [GXBackBuffer]
+		mov     esi, [__CEXT_V(GXBackBuffer)]
 		xor     edx, edx
 		mov     edi, [__CEXT_V(___1a10e4h)]
 		mov     [___1a1160h], edx
@@ -36479,23 +36466,23 @@ ___2fe64h:
 		mov     edx, 173h
 		mov     [__CEXT_V(VGABufferPtr_0)], eax
 		xor     eax, eax
-		call    near frameFooter__dr
+		call    near __CEXT_F(frameFooter__dr)
 		cmp     dword [__CEXT_V(NetworkConnectionEstablished)], byte 0
 		je      short ___2fefbh
 		mov     ecx, 390a3h
 		mov     ebx, ___1807cch
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		mov     eax, [GreyFont0Ptr]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     ecx, 390d9h
 		mov     ebx, __CEXT_V(string__F1)
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 ___2fefbh:
 		call    near __CEXT_F(footer__dr)
 		mov     ecx, 29b80h
-		mov     esi, [GXBackBuffer]
+		mov     esi, [__CEXT_V(GXBackBuffer)]
 		mov     edi, [__CEXT_V(VGABufferPtr_0)]
 		add     esi, 0f000h
 		add     edi, 0f000h
@@ -36532,7 +36519,7 @@ ___2ff58h:
 		mov     ebx, [__CEXT_V(VGABufferPtr_0)]
 		mov     eax, [___1a1160h]
 		add     ebx, 12c20h
-		mov     al, [eax+___196abch]
+		mov     al, [eax+__CEXT_V(___196abch)]
 		and     eax, 0ffh
 		mov     ecx, 62h
 		mov     edx, 80h
@@ -36602,7 +36589,7 @@ ___30022h:
 		mov     eax, 7
 		call    near ___27f80h
 		call    near ___2fca4h
-		mov     ecx, [___196ab8h]
+		mov     ecx, [__CEXT_V(___196ab8h)]
 		xor     edi, edi
 		test    ecx, ecx
 		jle     short ___300c7h
@@ -36612,7 +36599,7 @@ ___3006eh:
 		mov     ebx, [__CEXT_V(VGABufferPtr_0)]
 		xor     eax, eax
 		mov     esi, [ebp+___196af4h]
-		mov     al, [edi+___1a2011h]
+		mov     al, [edi+__CEXT_V(___1a2011h)]
 		mov     edx, 80h
 		add     ebx, esi
 		mov     esi, [eax*4+___1a1040h]
@@ -36633,12 +36620,12 @@ ___3009bh:
 		shr     dl, 2
 		dec     cl
 		jne     short ___30099h
-		mov     eax, [___196ab8h]
+		mov     eax, [__CEXT_V(___196ab8h)]
 		add     ebp, byte 4
 		cmp     edi, eax
 		jl      short ___3006eh
 ___300c7h:
-		mov     eax, [___VGABufferPtr_0]
+		mov     eax, [__CEXT_V(___VGABufferPtr_0)]
 		xor     edx, edx
 		mov     [__CEXT_V(VGABufferPtr_0)], eax
 		xor     eax, eax
@@ -36647,7 +36634,7 @@ ___300c7h:
 		call    near __CEXT_F(___12dc4h)
 ___300e2h:
 		call    near __CEXT_F(updateMenuBackgroundAndTextArea)
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
 		and     eax, 0ffh
 		cmp     eax, byte 4bh
 		jb      short ___30134h
@@ -36696,9 +36683,9 @@ ___3018dh:
 		mov     edi, [___1854b0h]
 		mov     eax, 1
 		push    edi
-		mov     ecx, [ConfigSFXVolume]
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
 		xor     ebx, ebx
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 		mov     ecx, 54h
 		mov     edx, 10h
 		mov     ebx, [__CEXT_V(VGABufferPtr_0)]
@@ -36773,7 +36760,7 @@ ___3028bh:
 		cmp     edx, byte 12h
 		jge     short ___302e3h
 		mov     ebx, [__CEXT_V(VGABufferPtr_0)]
-		mov     al, [edx+___196abch]
+		mov     al, [edx+__CEXT_V(___196abch)]
 		add     ebx, 12c20h
 		and     eax, 0ffh
 		mov     ecx, 62h
@@ -36843,9 +36830,9 @@ ___30363h:
 		mov     edi, [___1854b0h]
 		mov     eax, 1
 		push    edi
-		mov     ecx, [ConfigSFXVolume]
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
 		xor     ebx, ebx
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 		mov     ecx, 54h
 		mov     edx, 10h
 		mov     ebx, [__CEXT_V(VGABufferPtr_0)]
@@ -36921,7 +36908,7 @@ ___30461h:
 		jge     short ___304b5h
 		mov     ecx, 62h
 		mov     ebx, [__CEXT_V(VGABufferPtr_0)]
-		movzx   esi, byte [edx+___196abch]
+		movzx   esi, byte [edx+__CEXT_V(___196abch)]
 		mov     edx, 80h
 		add     ebx, 12c20h
 		mov     esi, [esi*4+___1a1040h]
@@ -36981,25 +36968,25 @@ ___3051dh:
 		mov     eax, 1
 		push    ecx
 		xor     ebx, ebx
-		mov     ecx, [ConfigSFXVolume]
-		call    near playSFX__sound
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
+		call    near __CEXT_F(playSFX__sound)
 		cmp     dword [___1a1160h], byte 12h
 		jne     near ___3063bh
-		mov     edi, [___196ab8h]
+		mov     edi, [__CEXT_V(___196ab8h)]
 		test    edi, edi
 		jle     near ___30618h
 		xor     dl, dl
 		mov     eax, edi
-		mov     [edi+___1a2011h], dl
+		mov     [edi+__CEXT_V(___1a2011h)], dl
 		test    edi, edi
 		jle     short ___30571h
 		lea     eax, [edi-1]
-		mov     [___196ab8h], eax
+		mov     [__CEXT_V(___196ab8h)], eax
 ___30571h:
 		mov     edx, 23f00h
 		mov     ebx, 203h
 ___3057bh:
-		mov     esi, [GXBackBuffer]
+		mov     esi, [__CEXT_V(GXBackBuffer)]
 		mov     edi, [__CEXT_V(VGABufferPtr_0)]
 		mov     ecx, ebx
 		add     esi, edx
@@ -37015,7 +37002,7 @@ ___3057bh:
 		pop     edi
 		cmp     edx, 39080h
 		jne     short ___3057bh
-		mov     edx, [___196ab8h]
+		mov     edx, [__CEXT_V(___196ab8h)]
 		xor     edi, edi
 		test    edx, edx
 		jle     near ___3063bh
@@ -37023,7 +37010,7 @@ ___3057bh:
 ___305bdh:
 		mov     edx, 80h
 		mov     ebx, [__CEXT_V(VGABufferPtr_0)]
-		movzx   esi, byte [edi+___1a2011h]
+		movzx   esi, byte [edi+__CEXT_V(___1a2011h)]
 		mov     ecx, [ebp+___196af4h]
 		mov     esi, [esi*4+___1a1040h]
 		add     ebx, ecx
@@ -37045,7 +37032,7 @@ ___305e9h:
 		shr     dl, 2
 		dec     cl
 		jne     short ___305e7h
-		mov     esi, [___196ab8h]
+		mov     esi, [__CEXT_V(___196ab8h)]
 		add     ebp, byte 4
 		cmp     edi, esi
 		jge     short ___3063bh
@@ -37053,12 +37040,12 @@ ___305e9h:
 ___30618h:
 		push    8000h
 		mov     edx, 1dh
-		mov     ebp, [___1854bch]
+		mov     ebp, [__CEXT_V(___1854bch)]
 		mov     eax, 1
 		push    ebp
-		mov     ecx, [ConfigSFXVolume]
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
 		xor     ebx, ebx
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 ___3063bh:
 		cmp     dword [___1a1160h], byte 13h
 		jne     short ___3064bh
@@ -37067,12 +37054,12 @@ ___3064bh:
 		mov     eax, [___1a1160h]
 		cmp     eax, byte 12h
 		jge     near ___306dah
-		mov     edx, [___196ab8h]
+		mov     edx, [__CEXT_V(___196ab8h)]
 		cmp     edx, byte 9
 		jge     short ___306d3h
 		mov     ebx, [__CEXT_V(VGABufferPtr_0)]
 		mov     ecx, [edx*4+___196af4h]
-		mov     al, [eax+___196abch]
+		mov     al, [eax+__CEXT_V(___196abch)]
 		add     ebx, ecx
 		and     eax, 0ffh
 		mov     ecx, 62h
@@ -37094,11 +37081,11 @@ ___30694h:
 		shr     dl, 2
 		dec     cl
 		jne     short ___30692h
-		mov     eax, [___196ab8h]
+		mov     eax, [__CEXT_V(___196ab8h)]
 		mov     edx, [___1a1160h]
 		inc     eax
-		mov     dl, [edx+___196abch]
-		mov     [___196ab8h], eax
+		mov     dl, [edx+__CEXT_V(___196abch)]
+		mov     [__CEXT_V(___196ab8h)], eax
 		mov     [eax+___1a2010h], dl
 		jmp     short ___306dah
 ___306d3h:
@@ -37112,17 +37099,17 @@ ___306e6h:
 ___306edh:
 		cmp     dword [esp], byte 0
 		je      near ___300e2h
-		mov     edi, [___196ab8h]
+		mov     edi, [__CEXT_V(___196ab8h)]
 		test    edi, edi
 		jne     short ___30711h
 		lea     eax, [edi+1]
 		xor     dh, dh
-		mov     [___196ab8h], eax
-		mov     [edi+___1a2011h], dh
+		mov     [__CEXT_V(___196ab8h)], eax
+		mov     [edi+__CEXT_V(___1a2011h)], dh
 ___30711h:
 		mov     ecx, 4b000h
 		mov     ebx, 27fh
-		mov     esi, [GXBackBuffer]
+		mov     esi, [__CEXT_V(GXBackBuffer)]
 		mov     edi, [__CEXT_V(___1a10e4h)]
 		mov     edx, 173h
 		push    edi
@@ -37137,18 +37124,18 @@ ___30711h:
 		mov     ecx, 6dh
 		mov     [__CEXT_V(VGABufferPtr_0)], eax
 		xor     eax, eax
-		call    near frameFooter__dr
+		call    near __CEXT_F(frameFooter__dr)
 		cmp     dword [__CEXT_V(NetworkConnectionEstablished)], byte 0
 		je      short ___3078dh
 		mov     ecx, 390a3h
 		mov     ebx, ___1807cch
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		mov     eax, [GreyFont0Ptr]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     ecx, 390d9h
 		mov     ebx, __CEXT_V(string__F1)
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 ___3078dh:
 		call    near __CEXT_F(footer__dr)
@@ -37778,7 +37765,7 @@ ___30df8h:
 		push    edi
 		mov     ecx, 2800h
 		mov     ebx, 27fh
-		mov     esi, [GXBackBuffer]
+		mov     esi, [__CEXT_V(GXBackBuffer)]
 		mov     edi, [__CEXT_V(VGABufferPtr_0)]
 		add     esi, 39580h
 		add     edi, 39580h
@@ -37793,7 +37780,7 @@ ___30df8h:
 		pop     edi
 		mov     ecx, 6dh
 		xor     eax, eax
-		call    near frameFooter__dr
+		call    near __CEXT_F(frameFooter__dr)
 		call    near __CEXT_F(footer__dr)
 		mov     ecx, 70h
 		xor     eax, eax
@@ -37866,37 +37853,37 @@ ___30f0ah:
 		jne     short ___30f08h
 		mov     ecx, 23049h
 		mov     ebx, ___182358h
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     ecx, 230e2h
 		mov     ebx, ___182360h
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     ecx, 2317fh
 		mov     ebx, ___182368h
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		push    byte 1
 		mov     ecx, 69h
 		mov     ebx, 94h
 		mov     edx, 100h
 		mov     eax, 16h
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		push    byte 1
 		mov     ecx, 69h
 		mov     ebx, 94h
 		mov     edx, 100h
 		mov     eax, 0b6h
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		push    byte 1
 		mov     ecx, 69h
 		mov     ebx, 94h
 		mov     edx, 100h
 		mov     eax, 156h
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     ecx, 20h
 		mov     edx, 280h
 		mov     ebx, [__CEXT_V(VGABufferPtr_0)]
@@ -37993,7 +37980,7 @@ ___3102eh:
 		pop     edi
 		mov     ecx, 2aa80h
 		mov     eax, [__CEXT_V(___1a10e4h)]
-		mov     esi, [GXBackBuffer]
+		mov     esi, [__CEXT_V(GXBackBuffer)]
 		mov     [__CEXT_V(VGABufferPtr_0)], eax
 		add     esi, 0e100h
 		lea     edi, [eax+0e100h]
@@ -38007,7 +37994,7 @@ ___3102eh:
 		rep movsb   
 		pop     edi
 		mov     ecx, 2800h
-		mov     esi, [GXBackBuffer]
+		mov     esi, [__CEXT_V(GXBackBuffer)]
 		mov     edi, [__CEXT_V(VGABufferPtr_0)]
 		add     esi, 39580h
 		add     edi, 39580h
@@ -38022,7 +38009,7 @@ ___3102eh:
 		pop     edi
 		mov     ecx, 6dh
 		xor     eax, eax
-		call    near frameFooter__dr
+		call    near __CEXT_F(frameFooter__dr)
 		call    near __CEXT_F(footer__dr)
 		call    near ___25330h
 		mov     ecx, 10h
@@ -38094,11 +38081,11 @@ ___311efh:
 		mov     eax, 0aah
 		call    near ___27f80h
 		xor     esi, esi
-		mov     eax, [___VGABufferPtr_0]
+		mov     eax, [__CEXT_V(___VGABufferPtr_0)]
 		mov     [esp+28h], esi
 		mov     [__CEXT_V(VGABufferPtr_0)], eax
 		call    near ___3a6a4h
-		call    near ___12cb8h
+		call    near __CEXT_F(___12cb8h)
 		xor     al, al
 ___31234h:
 		cmp     al, 1ch
@@ -38110,7 +38097,7 @@ ___31234h:
 		mov     edi, [esp+28h]
 		call    near __CEXT_F(updateMenuBackgroundAndTextArea)
 		inc     edi
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
 		mov     [esp+28h], edi
 		cmp     edi, 1e0h
 		jl      short ___31234h
@@ -38158,7 +38145,7 @@ ___3125bh:
 		call    near __CEXT_F(initDrivers)
 		mov     [___243d44h], ecx
 		mov     [___185a90h], ebp
-		mov     [___185a2ch], ecx
+		mov     [__CEXT_V(___185a2ch)], ecx
 		mov     [___196ae8h], ebp
 		add     esp, byte 30h
 		pop     ebp
@@ -38173,11 +38160,11 @@ ___31320h:
 		mov     eax, [___1854a4h]
 		mov     edx, 17h
 		sub     eax, 1000h
-		mov     ecx, [ConfigSFXVolume]
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
 		push    eax
 		xor     ebx, ebx
 		mov     eax, 1
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 		call    near __CEXT_F(___2b318h)
 		mov     eax, 0ffdch
 		mov     ebp, 640000h
@@ -38188,7 +38175,7 @@ ___3135ah:
 		cmp     dword [___185a4ch], byte 0
 		je      short ___31375h
 		mov     eax, [esp+2ch]
-		call    near ___65710h
+		call    near __CEXT_F(___65710h)
 ___31375h:
 		call    near __CEXT_F(___58c60h)
 		mov     esi, ebp
@@ -38246,9 +38233,9 @@ ___31384h:
 		je      short ___31462h
 		cmp     dword [___185a4ch], byte 0
 		je      short ___31462h
-		mov     eax, [___1a1ef4h]
+		mov     eax, [__CEXT_V(___1a1ef4h)]
 		mov     esi, 1
-		call    near ___658b8h
+		call    near __CEXT_F(___658b8h)
 		mov     eax, esi
 		mov     [___185a28h], esi
 		call    near ___6563ch
@@ -38422,7 +38409,7 @@ ___31643h:
 		mov     ebx, 5
 		sar     edx, 1fh
 		idiv    ebx
-		mov     al, [edx+___196abch]
+		mov     al, [edx+__CEXT_V(___196abch)]
 		mov     [___1a1f64h], al
 		call    near __CEXT_F(rand__clib3r)
 		mov     edx, eax
@@ -38445,7 +38432,7 @@ ___31691h:
 		mov     ebx, 6
 		sar     edx, 1fh
 		idiv    ebx
-		mov     al, [edx+___196abeh]
+		mov     al, [edx+__CEXT_V(___196abeh)]
 		mov     [___1a1f65h], al
 		call    near __CEXT_F(rand__clib3r)
 		mov     edx, eax
@@ -38524,7 +38511,7 @@ ___3174ch:
 		push    byte 1
 		mov     ecx, 91h
 		mov     eax, 21h
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     ecx, ebp
 		lea     ebx, [ecx*4+0]
 		add     ebx, ecx
@@ -38547,22 +38534,22 @@ ___317c9h:
 		jne     short ___317c9h
 		mov     ecx, 2e250h
 		mov     ebx, ___180848h
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		call    near __CEXT_F(___12dc4h)
 		push    8000h
 		mov     eax, [___1854a4h]
 		mov     edx, 17h
 		sub     eax, 1000h
-		mov     ecx, [ConfigSFXVolume]
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
 		push    eax
 		xor     ebx, ebx
 		mov     eax, 1
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 ___31824h:
 		call    near __CEXT_F(updateMenuBackgroundAndTextArea)
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
 		test    al, al
 		je      short ___31824h
 		mov     ecx, 1f400h
@@ -38714,7 +38701,7 @@ ___31a21h:
 		mov     ebx, 1e2h
 		mov     edx, [esp+50h]
 		mov     eax, [esp+54h]
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     edx, [esp+4ch]
 		add     edx, byte 25h
 		lea     ebp, [edx*4+0]
@@ -38900,11 +38887,11 @@ ___31c7dh:
 		jl      short ___31c7dh
 		push    8000h
 		mov     edx, 5
-		mov     ecx, [ConfigSFXVolume]
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
 		push    24000h
 		xor     ebx, ebx
 		mov     eax, edx
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 		xor     edx, edx
 ___31ca8h:
 		inc     edx
@@ -38919,7 +38906,7 @@ ___31ca8h:
 		add     edx, 0beh
 		add     eax, 80h
 		mov     [esp+40h], edi
-		call    near ___148cch
+		call    near __CEXT_F(___148cch)
 		cmp     edi, [esp+40h]
 		jne     near ___321efh
 		mov     eax, [esp+48h]
@@ -39016,7 +39003,7 @@ ___31e14h:
 		mov     ebx, 1e2h
 		mov     edx, [esp+50h]
 		mov     eax, [esp+54h]
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     eax, [esp+4ch]
 		add     eax, byte 25h
 		lea     ebp, [eax*4+0]
@@ -39285,11 +39272,11 @@ ___32137h:
 		jl      short ___32137h
 		push    8000h
 		mov     edx, 5
-		mov     ecx, [ConfigSFXVolume]
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
 		push    24000h
 		xor     ebx, ebx
 		mov     eax, edx
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 		xor     edx, edx
 ___32162h:
 		inc     edx
@@ -39304,7 +39291,7 @@ ___32162h:
 		add     edx, 0beh
 		add     eax, 80h
 		lea     ecx, [esp+40h]
-		call    near ___148cch
+		call    near __CEXT_F(___148cch)
 		cmp     dword [esp+40h], byte 1
 		jne     short ___321efh
 		mov     eax, [esp+48h]
@@ -39492,7 +39479,7 @@ ___323b0h:
 ___323c4h:
 		mov     eax, 46ch
 		mov     eax, [eax]
-		call    near srand__clib3r
+		call    near __CEXT_F(srand__clib3r)
 		call    near __CEXT_F(rand__clib3r)
 		mov     edx, eax
 		mov     ecx, 19h
@@ -39539,7 +39526,7 @@ ___32454h:
 		push    byte 1
 		mov     edx, ebp
 		mov     eax, [esp+84h]
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		lea     edx, [ebp+28h]
 		lea     eax, [edx*4+0]
 		add     eax, edx
@@ -39714,7 +39701,7 @@ ___32592h:
 		mov     ebx, __CEXT_V(STRING_CONTINUE)
 		lea     ecx, [eax+0c0h]
 		mov     edx, __CEXT_V(___185ba9h)
-		mov     eax, [___1a10cch]
+		mov     eax, [__CEXT_V(___1a10cch)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		call    near __CEXT_F(___12dc4h)
 		call    near ___17324h
@@ -39799,7 +39786,7 @@ ___326a2h:
 		cmp     ecx, 0b7h
 		jl      near ___326a2h
 		mov     ecx, 4b000h
-		mov     esi, [GXBackBuffer]
+		mov     esi, [__CEXT_V(GXBackBuffer)]
 		mov     edi, [__CEXT_V(___1a10e4h)]
 		push    edi
 		mov     eax, ecx
@@ -39811,7 +39798,7 @@ ___326a2h:
 		pop     edi
 		mov     ecx, 28a00h
 		mov     eax, [__CEXT_V(___1a10e4h)]
-		mov     esi, [GXBackBuffer]
+		mov     esi, [__CEXT_V(GXBackBuffer)]
 		mov     [__CEXT_V(VGABufferPtr_0)], eax
 		add     esi, 10180h
 		lea     edi, [eax+10180h]
@@ -39840,15 +39827,15 @@ ___327bbh:
 		je      short ___327c9h
 		call    near ___17248h
 ___327c9h:
-		mov     eax, [___VGABufferPtr_0]
+		mov     eax, [__CEXT_V(___VGABufferPtr_0)]
 		mov     [__CEXT_V(VGABufferPtr_0)], eax
 		call    near ___3a6a4h
-		call    near ___12cb8h
+		call    near __CEXT_F(___12cb8h)
 		cmp     dword [___185a3ch], byte 0
 		je      short ___3284bh
 		call    near ___17324h
 		mov     ecx, 28a00h
-		mov     esi, [GXBackBuffer]
+		mov     esi, [__CEXT_V(GXBackBuffer)]
 		mov     edi, [__CEXT_V(VGABufferPtr_0)]
 		add     esi, 10180h
 		add     edi, 10180h
@@ -39878,7 +39865,7 @@ ___3284dh:
 		call    near __CEXT_F(updateMenuBackgroundAndTextArea)
 		mov     eax, 4bh
 		call    near ___3079ch
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
 		cmp     al, 4dh
 		jb      short ___32890h
 		jbe     near ___32935h
@@ -39912,8 +39899,8 @@ ___328b0h:
 		mov     eax, 1
 		push    ecx
 		xor     ebx, ebx
-		mov     ecx, [ConfigSFXVolume]
-		call    near playSFX__sound
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
+		call    near __CEXT_F(playSFX__sound)
 		imul    eax, [__CEXT_V(___185a50h)], 0a0h
 		mov     ecx, 84h
 		mov     ebx, 94h
@@ -39939,9 +39926,9 @@ ___32935h:
 		mov     edi, [___1854ach]
 		mov     eax, 1
 		push    edi
-		mov     ecx, [ConfigSFXVolume]
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
 		xor     ebx, ebx
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 		imul    eax, [__CEXT_V(___185a50h)], 0a0h
 		mov     ecx, 84h
 		mov     ebx, 94h
@@ -39996,9 +39983,9 @@ ___32a27h:
 		mov     ebp, [___18549ch]
 		mov     eax, 1
 		push    ebp
-		mov     ecx, [ConfigSFXVolume]
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
 		xor     ebx, ebx
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 		mov     eax, [__CEXT_V(___185a50h)]
 		xor     edx, edx
 		mov     dl, [eax+___1a1f67h]
@@ -40275,7 +40262,7 @@ ___32d5ah:
 		mov     esi, [esp+5ch]
 		call    near __CEXT_F(updateMenuBackgroundAndTextArea)
 		inc     esi
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
 		mov     [esp+5ch], esi
 		test    al, al
 		jne     short ___32d79h
@@ -40290,12 +40277,12 @@ ___32d79h:
 ___32d90h:
 		push    8000h
 		mov     edx, 1dh
-		mov     edi, [___1854bch]
+		mov     edi, [__CEXT_V(___1854bch)]
 		mov     eax, 1
 		push    edi
-		mov     ecx, [ConfigSFXVolume]
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
 		xor     ebx, ebx
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 		jmp     short ___32dddh
 ___32db5h:
 		mov     dl, 4
@@ -40325,30 +40312,30 @@ ___32dddh:
 		mov     ebx, 244h
 		mov     edx, 0c8h
 		mov     eax, 21h
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     ecx, 232b0h
 		mov     ebx, ___1823d4h
 		mov     edx, __CEXT_V(___185ba9h)
-		mov     eax, [___1a10cch]
+		mov     eax, [__CEXT_V(___1a10cch)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     ecx, 28d50h
 		mov     ebx, ___180848h
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		call    near __CEXT_F(___12dc4h)
 		push    8000h
 		mov     eax, [___1854a4h]
 		mov     edx, 17h
 		sub     eax, 1000h
-		mov     ecx, [ConfigSFXVolume]
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
 		push    eax
 		xor     ebx, ebx
 		mov     eax, 1
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 ___32e85h:
 		call    near __CEXT_F(updateMenuBackgroundAndTextArea)
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
 		test    al, al
 		je      short ___32e85h
 		call    near __CEXT_F(___2b318h)
@@ -40361,7 +40348,7 @@ ___32ea6h:
 		cmp     dword [___185a4ch], byte 0
 		je      short ___32ec1h
 		mov     eax, [esp+60h]
-		call    near ___65710h
+		call    near __CEXT_F(___65710h)
 ___32ec1h:
 		call    near __CEXT_F(___58c60h)
 		mov     esi, ebp
@@ -40419,9 +40406,9 @@ ___32ed0h:
 		je      short ___32fadh
 		cmp     dword [___185a4ch], byte 0
 		je      short ___32fadh
-		mov     eax, [___1a1ef4h]
+		mov     eax, [__CEXT_V(___1a1ef4h)]
 		mov     edi, 1
-		call    near ___658b8h
+		call    near __CEXT_F(___658b8h)
 		mov     eax, edi
 		mov     [___185a28h], edi
 		call    near ___6563ch
@@ -40514,7 +40501,7 @@ ___33010h:
 		pop     edi
 		mov     ecx, 4b000h
 		mov     eax, [__CEXT_V(___1a10e4h)]
-		mov     esi, [GXBackBuffer]
+		mov     esi, [__CEXT_V(GXBackBuffer)]
 		mov     edi, eax
 		mov     [__CEXT_V(VGABufferPtr_0)], eax
 		push    edi
@@ -40646,7 +40633,7 @@ ___331ech:
 		call    near __CEXT_F(___3f77ch)
 		mov     eax, [___196ad4h]
 		xor     edx, edx
-		mov     dl, [eax+___1a2011h]
+		mov     dl, [eax+__CEXT_V(___1a2011h)]
 		lea     eax, [edx*8+0]
 		mov     esi, ___196b2ch
 		add     eax, edx
@@ -40717,7 +40704,7 @@ ___332fdh:
 		dec     ecx
 		jne     short ___332f3h
 		mov     eax, [___196ad4h]
-		mov     al, [eax+___1a2011h]
+		mov     al, [eax+__CEXT_V(___1a2011h)]
 		and     eax, 0ffh
 		mov     esi, esp
 		shl     eax, 2
@@ -40739,7 +40726,7 @@ ___33342h:
 		pop     edi
 		mov     eax, [___196ad4h]
 		mov     ebx, 5
-		mov     dl, [eax+___1a2011h]
+		mov     dl, [eax+__CEXT_V(___1a2011h)]
 		mov     [___1a1134h], ebx
 		cmp     dl, 8
 		jbe     short ___3336dh
@@ -41532,7 +41519,7 @@ ___33c3ah:
 		cmp     edx, ebx
 		jl      near ___33b18h
 ___33c89h:
-		mov     eax, [___VGABufferPtr_0]
+		mov     eax, [__CEXT_V(___VGABufferPtr_0)]
 		mov     [__CEXT_V(VGABufferPtr_0)], eax
 		mov     eax, 0ffffffffh
 		call    near ___3a968h
@@ -41543,9 +41530,9 @@ ___33c89h:
 ___33cadh:
 		mov     eax, 2800h
 ___33cb2h:
-		call    near ___658b8h
+		call    near __CEXT_F(___658b8h)
 		mov     eax, 10000h
-		call    near ___65710h
+		call    near __CEXT_F(___65710h)
 		call    near __CEXT_F(___12dc4h)
 		cmp     dword [__CEXT_V(NetworkConnectionEstablished)], byte 0
 		je      near ___33e7eh
@@ -42783,7 +42770,7 @@ ___3518fh:
 		je      near ___357bbh
 		mov     ecx, [___196ad4h]
 		inc     ecx
-		mov     esi, [___196ab8h]
+		mov     esi, [__CEXT_V(___196ab8h)]
 		mov     [___196ad4h], ecx
 		mov     ecx, __CEXT_V(RowBoxBuffers)
 		mov     eax, [___196ad4h]
@@ -42902,7 +42889,7 @@ ___352e8h:
 		inc     ecx
 		mov     al, [eax+__CEXT_V(___1a1f4fh)]
 		mov     [esp+0d0h], ecx
-		mov     [ecx+___1a1f4dh], al
+		mov     [ecx+__CEXT_V(___1a1f4dh)], al
 		cmp     ecx, byte 15h
 		jl      short ___352c4h
 		mov     al, [__CEXT_V(___180130h)]
@@ -42938,7 +42925,7 @@ ___3535eh:
 		inc     ebx
 		mov     al, [eax+__CEXT_V(___1a1f4fh)]
 		mov     [esp+0d0h], ebx
-		mov     [ebx+___1a1f4dh], al
+		mov     [ebx+__CEXT_V(___1a1f4dh)], al
 		cmp     ebx, byte 15h
 		jl      short ___3533ah
 		cmp     dword [___1de814h], byte 0ffffffffh
@@ -43001,7 +42988,7 @@ ___3541ch:
 		pop     edi
 		mov     eax, [___196ad4h]
 		xor     edx, edx
-		mov     dl, [eax+___1a2011h]
+		mov     dl, [eax+__CEXT_V(___1a2011h)]
 		mov     eax, edx
 		shl     eax, 4
 		mov     esi, ___18d492h
@@ -43077,7 +43064,7 @@ ___354c1h:
 		inc     ecx
 		mov     al, [eax+__CEXT_V(___1a1f4fh)]
 		mov     [esp+0d0h], ecx
-		mov     [ecx+___1a1f4dh], al
+		mov     [ecx+__CEXT_V(___1a1f4dh)], al
 		cmp     ecx, byte 15h
 		jl      short ___3549dh
 		mov     al, [__CEXT_V(___180130h)]
@@ -43296,8 +43283,8 @@ ___3589ah:
 		jne     short ___358a8h
 		call    near ___3deb8h
 ___358a8h:
-		call    near allocVGABuffer
-		call    near ___117f4h
+		call    near __CEXT_F(allocVGABuffer)
+		call    near __CEXT_F(___117f4h)
 		mov     esi, [__CEXT_V(MyID)]
 		xor     edx, edx
 		xor     eax, eax
@@ -43355,22 +43342,22 @@ ___35922h:
 		mov     [esp+100h], eax
 		fild    word [esp+100h]
 		sub     esp, byte 4
-		mov     ecx, ___181c9ch
+		mov     ecx, __CEXT_V(___181c9ch)
 		fstp    dword [esp]
 		mov     ebx, 2
 		call    near ___11378h
 		push    byte 5
-		mov     edx, ___181ca8h
+		mov     edx, __CEXT_V(___181ca8h)
 		mov     eax, 1
 		call    near __CEXT_F(___64864h__esp)
-		mov     eax, [ConfigMusicVolume]
-		call    near ___6572ch
+		mov     eax, [__CEXT_V(ConfigMusicVolume)]
+		call    near __CEXT_F(___6572ch)
 		mov     eax, 5622h
-		call    near ___65990h
-		call    near ___648d8h
+		call    near __CEXT_F(___65990h)
+		call    near __CEXT_F(___648d8h)
 		mov     eax, 1
-		call    near ___659b8h
-		call    near ___606dfh
+		call    near __CEXT_F(___659b8h)
+		call    near __CEXT_F(___606dfh)
 		mov     ax, 4f02h
 		mov     bx, 101h
 		int     10h
@@ -43786,14 +43773,14 @@ ___35ea3h:
 		mov     ecx, [esp+10h]
 		lea     ebx, [esp+14h]
 		mov     edx, __CEXT_V(___185ba9h)
-		mov     eax, [___1a10cch]
+		mov     eax, [__CEXT_V(___1a10cch)]
 		add     ecx, 191h
 		jmp     short ___35efah
 ___35ee2h:
 		mov     ecx, [esp+10h]
 		lea     ebx, [esp+14h]
 		mov     edx, __CEXT_V(___185ba9h)
-		mov     eax, [___1a10cch]
+		mov     eax, [__CEXT_V(___1a10cch)]
 		add     ecx, 18ch
 ___35efah:
 		call    near __CEXT_F(renderTextToBuffer__video)
@@ -43980,8 +43967,8 @@ ___36148h:
 		jne     short ___3613eh
 		mov     ecx, 0d890h
 		mov     ebx, ___1824ech
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     edx, esp
 		mov     eax, 4
@@ -44118,10 +44105,10 @@ ___36328h:
 		jne     short ___3634dh
 		mov     ecx, 46b6eh
 		mov     ebx, ___18250ch
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
-		call    near ___12cb8h
+		call    near __CEXT_F(___12cb8h)
 ___3634dh:
 		add     esp, byte 8
 		pop     ebp
@@ -44220,8 +44207,8 @@ ___36456h:
 		jne     short ___3644ch
 		mov     ecx, 0d890h
 		mov     ebx, ___18252ch
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     edx, esp
 		mov     eax, 4
@@ -44410,7 +44397,7 @@ ___36677h:
 		mov     [esp+4], ecx
 		cmp     ecx, 100h
 		jl      near ___36677h
-		call    near ___12cb8h
+		call    near __CEXT_F(___12cb8h)
 ___3670ch:
 		add     esp, byte 8
 		pop     ebp
@@ -44509,8 +44496,8 @@ ___36816h:
 		jne     short ___3680ch
 		mov     ecx, 0d890h
 		mov     ebx, ___182544h
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     edx, esp
 		mov     eax, 4
@@ -44699,7 +44686,7 @@ ___36a3ah:
 		mov     [esp+4], ecx
 		cmp     ecx, 100h
 		jl      near ___36a3ah
-		call    near ___12cb8h
+		call    near __CEXT_F(___12cb8h)
 ___36acfh:
 		add     esp, byte 8
 		pop     ebp
@@ -44720,7 +44707,7 @@ ___36adch:
 		push    ebp
 		sub     esp, 0a4h
 		mov     ecx, 4b000h
-		mov     esi, [GXBackBuffer]
+		mov     esi, [__CEXT_V(GXBackBuffer)]
 		mov     edi, [__CEXT_V(VGABufferPtr_0)]
 		mov     edx, 36h
 		push    edi
@@ -44836,7 +44823,7 @@ ___36c24h:
 		mov     esi, ___182574h
 		mov     edi, esp
 		mov     ebx, esp
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		push    edi
 		sub     ecx, ecx
 		dec     ecx
@@ -44857,21 +44844,21 @@ ___36c3ch:
 ___36c54h:
 		pop     edi
 		mov     ecx, 46a2eh
-		mov     eax, [WhiteFont0Ptr]
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 ___36c64h:
 		cmp     dword [__CEXT_V(NetworkConnectionEstablished)], byte 0
 		je      short ___36c86h
 		mov     ecx, 0d738h
 		mov     ebx, ___182580h
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 ___36c86h:
 		mov     ecx, 0d8a0h
 		mov     ebx, ___182594h
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     edx, [__CEXT_V(MyID)]
 		lea     eax, [edx*8+0]
@@ -44907,11 +44894,11 @@ ___36cf2h:
 		mov     ecx, 120e8h
 		mov     esi, ___1825a8h
 		mov     ebx, esp
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		movsd   
 		movsd   
 		movsb   
-		mov     eax, [WhiteFont0Ptr]
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		mov     edi, esp
 		mov     esi, ___1825b4h
 		call    near __CEXT_F(renderTextToBuffer__video)
@@ -44920,7 +44907,7 @@ ___36cf2h:
 		mov     ebx, esp
 		lea     esi, [esp+64h]
 		mov     edi, esp
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		push    edi
 		sub     ecx, ecx
 		dec     ecx
@@ -44940,7 +44927,7 @@ ___36d33h:
 		jne     short ___36d33h
 ___36d4bh:
 		pop     edi
-		mov     eax, [WhiteFont0Ptr]
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		lea     ecx, [ebp+11f80h]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     edx, [__CEXT_V(MyID)]
@@ -44956,11 +44943,11 @@ ___36d4bh:
 		mov     ecx, 15a68h
 		call    near itoa
 		mov     ebx, esp
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		movsd   
 		movsd   
 		movsw   
-		mov     eax, [WhiteFont0Ptr]
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		mov     edi, esp
 		mov     esi, ___1825b4h
 		call    near __CEXT_F(renderTextToBuffer__video)
@@ -44969,7 +44956,7 @@ ___36d4bh:
 		mov     ebx, esp
 		lea     esi, [esp+64h]
 		mov     edi, esp
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		push    edi
 		sub     ecx, ecx
 		dec     ecx
@@ -44989,7 +44976,7 @@ ___36dc6h:
 		jne     short ___36dc6h
 ___36ddeh:
 		pop     edi
-		mov     eax, [WhiteFont0Ptr]
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		lea     ecx, [ebp+15900h]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     edx, [__CEXT_V(MyID)]
@@ -45005,11 +44992,11 @@ ___36ddeh:
 		mov     ecx, 193e8h
 		call    near itoa
 		mov     ebx, esp
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		movsd   
 		movsd   
 		movsd   
-		mov     eax, [WhiteFont0Ptr]
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		mov     edi, esp
 		mov     esi, ___1825b4h
 		call    near __CEXT_F(renderTextToBuffer__video)
@@ -45062,7 +45049,7 @@ ___36e8ch:
 ___36ea4h:
 		pop     edi
 		lea     esi, [esp+64h]
-		mov     eax, [___196ab8h]
+		mov     eax, [__CEXT_V(___196ab8h)]
 		mov     edi, esp
 		call    near itoa
 		push    edi
@@ -45086,8 +45073,8 @@ ___36ed6h:
 		pop     edi
 ___36ed7h:
 		mov     ebx, esp
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		lea     ecx, [ebp+19280h]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     edx, [__CEXT_V(MyID)]
@@ -45103,8 +45090,8 @@ ___36ed7h:
 		mov     ecx, 1cd68h
 		call    near itoa
 		mov     ebx, esp
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		movsd   
 		movsd   
 		movsd   
@@ -45114,7 +45101,7 @@ ___36ed7h:
 		mov     edi, esp
 		mov     ebx, esp
 		mov     eax, [___1825e4h]
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		mov     [esp], eax
 		push    edi
 		sub     ecx, ecx
@@ -45135,7 +45122,7 @@ ___36f56h:
 		jne     short ___36f56h
 ___36f6eh:
 		pop     edi
-		mov     eax, [WhiteFont0Ptr]
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		lea     ecx, [ebp+1cc00h]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     edx, [__CEXT_V(MyID)]
@@ -45151,8 +45138,8 @@ ___36f6eh:
 		mov     ecx, 206e8h
 		call    near itoa
 		mov     ebx, esp
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		movsd   
 		movsd   
 		movsd   
@@ -45161,7 +45148,7 @@ ___36f6eh:
 		mov     edi, esp
 		mov     ebx, esp
 		mov     eax, [___1825e4h]
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		mov     [esp], eax
 		push    edi
 		sub     ecx, ecx
@@ -45182,7 +45169,7 @@ ___36fe6h:
 		jne     short ___36fe6h
 ___36ffeh:
 		pop     edi
-		mov     eax, [WhiteFont0Ptr]
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		lea     ecx, [ebp+20580h]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		cmp     dword [___196ae8h], byte 0
@@ -45397,8 +45384,8 @@ ___37200h:
 ___37201h:
 		mov     ecx, 26ae8h
 		mov     ebx, esp
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		mov     esi, ___180724h
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     ebx, 0ah
@@ -45429,10 +45416,10 @@ ___37254h:
 		mov     ecx, 2a468h
 		mov     esi, ___182638h
 		mov     ebx, esp
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		movsd   
 		movsd   
-		mov     eax, [WhiteFont0Ptr]
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		mov     edi, esp
 		mov     esi, ___1825b4h
 		call    near __CEXT_F(renderTextToBuffer__video)
@@ -45441,7 +45428,7 @@ ___37254h:
 		mov     ebx, esp
 		lea     esi, [esp+64h]
 		mov     edi, esp
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		push    edi
 		sub     ecx, ecx
 		dec     ecx
@@ -45462,7 +45449,7 @@ ___37294h:
 ___372ach:
 		pop     edi
 		mov     edi, esp
-		mov     eax, [WhiteFont0Ptr]
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		lea     ecx, [ebp+2a300h]
 		mov     esi, ___182640h
 		call    near __CEXT_F(renderTextToBuffer__video)
@@ -45472,8 +45459,8 @@ ___372ach:
 		mov     ecx, 2dde8h
 		call    near itoa
 		mov     ebx, esp
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		movsd   
 		movsd   
 		movsd   
@@ -45482,7 +45469,7 @@ ___372ach:
 		mov     edi, esp
 		mov     ebx, esp
 		mov     eax, [___1825e4h]
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		mov     [esp], eax
 		push    edi
 		sub     ecx, ecx
@@ -45504,7 +45491,7 @@ ___3730eh:
 ___37326h:
 		pop     edi
 		mov     edi, esp
-		mov     eax, [WhiteFont0Ptr]
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		lea     ecx, [ebp+2dc80h]
 		mov     esi, ___18264ch
 		call    near __CEXT_F(renderTextToBuffer__video)
@@ -45514,8 +45501,8 @@ ___37326h:
 		mov     ecx, 31768h
 		call    near itoa
 		mov     ebx, esp
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		movsd   
 		movsd   
 		movsd   
@@ -45525,7 +45512,7 @@ ___37326h:
 		mov     edi, esp
 		mov     ebx, esp
 		mov     eax, [___1825e4h]
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		mov     [esp], eax
 		push    edi
 		sub     ecx, ecx
@@ -45546,7 +45533,7 @@ ___37389h:
 		jne     short ___37389h
 ___373a1h:
 		pop     edi
-		mov     eax, [WhiteFont0Ptr]
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		lea     ecx, [ebp+31600h]
 		mov     edi, esp
 		call    near __CEXT_F(renderTextToBuffer__video)
@@ -45559,8 +45546,8 @@ ___373a1h:
 		call    near itoa
 		mov     ecx, 350e8h
 		mov     ebx, esp
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		movsd   
 		movsd   
 		movsd   
@@ -45571,7 +45558,7 @@ ___373a1h:
 		mov     edi, esp
 		mov     ebx, esp
 		mov     eax, [___1825e4h]
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		mov     [esp], eax
 		push    edi
 		sub     ecx, ecx
@@ -45593,7 +45580,7 @@ ___3740eh:
 ___37426h:
 		pop     edi
 		mov     edi, esp
-		mov     eax, [WhiteFont0Ptr]
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		lea     ecx, [ebp+34f80h]
 		mov     esi, ___182670h
 		call    near __CEXT_F(renderTextToBuffer__video)
@@ -45603,13 +45590,13 @@ ___37426h:
 		mov     ecx, 38a68h
 		call    near itoa
 		mov     ebx, esp
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		movsd   
 		movsd   
 		movsd   
 		movsw   
 		movsb   
-		mov     eax, [WhiteFont0Ptr]
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		mov     edi, esp
 		mov     esi, ___1825b4h
 		call    near __CEXT_F(renderTextToBuffer__video)
@@ -45618,7 +45605,7 @@ ___37426h:
 		mov     ebx, esp
 		lea     esi, [esp+64h]
 		mov     edi, esp
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		push    edi
 		sub     ecx, ecx
 		dec     ecx
@@ -45638,7 +45625,7 @@ ___3748dh:
 		jne     short ___3748dh
 ___374a5h:
 		pop     edi
-		mov     eax, [WhiteFont0Ptr]
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		lea     ecx, [ebp+38900h]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     ebx, 0ah
@@ -45804,12 +45791,12 @@ ___37646h:
 		pop     edi
 		mov     edi, esp
 		mov     esi, ___182680h
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		mov     ecx, 3c3e8h
 		movsd   
 		movsd   
 		movsw   
-		mov     eax, [WhiteFont0Ptr]
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		mov     edi, esp
 		mov     esi, ___1825b4h
 		call    near __CEXT_F(renderTextToBuffer__video)
@@ -45818,7 +45805,7 @@ ___37646h:
 		mov     ebx, esp
 		lea     esi, [esp+64h]
 		mov     edi, esp
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		push    edi
 		sub     ecx, ecx
 		dec     ecx
@@ -45838,7 +45825,7 @@ ___37686h:
 		jne     short ___37686h
 ___3769eh:
 		pop     edi
-		mov     eax, [WhiteFont0Ptr]
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		lea     ecx, [ebp+3c280h]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     edx, [__CEXT_V(MyID)]
@@ -46214,12 +46201,12 @@ ___37b8eh:
 		pop     edi
 		mov     edi, esp
 		mov     esi, ___18268ch
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		mov     ecx, 3fd68h
 		movsd   
 		movsd   
 		movsb   
-		mov     eax, [WhiteFont0Ptr]
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		mov     edi, esp
 		mov     esi, ___1825b4h
 		call    near __CEXT_F(renderTextToBuffer__video)
@@ -46228,7 +46215,7 @@ ___37b8eh:
 		mov     ebx, esp
 		lea     esi, [esp+64h]
 		mov     edi, esp
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		push    edi
 		sub     ecx, ecx
 		dec     ecx
@@ -46248,7 +46235,7 @@ ___37bcdh:
 		jne     short ___37bcdh
 ___37be5h:
 		pop     edi
-		mov     eax, [WhiteFont0Ptr]
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		lea     ecx, [ebp+3fc00h]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     edx, [__CEXT_V(MyID)]
@@ -46462,13 +46449,13 @@ ___37e52h:
 		pop     edi
 		mov     edi, esp
 		mov     esi, ___182698h
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		mov     ecx, 436e8h
 		movsd   
 		movsd   
 		movsd   
 		movsw   
-		mov     eax, [WhiteFont0Ptr]
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		mov     edi, esp
 		mov     esi, ___1825b4h
 		call    near __CEXT_F(renderTextToBuffer__video)
@@ -46477,7 +46464,7 @@ ___37e52h:
 		mov     ebx, esp
 		lea     esi, [esp+64h]
 		mov     edi, esp
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		push    edi
 		sub     ecx, ecx
 		dec     ecx
@@ -46497,7 +46484,7 @@ ___37e93h:
 		jne     short ___37e93h
 ___37eabh:
 		pop     edi
-		mov     eax, [WhiteFont0Ptr]
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		lea     ecx, [ebp+43580h]
 		call    near __CEXT_F(renderTextToBuffer__video)
 ___37ebch:
@@ -47240,7 +47227,7 @@ ___38768h:
 		call    near ___38708h
 		mov     ecx, 46b6eh
 		mov     ebx, ___18250ch
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		mov     eax, [GreyFont0Ptr]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     ecx, 10h
@@ -47255,8 +47242,8 @@ ___387c6h:
 		call    near ___38708h
 		mov     ecx, 46b6eh
 		mov     ebx, ___18250ch
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     ecx, 10h
 		mov     ebx, 10eh
@@ -47322,8 +47309,8 @@ ___38878h:
 		call    near ___3881ch
 		mov     ecx, 102beh
 		mov     ebx, ___180998h
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     ecx, 14h
 		mov     ebx, 168h
@@ -47337,7 +47324,7 @@ ___388d6h:
 		call    near ___3881ch
 		mov     ecx, 102beh
 		mov     ebx, ___180998h
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		mov     eax, [GreyFont0Ptr]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     ecx, 14h
@@ -47376,12 +47363,12 @@ ___3892ch:
 		mov     eax, 14h
 		mov     ecx, 46b6eh
 		mov     ebx, ___18250ch
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		call    near ___37ed4h
-		mov     eax, [WhiteFont0Ptr]
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		xor     ebp, ebp
 		call    near __CEXT_F(renderTextToBuffer__video)
-		call    near ___12cb8h
+		call    near __CEXT_F(___12cb8h)
 		call    near __CEXT_F(___2b318h)
 ___38994h:
 		call    near __CEXT_F(___58c60h)
@@ -47481,7 +47468,7 @@ ___38a40h:
 ___38ae2h:
 		call    near __CEXT_F(updateMenuBackgroundAndTextArea)
 		call    near ___38768h
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
 		test    al, al
 		je      short ___38ae2h
 		call    near __CEXT_F(___2b318h)
@@ -47584,7 +47571,7 @@ ___38babh:
 		jmp     near ___38affh
 ___38c51h:
 		mov     ecx, 4b000h
-		mov     esi, [GXBackBuffer]
+		mov     esi, [__CEXT_V(GXBackBuffer)]
 		mov     edi, [__CEXT_V(VGABufferPtr_0)]
 		mov     edx, 36h
 		push    edi
@@ -47642,12 +47629,12 @@ ___38cceh:
 		xor     eax, eax
 		mov     [esp+6ch], ebp
 		call    near ___36068h
-		call    near ___12cb8h
+		call    near __CEXT_F(___12cb8h)
 ___38cfah:
 		cmp     dword [___185a28h], byte 0
 		je      short ___38d0ah
 		mov     eax, ebp
-		call    near ___65710h
+		call    near __CEXT_F(___65710h)
 ___38d0ah:
 		call    near __CEXT_F(___58c60h)
 		xor     edi, edi
@@ -47704,7 +47691,7 @@ ___38d19h:
 ___38dcch:
 		call    near __CEXT_F(updateMenuBackgroundAndTextArea)
 		call    near ___38768h
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
 		mov     dl, al
 		test    al, al
 		je      short ___38dcch
@@ -47720,7 +47707,7 @@ ___38de7h:
 ___38df4h:
 		call    near __CEXT_F(updateMenuBackgroundAndTextArea)
 		call    near ___38768h
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
 		mov     dl, al
 		test    al, al
 		je      short ___38df4h
@@ -47736,7 +47723,7 @@ ___38e0fh:
 ___38e1ch:
 		call    near __CEXT_F(updateMenuBackgroundAndTextArea)
 		call    near ___38768h
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
 		test    al, al
 		je      short ___38e1ch
 ___38e2fh:
@@ -47749,7 +47736,7 @@ ___38e2fh:
 		mov     eax, 14h
 		mov     esi, [esp+64h]
 		call    near ___37ed4h
-		call    near ___12cb8h
+		call    near __CEXT_F(___12cb8h)
 		test    esi, esi
 		jne     near ___38f61h
 		mov     edx, [__CEXT_V(MyID)]
@@ -47790,43 +47777,43 @@ ___38ec1h:
 		mov     ecx, 46b6eh
 		mov     ebx, ___1826a8h
 		and     eax, 0ffh
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		mov     [___196ab4h], eax
 		call    near ___38708h
-		mov     eax, [WhiteFont0Ptr]
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
-		call    near ___12cb8h
-		call    near ___1240ch
+		call    near __CEXT_F(___12cb8h)
+		call    near __CEXT_F(___1240ch)
 		call    near __CEXT_F(___24548h)
-		call    near ___2faf0h
+		call    near __CEXT_F(___2faf0h)
 		call    near ___38708h
 		push    8000h
 		mov     edx, 1ch
 		mov     ebx, [___1854b8h]
 		mov     eax, 1
 		push    ebx
-		mov     ecx, [ConfigSFXVolume]
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
 		xor     ebx, ebx
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 		mov     ecx, 46b6eh
 		mov     ebx, ___18250ch
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
-		call    near ___12cb8h
+		call    near __CEXT_F(___12cb8h)
 ___38f61h:
 		cmp     dword [esp+64h], byte 1
 		jne     short ___38f86h
 		mov     ecx, 46b6eh
 		mov     ebx, ___18250ch
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
-		call    near ___12cb8h
+		call    near __CEXT_F(___12cb8h)
 ___38f86h:
 		call    near __CEXT_F(updateMenuBackgroundAndTextArea)
 		call    near ___38768h
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
 		test    al, al
 		je      short ___38f86h
 ___38f99h:
@@ -48052,24 +48039,24 @@ ___3923dh:
 		call    near __CEXT_F(___64a28h)
 ___39275h:
 		push    byte 5
-		mov     ecx, ___181c9ch
+		mov     ecx, __CEXT_V(___181c9ch)
 		mov     ebx, 2
-		mov     edx, ___181ca8h
+		mov     edx, __CEXT_V(___181ca8h)
 		mov     eax, 1
 		call    near __CEXT_F(___64864h__esp)
-		mov     eax, [ConfigMusicVolume]
-		call    near ___6572ch
+		mov     eax, [__CEXT_V(ConfigMusicVolume)]
+		call    near __CEXT_F(___6572ch)
 		mov     eax, 5622h
 		mov     esi, 60h
-		call    near ___65990h
-		call    near ___648d8h
+		call    near __CEXT_F(___65990h)
+		call    near __CEXT_F(___648d8h)
 		mov     eax, 1
 		mov     edi, 640000h
-		call    near ___659b8h
+		call    near __CEXT_F(___659b8h)
 		xor     ah, ah
 		mov     [esp+68h], esi
 		mov     [___1a2147h], ah
-		call    near ___606dfh
+		call    near __CEXT_F(___606dfh)
 		mov     ax, 4f02h
 		mov     bx, 101h
 		int     10h
@@ -48244,23 +48231,23 @@ ___394c6h:
 		call    near __CEXT_F(___64a28h)
 ___394feh:
 		push    byte 5
-		mov     ecx, ___181c9ch
+		mov     ecx, __CEXT_V(___181c9ch)
 		mov     ebx, 2
-		mov     edx, ___181ca8h
+		mov     edx, __CEXT_V(___181ca8h)
 		mov     eax, 1
 		call    near __CEXT_F(___64864h__esp)
-		mov     eax, [ConfigMusicVolume]
+		mov     eax, [__CEXT_V(ConfigMusicVolume)]
 		mov     esi, 480h
-		call    near ___6572ch
+		call    near __CEXT_F(___6572ch)
 		mov     eax, 5622h
 		mov     edi, 640000h
-		call    near ___65990h
-		call    near ___648d8h
+		call    near __CEXT_F(___65990h)
+		call    near __CEXT_F(___648d8h)
 		mov     eax, 1
 		xor     bh, bh
-		call    near ___659b8h
+		call    near __CEXT_F(___659b8h)
 		mov     [___1a2147h], bh
-		call    near ___606dfh
+		call    near __CEXT_F(___606dfh)
 		mov     ax, 4f02h
 		mov     bx, 101h
 		int     10h
@@ -48317,7 +48304,7 @@ ___39588h:
 		jl      near ___39588h
 ___39617h:
 		mov     ebx, 1
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
 		mov     [__CEXT_V(___196a74h)], ebx
 		add     esp, byte 70h
 		pop     ebp
@@ -48425,14 +48412,14 @@ ___39715h:
 		mov     ecx, [esp+30h]
 		mov     ebx, esp
 		mov     edx, __CEXT_V(___185ba9h)
-		mov     eax, [___1a10cch]
+		mov     eax, [__CEXT_V(___1a10cch)]
 		add     ecx, byte 46h
 		jmp     short ___3978eh
 ___3977bh:
 		mov     ecx, [esp+30h]
 		mov     ebx, esp
 		mov     edx, __CEXT_V(___185ba9h)
-		mov     eax, [___1a10cch]
+		mov     eax, [__CEXT_V(___1a10cch)]
 		add     ecx, byte 42h
 ___3978eh:
 		call    near __CEXT_F(renderTextToBuffer__video)
@@ -48522,7 +48509,7 @@ ___3986ch:
 		mov     ecx, 4b000h
 		mov     edx, 36h
 		mov     eax, [___196adch]
-		mov     esi, [GXBackBuffer]
+		mov     esi, [__CEXT_V(GXBackBuffer)]
 		mov     edi, [__CEXT_V(VGABufferPtr_0)]
 		mov     [esp+58h], eax
 		push    edi
@@ -48634,7 +48621,7 @@ ___399a7h:
 		mov     esi, ___182574h
 		mov     edi, esp
 		mov     ebx, esp
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		push    edi
 		sub     ecx, ecx
 		dec     ecx
@@ -48655,12 +48642,12 @@ ___399bfh:
 ___399d7h:
 		pop     edi
 		mov     ecx, 46a2eh
-		mov     eax, [WhiteFont0Ptr]
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     ecx, 0d738h
 		mov     ebx, ___182580h
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		xor     edx, edx
 		call    near ___35dd0h
@@ -49034,9 +49021,9 @@ ___39dbfh:
 		sar     eax, 1
 		mov     ebx, esp
 		mov     ecx, 0d8eah
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		sub     ecx, eax
-		mov     eax, [WhiteFont0Ptr]
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		xor     ecx, ecx
 		mov     [esp+5ch], ecx
@@ -49089,11 +49076,11 @@ ___39e6eh:
 		mov     ebx, ___18250ch
 		call    near ___38184h
 		call    near ___38708h
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		xor     ebp, ebp
 		call    near __CEXT_F(renderTextToBuffer__video)
-		call    near ___12cb8h
+		call    near __CEXT_F(___12cb8h)
 ___39ea1h:
 		call    near __CEXT_F(___58c60h)
 		mov     esi, ebp
@@ -49147,7 +49134,7 @@ ___39eb0h:
 ___39f52h:
 		call    near __CEXT_F(updateMenuBackgroundAndTextArea)
 		call    near ___38768h
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
 		test    al, al
 		je      short ___39f52h
 		call    near ___36adch
@@ -49155,32 +49142,32 @@ ___39f52h:
 		call    near ___38708h
 		mov     ecx, 46b6eh
 		mov     ebx, ___1826a8h
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
-		call    near ___12cb8h
-		call    near ___1240ch
+		call    near __CEXT_F(___12cb8h)
+		call    near __CEXT_F(___1240ch)
 		call    near __CEXT_F(___24548h)
-		call    near ___2faf0h
+		call    near __CEXT_F(___2faf0h)
 		call    near ___38708h
 		push    8000h
 		mov     edx, 1ch
 		mov     esi, [___1854b8h]
 		mov     eax, 1
 		push    esi
-		mov     ecx, [ConfigSFXVolume]
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
 		xor     ebx, ebx
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 		mov     ecx, 46b6eh
 		mov     ebx, ___18250ch
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
-		call    near ___12cb8h
+		call    near __CEXT_F(___12cb8h)
 ___39fe7h:
 		call    near __CEXT_F(updateMenuBackgroundAndTextArea)
 		call    near ___38768h
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
 		test    al, al
 		je      short ___39fe7h
 		mov     edx, [__CEXT_V(___196a84h)]
@@ -49313,7 +49300,7 @@ ___3a126h:
 		jne     near ___3a07ah
 ___3a1c7h:
 		mov     ebx, 1
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
 		mov     [__CEXT_V(___196a74h)], ebx
 		add     esp, byte 60h
 		pop     ebp
@@ -49845,8 +49832,8 @@ ___3a733h:
 		mov     [esp+4], ebx
 		cmp     ebx, byte 2bh
 		jl      near ___3a6c5h
-		call    near lastScanCode__keyboard
-		call    near nullScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
+		call    near __CEXT_F(nullScanCode__keyboard)
 		add     esp, byte 20h
 		pop     ebp
 		pop     edi
@@ -49855,8 +49842,7 @@ ___3a733h:
 		pop     ecx
 		pop     ebx
 		retn    
-global ___3a7e0h
-___3a7e0h:
+__GDECL(__CEXT_F(___3a7e0h))
 		push    48h
 		call    near __CHK
 		push    ebx
@@ -49950,12 +49936,12 @@ ___3a87ch:
 		cmp     dword [esp], byte 0ffffffffh
 		jne     short ___3a90bh
 		mov     eax, [esp+8]
-		call    near ___65710h
+		call    near __CEXT_F(___65710h)
 ___3a90bh:
 		cmp     dword [esp], byte 1
 		jne     short ___3a91ah
 		mov     eax, [esp+4]
-		call    near ___65710h
+		call    near __CEXT_F(___65710h)
 ___3a91ah:
 		mov     esi, [esp+8]
 		mov     edi, [esp+4]
@@ -49971,8 +49957,8 @@ ___3a91ah:
 		mov     [esp+0ch], ecx
 		cmp     ebp, byte 2bh
 		jl      near ___3a812h
-		call    near lastScanCode__keyboard
-		call    near nullScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
+		call    near __CEXT_F(nullScanCode__keyboard)
 		add     esp, byte 2ch
 		pop     ebp
 		pop     edi
@@ -50075,12 +50061,12 @@ ___3aa07h:
 		cmp     dword [esp], byte 0ffffffffh
 		jne     short ___3aa9ch
 		mov     eax, [esp+0ch]
-		call    near ___65710h
+		call    near __CEXT_F(___65710h)
 ___3aa9ch:
 		cmp     dword [esp], byte 1
 		jne     short ___3aaabh
 		mov     eax, [esp+4]
-		call    near ___65710h
+		call    near __CEXT_F(___65710h)
 ___3aaabh:
 		mov     esi, [esp+0ch]
 		mov     edi, [esp+4]
@@ -50096,8 +50082,8 @@ ___3aaabh:
 		mov     [esp+8], ecx
 		cmp     ebp, byte 2bh
 		jl      near ___3a99ah
-		call    near lastScanCode__keyboard
-		call    near nullScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
+		call    near __CEXT_F(nullScanCode__keyboard)
 		add     esp, byte 28h
 		pop     ebp
 		pop     edi
@@ -50141,7 +50127,7 @@ ___3ab5ch:
 		mov     [eax*4+__CEXT_V(Roster)+2ch], ecx
 		mov     ecx, 6dh
 		xor     eax, eax
-		call    near frameFooter__dr
+		call    near __CEXT_F(frameFooter__dr)
 		call    near __CEXT_F(footer__dr)
 		mov     edx, [__CEXT_V(___1a0fb8h)]
 		xor     eax, eax
@@ -50474,9 +50460,9 @@ ___3aff3h:
 		sub     ebx, edx
 		dec     ecx
 		jne     short ___3afe9h
-		call    near ___12cb8h
-		call    near lastScanCode__keyboard
-		call    near nullScanCode__keyboard
+		call    near __CEXT_F(___12cb8h)
+		call    near __CEXT_F(lastScanCode__keyboard)
+		call    near __CEXT_F(nullScanCode__keyboard)
 		mov     edx, [__CEXT_V(MyID)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
@@ -50524,11 +50510,11 @@ ___3b04fh:
 		push    8000h
 		mov     edx, 1ch
 		mov     eax, [___1854b8h]
-		mov     ecx, [ConfigSFXVolume]
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
 		push    eax
 		xor     ebx, ebx
 		mov     eax, 1
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 		mov     edx, [__CEXT_V(MyID)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
@@ -50540,9 +50526,9 @@ ___3b04fh:
 		mov     edx, 6
 		mov     eax, 5
 		push    24000h
-		mov     ecx, [ConfigSFXVolume]
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
 		xor     ebx, ebx
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 ___3b0feh:
 		cmp     dword [esp+2ch], byte 0
 		je      near ___3b97bh
@@ -50588,7 +50574,7 @@ ___3b13ch:
 		shl     eax, 2
 		mov     edx, __CEXT_V(___185ba9h)
 		add     ebx, eax
-		mov     eax, [___1a10cch]
+		mov     eax, [__CEXT_V(___1a10cch)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     edx, [esp+44h]
 		add     edx, byte 3ch
@@ -50873,17 +50859,17 @@ ___3b4e1h:
 		add     edx, 0d3h
 		mov     ebx, esi
 		mov     [___185a14h], esi
-		call    near ___148cch
+		call    near __CEXT_F(___148cch)
 		test    al, al
 		jne     short ___3b54eh
 		push    8000h
 		mov     edx, 19h
 		mov     ebp, [___1854ach]
-		mov     ecx, [ConfigSFXVolume]
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
 		push    ebp
 		mov     eax, esi
 		xor     ebx, ebx
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 		xor     dh, dh
 		mov     [esp+54h], dh
 		jmp     near ___3b97bh
@@ -50891,7 +50877,7 @@ ___3b54eh:
 		mov     edi, [esp+44h]
 		mov     ecx, 2c380h
 		mov     ebx, 1b8h
-		mov     esi, [GXBackBuffer]
+		mov     esi, [__CEXT_V(GXBackBuffer)]
 		add     edi, byte 1eh
 		add     ebp, byte 1eh
 		mov     [esp+44h], edi
@@ -50909,11 +50895,11 @@ ___3b54eh:
 		pop     edi
 		xor     eax, eax
 		mov     ecx, 0bah
-		call    near ___13710h
+		call    near __CEXT_F(___13710h)
 		push    byte 1
 		mov     edx, [esp+48h]
 		mov     eax, ebp
-		call    near ___13248h
+		call    near __CEXT_F(___13248h)
 		mov     edx, [esp+44h]
 		add     edx, byte 12h
 		lea     eax, [edx*4+0]
@@ -50922,7 +50908,7 @@ ___3b54eh:
 		mov     ebx, ___182730h
 		lea     ecx, [eax+ebp]
 		mov     edx, __CEXT_V(___185ba9h)
-		mov     eax, [___1a10cch]
+		mov     eax, [__CEXT_V(___1a10cch)]
 		add     ecx, byte 50h
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     edx, [___196a94h]
@@ -50933,7 +50919,7 @@ ___3b54eh:
 		add     edx, byte 4fh
 		add     edx, eax
 		lea     eax, [ebp+16h]
-		call    near updateScreen_TBD
+		call    near __CEXT_F(updateScreen_TBD)
 		mov     edx, [esp+44h]
 		add     edx, byte 4ah
 		lea     eax, [edx*4+0]
@@ -50946,7 +50932,7 @@ ___3b54eh:
 		jne     short ___3b62ch
 		mov     ebx, ___18768ah
 		mov     edx, __CEXT_V(___185ba9h)
-		mov     eax, [___1a10cch]
+		mov     eax, [__CEXT_V(___1a10cch)]
 		jmp     short ___3b63bh
 ___3b62ch:
 		mov     ebx, ___18768ah
@@ -50964,7 +50950,7 @@ ___3b63bh:
 		jne     short ___3b66dh
 		mov     ebx, ___1876a2h
 		mov     edx, __CEXT_V(___185ba9h)
-		mov     eax, [___1a10cch]
+		mov     eax, [__CEXT_V(___1a10cch)]
 		jmp     short ___3b67ch
 ___3b66dh:
 		mov     ebx, ___1876a2h
@@ -50983,7 +50969,7 @@ ___3b67ch:
 		jne     short ___3b6b2h
 		mov     ebx, ___1876bah
 		mov     edx, __CEXT_V(___185ba9h)
-		mov     eax, [___1a10cch]
+		mov     eax, [__CEXT_V(___1a10cch)]
 		jmp     short ___3b6c1h
 ___3b6b2h:
 		mov     ebx, ___1876bah
@@ -51016,14 +51002,14 @@ ___3b6c1h:
 		mov     [esp+40h], eax
 ___3b717h:
 		imul    edx, edi, byte 1ch
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
 		mov     cl, al
 		mov     [esp+58h], al
 		call    near __CEXT_F(updateMenuBackgroundAndTextArea)
 		call    near __CEXT_F(updateMenuBackgroundAndTextArea)
 		add     edx, [esp+3ch]
 		mov     eax, [esp+40h]
-		call    near updateScreen_TBD
+		call    near __CEXT_F(updateScreen_TBD)
 		xor     al, al
 		cmp     cl, 0c8h
 		jne     short ___3b74ah
@@ -51077,7 +51063,7 @@ ___3b790h:
 		jne     short ___3b7d7h
 		mov     ebx, ___18768ah
 		mov     edx, __CEXT_V(___185ba9h)
-		mov     eax, [___1a10cch]
+		mov     eax, [__CEXT_V(___1a10cch)]
 		jmp     short ___3b7e6h
 ___3b7d7h:
 		mov     ebx, ___18768ah
@@ -51092,7 +51078,7 @@ ___3b7e6h:
 		jne     short ___3b80eh
 		mov     ebx, ___1876a2h
 		mov     edx, __CEXT_V(___185ba9h)
-		mov     eax, [___1a10cch]
+		mov     eax, [__CEXT_V(___1a10cch)]
 		jmp     short ___3b81dh
 ___3b80eh:
 		mov     ebx, ___1876a2h
@@ -51107,7 +51093,7 @@ ___3b81dh:
 		jne     short ___3b845h
 		mov     ebx, ___1876bah
 		mov     edx, __CEXT_V(___185ba9h)
-		mov     eax, [___1a10cch]
+		mov     eax, [__CEXT_V(___1a10cch)]
 		jmp     short ___3b854h
 ___3b845h:
 		mov     ebx, ___1876bah
@@ -51129,9 +51115,9 @@ ___3b854h:
 		mov     ebx, [___1854ach]
 		mov     eax, 1
 		push    ebx
-		mov     ecx, [ConfigSFXVolume]
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
 		xor     ebx, ebx
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 ___3b89fh:
 		mov     ch, [esp+58h]
 		cmp     ch, 1ch
@@ -51148,9 +51134,9 @@ ___3b8b6h:
 		mov     edx, 1
 		mov     eax, 5
 		push    24000h
-		mov     ecx, [ConfigSFXVolume]
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
 		xor     ebx, ebx
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 ___3b8e1h:
 		cmp     dword [___196a94h], byte 1
 		jne     short ___3b90bh
@@ -51158,9 +51144,9 @@ ___3b8e1h:
 		mov     edx, 2
 		mov     eax, 5
 		push    24000h
-		mov     ecx, [ConfigSFXVolume]
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
 		xor     ebx, ebx
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 ___3b90bh:
 		cmp     dword [___196a94h], byte 2
 		jne     short ___3b935h
@@ -51168,22 +51154,22 @@ ___3b90bh:
 		mov     edx, 3
 		mov     eax, 5
 		push    24000h
-		mov     ecx, [ConfigSFXVolume]
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
 		xor     ebx, ebx
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 ___3b935h:
 		cmp     byte [esp+58h], 1
 		jne     short ___3b964h
 		push    8000h
 		mov     eax, [___1854ach]
-		mov     ecx, [ConfigSFXVolume]
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
 		xor     dh, dh
 		xor     ebx, ebx
 		mov     [esp+58h], dh
 		push    eax
 		mov     edx, 19h
 		mov     eax, 1
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 ___3b964h:
 		mov     bl, [esp+58h]
 		cmp     bl, 1ch
@@ -51271,9 +51257,9 @@ ___3ba76h:
 		mov     edi, [___1854ach]
 		mov     eax, 1
 		push    edi
-		mov     ecx, [ConfigSFXVolume]
+		mov     ecx, [__CEXT_V(ConfigSFXVolume)]
 		xor     ebx, ebx
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 		mov     edx, [__CEXT_V(MyID)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
@@ -51304,17 +51290,17 @@ ___3bad9h:
 		je      short ___3bb14h
 		mov     ecx, 390a3h
 		mov     ebx, ___1807cch
-		mov     edx, Font0Props
+		mov     edx, __CEXT_V(Font0Props)
 		mov     eax, [GreyFont0Ptr]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     ecx, 390d9h
 		mov     ebx, __CEXT_V(string__F1)
-		mov     edx, Font0Props
-		mov     eax, [WhiteFont0Ptr]
+		mov     edx, __CEXT_V(Font0Props)
+		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 ___3bb14h:
 		call    near __CEXT_F(footer__dr)
-		call    near ___12cb8h
+		call    near __CEXT_F(___12cb8h)
 		xor     eax, eax
 		mov     [__CEXT_V(___1a1ed0h)], eax
 		mov     al, [esp+54h]
@@ -51331,8 +51317,7 @@ dd	___3c0b9h
 dd	___3c0d9h
 dd	___3c0fbh
 dd	___3c11eh
-global readConfig__dr
-readConfig__dr:
+__GDECL(__CEXT_F(readConfig__dr))
 		push    34h
 		call    near __CHK
 		push    ebx
@@ -51479,7 +51464,7 @@ ___3bce0h:
 		jg      short ___3bce0h
 ___3bd28h:
 		mov     ecx, 4
-		mov     edi, ConfigMusicVolume
+		mov     edi, __CEXT_V(ConfigMusicVolume)
 		mov     esi, ebp
 		push    edi
 		mov     eax, ecx
@@ -51490,7 +51475,7 @@ ___3bd28h:
 		rep movsb   
 		pop     edi
 		mov     ecx, 4
-		mov     edi, ConfigSFXVolume
+		mov     edi, __CEXT_V(ConfigSFXVolume)
 		lea     esi, [ebp+4]
 		push    edi
 		mov     eax, ecx
@@ -51523,7 +51508,7 @@ ___3bd28h:
 		rep movsb   
 		pop     edi
 		mov     ecx, 4
-		mov     edi, Gamepad
+		mov     edi, __CEXT_V(Gamepad)
 		lea     esi, [ebp+10h]
 		push    edi
 		mov     eax, ecx
@@ -51556,7 +51541,7 @@ ___3bd28h:
 		rep movsb   
 		pop     edi
 		mov     ecx, 4
-		mov     edi, ToneDialing
+		mov     edi, __CEXT_V(ToneDialing)
 		lea     esi, [ebp+3eh]
 		push    edi
 		mov     eax, ecx
@@ -51787,7 +51772,7 @@ ___3bd28h:
 		rep movsb   
 		pop     edi
 		mov     ecx, 4
-		mov     edi, TimesPlayed
+		mov     edi, __CEXT_V(TimesPlayed)
 		lea     esi, [ebp+0b72h]
 		push    edi
 		mov     eax, ecx
@@ -51863,7 +51848,7 @@ __GDECL(__CEXT_F(writeConfig__dr))
 		mov     ecx, 4
 		mov     [esp+4], al
 		mov     eax, 1388h
-		mov     esi, ConfigMusicVolume
+		mov     esi, __CEXT_V(ConfigMusicVolume)
 		call    near __CEXT_F(allocMemSafe)
 		mov     edx, eax
 		mov     edi, eax
@@ -51877,7 +51862,7 @@ __GDECL(__CEXT_F(writeConfig__dr))
 		rep movsb   
 		pop     edi
 		mov     ecx, 4
-		mov     esi, ConfigSFXVolume
+		mov     esi, __CEXT_V(ConfigSFXVolume)
 		lea     edi, [edx+4]
 		push    edi
 		mov     eax, ecx
@@ -51910,7 +51895,7 @@ __GDECL(__CEXT_F(writeConfig__dr))
 		rep movsb   
 		pop     edi
 		mov     ecx, 4
-		mov     esi, Gamepad
+		mov     esi, __CEXT_V(Gamepad)
 		lea     edi, [edx+10h]
 		push    edi
 		mov     eax, ecx
@@ -51943,7 +51928,7 @@ __GDECL(__CEXT_F(writeConfig__dr))
 		rep movsb   
 		pop     edi
 		mov     ecx, 4
-		mov     esi, ToneDialing
+		mov     esi, __CEXT_V(ToneDialing)
 		lea     edi, [edx+3eh]
 		push    edi
 		mov     eax, ecx
@@ -52175,7 +52160,7 @@ __GDECL(__CEXT_F(writeConfig__dr))
 		rep movsb   
 		pop     edi
 		mov     ecx, 4
-		mov     esi, TimesPlayed
+		mov     esi, __CEXT_V(TimesPlayed)
 		lea     edi, [edx+0b72h]
 		mov     [esp], ebx
 		push    edi
@@ -52305,16 +52290,16 @@ ___3c668h:
 		mov     edx, 8000h
 		mov     al, [__CEXT_V(___180130h)]
 		xor     ecx, ecx
-		mov     [ConfigSFXVolume], ebx
+		mov     [__CEXT_V(ConfigSFXVolume)], ebx
 		mov     [___1a1e50h], ecx
 		mov     [___199fa4h], esi
 		mov     [___199fa8h], edi
 		mov     [___196a94h], ebp
-		mov     [Gamepad], ecx
-		mov     [ToneDialing], ebp
-		mov     [TimesPlayed], ecx
+		mov     [__CEXT_V(Gamepad)], ecx
+		mov     [__CEXT_V(ToneDialing)], ebp
+		mov     [__CEXT_V(TimesPlayed)], ecx
 		mov     [___1a201ah], al
-		mov     [ConfigMusicVolume], edx
+		mov     [__CEXT_V(ConfigMusicVolume)], edx
 		mov     eax, [___182794h]
 		mov     ebp, 1b0h
 		mov     [___1a1ffch], eax
@@ -52992,8 +52977,8 @@ ___3d213h:
 		pop     ecx
 		pop     ebx
 		retn    
-global ___3d2bch
-___3d2bch:
+global __CEXT_F(___3d2bch)
+__CEXT_F(___3d2bch):
 		push    30h
 		call    near __CHK
 		push    ebx
@@ -53062,8 +53047,8 @@ ___3d2e2h:
 		pop     ecx
 		pop     ebx
 		retn    
-global ___3d38ch
-___3d38ch:
+global __CEXT_F(___3d38ch)
+__CEXT_F(___3d38ch):
 		push    30h
 		call    near __CHK
 		push    ebx
@@ -53100,20 +53085,20 @@ ___3d3a4h:
 		push    esi
 		mov     [esp+8], edi
 		call    near __CEXT_F(decode2__bpk)
-		call    near ___12cb8h
+		call    near __CEXT_F(___12cb8h)
 		call    near ___3d1f0h
 ___3d403h:
 		mov     ebp, [esp]
 		call    near __CEXT_F(___58c60h)
 		inc     ebp
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
 		mov     [esp], ebp
 		test    al, al
 		jne     short ___3d420h
 		cmp     ebp, 0b4h
 		jl      short ___3d403h
 ___3d420h:
-		call    near ___3d2bch
+		call    near __CEXT_F(___3d2bch)
 		mov     eax, ___182830h
 		mov     ebx, ___18283ch
 		mov     edx, __CEXT_V(BPA_Buffer)
@@ -53124,7 +53109,7 @@ ___3d420h:
 		mov     edx, [__CEXT_V(VGABufferPtr_0)]
 		push    edx
 		call    near __CEXT_F(decode2__bpk)
-		call    near ___12cb8h
+		call    near __CEXT_F(___12cb8h)
 		xor     ebx, ebx
 		call    near ___3d1f0h
 		mov     [esp], ebx
@@ -53132,14 +53117,14 @@ ___3d463h:
 		mov     ecx, [esp]
 		call    near __CEXT_F(___58c60h)
 		inc     ecx
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
 		mov     [esp], ecx
 		test    al, al
 		jne     short ___3d480h
 		cmp     ecx, 0b4h
 		jl      short ___3d463h
 ___3d480h:
-		call    near ___3d2bch
+		call    near __CEXT_F(___3d2bch)
 		mov     eax, ___182848h
 		mov     ebx, ___182854h
 		mov     edx, __CEXT_V(BPA_Buffer)
@@ -53152,18 +53137,18 @@ ___3d480h:
 		push    edi
 		mov     [esp+8], ebp
 		call    near __CEXT_F(decode2__bpk)
-		call    near ___12cb8h
+		call    near __CEXT_F(___12cb8h)
 		call    near ___3d1f0h
 ___3d4c4h:
 		call    near __CEXT_F(___58c60h)
 		inc     dword [esp]
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
 		test    al, al
 		jne     short ___3d4deh
 		cmp     dword [esp], 0b4h
 		jl      short ___3d4c4h
 ___3d4deh:
-		call    near ___3d2bch
+		call    near __CEXT_F(___3d2bch)
 		add     esp, byte 4
 		pop     ebp
 		pop     edi
@@ -53172,8 +53157,8 @@ ___3d4deh:
 		pop     ecx
 		pop     ebx
 		retn    
-global creditsMenu__dr
-creditsMenu__dr:
+global __CEXT_F(creditsMenu__dr)
+__CEXT_F(creditsMenu__dr):
 		push    38h
 		call    near __CHK
 		push    ebx
@@ -53208,7 +53193,7 @@ ___3d536h:
 		test    edx, edx
 		je      short ___3d554h
 		xor     eax, eax
-		call    near ___13a98h
+		call    near __CEXT_F(___13a98h)
 ___3d554h:
 		xor     esi, esi
 		xor     edi, edi
@@ -53271,13 +53256,13 @@ ___3d55fh:
 		mov     ecx, [__CEXT_V(VGABufferPtr_0)]
 		push    ecx
 		call    near __CEXT_F(decode2__bpk)
-		call    near ___12cb8h
+		call    near __CEXT_F(___12cb8h)
 		call    near ___3d1f0h
 ___3d63dh:
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
 		test    al, al
 		je      short ___3d63dh
-		call    near ___3d2bch
+		call    near __CEXT_F(___3d2bch)
 		mov     eax, ___182878h
 		mov     ebx, ___182884h
 		mov     edx, __CEXT_V(BPA_Buffer)
@@ -53288,13 +53273,13 @@ ___3d63dh:
 		mov     edi, [__CEXT_V(VGABufferPtr_0)]
 		push    edi
 		call    near __CEXT_F(decode2__bpk)
-		call    near ___12cb8h
+		call    near __CEXT_F(___12cb8h)
 		call    near ___3d1f0h
 ___3d684h:
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
 		test    al, al
 		je      short ___3d684h
-		call    near ___3d2bch
+		call    near __CEXT_F(___3d2bch)
 		call    near __CEXT_F(___2b318h)
 		mov     ecx, 4b000h
 		mov     esi, [__CEXT_V(___1a1124h)]
@@ -53308,7 +53293,7 @@ ___3d684h:
 		rep movsb   
 		pop     edi
 		xor     ebp, ebp
-		call    near ___12cb8h
+		call    near __CEXT_F(___12cb8h)
 		mov     [esp+4], ebp
 ___3d6c3h:
 		call    near __CEXT_F(___58c60h)
@@ -53320,7 +53305,7 @@ ___3d6c3h:
 		test    edx, edx
 		je      short ___3d6e1h
 		xor     eax, eax
-		call    near ___13a98h
+		call    near __CEXT_F(___13a98h)
 ___3d6e1h:
 		mov     esi, [esp+4]
 		xor     ecx, ecx
@@ -53381,8 +53366,7 @@ ___3d6edh:
 		pop     ecx
 		pop     ebx
 		retn    
-global ___3d79ch
-___3d79ch:
+__GDECL(__CEXT_F(___3d79ch))
 		push    34h
 		call    near __CHK
 		push    ebx
@@ -53399,7 +53383,7 @@ ___3d79ch:
 ___3d7c1h:
 		call    near __CEXT_F(___58c60h)
 		mov     eax, [esp]
-		call    near ___65710h
+		call    near __CEXT_F(___65710h)
 		mov     esi, ebp
 		xor     ecx, ecx
 		xor     edi, edi
@@ -53459,8 +53443,8 @@ ___3d7d8h:
 		pop     ecx
 		pop     ebx
 		retn    
-global ___3d890h
-___3d890h:
+global __CEXT_F(___3d890h)
+__CEXT_F(___3d890h):
 		push    28h
 		call    near __CHK
 		push    ebx
@@ -53493,7 +53477,7 @@ ___3d8a6h:
 		mov     esi, [__CEXT_V(VGABufferPtr_0)]
 		push    esi
 		call    near __CEXT_F(decode2__bpk)
-		call    near ___12cb8h
+		call    near __CEXT_F(___12cb8h)
 		call    near ___3d1f0h
 		add     esp, byte 4
 		pop     esi
@@ -53501,8 +53485,7 @@ ___3d8a6h:
 		pop     ecx
 		pop     ebx
 		retn    
-global intro__anim
-intro__anim:
+__GDECL(__CEXT_F(intro__anim))
 		push    88h
 		call    near __CHK
 		push    ebx
@@ -53595,7 +53578,7 @@ ___3d9c0h:
 		mov     edx, [__CEXT_V(VGABufferPtr_0)]
 		push    edx
 		call    near __CEXT_F(decode2__bpk)
-		call    near ___12cb8h
+		call    near __CEXT_F(___12cb8h)
 		call    near ___3d1f0h
 		mov     eax, esi
 		shl     esi, 4
@@ -53606,13 +53589,13 @@ ___3da0bh:
 		test    esi, esi
 		jle     short ___3da20h
 		call    near vsync__video
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
 		dec     esi
 		mov     dl, al
 		test    al, al
 		je      short ___3da0bh
 ___3da20h:
-		call    near ___3d2bch
+		call    near __CEXT_F(___3d2bch)
 		cmp     dl, 1ch
 		je      short ___3da38h
 		cmp     dl, 39h
@@ -53631,8 +53614,8 @@ ___3da3dh:
 		pop     esi
 		pop     ecx
 		retn    
-global showPreviewMenu__dr
-showPreviewMenu__dr:
+global __CEXT_F(showPreviewMenu__dr)
+__CEXT_F(showPreviewMenu__dr):
 		push    0a0h
 		call    near __CHK
 		push    ebx
@@ -53720,7 +53703,7 @@ ___3db07h:
 		test    edx, edx
 		je      short ___3db25h
 		xor     eax, eax
-		call    near ___13a98h
+		call    near __CEXT_F(___13a98h)
 ___3db25h:
 		mov     esi, [esp+70h]
 		xor     ecx, ecx
@@ -53858,23 +53841,23 @@ ___3dbe4h:
 		call    near __CEXT_F(___649a8h)
 		call    near __CEXT_F(___64a28h)
 		push    byte 5
-		mov     ecx, ___181c9ch
-		mov     edx, ___181ca8h
+		mov     ecx, __CEXT_V(___181c9ch)
+		mov     edx, __CEXT_V(___181ca8h)
 		mov     eax, 1
 		mov     ebx, ebp
 		call    near __CEXT_F(___64864h__esp)
-		mov     eax, [ConfigMusicVolume]
-		call    near ___6572ch
-		mov     eax, [ConfigSFXVolume]
-		call    near ___65770h
+		mov     eax, [__CEXT_V(ConfigMusicVolume)]
+		call    near __CEXT_F(___6572ch)
+		mov     eax, [__CEXT_V(ConfigSFXVolume)]
+		call    near __CEXT_F(___65770h)
 		mov     eax, 2d00h
-		call    near ___658b8h
+		call    near __CEXT_F(___658b8h)
 		mov     eax, 5622h
-		call    near ___65990h
-		call    near ___648d8h
+		call    near __CEXT_F(___65990h)
+		call    near __CEXT_F(___648d8h)
 		mov     eax, 1
-		call    near ___659b8h
-		call    near ___606dfh
+		call    near __CEXT_F(___659b8h)
+		call    near __CEXT_F(___606dfh)
 		mov     ax, 4f02h
 		mov     bx, 101h
 		int     10h
@@ -53898,7 +53881,7 @@ ___3ddach:
 		rep movsb   
 		pop     edi
 		xor     ebp, ebp
-		call    near ___12cb8h
+		call    near __CEXT_F(___12cb8h)
 		mov     [esp+68h], ebp
 ___3ddddh:
 		call    near __CEXT_F(___58c60h)
@@ -53910,7 +53893,7 @@ ___3ddddh:
 		test    edx, edx
 		je      short ___3ddfbh
 		xor     eax, eax
-		call    near ___13a98h
+		call    near __CEXT_F(___13a98h)
 ___3ddfbh:
 		xor     esi, esi
 		xor     edi, edi
@@ -54010,7 +53993,7 @@ ___3df03h:
 		add     ecx, 96h
 		mov     al, [edx+__CEXT_V(___1a1f4eh)]
 		add     ebx, 96h
-		mov     [edx+___1a1f4dh], al
+		mov     [edx+__CEXT_V(___1a1f4dh)], al
 		cmp     edx, byte 15h
 		jl      short ___3dee5h
 		inc     ebp
@@ -54022,9 +54005,9 @@ ___3df2ch:
 		mov     edx, eax
 		sar     edx, 1fh
 		idiv    ebx
-		cmp     byte [edx+___1a202fh], 1
+		cmp     byte [edx+__CEXT_V(___1a202fh)], 1
 		je      short ___3df2ch
-		mov     byte [edx+___1a202fh], 1
+		mov     byte [edx+__CEXT_V(___1a202fh)], 1
 		mov     ebx, edx
 		shl     edx, 3
 		add     edx, ebx
@@ -54100,18 +54083,18 @@ ___3dfe5h:
 		jne     short ___3dfe5h
 ___3dffdh:
 		pop     edi
-		mov     ah, [___1a2148h]
+		mov     ah, [__CEXT_V(___1a2148h)]
 		add     ah, bh
 		mov     [RowBox0Colors_R4], bh
-		mov     [___1a2148h], ah
+		mov     [__CEXT_V(___1a2148h)], ah
 		cmp     ah, 12h
 		jbe     short ___3e030h
 		mov     ecx, 13h
-		mov     eax, ___1a202fh
+		mov     eax, __CEXT_V(___1a202fh)
 		xor     edx, edx
 		call    near __CEXT_F(__STOSB__clib3r)
 		xor     dh, dh
-		mov     [___1a2148h], dh
+		mov     [__CEXT_V(___1a2148h)], dh
 ___3e030h:
 		add     esp, byte 4
 		pop     ebp
@@ -54160,7 +54143,7 @@ ___3e087h:
 		add     ebx, 96h
 		mov     al, [edx+__CEXT_V(___1a1f4eh)]
 		add     ecx, 96h
-		mov     [edx+___1a1f4dh], al
+		mov     [edx+__CEXT_V(___1a1f4dh)], al
 		cmp     edx, byte 15h
 		jl      short ___3e069h
 		inc     ebp
@@ -54995,7 +54978,7 @@ ___402c2h:
 		je      short ___402d3h
 		or      bl, 42h
 ___402d3h:
-		cmp     dword [Gamepad], byte 0
+		cmp     dword [__CEXT_V(Gamepad)], byte 0
 		jle     near ___404c1h
 		xor     eax, eax
 		mov     al, [___199f3fh]
@@ -55223,7 +55206,7 @@ ___405aah:
 		sti     
 		test    ecx, ecx
 		jne     short ___405b5h
-		mov     [Gamepad], ecx
+		mov     [__CEXT_V(Gamepad)], ecx
 ___405b5h:
 		pop     edi
 		pop     esi
@@ -55750,7 +55733,7 @@ ___40c50h:
 		push    50000h
 		mov     eax, 2
 		xor     ebx, ebx
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 ___40cb4h:
 		mov     edx, 1
 		mov     ebp, [___243d80h]
@@ -55773,7 +55756,7 @@ ___40cc5h:
 		push    50000h
 		mov     eax, 2
 		xor     ebx, ebx
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 ___40d16h:
 		mov     esi, 1
 		mov     ebp, [___243d80h]
@@ -55806,7 +55789,7 @@ ___40d27h:
 		push    50000h
 		mov     eax, 2
 		xor     ebx, ebx
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 ___40d99h:
 		mov     dword [___196df4h], 1
 ___40da3h:
@@ -57057,7 +57040,7 @@ ___41dfeh:
 		push    50000h
 		mov     eax, 2
 		xor     ebx, ebx
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 ___41e5ah:
 		mov     dword [___196de8h], 1
 ___41e64h:
@@ -57076,7 +57059,7 @@ ___41e64h:
 		push    50000h
 		mov     eax, 2
 		xor     ebx, ebx
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 ___41eaeh:
 		mov     dword [___196dech], 1
 ___41eb8h:
@@ -57106,7 +57089,7 @@ ___41eb8h:
 		push    50000h
 		mov     edx, 20h
 		mov     eax, 2
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 ___41f28h:
 		mov     dword [___196df4h], 1
 ___41f32h:
@@ -57308,7 +57291,7 @@ ___42218h:
 		push    50000h
 		xor     ebx, ebx
 		mov     esi, 1
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 		mov     [___196de4h], esi
 ___42277h:
 		mov     edi, [___243334h]
@@ -57376,7 +57359,7 @@ ___42318h:
 		mov     ebx, esi
 		mov     [eax+___1e6f70h], esi
 		mov     eax, 5
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 ___42379h:
 		mov     edx, [___243334h]
 		mov     eax, [___243320h]
@@ -57441,7 +57424,7 @@ ___4244ch:
 		push    20000h
 		mov     eax, 5
 		xor     ebx, ebx
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 ___4246ch:
 		mov     esi, 1
 		mov     ecx, 3ch
@@ -59636,7 +59619,7 @@ ___440cdh:
 		mov     dl, 1
 		mov     [___243ce8h], eax
 		mov     [__CEXT_V(NetworkConnectionEstablished)], ebx
-		call    near ___61278h
+		call    near __CEXT_F(___61278h)
 		mov     bl, 3
 		mov     ecx, [___243ce8h]
 		mov     [___1a1169h], dl
@@ -59677,7 +59660,7 @@ ___44143h:
 		xor     eax, eax
 		call    near ___611c0h
 		xor     edx, edx
-		call    near ___61278h
+		call    near __CEXT_F(___61278h)
 		mov     [___243874h], edx
 		mov     [___243898h], edx
 		mov     [___243894h], edx
@@ -60234,7 +60217,7 @@ ___4495ch:
 		call    near __CHK
 		push    ebx
 		push    edx
-		call    near ___61278h
+		call    near __CEXT_F(___61278h)
 		mov     eax, [__CEXT_V(___24e4ach)]
 		mov     word [eax], 0
 		mov     dx, [eax]
@@ -61088,7 +61071,7 @@ ___4587ch:
 		call    near __CHP
 		fistp   dword [esp+0ch]
 		mov     eax, [esp+0ch]
-		call    near ___65710h
+		call    near __CEXT_F(___65710h)
 		mov     eax, [esp+1ch]
 		dec     eax
 		mov     [esp+1ch], eax
@@ -61597,7 +61580,7 @@ ___45fd8h:
 		jle     short ___46078h
 		mov     eax, 0ffffh
 ___46078h:
-		call    near ___65710h
+		call    near __CEXT_F(___65710h)
 		fld     dword [___196e78h]
 		fmul    qword [___1834b5h]
 		fdiv    qword [___1834e9h]
@@ -62451,7 +62434,7 @@ ___46bf8h:
 		call    near __CHP
 		fistp   dword [esp+48h]
 		imul    eax, [esp+48h], 2d8h
-		call    near ___65710h
+		call    near __CEXT_F(___65710h)
 		fld     dword [___196e78h]
 		fmul    qword [___18353dh]
 		fdiv    qword [___18356dh]
@@ -62779,7 +62762,7 @@ ___47082h:
 		call    near __CHP
 		fistp   dword [esp+48h]
 		imul    eax, [esp+48h], 1b4h
-		call    near ___65710h
+		call    near __CEXT_F(___65710h)
 		fld     dword [esp+58h]
 		call    near __CHP
 		fistp   dword [esp+48h]
@@ -63489,7 +63472,7 @@ ___479a3h:
 		push    28000h
 		mov     ecx, 10000h
 		mov     eax, 5
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 		mov     ecx, 100h
 		mov     eax, ___59e10h
 		xor     edx, edx
@@ -63668,7 +63651,7 @@ ___47c77h:
 		push    28000h
 		xor     ebx, ebx
 		mov     ebp, 0a0000h
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 		mov     edx, 3e80h
 		mov     ebx, 1
 ___47cb6h:
@@ -63936,7 +63919,7 @@ ___47fb2h:
 		push    28000h
 		mov     ecx, 10000h
 		mov     eax, 5
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 		mov     ecx, 100h
 		mov     eax, ___59e10h
 		xor     edx, edx
@@ -64137,7 +64120,7 @@ ___482bbh:
 		push    28000h
 		xor     ebx, ebx
 		mov     ebp, 0a0000h
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 		mov     edx, 3e80h
 		mov     ebx, 1
 ___482fah:
@@ -71787,7 +71770,7 @@ ___4eb2bh:
 ___4eb35h:
 		mov     ecx, esi
 		xor     ebx, ebx
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 ___4eb3eh:
 		call    near __CEXT_F(rand__clib3r)
 		mov     edx, eax
@@ -71861,7 +71844,7 @@ ___4ec14h:
 		mov     edx, 10h
 ___4ec2ch:
 		mov     ecx, esi
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 ___4ec33h:
 		mov     edx, [___243ce8h]
 		mov     eax, [___243c60h]
@@ -71957,7 +71940,7 @@ ___4ed47h:
 		push    28000h
 		xor     ebx, ebx
 		mov     edx, 25h
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 ___4ed8ch:
 		mov     eax, 800000h
 		mov     ebx, [esp+18h]
@@ -73426,7 +73409,7 @@ ___50213h:
 ___502c8h:
 		and     edx, 0ffh
 		xor     ebx, ebx
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 ___502d5h:
 		imul    eax, [___243c60h], 35eh
 		fld     dword [eax+___1e6f7ch]
@@ -73806,7 +73789,7 @@ ___5097fh:
 		mov     eax, 3
 		and     edx, 0ffh
 		xor     ebx, ebx
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 ___50991h:
 		mov     eax, [esp+0ech]
 		add     eax, byte 5
@@ -74810,7 +74793,7 @@ ___51830h:
 		push    21000h
 		mov     edx, 12h
 		mov     eax, 4
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 ___51844h:
 		mov     edx, [___2438d0h]
 		mov     eax, [esp+88h]
@@ -75086,7 +75069,7 @@ ___51ca5h:
 		push    21000h
 		mov     eax, 4
 		xor     ebx, ebx
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 ___51cbbh:
 		mov     eax, [esp+7ch]
 		mov     edx, [___2438d0h]
@@ -75977,7 +75960,7 @@ ___527c4h:
 		mov     eax, 0ah
 ___52848h:
 		xor     ebx, ebx
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 ___5284fh:
 		mov     ebp, [esp]
 		mov     eax, [esp+0ch]
@@ -76051,7 +76034,7 @@ ___52943h:
 		push    50000h
 		mov     eax, 2
 		xor     ebx, ebx
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 		jmp     near ___52a39h
 ___5298dh:
 		call    near __CEXT_F(rand__clib3r)
@@ -76307,7 +76290,7 @@ ___52d50h:
 		mov     ebx, edi
 		mov     dl, al
 		mov     eax, 3
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 ___52d60h:
 		add     esi, byte 20h
 		cmp     esi, 280h
@@ -78730,7 +78713,7 @@ ___55cf6h:
 		push    50000h
 		mov     eax, edx
 		mov     ebp, 0d2h
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 		mov     [___196df0h], ebp
 ___55d6ah:
 		imul    edx, [___1a1094h], 1770h
@@ -78797,7 +78780,7 @@ ___55e30h:
 		push    50000h
 		mov     eax, 2
 		xor     ebx, ebx
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 ___55e70h:
 		mov     eax, [___1a1094h]
 		mov     [___2438bch], eax
@@ -78866,7 +78849,7 @@ ___55f3ah:
 		push    50000h
 		mov     eax, 2
 		xor     ebx, ebx
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 ___55fa4h:
 		mov     esi, [___243c60h]
 		mov     edi, [___243cf4h]
@@ -78922,7 +78905,7 @@ ___55ff2h:
 		push    50000h
 		mov     [___196ab0h], ebx
 		xor     ebx, ebx
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 ___5606ch:
 		imul    eax, [___243ce8h], 35eh
 		xor     edx, edx
@@ -79240,7 +79223,7 @@ ___5642eh:
 		push    esi
 		mov     al, bl
 		xor     ebx, ebx
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 		jmp     near ___5656eh
 ___564c2h:
 		imul    edx, ecx, 35eh
@@ -79277,7 +79260,7 @@ ___564c2h:
 		push    esi
 		mov     al, bl
 		xor     ebx, ebx
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 		jmp     short ___5656eh
 ___56542h:
 		imul    eax, [___243c60h], 35eh
@@ -79309,7 +79292,7 @@ ___56594h:
 		call    near __CHK
 		push    ecx
 		push    edx
-		call    near lastScanCode__keyboard
+		call    near __CEXT_F(lastScanCode__keyboard)
 		mov     dh, al
 		test    al, al
 		je      near ___566e8h
@@ -79508,7 +79491,7 @@ ___5686eh:
 ___56898h:
 		mov     eax, [___243d0ch]
 		xor     edi, edi
-		call    near srand__clib3r
+		call    near __CEXT_F(srand__clib3r)
 		mov     [___24387ch], edi
 		mov     dword [___243880h], 1
 		mov     [___243318h], edi
@@ -79633,7 +79616,7 @@ ___568c6h:
 		call    near ___4580ch
 		call    near __CEXT_F(___649a8h)
 		call    near __CEXT_F(___64a28h)
-		call    near ___606dfh
+		call    near __CEXT_F(___606dfh)
 		call    near setmode13h__video
 		cmp     dword [__CEXT_V(___19bd4ch)], byte 0
 		jne     short ___56b34h
@@ -79692,27 +79675,27 @@ ___56b9ch:
 		mov     eax, 1
 		call    near __CEXT_F(___64864h__esp)
 		xor     eax, eax
-		call    near ___65710h
-		mov     eax, [ConfigMusicVolume]
-		call    near ___6572ch
-		mov     eax, [ConfigSFXVolume]
-		call    near ___65770h
+		call    near __CEXT_F(___65710h)
+		mov     eax, [__CEXT_V(ConfigMusicVolume)]
+		call    near __CEXT_F(___6572ch)
+		mov     eax, [__CEXT_V(ConfigSFXVolume)]
+		call    near __CEXT_F(___65770h)
 		mov     eax, 5622h
-		call    near ___65990h
-		call    near ___648d8h
+		call    near __CEXT_F(___65990h)
+		call    near __CEXT_F(___648d8h)
 		xor     eax, eax
-		call    near ___65710h
+		call    near __CEXT_F(___65710h)
 		mov     eax, 1
-		call    near ___659b8h
+		call    near __CEXT_F(___659b8h)
 		cmp     dword [___196da0h], byte 0
 		jne     short ___56bf9h
 		xor     eax, eax
-		call    near ___6572ch
+		call    near __CEXT_F(___6572ch)
 ___56bf9h:
 		cmp     dword [___196da4h], byte 0
 		jne     short ___56c09h
 		xor     eax, eax
-		call    near ___65770h
+		call    near __CEXT_F(___65770h)
 ___56c09h:
 		call    near ___45a24h
 		cmp     dword [___196dach], byte 0
@@ -79737,7 +79720,7 @@ ___56c1ch:
 		mov     dl, al
 		mov     eax, 1
 		xor     ebp, ebp
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 		mov     [___243ca4h], ebp
 		mov     [___243ca0h], ebp
 		mov     [___243cdch], ebp
@@ -79776,7 +79759,7 @@ ___56cb5h:
 		push    50000h
 		mov     eax, ebp
 		xor     ebx, ebx
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 		xor     edx, edx
 		mov     [___196df0h], edx
 ___56d25h:
@@ -80160,7 +80143,7 @@ ___57288h:
 ___57292h:
 		mov     ecx, [___2438cch]
 		xor     ebx, ebx
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 ___5729fh:
 		call    near __CEXT_F(rand__clib3r)
 		mov     edx, eax
@@ -80240,7 +80223,7 @@ ___5739ah:
 ___573b3h:
 		mov     eax, 5
 ___573b8h:
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 ___573bdh:
 		cmp     dword [___2438d4h], byte 0
 		jle     short ___57422h
@@ -80261,7 +80244,7 @@ ___573bdh:
 		push    28000h
 		mov     ecx, [___2438d4h]
 		xor     ebx, ebx
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 		mov     [___196ddch], esi
 ___57422h:
 		mov     ecx, [___2438d4h]
@@ -80431,7 +80414,7 @@ ___57660h:
 		test    eax, eax
 		jne     short ___576adh
 		mov     eax, 1e00h
-		call    near ___658b8h
+		call    near __CEXT_F(___658b8h)
 ___576adh:
 		mov     edx, ___18440ch
 		mov     eax, ___19bd64h
@@ -80439,7 +80422,7 @@ ___576adh:
 		test    eax, eax
 		jne     short ___576cah
 		mov     eax, 3700h
-		call    near ___658b8h
+		call    near __CEXT_F(___658b8h)
 ___576cah:
 		mov     edx, ___184410h
 		mov     eax, ___19bd64h
@@ -80447,7 +80430,7 @@ ___576cah:
 		test    eax, eax
 		jne     short ___576e7h
 		mov     eax, 2d00h
-		call    near ___658b8h
+		call    near __CEXT_F(___658b8h)
 ___576e7h:
 		mov     edx, ___184414h
 		mov     eax, ___19bd64h
@@ -80455,7 +80438,7 @@ ___576e7h:
 		test    eax, eax
 		jne     short ___57704h
 		mov     eax, 3200h
-		call    near ___658b8h
+		call    near __CEXT_F(___658b8h)
 ___57704h:
 		mov     edx, ___184418h
 		mov     eax, ___19bd64h
@@ -80463,7 +80446,7 @@ ___57704h:
 		test    eax, eax
 		jne     short ___57721h
 		mov     eax, 2d00h
-		call    near ___658b8h
+		call    near __CEXT_F(___658b8h)
 ___57721h:
 		mov     edx, ___18441ch
 		mov     eax, ___19bd64h
@@ -80471,7 +80454,7 @@ ___57721h:
 		test    eax, eax
 		jne     short ___5773eh
 		mov     eax, 3700h
-		call    near ___658b8h
+		call    near __CEXT_F(___658b8h)
 ___5773eh:
 		mov     edx, ___184420h
 		mov     eax, ___19bd64h
@@ -80479,7 +80462,7 @@ ___5773eh:
 		test    eax, eax
 		jne     short ___5775bh
 		mov     eax, 3200h
-		call    near ___658b8h
+		call    near __CEXT_F(___658b8h)
 ___5775bh:
 		mov     edx, ___184424h
 		mov     eax, ___19bd64h
@@ -80487,7 +80470,7 @@ ___5775bh:
 		test    eax, eax
 		jne     short ___57778h
 		mov     eax, 3200h
-		call    near ___658b8h
+		call    near __CEXT_F(___658b8h)
 ___57778h:
 		mov     edx, ___184428h
 		mov     eax, ___19bd64h
@@ -80495,7 +80478,7 @@ ___57778h:
 		test    eax, eax
 		jne     short ___57795h
 		mov     eax, 3200h
-		call    near ___658b8h
+		call    near __CEXT_F(___658b8h)
 ___57795h:
 		mov     edx, ___18442ch
 		mov     eax, ___19bd64h
@@ -80503,15 +80486,15 @@ ___57795h:
 		test    eax, eax
 		jne     short ___577b2h
 		mov     eax, 3200h
-		call    near ___658b8h
+		call    near __CEXT_F(___658b8h)
 ___577b2h:
 		mov     eax, 8000h
-		call    near ___65710h
+		call    near __CEXT_F(___65710h)
 		call    near ___48458h
 		mov     eax, ebx
-		call    near ___658b8h
+		call    near __CEXT_F(___658b8h)
 		mov     eax, 10000h
-		call    near ___65710h
+		call    near __CEXT_F(___65710h)
 		imul    eax, [___243ce8h], 94h
 		xor     edx, edx
 		push    8000h
@@ -80522,7 +80505,7 @@ ___577b2h:
 		mov     ecx, 10000h
 		mov     dl, al
 		mov     eax, 1
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 ___57803h:
 		mov     esi, [___243d00h]
 		test    esi, esi
@@ -80559,10 +80542,10 @@ ___57866h:
 		jmp     short ___57894h
 ___57884h:
 		mov     ebx, 1
-		mov     eax, [ConfigMusicVolume]
+		mov     eax, [__CEXT_V(ConfigMusicVolume)]
 		mov     [___196da0h], ebx
 ___57894h:
-		call    near ___6572ch
+		call    near __CEXT_F(___6572ch)
 		xor     cl, cl
 		mov     [___59e4ch], cl
 ___578a1h:
@@ -80575,10 +80558,10 @@ ___578a1h:
 		jmp     short ___578cch
 ___578bch:
 		mov     edi, 1
-		mov     eax, [ConfigSFXVolume]
+		mov     eax, [__CEXT_V(ConfigSFXVolume)]
 		mov     [___196da4h], edi
 ___578cch:
-		call    near ___65770h
+		call    near __CEXT_F(___65770h)
 		xor     al, al
 		mov     [___59e4dh], al
 ___578d8h:
@@ -80625,7 +80608,7 @@ ___57943h:
 		test    eax, eax
 		jne     short ___57990h
 		mov     eax, 1e00h
-		call    near ___658b8h
+		call    near __CEXT_F(___658b8h)
 ___57990h:
 		mov     edx, ___18440ch
 		mov     eax, ___19bd64h
@@ -80633,7 +80616,7 @@ ___57990h:
 		test    eax, eax
 		jne     short ___579adh
 		mov     eax, 3700h
-		call    near ___658b8h
+		call    near __CEXT_F(___658b8h)
 ___579adh:
 		mov     edx, ___184410h
 		mov     eax, ___19bd64h
@@ -80641,7 +80624,7 @@ ___579adh:
 		test    eax, eax
 		jne     short ___579cah
 		mov     eax, 2d00h
-		call    near ___658b8h
+		call    near __CEXT_F(___658b8h)
 ___579cah:
 		mov     edx, ___184414h
 		mov     eax, ___19bd64h
@@ -80649,7 +80632,7 @@ ___579cah:
 		test    eax, eax
 		jne     short ___579e7h
 		mov     eax, 3200h
-		call    near ___658b8h
+		call    near __CEXT_F(___658b8h)
 ___579e7h:
 		mov     edx, ___184418h
 		mov     eax, ___19bd64h
@@ -80657,7 +80640,7 @@ ___579e7h:
 		test    eax, eax
 		jne     short ___57a04h
 		mov     eax, 2d00h
-		call    near ___658b8h
+		call    near __CEXT_F(___658b8h)
 ___57a04h:
 		mov     edx, ___18441ch
 		mov     eax, ___19bd64h
@@ -80665,7 +80648,7 @@ ___57a04h:
 		test    eax, eax
 		jne     short ___57a21h
 		mov     eax, 3700h
-		call    near ___658b8h
+		call    near __CEXT_F(___658b8h)
 ___57a21h:
 		mov     edx, ___184420h
 		mov     eax, ___19bd64h
@@ -80673,7 +80656,7 @@ ___57a21h:
 		test    eax, eax
 		jne     short ___57a3eh
 		mov     eax, 3200h
-		call    near ___658b8h
+		call    near __CEXT_F(___658b8h)
 ___57a3eh:
 		mov     edx, ___184424h
 		mov     eax, ___19bd64h
@@ -80681,7 +80664,7 @@ ___57a3eh:
 		test    eax, eax
 		jne     short ___57a5bh
 		mov     eax, 3200h
-		call    near ___658b8h
+		call    near __CEXT_F(___658b8h)
 ___57a5bh:
 		mov     edx, ___184428h
 		mov     eax, ___19bd64h
@@ -80689,7 +80672,7 @@ ___57a5bh:
 		test    eax, eax
 		jne     short ___57a78h
 		mov     eax, 3200h
-		call    near ___658b8h
+		call    near __CEXT_F(___658b8h)
 ___57a78h:
 		mov     edx, ___18442ch
 		mov     eax, ___19bd64h
@@ -80697,11 +80680,11 @@ ___57a78h:
 		test    eax, eax
 		jne     short ___57a95h
 		mov     eax, 3200h
-		call    near ___658b8h
+		call    near __CEXT_F(___658b8h)
 ___57a95h:
 		mov     eax, 8000h
 		mov     ebx, ___184430h
-		call    near ___65710h
+		call    near __CEXT_F(___65710h)
 		call    near ___477d4h
 		xor     edx, edx
 		xor     eax, eax
@@ -80745,9 +80728,9 @@ ___57a95h:
 		call    near ___46738h
 ___57b4ch:
 		mov     eax, ecx
-		call    near ___658b8h
+		call    near __CEXT_F(___658b8h)
 		mov     eax, 10000h
-		call    near ___65710h
+		call    near __CEXT_F(___65710h)
 		imul    eax, [___243ce8h], 94h
 		xor     edx, edx
 		push    8000h
@@ -80758,7 +80741,7 @@ ___57b4ch:
 		xor     ebx, ebx
 		mov     dl, al
 		mov     eax, 1
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 ___57b8eh:
 		call    near ___4ee9ch
 		xor     ecx, ecx
@@ -80923,7 +80906,7 @@ ___57db0h:
 		push    50000h
 		mov     eax, ebp
 		xor     ebx, ebx
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 		call    near ___477d4h
 		mov     ebx, ___184574h
 		xor     edx, edx
@@ -81240,7 +81223,7 @@ ___582b1h:
 		mov     dl, al
 		mov     eax, 1
 		add     dl, 19h
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 		cmp     dword [___196d9ch], byte 1
 		jne     short ___582f7h
 		call    near ___46738h
@@ -81939,11 +81922,10 @@ ___5901fh:
 		pop     ecx
 		pop     ebx
 		retn    
-global ___596f0h
-___596f0h:
+__GDECL(__CEXT_F(___596f0h))
 		push    4
 		call    near __CHK
-		cmp     dword [Gamepad], byte 0
+		cmp     dword [__CEXT_V(Gamepad)], byte 0
 		jle     short ___5971ch
 		call    near ___59db8h
 		mov     eax, [___243890h]
@@ -82013,13 +81995,13 @@ ___597ceh:
 		mov     al, bl
 		mov     cl, dl
 		shl     eax, 8
-		mov     edx, [Gamepad]
+		mov     edx, [__CEXT_V(Gamepad)]
 		add     ecx, eax
 		test    edx, edx
 		jle     short ___597eah
 		call    near ___59db8h
 ___597eah:
-		cmp     dword [Gamepad], byte 0
+		cmp     dword [__CEXT_V(Gamepad)], byte 0
 		jle     near ___59942h
 		mov     ebx, 46ch
 		mov     esi, [___199f64h]
@@ -82146,8 +82128,7 @@ ___59942h:
 		pop     ecx
 		pop     ebx
 		retn    
-global lastScanCode__keyboard
-lastScanCode__keyboard:
+__GDECL(__CEXT_F(lastScanCode__keyboard))
 		push    1ch
 		call    near __CHK
 		push    ebx
@@ -82191,11 +82172,11 @@ ___599cch:
 		je      short ___599d7h
 		mov     bh, 1ch
 ___599d7h:
-		cmp     dword [Gamepad], byte 0
+		cmp     dword [__CEXT_V(Gamepad)], byte 0
 		jle     short ___599e5h
 		call    near ___59db8h
 ___599e5h:
-		cmp     dword [Gamepad], byte 0
+		cmp     dword [__CEXT_V(Gamepad)], byte 0
 		jle     near ___59b30h
 		mov     edx, 46ch
 		mov     ecx, [___199f6ch]
@@ -82319,8 +82300,7 @@ ___59b30h:
 		pop     ecx
 		pop     ebx
 		retn    
-global nullScanCode__keyboard
-nullScanCode__keyboard:
+__GDECL(__CEXT_F(nullScanCode__keyboard))
 		push    1ch
 		call    near __CHK
 		push    ebx
@@ -82364,11 +82344,11 @@ ___59bbch:
 		je      short ___59bc7h
 		mov     bh, 0dh
 ___59bc7h:
-		cmp     dword [Gamepad], byte 0
+		cmp     dword [__CEXT_V(Gamepad)], byte 0
 		jle     short ___59bd5h
 		call    near ___59db8h
 ___59bd5h:
-		cmp     dword [Gamepad], byte 0
+		cmp     dword [__CEXT_V(Gamepad)], byte 0
 		jle     near ___59ccch
 		mov     edx, 46ch
 		mov     ecx, [___199f74h]
@@ -82471,7 +82451,7 @@ ___59cd8h:
 		push    ecx
 		push    esi
 		push    edi
-		cmp     dword [Gamepad], byte 0
+		cmp     dword [__CEXT_V(Gamepad)], byte 0
 		jle     near ___59db0h
 		call    near ___59db8h
 		mov     eax, [___243888h]
@@ -82568,7 +82548,7 @@ ___59dfeh:
 		sti     
 		test    ecx, ecx
 		jne     short ___59e09h
-		mov     [Gamepad], ecx
+		mov     [__CEXT_V(Gamepad)], ecx
 ___59e09h:
 		pop     edi
 		pop     esi
@@ -85866,8 +85846,7 @@ ___606c8h:
 ___606d9h:
 		mov     eax, [___60436h]
 		retn   
-global ___606dfh 
-___606dfh:
+__GDECL(__CEXT_F(___606dfh))
 		pushad  
 		movzx   eax, word [___60434h]
 		mov     [___60442h], ax
@@ -86765,8 +86744,7 @@ ___6123fh:
 		pop     ecx
 		pop     ebx
 		retn    
-global ___61278h
-___61278h:
+__GDECL(__CEXT_F(___61278h))
 		push    10h
 		call    near __CHK
 		push    ebx
@@ -87969,7 +87947,7 @@ ___62287h:
 		mov     dword [___24e564h], 9
 		call    near ___632e8h
 		xor     edi, edi
-		mov     eax, [___199fa0h]
+		mov     eax, [__CEXT_V(___199fa0h)]
 		add     eax, 5000h
 		add     eax, [___199f9ch]
 		mov     [___199fbch], edi
@@ -88100,7 +88078,7 @@ ___62471h:
 		cmp     dword [__CEXT_V(NetworkConnectionType)], byte 2
 		jne     near ___62631h
 		call    near ___6363ch
-		mov     eax, [___199fa0h]
+		mov     eax, [__CEXT_V(___199fa0h)]
 		add     eax, 5000h
 		add     eax, [___199f9ch]
 		call    near ___632c4h
@@ -88901,7 +88879,7 @@ ___63957h:
 		mov     byte [gs:eax+8], 1
 		lgs     eax, [NoSplit edx*2+___24cd60h]
 		mov     dword [gs:eax+4], 0
-		mov     eax, [___199fa0h]
+		mov     eax, [__CEXT_V(___199fa0h)]
 		add     eax, 5000h
 		add     eax, [___199f9ch]
 		call    near ___632c4h
@@ -88942,13 +88920,13 @@ ___63957h:
 		add     edi, byte 1ch
 		mov     ecx, 3
 		rep stosw   
-		mov     eax, [___199fa0h]
+		mov     eax, [__CEXT_V(___199fa0h)]
 		add     eax, 5000h
 		add     eax, [___199f9ch]
 		call    near ___632c4h
 		lgs     edx, [___24e548h]
 		mov     [gs:edx+10h], ax
-		mov     eax, [___199fa0h]
+		mov     eax, [__CEXT_V(___199fa0h)]
 		add     eax, 5000h
 		add     eax, [___199f9ch]
 		call    near ___632c4h
@@ -89015,7 +88993,7 @@ ___63b4ah:
 		mov     byte [eax+4], 2
 		mov     byte [eax+5], 0b6h
 		mov     byte [eax+6], 0b7h
-		mov     eax, [___199fa0h]
+		mov     eax, [__CEXT_V(___199fa0h)]
 		add     eax, 5000h
 		call    near ___632c4h
 		lgs     edx, [___24e548h]
@@ -89027,7 +89005,7 @@ ___63b4ah:
 		mov     byte [eax+1fh], 0ffh
 		mov     byte [eax+20h], 0ffh
 		mov     byte [eax+21h], 0ffh
-		mov     eax, [___199fa0h]
+		mov     eax, [__CEXT_V(___199fa0h)]
 		add     eax, 5000h
 		call    near ___632c4h
 		mov     ebx, eax
@@ -89076,7 +89054,7 @@ ___63b4ah:
 		int     31h
 		;popa    
 		db	66h,61h
-		mov     eax, [___199fa0h]
+		mov     eax, [__CEXT_V(___199fa0h)]
 		add     eax, 5000h
 		add     eax, [___199f9ch]
 		call    near ___632c4h
@@ -89090,8 +89068,7 @@ ___63c90h:
 		pop     ecx
 		pop     ebx
 		retn    
-global ___648d8h
-___648d8h:
+__GDECL(__CEXT_F(___648d8h))
 		push    edx
 		cmp     byte [___199ff4h], 0
 		je      short ___64916h
@@ -89552,7 +89529,7 @@ ___64f9bh:
 		imul    esi, [esp+10h], byte 21h
 		mov     al, [esi+eax+19h]
 		and     eax, 0ffh
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 		imul    edx, [esp+8], byte 21h
 		mov     eax, [___199ff8h]
 		mov     dx, [edx+eax]
@@ -89653,7 +89630,7 @@ ___65134h:
 		imul    esi, [esp+10h], byte 21h
 		mov     al, [esi+eax+19h]
 		and     eax, 0ffh
-		call    near playSFX__sound
+		call    near __CEXT_F(playSFX__sound)
 ___6519ah:
 		dec     dword [esp]
 		jmp     near ___65267h
@@ -89801,8 +89778,7 @@ ___654b5h:
 		pop     edi
 		pop     esi
 		ret     8
-global playSFX__sound
-playSFX__sound:
+__GDECL(__CEXT_F(playSFX__sound))
 		push    esi
 		push    edi
 		push    ebp
@@ -89974,24 +89950,21 @@ ___6570ah:
 		pop     ebx
 ___6570eh:
 		retn    
-global ___65710h
-___65710h:
+__GDECL(__CEXT_F(___65710h))
 		cmp     byte [__CEXT_V(Sound_CardType)], 0
 		je      short ___6570eh
 		cmp     byte [__CEXT_V(IsSoundEnabled)], 0
 		je      short ___6570eh
 		mov     [__CEXT_V(AMP_Volume)], eax
 		jmp     near __CEXT_F(___65788h)
-global ___6572ch
-___6572ch:
+__GDECL(__CEXT_F(___6572ch))
 		cmp     byte [__CEXT_V(Sound_CardType)], 0
 		je      short ___6570eh
 		cmp     byte [__CEXT_V(IsSoundEnabled)], 0
 		je      short ___6570eh
 		mov     [__CEXT_V(MSX_Volume)], eax
 		jmp     short __CEXT_F(___65788h)
-global ___65770h
-___65770h:
+__GDECL(__CEXT_F(___65770h))
 		cmp     byte [__CEXT_V(Sound_CardType)], 0
 		je      short ___6570eh
 		cmp     byte [__CEXT_V(IsSoundEnabled)], 0
@@ -90022,8 +89995,7 @@ ___6579bh:
 		jmp     short ___6579bh
 ___658b0h:
 		jmp     near ___68284h
-global ___658b8h
-___658b8h:
+__GDECL(__CEXT_F(___658b8h))
 		jmp     near ___682a4h
 setup__sound:
 		cmp     byte [__CEXT_V(___5ff98h)], 0
@@ -90070,8 +90042,7 @@ ___6594ah:
 		mov     dx, [Sound_Address]
 		mov     al, [__CEXT_V(Sound_CardType)]
 		jmp     near ___66c98h
-global ___65990h
-___65990h:
+__GDECL(__CEXT_F(___65990h))
 		cmp     ax, word 1f40h
 		jae     short ___6599bh
 		mov     eax, 1f40h
@@ -90082,8 +90053,7 @@ ___6599bh:
 ___659a6h:
 		mov     [___688cch], ax
 		retn    
-global ___659b8h
-___659b8h:
+__GDECL(__CEXT_F(___659b8h))
 		test    al, al
 		setnz   al
 		and     eax, 0ffh

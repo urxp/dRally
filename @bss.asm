@@ -7,7 +7,7 @@ __GDECL(__CEXT_V(___19bd4ch))
     resb	8
 __GDECL(__CEXT_V(CLArgc))
     resb	4
-__GDECL(Gamepad)
+__GDECL(__CEXT_V(Gamepad))
     resb	8
 __GDECL(__CEXT_V(NetworkConnectionEstablished))
     resb	4
@@ -653,7 +653,7 @@ ___1a10c0h:	resb	4
 ___1a10c4h:	resb	4
 __GDECL(__CEXT_V(bgcop_pal_p))
     resb	4
-__GDECL(___1a10cch)
+__GDECL(__CEXT_V(___1a10cch))
     resb	4
 ___1a10d0h:	resb	4
 ___1a10d4h:	resb	4
@@ -670,10 +670,10 @@ ___1a10f4h:	resb	4
 ___1a10f8h:	resb	4
 __GDECL(GreyFont0Ptr)
     resb	4
-__GDECL(___VGABufferPtr_0)
+__GDECL(__CEXT_V(___VGABufferPtr_0))
     resb	4
 ___1a1104h:	resb	4
-__GDECL(WhiteFont0Ptr)
+__GDECL(__CEXT_V(WhiteFont0Ptr))
     resb	4
 __GDECL(LightBlueFont0Ptr)
     resb	4
@@ -689,7 +689,7 @@ __GDECL(__CEXT_V(VGABufferPtr_0))
     resb	4
 ___1a1130h:	resb	4
 ___1a1134h:	resb	4
-__GDECL(GXBackBuffer)
+__GDECL(__CEXT_V(GXBackBuffer))
     resb	4
 ___1a113ch:	resb	4
 ___1a1140h:	resb	4
@@ -796,7 +796,7 @@ __GDECL(__CEXT_V(___1a1eech))
     resb	4
 __GDECL(___1a1ef0h)
     resb	4
-__GDECL(___1a1ef4h)
+__GDECL(__CEXT_V(___1a1ef4h))
     resb	4
 __GDECL(__CEXT_V(MyID))
     resb	4
@@ -832,10 +832,10 @@ __GDECL(___1a1f34h)
     resb	4
 __GDECL(___1a1f38h)
     resb	4
-__GDECL(TimesPlayed)
+__GDECL(__CEXT_V(TimesPlayed))
     resb	3
 ___1a1f3fh:	resb	0eh
-__GDECL(___1a1f4dh)
+__GDECL(__CEXT_V(___1a1f4dh))
     resb	1
 __GDECL(__CEXT_V(___1a1f4eh))
     resb	1
@@ -860,16 +860,16 @@ ___1a1f6ah:	resb	87h
 ___1a1ff1h:	resb	0bh
 ___1a1ffch:	resb	14h
 ___1a2010h:	resb	1
-__GDECL(___1a2011h)
+__GDECL(__CEXT_V(___1a2011h))
     resb	1
-__GDECL(___1a2012h)
+__GDECL(__CEXT_V(___1a2012h))
     resb	1
-__GDECL(___1a2013h)
+__GDECL(__CEXT_V(___1a2013h))
     resb	1
-__GDECL(___1a2014h)
+__GDECL(__CEXT_V(___1a2014h))
     resb	6
 ___1a201ah:	resb	15h
-__GDECL(___1a202fh)
+__GDECL(__CEXT_V(___1a202fh))
     resb	12h
 ___1a2041h:	resb	1
 ___1a2042h:	resb	101h
@@ -877,7 +877,7 @@ CFGSound_CardType:	resb	1
 CFGSound_IRQ:	resb	1
 CFGSound_DMA:	resb	2
 ___1a2147h:	resb	1
-__GDECL(___1a2148h)
+__GDECL(__CEXT_V(___1a2148h))
     resb	1
 ___1a2149h:	resb	1
 __GDECL(__CEXT_V(CDPath))
@@ -1561,9 +1561,9 @@ ___243e80h:	resb	14h
 ___243e94h:	resb	7ccch
 __GDECL(__CEXT_V(BPA0Header))
     resb	10f4h
-__GDECL(ConfigSFXVolume)
+__GDECL(__CEXT_V(ConfigSFXVolume))
     resb	4
-__GDECL(ConfigMusicVolume)
+__GDECL(__CEXT_V(ConfigMusicVolume))
     resb	0ch
 ___24cc64h:	resb	8
 ___24cc6ch:	resb	10h

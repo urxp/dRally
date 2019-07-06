@@ -54,7 +54,7 @@
 
 
     #pragma aux __STOSB__clib3r parm [eax][edx][ecx]
-    void __STOSB__clib3r(void *, byte, dword);
+    void __STOSB__clib3r(void *, dword, dword);
 
     int rand__clib3r(void);
     void ___2b318h(void);

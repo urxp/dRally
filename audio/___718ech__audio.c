@@ -16,8 +16,8 @@
 	extern byte S3M_GlobalVolume;
 	extern byte S3M_InitialSpeed;
 
-	void __STOSB__clib3r(void *, byte, dword);
     #pragma aux __STOSB__clib3r parm [eax][edx][ecx]
+	void __STOSB__clib3r(void *, dword, dword);
 
 	void ___6ef2ch__audio(void);
 	void ___68cfbh(void (*)(void));

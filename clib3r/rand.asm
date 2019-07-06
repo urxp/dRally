@@ -20,7 +20,7 @@ __GDECL(__CEXT_F(rand__clib3r))
 ___65ebbh:
 		pop     edx
 		retn  
-__GDECL(srand__clib3r)
+__GDECL(__CEXT_F(srand__clib3r))
 		push    edx
 		mov     edx, eax
 		call    initrandnext

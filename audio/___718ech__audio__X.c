@@ -1,7 +1,7 @@
 #include "x86.h"
 
-	void __STOSB__clib3r(void *, byte, dword);
     #pragma aux __STOSB__clib3r parm [eax][edx][ecx]
+	void __STOSB__clib3r(void *, dword, dword);
 
 	void ___6ef2ch__audio(void);
 	void ___68cfbh(dword);
