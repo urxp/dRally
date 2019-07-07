@@ -10,7 +10,7 @@
 	extern	__CEXT_V(AMP_Volume)
 	extern	__CEXT_V(MSX_Volume)
 	extern	__CEXT_V(SFX_Volume)
-	extern	__CEXT_F(___65788h)
+	extern	__CEXT_F(updateVolume)
 	extern	__CEXT_F(___5fff2h)
 
 %include "layout.inc"
@@ -54,7 +54,7 @@ __GDECL(__CEXT_F(___64864h__esp))
 		mov     [__CEXT_V(AMP_Volume)], edx
 		mov     [__CEXT_V(MSX_Volume)], edx
 		mov     [__CEXT_V(SFX_Volume)], edx
-		call    __CEXT_F(___65788h)
+		call    __CEXT_F(updateVolume)
 		mov     eax, __CEXT_F(___64a28h)
 		call    __CEXT_F(___5fff2h)
 		add     esp, 4

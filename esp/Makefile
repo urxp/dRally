@@ -2,7 +2,7 @@ TARGET = esp
 
 LIB_NAME = $(TARGET).lib
 
-OBJS = ___64864h.obj ___67e48h.obj
+OBJS = ___64864h.obj ___67e48h.obj volume__esp.obj
 
 $(TARGET): $(LIB_NAME) $(OBJS)
 

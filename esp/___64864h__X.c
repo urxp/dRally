@@ -29,7 +29,7 @@ typedef enum TrackerType {
 	void __STOSD__clib3r(byte *, dword, dword);
     #pragma aux __STOSD__clib3r parm [eax][edx][ecx]
 
-	void ___65788h(void);
+	void updateVolume(void);
 
 	void ___5fff2h(void (*)(void));
 	void ___6000fh(void (*)(void));
@@ -92,8 +92,8 @@ void ___64864h__esp(dword A1, dword A2, dword A3, dword A4, dword A5){
 	D(MSX_Volume) = edx;
 //		mov     [__CEXT_V(SFX_Volume)], edx
 	D(SFX_Volume) = edx;
-//		call    __CEXT_F(___65788h)
-	___65788h();
+//		call    __CEXT_F(updateVolume)
+	updateVolume();
 //		mov     eax, __CEXT_F(___64a28h)
 	eax = ___64a28h;
 //		call    __CEXT_F(___5fff2h)

@@ -22,9 +22,9 @@
 	extern 	__CEXT_V(___181ca8h)	
 	extern 	__CEXT_F(___64864h__esp)	
 	extern 	__CEXT_V(ConfigMusicVolume)	
-	extern 	__CEXT_F(___6572ch)	
+	extern 	__CEXT_F(updateMSXVolume)	
 	extern 	__CEXT_V(ConfigSFXVolume)	
-	extern 	__CEXT_F(___65770h)	
+	extern 	__CEXT_F(updateSFXVolume)	
 	extern 	__CEXT_F(___658b8h)	
 	extern 	__CEXT_F(___65990h)	
 	extern 	__CEXT_F(___648d8h)	
@@ -109,7 +109,7 @@
 	extern 	__CEXT_F(___3a7e0h)	
 	extern 	__CEXT_F(___649a8h)	
 	extern 	__CEXT_V(___1a1ef4h)	
-	extern 	__CEXT_F(___65710h)		
+	extern 	__CEXT_F(updateAMPVolume)		
 	extern 	__CEXT_F(___12dc4h)	
 	extern 	__CEXT_F(chkcdrom__dr)	
 	extern 	__CEXT_F(___13248h)	
@@ -206,9 +206,9 @@ __GDECL(__CEXT_F(startup__dr))
 		mov     eax, 1
 		call    __CEXT_F(___64864h__esp)
 		mov     eax, [__CEXT_V(ConfigMusicVolume)]
-		call    __CEXT_F(___6572ch)
+		call    __CEXT_F(updateMSXVolume)
 		mov     eax, [__CEXT_V(ConfigSFXVolume)]
-		call    __CEXT_F(___65770h)
+		call    __CEXT_F(updateSFXVolume)
 		mov     eax, 2d00h			;; 11520
 		call    __CEXT_F(___658b8h)
 		mov     eax, 5622h			;; 22050
@@ -665,7 +665,7 @@ ___3edeah:
 		call    __CEXT_F(___658b8h)
 		mov     eax, 10000h
 		mov     [esp+24h], ebx
-		call    __CEXT_F(___65710h)
+		call    __CEXT_F(updateAMPVolume)
 ___3ee31h:
 		cmp     dword [__CEXT_V(___196a84h)], byte 0
 		jne     ___3ee3fh

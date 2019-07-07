@@ -22,7 +22,7 @@ typedef enum TrackerType {
 	void ___649a8h(void);
 	void ___680c8h(void);
 	void ___64a28h(void);
-	void ___65788h(void);
+	void updateVolume(void);
 
 	void ___67e48h__esp(TrackerType tMSX, const char * fMSX,
                     TrackerType tSFX, const char * fSFX, int nSFX);
@@ -49,7 +49,7 @@ void ___64864h__esp(TrackerType tMSX, const char * fMSX,
 	MSX_Volume = 0x10000;
 	SFX_Volume = 0x10000;
 
-	___65788h();
+	updateVolume();
 
 	___5fff2h(___64a28h);
 }

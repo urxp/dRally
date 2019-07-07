@@ -151,9 +151,9 @@
 	void ___648d8h(void);
 	void ___649a8h(void);
 	void ___64a28h(void);		
-	void ___65710h(dword);	
-	void ___6572ch(dword);	
-	void ___65770h(dword);
+	void updateAMPVolume(dword);	
+	void updateMSXVolume(dword);	
+	void updateSFXVolume(dword);
 	dword ___658b8h(dword);
 	dword ___65990h(dword);
 	dword ___659b8h(dword);
@@ -335,12 +335,12 @@ void startup__dr(void){
     esp += 4;
 //		mov     eax, [__CEXT_V(ConfigMusicVolume)]
     eax = D(ConfigMusicVolume);
-//		call    __CEXT_F(___6572ch)
-    ___6572ch(eax);
+//		call    __CEXT_F(updateMSXVolume)
+    updateMSXVolume(eax);
 //		mov     eax, [__CEXT_V(ConfigSFXVolume)]
     eax = D(ConfigSFXVolume);
-//		call    __CEXT_F(___65770h)
-    ___65770h(eax);
+//		call    __CEXT_F(updateSFXVolume)
+    updateSFXVolume(eax);
 //		mov     eax, 2d00h			;; 11520
     eax = 0x2d00;
 //		call    __CEXT_F(___658b8h)
@@ -1256,8 +1256,8 @@ ___3edeah:
 	eax = 0x10000;
 //		mov     [esp+24h], ebx
 	D(esp+0x24) = ebx;
-//		call    __CEXT_F(___65710h)
-	___65710h(eax);
+//		call    __CEXT_F(updateAMPVolume)
+	updateAMPVolume(eax);
 ___3ee31h:
 //		cmp     dword [__CEXT_V(___196a84h)], byte 0
 //		jne     ___3ee3fh

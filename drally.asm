@@ -78,6 +78,10 @@
     extern  __CEXT_F(optionsUndergroundMarket)
     extern  __CEXT_F(___2b318h)
 
+    extern  __CEXT_F(updateAMPVolume)
+    extern  __CEXT_F(updateMSXVolume)
+    extern  __CEXT_F(updateSFXVolume)
+
 
 ;; CLIB3R.LIB
     extern  __CHK

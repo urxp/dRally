@@ -8,7 +8,7 @@
     extern  ___688d0h
     extern  ___68910h
     extern  ___68a10h
-    extern  ___68bb0h
+    extern  __CEXT_V(___68bb0h)
     extern  ___68990h
     extern  __CEXT_V(___68a90h)
     extern  ___68b30h
@@ -432,7 +432,7 @@ ___6934dh:
 		or      ebx, ebx
 		je      ___6a600h
 		mov     eax, [esi*4+___68a10h]
-		imul    dword [esi*4+___68bb0h]
+		imul    dword [esi*4+__CEXT_V(___68bb0h)]
 		shrd    eax, edx, 19h
 		shl     eax, 8
 		or      eax, eax
