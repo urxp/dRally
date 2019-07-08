@@ -57,7 +57,7 @@
 	extern 	__CEXT_F(exit__clib3r)	
 	extern 	__CEXT_F(___605deh)	
 	extern 	__CEXT_F(allocVGABuffer)	
-	extern 	__CEXT_F(___3d38ch)	
+	extern 	__CEXT_F(apogee_gt_remedy)	
 	extern 	__CEXT_F(___3d890h)	
 	extern 	__CEXT_V(___1a1f4fh)	
 	extern 	__CEXT_V(RowBox0Colors_R5)	
@@ -282,7 +282,7 @@ l_bs_ok:
 		xor     ebx, ebx
 		call    __CEXT_F(___605deh)
 		call    __CEXT_F(allocVGABuffer)
-		call    __CEXT_F(___3d38ch)
+		call    __CEXT_F(apogee_gt_remedy)
 		call    __CEXT_F(___3d890h)
 		call    __CEXT_F(___117f4h)
 		call    __CEXT_F(___1240ch)

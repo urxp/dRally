@@ -132,7 +132,7 @@
 	void ___2fc50h(void);	
 	void ___3a7e0h(dword);
 	void ___3d2bch(void);
-	void ___3d38ch(void);	
+	void apogee_gt_remedy(void);	
 	void ___3d79ch(void);
 	void ___3d890h(void);	
     void ___58c60h(void);
@@ -140,7 +140,8 @@
 
 	#pragma aux ___5e0f9h parm routine []
 	void ___5e0f9h(dword, dword, dword, dword);
-	void ___605deh(dword);
+	#pragma aux ___605deh parm [eax][ebx]
+	void ___605deh(dword, dword);
 	void ___606dfh(void);
 	void ___61278h(void);
 	void ___623d4h(void);
@@ -472,11 +473,11 @@ l_bs_ok:
 //		xor     ebx, ebx
     ebx = 0;
 //		call    __CEXT_F(___605deh)
-    ___605deh(eax);
+    ___605deh(eax, ebx);
 //		call    __CEXT_F(allocVGABuffer)
     allocVGABuffer();
-//		call    __CEXT_F(___3d38ch)
-    ___3d38ch();
+//		call    __CEXT_F(apogee_gt_remedy)
+    apogee_gt_remedy();
 //		call    __CEXT_F(___3d890h)
     ___3d890h();
 //		call    __CEXT_F(___117f4h)

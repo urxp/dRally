@@ -1241,17 +1241,17 @@ ___182800h:
 db	"LEE VICE  ",0,0
 ___18280ch:
 db	"DARK RYDER",0,0
-___182818h:
+__GDECL(__CEXT_V(___182818h))
 db	"apogee.pal",0,0
-___182824h:
+__GDECL(__CEXT_V(___182824h))
 db	"apogee.bpk",0,0
-___182830h:
+__GDECL(__CEXT_V(___182830h))
 db	"gtlogo4.pal",0
-___18283ch:
+__GDECL(__CEXT_V(___18283ch))
 db	"gtlogo4.bpk",0
-___182848h:
+__GDECL(__CEXT_V(___182848h))
 db	"remedy.pal",0,0
-___182854h:
+__GDECL(__CEXT_V(___182854h))
 db	"remedy.bpk",0,0
 ___182860h:
 db	"credit1.pal",0

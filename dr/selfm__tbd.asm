@@ -40,9 +40,9 @@ db	0,0,0,0
 global ___68d48h
 ___68d48h:
 db	0,0,0,0
-global ___68d4ch
-___68d4ch:
-db	0,0,0,0,0,0,0,0,0,8dh,40h,0
+__GDECL(__CEXT_V(___68d4ch))
+db	0,0,0,0
+db	0,0,0,0,0,8dh,40h,0
 __GDECL(__CEXT_V(___68d58h))
 db	0,0,0,0
 global ___68d5ch
@@ -545,7 +545,7 @@ ___694c0h:
 		adc     ebp, byte 0
 ___694eeh:
 		mov     esi, [esi*4+___68d94h]
-		cmp     dword [___68d4ch], byte 0
+		cmp     dword [__CEXT_V(___68d4ch)], byte 0
 		jne     ___6963eh
 ___69502h:
 		cmp     dword [___68d90h], byte 10h
@@ -1045,7 +1045,7 @@ ___69923h:
 		adc     ebp, byte 0
 ___69951h:
 		mov     esi, [esi*4+___68d94h]
-		cmp     dword [___68d4ch], byte 0
+		cmp     dword [__CEXT_V(___68d4ch)], byte 0
 		jne     ___69b07h
 ___69965h:
 		cmp     dword [___68d90h], byte 10h
@@ -1596,7 +1596,7 @@ ___69e52h:
 		adc     ebp, byte 0
 ___69e8eh:
 		mov     esi, [esi*4+___68d94h]
-		cmp     dword [___68d4ch], byte 0
+		cmp     dword [__CEXT_V(___68d4ch)], byte 0
 		jne     ___6a127h
 ___69ea2h:
 		cmp     dword [___68d90h], byte 10h

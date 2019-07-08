@@ -14,7 +14,7 @@
     extern  __CEXT_F(read__bpa)
     extern  __CEXT_F(getentrysize__bpa)
 
-    extern  ___68d4ch
+    extern  __CEXT_V(___68d4ch)
     extern  __CEXT_V(___68d58h)
     extern  ___68e94h
     extern  ___68d94h
@@ -77,6 +77,7 @@
     extern  __CEXT_F(initDrivers)
     extern  __CEXT_F(optionsUndergroundMarket)
     extern  __CEXT_F(___2b318h)
+    extern  __CEXT_F(___606dfh)
 
     extern  __CEXT_F(updateAMPVolume)
     extern  __CEXT_F(updateMSXVolume)
@@ -84,6 +85,7 @@
     extern  __CEXT_F(setSampleRate__esp)
     extern  __CEXT_F(___682a4h)
     extern  __CEXT_F(___648d8h)
+    extern  __CEXT_F(___659b8h)
 
 ;; CLIB3R.LIB
     extern  __CHK
