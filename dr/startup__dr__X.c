@@ -115,7 +115,7 @@
 	void ___1240ch(void);
 	void ___12940h(void);
     void ___12a54h(void);
-	void ___12cb8h(void);
+	void popScreen(void);
     void ___12dc4h(void);
 	void ___13248h(dword, dword, dword, dword, dword);
 	void ___13710h(dword, dword);
@@ -133,7 +133,7 @@
 	void apogee_gt_remedy(void);	
 	void ___3d79ch(void);
 	void ___3d890h(void);	
-    void ___58c60h(void);
+    void waitSync__dr(void);
 	void ___596f0h(void);
 
 	#pragma aux ___5e0f9h parm routine []
@@ -1038,8 +1038,8 @@ ___3eca8h:
 //		test    ebx, ebx
 //		jne     ___3edeah
     if(ebx != 0) goto ___3edeah;
-//		call    __CEXT_F(___12cb8h)
-    ___12cb8h();
+//		call    __CEXT_F(popScreen)
+    popScreen();
 //		call    __CEXT_F(___2b318h)
     ___2b318h();
 //		mov     [esp+1ch], ebx
@@ -1047,8 +1047,8 @@ ___3eca8h:
 //		mov     [esp], ebx
     D(esp) = ebx;
 ___3ecc7h:
-//		call    __CEXT_F(___58c60h)
-	___58c60h();
+//		call    __CEXT_F(waitSync__dr)
+	waitSync__dr();
 //		mov     eax, [esp+1ch]
 	eax = D(esp+0x1c);
 //		mov     edx, eax
@@ -1333,8 +1333,8 @@ l_drstartracing:
 	eax = ebp;
 //		call    __CEXT_F(updateScreen_TBD)
 	updateScreen_TBD(eax, edx);
-//		call    __CEXT_F(___12cb8h)
-	___12cb8h();
+//		call    __CEXT_F(popScreen)
+	popScreen();
 //		mov     esi, 1dh
 	esi = 0x1d;
 l_cdchk_failed:

@@ -79,7 +79,7 @@ typedef enum eNetworkConnectionType {
 
     void ___1e62ch(dword);
    	void ___3a454h(void);
-    void ___58c60h(void);
+    void waitSync__dr(void);
     void ___2a394h(void);
     void ___3f77ch(void *);
     void ___1e4f8h(void);
@@ -152,7 +152,7 @@ void updateMenuBackgroundAndTextArea(){
 	if(B(___59e68h)) ___3a454h();
 
     ___196a88h++;
-    ___58c60h();
+    waitSync__dr();
     ___2a394h();
 
     if(idiv_rem(___196a88h, (___196a88h < 0) ? -1 : 0, 0x46) == 1){

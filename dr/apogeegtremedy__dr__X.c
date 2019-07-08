@@ -16,9 +16,9 @@
 	void ___5e0f9h(dword, dword, dword, dword);
     #pragma aux decode2__bpk parm routine []
 	void decode2__bpk(void * dst, void * src);
-    void ___12cb8h(void);
-    void ___3d1f0h(void);
-    void ___58c60h(void);
+    void popScreen(void);
+    void fadeinScreen(void);
+    void waitSync__dr(void);
 	dword lastScanCode__keyboard(void);	
     void ___3d2bch(void);
 
@@ -94,15 +94,15 @@ ___3d3a4h:
 //		call    __CEXT_F(decode2__bpk)
 	decode2__bpk(D(esp), D(esp+4));
 	esp += 8;
-//		call    __CEXT_F(___12cb8h)
-	___12cb8h();
-//		call    __CEXT_F(___3d1f0h)
-	___3d1f0h();
+//		call    __CEXT_F(popScreen)
+	popScreen();
+//		call    __CEXT_F(fadeinScreen)
+	fadeinScreen();
 ___3d403h:
 //		mov     ebp, [esp]
 	ebp = D(esp);
-//		call    __CEXT_F(___58c60h)
-	___58c60h();
+//		call    __CEXT_F(waitSync__dr)
+	waitSync__dr();
 //		inc     ebp
 	ebp++;
 //		call    __CEXT_F(lastScanCode__keyboard)
@@ -139,19 +139,19 @@ ___3d420h:
 //		call    __CEXT_F(decode2__bpk)
 	decode2__bpk(D(esp), D(esp+4));
 	esp += 8;
-//		call    __CEXT_F(___12cb8h)
-	___12cb8h();
+//		call    __CEXT_F(popScreen)
+	popScreen();
 //		xor     ebx, ebx
 	ebx = 0;
-//		call    __CEXT_F(___3d1f0h)
-	___3d1f0h();
+//		call    __CEXT_F(fadeinScreen)
+	fadeinScreen();
 //		mov     [esp], ebx
 	D(esp) = ebx;
 ___3d463h:
 //		mov     ecx, [esp]
 	ecx = D(esp);
-//		call    __CEXT_F(___58c60h)
-	___58c60h();
+//		call    __CEXT_F(waitSync__dr)
+	waitSync__dr();
 //		inc     ecx
 	ecx++;
 //		call    __CEXT_F(lastScanCode__keyboard)
@@ -192,13 +192,13 @@ ___3d480h:
 //		call    __CEXT_F(decode2__bpk)
 	decode2__bpk(D(esp), D(esp+4));
     esp += 8;
-//		call    __CEXT_F(___12cb8h)
-	___12cb8h();
-//		call    __CEXT_F(___3d1f0h)
-	___3d1f0h();
+//		call    __CEXT_F(popScreen)
+	popScreen();
+//		call    __CEXT_F(fadeinScreen)
+	fadeinScreen();
 ___3d4c4h:
-//		call    __CEXT_F(___58c60h)
-	___58c60h();
+//		call    __CEXT_F(waitSync__dr)
+	waitSync__dr();
 //		inc     dword [esp]
 	D(esp)++;
 //		call    __CEXT_F(lastScanCode__keyboard)

@@ -16,9 +16,9 @@
     extern  __CEXT_F(loadPalette)
     extern  __CEXT_F(___5e0f9h)
     extern  __CEXT_F(decode2__bpk)
-    extern  __CEXT_F(___12cb8h)
-    extern  __CEXT_F(___3d1f0h)
-    extern  __CEXT_F(___58c60h)
+    extern  __CEXT_F(popScreen)
+    extern  __CEXT_F(fadeinScreen)
+    extern  __CEXT_F(waitSync__dr)
     extern  __CEXT_F(lastScanCode__keyboard)
     extern  __CEXT_F(___3d2bch)
 
@@ -64,11 +64,11 @@ ___3d3a4h:
 		push    esi
 		mov     [esp+8], edi
 		call    __CEXT_F(decode2__bpk)
-		call    __CEXT_F(___12cb8h)
-		call    __CEXT_F(___3d1f0h)
+		call    __CEXT_F(popScreen)
+		call    __CEXT_F(fadeinScreen)
 ___3d403h:
 		mov     ebp, [esp]
-		call    __CEXT_F(___58c60h)
+		call    __CEXT_F(waitSync__dr)
 		inc     ebp
 		call    __CEXT_F(lastScanCode__keyboard)
 		mov     [esp], ebp
@@ -88,13 +88,13 @@ ___3d420h:
 		mov     edx, [__CEXT_V(VGABufferPtr_0)]
 		push    edx
 		call    __CEXT_F(decode2__bpk)
-		call    __CEXT_F(___12cb8h)
+		call    __CEXT_F(popScreen)
 		xor     ebx, ebx
-		call    __CEXT_F(___3d1f0h)
+		call    __CEXT_F(fadeinScreen)
 		mov     [esp], ebx
 ___3d463h:
 		mov     ecx, [esp]
-		call    __CEXT_F(___58c60h)
+		call    __CEXT_F(waitSync__dr)
 		inc     ecx
 		call    __CEXT_F(lastScanCode__keyboard)
 		mov     [esp], ecx
@@ -116,10 +116,10 @@ ___3d480h:
 		push    edi
 		mov     [esp+8], ebp
 		call    __CEXT_F(decode2__bpk)
-		call    __CEXT_F(___12cb8h)
-		call    __CEXT_F(___3d1f0h)
+		call    __CEXT_F(popScreen)
+		call    __CEXT_F(fadeinScreen)
 ___3d4c4h:
-		call    __CEXT_F(___58c60h)
+		call    __CEXT_F(waitSync__dr)
 		inc     dword [esp]
 		call    __CEXT_F(lastScanCode__keyboard)
 		test    al, al

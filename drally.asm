@@ -79,6 +79,10 @@
     extern  __CEXT_F(___2b318h)
     extern  __CEXT_F(loadPalette)
     extern  __CEXT_F(___606dfh)
+    extern  __CEXT_F(popScreen)
+    extern  __CEXT_F(waitSync__dr)
+    extern  __CEXT_F(___606d9h)
+    extern  __CEXT_F(fadeinScreen)
 
     extern  __CEXT_F(updateAMPVolume)
     extern  __CEXT_F(updateMSXVolume)

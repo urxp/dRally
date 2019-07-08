@@ -3,7 +3,7 @@
     extern  __CHK
     extern  __CEXT_V(___59e68h)
     extern  __CEXT_F(___3a454h)
-    extern  __CEXT_F(___58c60h)
+    extern  __CEXT_F(waitSync__dr)
     extern  __CEXT_F(___2a394h)
     extern  __CEXT_V(___196a88h)
     extern  __CEXT_V(___196ad8h)
@@ -59,7 +59,7 @@ __GDECL(__CEXT_F(updateMenuBackgroundAndTextArea))
 		call    __CEXT_F(___3a454h)
 ___2ab74h:
 		inc     dword [__CEXT_V(___196a88h)]
-		call    __CEXT_F(___58c60h)
+		call    __CEXT_F(waitSync__dr)
 		call    __CEXT_F(___2a394h)
 		mov     eax, [__CEXT_V(___196a88h)]
 		mov     edx, eax

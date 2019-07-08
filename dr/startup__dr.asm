@@ -98,8 +98,8 @@
 	extern 	__CEXT_V(___196d84h)	
 	extern 	__CEXT_V(___185a2ch)	
 	extern 	__CEXT_V(___196a84h)	
-	extern 	__CEXT_F(___12cb8h)	
-	extern 	__CEXT_F(___58c60h)	
+	extern 	__CEXT_F(popScreen)	
+	extern 	__CEXT_F(waitSync__dr)	
 	extern 	__CEXT_F(___13a98h)	
 	extern 	__CEXT_V(Pal8to24_1)	
 	extern 	__CEXT_V(___1a10e4h)	
@@ -558,12 +558,12 @@ ___3eca8h:
 		mov     ebx, [__CEXT_V(___196a84h)]
 		test    ebx, ebx
 		jne     ___3edeah
-		call    __CEXT_F(___12cb8h)
+		call    __CEXT_F(popScreen)
 		call    __CEXT_F(___2b318h)
 		mov     [esp+1ch], ebx
 		mov     [esp], ebx
 ___3ecc7h:
-		call    __CEXT_F(___58c60h)
+		call    __CEXT_F(waitSync__dr)
 		mov     eax, [esp+1ch]
 		mov     edx, eax
 		mov     ecx, 2
@@ -700,7 +700,7 @@ ___3ee3fh:
 		mov     edx, [esp+4]
 		mov     eax, ebp
 		call    __CEXT_F(updateScreen_TBD)
-		call    __CEXT_F(___12cb8h)
+		call    __CEXT_F(popScreen)
 		mov     esi, 1dh
 @cdchk_failed:
 		push    8000h

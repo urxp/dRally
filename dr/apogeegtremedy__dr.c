@@ -16,9 +16,9 @@
 	void ___5e0f9h(dword, dword, dword, dword);
     #pragma aux decode2__bpk parm routine []
 	void decode2__bpk(void * dst, void * src);
-    void ___12cb8h(void);
-    void ___3d1f0h(void);
-    void ___58c60h(void);
+    void popScreen(void);
+    void fadeinScreen(void);
+    void waitSync__dr(void);
 	dword lastScanCode__keyboard(void);	
     void ___3d2bch(void);
 
@@ -36,33 +36,33 @@ void apogee_gt_remedy(void){
 	loadPalette(___182818h);
 	read__bpa(MENU_BPA, BPA_Buffer, ___182824h);
 	decode2__bpk(VGABufferPtr_0, BPA_Buffer);
-	___12cb8h();
-	___3d1f0h();
+	popScreen();
+	fadeinScreen();
 
 	D(esp) = -1;
-	while((++D(esp) < 0xb4)&&!lastScanCode__keyboard()) ___58c60h();
+	while((++D(esp) < 0xb4)&&!lastScanCode__keyboard()) waitSync__dr();
 
 	___3d2bch();
 
 	loadPalette(___182830h);
 	read__bpa(MENU_BPA, BPA_Buffer, ___18283ch);
 	decode2__bpk(VGABufferPtr_0, BPA_Buffer);
-	___12cb8h();
-	___3d1f0h();
+	popScreen();
+	fadeinScreen();
 
 	D(esp) = -1;
-	while((++D(esp) < 0xb4)&&!lastScanCode__keyboard()) ___58c60h();
+	while((++D(esp) < 0xb4)&&!lastScanCode__keyboard()) waitSync__dr();
 
 	___3d2bch();
 
 	loadPalette(___182848h);
 	read__bpa(MENU_BPA, BPA_Buffer, ___182854h);
 	decode2__bpk(VGABufferPtr_0, BPA_Buffer);
-	___12cb8h();
-	___3d1f0h();
+	popScreen();
+	fadeinScreen();
 
 	D(esp) = -1;
-	while((++D(esp) < 0xb4)&&!lastScanCode__keyboard()) ___58c60h();
+	while((++D(esp) < 0xb4)&&!lastScanCode__keyboard()) waitSync__dr();
 
 	___3d2bch();
 }

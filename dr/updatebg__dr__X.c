@@ -25,7 +25,7 @@
 
     void ___1e62ch(dword);
    	void ___3a454h(void);
-    void ___58c60h(void);
+    void waitSync__dr(void);
     void ___2a394h(void);
     void ___3f77ch(dword);
     void ___1e4f8h(void);
@@ -83,8 +83,8 @@ void updateMenuBackgroundAndTextArea(){
 ___2ab74h:
 //		inc     dword [__CEXT_V(___196a88h)]
     D(___196a88h)++;
-//		call    __CEXT_F(___58c60h)
-    ___58c60h();
+//		call    __CEXT_F(waitSync__dr)
+    waitSync__dr();
 //		call    __CEXT_F(___2a394h)
     ___2a394h();
 //		mov     eax, [__CEXT_V(___196a88h)]
