@@ -58,11 +58,11 @@
 	extern 	__CEXT_F(___605deh)	
 	extern 	__CEXT_F(allocVGABuffer)	
 	extern 	__CEXT_F(apogee_gt_remedy)	
-	extern 	__CEXT_F(___3d890h)	
+	extern 	__CEXT_F(startingScreen__dr)	
 	extern 	__CEXT_V(___1a1f4fh)	
 	extern 	__CEXT_V(RowBox0Colors_R5)	
 	extern 	__CEXT_F(___2b318h)	
-	extern 	__CEXT_F(___5e0f9h)	
+	extern 	__CEXT_F(writeColor__video)	
 	extern 	__CEXT_V(___VGABufferPtr_0)	
 	extern 	__CEXT_V(VGABufferPtr_0)	
 	extern 	__CEXT_F(___146c4h)	
@@ -281,7 +281,7 @@ l_bs_ok:
 		call    __CEXT_F(___605deh)
 		call    __CEXT_F(allocVGABuffer)
 		call    __CEXT_F(apogee_gt_remedy)
-		call    __CEXT_F(___3d890h)
+		call    __CEXT_F(startingScreen__dr)
 		call    __CEXT_F(___117f4h)
 		call    __CEXT_F(___1240ch)
 		call    __CEXT_F(___117c8h)
@@ -611,7 +611,7 @@ ___3ecf0h:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    __CEXT_F(___5e0f9h)
+		call    __CEXT_F(writeColor__video)
 		mov     eax, [esp+8]
 		inc     eax
 		add     edi, byte 0ch

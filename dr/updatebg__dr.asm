@@ -10,7 +10,7 @@
     extern  __CEXT_V(bgcop_pal_p)
     extern  __CEXT_V(d_1o64)
     extern  __CHP
-    extern  __CEXT_F(___5e0f9h)
+    extern  __CEXT_F(writeColor__video)
     extern  __CEXT_V(NetworkConnectionEstablished)
     extern  __CEXT_F(___6168ch)
     extern  __CEXT_V(___1a1f4fh)
@@ -133,7 +133,7 @@ ___2ac47h:
 		and     eax, 0ffh
 		push    eax
 		mov     ebp, [esp+428h]
-		call    __CEXT_F(___5e0f9h)
+		call    __CEXT_F(writeColor__video)
 		mov     dl, [esp+424h]
 		inc     ebp
 		inc     dl

@@ -11,8 +11,8 @@ typedef struct pal3dword {
     extern pal3dword Pal8to24_1[];
 
     void waitSync__dr(void);
-    #pragma aux ___5e0f9h parm routine []
-	void ___5e0f9h(dword, dword, dword, dword);
+    #pragma aux writeColor__video parm routine []
+	void writeColor__video(dword, dword, dword, dword);
 
 
 // 3d1f0h
@@ -35,7 +35,7 @@ void fadeinScreen(void){
             PUSH(((Pal8to24_1[n].__1 * m + 0x2000) >> 0xe) & 0xff);
             PUSH(((Pal8to24_1[n].__2 * m + 0x2000) >> 0xe) & 0xff);
 
-            ___5e0f9h(D(esp), D(esp+4), D(esp+8), n);
+            writeColor__video(D(esp), D(esp+4), D(esp+8), n);
 
             esp += 0xc;
         }

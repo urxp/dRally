@@ -1056,7 +1056,7 @@ ___113ffh:
 		mov     al, [esp+18h]
 		push    eax
 		mov     esi, [esp+48h]
-		call    near __CEXT_F(___5e0f9h)
+		call    near __CEXT_F(writeColor__video)
 		mov     ecx, [esp+28h]
 		inc     esi
 		inc     ecx
@@ -1120,7 +1120,7 @@ ___114dch:
 		fistp   dword [esp+18h]
 		mov     al, [esp+18h]
 		push    eax
-		call    near __CEXT_F(___5e0f9h)
+		call    near __CEXT_F(writeColor__video)
 		mov     edx, [esp+28h]
 		mov     ebx, [esp+18h]
 		inc     edx
@@ -9978,7 +9978,7 @@ ___19115h:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near __CEXT_F(___5e0f9h)
+		call    near __CEXT_F(writeColor__video)
 		mov     eax, [esp+4]
 		inc     eax
 		add     edi, byte 0ch
@@ -10023,7 +10023,7 @@ ___191b4h:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near __CEXT_F(___5e0f9h)
+		call    near __CEXT_F(writeColor__video)
 		mov     ecx, [esp+4]
 		inc     ecx
 		add     edi, byte 0ch
@@ -10130,7 +10130,7 @@ ___19336h:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near __CEXT_F(___5e0f9h)
+		call    near __CEXT_F(writeColor__video)
 		mov     ebx, [esp+4]
 		inc     ebx
 		add     edi, byte 0ch
@@ -10175,7 +10175,7 @@ ___193d4h:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near __CEXT_F(___5e0f9h)
+		call    near __CEXT_F(writeColor__video)
 		mov     eax, [esp+4]
 		inc     eax
 		add     edi, byte 0ch
@@ -17120,7 +17120,7 @@ ___1e905h:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near __CEXT_F(___5e0f9h)
+		call    near __CEXT_F(writeColor__video)
 		mov     ecx, [esp]
 		inc     ecx
 		mov     [esp], ecx
@@ -17169,7 +17169,7 @@ ___1e9ach:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near __CEXT_F(___5e0f9h)
+		call    near __CEXT_F(writeColor__video)
 		mov     ecx, [esp]
 		inc     ecx
 		mov     [esp], ecx
@@ -17299,7 +17299,7 @@ ___1eb91h:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near __CEXT_F(___5e0f9h)
+		call    near __CEXT_F(writeColor__video)
 		mov     ecx, [esp]
 		inc     ecx
 		mov     [esp], ecx
@@ -17348,7 +17348,7 @@ ___1ec38h:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near __CEXT_F(___5e0f9h)
+		call    near __CEXT_F(writeColor__video)
 		mov     ecx, [esp]
 		inc     ecx
 		mov     [esp], ecx
@@ -22491,7 +22491,7 @@ ___228abh:
 		mov     eax, 46h
 		xor     ebx, ebx
 		call    near __CEXT_F(___605deh)
-		call    near __CEXT_F(___3d890h)
+		call    near __CEXT_F(startingScreen__dr)
 		call    near __CEXT_F(___1240ch)
 		call    near __CEXT_F(___24548h)
 		call    near __CEXT_F(___2faf0h)
@@ -22573,7 +22573,7 @@ ___2297dh:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near __CEXT_F(___5e0f9h)
+		call    near __CEXT_F(writeColor__video)
 		mov     eax, [esp+64h]
 		inc     eax
 		add     edi, byte 0ch
@@ -30866,7 +30866,7 @@ ___2a3b2h:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near __CEXT_F(___5e0f9h)
+		call    near __CEXT_F(writeColor__video)
 		mov     ebx, [esp]
 		inc     ebx
 		add     esi, byte 0ch
@@ -31328,7 +31328,7 @@ ___2aad5h:
 		and     eax, 0ffh
 		push    eax
 		mov     ebp, [esp+10h]
-		call    near __CEXT_F(___5e0f9h)
+		call    near __CEXT_F(writeColor__video)
 		mov     dl, [esp+18h]
 		inc     ebp
 		inc     dl
@@ -31391,7 +31391,7 @@ ___2b60eh:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near __CEXT_F(___5e0f9h)
+		call    near __CEXT_F(writeColor__video)
 		mov     ebx, [esp]
 		inc     ebx
 		add     esi, byte 0ch
@@ -32001,7 +32001,7 @@ ___2beedh:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near __CEXT_F(___5e0f9h)
+		call    near __CEXT_F(writeColor__video)
 		mov     eax, [esp+20h]
 		inc     eax
 		add     edi, byte 0ch
@@ -32046,7 +32046,7 @@ ___2bf8ch:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near __CEXT_F(___5e0f9h)
+		call    near __CEXT_F(writeColor__video)
 		mov     ecx, [esp+20h]
 		inc     ecx
 		add     edi, byte 0ch
@@ -32882,7 +32882,7 @@ ___2ccc4h:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near __CEXT_F(___5e0f9h)
+		call    near __CEXT_F(writeColor__video)
 		mov     ecx, [esp+20h]
 		inc     ecx
 		add     esi, byte 0ch
@@ -35406,7 +35406,7 @@ ___2ef85h:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near __CEXT_F(___5e0f9h)
+		call    near __CEXT_F(writeColor__video)
 		mov     eax, [esp]
 		inc     eax
 		add     edi, byte 0ch
@@ -35451,7 +35451,7 @@ ___2f020h:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near __CEXT_F(___5e0f9h)
+		call    near __CEXT_F(writeColor__video)
 		mov     ecx, [esp]
 		inc     ecx
 		add     edi, byte 0ch
@@ -35576,7 +35576,7 @@ ___2f1f7h:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near __CEXT_F(___5e0f9h)
+		call    near __CEXT_F(writeColor__video)
 		mov     ebx, [esp]
 		inc     ebx
 		add     edi, byte 0ch
@@ -35621,7 +35621,7 @@ ___2f292h:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near __CEXT_F(___5e0f9h)
+		call    near __CEXT_F(writeColor__video)
 		mov     eax, [esp]
 		inc     eax
 		add     edi, byte 0ch
@@ -35842,7 +35842,7 @@ ___2f5b1h:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near __CEXT_F(___5e0f9h)
+		call    near __CEXT_F(writeColor__video)
 		mov     edx, [esp]
 		inc     edx
 		add     esi, byte 0ch
@@ -36094,7 +36094,7 @@ ___2f998h:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near __CEXT_F(___5e0f9h)
+		call    near __CEXT_F(writeColor__video)
 		mov     ecx, [esp]
 		inc     ecx
 		add     edi, byte 0ch
@@ -36139,7 +36139,7 @@ ___2fa33h:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near __CEXT_F(___5e0f9h)
+		call    near __CEXT_F(writeColor__video)
 		mov     ebx, [esp]
 		inc     ebx
 		add     edi, byte 0ch
@@ -37916,7 +37916,7 @@ ___3102eh:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near __CEXT_F(___5e0f9h)
+		call    near __CEXT_F(writeColor__video)
 		mov     ebx, [esp+28h]
 		inc     ebx
 		add     esi, byte 0ch
@@ -38172,7 +38172,7 @@ ___31384h:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near __CEXT_F(___5e0f9h)
+		call    near __CEXT_F(writeColor__video)
 		mov     ecx, [esp+28h]
 		inc     ecx
 		add     edi, byte 0ch
@@ -38210,7 +38210,7 @@ ___3146fh:
 		inc     ebp
 		push    esi
 		mov     [esp+38h], ebp
-		call    near __CEXT_F(___5e0f9h)
+		call    near __CEXT_F(writeColor__video)
 		cmp     ebp, 100h
 		jl      short ___3146fh
 		mov     dl, 4
@@ -39734,7 +39734,7 @@ ___326a2h:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near __CEXT_F(___5e0f9h)
+		call    near __CEXT_F(writeColor__video)
 		mov     ecx, [esp+5ch]
 		inc     ecx
 		add     esi, byte 0ch
@@ -40345,7 +40345,7 @@ ___32ed0h:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near __CEXT_F(___5e0f9h)
+		call    near __CEXT_F(writeColor__video)
 		mov     eax, [esp+5ch]
 		inc     eax
 		add     edi, byte 0ch
@@ -40380,7 +40380,7 @@ ___32fbah:
 		push    esi
 		push    esi
 		push    esi
-		call    near __CEXT_F(___5e0f9h)
+		call    near __CEXT_F(writeColor__video)
 		mov     eax, [esp+5ch]
 		inc     eax
 		mov     [esp+5ch], eax
@@ -43332,7 +43332,7 @@ ___35a06h:
 		push    esi
 		push    esi
 		push    esi
-		call    near __CEXT_F(___5e0f9h)
+		call    near __CEXT_F(writeColor__video)
 		mov     edx, [esp+0d0h]
 		inc     edx
 		mov     [esp+0d0h], edx
@@ -44346,7 +44346,7 @@ ___36677h:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near __CEXT_F(___5e0f9h)
+		call    near __CEXT_F(writeColor__video)
 		mov     ecx, [esp+4]
 		inc     ecx
 		add     esi, byte 0ch
@@ -44635,7 +44635,7 @@ ___36a3ah:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near __CEXT_F(___5e0f9h)
+		call    near __CEXT_F(writeColor__video)
 		mov     ecx, [esp+4]
 		inc     ecx
 		add     esi, byte 0ch
@@ -47366,7 +47366,7 @@ ___389a3h:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near __CEXT_F(___5e0f9h)
+		call    near __CEXT_F(writeColor__video)
 		mov     eax, [esp+68h]
 		inc     eax
 		add     edi, byte 0ch
@@ -47411,7 +47411,7 @@ ___38a40h:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near __CEXT_F(___5e0f9h)
+		call    near __CEXT_F(writeColor__video)
 		mov     ecx, [esp+68h]
 		inc     ecx
 		add     edi, byte 0ch
@@ -47469,7 +47469,7 @@ ___38b0eh:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near __CEXT_F(___5e0f9h)
+		call    near __CEXT_F(writeColor__video)
 		mov     ebx, [esp+68h]
 		inc     ebx
 		add     edi, byte 0ch
@@ -47514,7 +47514,7 @@ ___38babh:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near __CEXT_F(___5e0f9h)
+		call    near __CEXT_F(writeColor__video)
 		mov     eax, [esp+68h]
 		inc     eax
 		add     edi, byte 0ch
@@ -47630,7 +47630,7 @@ ___38d19h:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near __CEXT_F(___5e0f9h)
+		call    near __CEXT_F(writeColor__video)
 		mov     eax, [esp+68h]
 		inc     eax
 		add     edi, byte 0ch
@@ -47826,7 +47826,7 @@ ___38fe9h:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near __CEXT_F(___5e0f9h)
+		call    near __CEXT_F(writeColor__video)
 		mov     eax, [esp+68h]
 		inc     eax
 		add     edi, byte 0ch
@@ -47872,7 +47872,7 @@ ___39085h:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near __CEXT_F(___5e0f9h)
+		call    near __CEXT_F(writeColor__video)
 		mov     ecx, [esp+68h]
 		inc     ecx
 		add     edi, byte 0ch
@@ -47917,7 +47917,7 @@ ___39122h:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near __CEXT_F(___5e0f9h)
+		call    near __CEXT_F(writeColor__video)
 		mov     ebx, [esp+68h]
 		inc     ebx
 		add     edi, byte 0ch
@@ -48055,7 +48055,7 @@ ___392eeh:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near __CEXT_F(___5e0f9h)
+		call    near __CEXT_F(writeColor__video)
 		mov     edx, [esp+68h]
 		inc     edx
 		add     esi, byte 0ch
@@ -48108,7 +48108,7 @@ ___393a9h:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near __CEXT_F(___5e0f9h)
+		call    near __CEXT_F(writeColor__video)
 		mov     ebx, [esp+68h]
 		inc     ebx
 		add     edi, byte 0ch
@@ -48251,7 +48251,7 @@ ___39588h:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near __CEXT_F(___5e0f9h)
+		call    near __CEXT_F(writeColor__video)
 		mov     eax, [esp+68h]
 		inc     eax
 		add     esi, byte 0ch
@@ -49077,7 +49077,7 @@ ___39eb0h:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near __CEXT_F(___5e0f9h)
+		call    near __CEXT_F(writeColor__video)
 		mov     ebx, [esp+5ch]
 		inc     ebx
 		add     edi, byte 0ch
@@ -49199,7 +49199,7 @@ ___3a089h:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near __CEXT_F(___5e0f9h)
+		call    near __CEXT_F(writeColor__video)
 		mov     ebx, [esp+5ch]
 		inc     ebx
 		add     edi, byte 0ch
@@ -49244,7 +49244,7 @@ ___3a126h:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near __CEXT_F(___5e0f9h)
+		call    near __CEXT_F(writeColor__video)
 		mov     eax, [esp+5ch]
 		inc     eax
 		add     edi, byte 0ch
@@ -52857,7 +52857,7 @@ ___3d2e2h:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near __CEXT_F(___5e0f9h)
+		call    near __CEXT_F(writeColor__video)
 		mov     ebx, [esp]
 		inc     ebx
 		add     edi, byte 0ch
@@ -52951,7 +52951,7 @@ ___3d55fh:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near __CEXT_F(___5e0f9h)
+		call    near __CEXT_F(writeColor__video)
 		mov     edx, [esp+8]
 		inc     edx
 		add     edi, byte 0ch
@@ -53063,7 +53063,7 @@ ___3d6edh:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near __CEXT_F(___5e0f9h)
+		call    near __CEXT_F(writeColor__video)
 		mov     eax, [esp+8]
 		inc     eax
 		add     edi, byte 0ch
@@ -53140,7 +53140,7 @@ ___3d7d8h:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near __CEXT_F(___5e0f9h)
+		call    near __CEXT_F(writeColor__video)
 		mov     eax, [esp+4]
 		inc     eax
 		add     edi, byte 0ch
@@ -53156,48 +53156,6 @@ ___3d7d8h:
 		add     esp, byte 8
 		pop     ebp
 		pop     edi
-		pop     esi
-		pop     edx
-		pop     ecx
-		pop     ebx
-		retn    
-global __CEXT_F(___3d890h)
-__CEXT_F(___3d890h):
-		push    28h
-		call    near __CHK
-		push    ebx
-		push    ecx
-		push    edx
-		push    esi
-		sub     esp, byte 4
-		xor     edx, edx
-		mov     [esp], edx
-___3d8a6h:
-		xor     eax, eax
-		mov     al, [esp]
-		push    eax
-		push    byte 0
-		push    byte 0
-		push    byte 0
-		call    near __CEXT_F(___5e0f9h)
-		mov     ebx, [esp]
-		inc     ebx
-		mov     [esp], ebx
-		cmp     ebx, 100h
-		jl      short ___3d8a6h
-		mov     eax, ___182890h
-		mov     ebx, ___1828a0h
-		mov     edx, __CEXT_V(BPA_Buffer)
-		call    near __CEXT_F(loadPalette)
-		mov     eax, __CEXT_V(MENU_BPA)
-		call    near __CEXT_F(read__bpa)
-		push    __CEXT_V(BPA_Buffer)
-		mov     esi, [__CEXT_V(VGABufferPtr_0)]
-		push    esi
-		call    near __CEXT_F(decode2__bpk)
-		call    near __CEXT_F(popScreen)
-		call    near __CEXT_F(fadeinScreen)
-		add     esp, byte 4
 		pop     esi
 		pop     edx
 		pop     ecx
@@ -53461,7 +53419,7 @@ ___3db31h:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near __CEXT_F(___5e0f9h)
+		call    near __CEXT_F(writeColor__video)
 		mov     ebx, [esp+64h]
 		inc     ebx
 		add     edi, byte 0ch
@@ -53538,8 +53496,8 @@ ___3dbe4h:
 		call    near ___3d9c0h
 		test    eax, eax
 		jne     near ___3ddach
-		mov     edx, ___1828a0h
-		mov     eax, ___182890h
+		mov     edx, __CEXT_V(___1828a0h)
+		mov     eax, __CEXT_V(___182890h)
 		mov     ebx, esi
 		call    near ___3d9c0h
 		test    eax, eax
@@ -53651,7 +53609,7 @@ ___3de07h:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near __CEXT_F(___5e0f9h)
+		call    near __CEXT_F(writeColor__video)
 		mov     eax, [esp+64h]
 		inc     eax
 		add     edi, byte 0ch
@@ -60776,7 +60734,7 @@ ___4587ch:
 		mov     al, [esp+18h]
 		and     eax, 0ffh
 		push    eax
-		call    near __CEXT_F(___5e0f9h)
+		call    near __CEXT_F(writeColor__video)
 		mov     ecx, [esp+8]
 		inc     ecx
 		add     esi, byte 3
@@ -60823,7 +60781,7 @@ ___45a42h:
 		push    byte 0
 		push    byte 0
 		push    byte 0
-		call    near __CEXT_F(___5e0f9h)
+		call    near __CEXT_F(writeColor__video)
 		mov     ecx, [esp]
 		lea     ecx, [ecx+ecx*2]
 		xor     edx, edx
@@ -60987,7 +60945,7 @@ ___45b86h:
 		xor     eax, eax
 		mov     al, bl
 		push    eax
-		call    near __CEXT_F(___5e0f9h)
+		call    near __CEXT_F(writeColor__video)
 		mov     ecx, [esp+4]
 		inc     ecx
 		add     esi, byte 0ch
@@ -61054,7 +61012,7 @@ ___45c91h:
 		xor     eax, eax
 		mov     al, dl
 		push    eax
-		call    near __CEXT_F(___5e0f9h)
+		call    near __CEXT_F(writeColor__video)
 		mov     ecx, [esp]
 		inc     ecx
 		add     esi, byte 0ch
@@ -61283,7 +61241,7 @@ ___45fd8h:
 		mov     al, [esp+4ch]
 		and     eax, 0ffh
 		push    eax
-		call    near __CEXT_F(___5e0f9h)
+		call    near __CEXT_F(writeColor__video)
 		mov     ecx, [esp+14h]
 		inc     ecx
 		add     esi, byte 0ch
@@ -61558,7 +61516,7 @@ ___463c4h:
 		xor     eax, eax
 		mov     al, [esp+48h]
 		push    eax
-		call    near __CEXT_F(___5e0f9h)
+		call    near __CEXT_F(writeColor__video)
 ___463feh:
 		mov     ebx, [esp+10h]
 		inc     ebx
@@ -61663,7 +61621,7 @@ ___4652dh:
 		xor     eax, eax
 		mov     al, [esp+48h]
 		push    eax
-		call    near __CEXT_F(___5e0f9h)
+		call    near __CEXT_F(writeColor__video)
 ___46567h:
 		mov     ebx, [esp+10h]
 		inc     ebx
@@ -61764,7 +61722,7 @@ ___465f1h:
 		xor     eax, eax
 		mov     al, [esp+48h]
 		push    eax
-		call    near __CEXT_F(___5e0f9h)
+		call    near __CEXT_F(writeColor__video)
 ___466c1h:
 		mov     ecx, [esp+10h]
 		inc     ecx
@@ -62144,7 +62102,7 @@ ___46bf8h:
 		push    eax
 		add     esi, byte 0ch
 		inc     edi
-		call    near __CEXT_F(___5e0f9h)
+		call    near __CEXT_F(writeColor__video)
 		mov     [esp+5ch], edi
 		cmp     edi, 100h
 		jl      short ___46bf8h
@@ -62469,7 +62427,7 @@ ___47082h:
 		mov     al, [esp+54h]
 		and     eax, 0ffh
 		push    eax
-		call    near __CEXT_F(___5e0f9h)
+		call    near __CEXT_F(writeColor__video)
 		mov     ebx, [esp+5ch]
 		inc     ebx
 		add     esi, byte 0ch
@@ -83561,7 +83519,7 @@ ___5e0f3h:
 		and     al, 8
 		je      short ___5e0f3h
 		retn    
-__GDECL(__CEXT_F(___5e0f9h))
+__GDECL(__CEXT_F(writeColor__video))
 		push    ebp
 		push    edi
 		mov     ebp, esp

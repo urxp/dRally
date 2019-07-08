@@ -1261,9 +1261,9 @@ ___182878h:
 db	"credit2.pal",0
 ___182884h:
 db	"credit2.bpk",0
-___182890h:
+__GDECL(__CEXT_V(___182890h))
 db	"startscr.pal",0,0,0,0
-___1828a0h:
+__GDECL(__CEXT_V(___1828a0h))
 db	"startscr.bpk",0,0,0,0
 ___1828b0h:
 db	"sanim.haf",0,0,0

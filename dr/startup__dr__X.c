@@ -132,12 +132,12 @@
 	void ___3d2bch(void);
 	void apogee_gt_remedy(void);	
 	void ___3d79ch(void);
-	void ___3d890h(void);	
+	void startingScreen__dr(void);	
     void waitSync__dr(void);
 	void ___596f0h(void);
 
-	#pragma aux ___5e0f9h parm routine []
-	void ___5e0f9h(dword, dword, dword, dword);
+	#pragma aux writeColor__video parm routine []
+	void writeColor__video(dword, dword, dword, dword);
 	void ___605deh(dword);
 	void ___606dfh(void);
 	void ___61278h(void);
@@ -486,8 +486,8 @@ l_bs_ok:
     allocVGABuffer();
 //		call    __CEXT_F(apogee_gt_remedy)
     apogee_gt_remedy();
-//		call    __CEXT_F(___3d890h)
-    ___3d890h();
+//		call    __CEXT_F(startingScreen__dr)
+    startingScreen__dr();
 //		call    __CEXT_F(___117f4h)
     ___117f4h();
 //		call    __CEXT_F(___1240ch)
@@ -1149,8 +1149,8 @@ ___3ecf0h:
 	eax &= 0xff;
 //		push    eax
 	PUSH(eax);
-//		call    __CEXT_F(___5e0f9h)
-	___5e0f9h(D(esp), D(esp+4), D(esp+8), D(esp+0xc));
+//		call    __CEXT_F(writeColor__video)
+	writeColor__video(D(esp), D(esp+4), D(esp+8), D(esp+0xc));
 	esp += 0x10;
 //		mov     eax, [esp+8]
 	eax = D(esp+8);

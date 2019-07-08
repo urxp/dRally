@@ -14,7 +14,7 @@
 
     extern  __CEXT_F(read__bpa)
     extern  __CEXT_F(loadPalette)
-    extern  __CEXT_F(___5e0f9h)
+    extern  __CEXT_F(writeColor__video)
     extern  __CEXT_F(decode2__bpk)
     extern  __CEXT_F(popScreen)
     extern  __CEXT_F(fadeinScreen)
@@ -46,7 +46,7 @@ ___3d3a4h:
 		push    byte 0
 		push    byte 0
 		push    byte 0
-		call    __CEXT_F(___5e0f9h)
+		call    __CEXT_F(writeColor__video)
 		mov     ebx, [esp]
 		inc     ebx
 		mov     [esp], ebx

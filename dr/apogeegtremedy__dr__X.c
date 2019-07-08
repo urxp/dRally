@@ -12,8 +12,8 @@
 
     void read__bpa(const char *, void *, const char *);
     void loadPalette(dword);
-    #pragma aux ___5e0f9h parm routine []
-	void ___5e0f9h(dword, dword, dword, dword);
+    #pragma aux writeColor__video parm routine []
+	void writeColor__video(dword, dword, dword, dword);
     #pragma aux decode2__bpk parm routine []
 	void decode2__bpk(void * dst, void * src);
     void popScreen(void);
@@ -57,8 +57,8 @@ ___3d3a4h:
 	PUSH(0);
 //		push    byte 0
 	PUSH(0);
-//		call    __CEXT_F(___5e0f9h)
-	___5e0f9h(D(esp), D(esp+4), D(esp+8), D(esp+0xc));
+//		call    __CEXT_F(writeColor__video)
+	writeColor__video(D(esp), D(esp+4), D(esp+8), D(esp+0xc));
 	esp += 0x10;
 //		mov     ebx, [esp]
 	ebx = D(esp);

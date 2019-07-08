@@ -12,8 +12,8 @@
 
     void read__bpa(const char *, void *, const char *);
     void loadPalette(dword);
-    #pragma aux ___5e0f9h parm routine []
-	void ___5e0f9h(dword, dword, dword, dword);
+    #pragma aux writeColor__video parm routine []
+	void writeColor__video(dword b, dword g, dword r, dword n);
     #pragma aux decode2__bpk parm routine []
 	void decode2__bpk(void * dst, void * src);
     void popScreen(void);
@@ -30,7 +30,7 @@ void apogee_gt_remedy(void){
 	byte *	esp = __esp;
 
 	D(esp) = -1;
-	while(++D(esp) < 0x100) ___5e0f9h(0, 0, 0, D(esp));
+	while(++D(esp) < 0x100) writeColor__video(0, 0, 0, D(esp));
 	
 
 	loadPalette(___182818h);

@@ -3,7 +3,7 @@
     extern  __CHK
     extern  __CEXT_F(waitSync__dr)
     extern  __CEXT_V(Pal8to24_1)
-    extern  __CEXT_F(___5e0f9h)
+    extern  __CEXT_F(writeColor__video)
 
 %include "layout.inc"
 
@@ -61,7 +61,7 @@ ___3d213h:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    __CEXT_F(___5e0f9h)
+		call    __CEXT_F(writeColor__video)
 		mov     ebx, [esp]
 		inc     ebx
 		add     edi, byte 0ch

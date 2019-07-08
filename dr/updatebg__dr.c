@@ -89,8 +89,8 @@ typedef enum eNetworkConnectionType {
     void ___12dc4h(void);
     dword procChatData(void *, dword);
 
-	#pragma aux ___5e0f9h parm routine []
-    void ___5e0f9h(dword, dword, dword, dword);
+	#pragma aux writeColor__video parm routine []
+    void writeColor__video(dword, dword, dword, dword);
     
 	void ___12d6ch(void);
     void footer__dr(void);
@@ -167,7 +167,7 @@ void updateMenuBackgroundAndTextArea(){
 
         while(n < 0x20){
 
-            ___5e0f9h(
+            writeColor__video(
                 (int)(__2 * (double)n) & 0xff,
                 (int)(__1 * (double)n) & 0xff,
                 (int)(__0 * (double)n) & 0xff,

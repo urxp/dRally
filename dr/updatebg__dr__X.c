@@ -35,8 +35,8 @@
     void ___12dc4h(void);
     dword procChatData(dword, dword);
 
-	#pragma aux ___5e0f9h parm routine []
-    void ___5e0f9h(dword, dword, dword, dword);
+	#pragma aux writeColor__video parm routine []
+    void writeColor__video(dword, dword, dword, dword);
     
 	void ___12d6ch(void);
     void footer__dr(void);
@@ -246,8 +246,8 @@ ___2ac47h:
     PUSH(eax);
 //		mov     ebp, [esp+428h]
     ebp = D(esp+0x428);
-//		call    __CEXT_F(___5e0f9h)
-    ___5e0f9h(D(esp), D(esp+4), D(esp+8), D(esp+0xc));
+//		call    __CEXT_F(writeColor__video)
+    writeColor__video(D(esp), D(esp+4), D(esp+8), D(esp+0xc));
     esp += 0x10;
 //		mov     dl, [esp+424h]
     dl = B(esp+0x424);
