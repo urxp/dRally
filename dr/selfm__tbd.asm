@@ -3,7 +3,7 @@
     extern  ___68c30h
     extern  ___68c34h
     extern  __CEXT_V(___68c40h)
-    extern  ___688cch
+    extern  __CEXT_V(Sound_SampleRate)
     extern  ___68c38h
     extern  ___688d0h
     extern  ___68910h
@@ -338,7 +338,7 @@ ___691ffh:
 		call    dword [___68c34h]
 		popad   
 		movzx   edx, word [__CEXT_V(___68c40h)]
-		movzx   eax, word [___688cch]
+		movzx   eax, word [__CEXT_V(Sound_SampleRate)]
 		imul    edx
 		shld    edx, eax, 10h
 		shl     eax, 10h

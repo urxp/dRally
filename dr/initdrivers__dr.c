@@ -2,6 +2,7 @@
 
 #pragma pack(1)
 
+#pragma enum int
 typedef enum CarType {
     DR_KUPLA, DR_PICKUP, DR_SEDAN, DR_CAMARO, DR_PORSCHE, DR_LOTUS
 } CarType;
@@ -12,7 +13,7 @@ typedef struct Driver {
     dword   Engine;         // +10h
     dword   Tire;           // +14h
     dword   Armor;          // +18h
-    dword   Car;            // +1ch
+    CarType  Car;            // +1ch
     dword   __20;
     dword   __24;
     dword   __28;

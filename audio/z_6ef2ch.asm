@@ -15,7 +15,7 @@
     extern  __CEXT_V(___19a468h)
     extern  ___19a469h
     extern  ___19a46ah
-    extern  ___19a46ch
+    extern  __CEXT_V(___19a46ch)
     extern  ___19a470h
     extern  ___19a474h
     extern  ___19a478h
@@ -230,14 +230,14 @@ ___6ef9dh:
 		xor     al, al
 		mov     [__CEXT_V(___19a468h)], al
 ___6f02fh:
-		mov     edx, [___19a46ch]
+		mov     edx, [__CEXT_V(___19a46ch)]
 		cmp     edx, byte 0ffffffffh
 		je      ___6f079h
 		mov     eax, edx
 		sar     eax, 8
 		and     eax, 0ffh
 		mov     [___19a469h], al
-		mov     al, [___19a46ch]
+		mov     al, [__CEXT_V(___19a46ch)]
 		mov     [___19a53fh], al
 		cmp     al, 3fh
 		jbe     ___6f05eh
@@ -248,7 +248,7 @@ ___6f05eh:
 		mov     [___19a53dh], bl
 		mov     ebx, 0ffffffffh
 		mov     [___19a53ch], dh
-		mov     [___19a46ch], ebx
+		mov     [__CEXT_V(___19a46ch)], ebx
 ___6f079h:
 		cmp     byte [___19a53eh], 0
 		jne     ___70119h

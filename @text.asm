@@ -481,7 +481,7 @@ ___10c8ah:
 		cmp     byte [esp+408h], 0
 		je      short ___10cb2h
 		mov     eax, 5622h
-		call    near __CEXT_F(___65990h)
+		call    near __CEXT_F(setSampleRate__esp)
 		call    near __CEXT_F(___648d8h)
 		mov     eax, 1
 		call    near __CEXT_F(___659b8h)
@@ -17289,7 +17289,7 @@ ___1eb4ah:
 		cmp     dword [___185a34h], byte 0
 		je      short ___1eb71h
 		mov     eax, [__CEXT_V(___1a1ef4h)]
-		call    near __CEXT_F(___658b8h)
+		call    near __CEXT_F(___682a4h)
 ___1eb71h:
 		xor     edi, edi
 		xor     ebp, ebp
@@ -22641,7 +22641,7 @@ ___2297dh:
 		mov     eax, [__CEXT_V(ConfigMusicVolume)]
 		call    near __CEXT_F(updateMSXVolume)
 		mov     eax, 5622h
-		call    near __CEXT_F(___65990h)
+		call    near __CEXT_F(setSampleRate__esp)
 		call    near __CEXT_F(___648d8h)
 		mov     eax, 1
 		call    near __CEXT_F(___659b8h)
@@ -22880,7 +22880,7 @@ ___22cb9h:
 		and     eax, 0ff00h
 		mov     [__CEXT_V(___1a1ef4h)], eax
 		mov     eax, 5100h
-		call    near __CEXT_F(___658b8h)
+		call    near __CEXT_F(___682a4h)
 		mov     eax, 10000h
 		call    near __CEXT_F(updateAMPVolume)
 		call    near __CEXT_F(lastScanCode__keyboard)
@@ -31900,7 +31900,7 @@ ___2bcddh:
 		cmp     dword [___185a28h], byte 0
 		je      short ___2bcfah
 		mov     eax, [__CEXT_V(___1a1ef4h)]
-		call    near __CEXT_F(___658b8h)
+		call    near __CEXT_F(___682a4h)
 ___2bcfah:
 		xor     ebp, ebp
 		call    near __CEXT_F(___2b318h)
@@ -35516,7 +35516,7 @@ ___2f020h:
 		mov     [__CEXT_V(___1a1ef4h)], eax
 		mov     eax, 3100h
 		mov     ecx, 5
-		call    near __CEXT_F(___658b8h)
+		call    near __CEXT_F(___682a4h)
 		mov     [___1a1ef0h], ecx
 		call    near ___2ed2ch
 		cmp     dword [___185a40h], byte 0
@@ -38235,7 +38235,7 @@ ___31384h:
 		je      short ___31462h
 		mov     eax, [__CEXT_V(___1a1ef4h)]
 		mov     esi, 1
-		call    near __CEXT_F(___658b8h)
+		call    near __CEXT_F(___682a4h)
 		mov     eax, esi
 		mov     [___185a28h], esi
 		call    near ___6563ch
@@ -40408,7 +40408,7 @@ ___32ed0h:
 		je      short ___32fadh
 		mov     eax, [__CEXT_V(___1a1ef4h)]
 		mov     edi, 1
-		call    near __CEXT_F(___658b8h)
+		call    near __CEXT_F(___682a4h)
 		mov     eax, edi
 		mov     [___185a28h], edi
 		call    near ___6563ch
@@ -41530,7 +41530,7 @@ ___33c89h:
 ___33cadh:
 		mov     eax, 2800h
 ___33cb2h:
-		call    near __CEXT_F(___658b8h)
+		call    near __CEXT_F(___682a4h)
 		mov     eax, 10000h
 		call    near __CEXT_F(updateAMPVolume)
 		call    near __CEXT_F(___12dc4h)
@@ -43353,7 +43353,7 @@ ___35922h:
 		mov     eax, [__CEXT_V(ConfigMusicVolume)]
 		call    near __CEXT_F(updateMSXVolume)
 		mov     eax, 5622h
-		call    near __CEXT_F(___65990h)
+		call    near __CEXT_F(setSampleRate__esp)
 		call    near __CEXT_F(___648d8h)
 		mov     eax, 1
 		call    near __CEXT_F(___659b8h)
@@ -48048,7 +48048,7 @@ ___39275h:
 		call    near __CEXT_F(updateMSXVolume)
 		mov     eax, 5622h
 		mov     esi, 60h
-		call    near __CEXT_F(___65990h)
+		call    near __CEXT_F(setSampleRate__esp)
 		call    near __CEXT_F(___648d8h)
 		mov     eax, 1
 		mov     edi, 640000h
@@ -48241,7 +48241,7 @@ ___394feh:
 		call    near __CEXT_F(updateMSXVolume)
 		mov     eax, 5622h
 		mov     edi, 640000h
-		call    near __CEXT_F(___65990h)
+		call    near __CEXT_F(setSampleRate__esp)
 		call    near __CEXT_F(___648d8h)
 		mov     eax, 1
 		xor     bh, bh
@@ -53851,9 +53851,9 @@ ___3dbe4h:
 		mov     eax, [__CEXT_V(ConfigSFXVolume)]
 		call    near __CEXT_F(updateSFXVolume)
 		mov     eax, 2d00h
-		call    near __CEXT_F(___658b8h)
+		call    near __CEXT_F(___682a4h)
 		mov     eax, 5622h
-		call    near __CEXT_F(___65990h)
+		call    near __CEXT_F(setSampleRate__esp)
 		call    near __CEXT_F(___648d8h)
 		mov     eax, 1
 		call    near __CEXT_F(___659b8h)
@@ -79681,7 +79681,7 @@ ___56b9ch:
 		mov     eax, [__CEXT_V(ConfigSFXVolume)]
 		call    near __CEXT_F(updateSFXVolume)
 		mov     eax, 5622h
-		call    near __CEXT_F(___65990h)
+		call    near __CEXT_F(setSampleRate__esp)
 		call    near __CEXT_F(___648d8h)
 		xor     eax, eax
 		call    near __CEXT_F(updateAMPVolume)
@@ -80414,7 +80414,7 @@ ___57660h:
 		test    eax, eax
 		jne     short ___576adh
 		mov     eax, 1e00h
-		call    near __CEXT_F(___658b8h)
+		call    near __CEXT_F(___682a4h)
 ___576adh:
 		mov     edx, ___18440ch
 		mov     eax, ___19bd64h
@@ -80422,7 +80422,7 @@ ___576adh:
 		test    eax, eax
 		jne     short ___576cah
 		mov     eax, 3700h
-		call    near __CEXT_F(___658b8h)
+		call    near __CEXT_F(___682a4h)
 ___576cah:
 		mov     edx, ___184410h
 		mov     eax, ___19bd64h
@@ -80430,7 +80430,7 @@ ___576cah:
 		test    eax, eax
 		jne     short ___576e7h
 		mov     eax, 2d00h
-		call    near __CEXT_F(___658b8h)
+		call    near __CEXT_F(___682a4h)
 ___576e7h:
 		mov     edx, ___184414h
 		mov     eax, ___19bd64h
@@ -80438,7 +80438,7 @@ ___576e7h:
 		test    eax, eax
 		jne     short ___57704h
 		mov     eax, 3200h
-		call    near __CEXT_F(___658b8h)
+		call    near __CEXT_F(___682a4h)
 ___57704h:
 		mov     edx, ___184418h
 		mov     eax, ___19bd64h
@@ -80446,7 +80446,7 @@ ___57704h:
 		test    eax, eax
 		jne     short ___57721h
 		mov     eax, 2d00h
-		call    near __CEXT_F(___658b8h)
+		call    near __CEXT_F(___682a4h)
 ___57721h:
 		mov     edx, ___18441ch
 		mov     eax, ___19bd64h
@@ -80454,7 +80454,7 @@ ___57721h:
 		test    eax, eax
 		jne     short ___5773eh
 		mov     eax, 3700h
-		call    near __CEXT_F(___658b8h)
+		call    near __CEXT_F(___682a4h)
 ___5773eh:
 		mov     edx, ___184420h
 		mov     eax, ___19bd64h
@@ -80462,7 +80462,7 @@ ___5773eh:
 		test    eax, eax
 		jne     short ___5775bh
 		mov     eax, 3200h
-		call    near __CEXT_F(___658b8h)
+		call    near __CEXT_F(___682a4h)
 ___5775bh:
 		mov     edx, ___184424h
 		mov     eax, ___19bd64h
@@ -80470,7 +80470,7 @@ ___5775bh:
 		test    eax, eax
 		jne     short ___57778h
 		mov     eax, 3200h
-		call    near __CEXT_F(___658b8h)
+		call    near __CEXT_F(___682a4h)
 ___57778h:
 		mov     edx, ___184428h
 		mov     eax, ___19bd64h
@@ -80478,7 +80478,7 @@ ___57778h:
 		test    eax, eax
 		jne     short ___57795h
 		mov     eax, 3200h
-		call    near __CEXT_F(___658b8h)
+		call    near __CEXT_F(___682a4h)
 ___57795h:
 		mov     edx, ___18442ch
 		mov     eax, ___19bd64h
@@ -80486,13 +80486,13 @@ ___57795h:
 		test    eax, eax
 		jne     short ___577b2h
 		mov     eax, 3200h
-		call    near __CEXT_F(___658b8h)
+		call    near __CEXT_F(___682a4h)
 ___577b2h:
 		mov     eax, 8000h
 		call    near __CEXT_F(updateAMPVolume)
 		call    near ___48458h
 		mov     eax, ebx
-		call    near __CEXT_F(___658b8h)
+		call    near __CEXT_F(___682a4h)
 		mov     eax, 10000h
 		call    near __CEXT_F(updateAMPVolume)
 		imul    eax, [___243ce8h], 94h
@@ -80608,7 +80608,7 @@ ___57943h:
 		test    eax, eax
 		jne     short ___57990h
 		mov     eax, 1e00h
-		call    near __CEXT_F(___658b8h)
+		call    near __CEXT_F(___682a4h)
 ___57990h:
 		mov     edx, ___18440ch
 		mov     eax, ___19bd64h
@@ -80616,7 +80616,7 @@ ___57990h:
 		test    eax, eax
 		jne     short ___579adh
 		mov     eax, 3700h
-		call    near __CEXT_F(___658b8h)
+		call    near __CEXT_F(___682a4h)
 ___579adh:
 		mov     edx, ___184410h
 		mov     eax, ___19bd64h
@@ -80624,7 +80624,7 @@ ___579adh:
 		test    eax, eax
 		jne     short ___579cah
 		mov     eax, 2d00h
-		call    near __CEXT_F(___658b8h)
+		call    near __CEXT_F(___682a4h)
 ___579cah:
 		mov     edx, ___184414h
 		mov     eax, ___19bd64h
@@ -80632,7 +80632,7 @@ ___579cah:
 		test    eax, eax
 		jne     short ___579e7h
 		mov     eax, 3200h
-		call    near __CEXT_F(___658b8h)
+		call    near __CEXT_F(___682a4h)
 ___579e7h:
 		mov     edx, ___184418h
 		mov     eax, ___19bd64h
@@ -80640,7 +80640,7 @@ ___579e7h:
 		test    eax, eax
 		jne     short ___57a04h
 		mov     eax, 2d00h
-		call    near __CEXT_F(___658b8h)
+		call    near __CEXT_F(___682a4h)
 ___57a04h:
 		mov     edx, ___18441ch
 		mov     eax, ___19bd64h
@@ -80648,7 +80648,7 @@ ___57a04h:
 		test    eax, eax
 		jne     short ___57a21h
 		mov     eax, 3700h
-		call    near __CEXT_F(___658b8h)
+		call    near __CEXT_F(___682a4h)
 ___57a21h:
 		mov     edx, ___184420h
 		mov     eax, ___19bd64h
@@ -80656,7 +80656,7 @@ ___57a21h:
 		test    eax, eax
 		jne     short ___57a3eh
 		mov     eax, 3200h
-		call    near __CEXT_F(___658b8h)
+		call    near __CEXT_F(___682a4h)
 ___57a3eh:
 		mov     edx, ___184424h
 		mov     eax, ___19bd64h
@@ -80664,7 +80664,7 @@ ___57a3eh:
 		test    eax, eax
 		jne     short ___57a5bh
 		mov     eax, 3200h
-		call    near __CEXT_F(___658b8h)
+		call    near __CEXT_F(___682a4h)
 ___57a5bh:
 		mov     edx, ___184428h
 		mov     eax, ___19bd64h
@@ -80672,7 +80672,7 @@ ___57a5bh:
 		test    eax, eax
 		jne     short ___57a78h
 		mov     eax, 3200h
-		call    near __CEXT_F(___658b8h)
+		call    near __CEXT_F(___682a4h)
 ___57a78h:
 		mov     edx, ___18442ch
 		mov     eax, ___19bd64h
@@ -80680,7 +80680,7 @@ ___57a78h:
 		test    eax, eax
 		jne     short ___57a95h
 		mov     eax, 3200h
-		call    near __CEXT_F(___658b8h)
+		call    near __CEXT_F(___682a4h)
 ___57a95h:
 		mov     eax, 8000h
 		mov     ebx, ___184430h
@@ -80728,7 +80728,7 @@ ___57a95h:
 		call    near ___46738h
 ___57b4ch:
 		mov     eax, ecx
-		call    near __CEXT_F(___658b8h)
+		call    near __CEXT_F(___682a4h)
 		mov     eax, 10000h
 		call    near __CEXT_F(updateAMPVolume)
 		imul    eax, [___243ce8h], 94h
@@ -89068,49 +89068,22 @@ ___63c90h:
 		pop     ecx
 		pop     ebx
 		retn    
-__GDECL(__CEXT_F(___648d8h))
-		push    edx
-		cmp     byte [___199ff4h], 0
-		je      short ___64916h
-		xor     dl, dl
-		mov     eax, ___68d07h
-		mov     [___199ff4h], dl
-		call    near ___68d01h
-		mov     eax, [___199ff8h]
-		call    near __CEXT_F(freeMemory)
-		xor     edx, edx
-		mov     eax, [___24e640h]
-		mov     [___199ff8h], edx
-		call    near __CEXT_F(freeMemory)
-		mov     [___24e640h], edx
-___64916h:
-		call    near ___6879ch
-		cmp     byte [__CEXT_V(Sound_CardType)], 0
-		je      short ___6493ch
-		cmp     byte [__CEXT_V(IsSoundEnabled)], 0
-		je      short ___6493ch
-		call    near ___6815ch
-		mov     eax, __CEXT_F(___649a8h)
-		call    near __CEXT_F(___5fff2h)
-___6493ch:
-		pop     edx
-		retn    
 __GDECL(__CEXT_F(___649a8h))
 		push    ecx
 		push    edx
-		cmp     byte [___199ff4h], 0
+		cmp     byte [__CEXT_V(___199ff4h)], 0
 		je      short ___649e7h
 		xor     dl, dl
-		mov     eax, ___68d07h
-		mov     [___199ff4h], dl
-		call    near ___68d01h
-		mov     eax, [___199ff8h]
+		mov     eax, __CEXT_F(___68d07h)
+		mov     [__CEXT_V(___199ff4h)], dl
+		call    near __CEXT_F(___68d01h)
+		mov     eax, [__CEXT_V(___199ff8h)]
 		call    near __CEXT_F(freeMemory)
 		xor     edx, edx
-		mov     eax, [___24e640h]
-		mov     [___199ff8h], edx
+		mov     eax, [__CEXT_V(___24e640h)]
+		mov     [__CEXT_V(___199ff8h)], edx
 		call    near __CEXT_F(freeMemory)
-		mov     [___24e640h], edx
+		mov     [__CEXT_V(___24e640h)], edx
 ___649e7h:
 		cmp     byte [__CEXT_V(Sound_CardType)], 0
 		je      short ___64a19h
@@ -89118,7 +89091,7 @@ ___649e7h:
 		je      short ___64a19h
 		cmp     byte [__CEXT_V(___19a280h)], 0
 		je      short ___64a19h
-		mov     eax, ___68d07h
+		mov     eax, __CEXT_F(___68d07h)
 		call    near __CEXT_F(___68cfbh)
 		xor     cl, cl
 		call    near ___68718h
@@ -89138,7 +89111,7 @@ __GDECL(__CEXT_F(___64a28h))
 		je      short ___64a60h
 		cmp     byte [__CEXT_V(___19a280h)], 0
 		je      short ___64a60h
-		mov     eax, ___68d07h
+		mov     eax, __CEXT_F(___68d07h)
 		call    near __CEXT_F(___68cfbh)
 		xor     bl, bl
 		call    near ___68718h
@@ -89170,16 +89143,16 @@ ___64a8ch:
 		sar     edx, 1fh
 		sub     eax, edx
 		sar     eax, 1
-		mov     edx, [___24e640h]
+		mov     edx, [__CEXT_V(___24e640h)]
 		imul    eax, [edx+eax*4], byte 21h
-		mov     edx, [___199ff8h]
+		mov     edx, [__CEXT_V(___199ff8h)]
 		mov     al, [edx+eax+12h]
 		and     eax, 0ffh
 		mov     [esp+0ch], eax
 ___64ac5h:
-		mov     eax, [___24e640h]
+		mov     eax, [__CEXT_V(___24e640h)]
 		imul    eax, [eax+ebx*4], byte 21h
-		mov     edx, [___199ff8h]
+		mov     edx, [__CEXT_V(___199ff8h)]
 		mov     al, [edx+eax+12h]
 		mov     edx, [esp+0ch]
 		and     eax, 0ffh
@@ -89188,7 +89161,7 @@ ___64ac5h:
 		inc     ebx
 		jmp     short ___64ac5h
 ___64ae8h:
-		mov     edi, [___24e640h]
+		mov     edi, [__CEXT_V(___24e640h)]
 		lea     eax, [ecx*4+0]
 ___64af5h:
 		lea     edx, [edi+eax]
@@ -89196,7 +89169,7 @@ ___64af5h:
 		imul    esi, ebp, byte 21h
 		mov     [esp], esi
 		mov     ebp, [esp]
-		mov     esi, [___199ff8h]
+		mov     esi, [__CEXT_V(___199ff8h)]
 		add     esi, ebp
 		movzx   esi, byte [esi+12h]
 		mov     [esp], esi
@@ -89242,7 +89215,7 @@ ___64b60h:
 		push    edi
 		push    ebp
 		sub     esp, byte 10h
-		cmp     byte [___199ff4h], 0
+		cmp     byte [__CEXT_V(___199ff4h)], 0
 		je      near ___65277h
 		cmp     byte [__CEXT_V(___19a281h)], 0
 		jne     near ___65277h
@@ -89262,7 +89235,7 @@ ___64b60h:
 		jge     near ___64d28h
 ___64bbch:
 		imul    edx, [esp+8], byte 21h
-		mov     eax, [___199ff8h]
+		mov     eax, [__CEXT_V(___199ff8h)]
 		cmp     byte [edx+eax+14h], 0
 		je      near ___64c8dh
 		imul    edx, [esp+8], byte 21h
@@ -89303,17 +89276,17 @@ ___64c4bh:
 		mov     [NoSplit eax*2+__CEXT_V(___24e750h)], cx
 		mov     [eax+___68b10h], dl
 		imul    edx, [esp+8], byte 21h
-		mov     eax, [___199ff8h]
+		mov     eax, [__CEXT_V(___199ff8h)]
 		mov     byte [edx+eax+19h], 0
 ___64c74h:
 		imul    edx, [esp+8], byte 21h
-		mov     eax, [___199ff8h]
+		mov     eax, [__CEXT_V(___199ff8h)]
 		mov     byte [edx+eax+14h], 0
 		imul    edx, [esp+8], byte 21h
 		mov     byte [edx+eax+12h], 0
 ___64c8dh:
 		imul    edx, [esp+8], byte 21h
-		mov     eax, [___199ff8h]
+		mov     eax, [__CEXT_V(___199ff8h)]
 		cmp     byte [edx+eax+13h], 0
 		je      short ___64d10h
 		imul    edx, [esp+8], byte 21h
@@ -89357,13 +89330,13 @@ ___64d28h:
 		jge     short ___64d91h
 ___64d3ah:
 		mov     eax, [esp+8]
-		mov     edx, [___24e640h]
+		mov     edx, [__CEXT_V(___24e640h)]
 		shl     eax, 2
 		add     edx, eax
 		mov     eax, [esp+8]
 		mov     [edx], eax
 		imul    edx, [esp+8], byte 21h
-		mov     eax, [___199ff8h]
+		mov     eax, [__CEXT_V(___199ff8h)]
 		cmp     word [edx+eax], byte 0
 		je      short ___64d81h
 		imul    edx, [esp+8], byte 21h
@@ -89396,13 +89369,13 @@ ___64d91h:
 ___64dbfh:
 		mov     eax, [esp+4]
 		inc     dword [esp+4]
-		mov     edx, [___24e640h]
+		mov     edx, [__CEXT_V(___24e640h)]
 		mov     eax, [edx+eax*4]
 		mov     [esp+8], eax
 		imul    edx, [esp+8], byte 21h
 		cmp     dword [esp], byte 0
 		jle     short ___64e07h
-		mov     eax, [___199ff8h]
+		mov     eax, [__CEXT_V(___199ff8h)]
 		cmp     byte [edx+eax+13h], 0
 		je      near ___64ef4h
 		imul    edx, [esp+8], byte 21h
@@ -89411,7 +89384,7 @@ ___64dbfh:
 		dec     dword [esp]
 		jmp     near ___64ef4h
 ___64e07h:
-		mov     eax, [___199ff8h]
+		mov     eax, [__CEXT_V(___199ff8h)]
 		cmp     byte [edx+eax+13h], 0
 		je      near ___64ef4h
 		imul    edx, [esp+8], byte 21h
@@ -89428,7 +89401,7 @@ ___64e07h:
 		call    near ___687b8h
 		mov     edx, eax
 		imul    ebx, [esp+8], byte 21h
-		mov     eax, [___199ff8h]
+		mov     eax, [__CEXT_V(___199ff8h)]
 		mov     [ebx+eax+15h], edx
 		imul    edx, [esp+8], byte 21h
 		mov     ah, [edx+eax+19h]
@@ -89459,7 +89432,7 @@ ___64eaeh:
 		mov     [NoSplit eax*2+__CEXT_V(___24e750h)], dx
 		mov     [eax+___68b10h], bl
 		imul    eax, [esp+8], byte 21h
-		mov     edx, [___199ff8h]
+		mov     edx, [__CEXT_V(___199ff8h)]
 		lea     ebx, [edx+eax]
 		mov     eax, [___19a000h]
 		inc     eax
@@ -89486,13 +89459,13 @@ ___64f04h:
 ___64f29h:
 		mov     eax, [esp+4]
 		inc     dword [esp+4]
-		mov     edx, [___24e640h]
+		mov     edx, [__CEXT_V(___24e640h)]
 		mov     eax, [edx+eax*4]
 		mov     [esp+8], eax
 		imul    edx, [esp+8], byte 21h
 		cmp     dword [esp], byte 0
 		jle     near ___651a2h
-		mov     eax, [___199ff8h]
+		mov     eax, [__CEXT_V(___199ff8h)]
 		cmp     byte [edx+eax+13h], 0
 		je      near ___65267h
 		imul    edx, [esp+8], byte 21h
@@ -89513,7 +89486,7 @@ ___64f29h:
 		mov     [edx+19h], al
 ___64f9bh:
 		imul    edx, [esp+8], byte 21h
-		mov     eax, [___199ff8h]
+		mov     eax, [__CEXT_V(___199ff8h)]
 		mov     ebx, [edx+eax+0eh]
 		imul    edx, [esp+8], byte 21h
 		mov     esi, [edx+eax+0ah]
@@ -89531,7 +89504,7 @@ ___64f9bh:
 		and     eax, 0ffh
 		call    near __CEXT_F(playSFX__sound)
 		imul    edx, [esp+8], byte 21h
-		mov     eax, [___199ff8h]
+		mov     eax, [__CEXT_V(___199ff8h)]
 		mov     dx, [edx+eax]
 		and     edx, 0ffffh
 		lea     ebx, [edx*4+0]
@@ -89635,7 +89608,7 @@ ___6519ah:
 		dec     dword [esp]
 		jmp     near ___65267h
 ___651a2h:
-		mov     eax, [___199ff8h]
+		mov     eax, [__CEXT_V(___199ff8h)]
 		cmp     byte [edx+eax+13h], 0
 		je      near ___65267h
 		imul    edx, [esp+8], byte 21h
@@ -89668,7 +89641,7 @@ ___651a2h:
 		mov     dword [edx+eax+2], 0
 ___65229h:
 		imul    edx, [esp+8], byte 21h
-		mov     eax, [___199ff8h]
+		mov     eax, [__CEXT_V(___199ff8h)]
 		cmp     byte [edx+eax+12h], 0
 		je      short ___65267h
 		imul    ebx, [esp+8], byte 21h
@@ -89699,19 +89672,19 @@ ___65277h:
 		retn    
 ___653c8h:
 		push    edx
-		cmp     byte [___199ff4h], 0
+		cmp     byte [__CEXT_V(___199ff4h)], 0
 		je      short ___65406h
 		xor     dl, dl
-		mov     eax, ___68d07h
-		mov     [___199ff4h], dl
-		call    near ___68d01h
-		mov     eax, [___199ff8h]
+		mov     eax, __CEXT_F(___68d07h)
+		mov     [__CEXT_V(___199ff4h)], dl
+		call    near __CEXT_F(___68d01h)
+		mov     eax, [__CEXT_V(___199ff8h)]
 		call    near __CEXT_F(freeMemory)
 		xor     edx, edx
-		mov     eax, [___24e640h]
-		mov     [___199ff8h], edx
+		mov     eax, [__CEXT_V(___24e640h)]
+		mov     [__CEXT_V(___199ff8h)], edx
 		call    near __CEXT_F(freeMemory)
-		mov     [___24e640h], edx
+		mov     [__CEXT_V(___24e640h)], edx
 ___65406h:
 		pop     edx
 		retn    
@@ -89719,12 +89692,12 @@ ___65406h:
 		push    edi
 		push    ebp
 		sub     esp, byte 0ch
-		mov     edi, [___199ff8h]
+		mov     edi, [__CEXT_V(___199ff8h)]
 		mov     [esp+8], al
 		mov     [esp], edx
 		mov     ebp, ebx
 		mov     [esp+4], ecx
-		cmp     byte [___199ff4h], 0
+		cmp     byte [__CEXT_V(___199ff4h)], 0
 		je      near ___654b3h
 		mov     ebx, [___199ffch]
 		xor     edx, edx
@@ -89772,7 +89745,7 @@ ___65454h:
 ___654b3h:
 		xor     eax, eax
 ___654b5h:
-		mov     [___199ff8h], edi
+		mov     [__CEXT_V(___199ff8h)], edi
 		add     esp, byte 0ch
 		pop     ebp
 		pop     edi
@@ -89910,8 +89883,6 @@ ___65680h:
 		retn    
 ___658b0h:
 		jmp     near ___68284h
-__GDECL(__CEXT_F(___658b8h))
-		jmp     near ___682a4h
 setup__sound:
 		cmp     byte [__CEXT_V(___5ff98h)], 0
 		je      short @sound_enabled
@@ -89957,17 +89928,6 @@ ___6594ah:
 		mov     dx, [Sound_Address]
 		mov     al, [__CEXT_V(Sound_CardType)]
 		jmp     near ___66c98h
-__GDECL(__CEXT_F(___65990h))
-		cmp     ax, word 1f40h
-		jae     short ___6599bh
-		mov     eax, 1f40h
-___6599bh:
-		cmp     ax, word 0ac44h
-		jbe     short ___659a6h
-		mov     eax, 0ac44h
-___659a6h:
-		mov     [___688cch], ax
-		retn    
 __GDECL(__CEXT_F(___659b8h))
 		test    al, al
 		setnz   al
@@ -91274,7 +91234,7 @@ ___68156h:
 		pop     edx
 		pop     ebx
 		retn    
-___6815ch:
+__GDECL(__CEXT_F(___6815ch))
 		push    ebx
 		push    ecx
 		push    edx
@@ -91387,29 +91347,6 @@ ___68284h:
 		je      near ___75d00h
 ___6829dh:
 		mov     eax, 0ffffffffh
-		retn    
-___682a4h:
-		push    edx
-		mov     edx, [__CEXT_V(MSX_Tracker)]
-		cmp     edx, byte 1
-		jb      short ___682c9h
-		jbe     short ___682bbh
-		cmp     edx, byte 2
-		je      short ___682c2h
-		xor     al, al
-		pop     edx
-		retn    
-___682bbh:
-		call    near ___71a88h
-		pop     edx
-		retn    
-___682c2h:
-		call    near ___75d44h
-		pop     edx
-		retn    
-___682c9h:
-		xor     al, al
-		pop     edx
 		retn    
 __GDECL(__CEXT_F(___68398h))
 		push    ebx
@@ -91756,7 +91693,7 @@ ___68776h:
 ___6877eh:
 		pop     edx
 		retn    
-___6879ch:
+__GDECL(__CEXT_F(___6879ch))
 		push    edx
 		cmp     byte [__CEXT_V(___19a279h)], 0
 		je      short ___687b3h
@@ -91835,7 +91772,7 @@ ___68843h:
 		mov     ax, [___75f94h]
 		retn    
 ___6884ah:
-		mov     ax, [___688cch]
+		mov     ax, [__CEXT_V(Sound_SampleRate)]
 		retn    
 ___68851h:
 		xor     eax, eax
@@ -91896,13 +91833,11 @@ ___688c5h:
 db	64h,8bh,0c0h
 ___688c8h:
 db	0,0,0,0
-global ___688cch
-___688cch:
+__GDECL(__CEXT_V(Sound_SampleRate))
 db	22h,56h
 ___688ceh:
 db	0,90h
-global ___688d0h
-___688d0h:
+__GDECL(___688d0h)
 db	0ffh,0ffh,0ffh,0ffh,0ffh,0ffh,0ffh,0ffh,0ffh,0ffh,0ffh,0ffh,0ffh,0ffh,0ffh,0ffh
 db	0ffh,0ffh,0ffh,0ffh,0ffh,0ffh,0ffh,0ffh,0ffh,0ffh,0ffh,0ffh,0ffh,0ffh,0ffh,0ffh
 db	0ffh,0ffh,0ffh,0ffh,0ffh,0ffh,0ffh,0ffh,0ffh,0ffh,0ffh,0ffh,0ffh,0ffh,0ffh,0ffh
@@ -91972,9 +91907,9 @@ db	0,0,1,0,0,0,1,0,0,0,1,0,0,0,1,0
 db	0,0,1,0,0,0,1,0,0,0,1,0,0,0,1,0
 db	0,0,1,0,0,0,1,0,0,0,1,0,0,0,1,0
 __GDECL(___68c30h)
-dd	___68d07h
+dd	__CEXT_F(___68d07h)
 __GDECL(___68c34h)
-dd	___68d07h
+dd	__CEXT_F(___68d07h)
 __GDECL(___68c38h)
 db	0,0,0,0
 __GDECL(__CEXT_V(___68c3ch))
@@ -92004,7 +91939,7 @@ ___68c4ch:
 		mov     [Sound_IRQ], al
 		mov     [Sound_DMA], al
 		mov     byte [___688c5h], 64h
-		mov     word [___688cch], 5622h
+		mov     word [__CEXT_V(Sound_SampleRate)], 5622h
 		mov     [___688ceh], al
 		mov     [___688c8h], eax
 		call    near ___68c42h
@@ -92015,8 +91950,8 @@ ___68cbch:
 		mov     dword [edi*4+__CEXT_V(___68bb0h)], 10000h
 		inc     edi
 		loop    ___68cbch
-		mov     dword [___68c30h], ___68d07h
-		mov     dword [___68c34h], ___68d07h
+		mov     dword [___68c30h], __CEXT_F(___68d07h)
+		mov     dword [___68c34h], __CEXT_F(___68d07h)
 		mov     [___68c38h], eax
 		mov     [__CEXT_V(___68c3ch)], eax
 		mov     [__CEXT_V(___68c40h)], ax
@@ -92025,10 +91960,10 @@ ___68cbch:
 __GDECL(__CEXT_F(___68cfbh))
 		mov     [___68c30h], eax
 		retn    
-___68d01h:
+__GDECL(__CEXT_F(___68d01h))
 		mov     [___68c34h], eax
 		retn    
-___68d07h:
+__GDECL(__CEXT_F(___68d07h))
 		retn    
 __lifesuxx__dr:
 		pushad  
@@ -92406,18 +92341,6 @@ ___71a81h:
 		mov     eax, 0ffffffffh
 		pop     edx
 		retn    
-___71a88h:
-		cmp     byte [__CEXT_V(Sound_CardType)], 0
-		je      short ___71aa2h
-		cmp     byte [__CEXT_V(IsSoundEnabled)], 0
-		je      short ___71aa2h
-		mov     [___19a46ch], eax
-		mov     al, 1
-		retn    
-___71aa2h:
-		xor     al, al
-		retn    
-db	0,0,0,0,0,0,0,0,0,0,0
 __GDECL(___71ab0h)
 		push    ebx
 		push    ecx
@@ -92996,7 +92919,7 @@ ___75c30h:
 		mov     byte [___19a68ch], 1
 		mov     ebx, 0ffffffffh
 		mov     al, [___24e9d2h]
-		mov     [___19a690h], ebx
+		mov     [__CEXT_V(___19a690h)], ebx
 		mov     [___24e9d8h], al
 		mov     bh, 40h
 		mov     al, [___24e9cch]
@@ -93055,18 +92978,6 @@ ___75d3dh:
 		mov     eax, 0ffffffffh
 		pop     edx
 		retn    
-___75d44h:
-		cmp     byte [__CEXT_V(Sound_CardType)], 0
-		je      short ___75d5eh
-		cmp     byte [__CEXT_V(IsSoundEnabled)], 0
-		je      short ___75d5eh
-		mov     [___19a690h], eax
-		mov     al, 1
-		retn    
-___75d5eh:
-		xor     al, al
-		retn    
-db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ___75d70h:
 		push    ebx
 		push    ecx
@@ -93180,7 +93091,7 @@ ___75e50h:
 		call    near ___76f3fh
 		call    near ___76e69h
 		call    near ___76f25h
-		mov     dx, [___688cch]
+		mov     dx, [__CEXT_V(Sound_SampleRate)]
 		mov     ebx, 32h
 		mov     eax, edx
 		sar     edx, 1fh
@@ -93647,7 +93558,7 @@ ___765a9h:
 		add     eax, byte 0fh
 		call    near ___764a7h
 		xor     edx, edx
-		movzx   eax, word [___688cch]
+		movzx   eax, word [__CEXT_V(Sound_SampleRate)]
 		shl     eax, 0ah
 		movzx   ebx, word [___75f94h]
 		push    ebx
@@ -94726,15 +94637,15 @@ ___771f4h:
 		cmp     ah, 1ah
 		jne     short ___77263h
 ___7723ah:
-		mov     bx, [___688cch]
+		mov     bx, [__CEXT_V(Sound_SampleRate)]
 		cmp     bx, 54ebh
 		jbe     short ___77253h
-		mov     word [___688cch], 54ebh
+		mov     word [__CEXT_V(Sound_SampleRate)], 54ebh
 		jmp     short ___77263h
 ___77253h:
 		cmp     bx, 0a9d6h
 		jbe     short ___77263h
-		mov     word [___688cch], 0a9d6h
+		mov     word [__CEXT_V(Sound_SampleRate)], 0a9d6h
 ___77263h:
 		mov     dh, [__CEXT_V(Sound_CardType)]
 		cmp     dh, 12h
@@ -94750,7 +94661,7 @@ ___7727fh:
 		mov     eax, ebx
 		xor     ecx, ecx
 		mov     edx, ebx
-		mov     cx, [___688cch]
+		mov     cx, [__CEXT_V(Sound_SampleRate)]
 		sar     edx, 1fh
 		idiv    ecx
 		mov     ecx, eax
@@ -94758,7 +94669,7 @@ ___7727fh:
 		mov     eax, ebx
 		sar     edx, 1fh
 		idiv    ecx
-		mov     [___688cch], ax
+		mov     [__CEXT_V(Sound_SampleRate)], ax
 		xor     ecx, ecx
 		mov     edx, ebx
 		mov     cx, ax
@@ -95446,7 +95357,7 @@ ___77a60h:
 		mov     eax, 1234ddh
 		xor     ebx, ebx
 		mov     edx, eax
-		mov     bx, [___688cch]
+		mov     bx, [__CEXT_V(Sound_SampleRate)]
 		sar     edx, 1fh
 		idiv    ebx
 		mov     ebx, eax
@@ -95457,7 +95368,7 @@ ___77a60h:
 		xor     edx, edx
 		mov     ebx, 3bh
 		mov     dx, ax
-		mov     [___688cch], ax
+		mov     [__CEXT_V(Sound_SampleRate)], ax
 		mov     eax, edx
 		sar     edx, 1fh
 		idiv    ebx
@@ -95497,7 +95408,7 @@ ___77a60h:
 		mov     eax, 1234ddh
 		xor     ebx, ebx
 		mov     edx, eax
-		mov     bx, [___688cch]
+		mov     bx, [__CEXT_V(Sound_SampleRate)]
 		sar     edx, 1fh
 		idiv    ebx
 		and     eax, 0ffh
@@ -95543,7 +95454,7 @@ ___77bd4h:
 		mov     eax, 1234ddh
 		xor     esi, esi
 		mov     edx, eax
-		mov     si, [___688cch]
+		mov     si, [__CEXT_V(Sound_SampleRate)]
 		sar     edx, 1fh
 		idiv    esi
 		mov     ebx, [___77e24h]
@@ -95581,7 +95492,7 @@ ___77c14h:
 		mov     eax, 1234ddh
 		xor     ebx, ebx
 		mov     edx, eax
-		mov     bx, [___688cch]
+		mov     bx, [__CEXT_V(Sound_SampleRate)]
 		sar     edx, 1fh
 		idiv    ebx
 		mov     ebx, eax
@@ -95592,7 +95503,7 @@ ___77c14h:
 		xor     edx, edx
 		mov     ebx, 3bh
 		mov     dx, ax
-		mov     [___688cch], ax
+		mov     [__CEXT_V(Sound_SampleRate)], ax
 		mov     eax, edx
 		sar     edx, 1fh
 		idiv    ebx
@@ -95668,7 +95579,7 @@ ___77d68h:
 		mov     eax, 1234ddh
 		xor     esi, esi
 		mov     edx, eax
-		mov     si, [___688cch]
+		mov     si, [__CEXT_V(Sound_SampleRate)]
 		sar     edx, 1fh
 		idiv    esi
 		mov     ebx, [___77e28h]
@@ -96307,7 +96218,7 @@ ___7c824h:
 		mov     eax, 56220000h
 		xor     ebx, ebx
 		mov     edx, eax
-		mov     bx, [___688cch]
+		mov     bx, [__CEXT_V(Sound_SampleRate)]
 		sar     edx, 1fh
 		idiv    ebx
 		mov     ebp, [___68d48h]

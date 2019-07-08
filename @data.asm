@@ -8511,9 +8511,9 @@ __GDECL(__CEXT_V(MSX_Volume))
 db	0,0,1,0
 __GDECL(__CEXT_V(SFX_Volume))
 db	0,0,1,0
-___199ff4h:
+__GDECL(__CEXT_V(___199ff4h))
 db	0,0,0,0
-___199ff8h:
+__GDECL(__CEXT_V(___199ff8h))
 db	0,0,0,0
 ___199ffch:
 db	0,0,0,0
@@ -8756,7 +8756,7 @@ __GDECL(___19a469h)
 db	0
 __GDECL(___19a46ah)
 db	0,0
-__GDECL(___19a46ch)
+__GDECL(__CEXT_V(___19a46ch))
 db	0ffh,0ffh,0ffh,0ffh
 __GDECL(___19a470h)
 db	0,0,0,0
@@ -8846,7 +8846,7 @@ __GDECL(___19a68ch)
 db	1
 __GDECL(___19a68dh)
 db	0,0,0
-__GDECL(___19a690h)
+__GDECL(__CEXT_V(___19a690h))
 db	0ffh,0ffh
 __GDECL(___19a692h)
 db	0ffh,0ffh

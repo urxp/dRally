@@ -154,8 +154,8 @@
 	void updateAMPVolume(dword);	
 	void updateMSXVolume(dword);	
 	void updateSFXVolume(dword);
-	dword ___658b8h(dword);
-	dword ___65990h(dword);
+	dword ___682a4h(dword);
+	dword setSampleRate__esp(dword);
 	dword ___659b8h(dword);
 	void allocVGABuffer(void);	
     dword chkbankswitch__video(void);
@@ -332,12 +332,12 @@ void startup__dr(void){
     updateSFXVolume(eax);
 //		mov     eax, 2d00h			;; 11520
     eax = 0x2d00;
-//		call    __CEXT_F(___658b8h)
-    eax = ___658b8h(eax);
+//		call    __CEXT_F(___682a4h)
+    eax = ___682a4h(eax);
 //		mov     eax, 5622h			;; 22050
     eax = 0x5622;
-//		call    __CEXT_F(___65990h)
-    eax = ___65990h(eax);
+//		call    __CEXT_F(setSampleRate__esp)
+    eax = setSampleRate__esp(eax);
 //		call    __CEXT_F(___648d8h)
     ___648d8h();
 //		mov     eax, 1
@@ -1239,8 +1239,8 @@ ___3edeah:
 	___648d8h();
 //		mov     eax, [__CEXT_V(___1a1ef4h)]
 	eax = D(___1a1ef4h);
-//		call    __CEXT_F(___658b8h)
-	eax = ___658b8h(eax);
+//		call    __CEXT_F(___682a4h)
+	eax = ___682a4h(eax);
 //		mov     eax, 10000h
 	eax = 0x10000;
 //		mov     [esp+24h], ebx

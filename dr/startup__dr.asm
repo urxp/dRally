@@ -25,8 +25,8 @@
 	extern 	__CEXT_F(updateMSXVolume)	
 	extern 	__CEXT_V(ConfigSFXVolume)	
 	extern 	__CEXT_F(updateSFXVolume)	
-	extern 	__CEXT_F(___658b8h)	
-	extern 	__CEXT_F(___65990h)	
+	extern 	__CEXT_F(___682a4h)	
+	extern 	__CEXT_F(setSampleRate__esp)	
 	extern 	__CEXT_F(___648d8h)	
 	extern 	__CEXT_F(___659b8h)	
 	extern 	__CEXT_V(___196abch)	
@@ -210,9 +210,9 @@ __GDECL(__CEXT_F(startup__dr))
 		mov     eax, [__CEXT_V(ConfigSFXVolume)]
 		call    __CEXT_F(updateSFXVolume)
 		mov     eax, 2d00h			;; 11520
-		call    __CEXT_F(___658b8h)
+		call    __CEXT_F(___682a4h)
 		mov     eax, 5622h			;; 22050
-		call    __CEXT_F(___65990h)
+		call    __CEXT_F(setSampleRate__esp)
 		call    __CEXT_F(___648d8h)
 		mov     eax, 1
 		call    __CEXT_F(___659b8h)
@@ -662,7 +662,7 @@ ___3edeah:
 		call    __CEXT_F(___649a8h)
 		call    __CEXT_F(___648d8h)
 		mov     eax, [__CEXT_V(___1a1ef4h)]
-		call    __CEXT_F(___658b8h)
+		call    __CEXT_F(___682a4h)
 		mov     eax, 10000h
 		mov     [esp+24h], ebx
 		call    __CEXT_F(updateAMPVolume)

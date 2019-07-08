@@ -74,7 +74,7 @@
     extern  __CEXT_V(___19a281h)
     extern  ___68c42h
     extern  ___19a68ch
-    extern  ___19a690h
+    extern  __CEXT_V(___19a690h)
     extern  ___24e7a6h
     extern  ___24e7a5h
     extern  ___24e9d4h
@@ -299,7 +299,7 @@ ___71e2ah:
 		call    ___68c42h
 		mov     [___19a68ch], bl
 ___71f40h:
-		mov     edx, [___19a690h]
+		mov     edx, [__CEXT_V(___19a690h)]
 		cmp     edx, byte 0ffffffffh
 		je      ___71f7fh
 		mov     eax, edx
@@ -307,13 +307,13 @@ ___71f40h:
 		and     eax, 0ffh
 		mov     [___19a68dh], al
 		mov     bh, 1
-		mov     al, [___19a690h]
+		mov     al, [__CEXT_V(___19a690h)]
 		xor     cl, cl
 		mov     [___24f2c4h], al
 		mov     [___24f2c5h], bh
 		mov     ebx, 0ffffffffh
 		mov     [___24f2c6h], cl
-		mov     [___19a690h], ebx
+		mov     [__CEXT_V(___19a690h)], ebx
 ___71f7fh:
 		cmp     byte [___24f2c2h], 0
 		jne     ___73484h

@@ -81,7 +81,9 @@
     extern  __CEXT_F(updateAMPVolume)
     extern  __CEXT_F(updateMSXVolume)
     extern  __CEXT_F(updateSFXVolume)
-
+    extern  __CEXT_F(setSampleRate__esp)
+    extern  __CEXT_F(___682a4h)
+    extern  __CEXT_F(___648d8h)
 
 ;; CLIB3R.LIB
     extern  __CHK

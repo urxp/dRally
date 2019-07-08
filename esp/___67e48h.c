@@ -1,5 +1,6 @@
 #include "x86.h"
 
+#pragma enum int
 typedef enum TrackerType {
 	NO_TRACKER, SCREAM_TRACKER_3, FAST_TRACKER_2
 } TrackerType;
