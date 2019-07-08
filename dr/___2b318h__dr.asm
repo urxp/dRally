@@ -11,13 +11,9 @@
     extern  __CEXT_V(___196ad8h)
     extern  __CEXT_V(bgcop_pal_p)
     extern  __CEXT_V(___1821e2h)
-    extern  __CEXT_V(___19df50h)
-    extern  __CEXT_V(___19eb50h)
-    extern  __CEXT_V(___19df54h)
+    extern  __CEXT_V(Pal8to24_0)
+    extern  __CEXT_V(Pal8to24_1)
     extern  __CEXT_V(___1a1edch)
-    extern  __CEXT_V(___19eb54h)
-    extern  __CEXT_V(___19df58h)
-    extern  __CEXT_V(___19eb4ch)
 
 %include "layout.inc"
 
@@ -121,7 +117,7 @@ ___2b416h:
 		sar     edx, 10h
 		idiv    ebx
 		mov     edx, [__CEXT_V(___196ad8h)]
-		mov     [ecx+__CEXT_V(___19eb50h)], eax
+		mov     [ecx+__CEXT_V(Pal8to24_1)], eax
 		mov     eax, [__CEXT_V(bgcop_pal_p)]
 		lea     edx, [edx+edx*2]
 		add     edx, eax
@@ -140,7 +136,7 @@ ___2b416h:
 		shrd    eax, edx, 10h
 		sar     edx, 10h
 		idiv    ebx
-		mov     [ecx+__CEXT_V(___19eb54h)], eax
+		mov     [ecx+__CEXT_V(Pal8to24_1)+4], eax
 		mov     eax, [__CEXT_V(___196ad8h)]
 		mov     edx, [__CEXT_V(bgcop_pal_p)]
 		lea     eax, [eax+eax*2]
@@ -163,7 +159,7 @@ ___2b416h:
 		mov     ebx, [esp+10h]
 		add     ecx, byte 0ch
 		inc     ebx
-		mov     [ecx+__CEXT_V(___19eb4ch)], eax
+		mov     [ecx+__CEXT_V(Pal8to24_1)-4], eax
 		mov     [esp+10h], ebx
 		cmp     ebx, byte 20h
 		jl      ___2b416h
@@ -171,7 +167,7 @@ ___2b416h:
 		mov     esi, 640000h
 ___2b516h:
 		mov     edx, [__CEXT_V(___1a1edch)]
-		mov     eax, [ecx+__CEXT_V(___19df50h)]
+		mov     eax, [ecx+__CEXT_V(Pal8to24_0)]
 		shl     edx, 10h
 		imul    edx
 		add     eax, 8000h
@@ -188,9 +184,9 @@ ___2b516h:
 		sar     edx, 10h
 		idiv    ebx
 		mov     edx, [__CEXT_V(___1a1edch)]
-		mov     [ecx+__CEXT_V(___19eb50h)], eax
+		mov     [ecx+__CEXT_V(Pal8to24_1)], eax
 		shl     edx, 10h
-		mov     eax, [ecx+__CEXT_V(___19df54h)]
+		mov     eax, [ecx+__CEXT_V(Pal8to24_0)+4]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -206,9 +202,9 @@ ___2b516h:
 		sar     edx, 10h
 		idiv    ebx
 		mov     edx, [__CEXT_V(___1a1edch)]
-		mov     [ecx+__CEXT_V(___19eb54h)], eax
+		mov     [ecx+__CEXT_V(Pal8to24_1)+4], eax
 		shl     edx, 10h
-		mov     eax, [ecx+__CEXT_V(___19df58h)]
+		mov     eax, [ecx+__CEXT_V(Pal8to24_0)+8]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -224,7 +220,7 @@ ___2b516h:
 		shrd    eax, edx, 10h
 		sar     edx, 10h
 		idiv    ebx
-		mov     [ecx+__CEXT_V(___19eb4ch)], eax
+		mov     [ecx+__CEXT_V(Pal8to24_1)-4], eax
 		cmp     ecx, 180h
 		jne     ___2b516h
 		mov     esp, ebp

@@ -6,13 +6,9 @@
     extern byte ___196ad8h[];
     extern byte bgcop_pal_p[];
     extern byte ___1821e2h[];
-    extern byte ___19df50h[];
-    extern byte ___19eb50h[];
-    extern byte ___19df54h[];
+    extern byte Pal8to24_0[];
+    extern byte Pal8to24_1[];
     extern byte ___1a1edch[];
-    extern byte ___19eb54h[];
-    extern byte ___19df58h[];
-    extern byte ___19eb4ch[];
 
 	#pragma aux ___11564h parm routine []
     void ___11564h(dword, dword, dword);
@@ -257,8 +253,8 @@ ___2b416h:
     eax = idiv_quo(eax, edx, ebx);
 //		mov     edx, [__CEXT_V(___196ad8h)]
 	edx = D(___196ad8h);
-//		mov     [ecx+__CEXT_V(___19eb50h)], eax
-	D(ecx+___19eb50h) = eax;
+//		mov     [ecx+__CEXT_V(Pal8to24_1)], eax
+	D(ecx+Pal8to24_1) = eax;
 //		mov     eax, [__CEXT_V(bgcop_pal_p)]
 	eax = D(bgcop_pal_p);
 //		lea     edx, [edx+edx*2]
@@ -296,8 +292,8 @@ ___2b416h:
     edx = (int)edx >> 0x10;
 //		idiv    ebx
     eax = idiv_quo(eax, edx, ebx);
-//		mov     [ecx+__CEXT_V(___19eb54h)], eax
-	D(ecx+___19eb54h) = eax;
+//		mov     [ecx+__CEXT_V(Pal8to24_1)+4], eax
+	D(ecx+Pal8to24_1+4) = eax;
 //		mov     eax, [__CEXT_V(___196ad8h)]
 	eax = D(___196ad8h);
 //		mov     edx, [__CEXT_V(bgcop_pal_p)]
@@ -343,8 +339,8 @@ ___2b416h:
 	ecx += 0xc;
 //		inc     ebx
 	ebx++;
-//		mov     [ecx+__CEXT_V(___19eb4ch)], eax
-	D(ecx+___19eb4ch) = eax;
+//		mov     [ecx+__CEXT_V(Pal8to24_1)-4], eax
+	D(ecx+Pal8to24_1-4) = eax;
 //		mov     [esp+10h], ebx
 	D(esp+0x10) = ebx;
 //		cmp     ebx, byte 20h
@@ -357,8 +353,8 @@ ___2b416h:
 ___2b516h:
 //		mov     edx, [__CEXT_V(___1a1edch)]
 	edx = D(___1a1edch);
-//		mov     eax, [ecx+__CEXT_V(___19df50h)]
-	eax = D(ecx+___19df50h);
+//		mov     eax, [ecx+__CEXT_V(Pal8to24_0)]
+	eax = D(ecx+Pal8to24_0);
 //		shl     edx, 10h
 	edx <<= 0x10;
 //		imul    edx
@@ -394,12 +390,12 @@ ___2b516h:
     eax = idiv_quo(eax, edx, ebx);
 //		mov     edx, [__CEXT_V(___1a1edch)]
 	edx = D(___1a1edch);
-//		mov     [ecx+__CEXT_V(___19eb50h)], eax
-	D(ecx+___19eb50h) = eax;
+//		mov     [ecx+__CEXT_V(Pal8to24_1)], eax
+	D(ecx+Pal8to24_1) = eax;
 //		shl     edx, 10h
 	edx <<= 0x10;
-//		mov     eax, [ecx+__CEXT_V(___19df54h)]
-	eax = D(ecx+___19df54h);
+//		mov     eax, [ecx+__CEXT_V(Pal8to24_0)+4]
+	eax = D(ecx+Pal8to24_0+4);
 //		imul    edx
 	PUSH(imul_eax(eax, edx));
     PUSH(imul_edx(eax, edx));
@@ -433,12 +429,12 @@ ___2b516h:
     eax = idiv_quo(eax, edx, ebx);
 //		mov     edx, [__CEXT_V(___1a1edch)]
 	edx = D(___1a1edch);
-//		mov     [ecx+__CEXT_V(___19eb54h)], eax
-	D(ecx+___19eb54h) = eax;
+//		mov     [ecx+__CEXT_V(Pal8to24_1)+4], eax
+	D(ecx+Pal8to24_1+4) = eax;
 //		shl     edx, 10h
 	edx <<= 0x10;
-//		mov     eax, [ecx+__CEXT_V(___19df58h)]
-	eax = D(ecx+___19df58h);
+//		mov     eax, [ecx+__CEXT_V(Pal8to24_0)+8]
+	eax = D(ecx+Pal8to24_0+8);
 //		imul    edx
 	PUSH(imul_eax(eax, edx));
     PUSH(imul_edx(eax, edx));
@@ -472,8 +468,8 @@ ___2b516h:
     edx = (int)edx >> 0x10;
 //		idiv    ebx
     eax = idiv_quo(eax, edx, ebx);
-//		mov     [ecx+__CEXT_V(___19eb4ch)], eax
-	D(ecx+___19eb4ch) = eax;
+//		mov     [ecx+__CEXT_V(Pal8to24_1)-4], eax
+	D(ecx+Pal8to24_1-4) = eax;
 //		cmp     ecx, 180h
 //		jne     ___2b516h
 	if(ecx != 0x180) goto ___2b516h;

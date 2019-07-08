@@ -65,9 +65,7 @@
 	extern byte ___196abfh[];
 	extern byte ___196d84h[];
 	extern byte ___199fa0h[];
-	extern byte ___19eb50h[];
-	extern byte ___19eb54h[];	
-	extern byte ___19eb58h[];
+	extern byte Pal8to24_1[];
 	extern byte ___1a0fb8h[];	
 	extern byte ___1a10cch[];
 	extern byte ___1a10e4h[];	
@@ -1084,8 +1082,8 @@ ___3ecf0h:
 	PUSH(eax);
 //		mov     edx, esi
 	edx = esi;
-//		mov     eax, [edi+__CEXT_V(___19eb50h)]
-	eax = D(edi+___19eb50h);
+//		mov     eax, [edi+__CEXT_V(Pal8to24_1)]
+	eax = D(edi+Pal8to24_1);
 //		imul    edx
 	PUSH(imul_eax(eax, edx));
 	PUSH(imul_edx(eax, edx));
@@ -1107,8 +1105,8 @@ ___3ecf0h:
 	PUSH(eax);
 //		mov     edx, esi
 	edx = esi;
-//		mov     eax, [edi+__CEXT_V(___19eb54h)]
-	eax = D(edi+___19eb54h);
+//		mov     eax, [edi+__CEXT_V(Pal8to24_1)+4]
+	eax = D(edi+Pal8to24_1+4);
 //		imul    edx
 	PUSH(imul_eax(eax, edx));
 	PUSH(imul_edx(eax, edx));
@@ -1130,8 +1128,8 @@ ___3ecf0h:
 	PUSH(eax);
 //		mov     edx, esi
 	edx = esi;
-//		mov     eax, [edi+__CEXT_V(___19eb58h)]
-	eax = D(edi+___19eb58h);
+//		mov     eax, [edi+__CEXT_V(Pal8to24_1)+8]
+	eax = D(edi+Pal8to24_1+8);
 //		imul    edx
 	PUSH(imul_eax(eax, edx));
 	PUSH(imul_edx(eax, edx));

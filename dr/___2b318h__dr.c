@@ -8,6 +8,12 @@ typedef struct pal3 {
     byte    __2;
 } pal3;
 
+typedef struct pal3dword {
+    dword   __0;
+    dword   __1;
+    dword   __2;
+} pal3dword;
+
 typedef struct Driver {
     char    Name[0xc];      // +0
     dword   Damage;         // +ch
@@ -45,12 +51,10 @@ typedef struct Driver {
 	// 0.015625 (1/64)
     extern double ___1821e2h;
 
-    extern byte ___19df50h[];
-    extern byte ___19df54h[];
     extern byte ___1a1edch[];
-    extern byte ___19df58h[];
 
-    extern byte ___19eb50h[];
+    extern pal3dword Pal8to24_0[];
+    extern pal3dword Pal8to24_1[];
 
 
     void ___11564h(float, float, float);
@@ -102,21 +106,21 @@ void ___2b318h(void){
 
 	while(n < 0x20){
 
-		D(0x900+0xc*n+___19eb50h) =
+        Pal8to24_1[n+0xc0].__0 =
 			((int)(bgcop_pal_p[___196ad8h].__0 * ___1821e2h * n) << 0x10) / 0x64;
-		D(0x900+0xc*n+___19eb50h+4) =
+        Pal8to24_1[n+0xc0].__1 =
 			((int)(bgcop_pal_p[___196ad8h].__1 * ___1821e2h * n) << 0x10) / 0x64;
-		D(0x900+0xc*n+___19eb50h+8) =
+        Pal8to24_1[n+0xc0].__2 =
 			((int)(bgcop_pal_p[___196ad8h].__2 * ___1821e2h * n) << 0x10) / 0x64;
 
 		n++;
 	}
 
-	ecx = 0xc0;
+	ecx = 0x10;
 
-	while(ecx != 0x180){
+	while(ecx < 0x20){
 
-		eax = D(ecx+___19df50h);
+		eax = Pal8to24_0[ecx].__0;
 		edx = D(___1a1edch) << 0x10;
 		esi = imul_eax(eax, edx);
 		edx = imul_edx(eax, edx);
@@ -127,8 +131,34 @@ void ___2b318h(void){
 		eax = eax + edx;
 		eax = eax + 0x8000;
 		edx = eax & 0xffff0000;
-		D(ecx+___19eb50h) = edx / 0x64;
+		Pal8to24_1[ecx].__0 = edx / 0x64;
 
-		ecx +=4;
+        eax = Pal8to24_0[ecx].__1;
+		edx = D(___1a1edch) << 0x10;
+		esi = imul_eax(eax, edx);
+		edx = imul_edx(eax, edx);
+		eax = esi + 0x8000;
+		if(eax < 0x8000) edx++;
+		eax = eax >> 0x10;
+		edx = edx << 0x10;
+		eax = eax + edx;
+		eax = eax + 0x8000;
+		edx = eax & 0xffff0000;
+		Pal8to24_1[ecx].__1 = edx / 0x64;
+
+        eax = Pal8to24_0[ecx].__2;
+		edx = D(___1a1edch) << 0x10;
+		esi = imul_eax(eax, edx);
+		edx = imul_edx(eax, edx);
+		eax = esi + 0x8000;
+		if(eax < 0x8000) edx++;
+		eax = eax >> 0x10;
+		edx = edx << 0x10;
+		eax = eax + edx;
+		eax = eax + 0x8000;
+		edx = eax & 0xffff0000;
+		Pal8to24_1[ecx].__2 = edx / 0x64;
+
+		ecx++;
 	}
 }

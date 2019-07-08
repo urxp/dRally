@@ -101,9 +101,7 @@
 	extern 	__CEXT_F(___12cb8h)	
 	extern 	__CEXT_F(___58c60h)	
 	extern 	__CEXT_F(___13a98h)	
-	extern 	__CEXT_V(___19eb50h)	
-	extern 	__CEXT_V(___19eb54h)	
-	extern 	__CEXT_V(___19eb58h)	
+	extern 	__CEXT_V(Pal8to24_1)	
 	extern 	__CEXT_V(___1a10e4h)	
 	extern 	__CEXT_V(___1a1124h)	
 	extern 	__CEXT_F(___3a7e0h)	
@@ -584,7 +582,7 @@ ___3ecf0h:
 		mov     al, [esp+8]
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb50h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -594,7 +592,7 @@ ___3ecf0h:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb54h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)+4]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -604,7 +602,7 @@ ___3ecf0h:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb58h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)+8]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0

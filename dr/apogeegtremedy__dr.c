@@ -11,7 +11,7 @@
     extern void * VGABufferPtr_0;
 
     void read__bpa(const char *, void *, const char *);
-    void ___3d154h(dword);
+    void loadPalette(dword);
     #pragma aux ___5e0f9h parm routine []
 	void ___5e0f9h(dword, dword, dword, dword);
     #pragma aux decode2__bpk parm routine []
@@ -33,7 +33,7 @@ void apogee_gt_remedy(void){
 	while(++D(esp) < 0x100) ___5e0f9h(0, 0, 0, D(esp));
 	
 
-	___3d154h(___182818h);
+	loadPalette(___182818h);
 	read__bpa(MENU_BPA, BPA_Buffer, ___182824h);
 	decode2__bpk(VGABufferPtr_0, BPA_Buffer);
 	___12cb8h();
@@ -44,7 +44,7 @@ void apogee_gt_remedy(void){
 
 	___3d2bch();
 
-	___3d154h(___182830h);
+	loadPalette(___182830h);
 	read__bpa(MENU_BPA, BPA_Buffer, ___18283ch);
 	decode2__bpk(VGABufferPtr_0, BPA_Buffer);
 	___12cb8h();
@@ -55,7 +55,7 @@ void apogee_gt_remedy(void){
 
 	___3d2bch();
 
-	___3d154h(___182848h);
+	loadPalette(___182848h);
 	read__bpa(MENU_BPA, BPA_Buffer, ___182854h);
 	decode2__bpk(VGABufferPtr_0, BPA_Buffer);
 	___12cb8h();

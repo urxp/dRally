@@ -11,7 +11,7 @@
     extern byte VGABufferPtr_0[];
 
     void read__bpa(const char *, void *, const char *);
-    void ___3d154h(dword);
+    void loadPalette(dword);
     #pragma aux ___5e0f9h parm routine []
 	void ___5e0f9h(dword, dword, dword, dword);
     #pragma aux decode2__bpk parm routine []
@@ -75,8 +75,8 @@ ___3d3a4h:
 	ebx = ___182824h;
 //		mov     edx, __CEXT_V(BPA_Buffer)
 	edx = BPA_Buffer;
-//		call    __CEXT_F(___3d154h)
-	___3d154h(eax);
+//		call    __CEXT_F(loadPalette)
+	loadPalette(eax);
 //		mov     eax, __CEXT_V(MENU_BPA)
 	eax = MENU_BPA;
 //		call    __CEXT_F(read__bpa)
@@ -124,8 +124,8 @@ ___3d420h:
 	ebx = ___18283ch;
 //		mov     edx, __CEXT_V(BPA_Buffer)
 	edx = BPA_Buffer;
-//		call    __CEXT_F(___3d154h)
-	___3d154h(eax);
+//		call    __CEXT_F(loadPalette)
+	loadPalette(eax);
 //		mov     eax, __CEXT_V(MENU_BPA)
 	eax = MENU_BPA;
 //		call    __CEXT_F(read__bpa)
@@ -173,8 +173,8 @@ ___3d480h:
 	ebx = ___182854h;
 //		mov     edx, __CEXT_V(BPA_Buffer)
 	edx = BPA_Buffer;
-//		call    __CEXT_F(___3d154h)
-	___3d154h(eax);
+//		call    __CEXT_F(loadPalette)
+	loadPalette(eax);
 //		mov     eax, __CEXT_V(MENU_BPA)
 	eax = MENU_BPA;
 //		call    __CEXT_F(read__bpa)

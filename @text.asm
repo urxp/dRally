@@ -1229,7 +1229,7 @@ ___115f2h:
 		mov     edx, [esp+10h]
 		mov     ebx, edi
 		shl     edx, 10h
-		mov     [ecx+___19eb44h], eax
+		mov     [ecx+__CEXT_V(Pal8to24_1)-0ch], eax
 		xor     eax, eax
 		shrd    eax, edx, 10h
 		sar     edx, 10h
@@ -1237,7 +1237,7 @@ ___115f2h:
 		mov     edx, [esp+0ch]
 		mov     ebx, edi
 		shl     edx, 10h
-		mov     [ecx+___19eb48h], eax
+		mov     [ecx+__CEXT_V(Pal8to24_1)-8], eax
 		xor     eax, eax
 		shrd    eax, edx, 10h
 		sar     edx, 10h
@@ -1245,7 +1245,7 @@ ___115f2h:
 		mov     ebx, [esp+34h]
 		inc     esi
 		inc     ebx
-		mov     [ecx+__CEXT_V(___19eb4ch)], eax
+		mov     [ecx+__CEXT_V(Pal8to24_1)-4], eax
 		mov     [esp+34h], ebx
 		cmp     ebx, byte 10h
 		jl      near ___115f2h
@@ -1309,7 +1309,7 @@ ___1170ah:
 		mov     edx, [esp+10h]
 		mov     ebx, edi
 		shl     edx, 10h
-		mov     [ecx+___19eb44h], eax
+		mov     [ecx+__CEXT_V(Pal8to24_1)-0ch], eax
 		xor     eax, eax
 		shrd    eax, edx, 10h
 		sar     edx, 10h
@@ -1317,7 +1317,7 @@ ___1170ah:
 		mov     edx, [esp+0ch]
 		mov     ebx, edi
 		shl     edx, 10h
-		mov     [ecx+___19eb48h], eax
+		mov     [ecx+__CEXT_V(Pal8to24_1)-8], eax
 		xor     eax, eax
 		shrd    eax, edx, 10h
 		sar     edx, 10h
@@ -1325,7 +1325,7 @@ ___1170ah:
 		mov     ebx, [esp+18h]
 		inc     esi
 		inc     ebx
-		mov     [ecx+__CEXT_V(___19eb4ch)], eax
+		mov     [ecx+__CEXT_V(Pal8to24_1)-4], eax
 		mov     [esp+18h], ebx
 		cmp     ebx, byte 10h
 		jl      near ___1170ah
@@ -2342,35 +2342,35 @@ ___12972h:
 		idiv    ebx
 		mov     ebx, 640000h
 		mov     edx, ebp
-		mov     [ecx+__CEXT_V(___19eb50h)], eax
+		mov     [ecx+__CEXT_V(Pal8to24_1)], eax
 		xor     eax, eax
 		shrd    eax, edx, 10h
 		sar     edx, 10h
 		idiv    ebx
 		mov     ebx, 640000h
 		mov     edx, edi
-		mov     [ecx+__CEXT_V(___19eb54h)], eax
+		mov     [ecx+__CEXT_V(Pal8to24_1)+4], eax
 		xor     eax, eax
 		shrd    eax, edx, 10h
 		sar     edx, 10h
 		idiv    ebx
 		mov     ebx, 640000h
 		mov     edx, esi
-		mov     [ecx+__CEXT_V(___19eb58h)], eax
+		mov     [ecx+__CEXT_V(Pal8to24_1)+8], eax
 		xor     eax, eax
 		shrd    eax, edx, 10h
 		sar     edx, 10h
 		idiv    ebx
 		mov     ebx, 640000h
 		mov     edx, ebp
-		mov     [ecx+__CEXT_V(___19df50h)], eax
+		mov     [ecx+__CEXT_V(Pal8to24_0)], eax
 		xor     eax, eax
 		shrd    eax, edx, 10h
 		sar     edx, 10h
 		idiv    ebx
 		mov     ebx, 640000h
 		mov     edx, edi
-		mov     [ecx+__CEXT_V(___19df54h)], eax
+		mov     [ecx+__CEXT_V(Pal8to24_0)+4], eax
 		xor     eax, eax
 		shrd    eax, edx, 10h
 		sar     edx, 10h
@@ -9993,7 +9993,7 @@ ___19115h:
 		mov     al, [esp+4]
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb50h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -10003,7 +10003,7 @@ ___19115h:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb54h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)+4]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -10013,7 +10013,7 @@ ___19115h:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb58h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1+8)]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -10038,7 +10038,7 @@ ___191b4h:
 		mov     al, [esp+4]
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb50h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -10048,7 +10048,7 @@ ___191b4h:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb54h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)+4]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -10058,7 +10058,7 @@ ___191b4h:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb58h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)+8]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -10145,7 +10145,7 @@ ___19336h:
 		mov     al, [esp+4]
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb50h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -10155,7 +10155,7 @@ ___19336h:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb54h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)+4]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -10165,7 +10165,7 @@ ___19336h:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb58h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)+8]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -10190,7 +10190,7 @@ ___193d4h:
 		mov     al, [esp+4]
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb50h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -10200,7 +10200,7 @@ ___193d4h:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb54h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1+4)]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -10210,7 +10210,7 @@ ___193d4h:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb58h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1+8)]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -17131,7 +17131,7 @@ ___1e905h:
 		push    eax
 		imul    eax, ebx, byte 0ch
 		mov     edx, esi
-		mov     eax, [eax+__CEXT_V(___19eb50h)]
+		mov     eax, [eax+__CEXT_V(Pal8to24_1)]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -17143,7 +17143,7 @@ ___1e905h:
 		mov     eax, [esp+8]
 		lea     eax, [eax+eax*2]
 		mov     edx, esi
-		mov     eax, [eax*4+__CEXT_V(___19eb54h)]
+		mov     eax, [eax*4+__CEXT_V(Pal8to24_1)+4]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -17155,7 +17155,7 @@ ___1e905h:
 		mov     eax, [esp+0ch]
 		lea     eax, [eax+eax*2]
 		mov     edx, esi
-		mov     eax, [eax*4+__CEXT_V(___19eb58h)]
+		mov     eax, [eax*4+__CEXT_V(Pal8to24_1)+8]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -17180,7 +17180,7 @@ ___1e9ach:
 		push    eax
 		imul    eax, ebx, byte 0ch
 		mov     edx, esi
-		mov     eax, [eax+__CEXT_V(___19eb50h)]
+		mov     eax, [eax+__CEXT_V(Pal8to24_1)]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -17192,7 +17192,7 @@ ___1e9ach:
 		mov     eax, [esp+8]
 		lea     eax, [eax+eax*2]
 		mov     edx, esi
-		mov     eax, [eax*4+__CEXT_V(___19eb54h)]
+		mov     eax, [eax*4+__CEXT_V(Pal8to24_1+4)]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -17204,7 +17204,7 @@ ___1e9ach:
 		mov     eax, [esp+0ch]
 		lea     eax, [eax+eax*2]
 		mov     edx, esi
-		mov     eax, [eax*4+__CEXT_V(___19eb58h)]
+		mov     eax, [eax*4+__CEXT_V(Pal8to24_1+8)]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -17310,7 +17310,7 @@ ___1eb91h:
 		push    eax
 		imul    eax, ebx, byte 0ch
 		mov     edx, esi
-		mov     eax, [eax+__CEXT_V(___19eb50h)]
+		mov     eax, [eax+__CEXT_V(Pal8to24_1)]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -17322,7 +17322,7 @@ ___1eb91h:
 		mov     eax, [esp+8]
 		lea     eax, [eax+eax*2]
 		mov     edx, esi
-		mov     eax, [eax*4+__CEXT_V(___19eb54h)]
+		mov     eax, [eax*4+__CEXT_V(Pal8to24_1+4)]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -17334,7 +17334,7 @@ ___1eb91h:
 		mov     eax, [esp+0ch]
 		lea     eax, [eax+eax*2]
 		mov     edx, esi
-		mov     eax, [eax*4+__CEXT_V(___19eb58h)]
+		mov     eax, [eax*4+__CEXT_V(Pal8to24_1+8)]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -17359,7 +17359,7 @@ ___1ec38h:
 		push    eax
 		imul    eax, ebx, byte 0ch
 		mov     edx, esi
-		mov     eax, [eax+__CEXT_V(___19eb50h)]
+		mov     eax, [eax+__CEXT_V(Pal8to24_1)]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -17371,7 +17371,7 @@ ___1ec38h:
 		mov     eax, [esp+8]
 		lea     eax, [eax+eax*2]
 		mov     edx, esi
-		mov     eax, [eax*4+__CEXT_V(___19eb54h)]
+		mov     eax, [eax*4+__CEXT_V(Pal8to24_1)+4]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -17383,7 +17383,7 @@ ___1ec38h:
 		mov     eax, [esp+0ch]
 		lea     eax, [eax+eax*2]
 		mov     edx, esi
-		mov     eax, [eax*4+__CEXT_V(___19eb58h)]
+		mov     eax, [eax*4+__CEXT_V(Pal8to24_1)+8]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -22588,7 +22588,7 @@ ___2297dh:
 		mov     al, [esp+64h]
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb50h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -22598,7 +22598,7 @@ ___2297dh:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb54h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)+4]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -22608,7 +22608,7 @@ ___2297dh:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb58h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)+8]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -24359,7 +24359,7 @@ ___240ebh:
 		mov     edx, [esp+10h]
 		mov     ebx, edi
 		shl     edx, 10h
-		mov     [ecx+__CEXT_V(___19eb50h)], eax
+		mov     [ecx+__CEXT_V(Pal8to24_1)], eax
 		xor     eax, eax
 		shrd    eax, edx, 10h
 		sar     edx, 10h
@@ -24367,7 +24367,7 @@ ___240ebh:
 		mov     edx, [esp+0ch]
 		mov     ebx, edi
 		shl     edx, 10h
-		mov     [ecx+__CEXT_V(___19eb54h)], eax
+		mov     [ecx+__CEXT_V(Pal8to24_1)+4], eax
 		xor     eax, eax
 		shrd    eax, edx, 10h
 		sar     edx, 10h
@@ -24375,7 +24375,7 @@ ___240ebh:
 		mov     ebx, [esp+18h]
 		add     ecx, byte 0ch
 		inc     ebx
-		mov     [ecx+__CEXT_V(___19eb4ch)], eax
+		mov     [ecx+__CEXT_V(Pal8to24_1)-4], eax
 		mov     [esp+18h], ebx
 		cmp     ebx, byte 7
 		jl      near ___24077h
@@ -30879,7 +30879,7 @@ ___2a3b2h:
 		mov     edx, [__CEXT_V(___1a1edch)]
 		push    eax
 		shl     edx, 10h
-		mov     eax, [esi+__CEXT_V(___19df50h)]
+		mov     eax, [esi+__CEXT_V(Pal8to24_0)]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -30890,7 +30890,7 @@ ___2a3b2h:
 		mov     edx, [__CEXT_V(___1a1edch)]
 		push    eax
 		shl     edx, 10h
-		mov     eax, [esi+__CEXT_V(___19df54h)]
+		mov     eax, [esi+__CEXT_V(Pal8to24_0)+4]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -30901,7 +30901,7 @@ ___2a3b2h:
 		mov     edx, [__CEXT_V(___1a1edch)]
 		push    eax
 		shl     edx, 10h
-		mov     eax, [esi+__CEXT_V(___19df58h)]
+		mov     eax, [esi+__CEXT_V(Pal8to24_0)+8]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -31406,7 +31406,7 @@ ___2b60eh:
 		mov     al, [esp]
 		push    eax
 		mov     edx, edi
-		mov     eax, [esi+__CEXT_V(___19eb50h)]
+		mov     eax, [esi+__CEXT_V(Pal8to24_1)]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -31416,7 +31416,7 @@ ___2b60eh:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, edi
-		mov     eax, [esi+__CEXT_V(___19eb54h)]
+		mov     eax, [esi+__CEXT_V(Pal8to24_1)+4]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -31426,7 +31426,7 @@ ___2b60eh:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, edi
-		mov     eax, [esi+__CEXT_V(___19eb58h)]
+		mov     eax, [esi+__CEXT_V(Pal8to24_1)+8]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -32016,7 +32016,7 @@ ___2beedh:
 		mov     al, [esp+20h]
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb50h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -32026,7 +32026,7 @@ ___2beedh:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb54h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)+4]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -32036,7 +32036,7 @@ ___2beedh:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb58h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)+8]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -32061,7 +32061,7 @@ ___2bf8ch:
 		mov     al, [esp+20h]
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb50h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -32071,7 +32071,7 @@ ___2bf8ch:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb54h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)+4]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -32081,7 +32081,7 @@ ___2bf8ch:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb58h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)+8]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -32897,7 +32897,7 @@ ___2ccc4h:
 		mov     al, [esp+20h]
 		push    eax
 		mov     edx, edi
-		mov     eax, [esi+__CEXT_V(___19eb50h)]
+		mov     eax, [esi+__CEXT_V(Pal8to24_1)]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -32907,7 +32907,7 @@ ___2ccc4h:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, edi
-		mov     eax, [esi+__CEXT_V(___19eb54h)]
+		mov     eax, [esi+__CEXT_V(Pal8to24_1)+4]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -32917,7 +32917,7 @@ ___2ccc4h:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, edi
-		mov     eax, [esi+__CEXT_V(___19eb58h)]
+		mov     eax, [esi+__CEXT_V(Pal8to24_1)+8]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -35421,7 +35421,7 @@ ___2ef85h:
 		mov     al, [esp]
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb50h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -35431,7 +35431,7 @@ ___2ef85h:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb54h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)+4]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -35441,7 +35441,7 @@ ___2ef85h:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb58h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)+8]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -35466,7 +35466,7 @@ ___2f020h:
 		mov     al, [esp]
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb50h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -35476,7 +35476,7 @@ ___2f020h:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb54h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)+4]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -35486,7 +35486,7 @@ ___2f020h:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb58h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)+8]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -35591,7 +35591,7 @@ ___2f1f7h:
 		mov     al, [esp]
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb50h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -35601,7 +35601,7 @@ ___2f1f7h:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb54h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)+4]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -35611,7 +35611,7 @@ ___2f1f7h:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb58h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)+8]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -35636,7 +35636,7 @@ ___2f292h:
 		mov     al, [esp]
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb50h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -35646,7 +35646,7 @@ ___2f292h:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb54h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)+4]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -35656,7 +35656,7 @@ ___2f292h:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb58h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)+8]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -35857,7 +35857,7 @@ ___2f5b1h:
 		mov     al, [esp]
 		push    eax
 		mov     edx, edi
-		mov     eax, [esi+__CEXT_V(___19eb50h)]
+		mov     eax, [esi+__CEXT_V(Pal8to24_1)]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -35867,7 +35867,7 @@ ___2f5b1h:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, edi
-		mov     eax, [esi+__CEXT_V(___19eb54h)]
+		mov     eax, [esi+__CEXT_V(Pal8to24_1)+4]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -35877,7 +35877,7 @@ ___2f5b1h:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, edi
-		mov     eax, [esi+__CEXT_V(___19eb58h)]
+		mov     eax, [esi+__CEXT_V(Pal8to24_1)+8]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -36109,7 +36109,7 @@ ___2f998h:
 		mov     al, [esp]
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb50h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -36119,7 +36119,7 @@ ___2f998h:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb54h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)+4]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -36129,7 +36129,7 @@ ___2f998h:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb58h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)+8]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -36154,7 +36154,7 @@ ___2fa33h:
 		mov     al, [esp]
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb50h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -36164,7 +36164,7 @@ ___2fa33h:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb54h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)+4]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -36174,7 +36174,7 @@ ___2fa33h:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb58h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)+8]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -37931,7 +37931,7 @@ ___3102eh:
 		mov     al, [esp+28h]
 		push    eax
 		mov     edx, edi
-		mov     eax, [esi+__CEXT_V(___19eb50h)]
+		mov     eax, [esi+__CEXT_V(Pal8to24_1)]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -37941,7 +37941,7 @@ ___3102eh:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, edi
-		mov     eax, [esi+__CEXT_V(___19eb54h)]
+		mov     eax, [esi+__CEXT_V(Pal8to24_1)+4]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -37951,7 +37951,7 @@ ___3102eh:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, edi
-		mov     eax, [esi+__CEXT_V(___19eb58h)]
+		mov     eax, [esi+__CEXT_V(Pal8to24_1)+8]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -38187,7 +38187,7 @@ ___31384h:
 		mov     al, [esp+28h]
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb50h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -38197,7 +38197,7 @@ ___31384h:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb54h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)+4]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -38207,7 +38207,7 @@ ___31384h:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb58h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)+8]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -39749,7 +39749,7 @@ ___326a2h:
 		mov     al, [esp+5ch]
 		push    eax
 		mov     edx, edi
-		mov     eax, [esi+__CEXT_V(___19eb50h)]
+		mov     eax, [esi+__CEXT_V(Pal8to24_1)]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -39759,7 +39759,7 @@ ___326a2h:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, edi
-		mov     eax, [esi+__CEXT_V(___19eb54h)]
+		mov     eax, [esi+__CEXT_V(Pal8to24_1)+4]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -39769,7 +39769,7 @@ ___326a2h:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, edi
-		mov     eax, [esi+__CEXT_V(___19eb58h)]
+		mov     eax, [esi+__CEXT_V(Pal8to24_1)+8]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -40360,7 +40360,7 @@ ___32ed0h:
 		mov     al, [esp+5ch]
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb50h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -40370,7 +40370,7 @@ ___32ed0h:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb54h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)+4]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -40380,7 +40380,7 @@ ___32ed0h:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb58h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)+8]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -43579,7 +43579,7 @@ ___35bfah:
 		mov     edx, [esp+8]
 		mov     ebx, edi
 		shl     edx, 10h
-		mov     [ecx+___19eb44h], eax
+		mov     [ecx+__CEXT_V(Pal8to24_1)-0ch], eax
 		xor     eax, eax
 		shrd    eax, edx, 10h
 		sar     edx, 10h
@@ -43587,7 +43587,7 @@ ___35bfah:
 		mov     edx, [esp+0ch]
 		mov     ebx, edi
 		shl     edx, 10h
-		mov     [ecx+___19eb48h], eax
+		mov     [ecx+__CEXT_V(Pal8to24_1)-8], eax
 		xor     eax, eax
 		shrd    eax, edx, 10h
 		sar     edx, 10h
@@ -43595,7 +43595,7 @@ ___35bfah:
 		mov     ebx, [esp+34h]
 		inc     esi
 		inc     ebx
-		mov     [ecx+__CEXT_V(___19eb4ch)], eax
+		mov     [ecx+__CEXT_V(Pal8to24_1)-4], eax
 		mov     [esp+34h], ebx
 		cmp     ebx, byte 8
 		jl      near ___35bfah
@@ -43659,7 +43659,7 @@ ___35d12h:
 		mov     edx, [esp+8]
 		mov     ebx, edi
 		shl     edx, 10h
-		mov     [ecx+___19eb44h], eax
+		mov     [ecx+__CEXT_V(Pal8to24_1)-0ch], eax
 		xor     eax, eax
 		shrd    eax, edx, 10h
 		sar     edx, 10h
@@ -43667,7 +43667,7 @@ ___35d12h:
 		mov     edx, [esp+0ch]
 		mov     ebx, edi
 		shl     edx, 10h
-		mov     [ecx+___19eb48h], eax
+		mov     [ecx+__CEXT_V(Pal8to24_1)-8], eax
 		xor     eax, eax
 		shrd    eax, edx, 10h
 		sar     edx, 10h
@@ -43675,7 +43675,7 @@ ___35d12h:
 		mov     ebx, [esp+18h]
 		inc     esi
 		inc     ebx
-		mov     [ecx+__CEXT_V(___19eb4ch)], eax
+		mov     [ecx+__CEXT_V(Pal8to24_1)-4], eax
 		mov     [esp+18h], ebx
 		cmp     ebx, byte 8
 		jl      near ___35d12h
@@ -44361,7 +44361,7 @@ ___36677h:
 		mov     al, [esp+4]
 		push    eax
 		mov     edx, ebp
-		mov     eax, [esi+__CEXT_V(___19eb50h)]
+		mov     eax, [esi+__CEXT_V(Pal8to24_1)]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -44371,7 +44371,7 @@ ___36677h:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, ebp
-		mov     eax, [esi+__CEXT_V(___19eb54h)]
+		mov     eax, [esi+__CEXT_V(Pal8to24_1)+4]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -44381,7 +44381,7 @@ ___36677h:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, ebp
-		mov     eax, [esi+__CEXT_V(___19eb58h)]
+		mov     eax, [esi+__CEXT_V(Pal8to24_1)+8]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -44650,7 +44650,7 @@ ___36a3ah:
 		mov     al, [esp+4]
 		push    eax
 		mov     edx, ebp
-		mov     eax, [esi+__CEXT_V(___19eb50h)]
+		mov     eax, [esi+__CEXT_V(Pal8to24_1)]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -44660,7 +44660,7 @@ ___36a3ah:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, ebp
-		mov     eax, [esi+__CEXT_V(___19eb54h)]
+		mov     eax, [esi+__CEXT_V(Pal8to24_1)+4]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -44670,7 +44670,7 @@ ___36a3ah:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, ebp
-		mov     eax, [esi+__CEXT_V(___19eb58h)]
+		mov     eax, [esi+__CEXT_V(Pal8to24_1)+8]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -47381,7 +47381,7 @@ ___389a3h:
 		mov     al, [esp+68h]
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb50h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -47391,7 +47391,7 @@ ___389a3h:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb54h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)+4]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -47401,7 +47401,7 @@ ___389a3h:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb58h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)+8]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -47426,7 +47426,7 @@ ___38a40h:
 		mov     al, [esp+68h]
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb50h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -47436,7 +47436,7 @@ ___38a40h:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb54h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)+4]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -47446,7 +47446,7 @@ ___38a40h:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb58h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)+8]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -47484,7 +47484,7 @@ ___38b0eh:
 		mov     al, [esp+68h]
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb50h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -47494,7 +47494,7 @@ ___38b0eh:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb54h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)+4]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -47504,7 +47504,7 @@ ___38b0eh:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb58h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)+8]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -47529,7 +47529,7 @@ ___38babh:
 		mov     al, [esp+68h]
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb50h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -47539,7 +47539,7 @@ ___38babh:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb54h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)+4]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -47549,7 +47549,7 @@ ___38babh:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb58h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)+8]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -47645,7 +47645,7 @@ ___38d19h:
 		mov     al, [esp+68h]
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb50h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -47655,7 +47655,7 @@ ___38d19h:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb54h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)+4]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -47665,7 +47665,7 @@ ___38d19h:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb58h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)+8]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -47841,7 +47841,7 @@ ___38fe9h:
 		mov     al, [esp+68h]
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb50h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -47851,7 +47851,7 @@ ___38fe9h:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb54h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)+4]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -47861,7 +47861,7 @@ ___38fe9h:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb58h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)+8]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -47887,7 +47887,7 @@ ___39085h:
 		mov     al, [esp+68h]
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb50h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -47897,7 +47897,7 @@ ___39085h:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb54h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)+4]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -47907,7 +47907,7 @@ ___39085h:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb58h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)+8]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -47932,7 +47932,7 @@ ___39122h:
 		mov     al, [esp+68h]
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb50h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -47942,7 +47942,7 @@ ___39122h:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb54h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)+4]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -47952,7 +47952,7 @@ ___39122h:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb58h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)+8]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -48070,7 +48070,7 @@ ___392eeh:
 		mov     al, [esp+68h]
 		push    eax
 		mov     edx, edi
-		mov     eax, [esi+__CEXT_V(___19eb50h)]
+		mov     eax, [esi+__CEXT_V(Pal8to24_1)]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -48080,7 +48080,7 @@ ___392eeh:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, edi
-		mov     eax, [esi+__CEXT_V(___19eb54h)]
+		mov     eax, [esi+__CEXT_V(Pal8to24_1)+4]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -48090,7 +48090,7 @@ ___392eeh:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, edi
-		mov     eax, [esi+__CEXT_V(___19eb58h)]
+		mov     eax, [esi+__CEXT_V(Pal8to24_1)+8]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -48123,7 +48123,7 @@ ___393a9h:
 		mov     al, [esp+68h]
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb50h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -48133,7 +48133,7 @@ ___393a9h:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb54h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)+4]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -48143,7 +48143,7 @@ ___393a9h:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb58h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)+8]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -48266,7 +48266,7 @@ ___39588h:
 		mov     al, [esp+68h]
 		push    eax
 		mov     edx, edi
-		mov     eax, [esi+__CEXT_V(___19eb50h)]
+		mov     eax, [esi+__CEXT_V(Pal8to24_1)]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -48276,7 +48276,7 @@ ___39588h:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, edi
-		mov     eax, [esi+__CEXT_V(___19eb54h)]
+		mov     eax, [esi+__CEXT_V(Pal8to24_1)+4]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -48286,7 +48286,7 @@ ___39588h:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, edi
-		mov     eax, [esi+__CEXT_V(___19eb58h)]
+		mov     eax, [esi+__CEXT_V(Pal8to24_1)+8]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -49092,7 +49092,7 @@ ___39eb0h:
 		mov     al, [esp+5ch]
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb50h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -49102,7 +49102,7 @@ ___39eb0h:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb54h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)+4]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -49112,7 +49112,7 @@ ___39eb0h:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb58h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)+8]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -49214,7 +49214,7 @@ ___3a089h:
 		mov     al, [esp+5ch]
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb50h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -49224,7 +49224,7 @@ ___3a089h:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb54h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)+4]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -49234,7 +49234,7 @@ ___3a089h:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb58h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)+8]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -49259,7 +49259,7 @@ ___3a126h:
 		mov     al, [esp+5ch]
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb50h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -49269,7 +49269,7 @@ ___3a126h:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb54h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)+4]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -49279,7 +49279,7 @@ ___3a126h:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb58h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)+8]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -52850,64 +52850,6 @@ ___3d136h:
 		pop     ecx
 		pop     ebx
 		retn    
-__GDECL(__CEXT_F(___3d154h))
-		push    31ch
-		call    near __CHK
-		push    ebx
-		push    ecx
-		push    edx
-		push    esi
-		push    edi
-		push    ebp
-		sub     esp, 300h
-		mov     edx, esp
-		mov     ebx, eax
-		xor     esi, esi
-		mov     eax, __CEXT_V(MENU_BPA)
-		xor     ecx, ecx
-		call    near __CEXT_F(read__bpa)
-		mov     ebp, 640000h
-___3d181h:
-		lea     edi, [esi+esi*2]
-		xor     edx, edx
-		mov     dl, [esp+edi]
-		mov     ebx, ebp
-		shl     edx, 10h
-		xor     eax, eax
-		shrd    eax, edx, 10h
-		sar     edx, 10h
-		idiv    ebx
-		xor     edx, edx
-		add     ecx, byte 0ch
-		mov     dl, [esp+edi+1]
-		mov     ebx, ebp
-		shl     edx, 10h
-		mov     [ecx+___19eb44h], eax
-		xor     eax, eax
-		shrd    eax, edx, 10h
-		sar     edx, 10h
-		idiv    ebx
-		xor     edx, edx
-		inc     esi
-		mov     dl, [esp+edi+2]
-		mov     ebx, ebp
-		shl     edx, 10h
-		mov     [ecx+___19eb48h], eax
-		xor     eax, eax
-		shrd    eax, edx, 10h
-		sar     edx, 10h
-		idiv    ebx
-		mov     [ecx+__CEXT_V(___19eb4ch)], eax
-		cmp     esi, 100h
-		jl      short ___3d181h
-		add     esp, 300h
-		pop     ebp
-		pop     edi
-		pop     esi
-		pop     edx
-		pop     ecx
-		pop     ebx
-		retn    
 __GDECL(__CEXT_F(___3d1f0h))
 		push    30h
 		call    near __CHK
@@ -52930,7 +52872,7 @@ ___3d213h:
 		mov     al, [esp]
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb50h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -52940,7 +52882,7 @@ ___3d213h:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb54h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)+4]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -52950,7 +52892,7 @@ ___3d213h:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb58h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)+8]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -52999,7 +52941,7 @@ ___3d2e2h:
 		mov     al, [esp]
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb50h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -53009,7 +52951,7 @@ ___3d2e2h:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb54h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)+4]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -53019,7 +52961,7 @@ ___3d2e2h:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb58h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)+8]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -53093,7 +53035,7 @@ ___3d55fh:
 		mov     al, [esp+8]
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb50h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -53103,7 +53045,7 @@ ___3d55fh:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb54h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)+4]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -53113,7 +53055,7 @@ ___3d55fh:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb58h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)+8]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -53138,7 +53080,7 @@ ___3d55fh:
 		mov     eax, ___182860h
 		mov     ebx, ___18286ch
 		mov     edx, __CEXT_V(BPA_Buffer)
-		call    near __CEXT_F(___3d154h)
+		call    near __CEXT_F(loadPalette)
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
 		push    __CEXT_V(BPA_Buffer)
@@ -53155,7 +53097,7 @@ ___3d63dh:
 		mov     eax, ___182878h
 		mov     ebx, ___182884h
 		mov     edx, __CEXT_V(BPA_Buffer)
-		call    near __CEXT_F(___3d154h)
+		call    near __CEXT_F(loadPalette)
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
 		push    __CEXT_V(BPA_Buffer)
@@ -53205,7 +53147,7 @@ ___3d6edh:
 		mov     al, [esp+8]
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb50h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -53215,7 +53157,7 @@ ___3d6edh:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb54h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)+4]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -53225,7 +53167,7 @@ ___3d6edh:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb58h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)+8]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -53282,7 +53224,7 @@ ___3d7d8h:
 		mov     al, [esp+4]
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb50h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -53292,7 +53234,7 @@ ___3d7d8h:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb54h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)+4]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -53302,7 +53244,7 @@ ___3d7d8h:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb58h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)+8]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -53359,7 +53301,7 @@ ___3d8a6h:
 		mov     eax, ___182890h
 		mov     ebx, ___1828a0h
 		mov     edx, __CEXT_V(BPA_Buffer)
-		call    near __CEXT_F(___3d154h)
+		call    near __CEXT_F(loadPalette)
 		mov     eax, __CEXT_V(MENU_BPA)
 		call    near __CEXT_F(read__bpa)
 		push    __CEXT_V(BPA_Buffer)
@@ -53458,7 +53400,7 @@ ___3d9c0h:
 		push    ecx
 		push    esi
 		mov     esi, ebx
-		call    near __CEXT_F(___3d154h)
+		call    near __CEXT_F(loadPalette)
 		mov     eax, __CEXT_V(MENU_BPA)
 		mov     ebx, edx
 		mov     edx, __CEXT_V(BPA_Buffer)
@@ -53603,7 +53545,7 @@ ___3db31h:
 		mov     al, [esp+64h]
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb50h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -53613,7 +53555,7 @@ ___3db31h:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb54h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)+4]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -53623,7 +53565,7 @@ ___3db31h:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb58h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)+8]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -53793,7 +53735,7 @@ ___3de07h:
 		mov     al, [esp+64h]
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb50h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -53803,7 +53745,7 @@ ___3de07h:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb54h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)+4]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -53813,7 +53755,7 @@ ___3de07h:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(___19eb58h)]
+		mov     eax, [edi+__CEXT_V(Pal8to24_1)+8]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
