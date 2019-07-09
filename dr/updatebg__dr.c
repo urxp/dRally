@@ -47,7 +47,7 @@ typedef enum eNetworkConnectionType {
     extern byte ___59e68h[];
     extern int ___196a88h;
     extern int ___196ad8h;
-    extern pal3 * bgcop_pal_p;
+    extern pal3 * p_pal_bgcop;
     extern dword NetworkConnectionEstablished;
     extern byte ___1a1f4fh[];
     extern byte ___1a1f4eh[];
@@ -159,9 +159,9 @@ void updateMenuBackgroundAndTextArea(){
 
         if(--___196ad8h < 0) ___196ad8h = 0x1ff;
 
-        __0 = (double)bgcop_pal_p[___196ad8h].__0 * d_1o64;
-        __1 = (double)bgcop_pal_p[___196ad8h].__1 * d_1o64;
-        __2 = (double)bgcop_pal_p[___196ad8h].__2 * d_1o64;
+        __0 = (double)p_pal_bgcop[___196ad8h].__0 * d_1o64;
+        __1 = (double)p_pal_bgcop[___196ad8h].__1 * d_1o64;
+        __2 = (double)p_pal_bgcop[___196ad8h].__2 * d_1o64;
 
         n = 0;
 

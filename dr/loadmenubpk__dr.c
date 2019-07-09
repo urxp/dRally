@@ -1,315 +1,314 @@
 #include "x86.h"
 
-enum {
-	KUPLA, PICKUP, SEDAN, CAMARO, PORSCHE, LOTUS
-};
-
-enum {
-	LEVEL1, LEVEL2, LEVEL3, LEVEL4
-};
-
-    extern const char MENU_BPA[];
-
-//    extern void * bpk_kupla_p;
-//    extern void * bpk_pickup_p;
-//    extern void * bpk_sedan_p;
-//    extern void * bpk_camaro_p;
-//    extern void * bpk_porsche_p;
-//    extern void * bpk_lotus_p;
-	extern void * bpk_cars[];
-
-//    extern byte bpk_engi1_p[];
-//    extern byte bpk_engi2_p[];
-//    extern byte bpk_engi3_p[];
-//    extern byte bpk_engi4_p[];
-	extern void * bpk_engines[];
-
-
-//    extern byte bpk_tire1_p[];
-//    extern byte bpk_tire2_p[];
-//    extern byte bpk_tire3_p[];
-//    extern byte bpk_tire4_p[];
-	extern void * bpk_tires[];
-
-//    extern byte bpk_armor1_p[];
-//    extern byte bpk_armor2_p[];
-//    extern byte bpk_armor3_p[];
-//    extern byte bpk_armor4_p[];
-	extern void * bpk_armors[];
-
-    extern byte ___1a1edch[];
-    extern byte ___1a1ecch[];
-    extern byte ___1a1ee8h[];
-    extern byte MyID[];
-    extern byte ___1a1ee0h[];
-    extern byte ___1a1eech[];
-    extern byte ___1a1ec0h[];
-    extern byte ___1a1ec8h[];
-    extern byte ___1a1ed0h[];
-    extern byte Roster[];
-    extern byte ___1a1ec4h[];
-    extern byte ___1a1ee4h[];
-    extern byte ___1a1124h[];
-    extern byte ___1a10e4h[];
-    extern byte ___1a1e80h[];
-    extern byte ___1a1e74h[];
-    extern byte ___1a1e84h[];
-    extern byte ___1a1e60h[];
-    extern byte ___1a1ed4h[];
-    extern byte ___1a1e90h[];
-    extern byte ___1a10b0h[];
-    extern byte ___1a1eb0h[];
-    extern byte ___1a1e78h[];
-    extern byte ___1a1eb8h[];
-    extern byte ___1a0180h[];
-    extern byte ___1a0184h[];
-    extern byte ___1a0188h[];
-    extern byte ___1a018ch[];
-    extern byte ___1a0190h[];
-    extern byte ___1a0194h[];
-    extern byte ___1a1e8ch[];
-    extern byte ___1a1ea0h[];
-    extern byte tex_carframe[];
-    extern byte ___1a1ebch[];
-    extern byte ___1a1eb4h[];
-    extern byte ___1a1e88h[];
-    extern byte ___1a1ea4h[];
-    extern byte ___1a1ea8h[];
-    extern byte ___1a1e6ch[];
-    extern byte ___1a1e98h[];
-    extern byte ___1a1each[];
-    extern byte ___1a1e94h[];
-    extern byte ___1a1e9ch[];
-    extern byte ___1a1e70h[];
-    extern byte ___1a1e5ch[];
-    extern byte ___1a1e58h[];
-    extern byte ___1a1e54h[];
-    extern byte ___1a1e64h[];
-
+    extern const char MENU_BPA[];         // "MENU.BPA"
     extern byte BPA_Buffer[];
 
-    extern const char ___181d24h[];		// "statbas7.bpk"
-    extern const char ___181d34h[];		// "statpop4.bpk"
-    extern const char ___181d44h[];		// "f-sma3f.bpk"
-    extern const char ___181d50h[];		// "kupla.bpk"
-    extern const char ___181d5ch[];		// "pickup.bpk"
-    extern const char ___181d68h[];		// "sedan.bpk"
-    extern const char ___181d74h[];		// "camaro.bpk"
-    extern const char ___181d80h[];		// "porsche.bpk"
-    extern const char ___181d8ch[];		// "lotus.bpk"
-    extern const char ___181d98h[];		// "engi1.bpk"
-    extern const char ___181da4h[];		// "engi2.bpk"
-    extern const char ___181db0h[];		// "engi3.bpk"
-    extern const char ___181dbch[];		// "engi4.bpk"	
-    extern const char ___181dc8h[];		// "tire1.bpk"
-    extern const char ___181dd4h[];		// "tire2.bpk"
-    extern const char ___181de0h[];		// "tire3.bpk"
-    extern const char ___181dech[];		// "tire4.bpk"
-    extern const char ___181df8h[];		// "armor1.bpk"
-    extern const char ___181e04h[];		// "armor2.bpk"
-    extern const char ___181e10h[];		// "armor3.bpk"
-    extern const char ___181e1ch[];		// "armor4.bpk"
-    extern const char ___181e28h[];		// "contani.bpk"
-    extern const char ___181e34h[];		// "repaani.bpk"
-    extern const char ___181e40h[];		// "carbas2.bpk"
-    extern const char ___181e4ch[];		// "spons1b.bpk"
-    extern const char ___181e58h[];		// "drugdeal.bpk"
-    extern const char ___181e68h[];		// "event_2.bpk"
-    extern const char ___181e74h[];		// "reaper_x.bpk"
-    extern const char ___181e84h[];		// "blacktx1.bpk"
-    extern const char ___181e94h[];		// "blacktx2.bpk"
-    extern const char ___181ea4h[];		// "dealer2b.bpk"
-    extern const char ___181eb4h[];		// "market1e.bpk"
-    extern const char ___181ec4h[];		// "bases4.bpk"
-    extern const char ___181ed0h[];		// "scenecar.bpk"
-    extern const char ___181ee0h[];		// "choo2.bpk"
-    extern const char ___181eech[];		// "arrows1d.bpk"
-    extern const char ___181efch[];		// "maxi1f.bpk"
-    extern const char ___181f08h[];		// "carname.bpk"
-    extern const char ___181f14h[];		// "slidmus2.bpk"
-    extern const char ___181f24h[];		// "slidcur3.bpk"
-    extern const char ___181f34h[];		// "volcur2.bpk"
-    extern const char ___181f40h[];		// "slidcop2.bpk"
+    extern void * p_bpk_corn3b;
+    extern void * p_bpk_corn3a;
+    extern void * p_pal_copper;
+    extern void * p_pal_carcol;
+    extern void * p_bpk_15x150;
+    extern void * p_bpk_f_big3a;
+    extern void * p_bpk_f_sma3b;
+    extern void * p_bpk_f_sma3c;
+    extern void * p_bpk_f_sma3a;
+    extern void * p_bpk_f_med1a;
+    extern void * p_bpk_menubg5;
+    extern void * p_bpk_mulsbg2;
+    extern void * p_bpk_rank1c;
+    extern void * p_bpk_resupok1;
+    extern void * p_bpk_rankinf1;
+    extern void * p_bpk_rankinf2;
+    extern void * p_bpk_rankinf3;
+    extern void * p_bpk_race_eas;
+    extern void * p_bpk_race_med;
+    extern void * p_bpk_race_har;
+    extern void * p_bpk_p_name;
+    extern void * p_bpk_p_pist;
+    extern void * p_bpk_p_rank;
+    extern void * p_bpk_pts_easy;
+    extern void * p_bpk_pts_med;
+    extern void * p_bpk_pts_hard;
+    extern void * p_bpk_placing;
+    extern void * p_bpk_carres;
+    extern void * p_bpk_face01;
+    extern void * p_bpk_face02;
+    extern void * p_bpk_face03;
+    extern void * p_bpk_face04;
+    extern void * p_bpk_face05;
+    extern void * p_bpk_face06;
+    extern void * p_bpk_face07;
+    extern void * p_bpk_face08;
+    extern void * p_bpk_face09;
+    extern void * p_bpk_face10;
+    extern void * p_bpk_face11;
+    extern void * p_bpk_face12;
+    extern void * p_bpk_face13;
+    extern void * p_bpk_face14;
+    extern void * p_bpk_face15;
+    extern void * p_bpk_face16;
+    extern void * p_bpk_face17;
+    extern void * p_bpk_face18;
+    extern void * p_bpk_face19;
+    extern void * p_bpk_face20;
+    extern void * p_pal_bgcop;
+    extern void * p_bpk_facexx;
 
+    extern const char pal_bgcop[];        // "bgcop.pal"
+    extern const char bpk_rank1c[];       // "rank1c.bpk"
+    extern const char bpk_15x150[];       // "15x150.bpk"
+    extern const char bpk_f_big3a[];      // "f-big3a.bpk"
+    extern const char bpk_f_sma3a[];      // "f-sma3a.bpk"
+    extern const char bpk_f_sma3b[];      // "f-sma3b.bpk"
+    extern const char bpk_f_sma3c[];      // "f-sma3c.bpk"
+    extern const char bpk_f_med1a[];      // "f-med1a.bpk"
+    extern const char bpk_resupok1[];     // "resupok1.bpk"
+    extern const char bpk_mulsbg2[];      // "mulsbg2.bpk"
+    extern const char bpk_rankinf1[];     // "rankinf1.bpk"
+    extern const char bpk_rankinf2[];     // "rankinf2.bpk"
+    extern const char bpk_rankinf3[];     // "rankinf3.bpk"
+    extern const char bpk_race_eas[];     // "race-eas.bpk"
+    extern const char bpk_race_med[];     // "race-med.bpk"
+    extern const char bpk_race_har[];     // "race-har.bpk"
+    extern const char bpk_p_name[];       // "p-name.bpk"
+    extern const char bpk_p_pist[];       // "p-pist.bpk"
+    extern const char bpk_p_rank[];       // "p-rank.bpk"
+    extern const char bpk_pts_easy[];     // "pts-easy.bpk"
+    extern const char bpk_pts_med[];      // "pts-med.bpk"
+    extern const char bpk_pts_hard[];     // "pts-hard.bpk"
+    extern const char bpk_placing[];      // "placing.bpk"
+    extern const char bpk_carres[];       // "carres.bpk"
+    extern const char bpk_face01[];       // "face01.bpk"
+    extern const char bpk_face02[];       // "face02.bpk"
+    extern const char bpk_face03[];       // "face03.bpk"
+    extern const char bpk_face04[];       // "face04.bpk"
+    extern const char bpk_face05[];       // "face05.bpk"
+    extern const char bpk_face06[];       // "face06.bpk"
+    extern const char bpk_face07[];       // "face07.bpk"
+    extern const char bpk_face08[];       // "face08.bpk"
+    extern const char bpk_face09[];       // "face09.bpk"
+    extern const char bpk_face10[];       // "face10.bpk"
+    extern const char bpk_face11[];       // "face11.bpk"
+    extern const char bpk_face12[];       // "face12.bpk"
+    extern const char bpk_face13[];       // "face13.bpk"
+    extern const char bpk_face14[];       // "face14.bpk"
+    extern const char bpk_face15[];       // "face15.bpk"
+    extern const char bpk_face16[];       // "face16.bpk"
+    extern const char bpk_face17[];       // "face17.bpk"
+    extern const char bpk_face18[];       // "face18.bpk"
+    extern const char bpk_face19[];       // "face19.bpk"
+    extern const char bpk_face20[];       // "face20.bpk"
+    extern const char bpk_facexx[];       // "facexx.bpk"
+    extern const char pal_copper[];       // "copper.pal"
+    extern const char pal_carcol[];       // "carcol.pal"
+    extern const char bpk_corn3a[];       // "corn3a.bpk"
+    extern const char bpk_corn3b[];       // "corn3b.bpk"
+    extern const char bpk_menubg5[];      // "menubg5.bpk"
 
-    void * allocMemSafe(dword);
-
-	void read__bpa(const char *, void *, const char *);
-
-	#pragma aux decode2__bpk parm routine []
+    
+    #pragma aux decode2__bpk parm routine []
 	void decode2__bpk(void * dst, void * src);
-
-	#pragma aux decode4__bpk parm routine []
-	void decode4__bpk(dword nbytes, dword dst_offset, void * dst, void * src);
-
-// 24548h
-void ___24548h(void){
-
-	D(___1a1ec0h) = 0;
-	D(___1a1ec4h) = 5;
-	D(___1a1ec8h) = 0;
-	D(___1a1ecch) = 0;
-	D(___1a1ed0h) = 0;
-	D(___1a1edch) = 0x64;
-	D(___1a1ee0h) = 0;
-	D(___1a1ee8h) = 0;
-	D(___1a1eech) = 0;
-
-	D(___1a1ee4h) = D(0x6c * D(MyID) + Roster + 0x1c) + 1;
-	if(D(___1a1ee4h) > 5) D(___1a1ee4h) = 5;
-
-	D(___1a1124h) = D(___1a10e4h) = allocMemSafe(0x4b000);
-	D(tex_carframe) = allocMemSafe(0x1800);
+	void read__bpa(const char * bpa, void * dst, const char * file);
+    void * allocMemSafe(dword size);
 
 
-	D(___1a1ed4h) = allocMemSafe(0x5400);
-	read__bpa(MENU_BPA, BPA_Buffer, ___181d24h);
-	decode2__bpk(D(___1a1ed4h), BPA_Buffer);
+// 117f4h
+void loadMenuBPK(void){
 
-	D(___1a1e90h) = allocMemSafe(0x4b0);
-	read__bpa(MENU_BPA, BPA_Buffer, ___181d34h);
-	decode2__bpk(D(___1a1e90h), BPA_Buffer);
+	p_pal_bgcop = allocMemSafe(0x600);
+	read__bpa(MENU_BPA, p_pal_bgcop, pal_bgcop);
 
-	D(___1a10b0h) = allocMemSafe(0x8f0);
-	read__bpa(MENU_BPA, BPA_Buffer, ___181d44h);
-	decode2__bpk(D(___1a10b0h), BPA_Buffer);
+	p_pal_carcol = allocMemSafe(0x300);
+	read__bpa(MENU_BPA, p_pal_carcol, pal_carcol);
 
-	bpk_cars[KUPLA] = allocMemSafe(0x1af00);
-	read__bpa(MENU_BPA, bpk_cars[KUPLA], ___181d50h);
-	bpk_cars[PICKUP] = allocMemSafe(0x1a77b);
-	read__bpa(MENU_BPA, bpk_cars[PICKUP], ___181d5ch);
-	bpk_cars[SEDAN] = allocMemSafe(0x18f14);
-	read__bpa(MENU_BPA, bpk_cars[SEDAN], ___181d68h);
-	bpk_cars[CAMARO] = allocMemSafe(0x18f51);
-	read__bpa(MENU_BPA, bpk_cars[CAMARO], ___181d74h);
-	bpk_cars[PORSCHE] = allocMemSafe(0x1a060);
-	read__bpa(MENU_BPA, bpk_cars[PORSCHE], ___181d80h);
-	bpk_cars[LOTUS] = allocMemSafe(0x1bea2);
-	read__bpa(MENU_BPA, bpk_cars[LOTUS], ___181d8ch);
+    p_pal_copper = allocMemSafe(0x300);
+    read__bpa(MENU_BPA, p_pal_copper, pal_copper);
 
-	bpk_engines[LEVEL1] = allocMemSafe(0xa235);
-	read__bpa(MENU_BPA, bpk_engines[LEVEL1], ___181d98h);
-	bpk_engines[LEVEL2] = allocMemSafe(0xae36);
-	read__bpa(MENU_BPA, bpk_engines[LEVEL2], ___181da4h);
-	bpk_engines[LEVEL3] = allocMemSafe(0xb413);
-	read__bpa(MENU_BPA, bpk_engines[LEVEL3], ___181db0h);
-	bpk_engines[LEVEL4] = allocMemSafe(0xd788);
-	read__bpa(MENU_BPA, bpk_engines[LEVEL4], ___181dbch);
+	read__bpa(MENU_BPA, BPA_Buffer, bpk_15x150);
+	p_bpk_15x150 = allocMemSafe(0x8ca);
+	decode2__bpk(p_bpk_15x150, BPA_Buffer);
 
-	bpk_tires[LEVEL1] = allocMemSafe(0x511c);
-	read__bpa(MENU_BPA, bpk_tires[LEVEL1], ___181dc8h);
-	bpk_tires[LEVEL2] = allocMemSafe(0x52b8);
-	read__bpa(MENU_BPA, bpk_tires[LEVEL2], ___181dd4h);
-	bpk_tires[LEVEL3] = allocMemSafe(0x5724);
-	read__bpa(MENU_BPA, bpk_tires[LEVEL3], ___181de0h);
-	bpk_tires[LEVEL4] = allocMemSafe(0x5f1e);
-	read__bpa(MENU_BPA, bpk_tires[LEVEL4], ___181dech);
+	read__bpa(MENU_BPA, BPA_Buffer, bpk_f_big3a);
+	p_bpk_f_big3a = allocMemSafe(0x18000);
+	decode2__bpk(p_bpk_f_big3a, BPA_Buffer);
+    
+	read__bpa(MENU_BPA, BPA_Buffer, bpk_f_sma3a);
+	p_bpk_f_sma3a = allocMemSafe(0x6000);
+	decode2__bpk(p_bpk_f_sma3a, BPA_Buffer);
 
-	bpk_armors[LEVEL1] = allocMemSafe(0x5ffb);
-	read__bpa(MENU_BPA, bpk_armors[LEVEL1], ___181df8h);
-	bpk_armors[LEVEL2] = allocMemSafe(0x6dd9);
-	read__bpa(MENU_BPA, bpk_armors[LEVEL2], ___181e04h);
-	bpk_armors[LEVEL3] = allocMemSafe(0x7922);
-	read__bpa(MENU_BPA, bpk_armors[LEVEL3], ___181e10h);
-	bpk_armors[LEVEL4] = allocMemSafe(0x7801);
-	read__bpa(MENU_BPA, bpk_armors[LEVEL4], ___181e1ch);
+	read__bpa(MENU_BPA, BPA_Buffer, bpk_f_sma3b);
+	p_bpk_f_sma3b = allocMemSafe(0x6000);
+	decode2__bpk(p_bpk_f_sma3b, BPA_Buffer);
 
-	D(___1a1ea0h) = allocMemSafe(0x8ae9);
-	read__bpa(MENU_BPA, D(___1a1ea0h), ___181e28h);
-	D(___1a1e8ch) = allocMemSafe(0x878b);
-	read__bpa(MENU_BPA, D(___1a1e8ch), ___181e34h);
+	read__bpa(MENU_BPA, BPA_Buffer, bpk_f_sma3c);
+	p_bpk_f_sma3c = allocMemSafe(0x6000);
+	decode2__bpk(p_bpk_f_sma3c, BPA_Buffer);
 
-	D(___1a1e6ch) = allocMemSafe(0x2400);
-	read__bpa(MENU_BPA, BPA_Buffer, ___181e40h);
-	decode2__bpk(D(___1a1e6ch), BPA_Buffer);
+	read__bpa(MENU_BPA, BPA_Buffer, bpk_f_med1a);
+	p_bpk_f_med1a = allocMemSafe(0x1a28);
+	decode2__bpk(p_bpk_f_med1a, BPA_Buffer);
 
-	D(___1a1e74h) = allocMemSafe(0x3400);
-	read__bpa(MENU_BPA, BPA_Buffer, ___181e4ch);
-	decode2__bpk(D(___1a1e74h), BPA_Buffer);
+	read__bpa(MENU_BPA, BPA_Buffer, bpk_rank1c);
+	p_bpk_rank1c = allocMemSafe(0x516c);
+	decode2__bpk(p_bpk_rank1c, BPA_Buffer);
 
-	D(___1a1e80h) = allocMemSafe(0x3400);
-	read__bpa(MENU_BPA, BPA_Buffer, ___181e58h);
-	decode2__bpk(D(___1a1e80h), BPA_Buffer);
+	read__bpa(MENU_BPA, BPA_Buffer, bpk_resupok1);
+	p_bpk_resupok1 = allocMemSafe(0x19a20);
+	decode2__bpk(p_bpk_resupok1, BPA_Buffer);
 
-	D(___1a1e84h) = allocMemSafe(0x3400);
-	read__bpa(MENU_BPA, BPA_Buffer, ___181e68h);
-	decode2__bpk(D(___1a1e84h), BPA_Buffer);
+	read__bpa(MENU_BPA, BPA_Buffer, bpk_mulsbg2);
+	p_bpk_mulsbg2 = allocMemSafe(0x2e00);
+	decode2__bpk(p_bpk_mulsbg2, BPA_Buffer);
 
-	D(___1a1e60h) = allocMemSafe(0x3400);
-	read__bpa(MENU_BPA, BPA_Buffer, ___181e74h);
-	decode2__bpk(D(___1a1e60h), BPA_Buffer);
+	read__bpa(MENU_BPA, BPA_Buffer, bpk_rankinf1);
+	p_bpk_rankinf1 = allocMemSafe(0x22e);
+	decode2__bpk(p_bpk_rankinf1, BPA_Buffer);
 
-	D(___1a1e54h) = allocMemSafe(0x2800);
-	read__bpa(MENU_BPA, BPA_Buffer, ___181e84h);
-	decode2__bpk(D(___1a1e54h), BPA_Buffer);
+	read__bpa(MENU_BPA, BPA_Buffer, bpk_rankinf2);
+	p_bpk_rankinf2 = allocMemSafe(0x71a);
+	decode2__bpk(p_bpk_rankinf2, BPA_Buffer);
 
-	D(___1a1e64h) = allocMemSafe(0x2800);
-	read__bpa(MENU_BPA, BPA_Buffer, ___181e94h);
-	decode2__bpk(D(___1a1e64h), BPA_Buffer);
+	read__bpa(MENU_BPA, BPA_Buffer, bpk_rankinf3);
+	p_bpk_rankinf3 = allocMemSafe(0x3ba);
+	decode2__bpk(p_bpk_rankinf3, BPA_Buffer);
 
-	D(___1a1e58h) = allocMemSafe(0x2400);
-	read__bpa(MENU_BPA, BPA_Buffer, ___181ea4h);
-	decode2__bpk(D(___1a1e58h), BPA_Buffer);
+	read__bpa(MENU_BPA, BPA_Buffer, bpk_race_eas);
+	p_bpk_race_eas = allocMemSafe(0x3fc0);
+	decode2__bpk(p_bpk_race_eas, BPA_Buffer);
 
-	D(___1a1e5ch) = allocMemSafe(0x1b000);
-	read__bpa(MENU_BPA, BPA_Buffer, ___181eb4h);
-	decode2__bpk(D(___1a1e5ch), BPA_Buffer);
+	read__bpa(MENU_BPA, BPA_Buffer, bpk_race_med);
+	p_bpk_race_med = allocMemSafe(0x3fc0);
+	decode2__bpk(p_bpk_race_med, BPA_Buffer);
 
-	D(___1a1e98h) = allocMemSafe(0x2400);
-	D(___1a1each) = allocMemSafe(0x2400);
-	D(___1a1e94h) = allocMemSafe(0x2400);
-	D(___1a1e9ch) = allocMemSafe(0x2400);
-	D(___1a1e70h) = allocMemSafe(0x2400);
-	read__bpa(MENU_BPA, BPA_Buffer, ___181ec4h);
-	decode4__bpk(0x2400, 0, D(___1a1e98h), BPA_Buffer);
-	decode4__bpk(0x2400, 0x2400, D(___1a1each), BPA_Buffer);
-	decode4__bpk(0x2400, 0x4800, D(___1a1e94h), BPA_Buffer);
-	decode4__bpk(0x2400, 0x6c00, D(___1a1e9ch), BPA_Buffer);
-	decode4__bpk(0x2400, 0x9000, D(___1a1e70h), BPA_Buffer);
+	read__bpa(MENU_BPA, BPA_Buffer, bpk_race_har);
+	p_bpk_race_har = allocMemSafe(0x3fc0);
+	decode2__bpk(p_bpk_race_har, BPA_Buffer);
 
-	D(___1a0180h) = allocMemSafe(0x1800);
-	D(___1a0184h) = allocMemSafe(0x1800);
-	D(___1a0188h) = allocMemSafe(0x1800);
-	D(___1a018ch) = allocMemSafe(0x1800);
-	D(___1a0190h) = allocMemSafe(0x1800);
-	D(___1a0194h) = allocMemSafe(0x1800);
-	read__bpa(MENU_BPA, BPA_Buffer, ___181ed0h);
-	decode4__bpk(0x1800, 0, D(___1a0180h), BPA_Buffer);
-	decode4__bpk(0x1800, 0x1800, D(___1a0184h), BPA_Buffer);
-	decode4__bpk(0x1800, 0x3000, D(___1a0188h), BPA_Buffer);
-	decode4__bpk(0x1800, 0x4800, D(___1a018ch), BPA_Buffer);
-	decode4__bpk(0x1800, 0x6000, D(___1a0190h), BPA_Buffer);
-	decode4__bpk(0x1800, 0x7800, D(___1a0194h), BPA_Buffer);
+	read__bpa(MENU_BPA, BPA_Buffer, bpk_p_name);
+	p_bpk_p_name = allocMemSafe(0x71a);
+	decode2__bpk(p_bpk_p_name, BPA_Buffer);
 
-	D(___1a1eb0h) = allocMemSafe(0x900);
-	read__bpa(MENU_BPA, BPA_Buffer, ___181ee0h);
-	decode2__bpk(D(___1a1eb0h), BPA_Buffer);
+	read__bpa(MENU_BPA, BPA_Buffer, bpk_p_pist);
+	p_bpk_p_pist = allocMemSafe(0x3ba);
+	decode2__bpk(p_bpk_p_pist, BPA_Buffer);
 
-	D(___1a1e78h) = allocMemSafe(0x1000);
-	read__bpa(MENU_BPA, BPA_Buffer, ___181eech);
-	decode2__bpk(D(___1a1e78h), BPA_Buffer);
+	read__bpa(MENU_BPA, BPA_Buffer, bpk_p_rank);
+	p_bpk_p_rank = allocMemSafe(0x22e);
+	decode2__bpk(p_bpk_p_rank, BPA_Buffer);
 
-	D(___1a1eb8h) = allocMemSafe(0x12000);
-	read__bpa(MENU_BPA, BPA_Buffer, ___181efch);
-	decode2__bpk(D(___1a1eb8h), BPA_Buffer);
+	read__bpa(MENU_BPA, BPA_Buffer, bpk_pts_easy);
+	p_bpk_pts_easy = allocMemSafe(0x2f4);
+	decode2__bpk(p_bpk_pts_easy, BPA_Buffer);
 
-	D(___1a1ea8h) = allocMemSafe(0x2400);
-	read__bpa(MENU_BPA, BPA_Buffer, ___181f08h);
-	decode2__bpk(D(___1a1ea8h), BPA_Buffer);
+	read__bpa(MENU_BPA, BPA_Buffer, bpk_pts_med);
+	p_bpk_pts_med = allocMemSafe(0x2f4);
+	decode2__bpk(p_bpk_pts_med, BPA_Buffer);
 
-	D(___1a1ea4h) = allocMemSafe(0x1020);
-	read__bpa(MENU_BPA, BPA_Buffer, ___181f14h);
-	decode2__bpk(D(___1a1ea4h), BPA_Buffer);
+	read__bpa(MENU_BPA, BPA_Buffer, bpk_pts_hard);
+	p_bpk_pts_hard = allocMemSafe(0x2f4);
+	decode2__bpk(p_bpk_pts_hard, BPA_Buffer);
 
-	D(___1a1eb4h) = allocMemSafe(0xf0);
-	read__bpa(MENU_BPA, BPA_Buffer, ___181f24h);
-	decode2__bpk(D(___1a1eb4h), BPA_Buffer);
+	read__bpa(MENU_BPA, BPA_Buffer, bpk_placing);
+	p_bpk_placing = allocMemSafe(0x3a64);
+	decode2__bpk(p_bpk_placing, BPA_Buffer);
 
-	D(___1a1ebch) = allocMemSafe(0xf0);
-	read__bpa(MENU_BPA, BPA_Buffer, ___181f34h);
-	decode2__bpk(D(___1a1ebch), BPA_Buffer);
+	read__bpa(MENU_BPA, BPA_Buffer, bpk_carres);
+	p_bpk_carres = allocMemSafe(0x1e780);
+	decode2__bpk(p_bpk_carres, BPA_Buffer);
 
-	D(___1a1e88h) = allocMemSafe(0x1260);
-	read__bpa(MENU_BPA, BPA_Buffer, ___181f40h);
-	decode2__bpk(D(___1a1e88h), BPA_Buffer);
+	read__bpa(MENU_BPA, BPA_Buffer, bpk_face01);
+	p_bpk_face01 = allocMemSafe(0x1000);
+	decode2__bpk(p_bpk_face01, BPA_Buffer);
+
+	read__bpa(MENU_BPA, BPA_Buffer, bpk_face02);
+	p_bpk_face02 = allocMemSafe(0x1000);
+	decode2__bpk(p_bpk_face02, BPA_Buffer);
+
+	read__bpa(MENU_BPA, BPA_Buffer, bpk_face03);
+	p_bpk_face03 = allocMemSafe(0x1000);
+	decode2__bpk(p_bpk_face03, BPA_Buffer);
+    
+	read__bpa(MENU_BPA, BPA_Buffer, bpk_face04);
+	p_bpk_face04 = allocMemSafe(0x1000);
+	decode2__bpk(p_bpk_face04, BPA_Buffer);
+
+	read__bpa(MENU_BPA, BPA_Buffer, bpk_face05);
+	p_bpk_face05 = allocMemSafe(0x1000);
+	decode2__bpk(p_bpk_face05, BPA_Buffer);
+    
+	read__bpa(MENU_BPA, BPA_Buffer, bpk_face06);
+	p_bpk_face06 = allocMemSafe(0x1000);
+	decode2__bpk(p_bpk_face06, BPA_Buffer);
+
+	read__bpa(MENU_BPA, BPA_Buffer, bpk_face07);
+	p_bpk_face07 = allocMemSafe(0x1000);
+	decode2__bpk(p_bpk_face07, BPA_Buffer);
+
+	read__bpa(MENU_BPA, BPA_Buffer, bpk_face08);
+	p_bpk_face08 = allocMemSafe(0x1000);
+	decode2__bpk(p_bpk_face08, BPA_Buffer);
+
+	read__bpa(MENU_BPA, BPA_Buffer, bpk_face09);
+	p_bpk_face09 = allocMemSafe(0x1000);
+	decode2__bpk(p_bpk_face09, BPA_Buffer);
+
+	read__bpa(MENU_BPA, BPA_Buffer, bpk_face10);
+	p_bpk_face10 = allocMemSafe(0x1000);
+	decode2__bpk(p_bpk_face10, BPA_Buffer);
+
+	read__bpa(MENU_BPA, BPA_Buffer, bpk_face11);
+	p_bpk_face11 = allocMemSafe(0x1000);
+	decode2__bpk(p_bpk_face11, BPA_Buffer);
+
+	read__bpa(MENU_BPA, BPA_Buffer, bpk_face12);
+	p_bpk_face12 = allocMemSafe(0x1000);
+	decode2__bpk(p_bpk_face12, BPA_Buffer);
+
+	read__bpa(MENU_BPA, BPA_Buffer, bpk_face13);
+	p_bpk_face13 = allocMemSafe(0x1000);
+	decode2__bpk(p_bpk_face13, BPA_Buffer);
+
+	read__bpa(MENU_BPA, BPA_Buffer, bpk_face14);
+	p_bpk_face14 = allocMemSafe(0x1000);
+	decode2__bpk(p_bpk_face14, BPA_Buffer);
+
+	read__bpa(MENU_BPA, BPA_Buffer, bpk_face15);
+	p_bpk_face15 = allocMemSafe(0x1000);
+	decode2__bpk(p_bpk_face15, BPA_Buffer);
+
+	read__bpa(MENU_BPA, BPA_Buffer, bpk_face16);
+	p_bpk_face16 = allocMemSafe(0x1000);
+	decode2__bpk(p_bpk_face16, BPA_Buffer);
+
+	read__bpa(MENU_BPA, BPA_Buffer, bpk_face17);
+	p_bpk_face17 = allocMemSafe(0x1000);
+	decode2__bpk(p_bpk_face17, BPA_Buffer);
+
+	read__bpa(MENU_BPA, BPA_Buffer, bpk_face18);
+	p_bpk_face18 = allocMemSafe(0x1000);
+	decode2__bpk(p_bpk_face18, BPA_Buffer);
+
+	read__bpa(MENU_BPA, BPA_Buffer, bpk_face19);
+	p_bpk_face19 = allocMemSafe(0x1000);
+	decode2__bpk(p_bpk_face19, BPA_Buffer);
+
+	read__bpa(MENU_BPA, BPA_Buffer, bpk_face20);
+	p_bpk_face20 = allocMemSafe(0x1000);
+	decode2__bpk(p_bpk_face20, BPA_Buffer);
+
+	read__bpa(MENU_BPA, BPA_Buffer, bpk_facexx);
+	p_bpk_facexx = allocMemSafe(0x1000);
+	decode2__bpk(p_bpk_facexx, BPA_Buffer);
+
+	read__bpa(MENU_BPA, BPA_Buffer, bpk_corn3a);
+	p_bpk_corn3a = allocMemSafe(0xa00);
+	decode2__bpk(p_bpk_corn3a, BPA_Buffer);
+
+	read__bpa(MENU_BPA, BPA_Buffer, bpk_corn3b);
+    p_bpk_corn3b = allocMemSafe(0xa00);
+	decode2__bpk(p_bpk_corn3b, BPA_Buffer);
+    
+	read__bpa(MENU_BPA, BPA_Buffer, bpk_menubg5);
+	p_bpk_menubg5 = allocMemSafe(0x4b000);
+	decode2__bpk(p_bpk_menubg5, BPA_Buffer);
 }

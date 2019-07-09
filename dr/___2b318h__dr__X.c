@@ -2,9 +2,9 @@
 
     extern byte MyID[];
     extern byte Roster[];
-    extern byte ___1a0fb8h[];
+    extern byte p_pal_copper[];
     extern byte ___196ad8h[];
-    extern byte bgcop_pal_p[];
+    extern byte p_pal_bgcop[];
     extern byte ___1821e2h[];
     extern byte Pal8to24_0[];
     extern byte Pal8to24_1[];
@@ -83,8 +83,8 @@ void ___2b318h(void){
 	eax = 4*edx;
 //		sub     eax, edx
 	eax -= edx;
-//		mov     edx, [__CEXT_V(___1a0fb8h)]
-	edx = D(___1a0fb8h);
+//		mov     edx, [__CEXT_V(p_pal_copper)]
+	edx = D(p_pal_copper);
 //		add     edx, eax
 	edx += eax;
 //		xor     eax, eax
@@ -148,8 +148,8 @@ void ___2b318h(void){
 	eax = 4*edx;
 //		sub     eax, edx
 	eax -= edx;
-//		mov     edx, [__CEXT_V(___1a0fb8h)]
-	edx = D(___1a0fb8h);
+//		mov     edx, [__CEXT_V(p_pal_copper)]
+	edx = D(p_pal_copper);
 //		add     edx, eax
 	edx += eax;
 //		xor     eax, eax
@@ -208,8 +208,8 @@ void ___2b318h(void){
 ___2b416h:
 //		mov     eax, [__CEXT_V(___196ad8h)]
 	eax = D(___196ad8h);
-//		mov     edx, [__CEXT_V(bgcop_pal_p)]
-	edx = D(bgcop_pal_p);
+//		mov     edx, [__CEXT_V(p_pal_bgcop)]
+	edx = D(p_pal_bgcop);
 //		lea     eax, [eax+eax*2]
 	eax = eax+eax*2;
 //		add     edx, eax
@@ -255,8 +255,8 @@ ___2b416h:
 	edx = D(___196ad8h);
 //		mov     [ecx+__CEXT_V(Pal8to24_1)], eax
 	D(ecx+Pal8to24_1) = eax;
-//		mov     eax, [__CEXT_V(bgcop_pal_p)]
-	eax = D(bgcop_pal_p);
+//		mov     eax, [__CEXT_V(p_pal_bgcop)]
+	eax = D(p_pal_bgcop);
 //		lea     edx, [edx+edx*2]
 	edx = edx+edx*2;
 //		add     edx, eax
@@ -296,8 +296,8 @@ ___2b416h:
 	D(ecx+Pal8to24_1+4) = eax;
 //		mov     eax, [__CEXT_V(___196ad8h)]
 	eax = D(___196ad8h);
-//		mov     edx, [__CEXT_V(bgcop_pal_p)]
-	edx = D(bgcop_pal_p);
+//		mov     edx, [__CEXT_V(p_pal_bgcop)]
+	edx = D(p_pal_bgcop);
 //		lea     eax, [eax+eax*2]
 	eax = eax+eax*2;
 //		add     edx, eax

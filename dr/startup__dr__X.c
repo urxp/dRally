@@ -66,8 +66,8 @@
 	extern byte ___196d84h[];
 	extern byte ___199fa0h[];
 	extern byte Pal8to24_1[];
-	extern byte ___1a0fb8h[];	
-	extern byte ___1a10cch[];
+	extern byte p_pal_copper[];	
+	extern byte p_bpk_f_big3a[];
 	extern byte ___1a10e4h[];	
 	extern byte ___1a1124h[];
 	extern byte ___1a1dbah[];
@@ -83,7 +83,7 @@
 	extern byte ___1a2148h[];
 	extern byte ExitCB[];
 	extern byte Gamepad[];
-	extern byte GXBackBuffer[];
+	extern byte p_bpk_menubg5[];
 	extern byte MyID[];
 	extern byte Roster[];
 	extern byte RowBoxBuffers[];	
@@ -95,7 +95,7 @@
 	extern byte ConfigMusicVolume[];	
 	extern byte ConfigSFXVolume[];
 	extern byte Font0Props[];	
-	extern byte WhiteFont0Ptr[];
+	extern byte p_bpk_f_sma3a[];
 	extern byte NetworkConnectionEstablished[];
 	extern byte NetworkConnectionType[];		
 	extern const char string__pulse_dialing[];  // "Pulse Dialing"
@@ -110,7 +110,7 @@
 
 	void ___11564h(float, float, float);
 	void ___117c8h(void);	
-	void ___117f4h(void);	
+	void loadMenuBPK(void);	
 	void ___12200h(void);
 	void ___1240ch(void);
 	void ___12940h(void);
@@ -123,7 +123,7 @@
 	dword ___146c4h(dword);
 	dword ___148cch(dword, dword, dword, dword);		
 	void ___23488h(dword, dword, dword);
-	void ___24548h(void);	
+	void loadShopBPK(void);	
 	void ___24ec0h(void);
     void ___2b318h(void);
 	void ___2faf0h(void);
@@ -488,14 +488,14 @@ l_bs_ok:
     apogee_gt_remedy();
 //		call    __CEXT_F(startingScreen__dr)
     startingScreen__dr();
-//		call    __CEXT_F(___117f4h)
-    ___117f4h();
+//		call    __CEXT_F(loadMenuBPK)
+    loadMenuBPK();
 //		call    __CEXT_F(___1240ch)
     ___1240ch();
 //		call    __CEXT_F(___117c8h)
     ___117c8h();
-//		call    __CEXT_F(___24548h)
-    ___24548h();
+//		call    __CEXT_F(loadShopBPK)
+    loadShopBPK();
 //		call    __CEXT_F(___2faf0h)
     ___2faf0h();
 //		call    __CEXT_F(___3d2bch)
@@ -518,8 +518,8 @@ l_bs_ok:
     eax = 4*edx;
 //		sub     eax, edx
     eax -= edx;
-//		mov     edx, [__CEXT_V(___1a0fb8h)]
-    edx = D(___1a0fb8h);
+//		mov     edx, [__CEXT_V(p_pal_copper)]
+    edx = D(p_pal_copper);
 //		add     edx, eax
     edx += eax;
 //		xor     eax, eax
@@ -569,8 +569,8 @@ l_bs_ok:
 //		call    __CEXT_F(___11564h)
     ___11564h(F32(esp), F32(esp+4), F32(esp+8));
     esp += 0xc;
-//		mov     esi, [__CEXT_V(GXBackBuffer)]
-    esi = D(GXBackBuffer);
+//		mov     esi, [__CEXT_V(p_bpk_menubg5)]
+    esi = D(p_bpk_menubg5);
 //		mov     edi, [__CEXT_V(VGABufferPtr_0)]
     edi = D(VGABufferPtr_0);
 //		push    edi
@@ -990,8 +990,8 @@ ___3eba1h:
 ___3ec59h:
 //		mov     ecx, 2c380h
     ecx = 0x2c380;
-//		mov     esi, [__CEXT_V(GXBackBuffer)]
-    esi = D(GXBackBuffer);
+//		mov     esi, [__CEXT_V(p_bpk_menubg5)]
+    esi = D(p_bpk_menubg5);
 //		mov     edi, [__CEXT_V(VGABufferPtr_0)]
     edi = D(VGABufferPtr_0);
 //		add     esi, 0d200h
@@ -1313,8 +1313,8 @@ l_drstartracing:
 	ebx = ___182db8h;
 //		mov     edx, __CEXT_V(Font0Props)
 	edx = Font0Props;
-//		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
-	eax = D(WhiteFont0Ptr);
+//		mov     eax, [__CEXT_V(p_bpk_f_sma3a)]
+	eax = D(p_bpk_f_sma3a);
 //		call    __CEXT_F(renderTextToBuffer__video)
 	renderTextToBuffer__video(eax, edx, ebx, ecx);
 //		mov     ecx, [esp+14h]
@@ -1323,8 +1323,8 @@ l_drstartracing:
 	ebx = STRING_CONTINUE;
 //		mov     edx, __CEXT_V(___185ba9h)
 	edx = ___185ba9h;
-//		mov     eax, [__CEXT_V(___1a10cch)]
-	eax = D(___1a10cch);
+//		mov     eax, [__CEXT_V(p_bpk_f_big3a)]
+	eax = D(p_bpk_f_big3a);
 //		call    __CEXT_F(renderTextToBuffer__video)
 	renderTextToBuffer__video(eax, edx, ebx, ecx);
 //		mov     edx, [esp+4]
@@ -1464,8 +1464,8 @@ l_drexit:
 	ebx = ___182de4h;
 //		mov     edx, __CEXT_V(Font0Props)
 	edx = Font0Props;
-//		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
-	eax = D(WhiteFont0Ptr);
+//		mov     eax, [__CEXT_V(p_bpk_f_sma3a)]
+	eax = D(p_bpk_f_sma3a);
 //		call    __CEXT_F(renderTextToBuffer__video)
 	renderTextToBuffer__video(eax, edx, ebx, ecx);
 //		lea     ecx, [esp+0ch]

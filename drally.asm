@@ -69,7 +69,7 @@
     extern  ___7c970h__dma
     extern  ___7c9e2h__dma
 
-    extern  __CEXT_F(___24548h)
+    extern  __CEXT_F(loadShopBPK)
     extern  __CEXT_F(___17384h)
     extern  __CEXT_F(carAnimFrame)
     extern  __CEXT_F(updateMenuBackgroundAndTextArea)
@@ -84,6 +84,7 @@
     extern  __CEXT_F(___606d9h)
     extern  __CEXT_F(fadeinScreen)
     extern  __CEXT_F(startingScreen__dr)
+    extern  __CEXT_F(loadMenuBPK)
 
     extern  __CEXT_F(updateAMPVolume)
     extern  __CEXT_F(updateMSXVolume)

@@ -45,8 +45,8 @@ typedef struct Driver {
     extern dword MyID;
     extern Driver Roster[];
     extern int ___196ad8h;
-    extern pal3 * bgcop_pal_p;
-    extern pal3 * ___1a0fb8h;
+    extern pal3 * p_pal_bgcop;
+    extern pal3 * p_pal_copper;
 
 	// 0.015625 (1/64)
     extern double ___1821e2h;
@@ -91,15 +91,15 @@ void ___2b318h(void){
 	___12940h();
 
 	___11564h(
-		(float)___1a0fb8h[Roster[MyID].Color].__0,
-		(float)___1a0fb8h[Roster[MyID].Color].__1,
-		(float)___1a0fb8h[Roster[MyID].Color].__2
+		(float)p_pal_copper[Roster[MyID].Color].__0,
+		(float)p_pal_copper[Roster[MyID].Color].__1,
+		(float)p_pal_copper[Roster[MyID].Color].__2
 	);
 
 	___24010h(
-		(float)___1a0fb8h[Roster[MyID].Color].__0,
-		(float)___1a0fb8h[Roster[MyID].Color].__1,
-		(float)___1a0fb8h[Roster[MyID].Color].__2
+		(float)p_pal_copper[Roster[MyID].Color].__0,
+		(float)p_pal_copper[Roster[MyID].Color].__1,
+		(float)p_pal_copper[Roster[MyID].Color].__2
 	);
 
 	n = 0;
@@ -107,11 +107,11 @@ void ___2b318h(void){
 	while(n < 0x20){
 
         Pal8to24_1[n+0xc0].__0 =
-			((int)(bgcop_pal_p[___196ad8h].__0 * ___1821e2h * n) << 0x10) / 0x64;
+			((int)(p_pal_bgcop[___196ad8h].__0 * ___1821e2h * n) << 0x10) / 0x64;
         Pal8to24_1[n+0xc0].__1 =
-			((int)(bgcop_pal_p[___196ad8h].__1 * ___1821e2h * n) << 0x10) / 0x64;
+			((int)(p_pal_bgcop[___196ad8h].__1 * ___1821e2h * n) << 0x10) / 0x64;
         Pal8to24_1[n+0xc0].__2 =
-			((int)(bgcop_pal_p[___196ad8h].__2 * ___1821e2h * n) << 0x10) / 0x64;
+			((int)(p_pal_bgcop[___196ad8h].__2 * ___1821e2h * n) << 0x10) / 0x64;
 
 		n++;
 	}

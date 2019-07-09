@@ -3,7 +3,7 @@
     extern byte ___59e68h[];
     extern byte ___196a88h[];
     extern byte ___196ad8h[];
-    extern byte bgcop_pal_p[];
+    extern byte p_pal_bgcop[];
     extern byte d_1o64[];
     extern byte NetworkConnectionEstablished[];
     extern byte ___1a1f4fh[];
@@ -118,8 +118,8 @@ ___2abbah:
 	eax = 4*edx;
 //		sub     eax, edx
 	eax -= edx;
-//		mov     edx, [__CEXT_V(bgcop_pal_p)]
-	edx = D(bgcop_pal_p);
+//		mov     edx, [__CEXT_V(p_pal_bgcop)]
+	edx = D(p_pal_bgcop);
 //		add     edx, eax
 	edx += eax;
 //		xor     eax, eax

@@ -5,11 +5,11 @@
     extern  __CEXT_F(___11564h)
     extern  __CEXT_V(MyID)
     extern  __CEXT_V(Roster)
-    extern  __CEXT_V(___1a0fb8h)
+    extern  __CEXT_V(p_pal_copper)
     extern  __CEXT_F(___24010h)
     extern  __CHP
     extern  __CEXT_V(___196ad8h)
-    extern  __CEXT_V(bgcop_pal_p)
+    extern  __CEXT_V(p_pal_bgcop)
     extern  __CEXT_V(___1821e2h)
     extern  __CEXT_V(Pal8to24_0)
     extern  __CEXT_V(Pal8to24_1)
@@ -40,7 +40,7 @@ __GDECL(__CEXT_F(___2b318h))
 		mov     edx, [eax*4+__CEXT_V(Roster)+2ch]
 		lea     eax, [edx*4+0]
 		sub     eax, edx
-		mov     edx, [__CEXT_V(___1a0fb8h)]
+		mov     edx, [__CEXT_V(p_pal_copper)]
 		add     edx, eax
 		xor     eax, eax
 		mov     al, [edx+2]
@@ -69,7 +69,7 @@ __GDECL(__CEXT_F(___2b318h))
 		mov     edx, [eax*4+__CEXT_V(Roster)+2ch]
 		lea     eax, [edx*4+0]
 		sub     eax, edx
-		mov     edx, [__CEXT_V(___1a0fb8h)]
+		mov     edx, [__CEXT_V(p_pal_copper)]
 		add     edx, eax
 		xor     eax, eax
 		mov     al, [edx+2]
@@ -96,7 +96,7 @@ __GDECL(__CEXT_F(___2b318h))
 		mov     esi, 640000h
 ___2b416h:
 		mov     eax, [__CEXT_V(___196ad8h)]
-		mov     edx, [__CEXT_V(bgcop_pal_p)]
+		mov     edx, [__CEXT_V(p_pal_bgcop)]
 		lea     eax, [eax+eax*2]
 		add     edx, eax
 		xor     eax, eax
@@ -118,7 +118,7 @@ ___2b416h:
 		idiv    ebx
 		mov     edx, [__CEXT_V(___196ad8h)]
 		mov     [ecx+__CEXT_V(Pal8to24_1)], eax
-		mov     eax, [__CEXT_V(bgcop_pal_p)]
+		mov     eax, [__CEXT_V(p_pal_bgcop)]
 		lea     edx, [edx+edx*2]
 		add     edx, eax
 		xor     eax, eax
@@ -138,7 +138,7 @@ ___2b416h:
 		idiv    ebx
 		mov     [ecx+__CEXT_V(Pal8to24_1)+4], eax
 		mov     eax, [__CEXT_V(___196ad8h)]
-		mov     edx, [__CEXT_V(bgcop_pal_p)]
+		mov     edx, [__CEXT_V(p_pal_bgcop)]
 		lea     eax, [eax+eax*2]
 		add     edx, eax
 		xor     eax, eax

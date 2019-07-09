@@ -7,7 +7,7 @@
     extern  __CEXT_F(___2a394h)
     extern  __CEXT_V(___196a88h)
     extern  __CEXT_V(___196ad8h)
-    extern  __CEXT_V(bgcop_pal_p)
+    extern  __CEXT_V(p_pal_bgcop)
     extern  __CEXT_V(d_1o64)
     extern  __CHP
     extern  __CEXT_F(writeColor__video)
@@ -78,7 +78,7 @@ ___2abbah:
 		mov     edx, [__CEXT_V(___196ad8h)]
 		lea     eax, [edx*4+0]
 		sub     eax, edx
-		mov     edx, [__CEXT_V(bgcop_pal_p)]
+		mov     edx, [__CEXT_V(p_pal_bgcop)]
 		add     edx, eax
 		xor     eax, eax
 		mov     al, [edx]

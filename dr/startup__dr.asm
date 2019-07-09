@@ -75,16 +75,16 @@
 	extern 	__CEXT_V(___1a1dbah)	
 	extern 	__CEXT_V(NetworkConnectionType)	
 	extern 	__CEXT_F(___64a28h)	
-	extern 	__CEXT_F(___117f4h)	
+	extern 	__CEXT_F(loadMenuBPK)	
 	extern 	__CEXT_F(___1240ch)	
 	extern 	__CEXT_F(___117c8h)	
-	extern 	__CEXT_F(___24548h)	
+	extern 	__CEXT_F(loadShopBPK)	
 	extern 	__CEXT_F(___2faf0h)	
 	extern 	__CEXT_F(___3d2bch)	
 	extern 	__CEXT_F(___12940h)		
-	extern 	__CEXT_V(___1a0fb8h)	
+	extern 	__CEXT_V(p_pal_copper)	
 	extern 	__CEXT_F(___11564h)	
-	extern 	__CEXT_V(GXBackBuffer)
+	extern 	__CEXT_V(p_bpk_menubg5)
 	extern 	__CEXT_V(___180130h)	
 	extern 	__CEXT_V(RowBoxBuffers)	
 	extern 	__CEXT_V(___1a1f4dh)	
@@ -113,10 +113,10 @@
 	extern 	__CEXT_F(___13248h)	
 	extern 	__CEXT_V(___182db8h)	
 	extern 	__CEXT_V(Font0Props)	
-	extern 	__CEXT_V(WhiteFont0Ptr)	
+	extern 	__CEXT_V(p_bpk_f_sma3a)	
 	extern 	__CEXT_F(renderTextToBuffer__video)	
 	extern 	__CEXT_V(___185ba9h)	
-	extern 	__CEXT_V(___1a10cch)	
+	extern 	__CEXT_V(p_bpk_f_big3a)	
 	extern 	__CEXT_F(updateScreen_TBD)		
 	extern 	__CEXT_V(___1854bch)	
 	extern 	__CEXT_F(playSFX__sound)	
@@ -282,10 +282,10 @@ l_bs_ok:
 		call    __CEXT_F(allocVGABuffer)
 		call    __CEXT_F(apogee_gt_remedy)
 		call    __CEXT_F(startingScreen__dr)
-		call    __CEXT_F(___117f4h)
+		call    __CEXT_F(loadMenuBPK)
 		call    __CEXT_F(___1240ch)
 		call    __CEXT_F(___117c8h)
-		call    __CEXT_F(___24548h)
+		call    __CEXT_F(loadShopBPK)
 		call    __CEXT_F(___2faf0h)
 		call    __CEXT_F(___3d2bch)
 		call    __CEXT_F(___12940h)
@@ -297,7 +297,7 @@ l_bs_ok:
 		mov     edx, [eax*4+__CEXT_V(Roster)+2ch]
 		lea     eax, [edx*4+0]
 		sub     eax, edx
-		mov     edx, [__CEXT_V(___1a0fb8h)]
+		mov     edx, [__CEXT_V(p_pal_copper)]
 		add     edx, eax
 		xor     eax, eax
 		mov     al, [edx+2]
@@ -319,7 +319,7 @@ l_bs_ok:
 		fstp    dword [esp]
 		mov     ecx, 4b000h
 		call    __CEXT_F(___11564h)
-		mov     esi, [__CEXT_V(GXBackBuffer)]
+		mov     esi, [__CEXT_V(p_bpk_menubg5)]
 		mov     edi, [__CEXT_V(VGABufferPtr_0)]
 		push    edi
 		mov     eax, ecx
@@ -535,7 +535,7 @@ ___3eba1h:
 		mov     [esp+14h], eax
 ___3ec59h:
 		mov     ecx, 2c380h
-		mov     esi, [__CEXT_V(GXBackBuffer)]
+		mov     esi, [__CEXT_V(p_bpk_menubg5)]
 		mov     edi, [__CEXT_V(VGABufferPtr_0)]
 		add     esi, 0d200h
 		add     edi, 0d200h
@@ -690,12 +690,12 @@ ___3ee3fh:
 		mov     ecx, [esp+10h]
 		mov     ebx, __CEXT_V(___182db8h)			;; " ... insert cd-rom"
 		mov     edx, __CEXT_V(Font0Props)
-		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
+		mov     eax, [__CEXT_V(p_bpk_f_sma3a)]
 		call    __CEXT_F(renderTextToBuffer__video)
 		mov     ecx, [esp+14h]
 		mov     ebx, __CEXT_V(STRING_CONTINUE)			;; "CONTINUE"
 		mov     edx, __CEXT_V(___185ba9h)
-		mov     eax, [__CEXT_V(___1a10cch)]
+		mov     eax, [__CEXT_V(p_bpk_f_big3a)]
 		call    __CEXT_F(renderTextToBuffer__video)
 		mov     edx, [esp+4]
 		mov     eax, ebp
@@ -773,7 +773,7 @@ ___3ee3fh:
 		mov     ecx, 208fdh
 		mov     ebx, __CEXT_V(___182de4h)			;; "Are you sure?"
 		mov     edx, __CEXT_V(Font0Props)
-		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
+		mov     eax, [__CEXT_V(p_bpk_f_sma3a)]
 		call    __CEXT_F(renderTextToBuffer__video)
 		lea     ecx, [esp+0ch]
 		mov     ebx, 1

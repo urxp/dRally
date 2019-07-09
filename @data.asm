@@ -69,141 +69,141 @@ ___180308h:
 db	0,0,7ch,42h
 ___18030ch:
 db	0,0,80h,3dh
-__GDECL(bgcop_pal)
+__GDECL(__CEXT_V(pal_bgcop))
 db	"bgcop.pal",0,0,0
-__GDECL(_15x150_bpk)
+__GDECL(__CEXT_V(bpk_15x150))
 db	"15x150.bpk",0,0
-___180328h:
+__GDECL(__CEXT_V(bpk_f_big3a))
 db	"f-big3a.bpk",0
-___180334h:
+__GDECL(__CEXT_V(bpk_f_sma3a))
 db	"f-sma3a.bpk",0
-___180340h:
+__GDECL(__CEXT_V(bpk_f_sma3b))
 db	"f-sma3b.bpk",0
-___18034ch:
+__GDECL(__CEXT_V(bpk_f_sma3c))
 db	"f-sma3c.bpk",0
-___180358h:
+__GDECL(__CEXT_V(bpk_f_med1a))
 db	"f-med1a.bpk",0
-__GDECL(__CEXT_V(rank1c_bpk))
+__GDECL(__CEXT_V(bpk_rank1c))
 db	"rank1c.bpk",0,0
-___180370h:
+__GDECL(__CEXT_V(bpk_resupok1))
 db	"resupok1.bpk",0,0,0,0
-___180380h:
+__GDECL(__CEXT_V(bpk_mulsbg2))
 db	"mulsbg2.bpk",0
-___18038ch:
+__GDECL(__CEXT_V(bpk_rankinf1))
 db	"rankinf1.bpk",0,0,0,0
-___18039ch:
+__GDECL(__CEXT_V(bpk_rankinf2))
 db	"rankinf2.bpk",0,0,0,0
-___1803ach:
+__GDECL(__CEXT_V(bpk_rankinf3))
 db	"rankinf3.bpk",0,0,0,0
-___1803bch:
+__GDECL(__CEXT_V(bpk_race_eas))
 db	"race-eas.bpk",0,0,0,0
-___1803cch:
+__GDECL(__CEXT_V(bpk_race_med))
 db	"race-med.bpk",0,0,0,0
-___1803dch:
+__GDECL(__CEXT_V(bpk_race_har))
 db	"race-har.bpk",0,0,0,0
-___1803ech:
+__GDECL(__CEXT_V(bpk_p_name))
 db	"p-name.bpk",0,0
-___1803f8h:
+__GDECL(__CEXT_V(bpk_p_pist))
 db	"p-pist.bpk",0,0
-___180404h:
+__GDECL(__CEXT_V(bpk_p_rank))
 db	"p-rank.bpk",0,0
-___180410h:
+__GDECL(__CEXT_V(bpk_pts_easy))
 db	"pts-easy.bpk",0,0,0,0
-___180420h:
+__GDECL(__CEXT_V(bpk_pts_med))
 db	"pts-med.bpk",0
-___18042ch:
+__GDECL(__CEXT_V(bpk_pts_hard))
 db	"pts-hard.bpk",0,0,0,0
-___18043ch:
+__GDECL(__CEXT_V(bpk_placing))
 db	"placing.bpk",0
-___180448h:
+__GDECL(__CEXT_V(bpk_carres))
 db	"carres.bpk",0,0
-___180454h:
+__GDECL(__CEXT_V(bpk_face01))
 db	"face01.bpk",0,0
-___180460h:
+__GDECL(__CEXT_V(bpk_face02))
 db	"face02.bpk",0,0
-___18046ch:
+__GDECL(__CEXT_V(bpk_face03))
 db	"face03.bpk",0,0
-___180478h:
+__GDECL(__CEXT_V(bpk_face04))
 db	"face04.bpk",0,0
-___180484h:
+__GDECL(__CEXT_V(bpk_face05))
 db	"face05.bpk",0,0
-___180490h:
+__GDECL(__CEXT_V(bpk_face06))
 db	"face06.bpk",0,0
-___18049ch:
+__GDECL(__CEXT_V(bpk_face07))
 db	"face07.bpk",0,0
-___1804a8h:
+__GDECL(__CEXT_V(bpk_face08))
 db	"face08.bpk",0,0
-___1804b4h:
+__GDECL(__CEXT_V(bpk_face09))
 db	"face09.bpk",0,0
-___1804c0h:
+__GDECL(__CEXT_V(bpk_face10))
 db	"face10.bpk",0,0
-___1804cch:
+__GDECL(__CEXT_V(bpk_face11))
 db	"face11.bpk",0,0
-___1804d8h:
+__GDECL(__CEXT_V(bpk_face12))
 db	"face12.bpk",0,0
-___1804e4h:
+__GDECL(__CEXT_V(bpk_face13))
 db	"face13.bpk",0,0
-___1804f0h:
+__GDECL(__CEXT_V(bpk_face14))
 db	"face14.bpk",0,0
-___1804fch:
+__GDECL(__CEXT_V(bpk_face15))
 db	"face15.bpk",0,0
-___180508h:
+__GDECL(__CEXT_V(bpk_face16))
 db	"face16.bpk",0,0
-___180514h:
+__GDECL(__CEXT_V(bpk_face17))
 db	"face17.bpk",0,0
-___180520h:
+__GDECL(__CEXT_V(bpk_face18))
 db	"face18.bpk",0,0
-___18052ch:
+__GDECL(__CEXT_V(bpk_face19))
 db	"face19.bpk",0,0
-___180538h:
+__GDECL(__CEXT_V(bpk_face20))
 db	"face20.bpk",0,0
-___180544h:
+__GDECL(__CEXT_V(bpk_facexx))
 db	"facexx.bpk",0,0
-___180550h:
+__GDECL(__CEXT_V(pal_copper))
 db	"copper.pal",0,0
-___18055ch:
+__GDECL(__CEXT_V(pal_carcol))
 db	"carcol.pal",0,0
-___180568h:
+__GDECL(__CEXT_V(bpk_corn3a))
 db	"corn3a.bpk",0,0
-___180574h:
+__GDECL(__CEXT_V(bpk_corn3b))
 db	"corn3b.bpk",0,0
-___180580h:
+__GDECL(__CEXT_V(bpk_menubg5))
 db	"menubg5.bpk",0
-___18058ch:
+__GDECL(___18058ch)
 db	"trsnap2m.bpk",0,0,0,0
-___18059ch:
+__GDECL(___18059ch)
 db	"cursor.bpk",0,0
-___1805a8h:
+__GDECL(___1805a8h)
 db	"f-big3b.bpk",0
-___1805b4h:
+__GDECL(___1805b4h)
 db	"f-big3d.bpk",0
-___1805c0h:
+__GDECL(___1805c0h)
 db	"chatlin1.bpk",0,0,0,0
-___1805d0h:
+__GDECL(___1805d0h)
 db	"chattext.bpk",0,0,0,0
-___1805e0h:
+__GDECL(___1805e0h)
 db	"entertx2.bpk",0,0,0,0
-___1805f0h:
+__GDECL(___1805f0h)
 db	"shoptxt1.bpk",0,0,0,0
-___180600h:
+__GDECL(___180600h)
 db	"shoptxt2.bpk",0,0,0,0
-___180610h:
+__GDECL(___180610h)
 db	"fametxt.bpk",0
-___18061ch:
+__GDECL(___18061ch)
 db	"recotxt.bpk",0
-___180628h:
+__GDECL(___180628h)
 db	"recobar.bpk",0
-___180634h:
+__GDECL(___180634h)
 db	"lic-lin1.bpk",0,0,0,0
-___180644h:
+__GDECL(___180644h)
 db	"facesel1.bpk",0,0,0,0
-___180654h:
+__GDECL(___180654h)
 db	"facearr1.bpk",0,0,0,0
-___180664h:
+__GDECL(___180664h)
 db	"mseletx1.bpk",0,0,0,0
-___180674h:
+__GDECL(___180674h)
 db	"trarr1.bpk",0,0
-___180680h:
+__GDECL(___180680h)
 db	"menu.pal",0,0,0,0
 __GDECL(__CEXT_V(STRING_yes))
 db	"yes",0
@@ -821,89 +821,89 @@ __GDECL(__CEXT_V(___181d1bh))
 db	0,0,0c8h,42h
 __GDECL(__CEXT_V(___181d1fh))
 db	0,0,0,40h,0
-__GDECL(__CEXT_V(___181d24h))
+__GDECL(__CEXT_V(bpk_statbas7))
 db	"statbas7.bpk",0,0,0,0
-__GDECL(__CEXT_V(___181d34h))
+__GDECL(__CEXT_V(bpk_statpop4))
 db	"statpop4.bpk",0,0,0,0
-__GDECL(__CEXT_V(___181d44h))
+__GDECL(__CEXT_V(bpk_f_sma3f))
 db	"f-sma3f.bpk",0
-__GDECL(__CEXT_V(___181d50h))
+__GDECL(__CEXT_V(bpk_kupla))
 db	"kupla.bpk",0,0,0
-__GDECL(__CEXT_V(___181d5ch))
+__GDECL(__CEXT_V(bpk_pickup))
 db	"pickup.bpk",0,0
-__GDECL(__CEXT_V(___181d68h))
+__GDECL(__CEXT_V(bpk_sedan))
 db	"sedan.bpk",0,0,0
-__GDECL(__CEXT_V(___181d74h))
+__GDECL(__CEXT_V(bpk_camaro))
 db	"camaro.bpk",0,0
-__GDECL(__CEXT_V(___181d80h))
+__GDECL(__CEXT_V(bpk_porsche))
 db	"porsche.bpk",0
-__GDECL(__CEXT_V(___181d8ch))
+__GDECL(__CEXT_V(bpk_lotus))
 db	"lotus.bpk",0,0,0
-__GDECL(__CEXT_V(___181d98h))
+__GDECL(__CEXT_V(bpk_engi1))
 db	"engi1.bpk",0,0,0
-__GDECL(__CEXT_V(___181da4h))
+__GDECL(__CEXT_V(bpk_engi2))
 db	"engi2.bpk",0,0,0
-__GDECL(__CEXT_V(___181db0h))
+__GDECL(__CEXT_V(bpk_engi3))
 db	"engi3.bpk",0,0,0
-__GDECL(__CEXT_V(___181dbch))
+__GDECL(__CEXT_V(bpk_engi4))
 db	"engi4.bpk",0,0,0
-__GDECL(__CEXT_V(___181dc8h))
+__GDECL(__CEXT_V(bpk_tire1))
 db	"tire1.bpk",0,0,0
-__GDECL(__CEXT_V(___181dd4h))
+__GDECL(__CEXT_V(bpk_tire2))
 db	"tire2.bpk",0,0,0
-__GDECL(__CEXT_V(___181de0h))
+__GDECL(__CEXT_V(bpk_tire3))
 db	"tire3.bpk",0,0,0
-__GDECL(__CEXT_V(___181dech))
+__GDECL(__CEXT_V(bpk_tire4))
 db	"tire4.bpk",0,0,0
-__GDECL(__CEXT_V(___181df8h))
+__GDECL(__CEXT_V(bpk_armor1))
 db	"armor1.bpk",0,0
-__GDECL(__CEXT_V(___181e04h))
+__GDECL(__CEXT_V(bpk_armor2))
 db	"armor2.bpk",0,0
-__GDECL(__CEXT_V(___181e10h))
+__GDECL(__CEXT_V(bpk_armor3))
 db	"armor3.bpk",0,0
-__GDECL(__CEXT_V(___181e1ch))
+__GDECL(__CEXT_V(bpk_armor4))
 db	"armor4.bpk",0,0
-__GDECL(__CEXT_V(___181e28h))
+__GDECL(__CEXT_V(bpk_contani))
 db	"contani.bpk",0
-__GDECL(__CEXT_V(___181e34h))
+__GDECL(__CEXT_V(bpk_repaani))
 db	"repaani.bpk",0
-__GDECL(__CEXT_V(___181e40h))
+__GDECL(__CEXT_V(bpk_carbas2))
 db	"carbas2.bpk",0
-__GDECL(__CEXT_V(___181e4ch))
+__GDECL(__CEXT_V(bpk_spons1b))
 db	"spons1b.bpk",0
-__GDECL(__CEXT_V(___181e58h))
+__GDECL(__CEXT_V(bpk_drugdeal))
 db	"drugdeal.bpk",0,0,0,0
-__GDECL(__CEXT_V(___181e68h))
+__GDECL(__CEXT_V(bpk_event_2))
 db	"event_2.bpk",0
-__GDECL(__CEXT_V(___181e74h))
+__GDECL(__CEXT_V(bpk_reaper_x))
 db	"reaper_x.bpk",0,0,0,0
-__GDECL(__CEXT_V(___181e84h))
+__GDECL(__CEXT_V(bpk_blacktx1))
 db	"blacktx1.bpk",0,0,0,0
-__GDECL(__CEXT_V(___181e94h))
+__GDECL(__CEXT_V(bpk_blacktx2))
 db	"blacktx2.bpk",0,0,0,0
-__GDECL(__CEXT_V(___181ea4h))
+__GDECL(__CEXT_V(bpk_dealer2b))
 db	"dealer2b.bpk",0,0,0,0
-__GDECL(__CEXT_V(___181eb4h))
+__GDECL(__CEXT_V(bpk_market1e))
 db	"market1e.bpk",0,0,0,0
-__GDECL(__CEXT_V(___181ec4h))
+__GDECL(__CEXT_V(bpk_bases4))
 db	"bases4.bpk",0,0
-__GDECL(__CEXT_V(___181ed0h))
+__GDECL(__CEXT_V(bpk_scenecar))
 db	"scenecar.bpk",0,0,0,0
-__GDECL(__CEXT_V(___181ee0h))
+__GDECL(__CEXT_V(bpk_choo2))
 db	"choo2.bpk",0,0,0
-__GDECL(__CEXT_V(___181eech))
+__GDECL(__CEXT_V(bpk_arrows1d))
 db	"arrows1d.bpk",0,0,0,0
-__GDECL(__CEXT_V(___181efch))
+__GDECL(__CEXT_V(bpk_maxi1f))
 db	"maxi1f.bpk",0,0
-__GDECL(__CEXT_V(___181f08h))
+__GDECL(__CEXT_V(bpk_carname))
 db	"carname.bpk",0
-__GDECL(__CEXT_V(___181f14h))
+__GDECL(__CEXT_V(bpk_slidmus2))
 db	"slidmus2.bpk",0,0,0,0
-__GDECL(__CEXT_V(___181f24h))
+__GDECL(__CEXT_V(bpk_slidcur3))
 db	"slidcur3.bpk",0,0,0,0
-__GDECL(__CEXT_V(___181f34h))
+__GDECL(__CEXT_V(bpk_volcur2))
 db	"volcur2.bpk",0
-__GDECL(__CEXT_V(___181f40h))
+__GDECL(__CEXT_V(bpk_slidcop2))
 db	"slidcop2.bpk",0,0,0,0
 ___181f50h:
 db	20h,0,0,0

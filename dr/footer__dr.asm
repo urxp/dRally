@@ -1,15 +1,15 @@
 %include "macros.inc"
 
 	extern 	__CHK
-	extern 	__CEXT_V(GXBackBuffer)
+	extern 	__CEXT_V(p_bpk_menubg5)
 	extern 	__CEXT_V(VGABufferPtr_0)
 	extern 	__CEXT_V(RowBoxBuffers)
 	extern 	RowBox0Colors
 	extern 	__CEXT_V(Font0Props)
-	extern 	__CEXT_V(WhiteFont0Ptr)
+	extern 	__CEXT_V(p_bpk_f_sma3a)
 	extern 	__CEXT_F(renderTextToBuffer__video)
-	extern 	GreyFont0Ptr
-	extern 	LightBlueFont0Ptr
+	extern 	__CEXT_V(p_bpk_f_sma3b)
+	extern 	__CEXT_V(p_bpk_f_sma3c)
 
 	extern 	__CEXT_F(memcpy__clib3r)
 
@@ -29,7 +29,7 @@ __GDECL(__CEXT_F(footer__dr))
 		mov     ebp, 3b600h
 ___23245h:
 		mov     ecx, 280h
-		mov     esi, [__CEXT_V(GXBackBuffer)]
+		mov     esi, [__CEXT_V(p_bpk_menubg5)]
 		mov     edi, [__CEXT_V(VGABufferPtr_0)]
 		add     esi, ebp
 		add     edi, ebp
@@ -52,7 +52,7 @@ ___2328ah:
 		cmp     byte [ebp+RowBox0Colors], 0
 		jne     ___232a6h
 		mov     edx, __CEXT_V(Font0Props)
-		mov     eax, [__CEXT_V(WhiteFont0Ptr)]
+		mov     eax, [__CEXT_V(p_bpk_f_sma3a)]
 		mov     ecx, esi
 		mov     ebx, edi
 		call    __CEXT_F(renderTextToBuffer__video)
@@ -60,7 +60,7 @@ ___232a6h:
 		cmp     byte [ebp+RowBox0Colors], 1
 		jne     ___232c2h
 		mov     edx, __CEXT_V(Font0Props)
-		mov     eax, [GreyFont0Ptr]
+		mov     eax, [__CEXT_V(p_bpk_f_sma3b)]
 		mov     ecx, esi
 		mov     ebx, edi
 		call    __CEXT_F(renderTextToBuffer__video)
@@ -68,7 +68,7 @@ ___232c2h:
 		cmp     byte [ebp+RowBox0Colors], 2
 		jne     ___232deh
 		mov     edx, __CEXT_V(Font0Props)
-		mov     eax, [LightBlueFont0Ptr]
+		mov     eax, [__CEXT_V(p_bpk_f_sma3c)]
 		mov     ecx, esi
 		mov     ebx, edi
 		call    __CEXT_F(renderTextToBuffer__video)
