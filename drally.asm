@@ -85,6 +85,7 @@
     extern  __CEXT_F(fadeinScreen)
     extern  __CEXT_F(startingScreen__dr)
     extern  __CEXT_F(loadMenuBPK)
+    extern  __CEXT_F(loadOtherBPK)
 
     extern  __CEXT_F(updateAMPVolume)
     extern  __CEXT_F(updateMSXVolume)

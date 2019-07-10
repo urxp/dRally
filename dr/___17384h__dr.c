@@ -1,7 +1,7 @@
 #include "x86.h"
 
     extern byte ___185ba9h[];
-    extern void * ___1a10e0h;
+    extern void * p_bpk_f_big3b;
     extern const char ___18072ch[];
     extern int ___196ae0h;
     extern byte ___185cbch[];
@@ -27,7 +27,7 @@ void ___17384h(dword A0, dword A1, dword A2, dword A3, dword A4, dword A5){
 
 	if(___196ae0h++ < 0xa){
 
-		renderTextToBuffer__video(___1a10e0h, ___185ba9h, ___18072ch, 640*A1 + A0 + A2);
+		renderTextToBuffer__video(p_bpk_f_big3b, ___185ba9h, ___18072ch, 640*A1 + A0 + A2);
 	}
 	else {
 

@@ -112,7 +112,7 @@
 	void ___117c8h(void);	
 	void loadMenuBPK(void);	
 	void ___12200h(void);
-	void ___1240ch(void);
+	void loadOtherBPK(void);
 	void ___12940h(void);
     void ___12a54h(void);
 	void popScreen(void);
@@ -480,8 +480,8 @@ l_bs_ok:
     startingScreen__dr();
 //		call    __CEXT_F(loadMenuBPK)
     loadMenuBPK();
-//		call    __CEXT_F(___1240ch)
-    ___1240ch();
+//		call    __CEXT_F(loadOtherBPK)
+    loadOtherBPK();
 //		call    __CEXT_F(___117c8h)
     ___117c8h();
 //		call    __CEXT_F(loadShopBPK)

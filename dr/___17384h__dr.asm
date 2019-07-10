@@ -4,7 +4,7 @@
     extern  __CEXT_F(updateMenuBackgroundAndTextArea)
     extern  __CEXT_F(memset__clib3r)
     extern  __CEXT_V(___185ba9h)
-    extern  __CEXT_V(___1a10e0h)
+    extern  __CEXT_V(p_bpk_f_big3b)
     extern  __CEXT_V(___18072ch)
     extern  __CEXT_F(renderTextToBuffer__video)
     extern  __CEXT_V(___196ae0h)
@@ -64,7 +64,7 @@ ___173f7h:
 		shl     eax, 7
 		lea     ecx, [eax+edi]
 		mov     edx, __CEXT_V(___185ba9h)
-		mov     eax, [__CEXT_V(___1a10e0h)]
+		mov     eax, [__CEXT_V(p_bpk_f_big3b)]
 		add     ecx, ebx
 		mov     ebx, __CEXT_V(___18072ch)
 		call    __CEXT_F(renderTextToBuffer__video)

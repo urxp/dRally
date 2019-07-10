@@ -635,76 +635,111 @@ __GDECL(__CEXT_V(p_bpk_pts_med))
     resb	1
 ___1a0ff1h:	resb	3
 ___1a0ff4h:	resb	4
-___1a0ff8h:	resb	3
+__GDECL(__CEXT_V(p_bpk_mseletx1))
+    resb	3
 ___1a0ffbh:	resb	1
 ___1a0ffch:	resb	2ch
 ___1a1028h:	resb	4
 ___1a102ch:	resb	4
-___1a1030h:	resb	4
+__GDECL(__CEXT_V(p0_bpk_trsnap2m))
+    resb	4
 ___1a1034h:	resb	4
-___1a1038h:	resb	4
+__GDECL(__CEXT_V(p1_bpk_trsnap2m))
+    resb	4
 ___1a103ch:	resb	4
-___1a1040h:	resb	4
-___1a1044h:	resb	4
-___1a1048h:	resb	4
-___1a104ch:	resb	4
-___1a1050h:	resb	4
-___1a1054h:	resb	4
-___1a1058h:	resb	4
-___1a105ch:	resb	4
-___1a1060h:	resb	4
-___1a1064h:	resb	4
-___1a1068h:	resb	4
-___1a106ch:	resb	4
-___1a1070h:	resb	4
-___1a1074h:	resb	4
-___1a1078h:	resb	4
-___1a107ch:	resb	4
-___1a1080h:	resb	4
-___1a1084h:	resb	4
-___1a1088h:	resb	4
+__GDECL(__CEXT_V(ps_bpk_trsnap2m))
+    resb	4
+__GDECL(__CEXT_V(___1a1044h))
+    resb	4
+__GDECL(__CEXT_V(___1a1048h))
+    resb	4
+__GDECL(__CEXT_V(___1a104ch))
+    resb	4
+__GDECL(__CEXT_V(___1a1050h))
+    resb	4
+__GDECL(__CEXT_V(___1a1054h))
+    resb	4
+__GDECL(__CEXT_V(___1a1058h))
+    resb	4
+__GDECL(__CEXT_V(___1a105ch))
+    resb	4
+__GDECL(__CEXT_V(___1a1060h))
+    resb	4
+__GDECL(__CEXT_V(___1a1064h))
+    resb	4
+__GDECL(__CEXT_V(___1a1068h))
+    resb	4
+__GDECL(__CEXT_V(___1a106ch))
+    resb	4
+__GDECL(__CEXT_V(___1a1070h))
+    resb	4
+__GDECL(__CEXT_V(___1a1074h))
+    resb	4
+__GDECL(__CEXT_V(___1a1078h))
+    resb	4
+__GDECL(__CEXT_V(___1a107ch))
+    resb	4
+__GDECL(__CEXT_V(___1a1080h))
+    resb	4
+__GDECL(__CEXT_V(___1a1084h))
+    resb	4
+__GDECL(__CEXT_V(___1a1088h))
+    resb	4
 ___1a108ch:	resb	4
 ___1a1090h:	resb	4
 ___1a1094h:	resb	4
 ___1a1098h:	resb	4
 ___1a109ch:	resb	4
 ___1a10a0h:	resb	4
-___1a10a4h:	resb	4
+__GDECL(__CEXT_V(p_bpk_trarr1))
+    resb	4
 ___1a10a8h:	resb	4
-___1a10ach:	resb	4
+__GDECL(__CEXT_V(p_bpk_recotxt))
+    resb	4
 __GDECL(__CEXT_V(p_bpk_f_sma3f))
     resb	4
-___1a10b4h:	resb	4
+__GDECL(__CEXT_V(p_bpk_chatlin1))
+    resb	4
 __GDECL(__CEXT_V(p_bpk_f_med1a))
     resb	4
-___1a10bch:	resb	4
-___1a10c0h:	resb	4
+__GDECL(__CEXT_V(p_bpk_shoptxt1))
+    resb	4
+__GDECL(__CEXT_V(p_bpk_recobar))
+    resb	4
 __GDECL(__CEXT_V(p_bpk_15x150))
     resb	4
 __GDECL(__CEXT_V(p_pal_bgcop))
     resb	4
 __GDECL(__CEXT_V(p_bpk_f_big3a))
     resb	4
-___1a10d0h:	resb	4
-___1a10d4h:	resb	4
+__GDECL(__CEXT_V(p_bpk_f_big3d))
+    resb	4
+__GDECL(__CEXT_V(p_bpk_entertx2))
+    resb	4
 __GDECL(__CEXT_V(p_bpk_corn3b))
     resb	4
-___1a10dch:	resb	4
-__GDECL(__CEXT_V(___1a10e0h))
+__GDECL(__CEXT_V(p_bpk_fametxt))
+    resb	4
+__GDECL(__CEXT_V(p_bpk_f_big3b))
     resb	4
 __GDECL(__CEXT_V(___1a10e4h))
     resb	4
-___1a10e8h:	resb	4
-___1a10ech:	resb	4
+__GDECL(__CEXT_V(p_bpk_shoptxt2))
+    resb	4
+__GDECL(__CEXT_V(p_bpk_lic_lin1))
+    resb	4
 __GDECL(__CEXT_V(p_bpk_corn3a))
     resb	4
-___1a10f4h:	resb	4
-___1a10f8h:	resb	4
+__GDECL(__CEXT_V(p_bpk_cursor))
+    resb	4
+__GDECL(__CEXT_V(p_bpk_facesel1))
+    resb	4
 __GDECL(__CEXT_V(p_bpk_f_sma3b))
     resb	4
 __GDECL(__CEXT_V(___VGABufferPtr_0))
     resb	4
-___1a1104h:	resb	4
+__GDECL(__CEXT_V(p_bpk_facearr1))
+    resb	4
 __GDECL(__CEXT_V(p_bpk_f_sma3a))
     resb	4
 __GDECL(__CEXT_V(p_bpk_f_sma3c))
@@ -716,7 +751,8 @@ ___1a111ch:	resb	4
 ___1a1120h:	resb	4
 __GDECL(__CEXT_V(___1a1124h))
     resb	4
-___1a1128h:	resb	4
+__GDECL(__CEXT_V(p_bpk_chattext))
+    resb	4
 __GDECL(__CEXT_V(VGABufferPtr_0))
     resb	4
 ___1a1130h:	resb	4
@@ -758,7 +794,7 @@ __GDECL(__CEXT_V(p_bpk_repear_x))
     resb	4
 __GDECL(__CEXT_V(p_bpk_blacktx2))
     resb	4
-__GDECL(___1a1e68h)
+__GDECL(__CEXT_V(___1a1e68h))
     resb	4
 __GDECL(__CEXT_V(p_bpk_carbas2))
     resb	4

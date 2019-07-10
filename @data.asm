@@ -169,39 +169,39 @@ __GDECL(__CEXT_V(bpk_corn3b))
 db	"corn3b.bpk",0,0
 __GDECL(__CEXT_V(bpk_menubg5))
 db	"menubg5.bpk",0
-__GDECL(___18058ch)
+__GDECL(__CEXT_V(bpk_trsnap2m))
 db	"trsnap2m.bpk",0,0,0,0
-__GDECL(___18059ch)
+__GDECL(__CEXT_V(bpk_cursor))
 db	"cursor.bpk",0,0
-__GDECL(___1805a8h)
+__GDECL(__CEXT_V(bpk_f_big3b))
 db	"f-big3b.bpk",0
-__GDECL(___1805b4h)
+__GDECL(__CEXT_V(bpk_f_big3d))
 db	"f-big3d.bpk",0
-__GDECL(___1805c0h)
+__GDECL(__CEXT_V(bpk_chatlin1))
 db	"chatlin1.bpk",0,0,0,0
-__GDECL(___1805d0h)
+__GDECL(__CEXT_V(bpk_chattext))
 db	"chattext.bpk",0,0,0,0
-__GDECL(___1805e0h)
+__GDECL(__CEXT_V(bpk_entertx2))
 db	"entertx2.bpk",0,0,0,0
-__GDECL(___1805f0h)
+__GDECL(__CEXT_V(bpk_shoptxt1))
 db	"shoptxt1.bpk",0,0,0,0
-__GDECL(___180600h)
+__GDECL(__CEXT_V(bpk_shoptxt2))
 db	"shoptxt2.bpk",0,0,0,0
-__GDECL(___180610h)
+__GDECL(__CEXT_V(bpk_fametxt))
 db	"fametxt.bpk",0
-__GDECL(___18061ch)
+__GDECL(__CEXT_V(bpk_recotxt))
 db	"recotxt.bpk",0
-__GDECL(___180628h)
+__GDECL(__CEXT_V(bpk_recobar))
 db	"recobar.bpk",0
-__GDECL(___180634h)
+__GDECL(__CEXT_V(bpk_lic_lin1))
 db	"lic-lin1.bpk",0,0,0,0
-__GDECL(___180644h)
+__GDECL(__CEXT_V(bpk_facesel1))
 db	"facesel1.bpk",0,0,0,0
-__GDECL(___180654h)
+__GDECL(__CEXT_V(bpk_facearr1))
 db	"facearr1.bpk",0,0,0,0
-__GDECL(___180664h)
+__GDECL(__CEXT_V(bpk_mseletx1))
 db	"mseletx1.bpk",0,0,0,0
-__GDECL(___180674h)
+__GDECL(__CEXT_V(bpk_trarr1))
 db	"trarr1.bpk",0,0
 __GDECL(___180680h)
 db	"menu.pal",0,0,0,0

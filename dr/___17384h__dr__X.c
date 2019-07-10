@@ -1,7 +1,7 @@
 #include "x86.h"
 
     extern byte ___185ba9h[];
-    extern byte ___1a10e0h[];
+    extern byte p_bpk_f_big3b[];
     extern byte ___18072ch[];
     extern byte ___196ae0h[];
     extern byte ___185cbch[];
@@ -112,8 +112,8 @@ ___173f7h:
 	ecx = eax + edi;
 //		mov     edx, __CEXT_V(___185ba9h)
 	edx = ___185ba9h;
-//		mov     eax, [__CEXT_V(___1a10e0h)]
-	eax = D(___1a10e0h);
+//		mov     eax, [__CEXT_V(p_bpk_f_big3b)]
+	eax = D(p_bpk_f_big3b);
 //		add     ecx, ebx
 	ecx += ebx;
 //		mov     ebx, __CEXT_V(___18072ch)
