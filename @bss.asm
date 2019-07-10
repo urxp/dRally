@@ -585,12 +585,18 @@ ___1a0f02h:	resb	1
 ___1a0f03h:	resb	1
 ___1a0f04h:	resb	14h
 ___1a0f18h:	resb	6ch
-___1a0f84h:	resb	4
-___1a0f88h:	resb	4
-___1a0f8ch:	resb	4
-___1a0f90h:	resb	4
-___1a0f94h:	resb	4
-___1a0f98h:	resb	4
+__GDECL(__CEXT_V(p_bpk_escbox))
+    resb	4
+__GDECL(__CEXT_V(p_bpk_badsnap))
+    resb	4
+__GDECL(__CEXT_V(p_bpk_prep4))
+    resb	4
+__GDECL(__CEXT_V(p_bpk_badtit))
+    resb	4
+__GDECL(__CEXT_V(p_bpk_prepw1))
+    resb	4
+__GDECL(__CEXT_V(p_bpk_signline))
+    resb	4
 __GDECL(__CEXT_V(___1a0f9ch))
     resb	8
 __GDECL(__CEXT_V(p_bpk_carres))
@@ -745,7 +751,8 @@ __GDECL(__CEXT_V(p_bpk_f_sma3a))
 __GDECL(__CEXT_V(p_bpk_f_sma3c))
     resb	4
 ___1a1110h:	resb	4
-___1a1114h:	resb	4
+__GDECL(__CEXT_V(___1a1114h))
+    resb	4
 ___1a1118h:	resb	4
 ___1a111ch:	resb	4
 ___1a1120h:	resb	4

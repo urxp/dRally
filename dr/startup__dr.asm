@@ -79,7 +79,7 @@
 	extern 	__CEXT_F(loadOtherBPK)	
 	extern 	__CEXT_F(emptyFunction_0)	
 	extern 	__CEXT_F(loadShopBPK)	
-	extern 	__CEXT_F(___2faf0h)	
+	extern 	__CEXT_F(loadAddBPK)	
 	extern 	__CEXT_F(___3d2bch)	
 	extern 	__CEXT_F(___12940h)		
 	extern 	__CEXT_V(p_pal_copper)	
@@ -286,7 +286,7 @@ l_bs_ok:
 		call    __CEXT_F(loadOtherBPK)
 		call    __CEXT_F(emptyFunction_0)
 		call    __CEXT_F(loadShopBPK)
-		call    __CEXT_F(___2faf0h)
+		call    __CEXT_F(loadAddBPK)
 		call    __CEXT_F(___3d2bch)
 		call    __CEXT_F(___12940h)
 		mov     edx, [__CEXT_V(MyID)]

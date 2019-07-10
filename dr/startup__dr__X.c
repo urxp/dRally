@@ -126,7 +126,7 @@
 	void loadShopBPK(void);	
 	void ___24ec0h(void);
     void ___2b318h(void);
-	void ___2faf0h(void);
+	void loadAddBPK(void);
 	void ___2fc50h(void);	
 	void ___3a7e0h(dword);
 	void ___3d2bch(void);
@@ -496,8 +496,8 @@ l_bs_ok:
     emptyFunction_0();
 //		call    __CEXT_F(loadShopBPK)
     loadShopBPK();
-//		call    __CEXT_F(___2faf0h)
-    ___2faf0h();
+//		call    __CEXT_F(loadAddBPK)
+    loadAddBPK();
 //		call    __CEXT_F(___3d2bch)
     ___3d2bch();
 //		call    __CEXT_F(___12940h)

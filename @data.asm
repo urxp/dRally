@@ -1038,17 +1038,17 @@ ___1822deh:
 db	0,0,0,0,0,70h,97h,40h
 ___1822e6h:
 db	0,0,0,0,0,70h,87h,40h,0,0
-___1822f0h:
+__GDECL(__CEXT_V(bpk_badtit))
 db	"badtit.bpk",0,0
-___1822fch:
+__GDECL(__CEXT_V(bpk_badsnap))
 db	"badsnap.bpk",0
-___182308h:
+__GDECL(__CEXT_V(bpk_escbox))
 db	"escbox.bpk",0,0
-___182314h:
+__GDECL(__CEXT_V(bpk_prep4))
 db	"prep4.bpk",0,0,0
-___182320h:
+__GDECL(__CEXT_V(bpk_signline))
 db	"signline.bpk",0,0,0,0
-___182330h:
+__GDECL(__CEXT_V(bpk_prepw1))
 db	"prepw1.bpk",0,0
 ___18233ch:
 db	"[Total tracks se"
