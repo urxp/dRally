@@ -20,7 +20,7 @@
     extern  __CEXT_F(fadeinScreen)
     extern  __CEXT_F(waitSync__dr)
     extern  __CEXT_F(lastScanCode__keyboard)
-    extern  __CEXT_F(___3d2bch)
+    extern  __CEXT_F(fadeoutScreen)
 
 %include "layout.inc"
 
@@ -77,7 +77,7 @@ ___3d403h:
 		cmp     ebp, 0b4h
 		jl      ___3d403h
 ___3d420h:
-		call    __CEXT_F(___3d2bch)
+		call    __CEXT_F(fadeoutScreen)
 		mov     eax, __CEXT_V(___182830h)
 		mov     ebx, __CEXT_V(___18283ch)
 		mov     edx, __CEXT_V(BPA_Buffer)
@@ -103,7 +103,7 @@ ___3d463h:
 		cmp     ecx, 0b4h
 		jl      ___3d463h
 ___3d480h:
-		call    __CEXT_F(___3d2bch)
+		call    __CEXT_F(fadeoutScreen)
 		mov     eax, __CEXT_V(___182848h)
 		mov     ebx, __CEXT_V(___182854h)
 		mov     edx, __CEXT_V(BPA_Buffer)
@@ -127,7 +127,7 @@ ___3d4c4h:
 		cmp     dword [esp], 0b4h
 		jl      ___3d4c4h
 ___3d4deh:
-		call    __CEXT_F(___3d2bch)
+		call    __CEXT_F(fadeoutScreen)
 		add     esp, byte 4
 		pop     ebp
 		pop     edi

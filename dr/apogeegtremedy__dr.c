@@ -20,7 +20,7 @@
     void fadeinScreen(void);
     void waitSync__dr(void);
 	dword lastScanCode__keyboard(void);	
-    void ___3d2bch(void);
+    void fadeoutScreen(void);
 
 
 // 3d38ch
@@ -42,7 +42,7 @@ void apogee_gt_remedy(void){
 	D(esp) = -1;
 	while((++D(esp) < 0xb4)&&!lastScanCode__keyboard()) waitSync__dr();
 
-	___3d2bch();
+	fadeoutScreen();
 
 	loadPalette(___182830h);
 	read__bpa(MENU_BPA, BPA_Buffer, ___18283ch);
@@ -53,7 +53,7 @@ void apogee_gt_remedy(void){
 	D(esp) = -1;
 	while((++D(esp) < 0xb4)&&!lastScanCode__keyboard()) waitSync__dr();
 
-	___3d2bch();
+	fadeoutScreen();
 
 	loadPalette(___182848h);
 	read__bpa(MENU_BPA, BPA_Buffer, ___182854h);
@@ -64,5 +64,5 @@ void apogee_gt_remedy(void){
 	D(esp) = -1;
 	while((++D(esp) < 0xb4)&&!lastScanCode__keyboard()) waitSync__dr();
 
-	___3d2bch();
+	fadeoutScreen();
 }

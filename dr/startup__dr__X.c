@@ -129,7 +129,7 @@
 	void loadAddBPK(void);
 	void unloadAddBPK(void);	
 	void ___3a7e0h(dword);
-	void ___3d2bch(void);
+	void fadeoutScreen(void);
 	void apogee_gt_remedy(void);	
 	void ___3d79ch(void);
 	void startingScreen__dr(void);	
@@ -498,8 +498,8 @@ l_bs_ok:
     loadShopBPK();
 //		call    __CEXT_F(loadAddBPK)
     loadAddBPK();
-//		call    __CEXT_F(___3d2bch)
-    ___3d2bch();
+//		call    __CEXT_F(fadeoutScreen)
+    fadeoutScreen();
 //		call    __CEXT_F(___12940h)
     ___12940h();
 //		mov     edx, [__CEXT_V(MyID)]

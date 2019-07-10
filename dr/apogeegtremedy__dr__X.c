@@ -20,7 +20,7 @@
     void fadeinScreen(void);
     void waitSync__dr(void);
 	dword lastScanCode__keyboard(void);	
-    void ___3d2bch(void);
+    void fadeoutScreen(void);
 
 
 // 3d38ch
@@ -116,8 +116,8 @@ ___3d403h:
 //		jl      ___3d403h
 	if((int)ebp < 0xb4) goto ___3d403h;
 ___3d420h:
-//		call    __CEXT_F(___3d2bch)
-	___3d2bch();
+//		call    __CEXT_F(fadeoutScreen)
+	fadeoutScreen();
 //		mov     eax, __CEXT_V(___182830h)
 	eax = ___182830h;
 //		mov     ebx, __CEXT_V(___18283ch)
@@ -165,8 +165,8 @@ ___3d463h:
 //		jl      ___3d463h
 	if((int)ecx < 0xb4) goto ___3d463h;
 ___3d480h:
-//		call    __CEXT_F(___3d2bch)
-	___3d2bch();
+//		call    __CEXT_F(fadeoutScreen)
+	fadeoutScreen();
 //		mov     eax, __CEXT_V(___182848h)
 	eax = ___182848h;
 //		mov     ebx, __CEXT_V(___182854h)
@@ -210,8 +210,8 @@ ___3d4c4h:
 //		jl      ___3d4c4h
 	if((int)D(esp) < 0xb4) goto ___3d4c4h;
 ___3d4deh:
-//		call    __CEXT_F(___3d2bch)
-	___3d2bch();
+//		call    __CEXT_F(fadeoutScreen)
+	fadeoutScreen();
 //		add     esp, byte 4
 	esp += 4;
 //		pop     ebp

@@ -21448,7 +21448,7 @@ ___228abh:
 		call    near __CEXT_F(loadOtherBPK)
 		call    near __CEXT_F(loadShopBPK)
 		call    near __CEXT_F(loadAddBPK)
-		call    near __CEXT_F(___3d2bch)
+		call    near __CEXT_F(fadeoutScreen)
 		call    near __CEXT_F(___12940h)
 		mov     esi, [__CEXT_V(MyID)]
 		lea     eax, [esi*8+0]
@@ -51534,75 +51534,6 @@ ___3d136h:
 		pop     ecx
 		pop     ebx
 		retn    
-__GDECL(__CEXT_F(___3d2bch))
-		push    30h
-		call    near __CHK
-		push    ebx
-		push    ecx
-		push    edx
-		push    esi
-		push    edi
-		push    ebp
-		sub     esp, byte 4
-		mov     ebp, 640000h
-___3d2d4h:
-		call    near __CEXT_F(waitSync__dr)
-		mov     esi, ebp
-		xor     edx, edx
-		xor     edi, edi
-		mov     [esp], edx
-___3d2e2h:
-		xor     eax, eax
-		mov     al, [esp]
-		push    eax
-		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(Pal8to24_1)]
-		imul    edx
-		add     eax, 8000h
-		adc     edx, byte 0
-		shrd    eax, edx, 10h
-		add     eax, 8000h
-		sar     eax, 10h
-		and     eax, 0ffh
-		push    eax
-		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(Pal8to24_1)+4]
-		imul    edx
-		add     eax, 8000h
-		adc     edx, byte 0
-		shrd    eax, edx, 10h
-		add     eax, 8000h
-		sar     eax, 10h
-		and     eax, 0ffh
-		push    eax
-		mov     edx, esi
-		mov     eax, [edi+__CEXT_V(Pal8to24_1)+8]
-		imul    edx
-		add     eax, 8000h
-		adc     edx, byte 0
-		shrd    eax, edx, 10h
-		add     eax, 8000h
-		sar     eax, 10h
-		and     eax, 0ffh
-		push    eax
-		call    near __CEXT_F(writeColor__video)
-		mov     ebx, [esp]
-		inc     ebx
-		add     edi, byte 0ch
-		mov     [esp], ebx
-		cmp     ebx, 100h
-		jl      near ___3d2e2h
-		sub     ebp, 40000h
-		cmp     ebp, 0fffc0000h
-		jne     near ___3d2d4h
-		add     esp, byte 4
-		pop     ebp
-		pop     edi
-		pop     esi
-		pop     edx
-		pop     ecx
-		pop     ebx
-		retn    
 global __CEXT_F(creditsMenu__dr)
 __CEXT_F(creditsMenu__dr):
 		push    38h
@@ -51708,7 +51639,7 @@ ___3d63dh:
 		call    near __CEXT_F(lastScanCode__keyboard)
 		test    al, al
 		je      short ___3d63dh
-		call    near __CEXT_F(___3d2bch)
+		call    near __CEXT_F(fadeoutScreen)
 		mov     eax, ___182878h
 		mov     ebx, ___182884h
 		mov     edx, __CEXT_V(BPA_Buffer)
@@ -51725,7 +51656,7 @@ ___3d684h:
 		call    near __CEXT_F(lastScanCode__keyboard)
 		test    al, al
 		je      short ___3d684h
-		call    near __CEXT_F(___3d2bch)
+		call    near __CEXT_F(fadeoutScreen)
 		call    near __CEXT_F(___2b318h)
 		mov     ecx, 4b000h
 		mov     esi, [__CEXT_V(___1a1124h)]
@@ -51999,7 +51930,7 @@ ___3da0bh:
 		test    al, al
 		je      short ___3da0bh
 ___3da20h:
-		call    near __CEXT_F(___3d2bch)
+		call    near __CEXT_F(fadeoutScreen)
 		cmp     dl, 1ch
 		je      short ___3da38h
 		cmp     dl, 39h

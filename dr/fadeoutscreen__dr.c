@@ -15,17 +15,17 @@ typedef struct pal3dword {
 	void writeColor__video(dword, dword, dword, dword);
 
 
-// 3d1f0h
-void fadeinScreen(void){
+// 3d2bch
+void fadeoutScreen(void){
 
 	dword 	m, n;
 	byte	__esp[0xc];
 	byte * 	esp = __esp + 0xc;
 
 
-	m = -1;
-    while(++m < 0x19){
-        
+	m = 0x1a;
+    while(--m != -1){
+
         waitSync__dr();
 
         n = -1;
