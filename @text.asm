@@ -375,11 +375,11 @@ ___10b2eh:
 		jmp     short ___10b2eh
 ___10b57h:
 		mov     eax, [___1a1f18h]
-		call    near __CEXT_F(___3f77ch)
+		call    near __CEXT_F(freeMemSafe)
 		mov     eax, [___1a1f14h]
-		call    near __CEXT_F(___3f77ch)
+		call    near __CEXT_F(freeMemSafe)
 		mov     eax, [___1a1f24h]
-		call    near __CEXT_F(___3f77ch)
+		call    near __CEXT_F(freeMemSafe)
 		add     esp, byte 8
 		pop     ebp
 		pop     edi
@@ -901,13 +901,13 @@ ___11160h:
 		cmp     ecx, byte 6
 		jle     short ___11160h
 		mov     eax, [___1a1f20h]
-		call    near __CEXT_F(___3f77ch)
+		call    near __CEXT_F(freeMemSafe)
 		mov     eax, [___1a1f0ch]
-		call    near __CEXT_F(___3f77ch)
+		call    near __CEXT_F(freeMemSafe)
 		mov     eax, [___1a1f10h]
-		call    near __CEXT_F(___3f77ch)
+		call    near __CEXT_F(freeMemSafe)
 		mov     eax, [___1a1f1ch]
-		call    near __CEXT_F(___3f77ch)
+		call    near __CEXT_F(freeMemSafe)
 		add     esp, 40ch
 		pop     ebp
 		pop     edi
@@ -925,10 +925,10 @@ ___1123ch:
 		push    ebx
 		push    ecx
 		push    edx
-		call    near __CEXT_F(___12200h)
-		call    near __CEXT_F(___12a54h)
-		call    near __CEXT_F(___24ec0h)
-		call    near __CEXT_F(___2fc50h)
+		call    near __CEXT_F(unloadMenuBPK)
+		call    near __CEXT_F(unloadOtherBPK)
+		call    near __CEXT_F(unloadShopBPK)
+		call    near __CEXT_F(unloadAddBPK)
 		call    near __CEXT_F(___64a28h)
 		call    near __CEXT_F(freeAllocInfoTable)
 		call    near __CEXT_F(restore__keyboard)
@@ -1337,112 +1337,6 @@ ___1170ah:
 		pop     ecx
 		pop     ebx
 		ret     0ch
-__GDECL(__CEXT_F(___12200h))
-		push    4
-		call    near __CHK
-		mov     eax, [__CEXT_V(p_bpk_corn3b)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_corn3a)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_pal_copper)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_pal_carcol)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_pal_bgcop)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(VGABufferPtr_0)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_15x150)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_menubg5)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_f_big3a)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_f_sma3b)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_f_sma3c)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_f_sma3a)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_f_med1a)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_mulsbg2)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_rank1c)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_resupok1)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_rankinf1)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_rankinf2)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_rankinf3)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_race_eas)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_race_med)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_race_har)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_p_name)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_p_pist)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_p_rank)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_pts_easy)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_pts_med)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_pts_hard)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_placing)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_carres)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_face01)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_face02)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_face03)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_face04)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_face05)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_face06)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_face07)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_face08)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_face09)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_face10)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_face11)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_face12)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_face13)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_face14)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_face15)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_face16)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_face17)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_face18)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_face19)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_face20)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_facexx)]
-		call    near __CEXT_F(___3f77ch)
-		retn    
 __GDECL(__CEXT_F(___12940h))
 		push    320h
 		call    near __CHK
@@ -1526,84 +1420,6 @@ ___12972h:
 		pop     edx
 		pop     ecx
 		pop     ebx
-		retn    
-__GDECL(__CEXT_F(___12a54h))
-		push    4
-		call    near __CHK
-		mov     eax, [__CEXT_V(p_bpk_chattext)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_facesel1)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_facearr1)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_entertx2)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_shoptxt1)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_shoptxt2)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_fametxt)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_recotxt)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_recobar)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_lic_lin1)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_chatlin1)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_cursor)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_f_big3d)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_f_big3b)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_mseletx1)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_trarr1)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(ps_bpk_trsnap2m)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(___1a1044h)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(___1a1048h)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(___1a104ch)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(___1a1050h)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(___1a1054h)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(___1a1058h)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(___1a105ch)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(___1a1060h)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(___1a1064h)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(___1a1068h)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(___1a106ch)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(___1a1070h)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(___1a1074h)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(___1a1078h)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(___1a107ch)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(___1a1080h)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(___1a1084h)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(___1a1088h)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p0_bpk_trsnap2m)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p1_bpk_trsnap2m)]
-		call    near __CEXT_F(___3f77ch)
 		retn    
 __GDECL(__CEXT_F(___12d6ch))
 		push    10h
@@ -8677,7 +8493,7 @@ ___18bafh:
 		rep movsb   
 		pop     edi
 		mov     eax, [__CEXT_V(___1a0f9ch)]
-		call    near __CEXT_F(___3f77ch)
+		call    near __CEXT_F(freeMemSafe)
 		mov     edx, [__CEXT_V(MyID)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
@@ -9025,7 +8841,7 @@ ___1904dh:
 		call    near __CEXT_F(fclose__clib3r)
 		mov     eax, [__CEXT_V(___1a0f9ch)]
 		xor     edx, edx
-		call    near __CEXT_F(___3f77ch)
+		call    near __CEXT_F(freeMemSafe)
 		xor     eax, eax
 		call    near __CEXT_F(___13710h)
 		mov     eax, 1
@@ -10856,9 +10672,9 @@ ___1a81ch:
 		lea     edx, [ecx+1]
 		call    near __CEXT_F(___23488h)
 		mov     eax, [esp+0fch]
-		call    near __CEXT_F(___3f77ch)
+		call    near __CEXT_F(freeMemSafe)
 		mov     eax, ebp
-		call    near __CEXT_F(___3f77ch)
+		call    near __CEXT_F(freeMemSafe)
 		call    near __CEXT_F(___61278h)
 		call    near __CEXT_F(___623d4h)
 		mov     eax, [esp+0d8h]
@@ -11000,9 +10816,9 @@ ___1a998h:
 		call    near __CEXT_F(lastScanCode__keyboard)
 		call    near __CEXT_F(nullScanCode__keyboard)
 		mov     eax, [esp+0fch]
-		call    near __CEXT_F(___3f77ch)
+		call    near __CEXT_F(freeMemSafe)
 		mov     eax, ebp
-		call    near __CEXT_F(___3f77ch)
+		call    near __CEXT_F(freeMemSafe)
 		xor     eax, eax
 		add     esp, 110h
 		pop     ebp
@@ -11158,9 +10974,9 @@ ___1abfbh:
 		add     eax, byte 4
 		call    near __CEXT_F(memset__clib3r)
 		mov     eax, esi
-		call    near __CEXT_F(___3f77ch)
+		call    near __CEXT_F(freeMemSafe)
 		mov     eax, [esp+8]
-		call    near __CEXT_F(___3f77ch)
+		call    near __CEXT_F(freeMemSafe)
 		mov     eax, 2
 		add     esp, byte 10h
 		pop     ebp
@@ -11213,9 +11029,9 @@ ___1aca5h:
 		add     eax, byte 4
 		call    near __CEXT_F(memset__clib3r)
 		mov     eax, esi
-		call    near __CEXT_F(___3f77ch)
+		call    near __CEXT_F(freeMemSafe)
 		mov     eax, [esp+8]
-		call    near __CEXT_F(___3f77ch)
+		call    near __CEXT_F(freeMemSafe)
 		mov     eax, 1
 		add     esp, byte 10h
 		pop     ebp
@@ -11238,9 +11054,9 @@ ___1ace1h:
 		mov     dx, [eax]
 		mov     [eax+2], dx
 		mov     eax, esi
-		call    near __CEXT_F(___3f77ch)
+		call    near __CEXT_F(freeMemSafe)
 		mov     eax, [esp+8]
-		call    near __CEXT_F(___3f77ch)
+		call    near __CEXT_F(freeMemSafe)
 		xor     eax, eax
 		add     esp, byte 10h
 		pop     ebp
@@ -12475,7 +12291,7 @@ ___1bb42h:
 		mov     ebx, ___1807cch
 		mov     eax, ebp
 		mov     edx, __CEXT_V(Font0Props)
-		call    near __CEXT_F(___3f77ch)
+		call    near __CEXT_F(freeMemSafe)
 		mov     eax, [__CEXT_V(p_bpk_f_sma3b)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     ecx, 390d9h
@@ -12868,10 +12684,10 @@ ___1bfd6h:
 		lea     edx, [ecx+1]
 		call    near __CEXT_F(___23488h)
 		mov     eax, ebp
-		call    near __CEXT_F(___3f77ch)
+		call    near __CEXT_F(freeMemSafe)
 		mov     eax, [esp+1ch]
 		mov     ebx, 1000h
-		call    near __CEXT_F(___3f77ch)
+		call    near __CEXT_F(freeMemSafe)
 		mov     eax, [__CEXT_V(___24e4ach)]
 		xor     edx, edx
 		add     eax, byte 4
@@ -12991,9 +12807,9 @@ ___1c11dh:
 		add     eax, byte 4
 		call    near __CEXT_F(memset__clib3r)
 		mov     eax, ebp
-		call    near __CEXT_F(___3f77ch)
+		call    near __CEXT_F(freeMemSafe)
 		mov     eax, [esp+1ch]
-		call    near __CEXT_F(___3f77ch)
+		call    near __CEXT_F(freeMemSafe)
 		xor     eax, eax
 		add     esp, byte 20h
 		pop     ebp
@@ -13112,10 +12928,10 @@ ___1c2c3h:
 		mov     eax, [esp+8]
 		call    near __CEXT_F(___23488h)
 		mov     eax, [esp+8]
-		call    near __CEXT_F(___3f77ch)
+		call    near __CEXT_F(freeMemSafe)
 		mov     eax, ebp
 		mov     ebx, 1000h
-		call    near __CEXT_F(___3f77ch)
+		call    near __CEXT_F(freeMemSafe)
 		mov     eax, [__CEXT_V(___24e4ach)]
 		xor     edx, edx
 		add     eax, byte 4
@@ -13999,7 +13815,7 @@ ___1ce1ah:
 		jl      near ___1cd6ch
 		mov     eax, [__CEXT_V(___1a0f9ch)]
 		mov     ecx, __CEXT_V(RowBoxBuffers)
-		call    near __CEXT_F(___3f77ch)
+		call    near __CEXT_F(freeMemSafe)
 		xor     edx, edx
 		lea     ebx, [ecx+96h]
 ___1ce3bh:
@@ -23480,127 +23296,6 @@ ___240ebh:
 		pop     ecx
 		pop     ebx
 		ret     0ch
-
-
-
-
-
-
-
-
-
-
-
-__GDECL(__CEXT_F(___24ec0h))
-		push    4
-		call    near __CHK
-		mov     eax, [__CEXT_V(___1a1124h)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_statbas7)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_statpop4)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_f_sma3f)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_choo2)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_arrows1d)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_maxi1f)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p0_bpk_scenecar)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p1_bpk_scenecar)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p2_bpk_scenecar)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p3_bpk_scenecar)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p4_bpk_scenecar)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p5_bpk_scenecar)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(bpk_kupla_p)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(bpk_pickup_p)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(bpk_sedan_p)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(bpk_camaro_p)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(bpk_porsche_p)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(bpk_lotus_p)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(bpk_engi1_p)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(bpk_engi2_p)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(bpk_engi3_p)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(bpk_engi4_p)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(bpk_tire1_p)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(bpk_tire2_p)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(bpk_tire3_p)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(bpk_tire4_p)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(bpk_armor1_p)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(bpk_armor2_p)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(bpk_armor3_p)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(bpk_armor4_p)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_repaani)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_contani)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(tex_carframe)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_drugdeal)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_spons1b)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_event_2)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_repear_x)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_volcur2)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_slidcur3)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_slidcop2)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_slidmus2)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_carname)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_carbas2)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p0_bpk_bases4)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p1_bpk_bases4)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p2_bpk_bases4)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p3_bpk_bases4)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p4_bpk_bases4)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_market1e)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_dealer2b)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_blacktx1)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_blacktx2)]
-		call    near __CEXT_F(___3f77ch)
-		retn    
 ___250e0h:
 		push    1ch
 		call    near __CHK
@@ -30239,7 +29934,7 @@ ___2a801h:
 		mov     eax, edi
 		call    near __CEXT_F(fclose__clib3r)
 		mov     eax, [__CEXT_V(___1a0f9ch)]
-		call    near __CEXT_F(___3f77ch)
+		call    near __CEXT_F(freeMemSafe)
 ___2a836h:
 		cmp     byte [___59e4dh], 0
 		je      near ___2a9fah
@@ -30328,7 +30023,7 @@ ___2a8ceh:
 		rep movsb   
 		pop     edi
 		mov     eax, [__CEXT_V(___1a0f9ch)]
-		call    near __CEXT_F(___3f77ch)
+		call    near __CEXT_F(freeMemSafe)
 		mov     eax, [__CEXT_V(MyID)]
 		lea     edx, [eax*8+0]
 		sub     edx, eax
@@ -35301,24 +34996,6 @@ ___2fae5h:
 		pop     ecx
 		pop     ebx
 		retn    
-__GDECL(__CEXT_F(___2fc50h))
-		push    4
-		call    near __CHK
-		mov     eax, [__CEXT_V(p_bpk_badtit)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_badsnap)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_escbox)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_signline)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_prep4)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(___1a1114h)]
-		call    near __CEXT_F(___3f77ch)
-		mov     eax, [__CEXT_V(p_bpk_prepw1)]
-		call    near __CEXT_F(___3f77ch)
-		retn    
 ___2fca4h:
 		push    80h
 		call    near __CHK
@@ -36669,7 +36346,7 @@ ___30cc7h:
 ___30cf3h:
 		mov     eax, [esp]
 		mov     edx, [esp+8]
-		call    near __CEXT_F(___3f77ch)
+		call    near __CEXT_F(freeMemSafe)
 		mov     eax, [__CEXT_V(MyID)]
 		sub     edx, eax
 		mov     [__CEXT_V(MyID)], edx
@@ -36749,7 +36426,7 @@ ___30da7h:
 ___30dd3h:
 		mov     eax, [esp+4]
 		mov     edx, [esp+0ch]
-		call    near __CEXT_F(___3f77ch)
+		call    near __CEXT_F(freeMemSafe)
 		mov     eax, [__CEXT_V(MyID)]
 		sub     edx, eax
 		mov     [__CEXT_V(MyID)], edx
@@ -39637,7 +39314,7 @@ ___331ech:
 		mov     [__CEXT_V(___1a0f9ch)], eax
 		call    near __CEXT_F(___23488h)
 		mov     eax, [__CEXT_V(___1a0f9ch)]
-		call    near __CEXT_F(___3f77ch)
+		call    near __CEXT_F(freeMemSafe)
 		mov     eax, [___196ad4h]
 		xor     edx, edx
 		mov     dl, [eax+__CEXT_V(___1a2011h)]
@@ -40647,7 +40324,7 @@ ___33e4ah:
 ___33e6fh:
 		call    near __CEXT_F(___12dc4h)
 		mov     eax, [__CEXT_V(___1a0f9ch)]
-		call    near __CEXT_F(___3f77ch)
+		call    near __CEXT_F(freeMemSafe)
 ___33e7eh:
 		cmp     dword [__CEXT_V(___196a84h)], byte 0
 		je      short ___33e91h
@@ -41088,10 +40765,10 @@ ___3454ch:
 		jge     short ___3457ch
 		mov     dword [___1de820h], 190h
 ___3457ch:
-		call    near __CEXT_F(___12200h)
-		call    near __CEXT_F(___12a54h)
-		call    near __CEXT_F(___24ec0h)
-		call    near __CEXT_F(___2fc50h)
+		call    near __CEXT_F(unloadMenuBPK)
+		call    near __CEXT_F(unloadOtherBPK)
+		call    near __CEXT_F(unloadShopBPK)
+		call    near __CEXT_F(unloadAddBPK)
 		cmp     dword [__CEXT_V(NetworkConnectionEstablished)], byte 0
 		je      short ___345a3h
 		mov     eax, [__CEXT_V(MyID)]
@@ -41284,10 +40961,10 @@ ___3484ch:
 		mov     [___243d44h], edi
 ___34858h:
 		add     eax, byte 6ch
-		mov     [eax+__CEXT_V(bpk_armor2_p)], edx
-		mov     [eax+__CEXT_V(bpk_armor3_p)], edx
-		mov     [eax+__CEXT_V(bpk_armor4_p)], edx
-		mov     [eax+__CEXT_V(bpk_armor1_p)], edx
+		mov     [eax+__CEXT_V(p_bpk_armor2)], edx
+		mov     [eax+__CEXT_V(p_bpk_armor3)], edx
+		mov     [eax+__CEXT_V(p_bpk_armor4)], edx
+		mov     [eax+__CEXT_V(p_bpk_armor1)], edx
 		cmp     eax, dword 870h
 		jne     short ___34858h
 		mov     eax, 14h
@@ -49386,7 +49063,7 @@ ___3aecbh:
 		add     esi, byte 50h
 		call    near ___12f60h
 		push    __CEXT_V(___185cbch)
-		mov     ecx, [__CEXT_V(bpk_kupla_p)]
+		mov     ecx, [__CEXT_V(p_bpk_kupla)]
 		mov     ebx, [__CEXT_V(___1a1ed0h)]
 		lea     eax, [ebp+1a0h]
 		mov     edx, esi
@@ -49738,7 +49415,7 @@ ___3b340h:
 		add     esi, byte 50h
 		call    near ___12f60h
 		push    __CEXT_V(___185cbch)
-		mov     ecx, [__CEXT_V(bpk_kupla_p)]
+		mov     ecx, [__CEXT_V(p_bpk_kupla)]
 		mov     ebx, [__CEXT_V(___1a1ed0h)]
 		lea     eax, [ebp+1a0h]
 		mov     edx, esi
@@ -53048,7 +52725,7 @@ db	0ech,51h,38h,3eh,0ah,0d7h,0a3h,3eh
 ___3f704h:
 db	8fh,0c2h,0f5h,3dh,5ch,8fh,42h,3eh,8fh,0c2h,75h,3dh,8fh,0c2h,0f5h,3dh
 db	8fh,0c2h,0f5h,3ch,8fh,0c2h,75h,3dh
-__GDECL(__CEXT_F(___3f77ch))
+__GDECL(__CEXT_F(freeMemSafe))
 		push    4
 		call    near __CHK
 		call    near __CEXT_F(freeMemory)
@@ -59505,9 +59182,9 @@ ___45484h:
 		push    4
 		call    near __CHK
 		mov     eax, [___243314h]
-		call    near __CEXT_F(___3f77ch)
+		call    near __CEXT_F(freeMemSafe)
 		mov     eax, [___243310h]
-		call    near __CEXT_F(___3f77ch)
+		call    near __CEXT_F(freeMemSafe)
 		xor     ah, ah
 		mov     [___59e11h], ah
 		retn    
@@ -62379,10 +62056,10 @@ ___47d0fh:
 		mov     esi, [___2432d4h]
 		rep movsd   
 		mov     eax, [___2432d8h]
-		call    near __CEXT_F(___3f77ch)
+		call    near __CEXT_F(freeMemSafe)
 		mov     eax, [___2432d4h]
 		xor     edx, edx
-		call    near __CEXT_F(___3f77ch)
+		call    near __CEXT_F(freeMemSafe)
 		mov     [___243898h], edx
 		mov     eax, [___243898h]
 		mov     [___243874h], eax
@@ -62848,10 +62525,10 @@ ___48353h:
 		mov     esi, [___2432d4h]
 		rep movsd   
 		mov     eax, [___2432d8h]
-		call    near __CEXT_F(___3f77ch)
+		call    near __CEXT_F(freeMemSafe)
 		mov     eax, [___2432d4h]
 		xor     ebp, ebp
-		call    near __CEXT_F(___3f77ch)
+		call    near __CEXT_F(freeMemSafe)
 		mov     [___243898h], ebp
 		mov     eax, [___243898h]
 		mov     [___243874h], eax
@@ -80071,70 +79748,70 @@ ___58546h:
 		call    near __CEXT_F(___64a28h)
 		call    near ___400ech
 		mov     eax, [___243d58h]
-		call    near __CEXT_F(___3f77ch)
+		call    near __CEXT_F(freeMemSafe)
 		mov     eax, [___243d60h]
-		call    near __CEXT_F(___3f77ch)
+		call    near __CEXT_F(freeMemSafe)
 		mov     eax, [___243d78h]
-		call    near __CEXT_F(___3f77ch)
+		call    near __CEXT_F(freeMemSafe)
 		mov     eax, [___243d54h]
-		call    near __CEXT_F(___3f77ch)
+		call    near __CEXT_F(freeMemSafe)
 		mov     eax, [___243d5ch]
-		call    near __CEXT_F(___3f77ch)
+		call    near __CEXT_F(freeMemSafe)
 		mov     eax, [___243d80h]
 		sub     eax, 200h
-		call    near __CEXT_F(___3f77ch)
+		call    near __CEXT_F(freeMemSafe)
 		mov     eax, [___243d74h]
-		call    near __CEXT_F(___3f77ch)
+		call    near __CEXT_F(freeMemSafe)
 		mov     eax, [___243d50h]
-		call    near __CEXT_F(___3f77ch)
+		call    near __CEXT_F(freeMemSafe)
 		mov     eax, [___243d34h]
-		call    near __CEXT_F(___3f77ch)
+		call    near __CEXT_F(freeMemSafe)
 		mov     eax, [___243d6ch]
-		call    near __CEXT_F(___3f77ch)
+		call    near __CEXT_F(freeMemSafe)
 		mov     eax, [___243d48h]
-		call    near __CEXT_F(___3f77ch)
+		call    near __CEXT_F(freeMemSafe)
 		mov     eax, [___243d4ch]
-		call    near __CEXT_F(___3f77ch)
+		call    near __CEXT_F(freeMemSafe)
 		mov     eax, [___243d70h]
-		call    near __CEXT_F(___3f77ch)
+		call    near __CEXT_F(freeMemSafe)
 		mov     eax, [___243d84h]
-		call    near __CEXT_F(___3f77ch)
+		call    near __CEXT_F(freeMemSafe)
 		mov     eax, [___243d3ch]
-		call    near __CEXT_F(___3f77ch)
+		call    near __CEXT_F(freeMemSafe)
 		mov     eax, [___243298h]
-		call    near __CEXT_F(___3f77ch)
+		call    near __CEXT_F(freeMemSafe)
 		mov     eax, [___24329ch]
-		call    near __CEXT_F(___3f77ch)
+		call    near __CEXT_F(freeMemSafe)
 		mov     eax, [___2432a0h]
-		call    near __CEXT_F(___3f77ch)
+		call    near __CEXT_F(freeMemSafe)
 		mov     eax, [___2432a4h]
-		call    near __CEXT_F(___3f77ch)
+		call    near __CEXT_F(freeMemSafe)
 		mov     eax, [___2432a8h]
-		call    near __CEXT_F(___3f77ch)
+		call    near __CEXT_F(freeMemSafe)
 		mov     eax, [___2432ach]
-		call    near __CEXT_F(___3f77ch)
+		call    near __CEXT_F(freeMemSafe)
 		mov     eax, [___243d8ch]
-		call    near __CEXT_F(___3f77ch)
+		call    near __CEXT_F(freeMemSafe)
 		mov     eax, [___243d7ch]
-		call    near __CEXT_F(___3f77ch)
+		call    near __CEXT_F(freeMemSafe)
 		mov     eax, [___243d88h]
-		call    near __CEXT_F(___3f77ch)
+		call    near __CEXT_F(freeMemSafe)
 		mov     eax, [___243d38h]
-		call    near __CEXT_F(___3f77ch)
+		call    near __CEXT_F(freeMemSafe)
 		mov     eax, [___243d40h]
-		call    near __CEXT_F(___3f77ch)
+		call    near __CEXT_F(freeMemSafe)
 		mov     eax, [___243288h]
-		call    near __CEXT_F(___3f77ch)
+		call    near __CEXT_F(freeMemSafe)
 		mov     eax, [___24328ch]
-		call    near __CEXT_F(___3f77ch)
+		call    near __CEXT_F(freeMemSafe)
 		mov     eax, [___243290h]
-		call    near __CEXT_F(___3f77ch)
+		call    near __CEXT_F(freeMemSafe)
 		mov     eax, [___243294h]
-		call    near __CEXT_F(___3f77ch)
+		call    near __CEXT_F(freeMemSafe)
 		mov     eax, [___243d68h]
-		call    near __CEXT_F(___3f77ch)
+		call    near __CEXT_F(freeMemSafe)
 		mov     eax, [___243d64h]
-		call    near __CEXT_F(___3f77ch)
+		call    near __CEXT_F(freeMemSafe)
 		call    near ___45484h
 		add     esp, byte 1ch
 		pop     ebp

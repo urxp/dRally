@@ -62,6 +62,7 @@
 
 
     void * allocMemSafe(dword size);
+    void freeMemSafe(void * p);
     void read__bpa(const char * bpa, void * dst, const char * file);
 
     #pragma aux decode2__bpk parm routine []
@@ -665,4 +666,163 @@ ___12653h:
 //		pop     ecx
 //		pop     ebx
 //		retn    
+}
+
+// 12a54h
+void unloadOtherBPK(void){
+
+    dword   eax;
+
+//		push    4
+//		call    __CHK
+//		mov     eax, [__CEXT_V(p_bpk_chattext)]
+    eax = D(p_bpk_chattext);
+//		call    __CEXT_F(freeMemSafe)
+    freeMemSafe(eax);
+//		mov     eax, [__CEXT_V(p_bpk_facesel1)]
+    eax = D(p_bpk_facesel1);
+//		call    __CEXT_F(freeMemSafe)
+    freeMemSafe(eax);
+//		mov     eax, [__CEXT_V(p_bpk_facearr1)]
+    eax = D(p_bpk_facearr1);
+//		call    __CEXT_F(freeMemSafe)
+    freeMemSafe(eax);
+//		mov     eax, [__CEXT_V(p_bpk_entertx2)]
+    eax = D(p_bpk_entertx2);
+//		call    __CEXT_F(freeMemSafe)
+    freeMemSafe(eax);
+//		mov     eax, [__CEXT_V(p_bpk_shoptxt1)]
+    eax = D(p_bpk_shoptxt1);
+//		call    __CEXT_F(freeMemSafe)
+    freeMemSafe(eax);
+//		mov     eax, [__CEXT_V(p_bpk_shoptxt2)]
+    eax = D(p_bpk_shoptxt2);
+//		call    __CEXT_F(freeMemSafe)
+    freeMemSafe(eax);
+//		mov     eax, [__CEXT_V(p_bpk_fametxt)]
+    eax = D(p_bpk_fametxt);
+//		call    __CEXT_F(freeMemSafe)
+    freeMemSafe(eax);
+//		mov     eax, [__CEXT_V(p_bpk_recotxt)]
+    eax = D(p_bpk_recotxt);
+//		call    __CEXT_F(freeMemSafe)
+    freeMemSafe(eax);
+//		mov     eax, [__CEXT_V(p_bpk_recobar)]
+    eax = D(p_bpk_recobar);
+//		call    __CEXT_F(freeMemSafe)
+    freeMemSafe(eax);
+//		mov     eax, [__CEXT_V(p_bpk_lic_lin1)]
+    eax = D(p_bpk_lic_lin1);
+//		call    __CEXT_F(freeMemSafe)
+    freeMemSafe(eax);
+//		mov     eax, [__CEXT_V(p_bpk_chatlin1)]
+    eax = D(p_bpk_chatlin1);
+//		call    __CEXT_F(freeMemSafe)
+    freeMemSafe(eax);
+//		mov     eax, [__CEXT_V(p_bpk_cursor)]
+    eax = D(p_bpk_cursor);
+//		call    __CEXT_F(freeMemSafe)
+    freeMemSafe(eax);
+//		mov     eax, [__CEXT_V(p_bpk_f_big3d)]
+    eax = D(p_bpk_f_big3d);
+//		call    __CEXT_F(freeMemSafe)
+    freeMemSafe(eax);
+//		mov     eax, [__CEXT_V(p_bpk_f_big3b)]
+    eax = D(p_bpk_f_big3b);
+//		call    __CEXT_F(freeMemSafe)
+    freeMemSafe(eax);
+//		mov     eax, [__CEXT_V(p_bpk_mseletx1)]
+    eax = D(p_bpk_mseletx1);
+//		call    __CEXT_F(freeMemSafe)
+    freeMemSafe(eax);
+//		mov     eax, [__CEXT_V(p_bpk_trarr1)]
+    eax = D(p_bpk_trarr1);
+//		call    __CEXT_F(freeMemSafe)
+    freeMemSafe(eax);
+//		mov     eax, [__CEXT_V(ps_bpk_trsnap2m)]
+    eax = D(ps_bpk_trsnap2m);
+//		call    __CEXT_F(freeMemSafe)
+    freeMemSafe(eax);
+//		mov     eax, [__CEXT_V(___1a1044h)]
+    eax = D(___1a1044h);
+//		call    __CEXT_F(freeMemSafe)
+    freeMemSafe(eax);
+//		mov     eax, [__CEXT_V(___1a1048h)]
+    eax = D(___1a1048h);
+//		call    __CEXT_F(freeMemSafe)
+    freeMemSafe(eax);
+//		mov     eax, [__CEXT_V(___1a104ch)]
+    eax = D(___1a104ch);
+//		call    __CEXT_F(freeMemSafe)
+    freeMemSafe(eax);
+//		mov     eax, [__CEXT_V(___1a1050h)]
+    eax = D(___1a1050h);
+//		call    __CEXT_F(freeMemSafe)
+    freeMemSafe(eax);
+//		mov     eax, [__CEXT_V(___1a1054h)]
+    eax = D(___1a1054h);
+//		call    __CEXT_F(freeMemSafe)
+    freeMemSafe(eax);
+//		mov     eax, [__CEXT_V(___1a1058h)]
+    eax = D(___1a1058h);
+//		call    __CEXT_F(freeMemSafe)
+    freeMemSafe(eax);
+//		mov     eax, [__CEXT_V(___1a105ch)]
+    eax = D(___1a105ch);
+//		call    __CEXT_F(freeMemSafe)
+    freeMemSafe(eax);
+//		mov     eax, [__CEXT_V(___1a1060h)]
+    eax = D(___1a1060h);
+//		call    __CEXT_F(freeMemSafe)
+    freeMemSafe(eax);
+//		mov     eax, [__CEXT_V(___1a1064h)]
+    eax = D(___1a1064h);
+//		call    __CEXT_F(freeMemSafe)
+    freeMemSafe(eax);
+//		mov     eax, [__CEXT_V(___1a1068h)]
+    eax = D(___1a1068h);
+//		call    __CEXT_F(freeMemSafe)
+    freeMemSafe(eax);
+//		mov     eax, [__CEXT_V(___1a106ch)]
+    eax = D(___1a106ch);
+//		call    __CEXT_F(freeMemSafe)
+    freeMemSafe(eax);
+//		mov     eax, [__CEXT_V(___1a1070h)]
+    eax = D(___1a1070h);
+//		call    __CEXT_F(freeMemSafe)
+    freeMemSafe(eax);
+//		mov     eax, [__CEXT_V(___1a1074h)]
+    eax = D(___1a1074h);
+//		call    __CEXT_F(freeMemSafe)
+    freeMemSafe(eax);
+//		mov     eax, [__CEXT_V(___1a1078h)]
+    eax = D(___1a1078h);
+//		call    __CEXT_F(freeMemSafe)
+    freeMemSafe(eax);
+//		mov     eax, [__CEXT_V(___1a107ch)]
+    eax = D(___1a107ch);
+//		call    __CEXT_F(freeMemSafe)
+    freeMemSafe(eax);
+//		mov     eax, [__CEXT_V(___1a1080h)]
+    eax = D(___1a1080h);
+//		call    __CEXT_F(freeMemSafe)
+    freeMemSafe(eax);
+//		mov     eax, [__CEXT_V(___1a1084h)]
+    eax = D(___1a1084h);
+//		call    __CEXT_F(freeMemSafe)
+    freeMemSafe(eax);
+//		mov     eax, [__CEXT_V(___1a1088h)]
+    eax = D(___1a1088h);
+//		call    __CEXT_F(freeMemSafe)
+    freeMemSafe(eax);
+//		mov     eax, [__CEXT_V(p0_bpk_trsnap2m)]
+    eax = D(p0_bpk_trsnap2m);
+//		call    __CEXT_F(freeMemSafe)
+    freeMemSafe(eax);
+//		mov     eax, [__CEXT_V(p1_bpk_trsnap2m)]
+    eax = D(p1_bpk_trsnap2m);
+//		call    __CEXT_F(freeMemSafe)
+    freeMemSafe(eax);
+//		retn    
+    return;
 }

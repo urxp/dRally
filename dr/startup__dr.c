@@ -111,10 +111,10 @@
 	void ___11564h(float, float, float);
 	void emptyFunction_0(void);	
 	void loadMenuBPK(void);	
-	void ___12200h(void);
+	void unloadMenuBPK(void);
 	void loadOtherBPK(void);
 	void ___12940h(void);
-    void ___12a54h(void);
+    void unloadOtherBPK(void);
 	void popScreen(void);
     void ___12dc4h(void);
 	void ___13248h(dword, dword, dword, dword, dword);
@@ -124,10 +124,10 @@
 	dword ___148cch(dword, dword, dword, dword);		
 	void ___23488h(dword, dword, dword);
 	void loadShopBPK(void);	
-	void ___24ec0h(void);
+	void unloadShopBPK(void);
     void ___2b318h(void);
 	void loadAddBPK(void);
-	void ___2fc50h(void);	
+	void unloadAddBPK(void);	
 	void ___3a7e0h(dword);
 	void ___3d2bch(void);
 	void apogee_gt_remedy(void);	
@@ -1812,14 +1812,14 @@ ___3f1bah:
 	___3d79ch();
 //		call    __CEXT_F(writeConfig__dr)
 	writeConfig__dr();
-//		call    __CEXT_F(___12200h)
-	___12200h();
-//		call    __CEXT_F(___12a54h)
-	___12a54h();
-//		call    __CEXT_F(___24ec0h)
-	___24ec0h();
-//		call    __CEXT_F(___2fc50h)
-	___2fc50h();
+//		call    __CEXT_F(unloadMenuBPK)
+	unloadMenuBPK();
+//		call    __CEXT_F(unloadOtherBPK)
+	unloadOtherBPK();
+//		call    __CEXT_F(unloadShopBPK)
+	unloadShopBPK();
+//		call    __CEXT_F(unloadAddBPK)
+	unloadAddBPK();
 //		call    __CEXT_F(___649a8h)
 	___649a8h();
 //		call    __CEXT_F(___64a28h)

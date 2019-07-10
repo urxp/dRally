@@ -44,6 +44,7 @@
 
 
     void * allocMemSafe(dword size);
+    void freeMemSafe(void * p);
     void read__bpa(const char * bpa, void * dst, const char * file);
 
     #pragma aux decode2__bpk parm routine []
@@ -139,4 +140,33 @@ void loadOtherBPK(void){
     read__bpa(MENU_BPA, BPA_Buffer, bpk_trarr1);
     p_bpk_trarr1 = allocMemSafe(0x1500);
     decode2__bpk(p_bpk_trarr1, BPA_Buffer);
+}
+
+// 12a54h
+void unloadOtherBPK(void){
+
+    dword   n;
+    
+    freeMemSafe(p_bpk_chattext);
+    freeMemSafe(p_bpk_facesel1);
+    freeMemSafe(p_bpk_facearr1);
+    freeMemSafe(p_bpk_entertx2);
+    freeMemSafe(p_bpk_shoptxt1);
+    freeMemSafe(p_bpk_shoptxt2);
+    freeMemSafe(p_bpk_fametxt);
+    freeMemSafe(p_bpk_recotxt);
+    freeMemSafe(p_bpk_recobar);
+    freeMemSafe(p_bpk_lic_lin1);
+    freeMemSafe(p_bpk_chatlin1);
+    freeMemSafe(p_bpk_cursor);
+    freeMemSafe(p_bpk_f_big3d);
+    freeMemSafe(p_bpk_f_big3b);
+    freeMemSafe(p_bpk_mseletx1);
+    freeMemSafe(p_bpk_trarr1);
+
+    n = -1;
+    while(++n < 0x13) freeMemSafe(ps_bpk_trsnap2m[n]);
+
+    freeMemSafe(p0_bpk_trsnap2m);
+    freeMemSafe(p1_bpk_trsnap2m);
 }

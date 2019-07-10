@@ -5,7 +5,7 @@
     extern byte ___18072ch[];
     extern byte ___196ae0h[];
     extern byte ___185cbch[];
-    extern byte bpk_kupla_p[];
+    extern byte p_bpk_kupla[];
     extern byte ___1a1ed0h[];
     extern byte VGABufferPtr_0[];
     extern byte ___196ae4h[];
@@ -168,8 +168,8 @@ ___17431h:
 	esi = D(esp+0x20);
 //		mov     eax, [esp+1ch]
 	eax = D(esp+0x1c);
-//		mov     ecx, [__CEXT_V(bpk_kupla_p)]
-	ecx = D(bpk_kupla_p);
+//		mov     ecx, [__CEXT_V(p_bpk_kupla)]
+	ecx = D(p_bpk_kupla);
 //		mov     ebx, [__CEXT_V(___1a1ed0h)]
 	ebx = D(___1a1ed0h);
 //		add     esi, byte 50h

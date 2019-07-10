@@ -20,6 +20,7 @@
     extern const char bpk_prepw1[];     // "prepw1.bpk"
 
     void * allocMemSafe(dword size);
+	void freeMemSafe(void * p);
     void read__bpa(const char *, void *, const char *);
     #pragma aux decode2__bpk parm routine []
 	void decode2__bpk(void * dst, void * src);
@@ -53,4 +54,16 @@ void loadAddBPK(void){
 	read__bpa(MENU_BPA, BPA_Buffer, bpk_prepw1);
 	p_bpk_prepw1 = allocMemSafe(0xf0d2);
 	decode2__bpk(p_bpk_prepw1, BPA_Buffer);
+}
+
+// 2fc50h
+void unloadAddBPK(void){
+
+	freeMemSafe(p_bpk_badtit);
+	freeMemSafe(p_bpk_badsnap);
+	freeMemSafe(p_bpk_escbox);
+	freeMemSafe(p_bpk_signline);
+	freeMemSafe(p_bpk_prep4);
+	freeMemSafe(___1a1114h);
+	freeMemSafe(p_bpk_prepw1);
 }

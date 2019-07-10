@@ -81,7 +81,7 @@ typedef enum eNetworkConnectionType {
    	void ___3a454h(void);
     void waitSync__dr(void);
     void ___2a394h(void);
-    void ___3f77ch(void *);
+    void freeMemSafe(void *);
     void ___1e4f8h(void);
     void ___6168ch(void);
     void ___23488h(void *, dword, dword);
@@ -205,7 +205,7 @@ void updateMenuBackgroundAndTextArea(){
             while(*tmp_p++);
             strcpy__clib3r(--tmp_p, ___182174h);
             ___23488h(___1a0f9ch, 0x64, 8);
-            ___3f77ch(___1a0f9ch);
+            freeMemSafe(___1a0f9ch);
         }
 
         if(procChatData(buffer, 0x14)){

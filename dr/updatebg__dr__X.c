@@ -27,7 +27,7 @@
    	void ___3a454h(void);
     void waitSync__dr(void);
     void ___2a394h(void);
-    void ___3f77ch(dword);
+    void freeMemSafe(dword);
     void ___1e4f8h(void);
     void ___6168ch(void);
     void ___23488h(dword, dword, dword);
@@ -623,8 +623,8 @@ ___2af3dh:
     ___23488h(eax, edx, ebx);
 //		mov     eax, [__CEXT_V(___1a0f9ch)]
     eax = D(___1a0f9ch);
-//		call    __CEXT_F(___3f77ch)
-    ___3f77ch(eax);
+//		call    __CEXT_F(freeMemSafe)
+    freeMemSafe(eax);
 ___2af52h:
 //		mov     edx, 14h
     edx = 0x14;

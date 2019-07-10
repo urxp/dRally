@@ -492,44 +492,44 @@ __GDECL(__CEXT_V(p4_bpk_scenecar))
 __GDECL(__CEXT_V(p5_bpk_scenecar))
     resb	4
 __GDECL(__CEXT_V(bpk_tires))
-__GDECL(__CEXT_V(bpk_tire1_p))
+__GDECL(__CEXT_V(p_bpk_tire1))
     resb	4
-__GDECL(__CEXT_V(bpk_tire2_p))
+__GDECL(__CEXT_V(p_bpk_tire2))
     resb	4
-__GDECL(__CEXT_V(bpk_tire3_p))
+__GDECL(__CEXT_V(p_bpk_tire3))
     resb	4
-__GDECL(__CEXT_V(bpk_tire4_p))
+__GDECL(__CEXT_V(p_bpk_tire4))
     resb	4
 __GDECL(__CEXT_V(bpk_engines))
-__GDECL(__CEXT_V(bpk_engi1_p))
+__GDECL(__CEXT_V(p_bpk_engi1))
     resb	4
-__GDECL(__CEXT_V(bpk_engi2_p))
+__GDECL(__CEXT_V(p_bpk_engi2))
     resb	4
-__GDECL(__CEXT_V(bpk_engi3_p))
+__GDECL(__CEXT_V(p_bpk_engi3))
     resb	4
-__GDECL(__CEXT_V(bpk_engi4_p))
+__GDECL(__CEXT_V(p_bpk_engi4))
     resb	4
 __GDECL(__CEXT_V(bpk_cars))         ; 1a01b8h
-__GDECL(__CEXT_V(bpk_kupla_p))
+__GDECL(__CEXT_V(p_bpk_kupla))
     resb	4
-__GDECL(__CEXT_V(bpk_pickup_p))
+__GDECL(__CEXT_V(p_bpk_pickup))
     resb	4
-__GDECL(__CEXT_V(bpk_sedan_p))
+__GDECL(__CEXT_V(p_bpk_sedan))
     resb	4
-__GDECL(__CEXT_V(bpk_camaro_p))
+__GDECL(__CEXT_V(p_bpk_camaro))
     resb	4
-__GDECL(__CEXT_V(bpk_porsche_p))
+__GDECL(__CEXT_V(p_bpk_porsche))
     resb	4
-__GDECL(__CEXT_V(bpk_lotus_p))
+__GDECL(__CEXT_V(p_bpk_lotus))
     resb	4
 __GDECL(__CEXT_V(bpk_armors))       ; 1a01d0h
-__GDECL(__CEXT_V(bpk_armor1_p))
+__GDECL(__CEXT_V(p_bpk_armor1))
     resb	4
-__GDECL(__CEXT_V(bpk_armor2_p))
+__GDECL(__CEXT_V(p_bpk_armor2))
     resb	4
-__GDECL(__CEXT_V(bpk_armor3_p))
+__GDECL(__CEXT_V(p_bpk_armor3))
     resb	4
-__GDECL(__CEXT_V(bpk_armor4_p))
+__GDECL(__CEXT_V(p_bpk_armor4))
     resb	4
 __GDECL(__CEXT_V(Roster))
     resb	6ch

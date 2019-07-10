@@ -29,7 +29,7 @@
     extern  __CEXT_V(___182174h)
     extern  __CEXT_F(___23488h)
     extern  __CEXT_V(___1a0f9ch)
-    extern  __CEXT_F(___3f77ch)
+    extern  __CEXT_F(freeMemSafe)
     extern  __CEXT_F(___1e4f8h)
     extern  __CEXT_V(MyID)
     extern  __CEXT_V(___180864h)
@@ -343,7 +343,7 @@ ___2af3dh:
 		mov     eax, [__CEXT_V(___1a0f9ch)]
 		call    __CEXT_F(___23488h)
 		mov     eax, [__CEXT_V(___1a0f9ch)]
-		call    __CEXT_F(___3f77ch)
+		call    __CEXT_F(freeMemSafe)
 ___2af52h:
 		mov     edx, 14h
 		mov     eax, esp

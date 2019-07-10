@@ -70,6 +70,7 @@
     extern  ___7c9e2h__dma
 
     extern  __CEXT_F(loadShopBPK)
+    extern  __CEXT_F(unloadShopBPK)
     extern  __CEXT_F(___17384h)
     extern  __CEXT_F(carAnimFrame)
     extern  __CEXT_F(updateMenuBackgroundAndTextArea)
@@ -85,8 +86,11 @@
     extern  __CEXT_F(fadeinScreen)
     extern  __CEXT_F(startingScreen__dr)
     extern  __CEXT_F(loadMenuBPK)
+    extern  __CEXT_F(unloadMenuBPK)
     extern  __CEXT_F(loadOtherBPK)
+    extern  __CEXT_F(unloadOtherBPK)
     extern  __CEXT_F(loadAddBPK)
+    extern  __CEXT_F(unloadAddBPK)
     extern  __CEXT_F(allocVGABuffer)
     extern  __CEXT_F(allocMemSafe)
 

@@ -7,10 +7,10 @@ typedef unsigned long	dword;
 	void exit__clib3r(int status);
 	void setmode3h__video(void);
     void writeConfig__dr(void);
-    void ___12200h(void);
-    void ___12a54h(void);
-    void ___24ec0h(void);
-    void ___2fc50h(void);
+    void unloadMenuBPK(void);
+    void unloadOtherBPK(void);
+    void unloadShopBPK(void);
+    void unloadAddBPK(void);
     void ___64a28h(void);
 
 	// "DEATH RALLY Exit: CTRL+ALT+DEL pressed.\n"
@@ -28,14 +28,14 @@ void exitcb2__dr(void){
 //		push    edx
 //		call    __CEXT_F(writeConfig__dr)
 	writeConfig__dr();
-//		call    __CEXT_F(___12200h)
-	___12200h();
-//		call    __CEXT_F(___12a54h)
-	___12a54h();
-//		call    __CEXT_F(___24ec0h)
-	___24ec0h();
-//		call    __CEXT_F(___2fc50h)
-	___2fc50h();
+//		call    __CEXT_F(unloadMenuBPK)
+	unloadMenuBPK();
+//		call    __CEXT_F(unloadOtherBPK)
+	unloadOtherBPK();
+//		call    __CEXT_F(unloadShopBPK)
+	unloadShopBPK();
+//		call    __CEXT_F(unloadAddBPK)
+	unloadAddBPK();
 //		call    __CEXT_F(___64a28h)
 	___64a28h();
 //		call    __CEXT_F(freeAllocInfoTable)

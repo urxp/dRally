@@ -19,6 +19,7 @@
     extern byte bpk_prepw1[];
 
     void * allocMemSafe(dword size);
+	void freeMemSafe(void *);
     void read__bpa(const char *, void *, const char *);
     #pragma aux decode2__bpk parm routine []
 	void decode2__bpk(void * dst, void * src);
@@ -188,6 +189,45 @@ void loadAddBPK(void){
 //		pop     edx
 //		pop     ecx
 //		pop     ebx
+//		retn    
+	return;
+}
+
+// 2fc50h
+void unloadAddBPK(void){
+
+	dword 	eax;
+
+//		push    4
+//		call    __CHK
+//		mov     eax, [__CEXT_V(p_bpk_badtit)]
+	eax = D(p_bpk_badtit);
+//		call    __CEXT_F(freeMemSafe)
+	freeMemSafe(eax);
+//		mov     eax, [__CEXT_V(p_bpk_badsnap)]
+	eax = D(p_bpk_badsnap);
+//		call    __CEXT_F(freeMemSafe)
+	freeMemSafe(eax);
+//		mov     eax, [__CEXT_V(p_bpk_escbox)]
+	eax = D(p_bpk_escbox);
+//		call    __CEXT_F(freeMemSafe)
+	freeMemSafe(eax);
+//		mov     eax, [__CEXT_V(p_bpk_signline)]
+	eax = D(p_bpk_signline);
+//		call    __CEXT_F(freeMemSafe)
+	freeMemSafe(eax);
+//		mov     eax, [__CEXT_V(p_bpk_prep4)]
+	eax = D(p_bpk_prep4);
+//		call    __CEXT_F(freeMemSafe)
+	freeMemSafe(eax);
+//		mov     eax, [__CEXT_V(___1a1114h)]
+	eax = D(___1a1114h);
+//		call    __CEXT_F(freeMemSafe)
+	freeMemSafe(eax);
+//		mov     eax, [__CEXT_V(p_bpk_prepw1)]
+	eax = D(p_bpk_prepw1);
+//		call    __CEXT_F(freeMemSafe)
+	freeMemSafe(eax);
 //		retn    
 	return;
 }

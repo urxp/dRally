@@ -3,6 +3,7 @@
     extern const char MENU_BPA[];         // "MENU.BPA"
     extern byte BPA_Buffer[];
 
+	extern void * VGABufferPtr_0;
     extern void * p_bpk_corn3b;
     extern void * p_bpk_corn3a;
     extern void * p_pal_copper;
@@ -110,6 +111,7 @@
 	void decode2__bpk(void * dst, void * src);
 	void read__bpa(const char * bpa, void * dst, const char * file);
     void * allocMemSafe(dword size);
+	void freeMemSafe(void * p);
 
 
 // 117f4h
@@ -311,4 +313,60 @@ void loadMenuBPK(void){
 	read__bpa(MENU_BPA, BPA_Buffer, bpk_menubg5);
 	p_bpk_menubg5 = allocMemSafe(0x4b000);
 	decode2__bpk(p_bpk_menubg5, BPA_Buffer);
+}
+
+// 12200h
+void unloadMenuBPK(void){
+
+	freeMemSafe(p_bpk_corn3b);
+	freeMemSafe(p_bpk_corn3a);
+	freeMemSafe(p_pal_copper);
+	freeMemSafe(p_pal_carcol);
+	freeMemSafe(p_pal_bgcop);
+	freeMemSafe(VGABufferPtr_0);
+	freeMemSafe(p_bpk_15x150);
+	freeMemSafe(p_bpk_menubg5);
+	freeMemSafe(p_bpk_f_big3a);
+	freeMemSafe(p_bpk_f_sma3b);
+	freeMemSafe(p_bpk_f_sma3c);
+	freeMemSafe(p_bpk_f_sma3a);
+	freeMemSafe(p_bpk_f_med1a);
+	freeMemSafe(p_bpk_mulsbg2);
+	freeMemSafe(p_bpk_rank1c);
+	freeMemSafe(p_bpk_resupok1);
+	freeMemSafe(p_bpk_rankinf1);
+	freeMemSafe(p_bpk_rankinf2);
+	freeMemSafe(p_bpk_rankinf3);
+	freeMemSafe(p_bpk_race_eas);
+	freeMemSafe(p_bpk_race_med);
+	freeMemSafe(p_bpk_race_har);
+	freeMemSafe(p_bpk_p_name);
+	freeMemSafe(p_bpk_p_pist);
+	freeMemSafe(p_bpk_p_rank);
+	freeMemSafe(p_bpk_pts_easy);
+	freeMemSafe(p_bpk_pts_med);
+	freeMemSafe(p_bpk_pts_hard);
+	freeMemSafe(p_bpk_placing);
+	freeMemSafe(p_bpk_carres);
+	freeMemSafe(p_bpk_face01);
+	freeMemSafe(p_bpk_face02);
+	freeMemSafe(p_bpk_face03);
+	freeMemSafe(p_bpk_face04);
+	freeMemSafe(p_bpk_face05);
+	freeMemSafe(p_bpk_face06);
+	freeMemSafe(p_bpk_face07);
+	freeMemSafe(p_bpk_face08);
+	freeMemSafe(p_bpk_face09);
+	freeMemSafe(p_bpk_face10);
+	freeMemSafe(p_bpk_face11);
+	freeMemSafe(p_bpk_face12);
+	freeMemSafe(p_bpk_face13);
+	freeMemSafe(p_bpk_face14);
+	freeMemSafe(p_bpk_face15);
+	freeMemSafe(p_bpk_face16);
+	freeMemSafe(p_bpk_face17);
+	freeMemSafe(p_bpk_face18);
+	freeMemSafe(p_bpk_face19);
+	freeMemSafe(p_bpk_face20);
+	freeMemSafe(p_bpk_facexx);
 }

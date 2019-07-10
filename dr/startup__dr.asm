@@ -139,10 +139,10 @@
 	extern 	__CEXT_F(___61278h)	
 	extern 	__CEXT_F(___623d4h)	
 	extern 	__CEXT_F(___3d79ch)	
-	extern 	__CEXT_F(___12200h)	
-	extern 	__CEXT_F(___12a54h)	
-	extern 	__CEXT_F(___24ec0h)	
-	extern 	__CEXT_F(___2fc50h)	
+	extern 	__CEXT_F(unloadMenuBPK)	
+	extern 	__CEXT_F(unloadOtherBPK)	
+	extern 	__CEXT_F(unloadShopBPK)	
+	extern 	__CEXT_F(unloadAddBPK)	
 	extern 	__CEXT_F(___649a8h)
 
 
@@ -969,10 +969,10 @@ ___3f19dh:
 ___3f1bah:
 		call    __CEXT_F(___3d79ch)
 		call    __CEXT_F(writeConfig__dr)
-		call    __CEXT_F(___12200h)
-		call    __CEXT_F(___12a54h)
-		call    __CEXT_F(___24ec0h)
-		call    __CEXT_F(___2fc50h)
+		call    __CEXT_F(unloadMenuBPK)
+		call    __CEXT_F(unloadOtherBPK)
+		call    __CEXT_F(unloadShopBPK)
+		call    __CEXT_F(unloadAddBPK)
 		call    __CEXT_F(___649a8h)
 		call    __CEXT_F(___64a28h)
 		add     esp, byte 2ch

@@ -113,6 +113,7 @@ enum {
 
 
     void * allocMemSafe(dword);
+	void freeMemSafe(void * p);
 
 	void read__bpa(const char *, void *, const char *);
 
@@ -292,4 +293,68 @@ void loadShopBPK(void){
 	read__bpa(MENU_BPA, BPA_Buffer, bpk_slidcop2);
 	p_bpk_slidcop2 = allocMemSafe(0x1260);
 	decode2__bpk(p_bpk_slidcop2, BPA_Buffer);
+}
+
+// 24ec0h
+void unloadShopBPK(void){
+
+	freeMemSafe(___1a1124h);
+	freeMemSafe(p_bpk_statbas7);
+	freeMemSafe(p_bpk_statpop4);
+	freeMemSafe(p_bpk_f_sma3f);
+	freeMemSafe(p_bpk_choo2);
+	freeMemSafe(p_bpk_arrows1d);
+	freeMemSafe(p_bpk_maxi1f);
+
+	freeMemSafe(p0_bpk_scenecar);
+	freeMemSafe(p1_bpk_scenecar);
+	freeMemSafe(p2_bpk_scenecar);
+	freeMemSafe(p3_bpk_scenecar);
+	freeMemSafe(p4_bpk_scenecar);
+	freeMemSafe(p5_bpk_scenecar);
+
+	freeMemSafe(bpk_cars[KUPLA]);
+	freeMemSafe(bpk_cars[PICKUP]);
+	freeMemSafe(bpk_cars[SEDAN]);
+	freeMemSafe(bpk_cars[CAMARO]);
+	freeMemSafe(bpk_cars[PORSCHE]);
+	freeMemSafe(bpk_cars[LOTUS]);
+
+	freeMemSafe(bpk_engines[LEVEL1]);
+	freeMemSafe(bpk_engines[LEVEL2]);
+	freeMemSafe(bpk_engines[LEVEL3]);
+	freeMemSafe(bpk_engines[LEVEL4]);
+
+	freeMemSafe(bpk_tires[LEVEL1]);
+	freeMemSafe(bpk_tires[LEVEL2]);
+	freeMemSafe(bpk_tires[LEVEL3]);
+	freeMemSafe(bpk_tires[LEVEL4]);
+
+	freeMemSafe(bpk_armors[LEVEL1]);
+	freeMemSafe(bpk_armors[LEVEL2]);
+	freeMemSafe(bpk_armors[LEVEL3]);
+	freeMemSafe(bpk_armors[LEVEL4]);
+	
+	freeMemSafe(p_bpk_repaani);
+	freeMemSafe(p_bpk_contani);
+	freeMemSafe(tex_carframe);
+	freeMemSafe(p_bpk_drugdeal);
+	freeMemSafe(p_bpk_spons1b);
+	freeMemSafe(p_bpk_event_2);
+	freeMemSafe(p_bpk_repear_x);
+	freeMemSafe(p_bpk_volcur2);
+	freeMemSafe(p_bpk_slidcur3);
+	freeMemSafe(p_bpk_slidcop2);
+	freeMemSafe(p_bpk_slidmus2);
+	freeMemSafe(p_bpk_carname);
+	freeMemSafe(p_bpk_carbas2);
+	freeMemSafe(p0_bpk_bases4);
+	freeMemSafe(p1_bpk_bases4);
+	freeMemSafe(p2_bpk_bases4);
+	freeMemSafe(p3_bpk_bases4);
+	freeMemSafe(p4_bpk_bases4);
+	freeMemSafe(p_bpk_market1e);
+	freeMemSafe(p_bpk_dealer2b);
+	freeMemSafe(p_bpk_blacktx1);
+	freeMemSafe(p_bpk_blacktx2);
 }

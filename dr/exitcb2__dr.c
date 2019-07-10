@@ -7,10 +7,10 @@ typedef unsigned long	dword;
 	void exit__clib3r(int status);
 	void setmode3h__video(void);
 	void writeConfig__dr(void);
-	void ___12200h(void);
-	void ___12a54h(void);
-	void ___24ec0h(void);
-	void ___2fc50h(void);
+	void unloadMenuBPK(void);
+	void unloadOtherBPK(void);
+	void unloadShopBPK(void);
+	void unloadAddBPK(void);
 	void ___64a28h(void);
 
 	// "DEATH RALLY Exit: CTRL+ALT+DEL pressed.\n"
@@ -20,10 +20,10 @@ typedef unsigned long	dword;
 void exitcb2__dr(void){
 
 	writeConfig__dr();
-	___12200h();
-	___12a54h();
-	___24ec0h();
-	___2fc50h();
+	unloadMenuBPK();
+	unloadOtherBPK();
+	unloadShopBPK();
+	unloadAddBPK();
 	___64a28h();
 	freeAllocInfoTable();
 	restore__keyboard();

@@ -64,6 +64,7 @@
 
 
     extern  __CEXT_F(allocMemSafe)
+	extern 	__CEXT_F(freeMemSafe)
     extern  __CEXT_F(read__bpa)
     extern  __CEXT_F(decode2__bpk)
     extern  __CEXT_F(decode4__bpk)
@@ -366,4 +367,84 @@ ___12653h:
 		pop     edx
 		pop     ecx
 		pop     ebx
+		retn    
+
+;; 12a54h
+__GDECL(__CEXT_F(unloadOtherBPK))
+		push    4
+		call    __CHK
+		mov     eax, [__CEXT_V(p_bpk_chattext)]
+		call    __CEXT_F(freeMemSafe)
+		mov     eax, [__CEXT_V(p_bpk_facesel1)]
+		call    __CEXT_F(freeMemSafe)
+		mov     eax, [__CEXT_V(p_bpk_facearr1)]
+		call    __CEXT_F(freeMemSafe)
+		mov     eax, [__CEXT_V(p_bpk_entertx2)]
+		call    __CEXT_F(freeMemSafe)
+		mov     eax, [__CEXT_V(p_bpk_shoptxt1)]
+		call    __CEXT_F(freeMemSafe)
+		mov     eax, [__CEXT_V(p_bpk_shoptxt2)]
+		call    __CEXT_F(freeMemSafe)
+		mov     eax, [__CEXT_V(p_bpk_fametxt)]
+		call    __CEXT_F(freeMemSafe)
+		mov     eax, [__CEXT_V(p_bpk_recotxt)]
+		call    __CEXT_F(freeMemSafe)
+		mov     eax, [__CEXT_V(p_bpk_recobar)]
+		call    __CEXT_F(freeMemSafe)
+		mov     eax, [__CEXT_V(p_bpk_lic_lin1)]
+		call    __CEXT_F(freeMemSafe)
+		mov     eax, [__CEXT_V(p_bpk_chatlin1)]
+		call    __CEXT_F(freeMemSafe)
+		mov     eax, [__CEXT_V(p_bpk_cursor)]
+		call    __CEXT_F(freeMemSafe)
+		mov     eax, [__CEXT_V(p_bpk_f_big3d)]
+		call    __CEXT_F(freeMemSafe)
+		mov     eax, [__CEXT_V(p_bpk_f_big3b)]
+		call    __CEXT_F(freeMemSafe)
+		mov     eax, [__CEXT_V(p_bpk_mseletx1)]
+		call    __CEXT_F(freeMemSafe)
+		mov     eax, [__CEXT_V(p_bpk_trarr1)]
+		call    __CEXT_F(freeMemSafe)
+		mov     eax, [__CEXT_V(ps_bpk_trsnap2m)]
+		call    __CEXT_F(freeMemSafe)
+		mov     eax, [__CEXT_V(___1a1044h)]
+		call    __CEXT_F(freeMemSafe)
+		mov     eax, [__CEXT_V(___1a1048h)]
+		call    __CEXT_F(freeMemSafe)
+		mov     eax, [__CEXT_V(___1a104ch)]
+		call    __CEXT_F(freeMemSafe)
+		mov     eax, [__CEXT_V(___1a1050h)]
+		call    __CEXT_F(freeMemSafe)
+		mov     eax, [__CEXT_V(___1a1054h)]
+		call    __CEXT_F(freeMemSafe)
+		mov     eax, [__CEXT_V(___1a1058h)]
+		call    __CEXT_F(freeMemSafe)
+		mov     eax, [__CEXT_V(___1a105ch)]
+		call    __CEXT_F(freeMemSafe)
+		mov     eax, [__CEXT_V(___1a1060h)]
+		call    __CEXT_F(freeMemSafe)
+		mov     eax, [__CEXT_V(___1a1064h)]
+		call    __CEXT_F(freeMemSafe)
+		mov     eax, [__CEXT_V(___1a1068h)]
+		call    __CEXT_F(freeMemSafe)
+		mov     eax, [__CEXT_V(___1a106ch)]
+		call    __CEXT_F(freeMemSafe)
+		mov     eax, [__CEXT_V(___1a1070h)]
+		call    __CEXT_F(freeMemSafe)
+		mov     eax, [__CEXT_V(___1a1074h)]
+		call    __CEXT_F(freeMemSafe)
+		mov     eax, [__CEXT_V(___1a1078h)]
+		call    __CEXT_F(freeMemSafe)
+		mov     eax, [__CEXT_V(___1a107ch)]
+		call    __CEXT_F(freeMemSafe)
+		mov     eax, [__CEXT_V(___1a1080h)]
+		call    __CEXT_F(freeMemSafe)
+		mov     eax, [__CEXT_V(___1a1084h)]
+		call    __CEXT_F(freeMemSafe)
+		mov     eax, [__CEXT_V(___1a1088h)]
+		call    __CEXT_F(freeMemSafe)
+		mov     eax, [__CEXT_V(p0_bpk_trsnap2m)]
+		call    __CEXT_F(freeMemSafe)
+		mov     eax, [__CEXT_V(p1_bpk_trsnap2m)]
+		call    __CEXT_F(freeMemSafe)
 		retn    

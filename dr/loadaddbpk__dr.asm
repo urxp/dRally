@@ -21,6 +21,7 @@
     extern  __CEXT_V(bpk_prepw1)
 
     extern  __CEXT_F(allocMemSafe)
+	extern 	__CEXT_F(freeMemSafe)
     extern  __CEXT_F(read__bpa)
     extern  __CEXT_F(decode2__bpk)
 
@@ -113,4 +114,24 @@ __GDECL(__CEXT_F(loadAddBPK))
 		pop     edx
 		pop     ecx
 		pop     ebx
+		retn    
+
+;; 2fc50h
+__GDECL(__CEXT_F(unloadAddBPK))
+		push    4
+		call    __CHK
+		mov     eax, [__CEXT_V(p_bpk_badtit)]
+		call    __CEXT_F(freeMemSafe)
+		mov     eax, [__CEXT_V(p_bpk_badsnap)]
+		call    __CEXT_F(freeMemSafe)
+		mov     eax, [__CEXT_V(p_bpk_escbox)]
+		call    __CEXT_F(freeMemSafe)
+		mov     eax, [__CEXT_V(p_bpk_signline)]
+		call    __CEXT_F(freeMemSafe)
+		mov     eax, [__CEXT_V(p_bpk_prep4)]
+		call    __CEXT_F(freeMemSafe)
+		mov     eax, [__CEXT_V(___1a1114h)]
+		call    __CEXT_F(freeMemSafe)
+		mov     eax, [__CEXT_V(p_bpk_prepw1)]
+		call    __CEXT_F(freeMemSafe)
 		retn    
