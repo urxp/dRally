@@ -109,7 +109,7 @@
  	void showPreviewMenu__dr(void);
 
 	void ___11564h(float, float, float);
-	void ___117c8h(void);	
+	void emptyFunction_0(void);	
 	void loadMenuBPK(void);	
 	void ___12200h(void);
 	void loadOtherBPK(void);
@@ -482,8 +482,8 @@ l_bs_ok:
     loadMenuBPK();
 //		call    __CEXT_F(loadOtherBPK)
     loadOtherBPK();
-//		call    __CEXT_F(___117c8h)
-    ___117c8h();
+//		call    __CEXT_F(emptyFunction_0)
+    emptyFunction_0();
 //		call    __CEXT_F(loadShopBPK)
     loadShopBPK();
 //		call    __CEXT_F(___2faf0h)

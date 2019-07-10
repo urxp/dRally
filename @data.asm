@@ -1336,9 +1336,9 @@ __GDECL(__CEXT_V(___182db8h))
 db	"Please insert Death Rally to CD-ROM drive!",0,0
 __GDECL(__CEXT_V(___182de4h))
 db	"Are you sure?",0,0,0
-___182df4h:
+__GDECL(__CEXT_V(___182df4h))
 db	"DEATH RALLY ErroR: Cannot allocate memory!",0ah,0
-___182e20h:
+__GDECL(__CEXT_V(___182e20h))
 db	"Please consult DRHELP.EXE for more information on how to resolve this problem.",0ah,0
 ___182e70h:
 db	"-----------------------------------------------------",0,0,0

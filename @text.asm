@@ -1337,19 +1337,6 @@ ___1170ah:
 		pop     ecx
 		pop     ebx
 		ret     0ch
-global __CEXT_F(___117c8h)
-__CEXT_F(___117c8h):
-		push    4
-		call    near __CHK
-		retn    
-__GDECL(__CEXT_F(allocVGABuffer))
-		push    4
-		call    near __CHK
-		mov     eax, 4b000h
-		call    near __CEXT_F(allocMemSafe)
-		mov     [__CEXT_V(VGABufferPtr_0)], eax
-		mov     [__CEXT_V(___VGABufferPtr_0)], eax
-		retn    
 __GDECL(__CEXT_F(___12200h))
 		push    4
 		call    near __CHK
@@ -53147,40 +53134,6 @@ db	0ech,51h,38h,3eh,0ah,0d7h,0a3h,3eh
 ___3f704h:
 db	8fh,0c2h,0f5h,3dh,5ch,8fh,42h,3eh,8fh,0c2h,75h,3dh,8fh,0c2h,0f5h,3dh
 db	8fh,0c2h,0f5h,3ch,8fh,0c2h,75h,3dh
-__GDECL(__CEXT_F(allocMemSafe))
-		push    18h
-		call    near __CHK
-		push    ebx
-		push    ecx
-		push    edx
-		push    esi
-		xor     edx, edx
-		call    near __CEXT_F(allocMemoryLock)
-		mov     esi, eax
-		test    eax, eax
-		jne     short ___3f774h
-		call    near __CEXT_F(freeAllocInfoTable)
-		call    near __CEXT_F(setmode3h__video)
-		push    ___182df4h
-		call    near __CEXT_F(printf__clib3r)
-		add     esp, byte 4
-		push    ___182e20h
-		call    near __CEXT_F(printf__clib3r)
-		mov     edx, [__CEXT_V(NetworkConnectionEstablished)]
-		add     esp, byte 4
-		test    edx, edx
-		je      short ___3f76ah
-		call    near __CEXT_F(___623d4h)
-___3f76ah:
-		mov     eax, 70h
-		call    near __CEXT_F(exit__clib3r)
-___3f774h:
-		mov     eax, esi
-		pop     esi
-		pop     edx
-		pop     ecx
-		pop     ebx
-		retn    
 __GDECL(__CEXT_F(___3f77ch))
 		push    4
 		call    near __CHK
