@@ -9,7 +9,7 @@
     extern  ___24e8a3h
     extern  ___24ea9dh
     extern  ___24f1bch
-    extern  ___688d0h
+    extern  __CEXT_V(___688d0h)
     extern  ___24f23ch
     extern  ___71ab0h
     extern  ___24e9a4h
@@ -30,14 +30,14 @@
     extern  ___19a694h
     extern  ___24ea98h
     extern  __CEXT_F(___71b70h)
-    extern  ___68990h
+    extern  __CEXT_V(___68990h)
     extern  ___24f2c1h
     extern  ___24f2c2h
     extern  ___24ea7ch
     extern  ___24ea80h
     extern  ___24ea84h
     extern  ___24ea88h
-    extern  ___68a10h
+    extern  __CEXT_V(___68a10h)
     extern  ___24f17ch
     extern  ___19a692h
     extern  ___24ea5ch
@@ -58,7 +58,7 @@
     extern  ___24f2bdh
     extern  ___24ef9ch
     extern  ___24eefch
-    extern  ___68910h
+    extern  __CEXT_V(___68910h)
     extern  ___19a68dh
     extern  ___24f2bfh
     extern  ___24f2c0h
@@ -72,11 +72,11 @@
     extern  ___24f2c5h
     extern  __CEXT_V(___24e9dah)
     extern  __CEXT_V(___19a281h)
-    extern  ___68c42h
+    extern  __CEXT_F(___68c42h)
     extern  ___19a68ch
     extern  __CEXT_V(___19a690h)
-    extern  ___24e7a6h
-    extern  ___24e7a5h
+    extern  __CEXT_V(___24e7a6h)
+    extern  __CEXT_V(___24e7a5h)
     extern  ___24e9d4h
     extern  ___24e9ceh
     extern  __CEXT_V(SFX_Ptr)
@@ -296,7 +296,7 @@ ___71e2ah:
 		cmp     dword [esp+8], byte 20h
 		jl      ___71e2ah
 		xor     bl, bl
-		call    ___68c42h
+		call    __CEXT_F(___68c42h)
 		mov     [___19a68ch], bl
 ___71f40h:
 		mov     edx, [__CEXT_V(___19a690h)]
@@ -317,10 +317,10 @@ ___71f40h:
 ___71f7fh:
 		cmp     byte [___24f2c2h], 0
 		jne     ___73484h
-		cmp     byte [___24e7a6h], 0
+		cmp     byte [__CEXT_V(___24e7a6h)], 0
 		jne     ___73484h
 		mov     ah, 1
-		mov     [___24e7a5h], ah
+		mov     [__CEXT_V(___24e7a5h)], ah
 		cmp     ah, [___24f2c5h]
 		jne     ___7227ch
 		mov     ebp, 20h
@@ -391,15 +391,15 @@ ___71ff6h:
 		mov     ebx, esi
 		call    __CEXT_F(memset__clib3r)
 		mov     eax, [esp+8]
-		mov     [NoSplit eax*2+___688d0h], di
+		mov     [NoSplit eax*2+__CEXT_V(___688d0h)], di
 		mov     eax, [esp+8]
-		mov     [eax*4+___68990h], ecx
+		mov     [eax*4+__CEXT_V(___68990h)], ecx
 		mov     eax, [esp+8]
-		mov     [eax*4+___68a10h], ecx
+		mov     [eax*4+__CEXT_V(___68a10h)], ecx
 		mov     eax, [esp+8]
 		mov     dword [eax*4+__CEXT_V(___68a90h)], 8000h
 		mov     eax, [esp+8]
-		mov     [eax*4+___68910h], ecx
+		mov     [eax*4+__CEXT_V(___68910h)], ecx
 		inc     dword [esp+8]
 ___72131h:
 		cmp     ecx, [__CEXT_V(SFX_Ptr)]
@@ -672,7 +672,7 @@ ___7241eh:
 		mov     ax, [NoSplit eax*2+___24f23ch]
 		inc     eax
 		mov     edx, [esp+8]
-		mov     [NoSplit edx*2+___688d0h], ax
+		mov     [NoSplit edx*2+__CEXT_V(___688d0h)], ax
 ___724c1h:
 		test    si, si
 		je      ___7252bh
@@ -792,7 +792,7 @@ ___725fch:
 		mov     ax, [NoSplit eax*2+___24f23ch]
 		inc     eax
 		mov     edx, [esp+8]
-		mov     [NoSplit edx*2+___688d0h], ax
+		mov     [NoSplit edx*2+__CEXT_V(___688d0h)], ax
 ___7269bh:
 		test    si, si
 		je      ___72705h
@@ -918,7 +918,7 @@ ___7280dh:
 		mov     ax, [NoSplit eax*2+___24f23ch]
 		inc     eax
 		mov     edx, [esp+8]
-		mov     [NoSplit edx*2+___688d0h], ax
+		mov     [NoSplit edx*2+__CEXT_V(___688d0h)], ax
 		mov     eax, [esp+8]
 		mov     ax, [NoSplit eax*2+___24f23ch]
 		and     eax, 0ffffh
@@ -950,7 +950,7 @@ ___728f8h:
 		mov     ax, [NoSplit eax*2+___24f23ch]
 		inc     eax
 		mov     edx, [esp+8]
-		mov     [NoSplit edx*2+___688d0h], ax
+		mov     [NoSplit edx*2+__CEXT_V(___688d0h)], ax
 		mov     eax, [esp+8]
 		mov     ax, [NoSplit eax*2+___24f23ch]
 		mov     edx, [___24e9b0h]
@@ -1012,7 +1012,7 @@ ___729b5h:
 		mov     ax, [NoSplit eax*2+___24f23ch]
 		inc     eax
 		mov     edx, [esp+8]
-		mov     [NoSplit edx*2+___688d0h], ax
+		mov     [NoSplit edx*2+__CEXT_V(___688d0h)], ax
 		mov     eax, [esp+8]
 		mov     ax, [NoSplit eax*2+___24f23ch]
 		mov     edx, [___24e9b0h]
@@ -1111,7 +1111,7 @@ ___72b92h:
 		imul    eax, edx
 		shl     eax, 4
 		mov     edx, [esp+8]
-		mov     [edx*4+___68a10h], eax
+		mov     [edx*4+__CEXT_V(___68a10h)], eax
 		mov     eax, [esp+8]
 		xor     bh, bh
 		mov     [eax+___24f15ch], bh
@@ -1135,7 +1135,7 @@ ___72bf0h:
 		imul    eax, edx
 		shl     eax, 4
 		mov     edx, [esp+8]
-		mov     [edx*4+___68a10h], eax
+		mov     [edx*4+__CEXT_V(___68a10h)], eax
 		mov     eax, [esp+8]
 		xor     dl, dl
 		mov     [eax+___24f15ch], dl
@@ -1320,13 +1320,13 @@ ___72e9ah:
 		mov     al, cl
 		shl     eax, 8
 		mov     edx, [esp+8]
-		mov     [edx*4+___68910h], eax
+		mov     [edx*4+__CEXT_V(___68910h)], eax
 		mov     eax, [esp+8]
 		mov     ax, [NoSplit eax*2+___24f23ch]
 		inc     eax
 		mov     edx, [esp+8]
 		mov     ch, 0ffh
-		mov     [NoSplit edx*2+___688d0h], ax
+		mov     [NoSplit edx*2+__CEXT_V(___688d0h)], ax
 		jmp     ___73395h
 ___72ecch:
 		test    cl, cl
@@ -1501,7 +1501,7 @@ ___730fah:
 		imul    eax, edx
 		shl     eax, 4
 		mov     edx, [esp+8]
-		mov     [edx*4+___68a10h], eax
+		mov     [edx*4+__CEXT_V(___68a10h)], eax
 		jmp     ___73397h
 ___73123h:
 		mov     eax, [esp+8]
@@ -1530,7 +1530,7 @@ ___73159h:
 		imul    eax, edx
 		shl     eax, 4
 		mov     edx, [esp+8]
-		mov     [edx*4+___68a10h], eax
+		mov     [edx*4+__CEXT_V(___68a10h)], eax
 		jmp     ___73397h
 ___73182h:
 		mov     eax, [esp+8]
@@ -1584,7 +1584,7 @@ ___73205h:
 		imul    edx, ebx
 		shl     edx, 4
 		inc     ecx
-		mov     [eax+___68a10h], edx
+		mov     [eax+__CEXT_V(___68a10h)], edx
 		mov     edx, [___24e9b4h]
 		add     eax, byte 4
 		cmp     ecx, edx
@@ -1710,7 +1710,7 @@ ___73397h:
 		mov     eax, [eax*4+___24f1bch]
 		call    __CEXT_F(___71b70h)
 		mov     edx, [esp+8]
-		mov     [edx*4+___68990h], eax
+		mov     [edx*4+__CEXT_V(___68990h)], eax
 		jmp     ___733feh
 ___733d2h:
 		xor     eax, eax
@@ -1721,7 +1721,7 @@ ___733d2h:
 		call    __CEXT_F(___71b70h)
 		mov     edx, [esp+8]
 		xor     bh, bh
-		mov     [edx*4+___68990h], eax
+		mov     [edx*4+__CEXT_V(___68990h)], eax
 		mov     [___24f2bch], bh
 ___733feh:
 		mov     eax, [esp+8]
@@ -1732,7 +1732,7 @@ ___733feh:
 		imul    edx, eax
 		shl     edx, 4
 		mov     eax, [esp+8]
-		mov     [eax*4+___68a10h], edx
+		mov     [eax*4+__CEXT_V(___68a10h)], edx
 		mov     eax, [esp+8]
 		mov     al, [eax+___24f17ch]
 		and     eax, 0ffh
@@ -1822,7 +1822,7 @@ ___7355ah:
 		imul    eax, edx
 		shl     eax, 4
 		mov     edx, [esp+8]
-		mov     [edx*4+___68a10h], eax
+		mov     [edx*4+__CEXT_V(___68a10h)], eax
 		jmp     ___73903h
 ___73583h:
 		mov     eax, [esp+8]
@@ -1844,7 +1844,7 @@ ___735b2h:
 		imul    eax, edx
 		shl     eax, 4
 		mov     edx, [esp+8]
-		mov     [edx*4+___68a10h], eax
+		mov     [edx*4+__CEXT_V(___68a10h)], eax
 		jmp     ___73903h
 ___735dbh:
 		mov     eax, [esp+8]
@@ -1928,7 +1928,7 @@ ___736f9h:
 		add     eax, edi
 		call    __CEXT_F(___71b70h)
 		mov     edx, [esp+8]
-		mov     [edx*4+___68990h], eax
+		mov     [edx*4+__CEXT_V(___68990h)], eax
 		mov     eax, [esp+8]
 		mov     eax, [eax*4+___24f1bch]
 		add     eax, edi
@@ -2055,7 +2055,7 @@ ___738e8h:
 ___738f3h:
 		call    __CEXT_F(___71b70h)
 		mov     edx, [esp+8]
-		mov     [edx*4+___68990h], eax
+		mov     [edx*4+__CEXT_V(___68990h)], eax
 ___73903h:
 		mov     eax, [esp+8]
 		mov     ah, [eax+___24f13ch]
@@ -2150,7 +2150,7 @@ ___73a26h:
 		call    ___71ab0h
 		call    __CEXT_F(___71b70h)
 		mov     edx, [esp+8]
-		mov     [edx*4+___68990h], eax
+		mov     [edx*4+__CEXT_V(___68990h)], eax
 		mov     eax, [esp+8]
 		mov     ax, [NoSplit eax*2+___24f23ch]
 		mov     edx, [___24e9b0h]
@@ -2188,7 +2188,7 @@ ___73addh:
 		mov     eax, [eax*4+___24f1bch]
 		call    __CEXT_F(___71b70h)
 		mov     edx, [esp+8]
-		mov     [edx*4+___68990h], eax
+		mov     [edx*4+__CEXT_V(___68990h)], eax
 		jmp     ___74b66h
 ___73afdh:
 		mov     edx, [esp+8]
@@ -2214,7 +2214,7 @@ ___73b3dh:
 		mov     eax, [eax*4+___24f1bch]
 		call    __CEXT_F(___71b70h)
 		mov     edx, [esp+8]
-		mov     [edx*4+___68990h], eax
+		mov     [edx*4+__CEXT_V(___68990h)], eax
 		jmp     ___74b66h
 ___73b5dh:
 		mov     eax, [esp+8]
@@ -2265,14 +2265,14 @@ ___73c06h:
 		mov     eax, [eax+___24f1bch]
 		call    __CEXT_F(___71b70h)
 		mov     edx, [esp+8]
-		mov     [edx*4+___68990h], eax
+		mov     [edx*4+__CEXT_V(___68990h)], eax
 		jmp     ___74b66h
 ___73c32h:
 		mov     eax, [eax+___24f1bch]
 		call    ___71bfch
 		call    __CEXT_F(___71b70h)
 		mov     edx, [esp+8]
-		mov     [edx*4+___68990h], eax
+		mov     [edx*4+__CEXT_V(___68990h)], eax
 		jmp     ___74b66h
 ___73c52h:
 		mov     eax, [esp+8]
@@ -2354,7 +2354,7 @@ ___73d61h:
 		add     eax, edx
 		call    __CEXT_F(___71b70h)
 		mov     edx, [esp+8]
-		mov     [edx*4+___68990h], eax
+		mov     [edx*4+__CEXT_V(___68990h)], eax
 		mov     eax, [esp+8]
 		mov     ebx, [esp]
 		mov     edx, [eax*4+___24f1bch]
@@ -2426,7 +2426,7 @@ ___73e9ah:
 ___73ea5h:
 		call    __CEXT_F(___71b70h)
 		mov     edx, [esp+8]
-		mov     [edx*4+___68990h], eax
+		mov     [edx*4+__CEXT_V(___68990h)], eax
 ___73eb5h:
 		xor     edx, edx
 		mov     dl, bl
@@ -2468,7 +2468,7 @@ ___73f20h:
 		imul    edx, eax
 		shl     edx, 4
 		mov     eax, [esp+8]
-		mov     [eax*4+___68a10h], edx
+		mov     [eax*4+__CEXT_V(___68a10h)], edx
 		jmp     ___74b66h
 ___73f49h:
 		mov     eax, [esp+8]
@@ -2549,7 +2549,7 @@ ___74059h:
 		add     eax, ecx
 		call    __CEXT_F(___71b70h)
 		mov     edx, [esp+8]
-		mov     [edx*4+___68990h], eax
+		mov     [edx*4+__CEXT_V(___68990h)], eax
 		mov     eax, [esp+8]
 		mov     edx, [eax*4+___24f1bch]
 		add     edx, ecx
@@ -2595,7 +2595,7 @@ ___740ffh:
 		imul    eax, edx
 		shl     eax, 4
 		mov     edx, [esp+8]
-		mov     [edx*4+___68a10h], eax
+		mov     [edx*4+__CEXT_V(___68a10h)], eax
 		jmp     ___74b66h
 ___7412ch:
 		mov     eax, [esp+8]
@@ -2690,7 +2690,7 @@ ___74267h:
 		shl     eax, 4
 		mov     edx, [esp+8]
 		mov     cl, [___24e9d7h]
-		mov     [edx*4+___68a10h], eax
+		mov     [edx*4+__CEXT_V(___68a10h)], eax
 		mov     al, [esp]
 		imul    cl
 		mov     edx, [esp+8]
@@ -2739,7 +2739,7 @@ ___7430ch:
 		imul    eax, edx
 		shl     eax, 4
 		mov     edx, [esp+8]
-		mov     [edx*4+___68a10h], eax
+		mov     [edx*4+__CEXT_V(___68a10h)], eax
 		jmp     ___74b66h
 ___74335h:
 		xor     eax, eax
@@ -2761,7 +2761,7 @@ ___74351h:
 		jmp     ___74b66h
 ___7436eh:
 		mov     eax, [esp+8]
-		mov     word [NoSplit eax*2+___688d0h], 0ffffh
+		mov     word [NoSplit eax*2+__CEXT_V(___688d0h)], 0ffffh
 		mov     eax, [esp+8]
 		mov     byte [eax+___24f13ch], 0ffh
 		mov     eax, [esp+8]
@@ -2812,7 +2812,7 @@ ___743b2h:
 		mov     ax, [NoSplit eax*2+___24f23ch]
 		inc     eax
 		mov     edx, [esp+8]
-		mov     [NoSplit edx*2+___688d0h], ax
+		mov     [NoSplit edx*2+__CEXT_V(___688d0h)], ax
 		mov     eax, [esp+8]
 		mov     ax, [NoSplit eax*2+___24f23ch]
 		mov     edx, [___24e9b0h]
@@ -2844,7 +2844,7 @@ ___744cbh:
 		mov     ax, [NoSplit eax*2+___24f23ch]
 		inc     eax
 		mov     edx, [esp+8]
-		mov     [NoSplit edx*2+___688d0h], ax
+		mov     [NoSplit edx*2+__CEXT_V(___688d0h)], ax
 		mov     eax, [esp+8]
 		mov     ax, [NoSplit eax*2+___24f23ch]
 		mov     edx, [___24e9b0h]
@@ -2911,7 +2911,7 @@ ___7458ah:
 		mov     ax, [NoSplit eax*2+___24f23ch]
 		inc     eax
 		mov     edx, [esp+8]
-		mov     [NoSplit edx*2+___688d0h], ax
+		mov     [NoSplit edx*2+__CEXT_V(___688d0h)], ax
 		mov     eax, [esp+8]
 		mov     ax, [NoSplit eax*2+___24f23ch]
 		and     eax, 0ffffh
@@ -3091,7 +3091,7 @@ ___74842h:
 		mov     ax, [NoSplit eax*2+___24f23ch]
 		inc     eax
 		mov     edx, [esp+8]
-		mov     [NoSplit edx*2+___688d0h], ax
+		mov     [NoSplit edx*2+__CEXT_V(___688d0h)], ax
 		xor     eax, eax
 		mov     al, bl
 		sar     eax, 4
@@ -3230,7 +3230,7 @@ ___74a92h:
 		imul    eax, edx
 		shl     eax, 4
 		mov     edx, [esp+8]
-		mov     [edx*4+___68a10h], eax
+		mov     [edx*4+__CEXT_V(___68a10h)], eax
 		jmp     ___74b66h
 ___74abbh:
 		and     ebx, 0ffh
@@ -3251,7 +3251,7 @@ ___74abbh:
 		mov     eax, [esp+8]
 		inc     byte [eax+___24eedch]
 		mov     eax, [esp+8]
-		mov     [eax*4+___68a10h], edx
+		mov     [eax*4+__CEXT_V(___68a10h)], edx
 		jmp     ___74b66h
 ___74b07h:
 		mov     edx, [esp+8]
@@ -3263,7 +3263,7 @@ ___74b07h:
 		inc     byte [edx+___24eebch]
 		mov     edx, [esp+8]
 		xor     ebx, ebx
-		mov     [edx*4+___68a10h], ebx
+		mov     [edx*4+__CEXT_V(___68a10h)], ebx
 		mov     edx, [esp+8]
 		xor     bh, bh
 		mov     [edx+___24ea5ch], bh
@@ -3306,7 +3306,7 @@ ___74b90h:
 		mov     [eax+___24f19ch], dh
 		mov     eax, [esp+8]
 		xor     edi, edi
-		mov     [eax*4+___68a10h], edi
+		mov     [eax*4+__CEXT_V(___68a10h)], edi
 		jmp     ___74f2eh
 ___74bf6h:
 		cmp     byte [eax+___24ea9dh], 0
@@ -3495,7 +3495,7 @@ ___74ed6h:
 		imul    edx
 		shrd    eax, edx, 10h
 		mov     edx, [esp+8]
-		mov     [edx*4+___68a10h], eax
+		mov     [edx*4+__CEXT_V(___68a10h)], eax
 ___74f2eh:
 		mov     eax, [esp+8]
 		mov     ax, [NoSplit eax*2+___24f27ch]
@@ -3842,7 +3842,7 @@ ___754efh:
 		add     eax, ebx
 		call    __CEXT_F(___71b70h)
 		mov     edx, [esp+8]
-		mov     [edx*4+___68990h], eax
+		mov     [edx*4+__CEXT_V(___68990h)], eax
 ___75501h:
 		inc     dword [esp+8]
 		mov     eax, [esp+8]

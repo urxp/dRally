@@ -8752,31 +8752,31 @@ __GDECL(___19a464h)
 db	0,0,0,0
 __GDECL(__CEXT_V(___19a468h))
 db	0
-__GDECL(___19a469h)
+__GDECL(__CEXT_V(___19a469h))
 db	0
-__GDECL(___19a46ah)
+__GDECL(__CEXT_V(___19a46ah))
 db	0,0
 __GDECL(__CEXT_V(___19a46ch))
 db	0ffh,0ffh,0ffh,0ffh
-__GDECL(___19a470h)
+__GDECL(__CEXT_V(___19a470h))
 db	0,0,0,0
-__GDECL(___19a474h)
+__GDECL(__CEXT_V(___19a474h))
 db	0,0,0,0
-__GDECL(___19a478h)
+__GDECL(__CEXT_V(___19a478h))
 db	0,0,0,0
-__GDECL(___19a47ch)
+__GDECL(__CEXT_V(___19a47ch))
 db	0,0,0,0
-__GDECL(___19a480h)
+__GDECL(__CEXT_V(___19a480h))
 db	0,0,0,0
-__GDECL(___19a484h)
+__GDECL(__CEXT_V(___19a484h))
 db	0,6bh,0,65h,40h,5fh,0,5ah,0c0h,54h,0,50h,80h,4bh,40h,47h
 db	40h,43h,80h,3fh,0,3ch,0b0h,38h
-__GDECL(___19a49ch)
+__GDECL(__CEXT_V(___19a49ch))
 db	0d7h,1eh,5,1fh,31h,1fh,6eh,1fh,0abh,1fh,0e9h,1fh,28h,20h,58h,20h
 db	0abh,20h,0ddh,20h,0fh,21h,51h,21h,85h,21h,0cbh,21h,13h,22h
-__GDECL(___19a4bah)
+__GDECL(__CEXT_V(___19a4bah))
 db	35h,22h
-__GDECL(___19a4bch)
+__GDECL(__CEXT_V(___19a4bch))
 db	0,0,18h,0,31h,0,4ah,0,61h,0,78h,0,8dh,0,0a1h,0
 db	0b4h,0,0c5h,0,0d4h,0,0e0h,0,0ebh,0,0f4h,0,0fah,0,0fdh,0
 db	0ffh,0,0fdh,0,0fah,0,0f4h,0,0ebh,0,0e0h,0,0d4h,0,0c5h,0
@@ -8785,60 +8785,60 @@ db	0,0,0e8h,0ffh,0cfh,0ffh,0b6h,0ffh,9fh,0ffh,88h,0ffh,73h,0ffh,5fh,0ffh
 db	4ch,0ffh,3bh,0ffh,2ch,0ffh,20h,0ffh,15h,0ffh,0ch,0ffh,6,0ffh,3,0ffh
 db	1,0ffh,3,0ffh,6,0ffh,0ch,0ffh,15h,0ffh,20h,0ffh,2ch,0ffh,3bh,0ffh
 db	4ch,0ffh,5fh,0ffh,73h,0ffh,88h,0ffh,9fh,0ffh,0b6h,0ffh,0cfh,0ffh,0e8h,0ffh
-__GDECL(___19a53ch)
+__GDECL(__CEXT_V(___19a53ch))
 db	1
-__GDECL(___19a53dh)
+__GDECL(__CEXT_V(___19a53dh))
 db	0
-__GDECL(___19a53eh)
+__GDECL(__CEXT_V(___19a53eh))
 db	0
-__GDECL(___19a53fh)
+__GDECL(__CEXT_V(___19a53fh))
 db	0
-__GDECL(___19a540h)
+__GDECL(__CEXT_V(___19a540h))
 db	1,0
-__GDECL(___19a542h)
+__GDECL(__CEXT_V(___19a542h))
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-__GDECL(___19a562h)
+__GDECL(__CEXT_V(___19a562h))
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-__GDECL(___19a582h)
+__GDECL(__CEXT_V(___19a582h))
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-__GDECL(___19a592h)
+__GDECL(__CEXT_V(___19a592h))
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-__GDECL(___19a5a2h)
+__GDECL(__CEXT_V(___19a5a2h))
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-__GDECL(___19a5b2h)
+__GDECL(__CEXT_V(___19a5b2h))
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-__GDECL(___19a5c2h)
+__GDECL(__CEXT_V(___19a5c2h))
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-__GDECL(___19a5d2h)
+__GDECL(__CEXT_V(___19a5d2h))
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0
-__GDECL(___19a5e0h)
+__GDECL(__CEXT_V(___19a5e0h))
 db	0,0
-__GDECL(___19a5e2h)
+__GDECL(__CEXT_V(___19a5e2h))
 db	0,0
-__GDECL(___19a5e4h)
+__GDECL(__CEXT_V(___19a5e4h))
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-__GDECL(___19a5f4h)
+__GDECL(__CEXT_V(___19a5f4h))
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-__GDECL(___19a604h)
-db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-__GDECL(___19a624h)
+__GDECL(__CEXT_V(___19a604h))
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-__GDECL(___19a644h)
+__GDECL(__CEXT_V(___19a624h))
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-__GDECL(___19a664h)
+__GDECL(__CEXT_V(___19a644h))
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-__GDECL(___19a674h)
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-__GDECL(___19a684h)
+__GDECL(__CEXT_V(___19a664h))
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+__GDECL(__CEXT_V(___19a674h))
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+__GDECL(__CEXT_V(___19a684h))
 db	0
-__GDECL(___19a685h)
+__GDECL(__CEXT_V(___19a685h))
 db	0
-__GDECL(___19a686h)
+__GDECL(__CEXT_V(___19a686h))
 db	0,0
 __GDECL(___19a688h)
 db	0,0,0,0

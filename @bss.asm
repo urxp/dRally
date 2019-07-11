@@ -1819,9 +1819,9 @@ __GDECL(__CEXT_V(___24e7a2h))
     resb	2
 __GDECL(__CEXT_V(___24e7a4h))
     resb	1
-__GDECL(___24e7a5h)
+__GDECL(__CEXT_V(___24e7a5h))
     resb	1
-__GDECL(___24e7a6h)
+__GDECL(__CEXT_V(___24e7a6h))
     resb	2
 ;__GDECL(_errno)
     resb	4
@@ -1891,23 +1891,23 @@ __GDECL(___24e7a6h)
     resb	4
 __GDECL(__CEXT_V(___24e830h))
     resb	20h
-__GDECL(___24e850h)
+__GDECL(__CEXT_V(___24e850h))
     resb	4
-__GDECL(___24e854h)
+__GDECL(__CEXT_V(___24e854h))
     resb	4
 __GDECL(__CEXT_V(___24e858h))
     resb	4
-__GDECL(___24e85ch)
+__GDECL(__CEXT_V(___24e85ch))
     resb	4
 __GDECL(__CEXT_V(___24e860h))
     resb	4
-__GDECL(___24e864h)
+__GDECL(__CEXT_V(___24e864h))
     resb	4
 __GDECL(__CEXT_V(___24e868h))
     resb	4
 __GDECL(___24e86ch)
     resb	2
-__GDECL(___24e86eh)
+__GDECL(__CEXT_V(___24e86eh))
     resb	1
 __GDECL(__CEXT_V(S3M_InitialTempo))
     resb	1
@@ -1915,27 +1915,27 @@ __GDECL(__CEXT_V(S3M_GlobalVolume))
     resb	1
 __GDECL(__CEXT_V(S3M_InitialSpeed))
     resb	1
-__GDECL(___24e872h)
+__GDECL(__CEXT_V(___24e872h))
 	resb	2
-__GDECL(___24e874h)
+__GDECL(__CEXT_V(___24e874h))
 	resb	4
-__GDECL(___24e878h)
+__GDECL(__CEXT_V(___24e878h))
     resb	1
-__GDECL(___24e879h)
+__GDECL(__CEXT_V(___24e879h))
     resb	1
-__GDECL(___24e87ah)
+__GDECL(__CEXT_V(___24e87ah))
     resb	2
-__GDECL(___24e87ch)
+__GDECL(__CEXT_V(___24e87ch))
     resb	1
-__GDECL(___24e87dh)
+__GDECL(__CEXT_V(___24e87dh))
     resb	1
-__GDECL(___24e87eh)
+__GDECL(__CEXT_V(___24e87eh))
     resb	1
-__GDECL(___24e87fh)
+__GDECL(__CEXT_V(___24e87fh))
     resb	1
-__GDECL(___24e880h)
+__GDECL(__CEXT_V(___24e880h))
     resb	20h
-__GDECL(___24e8a0h)
+__GDECL(__CEXT_V(___24e8a0h))
     resb	3
 __GDECL(___24e8a3h)
     resb	1

@@ -5,11 +5,11 @@
     extern  __CEXT_V(___68c40h)
     extern  __CEXT_V(Sound_SampleRate)
     extern  ___68c38h
-    extern  ___688d0h
-    extern  ___68910h
-    extern  ___68a10h
+    extern  __CEXT_V(___688d0h)
+    extern  __CEXT_V(___68910h)
+    extern  __CEXT_V(___68a10h)
     extern  __CEXT_V(___68bb0h)
-    extern  ___68990h
+    extern  __CEXT_V(___68990h)
     extern  __CEXT_V(___68a90h)
     extern  ___68b30h
     extern  ___68b10h
@@ -355,7 +355,7 @@ ___6924fh:
 		mov     [___68d74h], eax
 		xor     esi, esi
 ___6925dh:
-		movzx   ebx, word [esi*2+___688d0h]
+		movzx   ebx, word [esi*2+__CEXT_V(___688d0h)]
 		or      ebx, ebx
 		je      ___6934dh
 		cmp     bx, 0ffffh
@@ -376,7 +376,7 @@ ___6929dh:
 		mov     [esi*4+___68b30h], ebx
 		mov     byte [esi+___68e94h], 0
 		mov     eax, [ebx]
-		add     eax, [esi*4+___68910h]
+		add     eax, [esi*4+__CEXT_V(___68910h)]
 		mov     dl, [ebx+10h]
 		and     dl, 3
 		jne     ___692cfh
@@ -425,13 +425,13 @@ ___69326h:
 		mov     [esi*4+___68d94h], eax
 		mov     dword [esi*4+___68e14h], 0
 ___69338h:
-		mov     word [esi*2+___688d0h], 0
-		mov     dword [esi*4+___68910h], 0
+		mov     word [esi*2+__CEXT_V(___688d0h)], 0
+		mov     dword [esi*4+__CEXT_V(___68910h)], 0
 ___6934dh:
 		mov     ebx, [esi*4+___68b30h]
 		or      ebx, ebx
 		je      ___6a600h
-		mov     eax, [esi*4+___68a10h]
+		mov     eax, [esi*4+__CEXT_V(___68a10h)]
 		imul    dword [esi*4+__CEXT_V(___68bb0h)]
 		shrd    eax, edx, 19h
 		shl     eax, 8
@@ -439,7 +439,7 @@ ___6934dh:
 		je      ___6a600h
 		dec     ah
 		mov     [___68d7ch], eax
-		mov     eax, [esi*4+___68990h]
+		mov     eax, [esi*4+__CEXT_V(___68990h)]
 		imul    dword [___68d30h]
 		mov     [___68d84h], edx
 		xor     ax, ax
