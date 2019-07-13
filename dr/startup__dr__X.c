@@ -113,7 +113,7 @@
 	void loadMenuBPK(void);	
 	void unloadMenuBPK(void);
 	void loadOtherBPK(void);
-	void ___12940h(void);
+	void loadMenuPalette(void);
     void unloadOtherBPK(void);
 	void popScreen(void);
     void ___12dc4h(void);
@@ -500,8 +500,8 @@ l_bs_ok:
     loadAddBPK();
 //		call    __CEXT_F(fadeoutScreen)
     fadeoutScreen();
-//		call    __CEXT_F(___12940h)
-    ___12940h();
+//		call    __CEXT_F(loadMenuPalette)
+    loadMenuPalette();
 //		mov     edx, [__CEXT_V(MyID)]
     edx = D(MyID);
 //		lea     eax, [edx*8+0]

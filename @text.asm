@@ -1,55 +1,3 @@
-___10534h:
-		push    1ch
-		call    near __CHK
-		push    ebx
-		push    ecx
-		push    esi
-		push    edi
-		sub     esp, byte 8
-		mov     edi, eax
-		xor     ebx, ebx
-		mov     [esp], ebx
-		test    eax, eax
-		jle     short ___1059dh
-		mov     al, [esp]
-		mov     ah, 11h
-		mul     ah
-		mov     esi, edx
-		mov     [esp+4], al
-___1055dh:
-		mov     eax, [esp]
-		mov     edx, eax
-		mov     ebx, 7
-		sar     edx, 1fh
-		idiv    ebx
-		mov     ecx, edx
-		mov     ebx, esi
-		mov     eax, [ebx]
-		rol     al, cl
-		mov     [ebx], eax
-		mov     ah, [esi]
-		add     ah, 93h
-		mov     [esi], ah
-		mov     al, [esp+4]
-		mov     dl, ah
-		inc     esi
-		sub     dl, al
-		mov     ecx, [esp]
-		mov     [esi-1], dl
-		mov     dh, al
-		inc     ecx
-		add     dh, 11h
-		mov     [esp], ecx
-		mov     [esp+4], dh
-		cmp     edi, ecx
-		jg      short ___1055dh
-___1059dh:
-		add     esp, byte 8
-		pop     edi
-		pop     esi
-		pop     ecx
-		pop     ebx
-		retn    
 ___105e0h:
 db	19h,0fh,3bh,3ch,3dh,3eh,3fh,40h,41h,42h,43h,44h,57h,58h,1
 ___106cbh:
@@ -1337,90 +1285,6 @@ ___1170ah:
 		pop     ecx
 		pop     ebx
 		ret     0ch
-__GDECL(__CEXT_F(___12940h))
-		push    320h
-		call    near __CHK
-		push    ebx
-		push    ecx
-		push    edx
-		push    esi
-		push    edi
-		push    ebp
-		sub     esp, 304h
-		mov     ebx, ___180680h
-		mov     edx, esp
-		mov     eax, __CEXT_V(MENU_BPA)
-		call    near __CEXT_F(read__bpa)
-		xor     edx, edx
-		xor     ecx, ecx
-		mov     [esp+300h], edx
-___12972h:
-		mov     esi, [esp+300h]
-		lea     esi, [esi+esi*2]
-		xor     eax, eax
-		mov     al, [esp+esi]
-		movzx   ebp, byte [esp+esi+1]
-		movzx   edi, byte [esp+esi+2]
-		mov     esi, eax
-		mov     ebx, 640000h
-		shl     esi, 10h
-		shl     ebp, 10h
-		mov     edx, esi
-		shl     edi, 10h
-		xor     eax, eax
-		shrd    eax, edx, 10h
-		sar     edx, 10h
-		idiv    ebx
-		mov     ebx, 640000h
-		mov     edx, ebp
-		mov     [ecx+__CEXT_V(Pal8to24_1)], eax
-		xor     eax, eax
-		shrd    eax, edx, 10h
-		sar     edx, 10h
-		idiv    ebx
-		mov     ebx, 640000h
-		mov     edx, edi
-		mov     [ecx+__CEXT_V(Pal8to24_1)+4], eax
-		xor     eax, eax
-		shrd    eax, edx, 10h
-		sar     edx, 10h
-		idiv    ebx
-		mov     ebx, 640000h
-		mov     edx, esi
-		mov     [ecx+__CEXT_V(Pal8to24_1)+8], eax
-		xor     eax, eax
-		shrd    eax, edx, 10h
-		sar     edx, 10h
-		idiv    ebx
-		mov     ebx, 640000h
-		mov     edx, ebp
-		mov     [ecx+__CEXT_V(Pal8to24_0)], eax
-		xor     eax, eax
-		shrd    eax, edx, 10h
-		sar     edx, 10h
-		idiv    ebx
-		mov     ebx, 640000h
-		mov     edx, edi
-		mov     [ecx+__CEXT_V(Pal8to24_0)+4], eax
-		xor     eax, eax
-		shrd    eax, edx, 10h
-		sar     edx, 10h
-		idiv    ebx
-		mov     ebx, [esp+300h]
-		add     ecx, byte 0ch
-		inc     ebx
-		mov     [ecx+___19df4ch], eax
-		mov     [esp+300h], ebx
-		cmp     ebx, 100h
-		jl      near ___12972h
-		add     esp, 304h
-		pop     ebp
-		pop     edi
-		pop     esi
-		pop     edx
-		pop     ecx
-		pop     ebx
-		retn    
 __GDECL(__CEXT_F(___12d6ch))
 		push    10h
 		call    near __CHK
@@ -21449,7 +21313,7 @@ ___228abh:
 		call    near __CEXT_F(loadShopBPK)
 		call    near __CEXT_F(loadAddBPK)
 		call    near __CEXT_F(fadeoutScreen)
-		call    near __CEXT_F(___12940h)
+		call    near __CEXT_F(loadMenuPalette)
 		mov     esi, [__CEXT_V(MyID)]
 		lea     eax, [esi*8+0]
 		sub     eax, esi
@@ -36925,7 +36789,7 @@ ___31384h:
 		call    near ___6563ch
 ___31462h:
 		xor     edi, edi
-		call    near __CEXT_F(___12940h)
+		call    near __CEXT_F(loadMenuPalette)
 		mov     [esp+28h], edi
 		xor     esi, esi
 ___3146fh:
@@ -39098,7 +38962,7 @@ ___32ed0h:
 		call    near ___6563ch
 ___32fadh:
 		xor     ebp, ebp
-		call    near __CEXT_F(___12940h)
+		call    near __CEXT_F(loadMenuPalette)
 		mov     [esp+5ch], ebp
 		xor     esi, esi
 ___32fbah:
@@ -42049,7 +41913,7 @@ ___35922h:
 		xor     ebx, ebx
 		call    near __CEXT_F(___605deh)
 ___359f6h:
-		call    near __CEXT_F(___12940h)
+		call    near __CEXT_F(loadMenuPalette)
 		xor     eax, eax
 		mov     [esp+0d0h], eax
 		xor     esi, esi

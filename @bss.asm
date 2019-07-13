@@ -251,8 +251,7 @@ ___19dedah:	resb	1
 ___19dedbh:	resb	7
 ___19dee2h:	resb	1
 ___19dee3h:	resb	9
-___19deech:	resb	60h
-___19df4ch:	resb	4
+___19deech:	resb	64h
 __GDECL(__CEXT_V(Pal8to24_0))   ;; ___19df50h
     resb	0c00h
 __GDECL(__CEXT_V(Pal8to24_1))   ;; ___19eb50h

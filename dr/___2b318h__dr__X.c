@@ -16,7 +16,7 @@
 	#pragma aux ___24010h parm routine []
     void ___24010h(dword, dword, dword);
 
-    void ___12940h(void);
+    void loadMenuPalette(void);
 
     static dword idiv_quo(dword, dword, dword);
 #if defined(__WATCOMC__)
@@ -65,8 +65,8 @@ void ___2b318h(void){
 	esp -= 0x14;
 //		and     esp, byte 0fffffff8h
 	esp = (dword)esp & 0xfffffff8;
-//		call    __CEXT_F(___12940h)
-	___12940h();
+//		call    __CEXT_F(loadMenuPalette)
+	loadMenuPalette();
 //		mov     edx, [__CEXT_V(MyID)]
 	edx = D(MyID);
 //		lea     eax, [edx*8+0]

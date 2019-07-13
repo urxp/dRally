@@ -1,7 +1,7 @@
 %include "macros.inc"
 
     extern  __CHK
-    extern  __CEXT_F(___12940h)
+    extern  __CEXT_F(loadMenuPalette)
     extern  __CEXT_F(___11564h)
     extern  __CEXT_V(MyID)
     extern  __CEXT_V(Roster)
@@ -31,7 +31,7 @@ __GDECL(__CEXT_F(___2b318h))
 		mov     ebp, esp
 		sub     esp, byte 14h
 		and     esp, byte 0fffffff8h
-		call    __CEXT_F(___12940h)
+		call    __CEXT_F(loadMenuPalette)
 		mov     edx, [__CEXT_V(MyID)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx

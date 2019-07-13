@@ -203,7 +203,7 @@ __GDECL(__CEXT_V(bpk_mseletx1))
 db	"mseletx1.bpk",0,0,0,0
 __GDECL(__CEXT_V(bpk_trarr1))
 db	"trarr1.bpk",0,0
-__GDECL(___180680h)
+__GDECL(__CEXT_V(pal_menu))
 db	"menu.pal",0,0,0,0
 __GDECL(__CEXT_V(STRING_yes))
 db	"yes",0

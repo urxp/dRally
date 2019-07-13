@@ -95,6 +95,7 @@
     extern  __CEXT_F(allocVGABuffer)
     extern  __CEXT_F(allocMemSafe)
     extern  __CEXT_F(getFileSize__dr)
+    extern  __CEXT_F(loadMenuPalette)
 
     extern  __CEXT_F(updateAMPVolume)
     extern  __CEXT_F(updateMSXVolume)

@@ -3,15 +3,15 @@
 #pragma pack(1)
 
 typedef struct pal3 {
-    byte    __0;
-    byte    __1;
-    byte    __2;
+    byte    R;
+    byte    G;
+    byte    B;
 } pal3;
 
 typedef struct pal3dword {
-    dword   __0;
-    dword   __1;
-    dword   __2;
+    dword   R;
+    dword   G;
+    dword   B;
 } pal3dword;
 
 typedef struct Driver {
@@ -60,7 +60,7 @@ typedef struct Driver {
     void ___11564h(float, float, float);
     void ___24010h(float, float, float);
 
-    void ___12940h(void);
+    void loadMenuPalette(void);
 
     static dword idiv_quo(dword, dword, dword);
 #if defined(__WATCOMC__)
@@ -88,77 +88,48 @@ void ___2b318h(void){
 	dword 	n, i;
 	dword 	eax, ebx, ecx, edx, esi, edi, ebp;
 
-	___12940h();
+	loadMenuPalette();
 
 	___11564h(
-		(float)p_pal_copper[Roster[MyID].Color].__0,
-		(float)p_pal_copper[Roster[MyID].Color].__1,
-		(float)p_pal_copper[Roster[MyID].Color].__2
+		(float)p_pal_copper[Roster[MyID].Color].R,
+		(float)p_pal_copper[Roster[MyID].Color].G,
+		(float)p_pal_copper[Roster[MyID].Color].B
 	);
 
 	___24010h(
-		(float)p_pal_copper[Roster[MyID].Color].__0,
-		(float)p_pal_copper[Roster[MyID].Color].__1,
-		(float)p_pal_copper[Roster[MyID].Color].__2
+		(float)p_pal_copper[Roster[MyID].Color].R,
+		(float)p_pal_copper[Roster[MyID].Color].G,
+		(float)p_pal_copper[Roster[MyID].Color].B
 	);
 
-	n = 0;
+	n = -1;
 
-	while(n < 0x20){
-
-        Pal8to24_1[n+0xc0].__0 =
-			((int)(p_pal_bgcop[___196ad8h].__0 * ___1821e2h * n) << 0x10) / 0x64;
-        Pal8to24_1[n+0xc0].__1 =
-			((int)(p_pal_bgcop[___196ad8h].__1 * ___1821e2h * n) << 0x10) / 0x64;
-        Pal8to24_1[n+0xc0].__2 =
-			((int)(p_pal_bgcop[___196ad8h].__2 * ___1821e2h * n) << 0x10) / 0x64;
-
-		n++;
+	while(++n < 0x20){
+    /*
+        Pal8to24_1[n+0xc0].R =
+			((int)(p_pal_bgcop[___196ad8h].R * ___1821e2h * n) << 0x10) / 0x64;
+        Pal8to24_1[n+0xc0].G =
+			((int)(p_pal_bgcop[___196ad8h].G * ___1821e2h * n) << 0x10) / 0x64;
+        Pal8to24_1[n+0xc0].B =
+			((int)(p_pal_bgcop[___196ad8h].B * ___1821e2h * n) << 0x10) / 0x64;
+    */
+        Pal8to24_1[n+0xc0].R = n*0x100*p_pal_bgcop[___196ad8h].R / 0x19;
+        Pal8to24_1[n+0xc0].G = n*0x100*p_pal_bgcop[___196ad8h].G / 0x19;
+        Pal8to24_1[n+0xc0].B = n*0x100*p_pal_bgcop[___196ad8h].B / 0x19;
 	}
 
-	ecx = 0x10;
+	n = 0xf;
 
-	while(ecx < 0x20){
+	while(++n < 0x20){
 
-		eax = Pal8to24_0[ecx].__0;
-		edx = D(___1a1edch) << 0x10;
-		esi = imul_eax(eax, edx);
-		edx = imul_edx(eax, edx);
-		eax = esi + 0x8000;
-		if(eax < 0x8000) edx++;
-		eax = eax >> 0x10;
-		edx = edx << 0x10;
-		eax = eax + edx;
-		eax = eax + 0x8000;
-		edx = eax & 0xffff0000;
-		Pal8to24_1[ecx].__0 = edx / 0x64;
+		i = (Pal8to24_0[n].R * D(___1a1edch) + 0x8000) & 0xffff0000;
+		Pal8to24_1[n].R = i / 0x64;
 
-        eax = Pal8to24_0[ecx].__1;
-		edx = D(___1a1edch) << 0x10;
-		esi = imul_eax(eax, edx);
-		edx = imul_edx(eax, edx);
-		eax = esi + 0x8000;
-		if(eax < 0x8000) edx++;
-		eax = eax >> 0x10;
-		edx = edx << 0x10;
-		eax = eax + edx;
-		eax = eax + 0x8000;
-		edx = eax & 0xffff0000;
-		Pal8to24_1[ecx].__1 = edx / 0x64;
+		i = (Pal8to24_0[n].G * D(___1a1edch) + 0x8000) & 0xffff0000;
+		Pal8to24_1[n].G = i / 0x64;
 
-        eax = Pal8to24_0[ecx].__2;
-		edx = D(___1a1edch) << 0x10;
-		esi = imul_eax(eax, edx);
-		edx = imul_edx(eax, edx);
-		eax = esi + 0x8000;
-		if(eax < 0x8000) edx++;
-		eax = eax >> 0x10;
-		edx = edx << 0x10;
-		eax = eax + edx;
-		eax = eax + 0x8000;
-		edx = eax & 0xffff0000;
-		Pal8to24_1[ecx].__2 = edx / 0x64;
-
-		ecx++;
+		i = (Pal8to24_0[n].B * D(___1a1edch) + 0x8000) & 0xffff0000;
+		Pal8to24_1[n].B = i / 0x64;
 	}
+
 }
