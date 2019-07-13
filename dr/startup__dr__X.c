@@ -241,8 +241,8 @@ void startup__dr(void){
 
 	dword 	eax, ebx, ecx, edx, esi, edi, ebp;
 	double 	st0, st1, st2, st3, st4, st5, st6, st7, st_tmp;
-	byte 	__esp[0x100];
-	byte *	esp = __esp+0x100;
+	byte 	__esp[0x200];
+	byte *	esp = __esp+0x200;
 
 	PUSH(0);
 
@@ -271,7 +271,7 @@ void startup__dr(void){
 //		mov     [esp+0ch], edx
 	D(esp+0xc) = edx;
 //		mov     [esp+18h], ecx
-	D(esp+0x18) = edx;
+	D(esp+0x18) = ecx;
 //		call    __CEXT_F(loadcdromini__dr)
     loadcdromini__dr();
 //		call    __CEXT_F(chkmemory__dr)

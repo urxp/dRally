@@ -17,7 +17,7 @@
     extern  __CEXT_V(___1a1ec0h)
     extern  __CEXT_V(___1a1ec8h)
     extern  __CEXT_V(___1a1ed0h)
-    extern  __CEXT_V(Roster)+1ch
+    extern  __CEXT_V(Roster)
     extern  __CEXT_V(___1a1ec4h)
     extern  __CEXT_V(___1a1ee4h)
     extern  __CEXT_V(___1a1124h)

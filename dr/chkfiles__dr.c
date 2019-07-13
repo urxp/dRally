@@ -1,108 +1,116 @@
-typedef unsigned char   byte;
-typedef unsigned long   dword;
+#include "x86.h"
 
 #pragma pack(1)
+
 typedef struct {
 	char 	EntryName[13];
 	dword 	EntrySize;
 } FileEntry;
 
+	// ""
+	extern const char ___180130h[];
+
 	// "\nDEATH RALLY ERROR: File %s is not found!\n"
-    extern const char ___182a30h[];
+	extern const char ___182a30h[];
+
+	// "Please consult DRHELP.EXE for more information on how to resolve this problem.\n"
+	extern const char ___182a5ch[];
 
 	// "\nDEATH RALLY ERROR: File %s is not in original form!\n"
-    extern const char ___182aach[];
+	extern const char ___182aach[];
+
+	// "Please consult DRHELP.EXE for more information on how to resolve this problem.\n"
+	extern const char ___182ae4h[];
 
 	// "\nDEATH RALLY ERROR: File %s is not in original form!\n"
-    extern const char ___182b34h[];
+	extern const char ___182b34h[];
 
 	// "Please consult DRHELP.EXE for more information on how to resolve this problem.\n"
-    extern const char ___182a5ch[];
+	extern const char ___182b6ch[];
 
-	// "Please consult DRHELP.EXE for more information on how to resolve this problem.\n"
-    extern const char ___182ae4h[];
+	extern byte CDPath;
+	extern byte cdrom_ini[];
+	extern FileEntry animfiles_list[];
+	extern FileEntry drfiles_list[];
 
-	// "Please consult DRHELP.EXE for more information on how to resolve this problem.\n"
-    extern const char ___182b6ch[];
-
-    extern FileEntry drfiles_list[];
-    extern FileEntry animfiles_list[];
-
-    extern char cdrom_ini[];
-    extern char ___180130h[];
-    extern byte CDPath;
-
-    dword getFileSize__dr(const char *);
-    void freeAllocInfoTable(void);
-    void restore__keyboard(void);
+	int getFileSize__dr(const char *);
+	void freeAllocInfoTable(void);
     int printf__clib3r(const char * format, ...);
     void exit__clib3r(int status);
+    void restore__keyboard(void);
 
 	char * strcpy__clib3r(char * dest, const char * src);
 
+
+// ~3e27dh (-4 labels)
 void chkfiles__dr(void){
 
-    dword       n;
-    byte        Buffer[0x100];
-    FileEntry * entry;
+	dword 	n;
+	char * 	p;
+	int 	s;
+	byte 	Buffer[0x100];
 
-    entry = drfiles_list + 14;
 
-    while(entry-- != drfiles_list){
+	n = -1;
+	while(++n < 0xe){
 
-        n = getFileSize__dr(entry->EntryName);
-  
-        if(n < 1){
+		s = getFileSize__dr(drfiles_list[n].EntryName);
 
-            printf__clib3r(___182a30h, entry->EntryName);
-            printf__clib3r(___182a5ch);
-            restore__keyboard();
-            freeAllocInfoTable();
-            exit__clib3r(0x70);
-        }
+		if(s < 1){
 
-        if(n != entry->EntrySize){
+			printf__clib3r(___182a30h, drfiles_list[n].EntryName);
+			printf__clib3r(___182a5ch);
 
-            printf__clib3r(___182aach, entry->EntryName);
-            printf__clib3r(___182ae4h);
-            restore__keyboard();
-            freeAllocInfoTable();
-            exit__clib3r(0x70);
-        }
-    }
+			restore__keyboard();
+			freeAllocInfoTable();
+			exit__clib3r(0x70);
+		}
 
-    n = 0;
-    CDPath = 2;
+		if(s != drfiles_list[n].EntrySize){
 
-    strcpy__clib3r(&Buffer[n], cdrom_ini);
-	while(Buffer[n]) n++;
-	strcpy__clib3r(&Buffer[n], animfiles_list->EntryName);
+			printf__clib3r(___182aach, drfiles_list[n].EntryName);
+			printf__clib3r(___182ae4h);
 
-    if(getFileSize__dr(Buffer) < 1) CDPath = 1;
+			restore__keyboard();
+			freeAllocInfoTable();
+			exit__clib3r(0x70);
+		}
+	}
 
-    entry = animfiles_list + 3;
+	p = Buffer;
+	CDPath = 2;
 
-    while(entry-- != animfiles_list){
-        
-        n = 0;
-        Buffer[0] = ___180130h[0];
-        
-        if(CDPath == 2){
+	strcpy__clib3r(p, cdrom_ini);
+	while(p[0]&&p++);
+	strcpy__clib3r(p, animfiles_list[0].EntryName);
 
-            while(Buffer[n]) n++;
-	        strcpy__clib3r(&Buffer[n], cdrom_ini);
-        }
+	if(getFileSize__dr(Buffer) < 1) CDPath = 1;
 
-        while(Buffer[n]) n++;
-	    strcpy__clib3r(&Buffer[n], entry->EntryName);
+	n = -1;
+	while(++n < 3){
 
-        if((n = getFileSize__dr(Buffer))&&(n != entry->EntrySize)){
-        
-            printf__clib3r(___182b34h, entry->EntryName);
-            printf__clib3r(___182b6ch);
-            restore__keyboard();
-            freeAllocInfoTable();
-            exit__clib3r(0x70);
-        }
-    }
+		p = Buffer;
+		p[0] = ___180130h[0];
+
+		if(CDPath == 2){
+
+			while(p[0]&&p++);
+			strcpy__clib3r(p, cdrom_ini);
+		}
+
+		while(p[0]&&p++);
+		strcpy__clib3r(p, animfiles_list[n].EntryName);
+
+		s = getFileSize__dr(Buffer);
+
+		if((s > 0)&&(s != animfiles_list[n].EntrySize)){
+
+			printf__clib3r(___182b34h, animfiles_list[n].EntryName);
+			printf__clib3r(___182b6ch);
+
+			restore__keyboard();
+			freeAllocInfoTable();
+			exit__clib3r(0x70);
+		}
+	}
 }

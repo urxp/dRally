@@ -6,7 +6,6 @@
 	extern 	__CEXT_V(___182a5ch)
 	extern 	__CEXT_F(printf__clib3r)
 	extern 	__CEXT_F(restore__keyboard)
-	extern 	__CEXT_V(drfile_size)+0dh
 	extern 	__CEXT_V(drfiles_list)
 	extern 	__CEXT_V(___182aach)
 	extern 	__CEXT_V(___182ae4h)
@@ -15,7 +14,6 @@
 	extern 	__CEXT_V(animfiles_list)
 	extern 	__CEXT_V(___180130h)
 	extern 	__CEXT_V(CDPath)
-	extern 	__CEXT_V(animfile_size)+0dh
 	extern 	__CEXT_F(exit__clib3r)
 	extern 	__CEXT_V(___182b34h)
 	extern 	__CEXT_V(___182b6ch)
@@ -24,6 +22,7 @@
 
 section @text
 
+;; ~3e27dh (-4 labels)
 __GDECL(__CEXT_F(chkfiles__dr))
 		push    124h
 		call    __CHK
@@ -37,12 +36,12 @@ __GDECL(__CEXT_F(chkfiles__dr))
 		mov     ebx, __CEXT_V(drfiles_list)
 		xor     edx, edx
 		mov     ebp, 70h
-@file_chk:
+l_file_chk:
 		mov     eax, ebx
 		call    __CEXT_F(getFileSize__dr)
 		mov     edi, eax
 		cmp     eax, 1
-		jge     @file_exists
+		jge     l_file_exists
 		push    ebx
 		push    __CEXT_V(___182a30h)
 		call    __CEXT_F(printf__clib3r)
@@ -54,9 +53,9 @@ __GDECL(__CEXT_F(chkfiles__dr))
 		call    __CEXT_F(freeAllocInfoTable)
 		mov     eax, ebp
 		call    __CEXT_F(exit__clib3r)
-@file_exists:
-		cmp     edi, [edx+__CEXT_V(drfile_size)+0dh]
-		je      @file_original
+l_file_exists:
+		cmp     edi, [edx+__CEXT_V(drfiles_list)+0dh]
+		je      l_file_original
 		mov     eax, __CEXT_V(drfiles_list)
 		add     eax, edx
 		push    eax
@@ -70,11 +69,11 @@ __GDECL(__CEXT_F(chkfiles__dr))
 		call    __CEXT_F(freeAllocInfoTable)
 		mov     eax, ebp
 		call    __CEXT_F(exit__clib3r)
-@file_original:
+l_file_original:
 		add     edx, 11h
 		add     ebx, 11h
 		cmp     edx, 0eeh
-		jne     @file_chk
+		jne     l_file_chk
 		mov     ah, 2
 		mov     esi, __CEXT_V(cdrom_ini)
 		mov     edi, esp
@@ -122,7 +121,7 @@ ___3e2beh:
 ___3e2d2h:
 		mov     edx, __CEXT_V(animfiles_list)
 		xor     ebx, ebx
-@anim_chk:
+l_anim_chk:
 		mov     al, [__CEXT_V(___180130h)]
 		mov     cl, [__CEXT_V(CDPath)]
 		mov     [esp], al
@@ -175,9 +174,9 @@ ___3e33dh:
 		mov     eax, esp
 		call    __CEXT_F(getFileSize__dr)
 		test    eax, eax
-		jle     @anim_original
-		cmp     eax, [ebp+__CEXT_V(animfile_size)+0dh]
-		je      @anim_original
+		jle     l_anim_original
+		cmp     eax, [ebp+__CEXT_V(animfiles_list)+0dh]
+		je      l_anim_original
 		push    edx
 		push    __CEXT_V(___182b34h)
 		call    __CEXT_F(printf__clib3r)
@@ -189,11 +188,11 @@ ___3e33dh:
 		call    __CEXT_F(freeAllocInfoTable)
 		mov     eax, 70h
 		call    __CEXT_F(exit__clib3r)
-@anim_original:
+l_anim_original:
 		inc     ebx
 		add     edx, 11h
 		cmp     ebx, 3
-		jl      @anim_chk
+		jl      l_anim_chk
 		add     esp, 100h
 		pop     ebp
 		pop     edi
