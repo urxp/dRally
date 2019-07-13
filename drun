@@ -6,6 +6,7 @@ cp drally.lx ~/DEATHRAL/drally.lx
 
 # dosbox ~/DEATHRAL/drally.exe
 # dosbox -c "mount C ~/DEATHRAL" -c "C:" -c "drally.exe"
+# dosbox-debug -c "mount C ~/DEATHRAL" -c "C:" -c "drally.exe"
 # dosbox-x -c "mount C ~/DEATHRAL" -c "C:" -c "DOS4G.EXE drally.lx"
 dosbox -c "mount C ~/DEATHRAL" -c "C:" -c "DOS4G.EXE drally.lx"
 # dosbox-debug -c "mount C ~/DEATHRAL" -c "C:" -c "DOS4G.EXE drally.lx"

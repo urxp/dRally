@@ -8,7 +8,7 @@
 
 section @text
 
-__GDECL(close__clib3r)
+__GDECL(__CEXT_F(close__clib3r))
 		test    eax, eax
 		jl      ___6634eh
 		cmp     eax, [___NFiles]

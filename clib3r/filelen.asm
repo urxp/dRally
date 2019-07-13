@@ -6,7 +6,7 @@
 
 section @text
 
-__GDECL(filelength__clib3r)
+__GDECL(__CEXT_F(filelength__clib3r))
 		push    ebx
 		push    ecx
 		push    edx

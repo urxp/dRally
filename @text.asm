@@ -47994,24 +47994,6 @@ ___3a1c7h:
 		pop     ecx
 		pop     ebx
 		retn    
-__GDECL(__CEXT_F(getFileSize__dr))
-		push    14h
-		call    near __CHK
-		push    ebx
-		push    edx
-		push    200h			;; O_RDONLY | O_BINARY
-		push    eax
-		call    near open__clib3r
-		add     esp, byte 8
-		mov     edx, eax
-		call    near filelength__clib3r
-		mov     ebx, eax
-		mov     eax, edx
-		call    near close__clib3r
-		mov     eax, ebx
-		pop     edx
-		pop     ebx
-		retn  
 ___3a214h:
 		push    18h
 		call    near __CHK
@@ -50015,11 +49997,11 @@ __GDECL(__CEXT_F(readConfig__dr))
 		mov     edx, 1388h
 		push    DR_CFG
 		mov     [esp+8], edx
-		call    near open__clib3r
+		call    near __CEXT_F(open__clib3r)
 		add     esp, byte 8
 		mov     edi, eax
 		mov     esi, eax
-		call    near filelength__clib3r
+		call    near __CEXT_F(filelength__clib3r)
 		test    eax, eax
 		jg      short ___3bbach
 		call    near __CEXT_F(freeAllocInfoTable)
@@ -50029,17 +50011,17 @@ __GDECL(__CEXT_F(readConfig__dr))
 		call    near __CEXT_F(printf__clib3r)
 		add     esp, byte 4
 		mov     eax, edi
-		call    near close__clib3r
+		call    near __CEXT_F(close__clib3r)
 		mov     eax, 70h
 		call    near __CEXT_F(exit__clib3r)
 ___3bbach:
 		mov     eax, esi
-		call    near filelength__clib3r
+		call    near __CEXT_F(filelength__clib3r)
 		cmp     eax, byte 7
 		jne     short ___3bc30h
 		mov     eax, esi
 		mov     edx, __CEXT_V(rb_m)
-		call    near close__clib3r
+		call    near __CEXT_F(close__clib3r)
 		mov     eax, DR_CFG
 		mov     ebx, 1
 		call    near __CEXT_F(fopen__clib3r)
@@ -50069,7 +50051,7 @@ ___3bbach:
 		jmp     near ___3c13ah
 ___3bc30h:
 		mov     eax, esi
-		call    near close__clib3r
+		call    near __CEXT_F(close__clib3r)
 		mov     eax, [esp]
 		mov     edx, __CEXT_V(rb_m)
 		call    near __CEXT_F(allocMemSafe)

@@ -12,7 +12,7 @@
 
 section @text
 
-__GDECL(open__clib3r)
+__GDECL(__CEXT_F(open__clib3r))
 		push    ebx
 		push    edx
 		lea     eax, [esp+14h]

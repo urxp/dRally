@@ -94,6 +94,7 @@
     extern  __CEXT_F(unloadAddBPK)
     extern  __CEXT_F(allocVGABuffer)
     extern  __CEXT_F(allocMemSafe)
+    extern  __CEXT_F(getFileSize__dr)
 
     extern  __CEXT_F(updateAMPVolume)
     extern  __CEXT_F(updateMSXVolume)
@@ -105,8 +106,8 @@
 
 ;; CLIB3R.LIB
     extern  __CHK
-    extern  open__clib3r
-    extern  close__clib3r
+    extern  __CEXT_F(open__clib3r)
+    extern  __CEXT_F(close__clib3r)
     extern  __CEXT_F(fopen__clib3r)
     extern  __CEXT_F(fclose__clib3r)
     extern  __CEXT_F(fread__clib3r)
@@ -115,7 +116,7 @@
     extern  __CEXT_F(free__clib3r)
     extern  __CEXT_F(__STOSB__clib3r)
     extern  __CEXT_F(__STOSD__clib3r)
-    extern  filelength__clib3r
+    extern  __CEXT_F(filelength__clib3r)
     extern  __CEXT_F(memset__clib3r)
     extern  tolower
     extern  raise
