@@ -1,11 +1,14 @@
-typedef unsigned char 	byte;
-typedef unsigned long	dword;
+#include "x86.h"
+
+#define SEEK_SET    0x0
+#define SEEK_CUR    0x1
+#define SEEK_END    0x2
 
 	extern char cdrom_ini[];
 	extern const char string__DR_IDF[];	// "DR.IDF"
 	extern const char rb_m[];			// "rb"
 
-	dword getFileSize__dr(const char *);
+	int getFileSize__dr(const char *);
 
 	void * malloc__clib3r(dword size);
 	void free__clib3r(void * ptr);
@@ -17,56 +20,68 @@ typedef unsigned long	dword;
 
 	char * strcpy__clib3r(char * dest, const char * src);
 
-static dword IDFCheck(byte * __64kb){
-
-	dword n;
-
-	n  = !(byte)(__64kb[0x7cd1] - __64kb[0x1403] - __64kb[0x9ab2]);
-	n += !(byte)(__64kb[0x7cd1] + __64kb[0x613b] - __64kb[0xf6ce]);
-	n += !(byte)(__64kb[0x1403] + __64kb[0x2d3e] - __64kb[0xdb97]);
-	n += !(byte)(__64kb[0x2d3e] - __64kb[0x7cd1] - __64kb[0xafc8]);
-
-	return n>>2;
-}
 
 dword chkcdrom__dr(void){
 
-	dword 	fd, n, CheckCD;
-	char 	Buffer[0x100];
-	byte *	__64kb;
+	dword 	fd, i, CDCheck, drIDF;
+    char *  p;
+    byte *  m;
+	byte 	Buffer[0x100];
 
 
-	n = 0;
-	strcpy__clib3r(Buffer, cdrom_ini);
-	while(Buffer[n]) n++;
-	strcpy__clib3r(&Buffer[n], string__DR_IDF);
+	p = Buffer;
 
-	CheckCD = 0;
+	strcpy__clib3r(p, cdrom_ini);
+	while(p[0]&&p++);
+	strcpy__clib3r(p, string__DR_IDF);
 
-	// DR.IDF size = 479 985 668
-    if(getFileSize__dr(Buffer) >= 0x1c9c0004){
+	CDCheck = 0;
 
-		fd = fopen__clib3r(Buffer, rb_m);
+	if(getFileSize__dr(Buffer) < 0x186cf392) return 0;
 
-		__64kb = malloc__clib3r(0x10000);
+	m = malloc__clib3r(0x10000);
 
-		fread__clib3r(&n, 4, 1, fd); 	// n = 0x2b79338d
-		n -= 0x2b7916f1; 				// n = 0x1c9c
-		fseek__clib3r(fd, 0x20000, 1);
-		fread__clib3r(__64kb, 0x10000, 1, fd);
-		
-		if(!(CheckCD = IDFCheck(__64kb))){
+	if(getFileSize__dr(Buffer) < 0x18033688){
 
-			// 4 + 0x20000 + 0x10000 + 0x1c980000 = 0x1c9b0004
-			fseek__clib3r(fd, (n - 4) << 16, 1);	
-			fread__clib3r(__64kb, 0x10000, 1, fd);
+        free__clib3r(m);
+        return 0;
+    }
 
-			CheckCD = IDFCheck(__64kb);
-		}
+	fd = fopen__clib3r(Buffer, rb_m);
 
-		fclose__clib3r(fd);
-		free__clib3r(__64kb);
-	}
+	if(fd == 0){
 
-	return CheckCD;
+        free__clib3r(m);
+        return 0;
+    }
+
+	fread__clib3r(&drIDF, 4, 1, fd);
+	drIDF = 0x10000*(drIDF - 0x2b7916f5);
+	fseek__clib3r(fd, 0x20000, SEEK_CUR);
+	fread__clib3r(m, 0x10000, 1, fd);
+	
+	i  = !(0xff & (m[0x7cd1] - m[0x1403] - m[0x9ab2]));
+    i += !(0xff & (m[0x7cd1] + m[0x613b] - m[0xf6ce]));
+    i += !(0xff & (m[0x1403] + m[0x2d3e] - m[0xdb97]));
+    i += !(0xff & (m[0x2d3e] - m[0x7cd1] - m[0xafc8]));
+
+	if(i == 4) CDCheck = 1;
+    
+	fseek__clib3r(fd, drIDF, SEEK_CUR);
+
+    i  = !(0xff & (m[0x7cd1] - m[0x1403] - m[0x9ab2]));
+    i += !(0xff & (m[0x7cd1] + m[0x613b] - m[0xf6ce]));
+    i += !(0xff & (m[0x1403] + m[0x2d3e] - m[0xdb97]));
+    i += !(0xff & (m[0x2d3e] - m[0x7cd1] - m[0xafc8]));
+
+	if(i == 4) CDCheck = 1;
+
+	if(CDCheck == 0){
+
+        free__clib3r(m);
+        return 0;
+    }
+
+	free__clib3r(m);
+	return 1;
 }

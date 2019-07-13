@@ -1,6 +1,7 @@
 %include "macros.inc"
 
     extern  __CHK
+	
     extern  __CEXT_V(cdrom_ini)
     extern  __CEXT_V(string__DR_IDF)
     extern  __CEXT_F(getFileSize__dr)

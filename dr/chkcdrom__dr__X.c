@@ -1,25 +1,10 @@
-#define al 	((byte *)&eax)[0]
-#define bl 	((byte *)&ebx)[0]
-#define cl 	((byte *)&ecx)[0]
-#define dl 	((byte *)&edx)[0]
-#define ah 	((byte *)&eax)[1]
-#define bh 	((byte *)&ebx)[1]
-#define ch 	((byte *)&ecx)[1]
-#define dh 	((byte *)&edx)[1]
-
-#define B(v)	(*(byte *)(v))
-#define W(v)	(*(word *)(v))
-#define D(v)	(*(dword *)(v))
-
-typedef unsigned char 	byte;
-typedef unsigned short	word;
-typedef unsigned long	dword;
+#include "x86.h"
 
 	extern char cdrom_ini[];
 	extern const char string__DR_IDF[];	// "DR.IDF"
 	extern const char rb_m[];			// "rb"
 
-	dword getFileSize__dr(const char *);
+	int getFileSize__dr(const char *);
 
 	void * malloc__clib3r(dword size);
 	void free__clib3r(void * ptr);
@@ -108,7 +93,7 @@ ___3e504h:
 	eax = getFileSize__dr(eax);
 //		cmp     eax, 186cf392h
 //		jge     ___3e521h
-	if((int)eax >= 0X186cf392) goto ___3e521h;
+	if((int)eax >= 0x186cf392) goto ___3e521h;
 //		xor     edx, edx
 	edx = 0;
 //		jmp     ___3e6efh
