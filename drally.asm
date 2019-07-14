@@ -97,6 +97,7 @@
     extern  __CEXT_F(getFileSize__dr)
     extern  __CEXT_F(loadMenuPalette)
     extern  __CEXT_F(loadMenuCarColor)
+    extern  __CEXT_F(frameFooter__dr)
 
     extern  __CEXT_F(updateAMPVolume)
     extern  __CEXT_F(updateMSXVolume)
