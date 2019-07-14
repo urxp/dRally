@@ -55,7 +55,7 @@ typedef enum eNetworkConnectionType {
     extern dword ___185a1ch;
     extern byte RowBox0Colors_R5[];
     extern byte ___196a74h[];
-    extern b96 RowBoxBuffers[];
+    extern b96 ChatLinesBuffer[];
     extern void * ___1a0f9ch;
     extern dword MyID;
     extern Driver Roster[];
@@ -118,7 +118,7 @@ typedef enum eNetworkConnectionType {
 
         while(n < 0x15){
 
-            strcpy__clib3r((void *)&RowBoxBuffers[n], (void *)&RowBoxBuffers[n+1]);
+            strcpy__clib3r((void *)&ChatLinesBuffer[n], (void *)&ChatLinesBuffer[n+1]);
             ___1a1f4eh[n] = ___1a1f4fh[n];
             n++;
         }      

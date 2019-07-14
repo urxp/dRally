@@ -780,8 +780,10 @@ ___1a1168h:	resb	1
 ___1a1169h:	resb	1
 ___1a116ah:	resb	1
 ___1a116bh:	resb	1
-__GDECL(__CEXT_V(RowBoxBuffers))
-    resb	9f6h
+__GDECL(__CEXT_V(ChatLinesBuffer))
+    resb	960h
+__GDECL(__CEXT_V(SixLinesBuffer))
+    resb	96h
 ___1a1b62h:	resb	96h
 ___1a1bf8h:	resb	96h
 ___1a1c8eh:	resb	96h
@@ -915,7 +917,7 @@ __GDECL(__CEXT_V(___1a1f4eh))
     resb	1
 __GDECL(__CEXT_V(___1a1f4fh))
     resb	0fh
-__GDECL(RowBox0Colors)
+__GDECL(__CEXT_V(RowBox0Colors))
 RowBox0Colors_R0:   resb	1
 RowBox0Colors_R1:	resb	1
 RowBox0Colors_R2:	resb	1

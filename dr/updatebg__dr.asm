@@ -24,7 +24,7 @@
     extern  __CEXT_F(___233c0h)
     extern  __CEXT_F(___12dc4h)
     extern  __CEXT_F(procChatData)
-    extern  __CEXT_V(RowBoxBuffers)
+    extern  __CEXT_V(ChatLinesBuffer)
     extern  __CEXT_F(allocMemSafe)
     extern  __CEXT_V(___182174h)
     extern  __CEXT_F(___23488h)
@@ -152,7 +152,7 @@ ___2acebh:
 		je      ___2adcch
 		xor     ebx, ebx
 		mov     [esp+418h], ebx
-		mov     ebx, __CEXT_V(RowBoxBuffers)
+		mov     ebx, __CEXT_V(ChatLinesBuffer)
 		lea     edx, [ebx+96h]
 ___2ad25h:
 		mov     esi, edx
@@ -219,7 +219,7 @@ ___2adcch:
 		je      ___2ae9bh
 		xor     edx, edx
 		mov     [esp+418h], edx
-		mov     edx, __CEXT_V(RowBoxBuffers)
+		mov     edx, __CEXT_V(ChatLinesBuffer)
 		lea     ebx, [edx+96h]
 ___2adf4h:
 		mov     esi, ebx
@@ -352,7 +352,7 @@ ___2af52h:
 		je      ___2b031h
 		xor     edx, edx
 		mov     [esp+418h], edx
-		mov     edx, __CEXT_V(RowBoxBuffers)
+		mov     edx, __CEXT_V(ChatLinesBuffer)
 		lea     ebx, [edx+96h]
 ___2af7ah:
 		mov     esi, ebx
@@ -422,7 +422,7 @@ ___2b031h:
 		test    eax, eax
 		je      ___2b10ah
 		xor     ebx, ebx
-		mov     edx, __CEXT_V(RowBoxBuffers)
+		mov     edx, __CEXT_V(ChatLinesBuffer)
 		mov     [esp+418h], ebx
 		lea     ebx, [edx+96h]
 ___2b059h:
@@ -493,7 +493,7 @@ ___2b10ah:
 		je      ___2b236h
 		xor     edx, edx
 		mov     [esp+418h], edx
-		mov     edx, __CEXT_V(RowBoxBuffers)
+		mov     edx, __CEXT_V(ChatLinesBuffer)
 		lea     ebx, [edx+96h]
 ___2b137h:
 		mov     esi, ebx
@@ -596,7 +596,7 @@ ___2b236h:
 ___2b24ah:
 		test    byte [__CEXT_V(___199fc8h)], 80h
 		jne     ___2b30bh
-		mov     edx, __CEXT_V(RowBoxBuffers)
+		mov     edx, __CEXT_V(ChatLinesBuffer)
 		xor     ecx, ecx
 		lea     ebx, [edx+96h]
 		mov     [esp+418h], ecx

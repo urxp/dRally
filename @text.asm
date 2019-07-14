@@ -1868,6 +1868,7 @@ ___135f1h:
 		pop     edi
 		pop     esi
 		ret     4
+;; ~ 135f1h (+1 label)
 __GDECL(__CEXT_F(frameFooter__dr))
 		push    1ch
 		call    near __CHK
@@ -9307,7 +9308,7 @@ ___19b04h:
 		pop     ebx
 		retn    
 ___19b26h:
-		mov     ebx, __CEXT_V(RowBoxBuffers)
+		mov     ebx, __CEXT_V(ChatLinesBuffer)
 		xor     edx, edx
 		lea     ecx, [ebx+96h]
 ___19b33h:
@@ -10155,7 +10156,7 @@ ___1a655h:
 		cmp     edi, 9ch
 		jne     near ___1a8d8h
 ___1a6a4h:
-		mov     edx, __CEXT_V(RowBoxBuffers)
+		mov     edx, __CEXT_V(ChatLinesBuffer)
 		xor     ebx, ebx
 		lea     ecx, [edx+96h]
 ___1a6b1h:
@@ -10373,7 +10374,7 @@ ___1a8afh:
 		pop     ebx
 		retn    
 ___1a8d8h:
-		mov     edx, __CEXT_V(RowBoxBuffers)
+		mov     edx, __CEXT_V(ChatLinesBuffer)
 		xor     ebx, ebx
 		lea     ecx, [edx+96h]
 ___1a8e5h:
@@ -12083,7 +12084,7 @@ ___1bd30h:
 		mov     [ebx+7], al
 		cmp     edx, byte 9
 		jl      short ___1bd30h
-		mov     ecx, __CEXT_V(RowBoxBuffers)
+		mov     ecx, __CEXT_V(ChatLinesBuffer)
 		mov     al, [___185a14h]
 		xor     edx, edx
 		lea     ebx, [ecx+96h]
@@ -12210,7 +12211,7 @@ ___1be57h:
 ___1beach:
 		mov     edx, ecx
 		mov     eax, esi
-		mov     ebx, __CEXT_V(RowBoxBuffers)
+		mov     ebx, __CEXT_V(ChatLinesBuffer)
 		call    near ___13c9ch
 		lea     ecx, [ebx+96h]
 		xor     edx, edx
@@ -12373,7 +12374,7 @@ ___1bfd6h:
 		pop     ebx
 		retn    
 ___1c058h:
-		mov     ebx, __CEXT_V(RowBoxBuffers)
+		mov     ebx, __CEXT_V(ChatLinesBuffer)
 		xor     edx, edx
 		lea     ecx, [ebx+96h]
 ___1c065h:
@@ -13059,7 +13060,7 @@ ___1c8f2h:
 		jne     short ___1c8bah
 		mov     edx, esp
 		mov     eax, 6ch
-		mov     ebx, __CEXT_V(RowBoxBuffers)
+		mov     ebx, __CEXT_V(ChatLinesBuffer)
 		xor     esi, esi
 		call    near ___611c0h
 		mov     [esp+10h], esi
@@ -13331,7 +13332,7 @@ ___1cbf9h:
 		mov     eax, [__CEXT_V(p_bpk_f_big3a)]
 		call    near __CEXT_F(renderTextToBuffer__video)
 		call    near __CEXT_F(popScreen)
-		mov     ecx, __CEXT_V(RowBoxBuffers)
+		mov     ecx, __CEXT_V(ChatLinesBuffer)
 		xor     edx, edx
 		lea     ebx, [ecx+96h]
 ___1cc8ch:
@@ -13358,7 +13359,7 @@ ___1ccaah:
 		mov     [edx+__CEXT_V(___1a1f4dh)], al
 		cmp     edx, byte 15h
 		jl      short ___1cc8ch
-		mov     ebx, __CEXT_V(RowBoxBuffers)
+		mov     ebx, __CEXT_V(ChatLinesBuffer)
 		mov     al, [__CEXT_V(___180130h)]
 		xor     edx, edx
 		mov     [__CEXT_V(___1a1dbah)], al
@@ -13404,7 +13405,7 @@ ___1ccfdh:
 		xor     edx, edx
 		call    near __CEXT_F(___23488h)
 ___1cd5ch:
-		mov     eax, __CEXT_V(RowBoxBuffers)
+		mov     eax, __CEXT_V(ChatLinesBuffer)
 		add     eax, 96h
 		xor     ebp, ebp
 		mov     [esp+64h], eax
@@ -13429,7 +13430,7 @@ ___1cd6ch:
 		rep movsb   
 		pop     edi
 		xor     edx, edx
-		mov     ecx, __CEXT_V(RowBoxBuffers)
+		mov     ecx, __CEXT_V(ChatLinesBuffer)
 ___1cdb5h:
 		mov     esi, ebx
 		mov     edi, ecx
@@ -13477,7 +13478,7 @@ ___1ce1ah:
 		cmp     ebp, byte 1eh
 		jl      near ___1cd6ch
 		mov     eax, [__CEXT_V(___1a0f9ch)]
-		mov     ecx, __CEXT_V(RowBoxBuffers)
+		mov     ecx, __CEXT_V(ChatLinesBuffer)
 		call    near __CEXT_F(freeMemSafe)
 		xor     edx, edx
 		lea     ebx, [ecx+96h]
@@ -13646,7 +13647,7 @@ ___1d00ch:
 		mov     edx, [__CEXT_V(NetworkConnectionEstablished)]
 		test    edx, edx
 		je      near ___1d21eh
-		mov     ecx, __CEXT_V(RowBoxBuffers)
+		mov     ecx, __CEXT_V(ChatLinesBuffer)
 		xor     esi, esi
 		xor     edx, edx
 		lea     ebx, [ecx+96h]
@@ -13731,7 +13732,7 @@ ___1d0f4h:
 		mov     [__CEXT_V(RowBox0Colors_R5)], ah
 		mov     eax, edi
 		call    near __CEXT_F(___23488h)
-		mov     ebx, __CEXT_V(RowBoxBuffers)
+		mov     ebx, __CEXT_V(ChatLinesBuffer)
 		xor     edx, edx
 		lea     ecx, [ebx+96h]
 ___1d116h:
@@ -14045,7 +14046,7 @@ ___1d4e8h:
 		push    edx
 		push    esi
 		push    edi
-		mov     ecx, __CEXT_V(RowBoxBuffers)
+		mov     ecx, __CEXT_V(ChatLinesBuffer)
 		xor     edx, edx
 		lea     ebx, [ecx+96h]
 		mov     [___185a58h], edx
@@ -14128,7 +14129,7 @@ ___1d5c2h:
 		mov     edx, 64h
 		mov     [__CEXT_V(RowBox0Colors_R5)], ah
 		mov     eax, edi
-		mov     ecx, __CEXT_V(RowBoxBuffers)
+		mov     ecx, __CEXT_V(ChatLinesBuffer)
 		call    near __CEXT_F(___23488h)
 		lea     ebx, [ecx+96h]
 		xor     edx, edx
@@ -15517,7 +15518,7 @@ __GDECL(__CEXT_F(___1e62ch))
 		call    near __CEXT_F(___623d4h)
 		cmp     edx, byte 1
 		jne     near ___1e813h
-		mov     ebx, __CEXT_V(RowBoxBuffers)
+		mov     ebx, __CEXT_V(ChatLinesBuffer)
 		xor     edi, edi
 		xor     edx, edx
 		lea     ecx, [ebx+96h]
@@ -15598,7 +15599,7 @@ ___1e7a1h:
 ___1e7b9h:
 		pop     edi
 		mov     [__CEXT_V(RowBox0Colors_R5)], bh
-		mov     ebx, __CEXT_V(RowBoxBuffers)
+		mov     ebx, __CEXT_V(ChatLinesBuffer)
 		xor     edx, edx
 		lea     ecx, [ebx+96h]
 ___1e7cdh:
@@ -16101,7 +16102,7 @@ ___1ee5ah:
 		je      near ___1f075h
 		test    eax, eax
 		je      near ___1f075h
-		mov     ebp, __CEXT_V(RowBoxBuffers)
+		mov     ebp, __CEXT_V(ChatLinesBuffer)
 		xor     edx, edx
 		lea     ebx, [ebp+96h]
 ___1eef6h:
@@ -21875,7 +21876,7 @@ ___2330dh:
 		pop     edi
 		cmp     ebp, 49700h
 		jne     short ___2330dh
-		mov     edi, __CEXT_V(RowBoxBuffers)
+		mov     edi, __CEXT_V(ChatLinesBuffer)
 		mov     esi, 1298ch
 		xor     ebp, ebp
 ___23350h:
@@ -21944,7 +21945,7 @@ ___233d5h:
 		pop     edi
 		cmp     ebp, 46a00h
 		jne     short ___233d5h
-		mov     edi, __CEXT_V(RowBoxBuffers)
+		mov     edi, __CEXT_V(ChatLinesBuffer)
 		mov     esi, 1298ch
 		xor     ebp, ebp
 ___23418h:
@@ -22131,7 +22132,7 @@ ___23758h:
 		mov     ebx, ___181cb4h
 		mov     edx, __CEXT_V(Font0Props)
 		mov     eax, [__CEXT_V(p_bpk_f_sma3b)]
-		mov     esi, __CEXT_V(RowBoxBuffers)
+		mov     esi, __CEXT_V(ChatLinesBuffer)
 		call    near __CEXT_F(renderTextToBuffer__video)
 		mov     ecx, 10959h
 		mov     ebx, __CEXT_V(string__F1)
@@ -22271,7 +22272,7 @@ ___239c5h:
 		pop     edi
 		cmp     edx, 48d00h
 		jne     short ___239c5h
-		mov     ecx, __CEXT_V(RowBoxBuffers)
+		mov     ecx, __CEXT_V(ChatLinesBuffer)
 		xor     edx, edx
 		lea     ebx, [ecx+96h]
 ___23a0ah:
@@ -22627,7 +22628,7 @@ ___23d8bh:
 		pop     edi
 		cmp     edx, 48d00h
 		jne     short ___23d8bh
-		mov     ecx, __CEXT_V(RowBoxBuffers)
+		mov     ecx, __CEXT_V(ChatLinesBuffer)
 		xor     edx, edx
 		lea     ebx, [ecx+96h]
 ___23dd0h:
@@ -41119,7 +41120,7 @@ ___3518fh:
 		inc     ecx
 		mov     esi, [__CEXT_V(___196ab8h)]
 		mov     [___196ad4h], ecx
-		mov     ecx, __CEXT_V(RowBoxBuffers)
+		mov     ecx, __CEXT_V(ChatLinesBuffer)
 		mov     eax, [___196ad4h]
 		add     ecx, 96h
 		cmp     eax, esi
@@ -41128,7 +41129,7 @@ ___3518fh:
 		mov     eax, 1
 		mov     [esp+0d0h], edx
 		mov     [___196a80h], eax
-		mov     edx, __CEXT_V(RowBoxBuffers)
+		mov     edx, __CEXT_V(ChatLinesBuffer)
 ___351dfh:
 		mov     esi, ecx
 		mov     edi, edx
@@ -41190,7 +41191,7 @@ ___35284h:
 		pop     edi
 		mov     [esp+0d0h], edx
 		mov     esi, ___182458h
-		mov     edx, __CEXT_V(RowBoxBuffers)
+		mov     edx, __CEXT_V(ChatLinesBuffer)
 		push    edi
 		sub     ecx, ecx
 		dec     ecx
@@ -41246,7 +41247,7 @@ ___352e8h:
 		jmp     near ___35500h
 ___3532ch:
 		xor     edi, edi
-		mov     edx, __CEXT_V(RowBoxBuffers)
+		mov     edx, __CEXT_V(ChatLinesBuffer)
 		mov     [esp+0d0h], edi
 ___3533ah:
 		mov     esi, ecx
@@ -41381,7 +41382,7 @@ ___35468h:
 ___35480h:
 		pop     edi
 ___35481h:
-		mov     ebx, __CEXT_V(RowBoxBuffers)
+		mov     ebx, __CEXT_V(ChatLinesBuffer)
 		xor     dh, dh
 		xor     eax, eax
 		mov     [__CEXT_V(RowBox0Colors_R5)], dh
@@ -51944,12 +51945,12 @@ ___3deb8h:
 		push    edi
 		push    ebp
 		sub     esp, byte 4
-		mov     edx, __CEXT_V(RowBoxBuffers)
+		mov     edx, __CEXT_V(ChatLinesBuffer)
 		add     edx, 96h
 		xor     ebp, ebp
 		mov     [esp], edx
 ___3dedbh:
-		mov     ecx, __CEXT_V(RowBoxBuffers)
+		mov     ecx, __CEXT_V(ChatLinesBuffer)
 		mov     ebx, [esp]
 		xor     edx, edx
 ___3dee5h:
@@ -52094,12 +52095,12 @@ ___3e03ch:
 		push    edi
 		push    ebp
 		sub     esp, byte 4
-		mov     edx, __CEXT_V(RowBoxBuffers)
+		mov     edx, __CEXT_V(ChatLinesBuffer)
 		add     edx, 96h
 		xor     ebp, ebp
 		mov     [esp], edx
 ___3e05fh:
-		mov     ebx, __CEXT_V(RowBoxBuffers)
+		mov     ebx, __CEXT_V(ChatLinesBuffer)
 		mov     ecx, [esp]
 		xor     edx, edx
 ___3e069h:

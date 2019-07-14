@@ -86,7 +86,7 @@
 	extern 	__CEXT_F(loadMenuCarColor)	
 	extern 	__CEXT_V(p_bpk_menubg5)
 	extern 	__CEXT_V(___180130h)	
-	extern 	__CEXT_V(RowBoxBuffers)	
+	extern 	__CEXT_V(ChatLinesBuffer)	
 	extern 	__CEXT_V(___1a1f4dh)	
 	extern 	__CEXT_V(___182d08h)	
 	extern 	__CEXT_V(___182d3ch)	
@@ -342,7 +342,7 @@ l_bs_ok:
 		xor     eax, eax
 ___3e9dfh:
 		mov     dl, [__CEXT_V(___180130h)]
-		mov     [eax+__CEXT_V(RowBoxBuffers)], dl
+		mov     [eax+__CEXT_V(ChatLinesBuffer)], dl
 		mov     edx, [esp+8]
 		inc     edx
 		xor     bl, bl
@@ -356,7 +356,7 @@ ___3e9dfh:
 		mov     esi, __CEXT_V(___182d08h)
 		mov     bh, 1
 		rep movsd   
-		mov     edx, __CEXT_V(RowBoxBuffers)
+		mov     edx, __CEXT_V(ChatLinesBuffer)
 		xor     ecx, ecx
 		mov     [__CEXT_V(RowBox0Colors_R5)], bh
 		mov     [esp+8], ecx
@@ -396,7 +396,7 @@ ___3ea4dh:
 		mov     cl, 1
 		xor     ebp, ebp
 		mov     [__CEXT_V(RowBox0Colors_R5)], cl
-		mov     ecx, __CEXT_V(RowBoxBuffers)
+		mov     ecx, __CEXT_V(ChatLinesBuffer)
 		mov     [esp+8], ebp
 		lea     edx, [ecx+96h]
 ___3eaa4h:
@@ -430,7 +430,7 @@ ___3eac1h:
 		xor     ecx, ecx
 		mov     al, [__CEXT_V(___180130h)]
 		mov     [esp+8], ecx
-		mov     ecx, __CEXT_V(RowBoxBuffers)
+		mov     ecx, __CEXT_V(ChatLinesBuffer)
 		mov     [__CEXT_V(___1a1dbah)], al
 		lea     edx, [ecx+96h]
 ___3eb10h:
@@ -469,7 +469,7 @@ ___3eb2dh:
 		movsw   
 		movsb   
 		mov     [__CEXT_V(RowBox0Colors_R5)], al
-		mov     ecx, __CEXT_V(RowBoxBuffers)
+		mov     ecx, __CEXT_V(ChatLinesBuffer)
 		mov     [esp+8], ebp
 		lea     edx, [ecx+96h]
 ___3eb84h:

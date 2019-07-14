@@ -3,15 +3,14 @@
 	extern 	__CHK
 	extern 	__CEXT_V(p_bpk_menubg5)
 	extern 	__CEXT_V(VGABufferPtr_0)
-	extern 	__CEXT_V(RowBoxBuffers)
-	extern 	RowBox0Colors
+	extern 	__CEXT_V(ChatLinesBuffer)
+	extern 	__CEXT_V(RowBox0Colors)
 	extern 	__CEXT_V(Font0Props)
 	extern 	__CEXT_V(p_bpk_f_sma3a)
 	extern 	__CEXT_F(renderTextToBuffer__video)
 	extern 	__CEXT_V(p_bpk_f_sma3b)
 	extern 	__CEXT_V(p_bpk_f_sma3c)
 
-	extern 	__CEXT_F(memcpy__clib3r)
 
 %include "layout.inc"
 
@@ -44,12 +43,12 @@ ___23245h:
 		pop     edi
 		cmp     ebp, 49480h
 		jne     ___23245h
-		mov     edi, __CEXT_V(RowBoxBuffers)
+		mov     edi, __CEXT_V(ChatLinesBuffer)
 		mov     esi, 3b10ch
 		xor     ebp, ebp
 		add     edi, 960h
 ___2328ah:
-		cmp     byte [ebp+RowBox0Colors], 0
+		cmp     byte [ebp+__CEXT_V(RowBox0Colors)], 0
 		jne     ___232a6h
 		mov     edx, __CEXT_V(Font0Props)
 		mov     eax, [__CEXT_V(p_bpk_f_sma3a)]
@@ -57,7 +56,7 @@ ___2328ah:
 		mov     ebx, edi
 		call    __CEXT_F(renderTextToBuffer__video)
 ___232a6h:
-		cmp     byte [ebp+RowBox0Colors], 1
+		cmp     byte [ebp+__CEXT_V(RowBox0Colors)], 1
 		jne     ___232c2h
 		mov     edx, __CEXT_V(Font0Props)
 		mov     eax, [__CEXT_V(p_bpk_f_sma3b)]
@@ -65,7 +64,7 @@ ___232a6h:
 		mov     ebx, edi
 		call    __CEXT_F(renderTextToBuffer__video)
 ___232c2h:
-		cmp     byte [ebp+RowBox0Colors], 2
+		cmp     byte [ebp+__CEXT_V(RowBox0Colors)], 2
 		jne     ___232deh
 		mov     edx, __CEXT_V(Font0Props)
 		mov     eax, [__CEXT_V(p_bpk_f_sma3c)]

@@ -86,7 +86,7 @@
 	extern byte p_bpk_menubg5[];
 	extern byte MyID[];
 	extern byte Roster[];
-	extern byte RowBoxBuffers[];	
+	extern byte ChatLinesBuffer[];	
 	extern byte RowBox0Colors_R5[];	
 	extern byte TimesPlayed[];
 	extern byte ToneDialing[];
@@ -620,8 +620,8 @@ l_bs_ok:
 ___3e9dfh:
 //		mov     dl, [__CEXT_V(___180130h)]
     dl = B(___180130h);
-//		mov     [eax+__CEXT_V(RowBoxBuffers)], dl
-    B(eax+RowBoxBuffers) = dl;
+//		mov     [eax+__CEXT_V(ChatLinesBuffer)], dl
+    B(eax+ChatLinesBuffer) = dl;
 //		mov     edx, [esp+8]
     edx = D(esp+8);
 //		inc     edx
@@ -650,8 +650,8 @@ ___3e9dfh:
 		D(edi) = D(esi);
 		edi += 4; esi += 4; ecx--;
 	}
-//		mov     edx, __CEXT_V(RowBoxBuffers)
-    edx = RowBoxBuffers;
+//		mov     edx, __CEXT_V(ChatLinesBuffer)
+    edx = ChatLinesBuffer;
 //		xor     ecx, ecx
     ecx = 0;
 //		mov     [__CEXT_V(RowBox0Colors_R5)], bh
@@ -728,8 +728,8 @@ ___3ea4dh:
     ebp = 0;
 //		mov     [__CEXT_V(RowBox0Colors_R5)], cl
     B(RowBox0Colors_R5) = cl;
-//		mov     ecx, __CEXT_V(RowBoxBuffers)
-    ecx = RowBoxBuffers;
+//		mov     ecx, __CEXT_V(ChatLinesBuffer)
+    ecx = ChatLinesBuffer;
 //		mov     [esp+8], ebp
     D(esp+8) = ebp;
 //		lea     edx, [ecx+96h]
@@ -790,8 +790,8 @@ ___3eac1h:
     al = B(___180130h);
 //		mov     [esp+8], ecx
     D(esp+8) = ecx;
-//		mov     ecx, __CEXT_V(RowBoxBuffers)
-    ecx = RowBoxBuffers;
+//		mov     ecx, __CEXT_V(ChatLinesBuffer)
+    ecx = ChatLinesBuffer;
 //		mov     [__CEXT_V(___1a1dbah)], al
     B(___1a1dbah) = al;
 //		lea     edx, [ecx+96h]
@@ -866,8 +866,8 @@ ___3eb2dh:
 	B(edi++) = B(esi++);
 //		mov     [__CEXT_V(RowBox0Colors_R5)], al
     B(RowBox0Colors_R5) = al;
-//		mov     ecx, __CEXT_V(RowBoxBuffers)
-    ecx = RowBoxBuffers;
+//		mov     ecx, __CEXT_V(ChatLinesBuffer)
+    ecx = ChatLinesBuffer;
 //		mov     [esp+8], ebp
     D(esp+8) = ebp;
 //		lea     edx, [ecx+96h]

@@ -12,7 +12,7 @@
     extern byte ___185a1ch[];
     extern byte RowBox0Colors_R5[];
     extern byte ___196a74h[];
-    extern byte RowBoxBuffers[];
+    extern byte ChatLinesBuffer[];
     extern byte ___182174h[];
     extern byte ___1a0f9ch[];
     extern byte MyID[];
@@ -281,8 +281,8 @@ ___2acebh:
     ebx = 0;
 //		mov     [esp+418h], ebx
     D(esp+0x418) = ebx;
-//		mov     ebx, __CEXT_V(RowBoxBuffers)
-    ebx = RowBoxBuffers;
+//		mov     ebx, __CEXT_V(ChatLinesBuffer)
+    ebx = ChatLinesBuffer;
 //		lea     edx, [ebx+96h]
     edx = ebx+0x96;
 ___2ad25h:
@@ -399,8 +399,8 @@ ___2adcch:
     edx = 0;
 //		mov     [esp+418h], edx
     D(esp+0x418) = edx;
-//		mov     edx, __CEXT_V(RowBoxBuffers)
-    edx = RowBoxBuffers;
+//		mov     edx, __CEXT_V(ChatLinesBuffer)
+    edx = ChatLinesBuffer;
 //		lea     ebx, [edx+96h]
     ebx = edx+0x96;
 ___2adf4h:
@@ -639,8 +639,8 @@ ___2af52h:
     edx = 0;
 //		mov     [esp+418h], edx
     D(esp+0x418) = edx;
-//		mov     edx, __CEXT_V(RowBoxBuffers)
-    edx = RowBoxBuffers;
+//		mov     edx, __CEXT_V(ChatLinesBuffer)
+    edx = ChatLinesBuffer;
 //		lea     ebx, [edx+96h]
     ebx = edx+0x96;
 ___2af7ah:
@@ -762,8 +762,8 @@ ___2b031h:
     if(eax == 0) goto ___2b10ah;
 //		xor     ebx, ebx
     ebx = 0;
-//		mov     edx, __CEXT_V(RowBoxBuffers)
-    edx = RowBoxBuffers;
+//		mov     edx, __CEXT_V(ChatLinesBuffer)
+    edx = ChatLinesBuffer;
 //		mov     [esp+418h], ebx
     D(esp+0x418) = ebx;
 //		lea     ebx, [edx+96h]
@@ -887,8 +887,8 @@ ___2b10ah:
     edx = 0;
 //		mov     [esp+418h], edx
     D(esp+0x418) = edx;
-//		mov     edx, __CEXT_V(RowBoxBuffers)
-    edx = RowBoxBuffers;
+//		mov     edx, __CEXT_V(ChatLinesBuffer)
+    edx = ChatLinesBuffer;
 //		lea     ebx, [edx+96h]
     ebx = edx+0x96;
 ___2b137h:
@@ -1070,8 +1070,8 @@ ___2b24ah:
 //		test    byte [__CEXT_V(___199fc8h)], 80h
 //		jne     ___2b30bh
     if((B(___199fc8h)&0x80) != 0) goto ___2b30bh;
-//		mov     edx, __CEXT_V(RowBoxBuffers)
-    edx = RowBoxBuffers;
+//		mov     edx, __CEXT_V(ChatLinesBuffer)
+    edx = ChatLinesBuffer;
 //		xor     ecx, ecx
     ecx = 0;
 //		lea     ebx, [edx+96h]
