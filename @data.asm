@@ -61,13 +61,13 @@ ___1802f0h:
 db	0,0,7ch,42h
 ___1802f4h:
 db	0,0,80h,3dh
-___1802f8h:
+__GDECL(__CEXT_V(___1802f8h))
 db	0,0,0,0,0,0,24h,40h
-___180300h:
+__GDECL(__CEXT_V(___180300h))
 db	0,0,0,0,0,0,0b0h,3fh
-___180308h:
+__GDECL(__CEXT_V(___180308h))
 db	0,0,7ch,42h
-___18030ch:
+__GDECL(__CEXT_V(___18030ch))
 db	0,0,80h,3dh
 __GDECL(__CEXT_V(pal_bgcop))
 db	"bgcop.pal",0,0,0

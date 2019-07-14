@@ -108,7 +108,7 @@
 	void creditsMenu__dr(void);
  	void showPreviewMenu__dr(void);
 
-	void ___11564h(float, float, float);
+	void loadMenuCarColor(float, float, float);
 	void emptyFunction_0(void);	
 	void loadMenuBPK(void);	
 	void unloadMenuBPK(void);
@@ -566,8 +566,8 @@ l_bs_ok:
     FPOP();
 //		mov     ecx, 4b000h
     ecx = 0x4b000;
-//		call    __CEXT_F(___11564h)
-    ___11564h(F32(esp), F32(esp+4), F32(esp+8));
+//		call    __CEXT_F(loadMenuCarColor)
+    loadMenuCarColor(F32(esp), F32(esp+4), F32(esp+8));
     esp += 0xc;
 //		mov     esi, [__CEXT_V(p_bpk_menubg5)]
     esi = D(p_bpk_menubg5);

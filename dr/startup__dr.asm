@@ -83,7 +83,7 @@
 	extern 	__CEXT_F(fadeoutScreen)	
 	extern 	__CEXT_F(loadMenuPalette)		
 	extern 	__CEXT_V(p_pal_copper)	
-	extern 	__CEXT_F(___11564h)	
+	extern 	__CEXT_F(loadMenuCarColor)	
 	extern 	__CEXT_V(p_bpk_menubg5)
 	extern 	__CEXT_V(___180130h)	
 	extern 	__CEXT_V(RowBoxBuffers)	
@@ -318,7 +318,7 @@ l_bs_ok:
 		sub     esp, byte 4
 		fstp    dword [esp]
 		mov     ecx, 4b000h
-		call    __CEXT_F(___11564h)
+		call    __CEXT_F(loadMenuCarColor)
 		mov     esi, [__CEXT_V(p_bpk_menubg5)]
 		mov     edi, [__CEXT_V(VGABufferPtr_0)]
 		push    edi

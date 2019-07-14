@@ -2,7 +2,7 @@
 
     extern  __CHK
     extern  __CEXT_F(loadMenuPalette)
-    extern  __CEXT_F(___11564h)
+    extern  __CEXT_F(loadMenuCarColor)
     extern  __CEXT_V(MyID)
     extern  __CEXT_V(Roster)
     extern  __CEXT_V(p_pal_copper)
@@ -60,7 +60,7 @@ __GDECL(__CEXT_F(___2b318h))
 		fild    word [esp+14h]
 		sub     esp, byte 4
 		fstp    dword [esp]
-		call    __CEXT_F(___11564h)
+		call    __CEXT_F(loadMenuCarColor)
 		mov     edx, [__CEXT_V(MyID)]
 		lea     eax, [edx*8+0]
 		sub     eax, edx

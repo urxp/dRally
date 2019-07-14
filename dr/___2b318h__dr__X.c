@@ -10,8 +10,8 @@
     extern byte Pal8to24_1[];
     extern byte ___1a1edch[];
 
-	#pragma aux ___11564h parm routine []
-    void ___11564h(dword, dword, dword);
+	#pragma aux loadMenuCarColor parm routine []
+    void loadMenuCarColor(dword, dword, dword);
 
 	#pragma aux ___24010h parm routine []
     void ___24010h(dword, dword, dword);
@@ -129,8 +129,8 @@ void ___2b318h(void){
 //		fstp    dword [esp]
 	*(float *)esp = (float)st0;
 	FPOP();
-//		call    __CEXT_F(___11564h)
-	___11564h(D(esp), D(esp+4), D(esp+8));
+//		call    __CEXT_F(loadMenuCarColor)
+	loadMenuCarColor(D(esp), D(esp+4), D(esp+8));
 	esp += 0xc;
 //		mov     edx, [__CEXT_V(MyID)]
 	edx = D(MyID);

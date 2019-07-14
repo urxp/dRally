@@ -57,7 +57,7 @@ typedef struct Driver {
     extern pal3dword Pal8to24_1[];
 
 
-    void ___11564h(float, float, float);
+    void loadMenuCarColor(float, float, float);
     void ___24010h(float, float, float);
 
     void loadMenuPalette(void);
@@ -90,7 +90,7 @@ void ___2b318h(void){
 
 	loadMenuPalette();
 
-	___11564h(
+	loadMenuCarColor(
 		(float)p_pal_copper[Roster[MyID].Color].R,
 		(float)p_pal_copper[Roster[MyID].Color].G,
 		(float)p_pal_copper[Roster[MyID].Color].B
