@@ -1,13 +1,3 @@
-/*
-------------------------------------------------------------------------------
-
- ESP Music System v1.29 for Watcom C/C++    Current Revision March 17th, 1996
-
- Copyright (c) 1995, 1996 by Markus Stein       E-Mail: steinm@cs.uni-bonn.de
-
-------------------------------------------------------------------------------
-*/
-
 #include "x86.h"
 
 #pragma enum int
