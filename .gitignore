@@ -1,5 +1,7 @@
 .vscode
 dRally
+drally_linux
+serial16.bin
 *.le
 *.exe
 z_regex*

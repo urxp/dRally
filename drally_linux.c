@@ -92,20 +92,20 @@ int __DPMI_FREE_DOS_MEMORY_BLOCK(unsigned int idx){
 unsigned int __GET_FRAME_COUNTER(void){
 
 	unsigned int NewTicks;
-	unsigned int FrameMs = 1000/___60458h - 1;
+	unsigned int FrameMs = 1000/___60458h;// - 1;
 
 	NewTicks = SDL_GetTicks()-Ticks;	
 	
 	if(NewTicks < (FrameMs-3)) SDL_Delay(1);
-	else if(NewTicks >= FrameMs){
+	else if(NewTicks > FrameMs){
+		
+		Ticks = SDL_GetTicks();
 
 		INT8_FRAME_COUNTER += NewTicks/FrameMs - 1;
-		IRQ0_TimerISR();
-
+		IRQ0_TimerISR();	
+		
 		if(GX.ActiveMode == VGA13) __VGA13_PRESENTSCREEN__();
 		else if(GX.ActiveMode == VESA101) __VESA101_PRESENTSCREEN__();
-
-		Ticks = SDL_GetTicks();
 	}
 
 	IO_Loop();
@@ -115,7 +115,7 @@ unsigned int __GET_FRAME_COUNTER(void){
 
 void __VRETRACE_WAIT_FOR_START(void){
 	
-	unsigned int FrameMs = 1000/___60458h - 1;
+	unsigned int FrameMs = 1000/___60458h;// - 1;
 
 	VRetraceTicks = SDL_GetTicks();
 	VRetraceTicks %= FrameMs;
