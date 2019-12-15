@@ -1,0 +1,7 @@
+.vscode
+dRally
+*.le
+*.exe
+z_regex*
+*.o
+*.obj

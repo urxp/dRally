@@ -1,0 +1,9 @@
+#!/bin/sh
+
+cp drally_linux ./dRally/dRally
+
+cd dRally
+#echo "Shadows of Death Rally *** Linux version" 
+#echo "Open source port of Death Rally, 1996"
+#echo "Released under the terms of MIT license"
+gdb dRally
