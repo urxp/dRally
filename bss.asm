@@ -2843,9 +2843,7 @@ __GDECL(___24cca4h)
 __GDECL(___24ccb0h)	
 	resb	4
 __GDECL(___24ccb4h)	
-	resb	0ah
-__GDECL(___24ccbeh)	
-	resb	2
+	resb	0ch
 __GDECL(___24ccc0h)	
 	resb	4
 __GDECL(___24ccc4h)	

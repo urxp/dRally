@@ -34,10 +34,10 @@ cpu 386
 	extern	___12cb8h__VESA101_PRESENTSCREEN
 	extern	___2ab50h
 	extern	___24cc54h
-	extern	___654d4h
+	extern	dRally_Audio_playSoundEffect
 	extern	___148cch
 	extern	___196aa4h
-	extern	___6563ch
+	extern	___6563ch_cdecl
 	extern	___1806dch
 	extern	___1806e4h
 	extern	___1a1e84h
@@ -332,7 +332,12 @@ ___31c7dh:
 		push    24000h
 		xor     ebx, ebx
 		mov     eax, edx
-		call    near ___654d4h
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    dRally_Audio_playSoundEffect
+	add 	esp, 18h
 		xor     edx, edx
 ___31ca8h:
 		inc     edx
@@ -353,7 +358,13 @@ ___31ca8h:
 		mov     eax, [esp+48h]
 		mov     [___196aa4h], eax
 		mov     eax, 5
-		call    near ___6563ch
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___6563ch_cdecl
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
 		mov     eax, [esp+44h]
 		add     esp, byte 54h
 		pop     ebp
@@ -619,7 +630,12 @@ ___32137h:
 		push    24000h
 		xor     ebx, ebx
 		mov     eax, edx
-		call    near ___654d4h
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    dRally_Audio_playSoundEffect
+	add 	esp, 18h
 		xor     edx, edx
 ___32162h:
 		inc     edx
@@ -655,7 +671,13 @@ ___32162h:
 		call 	__STRCPY
 ___321efh:
 		mov     eax, 5
-		call    near ___6563ch
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___6563ch_cdecl
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
 		mov     eax, [esp+44h]
 		add     esp, byte 54h
 		pop     ebp

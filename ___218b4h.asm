@@ -31,13 +31,13 @@ cpu 386
 	extern	___185ba9h
 	extern	___1f094h
 	extern	___1a10cch
-	extern	___6572ch
+	extern	dRally_Audio_setMusicVolume
 	extern	___2ab50h
 	extern	___1854b8h
-	extern	___654d4h
+	extern	dRally_Audio_playSoundEffect
 	extern	CONFIG_WRITE
 	extern	___181c18h
-	extern	___65770h
+	extern	dRally_Audio_setEffectVolume
 	extern	___204fch
 	extern	___210b4h
 	extern	___19bd58h
@@ -292,7 +292,13 @@ ___21b29h:
 		call    near ___1398ch__VESA101_PRESENTRECTANGLE
 		mov     eax, [esp+1ch]
 		shl     eax, 9
-		call    near ___6572ch
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    near dRally_Audio_setMusicVolume
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
 		call    near ___2ab50h
 		cmp     byte [esp+14h], 1ch
 		jne     near ___219f7h
@@ -307,7 +313,12 @@ ___21c0bh:
 		push    eax
 		xor     ebx, ebx
 		mov     eax, 1
-		call    near ___654d4h
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    dRally_Audio_playSoundEffect
+	add 	esp, 18h
 ___21c39h:
 		cmp     dword [esp+0ch], byte 0ffffffffh
 		jne     near ___21901h
@@ -504,7 +515,13 @@ ___21e05h:
 		mov     eax, [esp+18h]
 		shl     eax, 9
 		mov     dl, [esp+14h]
-		call    near ___65770h
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    near dRally_Audio_setEffectVolume
+	add 	esp, 4
+	pop		edx
+	pop 	ecx
 		call    near ___2ab50h
 		cmp     dl, 1ch
 		jne     near ___21cd3h
@@ -518,7 +535,12 @@ ___21ee9h:
 		push    eax
 		mov     eax, 1
 		mov     [___24cc54h], ecx
-		call    near ___654d4h
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    dRally_Audio_playSoundEffect
+	add 	esp, 18h
 		jmp     near ___21c39h
 ___21f17h:
 		call    near ___204fch

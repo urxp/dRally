@@ -4,7 +4,7 @@ cpu 386
 	extern	__CHK
 	extern	___2b318h
 	extern	___58c60h
-	extern	___65710h
+	extern	dRally_Audio_setMasterVolume
 	extern	___19eb50h
 	extern	___19eb54h
 	extern	___19eb58h
@@ -29,7 +29,13 @@ __GDECL(___3d79ch)
 ___3d7c1h:
 		call    near ___58c60h
 		mov     eax, [esp]
-		call    near ___65710h
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    near dRally_Audio_setMasterVolume
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
 		mov     esi, ebp
 		xor     ecx, ecx
 		xor     edi, edi

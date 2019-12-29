@@ -8,10 +8,13 @@ cpu 386
 
 section .text
 
-__GDECL(___5f7fch)
+__GDECL(___5f7fch_freeDosMem)
 		push    ebx
 		push    ecx
 		push    edx
+		push 	edi
+		push 	esi
+	mov 	eax, [esp+18h]
 		mov     ecx, eax
 		cmp     byte [eax+0ch], 0
 		je      short ___5f84eh
@@ -30,6 +33,8 @@ ___5f888h:
 		mov     word [ecx+8], 0
 		mov     dword [ecx+4], 0
 		mov     word [ecx+0ah], 0
+		pop 	esi
+		pop 	edi
 		pop     edx
 		pop     ecx
 		pop     ebx

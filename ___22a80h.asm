@@ -21,10 +21,10 @@ cpu 386
 	extern	___18768ah
 	extern	___1a1100h__VESA101h_DefaultScreenBuffer
 	extern	___3a7e0h
-	extern	___658b0h
+	extern	___68284h_cdecl
 	extern	___1a1ef4h
-	extern	___658b8h
-	extern	___65710h
+	extern	dRally_Audio_setPosition
+	extern	dRally_Audio_setMasterVolume
 	extern	___5994ch
 	extern	___59b3ch
 	extern	___2ab50h
@@ -39,7 +39,7 @@ cpu 386
 	extern	___3a6a4h
 	extern	___1854b0h
 	extern	___24cc54h
-	extern	___654d4h
+	extern	dRally_Audio_playSoundEffect
 	extern	___12cb8h__VESA101_PRESENTSCREEN
 	extern 	restoreDefaultScreenBuffer
 
@@ -209,13 +209,29 @@ ___22c85h:
 		call 	restoreDefaultScreenBuffer
 		mov     eax, 0ffffffffh
 		call    near ___3a7e0h
-		call    near ___658b0h
+	push 	edx
+	push 	ecx
+		call    near ___68284h_cdecl
+	pop 	ecx
+	pop 	edx
 		and     eax, 0ff00h
 		mov     [___1a1ef4h], eax
 		mov     eax, 5100h
-		call    near ___658b8h
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    near dRally_Audio_setPosition
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
 		mov     eax, 10000h
-		call    near ___65710h
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    near dRally_Audio_setMasterVolume
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
 		call    near ___5994ch
 		call    near ___59b3ch
 		xor     edx, edx
@@ -393,7 +409,12 @@ ___22fa6h:
 		push    esi
 		mov     ecx, [___24cc54h]
 		xor     ebx, ebx
-		call    near ___654d4h
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    dRally_Audio_playSoundEffect
+	add 	esp, 18h
 		mov     ecx, 54h
 		mov     edx, 10h
 		mov     ebx, [___1a112ch__VESA101_ACTIVESCREEN_PTR]
@@ -486,7 +507,12 @@ ___230cdh:
 		push    ecx
 		xor     ebx, ebx
 		mov     ecx, [___24cc54h]
-		call    near ___654d4h
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    dRally_Audio_playSoundEffect
+	add 	esp, 18h
 		mov     ecx, 54h
 		mov     edx, 10h
 		mov     ebx, [___1a112ch__VESA101_ACTIVESCREEN_PTR]

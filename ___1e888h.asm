@@ -14,7 +14,7 @@ cpu 386
 	extern	___2b318h
 	extern	___58c60h
 	extern	___185a34h
-	extern	___65710h
+	extern	dRally_Audio_setMasterVolume
 	extern	___19eb50h
 	extern	___19eb54h
 	extern	___19eb58h
@@ -35,7 +35,7 @@ cpu 386
 	extern	___1a1ef8h
 	extern	___12cb8h__VESA101_PRESENTSCREEN
 	extern	___1a1ef4h
-	extern	___658b8h
+	extern	dRally_Audio_setPosition
 	extern	___24e4d0h
 	extern	___185a24h
 	extern	___196a74h
@@ -119,7 +119,13 @@ ___1e8e9h:
 		cmp     dword [___185a34h], byte 0
 		je      short ___1e8feh
 		mov     eax, ebp
-		call    near ___65710h
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    near dRally_Audio_setMasterVolume
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
 ___1e8feh:
 		xor     edx, edx
 		mov     esi, edi
@@ -275,7 +281,13 @@ ___1eb4ah:
 		cmp     dword [___185a34h], byte 0
 		je      short ___1eb71h
 		mov     eax, [___1a1ef4h]
-		call    near ___658b8h
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    near dRally_Audio_setPosition
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
 ___1eb71h:
 		xor     edi, edi
 		xor     ebp, ebp
@@ -284,7 +296,13 @@ ___1eb75h:
 		cmp     dword [___185a34h], byte 0
 		je      short ___1eb8ah
 		mov     eax, ebp
-		call    near ___65710h
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    near dRally_Audio_setMasterVolume
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
 ___1eb8ah:
 		xor     edx, edx
 		mov     esi, edi

@@ -10,7 +10,7 @@ cpu 386
 	extern	printf_
 	extern	___182a5ch
 	extern	___5a101h
-	extern	___5ec04h
+	extern	___5ec04h_freeMemPool
 	extern	exit_
 	extern	___196c6dh
 	extern	___182aach
@@ -52,7 +52,7 @@ ___3e1e6h:
 		call    near printf_
 		add     esp, byte 4
 		call    near ___5a101h
-		call    near ___5ec04h
+		call    near ___5ec04h_freeMemPool
 		mov     eax, ebp
 		call    near exit_
 ___3e220h:
@@ -68,7 +68,7 @@ ___3e220h:
 		call    near printf_
 		add     esp, byte 4
 		call    near ___5a101h
-		call    near ___5ec04h
+		call    near ___5ec04h_freeMemPool
 		mov     eax, ebp
 		call    near exit_
 ___3e25bh:
@@ -120,7 +120,7 @@ ___3e315h:
 		call    near printf_
 		add     esp, byte 4
 		call    near ___5a101h
-		call    near ___5ec04h
+		call    near ___5ec04h_freeMemPool
 		mov     eax, 70h
 		call    near exit_
 ___3e380h:

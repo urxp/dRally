@@ -19,8 +19,8 @@ cpu 386
 	extern	___243e73h
 	extern	rand_
 	extern	___1a309ch
-	extern	___6563ch
-	extern	___654d4h
+	extern	___6563ch_cdecl
+	extern	dRally_Audio_playSoundEffect
 	extern	___59e10h
 	extern	__STOSB
 	extern	___2432e4h
@@ -126,14 +126,25 @@ ___479a3h:
 		rep movsd   
 	call 	VGA13_PRESENTSCREEN
 		mov     eax, 5
-		call    near ___6563ch
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___6563ch_cdecl
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
 		push    8000h
 		mov     edx, 11h
 		xor     ebx, ebx
 		push    28000h
 		mov     ecx, 10000h
 		mov     eax, 5
-		call    near ___654d4h
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    dRally_Audio_playSoundEffect
+	add 	esp, 18h
 		mov     ecx, 100h
 		mov     eax, ___59e10h
 		xor     edx, edx
@@ -148,7 +159,13 @@ ___47a2ah:
 		jne     short ___47a49h
 		mov     eax, 5
 		mov     ebx, 1
-		call    near ___6563ch
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___6563ch_cdecl
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
 ___47a49h:
 		call    near ___59cd8h
 		cmp     byte [___59e2ch], 0
@@ -214,7 +231,13 @@ ___47b29h:
 		xor     ebx, ebx
 		mov     eax, 5
 		xor     edi, edi
-		call    near ___6563ch
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___6563ch_cdecl
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
 ___47b55h:
 		mov     edx, ebx
 		mov     eax, ebx
@@ -315,7 +338,12 @@ ___47c77h:
 		xor     ebx, ebx
 		;mov     ebp, 0a0000h
 	mov 	ebp, VGA13_ACTIVESCREEN
-		call    near ___654d4h
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    dRally_Audio_playSoundEffect
+	add 	esp, 18h
 		mov     edx, 3e80h
 		mov     ebx, 1
 ___47cb6h:
@@ -348,7 +376,13 @@ ___47d0fh:
 		mov     ecx, 3e80h
 		;mov     edi, 0a0000h
 	mov 	edi, VGA13_ACTIVESCREEN
-		call    near ___6563ch
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___6563ch_cdecl
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
 		mov     esi, [___2432d4h]
 		rep movsd   
 	call 	VGA13_PRESENTSCREEN

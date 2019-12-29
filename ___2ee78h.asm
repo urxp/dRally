@@ -9,7 +9,7 @@ cpu 386
 	extern	___1a0a5ch
 	extern	___2b318h
 	extern	___58c60h
-	extern	___65710h
+	extern	dRally_Audio_setMasterVolume
 	extern	___1865fch
 	extern	___1a1ea0h
 	extern	___1a1ee8h
@@ -20,9 +20,9 @@ cpu 386
 	extern	___19eb54h
 	extern	___19eb58h
 	extern	DISPLAY_SET_PALETTE_COLOR
-	extern	___658b0h
+	extern	___68284h_cdecl
 	extern	___1a1ef4h
-	extern	___658b8h
+	extern	dRally_Audio_setPosition
 	extern	___1a1ef0h
 	extern	___2ed2ch
 	extern	___185a40h
@@ -128,7 +128,13 @@ ___2ef02h:
 		call    near ___58c60h
 		mov     eax, [esp+10h]
 		mov     ebx, 2
-		call    near ___65710h
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    near dRally_Audio_setMasterVolume
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
 		mov     edx, ebp
 		mov     eax, ebp
 		sar     edx, 1fh
@@ -254,12 +260,22 @@ ___2f020h:
 		mov     [esp+10h], edx
 		test    ebp, ebp
 		jge     near ___2ef02h
-		call    near ___658b0h
+	push 	edx
+	push 	ecx
+		call    near ___68284h_cdecl
+	pop 	ecx
+	pop 	edx
 		and     eax, 0ff00h
 		mov     [___1a1ef4h], eax
 		mov     eax, 3100h
 		mov     ecx, 5
-		call    near ___658b8h
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    near dRally_Audio_setPosition
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
 		mov     [___1a1ef0h], ecx
 		call    near ___2ed2ch
 		cmp     dword [___185a40h], byte 0
@@ -283,7 +299,13 @@ ___2f13fh:
 		call    near ___58c60h
 		mov     eax, [esp+18h]
 		mov     ebx, 2
-		call    near ___65710h
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    near dRally_Audio_setMasterVolume
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
 		mov     edx, ebp
 		mov     eax, ebp
 		sar     edx, 1fh
@@ -820,7 +842,13 @@ ___2f97dh:
 		cmp     dword [esp+4], byte 0ffffffffh
 		jne     short ___2f98dh
 		mov     eax, [esp+0ch]
-		call    near ___65710h
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    near dRally_Audio_setMasterVolume
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
 ___2f98dh:
 		mov     esi, [esp+1ch]
 		xor     ebx, ebx

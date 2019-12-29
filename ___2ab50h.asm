@@ -42,7 +42,7 @@ cpu 386
 	extern	___24e4d0h
 	extern	___199fc8h
 	extern	___1821c0h
-    extern 	VESA101_PRESENTSCREEN
+    ;extern 	VESA101_PRESENTSCREEN
 
 section .text
 
@@ -143,7 +143,7 @@ ___2ac47h:
 		mov     [esp+424h], dl
 		cmp     ebp, byte 20h
 		jl      near ___2ac47h
-	call 	VESA101_PRESENTSCREEN
+	;call 	VESA101_PRESENTSCREEN
 ___2acebh:
 		cmp     dword [___19bd60h], byte 0
 		je      near ___2b30bh

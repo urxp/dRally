@@ -25,7 +25,7 @@ cpu 386
 	extern	___196e78h
 	extern	___243898h
 	extern	DISPLAY_SET_PALETTE_COLOR
-	extern	___65710h
+	extern	dRally_Audio_setMasterVolume
 	extern	___1834b5h
 	extern	___1834e9h
 	extern	___1834bdh
@@ -259,7 +259,13 @@ ___45fd8h:
 		jle     short ___46078h
 		mov     eax, 0ffffh
 ___46078h:
-		call    near ___65710h
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    near dRally_Audio_setMasterVolume
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
 		fld     dword [___196e78h]
 		fmul    qword [___1834b5h]
 		fdiv    qword [___1834e9h]

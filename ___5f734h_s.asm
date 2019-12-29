@@ -8,9 +8,16 @@ cpu 386
 
 section .text
 
-__GDECL(___5f734h)
+__GDECL(___5f734h_allocDosMem)
 		push    ecx
+		push 	ebx
 		push    esi
+		push 	edi
+
+	mov 	ebx, [esp+1ch]
+	mov 	edx, [esp+18h]
+	mov 	eax, [esp+14h]
+
 		sub     esp, byte 4
 		mov     ecx, eax
 		mov     esi, edx
@@ -40,6 +47,8 @@ ___5f77ch:
 		call 	DPMI_LOCK_LINEAR_REGION
 ___5f7f3h:
 		add     esp, byte 4
+		pop 	edi
 		pop     esi
+		pop 	ebx
 		pop     ecx
 		retn    

@@ -126,7 +126,8 @@ db	5dh,20h,0,0
 __GDECL(___18011ch)
 db	20h,66h,69h,6ch,65h,21h,0,0
 __GDECL(___180124h)
-db	4dh,55h,53h,49h,43h,53h,2eh,42h,50h,41h,0,0
+;db	4dh,55h,53h,49h,43h,53h,2eh,42h,50h,41h,0,0
+db 	"MUSICS.BPA",0,0
 __GDECL(___180130h)
 db	0,0,0,0
 __GDECL(___180134h)
@@ -1039,13 +1040,16 @@ db	3ah,0,0,0
 __GDECL(___181c74h)
 db	65h,6eh,64h,61h,6eh,69h,2eh,68h,61h,66h,0,0
 __GDECL(___181c80h)
-db	65h,6eh,64h,61h,6eh,69h,2dh,65h,2eh,63h,6dh,66h,0,0,0,0
+;db	65h,6eh,64h,61h,6eh,69h,2dh,65h,2eh,63h,6dh,66h,0,0,0,0
+db 	"endani-e.cmf",0,0,0,0
 __GDECL(___181c90h)
 db	74h,72h,30h,2dh,6dh,75h,73h,2eh,63h,6dh,66h,0
 __GDECL(___181c9ch)
-db	4dh,45h,4eh,2dh,53h,41h,4dh,2eh,43h,4dh,46h,0
+;db	4dh,45h,4eh,2dh,53h,41h,4dh,2eh,43h,4dh,46h,0
+db 	"MEN-SAM.CMF",0
 __GDECL(___181ca8h)
-db	4dh,45h,4eh,2dh,4dh,55h,53h,2eh,43h,4dh,46h,0
+;db	4dh,45h,4eh,2dh,4dh,55h,53h,2eh,43h,4dh,46h,0
+db 	"MEN-MUS.CMF",0
 __GDECL(___181cb4h)
 db	70h,72h,65h,73h,73h,20h,20h,20h,74h,6fh,20h,6dh,69h,6eh,69h,6dh
 db	69h,7ah,65h,20h,63h,68h,61h,74h,20h,77h,69h,6eh,64h,6fh,77h,0
@@ -1530,11 +1534,13 @@ db	63h,72h,65h,64h,69h,74h,32h,2eh,62h,70h,6bh,0
 __GDECL(___182890h)
 db	73h,74h,61h,72h,74h,73h,63h,72h,2eh,70h,61h,6ch,0,0,0,0
 __GDECL(___1828a0h)
-db	73h,74h,61h,72h,74h,73h,63h,72h,2eh,62h,70h,6bh,0,0,0,0
+;db	73h,74h,61h,72h,74h,73h,63h,72h,2eh,62h,70h,6bh,0,0,0,0
+db 	"startscr.bpk",0,0,0,0
 __GDECL(___1828b0h)
 db	73h,61h,6eh,69h,6dh,2eh,68h,61h,66h,0,0,0
 __GDECL(___1828bch)
-db	73h,61h,6eh,69h,6dh,2dh,65h,2eh,63h,6dh,66h,0
+;db	73h,61h,6eh,69h,6dh,2dh,65h,2eh,63h,6dh,66h,0
+db 	"sanim-e.cmf",0
 __GDECL(___1828c8h)
 db	73h,6ch,69h,64h,65h,30h,33h,2eh,62h,70h,6bh,0
 __GDECL(___1828d4h)
@@ -2619,7 +2625,8 @@ db	0,0,0,0
 __GDECL(___1843f0h)
 db	2dh,4dh,55h,53h,2eh,43h,4dh,46h,0,0,0,0
 __GDECL(___1843fch)
-db	47h,45h,4eh,2dh,45h,46h,45h,2eh,43h,4dh,46h,0
+;db	47h,45h,4eh,2dh,45h,46h,45h,2eh,43h,4dh,46h,0
+db	"GEN-EFE.CMF",0
 __GDECL(___184408h)
 db	54h,52h,30h,0
 __GDECL(___18440ch)
@@ -3005,10 +3012,12 @@ db	4eh,6fh,74h,20h,65h,6eh,6fh,75h,67h,68h,20h,6dh,65h,6dh,6fh,72h
 db	79h,20h,74h,6fh,20h,61h,6ch,6ch,6fh,63h,61h,74h,65h,20h,66h,69h
 db	6ch,65h,20h,73h,74h,72h,75h,63h,74h,75h,72h,65h,73h,0dh,0ah,0
 __GDECL(___185114h)
-db	53h,43h,52h,4dh,0,0,0,0
+;db	53h,43h,52h,4dh,0,0,0,0
+db 	"SCRM",0,0,0,0
 __GDECL(___18511ch)
-db	45h,78h,74h,65h,6eh,64h,65h,64h,20h,4dh,6fh,64h,75h,6ch,65h,3ah
-db	20h,0,0,0
+;db	45h,78h,74h,65h,6eh,64h,65h,64h,20h,4dh,6fh,64h,75h,6ch,65h,3ah
+;db	20h,0,0,0
+db 	"Extended Module: ",0,0,0
 __GDECL(___185130h)
 db	46h,6ch,6fh,61h,74h,69h,6eh,67h,2dh,70h,6fh,69h,6eh,74h,20h,73h
 db	75h,70h,70h,6fh,72h,74h,20h,6eh,6fh,74h,20h,6ch,6fh,61h,64h,65h
@@ -9256,11 +9265,11 @@ db	0,0
 db	0,0,0,0
 ;__GDECL(__argv)
 db	0,0,0,0
-__GDECL(___199fe8h)
+__GDECL(MASTER_VOLUME)
 db	0,0,1,0
-__GDECL(___199fech)
+__GDECL(MSX_VOLUME)
 db	0,0,1,0
-__GDECL(___199ff0h)
+__GDECL(SFX_VOLUME)
 db	0,0,1,0
 __GDECL(___199ff4h)
 db	0,0,0,0
@@ -9398,13 +9407,13 @@ __GDECL(___19a280h)
 db	0
 __GDECL(___19a281h)
 db	0,0,0
-__GDECL(___19a284h)
+__GDECL(MSX_struct_content_ptr)
 db	0,0,0,0
-__GDECL(___19a288h)
+__GDECL(MSX_struct_type)
 db	0,0,0,0
-__GDECL(___19a28ch)
+__GDECL(SFX_struct_content_ptr)
 db	0,0,0,0
-__GDECL(___19a290h)
+__GDECL(SFX_struct_type)
 db	0
 __GDECL(___19a291h)
 db	0,0,0

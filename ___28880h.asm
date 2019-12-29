@@ -5,7 +5,7 @@ cpu 386
 	extern	___1a1ec4h
 	extern	___1854b0h
 	extern	___24cc54h
-	extern	___654d4h
+	extern	dRally_Audio_playSoundEffect
 	extern	___1a1ee4h
 	extern	___25a74h
 	extern	___1a112ch__VESA101_ACTIVESCREEN_PTR
@@ -45,7 +45,12 @@ __GDECL(___28880h)
 		push    ebx
 		mov     ecx, [___24cc54h]
 		xor     ebx, ebx
-		call    near ___654d4h
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    dRally_Audio_playSoundEffect
+	add 	esp, 18h
 ___288bch:
 		mov     eax, [___1a1ec4h]
 		cmp     eax, byte 4

@@ -22,7 +22,7 @@ cpu 386
 	extern	___1de584h
 	extern	___243ce8h
 	extern	___1a1134h
-	extern	___654d4h
+	extern	dRally_Audio_playSoundEffect
 	extern	___196df0h
 	extern	___1a1094h
 	extern	___1a109ch
@@ -220,7 +220,12 @@ ___55cf6h:
 		push    50000h
 		mov     eax, edx
 		mov     ebp, 0d2h
-		call    near ___654d4h
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    dRally_Audio_playSoundEffect
+	add 	esp, 18h
 		mov     [___196df0h], ebp
 ___55d6ah:
 		imul    edx, [___1a1094h], 1770h
@@ -287,7 +292,12 @@ ___55e30h:
 		push    50000h
 		mov     eax, 2
 		xor     ebx, ebx
-		call    near ___654d4h
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    dRally_Audio_playSoundEffect
+	add 	esp, 18h
 ___55e70h:
 		mov     eax, [___1a1094h]
 		mov     [___2438bch], eax
@@ -356,7 +366,12 @@ ___55f3ah:
 		push    50000h
 		mov     eax, 2
 		xor     ebx, ebx
-		call    near ___654d4h
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    dRally_Audio_playSoundEffect
+	add 	esp, 18h
 ___55fa4h:
 		mov     esi, [___243c60h]
 		mov     edi, [___243cf4h]
@@ -412,7 +427,12 @@ ___55ff2h:
 		push    50000h
 		mov     [___196ab0h], ebx
 		xor     ebx, ebx
-		call    near ___654d4h
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    dRally_Audio_playSoundEffect
+	add 	esp, 18h
 ___5606ch:
 		imul    eax, [___243ce8h], 35eh
 		xor     edx, edx

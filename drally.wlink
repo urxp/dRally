@@ -359,33 +359,20 @@ file ___59b3ch.obj
 file ___59cd8h.obj
 file ___59db8h.obj
 file ___59e10h__asm.obj
-file ___5eb70h_s.obj
-file ___5ec04h_s.obj
-file ___5ed38h_s.obj
-file ___5eefch_s.obj
-file ___5f080h_s.obj
+file memory_s.obj
 file ___5f248h_s.obj
 file ___5f26ch_s.obj
 file ___5f2b4h_s.obj
-file ___5f2e4h_s.obj
 file ___5f734h_s.obj
 file ___5f7fch_s.obj
 file ___5fbc0h__asm.obj
 file ___60420h__asm.obj
 file ___608ech__mp.obj
-file ___64864h__esp.obj
-file ___677c0h__x.obj
-file ___68d30h__data.obj
-file ___691b8h_a.obj
-file ___691deh.obj
-file ___6bcf9h.obj
-file ___6bd2eh_a.obj
-file ___6ef2ch__x.obj
-file ___7c4d0h__x.obj
 
 file functions.obj
 file drally_dos.obj
 file sound_dos.obj
+file sound_dos_c.obj
 
 file ___80000h__16.obj
 file ___100000h__16.obj

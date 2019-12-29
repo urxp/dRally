@@ -3,16 +3,16 @@ cpu 386
 
 	extern 	__CHK
 	extern 	___180124h
-	extern 	___10240h
+	extern 	entrysize_bpa
 
 section .text
 
-__GDECL(___10474h)
+__GDECL(entrysize_musics_bpa)
 		push    8
 		call    near __CHK
 		push    edx
 		mov     edx, eax
-		mov     eax, ___180124h
-		call    near ___10240h
+		mov     eax, ___180124h		;; "MUSICS.BPA"
+		call    near entrysize_bpa
 		pop     edx
 		retn    

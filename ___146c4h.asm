@@ -18,7 +18,7 @@ cpu 386
 	extern 	___23758h
 	extern 	___14010h
 	extern 	___14368h
-	extern 	___654d4h
+	extern 	dRally_Audio_playSoundEffect
 
 section .text
 
@@ -160,7 +160,12 @@ ___1487fh:
 		mov     ecx, [___24cc54h]
 		xor     ebx, ebx
 ___148a4h:
-		call    near ___654d4h
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    dRally_Audio_playSoundEffect
+	add 	esp, 18h
 ___148a9h:
 		cmp     ebp, byte 0fffffffeh
 		je      near ___146efh

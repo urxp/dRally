@@ -14,7 +14,7 @@ cpu 386
 	extern 	DISPLAY_GET_PALETTE
 	extern	___58c60h
 	extern	___18348dh
-	extern	___65710h
+	extern	dRally_Audio_setMasterVolume
 
 section .text
 
@@ -118,7 +118,13 @@ ___4587ch:
 		call    near __CHP
 		fistp   dword [esp+0ch]
 		mov     eax, [esp+0ch]
-		call    near ___65710h
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    near dRally_Audio_setMasterVolume
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
 		mov     eax, [esp+1ch]
 		dec     eax
 		mov     [esp+1ch], eax

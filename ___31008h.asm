@@ -46,16 +46,16 @@ cpu 386
 	extern	___185a2ch
 	extern	___1854a4h
 	extern	___24cc54h
-	extern	___654d4h
+	extern	dRally_Audio_playSoundEffect
 	extern	___2b318h
 	extern	___185a14h
 	extern	___185a4ch
-	extern	___65710h
+	extern	dRally_Audio_setMasterVolume
 	extern	___58c60h
 	extern	___1a1ef4h
-	extern	___658b8h
+	extern	dRally_Audio_setPosition
 	extern	___185a28h
-	extern	___6563ch
+	extern	___6563ch_cdecl
 	extern	___12940h
 	extern	___3079ch
 	extern	___1a1f67h
@@ -304,7 +304,12 @@ ___31320h:
 		push    eax
 		xor     ebx, ebx
 		mov     eax, 1
-		call    near ___654d4h
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    dRally_Audio_playSoundEffect
+	add 	esp, 18h
 		call    near ___2b318h
 		mov     eax, 0ffdch
 		mov     ebp, 640000h
@@ -315,7 +320,13 @@ ___3135ah:
 		cmp     dword [___185a4ch], byte 0
 		je      short ___31375h
 		mov     eax, [esp+2ch]
-		call    near ___65710h
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    near dRally_Audio_setMasterVolume
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
 ___31375h:
 		call    near ___58c60h
 		mov     esi, ebp
@@ -375,10 +386,22 @@ ___31384h:
 		je      short ___31462h
 		mov     eax, [___1a1ef4h]
 		mov     esi, 1
-		call    near ___658b8h
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    near dRally_Audio_setPosition
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
 		mov     eax, esi
 		mov     [___185a28h], esi
-		call    near ___6563ch
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___6563ch_cdecl
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
 ___31462h:
 		xor     edi, edi
 		call    near ___12940h

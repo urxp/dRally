@@ -16,7 +16,7 @@ cpu 386
 	extern	___12cb8h__VESA101_PRESENTSCREEN
 	extern	___1854a4h
 	extern	___24cc54h
-	extern	___654d4h
+	extern	dRally_Audio_playSoundEffect
 	extern	___185a38h
 
 section .text
@@ -92,7 +92,12 @@ ___28af3h:
 		push    ecx
 		mov     ecx, [___24cc54h]
 		mov     esi, 136h
-		call    near ___654d4h
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    dRally_Audio_playSoundEffect
+	add 	esp, 18h
 		mov     eax, 1
 		mov     [___185a38h], esi
 		add     esp, byte 34h

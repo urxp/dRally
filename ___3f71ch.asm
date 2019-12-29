@@ -2,8 +2,8 @@ cpu 386
 %include "macros.inc"
 
 	extern	__CHK
-	extern	___5ed38h
-	extern	___5ec04h
+	extern	___5ed38h_allocMemory
+	extern	___5ec04h_freeMemPool
 	extern	VGA3_SETMODE
 	extern	___182df4h
 	extern	printf_
@@ -22,11 +22,11 @@ __GDECL(___3f71ch__allocateMemory)
 		push    edx
 		push    esi
 		xor     edx, edx
-		call    near ___5ed38h
+		call    near ___5ed38h_allocMemory
 		mov     esi, eax
 		test    eax, eax
 		jne     short ___3f774h
-		call    near ___5ec04h
+		call    near ___5ec04h_freeMemPool
 		call    near VGA3_SETMODE
 		push    ___182df4h
 		call    near printf_

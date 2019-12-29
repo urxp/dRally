@@ -26,21 +26,21 @@ cpu 386
 	extern	___223c4h
 	extern	___2b318h
 	extern	___58c60h
-	extern	___65710h
+	extern	dRally_Audio_setMasterVolume
 	extern	___19eb50h
 	extern	___19eb54h
 	extern	___19eb58h
 	extern	DISPLAY_SET_PALETTE_COLOR
-	extern	___649a8h
-	extern	___64a28h
+	extern	___649a8h_cdecl
+	extern	___64a28h_cdecl
 	extern	___181c9ch
 	extern	___181ca8h
-	extern	___64864h
+	extern	dRally_Audio_load
 	extern	___24cc58h
-	extern	___6572ch
-	extern	___65990h
-	extern	___648d8h
-	extern	___659b8h
+	extern	dRally_Audio_setMusicVolume
+	extern	dRally_Audio_setSampleRate
+	extern	dRally_Audio_play
+	;extern	___659b8h
 	extern 	VESA101_SETMODE
 
 section .text
@@ -128,7 +128,13 @@ ___228abh:
 ___22965h:
 		call    near ___58c60h
 		mov     eax, [esp+68h]
-		call    near ___65710h
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    near dRally_Audio_setMasterVolume
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
 		mov     esi, ebp
 		xor     ecx, ecx
 		xor     edi, edi
@@ -180,21 +186,53 @@ ___2297dh:
 		mov     [esp+68h], ebx
 		cmp     ebp, 0fffe0000h
 		jne     near ___22965h
-		call    near ___649a8h
-		call    near ___64a28h
+	push 	eax
+	push 	ecx
+	push 	edx
+		call    near ___649a8h_cdecl
+	pop 	edx
+	pop 	ecx
+	pop 	eax
+	push 	eax
+	push 	ecx
+	push 	edx
+		call    near ___64a28h_cdecl
+	pop 	edx
+	pop 	ecx
+	pop 	eax
 		push    byte 5
 		mov     ecx, ___181c9ch
 		mov     ebx, 2
 		mov     edx, ___181ca8h
 		mov     eax, 1
-		call    near ___64864h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    dRally_Audio_load
+	add 	esp, 14h
+	
 		mov     eax, [___24cc58h]
-		call    near ___6572ch
-		mov     eax, 5622h
-		call    near ___65990h
-		call    near ___648d8h
-		mov     eax, 1
-		call    near ___659b8h
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    near dRally_Audio_setMusicVolume
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+		mov     eax, 5622h		;; 22050 Hz
+		;mov     eax, 0ac44h		;; 44100 Hz
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    dRally_Audio_setSampleRate
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+		call    near dRally_Audio_play
+		;mov     eax, 1
+		;call    near ___659b8h
 		add     esp, byte 70h
 		pop     ebp
 		pop     edi

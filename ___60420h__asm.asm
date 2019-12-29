@@ -4,8 +4,8 @@ cpu 386
 	extern	GET_IRQ_ISR
 	extern	SET_IRQ_ISR
 	extern	ENABLE_IRQ
-	extern	___5fff2h
-	extern	___6000fh
+	extern	___5fff2h_cdecl
+	extern	___6000fh_cdecl
 	extern	___5fbc0h
 	extern 	VRETRACE_WAIT_FOR_START
 	extern 	VRETRACE_WAIT_IF_INACTIVE
@@ -39,13 +39,17 @@ __GDECL(___60466h)
 		mov     al, 0
 		call    ENABLE_IRQ
 		mov     eax, ___6052fh
-		call    ___5fff2h
+	push 	eax
+		call    ___5fff2h_cdecl
+	add 	esp, 4
 		popad   
 		retn    
 ___6052fh:
 		pushad  
 		mov     eax, ___6052fh
-		call    ___6000fh
+	push 	eax
+		call    ___6000fh_cdecl
+	add 	esp, 4
 		call    ___60719h
 		call    ___6073fh
 		call    ___60555h
@@ -136,7 +140,8 @@ ___6073fh:
 		mov     byte [___60447h], 0
 		mov     dword [___60450h], 0
 		retn    
-__GDECL(___60751h)
+__GDECL(INSTALL_AUDIO_CB_cdecl)
+	mov 	eax, [esp+4]
 		mov     byte [___60448h], 0
 		mov     [___60454h], eax
 		mov     byte [___60448h], 1

@@ -12,7 +12,7 @@ cpu 386
 	extern	___18216bh
 	extern	__CHP
 	extern	DISPLAY_SET_PALETTE_COLOR
-    extern 	VESA101_PRESENTSCREEN
+    ;extern 	VESA101_PRESENTSCREEN
 
 section .text
 
@@ -112,7 +112,7 @@ ___2aad5h:
 		mov     [esp+18h], dl
 		cmp     ebp, byte 20h
 		jl      short ___2aad5h
-	call 	VESA101_PRESENTSCREEN
+	;call 	VESA101_PRESENTSCREEN
 ___2ab46h:
 		add     esp, byte 1ch
 		pop     ebp

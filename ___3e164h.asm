@@ -9,7 +9,7 @@ cpu 386
 	extern	___182990h
 	extern	___1829e0h
 	extern	___5a101h
-	extern	___5ec04h
+	extern	___5ec04h_freeMemPool
 	extern	exit_
 
 section .text
@@ -33,7 +33,7 @@ __GDECL(___3e164h)
 		call    near printf_
 		add     esp, byte 4
 		call    near ___5a101h
-		call    near ___5ec04h
+		call    near ___5ec04h_freeMemPool
 		mov     eax, 70h
 		call    near exit_
 ___3e1c2h:

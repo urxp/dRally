@@ -8,7 +8,7 @@ cpu 386
 	extern	___1a0218h
 	extern	___1854bch
 	extern	___24cc54h
-	extern	___654d4h
+	extern	dRally_Audio_playSoundEffect
 	extern	___1a0214h
 	extern	___1a0210h
 	extern	___26fach
@@ -117,7 +117,12 @@ ___2e3abh:
 		push    edx
 		xor     ebx, ebx
 		mov     edx, 1dh
-		call    near ___654d4h
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    dRally_Audio_playSoundEffect
+	add 	esp, 18h
 		mov     edx, [___1a1ef8h]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
@@ -201,7 +206,12 @@ ___2e4f7h:
 		push    esi
 		xor     ebx, ebx
 		mov     edi, 136h
-		call    near ___654d4h
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    dRally_Audio_playSoundEffect
+	add 	esp, 18h
 		mov     [___185a38h], edi
 		call    near ___2d618h
 		call    near ___12cb8h__VESA101_PRESENTSCREEN
@@ -320,7 +330,12 @@ ___2e6f4h:
 		push    ecx
 		xor     ebx, ebx
 		mov     ecx, [___24cc54h]
-		call    near ___654d4h
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    dRally_Audio_playSoundEffect
+	add 	esp, 18h
 		mov     edx, [___1a1ef8h]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
@@ -355,7 +370,12 @@ ___2e780h:
 		push    ebx
 		mov     ecx, [___24cc54h]
 		xor     ebx, ebx
-		call    near ___654d4h
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    dRally_Audio_playSoundEffect
+	add 	esp, 18h
 		add     esp, byte 0ch
 		pop     ebp
 		pop     edi
@@ -380,7 +400,12 @@ ___2e7c6h:
 		push    edi
 		mov     ecx, [___24cc54h]
 		xor     ebx, ebx
-		call    near ___654d4h
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    dRally_Audio_playSoundEffect
+	add 	esp, 18h
 		add     esp, byte 0ch
 		pop     ebp
 		pop     edi
@@ -397,7 +422,12 @@ ___2e7f3h:
 		push    eax
 		xor     ebx, ebx
 		mov     eax, ebp
-		call    near ___654d4h
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    dRally_Audio_playSoundEffect
+	add 	esp, 18h
 		xor     edx, edx
 		mov     [___1a0a50h], edx
 		mov     edx, [___1a1ef8h]
@@ -444,7 +474,12 @@ ___2e89eh:
 		push    edi
 		mov     ecx, [___24cc54h]
 		xor     ebx, ebx
-		call    near ___654d4h
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    dRally_Audio_playSoundEffect
+	add 	esp, 18h
 		add     esp, byte 0ch
 		pop     ebp
 		pop     edi
@@ -461,7 +496,12 @@ ___2e8cbh:
 		push    eax
 		xor     ebx, ebx
 		mov     eax, ebp
-		call    near ___654d4h
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    dRally_Audio_playSoundEffect
+	add 	esp, 18h
 		xor     edx, edx
 		mov     [___1a0a54h], edx
 		mov     edx, [___1a1ef8h]
@@ -508,7 +548,12 @@ ___2e972h:
 		push    edi
 		mov     ecx, [___24cc54h]
 		xor     ebx, ebx
-		call    near ___654d4h
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    dRally_Audio_playSoundEffect
+	add 	esp, 18h
 		add     esp, byte 0ch
 		pop     ebp
 		pop     edi
@@ -525,7 +570,12 @@ ___2e99fh:
 		push    eax
 		xor     ebx, ebx
 		mov     eax, ebp
-		call    near ___654d4h
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    dRally_Audio_playSoundEffect
+	add 	esp, 18h
 		xor     edx, edx
 		mov     [___1a0a58h], edx
 		mov     edx, [___1a1ef8h]
@@ -572,7 +622,12 @@ ___2ea49h:
 		push    edi
 		mov     ecx, [___24cc54h]
 		xor     ebx, ebx
-		call    near ___654d4h
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    dRally_Audio_playSoundEffect
+	add 	esp, 18h
 		add     esp, byte 0ch
 		pop     ebp
 		pop     edi
@@ -589,7 +644,12 @@ ___2ea76h:
 		push    eax
 		xor     ebx, ebx
 		mov     eax, ebp
-		call    near ___654d4h
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    dRally_Audio_playSoundEffect
+	add 	esp, 18h
 		xor     edx, edx
 		mov     [___1a0a5ch], edx
 		mov     edx, [___1a1ef8h]
@@ -657,7 +717,12 @@ ___2eb07h:
 		push    edi
 		mov     eax, 2
 		mov     ecx, [___24cc54h]
-		call    near ___654d4h
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    dRally_Audio_playSoundEffect
+	add 	esp, 18h
 		add     esp, byte 0ch
 		pop     ebp
 		pop     edi
@@ -674,7 +739,12 @@ ___2ebc1h:
 		push    ecx
 		xor     ebx, ebx
 		mov     ecx, [___24cc54h]
-		call    near ___654d4h
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    dRally_Audio_playSoundEffect
+	add 	esp, 18h
 		cmp     dword [___19bd60h], byte 0
 		je      short ___2ebf9h
 		mov     eax, [___196adch]

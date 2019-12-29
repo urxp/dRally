@@ -20,8 +20,8 @@ cpu 386
 	extern	___243e73h
 	extern	rand_
 	extern	___1a309ch
-	extern	___6563ch
-	extern	___654d4h
+	extern	___6563ch_cdecl
+	extern	dRally_Audio_playSoundEffect
 	extern	___59e10h
 	extern	__STOSB
 	extern	___2432e4h
@@ -122,14 +122,25 @@ ___47fb2h:
 		mov     esi, [___2432d8h]
 		rep movsd   
 		mov     eax, 5
-		call    near ___6563ch
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___6563ch_cdecl
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
 		push    8000h
 		mov     edx, 11h
 		xor     ebx, ebx
 		push    28000h
 		mov     ecx, 10000h
 		mov     eax, 5
-		call    near ___654d4h
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    dRally_Audio_playSoundEffect
+	add 	esp, 18h
 		mov     ecx, 100h
 		mov     eax, ___59e10h
 		xor     edx, edx
@@ -144,7 +155,13 @@ ___4803eh:
 		jne     short ___4806eh
 		mov     eax, 5
 		mov     edi, 1
-		call    near ___6563ch
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___6563ch_cdecl
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
 		mov     [esp+334h], edi
 ___4806eh:
 		test    ebp, ebp
@@ -231,7 +248,13 @@ ___4816fh:
 		xor     ebx, ebx
 		mov     eax, 5
 		xor     edi, edi
-		call    near ___6563ch
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___6563ch_cdecl
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
 ___4819bh:
 		mov     edx, ebx
 		mov     eax, ebx
@@ -330,7 +353,12 @@ ___482bbh:
 		push    28000h
 		xor     ebx, ebx
 		mov     ebp, 0a0000h
-		call    near ___654d4h
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    dRally_Audio_playSoundEffect
+	add 	esp, 18h
 		mov     edx, 3e80h
 		mov     ebx, 1
 ___482fah:
@@ -361,7 +389,13 @@ ___48353h:
 		mov     eax, 5
 		mov     ecx, 3e80h
 		mov     edi, 0a0000h
-		call    near ___6563ch
+		push 	edx
+	push 	ecx
+	push 	eax
+		call    ___6563ch_cdecl
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
 		mov     esi, [___2432d4h]
 		rep movsd   
 		mov     eax, [___2432d8h]

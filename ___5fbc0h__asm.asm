@@ -43,7 +43,8 @@ ___5ffddh:
 ___5fff0h:
 		popad   
 		retn    
-__GDECL(___5fff2h)
+__GDECL(___5fff2h_cdecl)
+	mov 	eax, [esp+4]
 		pushad  
 		mov     edi, ___5fbcah
 ___5fff8h:
@@ -59,7 +60,8 @@ ___60008h:
 		call    near ___5ffbdh
 		popad   
 		retn    
-__GDECL(___6000fh)
+__GDECL(___6000fh_cdecl)
+	mov 	eax, [esp+4]
 		pushad  
 		mov     edi, ___5fbcah
 ___60015h:

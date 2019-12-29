@@ -3,14 +3,15 @@ cpu 386
 
 	extern 	__CHK
 	extern 	___180124h
-	extern 	___10240h
-	extern 	___5ed38h
+	extern 	entrysize_bpa
+	extern 	___5ed38h_allocMemory
 	extern 	___180124h
 	extern 	bpa_read
 
 section .text
 
-__GDECL(___10490h)
+;;	load_musics_bpa(file_name, ???)
+__GDECL(load_musics_bpa)
 		push    24h
 		call    near __CHK
 		push    ebx
@@ -22,17 +23,17 @@ __GDECL(___10490h)
 		mov     ebx, eax
 		mov     [esp+4], dl
 		mov     edx, eax
-		mov     eax, ___180124h
-		call    near ___10240h
+		mov     eax, ___180124h		;; "MUSICS.BPA"
+		call    near entrysize_bpa
 		xor     edx, edx
 		mov     ecx, eax
 		mov     dl, [esp+4]
 		mov     edi, eax
-		call    near ___5ed38h
+		call    near ___5ed38h_allocMemory
 		mov     esi, eax
 		mov     ebp, eax
 		mov     edx, eax
-		mov     eax, ___180124h
+		mov     eax, ___180124h		;; "MUSICS.BPA"
 		call    near bpa_read
 		xor     edx, edx
 		mov     [esp], edx

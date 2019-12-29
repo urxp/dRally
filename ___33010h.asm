@@ -1,6 +1,7 @@
 cpu 386
 %include "macros.inc"
 
+	extern 	WAIT_5
 	extern	__CHK
 	extern 	__MOVS
 	extern 	__STRCAT
@@ -68,8 +69,8 @@ cpu 386
 	extern	___19de70h
 	extern	___1a1100h__VESA101h_DefaultScreenBuffer
 	extern	___3a968h
-	extern	___658b8h
-	extern	___65710h
+	extern	dRally_Audio_setPosition
+	extern	dRally_Audio_setMasterVolume
 	extern	___12cb8h__VESA101_PRESENTSCREEN
 	extern	___196a84h
 	extern	___185a34h
@@ -148,7 +149,7 @@ cpu 386
 	extern	___1a103ch
 	extern	___24e4d0h
 	extern	___60719h
-	extern	___56774h
+	extern	___56774h_race
 	extern	___10754h
 	extern	___60705h
 	extern	___1de810h
@@ -201,12 +202,12 @@ cpu 386
 	extern	___181c9ch
 	extern	___11378h
 	extern	___181ca8h
-	extern	___64864h
+	extern	dRally_Audio_load
 	extern	___24cc58h
-	extern	___6572ch
-	extern	___65990h
-	extern	___648d8h
-	extern	___659b8h
+	extern	dRally_Audio_setMusicVolume
+	extern	dRally_Audio_setSampleRate
+	extern	dRally_Audio_play
+	;extern	___659b8h
 	extern	___606dfh
 	extern	___605deh
 	extern	___12940h
@@ -946,15 +947,28 @@ ___33c89h:
 		call    near ___3a968h
 		cmp     dword [___19bd60h], byte 0
 		je      short ___33cadh
-		mov     eax, 1e00h
+		mov     eax, 1e00h				;;	30
 		jmp     short ___33cb2h
 ___33cadh:
-		mov     eax, 2800h
+		mov     eax, 2800h				;;	40
 ___33cb2h:
-		call    near ___658b8h
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    near dRally_Audio_setPosition
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
 		mov     eax, 10000h
-		call    near ___65710h
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    near dRally_Audio_setMasterVolume
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
 		call    near ___12cb8h__VESA101_PRESENTSCREEN
+		call 	WAIT_5
 		cmp     dword [___19bd60h], byte 0
 		je      near ___33e7eh
 		cmp     dword [___196a84h], byte 0
@@ -1506,7 +1520,7 @@ ___345a3h:
 ___345bah:
 		mov     edx, [esp+0c8h]
 		mov     eax, [___1a103ch]
-		call    near ___56774h
+		call    near ___56774h_race
 		cmp     dword [___19bd60h], byte 0
 		je      short ___345e7h
 		cmp     dword [___24e4d0h], byte 2
@@ -2595,16 +2609,36 @@ ___35922h:
 		mov     ebx, 2
 		call    near ___11378h
 		push    byte 5
-		mov     edx, ___181ca8h
+		mov     edx, ___181ca8h		;; 	"MEN-MUS.CMF"
 		mov     eax, 1
-		call    near ___64864h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    dRally_Audio_load
+	add 	esp, 14h
+	
 		mov     eax, [___24cc58h]
-		call    near ___6572ch
-		mov     eax, 5622h
-		call    near ___65990h
-		call    near ___648d8h
-		mov     eax, 1
-		call    near ___659b8h
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    near dRally_Audio_setMusicVolume
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+		mov     eax, 5622h		;; 22050 Hz
+		;mov     eax, 0ac44h		;; 44100 Hz
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    dRally_Audio_setSampleRate
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+		call    near dRally_Audio_play
+		;mov     eax, 1
+		;call    near ___659b8h
 		call    near ___606dfh
 		call 	VESA101_SETMODE
 		mov     eax, 46h

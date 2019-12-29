@@ -2,7 +2,7 @@ cpu 386
 %include "macros.inc"
 
 	extern 	printf
-	extern 	VESA101_PRESENTSCREEN
+	;extern 	VESA101_PRESENTSCREEN
 	extern 	___1a112ch__VESA101_ACTIVESCREEN_PTR
 
 section .text

@@ -10,12 +10,12 @@ cpu 386
 	extern 	___3f71ch__allocateMemory
 	extern 	___1a1f20h__VGA13_BUFFER_A
 	extern 	___1a1f0ch__VGA13_BUFFER_B
-	extern 	___64864h
+	extern 	dRally_Audio_load
 	extern 	___606dfh
 	extern 	___60466h
-	extern 	___65990h
-	extern 	___648d8h
-	extern 	___659b8h
+	extern 	dRally_Audio_setSampleRate
+	extern 	dRally_Audio_play
+	;extern 	___659b8h
 	extern 	___180134h
 	extern 	fopen_
 	extern 	fgetc_
@@ -34,9 +34,9 @@ cpu 386
 	extern 	fread_
 	extern 	___108e8h
 	extern 	___1a0a60h
-	extern 	___654d4h
+	extern 	dRally_Audio_playSoundEffect
 	extern 	fclose_
-	extern 	___6563ch
+	extern 	___6563ch_cdecl
 	extern 	___3f77ch__freeMemory
 	extern 	VGA13_SETMODE
 	extern 	VRETRACE_WAIT_IF_INACTIVE
@@ -92,7 +92,15 @@ ___10bf1h:
 		xor     eax, eax
 		and     ebx, 0ffh
 		mov     al, [esp+40ch]
-		call    ___64864h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    dRally_Audio_load
+	add 	esp, 14h
+	
+		;;	dRally_Audio_load(MSX_type, MSX_file, SFX_type, SFX_file, num_channels);
 ___10c62h:
 		call    ___606dfh
 		call 	VGA13_SETMODE
@@ -101,11 +109,18 @@ ___10c62h:
 		call    ___60466h
 		cmp     byte [esp+408h], 0
 		je      ___10cb2h
-		mov     eax, 5622h
-		call    ___65990h
-		call    ___648d8h
-		mov     eax, 1
-		call    ___659b8h
+		mov     eax, 5622h		;; 22050 Hz
+		;mov     eax, 0ac44h		;; 44100 Hz
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    dRally_Audio_setSampleRate
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+		call    dRally_Audio_play
+		;mov     eax, 1
+		;call    ___659b8h
 ___10cb2h:
 		mov     edx, ___180134h		;; "rb"
 		lea     eax, [esp+300h]
@@ -273,7 +288,12 @@ ___11090h:
 		xor     ebx, ebx
 		mov     al, [esp+40ch]
 		inc     edi
-		call    ___654d4h
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    dRally_Audio_playSoundEffect
+	add 	esp, 18h
 		mov     [esp+404h], edi
 		cmp     edi, byte 6
 		jle     ___11100h
@@ -294,7 +314,13 @@ ___11160h:
 		xor     eax, eax
 		mov     al, cl
 		inc     ecx
-		call    ___6563ch
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___6563ch_cdecl
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
 		cmp     ecx, byte 6
 		jle     ___11160h
 		mov     eax, [___1a1f20h__VGA13_BUFFER_A]

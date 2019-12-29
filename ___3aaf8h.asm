@@ -7,8 +7,8 @@ cpu 386
 	extern	___12a54h
 	extern	___24ec0h
 	extern	___2fc50h
-	extern	___64a28h
-	extern	___5ec04h
+	extern	___64a28h_cdecl
+	extern	___5ec04h_freeMemPool
 	extern	___5a101h
 	extern	___19bd60h
 	extern	___623d4h
@@ -30,8 +30,14 @@ __GDECL(___3aaf8h)
 		call    near ___12a54h
 		call    near ___24ec0h
 		call    near ___2fc50h
-		call    near ___64a28h
-		call    near ___5ec04h
+	push 	eax
+	push 	ecx
+	push 	edx
+		call    near ___64a28h_cdecl
+	pop 	edx
+	pop 	ecx
+	pop 	eax
+		call    near ___5ec04h_freeMemPool
 		call    near ___5a101h
 		cmp     dword [___19bd60h], byte 0
 		je      short ___3ab3bh

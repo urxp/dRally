@@ -2,9 +2,6 @@
 #include <stdlib.h>
 //#define SDL_MAIN_HANDLED
 #include <SDL2/SDL.h>
-
-
-
 typedef struct textbit {
 	unsigned char 	ascii;
 	unsigned char 	fg:4;
@@ -19,7 +16,10 @@ extern textbit B8000[];
 extern unsigned char VGA13_ACTIVESCREEN[];
 extern unsigned char VESA101_ACTIVESCREEN[];
 
-#define DOS_MEM_POOL 	200
+
+extern SDL_AudioDeviceID audio_dev;
+
+#define DOS_MEM_POOL 	256
 
 
 struct {
@@ -55,7 +55,7 @@ struct {
 
 int __DPMI_ALLOCATE_DOS_MEMORY_BLOCK(unsigned int size){
 	
-	printf("[dRally.DPMI] Trying to allocate %d bytes of dos memory.\n", size);
+	printf("[dRally.DPMI] Trying to simulate allocatation of %d bytes of dos memory.\n", size);
 
 	unsigned int idx = 0;
 
@@ -89,27 +89,38 @@ int __DPMI_FREE_DOS_MEMORY_BLOCK(unsigned int idx){
 	return 0;
 }
 
+int skip;
 unsigned int __GET_FRAME_COUNTER(void){
 
 	unsigned int NewTicks;
 	unsigned int FrameMs = 1000/___60458h;// - 1;
+	//int n;
 
 	NewTicks = SDL_GetTicks()-Ticks;	
 	
 	if(NewTicks < (FrameMs-3)) SDL_Delay(1);
-	else if(NewTicks > FrameMs){
-		
+	else if(NewTicks >= FrameMs){
+
 		Ticks = SDL_GetTicks();
 
-		INT8_FRAME_COUNTER += NewTicks/FrameMs - 1;
-		IRQ0_TimerISR();	
-		
-		if(GX.ActiveMode == VGA13) __VGA13_PRESENTSCREEN__();
-		else if(GX.ActiveMode == VESA101) __VESA101_PRESENTSCREEN__();
-	}
+		skip = NewTicks/FrameMs - 1;
 
-	IO_Loop();
+		INT8_FRAME_COUNTER += skip;
+		//n = skip + 1;
+		//while(n--){
+
+			IRQ0_TimerISR();
+		//}
+
+		if(!skip){	
+
+			if(GX.ActiveMode == VGA13) __VGA13_PRESENTSCREEN__();
+			else if(GX.ActiveMode == VESA101) __VESA101_PRESENTSCREEN__();
+		}
+	}
     
+	IO_Loop();
+
 	return INT8_FRAME_COUNTER;
 }
 
@@ -157,18 +168,22 @@ unsigned int __GET_TIMER_TICKS(void){
 
 void __WAIT_5(void){
 
-	//SDL_Delay(5000);
-	unsigned int tmp = INT8_FRAME_COUNTER + 3*___60458h;
+	unsigned int tmp = 2;
+
+	tmp *= ___60458h;
+	tmp += __GET_FRAME_COUNTER();
 
 	while((__GET_FRAME_COUNTER() < tmp) && !POP_LAST_KEY());
 }
 
-void __VGA3_PRESENTSCREEN(void){
+void __VGA3_PRESENTSCREEN(unsigned int n_lines){
 
 	int i, j;
 	textbit tmp;
 
-	for(i = 0; i < 25; i++){
+	if((n_lines == 0)||(n_lines > 25)) n_lines = 25;
+
+	for(i = 0; i < n_lines; i++){
 		for(j = 0; j < 80; j++){
 
 			tmp = B8000[80*i+j];
@@ -368,6 +383,7 @@ void __DISPLAY_GET_PALETTE_COLOR(unsigned char * dst, unsigned char n){
 	}
 }
 
+
 int main(int argc, char * argv[]){
 
 	SDL_Init(SDL_INIT_VIDEO);
@@ -375,7 +391,21 @@ int main(int argc, char * argv[]){
 
 	Scancodes_Init();
 
+	//result = FMOD_System_Create(&fmodex_system);
+    //ERRCHECK(result);
+	//result = FMOD_System_Init(fmodex_system, 32, FMOD_INIT_NORMAL, NULL);
+    //ERRCHECK(result);
+
 	drally_main(argc, argv);
+
+	if(audio_dev){
+
+		printf("[dRally.SOUND] Closing audio device.\n");
+
+		SDL_PauseAudioDevice(audio_dev, 1);
+		SDL_ClearQueuedAudio(audio_dev);
+		SDL_CloseAudioDevice(audio_dev);
+	}
 
 	SDL_DestroyRenderer(GX_Renderer);
 	SDL_DestroyWindow(GX.Window);
@@ -383,3 +413,41 @@ int main(int argc, char * argv[]){
 
 	return 0;
 }
+
+void save_s3m(void * src, unsigned int size, const char * name){
+
+	char buffer[20] = {0};
+	int n = -1;
+
+	while(name[++n] != '.') buffer[n] = name[n];
+	buffer[n] = '.';
+	buffer[n+1] = 'S';
+	buffer[n+2] = '3';
+	buffer[n+3] = 'M';
+
+
+	FILE * fd = fopen(buffer, "wb");
+
+	fwrite(src, size, 1, fd);
+
+	fclose(fd);
+}
+
+void save_xm(void * src, unsigned int size, const char * name){
+
+	char buffer[20] = {0};
+	int n = -1;
+
+	while(name[++n] != '.') buffer[n] = name[n];
+	buffer[n] = '.';
+	buffer[n+1] = 'X';
+	buffer[n+2] = 'M';
+
+
+	FILE * fd = fopen(buffer, "wb");
+
+	fwrite(src, size, 1, fd);
+
+	fclose(fd);
+}
+

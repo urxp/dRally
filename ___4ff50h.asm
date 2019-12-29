@@ -32,7 +32,7 @@ cpu 386
 	extern	___243ce8h
 	extern	___2432b4h
 	extern	rand_
-	extern	___654d4h
+	extern	dRally_Audio_playSoundEffect
 	extern	___184215h
 	extern	___243cf4h
 	extern	___243d74h
@@ -256,7 +256,12 @@ ___50213h:
 ___502c8h:
 		and     edx, 0ffh
 		xor     ebx, ebx
-		call    near ___654d4h
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    dRally_Audio_playSoundEffect
+	add 	esp, 18h
 ___502d5h:
 		imul    eax, [___243c60h], 35eh
 		fld     dword [eax+___1e6f7ch]
@@ -636,7 +641,12 @@ ___5097fh:
 		mov     eax, 3
 		and     edx, 0ffh
 		xor     ebx, ebx
-		call    near ___654d4h
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    dRally_Audio_playSoundEffect
+	add 	esp, 18h
 ___50991h:
 		mov     eax, [esp+0ech]
 		add     eax, byte 5

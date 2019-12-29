@@ -695,4 +695,6 @@ __GDECL(VGA3_PRESENTSCREEN)
 		retn
 
 __GDECL(WAIT_5)
+__GDECL(save_s3m)
+__GDECL(save_xm)
 	retn

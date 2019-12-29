@@ -13,7 +13,7 @@ cpu 386
 	extern	___1e6ee0h
 	extern	___1f2490h
 	extern	___243ce8h
-	extern	___654d4h
+	extern	dRally_Audio_playSoundEffect
 	extern	___243d28h
 	extern	___243d58h
 	extern	___1de5b0h
@@ -160,7 +160,12 @@ ___527c4h:
 		mov     eax, 0ah
 ___52848h:
 		xor     ebx, ebx
-		call    near ___654d4h
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    dRally_Audio_playSoundEffect
+	add 	esp, 18h
 ___5284fh:
 		mov     ebp, [esp]
 		mov     eax, [esp+0ch]
@@ -227,7 +232,12 @@ ___52943h:
 		push    50000h
 		mov     eax, 2
 		xor     ebx, ebx
-		call    near ___654d4h
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    dRally_Audio_playSoundEffect
+	add 	esp, 18h
 		jmp     near ___52a39h
 ___5298dh:
 		call    near rand_

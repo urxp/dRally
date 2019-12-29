@@ -5,7 +5,7 @@ cpu 386
 	extern 	__MOVS
 	extern 	___12bd4h__VESA101_SETBANK
 	extern 	VESA101_ACTIVESCREEN
-	extern 	VESA101_PRESENTSCREEN
+	;extern 	VESA101_PRESENTSCREEN
 
 section .text
 
@@ -102,7 +102,7 @@ ___13a6dh:
 		cmp     ecx, edi
 		jl      near ___139c8h
 ___13a91h:
-		call 	VESA101_PRESENTSCREEN
+		;call 	VESA101_PRESENTSCREEN
 		add     esp, byte 10h
 		pop     ebp
 		pop     edi

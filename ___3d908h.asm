@@ -11,8 +11,8 @@
 	extern	___181c90h
 	extern	___1828bch
 	extern	___10b80h
-	extern	___649a8h
-	extern	___64a28h
+	extern	___649a8h_cdecl
+	extern	___64a28h_cdecl
 
 	extern 	exit_
 
@@ -50,8 +50,20 @@ ___3d954h:
 		mov     edx, 1
 		mov     eax, ___1828b0h
 		call    near ___10b80h
-		call    near ___649a8h
-		call    near ___64a28h
+	push 	eax
+	push 	ecx
+	push 	edx
+		call    near ___649a8h_cdecl
+	pop 	edx
+	pop 	ecx
+	pop 	eax
+	push 	eax
+	push 	ecx
+	push 	edx
+		call    near ___64a28h_cdecl
+	pop 	edx
+	pop 	ecx
+	pop 	eax
 ___3d9b4h:
 		add     esp, byte 64h
 		pop     edi

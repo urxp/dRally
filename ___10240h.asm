@@ -21,7 +21,7 @@ cpu 386
 
 section .text
 
-__GDECL(___10240h)
+__GDECL(entrysize_bpa)
 		push    88h
 		call    near __CHK
 		push    ebx

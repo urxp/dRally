@@ -5,7 +5,7 @@ cpu 386
 	extern 	___19bd54h
 	extern 	___19bd20h
 	extern 	___10060h
-	extern 	___5eb70h
+	extern 	___5eb70h_allocMemPool
 	extern 	___60466h
 	extern 	___2432c8h
 	extern 	___5a0c2h
@@ -13,7 +13,7 @@ cpu 386
 	extern 	___5a101h
 	extern 	___19bd60h
 	extern 	___623d4h
-	extern 	___5ec04h
+	extern 	___5ec04h_freeMemPool
 	extern 	___10110h
 	extern 	___1800f0h
 	extern 	___1800f8h
@@ -38,7 +38,7 @@ ___1019eh:
 		cmp     eax, byte 0ah
 		jl      ___1019eh
 		call    ___10060h
-		call    ___5eb70h
+		call    ___5eb70h_allocMemPool
 		mov 	edx, 1
 		mov     eax, 46h
 ___101e6h:
@@ -51,13 +51,14 @@ ___101e6h:
 		je      ___10212h
 		call    ___623d4h
 ___10212h:
-		call    ___5ec04h
+		call    ___5ec04h_freeMemPool
 		call    ___10110h
-		;mov     ebx, ___1800f0h
-		;mov     edx, B8000
-		;mov     eax, ___1800f8h
-		;call    bpa_read
-		;call 	VGA3_PRESENTSCREEN
+		mov     ebx, ___1800f0h				;;
+		mov     edx, B8000					;;
+		mov     eax, ___1800f8h				;;
+		call    bpa_read					;;
+		mov 	eax, 17h					;;
+		call 	VGA3_PRESENTSCREEN			;;
 		pop     ebx
 		retn    
 

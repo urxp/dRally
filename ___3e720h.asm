@@ -23,15 +23,15 @@ cpu 386
 	extern	___181c9ch
 	extern	___3d908h
 	extern	___181ca8h
-	extern	___64864h
+	extern	dRally_Audio_load
 	extern	___24cc58h
-	extern	___6572ch
+	extern	dRally_Audio_setMusicVolume
 	extern	___24cc54h
-	extern	___65770h
-	extern	___658b8h
-	extern	___65990h
-	extern	___648d8h
-	extern	___659b8h
+	extern	dRally_Audio_setEffectVolume
+	extern	dRally_Audio_setPosition
+	extern	dRally_Audio_setSampleRate
+	extern	dRally_Audio_play
+	;extern	___659b8h
 	extern	___196abch
 	extern	___1a2011h
 	extern	___196abdh
@@ -55,8 +55,8 @@ cpu 386
 	extern	VGA3_SETMODE
 	extern	___182c24h
 	extern	___182cb8h
-	extern	___64a28h
-	extern	___5ec04h
+	extern	___64a28h_cdecl
+	extern	___5ec04h_freeMemPool
 	extern	___5a101h
 	extern	exit_
 	extern	___605deh
@@ -106,9 +106,9 @@ cpu 386
 	extern	___1a1124h__VESA101h_ScreenBufferA
 	extern	___1a10e4h__VESA101h_DefaultScreenBufferA
 	extern	___3a7e0h
-	extern	___649a8h
+	extern	___649a8h_cdecl
 	extern	___1a1ef4h
-	extern	___65710h
+	extern	dRally_Audio_setMasterVolume
 	extern	___12cb8h__VESA101_PRESENTSCREEN
 	extern	___146c4h
 	extern	___3e4a0h
@@ -122,7 +122,7 @@ cpu 386
 	extern	___1a10cch
 	extern	___13bd4h
 	extern	___1854bch
-	extern	___654d4h
+	extern	dRally_Audio_playSoundEffect
 	extern	___5994ch
 	extern	___59b3ch
 	extern	___2ab50h
@@ -209,18 +209,50 @@ __GDECL(___3e720h)
 		push    byte 5
 		mov     edx, ___181ca8h
 		mov     eax, 1
-		call    near ___64864h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    dRally_Audio_load
+	add 	esp, 14h
+	
 		mov     eax, [___24cc58h]
-		call    near ___6572ch
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    near dRally_Audio_setMusicVolume
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
 		mov     eax, [___24cc54h]
-		call    near ___65770h
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    near dRally_Audio_setEffectVolume
+	add 	esp, 4
+	pop		edx
+	pop 	ecx
 		mov     eax, 2d00h
-		call    near ___658b8h
-		mov     eax, 5622h
-		call    near ___65990h
-		call    near ___648d8h
-		mov     eax, 1
-		call    near ___659b8h
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    near dRally_Audio_setPosition
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+		mov     eax, 5622h		;; 22050 Hz
+		;mov     eax, 0ac44h		;; 44100 Hz
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    dRally_Audio_setSampleRate
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+		call    near dRally_Audio_play
+		;mov     eax, 1
+		;call    near ___659b8h
 		mov     al, [___196abch]
 		mov     [___1a2011h], al
 		mov     al, [___196abdh]
@@ -274,8 +306,14 @@ ___3e88bh:
 		push    ___182cb8h
 		call    near printf_
 		add     esp, byte 4
-		call    near ___64a28h
-		call    near ___5ec04h
+	push 	eax
+	push 	ecx
+	push 	edx
+		call    near ___64a28h_cdecl
+	pop 	edx
+	pop 	ecx
+	pop 	eax
+		call    near ___5ec04h_freeMemPool
 		call    near ___5a101h
 		mov     eax, 70h
 		call    near exit_
@@ -285,7 +323,7 @@ ___3e8e7h:
 		xor     edx, edx
 		call    near ___605deh
 		call    near ___117d4h
-		;call    near ___3d38ch 	;; APOGEE, GT, REMEDY
+		call    near ___3d38ch 		;; APOGEE, GT, REMEDY
 		call    near ___3d890h
 		call    near ___117f4h
 		call    near ___1240ch
@@ -586,13 +624,31 @@ ___3edeah:
 		call 	restoreDefaultScreenBuffer
 		mov     eax, 0ffffffffh
 		call    near ___3a7e0h
-		call    near ___649a8h
-		call    near ___648d8h
+	push 	eax
+	push 	ecx
+	push 	edx
+		call    near ___649a8h_cdecl
+	pop 	edx
+	pop 	ecx
+	pop 	eax
+		call    near dRally_Audio_play
 		mov     eax, [___1a1ef4h]
-		call    near ___658b8h
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    near dRally_Audio_setPosition
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
 		mov     eax, 10000h
 		mov     [esp+24h], ebx
-		call    near ___65710h
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    near dRally_Audio_setMasterVolume
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
 ___3ee31h:
 		cmp     dword [___196a84h], byte 0
 		jne     short ___3ee3fh
@@ -639,7 +695,12 @@ ___3eecah:
 		push    eax
 		xor     ebx, ebx
 		mov     eax, 1
-		call    near ___654d4h
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    dRally_Audio_playSoundEffect
+	add 	esp, 18h
 		call    near ___5994ch
 		call    near ___59b3ch
 		xor     bh, bh
@@ -794,8 +855,20 @@ ___3f1bah:
 		call    near ___12a54h
 		call    near ___24ec0h
 		call    near ___2fc50h
-		call    near ___649a8h
-		call    near ___64a28h
+	push 	eax
+	push 	ecx
+	push 	edx
+		call    near ___649a8h_cdecl
+	pop 	edx
+	pop 	ecx
+	pop 	eax
+	push 	eax
+	push 	ecx
+	push 	edx
+		call    near ___64a28h_cdecl
+	pop 	edx
+	pop 	ecx
+	pop 	eax
 		add     esp, byte 2ch
 		pop     ebp
 		pop     edi

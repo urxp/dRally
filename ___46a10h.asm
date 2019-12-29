@@ -24,7 +24,7 @@ cpu 386
 	extern	___1a42c4h
 	extern	___1a42c8h
 	extern	DISPLAY_SET_PALETTE_COLOR
-	extern	___65710h
+	extern	dRally_Audio_setMasterVolume
 	extern	___18353dh
 	extern	___18356dh
 	extern	___183545h
@@ -208,7 +208,13 @@ ___46bf8h:
 		call    near __CHP
 		fistp   dword [esp+48h]
 		imul    eax, [esp+48h], 2d8h
-		call    near ___65710h
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    near dRally_Audio_setMasterVolume
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
 		fld     dword [___196e78h]
 		fmul    qword [___18353dh]
 		fdiv    qword [___18356dh]
@@ -524,7 +530,13 @@ ___47082h:
 		call    near __CHP
 		fistp   dword [esp+48h]
 		imul    eax, [esp+48h], 1b4h
-		call    near ___65710h
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    near dRally_Audio_setMasterVolume
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
 		fld     dword [esp+58h]
 		call    near __CHP
 		fistp   dword [esp+48h]

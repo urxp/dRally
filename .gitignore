@@ -1,9 +1,9 @@
 .vscode
 dRally
-drally_linux
 serial16.bin
 *.le
 *.exe
+*.err
 z_regex*
 *.o
 *.obj

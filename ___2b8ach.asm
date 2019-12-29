@@ -58,9 +58,9 @@ cpu 386
 	extern	___12cb8h__VESA101_PRESENTSCREEN
 	extern	___185a28h
 	extern	___1a1ef4h
-	extern	___658b8h
+	extern	dRally_Audio_setPosition
 	extern	___58c60h
-	extern	___65710h
+	extern	dRally_Audio_setMasterVolume
 	extern	___1865fch
 	extern	___1a1ea0h
 	extern	___1a1ee8h
@@ -111,7 +111,7 @@ cpu 386
 	extern	___1a1ed8h
 	extern	___5994ch
 	extern	___1854a4h
-	extern	___654d4h
+	extern	dRally_Audio_playSoundEffect
 	extern	___1a0224h
 	extern	___30a84h
 	extern	___30c60h
@@ -414,7 +414,13 @@ ___2bcddh:
 		cmp     dword [___185a28h], byte 0
 		je      short ___2bcfah
 		mov     eax, [___1a1ef4h]
-		call    near ___658b8h
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    near dRally_Audio_setPosition
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
 ___2bcfah:
 		xor     ebp, ebp
 		call    near ___2b318h
@@ -425,7 +431,13 @@ ___2bd09h:
 		cmp     dword [___185a28h], byte 0
 		je      short ___2bd20h
 		mov     eax, [esp+34h]
-		call    near ___65710h
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    near dRally_Audio_setMasterVolume
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
 ___2bd20h:
 		mov     ebx, 2
 		mov     edx, ebp
@@ -1256,7 +1268,12 @@ ___2ca74h:
 		push    eax
 		xor     ebx, ebx
 		mov     eax, 2
-		call    near ___654d4h
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    dRally_Audio_playSoundEffect
+	add 	esp, 18h
 		imul    eax, [___1a1ef8h], byte 6ch
 		mov     dword [eax+___1a0210h], 7a120h
 		call    near ___25330h

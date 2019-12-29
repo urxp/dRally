@@ -34,7 +34,7 @@ cpu 386
 	extern	___23758h
 	extern	___1854b0h
 	extern	___24cc54h
-	extern	___654d4h
+	extern	dRally_Audio_playSoundEffect
 	extern	___1a1030h
 	extern	___1a1038h
 	extern	___1854ach
@@ -277,7 +277,12 @@ ___3018dh:
 		push    edi
 		mov     ecx, [___24cc54h]
 		xor     ebx, ebx
-		call    near ___654d4h
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    dRally_Audio_playSoundEffect
+	add 	esp, 18h
 		mov     ecx, 54h
 		mov     edx, 10h
 		mov     ebx, [___1a112ch__VESA101_ACTIVESCREEN_PTR]
@@ -424,7 +429,12 @@ ___30363h:
 		push    edi
 		mov     ecx, [___24cc54h]
 		xor     ebx, ebx
-		call    near ___654d4h
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    dRally_Audio_playSoundEffect
+	add 	esp, 18h
 		mov     ecx, 54h
 		mov     edx, 10h
 		mov     ebx, [___1a112ch__VESA101_ACTIVESCREEN_PTR]
@@ -561,7 +571,12 @@ ___3051dh:
 		push    ecx
 		xor     ebx, ebx
 		mov     ecx, [___24cc54h]
-		call    near ___654d4h
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    dRally_Audio_playSoundEffect
+	add 	esp, 18h
 		cmp     dword [___1a1160h], byte 12h
 		jne     near ___3063bh
 		mov     edi, [___196ab8h]
@@ -630,7 +645,12 @@ ___30618h:
 		push    ebp
 		mov     ecx, [___24cc54h]
 		xor     ebx, ebx
-		call    near ___654d4h
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    dRally_Audio_playSoundEffect
+	add 	esp, 18h
 ___3063bh:
 		cmp     dword [___1a1160h], byte 13h
 		jne     short ___3064bh

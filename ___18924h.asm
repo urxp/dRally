@@ -20,7 +20,7 @@ cpu 386
 	extern 	___146c4h
 	extern 	___1854bch
 	extern 	___24cc54h
-	extern 	___654d4h
+	extern 	dRally_Audio_playSoundEffect
 	extern 	___18687ah
 	extern 	___18076ch
 	extern 	___185b59h
@@ -153,7 +153,12 @@ ___189f1h:
 		push    edi
 		mov     ecx, [___24cc54h]
 		xor     ebx, ebx
-		call    near ___654d4h
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    dRally_Audio_playSoundEffect
+	add 	esp, 18h
 ___18a83h:
 		test    esi, esi
 		jl      short ___18a9ah

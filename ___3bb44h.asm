@@ -6,7 +6,7 @@ cpu 386
 	extern	___182744h
 	extern	open_
 	extern	filelength_
-	extern	___5ec04h
+	extern	___5ec04h_freeMemPool
 	extern	___5a101h
 	extern	VGA3_SETMODE
 	extern	___18274ch
@@ -53,7 +53,7 @@ cpu 386
 	extern	___1a1118h
 	extern	___1a111ch
 	extern	___1a1f3ch
-	extern	___658d0h
+	extern	___658d0h_cdecl
 	extern 	GET_FILE_SIZE
 
 section .text
@@ -89,7 +89,7 @@ __GDECL(CONFIG_READ)
 ;		call    near filelength_
 		test    eax, eax
 		jg      short ___3bbach
-		call    near ___5ec04h
+		call    near ___5ec04h_freeMemPool
 		call    near ___5a101h
 		call    near VGA3_SETMODE
 		push    ___18274ch
@@ -105,7 +105,7 @@ ___3bbach:
 		cmp     eax, byte 7
 		jne     short ___3bc30h
 ;		mov     eax, esi
-;		mov     edx, ___180134h
+		mov     edx, ___180134h
 ;		call    near close_
 		mov     eax, ___182744h
 		mov     ebx, 1
@@ -373,7 +373,12 @@ ___3c13ah:
 		mov     bl, [CONFIG_SOUND_IRQ]
 		mov     dx, [CONFIG_SOUND_ADDR]
 		mov     al, [CONFIG_SOUND_TYPE]
-		call    near ___658d0h
+	push	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    near ___658d0h_cdecl
+	add 	esp, 10h
 		add     esp, byte 10h
 		pop     ebp
 		pop     edi
