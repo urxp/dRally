@@ -27,7 +27,6 @@ cpu 386
 	extern 	exit
 	extern 	srand
 	extern 	strncmp
-	extern 	___24cc88h
 	extern	___60447h
 	extern	___60450h
 	extern	___6045ch
@@ -200,7 +199,7 @@ __GDECL(__CHK)
         retn    4
 
 __GDECL(printf_)
-		;jmp 	printf
+	;jmp 	printf
 		mov 	[save_ecx], ecx
 		mov 	[save_edx], edx
 		pop 	dword [save_esp]
@@ -887,208 +886,21 @@ __GDECL(VGA3_PRESENTSCREEN)
 	popad
 	retn
 
-__GDECL(DPMI_ALLOCATE_MEMORY_BLOCK)
-	jmp		.around
-.log:	db 	"[dRally.Memory] Allocating %d bytes of memory @%08X",0ah,0
-.around:
-	
-	push 	edx
-	push 	ecx
-	push 	eax
-
-;	push 	.error
-;	call 	printf
-;	add 	esp, 4
-
-	call 	malloc
-	;add 	esp, 4
-	cmp 	eax, 0
-	je 		.failed
-
-	mov 	edx, eax
-	mov 	__DI(___24cc88h), dx
-	mov 	__CX(___24cc88h), dx
-	shr 	edx, 10h
-	mov 	__SI(___24cc88h), dx
-	mov 	__BX(___24cc88h), dx
-
-.failed:
-	pop 	edx
-	push 	eax
-	push 	edx
-	push 	.log
-	;call 	printf
-	add 	esp, 8
-
-	pop 	eax
-
-	pop 	ecx
-	pop 	edx
-	retn
 
 
 
 
-__GDECL(DPMI_ALLOCATE_DOS_MEMORY_BLOCK)
-	push 	ecx
-	push 	edx
-	push 	eax
-	call 	__DPMI_ALLOCATE_DOS_MEMORY_BLOCK
-	add 	esp, 4
-	pop 	edx
-	pop 	ecx
-	retn
-
-__GDECL(DPMI_FREE_DOS_MEMORY_BLOCK)
-	push 	ecx
-	push 	edx
-	push 	eax
-	call 	__DPMI_FREE_DOS_MEMORY_BLOCK
-	add 	esp, 4
-	pop 	edx
-	pop 	ecx
-	retn
-
-__GDECL(DPMI_UNLOCK_LINEAR_REGION)
-	jmp		.around
-.unlock_failed: 	db 	"MEMORY_UNLOCK FAILED!",0ah,0
-.log:	db "[dRally.Memory] Unlocking %d bytes of memory @%08X",0ah,0
-.around:
-	push 	ecx
-	push 	edx
-
-	push 	eax
-	mov 	ecx, [eax+1] ;; addr
-	push 	ecx
-	mov 	ecx, [eax+5] ;; size
-	push 	ecx
-	push 	.log
-	;call 	printf
-	add 	esp, 0ch
-	pop 	eax
-
-	mov 	ecx, [eax+5] ;; size
-	push 	ecx
-	mov 	ecx, [eax+1] ;; addr
-	push 	ecx
-	call 	munlock
-	add 	esp, 8
-	inc 	eax
-		jne 	.ok
-		push 	.unlock_failed
-		call 	printf
-		add 	esp, 4
-		xor 	eax, eax
-.ok:
-	pop 	edx
-	pop 	ecx
-	retn
-
-__GDECL(DPMI_LOCK_LINEAR_REGION)
-	jmp		.around
-.lock_failed: 	db 	"MEMORY_LOCK FAILED!",0ah,0
-.log:	db "[dRally.Memory] Locking %d bytes of memory @%08X",0ah,0
-.around:
-	push 	ecx
-	push 	edx
-
-	push 	eax
-	mov 	ecx, [eax+1] ;; addr
-	push 	ecx
-	mov 	ecx, [eax+5] ;; size
-	push 	ecx
-	push 	.log
-	call 	printf
-	add 	esp, 0ch
-	pop 	eax
-
-	mov 	ecx, [eax+5] ;; size
-	push 	ecx
-	mov 	ecx, [eax+1] ;; addr
-	push 	ecx
-	call 	mlock
-	add 	esp, 8
-	inc 	eax
-	test 	eax, eax
-	jne 	.ok
-		push 	.lock_failed
-		call 	printf
-		add 	esp, 4
-		xor 	eax, eax
-.ok:
-	pop 	edx
-	pop 	ecx
-	retn
-
-__GDECL(DPMI_FREE_MEMORY_BLOCK)
-	jmp 	.around
-.log: 	db "[dRally.Memory] Freeing memory @%08X",0ah,0
-.around:
-	pushad
-	push 	eax
-	push 	.log
-	;call 	printf
-	add 	esp, 8
-	popad
-
-
-	push 	ecx
-	push 	edx
-	test 	eax, eax
-	je 		.null
-	push 	eax
-	call 	free
-	add 	esp, 4
-.null:
-	pop 	edx
-	pop 	ecx
-	mov 	eax, 1
-	retn
-
-__GDECL(DPMI_RESIZE_MEMORY_BLOCK)
-;	jmp		.around
-;.error:	db 	"DPMI_RESIZE_MEMORY_BLOCK not implemented",0ah,0
-;.around:
-;	push 	ecx
-;	push 	.error
-;	call 	printf
-;	add 	esp, 4
-;	pop 	ecx
-;	retn
-
-	push 	ecx
-	push 	edx
-	push 	eax
-
-
-	call 	realloc
-	add 	esp, 8
-	cmp 	eax, 0
-	je 		.failed
-
-	mov 	edx, eax
-	mov 	__DI(___24cc88h), dx
-	mov 	__CX(___24cc88h), dx
-	shr 	edx, 10h
-	mov 	__SI(___24cc88h), dx
-	mov 	__BX(___24cc88h), dx
-
-.failed:
-	pop 	ecx
-	retn
 
 
 
-__GDECL(DPMI_RESIZE_DOS_MEMORY_BLOCK)
-	jmp		.around
-.error:	db 	"DPMI_RESIZE_DOS_MEMORY_BLOCK not implemented",0ah,0
-.around:
-	pushad
-	push 	.error
-	call 	printf
-	add 	esp, 4
-	popad
-	retn
+
+
+
+
+
+
+
+
 
 __GDECL(VGA3_SET_CURSORSHAPE)
 __GDECL(VGA3_SET_CURSORPOSITION)

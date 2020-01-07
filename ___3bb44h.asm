@@ -6,7 +6,7 @@ cpu 386
 	extern	___182744h
 	extern	open_
 	extern	filelength_
-	extern	___5ec04h_freeMemPool
+	extern	dRally_System_clean
 	extern	___5a101h
 	extern	VGA3_SETMODE
 	extern	___18274ch
@@ -89,7 +89,15 @@ __GDECL(CONFIG_READ)
 ;		call    near filelength_
 		test    eax, eax
 		jg      short ___3bbach
-		call    near ___5ec04h_freeMemPool
+
+	push 	eax
+	push 	ecx
+	push 	edx
+		call    dRally_System_clean
+	pop 	edx
+	pop 	ecx
+	pop 	eax
+	
 		call    near ___5a101h
 		call    near VGA3_SETMODE
 		push    ___18274ch

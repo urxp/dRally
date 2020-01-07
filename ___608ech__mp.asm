@@ -1,6 +1,9 @@
 cpu 386
 %include "macros.inc"
 
+	extern 	DPMI_ALLOCATE_DOS_MEMORY_BLOCK
+	extern 	DPMI_FREE_DOS_MEMORY_BLOCK
+
 	extern	__CHK
 	extern	___24e450h
 	extern	___24e3f0h
@@ -1583,42 +1586,28 @@ ___61aech:
 		pop     ds
 		popad   
 		iret    
+
+
 ___61b00h:
 		push    28h
 		call    near __CHK
 		push    ebx
 		push    ecx
-		sub     esp, byte 1ch
-		mov     ecx, edx
-		;mov     dword [esp], 100h
-		mov 	__EAX(esp), 100h
-		add     eax, byte 0fh
-		shr     eax, 4
-		;mov     [esp+4], eax
-		mov 	__EBX(esp), eax
-		mov     ebx, esp
-		mov     edx, esp
-		mov     eax, 31h
-		call    near int386_
-		;mov     eax, [esp+0ch]
-		mov 	eax, __EDX(esp)
-		mov     [ecx], eax
-		;cmp     dword [esp+18h], byte 0
-		cmp     __CF(esp), byte 0
-		je      short ___61b41h
-		xor     eax, eax
-		jmp     short ___61b4ch
-___61b41h:
-		;mov     eax, [esp]
-		mov 	eax, __EAX(esp)
-		and     eax, 0ffffh
+
+	push 	edx
+	push 	eax
+	call 	DPMI_ALLOCATE_DOS_MEMORY_BLOCK
+	add 	esp, 8
+	test 	eax, eax
+	je 		.failed	
 		shl     eax, 4
-___61b4ch:
-		add     esp, byte 1ch
+.failed:
 		pop     ecx
 		pop     ebx
 		retn    
 	align 	4
+
+
 __GDECL(___61b88h)
 		push    0ch
 		call    near __CHK
@@ -2251,28 +2240,31 @@ ___623f9h:
 		mov     edx, [___199fa8h]
 		mov     eax, [___199fa4h]
 		call    near ___63040h
-		mov     esi, 101h
-		mov     __EAX(___24e48ch), esi
 		mov     eax, [___24e4cch]
-		mov     __EDX(___24e48ch), eax
-		mov     ebx, ___24e48ch
-		mov     edx, ebx
-		mov     eax, 31h
-		call    near int386_
-		mov     __EAX(___24e48ch), esi
+	push 	edx
+	push 	ecx
+	push 	eax
+	call 	DPMI_FREE_DOS_MEMORY_BLOCK
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
 		mov     eax, [___24e480h]
-		mov     __EDX(___24e48ch), eax
-		mov     ebx, ___24e48ch
-		mov     edx, ebx
-		mov     eax, 31h
-		call    near int386_
-		mov     __EAX(___24e48ch), esi
+	push 	edx
+	push 	ecx
+	push 	eax
+	call 	DPMI_FREE_DOS_MEMORY_BLOCK
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
 		mov     eax, [___24e4bch]
-		mov     __EDX(___24e48ch), eax
-		mov     ebx, ___24e48ch
-		mov     edx, ebx
-		mov     eax, 31h
-		call    near int386_
+	push 	edx
+	push 	ecx
+	push 	eax
+	call 	DPMI_FREE_DOS_MEMORY_BLOCK
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 ___62471h:
 		cmp     dword [___24e4d0h], byte 2
 		jne     near ___62631h
@@ -2290,137 +2282,148 @@ ___62471h:
 		mov     [___24e568h], eax
 		mov     dword [___24e564h], 1
 		call    near ___632e8h
-		mov     ecx, 101h
-		mov     __EAX(___24e48ch), ecx
 		mov     eax, [___24e484h]
-		mov     __EDX(___24e48ch), eax
-		mov     ebx, ___24e48ch
-		mov     edx, ebx
-		mov     eax, 31h
-		call    near int386_
-		mov     __EAX(___24e48ch), ecx
+	push 	edx
+	push 	ecx
+	push 	eax
+	call 	DPMI_FREE_DOS_MEMORY_BLOCK
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
 		mov     eax, [___24e460h]
-		mov     __EDX(___24e48ch), eax
-		mov     ebx, ___24e48ch
-		mov     edx, ebx
-		mov     eax, 31h
-		call    near int386_
-		mov     __EAX(___24e48ch), ecx
+	push 	edx
+	push 	ecx
+	push 	eax
+	call 	DPMI_FREE_DOS_MEMORY_BLOCK
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
 		mov     eax, [___24e448h]
-		mov     __EDX(___24e48ch), eax
-		mov     ebx, ___24e48ch
-		mov     edx, ebx
-		mov     eax, 31h
-		call    near int386_
-		mov     __EAX(___24e48ch), ecx
+	push 	edx
+	push 	ecx
+	push 	eax
+	call 	DPMI_FREE_DOS_MEMORY_BLOCK
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
 		mov     eax, [___24e454h]
-		mov     __EDX(___24e48ch), eax
-		mov     ebx, ___24e48ch
-		mov     edx, ebx
-		mov     eax, 31h
-		call    near int386_
-		mov     __EAX(___24e48ch), ecx
+	push 	edx
+	push 	ecx
+	push 	eax
+	call 	DPMI_FREE_DOS_MEMORY_BLOCK
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
 		mov     eax, [___24e458h]
-		mov     __EDX(___24e48ch), eax
-		mov     ebx, ___24e48ch
-		mov     edx, ebx
-		mov     eax, 31h
-		call    near int386_
-		mov     __EAX(___24e48ch), ecx
+	push 	edx
+	push 	ecx
+	push 	eax
+	call 	DPMI_FREE_DOS_MEMORY_BLOCK
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
 		mov     eax, [___24e44ch]
-		mov     __EDX(___24e48ch), eax
-		mov     ebx, ___24e48ch
-		mov     edx, ebx
-		mov     eax, 31h
-		call    near int386_
+	push 	edx
+	push 	ecx
+	push 	eax
+	call 	DPMI_FREE_DOS_MEMORY_BLOCK
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
 		xor     ecx, ecx
 ___6258fh:
 		lea     eax, [ecx*4+0]
 		add     eax, ___24ce20h
-		mov     __EAX(___24e48ch), 101h
 		mov     eax, [eax]
-		mov     __EDX(___24e48ch), eax
-		mov     ebx, ___24e48ch
-		mov     edx, ebx
-		mov     eax, 31h
-		call    near int386_
+	push 	edx
+	push 	ecx
+	push 	eax
+	call 	DPMI_FREE_DOS_MEMORY_BLOCK
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
 		inc     ecx
 		cmp     ecx, byte 0fh
 		jle     short ___6258fh
 		xor     ecx, ecx
-		mov     esi, 101h
 ___625cah:
 		lea     eax, [ecx*4+0]
 		add     eax, ___24cea0h
-		mov     __EAX(___24e48ch), esi
 		mov     eax, [eax]
-		mov     __EDX(___24e48ch), eax
-		mov     ebx, ___24e48ch
-		mov     edx, ebx
-		mov     eax, 31h
-		call    near int386_
+	push 	edx
+	push 	ecx
+	push 	eax
+	call 	DPMI_FREE_DOS_MEMORY_BLOCK
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
 		inc     ecx
 		cmp     ecx, byte 0fh
 		jle     short ___625cah
 		xor     ecx, ecx
-		mov     edi, 101h
 ___62601h:
 		lea     eax, [ecx*4+0]
 		add     eax, ___24ce60h
-		mov     __EAX(___24e48ch), edi
 		mov     eax, [eax]
-		mov     __EDX(___24e48ch), eax
-		mov     ebx, ___24e48ch
-		mov     edx, ebx
-		mov     eax, 31h
-		call    near int386_
+	push 	edx
+	push 	ecx
+	push 	eax
+	call 	DPMI_FREE_DOS_MEMORY_BLOCK
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
 		inc     ecx
 		cmp     ecx, byte 0fh
 		jle     short ___62601h
 ___62631h:
-		mov     ebp, 101h
-		mov     __EAX(___24e48ch), ebp
 		mov     eax, [___24e4c8h]
-		mov     __EDX(___24e48ch), eax
-		mov     ebx, ___24e48ch
-		mov     edx, ebx
-		mov     eax, 31h
-		call    near int386_
-		mov     __EAX(___24e48ch), ebp
+	push 	edx
+	push 	ecx
+	push 	eax
+	call 	DPMI_FREE_DOS_MEMORY_BLOCK
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
 		mov     eax, [___24cf18h]
-		mov     __EDX(___24e48ch), eax
-		mov     ebx, ___24e48ch
-		mov     edx, ebx
-		mov     eax, 31h
-		call    near int386_
-		mov     __EAX(___24e48ch), ebp
+	push 	edx
+	push 	ecx
+	push 	eax
+	call 	DPMI_FREE_DOS_MEMORY_BLOCK
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
 		mov     eax, [___24cf1ch]
-		mov     __EDX(___24e48ch), eax
-		mov     ebx, ___24e48ch
-		mov     edx, ebx
-		mov     eax, 31h
-		call    near int386_
-		mov     __EAX(___24e48ch), ebp
+	push 	edx
+	push 	ecx
+	push 	eax
+	call 	DPMI_FREE_DOS_MEMORY_BLOCK
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
 		mov     eax, [___24cf20h]
-		mov     __EDX(___24e48ch), eax
-		mov     ebx, ___24e48ch
-		mov     edx, ebx
-		mov     eax, 31h
-		call    near int386_
-		mov     __EAX(___24e48ch), ebp
+	push 	edx
+	push 	ecx
+	push 	eax
+	call 	DPMI_FREE_DOS_MEMORY_BLOCK
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
 		mov     eax, [___24cf24h]
-		mov     __EDX(___24e48ch), eax
-		mov     ebx, ___24e48ch
-		mov     edx, ebx
-		mov     eax, 31h
-		call    near int386_
-		mov     __EAX(___24e48ch), ebp
+	push 	edx
+	push 	ecx
+	push 	eax
+	call 	DPMI_FREE_DOS_MEMORY_BLOCK
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
 		mov     eax, [___24e4b8h]
-		mov     __EDX(___24e48ch), eax
-		mov     ebx, ___24e48ch
-		mov     edx, ebx
-		mov     eax, 31h
-		call    near int386_
+	push 	edx
+	push 	ecx
+	push 	eax
+	call 	DPMI_FREE_DOS_MEMORY_BLOCK
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
 		pop     ebp
 		pop     edi
 		pop     esi

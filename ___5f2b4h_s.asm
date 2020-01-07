@@ -3,8 +3,8 @@ cpu 386
 
 	extern	___24cc84h
 	extern	___24cc7ch
-	extern	___5eefch_freeMemory_cdecl
-	extern	___5f080h_resizeMemory
+	extern	dRally_Memory_free
+	extern	dRally_Memory_resize
 
 section .text
 
@@ -18,7 +18,7 @@ __GDECL(___5f2b4h)
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    near ___5eefch_freeMemory_cdecl
+		call    near dRally_Memory_free
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -30,7 +30,14 @@ ___5f2cdh:
 		mov     edx, eax
 		mov     eax, ebx
 		sub     edx, ebx
-		call    near ___5f080h_resizeMemory
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    near dRally_Memory_resize
+	add 	esp, 8
+	pop 	ecx
+
 		pop     edx
 		pop     ebx
 		retn    

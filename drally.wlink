@@ -359,11 +359,10 @@ file ___59b3ch.obj
 file ___59cd8h.obj
 file ___59db8h.obj
 file ___59e10h__asm.obj
-file memory_s.obj
+file memory_dos.obj
 file ___5f248h_s.obj
 file ___5f26ch_s.obj
 file ___5f2b4h_s.obj
-file ___5f734h_s.obj
 file ___5f7fch_s.obj
 file ___5fbc0h__asm.obj
 file ___60420h__asm.obj

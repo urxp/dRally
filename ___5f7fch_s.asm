@@ -1,7 +1,6 @@
 cpu 386
 %include "macros.inc"
 
-	extern	___24cc88h
 	extern	___58b20h
 	extern 	DPMI_UNLOCK_LINEAR_REGION
 	extern 	DPMI_FREE_DOS_MEMORY_BLOCK
@@ -19,10 +18,27 @@ __GDECL(___5f7fch_freeDosMem)
 		cmp     byte [eax+0ch], 0
 		je      short ___5f84eh
 		lea 	eax, [ecx-1]
+
+	push 	edx
+	push 	ecx
+	mov 	edx, [eax+5]
+	push 	edx
+	mov 	edx, [eax+1]
+	push 	edx
 		call 	DPMI_UNLOCK_LINEAR_REGION
+	add 	esp, 8
+	pop 	ecx
+	pop 	edx
+	
 ___5f84eh:
 		mov     ax, [ecx+8]
+	push 	edx
+	push 	ecx
+	push 	eax
 		call 	DPMI_FREE_DOS_MEMORY_BLOCK
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
 		test 	eax, eax
 		jne 	___5f888h
 		push    byte 2

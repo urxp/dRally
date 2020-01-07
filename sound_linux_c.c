@@ -26,93 +26,7 @@ typedef unsigned char 	byte;
 
 SDL_AudioDeviceID audio_dev = NULL;
 
-static byte in_b(word port){
-
-    printf("[dRally.SOUND] in_b not implemented\n");
-
-    return -1;
-}
-
-static word in_w(word port){
-
-    printf("[dRally.SOUND] in_w not implemented\n");
-
-    return -1;
-}
-
-static void out_b(word port, byte value){
-
-    printf("[dRally.SOUND] out_b not implemented\n");
-}
-
-static void out_w(word port, word value){
-
-    printf("[dRally.SOUND] out_w not implemented\n");
-}
-
-#define X(d) (*(unsigned short *)&(d))
-#define L(d) (*(unsigned char *)&(d))
-#define H(d) (*(((unsigned char *)&(d))+1))
-
-#define D(d)	(*((dword *)(d)))
-#define W(w)	(*((word *)(w)))
-#define B(b)	(*((byte *)(b)))
-
-typedef unsigned int 	dword;
-typedef unsigned short 	word;
-typedef unsigned char 	byte;
-
-#pragma pack(1)
-
-typedef struct {
-    dword   linear;     // +0
-    dword   nbytes;     // +4
-    word    selector;   // +8
-    word    segment;    // +0ah
-    byte    lock;       // +0ch
-} DOSAllocStruct;
-
-#define DMA5_PAGE           0x8B
-#define DMA5_ADDRES         0xC4
-#define DMA5_COUNT          0xC6
-#define DMA_SINGLE_MASK     0xD4
-#define DMA_TRANSFER_MODE   0xD6
-#define DMA_CLEAR_POINTER   0xD8
-
-extern word A2x4h_Mixer_Chip_Register_Address_Port_WO;
-extern word A2x5h_Mixer_Chip_Data_Port_RW;
-extern word A2x6h_DSP_Reset_WO;
-extern word A2xAh_DSP_Read_Data_Port_RO;
-extern word A2xEh_DSP_Read_Buffer_Status_Bit_7_RO;
-extern word A2xEh_DSP_Interrupt_Acknowledge;
-extern word A2xFh_DSP_16Bit_Interrupt_Acknowledge;
-extern word A2xCh_DSP_Write_Buffer_Status_Bit_7_R;
-extern word A2xCh_DSP_Write_Command_Data_W;
-
-extern DOSAllocStruct ___24f760h[];
-extern DOSAllocStruct ___24f7c8h;
-extern DOSAllocStruct ___24f7d8h;
-
-
 void ___58b20h(int n, ...);
-void ___5f734h_allocDosMem(DOSAllocStruct *, dword, dword);
-void ___5f7fch_freeDosMem(DOSAllocStruct *);
-void memset_cdecl(dword, dword, dword);
-void memcpy_cdecl(dword, dword, dword);
-
-
-
-void DSP_WRITE(byte b){
-
-	dword c = 0x400;
-
-	while(in_b(A2xCh_DSP_Write_Buffer_Status_Bit_7_R)&0x80){
-	
-		if(--c == 0) ___58b20h(0x21);
-	}
-
-	out_b(A2xCh_DSP_Write_Command_Data_W, b);
-}
 
 extern byte SOUND_TYPE;
 extern byte ___19a27bh;
@@ -153,10 +67,6 @@ void dRally_Audio_setEffectVolume(dword vol){
 
 void ___691deh_cdecl(dword, dword, dword);
 
-extern 	/* void * */ dword ___775d0h;
-//extern	dword ___775cch;
-extern 	/* void * */ dword ___775c8h;
-
 void ___68d07h(void);
 
 void audio_cb(void * udata, unsigned char * stream, unsigned int length){
@@ -168,68 +78,20 @@ void ___77741h_cdecl(void){
 
 }
 
-
-extern word LOC_SOUND_ADDR;
-extern byte LOC_SOUND_IRQ;
-extern byte LOC_SOUND_DMA;
-
-
-dword DSP_RESET(void){
-
-	dword n;
-
-	out_b(A2x6h_DSP_Reset_WO, 1);
-
-	n = 0x100;
-	while(n--);
-
-	out_b(A2x6h_DSP_Reset_WO, 0);
-
-	n = 0x10000;
-	while(n--){
-
-		if(in_b(A2xEh_DSP_Read_Buffer_Status_Bit_7_RO)&0x80){
-
-			if(in_b(A2xAh_DSP_Read_Data_Port_RO) == 0xaa) return 1;
-		}
-	}
-
-	return 0;
-}
-
-void ___779a1h_SB16_resetDSP_cdecl(void){
-
-	if(!DSP_RESET()) ___58b20h(0x20);
-}
-
 extern byte StereoSound;
 
 void ___7792dh_setStereo_cdecl(void){
-/*
-	byte al;
 
-	out_b(A2x4h_Mixer_Chip_Register_Address_Port_WO, 0xe);
-	al = in_b(A2x5h_Mixer_Chip_Data_Port_RW);
-	al |= 0x20;
-	al &= 0xfd;
-	if(StereoSound) al |= 2;
-	out_b(A2x5h_Mixer_Chip_Data_Port_RW, al);
-*/
 }
 
 extern byte SOUND_DMA;
 extern byte SOUND_IRQ;
 extern word SOUND_ADDR;
 extern word SOUND_SAMPLERATE;
-//extern word ___775e0h;
-extern dword ___775d4h;
-extern dword ___775d8h;
-extern dword ___775dch;
 extern byte ___688c5h;
 extern dword ___688c8h;
 
 void ___7c6d4h_cdecl(dword, dword, dword, dword, dword, dword);
-void INSTALL_AUDIO_CB_cdecl(void (*)(void));
 
 void ___771f4h_SB16_init_cdecl(void){
 
@@ -241,8 +103,6 @@ void ___771f4h_SB16_init_cdecl(void){
 		___7c6d4h_cdecl(SOUND_SAMPLES, (StereoSound = 1), 1, 0, 0, 0xff);
 	}
 }
-
-extern byte ___775f0h;
 
 void ___77664h(void){
 
@@ -407,7 +267,7 @@ extern dword ___24e640h;
 
 void ___6879ch_cdecl(void);
 void ___68d01h_cdecl(dword);
-void ___5eefch_freeMemory_cdecl(dword);
+void dRally_Memory_free(dword);
 
 void dRally_Audio_play(void){
 
@@ -415,9 +275,9 @@ void dRally_Audio_play(void){
 
 		___199ff4h = 0;
 		___68d01h_cdecl(___68d07h);
-		___5eefch_freeMemory_cdecl(___199ff8h);
+		dRally_Memory_free(___199ff8h);
 		___199ff8h = 0;
-		___5eefch_freeMemory_cdecl(___24e640h);
+		dRally_Memory_free(___24e640h);
 		___24e640h = 0;
 	}
 	
@@ -482,7 +342,7 @@ void ___680c8h_cdecl(void){
 				___71a38h_cdecl();
 			}
 
-			___5eefch_freeMemory_cdecl(MSX_struct_content_ptr);
+			dRally_Memory_free(MSX_struct_content_ptr);
 			MSX_struct_content_ptr = 0;
 		}
 
@@ -490,11 +350,11 @@ void ___680c8h_cdecl(void){
 
 		if(___24e794h){
 		
-			___5eefch_freeMemory_cdecl(___24e794h);
+			dRally_Memory_free(___24e794h);
 			___24e794h = 0;
 		}
 		
-		___5eefch_freeMemory_cdecl(___24e79ch);
+		dRally_Memory_free(___24e79ch);
 		___19a27bh = 0;
 	}
 }
@@ -560,9 +420,9 @@ void ___649a8h_cdecl(void){
 
 		___199ff4h = 0;
 		___68d01h_cdecl(___68d07h);
-		___5eefch_freeMemory_cdecl(___199ff8h);
+		dRally_Memory_free(___199ff8h);
 		___199ff8h = 0;
-		___5eefch_freeMemory_cdecl(___24e640h);
+		dRally_Memory_free(___24e640h);
 		___24e640h = 0;
 	}
 

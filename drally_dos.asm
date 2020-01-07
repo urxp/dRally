@@ -6,7 +6,6 @@ cpu 386
 	extern	___5fccah
 	extern	___5fbc6h
 	extern	___5fbc8h
-	extern 	___24cc88h
 	extern	___60450h
 	extern	___6045ch
 	extern	___60441h
@@ -154,217 +153,21 @@ __GDECL(VGA3_SET_CURSORPOSITION)
 		retn
 
 
-__GDECL(DPMI_ALLOCATE_MEMORY_BLOCK)
-	push 	edx
-	push 	ebx
-		mov     edx, 501h
-		mov     ebx, ___24cc88h
-		mov 	__AX(___24cc88h), dx
-		mov 	__CX(___24cc88h), ax
-		shr     eax, 10h
-		mov 	__BX(___24cc88h), ax
-		mov     edx, ebx
-		mov     eax, 31h
-		call    near int386_
-	xor 	eax, eax
-	cmp     __CF(___24cc88h), byte 0
-	jne 	.unsuccessful
-		mov 	ax, __BX(___24cc88h)
-		shl 	eax, 10h
-		mov 	ax, __CX(___24cc88h)
-
-.unsuccessful:
-	pop 	ebx
-	pop 	edx
-		retn
-
-__GDECL(DPMI_ALLOCATE_DOS_MEMORY_BLOCK)
-		push 	ebx
-		push 	ecx
-		push 	edx
-		mov     ebx, 100h
-		mov     __EAX(___24cc88h), 0
-		mov     __AX(___24cc88h), bx
-		add 	eax, 0fh
-		shr     eax, 4
-		mov     ebx, ___24cc88h
-		mov     __BX(___24cc88h), ax
-		mov     eax, 31h
-		mov     edx, ebx
-		call    near int386_
-		xor		eax, eax
-		cmp     __CF(___24cc88h), byte 0
-		jne      .failed
-		mov 	eax, 1
-.failed:
-		pop 	edx
-		pop 	ecx
-		pop 	ebx
-		retn
 
 
 
-__GDECL(DPMI_LOCK_LINEAR_REGION)
-		push 	ebx
-		push 	ecx
-		push 	edx
-		push 	esi
-		mov     esi, 600h
-		mov     edx, [eax+1]
-		mov     ebx, ___24cc88h
-		shr     edx, 10h
-		mov     __AX(___24cc88h), si
-		mov     __BX(___24cc88h), dx
-		mov     edx, [eax+5]
-		mov     si, [eax+1]
-		shr     edx, 10h
-		mov     ax, [eax+5]
-		mov     __SI(___24cc88h), dx
-		mov     __DI(___24cc88h), ax
-		mov     eax, 31h
-		mov     edx, ebx
-		mov     __CX(___24cc88h), si
-		call    near int386_
-		xor 	eax, eax
-		cmp     __CF(___24cc88h), byte 0
-		jne     .failed
-		mov 	eax, 1
-.failed:
-		pop 	esi
-		pop 	edx
-		pop 	ecx
-		pop 	ebx
-		retn
-
-__GDECL(DPMI_UNLOCK_LINEAR_REGION)
-	push 	ebx
-	push 	ecx
-	push 	edx
-	push 	edi
-		mov 	edi, eax
-		mov     eax, [edi+1]
-		shr     eax, 10h
-		mov     __BX(___24cc88h), ax
-		mov     ax, [edi+1]
-		mov     edx, 601h
-		mov     __CX(___24cc88h), ax
-		mov     eax, [edi+5]
-		mov     ebx, ___24cc88h
-		shr     eax, 10h
-		mov     __AX(___24cc88h), dx
-		mov     __SI(___24cc88h), ax
-		mov     ax, [edi+5]
-		mov     edx, ebx
-		mov     __DI(___24cc88h), ax
-		mov     eax, 31h
-		call    near int386_
-		xor 	eax, eax
-		cmp     __CF(___24cc88h), byte 0
-		jne     .failed
-		mov 	eax, 1
-.failed:
-	pop 	edi
-	pop 	edx
-	pop 	ecx
-	pop 	ebx
-		retn
 
 
 
-__GDECL(DPMI_FREE_MEMORY_BLOCK)
-	push 	ecx
-	push 	ebx
-	push 	edx	
-		mov     __DI(___24cc88h), ax
-		shr     eax, 10h
-		mov     ecx, 502h
-		mov     __SI(___24cc88h), ax
-		mov     eax, 31h
-		mov     __AX(___24cc88h), cx
-		mov     ebx, ___24cc88h
-		mov     edx, ebx
-		call    near int386_
-		xor 	eax, eax
-		cmp     __CF(___24cc88h), byte 0
-		jne     .failed
-		mov 	eax, 1
-.failed:
-	pop 	edx
-	pop 	ebx
-	pop 	ecx
-	retn
-
-__GDECL(DPMI_FREE_DOS_MEMORY_BLOCK)
-	push 	ebx
-	push 	edx
-		mov     ebx, 101h
-		mov     __AX(___24cc88h), bx
-		mov     __DX(___24cc88h), ax
-		mov     ebx, ___24cc88h
-		mov     eax, 31h
-		mov     edx, ebx
-		call    near int386_
-		xor 	eax, eax
-		cmp     __CF(___24cc88h), byte 0
-		jne     .failed
-		mov 	eax, 1
-.failed:
-	pop 	edx
-	pop 	ebx
-	retn
 
 
 
-__GDECL(DPMI_RESIZE_MEMORY_BLOCK)
-	push 	edi
-	push 	ebx
-	push 	edx
-		mov 	edi, edx
-		mov     edx, 503h
-		mov     __AX(___24cc88h), dx
-		mov     __DI(___24cc88h), ax
-		shr     eax, 10h
-		mov     __SI(___24cc88h), ax
-		mov     eax, edi
-		mov     ebx, ___24cc88h
-		shr     eax, 10h
-		mov     edx, ebx
-		mov     __BX(___24cc88h), ax
-		mov     eax, 31h
-		mov     __CX(___24cc88h), di
-		call    near int386_
-		xor 	eax, eax
-		cmp     __CF(___24cc88h), byte 0
-		jne		.failed
-		mov 	eax, 1
-.failed:
-	pop 	edx
-	pop 	ebx
-	pop 	edi
-	retn
 
 
-__GDECL(DPMI_RESIZE_DOS_MEMORY_BLOCK)
-	push 	edi
-	push 	ebx
-		mov 	edi, edx
-		mov     __AX(___24cc88h), 102h
-		lea     ebx, [edi+0fh]
-		shr     ebx, 4
-		mov     __DX(___24cc88h), ax
-		mov     __BX(___24cc88h), bx
-		mov     ebx, ___24cc88h
-		mov     eax, 31h
-		mov     edx, ebx
-		call    near int386_
-		xor 	eax, eax
-		cmp     __CF(___24cc88h), byte 0
-		jne		.failed
-		mov 	eax, 1
-.failed:
-	pop 	ebx
-	pop 	edi
-	retn
+
+
+
+
 
 
 __GDECL(GET_IRQ_ISR)

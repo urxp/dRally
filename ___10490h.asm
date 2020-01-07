@@ -4,7 +4,7 @@ cpu 386
 	extern 	__CHK
 	extern 	___180124h
 	extern 	entrysize_bpa
-	extern 	___5ed38h_allocMemory
+	extern 	dRally_Memory_alloc
 	extern 	___180124h
 	extern 	bpa_read
 
@@ -29,7 +29,14 @@ __GDECL(load_musics_bpa)
 		mov     ecx, eax
 		mov     dl, [esp+4]
 		mov     edi, eax
-		call    near ___5ed38h_allocMemory
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    near dRally_Memory_alloc
+	add 	esp, 8
+	pop 	ecx
+
 		mov     esi, eax
 		mov     ebp, eax
 		mov     edx, eax

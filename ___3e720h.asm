@@ -56,7 +56,7 @@ cpu 386
 	extern	___182c24h
 	extern	___182cb8h
 	extern	___64a28h_cdecl
-	extern	___5ec04h_freeMemPool
+	extern	dRally_System_clean
 	extern	___5a101h
 	extern	exit_
 	extern	___605deh
@@ -313,7 +313,15 @@ ___3e88bh:
 	pop 	edx
 	pop 	ecx
 	pop 	eax
-		call    near ___5ec04h_freeMemPool
+
+	push 	eax
+	push 	ecx
+	push 	edx
+		call    dRally_System_clean
+	pop 	edx
+	pop 	ecx
+	pop 	eax
+	
 		call    near ___5a101h
 		mov     eax, 70h
 		call    near exit_

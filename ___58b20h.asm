@@ -2,7 +2,7 @@ cpu 386
 %include "macros.inc"
 
 	extern	__CHK
-	extern	___5ec04h_freeMemPool
+	extern	dRally_System_clean
 	extern	___19bd60h
 	extern	___623d4h
 	extern	___184bf4h
@@ -82,7 +82,15 @@ ___58b5bh:
 		cmp     byte [edx], 0ffh
 		jne     ___58b50h
 ___58b69h:
-		call    ___5ec04h_freeMemPool
+
+	push 	eax
+	push 	ecx
+	push 	edx
+		call    dRally_System_clean
+	pop 	edx
+	pop 	ecx
+	pop 	eax
+	
 		cmp     dword [___19bd60h], byte 0
 		je      ___58b7ch
 		call    ___623d4h

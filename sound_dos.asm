@@ -21,7 +21,7 @@ cpu 386
 
 	extern	___199ff4h
 	extern	___199ff8h
-	extern	___5eefch_freeMemory_cdecl
+	extern	dRally_Memory_free
 	extern	___24e640h
 	extern	___19a27bh
 	extern	___19a280h
@@ -51,13 +51,13 @@ cpu 386
 	extern	___19a27eh
 	extern	MSX_struct_type
 	extern	___24e794h
-	extern	___5ed38h_allocMemory
+	extern	dRally_Memory_alloc
 	extern	memset_
 	extern 	memcpy_
 	extern	___24e790h
 	extern	___24e7a4h
 	extern	__MOVS
-	extern	___5f080h_resizeMemory
+	extern	dRally_Memory_resize
 	extern	MSX_struct_content_ptr
 	extern	SFX_struct_type
 	extern	___24e7a2h
@@ -219,7 +219,7 @@ __GDECL(___649a8h_cdecl)
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    near ___5eefch_freeMemory_cdecl
+		call    near dRally_Memory_free
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -229,7 +229,7 @@ __GDECL(___649a8h_cdecl)
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    near ___5eefch_freeMemory_cdecl
+		call    near dRally_Memory_free
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -888,7 +888,7 @@ ___653c8h_cdecl:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    near ___5eefch_freeMemory_cdecl
+		call    near dRally_Memory_free
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -898,7 +898,7 @@ ___653c8h_cdecl:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    near ___5eefch_freeMemory_cdecl
+		call    near dRally_Memory_free
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -1475,7 +1475,7 @@ ___778bdh:
 ;	push 	edx
 ;	push 	ecx
 ;	push 	eax
-;		call    near ___5eefch_freeMemory_cdecl
+;		call    near dRally_Memory_free
 ;	add 	esp, 4
 ;	pop 	ecx
 ;	pop 	edx
@@ -1485,7 +1485,7 @@ ___778bdh:
 ;	push 	edx
 ;	push 	ecx
 ;	push 	eax
-;		call    near ___5eefch_freeMemory_cdecl
+;		call    near dRally_Memory_free
 ;	add 	esp, 4
 ;	pop 	ecx
 ;	pop 	edx
@@ -1675,7 +1675,14 @@ ___677cch:
 		mov     edx, 1
 		add     eax, byte 2			;; eax = size + 6*samples + 2
 		mov     ebx, 2
-		call    near ___5ed38h_allocMemory
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    near dRally_Memory_alloc
+	add 	esp, 8
+	pop 	ecx
+
 		xor     edx, edx
 		mov     [___24e794h], eax
 		call    near memset_
@@ -1696,7 +1703,14 @@ ___677cch:
 		add     eax, edx			;;	eax = 29*samples+8
 		mov     edx, 1
 		lea     esi, [ecx*4+0]
-		call    near ___5ed38h_allocMemory
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    near dRally_Memory_alloc
+	add 	esp, 8
+	pop 	ecx
+
 		lea     edx, [esi+4]
 		mov     [___24e79ch], eax
 		add     eax, edx
@@ -1894,7 +1908,14 @@ ___67bbch:
 		sub     ebp, [___24e794h]
 		mov     edx, 1
 		mov     eax, ebp
-		call    near ___5ed38h_allocMemory
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    near dRally_Memory_alloc
+	add 	esp, 8
+	pop 	ecx
+
 		mov     ecx, ebp
 		mov     ebx, [___24e794h]
 		mov     [esp+0ch], eax
@@ -1916,7 +1937,7 @@ ___67bbch:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    near ___5eefch_freeMemory_cdecl
+		call    near dRally_Memory_free
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -1928,7 +1949,7 @@ ___67c37h:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    near ___5eefch_freeMemory_cdecl
+		call    near dRally_Memory_free
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -2093,7 +2114,7 @@ ___67e23h:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    near ___5eefch_freeMemory_cdecl
+		call    near dRally_Memory_free
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -2101,7 +2122,14 @@ ___67e23h:
 		mov     edx, [___24e790h]
 		mov     eax, ecx
 		sub     edx, ecx
-		call    near ___5f080h_resizeMemory
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    near dRally_Memory_resize
+	add 	esp, 8
+	pop 	ecx
+
 		add     esp, byte 3ch
 		pop     ebp
 		pop     edi
@@ -2258,7 +2286,14 @@ ___67fefh:
 		mov     ebx, edx
 		mov     edx, eax
 		mov     eax, ebx
-		call    near ___5f080h_resizeMemory
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    near dRally_Memory_resize
+	add 	esp, 8
+	pop 	ecx
+
 		xor     eax, eax
 		mov     dx, [___24e7a2h]
 		mov     al, [___24e7a4h]
@@ -2271,7 +2306,7 @@ ___67fefh:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    near ___5eefch_freeMemory_cdecl
+		call    near dRally_Memory_free
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -2333,7 +2368,7 @@ ___68102h:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    near ___5eefch_freeMemory_cdecl
+		call    near dRally_Memory_free
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -2353,7 +2388,7 @@ ___68125h:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    near ___5eefch_freeMemory_cdecl
+		call    near dRally_Memory_free
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -2365,7 +2400,7 @@ ___68140h:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    near ___5eefch_freeMemory_cdecl
+		call    near dRally_Memory_free
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -5661,7 +5696,7 @@ ___7c6c0h:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    near ___5eefch_freeMemory_cdecl
+		call    near dRally_Memory_free
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -5669,7 +5704,7 @@ ___7c6c0h:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    near ___5eefch_freeMemory_cdecl
+		call    near dRally_Memory_free
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -5699,7 +5734,14 @@ __GDECL(___7c6d4h_cdecl)
 		shl     esi, 2
 		mov     ebx, 23e00h
 		mov     [___68d3ch], esi
-		call    near ___5ed38h_allocMemory
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    near dRally_Memory_alloc
+	add 	esp, 8
+	pop 	ecx
+
 		xor     edx, edx
 		mov     [___68d40h], eax
 		call    near memset_
@@ -5772,7 +5814,14 @@ ___7c7e6h:
 		mov     eax, 3fe0h
 		mov     ebx, 0ffffe040h
 		mov     [___68d48h], ebp
-		call    near ___5ed38h_allocMemory
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    near dRally_Memory_alloc
+	add 	esp, 8
+	pop 	ecx
+
 		mov     edx, 0ffffff01h
 		mov     ebp, eax
 		mov     [esp], ebx
@@ -8947,7 +8996,14 @@ ___718c0h:
 		mov     edx, [esp+8]
 		mov     eax, esi
 		sub     edx, esi
-		call    near ___5f080h_resizeMemory
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    near dRally_Memory_resize
+	add 	esp, 8
+	pop 	ecx
+
 		cmp     dword [esp+4], byte 0
 		je      short ___718dfh
 		call    near ___5f2b4h
@@ -9084,7 +9140,7 @@ ___71a38h_cdecl:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    near ___5eefch_freeMemory_cdecl
+		call    near dRally_Memory_free
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -9858,7 +9914,14 @@ ___75befh:
 		mov     edx, [esp]
 		mov     eax, ebp
 		sub     edx, ebp
-		call    near ___5f080h_resizeMemory
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    near dRally_Memory_resize
+	add 	esp, 8
+	pop 	ecx
+
 		mov     eax, [esp+34h]
 		test    eax, eax
 		je      short ___75c27h

@@ -516,9 +516,9 @@ void dRally_Audio_play(void){
 
 		___199ff4h = 0;
 		___68d01h_cdecl(___68d07h);
-		___5eefch_freeMemory_cdecl(___199ff8h);
+		dRally_Memory_free(___199ff8h);
 		___199ff8h = 0;
-		___5eefch_freeMemory_cdecl(___24e640h);
+		dRally_Memory_free(___24e640h);
 		___24e640h = 0;
 	}
 

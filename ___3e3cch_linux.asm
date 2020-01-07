@@ -15,7 +15,7 @@ cpu 386
 	extern	___182bd0h
 	extern	printf_
 	extern	___5a101h
-	extern	___5ec04h_freeMemPool
+	extern	dRally_System_clean
 	extern	exit_
 
 section .text
@@ -50,7 +50,15 @@ ___3e449h:
 		call    near printf_
 		add     esp, byte 4
 		call    near ___5a101h
-		call    near ___5ec04h_freeMemPool
+
+	push 	eax
+	push 	ecx
+	push 	edx
+		call    dRally_System_clean
+	pop 	edx
+	pop 	ecx
+	pop 	eax
+	
 		mov     eax, 70h
 		call    near exit_
 ___3e46ah:

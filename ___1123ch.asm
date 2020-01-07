@@ -7,7 +7,7 @@ cpu 386
 	extern 	___24ec0h
 	extern 	___2fc50h
 	extern 	___64a28h_cdecl
-	extern 	___5ec04h_freeMemPool
+	extern 	dRally_System_clean
 	extern 	___5a101h
 	extern 	VGA3_SETMODE
 	extern 	___199fbch
@@ -46,7 +46,15 @@ __GDECL(___1123ch)
 	pop 	edx
 	pop 	ecx
 	pop 	eax
-		call    near ___5ec04h_freeMemPool
+
+	push 	eax
+	push 	ecx
+	push 	edx
+		call    dRally_System_clean
+	pop 	edx
+	pop 	ecx
+	pop 	eax
+	
 		call    near ___5a101h
 		call    near VGA3_SETMODE
 		mov     eax, [___199fbch]

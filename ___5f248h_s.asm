@@ -1,7 +1,7 @@
 cpu 386
 %include "macros.inc"
 
-	extern	___5ed38h_allocMemory
+	extern	dRally_Memory_alloc
 	extern	___24cc7ch
 	extern	___24cc84h
 	extern	___24cc80h
@@ -12,7 +12,14 @@ __GDECL(___5f248h)
 		push    ebx
 		mov     ebx, eax
 		and     edx, 0ffh
-		call    near ___5ed38h_allocMemory
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    near dRally_Memory_alloc
+	add 	esp, 8
+	pop 	ecx
+
 		mov     [___24cc7ch], eax
 		mov     [___24cc84h], eax
 		lea     edx, [eax+ebx*1]

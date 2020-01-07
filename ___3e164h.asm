@@ -9,7 +9,7 @@ cpu 386
 	extern	___182990h
 	extern	___1829e0h
 	extern	___5a101h
-	extern	___5ec04h_freeMemPool
+	extern	dRally_System_clean
 	extern	exit_
 
 section .text
@@ -33,7 +33,15 @@ __GDECL(___3e164h)
 		call    near printf_
 		add     esp, byte 4
 		call    near ___5a101h
-		call    near ___5ec04h_freeMemPool
+
+	push 	eax
+	push 	ecx
+	push 	edx
+		call    dRally_System_clean
+	pop 	edx
+	pop 	ecx
+	pop 	eax
+	
 		mov     eax, 70h
 		call    near exit_
 ___3e1c2h:

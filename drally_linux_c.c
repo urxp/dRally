@@ -11,21 +11,12 @@ typedef struct textbit {
 
 extern unsigned int INT8_FRAME_COUNTER;
 extern unsigned int ___60458h;
-extern unsigned char ___24cc88h[];
 extern textbit B8000[];
 extern unsigned char VGA13_ACTIVESCREEN[];
 extern unsigned char VESA101_ACTIVESCREEN[];
 
 
 extern SDL_AudioDeviceID audio_dev;
-
-#define DOS_MEM_POOL 	256
-
-
-struct {
-	void * 			ptr;
-	unsigned int 	size;
-} DOS_MEM[DOS_MEM_POOL] = {0};
 
 unsigned int Ticks;
 unsigned int VRetraceTicks = 0;
@@ -53,41 +44,7 @@ struct {
 	SDL_Window * Window;
 } GX = {0};
 
-int __DPMI_ALLOCATE_DOS_MEMORY_BLOCK(unsigned int size){
-	
-	printf("[dRally.DPMI] Trying to simulate allocatation of %d bytes of dos memory.\n", size);
 
-	unsigned int idx = 0;
-
-	while((DOS_MEM[idx].ptr) && ((++idx) < DOS_MEM_POOL));
-
-	if(idx == DOS_MEM_POOL) return 0;
-
-	DOS_MEM[idx].ptr = malloc((size + 0xf)&0xfffffff0);
-	if(DOS_MEM[idx].ptr == 0) return 0;
-	else DOS_MEM[idx].size = size;
-
-	// __EAX
-	*(unsigned int *)___24cc88h = ((unsigned int)DOS_MEM[idx].ptr + 0xf) >> 4;
-	// __EDX
-	*((unsigned int *)___24cc88h + 3) = idx;
-
-	return 1;
-}
-
-int __DPMI_FREE_DOS_MEMORY_BLOCK(unsigned int idx){
-
-	if(idx < DOS_MEM_POOL){
-
-		free(DOS_MEM[idx].ptr);
-		DOS_MEM[idx].ptr = (void *)0;
-		DOS_MEM[idx].size = 0;
-
-		return 1;
-	}
-
-	return 0;
-}
 
 int skip;
 unsigned int __GET_FRAME_COUNTER(void){
