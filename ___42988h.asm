@@ -21,13 +21,18 @@ cpu 386
 
 section .text
 
-__GDECL(bpa_read)
+__GDECL(bpa_read_cdecl)
 		push    88h
 		call    near __CHK
-		push    ecx
+		push    ebx
 		push    esi
 		push    edi
 		push    ebp
+
+	mov 	ebx, [esp+1ch]
+	mov 	edx, [esp+18h]
+	mov 	eax, [esp+14h]
+
 		sub     esp, byte 74h
 		mov     [esp+68h], eax
 		mov     [esp+6ch], edx
@@ -162,5 +167,5 @@ ___42b93h:
 		pop     ebp
 		pop     edi
 		pop     esi
-		pop     ecx
+		pop     ebx
 		retn    

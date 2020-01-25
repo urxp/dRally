@@ -23,7 +23,7 @@ cpu 386
 	extern	___618c4h
 	extern	___243cach
 	extern	___40164h
-	extern	___24e4d0h
+	extern	CONNECTION_TYPE
 
 section .text
 
@@ -260,19 +260,19 @@ __GDECL(___44304h)
 ___44653h:
 		xor     ebp, ebp
 		mov     [___243cd0h], ebp
-		cmp     dword [___24e4d0h], byte 2
+		cmp     dword [CONNECTION_TYPE], byte 2
 		jne     short ___4466fh
 		mov     eax, [___243894h]
 		inc     eax
 		mov     [___243878h], eax
 ___4466fh:
-		cmp     dword [___24e4d0h], byte 1
+		cmp     dword [CONNECTION_TYPE], byte 1
 		jne     short ___44685h
 		mov     eax, [___243894h]
 		add     eax, byte 2
 		mov     [___243878h], eax
 ___44685h:
-		mov     ebx, [___24e4d0h]
+		mov     ebx, [CONNECTION_TYPE]
 		cmp     ebx, byte 3
 		je      short ___44695h
 		cmp     ebx, byte 4

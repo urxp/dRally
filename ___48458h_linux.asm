@@ -236,7 +236,7 @@ cpu 386
 	extern	___183c80h
 	extern	___1a54d0h
 	extern	___1831f4h
-	extern	bpa_read
+	extern	bpa_read_cdecl
 	extern	bpk_decode2
 	extern	___183c8ch
 	extern	___183c98h
@@ -1029,7 +1029,15 @@ ___48bc7h:
 		mov     ebx, ___183c80h
 		mov     edx, ___1a54d0h
 		mov     eax, ___1831f4h
-		call    near bpa_read
+	
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    bpa_read_cdecl					;;
+	add 	esp, 0ch
+	pop 	ecx
+
 		push    ___1a54d0h
 		;push    0a0000h
 	push 	VGA13_ACTIVESCREEN
@@ -1037,7 +1045,15 @@ ___48bc7h:
 		mov     ebx, ___183c8ch
 		mov     edx, ___1a4ec0h
 		mov     eax, ___1831f4h
-		call    near bpa_read
+	
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    bpa_read_cdecl					;;
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     edx, ___183c98h
 		mov     eax, VGA13_ACTIVESCREEN - 0a0000h + 0a0a3ch
 		call    near ___483d4h
@@ -1380,7 +1396,15 @@ ___491b4h:
 		mov     ebx, ___183e6ch
 		mov     edx, ___1a54d0h
 		mov     eax, ___1831f4h
-		call    near bpa_read
+	
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    bpa_read_cdecl					;;
+	add 	esp, 0ch
+	pop 	ecx
+
 		push    ___1a54d0h
 		;push    0a0000h
 	push 	VGA13_ACTIVESCREEN
@@ -1389,7 +1413,15 @@ ___491b4h:
 		mov     edx, ___1a4ec0h
 		mov     eax, ___1831f4h
 		xor     esi, esi
-		call    near bpa_read
+	
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    bpa_read_cdecl					;;
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     [___196e70h], esi
 		call    near ___45ad4h
 		xor     edx, edx

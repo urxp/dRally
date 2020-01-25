@@ -30,7 +30,7 @@ cpu 386
 	extern 	___17510h
 	extern 	atoi_
 	extern 	___180b60h
-	extern 	___24e4d0h
+	extern 	CONNECTION_TYPE
 	extern 	___198a0h
 	extern 	___1bc20h
 	extern 	___185ae4h
@@ -252,7 +252,7 @@ ___1c605h:
 		pop     ebx
 		retn    
 ___1c632h:
-		cmp     dword [___24e4d0h], byte 2
+		cmp     dword [CONNECTION_TYPE], byte 2
 		jne     short ___1c660h
 		call    near ___198a0h
 		test    eax, eax

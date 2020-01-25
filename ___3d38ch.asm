@@ -8,7 +8,7 @@ cpu 386
 	extern	___1a54d0h
 	extern	___3d154h
 	extern	___180144h
-	extern	bpa_read
+	extern	bpa_read_cdecl
 	extern	___1a112ch__VESA101_ACTIVESCREEN_PTR
 	extern	bpk_decode2
 	extern	___12cb8h__VESA101_PRESENTSCREEN
@@ -53,7 +53,15 @@ ___3d3a4h:
 		mov     edx, ___1a54d0h
 		call    near ___3d154h
 		mov     eax, ___180144h
-		call    near bpa_read
+	
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    bpa_read_cdecl					;;
+	add 	esp, 0ch
+	pop 	ecx
+
 		push    ___1a54d0h
 		mov     esi, [___1a112ch__VESA101_ACTIVESCREEN_PTR]
 		xor     edi, edi
@@ -79,7 +87,15 @@ ___3d420h:
 		mov     edx, ___1a54d0h
 		call    near ___3d154h
 		mov     eax, ___180144h
-		call    near bpa_read
+	
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    bpa_read_cdecl					;;
+	add 	esp, 0ch
+	pop 	ecx
+
 		push    ___1a54d0h
 		mov     edx, [___1a112ch__VESA101_ACTIVESCREEN_PTR]
 		push    edx
@@ -105,7 +121,15 @@ ___3d480h:
 		mov     edx, ___1a54d0h
 		call    near ___3d154h
 		mov     eax, ___180144h
-		call    near bpa_read
+	
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    bpa_read_cdecl					;;
+	add 	esp, 0ch
+	pop 	ecx
+
 		push    ___1a54d0h
 		mov     edi, [___1a112ch__VESA101_ACTIVESCREEN_PTR]
 		xor     ebp, ebp

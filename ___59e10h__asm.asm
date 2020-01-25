@@ -10,116 +10,116 @@ cpu 386
 
 section .text
 
-__GDECL(___5a0c2h)
-		cmp     byte [___5a0c1h], 1
-		je      short ___5a100h   
-		mov     byte [___5a0c1h], 1
-		mov 	edx, ___5a0bbh
-		mov 	al, 1
-		call 	GET_IRQ_ISR
-		push    cs
-		push 	IRQ1_KeyboardISR
-		mov 	edx, esp
-		mov 	al, 1
-		call 	SET_IRQ_ISR
-		add 	esp, 8   
-___5a100h:
-		retn    
+;__GDECL(___5a0c2h)
+;		cmp     byte [___5a0c1h], 1
+;		je      short ___5a100h   
+;		mov     byte [___5a0c1h], 1
+;		mov 	edx, ___5a0bbh
+;		mov 	al, 1
+;		call 	GET_IRQ_ISR
+;		push    cs
+;		push 	IRQ1_KeyboardISR
+;		mov 	edx, esp
+;		mov 	al, 1
+;		call 	SET_IRQ_ISR
+;		add 	esp, 8   
+;___5a100h:
+;		retn    
 __GDECL(___5a101h)
-		cmp     byte [___5a0c1h], 0
-		je      short ___5a12eh
-		mov     byte [___5a0c1h], 0
-		mov 	edx, ___5a0bbh
-		mov 	al, 1
-		call 	SET_IRQ_ISR   
-___5a12eh:
+;		cmp     byte [___5a0c1h], 0
+;		je      short ___5a12eh
+;		mov     byte [___5a0c1h], 0
+;		mov 	edx, ___5a0bbh
+;		mov 	al, 1
+;		call 	SET_IRQ_ISR   
+;___5a12eh:
 		retn    
-
-
-
-
-IRQ1_KeyboardISR:
-		push    eax
-		push    ebx
-		push    ecx
-		push    ds
-		call 	__GETDS
-		in      al, 60h
-		mov     ah, al
-		cmp     ah, 0e0h
-		jae     near ___5a21ch
-		movzx   ebx, ah
-		and     bl, 7fh
-		add     bl, [___5a0bah]
-		mov     byte [___5a0bah], 0
-		rol     ah, 1
-		jb      near ___5a209h
-		mov     ah, 1
-		sub     ah, [ebx+___59e10h]
-		mov     byte [ebx+___59e10h], 1
-		mov     [LAST_KEY], bl
-		mov     al, [ebx+___59f12h]
-		mov     [LAST_CHAR], al
-		mov     al, [___59e3ah]
-		or      al, [___59e46h]
-		cmp     al, 0
-		je      short ___5a1c1h
-		nop     
-		nop     
-		nop     
-		nop     
-		mov     al, [ebx+___59fe6h]
-		mov     [LAST_CHAR], al
-___5a1c1h:
-		mov     al, [___59e2dh]
-		add     al, [___59eadh]
-		cmp     al, 1
-		jl      short ___5a204h
-		nop     
-		nop     
-		nop     
-		nop     
-		mov     al, [___59e48h]
-		add     al, [___59ec8h]
-		cmp     al, 1
-		jl      short ___5a204h
-		nop     
-		nop     
-		nop     
-		nop     
-		mov     al, [___59ee3h]
-		add     al, [___59e63h]
-		cmp     al, 1
-		jl      short ___5a204h
-		nop     
-		nop     
-		nop     
-		nop     
-		mov     al, 20h
-		out     20h, al
-		jmp     near dword [___2432c8h]
-___5a204h:
-		jmp     short ___5a223h
-		nop     
-		nop     
-		nop     
-___5a209h:
-		mov     byte [LAST_KEY], 0
-		mov     byte [ebx+___59e10h], 0
-		jmp     short ___5a223h
-		nop     
-		nop     
-		nop     
-___5a21ch:
-		mov     byte [___5a0bah], 80h
-___5a223h:
-		mov     al, 20h
-		out     20h, al
-		pop     ds
-		pop     ecx
-		pop     ebx
-		pop     eax
-		iret    
+;
+;
+;
+;
+;IRQ1_KeyboardISR:
+;		push    eax
+;		push    ebx
+;		push    ecx
+;		push    ds
+;		call 	__GETDS
+;		in      al, 60h
+;		mov     ah, al
+;		cmp     ah, 0e0h
+;		jae     near ___5a21ch
+;		movzx   ebx, ah
+;		and     bl, 7fh
+;		add     bl, [___5a0bah]
+;		mov     byte [___5a0bah], 0
+;		rol     ah, 1
+;		jb      near ___5a209h
+;		mov     ah, 1
+;		sub     ah, [ebx+___59e10h]
+;		mov     byte [ebx+___59e10h], 1
+;		mov     [LAST_KEY], bl
+;		mov     al, [ebx+___59f12h]
+;		mov     [LAST_CHAR], al
+;		mov     al, [___59e3ah]
+;		or      al, [___59e46h]
+;		cmp     al, 0
+;		je      short ___5a1c1h
+;		nop     
+;		nop     
+;		nop     
+;		nop     
+;		mov     al, [ebx+___59fe6h]
+;		mov     [LAST_CHAR], al
+;___5a1c1h:
+;		mov     al, [___59e2dh]
+;		add     al, [___59eadh]
+;		cmp     al, 1
+;		jl      short ___5a204h
+;		nop     
+;		nop     
+;		nop     
+;		nop     
+;		mov     al, [___59e48h]
+;		add     al, [___59ec8h]
+;		cmp     al, 1
+;		jl      short ___5a204h
+;		nop     
+;		nop     
+;		nop     
+;		nop     
+;		mov     al, [___59ee3h]
+;		add     al, [___59e63h]
+;		cmp     al, 1
+;		jl      short ___5a204h
+;		nop     
+;		nop     
+;		nop     
+;		nop     
+;		mov     al, 20h
+;		out     20h, al
+;		jmp     near dword [___2432c8h]
+;___5a204h:
+;		jmp     short ___5a223h
+;		nop     
+;		nop     
+;		nop     
+;___5a209h:
+;		mov     byte [LAST_KEY], 0
+;		mov     byte [ebx+___59e10h], 0
+;		jmp     short ___5a223h
+;		nop     
+;		nop     
+;		nop     
+;___5a21ch:
+;		mov     byte [___5a0bah], 80h
+;___5a223h:
+;		mov     al, 20h
+;		out     20h, al
+;		pop     ds
+;		pop     ecx
+;		pop     ebx
+;		pop     eax
+;		iret    
 
 
 

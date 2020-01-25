@@ -41,7 +41,7 @@ cpu 386
 	extern	___196a78h
 	extern	___13710h
 	extern	___19bd60h
-	extern	___24e4d0h
+	extern	CONNECTION_TYPE
 	extern	___135fch
 	extern	___23230h
 	extern	___12cb8h__VESA101_PRESENTSCREEN
@@ -172,7 +172,7 @@ ___1e813h:
 		mov     [___196a84h], eax
 		mov     [___196a7ch], eax
 		mov     [___19bd60h], eax
-		mov     [___24e4d0h], eax
+		mov     [CONNECTION_TYPE], eax
 		call    near ___135fch
 		call    near ___23230h
 		call    near ___12cb8h__VESA101_PRESENTSCREEN

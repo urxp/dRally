@@ -81,11 +81,11 @@ __GDECL(WAIT_5)
 	popad
 	retn
 
-__GDECL(drally_main)
-        mov     eax, [esp+4]
-        mov     edx, [esp+8]
-        call    main_
-        retn
+;__GDECL(dRally_main)
+;        mov     eax, [esp+4]
+;        mov     edx, [esp+8]
+;        call    main_
+;        retn
 
 __GDECL(exit_)
 	push 	eax
@@ -879,11 +879,14 @@ __GDECL(VESA101_SETMODE)
 	retn
 
 __GDECL(VGA3_PRESENTSCREEN)
-	pushad
+	mov 	eax, [esp+4]
+	push 	edx
+	push 	ecx
 	push 	eax
 	call 	__VGA3_PRESENTSCREEN
 	add 	esp, 4
-	popad
+	pop 	ecx
+	pop 	edx
 	retn
 
 
@@ -1066,18 +1069,18 @@ ___607d7h:
 	;	mov     al, 20h
 	;	out     20h, al
 		inc     dword [INT8_FRAME_COUNTER]
-		inc     dword [___6043ah]
-		cmp     byte [___6043eh], 1
-		je      ___60833h
-		mov     byte [___6043eh], 1
+		;inc     dword [___6043ah]
+		;cmp     byte [___6043eh], 1
+		;je      ___60833h
+		;mov     byte [___6043eh], 1
 ;		sti     
 		cmp     byte [___60446h], 1
 		jne     ___60807h
 		call    dword [___6044ch]
 ___60807h:
-		cmp     byte [___60448h], 1
-		jne     ___60816h
-		call    dword [___60454h]
+		;cmp     byte [___60448h], 1
+		;jne     ___60816h
+		;call    dword [___60454h]
 ___60816h:
 ;		mov     ax, [___60434h]
 ;		add     [___6043fh], ax
@@ -1085,7 +1088,7 @@ ___60816h:
 ;		pushfd  
 ;		call    far dword far [___60420h]
 ;___6082ch:
-		mov     byte [___6043eh], 0
+		;mov     byte [___6043eh], 0
 ___60833h:
 
 		popad

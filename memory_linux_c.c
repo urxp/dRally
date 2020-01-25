@@ -394,21 +394,22 @@ void dRally_Memory_clean(void){
     AllocEntry *    ptr;
 
 
-    ptr = ___24ccb0h.linear;    
+    if((ptr = ___24ccb0h.linear) != (void *)0){    
 
-    n = 0;
-    while(n < (MEM_REGISTRY_SIZE/sizeof(AllocEntry))){
+        n = 0;
+        while(n < (MEM_REGISTRY_SIZE/sizeof(AllocEntry))){
 
-        if(ptr[n].type != NO_MEMORY) dRally_Memory_free(ptr[n].linear);
-        n++;
+            if(ptr[n].type != NO_MEMORY) dRally_Memory_free(ptr[n].linear);
+            n++;
+        }
+
+        if(___24ccb0h.lock){
+
+            DPMI_UNLOCK_LINEAR_REGION(___24ccb0h.linear, ___24ccb0h.nbytes);
+        }
+
+        if(!DPMI_FREE_MEMORY_BLOCK(___24ccb0h.handle)) ___58b20h(5);
+
+        memset(&___24ccb0h, 0, sizeof(AllocBase));
     }
-
-    if(___24ccb0h.lock){
-
-        DPMI_UNLOCK_LINEAR_REGION(___24ccb0h.linear, ___24ccb0h.nbytes);
-    }
-
-    if(!DPMI_FREE_MEMORY_BLOCK(___24ccb0h.handle)) ___58b20h(5);
-
-    memset(&___24ccb0h, 0, sizeof(AllocBase));
 }

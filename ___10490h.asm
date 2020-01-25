@@ -6,7 +6,7 @@ cpu 386
 	extern 	entrysize_bpa
 	extern 	dRally_Memory_alloc
 	extern 	___180124h
-	extern 	bpa_read
+	extern 	bpa_read_cdecl
 
 section .text
 
@@ -19,6 +19,8 @@ __GDECL(load_musics_bpa)
 		push    esi
 		push    edi
 		push    ebp
+	mov 	edx, [esp+1ch]
+	mov 	eax, [esp+18h]
 		sub     esp, byte 0ch
 		mov     ebx, eax
 		mov     [esp+4], dl
@@ -41,7 +43,15 @@ __GDECL(load_musics_bpa)
 		mov     ebp, eax
 		mov     edx, eax
 		mov     eax, ___180124h		;; "MUSICS.BPA"
-		call    near bpa_read
+	
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    bpa_read_cdecl					;;
+	add 	esp, 0ch
+	pop 	ecx
+
 		xor     edx, edx
 		mov     [esp], edx
 		test    ecx, ecx

@@ -13,7 +13,7 @@ cpu 386
 	extern	___1a54d0h
 	extern	___1a0f94h
 	extern	___180144h
-	extern	bpa_read
+	extern	bpa_read_cdecl
 	extern	bpk_decode2
 	extern	___1822fch
 	extern	___182308h
@@ -56,7 +56,15 @@ __GDECL(___2faf0h)
 		call    near ___3f71ch__allocateMemory
 		mov     [___1a0f94h], eax
 		mov     eax, ___180144h
-		call    near bpa_read
+	
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    bpa_read_cdecl					;;
+	add 	esp, 0ch
+	pop 	ecx
+
 		push    ___1a54d0h
 		mov     edx, [___1a0f90h]
 		push    edx
@@ -64,7 +72,15 @@ __GDECL(___2faf0h)
 		mov     ebx, ___1822fch
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near bpa_read
+	
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    bpa_read_cdecl					;;
+	add 	esp, 0ch
+	pop 	ecx
+
 		push    ___1a54d0h
 		mov     ebx, [___1a0f88h]
 		push    ebx
@@ -72,7 +88,15 @@ __GDECL(___2faf0h)
 		mov     ebx, ___182308h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near bpa_read
+	
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    bpa_read_cdecl					;;
+	add 	esp, 0ch
+	pop 	ecx
+
 		push    ___1a54d0h
 		mov     ecx, [___1a0f84h]
 		push    ecx
@@ -80,7 +104,15 @@ __GDECL(___2faf0h)
 		mov     ebx, ___182314h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near bpa_read
+	
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    bpa_read_cdecl					;;
+	add 	esp, 0ch
+	pop 	ecx
+
 		push    ___1a54d0h
 		mov     esi, [___1a0f8ch]
 		push    esi
@@ -88,7 +120,15 @@ __GDECL(___2faf0h)
 		mov     ebx, ___182320h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near bpa_read
+	
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    bpa_read_cdecl					;;
+	add 	esp, 0ch
+	pop 	ecx
+
 		push    ___1a54d0h
 		mov     edi, [___1a0f98h]
 		push    edi
@@ -96,7 +136,15 @@ __GDECL(___2faf0h)
 		mov     ebx, ___182330h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near bpa_read
+	
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    bpa_read_cdecl					;;
+	add 	esp, 0ch
+	pop 	ecx
+
 		push    ___1a54d0h
 		mov     ebp, [___1a0f94h]
 		push    ebp

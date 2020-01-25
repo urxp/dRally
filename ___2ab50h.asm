@@ -39,7 +39,7 @@ cpu 386
 	extern	___1e4f8h
 	extern	___1e62ch
 	extern	___182194h
-	extern	___24e4d0h
+	extern	CONNECTION_TYPE
 	extern	___199fc8h
 	extern	___1821c0h
     ;extern 	VESA101_PRESENTSCREEN
@@ -402,7 +402,7 @@ ___2b223h:
 		call    near ___233c0h
 		call    near ___12cb8h__VESA101_PRESENTSCREEN
 ___2b236h:
-		mov     edx, [___24e4d0h]
+		mov     edx, [CONNECTION_TYPE]
 		cmp     edx, byte 3
 		je      short ___2b24ah
 		cmp     edx, byte 4

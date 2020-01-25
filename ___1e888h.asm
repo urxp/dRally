@@ -36,7 +36,7 @@ cpu 386
 	extern	___12cb8h__VESA101_PRESENTSCREEN
 	extern	___1a1ef4h
 	extern	dRally_Audio_setPosition
-	extern	___24e4d0h
+	extern	CONNECTION_TYPE
 	extern	___185a24h
 	extern	___196a74h
 	extern	___5994ch
@@ -408,11 +408,11 @@ ___1ec38h:
 		jne     near ___1eb75h
 		cmp     dword [___196a7ch], byte 1
 		jne     short ___1ed10h
-		cmp     dword [___24e4d0h], byte 2
+		cmp     dword [CONNECTION_TYPE], byte 2
 		je      short ___1ed10h
 		xor     ecx, ecx
 		mov     [___19bd60h], ecx
-		mov     [___24e4d0h], ecx
+		mov     [CONNECTION_TYPE], ecx
 ___1ed10h:
 		mov     ebx, 1
 		xor     edi, edi
@@ -560,7 +560,7 @@ ___1eef6h:
 		call    near ___2415ch
 		jmp     near ___1f075h
 ___1efcch:
-		cmp     dword [___24e4d0h], byte 2
+		cmp     dword [CONNECTION_TYPE], byte 2
 		jne     short ___1efdfh
 		call    near ___1b140h
 		jmp     near ___1f075h

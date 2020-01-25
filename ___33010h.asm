@@ -28,7 +28,7 @@ cpu 386
 	extern	___1823f8h
 	extern	___1a54d0h
 	extern	___180144h
-	extern	bpa_read
+	extern	bpa_read_cdecl
 	extern	___1a1114h
 	extern	bpk_decode2
 	extern	___19bd64h
@@ -147,7 +147,7 @@ cpu 386
 	extern	___24ec0h
 	extern	___2fc50h
 	extern	___1a103ch
-	extern	___24e4d0h
+	extern	CONNECTION_TYPE
 	extern	___60719h
 	extern	___56774h_race
 	extern	___10754h
@@ -414,7 +414,15 @@ ___331ech:
 		mov     edx, ___1a54d0h
 		call 	__STRCAT
 		mov     eax, ___180144h
-		call    near bpa_read
+	
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    bpa_read_cdecl					;;
+	add 	esp, 0ch
+	pop 	ecx
+
 		push    ___1a54d0h
 		mov     edx, [___1a1114h]
 		push    edx
@@ -484,7 +492,15 @@ ___333a6h:
 		mov     edx, ___1a54d0h
 		call 	__STRCAT
 		mov     eax, ___180144h
-		call    near bpa_read
+	
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    bpa_read_cdecl					;;
+	add 	esp, 0ch
+	pop 	ecx
+
 		push    ___1a54d0h
 		mov     esi, [___1a1114h]
 		push    esi
@@ -534,7 +550,15 @@ ___3349dh:
 		mov     edx, ___1a54d0h
 		call 	__STRCAT
 		mov     eax, ___180144h
-		call    near bpa_read
+	
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    bpa_read_cdecl					;;
+	add 	esp, 0ch
+	pop 	ecx
+
 		push    ___1a54d0h
 		mov     ebx, [___1a1114h]
 		push    ebx
@@ -585,7 +609,15 @@ ___33595h:
 		mov     edx, ___1a54d0h
 		call 	__STRCAT
 		mov     eax, ___180144h
-		call    near bpa_read
+	
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    bpa_read_cdecl					;;
+	add 	esp, 0ch
+	pop 	ecx
+
 		push    ___1a54d0h
 		mov     eax, [___1a1114h]
 		push    eax
@@ -631,7 +663,15 @@ ___3368ch:
 		movsd   
 		movsd   
 		movsb   
-		call    near bpa_read
+	
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    bpa_read_cdecl					;;
+	add 	esp, 0ch
+	pop 	ecx
+
 		push    ___1a54d0h
 		mov     ecx, [___1a1114h]
 		push    ecx
@@ -1514,7 +1554,7 @@ ___3457ch:
 ___345a3h:
 		cmp     dword [___19bd60h], byte 0
 		je      short ___345bah
-		cmp     dword [___24e4d0h], byte 2
+		cmp     dword [CONNECTION_TYPE], byte 2
 		jne     short ___345bah
 		call    near ___60719h
 ___345bah:
@@ -1523,7 +1563,7 @@ ___345bah:
 		call    near ___56774h_race
 		cmp     dword [___19bd60h], byte 0
 		je      short ___345e7h
-		cmp     dword [___24e4d0h], byte 2
+		cmp     dword [CONNECTION_TYPE], byte 2
 		jne     short ___345e7h
 		mov     eax, ___10754h
 		call    near ___60705h

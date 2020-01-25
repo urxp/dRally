@@ -61,7 +61,7 @@ cpu 386
 	extern 	___1123ch
 	extern 	___19bd60h
 	extern 	___1a1098h
-	extern 	___24e4d0h
+	extern 	CONNECTION_TYPE
 	extern 	___196adch
 	extern 	___10754h
 	extern 	___60705h
@@ -975,7 +975,7 @@ ___1bb42h:
 ___1bbd1h:
 		mov     dword [___19bd60h], 1
 		mov     eax, [___1a1098h]
-		mov     edx, [___24e4d0h]
+		mov     edx, [CONNECTION_TYPE]
 		mov     [___196adch], eax
 		cmp     edx, byte 2
 		jne     short ___1bbfah

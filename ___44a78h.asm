@@ -5,7 +5,7 @@ cpu 386
 	extern	___243880h
 	extern	___243cf4h
 	extern	___243c60h
-	extern	___24e4d0h
+	extern	CONNECTION_TYPE
 	extern	___24331ch
 	extern	___243ce8h
 	extern	___1e6eech
@@ -46,7 +46,7 @@ __GDECL(___44a78h)
 		mov     edi, 0fffh
 ___44aa9h:
 		mov     eax, [___243c60h]
-		mov     ebx, [___24e4d0h]
+		mov     ebx, [CONNECTION_TYPE]
 		mov     [___24331ch], eax
 		cmp     ebx, byte 1
 		je      short ___44ac8h

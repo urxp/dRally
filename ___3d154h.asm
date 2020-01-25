@@ -3,7 +3,7 @@ cpu 386
 
 	extern	__CHK
 	extern	___180144h
-	extern	bpa_read
+	extern	bpa_read_cdecl
 	extern	___19eb44h
 	extern	___19eb48h
 	extern	___19eb4ch
@@ -25,7 +25,15 @@ __GDECL(___3d154h)
 		xor     esi, esi
 		mov     eax, ___180144h
 		xor     ecx, ecx
-		call    near bpa_read
+	
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    bpa_read_cdecl					;;
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     ebp, 640000h
 ___3d181h:
 		lea     edi, [esi+esi*2]

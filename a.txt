@@ -1,4 +1,0 @@
-cpu 386
-%include "macros.inc"
-
-section .text

@@ -4,7 +4,7 @@ cpu 386
 	extern 	__CHK
 	extern 	___180680h
 	extern 	___180144h
-	extern 	bpa_read
+	extern 	bpa_read_cdecl
 	extern 	___19eb50h
 	extern 	___19eb54h
 	extern 	___19eb58h
@@ -27,7 +27,15 @@ __GDECL(___12940h)
 		mov     ebx, ___180680h		;; "menu.pal"
 		mov     edx, esp
 		mov     eax, ___180144h		;; "MENU.BPA"
-		call    near bpa_read
+	
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    bpa_read_cdecl					;;
+	add 	esp, 0ch
+	pop 	ecx
+
 		xor     edx, edx
 		xor     ecx, ecx
 		mov     [esp+300h], edx

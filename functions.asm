@@ -140,5 +140,7 @@ ___1112eh:
 
 
 section .bss
+__GDECL(B8000)
+	resb 	8000h
 __GDECL(VGA13_ACTIVESCREEN)
 	resb 	0fa00h

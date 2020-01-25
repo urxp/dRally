@@ -11,7 +11,7 @@ cpu 386
 	extern	___13710h
 	extern	___3ab5ch
 	extern	___1a1ef8h
-	extern	___24e4d0h
+	extern	CONNECTION_TYPE
 	extern	___199fach
 	extern	___1a020ch
 	extern	___2415ch
@@ -90,7 +90,7 @@ ___1d2fdh:
 		shl     eax, 2
 		mov     edi, 4b00h
 		sub     eax, edx
-		mov     [___24e4d0h], esi
+		mov     [CONNECTION_TYPE], esi
 		mov     [___199fach], edi
 		mov     ebx, [eax*4+___1a020ch]
 		call    near ___2415ch

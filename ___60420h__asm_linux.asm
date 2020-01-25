@@ -4,8 +4,8 @@ cpu 386
 	extern	GET_IRQ_ISR
 	extern	SET_IRQ_ISR
 	extern	ENABLE_IRQ
-	extern	___5fff2h_cdecl
-	extern	___6000fh_cdecl
+	extern	dRally_System_addExitCallback
+	extern	dRally_System_removeExitCallback
 	extern	___5fbc0h
 	extern 	VRETRACE_WAIT_FOR_START
 	extern 	VRETRACE_WAIT_IF_INACTIVE
@@ -17,45 +17,50 @@ cpu 386
 section .text
 
 __GDECL(___60466h)
-		pushad  
-		push    eax
-		push 	edx
-		call    ___60555h
-		mov     al, 0
-		mov 	edx, ___60420h
-		call    GET_IRQ_ISR
+	mov 	edx, [esp+8]
+	mov 	eax, [esp+4]
+		;pushad  
+		;push    eax
+		;push 	edx
+		;call    ___60555h
+		;mov     al, 0
+		;mov 	edx, ___60420h
+		;call    GET_IRQ_ISR
 		
-		mov     al, 0
+		;mov     al, 0
 
-	push 	cs
-	push 	IRQ0_TimerISR
-	mov 	edx, esp
-		call    SET_IRQ_ISR
-	add 	esp, 8
+	;push 	cs
+	;push 	IRQ0_TimerISR
+	;mov 	edx, esp
+		;call    SET_IRQ_ISR
+	;add 	esp, 8
 
-		pop 	edx
-		pop     eax
+		;pop 	edx
+		;pop     eax
 		call    ___605deh
-		mov     al, 0
-		call    ENABLE_IRQ
+		;mov     al, 0
+		;call    ENABLE_IRQ
 		mov     eax, ___6052fh
 	push 	eax
-		call    ___5fff2h_cdecl
+		call    dRally_System_addExitCallback
 	add 	esp, 4
-		popad   
+		;popad   
 		retn    
+
+
+
 ___6052fh:
 		pushad  
 		mov     eax, ___6052fh
 	push 	eax
-		call    ___6000fh_cdecl
+		call    dRally_System_removeExitCallback
 	add 	esp, 4
 		call    ___60719h
-		call    ___6073fh
-		call    ___60555h
+		;call    ___6073fh
+		;call    ___60555h
 
-		xor 	eax, eax
-		call 	TIMER_SET_INTERVAL
+		;xor 	eax, eax
+		;call 	TIMER_SET_INTERVAL
 
 		;mov     al, 36h
 		;out     43h, al
@@ -64,19 +69,24 @@ ___6052fh:
 		;out     40h, al
 		popad   
 		retn    
-___60555h:
-		mov     edx, [___60420h]
-		mov     ecx, [___60424h]
-		mov     eax, edx
-		or      eax, ecx
-		je      ___60582h
-		mov     al, 0
-	mov 	edx, ___60420h
-		call    SET_IRQ_ISR
-		mov     dword [___60420h], 0
-		mov     dword [___60424h], 0
-___60582h:
-		retn    
+
+
+
+;___60555h:
+;		mov     edx, [___60420h]
+;		mov     ecx, [___60424h]
+;		mov     eax, edx
+;		or      eax, ecx
+;		je      ___60582h
+;		mov     al, 0
+;	mov 	edx, ___60420h
+;		call    SET_IRQ_ISR
+;		mov     dword [___60420h], 0
+;		mov     dword [___60424h], 0
+;___60582h:
+;		retn    
+
+
 __GDECL(___605deh)
 		pushad  
 		mov     byte [___60441h], 0

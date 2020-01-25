@@ -58,7 +58,7 @@ cpu 386
 	extern	___196a84h
 	extern	___1de814h
 	extern	___1e4f8h
-	extern	___24e4d0h
+	extern	CONNECTION_TYPE
 	extern	___1e62ch
 	extern	___2b318h
 	extern	___185a14h
@@ -562,7 +562,7 @@ ___3a008h:
 		test    edx, edx
 		jne     short ___3a036h
 		call    near ___1e4f8h
-		cmp     dword [___24e4d0h], byte 2
+		cmp     dword [CONNECTION_TYPE], byte 2
 		je      short ___3a02ah
 		xor     eax, eax
 		call    near ___1e62ch

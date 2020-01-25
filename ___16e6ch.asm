@@ -6,7 +6,7 @@ cpu 386
 	extern 	___180710h
 	extern 	___180144h
 	extern 	___1a1114h
-	extern 	bpa_read
+	extern 	bpa_read_cdecl
 	extern 	___1a54d0h
 	extern 	bpk_decode2
 	extern 	___1a112ch__VESA101_ACTIVESCREEN_PTR
@@ -37,7 +37,15 @@ __GDECL(___16e6ch)
 		mov     ebx, ___180710h
 		mov     eax, ___180144h
 		mov     edx, [___1a1114h]
-		call    near bpa_read
+	
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    bpa_read_cdecl					;;
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     edx, [___1a1114h]
 		push    edx
 		push    ___1a54d0h

@@ -83,7 +83,7 @@ cpu 386
 	extern 	___199f9ch
 	extern 	___61cd0h
 	extern 	___1123ch
-	extern 	___24e4d0h
+	extern 	CONNECTION_TYPE
 	extern 	___196adch
 	extern 	___19bd60h
 	extern 	___10754h
@@ -1024,7 +1024,7 @@ ___1a6b1h:
 ___1a883h:
 		mov     eax, [esp+108h]
 		mov     edx, 1
-		mov     ebx, [___24e4d0h]
+		mov     ebx, [CONNECTION_TYPE]
 		mov     [___196adch], eax
 		mov     [___19bd60h], edx
 		cmp     ebx, byte 2

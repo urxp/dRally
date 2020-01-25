@@ -9,7 +9,7 @@ cpu 386
 	extern	___18323ch
 	extern	___242578h
 	extern	___243dd0h
-	extern	bpa_read
+	extern	bpa_read_cdecl
 	extern	___242978h
 	extern	___241d74h
 	extern	___183248h
@@ -38,7 +38,15 @@ __GDECL(___43884h)
 		call 	__STRCAT
 		mov     eax, ___243dd0h
 		xor     ebp, ebp
-		call    near bpa_read
+	
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    bpa_read_cdecl					;;
+	add 	esp, 0ch
+	pop 	ecx
+
 ___438fah:
 		mov     edx, ebp
 		inc     ebp
@@ -56,7 +64,15 @@ ___438fah:
 		mov     edx, ___242178h
 		call 	__STRCAT
 		mov     eax, ___243dd0h
-		call    near bpa_read
+	
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    bpa_read_cdecl					;;
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     ebp, [___243d08h]
 		add     esp, byte 10h
 		pop     ebp

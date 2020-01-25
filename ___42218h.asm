@@ -22,7 +22,7 @@ cpu 386
 	extern	___243ce8h
 	extern	___1e6f74h
 	extern	___1e6f70h
-	extern	___24e4d0h
+	extern	CONNECTION_TYPE
 	extern	___44194h
 
 section .text
@@ -179,7 +179,7 @@ ___42402h:
 		jne     short ___4246ch
 		cmp     dword [___19bd60h], byte 0
 		je      short ___4244ch
-		cmp     dword [___24e4d0h], byte 2
+		cmp     dword [CONNECTION_TYPE], byte 2
 		jne     short ___42442h
 		call    near ___44194h
 		jmp     short ___4244ch

@@ -6,7 +6,7 @@ cpu 386
 	extern 	__STRCAT
 	extern 	__STRCPY
 	extern 	__STRLEN
-	extern	___24e4d0h
+	extern	CONNECTION_TYPE
 	extern	IPX_CHECK
 	extern	___1a1138h__VESA101h_DefaultScreenBufferB
 	extern	___1a112ch__VESA101_ACTIVESCREEN_PTR
@@ -71,11 +71,17 @@ __GDECL(___1caf4h)
 		push    edi
 		push    ebp
 		sub     esp, byte 68h
-		mov     edx, [___24e4d0h]
+		mov     edx, [CONNECTION_TYPE]
 		xor     ebp, ebp
 		cmp     edx, byte 2
 		jne     near ___1cbdah
+	
+	push 	edx
+	push 	ecx
 		call    near IPX_CHECK
+	pop 	ecx
+	pop 	edx
+	
 		test    eax, eax
 		jne     near ___1cbdah
 		mov     ebp, 1
@@ -119,7 +125,7 @@ ___1cbc7h:
 ___1cbdah:
 		test    ebp, ebp
 		jne     near ___1cffdh
-		cmp     dword [___24e4d0h], byte 2
+		cmp     dword [CONNECTION_TYPE], byte 2
 		jne     short ___1cbf9h
 		call    near ___61cd0h
 		test    eax, eax
@@ -191,7 +197,7 @@ ___1ccdfh:
 		rep movsd   
 		movsw   
 		call    near ___3f71ch__allocateMemory
-		mov     esi, [___24e4d0h]
+		mov     esi, [CONNECTION_TYPE]
 		mov     [___1a0f9ch], eax
 		cmp     esi, byte 2
 		jne     short ___1cd5ch
@@ -279,7 +285,7 @@ ___1ce3bh:
 		call    near ___12d6ch__VESA101_PRESENTBOTTOMSCREEN
 		xor     edi, edi
 		xor     bl, bl
-		mov     ebp, [___24e4d0h]
+		mov     ebp, [CONNECTION_TYPE]
 		mov     [___185b58h], bl
 		mov     bh, 1
 		mov     [___185aach], edi
@@ -293,15 +299,15 @@ ___1ce3bh:
 		jne     short ___1cf62h
 		mov     [___185b6ch], bh
 ___1cf62h:
-		cmp     dword [___24e4d0h], byte 1
+		cmp     dword [CONNECTION_TYPE], byte 1
 		jne     short ___1cf72h
 		mov     byte [___185b6dh], 1
 ___1cf72h:
-		cmp     dword [___24e4d0h], byte 3
+		cmp     dword [CONNECTION_TYPE], byte 3
 		jne     short ___1cf82h
 		mov     byte [___185b6eh], 1
 ___1cf82h:
-		cmp     dword [___24e4d0h], byte 4
+		cmp     dword [CONNECTION_TYPE], byte 4
 		jne     short ___1cf92h
 		mov     byte [___185b6fh], 1
 ___1cf92h:

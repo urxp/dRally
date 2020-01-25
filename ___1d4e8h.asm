@@ -22,7 +22,7 @@ cpu 386
 	extern	___23230h
 	extern	___12cb8h__VESA101_PRESENTSCREEN
 	extern	___19bd60h
-	extern	___24e4d0h
+	extern	CONNECTION_TYPE
 	extern	___2415ch
 	extern	___13710h
 	
@@ -101,7 +101,7 @@ ___1d5e4h:
 		xor     ecx, ecx
 		mov     edx, 1
 		mov     [___19bd60h], ecx
-		mov     [___24e4d0h], ecx
+		mov     [CONNECTION_TYPE], ecx
 		call    near ___2415ch
 		mov     eax, 2
 		call    near ___13710h

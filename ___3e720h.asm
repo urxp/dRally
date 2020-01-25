@@ -142,7 +142,7 @@ cpu 386
 	extern	___180ca4h
 	extern	___23488h
 	extern	___18108ch
-	extern	___24e4d0h
+	extern	CONNECTION_TYPE
 	extern	___61278h
 	extern	___623d4h
 	extern	___3d79ch
@@ -824,7 +824,7 @@ ___3efdch:
 		mov     esi, ___18108ch
 		xor     bl, bl
 		call 	__STRCAT
-		mov     ecx, [___24e4d0h]
+		mov     ecx, [CONNECTION_TYPE]
 		mov     [___1a1f63h], bl
 		cmp     ecx, byte 2
 		jne     short ___3f123h
@@ -855,7 +855,7 @@ ___3f19dh:
 		xor     esi, esi
 		call    near ___623d4h
 		mov     [___19bd60h], esi
-		mov     [___24e4d0h], esi
+		mov     [CONNECTION_TYPE], esi
 ___3f1bah:
 		call    near ___3d79ch
 		call    near CONFIG_WRITE

@@ -3,7 +3,7 @@ cpu 386
 
 	extern	__CHK
 	extern	___19bd60h
-	extern	___24e4d0h
+	extern	CONNECTION_TYPE
 	extern	___199f9ch
 	extern	___63b20h
 	extern	___243cd0h
@@ -70,7 +70,7 @@ __GDECL(___40164h)
 		xor     bl, bl
 		test    edx, edx
 		je      short ___40199h
-		cmp     dword [___24e4d0h], byte 2
+		cmp     dword [CONNECTION_TYPE], byte 2
 		jne     short ___40199h
 		mov     eax, 1
 		mov     edx, [___199f9ch]

@@ -2992,7 +2992,7 @@ __GDECL(___24e4c8h)
 	resb	4
 __GDECL(___24e4cch)	
 	resb	4
-__GDECL(___24e4d0h)
+__GDECL(CONNECTION_TYPE)
 	resb	4
 __GDECL(___24e4d4h)	
 	resb	4
@@ -3066,6 +3066,7 @@ __GDECL(___24e79ch)
 	resb	2
 __GDECL(___24e79eh)	
 	resb	2
+__GDECL(___24e7a0h_int)
 __GDECL(___24e7a0h)	
 	resb	2
 __GDECL(___24e7a2h)	

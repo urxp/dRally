@@ -26,7 +26,7 @@ cpu 386
 	extern 	___1a1f1ch
 	extern 	___180138h
 	extern 	___180144h
-	extern 	bpa_read
+	extern 	bpa_read_cdecl
 	extern 	bpk_decode4
 	extern 	___185a0ch
 	extern 	___5994ch
@@ -106,7 +106,14 @@ ___10c62h:
 		call 	VGA13_SETMODE
 		mov 	edx, 1
 		mov     eax, 46h
+
+	push 	ecx
+	push 	edx
+	push 	eax
 		call    ___60466h
+	add 	esp, 8
+	pop 	ecx
+
 		cmp     byte [esp+408h], 0
 		je      ___10cb2h
 		mov     eax, 5622h		;; 22050 Hz
@@ -171,7 +178,15 @@ ___10e1eh:
 		mov     ebx, ___180138h
 		mov     eax, ___180144h
 		mov     edx, [___1a1f0ch__VGA13_BUFFER_B]
-		call    bpa_read
+	
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    bpa_read_cdecl					;;
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     ebx, [___1a1f0ch__VGA13_BUFFER_B]
 		push    ebx
 		lea     eax, [esp+4]

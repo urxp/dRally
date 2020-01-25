@@ -18,13 +18,13 @@ extern unsigned char VESA101_ACTIVESCREEN[];
 
 extern SDL_AudioDeviceID audio_dev;
 
-unsigned int Ticks;
+unsigned int Ticks = 0;
 unsigned int VRetraceTicks = 0;
 
 SDL_Renderer * GX_Renderer;
 SDL_Texture * GX_Texture;
 
-int drally_main(int, char *[]);
+int dRally_main(int, char *[]);
 void __VGA13_PRESENTSCREEN(void);
 void IRQ0_TimerISR(void);
 void Scancodes_Init(void);
@@ -110,7 +110,7 @@ void __VRETRACE_WAIT_IF_INACTIVE(void){
 
 void __TIMER_SET_TIMER(void){
 
-	Ticks = SDL_GetTicks();
+	//Ticks = SDL_GetTicks();
 }
 
 unsigned int __GET_TIMER_TICKS(void){
@@ -125,7 +125,7 @@ unsigned int __GET_TIMER_TICKS(void){
 
 void __WAIT_5(void){
 
-	unsigned int tmp = 2;
+	unsigned int tmp = 5;
 
 	tmp *= ___60458h;
 	tmp += __GET_FRAME_COUNTER();
@@ -353,7 +353,7 @@ int main(int argc, char * argv[]){
 	//result = FMOD_System_Init(fmodex_system, 32, FMOD_INIT_NORMAL, NULL);
     //ERRCHECK(result);
 
-	drally_main(argc, argv);
+	dRally_main(argc, argv);
 
 	if(audio_dev){
 

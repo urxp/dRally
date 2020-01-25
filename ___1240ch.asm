@@ -44,7 +44,7 @@ cpu 386
 	extern 	___18058ch
 	extern 	___1a54d0h
 	extern 	___180144h
-	extern 	bpa_read
+	extern 	bpa_read_cdecl
 	extern 	bpk_decode4
 	extern 	___18059ch
 	extern 	bpk_decode2
@@ -194,7 +194,15 @@ ___12653h:
 		mov     ebx, ___18058ch
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near bpa_read
+	
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    bpa_read_cdecl					;;
+	add 	esp, 0ch
+	pop 	ecx
+
 		push    ___1a54d0h
 		mov     ebx, [esi+___1a1040h]
 		push    ebx
@@ -208,7 +216,15 @@ ___12653h:
 		mov     ebx, ___18058ch
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near bpa_read
+	
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    bpa_read_cdecl					;;
+	add 	esp, 0ch
+	pop 	ecx
+
 		push    ___1a54d0h
 		mov     ecx, [___1a1030h]
 		push    ecx
@@ -218,7 +234,15 @@ ___12653h:
 		mov     ebx, ___18058ch
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near bpa_read
+	
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    bpa_read_cdecl					;;
+	add 	esp, 0ch
+	pop 	ecx
+
 		push    ___1a54d0h
 		mov     esi, [___1a1038h]
 		push    esi
@@ -228,7 +252,15 @@ ___12653h:
 		mov     ebx, ___18059ch
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near bpa_read
+	
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    bpa_read_cdecl					;;
+	add 	esp, 0ch
+	pop 	ecx
+
 		push    ___1a54d0h
 		mov     edi, [___1a10f4h]
 		push    edi
@@ -236,7 +268,15 @@ ___12653h:
 		mov     ebx, ___1805a8h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near bpa_read
+	
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    bpa_read_cdecl					;;
+	add 	esp, 0ch
+	pop 	ecx
+
 		push    ___1a54d0h
 		mov     ebp, [___1a10e0h]
 		push    ebp
@@ -244,7 +284,15 @@ ___12653h:
 		mov     ebx, ___1805b4h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near bpa_read
+	
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    bpa_read_cdecl					;;
+	add 	esp, 0ch
+	pop 	ecx
+
 		push    ___1a54d0h
 		mov     eax, [___1a10d0h]
 		push    eax
@@ -252,7 +300,15 @@ ___12653h:
 		mov     ebx, ___1805c0h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near bpa_read
+	
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    bpa_read_cdecl					;;
+	add 	esp, 0ch
+	pop 	ecx
+
 		push    ___1a54d0h
 		mov     edx, [___1a10b4h]
 		push    edx
@@ -260,7 +316,15 @@ ___12653h:
 		mov     ebx, ___1805d0h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near bpa_read
+	
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    bpa_read_cdecl					;;
+	add 	esp, 0ch
+	pop 	ecx
+
 		push    ___1a54d0h
 		mov     ebx, [___1a1128h]
 		push    ebx
@@ -268,7 +332,15 @@ ___12653h:
 		mov     ebx, ___1805e0h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near bpa_read
+	
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    bpa_read_cdecl					;;
+	add 	esp, 0ch
+	pop 	ecx
+
 		push    ___1a54d0h
 		mov     ecx, [___1a10d4h]
 		push    ecx
@@ -276,7 +348,15 @@ ___12653h:
 		mov     ebx, ___1805f0h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near bpa_read
+	
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    bpa_read_cdecl					;;
+	add 	esp, 0ch
+	pop 	ecx
+
 		push    ___1a54d0h
 		mov     esi, [___1a10bch]
 		push    esi
@@ -284,7 +364,15 @@ ___12653h:
 		mov     ebx, ___180600h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near bpa_read
+	
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    bpa_read_cdecl					;;
+	add 	esp, 0ch
+	pop 	ecx
+
 		push    ___1a54d0h
 		mov     edi, [___1a10e8h]
 		push    edi
@@ -292,7 +380,15 @@ ___12653h:
 		mov     ebx, ___180610h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near bpa_read
+	
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    bpa_read_cdecl					;;
+	add 	esp, 0ch
+	pop 	ecx
+
 		push    ___1a54d0h
 		mov     ebp, [___1a10dch]
 		push    ebp
@@ -300,7 +396,15 @@ ___12653h:
 		mov     ebx, ___18061ch
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near bpa_read
+	
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    bpa_read_cdecl					;;
+	add 	esp, 0ch
+	pop 	ecx
+
 		push    ___1a54d0h
 		mov     eax, [___1a10ach]
 		push    eax
@@ -308,7 +412,15 @@ ___12653h:
 		mov     ebx, ___180628h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near bpa_read
+	
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    bpa_read_cdecl					;;
+	add 	esp, 0ch
+	pop 	ecx
+
 		push    ___1a54d0h
 		mov     edx, [___1a10c0h]
 		push    edx
@@ -316,7 +428,15 @@ ___12653h:
 		mov     ebx, ___180634h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near bpa_read
+	
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    bpa_read_cdecl					;;
+	add 	esp, 0ch
+	pop 	ecx
+
 		push    ___1a54d0h
 		mov     ebx, [___1a10ech]
 		push    ebx
@@ -324,7 +444,15 @@ ___12653h:
 		mov     ebx, ___180644h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near bpa_read
+	
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    bpa_read_cdecl					;;
+	add 	esp, 0ch
+	pop 	ecx
+
 		push    ___1a54d0h
 		mov     ecx, [___1a10f8h]
 		push    ecx
@@ -332,7 +460,15 @@ ___12653h:
 		mov     ebx, ___180654h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near bpa_read
+	
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    bpa_read_cdecl					;;
+	add 	esp, 0ch
+	pop 	ecx
+
 		push    ___1a54d0h
 		mov     esi, [___1a1104h]
 		push    esi
@@ -340,7 +476,15 @@ ___12653h:
 		mov     ebx, ___180664h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near bpa_read
+	
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    bpa_read_cdecl					;;
+	add 	esp, 0ch
+	pop 	ecx
+
 		push    ___1a54d0h
 		mov     edi, [___1a0ff8h]
 		push    edi
@@ -348,7 +492,15 @@ ___12653h:
 		mov     ebx, ___180674h
 		mov     edx, ___1a54d0h
 		mov     eax, ___180144h
-		call    near bpa_read
+	
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    bpa_read_cdecl					;;
+	add 	esp, 0ch
+	pop 	ecx
+
 		push    ___1a54d0h
 		mov     ebp, [___1a10a4h]
 		push    ebp

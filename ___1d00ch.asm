@@ -33,7 +33,7 @@ cpu 386
 	extern	___185b6ch
 	extern	___185b6dh
 	extern	___185b6eh
-	extern	___24e4d0h
+	extern	CONNECTION_TYPE
 	extern	___186aa0h
 	extern	___185b6fh
 	extern	___2415ch
@@ -146,7 +146,7 @@ ___1d116h:
 		xor     edi, edi
 		mov     [___185b6eh], dl
 		mov     [___19bd60h], edi
-		mov     [___24e4d0h], edi
+		mov     [CONNECTION_TYPE], edi
 		mov     edi, ___186aa0h
 		mov     [___185b6fh], dl
 		mov     edx, 1
@@ -174,7 +174,7 @@ ___1d21eh:
 		call    near ___3ab5ch
 		test    eax, eax
 		je      short ___1d29fh
-		mov     dword [___24e4d0h], 2
+		mov     dword [CONNECTION_TYPE], 2
 		mov     ebx, [___1a1ef8h]
 		lea     edx, [ebx*8+0]
 		sub     edx, ebx
