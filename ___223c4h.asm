@@ -167,7 +167,15 @@ ___224f4h:
 		mov     ebx, 25bh
 		mov     eax, 11h
 		call    near ___27d24h
-		call    near CONFIG_WRITE
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    CONFIG_WRITE
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+	
 ___225abh:
 		mov     edi, 16889h
 		mov     ebp, ___1a0e28h

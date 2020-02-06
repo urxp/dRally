@@ -20,7 +20,7 @@ cpu 386
 	extern	___19eb54h
 	extern	___19eb58h
 	extern	DISPLAY_SET_PALETTE_COLOR
-	extern	___68284h_cdecl
+	extern	dRally_Audio____68284h
 	extern	___1a1ef4h
 	extern	dRally_Audio_setPosition
 	extern	___1a1ef0h
@@ -262,7 +262,7 @@ ___2f020h:
 		jge     near ___2ef02h
 	push 	edx
 	push 	ecx
-		call    near ___68284h_cdecl
+		call    near dRally_Audio____68284h
 	pop 	ecx
 	pop 	edx
 		and     eax, 0ff00h

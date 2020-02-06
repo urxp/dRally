@@ -20,7 +20,7 @@ cpu 386
 	extern 	___146c4h
 	extern 	___1854bch
 	extern 	___24cc54h
-	extern 	dRally_Audio_playSoundEffect
+	extern 	dRally_Audio_pushSoundEffect
 	extern 	___18687ah
 	extern 	___18076ch
 	extern 	___185b59h
@@ -97,7 +97,15 @@ ___1893fh:
 		xor     dh, dh
 		mov     [esp+eax*1+10h], dh
 		mov     eax, esp
+
+	push 	edx
+	push 	ecx
+	push 	eax
 		call    near GET_FILE_SIZE
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+	
 		test    eax, eax
 		jle     short ___189c7h
 		mov     eax, [esp+18h]
@@ -157,7 +165,7 @@ ___189f1h:
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    dRally_Audio_playSoundEffect
+		call    dRally_Audio_pushSoundEffect
 	add 	esp, 18h
 ___18a83h:
 		test    esi, esi

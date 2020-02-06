@@ -7,7 +7,7 @@ cpu 386
 	extern	___12a54h
 	extern	___24ec0h
 	extern	___2fc50h
-	extern	___64a28h_cdecl
+	extern	dRally_Audio____64a28h
 	extern	dRally_System_clean
 	extern	___5a101h
 	extern	___19bd60h
@@ -25,7 +25,15 @@ __GDECL(___3aaf8h)
 		push    ebx
 		push    ecx
 		push    edx
-		call    near CONFIG_WRITE
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    CONFIG_WRITE
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+	
 		call    near ___12200h
 		call    near ___12a54h
 		call    near ___24ec0h
@@ -33,7 +41,7 @@ __GDECL(___3aaf8h)
 	push 	eax
 	push 	ecx
 	push 	edx
-		call    near ___64a28h_cdecl
+		call    near dRally_Audio____64a28h
 	pop 	edx
 	pop 	ecx
 	pop 	eax

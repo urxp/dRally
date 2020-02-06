@@ -27,7 +27,7 @@ cpu 386
 	extern	___182f57h
 	extern	___1de530h
 	extern	___196de8h
-	extern	dRally_Audio_playSoundEffect
+	extern	dRally_Audio_pushSoundEffect
 	extern	___196dech
 	extern	___182ed4h
 	extern	___1de7d0h
@@ -378,7 +378,7 @@ ___40c50h:
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    dRally_Audio_playSoundEffect
+		call    dRally_Audio_pushSoundEffect
 	add 	esp, 18h
 ___40cb4h:
 		mov     edx, 1
@@ -406,7 +406,7 @@ ___40cc5h:
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    dRally_Audio_playSoundEffect
+		call    dRally_Audio_pushSoundEffect
 	add 	esp, 18h
 ___40d16h:
 		mov     esi, 1
@@ -444,7 +444,7 @@ ___40d27h:
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    dRally_Audio_playSoundEffect
+		call    dRally_Audio_pushSoundEffect
 	add 	esp, 18h
 ___40d99h:
 		mov     dword [___196df4h], 1

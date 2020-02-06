@@ -61,7 +61,15 @@ ___493dch:
 		mov     edi, esp
 		call 	__STRCAT
 		mov     eax, esp
+
+	push 	edx
+	push 	ecx
+	push 	eax
 		call    near GET_FILE_SIZE
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+	
 		cmp     eax, byte 1
 		jl      short ___4944eh
 		inc     ebp

@@ -9507,6 +9507,7 @@ db	0,0,0
 db	0,0,0,0
 __GDECL(___19a464h)
 db	0,0,0,0
+__GDECL(volatile___19a468h)
 __GDECL(___19a468h)
 db	0
 __GDECL(___19a469h)
@@ -9618,9 +9619,7 @@ db	1,0ffh,3,0ffh,6,0ffh,0ch,0ffh,15h,0ffh,20h,0ffh,2ch,0ffh,3bh,0ffh
 db	4ch,0ffh,5fh,0ffh,73h,0ffh,88h,0ffh,9fh,0ffh,0b6h,0ffh,0cfh,0ffh,0e8h,0ffh
 db	0c1h,3,0bah,3,0b4h,3,0adh,3,0a6h,3,9fh,3,99h,3,92h,3
 __GDECL(___19a724h)
-db	8bh,3
-__GDECL(___19a726h)
-db	84h,3,7eh,3,77h,3,71h,3,6bh,3,64h,3,5eh,3,58h,3
+db	8bh,3,84h,3,7eh,3,77h,3,71h,3,6bh,3,64h,3,5eh,3,58h,3
 db	52h,3,4ch,3,46h,3,40h,3,3ah,3,34h,3,2eh,3,28h,3
 db	22h,3,1ch,3,17h,3,11h,3,0bh,3,6,3,0,3,0fah,2
 db	0f5h,2,0f0h,2,0eah,2,0e5h,2,0e0h,2,0dah,2,0d5h,2,0d0h,2

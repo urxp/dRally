@@ -49,7 +49,7 @@ cpu 386
 	extern	___17510h
 	extern	___1854b8h
 	extern	___24cc54h
-	extern	dRally_Audio_playSoundEffect
+	extern	dRally_Audio_pushSoundEffect
 	extern	___1a0220h
 	extern	___1a10cch
 	extern	___185a14h
@@ -482,7 +482,7 @@ ___3aff3h:
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    dRally_Audio_playSoundEffect
+		call    dRally_Audio_pushSoundEffect
 	add 	esp, 18h
 		mov     edx, [___1a1ef8h]
 		lea     eax, [edx*8+0]
@@ -501,7 +501,7 @@ ___3aff3h:
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    dRally_Audio_playSoundEffect
+		call    dRally_Audio_pushSoundEffect
 	add 	esp, 18h
 ___3b0feh:
 		cmp     dword [esp+2ch], byte 0
@@ -829,7 +829,7 @@ ___3b4e1h:
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    dRally_Audio_playSoundEffect
+		call    dRally_Audio_pushSoundEffect
 	add 	esp, 18h
 		xor     dh, dh
 		mov     [esp+54h], dh
@@ -1075,7 +1075,7 @@ ___3b854h:
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    dRally_Audio_playSoundEffect
+		call    dRally_Audio_pushSoundEffect
 	add 	esp, 18h
 ___3b89fh:
 		mov     ch, [esp+58h]
@@ -1099,7 +1099,7 @@ ___3b8b6h:
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    dRally_Audio_playSoundEffect
+		call    dRally_Audio_pushSoundEffect
 	add 	esp, 18h
 ___3b8e1h:
 		cmp     dword [___196a94h], byte 1
@@ -1114,7 +1114,7 @@ ___3b8e1h:
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    dRally_Audio_playSoundEffect
+		call    dRally_Audio_pushSoundEffect
 	add 	esp, 18h
 ___3b90bh:
 		cmp     dword [___196a94h], byte 2
@@ -1129,7 +1129,7 @@ ___3b90bh:
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    dRally_Audio_playSoundEffect
+		call    dRally_Audio_pushSoundEffect
 	add 	esp, 18h
 ___3b935h:
 		cmp     byte [esp+58h], 1
@@ -1147,7 +1147,7 @@ ___3b935h:
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    dRally_Audio_playSoundEffect
+		call    dRally_Audio_pushSoundEffect
 	add 	esp, 18h
 ___3b964h:
 		mov     bl, [esp+58h]
@@ -1237,7 +1237,7 @@ ___3ba76h:
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    dRally_Audio_playSoundEffect
+		call    dRally_Audio_pushSoundEffect
 	add 	esp, 18h
 		mov     edx, [___1a1ef8h]
 		lea     eax, [edx*8+0]

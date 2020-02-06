@@ -43,12 +43,12 @@ cpu 386
 	extern	___2faf0h
 	extern	___1854b8h
 	extern	___24cc54h
-	extern	dRally_Audio_playSoundEffect
+	extern	dRally_Audio_pushSoundEffect
 	extern	___185a14h
 	extern	___185a3ch
 	extern	___185a4ch
-	extern	___649a8h_cdecl
-	extern	___64a28h_cdecl
+	extern	dRally_Audio____649a8h
+	extern	dRally_Audio____64a28h
 	extern	___180130h
 	extern	___1a214ah
 	extern	___1a0d60h
@@ -530,7 +530,7 @@ ___38ec1h:
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    dRally_Audio_playSoundEffect
+		call    dRally_Audio_pushSoundEffect
 	add 	esp, 18h
 		mov     ecx, 46b6eh
 		mov     ebx, ___18250ch
@@ -714,14 +714,14 @@ ___391b2h:
 	push 	eax
 	push 	ecx
 	push 	edx
-		call    near ___649a8h_cdecl
+		call    near dRally_Audio____649a8h
 	pop 	edx
 	pop 	ecx
 	pop 	eax
 	push 	eax
 	push 	ecx
 	push 	edx
-		call    near ___64a28h_cdecl
+		call    near dRally_Audio____64a28h
 	pop 	edx
 	pop 	ecx
 	pop 	eax
@@ -737,7 +737,15 @@ ___39215h:
 		mov     edi, esp
 		call 	__STRCAT
 		mov     eax, esp
+
+	push 	edx
+	push 	ecx
+	push 	eax
 		call    near GET_FILE_SIZE
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+	
 		test    eax, eax
 		jle     short ___39275h
 		push    byte 78h
@@ -751,14 +759,14 @@ ___39215h:
 	push 	eax
 	push 	ecx
 	push 	edx
-		call    near ___649a8h_cdecl
+		call    near dRally_Audio____649a8h
 	pop 	edx
 	pop 	ecx
 	pop 	eax
 	push 	eax
 	push 	ecx
 	push 	edx
-		call    near ___64a28h_cdecl
+		call    near dRally_Audio____64a28h
 	pop 	edx
 	pop 	ecx
 	pop 	eax
@@ -912,14 +920,14 @@ ___39439h:
 	push 	eax
 	push 	ecx
 	push 	edx
-		call    near ___649a8h_cdecl
+		call    near dRally_Audio____649a8h
 	pop 	edx
 	pop 	ecx
 	pop 	eax
 	push 	eax
 	push 	ecx
 	push 	edx
-		call    near ___64a28h_cdecl
+		call    near dRally_Audio____64a28h
 	pop 	edx
 	pop 	ecx
 	pop 	eax
@@ -936,7 +944,15 @@ ___3949eh:
 		mov     edi, esp
 		call 	__STRCAT
 		mov     eax, esp
+
+	push 	edx
+	push 	ecx
+	push 	eax
 		call    near GET_FILE_SIZE
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+	
 		test    eax, eax
 		jle     short ___394feh
 		push    byte 78h
@@ -950,14 +966,14 @@ ___3949eh:
 	push 	eax
 	push 	ecx
 	push 	edx
-		call    near ___649a8h_cdecl
+		call    near dRally_Audio____649a8h
 	pop 	edx
 	pop 	ecx
 	pop 	eax
 	push 	eax
 	push 	ecx
 	push 	edx
-		call    near ___64a28h_cdecl
+		call    near dRally_Audio____64a28h
 	pop 	edx
 	pop 	ecx
 	pop 	eax

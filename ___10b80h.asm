@@ -34,9 +34,9 @@ cpu 386
 	extern 	fread_
 	extern 	___108e8h
 	extern 	___1a0a60h
-	extern 	dRally_Audio_playSoundEffect
+	extern 	dRally_Audio_pushSoundEffect
 	extern 	fclose_
-	extern 	___6563ch_cdecl
+	extern 	dRally_Audio____6563ch
 	extern 	___3f77ch__freeMemory
 	extern 	VGA13_SETMODE
 	extern 	VRETRACE_WAIT_IF_INACTIVE
@@ -307,7 +307,7 @@ ___11090h:
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    dRally_Audio_playSoundEffect
+		call    dRally_Audio_pushSoundEffect
 	add 	esp, 18h
 		mov     [esp+404h], edi
 		cmp     edi, byte 6
@@ -332,7 +332,7 @@ ___11160h:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    ___6563ch_cdecl
+		call    dRally_Audio____6563ch
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx

@@ -31,8 +31,8 @@ cpu 386
 	extern	___19eb54h
 	extern	___19eb58h
 	extern	DISPLAY_SET_PALETTE_COLOR
-	extern	___649a8h_cdecl
-	extern	___64a28h_cdecl
+	extern	dRally_Audio____649a8h
+	extern	dRally_Audio____64a28h
 	extern	___181c9ch
 	extern	___181ca8h
 	extern	dRally_Audio_load
@@ -67,7 +67,15 @@ ___22855h:
 		mov     edi, esp
 		call 	__STRCAT
 		mov     eax, esp
+
+	push 	edx
+	push 	ecx
+	push 	eax
 		call    near GET_FILE_SIZE
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+	
 		test    eax, eax
 		jle     short ___228abh
 		push    byte 78h
@@ -189,14 +197,14 @@ ___2297dh:
 	push 	eax
 	push 	ecx
 	push 	edx
-		call    near ___649a8h_cdecl
+		call    near dRally_Audio____649a8h
 	pop 	edx
 	pop 	ecx
 	pop 	eax
 	push 	eax
 	push 	ecx
 	push 	edx
-		call    near ___64a28h_cdecl
+		call    near dRally_Audio____64a28h
 	pop 	edx
 	pop 	ecx
 	pop 	eax

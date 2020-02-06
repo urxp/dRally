@@ -41,8 +41,8 @@ cpu 386
 	extern	___182848h
 	extern	___1828a0h
 	extern	___182890h
-	extern	___649a8h_cdecl
-	extern	___64a28h_cdecl
+	extern	dRally_Audio____649a8h
+	extern	dRally_Audio____64a28h
 	extern	___181c90h
 	extern	___1828bch
 	extern	___10b80h
@@ -87,7 +87,15 @@ ___3da95h:
 		mov     edi, esp
 		call 	__STRCAT
 		mov     eax, esp
+
+	push 	edx
+	push 	ecx
+	push 	eax
 		call    near GET_FILE_SIZE
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+	
 		test    eax, eax
 		setg    al
 		mov     ecx, 4b000h
@@ -238,14 +246,14 @@ ___3dbe4h:
 	push 	eax
 	push 	ecx
 	push 	edx
-		call    near ___649a8h_cdecl
+		call    near dRally_Audio____649a8h
 	pop 	edx
 	pop 	ecx
 	pop 	eax
 	push 	eax
 	push 	ecx
 	push 	edx
-		call    near ___64a28h_cdecl
+		call    near dRally_Audio____64a28h
 	pop 	edx
 	pop 	ecx
 	pop 	eax
@@ -260,14 +268,14 @@ ___3dbe4h:
 	push 	eax
 	push 	ecx
 	push 	edx
-		call    near ___649a8h_cdecl
+		call    near dRally_Audio____649a8h
 	pop 	edx
 	pop 	ecx
 	pop 	eax
 	push 	eax
 	push 	ecx
 	push 	edx
-		call    near ___64a28h_cdecl
+		call    near dRally_Audio____64a28h
 	pop 	edx
 	pop 	ecx
 	pop 	eax

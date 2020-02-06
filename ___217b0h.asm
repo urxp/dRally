@@ -5,7 +5,7 @@ cpu 386
 	extern 	__MOVS
 	extern	___1854bch
 	extern	___24cc54h
-	extern	dRally_Audio_playSoundEffect
+	extern	dRally_Audio_pushSoundEffect
 	extern	___1a1138h__VESA101h_DefaultScreenBufferB
 	extern	___1a112ch__VESA101_ACTIVESCREEN_PTR
 	extern	___13710h
@@ -40,7 +40,7 @@ __GDECL(___217b0h)
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    dRally_Audio_playSoundEffect
+		call    dRally_Audio_pushSoundEffect
 	add 	esp, 18h
 		mov     ecx, 28f00h
 		mov     esi, [___1a1138h__VESA101h_DefaultScreenBufferB]

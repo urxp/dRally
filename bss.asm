@@ -2830,11 +2830,11 @@ __GDECL(___24cc64h)
 	resb	8
 __GDECL(___24cc6ch)	
 	resb	10h
-__GDECL(___24cc7ch)	
+;__GDECL(___24cc7ch)	
 	resb	4
-__GDECL(___24cc80h)	
+;__GDECL(___24cc80h)	
 	resb	4
-__GDECL(___24cc84h)	
+;__GDECL(___24cc84h)	
 	resb	4
 __GDECL(___24cc88h)	
 	resb	1ch

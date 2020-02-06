@@ -55,7 +55,7 @@ cpu 386
 	extern	VGA3_SETMODE
 	extern	___182c24h
 	extern	___182cb8h
-	extern	___64a28h_cdecl
+	extern	dRally_Audio____64a28h
 	extern	dRally_System_clean
 	extern	___5a101h
 	extern	exit_
@@ -106,7 +106,7 @@ cpu 386
 	extern	___1a1124h__VESA101h_ScreenBufferA
 	extern	___1a10e4h__VESA101h_DefaultScreenBufferA
 	extern	___3a7e0h
-	extern	___649a8h_cdecl
+	extern	dRally_Audio____649a8h
 	extern	___1a1ef4h
 	extern	dRally_Audio_setMasterVolume
 	extern	___12cb8h__VESA101_PRESENTSCREEN
@@ -122,7 +122,7 @@ cpu 386
 	extern	___1a10cch
 	extern	___13bd4h
 	extern	___1854bch
-	extern	dRally_Audio_playSoundEffect
+	extern	dRally_Audio_pushSoundEffect
 	extern	___5994ch
 	extern	___59b3ch
 	extern	___2ab50h
@@ -192,13 +192,29 @@ __GDECL(___3e720h)
 		mov     esi, 0afh
 		mov     [___1a2148h], ah
 		call    near ___2415ch
+
+	push 	edx
+	push 	ecx
+	push 	eax
 		call    near CONFIG_READ
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+	
 		mov     eax, [___1a1f3ch]
 		mov     ebp, ___3aaf8h
 		inc     eax
 		mov     [___2432c8h], ebp
 		mov     [___1a1f3ch], eax
-		call    near CONFIG_WRITE
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    CONFIG_WRITE
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+	
 		push    ___182bf8h
 		mov     [esp+24h], esi
 		call    near printf_
@@ -309,7 +325,7 @@ ___3e88bh:
 	push 	eax
 	push 	ecx
 	push 	edx
-		call    near ___64a28h_cdecl
+		call    near dRally_Audio____64a28h
 	pop 	edx
 	pop 	ecx
 	pop 	eax
@@ -635,7 +651,7 @@ ___3edeah:
 	push 	eax
 	push 	ecx
 	push 	edx
-		call    near ___649a8h_cdecl
+		call    near dRally_Audio____649a8h
 	pop 	edx
 	pop 	ecx
 	pop 	eax
@@ -707,7 +723,7 @@ ___3eecah:
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    dRally_Audio_playSoundEffect
+		call    dRally_Audio_pushSoundEffect
 	add 	esp, 18h
 		call    near ___5994ch
 		call    near ___59b3ch
@@ -858,7 +874,15 @@ ___3f19dh:
 		mov     [CONNECTION_TYPE], esi
 ___3f1bah:
 		call    near ___3d79ch
-		call    near CONFIG_WRITE
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    CONFIG_WRITE
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+	
 		call    near ___12200h
 		call    near ___12a54h
 		call    near ___24ec0h
@@ -866,14 +890,14 @@ ___3f1bah:
 	push 	eax
 	push 	ecx
 	push 	edx
-		call    near ___649a8h_cdecl
+		call    near dRally_Audio____649a8h
 	pop 	edx
 	pop 	ecx
 	pop 	eax
 	push 	eax
 	push 	ecx
 	push 	edx
-		call    near ___64a28h_cdecl
+		call    near dRally_Audio____64a28h
 	pop 	edx
 	pop 	ecx
 	pop 	eax

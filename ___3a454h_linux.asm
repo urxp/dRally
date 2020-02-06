@@ -62,7 +62,15 @@ ___3a4a0h:
 		mov     edi, esp
 		call 	__STRCAT
 		mov     eax, esp
+
+	push 	edx
+	push 	ecx
+	push 	eax
 		call    near GET_FILE_SIZE
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+	
 		cmp     eax, byte 1
 		jl      short ___3a512h
 		inc     ebp

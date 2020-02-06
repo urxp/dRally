@@ -34,7 +34,7 @@ cpu 386
 	extern	dRally_Audio_setMusicVolume
 	extern	___2ab50h
 	extern	___1854b8h
-	extern	dRally_Audio_playSoundEffect
+	extern	dRally_Audio_pushSoundEffect
 	extern	CONFIG_WRITE
 	extern	___181c18h
 	extern	dRally_Audio_setEffectVolume
@@ -317,13 +317,21 @@ ___21c0bh:
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    dRally_Audio_playSoundEffect
+		call    dRally_Audio_pushSoundEffect
 	add 	esp, 18h
 ___21c39h:
 		cmp     dword [esp+0ch], byte 0ffffffffh
 		jne     near ___21901h
 ___21c44h:
-		call    near CONFIG_WRITE
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    CONFIG_WRITE
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+	
 		mov     esp, ebp
 		pop     ebp
 		pop     edi
@@ -539,7 +547,7 @@ ___21ee9h:
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    dRally_Audio_playSoundEffect
+		call    dRally_Audio_pushSoundEffect
 	add 	esp, 18h
 		jmp     near ___21c39h
 ___21f17h:

@@ -40,7 +40,15 @@ __GDECL(___3e1c4h)
 		mov     ebp, 70h
 ___3e1e6h:
 		mov     eax, ebx
+
+	push 	edx
+	push 	ecx
+	push 	eax
 		call    near GET_FILE_SIZE
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+	
 		mov     edi, eax
 		cmp     eax, byte 1
 		jge     short ___3e220h
@@ -101,7 +109,15 @@ ___3e25bh:
 		mov     edi, esp
 		call 	__STRCAT
 		mov     eax, esp
+
+	push 	edx
+	push 	ecx
+	push 	eax
 		call    near GET_FILE_SIZE
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+	
 		cmp     eax, byte 1
 		jge     short ___3e2d2h
 		mov     byte [___1a214ah], 1
@@ -123,7 +139,15 @@ ___3e315h:
 		mov     esi, edx
 		call 	__STRCAT
 		mov     eax, esp
+
+	push 	edx
+	push 	ecx
+	push 	eax
 		call    near GET_FILE_SIZE
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+	
 		test    eax, eax
 		jle     short ___3e380h
 		cmp     eax, [ebp+___196d5dh]

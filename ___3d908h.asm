@@ -11,8 +11,8 @@
 	extern	___181c90h
 	extern	___1828bch
 	extern	___10b80h
-	extern	___649a8h_cdecl
-	extern	___64a28h_cdecl
+	extern	dRally_Audio____649a8h
+	extern	dRally_Audio____64a28h
 
 	extern 	exit_
 
@@ -39,7 +39,15 @@ ___3d954h:
 		mov     edi, esp
 		call 	__STRCAT
 		mov     eax, esp
+
+	push 	edx
+	push 	ecx
+	push 	eax
 		call    near GET_FILE_SIZE
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+	
 		test    eax, eax
 		jle     short ___3d9b4h
 		push    byte 78h
@@ -53,14 +61,14 @@ ___3d954h:
 	push 	eax
 	push 	ecx
 	push 	edx
-		call    near ___649a8h_cdecl
+		call    near dRally_Audio____649a8h
 	pop 	edx
 	pop 	ecx
 	pop 	eax
 	push 	eax
 	push 	ecx
 	push 	edx
-		call    near ___64a28h_cdecl
+		call    near dRally_Audio____64a28h
 	pop 	edx
 	pop 	ecx
 	pop 	eax

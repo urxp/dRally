@@ -15,9 +15,7 @@ void ___100dch(void);
 void dRally_System_init(void);
 void dRally_System_clean(void);
 void ___60466h(unsigned int, unsigned int);
-//void ___5a0c2h(void);
 void ___3e720h(void);
-//void ___5a101h(void);
 void ___623d4h(void);
 void bpa_read_cdecl(char *, void *, char *);
 void VGA3_PRESENTSCREEN(unsigned int);
@@ -30,7 +28,7 @@ static void ___10060h(void){
 }
 
 int dRally_main(int argc, char * argv[]){
-
+/*
 	// [TODO]
 	if(argc > MAX_CL_ARGS) printf("[dRally.Main] Max %d command line arguments handled\n", MAX_CL_ARGS);
 
@@ -40,14 +38,12 @@ int dRally_main(int argc, char * argv[]){
 		___19bd20h[___19bd54h] = argv[___19bd54h];
 		___19bd54h++;
 	}
-
+*/
 	___10060h();
 	dRally_System_init();
 	___60466h(0x46, 1);
 	___2432c8h = ___100dch;
-	//___5a0c2h();
 	___3e720h();
-	//___5a101h();
 
 	if(___19bd60h) ___623d4h();
 

@@ -5,7 +5,7 @@ cpu 386
 	extern	___1a1ec4h
 	extern	___1854b0h
 	extern	___24cc54h
-	extern	dRally_Audio_playSoundEffect
+	extern	dRally_Audio_pushSoundEffect
 	extern	___25e40h
 	extern	___281d0h
 	extern	___27f80h
@@ -33,7 +33,7 @@ __GDECL(___283ech)
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    dRally_Audio_playSoundEffect
+		call    dRally_Audio_pushSoundEffect
 	add 	esp, 18h
 		mov     ebx, 1
 		mov     ecx, 72h

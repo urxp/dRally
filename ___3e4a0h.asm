@@ -36,7 +36,15 @@ __GDECL(___3e4a0h)
 		call 	__STRCAT
 		mov     eax, esp
 		mov     [esp+10ch], edx
+
+	push 	edx
+	push 	ecx
+	push 	eax
 		call    near GET_FILE_SIZE
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+	
 		cmp     eax, dword 186cf392h
 		jge     short ___3e521h
 		xor     edx, edx
@@ -47,7 +55,15 @@ ___3e521h:
 		mov     edi, eax
 		mov     esi, eax
 		mov     eax, esp
+
+	push 	edx
+	push 	ecx
+	push 	eax
 		call    near GET_FILE_SIZE
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+	
 		cmp     eax, dword 18033688h
 		jge     short ___3e555h
 ___3e53dh:

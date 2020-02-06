@@ -82,7 +82,15 @@ ___18d0bh:
 		call    near itoa_
 		call 	__STRCAT
 		lea     eax, [esp+10h]
+
+	push 	edx
+	push 	ecx
+	push 	eax
 		call    near GET_FILE_SIZE
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+	
 		test    eax, eax
 		jle     short ___18d88h
 		mov     eax, ___186f82h

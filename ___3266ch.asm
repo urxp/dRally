@@ -30,7 +30,7 @@ cpu 386
 	extern	___5994ch
 	extern	___1854ach
 	extern	___24cc54h
-	extern	dRally_Audio_playSoundEffect
+	extern	dRally_Audio_pushSoundEffect
 	extern	___281d0h
 	extern	___185a44h
 	extern	___1a1ef8h
@@ -79,7 +79,7 @@ cpu 386
 	extern	___1a1ef4h
 	extern	dRally_Audio_setPosition
 	extern	___185a28h
-	extern	___6563ch_cdecl
+	extern	dRally_Audio____6563ch
 	extern	___12940h
 	extern	___3892ch
 	extern 	restoreDefaultScreenBuffer
@@ -241,7 +241,7 @@ ___328b0h:
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    dRally_Audio_playSoundEffect
+		call    dRally_Audio_pushSoundEffect
 	add 	esp, 18h
 		imul    eax, [___185a50h], 0a0h
 		mov     ecx, 84h
@@ -274,7 +274,7 @@ ___32935h:
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    dRally_Audio_playSoundEffect
+		call    dRally_Audio_pushSoundEffect
 	add 	esp, 18h
 		imul    eax, [___185a50h], 0a0h
 		mov     ecx, 84h
@@ -336,7 +336,7 @@ ___32a27h:
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    dRally_Audio_playSoundEffect
+		call    dRally_Audio_pushSoundEffect
 	add 	esp, 18h
 		mov     eax, [___185a50h]
 		xor     edx, edx
@@ -548,7 +548,7 @@ ___32d90h:
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    dRally_Audio_playSoundEffect
+		call    dRally_Audio_pushSoundEffect
 	add 	esp, 18h
 		jmp     short ___32dddh
 ___32db5h:
@@ -603,7 +603,7 @@ ___32dddh:
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    dRally_Audio_playSoundEffect
+		call    dRally_Audio_pushSoundEffect
 	add 	esp, 18h
 ___32e85h:
 		call    near ___2ab50h
@@ -698,7 +698,7 @@ ___32ed0h:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    ___6563ch_cdecl
+		call    dRally_Audio____6563ch
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
