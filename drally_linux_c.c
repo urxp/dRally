@@ -42,7 +42,7 @@ struct {
 		SDL_Surface * Surface;
 	} VESA101;
 	SDL_Window * Window;
-} GX = {0};
+} GX = {0,0,0,0};
 
 
 
@@ -244,18 +244,18 @@ void __VGA13_SETMODE(void){
 				SDL_WINDOW_HIDDEN				// flags - see below
 			);
 
-			GX_Renderer = SDL_CreateRenderer(GX.Window, -1, SDL_RENDERER_ACCELERATED);
+			GX_Renderer = SDL_CreateRenderer(GX.Window, -1, SDL_RENDERER_SOFTWARE);
 		}
 		else {
 
 			SDL_SetWindowSize(GX.Window, 640, 480);
 		}
 					
-		SDL_SetRenderDrawColor(GX_Renderer, 0, 0, 0, 255);	
-		SDL_RenderClear(GX_Renderer);
+		//SDL_SetRenderDrawColor(GX_Renderer, 0, 0, 0, 255);	
+		//SDL_RenderClear(GX_Renderer);
 		SDL_RenderSetLogicalSize(GX_Renderer, 320, 200);
 		SDL_ShowWindow(GX.Window);
-		SDL_RenderPresent(GX_Renderer);
+		//SDL_RenderPresent(GX_Renderer);
 
 		GX.ActiveMode = VGA13;
 	}
@@ -280,18 +280,18 @@ void __VESA101_SETMODE(void){
 				SDL_WINDOW_HIDDEN				// flags - see below
 			);
 
-			GX_Renderer = SDL_CreateRenderer(GX.Window, -1, SDL_RENDERER_ACCELERATED);
+			GX_Renderer = SDL_CreateRenderer(GX.Window, -1, SDL_RENDERER_SOFTWARE);
 		}
 		else {
 			
 			SDL_SetWindowSize(GX.Window, 640, 480);
 		}
-	
-		SDL_SetRenderDrawColor(GX_Renderer, 0, 0, 0, 255);
-		SDL_RenderClear(GX_Renderer);
+		
+		//SDL_SetRenderDrawColor(GX_Renderer, 0, 0, 0, 255);
+		//SDL_RenderClear(GX_Renderer);
 		SDL_RenderSetLogicalSize(GX_Renderer, 640, 480);
 		SDL_ShowWindow(GX.Window);
-		SDL_RenderPresent(GX_Renderer);
+		//SDL_RenderPresent(GX_Renderer);
 
 		GX.ActiveMode = VESA101;
 	}

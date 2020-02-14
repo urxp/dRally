@@ -9,7 +9,7 @@ LINUX_OBJS = drally_linux_c.o drally_linux.obj main_linux_c.o memory_linux_c.o s
 all: drally_linux
 
 drally_linux: $(LINUX_OBJS) $(OBJS) 
-	$(CC) -s -o $@ $^ -m32 -lSDL2
+	$(CC) -o $@ $^ -m32 -lSDL2  -march=i386
 
 serial16.bin: serial16.asm Makefile
 	nasm -f bin -o $@ $<
@@ -18,10 +18,10 @@ ___80000h__16.obj: ___80000h__16.asm serial16.bin
 	nasm -f elf -o $@ $< -Ov
 
 %.o: %.c Makefile
-	$(CC) -c -o $@ $< -O3 -m32
+	$(CC) -g -c -o $@ $< -O3 -m32 -march=i386
 
 %.obj: %.asm
-	nasm -f elf -o $@ $< -Ov
+	nasm -g -f elf -o $@ $< -Ov
 
 .PHONY: clean
 
