@@ -4,7 +4,7 @@ cpu 386
 	extern	__CHK
 	extern	___243ca4h
 	extern	___196de4h
-	extern	dRally_Audio_pushSoundEffect
+	extern	dRally_Sound_pushEffect
 	extern	___243334h
 	extern	___243320h
 	extern	___243d80h
@@ -54,7 +54,7 @@ __GDECL(___42218h)
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    dRally_Audio_pushSoundEffect
+		call    dRally_Sound_pushEffect
 	add 	esp, 18h
 		mov     [___196de4h], esi
 ___42277h:
@@ -127,7 +127,7 @@ ___42318h:
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    dRally_Audio_pushSoundEffect
+		call    dRally_Sound_pushEffect
 	add 	esp, 18h
 ___42379h:
 		mov     edx, [___243334h]
@@ -197,7 +197,7 @@ ___4244ch:
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    dRally_Audio_pushSoundEffect
+		call    dRally_Sound_pushEffect
 	add 	esp, 18h
 ___4246ch:
 		mov     esi, 1

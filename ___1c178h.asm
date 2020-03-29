@@ -50,11 +50,27 @@ __GDECL(___1c178h)
 		sub     esp, byte 0ch
 		mov     eax, 12h
 		mov     ecx, 28f00h
-		call    near ___3f71ch__allocateMemory
+		
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___3f71ch__allocateMemory
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     ebp, eax
 		mov     eax, 1
 		xor     edx, edx
-		call    near ___3f71ch__allocateMemory
+		
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___3f71ch__allocateMemory
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     esi, [___1a1138h__VESA101h_DefaultScreenBufferB]
 		mov     edi, [___1a112ch__VESA101_ACTIVESCREEN_PTR]
 		add     esi, 10680h
@@ -82,7 +98,15 @@ __GDECL(___1c178h)
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
 		call    near ___12e78h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 		mov     ebx, 1000h
 		mov     eax, [___24e4ach]
 		xor     edx, edx
@@ -92,7 +116,13 @@ __GDECL(___1c178h)
 ___1c252h:
 		cmp     dword [___196a84h], byte 0
 		jne     near ___1c354h
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 		xor     ebx, ebx
 		mov     edx, 0d8h
 		mov     bl, al

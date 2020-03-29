@@ -22,6 +22,11 @@ static void loc_strupr(char * s){
 	}
 }
 
+void STRUPR_D(char * s){
+
+	loc_strupr(s);
+}
+
 FILE * strup_fopen(const char * file_name, const char * mode){
 
 	char buffer[256];

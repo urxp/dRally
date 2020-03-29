@@ -17,10 +17,10 @@ cpu 386
 	extern	___243e5fh
 	extern	___243e5bh
 	extern	___243e73h
-	extern	rand_
+	extern	rand_watcom106
 	extern	___1a309ch
-	extern	dRally_Audio____6563ch
-	extern	dRally_Audio_pushSoundEffect
+	extern	dRally_Sound____6563ch
+	extern	dRally_Sound_pushEffect
 	extern	___59e10h
 	extern	__STOSB
 	extern	___2432e4h
@@ -69,11 +69,27 @@ __GDECL(___478c8h)
 		mov     [___2432d0h], edx
 		mov     [___2432e0h], edx
 		mov     [___2432e8h], edx
-		call    near ___3f71ch__allocateMemory
+		
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___3f71ch__allocateMemory
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     [___2432d8h], eax
 		mov     eax, 0fa00h
 		mov     ebx, 0fa00h
-		call    near ___3f71ch__allocateMemory
+		
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___3f71ch__allocateMemory
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     [___2432d4h], eax
 		mov     eax, [___2432d8h]
 		mov     [esp+330h], edx
@@ -107,7 +123,13 @@ ___47974h:
 		mov     esi, 13ch
 		xor     ebx, ebx
 ___479a3h:
-		call    near rand_
+
+	push 	edx
+	push 	ecx
+		call    rand_watcom106
+	pop 	ecx
+	pop 	edx
+
 		mov     edx, eax
 		sar     edx, 1fh
 		idiv    esi
@@ -129,7 +151,7 @@ ___479a3h:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    dRally_Audio____6563ch
+		call    dRally_Sound____6563ch
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -143,7 +165,7 @@ ___479a3h:
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    dRally_Audio_pushSoundEffect
+		call    dRally_Sound_pushEffect
 	add 	esp, 18h
 		mov     ecx, 100h
 		mov     eax, ___59e10h
@@ -162,7 +184,7 @@ ___47a2ah:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    dRally_Audio____6563ch
+		call    dRally_Sound____6563ch
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -194,7 +216,15 @@ ___47aa8h:
 		mov     [___243898h], ecx
 		mov     eax, [___243898h]
 		mov     [___243874h], eax
-		call    near ___58c60h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___58c60h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		mov     ecx, 2a80h
 		mov     esi, [___2432d8h]
 		;mov     edi, 0a5000h
@@ -234,7 +264,7 @@ ___47b29h:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    dRally_Audio____6563ch
+		call    dRally_Sound____6563ch
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -274,7 +304,13 @@ ___47bb2h:
 		inc     dword [esp+334h]
 ___47bc5h:
 		mov     ebx, [___2432cch]
-		call    near rand_
+
+	push 	edx
+	push 	ecx
+		call    rand_watcom106
+	pop 	ecx
+	pop 	edx
+
 		mov     edx, eax
 		mov     esi, 3
 		sar     edx, 1fh
@@ -284,7 +320,13 @@ ___47bc5h:
 		add     edx, ecx
 		shl     edx, 10h
 		mov     [ebx+___243e80h], edx
-		call    near rand_
+
+	push 	edx
+	push 	ecx
+		call    rand_watcom106
+	pop 	ecx
+	pop 	edx
+
 		mov     edx, eax
 		mov     esi, 4
 		sar     edx, 1fh
@@ -342,7 +384,7 @@ ___47c77h:
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    dRally_Audio_pushSoundEffect
+		call    dRally_Sound_pushEffect
 	add 	esp, 18h
 		mov     edx, 3e80h
 		mov     ebx, 1
@@ -351,7 +393,15 @@ ___47cb6h:
 		mov     [___243898h], esi
 		mov     eax, [___243898h]
 		mov     [___243874h], eax
-		call    near ___58c60h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___58c60h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		mov     esi, [___2432d8h]
 		mov     ecx, edx
 		mov     edi, ebp
@@ -379,7 +429,7 @@ ___47d0fh:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    dRally_Audio____6563ch
+		call    dRally_Sound____6563ch
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx

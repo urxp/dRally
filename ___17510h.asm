@@ -62,7 +62,7 @@ cpu 386
 	extern 	___23758h
 	extern 	___1854ach
 	extern 	___24cc54h
-	extern 	dRally_Audio_pushSoundEffect
+	extern 	dRally_Sound_pushEffect
 	extern 	___19de70h
 	extern 	___1a1104h
 	extern 	___1a1ef8h
@@ -222,7 +222,14 @@ ___17713h:
 		add     esi, edi
 		add     edx, eax
 		mov     eax, esi
-		call    near ___1398ch__VESA101_PRESENTRECTANGLE
+
+	push 	ecx
+	push	ebx
+	push 	edx
+	push 	eax
+		call    ___1398ch__VESA101_PRESENTRECTANGLE
+	add 	esp, 10h
+	
 		mov     dword [esp+80h], 80h
 		mov     edx, [esp+38h]
 		add     edx, byte 3ch
@@ -278,7 +285,13 @@ ___1780dh:
 		mov     ebx, ebp
 		mov     eax, [esp+44h]
 		call    near ___17384h
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 		and     eax, 0ffh
 		mov     [esp+88h], eax
 		cmp     eax, byte 4dh
@@ -346,7 +359,7 @@ ___17914h:
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    dRally_Audio_pushSoundEffect
+		call    dRally_Sound_pushEffect
 	add 	esp, 18h
 		mov     eax, [esp+7ch]
 		test    eax, eax
@@ -393,7 +406,14 @@ ___17990h:
 		mov     ebx, ecx
 		mov     eax, [esp+60h]
 		xor     esi, esi
-		call    near ___1398ch__VESA101_PRESENTRECTANGLE
+
+	push 	ecx
+	push	ebx
+	push 	edx
+	push 	eax
+		call    ___1398ch__VESA101_PRESENTRECTANGLE
+	add 	esp, 10h
+	
 ___179d5h:
 		mov     edx, [esp+38h]
 		mov     ebx, [esp+90h]
@@ -443,7 +463,14 @@ ___17a37h:
 		mov     ebx, 44h
 		mov     eax, [esp+68h]
 		xor     esi, esi
-		call    near ___1398ch__VESA101_PRESENTRECTANGLE
+
+	push 	ecx
+	push	ebx
+	push 	edx
+	push 	eax
+		call    ___1398ch__VESA101_PRESENTRECTANGLE
+	add 	esp, 10h
+	
 ___17a7fh:
 		mov     ebx, [esp+38h]
 		mov     ecx, [esp+90h]
@@ -490,7 +517,14 @@ ___17ad7h:
 		lea     edx, [eax+19h]
 		mov     ebx, 44h
 		mov     eax, [esp+68h]
-		call    near ___1398ch__VESA101_PRESENTRECTANGLE
+
+	push 	ecx
+	push	ebx
+	push 	edx
+	push 	eax
+		call    ___1398ch__VESA101_PRESENTRECTANGLE
+	add 	esp, 10h
+	
 		imul    eax, [___1a1ef8h], byte 6ch
 		xor     esi, esi
 		mov     edx, [esp+7ch]
@@ -511,7 +545,7 @@ ___17b39h:
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    dRally_Audio_pushSoundEffect
+		call    dRally_Sound_pushEffect
 	add 	esp, 18h
 		mov     ebx, [esp+7ch]
 		cmp     ebx, byte 13h
@@ -558,7 +592,14 @@ ___17bb0h:
 		mov     eax, [esp+60h]
 		add     edx, byte 1bh
 		xor     edi, edi
-		call    near ___1398ch__VESA101_PRESENTRECTANGLE
+
+	push 	ecx
+	push	ebx
+	push 	edx
+	push 	eax
+		call    ___1398ch__VESA101_PRESENTRECTANGLE
+	add 	esp, 10h
+	
 ___17bf5h:
 		mov     edx, [esp+38h]
 		mov     ebx, [esp+90h]
@@ -608,7 +649,14 @@ ___17c57h:
 		mov     ebx, 44h
 		mov     eax, [esp+5ch]
 		xor     esi, esi
-		call    near ___1398ch__VESA101_PRESENTRECTANGLE
+
+	push 	ecx
+	push	ebx
+	push 	edx
+	push 	eax
+		call    ___1398ch__VESA101_PRESENTRECTANGLE
+	add 	esp, 10h
+	
 ___17c9fh:
 		mov     ebx, [esp+38h]
 		mov     ecx, [esp+90h]
@@ -656,7 +704,14 @@ ___17cfdh:
 		lea     edx, [eax+19h]
 		mov     ebx, 44h
 		mov     eax, [esp+5ch]
-		call    near ___1398ch__VESA101_PRESENTRECTANGLE
+
+	push 	ecx
+	push	ebx
+	push 	edx
+	push 	eax
+		call    ___1398ch__VESA101_PRESENTRECTANGLE
+	add 	esp, 10h
+	
 		imul    eax, [___1a1ef8h], byte 6ch
 		xor     esi, esi
 		mov     edx, [esp+7ch]
@@ -780,7 +835,14 @@ ___17ea9h:
 		add     eax, byte 77h
 		mov     ebx, 0eh
 		add     eax, edi
-		call    near ___1398ch__VESA101_PRESENTRECTANGLE
+
+	push 	ecx
+	push	ebx
+	push 	edx
+	push 	eax
+		call    ___1398ch__VESA101_PRESENTRECTANGLE
+	add 	esp, 10h
+	
 		xor     eax, eax
 		mov     [esp+88h], eax
 		jmp     near ___1834dh
@@ -904,7 +966,14 @@ ___18053h:
 		mov     ebx, 0eh
 		add     eax, esi
 		mov     [esp+88h], edi
-		call    near ___1398ch__VESA101_PRESENTRECTANGLE
+
+	push 	ecx
+	push	ebx
+	push 	edx
+	push 	eax
+		call    ___1398ch__VESA101_PRESENTRECTANGLE
+	add 	esp, 10h
+	
 		jmp     near ___1834dh
 ___180b2h:
 		cmp     dword [esp+0b8h], byte 0
@@ -986,7 +1055,14 @@ ___18176h:
 		add     eax, ebp
 		add     edx, ebp
 		mov     edi, esp
-		call    near ___1398ch__VESA101_PRESENTRECTANGLE
+
+	push 	ecx
+	push	ebx
+	push 	edx
+	push 	eax
+		call    ___1398ch__VESA101_PRESENTRECTANGLE
+	add 	esp, 10h
+	
 		call 	__STRLEN
 		xor     al, al
 		mov     [esp+ecx*1-1], al
@@ -1055,7 +1131,14 @@ ___182bfh:
 		add     edx, edi
 		mov     ecx, 20h
 		add     edx, ebp
-		call    near ___1398ch__VESA101_PRESENTRECTANGLE
+
+	push 	ecx
+	push	ebx
+	push 	edx
+	push 	eax
+		call    ___1398ch__VESA101_PRESENTRECTANGLE
+	add 	esp, 10h
+	
 		xor     eax, eax
 		mov     al, [esp+94h]
 		mov     al, [eax+___185b8bh]

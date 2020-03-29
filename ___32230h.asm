@@ -17,8 +17,8 @@ cpu 386
 	extern	___185a14h
 	extern	___1a0248h
 	extern	___1a0228h
-	extern	srand_
-	extern	rand_
+	extern	srand_watcom106
+	extern	rand_watcom106
 	extern	itoa_
 	extern	___1a01e0h
 	extern	___13248h
@@ -165,8 +165,22 @@ ___323b0h:
 		jmp     short ___323b0h
 ___323c4h:
 		call 	getTimerTicks
-		call    near srand_
-		call    near rand_
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    srand_watcom106
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+	
+
+	push 	edx
+	push 	ecx
+		call    rand_watcom106
+	pop 	ecx
+	pop 	edx
+
 		mov     edx, eax
 		mov     ecx, 19h
 		sar     edx, 1fh
@@ -278,7 +292,15 @@ ___323c4h:
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10cch]
 		call    near ___12e78h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 		call    near ___17324h
 		mov     eax, [esp+7ch]
 		add     esp, 84h

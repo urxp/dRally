@@ -225,7 +225,14 @@ ___13f91h:
 		add     eax, ebp
 		add     edx, byte 5
 		add     eax, byte 5
-		call    near ___1398ch__VESA101_PRESENTRECTANGLE
+
+	push 	ecx
+	push	ebx
+	push 	edx
+	push 	eax
+		call    ___1398ch__VESA101_PRESENTRECTANGLE
+	add 	esp, 10h
+	
 		mov     edx, [esp+4]
 		lea     eax, [edx*4+0]
 		add     eax, edx
@@ -239,7 +246,14 @@ ___13f91h:
 		add     eax, ebp
 		add     edx, byte 5
 		add     eax, byte 5
-		call    near ___1398ch__VESA101_PRESENTRECTANGLE
+
+	push 	ecx
+	push	ebx
+	push 	edx
+	push 	eax
+		call    ___1398ch__VESA101_PRESENTRECTANGLE
+	add 	esp, 10h
+	
 		add     esp, byte 14h
 		pop     ebp
 		pop     edi

@@ -5,7 +5,7 @@ cpu 386
 	extern 	__STRCAT
 	extern 	__STRCPY
 	extern	___199f54h
-	extern	rand_
+	extern	rand_watcom106
 	extern	___196b24h
 	extern	___185a14h
 	extern	___1a1ef8h
@@ -34,10 +34,10 @@ cpu 386
 	extern	___12cb8h__VESA101_PRESENTSCREEN
 	extern	___2ab50h
 	extern	___24cc54h
-	extern	dRally_Audio_pushSoundEffect
+	extern	dRally_Sound_pushEffect
 	extern	___148cch
 	extern	___196aa4h
-	extern	dRally_Audio____6563ch
+	extern	dRally_Sound____6563ch
 	extern	___1806dch
 	extern	___1806e4h
 	extern	___1a1e84h
@@ -82,7 +82,13 @@ __GDECL(___31868h)
 		xor     eax, eax
 		jmp     near ___32224h
 ___3189eh:
-		call    near rand_
+
+	push 	edx
+	push 	ecx
+		call    rand_watcom106
+	pop 	ecx
+	pop 	edx
+
 		mov     edx, eax
 		mov     ebx, 64h
 		sar     edx, 1fh
@@ -96,7 +102,13 @@ ___3189eh:
 		je      near ___32207h
 		mov     ecx, 5
 		mov     [___196b24h], ecx
-		call    near rand_
+
+	push 	edx
+	push 	ecx
+		call    rand_watcom106
+	pop 	ecx
+	pop 	edx
+
 		mov     edx, eax
 		sar     edx, 1fh
 		idiv    ebx
@@ -319,7 +331,15 @@ ___31a77h:
 		mov     eax, ___1933b0h
 		add     edx, 80h
 		call    near ___13094h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 		xor     edx, edx
 ___31c7dh:
 		inc     edx
@@ -336,7 +356,7 @@ ___31c7dh:
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    dRally_Audio_pushSoundEffect
+		call    dRally_Sound_pushEffect
 	add 	esp, 18h
 		xor     edx, edx
 ___31ca8h:
@@ -361,7 +381,7 @@ ___31ca8h:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    dRally_Audio____6563ch
+		call    dRally_Sound____6563ch
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -529,7 +549,13 @@ ___31e6ah:
 		mov     ebx, 4
 		call    near ___13094h
 ___31f2eh:
-		call    near rand_
+
+	push 	edx
+	push 	ecx
+		call    rand_watcom106
+	pop 	ecx
+	pop 	edx
+
 		mov     edx, eax
 		sar     edx, 1fh
 		idiv    ebx
@@ -617,7 +643,15 @@ ___31f2eh:
 		lea     edx, [eax+80h]
 		mov     eax, ___1936d0h
 		call    near ___13094h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 		xor     edx, edx
 ___32137h:
 		inc     edx
@@ -634,7 +668,7 @@ ___32137h:
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    dRally_Audio_pushSoundEffect
+		call    dRally_Sound_pushEffect
 	add 	esp, 18h
 		xor     edx, edx
 ___32162h:
@@ -674,7 +708,7 @@ ___321efh:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    dRally_Audio____6563ch
+		call    dRally_Sound____6563ch
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx

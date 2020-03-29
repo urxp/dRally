@@ -33,7 +33,7 @@ cpu 386
 	extern 	___3f71ch__allocateMemory
 	extern 	___1a0f9ch
 	extern 	memset_
-	extern 	rand_
+	extern 	rand_watcom106
 	extern 	___1a1ef8h
 	extern 	___185a14h
 	extern 	___196a94h
@@ -128,7 +128,15 @@ ___18db5h:
 		mov     edx, 1
 		mov     eax, 5
 		call    near ___13710h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 		mov     eax, 5
 		call    near ___146c4h
 		mov     esi, eax
@@ -152,7 +160,15 @@ ___18db5h:
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
 		call    near ___12e78h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 		add     esi, ___186f82h
 		mov     edx, ___180748h
 		mov     eax, esi
@@ -188,11 +204,25 @@ ___18ee0h:
 		mov     ebp, 883h
 		mov     eax, ebp
 		xor     edx, edx
-		call    near ___3f71ch__allocateMemory
+		
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___3f71ch__allocateMemory
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     ebx, ebp
 		mov     [___1a0f9ch], eax
 		call    near memset_
-		call    near rand_
+
+	push 	edx
+	push 	ecx
+		call    rand_watcom106
+	pop 	ecx
+	pop 	edx
+
 		mov     edx, eax
 		mov     ebx, 0ffh
 		sar     edx, 1fh

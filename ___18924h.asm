@@ -20,7 +20,7 @@ cpu 386
 	extern 	___146c4h
 	extern 	___1854bch
 	extern 	___24cc54h
-	extern 	dRally_Audio_pushSoundEffect
+	extern 	dRally_Sound_pushEffect
 	extern 	___18687ah
 	extern 	___18076ch
 	extern 	___185b59h
@@ -145,7 +145,15 @@ ___189f1h:
 		mov     edx, 1
 		mov     eax, 5
 		call    near ___13710h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 		mov     eax, 5
 		call    near ___146c4h
 		mov     bh, [esp+eax*1+10h]
@@ -165,7 +173,7 @@ ___189f1h:
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    dRally_Audio_pushSoundEffect
+		call    dRally_Sound_pushEffect
 	add 	esp, 18h
 ___18a83h:
 		test    esi, esi
@@ -212,7 +220,15 @@ ___18a9ah:
 		mov     eax, 883h
 		mov     edi, esp
 		mov     esi, ___180754h
-		call    near ___3f71ch__allocateMemory
+		
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___3f71ch__allocateMemory
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     [___1a0f9ch], eax
 		call    near memset_
 		mov     ebx, 0ah

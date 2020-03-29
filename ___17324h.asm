@@ -14,7 +14,13 @@ __GDECL(___17324h)
 		call    near __CHK
 		push    ebx
 		push    edx
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 		xor     bl, bl
 		call    near ___59b3ch
 		xor     bh, bh
@@ -25,7 +31,13 @@ ___1733eh:
 		je      short ___17374h
 		cmp     bh, 0ah
 		jbe     short ___17354h
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 		mov     bl, al
 ___17354h:
 		call    near ___2ab50h
@@ -37,7 +49,13 @@ ___17354h:
 		cmp     bl, 1
 		jne     short ___1733eh
 ___17374h:
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 		call    near ___59b3ch
 		pop     edx
 		pop     ebx

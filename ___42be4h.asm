@@ -5,7 +5,7 @@ cpu 386
 	extern	___1830b8h
 	extern	___1a54d0h
 	extern	___1830c4h
-	extern	bpa_read_cdecl
+	extern	bpa_read
 	extern	___243ce8h
 	extern	___1de5ach
 	extern	___1c9f10h
@@ -67,7 +67,7 @@ __GDECL(___42be4h)
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    bpa_read_cdecl					;;
+		call    bpa_read					;;
 	add 	esp, 0ch
 	pop 	ecx
 
@@ -154,7 +154,7 @@ ___42cdch:
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    bpa_read_cdecl					;;
+		call    bpa_read					;;
 	add 	esp, 0ch
 	pop 	ecx
 
@@ -196,7 +196,7 @@ ___42d74h:
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    bpa_read_cdecl					;;
+		call    bpa_read					;;
 	add 	esp, 0ch
 	pop 	ecx
 
@@ -219,7 +219,7 @@ ___42d83h:
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    bpa_read_cdecl					;;
+		call    bpa_read					;;
 	add 	esp, 0ch
 	pop 	ecx
 
@@ -234,7 +234,7 @@ ___42d83h:
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    bpa_read_cdecl					;;
+		call    bpa_read					;;
 	add 	esp, 0ch
 	pop 	ecx
 
@@ -249,7 +249,7 @@ ___42d83h:
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    bpa_read_cdecl					;;
+		call    bpa_read					;;
 	add 	esp, 0ch
 	pop 	ecx
 
@@ -264,7 +264,7 @@ ___42d83h:
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    bpa_read_cdecl					;;
+		call    bpa_read					;;
 	add 	esp, 0ch
 	pop 	ecx
 
@@ -279,7 +279,7 @@ ___42d83h:
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    bpa_read_cdecl					;;
+		call    bpa_read					;;
 	add 	esp, 0ch
 	pop 	ecx
 
@@ -294,7 +294,7 @@ ___42d83h:
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    bpa_read_cdecl					;;
+		call    bpa_read					;;
 	add 	esp, 0ch
 	pop 	ecx
 
@@ -310,7 +310,7 @@ ___42d83h:
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    bpa_read_cdecl					;;
+		call    bpa_read					;;
 	add 	esp, 0ch
 	pop 	ecx
 
@@ -326,7 +326,7 @@ ___42d83h:
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    bpa_read_cdecl					;;
+		call    bpa_read					;;
 	add 	esp, 0ch
 	pop 	ecx
 

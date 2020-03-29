@@ -87,12 +87,28 @@ ___194c3h:
 		call    near ___13710h
 		cmp     dword [___185a24h], byte 0
 		jne     short ___19523h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 		jmp     short ___1953dh
 ___19523h:
 		call 	restoreDefaultScreenBuffer
 		call    near ___3a6a4h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 		mov     [___185a24h], ebx
 ___1953dh:
 		mov     eax, 1
@@ -130,7 +146,15 @@ ___1955ah:
 		mov     [___185a40h], esi
 		mov     [___185a3ch], esi
 		mov     edx, [edx+___1a020ch]
-		call    near ___2415ch
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2415ch
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		imul    eax, [___1a1ef8h], byte 6ch
 		mov     edi, ___18687ah
 		mov     [eax+___1a020ch], edx
@@ -220,7 +244,15 @@ ___19649h:
 		movsd   
 		movsd   
 		movsb   
-		call    near ___2415ch
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2415ch
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		call    near ___2b5f0h
 		mov     [___243d44h], edx
 		mov     [___185a90h], ecx

@@ -84,8 +84,24 @@ ___1e598h:
 		call    near ___13710h
 		xor     edx, edx
 		mov     [___196a84h], edx
-		call    near ___2415ch
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2415ch
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 ___1e5c2h:
 		cmp     dword [CONNECTION_TYPE], byte 2
 		jne     short ___1e61ch
@@ -102,7 +118,15 @@ ___1e5ech:
 		je      short ___1e603h
 		cmp     dword [CONNECTION_TYPE], byte 2
 		jne     short ___1e603h
+
+	push 	edx
+	push 	ecx
+	push 	eax
 		call    near ___60719h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 ___1e603h:
 		cmp     dword [___19bd60h], byte 0
 		je      short ___1e61ch

@@ -93,7 +93,15 @@ ___1d2fdh:
 		mov     [CONNECTION_TYPE], esi
 		mov     [___199fach], edi
 		mov     ebx, [eax*4+___1a020ch]
-		call    near ___2415ch
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2415ch
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		mov     edx, [___1a1ef8h]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
@@ -153,14 +161,28 @@ ___1d37ch:
 		mov     eax, [___1a1108h]
 		xor     ebp, ebp
 		call    near ___12e78h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 		call    near ___60a84h
 		xor     ecx, ecx
 		xor     ebx, ebx
 ___1d452h:
 		cmp     ebp, 0ffh
 		je      short ___1d4a8h
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 		mov     dword [esp+8], 0ah
 		xor     ecx, ecx
 		mov     edx, ebx

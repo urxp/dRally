@@ -25,13 +25,29 @@ __GDECL(___4539ch)
 		mov     ecx, [___243310h]
 		mov     esi, [___243314h]
 		mov     eax, 3844h
-		call    near ___3f71ch__allocateMemory
+		
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___3f71ch__allocateMemory
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		xor     edx, edx
 		mov     esi, eax
 		mov     [esp+8], edx
 		mov     eax, 3844h
 		mov     [___243314h], esi
-		call    near ___3f71ch__allocateMemory
+		
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___3f71ch__allocateMemory
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     esi, [___243314h]
 		mov     ecx, eax
 		fld     qword [___183485h]

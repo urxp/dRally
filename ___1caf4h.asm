@@ -113,14 +113,40 @@ __GDECL(___1caf4h)
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10cch]
 		call    near ___12e78h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 		call    near ___59b3ch
 ___1cbc7h:
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 		test    al, al
 		je      short ___1cbc7h
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 		call    near ___59b3ch
 ___1cbdah:
 		test    ebp, ebp
@@ -157,7 +183,15 @@ ___1cbf9h:
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10cch]
 		call    near ___12e78h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 		mov     ecx, ___1a116ch
 		xor     edx, edx
 		lea     ebx, [ecx+96h]
@@ -196,7 +230,15 @@ ___1ccdfh:
 		mov     eax, 64h
 		rep movsd   
 		movsw   
-		call    near ___3f71ch__allocateMemory
+		
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___3f71ch__allocateMemory
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     esi, [CONNECTION_TYPE]
 		mov     [___1a0f9ch], eax
 		cmp     esi, byte 2
@@ -210,7 +252,15 @@ ___1cd5ch:
 		xor     ebp, ebp
 		mov     [esp+64h], eax
 ___1cd6ch:
-		call    near ___58c60h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___58c60h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		call    near ___6168ch
 		mov     edx, 8
 		mov     eax, [___1a0f9ch]
@@ -281,8 +331,24 @@ ___1ce3bh:
 		mov     eax, ___1a1dbah
 		lea     edx, [ecx+1]
 		call    near ___23488h
-		call    near ___23230h
-		call    near ___12d6ch__VESA101_PRESENTBOTTOMSCREEN
+	
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___23230h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12d6ch__VESA101_PRESENTBOTTOMSCREEN
+	pop		eax
+	pop 	ecx
+	pop		edx
+
 		xor     edi, edi
 		xor     bl, bl
 		mov     ebp, [CONNECTION_TYPE]
@@ -326,10 +392,32 @@ ___1cf92h:
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
 		call    near ___12e78h
-		call    near ___23230h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+	
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___23230h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 		call    near ___59b3ch
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 		mov     eax, 1
 		add     esp, byte 68h
 		pop     ebp

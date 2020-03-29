@@ -84,7 +84,14 @@ ___17431h:
 		add     eax, edi
 		add     edx, esi
 		add     eax, esi
-		call    near ___1398ch__VESA101_PRESENTRECTANGLE
+
+	push 	ecx
+	push	ebx
+	push 	edx
+	push 	eax
+		call    ___1398ch__VESA101_PRESENTRECTANGLE
+	add 	esp, 10h
+	
 		cmp     dword [___196ae4h], byte 0
 		jne     near ___174fdh
 		cmp     dword [esp], byte 0
@@ -110,7 +117,14 @@ ___17431h:
 		mov     ecx, 40h
 		add     edx, 1a0h
 		add     eax, 1a0h
-		call    near ___1398ch__VESA101_PRESENTRECTANGLE
+
+	push 	ecx
+	push	ebx
+	push 	edx
+	push 	eax
+		call    ___1398ch__VESA101_PRESENTRECTANGLE
+	add 	esp, 10h
+	
 		mov     edi, [___1a1ed0h]
 		inc     edi
 		mov     [___1a1ed0h], edi

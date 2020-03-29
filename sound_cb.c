@@ -35,7 +35,6 @@ extern byte ___68d64h[];
 extern byte ___68d6ch[];
 extern byte ___68d78h[];
 extern byte ___68d72h[];
-extern byte AUDIO_DATA_CB[];
 extern byte ___68c40h[];
 extern byte SOUND_SAMPLERATE[];
 extern byte ___68d70h[];
@@ -53,6 +52,8 @@ extern byte ___68d8ch[];
 extern byte ___68a90h[];
 extern byte ___68eb4h[];
 extern byte ___68c3ch[];
+
+extern void (*AUDIO_DATA_CB)(void);
 
 dword ___694c0h_cdecl(dword esi, dword * edi){
 
@@ -297,7 +298,7 @@ void ___691deh_cdecl(dword eax, dword edx, dword edi){
 
 		if(W(___68d72h) == 0){
 
-			(*(void (**)(void))AUDIO_DATA_CB)();
+			AUDIO_DATA_CB();
 			edx = W(___68c40h);
 			eax = W(SOUND_SAMPLERATE);
 			ll_tmp = (long long)(int)eax * (long long)(int)edx;

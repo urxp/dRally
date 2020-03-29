@@ -26,7 +26,15 @@ __GDECL(___18808h)
 		mov     edi, edx
 		mov     eax, 883h
 		mov     ebx, 883h
-		call    near ___3f71ch__allocateMemory
+		
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___3f71ch__allocateMemory
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		xor     edx, edx
 		mov     [___1a0f9ch], eax
 		call    near memset_

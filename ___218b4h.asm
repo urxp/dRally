@@ -31,13 +31,13 @@ cpu 386
 	extern	___185ba9h
 	extern	___1f094h
 	extern	___1a10cch
-	extern	dRally_Audio_setMusicVolume
+	extern	dRally_Sound_setMusicVolume
 	extern	___2ab50h
 	extern	___1854b8h
-	extern	dRally_Audio_pushSoundEffect
+	extern	dRally_Sound_pushEffect
 	extern	CONFIG_WRITE
 	extern	___181c18h
-	extern	dRally_Audio_setEffectVolume
+	extern	dRally_Sound_setEffectVolume
 	extern	___204fch
 	extern	___210b4h
 	extern	___19bd58h
@@ -103,7 +103,15 @@ ___21901h:
 		mov     edx, 1
 		mov     eax, 3
 		call    near ___13710h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 		mov     eax, 3
 		call    near ___146c4h
 		mov     [esp+0ch], eax
@@ -147,7 +155,15 @@ ___219dch:
 		dec     ecx
 		jne     short ___219d2h
 		xor     dl, dl
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 		mov     [esp+14h], dl
 ___219f7h:
 		mov     dh, [esp+14h]
@@ -157,7 +173,13 @@ ___219f7h:
 		je      near ___21c0bh
 		cmp     dword [___196a84h], byte 0
 		jne     near ___21c0bh
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 		mov     [esp+14h], al
 		cmp     al, 0cbh
 		jne     short ___21a36h
@@ -264,7 +286,14 @@ ___21b29h:
 		mov     eax, [esp+1ch]
 		add     edx, byte 0dh
 		add     eax, 27247h
-		call    near ___1398ch__VESA101_PRESENTRECTANGLE
+
+	push 	ecx
+	push	ebx
+	push 	edx
+	push 	eax
+		call    ___1398ch__VESA101_PRESENTRECTANGLE
+	add 	esp, 10h
+	
 		fild    dword [esp+1ch]
 		fmul    qword [___181c66h]
 		mov     esi, ___181c14h
@@ -289,13 +318,20 @@ ___21b29h:
 		mov     edx, [___1a112ch__VESA101_ACTIVESCREEN_PTR]
 		mov     eax, 26560h
 		add     edx, 26560h
-		call    near ___1398ch__VESA101_PRESENTRECTANGLE
+
+	push 	ecx
+	push	ebx
+	push 	edx
+	push 	eax
+		call    ___1398ch__VESA101_PRESENTRECTANGLE
+	add 	esp, 10h
+	
 		mov     eax, [esp+1ch]
 		shl     eax, 9
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    near dRally_Audio_setMusicVolume
+		call    near dRally_Sound_setMusicVolume
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -317,7 +353,7 @@ ___21c0bh:
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    dRally_Audio_pushSoundEffect
+		call    dRally_Sound_pushEffect
 	add 	esp, 18h
 ___21c39h:
 		cmp     dword [esp+0ch], byte 0ffffffffh
@@ -376,7 +412,15 @@ ___21cb8h:
 		sub     ebx, edx
 		dec     ecx
 		jne     short ___21caeh
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 		xor     ah, ah
 		mov     [esp+14h], ah
 ___21cd3h:
@@ -387,7 +431,13 @@ ___21cd3h:
 		je      near ___21ee9h
 		cmp     dword [___196a84h], byte 0
 		jne     near ___21ee9h
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 		mov     [esp+14h], al
 		cmp     al, 0cbh
 		jne     short ___21d12h
@@ -494,7 +544,14 @@ ___21e05h:
 		mov     eax, [esp+18h]
 		add     edx, byte 0dh
 		add     eax, 27247h
-		call    near ___1398ch__VESA101_PRESENTRECTANGLE
+
+	push 	ecx
+	push	ebx
+	push 	edx
+	push 	eax
+		call    ___1398ch__VESA101_PRESENTRECTANGLE
+	add 	esp, 10h
+	
 		fild    dword [esp+18h]
 		fmul    qword [___181c66h]
 		mov     esi, ___181c14h
@@ -519,14 +576,21 @@ ___21e05h:
 		mov     edx, [___1a112ch__VESA101_ACTIVESCREEN_PTR]
 		mov     eax, 26560h
 		add     edx, 26560h
-		call    near ___1398ch__VESA101_PRESENTRECTANGLE
+
+	push 	ecx
+	push	ebx
+	push 	edx
+	push 	eax
+		call    ___1398ch__VESA101_PRESENTRECTANGLE
+	add 	esp, 10h
+	
 		mov     eax, [esp+18h]
 		shl     eax, 9
 		mov     dl, [esp+14h]
 	push 	ecx
 	push 	edx
 	push 	eax
-		call    near dRally_Audio_setEffectVolume
+		call    near dRally_Sound_setEffectVolume
 	add 	esp, 4
 	pop		edx
 	pop 	ecx
@@ -547,7 +611,7 @@ ___21ee9h:
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    dRally_Audio_pushSoundEffect
+		call    dRally_Sound_pushEffect
 	add 	esp, 18h
 		jmp     near ___21c39h
 ___21f17h:
@@ -571,7 +635,15 @@ ___21f57h:
 		mov     ecx, 6
 		mov     edi, ___186cc6h
 		mov     esi, ___181c30h
+
+	push 	edx
+	push 	ecx
+	push 	eax
 		call    near ___596f0h
+	pop		eax
+	pop 	ecx
+	pop 	edx
+
 		rep movsd   
 		movsb   
 ___21f6eh:

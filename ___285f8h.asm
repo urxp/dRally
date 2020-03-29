@@ -4,7 +4,7 @@ cpu 386
 	extern	__CHK
 	extern	___1854b0h
 	extern	___24cc54h
-	extern	dRally_Audio_pushSoundEffect
+	extern	dRally_Sound_pushEffect
 	extern	___1a1ec4h
 	extern	___1a1ee4h
 	extern	___25a74h
@@ -48,7 +48,7 @@ __GDECL(___285f8h)
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    dRally_Audio_pushSoundEffect
+		call    dRally_Sound_pushEffect
 	add 	esp, 18h
 		mov     eax, [___1a1ec4h]
 		cmp     eax, byte 5
@@ -87,7 +87,15 @@ ___28690h:
 		sub     ebx, edx
 		dec     ecx
 		jne     short ___28686h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 		call    near ___25a74h
 		call    near ___28470h
 		mov     ecx, 40h
@@ -111,7 +119,15 @@ ___286d5h:
 		sub     ebx, edx
 		dec     ecx
 		jne     short ___286cbh
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 		pop     ebp
 		pop     edi
 		pop     esi
@@ -133,7 +149,15 @@ ___286f1h:
 		mov     edx, 73h
 		xor     eax, eax
 		call    near ___27f80h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 		pop     ebp
 		pop     edi
 		pop     esi
@@ -155,7 +179,15 @@ ___28739h:
 		mov     edx, 0f3h
 		mov     eax, 0ah
 		call    near ___27f80h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 		pop     ebp
 		pop     edi
 		pop     esi
@@ -177,7 +209,15 @@ ___28784h:
 		mov     edx, 0f3h
 		mov     eax, ecx
 		call    near ___27f80h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 		pop     ebp
 		pop     edi
 		pop     esi
@@ -199,7 +239,15 @@ ___287cfh:
 		mov     edx, 0f3h
 		mov     eax, 0dah
 		call    near ___27f80h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 		pop     ebp
 		pop     edi
 		pop     esi
@@ -221,7 +269,15 @@ ___2881dh:
 		mov     edx, 0f3h
 		mov     eax, 142h
 		call    near ___27f80h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 ___28864h:
 		pop     ebp
 		pop     edi

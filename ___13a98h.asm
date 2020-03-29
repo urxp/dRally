@@ -14,6 +14,11 @@ cpu 386
 
 section .text
 
+__GDECL(___13a98h_cdecl)
+	mov 	eax, [esp+4]
+	call 	___13a98h
+	retn
+
 __GDECL(___13a98h)
 		push    20h
 		call    near __CHK
@@ -102,7 +107,14 @@ ___13b69h:
 		add     eax, esi
 		add     edx, edi
 		add     eax, edi
-		call    near ___1398ch__VESA101_PRESENTRECTANGLE
+
+	push 	ecx
+	push	ebx
+	push 	edx
+	push 	eax
+		call    ___1398ch__VESA101_PRESENTRECTANGLE
+	add 	esp, 10h
+	
 		mov     esi, [___1a1e68h]
 		inc     esi
 		mov     [___1a1e68h], esi

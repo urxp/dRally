@@ -74,11 +74,27 @@ __GDECL(___1bc20h)
 		call    near itoa_
 		mov     eax, 12h
 		mov     ecx, 28f00h
-		call    near ___3f71ch__allocateMemory
+		
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___3f71ch__allocateMemory
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     ebp, eax
 		mov     eax, 12h
 		xor     edx, edx
-		call    near ___3f71ch__allocateMemory
+		
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___3f71ch__allocateMemory
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     esi, [___1a1138h__VESA101h_DefaultScreenBufferB]
 		mov     edi, [___1a112ch__VESA101_ACTIVESCREEN_PTR]
 		add     esi, 10680h
@@ -109,7 +125,15 @@ __GDECL(___1bc20h)
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
 		call    near ___12e78h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 		mov     ebx, ebp
 		xor     edx, edx
 ___1bd16h:
@@ -169,8 +193,24 @@ ___1bd55h:
 		lea     edx, [ecx+1]
 		add     esi, byte 0fh
 		call    near ___23488h
-		call    near ___23230h
-		call    near ___12d6ch__VESA101_PRESENTBOTTOMSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___23230h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12d6ch__VESA101_PRESENTBOTTOMSCREEN
+	pop		eax
+	pop 	ecx
+	pop		edx
+
 		mov     ebx, 1000h
 		mov     eax, [___24e4ach]
 		xor     edx, edx
@@ -181,7 +221,13 @@ ___1bd55h:
 ___1be57h:
 		cmp     dword [___196a84h], byte 0
 		jne     near ___1c058h
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 		movzx   edi, al
 		call    near ___2ab50h
 		call    near ___2ab50h
@@ -243,8 +289,24 @@ ___1bec2h:
 		xor     dh, dh
 		call 	__STRCAT
 		mov     [___1a1f63h], dh
-		call    near ___23230h
-		call    near ___12d6ch__VESA101_PRESENTBOTTOMSCREEN
+	
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___23230h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12d6ch__VESA101_PRESENTBOTTOMSCREEN
+	pop		eax
+	pop 	ecx
+	pop		edx
+
 		call 	__STRLEN
 		mov     eax, ___1a1dbah
 		lea     edx, [ecx+1]
@@ -307,8 +369,32 @@ ___1c065h:
 		xor     dl, dl
 		call 	__STRCAT
 		mov     [___1a1f63h], dl
-		call    near ___23230h
-		call    near ___12d6ch__VESA101_PRESENTBOTTOMSCREEN
+	
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___23230h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
+
+	push 	edx
+	push 	ecx
+	push 	eax
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12d6ch__VESA101_PRESENTBOTTOMSCREEN
+	pop		eax
+	pop 	ecx
+	pop		edx
+
+	pop		eax
+	pop 	ecx
+	pop		edx
+
 		call 	__STRLEN
 		mov     eax, ___1a1dbah
 		lea     edx, [ecx+1]

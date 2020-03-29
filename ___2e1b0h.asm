@@ -5,7 +5,7 @@ cpu 386
 	extern	___1a1ef0h
 	extern	___1854b0h
 	extern	___24cc54h
-	extern	dRally_Audio_pushSoundEffect
+	extern	dRally_Sound_pushEffect
 	extern	___2d898h
 	extern	___281d0h
 	extern	___27f80h
@@ -43,7 +43,7 @@ __GDECL(___2e1b0h)
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    dRally_Audio_pushSoundEffect
+		call    dRally_Sound_pushEffect
 	add 	esp, 18h
 ___2e1ech:
 		mov     ecx, [___1a1ef0h]
@@ -65,7 +65,15 @@ ___2e204h:
 		mov     edx, 0f3h
 		mov     eax, ecx
 		call    near ___27f80h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 		pop     ebp
 		pop     edi
 		pop     esi
@@ -87,7 +95,15 @@ ___2e24fh:
 		mov     edx, 0f3h
 		mov     eax, 0dah
 		call    near ___27f80h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 		pop     ebp
 		pop     edi
 		pop     esi
@@ -109,7 +125,15 @@ ___2e29ah:
 		mov     edx, 0f3h
 		mov     eax, 142h
 		call    near ___27f80h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 		pop     ebp
 		pop     edi
 		pop     esi
@@ -131,7 +155,15 @@ ___2e2e8h:
 		mov     edx, 0f3h
 		mov     eax, 1aah
 		call    near ___27f80h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 ___2e32fh:
 		pop     ebp
 		pop     edi

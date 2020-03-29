@@ -98,7 +98,14 @@ ___3a733h:
 		mov     eax, [esp]
 		add     edx, ebx
 		mov     ebx, 96h
-		call    near ___1398ch__VESA101_PRESENTRECTANGLE
+
+	push 	ecx
+	push	ebx
+	push 	edx
+	push 	eax
+		call    ___1398ch__VESA101_PRESENTRECTANGLE
+	add 	esp, 10h
+	
 		mov     edx, [esp]
 		mov     ebx, [esp+4]
 		add     edx, byte 0fh
@@ -107,7 +114,13 @@ ___3a733h:
 		mov     [esp+4], ebx
 		cmp     ebx, byte 2bh
 		jl      near ___3a6c5h
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 		call    near ___59b3ch
 		add     esp, byte 20h
 		pop     ebp

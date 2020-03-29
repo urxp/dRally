@@ -210,7 +210,15 @@ ___383c6h:
 		cmp     ebp, edi
 		jl      near ___3826eh
 ___38426h:
-		call    near ___2b318h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2b318h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		xor     edx, edx
 		mov     ebp, [___1a1ef8h]
 		mov     dl, [esp+14h]

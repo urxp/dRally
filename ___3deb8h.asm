@@ -6,7 +6,7 @@ cpu 386
 	extern	___1a116ch
 	extern	___1a1f4eh
 	extern	___1a1f4dh
-	extern	rand_
+	extern	rand_watcom106
 	extern	___1a202fh
 	extern	___195494h
 	extern	___1a1b62h
@@ -56,7 +56,13 @@ ___3dee5h:
 		jl      short ___3dedbh
 		mov     ebx, 13h
 ___3df2ch:
-		call    near rand_
+
+	push 	edx
+	push 	ecx
+		call    rand_watcom106
+	pop 	ecx
+	pop 	edx
+
 		mov     edx, eax
 		sar     edx, 1fh
 		idiv    ebx

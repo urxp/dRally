@@ -1,4 +1,5 @@
 .vscode
+*.kdev4
 dRally
 drally_linux
 serial16.bin

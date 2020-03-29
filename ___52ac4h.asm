@@ -15,13 +15,13 @@ cpu 386
 	extern	___1e6fdah
 	extern	___1de59ch
 	extern	___1de598h
-	extern	rand_
+	extern	rand_watcom106
 	extern	___1e6f80h
 	extern	___184286h
 	extern	___243ce8h
 	extern	___1e7222h
 	extern	___1e6fd4h
-	extern	dRally_Audio_pushSoundEffect
+	extern	dRally_Sound_pushEffect
 
 section .text
 
@@ -107,7 +107,13 @@ ___52bcch:
 		mov     [eax+___1de598h], edi
 ___52be4h:
 		mov     ebx, [___243c60h]
-		call    near rand_
+
+	push 	edx
+	push 	ecx
+		call    rand_watcom106
+	pop 	ecx
+	pop 	edx
+
 		mov     edx, eax
 		sar     edx, 1fh
 		idiv    ebp
@@ -119,7 +125,13 @@ ___52be4h:
 		mov     eax, [___243c60h]
 		fstp    dword [ecx+___1e6f84h]
 		imul    ecx, eax, 35eh
-		call    near rand_
+
+	push 	edx
+	push 	ecx
+		call    rand_watcom106
+	pop 	ecx
+	pop 	edx
+
 		mov     edx, eax
 		sar     edx, 1fh
 		idiv    ebp
@@ -128,7 +140,13 @@ ___52be4h:
 		fild    dword [esp+0ch]
 		fadd    dword [ecx+___1e6f88h]
 		fstp    dword [ecx+___1e6f88h]
-		call    near rand_
+
+	push 	edx
+	push 	ecx
+		call    rand_watcom106
+	pop 	ecx
+	pop 	edx
+
 		mov     edx, eax
 		mov     ebx, 0ah
 		sar     edx, 1fh
@@ -152,7 +170,13 @@ ___52be4h:
 		jne     short ___52cc8h
 		push    8000h
 		push    50000h
-		call    near rand_
+
+	push 	edx
+	push 	ecx
+		call    rand_watcom106
+	pop 	ecx
+	pop 	edx
+
 		mov     edx, eax
 		mov     ebx, 3
 		sar     edx, 1fh
@@ -190,7 +214,13 @@ ___52cc8h:
 		jle     short ___52d60h
 		push    8000h
 		push    50000h
-		call    near rand_
+
+	push 	edx
+	push 	ecx
+		call    rand_watcom106
+	pop 	ecx
+	pop 	edx
+
 		mov     edx, eax
 		mov     ebx, 3
 		sar     edx, 1fh
@@ -205,7 +235,7 @@ ___52d50h:
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    dRally_Audio_pushSoundEffect
+		call    dRally_Sound_pushEffect
 	add 	esp, 18h
 ___52d60h:
 		add     esi, byte 20h

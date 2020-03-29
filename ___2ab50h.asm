@@ -61,7 +61,15 @@ __GDECL(___2ab50h)
 		call    near ___3a454h
 ___2ab74h:
 		inc     dword [___196a88h]
-		call    near ___58c60h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___58c60h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		call    near ___2a394h
 		mov     eax, [___196a88h]
 		mov     edx, eax
@@ -180,14 +188,38 @@ ___2ad25h:
 		jne     short ___2adb9h
 		cmp     dword [___196a74h], byte 1
 		jne     short ___2adcch
-		call    near ___23230h
-		call    near ___12d6ch__VESA101_PRESENTBOTTOMSCREEN
+	
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___23230h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12d6ch__VESA101_PRESENTBOTTOMSCREEN
+	pop		eax
+	pop 	ecx
+	pop		edx
+
 		jmp     short ___2adcch
 ___2adb9h:
 		cmp     dword [___196a74h], byte 1
 		jne     short ___2adcch
 		call    near ___233c0h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 ___2adcch:
 		mov     edx, 6
 		mov     eax, esp
@@ -221,14 +253,38 @@ ___2adf4h:
 		jne     short ___2ae88h
 		cmp     dword [___196a74h], byte 1
 		jne     short ___2ae9bh
-		call    near ___23230h
-		call    near ___12d6ch__VESA101_PRESENTBOTTOMSCREEN
+	
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___23230h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12d6ch__VESA101_PRESENTBOTTOMSCREEN
+	pop		eax
+	pop 	ecx
+	pop		edx
+
 		jmp     short ___2ae9bh
 ___2ae88h:
 		cmp     dword [___196a74h], byte 1
 		jne     short ___2ae9bh
 		call    near ___233c0h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 ___2ae9bh:
 		mov     edx, 7
 		mov     eax, esp
@@ -236,7 +292,15 @@ ___2ae9bh:
 		test    eax, eax
 		je      near ___2af52h
 		mov     eax, 64h
-		call    near ___3f71ch__allocateMemory
+		
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___3f71ch__allocateMemory
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     edi, eax
 		mov     [___1a0f9ch], eax
 		mov     eax, [___180864h]
@@ -292,14 +356,38 @@ ___2af7ah:
 		jne     short ___2b00eh
 		cmp     dword [___196a74h], byte 1
 		jne     short ___2b021h
-		call    near ___23230h
-		call    near ___12d6ch__VESA101_PRESENTBOTTOMSCREEN
+	
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___23230h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12d6ch__VESA101_PRESENTBOTTOMSCREEN
+	pop		eax
+	pop 	ecx
+	pop		edx
+
 		jmp     short ___2b021h
 ___2b00eh:
 		cmp     dword [___196a74h], byte 1
 		jne     short ___2b021h
 		call    near ___233c0h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 ___2b021h:
 		mov     edx, 13h
 		call    near ___1e4f8h
@@ -337,14 +425,38 @@ ___2b059h:
 		jne     short ___2b0edh
 		cmp     dword [___196a74h], byte 1
 		jne     short ___2b100h
-		call    near ___23230h
-		call    near ___12d6ch__VESA101_PRESENTBOTTOMSCREEN
+	
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___23230h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12d6ch__VESA101_PRESENTBOTTOMSCREEN
+	pop		eax
+	pop 	ecx
+	pop		edx
+
 		jmp     short ___2b100h
 ___2b0edh:
 		cmp     dword [___196a74h], byte 1
 		jne     short ___2b100h
 		call    near ___233c0h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 ___2b100h:
 		mov     eax, 1
 		call    near ___1e62ch
@@ -393,14 +505,38 @@ ___2b137h:
 		jne     short ___2b223h
 		cmp     dword [___196a74h], byte 1
 		jne     short ___2b236h
-		call    near ___23230h
-		call    near ___12d6ch__VESA101_PRESENTBOTTOMSCREEN
+	
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___23230h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12d6ch__VESA101_PRESENTBOTTOMSCREEN
+	pop		eax
+	pop 	ecx
+	pop		edx
+
 		jmp     short ___2b236h
 ___2b223h:
 		cmp     dword [___196a74h], byte 1
 		jne     short ___2b236h
 		call    near ___233c0h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 ___2b236h:
 		mov     edx, [CONNECTION_TYPE]
 		cmp     edx, byte 3
@@ -439,14 +575,38 @@ ___2b26bh:
 		jne     short ___2b2f1h
 		cmp     dword [___196a74h], byte 1
 		jne     short ___2b304h
-		call    near ___23230h
-		call    near ___12d6ch__VESA101_PRESENTBOTTOMSCREEN
+	
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___23230h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12d6ch__VESA101_PRESENTBOTTOMSCREEN
+	pop		eax
+	pop 	ecx
+	pop		edx
+
 		jmp     short ___2b304h
 ___2b2f1h:
 		cmp     dword [___196a74h], byte 1
 		jne     short ___2b304h
 		call    near ___233c0h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 ___2b304h:
 		xor     eax, eax
 		call    near ___1e62ch

@@ -383,23 +383,23 @@ __GDECL(___19deech)
 __GDECL(___19df4ch)
 	resb	4
 __GDECL(___19df50h)
-	resb	4
-__GDECL(___19df54h)
-	resb	4
-__GDECL(___19df58h)	
-	resb	0bech
+	resb	0bf4h
 __GDECL(___19eb44h)
 	resb	4
 __GDECL(___19eb48h)
 	resb	4
 __GDECL(___19eb4ch)
 	resb	4
+
+
 __GDECL(___19eb50h)
 	resb	4
 __GDECL(___19eb54h)
 	resb	4
 __GDECL(___19eb58h)
 	resb	0bf8h
+
+	
 __GDECL(___19f750h)	
 	resb	0ch
 __GDECL(___19f75ch)	
@@ -951,9 +951,7 @@ __GDECL(___1a0a58h)
 __GDECL(___1a0a5ch)
 	resb	4
 __GDECL(___1a0a60h)
-	resb	2ffh
-__GDECL(___1a0d5fh)	
-	resb	1
+	resb	300h
 __GDECL(___1a0d60h)
 	resb	0c4h
 __GDECL(___1a0e24h)	
@@ -1372,7 +1370,7 @@ __GDECL(___1a1f04h)
 	resb	4
 __GDECL(___1a1f08h)
 	resb	4
-__GDECL(___1a1f0ch__VGA13_BUFFER_B)
+__GDECL(EncodedFrame)
 	resb	4
 __GDECL(___1a1f10h)
 	resb	4
@@ -1382,7 +1380,7 @@ __GDECL(___1a1f18h)
 	resb	4
 __GDECL(___1a1f1ch)
 	resb	4
-__GDECL(___1a1f20h__VGA13_BUFFER_A)
+__GDECL(DecodedFrame)
 	resb	4
 __GDECL(___1a1f24h)
 	resb	4
@@ -1392,9 +1390,9 @@ __GDECL(___1a1f2ch)
 	resb	4
 __GDECL(___1a1f30h)
 	resb	4
-__GDECL(___1a1f34h)
+__GDECL(LOC_RESET)
 	resb	4
-__GDECL(___1a1f38h)
+__GDECL(LOC_END)
 	resb	4
 __GDECL(___1a1f3ch)	
 	resb	3
@@ -1465,9 +1463,7 @@ __GDECL(___1a2147h)
 __GDECL(___1a2148h)	
 	resb	1
 __GDECL(___1a2149h)
-	resb	1
-__GDECL(___1a214ah)
-	resb	56h
+	resb	57h
 __GDECL(___1a21a0h)	
 	resb	0fh
 __GDECL(___1a21afh)	
@@ -2819,9 +2815,7 @@ __GDECL(___243e80h)
 __GDECL(___243e94h)	
 	resb	7ccch
 __GDECL(___24bb60h)	
-	resb	0dh
-__GDECL(___24bb6dh)	
-	resb	10e7h
+	resb	10f4h
 __GDECL(___24cc54h)
 	resb	4
 __GDECL(___24cc58h)	
@@ -3257,7 +3251,7 @@ __GDECL(___24e9d8h)
 	resb	1
 __GDECL(___24e9d9h)	
 	resb	1
-__GDECL(___24e9dah)	
+;__GDECL(XM_FrequenceTable)	
 	resb	2
 __GDECL(___24e9dch)	
 	resb	7dh

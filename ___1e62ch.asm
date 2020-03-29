@@ -174,8 +174,24 @@ ___1e813h:
 		mov     [___19bd60h], eax
 		mov     [CONNECTION_TYPE], eax
 		call    near ___135fch
-		call    near ___23230h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+	
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___23230h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 ___1e85fh:
 		pop     edi
 		pop     esi

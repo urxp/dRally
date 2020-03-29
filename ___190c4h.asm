@@ -39,12 +39,28 @@ __GDECL(___190c4h)
 		push    edi
 		push    ebp
 		sub     esp, byte 0ch
-		call    near ___2b318h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2b318h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		mov     edx, 640000h
 		mov     ebp, 32h
 		mov     [esp+8], edx
 ___190eah:
-		call    near ___58c60h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___58c60h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		mov     esi, 2
 		mov     edx, ebp
 		mov     eax, ebp
@@ -151,7 +167,13 @@ ___191b4h:
 		test    ebp, ebp
 		jge     near ___190eah
 		call    near ___59b3ch
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 		mov     eax, 2
 		mov     ecx, 4b000h
 		call    near ___3892ch
@@ -182,13 +204,45 @@ ___191b4h:
 		mov     eax, [___1a1108h]
 		call    near ___12e78h
 ___192f6h:
-		call    near ___23230h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+	
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___23230h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 		xor     ebp, ebp
-		call    near ___2b318h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2b318h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		mov     [esp], ebp
 ___1930ah:
-		call    near ___58c60h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___58c60h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		mov     esi, 2
 		mov     edx, ebp
 		mov     eax, ebp
@@ -296,7 +350,13 @@ ___193d4h:
 		cmp     ebp, byte 32h
 		jl      near ___1930ah
 		call    near ___59b3ch
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 		add     esp, byte 0ch
 		pop     ebp
 		pop     edi

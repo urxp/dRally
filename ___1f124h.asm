@@ -85,7 +85,15 @@ ___1f140h:
 		mov     edx, 1
 		mov     eax, 7
 		call    near ___13710h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 		mov     eax, 7
 		call    near ___146c4h
 		mov     ebp, eax
@@ -112,10 +120,26 @@ ___1f1b3h:
 		mov     eax, [___1a10cch]
 		xor     ebp, ebp
 		call    near ___12e78h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 ___1f20ch:
 		inc     ebp
-		call    near ___58c60h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___58c60h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		cmp     ebp, byte 32h
 		jl      short ___1f20ch
 		mov     ebp, 3f8h
@@ -125,7 +149,13 @@ ___1f20ch:
 		mov     [___199fa4h], ebp
 		mov     [___199fa8h], eax
 		call    near ___59b3ch
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 		mov     ebp, 0ffffffffh
 		jmp     near ___1f6c5h
 ___1f248h:
@@ -148,10 +178,26 @@ ___1f248h:
 		mov     eax, [___1a10cch]
 		xor     ebp, ebp
 		call    near ___12e78h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 ___1f2a1h:
 		inc     ebp
-		call    near ___58c60h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___58c60h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		cmp     ebp, byte 32h
 		jl      short ___1f2a1h
 		mov     ebx, 1
@@ -162,7 +208,13 @@ ___1f2a1h:
 		mov     [___199fa4h], ecx
 		mov     [___199fa8h], esi
 		call    near ___59b3ch
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 		jmp     near ___1f6c5h
 ___1f2e1h:
 		mov     eax, 3e8h
@@ -183,11 +235,27 @@ ___1f2e1h:
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10cch]
 		call    near ___12e78h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 		xor     edx, edx
 ___1f33ah:
 		inc     edx
-		call    near ___58c60h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___58c60h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		cmp     edx, byte 32h
 		jl      short ___1f33ah
 		mov     ebp, 2
@@ -197,7 +265,13 @@ ___1f33ah:
 		mov     [___199fa4h], eax
 		mov     [___199fa8h], edx
 		call    near ___59b3ch
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 		mov     ebp, 0ffffffffh
 		jmp     near ___1f6c5h
 ___1f379h:
@@ -219,11 +293,27 @@ ___1f379h:
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10cch]
 		call    near ___12e78h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 		xor     edx, edx
 ___1f3d2h:
 		inc     edx
-		call    near ___58c60h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___58c60h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		cmp     edx, byte 32h
 		jl      short ___1f3d2h
 		mov     ecx, 3
@@ -233,7 +323,13 @@ ___1f3d2h:
 		mov     [___199fa4h], esi
 		mov     [___199fa8h], ecx
 		call    near ___59b3ch
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 		jmp     near ___1f6c5h
 ___1f40dh:
 		mov     eax, 7
@@ -250,7 +346,15 @@ ___1f40dh:
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
 		call    near ___12e78h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 		mov     ebx, 10h
 		mov     edx, esp
 		mov     eax, [___199fa4h]
@@ -279,7 +383,13 @@ ___1f40dh:
 		mov     eax, [esp+50h]
 		mov     [___199fa4h], eax
 		call    near ___59b3ch
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 		mov     eax, [___199fa4h]
 		call    near ___1f0dch
 		test    eax, eax
@@ -295,7 +405,15 @@ ___1f40dh:
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
 		call    near ___12e78h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 		mov     ebx, 0ah
 		mov     edx, esp
 		mov     eax, [___199fa8h]
@@ -324,7 +442,13 @@ ___1f40dh:
 		mov     ecx, 28f00h
 		mov     [___1a1e50h], ebx
 		call    near ___59b3ch
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 		mov     esi, [___1a1138h__VESA101h_DefaultScreenBufferB]
 		mov     edi, [___1a112ch__VESA101_ACTIVESCREEN_PTR]
 		add     esi, 10680h
@@ -350,15 +474,37 @@ ___1f40dh:
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10cch]
 		call    near ___12e78h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 		xor     edx, edx
 ___1f606h:
 		inc     edx
-		call    near ___58c60h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___58c60h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		cmp     edx, byte 32h
 		jl      short ___1f606h
 		call    near ___59b3ch
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 ___1f61bh:
 		mov     ebp, 0ffffffffh
 		jmp     near ___1f6c5h
@@ -377,7 +523,15 @@ ___1f625h:
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
 		call    near ___12e78h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 		push    byte 1
 		push    byte 1
 		push    1dbh

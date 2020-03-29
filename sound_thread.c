@@ -1,28 +1,23 @@
-typedef unsigned int 	dword;
-typedef unsigned short 	word;
-typedef unsigned char 	byte;
+#include "drally.h"
 
-#define D(d)	(*(dword *)(d))
-#define W(w)	(*(word *)(w))
-#define B(b)	(*(byte *)(b))
+typedef struct s3m_position_s {
+    byte    Order;
+    byte    Row;
+} s3m_position_t;
 
-#define X(r)	(*(word *)&r)
-#define H(r)	(*((byte *)&r + 1))
-#define L(r)	(*(byte *)&r)
+extern s3m_position_t S3M_Position;
+extern s3m_position_t S3M_NewPosition;
+extern int S3M_UpdatePosition;
 
 extern byte ___19a468h[];
 
-// has to be in separate object to avoid being "optimized out"
 byte get___19a468h(void){
 
     return B(___19a468h);
 }
 
-extern byte ___19a281h[];
-extern byte ___19a469h[];
 extern byte ___19a53dh[];
 extern byte ___19a53ch[];
-extern byte ___19a46ah[];
 extern byte ___19a53eh[];
 extern byte ___19a540h[];
 extern byte ___19a53fh[];
@@ -47,13 +42,12 @@ extern byte ___19a644h[];
 extern byte ___24e880h[];
 extern byte ___19a664h[];
 extern byte ___19a674h[];
-extern byte ___19a46ch[];
 extern byte ___24e7a6h[];
 extern byte ___24e7a5h[];
 extern byte SFX_struct_content_ptr[];
 extern byte ___24e86eh[];
 extern byte ___24e85ch[];
-extern byte ___19a279h[];
+extern byte ___19a27ch;
 extern byte ___24e872h[];
 extern byte ___688d0h[];
 extern byte ___68910h[];
@@ -90,7 +84,7 @@ extern byte ___19a4bch[];
 
 
 void ___68c42h_cdecl(void);
-dword rand_(void);
+int rand_watcom106(void);
 
 void ___6ef2ch(void){
 
@@ -103,29 +97,29 @@ void ___6ef2ch(void){
 //		push    esi
 //		push    edi
 //		push    ebp
-		H(eax) = B(___19a281h);
+	//	H(eax) = 0;
 		//test    ah, ah
 		//jne     near ___71588h
-        if(H(eax)) goto ___71588h;
+    //    if(H(eax)) goto ___71588h;
 		//cmp     byte [___19a468h], 0
 		//je      near ___6f02fh
         if(B(___19a468h) == 0) goto ___6f02fh;
-		B(___19a469h) = H(eax);
-		L(ebx) = 1;
-		B(___19a53dh) = H(eax);
-		B(___19a53ch) = L(ebx);
+		S3M_Position.Order = 0;//H(eax);
+	//	L(ebx) = 1;
+		B(___19a53dh) = 0;//H(eax);
+		B(___19a53ch) = 1;//L(ebx);
 		H(ebx) = 0;
-		B(___19a46ah) = H(eax);
-		B(___19a53eh) = H(eax);
-		B(___19a540h) = L(ebx);
-		L(eax) = 0;
+		S3M_Position.Row = 0;//H(eax);
+		B(___19a53eh) = 0;//H(eax);
+		B(___19a540h) = 1;//L(ebx);
+	//	L(eax) = 0;
 		L(ebx) = 0;
-		B(___19a53fh) = H(eax);
-		B(___19a684h) = H(eax);
-		B(___19a685h) = H(eax);
-		B(___19a686h) = H(eax);
-		W(___19a5e2h) = X(eax);
-		B(___24e87eh) = H(eax);
+		B(___19a53fh) = 0;//H(eax);
+		B(___19a684h) = 0;//H(eax);
+		B(___19a685h) = 0;//H(eax);
+		B(___19a686h) = 0;//H(eax);
+		W(___19a5e2h) = 0;//X(eax);
+		B(___24e87eh) = 0;//H(eax);
 ___6ef9dh:
 		eax = 0;
 		L(eax) = B(___24e87eh);
@@ -164,15 +158,15 @@ ___6ef9dh:
 		L(eax) = 0;
 		B(___19a468h) = L(eax);
 ___6f02fh:
-		edx = D(___19a46ch);
+		edx = S3M_UpdatePosition;
 		//cmp     edx, byte 0ffffffffh
 		//je      short ___6f079h
-        if(edx == 0xffffffff) goto ___6f079h;
-		eax = edx;
-		eax = (int)eax>>8;
-		eax &= 0xff;
-		B(___19a469h) = L(eax);
-		L(eax) = B(___19a46ch);
+        if(edx == 0) goto ___6f079h;
+		//eax = edx;
+		//eax = (int)eax>>8;
+		//eax &= 0xff;
+		S3M_Position.Order = S3M_NewPosition.Order;
+		L(eax) = S3M_NewPosition.Row;
 		B(___19a53fh) = L(eax);
 		//cmp     al, 3fh
 		//jbe     short ___6f05eh
@@ -184,7 +178,7 @@ ___6f05eh:
 		B(___19a53dh) = L(ebx);
 		ebx = 0xffffffff;
 		B(___19a53ch) = H(edx);
-		D(___19a46ch) = ebx;
+		S3M_UpdatePosition = 0;//ebx;
 ___6f079h:
 		//cmp     byte [___19a53eh], 0
 		//jne     near ___70119h
@@ -204,12 +198,12 @@ ___6f0b4h:
 		//cmp     bl, [___19a53dh]
 		//jne     near ___6f1cch
         if(L(ebx) != B(___19a53dh)) goto ___6f1cch;
-		L(eax) = B(___19a469h);
+		L(eax) = S3M_Position.Order;
 		//cmp     al, [___24e86eh]
 		//jae     short ___6f0e4h
         if(L(eax) >= B(___24e86eh)) goto ___6f0e4h;
 		eax = 0;
-		L(eax) = B(___19a469h);
+		L(eax) = S3M_Position.Order;
 		edx = D(___24e85ch);
 		//cmp     byte [edx+eax*1], 0ffh
 		//jne     near ___6f1cch
@@ -219,8 +213,7 @@ ___6f0e4h:
 		//cmp     ebx, esi
 		//je      short ___6f0f8h
         if(ebx == esi) goto ___6f0f8h;
-		eax = D(___19a279h);
-		eax = (int)eax>>0x18;
+		eax = ___19a27ch;
 		//jmp     short ___6f0fdh
         goto ___6f0fdh;
 ___6f0f8h:
@@ -269,23 +262,23 @@ ___6f1cch:
 		//jne     short ___6f1f7h
         if(L(ebx) != B(___19a53dh)) goto ___6f1f7h;
 		eax = 0;
-		L(eax) = B(___19a469h);
+		L(eax) = S3M_Position.Order;
 		edx = D(___24e85ch);
 		//cmp     byte [edx+eax*1], 0feh
 		//jne     short ___6f20ah
         if(B(edx+eax) != 0xfe) goto ___6f20ah;
-		L(eax) = B(___19a469h);
-		B(___19a469h)++;
+		L(eax) = S3M_Position.Order;
+		S3M_Position.Order++;
 		//jmp     near ___6f0b4h
         goto ___6f0b4h;
 ___6f1f7h:
-		L(eax) = B(___19a469h);
-		B(___19a469h)--;
+		L(eax) = S3M_Position.Order;
+		S3M_Position.Order--;
 		L(ebx) = 0;
 		B(___19a53dh) = L(ebx);
 ___6f20ah:
-		L(eax) = B(___19a469h);
-		B(___19a469h)++;
+		L(eax) = S3M_Position.Order;
+		S3M_Position.Order++;
 		edx = 0;
 		L(edx) = L(eax);
 		eax = D(___24e85ch);
@@ -295,7 +288,7 @@ ___6f20ah:
 		eax = D(edx+eax*4);
 		L(ecx) = 0;
 		D(___24e8a0h) = eax;
-		B(___19a46ah) = L(ecx);
+		S3M_Position.Row = L(ecx);
 		L(eax) = B(___19a53fh);
 		B(___19a53ch) = L(ecx);
 		//test    al, al
@@ -333,8 +326,8 @@ ___6f29bh:
 		L(ecx) = B(___19a53fh);
 		L(ecx)--;
 		B(___19a53fh) = L(ecx);
-		L(eax) = B(___19a46ah);
-		B(___19a46ah)++;
+		L(eax) = S3M_Position.Row;
+		S3M_Position.Row++;
 		//cmp     dl, cl
 		//jb      short ___6f256h
         if(L(edx) < L(ecx)) goto ___6f256h;
@@ -701,7 +694,7 @@ ___6f6d0h:
         goto ___6ffe5h;
 ___6f704h:
 		L(eax) = B(___24e878h);
-		B(___19a469h) = L(eax);
+		S3M_Position.Order = L(eax);
 		B(___19a53ch) = 1;
 		H(edx) = 0;
 		B(___24e879h) = H(edx);
@@ -1323,7 +1316,7 @@ ___6fe66h:
 		//test    cl, cl
 		//jne     short ___6fe8eh
         if(L(ecx)) goto ___6fe8eh;
-		L(eax) = B(___19a46ah);
+		L(eax) = S3M_Position.Row;
 		B(___19a684h) = L(eax);
 		//jmp     near ___6ff04h
         goto ___6ff04h;
@@ -1537,11 +1530,11 @@ ___700bch:
 		//jmp     near ___6f2e3h
         goto ___6f2e3h;
 ___700ech:
-		L(eax) = B(___19a46ah);
-		B(___19a46ah)++;
-		//cmp     byte [___19a46ah], 40h
+		L(eax) = S3M_Position.Row;
+		S3M_Position.Row++;
+		//cmp     byte [S3M_Position_Row], 40h
 		///jb      short ___70107h
-        if(B(___19a46ah) < 0x40) goto ___70107h;
+        if(S3M_Position.Row < 0x40) goto ___70107h;
 		B(___19a53ch) = 1;
 ___70107h:
 		L(edx) = B(___19a540h);
@@ -1919,7 +1912,7 @@ ___705a1h:
 		L(eax) &= 0xf;
 		eax &= 0xff;
 		edx = eax*4;
-		eax = rand_();
+		eax = rand_watcom106();
 		eax -= 0x4000;
 		eax = (int)eax*(int)edx;
 		eax = (int)eax>>0xe;
@@ -2190,7 +2183,7 @@ ___70902h:
 		L(eax) &= 0xf;
 		eax &= 0xff;
 		edx = eax*4;
-		eax = rand_();
+		eax = rand_watcom106();
 		eax -= 0x4000;
 		eax = (int)eax*(int)edx;
 		eax = (int)eax>>0xe;
@@ -2858,7 +2851,7 @@ ___7110dh:
 		edx = 0;
 		L(eax) &= 0xf;
 		L(edx) = L(eax);
-		eax = rand_();
+		eax = rand_watcom106();
 		eax -= 0x4000;
 		eax = (int)eax*(int)edx;
 		eax = (int)eax>>0xd;
@@ -3155,7 +3148,7 @@ ___714a3h:
 		edx = 0;
 		L(eax) &= 0xf;
 		L(edx) = L(eax);
-		eax = rand_();
+		eax = rand_watcom106();
 		eax -= 0x4000;
 		eax = (int)eax*(int)edx;
 		eax = (int)eax>>0xe;

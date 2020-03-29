@@ -42,7 +42,15 @@ __GDECL(___30df8h)
 		mov     ecx, 6dh
 		xor     eax, eax
 		call    near ___135fch
-		call    near ___23230h
+	
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___23230h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		mov     ecx, 70h
 		xor     eax, eax
 		mov     ebx, [___1a112ch__VESA101_ACTIVESCREEN_PTR]

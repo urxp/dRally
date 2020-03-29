@@ -98,7 +98,15 @@ ___167dch:
 		call    near ___12e78h
 		xor     ah, ah
 		mov     [___59e2ch], ah
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 		call    near ___17324h
 		pop     edi
 		pop     esi

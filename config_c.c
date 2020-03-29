@@ -1,18 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
-typedef unsigned int 	dword;
-typedef unsigned short 	word;
-typedef unsigned char 	byte;
-
-#define D(d)	(*(dword *)(d))
-#define W(w)	(*(word *)(w))
-#define B(b)	(*(byte *)(b))
-
-#define X(r)	(*(word *)&r)
-#define H(r)	(*((byte *)&r + 1))
-#define L(r)	(*(byte *)&r)
+#include "drally.h"
 
 #pragma pack(1)
 
@@ -53,10 +39,9 @@ typedef struct car_records_s {
 void CONFIG_DEFAULT(void);
 unsigned GET_FILE_SIZE(const char *);
 void dRally_System_clean(void);
-FILE * strup_fopen(const char *, const char *);
 void * dRally_Memory_alloc(dword, dword);
-void dRally_Audio____658d0h(byte, word, byte, byte);
-dword rand_(void);
+void dRally_Sound_init(byte, word, byte, byte);
+int rand_watcom106(void);
 
 #define CONFIG_FILE_NAME ((const char *)___182744h)
 
@@ -233,7 +218,7 @@ void CONFIG_READ(void){
         }
     }
     
-    dRally_Audio____658d0h(B(CONFIG_SOUND_TYPE), W(CONFIG_SOUND_ADDR), B(CONFIG_SOUND_IRQ), B(CONFIG_SOUND_DMA)); 
+    dRally_Sound_init(B(CONFIG_SOUND_TYPE), W(CONFIG_SOUND_ADDR), B(CONFIG_SOUND_IRQ), B(CONFIG_SOUND_DMA)); 
 }
 
 void CONFIG_WRITE(void){
@@ -242,7 +227,7 @@ void CONFIG_WRITE(void){
     void *  config_src;
     byte    key;
 
-    key = rand_();
+    key = rand_watcom106();
     config_src = dRally_Memory_alloc(0x1388, 0);
     memcpy(config_src, ___24cc58h, 4);
     memcpy(config_src+4, ___24cc54h, 4);

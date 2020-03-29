@@ -49,7 +49,7 @@ static dword next2pow(dword d){
     return 1<<c;
 }
 
-static void * ptr_align(void * src, dword a){
+void * ptr_align(void * src, dword a){
 
     if(!is2pow(a)){
         
@@ -58,6 +58,11 @@ static void * ptr_align(void * src, dword a){
     }
 
     return src+(((void *)a - src)&(a-1));
+}
+
+void ptr_align_d(void ** src_p, dword a){
+
+    *src_p = ptr_align(*src_p, a);
 }
 
 void * ___5f248h_cdecl(dword size, dword lock){

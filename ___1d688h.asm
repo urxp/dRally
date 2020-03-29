@@ -76,7 +76,15 @@ __GDECL(___1d688h)
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
 		call    near ___12e78h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 		mov     eax, esp
 		xor     esi, esi
 		call    near ___631d4h
@@ -108,7 +116,13 @@ ___1d7b2h:
 		jl      short ___1d78dh
 ___1d7d4h:
 		call    near ___59b3ch
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 		test    esi, esi
 		jne     short ___1d830h
 		mov     edx, [esp+18h]
@@ -126,7 +140,15 @@ ___1d7d4h:
 		mov     eax, [___1a1108h]
 		add     ecx, byte 28h
 		call    near ___12e78h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 		xor     ebx, ebx
 ___1d825h:
 		inc     ebx

@@ -25,7 +25,7 @@ cpu 386
 	extern	___196e78h
 	extern	___243898h
 	extern	DISPLAY_SET_PALETTE_COLOR
-	extern	dRally_Audio_setMasterVolume
+	extern	dRally_Sound_setMasterVolume
 	extern	___1834b5h
 	extern	___1834e9h
 	extern	___1834bdh
@@ -262,7 +262,7 @@ ___46078h:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    near dRally_Audio_setMasterVolume
+		call    near dRally_Sound_setMasterVolume
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -421,7 +421,15 @@ ___46275h:
 ___4629dh:
 		xor     esi, esi
 		mov     [___243898h], esi
-		call    near ___58c60h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___58c60h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		jmp     near ___45fd0h
 ___462afh:
 		xor     esi, esi
@@ -429,7 +437,15 @@ ___462afh:
 ___462b5h:
 		mov     edi, [esp+10h]
 		inc     edi
-		call    near ___58c60h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___58c60h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		mov     [esp+10h], edi
 		cmp     edi, byte 14h
 		jl      short ___462b5h
@@ -532,7 +548,15 @@ ___463feh:
 		cmp     ebx, 100h
 		jl      near ___462e3h
 		mov     ebx, [esp+30h]
-		call    near ___58c60h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___58c60h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		add     ebx, byte 32h
 		sub     edi, byte 32h
 		mov     [esp+30h], ebx
@@ -636,7 +660,15 @@ ___46567h:
 		mov     [esp+10h], ebx
 		cmp     ebx, 100h
 		jl      near ___4644ch
-		call    near ___58c60h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___58c60h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		mov     esi, [esp+34h]
 		mov     edi, [esp+4ch]
 		add     esi, byte 0ah
@@ -650,7 +682,15 @@ ___46567h:
 ___465a8h:
 		mov     ecx, [esp+10h]
 		inc     ecx
-		call    near ___58c60h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___58c60h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		mov     [esp+10h], ecx
 		cmp     ecx, byte 32h
 		jl      short ___465a8h
@@ -738,7 +778,15 @@ ___466c1h:
 		cmp     ecx, 100h
 		jl      near ___465d4h
 		mov     edx, [esp+38h]
-		call    near ___58c60h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___58c60h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		sub     edx, byte 8
 		add     edi, byte 8
 		mov     [esp+38h], edx

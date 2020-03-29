@@ -41,7 +41,7 @@ cpu 386
 	extern	___1de584h
 	extern	___1e6f80h
 	extern	___242178h
-	extern	rand_
+	extern	rand_watcom106
 	extern	___242578h
 	extern	___1de594h
 	extern	___241d78h
@@ -493,7 +493,13 @@ ___4bbdch:
 		mov     eax, [___243ca8h]
 		or      byte [edx+eax*4+___1e6ef0h], 4
 ___4bbf3h:
-		call    near rand_
+
+	push 	edx
+	push 	ecx
+		call    rand_watcom106
+	pop 	ecx
+	pop 	edx
+
 		mov     edx, eax
 		mov     ecx, 2
 		sar     edx, 1fh
@@ -893,7 +899,13 @@ ___4c198h:
 		imul    eax, [___243c60h], 35eh
 		cmp     dword [eax+___1e7056h], byte 46h
 		jne     short ___4c1d4h
-		call    near rand_
+
+	push 	edx
+	push 	ecx
+		call    rand_watcom106
+	pop 	ecx
+	pop 	edx
+
 		mov     edx, eax
 		mov     ebx, 5
 		sar     edx, 1fh

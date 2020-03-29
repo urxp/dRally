@@ -14,7 +14,7 @@ cpu 386
 	extern	___1de5b8h
 	extern	___1de5bch
 	extern	___1de5c0h
-	extern	srand_
+	extern	srand_watcom106
 	extern	___24387ch
 	extern	___243880h
 	extern	___243318h
@@ -71,22 +71,22 @@ cpu 386
 	extern	___4083ch
 	extern	___4adach
 	extern	___4580ch
-	extern	dRally_Audio____649a8h
-	extern	dRally_Audio____64a28h
+	extern	dRally_Sound____649a8h
+	extern	dRally_Sound____64a28h
 	extern	___606dfh
 	extern	VGA13_SETMODE
-	extern	___605deh
+	extern	___605deh_cdecl
 	extern	___19bd64h
 	extern	___1843f0h
 	extern	___1843fch
-	extern	dRally_Audio_load
-	extern	dRally_Audio_setMasterVolume
+	extern	dRally_Sound_load
+	extern	dRally_Sound_setMasterVolume
 	extern	___24cc58h
-	extern	dRally_Audio_setMusicVolume
+	extern	dRally_Sound_setMusicVolume
 	extern	___24cc54h
-	extern	dRally_Audio_setEffectVolume
-	extern	dRally_Audio_setSampleRate
-	extern	dRally_Audio_play
+	extern	dRally_Sound_setEffectVolume
+	extern	dRally_Sound_setSampleRate
+	extern	dRally_Sound_play
 	;extern	___659b8h
 	extern	___196da0h
 	extern	___196da4h
@@ -95,7 +95,7 @@ cpu 386
 	extern	___4af3ch
 	extern	___496b0h
 	extern	___1de580h
-	extern	dRally_Audio_pushSoundEffect
+	extern	dRally_Sound_pushEffect
 	extern	___243ca4h
 	extern	___243ca0h
 	extern	___243cdch
@@ -151,18 +151,18 @@ cpu 386
 	extern	___1de598h
 	extern	___184be9h
 	extern	___243894h
-	extern	rand_
+	extern	rand_watcom106
 	extern	___1e705eh
 	extern	___2438d4h
 	extern	___196ddch
 	extern	___196de0h
-	extern	dRally_Audio____6563ch
+	extern	dRally_Sound____6563ch
 	extern	___1e6f80h
 	extern	___1de584h
 	extern	___1e706eh
 	extern	___1e706ah
 	extern	___196df8h
-	extern	dRally_Audio____655b0h
+	extern	dRally_Sound____655b0h
 	extern	___54668h
 	extern	___55ae0h
 	extern	___56170h
@@ -172,10 +172,10 @@ cpu 386
 	extern	___59e68h
 	extern	___49390h
 	extern	___59e4bh
-	extern	dRally_Audio____68284h
+	extern	dRally_Sound_getPosition
 	extern	___184408h
 	extern	strcmp_
-	extern	dRally_Audio_setPosition
+	extern	dRally_Sound_setPosition
 	extern	___18440ch
 	extern	___184410h
 	extern	___184414h
@@ -398,7 +398,15 @@ ___5686eh:
 ___56898h:
 		mov     eax, [___243d0ch]
 		xor     edi, edi
-		call    near srand_
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    srand_watcom106
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+	
 		mov     [___24387ch], edi
 		mov     dword [___243880h], 1
 		mov     [___243318h], edi
@@ -406,111 +414,375 @@ ___56898h:
 		mov     [___243878h], edi
 ___568c6h:
 		mov     eax, ___40164h
-		call    near ___60705h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___60705h
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		call    near ___49bd4h
 		mov     eax, [___243d28h]
 		imul    eax, [___243d2ch]
-		call    near ___3f71ch__allocateMemory
+		
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___3f71ch__allocateMemory
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     esi, [___243d2ch]
 		mov     [___243d58h], eax
 		mov     eax, [___243d28h]
 		imul    eax, esi
-		call    near ___3f71ch__allocateMemory
+		
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___3f71ch__allocateMemory
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     edi, [___243d04h]
 		mov     [___243d60h], eax
 		mov     eax, [___243d30h]
 		imul    eax, edi
-		call    near ___3f71ch__allocateMemory
+		
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___3f71ch__allocateMemory
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     ebp, [___243d10h]
 		mov     [___243d78h], eax
 		mov     eax, [___243cf8h]
 		imul    eax, ebp
-		call    near ___3f71ch__allocateMemory
+		
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___3f71ch__allocateMemory
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     [___243d54h], eax
 		mov     eax, 5f370h
-		call    near ___3f71ch__allocateMemory
+		
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___3f71ch__allocateMemory
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     [___243d5ch], eax
 		mov     eax, 19400h
-		call    near ___3f71ch__allocateMemory
+		
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___3f71ch__allocateMemory
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		add     eax, 200h
 		mov     [___243d80h], eax
 		mov     eax, 96000h
-		call    near ___3f71ch__allocateMemory
+		
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___3f71ch__allocateMemory
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     [___243d74h], eax
 		mov     eax, 4b000h
-		call    near ___3f71ch__allocateMemory
+		
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___3f71ch__allocateMemory
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     [___243d50h], eax
 		mov     eax, 3840h
-		call    near ___3f71ch__allocateMemory
+		
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___3f71ch__allocateMemory
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     [___243d6ch], eax
 		mov     eax, 30h
-		call    near ___3f71ch__allocateMemory
+		
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___3f71ch__allocateMemory
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     [___243d34h], eax
 		mov     eax, 240h
-		call    near ___3f71ch__allocateMemory
+		
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___3f71ch__allocateMemory
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     [___243d48h], eax
 		mov     eax, 3c90h
-		call    near ___3f71ch__allocateMemory
+		
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___3f71ch__allocateMemory
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     [___243d4ch], eax
 		mov     eax, 3c90h
-		call    near ___3f71ch__allocateMemory
+		
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___3f71ch__allocateMemory
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     [___243d70h], eax
 		mov     eax, 800h
-		call    near ___3f71ch__allocateMemory
+		
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___3f71ch__allocateMemory
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     [___243d84h], eax
 		mov     eax, 268h
-		call    near ___3f71ch__allocateMemory
+		
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___3f71ch__allocateMemory
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     [___243d3ch], eax
 		mov     eax, 0c00h
-		call    near ___3f71ch__allocateMemory
+		
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___3f71ch__allocateMemory
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     [___243298h], eax
 		mov     eax, 0c00h
-		call    near ___3f71ch__allocateMemory
+		
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___3f71ch__allocateMemory
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     [___24329ch], eax
 		mov     eax, 0c00h
-		call    near ___3f71ch__allocateMemory
+		
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___3f71ch__allocateMemory
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     [___2432a0h], eax
 		mov     eax, 0c00h
-		call    near ___3f71ch__allocateMemory
+		
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___3f71ch__allocateMemory
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     [___2432a4h], eax
 		mov     eax, 0c00h
-		call    near ___3f71ch__allocateMemory
+		
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___3f71ch__allocateMemory
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     [___2432a8h], eax
 		mov     eax, 0c00h
-		call    near ___3f71ch__allocateMemory
+		
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___3f71ch__allocateMemory
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     [___2432ach], eax
 		mov     eax, 140h
-		call    near ___3f71ch__allocateMemory
+		
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___3f71ch__allocateMemory
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     [___243d8ch], eax
 		mov     eax, 600h
-		call    near ___3f71ch__allocateMemory
+		
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___3f71ch__allocateMemory
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     [___243d7ch], eax
 		mov     eax, 480h
-		call    near ___3f71ch__allocateMemory
+		
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___3f71ch__allocateMemory
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     [___243d88h], eax
 		mov     eax, 800h
-		call    near ___3f71ch__allocateMemory
+		
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___3f71ch__allocateMemory
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     [___243d38h], eax
 		mov     eax, 2400h
-		call    near ___3f71ch__allocateMemory
+		
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___3f71ch__allocateMemory
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     [___243d40h], eax
 		mov     eax, 800h
-		call    near ___3f71ch__allocateMemory
+		
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___3f71ch__allocateMemory
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     [___243288h], eax
 		mov     eax, 800h
-		call    near ___3f71ch__allocateMemory
+		
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___3f71ch__allocateMemory
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     [___24328ch], eax
 		mov     eax, 1800h
-		call    near ___3f71ch__allocateMemory
+		
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___3f71ch__allocateMemory
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     [___243290h], eax
 		mov     eax, 1800h
-		call    near ___3f71ch__allocateMemory
+		
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___3f71ch__allocateMemory
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     [___243294h], eax
 		mov     eax, 800h
-		call    near ___3f71ch__allocateMemory
+		
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___3f71ch__allocateMemory
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     [___243d68h], eax
 		mov     eax, 0c0h
-		call    near ___3f71ch__allocateMemory
+		
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___3f71ch__allocateMemory
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     [___243d64h], eax
 		call    near ___4539ch
 		mov     dword [___2432c8h], ___492f4h
@@ -524,18 +796,26 @@ ___568c6h:
 	push 	eax
 	push 	ecx
 	push 	edx
-		call    near dRally_Audio____649a8h
+		call    near dRally_Sound____649a8h
 	pop 	edx
 	pop 	ecx
 	pop 	eax
 	push 	eax
 	push 	ecx
 	push 	edx
-		call    near dRally_Audio____64a28h
+		call    near dRally_Sound____64a28h
 	pop 	edx
 	pop 	ecx
 	pop 	eax
-		call    near ___606dfh
+		
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___606dfh
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		call    near VGA13_SETMODE
 		cmp     dword [___19bd60h], byte 0
 		je      short ___56b3dh
@@ -547,7 +827,14 @@ ___56b3dh:
 		mov 	edx, 1
 		mov     eax, 46h
 ___56b47h:
-		call    near ___605deh
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___605deh_cdecl
+	add 	esp, 8
+	pop 	ecx
+
 		mov     esi, ___19bd64h
 		mov     edi, esp
 		mov     ebx, 2
@@ -564,14 +851,14 @@ ___56b47h:
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    dRally_Audio_load
+		call    dRally_Sound_load
 	add 	esp, 14h
 	
 		xor     eax, eax
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    near dRally_Audio_setMasterVolume
+		call    near dRally_Sound_setMasterVolume
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -579,7 +866,7 @@ ___56b47h:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    near dRally_Audio_setMusicVolume
+		call    near dRally_Sound_setMusicVolume
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -587,7 +874,7 @@ ___56b47h:
 	push 	ecx
 	push 	edx
 	push 	eax
-		call    near dRally_Audio_setEffectVolume
+		call    near dRally_Sound_setEffectVolume
 	add 	esp, 4
 	pop		edx
 	pop 	ecx
@@ -596,16 +883,16 @@ ___56b47h:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    dRally_Audio_setSampleRate
+		call    dRally_Sound_setSampleRate
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
-		call    near dRally_Audio_play
+		call    near dRally_Sound_play
 		xor     eax, eax
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    near dRally_Audio_setMasterVolume
+		call    near dRally_Sound_setMasterVolume
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -617,7 +904,7 @@ ___56b47h:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    near dRally_Audio_setMusicVolume
+		call    near dRally_Sound_setMusicVolume
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -628,7 +915,7 @@ ___56bf9h:
 	push 	ecx
 	push 	edx
 	push 	eax
-		call    near dRally_Audio_setEffectVolume
+		call    near dRally_Sound_setEffectVolume
 	add 	esp, 4
 	pop		edx
 	pop 	ecx
@@ -660,7 +947,7 @@ ___56c1ch:
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    dRally_Audio_pushSoundEffect
+		call    dRally_Sound_pushEffect
 	add 	esp, 18h
 		mov     [___243ca4h], ebp
 		mov     [___243ca0h], ebp
@@ -704,7 +991,7 @@ ___56cb5h:
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    dRally_Audio_pushSoundEffect
+		call    dRally_Sound_pushEffect
 	add 	esp, 18h
 		xor     edx, edx
 		mov     [___196df0h], edx
@@ -1093,10 +1380,16 @@ ___57292h:
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    dRally_Audio_pushSoundEffect
+		call    dRally_Sound_pushEffect
 	add 	esp, 18h
 ___5729fh:
-		call    near rand_
+
+	push 	edx
+	push 	ecx
+		call    rand_watcom106
+	pop 	ecx
+	pop 	edx
+
 		mov     edx, eax
 		mov     ebx, 6000h
 		sar     edx, 1fh
@@ -1178,7 +1471,7 @@ ___573b8h:
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    dRally_Audio_pushSoundEffect
+		call    dRally_Sound_pushEffect
 	add 	esp, 18h
 ___573bdh:
 		cmp     dword [___2438d4h], byte 0
@@ -1204,7 +1497,7 @@ ___573bdh:
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    dRally_Audio_pushSoundEffect
+		call    dRally_Sound_pushEffect
 	add 	esp, 18h
 		mov     [___196ddch], esi
 ___57422h:
@@ -1217,7 +1510,7 @@ ___57422h:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    dRally_Audio____6563ch
+		call    dRally_Sound____6563ch
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -1238,7 +1531,7 @@ ___57471h:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    dRally_Audio____6563ch
+		call    dRally_Sound____6563ch
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -1246,7 +1539,7 @@ ___57471h:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    dRally_Audio____6563ch
+		call    dRally_Sound____6563ch
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -1293,7 +1586,7 @@ ___574c5h:
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    near dRally_Audio____655b0h
+		call    near dRally_Sound____655b0h
 	add 	esp, 10h
 
 		call    near ___54668h
@@ -1388,7 +1681,7 @@ ___57660h:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    dRally_Audio____6563ch
+		call    dRally_Sound____6563ch
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -1399,7 +1692,7 @@ ___57660h:
 		jl      short ___57660h
 	push 	edx
 	push 	ecx
-		call    near dRally_Audio____68284h
+		call    near dRally_Sound_getPosition
 	pop 	ecx
 	pop 	edx
 		mov     edx, ___184408h
@@ -1413,7 +1706,7 @@ ___57660h:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    near dRally_Audio_setPosition
+		call    near dRally_Sound_setPosition
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -1427,7 +1720,7 @@ ___576adh:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    near dRally_Audio_setPosition
+		call    near dRally_Sound_setPosition
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -1441,7 +1734,7 @@ ___576cah:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    near dRally_Audio_setPosition
+		call    near dRally_Sound_setPosition
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -1455,7 +1748,7 @@ ___576e7h:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    near dRally_Audio_setPosition
+		call    near dRally_Sound_setPosition
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -1469,7 +1762,7 @@ ___57704h:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    near dRally_Audio_setPosition
+		call    near dRally_Sound_setPosition
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -1483,7 +1776,7 @@ ___57721h:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    near dRally_Audio_setPosition
+		call    near dRally_Sound_setPosition
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -1497,7 +1790,7 @@ ___5773eh:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    near dRally_Audio_setPosition
+		call    near dRally_Sound_setPosition
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -1511,7 +1804,7 @@ ___5775bh:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    near dRally_Audio_setPosition
+		call    near dRally_Sound_setPosition
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -1525,7 +1818,7 @@ ___57778h:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    near dRally_Audio_setPosition
+		call    near dRally_Sound_setPosition
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -1539,7 +1832,7 @@ ___57795h:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    near dRally_Audio_setPosition
+		call    near dRally_Sound_setPosition
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -1548,7 +1841,7 @@ ___577b2h:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    near dRally_Audio_setMasterVolume
+		call    near dRally_Sound_setMasterVolume
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -1557,7 +1850,7 @@ ___577b2h:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    near dRally_Audio_setPosition
+		call    near dRally_Sound_setPosition
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -1565,7 +1858,7 @@ ___577b2h:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    near dRally_Audio_setMasterVolume
+		call    near dRally_Sound_setMasterVolume
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -1583,7 +1876,7 @@ ___577b2h:
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    dRally_Audio_pushSoundEffect
+		call    dRally_Sound_pushEffect
 	add 	esp, 18h
 ___57803h:
 		mov     esi, [___243d00h]
@@ -1627,7 +1920,7 @@ ___57894h:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    near dRally_Audio_setMusicVolume
+		call    near dRally_Sound_setMusicVolume
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -1649,7 +1942,7 @@ ___578cch:
 	push 	ecx
 	push 	edx
 	push 	eax
-		call    near dRally_Audio_setEffectVolume
+		call    near dRally_Sound_setEffectVolume
 	add 	esp, 4
 	pop		edx
 	pop 	ecx
@@ -1687,7 +1980,7 @@ ___57943h:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    dRally_Audio____6563ch
+		call    dRally_Sound____6563ch
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -1698,7 +1991,7 @@ ___57943h:
 		jl      short ___57943h
 	push 	edx
 	push 	ecx
-		call    near dRally_Audio____68284h
+		call    near dRally_Sound_getPosition
 	pop 	ecx
 	pop 	edx
 		mov     edx, ___184408h
@@ -1712,7 +2005,7 @@ ___57943h:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    near dRally_Audio_setPosition
+		call    near dRally_Sound_setPosition
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -1726,7 +2019,7 @@ ___57990h:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    near dRally_Audio_setPosition
+		call    near dRally_Sound_setPosition
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -1740,7 +2033,7 @@ ___579adh:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    near dRally_Audio_setPosition
+		call    near dRally_Sound_setPosition
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -1754,7 +2047,7 @@ ___579cah:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    near dRally_Audio_setPosition
+		call    near dRally_Sound_setPosition
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -1768,7 +2061,7 @@ ___579e7h:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    near dRally_Audio_setPosition
+		call    near dRally_Sound_setPosition
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -1782,7 +2075,7 @@ ___57a04h:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    near dRally_Audio_setPosition
+		call    near dRally_Sound_setPosition
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -1796,7 +2089,7 @@ ___57a21h:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    near dRally_Audio_setPosition
+		call    near dRally_Sound_setPosition
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -1810,7 +2103,7 @@ ___57a3eh:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    near dRally_Audio_setPosition
+		call    near dRally_Sound_setPosition
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -1824,7 +2117,7 @@ ___57a5bh:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    near dRally_Audio_setPosition
+		call    near dRally_Sound_setPosition
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -1838,7 +2131,7 @@ ___57a78h:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    near dRally_Audio_setPosition
+		call    near dRally_Sound_setPosition
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -1848,7 +2141,7 @@ ___57a95h:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    near dRally_Audio_setMasterVolume
+		call    near dRally_Sound_setMasterVolume
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -1898,7 +2191,7 @@ ___57b4ch:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    near dRally_Audio_setPosition
+		call    near dRally_Sound_setPosition
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -1906,7 +2199,7 @@ ___57b4ch:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    near dRally_Audio_setMasterVolume
+		call    near dRally_Sound_setMasterVolume
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -1924,7 +2217,7 @@ ___57b4ch:
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    dRally_Audio_pushSoundEffect
+		call    dRally_Sound_pushEffect
 	add 	esp, 18h
 ___57b8eh:
 		call    near ___4ee9ch
@@ -2081,7 +2374,7 @@ ___57db0h:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    dRally_Audio____6563ch
+		call    dRally_Sound____6563ch
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -2100,7 +2393,7 @@ ___57db0h:
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    dRally_Audio_pushSoundEffect
+		call    dRally_Sound_pushEffect
 	add 	esp, 18h
 		call    near ___477d4h
 		mov     ebx, ___184574h
@@ -2298,7 +2591,7 @@ ___580e6h:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    dRally_Audio____6563ch
+		call    dRally_Sound____6563ch
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -2430,7 +2723,7 @@ ___582b1h:
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    dRally_Audio_pushSoundEffect
+		call    dRally_Sound_pushEffect
 	add 	esp, 18h
 		cmp     dword [___196d9ch], byte 1
 		jne     short ___582f7h
@@ -2578,18 +2871,26 @@ ___5851ch:
 		cmp     eax, ecx
 		jl      short ___5851ch
 ___58546h:
+
+	push 	edx
+	push 	ecx
+	push 	eax
 		call    near ___60719h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 	push 	eax
 	push 	ecx
 	push 	edx
-		call    near dRally_Audio____649a8h
+		call    near dRally_Sound____649a8h
 	pop 	edx
 	pop 	ecx
 	pop 	eax
 	push 	eax
 	push 	ecx
 	push 	edx
-		call    near dRally_Audio____64a28h
+		call    near dRally_Sound____64a28h
 	pop 	edx
 	pop 	ecx
 	pop 	eax

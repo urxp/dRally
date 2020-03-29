@@ -103,20 +103,54 @@ __GDECL(___1d83ch)
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10cch]
 		call    near ___12e78h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 		call    near ___59b3ch
 ___1d9b9h:
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 		test    al, al
 		je      short ___1d9b9h
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 		call    near ___59b3ch
 		mov     ecx, 4b000h
 		mov     esi, [___1a1124h__VESA101h_ScreenBufferA]
 		mov     edi, [___1a112ch__VESA101_ACTIVESCREEN_PTR]
 		call 	__MOVS
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 		pop     edi
 		pop     esi
 		pop     edx

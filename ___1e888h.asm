@@ -14,7 +14,7 @@ cpu 386
 	extern	___2b318h
 	extern	___58c60h
 	extern	___185a34h
-	extern	dRally_Audio_setMasterVolume
+	extern	dRally_Sound_setMasterVolume
 	extern	___19eb50h
 	extern	___19eb54h
 	extern	___19eb58h
@@ -35,7 +35,7 @@ cpu 386
 	extern	___1a1ef8h
 	extern	___12cb8h__VESA101_PRESENTSCREEN
 	extern	___1a1ef4h
-	extern	dRally_Audio_setPosition
+	extern	dRally_Sound_setPosition
 	extern	CONNECTION_TYPE
 	extern	___185a24h
 	extern	___196a74h
@@ -80,6 +80,11 @@ cpu 386
 	
 section .text
 
+__GDECL(___1e888h_cdecl)
+	mov 	eax, [esp+4]
+	call 	___1e888h
+	retn
+
 ___1e868h:
 dd	___1ee20h
 dd	___1ee5ah
@@ -113,16 +118,32 @@ ___1e8a4h:
 		mov     edi, 640000h
 		mov     [___185a74h], edx
 		call 	restoreDefaultScreenBuffer
-		call    near ___2b318h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2b318h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 ___1e8e9h:
-		call    near ___58c60h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___58c60h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		cmp     dword [___185a34h], byte 0
 		je      short ___1e8feh
 		mov     eax, ebp
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    near dRally_Audio_setMasterVolume
+		call    near dRally_Sound_setMasterVolume
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -251,7 +272,15 @@ ___1e9ach:
 		mov     eax, [___1a1108h]
 		call    near ___12e78h
 ___1ead6h:
-		call    near ___23230h
+	
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___23230h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		jmp     short ___1eb0ah
 ___1eaddh:
 		mov     ecx, 2c380h
@@ -276,15 +305,31 @@ ___1eb0ah:
 		call    near ___16e6ch
 ___1eb4ah:
 		mov     dword [___1a1ef8h], 13h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
-		call    near ___2b318h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2b318h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		cmp     dword [___185a34h], byte 0
 		je      short ___1eb71h
 		mov     eax, [___1a1ef4h]
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    near dRally_Audio_setPosition
+		call    near dRally_Sound_setPosition
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -292,14 +337,22 @@ ___1eb71h:
 		xor     edi, edi
 		xor     ebp, ebp
 ___1eb75h:
-		call    near ___58c60h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___58c60h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		cmp     dword [___185a34h], byte 0
 		je      short ___1eb8ah
 		mov     eax, ebp
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    near dRally_Audio_setMasterVolume
+		call    near dRally_Sound_setMasterVolume
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -424,7 +477,13 @@ ___1ed10h:
 		mov     [___196a84h], edi
 		test    ecx, ecx
 		je      near ___1edd6h
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 		call    near ___59b3ch
 		xor     edx, edx
 ___1ed4fh:
@@ -433,14 +492,26 @@ ___1ed4fh:
 		cmp     edx, 9ch
 		je      short ___1ed74h
 		xor     edx, edx
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 		mov     dl, al
 		call    near ___2ab50h
 		call    near ___2ab50h
 		cmp     edx, byte 1
 		jne     short ___1ed4fh
 ___1ed74h:
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 		call    near ___59b3ch
 		mov     ecx, 2c380h
 		xor     esi, esi
@@ -457,16 +528,40 @@ ___1ed74h:
 		mov     edx, 1
 		mov     eax, 2
 		call    near ___13710h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 ___1edd6h:
 		cmp     dword [___185a24h], byte 0
 		jne     short ___1ede6h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 		jmp     short ___1ee01h
 ___1ede6h:
 		call 	restoreDefaultScreenBuffer
 		call    near ___3a6a4h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 		xor     eax, eax
 		mov     [___185a24h], eax
 ___1ee01h:
@@ -553,11 +648,27 @@ ___1eef6h:
 		mov     eax, edi
 		mov     edx, 64h
 		call    near ___23488h
-		call    near ___23230h
+	
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___23230h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		xor     edx, edx
 		call    near ___1e4f8h
 		mov     [___196a84h], edx
-		call    near ___2415ch
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2415ch
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		jmp     near ___1f075h
 ___1efcch:
 		cmp     dword [CONNECTION_TYPE], byte 2

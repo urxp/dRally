@@ -8,7 +8,7 @@ cpu 386
 	extern	__STOSB
 	extern	___1a1f67h
 	extern	___1a0ef7h
-	extern	rand_
+	extern	rand_watcom106
 	extern	___196abch
 	extern	___1a1f64h
 	extern	___196b18h
@@ -88,14 +88,26 @@ ___31627h:
 		jl      short ___3161eh
 		mov     [___1a1ef8h], edi
 ___31643h:
-		call    near rand_
+
+	push 	edx
+	push 	ecx
+		call    rand_watcom106
+	pop 	ecx
+	pop 	edx
+
 		mov     edx, eax
 		mov     ebx, 5
 		sar     edx, 1fh
 		idiv    ebx
 		mov     al, [edx+___196abch]
 		mov     [___1a1f64h], al
-		call    near rand_
+
+	push 	edx
+	push 	ecx
+		call    rand_watcom106
+	pop 	ecx
+	pop 	edx
+
 		mov     edx, eax
 		mov     ebx, 2
 		sar     edx, 1fh
@@ -111,14 +123,26 @@ ___3167bh:
 		je      short ___31643h
 		mov     [___196b18h], eax
 ___31691h:
-		call    near rand_
+
+	push 	edx
+	push 	ecx
+		call    rand_watcom106
+	pop 	ecx
+	pop 	edx
+
 		mov     edx, eax
 		mov     ebx, 6
 		sar     edx, 1fh
 		idiv    ebx
 		mov     al, [edx+___196abeh]
 		mov     [___1a1f65h], al
-		call    near rand_
+
+	push 	edx
+	push 	ecx
+		call    rand_watcom106
+	pop 	ecx
+	pop 	edx
+
 		mov     edx, eax
 		mov     ebx, 2
 		sar     edx, 1fh
@@ -136,14 +160,26 @@ ___316c9h:
 		je      short ___31691h
 		mov     [___196b1ch], eax
 ___316e7h:
-		call    near rand_
+
+	push 	edx
+	push 	ecx
+		call    rand_watcom106
+	pop 	ecx
+	pop 	edx
+
 		mov     edx, eax
 		mov     ebx, 4
 		sar     edx, 1fh
 		idiv    ebx
 		mov     al, [edx+___196ac1h]
 		mov     [___1a1f66h], al
-		call    near rand_
+
+	push 	edx
+	push 	ecx
+		call    rand_watcom106
+	pop 	ecx
+	pop 	edx
+
 		mov     edx, eax
 		mov     ebx, 2
 		sar     edx, 1fh

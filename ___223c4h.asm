@@ -58,7 +58,15 @@ __GDECL(___223c4h)
 		xor     eax, eax
 		call    near ___135fch
 		call    near ___3e03ch
-		call    near ___23230h
+	
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___23230h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		mov     ecx, 36h
 		mov     edx, 280h
 		mov     ebx, [___1a112ch__VESA101_ACTIVESCREEN_PTR]
@@ -296,15 +304,43 @@ ___22715h:
 		mov     [esp+3ch], esi
 		cmp     edi, byte 0ah
 		jl      near ___225e0h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
-		call    near ___2b318h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2b318h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		call    near ___3d1f0h
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 		call    near ___59b3ch
 		xor     edx, edx
 ___227cfh:
 		call    near ___2ab50h
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 		mov     ah, al
 		cmp     al, 3bh
 		jne     short ___227eeh
@@ -315,7 +351,13 @@ ___227cfh:
 ___227eeh:
 		test    ah, ah
 		je      short ___227cfh
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 		call    near ___59b3ch
 		add     esp, byte 44h
 		pop     ebp

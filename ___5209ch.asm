@@ -10,7 +10,7 @@ cpu 386
 	extern	___1f2490h
 	extern	___196dd4h
 	extern	__STOSB
-	extern	rand_
+	extern	rand_watcom106
 	extern	___1f2494h
 	extern	___1f2488h
 	extern	___243ce8h
@@ -84,7 +84,13 @@ ___52147h:
 		xor     ecx, ecx
 		mov     [esp+10h], ecx
 ___5216dh:
-		call    near rand_
+
+	push 	edx
+	push 	ecx
+		call    rand_watcom106
+	pop 	ecx
+	pop 	edx
+
 		mov     edx, eax
 		mov     ebx, 0ch
 		sar     edx, 1fh
@@ -119,7 +125,13 @@ ___521c0h:
 		jne     near ___52417h
 		cmp     dword [esp+18h], byte 4
 		jge     near ___52417h
-		call    near rand_
+
+	push 	edx
+	push 	ecx
+		call    rand_watcom106
+	pop 	ecx
+	pop 	edx
+
 		mov     edx, eax
 		mov     ecx, 64h
 		sar     edx, 1fh
@@ -412,7 +424,13 @@ ___525c4h:
 		mov     [eax+___1f2498h], esi
 		mov     [eax+___1f2490h], esi
 		mov     dword [___196dd0h], 118h
-		call    near rand_
+
+	push 	edx
+	push 	ecx
+		call    rand_watcom106
+	pop 	ecx
+	pop 	edx
+
 		mov     edx, eax
 		mov     ebx, 0c8h
 		sar     edx, 1fh

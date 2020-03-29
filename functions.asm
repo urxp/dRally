@@ -6,6 +6,7 @@ cpu 386
     extern  ___1a10e4h__VESA101h_DefaultScreenBufferA
 	extern  ___1a1124h__VESA101h_ScreenBufferA
 	extern 	DISPLAY_SET_PALETTE_COLOR
+	extern	VGA13_ACTIVESCREEN
 
     extern  memset_
 
@@ -121,6 +122,17 @@ __GDECL(VRETRACE_WAIT_FOR_END)
 		retn
 
 
+__GDECL(__DISPLAY_CLEAR_PALETTE)
+	push 	edx
+	push 	ecx
+	push 	eax
+	call 	DISPLAY_CLEAR_PALETTE
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+	retn
+
+
 __GDECL(DISPLAY_CLEAR_PALETTE)
 		push 	ecx			;;;;;
 		xor     ecx, ecx
@@ -135,12 +147,3 @@ ___1112eh:
 		jl      ___1112eh
 		pop 	ecx 		;;;;;
 		retn
-
-
-
-
-section .bss
-__GDECL(B8000)
-	resb 	8000h
-__GDECL(VGA13_ACTIVESCREEN)
-	resb 	0fa00h

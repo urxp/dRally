@@ -4,7 +4,7 @@ cpu 386
 	extern	__CHK
 	extern 	__STRCAT
 	extern 	__STRLEN
-	extern	rand_
+	extern	rand_watcom106
 	extern	___1a1f67h
 	extern	___1a01fch
 	extern	___1a1ef8h
@@ -34,7 +34,13 @@ __GDECL(___3079ch)
 		push    ebp
 		sub     esp, byte 6ch
 		mov     ebx, eax
-		call    near rand_
+
+	push 	edx
+	push 	ecx
+		call    rand_watcom106
+	pop 	ecx
+	pop 	edx
+
 		mov     edx, eax
 		sar     edx, 1fh
 		idiv    ebx
@@ -43,7 +49,13 @@ __GDECL(___3079ch)
 		xor     ebx, ebx
 		mov     ecx, 3
 ___307cch:
-		call    near rand_
+
+	push 	edx
+	push 	ecx
+		call    rand_watcom106
+	pop 	ecx
+	pop 	edx
+
 		mov     edx, eax
 		sar     edx, 1fh
 		idiv    ecx
@@ -65,7 +77,13 @@ ___307fah:
 		mov     esi, 14h
 		mov     ebx, edi
 ___30805h:
-		call    near rand_
+
+	push 	edx
+	push 	ecx
+		call    rand_watcom106
+	pop 	ecx
+	pop 	edx
+
 		mov     edx, eax
 		sar     edx, 1fh
 		idiv    esi
@@ -87,7 +105,13 @@ ___30831h:
 		mov     ebx, edi
 		mov     esi, 3
 ___30841h:
-		call    near rand_
+
+	push 	edx
+	push 	ecx
+		call    rand_watcom106
+	pop 	ecx
+	pop 	edx
+
 		mov     edx, eax
 		mov     dword [esp+64h], 14h
 		sar     edx, 1fh
@@ -129,7 +153,13 @@ ___308b5h:
 		mov     esi, 14h
 		mov     ebx, edi
 ___308c1h:
-		call    near rand_
+
+	push 	edx
+	push 	ecx
+		call    rand_watcom106
+	pop 	ecx
+	pop 	edx
+
 		mov     edx, eax
 		sar     edx, 1fh
 		idiv    esi
@@ -212,7 +242,15 @@ ___3099bh:
 		mov     edx, ___185c7ah
 		add     ecx, byte 22h
 		call    near ___12e78h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 ___30a78h:
 		add     esp, byte 6ch
 		pop     ebp

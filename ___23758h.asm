@@ -130,7 +130,15 @@ ___23897h:
 		add     esi, 96h
 		cmp     ebp, byte 16h
 		jl      short ___23843h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 		xor     bh, bh
 		xor     ebp, ebp
 		mov     [esp], bh
@@ -178,7 +186,14 @@ ___2394dh:
 		lea     edx, [eax+ebp*1]
 		mov     bl, [___185c6ch]
 		lea     eax, [ebp+4650ch]
-		call    near ___1398ch__VESA101_PRESENTRECTANGLE
+
+	push 	ecx
+	push	ebx
+	push 	edx
+	push 	eax
+		call    ___1398ch__VESA101_PRESENTRECTANGLE
+	add 	esp, 10h
+	
 		call    near ___59b3ch
 		mov     [esp+13ch], al
 		cmp     al, 0dh
@@ -309,7 +324,14 @@ ___23bbah:
 		mov     ebx, 20h
 		lea     eax, [ebp+4650ch]
 		mov     edi, esp
-		call    near ___1398ch__VESA101_PRESENTRECTANGLE
+
+	push 	ecx
+	push	ebx
+	push 	edx
+	push 	eax
+		call    ___1398ch__VESA101_PRESENTRECTANGLE
+	add 	esp, 10h
+	
 		call 	__STRLEN
 		xor     al, al
 		mov     [esp+ecx*1-1], al
@@ -358,7 +380,14 @@ ___23c8eh:
 		lea     edx, [eax+ebp*1]
 		and     ebx, 0ffh
 		mov     eax, esi
-		call    near ___1398ch__VESA101_PRESENTRECTANGLE
+
+	push 	ecx
+	push	ebx
+	push 	edx
+	push 	eax
+		call    ___1398ch__VESA101_PRESENTRECTANGLE
+	add 	esp, 10h
+	
 		xor     eax, eax
 		mov     al, [esp+13ch]
 		mov     al, [eax+___185bedh]
@@ -470,9 +499,23 @@ ___23f5dh:
 		cmp     edx, ecx
 		jb      short ___23f4ah
 ___23f6dh:
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 ___23f72h:
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 		cmp     al, 3bh
 		jne     short ___23f86h
 		mov     dword [esp+138h], 0ffffffffh
@@ -495,8 +538,24 @@ ___23fa3h:
 		je      short ___23ff6h
 		cmp     dword [___196a84h], byte 0
 		jne     short ___23ff6h
-		call    near ___23230h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+	
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___23230h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 ___23ff6h:
 		mov     eax, [esp+134h]
 		mov     [___196a78h], eax

@@ -1,25 +1,23 @@
 /*
-Error! E2028: dRally_Audio_load is an undefined reference
-Error! E2028: dRally_Audio_setSampleRate is an undefined reference
-Error! E2028: dRally_Audio_play is an undefined reference
-Error! E2028: dRally_Audio_pushSoundEffect is an undefined reference
-Error! E2028: dRally_Audio____6563ch is an undefined reference
-Error! E2028: dRally_Audio____64a28h is an undefined reference
-Error! E2028: dRally_Audio_setMasterVolume is an undefined reference
-Error! E2028: dRally_Audio_setPosition is an undefined reference
-Error! E2028: dRally_Audio_setMusicVolume is an undefined reference
-Error! E2028: dRally_Audio_setEffectVolume is an undefined reference
-Error! E2028: dRally_Audio____649a8h is an undefined reference
-Error! E2028: dRally_Audio____68284h is an undefined reference
-Error! E2028: dRally_Audio____658d0h is an undefined reference
-Error! E2028: dRally_Audio____655b0h is an undefined reference
+Error! E2028: dRally_Sound_load is an undefined reference
+Error! E2028: dRally_Sound_setSampleRate is an undefined reference
+Error! E2028: dRally_Sound_play is an undefined reference
+Error! E2028: dRally_Sound_pushEffect is an undefined reference
+Error! E2028: dRally_Sound____6563ch is an undefined reference
+Error! E2028: dRally_Sound____64a28h is an undefined reference
+Error! E2028: dRally_Sound_setMasterVolume is an undefined reference
+Error! E2028: dRally_Sound_setPosition is an undefined reference
+Error! E2028: dRally_Sound_setMusicVolume is an undefined reference
+Error! E2028: dRally_Sound_setEffectVolume is an undefined reference
+Error! E2028: dRally_Sound____649a8h is an undefined reference
+Error! E2028: dRally_Sound_getPosition is an undefined reference
+Error! E2028: dRally_Sound_init is an undefined reference
+Error! E2028: dRally_Sound____655b0h is an undefined reference
 */
 #include <stdio.h>
 #include <SDL2/SDL.h>
 
-#define SOUND_SAMPLES 	512
-
-#pragma pack(1)
+#define SOUND_SAMPLES	512
 
 typedef unsigned int 	dword;
 typedef unsigned short 	word;
@@ -37,7 +35,39 @@ typedef enum {
 	NO_TRACKER, SCREAM_TRACKER_3, FAST_TRACKER_2
 } TrackerType;
 
-SDL_AudioDeviceID audio_dev = NULL;
+
+#pragma pack(push, 1)
+
+typedef struct s3m_s {
+	char 	mod_name[0x1c];	// +0
+	byte 	unk0[6];		// +1ch
+	word 	instruments;	// +22h
+	byte 	unk1[8];		// +24h;
+	byte 	scrm[4];		// +2ch
+	byte 	g_volume;		// +30h
+	byte 	speed;			// +31h
+	byte 	tempo;			// +32h
+	byte 	unk3[0x2d];		// +33h
+	byte 	orders[];		// +60h
+} s3m_t;
+
+typedef struct xm_s {
+	char 	id_text[0x11];		// +0
+	char 	mod_name[0x14];		// +11h
+	char 	__1ah;				// +25h
+	byte 	unk1[0x14];			// +26h
+	word 	version;			// +3ah
+	dword 	header_size;		// +3ch
+	word 	song_length;		// +40h
+	byte 	unk2[4];			// +42h
+	word 	patterns;			// +46h
+	word 	instruments;		// +48h
+	byte 	unk3[];				// +4ah;
+} xm_t;
+
+#pragma pack(pop)
+
+SDL_AudioDeviceID audio_dev = 0;
 
 void ___58b20h(int n, ...);
 
@@ -48,7 +78,7 @@ extern dword MSX_VOLUME;
 extern dword SFX_VOLUME;
 void ___65788h_updateVolume_cdecl(void);
 
-void dRally_Audio_setMasterVolume(dword vol){
+void dRally_Sound_setMasterVolume(dword vol){
 
 	if(SOUND_TYPE&&___19a27bh){
 	
@@ -57,7 +87,7 @@ void dRally_Audio_setMasterVolume(dword vol){
 	}
 }
 
-void dRally_Audio_setMusicVolume(dword vol){
+void dRally_Sound_setMusicVolume(dword vol){
 
 	if(SOUND_TYPE&&___19a27bh){
 	
@@ -66,7 +96,7 @@ void dRally_Audio_setMusicVolume(dword vol){
 	}
 }
 
-void dRally_Audio_setEffectVolume(dword vol){
+void dRally_Sound_setEffectVolume(dword vol){
 
 	if(SOUND_TYPE&&___19a27bh){
 
@@ -80,23 +110,12 @@ void dRally_Audio_setEffectVolume(dword vol){
 
 void ___691deh_cdecl(dword, dword, dword);
 
-void ___68d07h(void){};
-
 void audio_cb(void * udata, unsigned char * stream, unsigned int length){
 
 	___691deh_cdecl(length >> 2, NULL, stream);
 }
 
-void ___77741h_cdecl(void){
-
-}
-
 extern byte StereoSound;
-
-void ___7792dh_setStereo_cdecl(void){
-
-}
-
 extern byte SOUND_DMA;
 extern byte SOUND_IRQ;
 extern word SOUND_ADDR;
@@ -118,12 +137,7 @@ void ___771f4h_SB16_init_cdecl(void){
 	}
 }
 
-void ___77664h(void){
-
-}
-
 extern byte ___19a278h;
-extern byte ___19a27ah;
 
 void ___685a4h_cdecl(void){
 
@@ -135,17 +149,15 @@ void ___685a4h_cdecl(void){
 		}
 
 		___19a278h = 1;
-		___19a27ah = 0;
 	}
 }
 
-extern dword MSX_struct_content_ptr;
+extern s3m_t * MSX_struct_content_ptr;
 extern dword MSX_struct_type;
 extern dword SFX_struct_type;
 extern dword ___68a90h[];
 extern word ___68c40h;
 extern byte ___19a280h;
-extern byte ___19a281h;
 
 void ___68c42h_cdecl(void);
 void ___718ech_cdecl(void);
@@ -170,7 +182,6 @@ void ___6815ch_cdecl(void){
 			___685a4h_cdecl();
 
 			___19a280h = 1;
-			___19a281h = 0;
 		}
 	}
 }
@@ -178,7 +189,6 @@ void ___6815ch_cdecl(void){
 extern dword SFX_struct_content_ptr;
 extern dword ___24e5c0h[];
 extern dword ___68bb0h[];
-extern int ___19a279h;
 
 void ___65788h_updateVolume_cdecl(void){
 
@@ -197,7 +207,7 @@ void ___65788h_updateVolume_cdecl(void){
 	}
 	else {
 
-		while(n++ < (___19a279h >> 0x18)){
+		while(n++ < (int)(signed char)___19a27ch){
 
 			eax = ((long long)MASTER_VOLUME*(long long)MSX_VOLUME) >> 16;
 			___68bb0h[n] = ((long long)eax*(long long)___24e5c0h[n]) >> 16;
@@ -215,91 +225,48 @@ void ___STOREDWORD(dword * dst, dword d, dword n){
 	while(n--) *dst++ = d;
 }
 
-void dRally_Audio____64a28h(void);
-void dRally_Audio____649a8h(void);
+void dRally_Sound____64a28h(void);
+void dRally_Sound____649a8h(void);
 void ___680c8h_cdecl(void);
 void dRally_System_addExitCallback(dword);
 void dRally_System_removeExitCallback(dword);
 void ___67e48h_allocSounds_cdecl(TrackerType msx_t, const char * msx_f, TrackerType sfx_t, const char * sfx_f, int num_ch);
 
-extern void (*AUDIO_DATA_CB)(void);
-void SET_AUDIO_DATA_CB(void (*cb)(void)){
-	
-	AUDIO_DATA_CB = cb;
-}  
+void DO_NOTHING(void){};
+void (*AUDIO_DATA_CB)(void) = &DO_NOTHING;
+void SET_AUDIO_DATA_CB(void (*cb)(void)){ AUDIO_DATA_CB = cb; }  
 
-void dRally_Audio_load(dword msx_t, dword msx_f, dword sfx_t, dword sfx_f, dword num_ch){
-
-   	SDL_AudioSpec a;
-	SDL_AudioSpec b;
-
-	if(!audio_dev){
-		//SDL_memset(&a, 0, sizeof(a));
-		SDL_zero(a);
-		a.freq = SOUND_SAMPLERATE;
-		a.format = AUDIO_S16;
-		a.channels = 2;
-		a.samples = SOUND_SAMPLES;
-		a.callback = audio_cb;
-		a.userdata = NULL;
-
-		SDL_InitSubSystem(SDL_INIT_AUDIO);
-
-		printf("[dRally.SOUND] Opening audio device.\n");
-		audio_dev = SDL_OpenAudioDevice(NULL, 0, &a, &b, 0);
-
-		if(audio_dev == 0){
-			
-			SDL_Log("Failed to open audio: %s", SDL_GetError());
-		}
-		else {
-			printf("[dRally.SOUND] Audio opened: %d hz, %d channels, %d samples\n", b.freq, b.channels, b.samples);
-		}
-	}
-	else SDL_PauseAudioDevice(audio_dev, 1);
+void dRally_Sound_load(dword msx_t, dword msx_f, dword sfx_t, dword sfx_f, dword num_ch){
 
 	printf("[dRally.SOUND] MSX: %s, SFX: %s\n", msx_f, sfx_f);
 
-	dRally_Audio____649a8h();
+	dRally_Sound____649a8h();
 	___680c8h_cdecl();
-	dRally_System_removeExitCallback(dRally_Audio____64a28h);
+	dRally_System_removeExitCallback(dRally_Sound____64a28h);
 	___67e48h_allocSounds_cdecl(msx_t, msx_f, sfx_t, sfx_f, num_ch);
 	___STOREDWORD(___24e5c0h, 0x10000, 0x20);
 	MASTER_VOLUME = MSX_VOLUME = SFX_VOLUME = 0x10000;
 	___65788h_updateVolume_cdecl();
-	dRally_System_addExitCallback(dRally_Audio____64a28h);
+	dRally_System_addExitCallback(dRally_Sound____64a28h);
 }
 
 void RESTORE_SOUND_DEFAULTS(void){
 
 }
 
-extern byte ___199ff4h;
 extern dword ___199ff8h;
 extern dword ___24e640h;
 
-void ___6879ch_cdecl(void);
 void dRally_Memory_free(dword);
 
-void dRally_Audio_play(void){
-
-	if(___199ff4h){
-
-		___199ff4h = 0;
-		dRally_Memory_free(___199ff8h);
-		___199ff8h = 0;
-		dRally_Memory_free(___24e640h);
-		___24e640h = 0;
-	}
-	
-	___6879ch_cdecl();
+void dRally_Sound_play(void){
 
 	if(SOUND_TYPE&&___19a27bh){
 		
 		if(audio_dev) SDL_PauseAudioDevice(audio_dev, 0);
 
 		___6815ch_cdecl();
-		dRally_System_addExitCallback(dRally_Audio____649a8h);
+		dRally_System_addExitCallback(dRally_Sound____649a8h);
 	}
 }
 
@@ -316,7 +283,7 @@ extern int * ___24e79ch;
 extern int * ___24e798h;
 extern word ___24e750h[];
 
-void dRally_Audio_pushSoundEffect(byte channel, byte n, dword unk, 
+void dRally_Sound_pushEffect(byte channel, byte n, dword unk, 
 						dword a0, dword a1, dword a2){
 
 	if(SOUND_TYPE == 0) return;
@@ -370,7 +337,7 @@ void ___680c8h_cdecl(void){
 }
 
 
-void dRally_Audio_setSampleRate(dword freq){
+void dRally_Sound_setSampleRate(dword freq){
 
 	if(freq < 0x1f40) freq = 0x1f40;
 	if(freq > 0xac44) freq = 0xac44;
@@ -378,14 +345,7 @@ void dRally_Audio_setSampleRate(dword freq){
 	SOUND_SAMPLERATE = freq;
 }
 
-byte ___71a88h_cdecl(dword);
-
-byte dRally_Audio_setPosition(dword pos_n){
-
-	return MSX_struct_type ? ___71a88h_cdecl(pos_n) : 0;
-}
-
-void dRally_Audio____6563ch(byte ch_num){
+void dRally_Sound____6563ch(byte ch_num){
 
 	if(SOUND_TYPE&&___19a27bh&&SFX_struct_content_ptr&&ch_num){
 
@@ -398,65 +358,63 @@ void dRally_Audio____6563ch(byte ch_num){
 	___68b10h[ch_num] = 1;
 }
 
-void ___653c8h_cdecl(void);
-void ___68718h_cdecl(void);
+void dRally_Sound____64a28h(void){
 
-void dRally_Audio____64a28h(void){
-
-	___653c8h_cdecl();
-
-	if(SOUND_TYPE&&___19a27bh){
-
-		if(___19a280h){
-
-			SET_AUDIO_DATA_CB(___68d07h);
-			___68718h_cdecl();
-			___19a280h = 0;
-		}
-	}
-
-	dRally_System_removeExitCallback(dRally_Audio____649a8h);
+	dRally_Sound____649a8h();
 	___680c8h_cdecl();
-	dRally_System_removeExitCallback(dRally_Audio____64a28h);
+	dRally_System_removeExitCallback(dRally_Sound____64a28h);
 }
 
-void dRally_Audio____649a8h(void){
-
-	if(___199ff4h){
-
-		___199ff4h = 0;
-		dRally_Memory_free(___199ff8h);
-		___199ff8h = 0;
-		dRally_Memory_free(___24e640h);
-		___24e640h = 0;
-	}
+void ___68718h_cdecl(void);
+void dRally_Sound____649a8h(void){
 
 	if(SOUND_TYPE&&___19a27bh){
 
 		if(___19a280h){
 
-			SET_AUDIO_DATA_CB(___68d07h);
+			SET_AUDIO_DATA_CB(&DO_NOTHING);
 			___68718h_cdecl();
 			___19a280h = 0;
 		}
 	}
 
-	dRally_System_removeExitCallback(dRally_Audio____649a8h);
+	dRally_System_removeExitCallback(dRally_Sound____649a8h);
 }
 
-dword ___71a44h_cdecl(void);
+void dRally_Sound_init(byte sound, word addr, byte irq_n, byte dma_ch){
 
-dword dRally_Audio____68284h(void){
+	SDL_AudioSpec a;
+	SDL_AudioSpec b;
 
-	return MSX_struct_type ? ___71a44h_cdecl() : 0xffffffff;
-}
+	if((SOUND_TYPE = !!sound)){
 
-void dRally_Audio____658d0h(byte sound, word addr, byte irq_n, byte dma_ch){
+		if(!audio_dev){
 
-	SOUND_ADDR = addr;
-	SOUND_IRQ = irq_n;
-	SOUND_DMA = dma_ch;
-	SOUND_TYPE = !!sound;
+			SDL_memset(&a, 0, sizeof(a));
+			a.freq = SOUND_SAMPLERATE;
+			a.format = AUDIO_S16;
+			a.channels = 2;
+			a.samples = SOUND_SAMPLES;
+			a.callback = audio_cb;
+			a.userdata = NULL;
+
+			if(SDL_InitSubSystem(SDL_INIT_AUDIO)){
+				
+				SDL_Log("Failed to init audio subsystem: %s", SDL_GetError());
+			}
+
+			printf("[dRally.SOUND] Opening audio device.\n");
+			audio_dev = SDL_OpenAudioDevice(NULL, 0, &a, &b, 0);
+
+			if(audio_dev == 0){
+				
+				SDL_Log("Failed to open audio: %s", SDL_GetError());
+			}
+			else {
+				printf("[dRally.SOUND] Audio opened: %d hz, %d channels, %d samples\n", b.freq, b.channels, b.samples);
+			}
+		}
+	}
 }
 
 void * load_s3m(dword, const char *, dword *, dword *);
@@ -471,7 +429,7 @@ extern int ___24e7a0h_int;
 extern word ___24e7a2h;
 extern byte ___24e7a4h;
 extern byte ___19a27dh;
-extern dword ___24e790h;
+extern void * ___24e790h;
 extern int ___24e79eh;
 extern byte ___68d58h;
 
@@ -545,7 +503,7 @@ void ___67e48h_allocSounds_cdecl(TrackerType msx_t, const char * msx_f, TrackerT
 		break;
 	}
 
-	___68c3ch = (___19a279h >> 0x18) + ___19a27dh;
+	___68c3ch = (int)(signed char)___19a27ch + ___19a27dh;
 
 	dRally_Memory_resize(___24e794h, ___24e790h - ___24e794h);
 
@@ -564,24 +522,14 @@ void ___67e48h_allocSounds_cdecl(TrackerType msx_t, const char * msx_f, TrackerT
 extern char ___185114h[];
 extern dword ___24e868h;
 
-void * load_musics_bpa(dword, dword);
+void * extract_musics_bpa(dword, dword);
 dword entrysize_musics_bpa(dword);
-
-typedef struct s3m_s {
-	char 	mod_name[0x1c];	// +0
-	byte 	unk0[6];		// +1ch
-	word 	instruments;	// +22h
-	byte 	unk1[8];		// +24h;
-	byte 	scrm[4];		// +2ch
-	byte 	unk3[0x30];		// +30h
-	byte 	orders[];		// +60h
-} s3m_t;
 
 void * load_s3m(dword arg0, const char * f_name, dword * size, dword * instr_n){
 
 	s3m_t *	s3m;
 
-	s3m = load_musics_bpa(f_name, 1);
+	s3m = extract_musics_bpa(f_name, 1);
 
 	if(strncmp(s3m->scrm, ___185114h, 4)) ___58b20h(0x28, f_name);
 	
@@ -602,27 +550,13 @@ void * load_s3m(dword arg0, const char * f_name, dword * size, dword * instr_n){
 extern char ___18511ch[];
 extern dword ___24e9bch;
 
-typedef struct xm_s {
-	char 	id_text[0x11];		// +0
-	char 	mod_name[0x14];		// +11h
-	char 	__1ah;				// +25h
-	byte 	unk1[0x14];			// +26h
-	word 	version;			// +3ah
-	dword 	header_size;		// +3ch
-	word 	song_length;		// +40h
-	byte 	unk2[4];			// +42h
-	word 	patterns;			// +46h
-	word 	instruments;		// +48h
-	byte 	unk3[];				// +4ah;
-} xm_t;
-
 void * load_xm(dword ebp, const char * f_name, dword * size, dword * instr_n){
 
 	dword 	eax, ebx, ecx, esi, edx;
 	xm_t *	xm;
 
 
-	xm = load_musics_bpa(f_name, 1);
+	xm = extract_musics_bpa(f_name, 1);
 
 	if(strncmp(xm->id_text, ___18511ch, 0x11)) ___58b20h(0x28, f_name);
 
@@ -799,19 +733,7 @@ void ___7c6d4h_cdecl(dword eax, dword edx, dword ebx, dword ecx, byte stk1, byte
 	___68d30h = 0x56220000 / SOUND_SAMPLERATE;
 }
 
-void ___653c8h_cdecl(void){
-
-	if(___199ff4h){
-
-		___199ff4h = 0;
-		dRally_Memory_free(___199ff8h);
-		___199ff8h = 0;
-		dRally_Memory_free(___24e640h);
-		___24e640h = 0;
-	}
-}
-
-void dRally_Audio____655b0h(byte channel, int a1, int a2, dword a3){
+void dRally_Sound____655b0h(byte channel, int a1, int a2, dword a3){
 
 	if(SOUND_TYPE&&___19a27bh&&SFX_struct_content_ptr&&channel){
 
@@ -840,7 +762,17 @@ void ___68718h_cdecl(void){
 	}
 }
 
-extern dword ___68c38h;
+#pragma pack(push, 1)
+typedef struct s_4pb{
+	void *	p1;
+	void * 	p2;
+	void * 	p3;
+	void * 	p4;
+	byte 	b;
+} t_4pb;
+#pragma pack(pop)
+
+extern t_4pb ** ___68c38h;
 
 void ___677cch_cdecl(dword eax, dword edx, dword ebx){
 
@@ -921,3 +853,131 @@ void ___677cch_cdecl(dword eax, dword edx, dword ebx){
 	}
 }
 
+
+
+
+
+void ___6ef2ch(void);
+void ___685a4h_cdecl(void);
+
+extern byte ___19a468h;
+extern byte ___24e86fh;
+extern byte ___24e870h;
+extern byte ___24e871h;
+extern byte ___24e830h[];
+extern byte * ___24e858h;
+extern byte * ___24e860h;
+byte get___19a468h(void);
+
+void ___718ech_cdecl(void){
+
+	dword	i, n;
+
+	if(SOUND_TYPE&&___19a27bh&&!___19a280h&&MSX_struct_content_ptr){
+
+		___19a468h = 1;
+		___24e870h = MSX_struct_content_ptr->g_volume;
+		___24e86fh = MSX_struct_content_ptr->tempo;
+		___24e871h = MSX_struct_content_ptr->speed;
+		___68c40h = 0x7a12/___24e86fh;
+
+		n = -1;
+		i = -1;
+		while(++i < 0x20){
+
+			if(___24e858h[i] > 0xf){
+
+				___24e830h[i] = 0xff;
+			}
+			else {
+				
+				n++;
+				___68a90h[n] = (___24e858h[i] > 7) ? 0xc000 : 0x3000;
+
+				if(___24e860h&&(___24e860h[i]&0x20)){
+
+					___68a90h[n] = (___24e860h[i]&0xf)<<0xc;
+				}
+
+				___24e830h[i] = n;
+			}
+		}
+
+		while(++n < 0x20) ___68a90h[n] = 0x8000;
+
+		memset(___24e750h, 0xffffffff, 0x40);
+		SET_AUDIO_DATA_CB(&___6ef2ch);
+		___685a4h_cdecl();
+		___19a280h = 1;
+
+		while(get___19a468h() == 1);
+	}
+}
+
+void ptr_align_d(void **, dword);
+
+void ___67994h_cdecl(void * eax, void * edx, void * ebx, void * ecx, dword stk1){
+
+	dword 	n_cpy;
+
+	memcpy(___24e790h, eax, edx-eax+1);
+	___68c38h[___24e7a4h]->p1 = ___24e790h;
+	___68c38h[___24e7a4h]->p2 = ___24e790h+(edx-eax);
+	___68c38h[___24e7a4h]->p3 = ___24e790h+(ebx-eax);
+	___68c38h[___24e7a4h]->p4 = ___24e790h+(ecx-eax);
+	___68c38h[___24e7a4h]->b = stk1;
+	___24e790h += edx-eax+1;
+	n_cpy = (stk1&4) ? 2 : 1;
+	stk1 &= 3;
+
+	if(stk1){
+
+		if(stk1 == 1){
+
+			memcpy(___24e790h, ___68c38h[___24e7a4h]->p3, n_cpy);
+		}
+		else {
+
+			memcpy(___24e790h, ___68c38h[___24e7a4h]->p4-n_cpy, n_cpy);
+		}
+	}
+	else {
+
+		memcpy(___24e790h, ___68c38h[___24e7a4h]->p2, n_cpy);
+	}
+
+	___24e790h += n_cpy;
+	ptr_align_d(&___24e790h, 4);
+	___24e7a4h++;
+}
+
+extern dword ___68b30h[];
+
+void ___68c42h_cdecl(void){
+
+	dword 	n;
+
+	n = -1;
+	while(++n < 0x20){
+
+		___688d0h[n] = 0xffff;
+		___68910h[n] = 0;
+		___68990h[n] = 0;
+		___68a10h[n] = 0;
+		___68b10h[n] = 1;
+		___68b30h[n] = 0;
+	}
+}
+
+dword ___71a44h_cdecl(void);
+byte ___71a88h_cdecl(dword);
+
+dword dRally_Sound_getPosition(void){
+
+	return (SOUND_TYPE&&___19a27bh&&MSX_struct_type) ? ___71a44h_cdecl() : 0xffffffff;
+}
+
+byte dRally_Sound_setPosition(dword pos_n){
+
+	return (SOUND_TYPE&&___19a27bh&&MSX_struct_type) ? ___71a88h_cdecl(pos_n) : 0;
+}

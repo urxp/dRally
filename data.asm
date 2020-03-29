@@ -110,21 +110,26 @@ db	75h,6eh,6eh,69h,6eh,67h,20h,75h,6eh,64h,65h,72h,20h,57h,69h,6eh
 db	64h,6fh,77h,73h,20h,39h,35h
 db	20h,73h,68h,65h,6ch,6ch,2eh,0ah,0
 __GDECL(___1800c4h)
-db	44h,45h,41h,54h,48h,20h,52h,41h,4ch,4ch,59h,20h,45h,78h,69h,74h
-db	3ah,20h,43h,54h,52h,4ch,2bh,41h,4ch,54h,2bh,44h,45h,4ch,20h,70h
-db	72h,65h,73h,73h,65h,64h,21h,0ah,0,0,0,0
+;db	44h,45h,41h,54h,48h,20h,52h,41h,4ch,4ch,59h,20h,45h,78h,69h,74h
+;db	3ah,20h,43h,54h,52h,4ch,2bh,41h,4ch,54h,2bh,44h,45h,4ch,20h,70h
+;db	72h,65h,73h,73h,65h,64h,21h,0ah,0,0,0,0
+db 	"DEATH RALLY Exit: CTRL+ALT+DEL pressed!",0ah,0,0,0,0
 __GDECL(___1800f0h)
 db	64h,72h,2eh,62h,69h,6eh,0,0
 __GDECL(___1800f8h)
 db	4dh,45h,4eh,55h,2eh,42h,50h,41h,0,0,0,0
 __GDECL(___180104h)
-db	72h,62h,0,0
+;db	72h,62h,0,0
+db 	"rb",0,0
 __GDECL(___180108h)
-db	50h,72h,6fh,62h,6ch,65h,6dh,73h,20h,77h,69h,74h,68h,20h,5bh,0
+;db	50h,72h,6fh,62h,6ch,65h,6dh,73h,20h,77h,69h,74h,68h,20h,5bh,0
+db 	"Problems with [",0
 __GDECL(___180118h)
-db	5dh,20h,0,0
+;db	5dh,20h,0,0
+db 	"] ",0,0
 __GDECL(___18011ch)
-db	20h,66h,69h,6ch,65h,21h,0,0
+;db	20h,66h,69h,6ch,65h,21h,0,0
+db 	" file!",0,0
 __GDECL(___180124h)
 ;db	4dh,55h,53h,49h,43h,53h,2eh,42h,50h,41h,0,0
 db 	"MUSICS.BPA",0,0
@@ -133,8 +138,7 @@ db	0,0,0,0
 __GDECL(___180134h)
 db	72h,62h,0,0
 __GDECL(___180138h)
-db	46h,52h,41h,4dh,45h,53h,2eh,42h,50h,4bh,0,0
-;;	"FRAMES.BPK",0,0
+db	"FRAMES.BPK",0,0
 __GDECL(___180144h)
 db	"MENU.BPA",0,0,0,0
 __GDECL(___180150h)
@@ -190,148 +194,18 @@ __GDECL(___180308h)
 db	0,0,7ch,42h
 __GDECL(___18030ch)
 db	0,0,80h,3dh
-__GDECL(___180310h)
-db	62h,67h,63h,6fh,70h,2eh,70h,61h,6ch,0,0,0
-__GDECL(___18031ch)
-db	31h,35h,78h,31h,35h,30h,2eh,62h,70h,6bh,0,0
-__GDECL(___180328h)
-db	66h,2dh,62h,69h,67h,33h,61h,2eh,62h,70h,6bh,0
-__GDECL(___180334h)
-db	66h,2dh,73h,6dh,61h,33h,61h,2eh,62h,70h,6bh,0
-__GDECL(___180340h)
-db	66h,2dh,73h,6dh,61h,33h,62h,2eh,62h,70h,6bh,0
-__GDECL(___18034ch)
-db	66h,2dh,73h,6dh,61h,33h,63h,2eh,62h,70h,6bh,0
-__GDECL(___180358h)
-db	66h,2dh,6dh,65h,64h,31h,61h,2eh,62h,70h,6bh,0
-__GDECL(___180364h)
-db	72h,61h,6eh,6bh,31h,63h,2eh,62h,70h,6bh,0,0
-__GDECL(___180370h)
-db	72h,65h,73h,75h,70h,6fh,6bh,31h,2eh,62h,70h,6bh,0,0,0,0
-__GDECL(___180380h)
-db	6dh,75h,6ch,73h,62h,67h,32h,2eh,62h,70h,6bh,0
-__GDECL(___18038ch)
-db	72h,61h,6eh,6bh,69h,6eh,66h,31h,2eh,62h,70h,6bh,0,0,0,0
-__GDECL(___18039ch)
-db	72h,61h,6eh,6bh,69h,6eh,66h,32h,2eh,62h,70h,6bh,0,0,0,0
-__GDECL(___1803ach)
-db	72h,61h,6eh,6bh,69h,6eh,66h,33h,2eh,62h,70h,6bh,0,0,0,0
-__GDECL(___1803bch)
-db	72h,61h,63h,65h,2dh,65h,61h,73h,2eh,62h,70h,6bh,0,0,0,0
-__GDECL(___1803cch)
-db	72h,61h,63h,65h,2dh,6dh,65h,64h,2eh,62h,70h,6bh,0,0,0,0
-__GDECL(___1803dch)
-db	72h,61h,63h,65h,2dh,68h,61h,72h,2eh,62h,70h,6bh,0,0,0,0
-__GDECL(___1803ech)
-db	70h,2dh,6eh,61h,6dh,65h,2eh,62h,70h,6bh,0,0
-__GDECL(___1803f8h)
-db	70h,2dh,70h,69h,73h,74h,2eh,62h,70h,6bh,0,0
-__GDECL(___180404h)
-db	70h,2dh,72h,61h,6eh,6bh,2eh,62h,70h,6bh,0,0
-__GDECL(___180410h)
-db	70h,74h,73h,2dh,65h,61h,73h,79h,2eh,62h,70h,6bh,0,0,0,0
-__GDECL(___180420h)
-db	70h,74h,73h,2dh,6dh,65h,64h,2eh,62h,70h,6bh,0
-__GDECL(___18042ch)
-db	70h,74h,73h,2dh,68h,61h,72h,64h,2eh,62h,70h,6bh,0,0,0,0
-__GDECL(___18043ch)
-db	70h,6ch,61h,63h,69h,6eh,67h,2eh,62h,70h,6bh,0
-__GDECL(___180448h)
-db	63h,61h,72h,72h,65h,73h,2eh,62h,70h,6bh,0,0
-__GDECL(___180454h)
-db	66h,61h,63h,65h,30h,31h,2eh,62h,70h,6bh,0,0
-__GDECL(___180460h)
-db	66h,61h,63h,65h,30h,32h,2eh,62h,70h,6bh,0,0
-__GDECL(___18046ch)
-db	66h,61h,63h,65h,30h,33h,2eh,62h,70h,6bh,0,0
-__GDECL(___180478h)
-db	66h,61h,63h,65h,30h,34h,2eh,62h,70h,6bh,0,0
-__GDECL(___180484h)
-db	66h,61h,63h,65h,30h,35h,2eh,62h,70h,6bh,0,0
-__GDECL(___180490h)
-db	66h,61h,63h,65h,30h,36h,2eh,62h,70h,6bh,0,0
-__GDECL(___18049ch)
-db	66h,61h,63h,65h,30h,37h,2eh,62h,70h,6bh,0,0
-__GDECL(___1804a8h)
-db	66h,61h,63h,65h,30h,38h,2eh,62h,70h,6bh,0,0
-__GDECL(___1804b4h)
-db	66h,61h,63h,65h,30h,39h,2eh,62h,70h,6bh,0,0
-__GDECL(___1804c0h)
-db	66h,61h,63h,65h,31h,30h,2eh,62h,70h,6bh,0,0
-__GDECL(___1804cch)
-db	66h,61h,63h,65h,31h,31h,2eh,62h,70h,6bh,0,0
-__GDECL(___1804d8h)
-db	66h,61h,63h,65h,31h,32h,2eh,62h,70h,6bh,0,0
-__GDECL(___1804e4h)
-db	66h,61h,63h,65h,31h,33h,2eh,62h,70h,6bh,0,0
-__GDECL(___1804f0h)
-db	66h,61h,63h,65h,31h,34h,2eh,62h,70h,6bh,0,0
-__GDECL(___1804fch)
-db	66h,61h,63h,65h,31h,35h,2eh,62h,70h,6bh,0,0
-__GDECL(___180508h)
-db	66h,61h,63h,65h,31h,36h,2eh,62h,70h,6bh,0,0
-__GDECL(___180514h)
-db	66h,61h,63h,65h,31h,37h,2eh,62h,70h,6bh,0,0
-__GDECL(___180520h)
-db	66h,61h,63h,65h,31h,38h,2eh,62h,70h,6bh,0,0
-__GDECL(___18052ch)
-db	66h,61h,63h,65h,31h,39h,2eh,62h,70h,6bh,0,0
-__GDECL(___180538h)
-db	66h,61h,63h,65h,32h,30h,2eh,62h,70h,6bh,0,0
-__GDECL(___180544h)
-db	66h,61h,63h,65h,78h,78h,2eh,62h,70h,6bh,0,0
-__GDECL(___180550h)
-db	63h,6fh,70h,70h,65h,72h,2eh,70h,61h,6ch,0,0
-__GDECL(___18055ch)
-db	63h,61h,72h,63h,6fh,6ch,2eh,70h,61h,6ch,0,0
-__GDECL(___180568h)
-db	63h,6fh,72h,6eh,33h,61h,2eh,62h,70h,6bh,0,0
-__GDECL(___180574h)
-db	63h,6fh,72h,6eh,33h,62h,2eh,62h,70h,6bh,0,0
-__GDECL(___180580h)
-db	6dh,65h,6eh,75h,62h,67h,35h,2eh,62h,70h,6bh,0
-__GDECL(___18058ch)
-db	74h,72h,73h,6eh,61h,70h,32h,6dh,2eh,62h,70h,6bh,0,0,0,0
-__GDECL(___18059ch)
-db	63h,75h,72h,73h,6fh,72h,2eh,62h,70h,6bh,0,0
-__GDECL(___1805a8h)
-db	66h,2dh,62h,69h,67h,33h,62h,2eh,62h,70h,6bh,0
-__GDECL(___1805b4h)
-db	66h,2dh,62h,69h,67h,33h,64h,2eh,62h,70h,6bh,0
-__GDECL(___1805c0h)
-db	63h,68h,61h,74h,6ch,69h,6eh,31h,2eh,62h,70h,6bh,0,0,0,0
-__GDECL(___1805d0h)
-db	63h,68h,61h,74h,74h,65h,78h,74h,2eh,62h,70h,6bh,0,0,0,0
-__GDECL(___1805e0h)
-db	65h,6eh,74h,65h,72h,74h,78h,32h,2eh,62h,70h,6bh,0,0,0,0
-__GDECL(___1805f0h)
-db	73h,68h,6fh,70h,74h,78h,74h,31h,2eh,62h,70h,6bh,0,0,0,0
-__GDECL(___180600h)
-db	73h,68h,6fh,70h,74h,78h,74h,32h,2eh,62h,70h,6bh,0,0,0,0
-__GDECL(___180610h)
-db	66h,61h,6dh,65h,74h,78h,74h,2eh,62h,70h,6bh,0
-__GDECL(___18061ch)
-db	72h,65h,63h,6fh,74h,78h,74h,2eh,62h,70h,6bh,0
-__GDECL(___180628h)
-db	72h,65h,63h,6fh,62h,61h,72h,2eh,62h,70h,6bh,0
-__GDECL(___180634h)
-db	6ch,69h,63h,2dh,6ch,69h,6eh,31h,2eh,62h,70h,6bh,0,0,0,0
-__GDECL(___180644h)
-db	66h,61h,63h,65h,73h,65h,6ch,31h,2eh,62h,70h,6bh,0,0,0,0
-__GDECL(___180654h)
-db	66h,61h,63h,65h,61h,72h,72h,31h,2eh,62h,70h,6bh,0,0,0,0
-__GDECL(___180664h)
-db	6dh,73h,65h,6ch,65h,74h,78h,31h,2eh,62h,70h,6bh,0,0,0,0
-__GDECL(___180674h)
-db	74h,72h,61h,72h,72h,31h,2eh,62h,70h,6bh,0,0
-__GDECL(___180680h)
-db	"menu.pal",0,0,0,0
+
+times 27ch db 0
+times 0f4h db 0 
+times 0ch db 0
+
 __GDECL(___18068ch)
 db	79h,65h,73h,0
 __GDECL(___180690h)
 db	6eh,6fh,0,0
 __GDECL(___180694h)
-db	43h,4fh,4eh,54h,49h,4eh,55h,45h,0,0,0,0
+;db	43h,4fh,4eh,54h,49h,4eh,55h,45h,0,0,0,0
+db 	"CONTINUE",0,0,0,0
 __GDECL(___1806a0h)
 db	31h,32h,30h,30h,30h,0,0,0
 __GDECL(___1806a8h)
@@ -414,7 +288,8 @@ __GDECL(___180848h)
 db	50h,72h,65h,73h,73h,20h,61h,6eh,79h,20h,6bh,65h,79h,20h,74h,6fh
 db	20h,63h,6fh,6eh,74h,69h,6eh,75h,65h,2eh,0,0
 __GDECL(___180864h)
-db	2dh,2dh,20h,0
+;db	2dh,2dh,20h,0
+db 	"-- ",0
 __GDECL(___180868h)
 db	20h,68h,61h,73h,20h,69h,6eh,69h,74h,69h,61h,6ch,69h,7ah,65h,64h
 db	20h,61h,20h,6eh,65h,77h,20h,6eh,65h,74h,67h,61h,6dh,65h,2eh,0
@@ -523,8 +398,9 @@ __GDECL(___180b88h)
 db	43h,6fh,6eh,74h,69h,6eh,75h,65h,20h,43h,75h,72h,72h,65h,6eh,74h
 db	20h,47h,61h,6dh,65h,0,0,0
 __GDECL(___180ba0h)
-db	41h,62h,6fh,72h,74h,20h,43h,75h,72h,72h,65h,6eh,74h,20h,47h,61h
-db	6dh,65h,0,0
+;db	41h,62h,6fh,72h,74h,20h,43h,75h,72h,72h,65h,6eh,74h,20h,47h,61h
+;db	6dh,65h,0,0
+db 	"Abort Current Game",0,0
 __GDECL(___180bb4h)
 db	2dh,2dh,20h,50h,72h,65h,70h,61h,72h,65h,20h,66h,6fh,72h,20h,74h
 db	68h,65h,20h,66h,69h,72h,73h,74h,20h,74h,72h,61h,63h,6bh,2ch,20h
@@ -552,8 +428,9 @@ __GDECL(___180c88h)
 db	20h,68h,61h,73h,20h,6ah,6fh,69h,6eh,65h,64h,20h,74h,6fh,20h,44h
 db	65h,61h,74h,68h,20h,52h,61h,6ch,6ch,79h,2eh,0
 __GDECL(___180ca4h)
-db	20h,68h,61h,73h,20h,6ch,65h,66h,74h,20h,66h,72h,6fh,6dh,20h,44h
-db	65h,61h,74h,68h,20h,52h,61h,6ch,6ch,79h,2eh,0
+;db	20h,68h,61h,73h,20h,6ch,65h,66h,74h,20h,66h,72h,6fh,6dh,20h,44h
+;db	65h,61h,74h,68h,20h,52h,61h,6ch,6ch,79h,2eh,0
+db 	" has left from Death Rally.",0
 __GDECL(___180cc0h)
 db	49h,6eh,69h,74h,69h,61h,6ch,69h,7ah,65h,20h,41h,20h,4eh,65h,77h
 db	20h,47h,61h,6dh,65h,0,0,0
@@ -675,8 +552,9 @@ __GDECL(___181078h)
 db	41h,62h,6fh,72h,74h,20h,63h,75h,72h,72h,65h,6eh,74h,20h,67h,61h
 db	6dh,65h,3fh,0
 __GDECL(___18108ch)
-db	20h,61h,62h,6fh,72h,74h,65h,64h,20h,63h,75h,72h,72h,65h,6eh,74h
-db	20h,6eh,65h,74h,67h,61h,6dh,65h,2eh,0,0,0
+;db	20h,61h,62h,6fh,72h,74h,65h,64h,20h,63h,75h,72h,72h,65h,6eh,74h
+;db	20h,6eh,65h,74h,67h,61h,6dh,65h,2eh,0,0,0
+db 	" aborted current netgame.",0,0,0
 __GDECL(___1810a8h)
 db	53h,74h,61h,6eh,64h,61h,72h,64h,20h,43h,4fh,4dh,31h,20h,61h,63h
 db	74h,69h,76h,61h,74h,65h,64h,2eh,0,0,0,0
@@ -711,7 +589,8 @@ db	69h,61h,6ch,20h,73h,74h,72h,69h,6eh,67h,3fh,0
 __GDECL(___1811b8h)
 db	54h,6fh,6eh,65h,20h,44h,69h,61h,6ch,69h,6eh,67h,0,0,0,0
 __GDECL(___1811c8h)
-db	50h,75h,6ch,73h,65h,20h,44h,69h,61h,6ch,69h,6eh,67h,0,0,0
+;db	50h,75h,6ch,73h,65h,20h,44h,69h,61h,6ch,69h,6eh,67h,0,0,0
+db 	"Pulse Dialing",0,0,0
 __GDECL(___1811d8h)
 db	2dh,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0,0,0,0
 __GDECL(___1811e8h)
@@ -1028,11 +907,13 @@ __GDECL(___181c18h)
 db	41h,64h,6ah,75h,73h,74h,20h,65h,66h,66h,65h,63h,74h,20h,76h,6fh
 db	6ch,75h,6dh,65h,3ah,0,0,0
 __GDECL(___181c30h)
-db	47h,61h,6dh,65h,70h,61h,64h,2fh,4ah,6fh,79h,73h,74h,69h,63h,6bh
-db	20h,45h,6eh,61h,62h,6ch,65h,64h,0,0,0,0
+;db	47h,61h,6dh,65h,70h,61h,64h,2fh,4ah,6fh,79h,73h,74h,69h,63h,6bh
+;db	20h,45h,6eh,61h,62h,6ch,65h,64h,0,0,0,0
+db 	"Gamepad/Joystick Enabled",0,0,0,0
 __GDECL(___181c4ch)
-db	47h,61h,6dh,65h,70h,61h,64h,2fh,4ah,6fh,79h,73h,74h,69h,63h,6bh
-db	20h,44h,69h,73h,61h,62h,6ch,65h,64h,0
+;db	47h,61h,6dh,65h,70h,61h,64h,2fh,4ah,6fh,79h,73h,74h,69h,63h,6bh
+;db	20h,44h,69h,73h,61h,62h,6ch,65h,64h,0
+db 	"Gamepad/Joystick Disabled",0
 __GDECL(___181c66h)
 db	0,0,0,0,0,0,0e9h,3fh,0,0
 __GDECL(___181c70h)
@@ -1043,7 +924,8 @@ __GDECL(___181c80h)
 ;db	65h,6eh,64h,61h,6eh,69h,2dh,65h,2eh,63h,6dh,66h,0,0,0,0
 db 	"endani-e.cmf",0,0,0,0
 __GDECL(___181c90h)
-db	74h,72h,30h,2dh,6dh,75h,73h,2eh,63h,6dh,66h,0
+;db	74h,72h,30h,2dh,6dh,75h,73h,2eh,63h,6dh,66h,0
+db 	"tr0-mus.cmf",0
 __GDECL(___181c9ch)
 ;db	4dh,45h,4eh,2dh,53h,41h,4dh,2eh,43h,4dh,46h,0
 db 	"MEN-SAM.CMF",0
@@ -1070,96 +952,141 @@ __GDECL(___181d0bh)
 db	0,0,9ah,42h
 __GDECL(___181d0fh)
 db	0,0,0,0,0,0,16h,40h
+
 __GDECL(___181d17h)
 db	0,0,0,3fh
 __GDECL(___181d1bh)
 db	0,0,0c8h,42h
 __GDECL(___181d1fh)
 db	0,0,0,40h,0
+
+
 __GDECL(___181d24h)
-db	73h,74h,61h,74h,62h,61h,73h,37h,2eh,62h,70h,6bh,0,0,0,0
+;db	73h,74h,61h,74h,62h,61h,73h,37h,2eh,62h,70h,6bh,0,0,0,0
+db 	"statbas7.bpk",0,0,0,0
 __GDECL(___181d34h)
-db	73h,74h,61h,74h,70h,6fh,70h,34h,2eh,62h,70h,6bh,0,0,0,0
+;db	73h,74h,61h,74h,70h,6fh,70h,34h,2eh,62h,70h,6bh,0,0,0,0
+db 	"statpop4.bpk",0,0,0,0
 __GDECL(___181d44h)
-db	66h,2dh,73h,6dh,61h,33h,66h,2eh,62h,70h,6bh,0
+;db	66h,2dh,73h,6dh,61h,33h,66h,2eh,62h,70h,6bh,0
+db 	"f-sma3f.bpk",0
 __GDECL(___181d50h)
-db	6bh,75h,70h,6ch,61h,2eh,62h,70h,6bh,0,0,0
+;db	6bh,75h,70h,6ch,61h,2eh,62h,70h,6bh,0,0,0
+db 	"kupla.bpk",0,0,0
 __GDECL(___181d5ch)
-db	70h,69h,63h,6bh,75h,70h,2eh,62h,70h,6bh,0,0
+;db	70h,69h,63h,6bh,75h,70h,2eh,62h,70h,6bh,0,0
+db 	"pickup.bpk",0,0
 __GDECL(___181d68h)
-db	73h,65h,64h,61h,6eh,2eh,62h,70h,6bh,0,0,0
+;db	73h,65h,64h,61h,6eh,2eh,62h,70h,6bh,0,0,0
+db 	"sedan.bpk",0,0,0
 __GDECL(___181d74h)
-db	63h,61h,6dh,61h,72h,6fh,2eh,62h,70h,6bh,0,0
+;db	63h,61h,6dh,61h,72h,6fh,2eh,62h,70h,6bh,0,0
+db 	"camaro.bpk",0,0
 __GDECL(___181d80h)
-db	70h,6fh,72h,73h,63h,68h,65h,2eh,62h,70h,6bh,0
+;db	70h,6fh,72h,73h,63h,68h,65h,2eh,62h,70h,6bh,0
+db 	"porsche.bpk",0
 __GDECL(___181d8ch)
-db	6ch,6fh,74h,75h,73h,2eh,62h,70h,6bh,0,0,0
+;db	6ch,6fh,74h,75h,73h,2eh,62h,70h,6bh,0,0,0
+db 	"lotus.bpk",0,0,0
 __GDECL(___181d98h)
-db	65h,6eh,67h,69h,31h,2eh,62h,70h,6bh,0,0,0
+;db	65h,6eh,67h,69h,31h,2eh,62h,70h,6bh,0,0,0
+db 	"engi1.bpk",0,0,0
 __GDECL(___181da4h)
-db	65h,6eh,67h,69h,32h,2eh,62h,70h,6bh,0,0,0
+;db	65h,6eh,67h,69h,32h,2eh,62h,70h,6bh,0,0,0
+db 	"engi2.bpk",0,0,0
 __GDECL(___181db0h)
-db	65h,6eh,67h,69h,33h,2eh,62h,70h,6bh,0,0,0
+;db	65h,6eh,67h,69h,33h,2eh,62h,70h,6bh,0,0,0
+db 	"engi3.bpk",0,0,0
 __GDECL(___181dbch)
-db	65h,6eh,67h,69h,34h,2eh,62h,70h,6bh,0,0,0
+;db	65h,6eh,67h,69h,34h,2eh,62h,70h,6bh,0,0,0
+db 	"engi4.bpk",0,0,0
 __GDECL(___181dc8h)
-db	74h,69h,72h,65h,31h,2eh,62h,70h,6bh,0,0,0
+;db	74h,69h,72h,65h,31h,2eh,62h,70h,6bh,0,0,0
+db 	"tire1.bpk",0,0,0
 __GDECL(___181dd4h)
-db	74h,69h,72h,65h,32h,2eh,62h,70h,6bh,0,0,0
+;db	74h,69h,72h,65h,32h,2eh,62h,70h,6bh,0,0,0
+db 	"tire2.bpk",0,0,0
 __GDECL(___181de0h)
-db	74h,69h,72h,65h,33h,2eh,62h,70h,6bh,0,0,0
+;db	74h,69h,72h,65h,33h,2eh,62h,70h,6bh,0,0,0
+db 	"tire3.bpk",0,0,0
 __GDECL(___181dech)
-db	74h,69h,72h,65h,34h,2eh,62h,70h,6bh,0,0,0
+;db	74h,69h,72h,65h,34h,2eh,62h,70h,6bh,0,0,0
+db 	"tire4.bpk",0,0,0
 __GDECL(___181df8h)
-db	61h,72h,6dh,6fh,72h,31h,2eh,62h,70h,6bh,0,0
+;db	61h,72h,6dh,6fh,72h,31h,2eh,62h,70h,6bh,0,0
+db 	"armor1.bpk",0,0
 __GDECL(___181e04h)
-db	61h,72h,6dh,6fh,72h,32h,2eh,62h,70h,6bh,0,0
+;db	61h,72h,6dh,6fh,72h,32h,2eh,62h,70h,6bh,0,0
+db 	"armor2.bpk",0,0
 __GDECL(___181e10h)
-db	61h,72h,6dh,6fh,72h,33h,2eh,62h,70h,6bh,0,0
+;db	61h,72h,6dh,6fh,72h,33h,2eh,62h,70h,6bh,0,0
+db 	"armor3.bpk",0,0
 __GDECL(___181e1ch)
-db	61h,72h,6dh,6fh,72h,34h,2eh,62h,70h,6bh,0,0
+;db	61h,72h,6dh,6fh,72h,34h,2eh,62h,70h,6bh,0,0
+db 	"armor4.bpk",0,0
 __GDECL(___181e28h)
-db	63h,6fh,6eh,74h,61h,6eh,69h,2eh,62h,70h,6bh,0
+;db	63h,6fh,6eh,74h,61h,6eh,69h,2eh,62h,70h,6bh,0
+db 	"contani.bpk",0
 __GDECL(___181e34h)
-db	72h,65h,70h,61h,61h,6eh,69h,2eh,62h,70h,6bh,0
+;db	72h,65h,70h,61h,61h,6eh,69h,2eh,62h,70h,6bh,0
+db 	"repaani.bpk",0
 __GDECL(___181e40h)
-db	63h,61h,72h,62h,61h,73h,32h,2eh,62h,70h,6bh,0
+;db	63h,61h,72h,62h,61h,73h,32h,2eh,62h,70h,6bh,0
+db 	"carbas2.bpk",0
 __GDECL(___181e4ch)
-db	73h,70h,6fh,6eh,73h,31h,62h,2eh,62h,70h,6bh,0
+;db	73h,70h,6fh,6eh,73h,31h,62h,2eh,62h,70h,6bh,0
+db 	"spons1b.bpk",0
 __GDECL(___181e58h)
-db	64h,72h,75h,67h,64h,65h,61h,6ch,2eh,62h,70h,6bh,0,0,0,0
+;db	64h,72h,75h,67h,64h,65h,61h,6ch,2eh,62h,70h,6bh,0,0,0,0
+db 	"drugdeal.bpk",0,0,0,0
 __GDECL(___181e68h)
-db	65h,76h,65h,6eh,74h,5fh,32h,2eh,62h,70h,6bh,0
+;db	65h,76h,65h,6eh,74h,5fh,32h,2eh,62h,70h,6bh,0
+db 	"event_2.bpk",0
 __GDECL(___181e74h)
-db	72h,65h,61h,70h,65h,72h,5fh,78h,2eh,62h,70h,6bh,0,0,0,0
+;db	72h,65h,61h,70h,65h,72h,5fh,78h,2eh,62h,70h,6bh,0,0,0,0
+db 	"reaper_x.bpk",0,0,0,0
 __GDECL(___181e84h)
-db	62h,6ch,61h,63h,6bh,74h,78h,31h,2eh,62h,70h,6bh,0,0,0,0
+;db	62h,6ch,61h,63h,6bh,74h,78h,31h,2eh,62h,70h,6bh,0,0,0,0
+db 	"blacktx1.bpk",0,0,0,
 __GDECL(___181e94h)
-db	62h,6ch,61h,63h,6bh,74h,78h,32h,2eh,62h,70h,6bh,0,0,0,0
+;db	62h,6ch,61h,63h,6bh,74h,78h,32h,2eh,62h,70h,6bh,0,0,0,0
+db 	"blacktx2.bpk",0,0,0,0
 __GDECL(___181ea4h)
-db	64h,65h,61h,6ch,65h,72h,32h,62h,2eh,62h,70h,6bh,0,0,0,0
+;db	64h,65h,61h,6ch,65h,72h,32h,62h,2eh,62h,70h,6bh,0,0,0,0
+db 	"dealer2b.bpk",0,0,0,0
 __GDECL(___181eb4h)
-db	6dh,61h,72h,6bh,65h,74h,31h,65h,2eh,62h,70h,6bh,0,0,0,0
+;db	6dh,61h,72h,6bh,65h,74h,31h,65h,2eh,62h,70h,6bh,0,0,0,0
+db 	"market1e.bpk",0,0,0,0
 __GDECL(___181ec4h)
-db	62h,61h,73h,65h,73h,34h,2eh,62h,70h,6bh,0,0
+;db	62h,61h,73h,65h,73h,34h,2eh,62h,70h,6bh,0,0
+db 	"bases4.bpk",0,0
 __GDECL(___181ed0h)
-db	73h,63h,65h,6eh,65h,63h,61h,72h,2eh,62h,70h,6bh,0,0,0,0
+;db	73h,63h,65h,6eh,65h,63h,61h,72h,2eh,62h,70h,6bh,0,0,0,0
+db 	"scenecar.bpk",0,0,0,0
 __GDECL(___181ee0h)
-db	63h,68h,6fh,6fh,32h,2eh,62h,70h,6bh,0,0,0
+;db	63h,68h,6fh,6fh,32h,2eh,62h,70h,6bh,0,0,0
+db 	"choo2.bpk",0,0,0
 __GDECL(___181eech)
-db	61h,72h,72h,6fh,77h,73h,31h,64h,2eh,62h,70h,6bh,0,0,0,0
+;db	61h,72h,72h,6fh,77h,73h,31h,64h,2eh,62h,70h,6bh,0,0,0,0
+db 	"arrows1d.bpk",0,0,0,0
 __GDECL(___181efch)
-db	6dh,61h,78h,69h,31h,66h,2eh,62h,70h,6bh,0,0
+;db	6dh,61h,78h,69h,31h,66h,2eh,62h,70h,6bh,0,0
+db 	"maxi1f.bpk",0,0
 __GDECL(___181f08h)
-db	63h,61h,72h,6eh,61h,6dh,65h,2eh,62h,70h,6bh,0
+;db	63h,61h,72h,6eh,61h,6dh,65h,2eh,62h,70h,6bh,0
+db 	"carname.bpk",0
 __GDECL(___181f14h)
-db	73h,6ch,69h,64h,6dh,75h,73h,32h,2eh,62h,70h,6bh,0,0,0,0
+;db	73h,6ch,69h,64h,6dh,75h,73h,32h,2eh,62h,70h,6bh,0,0,0,0
+db 	"slidmus2.bpk",0,0,0,0
 __GDECL(___181f24h)
-db	73h,6ch,69h,64h,63h,75h,72h,33h,2eh,62h,70h,6bh,0,0,0,0
+;db	73h,6ch,69h,64h,63h,75h,72h,33h,2eh,62h,70h,6bh,0,0,0,0
+db 	"slidcur3.bpk",0,0,0,0
 __GDECL(___181f34h)
-db	76h,6fh,6ch,63h,75h,72h,32h,2eh,62h,70h,6bh,0
+;db	76h,6fh,6ch,63h,75h,72h,32h,2eh,62h,70h,6bh,0
+db 	"volcur2.bpk",0
 __GDECL(___181f40h)
-db	73h,6ch,69h,64h,63h,6fh,70h,32h,2eh,62h,70h,6bh,0,0,0,0
+;db	73h,6ch,69h,64h,63h,6fh,70h,32h,2eh,62h,70h,6bh,0,0,0,0
+db 	"slidcop2.bpk",0,0,0,0
 __GDECL(___181f50h)
 db	20h,0,0,0
 __GDECL(___181f54h)
@@ -1299,18 +1226,24 @@ __GDECL(___1822deh)
 db	0,0,0,0,0,70h,97h,40h
 __GDECL(___1822e6h)
 db	0,0,0,0,0,70h,87h,40h,0,0
-__GDECL(___1822f0h)
-db	62h,61h,64h,74h,69h,74h,2eh,62h,70h,6bh,0,0
-__GDECL(___1822fch)
-db	62h,61h,64h,73h,6eh,61h,70h,2eh,62h,70h,6bh,0
-__GDECL(___182308h)
-db	65h,73h,63h,62h,6fh,78h,2eh,62h,70h,6bh,0,0
-__GDECL(___182314h)
-db	70h,72h,65h,70h,34h,2eh,62h,70h,6bh,0,0,0
-__GDECL(___182320h)
-db	73h,69h,67h,6eh,6ch,69h,6eh,65h,2eh,62h,70h,6bh,0,0,0,0
-__GDECL(___182330h)
-db	70h,72h,65h,70h,77h,31h,2eh,62h,70h,6bh,0,0
+;__GDECL(___1822f0h)
+;db	62h,61h,64h,74h,69h,74h,2eh,62h,70h,6bh,0,0
+db 	"badtit.bpk",0,0
+;__GDECL(___1822fch)
+;db	62h,61h,64h,73h,6eh,61h,70h,2eh,62h,70h,6bh,0
+db 	"badsnap.bpk",0
+;__GDECL(___182308h)
+;db	65h,73h,63h,62h,6fh,78h,2eh,62h,70h,6bh,0,0
+db 	"escbox.bpk",0,0
+;__GDECL(___182314h)
+;db	70h,72h,65h,70h,34h,2eh,62h,70h,6bh,0,0,0
+db 	"prep4.bpk",0,0,0
+;__GDECL(___182320h)
+;db	73h,69h,67h,6eh,6ch,69h,6eh,65h,2eh,62h,70h,6bh,0,0,0,0
+db 	"signline.bpk",0,0,0,0
+;__GDECL(___182330h)
+;db	70h,72h,65h,70h,77h,31h,2eh,62h,70h,6bh,0,0
+db 	"prepw1.bpk",0,0
 __GDECL(___18233ch)
 db	5bh,54h,6fh,74h,61h,6ch,20h,74h,72h,61h,63h,6bh,73h,20h,73h,65h
 db	6ch,65h,63h,74h,65h,64h,3ah,20h,0,0,0,0
@@ -1470,10 +1403,9 @@ __GDECL(___1826e4h)
 db	48h,53h,2dh,50h,49h,43h,0,0
 __GDECL(___1826ech)
 db	2eh,50h,43h,58h,0,0,0,0
-__GDECL(___1826f4h)
-db	44h,45h,41h,54h,48h,20h,52h,41h,4ch,4ch,59h,20h,45h,78h,69h,74h
-db	3ah,20h,43h,54h,52h,4ch,2bh,41h,4ch,54h,2bh,44h,45h,4ch,20h,70h
-db	72h,65h,73h,73h,65h,64h,2eh,0ah,0,0,0,0
+
+times 2ch db 0 
+
 __GDECL(___182720h)
 db	6ch,69h,63h,65h,6eh,63h,65h,33h,2eh,62h,70h,6bh,0,0,0,0
 __GDECL(___182730h)
@@ -1512,17 +1444,23 @@ db	4ch,45h,45h,20h,56h,49h,43h,45h,20h,20h,0,0
 __GDECL(___18280ch)
 db	44h,41h,52h,4bh,20h,52h,59h,44h,45h,52h,0,0
 __GDECL(___182818h)
-db	61h,70h,6fh,67h,65h,65h,2eh,70h,61h,6ch,0,0
+;db	61h,70h,6fh,67h,65h,65h,2eh,70h,61h,6ch,0,0
+db 	"apogee.pal",0,0
 __GDECL(___182824h)
-db	61h,70h,6fh,67h,65h,65h,2eh,62h,70h,6bh,0,0
+;db	61h,70h,6fh,67h,65h,65h,2eh,62h,70h,6bh,0,0
+db 	"apogee.bpk",0,0
 __GDECL(___182830h)
-db	67h,74h,6ch,6fh,67h,6fh,34h,2eh,70h,61h,6ch,0
+;db	67h,74h,6ch,6fh,67h,6fh,34h,2eh,70h,61h,6ch,0
+db 	"gtlogo4.pal",0
 __GDECL(___18283ch)
-db	67h,74h,6ch,6fh,67h,6fh,34h,2eh,62h,70h,6bh,0
+;db	67h,74h,6ch,6fh,67h,6fh,34h,2eh,62h,70h,6bh,0
+db 	"gtlogo4.bpk",0
 __GDECL(___182848h)
-db	72h,65h,6dh,65h,64h,79h,2eh,70h,61h,6ch,0,0
+;db	72h,65h,6dh,65h,64h,79h,2eh,70h,61h,6ch,0,0
+db 	"remedy.pal",0,0
 __GDECL(___182854h)
-db	72h,65h,6dh,65h,64h,79h,2eh,62h,70h,6bh,0,0
+;db	72h,65h,6dh,65h,64h,79h,2eh,62h,70h,6bh,0,0
+db 	"remedy.bpk",0,0
 __GDECL(___182860h)
 db	63h,72h,65h,64h,69h,74h,31h,2eh,70h,61h,6ch,0
 __GDECL(___18286ch)
@@ -1532,12 +1470,14 @@ db	63h,72h,65h,64h,69h,74h,32h,2eh,70h,61h,6ch,0
 __GDECL(___182884h)
 db	63h,72h,65h,64h,69h,74h,32h,2eh,62h,70h,6bh,0
 __GDECL(___182890h)
-db	73h,74h,61h,72h,74h,73h,63h,72h,2eh,70h,61h,6ch,0,0,0,0
+;db	73h,74h,61h,72h,74h,73h,63h,72h,2eh,70h,61h,6ch,0,0,0,0
+db 	"startscr.pal",0,0,0,0
 __GDECL(___1828a0h)
 ;db	73h,74h,61h,72h,74h,73h,63h,72h,2eh,62h,70h,6bh,0,0,0,0
 db 	"startscr.bpk",0,0,0,0
 __GDECL(___1828b0h)
-db	73h,61h,6eh,69h,6dh,2eh,68h,61h,66h,0,0,0
+;db	73h,61h,6eh,69h,6dh,2eh,68h,61h,66h,0,0,0
+db 	"sanim.haf",0,0,0
 __GDECL(___1828bch)
 ;db	73h,61h,6eh,69h,6dh,2dh,65h,2eh,63h,6dh,66h,0
 db 	"sanim-e.cmf",0
@@ -1561,66 +1501,15 @@ __GDECL(___182928h)
 db	73h,6ch,69h,64h,65h,30h,35h,2eh,62h,70h,6bh,0
 __GDECL(___182934h)
 db	73h,6ch,69h,64h,65h,30h,35h,2eh,70h,61h,6ch,0
-__GDECL(___182940h)
-db	0ah,0,0,0
-__GDECL(___182944h)
-db	59h,6fh,75h,20h,64h,6fh,6eh,27h,74h,20h,68h,61h,76h,65h,20h,65h
-db	6eh,6fh,75h,67h,68h,20h,66h,72h,65h,65h,20h,58h,4dh,53h,2fh,45h
-db	4dh,53h,20h,6dh,65h,6dh,6fh,72h,79h,20h,74h,6fh,20h,72h,75h,6eh
-db	20h,44h,65h,61h,74h,68h,20h,52h,61h,6ch,6ch,79h,2eh,20h,54h,68h
-db	65h,20h,44h,4fh,53h,20h,4dh,45h,4dh,0ah,0,0
-__GDECL(___182990h)
-db	63h,6fh,6dh,6dh,61h,6eh,64h,20h,73h,68h,6fh,75h,6ch,64h,20h,72h
-db	65h,70h,6fh,72h,74h,20h,36h,2ch,35h,30h,30h,4bh,20h,28h,6fh,72h
-db	20h,36h,2eh,37h,20h,6dh,65h,67h,73h,29h,20h,66h,72h,65h,65h,20h
-db	65h,78h,74h,65h,6eh,64h,65h,64h,20h,6fh,72h,20h,65h,78h,70h,61h
-db	6eh,64h,65h,64h,20h,6dh,65h,6dh,6fh,72h,79h,2eh,0ah,0,0,0
-__GDECL(___1829e0h)
-db	50h,6ch,65h,61h,73h,65h,20h,63h,6fh,6eh,73h,75h,6ch,74h,20h,44h
-db	52h,48h,45h,4ch,50h,2eh,45h,58h,45h,20h,66h,6fh,72h,20h,6dh,6fh
-db	72h,65h,20h,69h,6eh,66h,6fh,72h,6dh,61h,74h,69h,6fh,6eh,20h,6fh
-db	6eh,20h,68h,6fh,77h,20h,74h,6fh,20h,72h,65h,73h,6fh,6ch,76h,65h
-db	20h,74h,68h,69h,73h,20h,70h,72h,6fh,62h,6ch,65h,6dh,2eh,0ah,0
-__GDECL(___182a30h)
-db	0ah,44h,45h,41h,54h,48h,20h,52h,41h,4ch,4ch,59h,20h,45h,52h,52h
-db	4fh,52h,3ah,20h,46h,69h,6ch,65h,20h,25h,73h,20h,69h,73h,20h,6eh
-db	6fh,74h,20h,66h,6fh,75h,6eh,64h,21h,0ah,0,0
-__GDECL(___182a5ch)
-db	50h,6ch,65h,61h,73h,65h,20h,63h,6fh,6eh,73h,75h,6ch,74h,20h,44h
-db	52h,48h,45h,4ch,50h,2eh,45h,58h,45h,20h,66h,6fh,72h,20h,6dh,6fh
-db	72h,65h,20h,69h,6eh,66h,6fh,72h,6dh,61h,74h,69h,6fh,6eh,20h,6fh
-db	6eh,20h,68h,6fh,77h,20h,74h,6fh,20h,72h,65h,73h,6fh,6ch,76h,65h
-db	20h,74h,68h,69h,73h,20h,70h,72h,6fh,62h,6ch,65h,6dh,2eh,0ah,0
-__GDECL(___182aach)
-db	0ah,44h,45h,41h,54h,48h,20h,52h,41h,4ch,4ch,59h,20h,45h,52h,52h
-db	4fh,52h,3ah,20h,46h,69h,6ch,65h,20h,25h,73h,20h,69h,73h,20h,6eh
-db	6fh,74h,20h,69h,6eh,20h,6fh,72h,69h,67h,69h,6eh,61h,6ch,20h,66h
-db	6fh,72h,6dh,21h,0ah,0,0,0
-__GDECL(___182ae4h)
-db	50h,6ch,65h,61h,73h,65h,20h,63h,6fh,6eh,73h,75h,6ch,74h,20h,44h
-db	52h,48h,45h,4ch,50h,2eh,45h,58h,45h,20h,66h,6fh,72h,20h,6dh,6fh
-db	72h,65h,20h,69h,6eh,66h,6fh,72h,6dh,61h,74h,69h,6fh,6eh,20h,6fh
-db	6eh,20h,68h,6fh,77h,20h,74h,6fh,20h,72h,65h,73h,6fh,6ch,76h,65h
-db	20h,74h,68h,69h,73h,20h,70h,72h,6fh,62h,6ch,65h,6dh,2eh,0ah,0
-__GDECL(___182b34h)
-db	0ah,44h,45h,41h,54h,48h,20h,52h,41h,4ch,4ch,59h,20h,45h,52h,52h
-db	4fh,52h,3ah,20h,46h,69h,6ch,65h,20h,25h,73h,20h,69h,73h,20h,6eh
-db	6fh,74h,20h,69h,6eh,20h,6fh,72h,69h,67h,69h,6eh,61h,6ch,20h,66h
-db	6fh,72h,6dh,21h,0ah,0,0,0
-__GDECL(___182b6ch)
-db	50h,6ch,65h,61h,73h,65h,20h,63h,6fh,6eh,73h,75h,6ch,74h,20h,44h
-db	52h,48h,45h,4ch,50h,2eh,45h,58h,45h,20h,66h,6fh,72h,20h,6dh,6fh
-db	72h,65h,20h,69h,6eh,66h,6fh,72h,6dh,61h,74h,69h,6fh,6eh,20h,6fh
-db	6eh,20h,68h,6fh,77h,20h,74h,6fh,20h,72h,65h,73h,6fh,6ch,76h,65h
-db	20h,74h,68h,69h,73h,20h,70h,72h,6fh,62h,6ch,65h,6dh,2eh,0ah,0
-__GDECL(___182bbch)
-db	43h,44h,52h,4fh,4dh,2eh,49h,4eh,49h,0,0,0
-__GDECL(___182bc8h)
-db	25h,73h,0,0
+
+times 0f0h db 0
+times 18ch db 0
+times 0ch db 0
+times 4 db 0
+
 __GDECL(___182bcch)
 db	5ch,0,0,0
-__GDECL(___182bd0h)
-db	"Error reading CDROM.INI file!",0ah,0,0
+times 20h db 0
 __GDECL(___182bf0h)
 db	44h,52h,2eh,49h,44h,46h,0,0
 __GDECL(___182bf8h)
@@ -1628,53 +1517,55 @@ db	0ah,4ch,6fh,61h,64h,69h,6eh,67h,20h,6dh,75h,73h,69h,63h,20h,26h
 db	20h,65h,66h,66h,65h,63h,74h,73h,2ch,20h,70h,6ch,65h,61h,73h,65h
 db	20h,77h,61h,69h,74h,2eh,2eh,2eh,0ah,0,0,0
 __GDECL(___182c24h)
-db	44h,45h,41h,54h,48h,20h,52h,41h,4ch,4ch,59h,20h,45h,72h,72h,6fh
-db	72h,3ah,20h,59h,6fh,75h,72h,20h,56h,47h,41h,2dh,61h,64h,61h,70h
-db	74h,65h,72h,20h,69h,73h,20h,6eh,6fh,74h,20h,66h,75h,6ch,6ch,79h
-db	20h,56h,45h,53h,41h,20h,28h,56h,42h,45h,20h,31h,2eh,30h,29h,20h
-db	63h,6fh,6dh,70h,6ch,69h,61h,6eh,74h,2eh,0ah,20h,20h,20h,20h,20h
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,55h,73h
-db	65h,20h,55h,4eh,49h,56h,42h,45h,20h,6fh,72h,20h,73h,69h,6dh,69h
-db	6ch,61h,72h,20h,65h,6dh,75h,6ch,61h,74h,6fh,72h,20h,74h,6fh,20h
-db	66h,69h,78h,20h,74h,68h,65h,20h,70h,72h,6fh,62h,6ch,65h,6dh,2eh
-db	0ah,0,0,0
+;db	44h,45h,41h,54h,48h,20h,52h,41h,4ch,4ch,59h,20h,45h,72h,72h,6fh
+;db	72h,3ah,20h,59h,6fh,75h,72h,20h,56h,47h,41h,2dh,61h,64h,61h,70h
+;db	74h,65h,72h,20h,69h,73h,20h,6eh,6fh,74h,20h,66h,75h,6ch,6ch,79h
+;db	20h,56h,45h,53h,41h,20h,28h,56h,42h,45h,20h,31h,2eh,30h,29h,20h
+;db	63h,6fh,6dh,70h,6ch,69h,61h,6eh,74h,2eh,0ah,20h,20h,20h,20h,20h
+;db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,55h,73h
+;db	65h,20h,55h,4eh,49h,56h,42h,45h,20h,6fh,72h,20h,73h,69h,6dh,69h
+;db	6ch,61h,72h,20h,65h,6dh,75h,6ch,61h,74h,6fh,72h,20h,74h,6fh,20h
+;db	66h,69h,78h,20h,74h,68h,65h,20h,70h,72h,6fh,62h,6ch,65h,6dh,2eh
+;db	0ah,0,0,0
+db 	"DEATH RALLY Error: Your VGA-adapter is not fully VESA (VBE 1.0) compliant.",0ah,
+db	"                   Use UNIVBE or similar emulator to fix the problem.",0ah,0,0,0
 __GDECL(___182cb8h)
-db	50h,6ch,65h,61h,73h,65h,20h,63h,6fh,6eh,73h,75h,6ch,74h,20h,44h
-db	52h,48h,45h,4ch,50h,2eh,45h,58h,45h,20h,66h,6fh,72h,20h,6dh,6fh
-db	72h,65h,20h,69h,6eh,66h,6fh,72h,6dh,61h,74h,69h,6fh,6eh,20h,6fh
-db	6eh,20h,68h,6fh,77h,20h,74h,6fh,20h,72h,65h,73h,6fh,6ch,76h,65h
-db	20h,74h,68h,69h,73h,20h,70h,72h,6fh,62h,6ch,65h,6dh,2eh,0ah,0
+;db	50h,6ch,65h,61h,73h,65h,20h,63h,6fh,6eh,73h,75h,6ch,74h,20h,44h
+;db	52h,48h,45h,4ch,50h,2eh,45h,58h,45h,20h,66h,6fh,72h,20h,6dh,6fh
+;db	72h,65h,20h,69h,6eh,66h,6fh,72h,6dh,61h,74h,69h,6fh,6eh,20h,6fh
+;db	6eh,20h,68h,6fh,77h,20h,74h,6fh,20h,72h,65h,73h,6fh,6ch,76h,65h
+;db	20h,74h,68h,69h,73h,20h,70h,72h,6fh,62h,6ch,65h,6dh,2eh,0ah,0
+db 	"Please consult DRHELP.EXE for more information on how to resolve this problem.",0ah,0
 __GDECL(___182d08h)
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,57h,65h,6ch,63h,6fh,6dh
-db	65h,20h,74h,6fh,20h,44h,65h,61h,74h,68h,20h,52h,61h,6ch,6ch,79h
-db	20h,2dh,20h,46h,75h,6ch,6ch,20h,76h,65h,72h,73h,69h,6fh,6eh,20h
-db	31h,2eh,31h,0
+;db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,57h,65h,6ch,63h,6fh,6dh
+;db	65h,20h,74h,6fh,20h,44h,65h,61h,74h,68h,20h,52h,61h,6ch,6ch,79h
+;db	20h,2dh,20h,46h,75h,6ch,6ch,20h,76h,65h,72h,73h,69h,6fh,6eh,20h
+;db	31h,2eh,31h,0
+db 	"          Welcome to Death Rally - Full version 1.1",0
 __GDECL(___182d3ch)
-db	20h,20h,20h,20h,44h,65h,76h,65h,6ch,6fh,70h,65h,64h,20h,62h,79h
-db	20h,52h,65h,6dh,65h,64h,79h,20h,45h,6eh,74h,65h,72h,74h,61h,69h
-db	6eh,6dh,65h,6eh,74h,20h,66h,6fh,72h,20h,41h,70h,6fh,67h,65h,65h
-db	20h,53h,6fh,66h,74h,77h,61h,72h,65h,0,0,0
+;db	20h,20h,20h,20h,44h,65h,76h,65h,6ch,6fh,70h,65h,64h,20h,62h,79h
+;db	20h,52h,65h,6dh,65h,64h,79h,20h,45h,6eh,74h,65h,72h,74h,61h,69h
+;db	6eh,6dh,65h,6eh,74h,20h,66h,6fh,72h,20h,41h,70h,6fh,67h,65h,65h
+;db	20h,53h,6fh,66h,74h,77h,61h,72h,65h,0,0,0
+db 	"    Developed by Remedy Entertainment for Apogee Software",0,0,0
 __GDECL(___182d78h)
-db	55h,73h,65h,20h,61h,72h,72h,6fh,77h,20h,6bh,65h,79h,73h,20h,74h
-db	6fh,20h,63h,68h,61h,6eh,67h,65h,20h,73h,65h,6ch,65h,63h,74h,69h
-db	6fh,6eh,20h,61h,6eh,64h,20h,70h,72h,65h,73h,73h,20h,65h,6eh,74h
-db	65h,72h,20h,74h,6fh,20h,63h,6fh,6eh,66h,69h,72h,6dh,2eh,0,0
+;db	55h,73h,65h,20h,61h,72h,72h,6fh,77h,20h,6bh,65h,79h,73h,20h,74h
+;db	6fh,20h,63h,68h,61h,6eh,67h,65h,20h,73h,65h,6ch,65h,63h,74h,69h
+;db	6fh,6eh,20h,61h,6eh,64h,20h,70h,72h,65h,73h,73h,20h,65h,6eh,74h
+;db	65h,72h,20h,74h,6fh,20h,63h,6fh,6eh,66h,69h,72h,6dh,2eh,0,0
+db 	"Use arrow keys to change selection and press enter to confirm.",0,0
 __GDECL(___182db8h)
-db	50h,6ch,65h,61h,73h,65h,20h,69h,6eh,73h,65h,72h,74h,20h,44h,65h
-db	61h,74h,68h,20h,52h,61h,6ch,6ch,79h,20h,74h,6fh,20h,43h,44h,2dh
-db	52h,4fh,4dh,20h,64h,72h,69h,76h,65h,21h,0,0
+;db	50h,6ch,65h,61h,73h,65h,20h,69h,6eh,73h,65h,72h,74h,20h,44h,65h
+;db	61h,74h,68h,20h,52h,61h,6ch,6ch,79h,20h,74h,6fh,20h,43h,44h,2dh
+;db	52h,4fh,4dh,20h,64h,72h,69h,76h,65h,21h,0,0
+db 	"Please insert Death Rally to CD-ROM drive!",0,0
 __GDECL(___182de4h)
-db	41h,72h,65h,20h,79h,6fh,75h,20h,73h,75h,72h,65h,3fh,0,0,0
-__GDECL(___182df4h)
-db	44h,45h,41h,54h,48h,20h,52h,41h,4ch,4ch,59h,20h,45h,72h,72h,6fh
-db	72h,3ah,20h,43h,61h,6eh,6eh,6fh,74h,20h,61h,6ch,6ch,6fh,63h,61h
-db	74h,65h,20h,6dh,65h,6dh,6fh,72h,79h,21h,0ah,0
-__GDECL(___182e20h)
-db	50h,6ch,65h,61h,73h,65h,20h,63h,6fh,6eh,73h,75h,6ch,74h,20h,44h
-db	52h,48h,45h,4ch,50h,2eh,45h,58h,45h,20h,66h,6fh,72h,20h,6dh,6fh
-db	72h,65h,20h,69h,6eh,66h,6fh,72h,6dh,61h,74h,69h,6fh,6eh,20h,6fh
-db	6eh,20h,68h,6fh,77h,20h,74h,6fh,20h,72h,65h,73h,6fh,6ch,76h,65h
-db	20h,74h,68h,69h,73h,20h,70h,72h,6fh,62h,6ch,65h,6dh,2eh,0ah,0
+;db	41h,72h,65h,20h,79h,6fh,75h,20h,73h,75h,72h,65h,3fh,0,0,0
+db 	"Are you sure?",0,0,0
+
+times 2ch db 0
+times 50h db 0
+
 __GDECL(___182e70h)
 db	2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh
 db	2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh
@@ -1754,22 +1645,23 @@ db	72h,65h,20h,69h,6eh,66h,6fh,72h,6dh,61h,74h,69h,6fh,6eh,20h,6fh
 db	6eh,20h,68h,6fh,77h,20h,74h,6fh,20h,72h,65h,73h,6fh,6ch,76h,65h
 db	20h,74h,68h,69h,73h,20h,70h,72h,6fh,62h,6ch,65h,6dh,2eh,0ah,0
 __GDECL(___183030h)
-db	44h,45h,41h,54h,48h,20h,52h,41h,4ch,4ch,59h,20h,45h,72h,72h,6fh
-db	72h,3ah,20h,25h,73h,0ah,0,0
+;db	44h,45h,41h,54h,48h,20h,52h,41h,4ch,4ch,59h,20h,45h,72h,72h,6fh
+;db	72h,3ah,20h,25h,73h,0ah,0,0
+db	"DEATH RALLY Error: %s",0ah,0,0
 __GDECL(___183048h)
-db	50h,6ch,65h,61h,73h,65h,20h,63h,6fh,6eh,73h,75h,6ch,74h,20h,44h
-db	52h,48h,45h,4ch,50h,2eh,45h,58h,45h,20h,66h,6fh,72h,20h,6dh,6fh
-db	72h,65h,20h,69h,6eh,66h,6fh,72h,6dh,61h,74h,69h,6fh,6eh,20h,6fh
-db	6eh,20h,68h,6fh,77h,20h,74h,6fh,20h,72h,65h,73h,6fh,6ch,76h,65h
-db	20h,74h,68h,69h,73h,20h,70h,72h,6fh,62h,6ch,65h,6dh,2eh,0ah,0
+;db	50h,6ch,65h,61h,73h,65h,20h,63h,6fh,6eh,73h,75h,6ch,74h,20h,44h
+;db	52h,48h,45h,4ch,50h,2eh,45h,58h,45h,20h,66h,6fh,72h,20h,6dh,6fh
+;db	72h,65h,20h,69h,6eh,66h,6fh,72h,6dh,61h,74h,69h,6fh,6eh,20h,6fh
+;db	6eh,20h,68h,6fh,77h,20h,74h,6fh,20h,72h,65h,73h,6fh,6ch,76h,65h
+;db	20h,74h,68h,69h,73h,20h,70h,72h,6fh,62h,6ch,65h,6dh,2eh,0ah,0
+db 	"Please consult DRHELP.EXE for more information on how to resolve this problem.",0ah,0
 __GDECL(___183098h)
-db	72h,62h,0,0
-__GDECL(___18309ch)
-db	50h,72h,6fh,62h,6ch,65h,6dh,73h,20h,77h,69h,74h,68h,20h,5bh,0
-__GDECL(___1830ach)
-db	5dh,20h,0,0
-__GDECL(___1830b0h)
-db	20h,66h,69h,6ch,65h,21h,0,0
+db 	"rb",0,0
+
+times 10h db 0
+times 4 db 0
+times 8 db 0
+
 __GDECL(___1830b8h)
 db	42h,4fh,41h,52h,44h,53h,2eh,42h,50h,4bh,0,0
 __GDECL(___1830c4h)
@@ -3274,11 +3166,11 @@ __GDECL(___1859c8h)
 db	0,0,0,0
 __GDECL(___1859cch)
 db	0,0,0,0
-__GDECL(___1859d0h)
+__GDECL(read_p)
 db	0,0,0,0
-__GDECL(___1859d4h)
+__GDECL(write_p)
 db	0,0,0,0
-__GDECL(___1859d8h)
+;__GDECL(___1859d8h)
 db	0,0,0,0,1,0,0,0,3,0,0,0,7,0,0,0
 db	0fh,0,0,0,1fh,0,0,0,3fh,0,0,0,7fh,0,0,0
 db	0ffh,0,0,0,0ffh,1,0,0,0ffh,3,0,0,0ffh,7,0,0
@@ -3707,24 +3599,14 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,0,0,0,0,4dh,75h,73h,69h,63h,20h,56h,6fh
-db	6ch,75h,6dh,65h,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,0,0,0,0,0,0,45h,66h,66h,65h,63h,74h
-db	20h,56h,6fh,6ch,75h,6dh,65h,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,0,0,0,0,0,0,0,0,44h,65h,66h,69h
-db	6eh,65h,20h,4bh,65h,79h,62h,6fh,61h,72h,64h,0,0,0,0,0
-db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,44h,65h
-db	66h,69h,6eh,65h,20h,47h,61h,6dh,65h,70h,61h,64h,2fh,4ah,6fh,79h
-db	73h,74h,69h,63h,6bh,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0
+db 	"Music Volume",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db 	"Effect Volume",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db 	"Define Keyboard",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db 	"Define Gamepad/Joystick",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 __GDECL(___186cc6h)
-db	47h,61h,6dh,65h,70h,61h,64h,20h,44h,69h,73h,61h,62h,6ch,65h,64h
-db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,50h,72h,65h,76h,69h,6fh,75h,73h,20h,4dh,65h,6eh,75h,0
+db	"Gamepad Disabled",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	"Previous Menu",0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -3736,13 +3618,9 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,0,0,0,0,0,0,53h,65h,6ch,65h,63h,74h
-db	20h,54h,72h,61h,63h,6bh,73h,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,0,0,0,0,0,0,0,0,45h,6eh,74h,65h
-db	72h,20h,4dh,6fh,6eh,65h,79h,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,0,0
+db 	"Select Tracks",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db 	"Enter Money",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 __GDECL(___186e24h)
 db	56h,69h,6fh,6ch,65h,6eh,63h,65h,20h,4fh,6eh,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -8250,30 +8128,9 @@ db	0,1,80h,2,1,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-__GDECL(___196c60h)
-db	45h,4eh,47h,49h,4eh,45h,2eh,42h,50h,41h,0,0,0
-__GDECL(___196c6dh)
-db	79h,0e8h,5,0,49h,42h,46h,49h,4ch,45h,53h,2eh,42h,50h,41h,0
-db	0,0e5h,4fh,1,0,4dh,45h,4eh,55h,2eh,42h,50h,41h,0,0,0
-db	0,0,0a5h,5ah,30h,0,4dh,55h,53h,49h,43h,53h,2eh,42h,50h,41h
-db	0,0,0,5fh,61h,57h,0,54h,52h,30h,2eh,42h,50h,41h,0,0
-db	0,0,0,0,97h,25h,5,0,54h,52h,31h,2eh,42h,50h,41h,0
-db	0,0,0,0,0,72h,0e7h,4,0,54h,52h,32h,2eh,42h,50h,41h
-db	0,0,0,0,0,0,0ddh,7dh,4,0,54h,52h,33h,2eh,42h,50h
-db	41h,0,0,0,0,0,0,0fbh,46h,5,0,54h,52h,34h,2eh,42h
-db	50h,41h,0,0,0,0,0,0,72h,0f9h,3,0,54h,52h,35h,2eh
-db	42h,50h,41h,0,0,0,0,0,0,78h,97h,6,0,54h,52h,36h
-db	2eh,42h,50h,41h,0,0,0,0,0,0,0c8h,7bh,5,0,54h,52h
-db	37h,2eh,42h,50h,41h,0,0,0,0,0,0,97h,5eh,6,0,54h
-db	52h,38h,2eh,42h,50h,41h,0,0,0,0,0,0,12h,0ddh,3,0
-db	54h,52h,39h,2eh,42h,50h,41h,0,0,0,0,0,0,23h,86h,6
-db	0,0,0
-__GDECL(___196d50h)
-db	53h,41h,4eh,49h,4dh,2eh,48h,41h,46h,0,0,0,0
-__GDECL(___196d5dh)
-db	40h,50h,48h,1,45h,4eh,44h,41h,4eh,49h,2eh,48h,41h,46h,0,0
-db	0,6bh,0edh,39h,0,45h,4eh,44h,41h,4eh,49h,30h,2eh,48h,41h,46h
-db	0,0,0fch,0c2h,6dh,0,0
+
+times 124h db 0
+
 __GDECL(___196d84h)
 db	1,0,0,0
 __GDECL(___196d88h)
@@ -9389,12 +9246,12 @@ db	0,0,0
 db	0,0,0,0
 ;__GDECL(___env_mask)
 db	0,0,0,0
+
+
+
+
 __GDECL(___19a278h)
-db	0
-__GDECL(___19a279h)
-db	0
-__GDECL(___19a27ah)
-db	0
+db	0,0,0
 __GDECL(___19a27bh)
 db	0
 __GDECL(___19a27ch)
@@ -9404,9 +9261,8 @@ db	0
 __GDECL(___19a27eh)
 db	0,0
 __GDECL(___19a280h)
-db	0
-__GDECL(___19a281h)
-db	0,0,0
+db	0,0,0,0
+
 __GDECL(MSX_struct_content_ptr)
 db	0,0,0,0
 __GDECL(MSX_struct_type)
@@ -9507,14 +9363,13 @@ db	0,0,0
 db	0,0,0,0
 __GDECL(___19a464h)
 db	0,0,0,0
-__GDECL(volatile___19a468h)
 __GDECL(___19a468h)
 db	0
-__GDECL(___19a469h)
+;__GDECL(S3M_Position_Order)
 db	0
-__GDECL(___19a46ah)
+;__GDECL(S3M_Position_Row)
 db	0,0
-__GDECL(___19a46ch)
+;__GDECL(S3M_NewPosition)
 db	0ffh,0ffh,0ffh,0ffh
 __GDECL(___19a470h)
 db	0,0,0,0
@@ -9618,118 +9473,11 @@ db	4ch,0ffh,3bh,0ffh,2ch,0ffh,20h,0ffh,15h,0ffh,0ch,0ffh,6,0ffh,3,0ffh
 db	1,0ffh,3,0ffh,6,0ffh,0ch,0ffh,15h,0ffh,20h,0ffh,2ch,0ffh,3bh,0ffh
 db	4ch,0ffh,5fh,0ffh,73h,0ffh,88h,0ffh,9fh,0ffh,0b6h,0ffh,0cfh,0ffh,0e8h,0ffh
 db	0c1h,3,0bah,3,0b4h,3,0adh,3,0a6h,3,9fh,3,99h,3,92h,3
-__GDECL(___19a724h)
-db	8bh,3,84h,3,7eh,3,77h,3,71h,3,6bh,3,64h,3,5eh,3,58h,3
-db	52h,3,4ch,3,46h,3,40h,3,3ah,3,34h,3,2eh,3,28h,3
-db	22h,3,1ch,3,17h,3,11h,3,0bh,3,6,3,0,3,0fah,2
-db	0f5h,2,0f0h,2,0eah,2,0e5h,2,0e0h,2,0dah,2,0d5h,2,0d0h,2
-db	0cbh,2,0c5h,2,0c0h,2,0bbh,2,0b6h,2,0b1h,2,0ach,2,0a6h,2
-db	0a3h,2,9eh,2,99h,2,94h,2,8fh,2,8bh,2,86h,2,80h,2
-db	7ch,2,78h,2,74h,2,6fh,2,6bh,2,66h,2,62h,2,5ch,2
-db	59h,2,55h,2,50h,2,4ch,2,48h,2,44h,2,3fh,2,3ah,2
-db	37h,2,33h,2,2fh,2,2bh,2,27h,2,23h,2,1fh,2,1ah,2
-db	17h,2,14h,2,10h,2,0ch,2,8,2,4,2,1,2,0fch,1
-db	0f9h,1,0f6h,1,0f2h,1,0eeh,1,0ebh,1,0e7h,1,0e4h,1,0e0h,1
-db	0ddh,1,0dah,1,0d6h,1,0d3h,1,0cfh,1,0cch,1,0c9h,1,0c6h,1
-db	0c2h,1,0bfh,1,0bbh,1,0b8h,1,0b5h,1,0b2h,1,0afh,1,0ach,1
-db	0a9h,1,0a6h,1,0a3h,1,0a0h,1,9dh,1,9ah,1,97h,1
-__GDECL(___19a804h)
-db	56h,41h,65h,41h,74h,41h,83h,41h,92h,41h,0a1h,41h,0b0h,41h,0c0h,41h
-db	0cfh,41h,0deh,41h,0edh,41h,0fch,41h,0ch,42h,1bh,42h,2ah,42h,39h,42h
-db	49h,42h,58h,42h,67h,42h,77h,42h,86h,42h,96h,42h,0a5h,42h,0b4h,42h
-db	0c4h,42h,0d3h,42h,0e3h,42h,0f2h,42h,2,43h,11h,43h,21h,43h,30h,43h
-db	40h,43h,4fh,43h,5fh,43h,6eh,43h,7eh,43h,8dh,43h,9dh,43h,0adh,43h
-db	0bch,43h,0cch,43h,0dch,43h,0ebh,43h,0fbh,43h,0bh,44h,1bh,44h,2ah,44h
-db	3ah,44h,4ah,44h,5ah,44h,69h,44h,79h,44h,89h,44h,99h,44h,0a9h,44h
-db	0b9h,44h,0c8h,44h,0d8h,44h,0e8h,44h,0f8h,44h,8,45h,18h,45h,28h,45h
-db	38h,45h,48h,45h,58h,45h,68h,45h,78h,45h,88h,45h,98h,45h,0a8h,45h
-db	0b8h,45h,0c9h,45h,0d9h,45h,0e9h,45h,0f9h,45h,9,46h,19h,46h,2ah,46h
-db	3ah,46h,4ah,46h,5ah,46h,6bh,46h,7bh,46h,8bh,46h,9bh,46h,0ach,46h
-db	0bch,46h,0cch,46h,0ddh,46h,0edh,46h,0feh,46h,0eh,47h,1eh,47h,2fh,47h
-db	3fh,47h,50h,47h,60h,47h,71h,47h,81h,47h,92h,47h,0a2h,47h,0b3h,47h
-db	0c4h,47h,0d4h,47h,0e5h,47h,0f5h,47h,6,48h,17h,48h,27h,48h,38h,48h
-db	49h,48h,59h,48h,6ah,48h,7bh,48h,8ch,48h,9ch,48h,0adh,48h,0beh,48h
-db	0cfh,48h,0e0h,48h,0f0h,48h,1,49h,12h,49h,23h,49h,34h,49h,45h,49h
-db	56h,49h,67h,49h,78h,49h,89h,49h,9ah,49h,0abh,49h,0bch,49h,0cdh,49h
-db	0deh,49h,0efh,49h,0,4ah,11h,4ah,22h,4ah,33h,4ah,45h,4ah,56h,4ah
-db	67h,4ah,78h,4ah,89h,4ah,9bh,4ah,0ach,4ah,0bdh,4ah,0ceh,4ah,0e0h,4ah
-db	0f1h,4ah,2,4bh,14h,4bh,25h,4bh,36h,4bh,48h,4bh,59h,4bh,6ah,4bh
-db	7ch,4bh,8dh,4bh,9fh,4bh,0b0h,4bh,0c2h,4bh,0d3h,4bh,0e5h,4bh,0f6h,4bh
-db	8,4ch,1ah,4ch,2bh,4ch,3dh,4ch,4eh,4ch,60h,4ch,72h,4ch,83h,4ch
-db	95h,4ch,0a7h,4ch,0b8h,4ch,0cah,4ch,0dch,4ch,0eeh,4ch,0ffh,4ch,11h,4dh
-db	23h,4dh,35h,4dh,47h,4dh,59h,4dh,6bh,4dh,7ch,4dh,8eh,4dh,0a0h,4dh
-db	0b2h,4dh,0c4h,4dh,0d6h,4dh,0e8h,4dh,0fah,4dh,0ch,4eh,1eh,4eh,30h,4eh
-db	42h,4eh,54h,4eh,67h,4eh,79h,4eh,8bh,4eh,9dh,4eh,0afh,4eh,0c1h,4eh
-db	0d3h,4eh,0e6h,4eh,0f8h,4eh,0ah,4fh,1ch,4fh,2fh,4fh,41h,4fh,53h,4fh
-db	66h,4fh,78h,4fh,8ah,4fh,9dh,4fh,0afh,4fh,0c2h,4fh,0d4h,4fh,0e7h,4fh
-db	0f9h,4fh,0ch,50h,1eh,50h,31h,50h,43h,50h,56h,50h,68h,50h,7bh,50h
-db	8dh,50h,0a0h,50h,0b3h,50h,0c5h,50h,0d8h,50h,0ebh,50h,0fdh,50h,10h,51h
-db	23h,51h,36h,51h,48h,51h,5bh,51h,6eh,51h,81h,51h,94h,51h,0a6h,51h
-db	0b9h,51h,0cch,51h,0dfh,51h,0f2h,51h,5,52h,18h,52h,2bh,52h,3eh,52h
-db	51h,52h,64h,52h,77h,52h,8ah,52h,9dh,52h,0b0h,52h,0c3h,52h,0d6h,52h
-db	0eah,52h,0fdh,52h,10h,53h,23h,53h,36h,53h,4ah,53h,5dh,53h,70h,53h
-db	83h,53h,97h,53h,0aah,53h,0bdh,53h,0d1h,53h,0e4h,53h,0f8h,53h,0bh,54h
-db	1eh,54h,32h,54h,45h,54h,59h,54h,6ch,54h,80h,54h,93h,54h,0a7h,54h
-db	0bah,54h,0ceh,54h,0e2h,54h,0f5h,54h,9,55h,1dh,55h,30h,55h,44h,55h
-db	58h,55h,6bh,55h,7fh,55h,93h,55h,0a7h,55h,0bah,55h,0ceh,55h,0e2h,55h
-db	0f6h,55h,0ah,56h,1eh,56h,32h,56h,46h,56h,59h,56h,6dh,56h,81h,56h
-db	95h,56h,0a9h,56h,0bdh,56h,0d2h,56h,0e6h,56h,0fah,56h,0eh,57h,22h,57h
-db	36h,57h,4ah,57h,5eh,57h,73h,57h,87h,57h,9bh,57h,0afh,57h,0c4h,57h
-db	0d8h,57h,0ech,57h,0,58h,15h,58h,29h,58h,3eh,58h,52h,58h,66h,58h
-db	7bh,58h,8fh,58h,0a4h,58h,0b8h,58h,0cdh,58h,0e1h,58h,0f6h,58h,0ah,59h
-db	1fh,59h,34h,59h,48h,59h,5dh,59h,71h,59h,86h,59h,9bh,59h,0b0h,59h
-db	0c4h,59h,0d9h,59h,0eeh,59h,3,5ah,17h,5ah,2ch,5ah,41h,5ah,56h,5ah
-db	6bh,5ah,80h,5ah,95h,5ah,0aah,5ah,0beh,5ah,0d3h,5ah,0e8h,5ah,0fdh,5ah
-db	13h,5bh,28h,5bh,3dh,5bh,52h,5bh,67h,5bh,7ch,5bh,91h,5bh,0a6h,5bh
-db	0bbh,5bh,0d1h,5bh,0e6h,5bh,0fbh,5bh,10h,5ch,26h,5ch,3bh,5ch,50h,5ch
-db	66h,5ch,7bh,5ch,90h,5ch,0a6h,5ch,0bbh,5ch,0d1h,5ch,0e6h,5ch,0fch,5ch
-db	11h,5dh,27h,5dh,3ch,5dh,52h,5dh,67h,5dh,7dh,5dh,92h,5dh,0a8h,5dh
-db	0beh,5dh,0d3h,5dh,0e9h,5dh,0ffh,5dh,14h,5eh,2ah,5eh,40h,5eh,56h,5eh
-db	6ch,5eh,81h,5eh,97h,5eh,0adh,5eh,0c3h,5eh,0d9h,5eh,0efh,5eh,5,5fh
-db	1bh,5fh,31h,5fh,47h,5fh,5dh,5fh,73h,5fh,89h,5fh,9fh,5fh,0b5h,5fh
-db	0cbh,5fh,0e1h,5fh,0f7h,5fh,0eh,60h,24h,60h,3ah,60h,50h,60h,67h,60h
-db	7dh,60h,93h,60h,0aah,60h,0c0h,60h,0d6h,60h,0edh,60h,3,61h,19h,61h
-db	30h,61h,46h,61h,5dh,61h,73h,61h,8ah,61h,0a0h,61h,0b7h,61h,0ceh,61h
-db	0e4h,61h,0fbh,61h,11h,62h,28h,62h,3fh,62h,56h,62h,6ch,62h,83h,62h
-db	9ah,62h,0b1h,62h,0c7h,62h,0deh,62h,0f5h,62h,0ch,63h,23h,63h,3ah,63h
-db	51h,63h,68h,63h,7fh,63h,96h,63h,0adh,63h,0c4h,63h,0dbh,63h,0f2h,63h
-db	9,64h,20h,64h,37h,64h,4eh,64h,66h,64h,7dh,64h,94h,64h,0abh,64h
-db	0c3h,64h,0dah,64h,0f1h,64h,8,65h,20h,65h,37h,65h,4fh,65h,66h,65h
-db	7dh,65h,95h,65h,0ach,65h,0c4h,65h,0dbh,65h,0f3h,65h,0bh,66h,22h,66h
-db	3ah,66h,51h,66h,69h,66h,81h,66h,98h,66h,0b0h,66h,0c8h,66h,0e0h,66h
-db	0f7h,66h,0fh,67h,27h,67h,3fh,67h,57h,67h,6fh,67h,86h,67h,9eh,67h
-db	0b6h,67h,0ceh,67h,0e6h,67h,0feh,67h,16h,68h,2eh,68h,47h,68h,5fh,68h
-db	77h,68h,8fh,68h,0a7h,68h,0bfh,68h,0d7h,68h,0f0h,68h,8,69h,20h,69h
-db	39h,69h,51h,69h,69h,69h,82h,69h,9ah,69h,0b2h,69h,0cbh,69h,0e3h,69h
-db	0fch,69h,14h,6ah,2dh,6ah,45h,6ah,5eh,6ah,76h,6ah,8fh,6ah,0a8h,6ah
-db	0c0h,6ah,0d9h,6ah,0f2h,6ah,0ah,6bh,23h,6bh,3ch,6bh,55h,6bh,6eh,6bh
-db	86h,6bh,9fh,6bh,0b8h,6bh,0d1h,6bh,0eah,6bh,3,6ch,1ch,6ch,35h,6ch
-db	4eh,6ch,67h,6ch,80h,6ch,99h,6ch,0b2h,6ch,0cbh,6ch,0e4h,6ch,0feh,6ch
-db	17h,6dh,30h,6dh,49h,6dh,63h,6dh,7ch,6dh,95h,6dh,0aeh,6dh,0c8h,6dh
-db	0e1h,6dh,0fbh,6dh,14h,6eh,2dh,6eh,47h,6eh,60h,6eh,7ah,6eh,93h,6eh
-db	0adh,6eh,0c7h,6eh,0e0h,6eh,0fah,6eh,13h,6fh,2dh,6fh,47h,6fh,61h,6fh
-db	7ah,6fh,94h,6fh,0aeh,6fh,0c8h,6fh,0e2h,6fh,0fbh,6fh,15h,70h,2fh,70h
-db	49h,70h,63h,70h,7dh,70h,97h,70h,0b1h,70h,0cbh,70h,0e5h,70h,0ffh,70h
-db	19h,71h,34h,71h,4eh,71h,68h,71h,82h,71h,9ch,71h,0b7h,71h,0d1h,71h
-db	0ebh,71h,6,72h,20h,72h,3ah,72h,55h,72h,6fh,72h,8ah,72h,0a4h,72h
-db	0bfh,72h,0d9h,72h,0f4h,72h,0eh,73h,29h,73h,43h,73h,5eh,73h,79h,73h
-db	93h,73h,0aeh,73h,0c9h,73h,0e4h,73h,0feh,73h,19h,74h,34h,74h,4fh,74h
-db	6ah,74h,85h,74h,0a0h,74h,0bbh,74h,0d6h,74h,0f1h,74h,0ch,75h,27h,75h
-db	42h,75h,5dh,75h,78h,75h,93h,75h,0aeh,75h,0cah,75h,0e5h,75h,0,76h
-db	1bh,76h,37h,76h,52h,76h,6dh,76h,89h,76h,0a4h,76h,0c0h,76h,0dbh,76h
-db	0f6h,76h,12h,77h,2dh,77h,49h,77h,65h,77h,80h,77h,9ch,77h,0b7h,77h
-db	0d3h,77h,0efh,77h,0bh,78h,26h,78h,42h,78h,5eh,78h,7ah,78h,96h,78h
-db	0b1h,78h,0cdh,78h,0e9h,78h,5,79h,21h,79h,3dh,79h,59h,79h,75h,79h
-db	91h,79h,0adh,79h,0cah,79h,0e6h,79h,2,7ah,1eh,7ah,3ah,7ah,57h,7ah
-db	73h,7ah,8fh,7ah,0abh,7ah,0c8h,7ah,0e4h,7ah,1,7bh,1dh,7bh,3ah,7bh
-db	56h,7bh,72h,7bh,8fh,7bh,0ach,7bh,0c8h,7bh,0e5h,7bh,1,7ch,1eh,7ch
-db	3bh,7ch,58h,7ch,74h,7ch,91h,7ch,0aeh,7ch,0cbh,7ch,0e7h,7ch,4,7dh
-db	21h,7dh,3eh,7dh,5bh,7dh,78h,7dh,95h,7dh,0b2h,7dh,0cfh,7dh,0ech,7dh
-db	9,7eh,27h,7eh,44h,7eh,61h,7eh,7eh,7eh,9bh,7eh,0b9h,7eh,0d6h,7eh
-db	0f3h,7eh,11h,7fh,2eh,7fh,4bh,7fh,69h,7fh,86h,7fh,0a4h,7fh,0c1h,7fh
-db	0dfh,7fh,0fch,7fh,1ah,80h,37h,80h,55h,80h,73h,80h,90h,80h,0aeh,80h
-db	0cch,80h,0eah,80h,7,81h,25h,81h,43h,81h,61h,81h,7fh,81h,9dh,81h
-db	0bbh,81h,0d9h,81h,0f7h,81h,15h,82h,33h,82h,51h,82h,6fh,82h,8dh,82h
+
+
+times 0e0h db 0
+times 600h db 0
+
 __GDECL(___19ae04h)
 db	0,0,0
 __GDECL(___19ae07h)

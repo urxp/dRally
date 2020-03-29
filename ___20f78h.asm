@@ -97,7 +97,13 @@ ___2104ch:
 		jne     short ___2105dh
 		mov     dl, [___199f45h]
 ___2105dh:
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 		cmp     al, 1ch
 		je      short ___2106eh
 		cmp     al, 9ch

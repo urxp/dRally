@@ -37,7 +37,14 @@ __GDECL(___38768h)
 		mov     edx, [___1a112ch__VESA101_ACTIVESCREEN_PTR]
 		mov     eax, 46b62h
 		add     edx, 46b62h
-		call    near ___1398ch__VESA101_PRESENTRECTANGLE
+
+	push 	ecx
+	push	ebx
+	push 	edx
+	push 	eax
+		call    ___1398ch__VESA101_PRESENTRECTANGLE
+	add 	esp, 10h
+	
 ___387c6h:
 		cmp     dword [___196bd8h], byte 3ch
 		jne     short ___38815h
@@ -53,7 +60,14 @@ ___387c6h:
 		mov     eax, 46b62h
 		add     edx, 46b62h
 		xor     esi, esi
-		call    near ___1398ch__VESA101_PRESENTRECTANGLE
+
+	push 	ecx
+	push	ebx
+	push 	edx
+	push 	eax
+		call    ___1398ch__VESA101_PRESENTRECTANGLE
+	add 	esp, 10h
+	
 		mov     [___196bd8h], esi
 ___38815h:
 		pop     esi

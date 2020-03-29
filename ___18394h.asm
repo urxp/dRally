@@ -78,7 +78,14 @@ ___1842ch:
 		mov     ecx, 20h
 		mov     eax, esi
 		mov     [esp+44h], edi
-		call    near ___1398ch__VESA101_PRESENTRECTANGLE
+
+	push 	ecx
+	push	ebx
+	push 	edx
+	push 	eax
+		call    ___1398ch__VESA101_PRESENTRECTANGLE
+	add 	esp, 10h
+	
 		mov     [esp+4ch], esi
 		xor     eax, eax
 		mov     [esp+48h], esi
@@ -184,7 +191,14 @@ ___18580h:
 		add     edx, ebp
 		add     eax, ebp
 		mov     edi, esp
-		call    near ___1398ch__VESA101_PRESENTRECTANGLE
+
+	push 	ecx
+	push	ebx
+	push 	edx
+	push 	eax
+		call    ___1398ch__VESA101_PRESENTRECTANGLE
+	add 	esp, 10h
+	
 		xor     dl, dl
 		call 	__STRLEN
 		mov     [esp+ecx*1-1], dl
@@ -248,7 +262,14 @@ ___186a8h:
 		lea     edx, [eax+ebp*1]
 		mov     ecx, 20h
 		mov     eax, esi
-		call    near ___1398ch__VESA101_PRESENTRECTANGLE
+
+	push 	ecx
+	push	ebx
+	push 	edx
+	push 	eax
+		call    ___1398ch__VESA101_PRESENTRECTANGLE
+	add 	esp, 10h
+	
 		xor     eax, eax
 		mov     al, [esp+68h]
 		mov     al, [eax+___185b8bh]

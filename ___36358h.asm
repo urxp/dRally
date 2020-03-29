@@ -314,7 +314,15 @@ ___36677h:
 		mov     [esp+4], ecx
 		cmp     ecx, 100h
 		jl      near ___36677h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 ___3670ch:
 		add     esp, byte 8
 		pop     ebp

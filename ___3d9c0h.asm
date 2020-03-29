@@ -5,7 +5,7 @@ cpu 386
 	extern	___3d154h
 	extern	___180144h
 	extern	___1a54d0h
-	extern	bpa_read_cdecl
+	extern	bpa_read
 	extern	___1a112ch__VESA101_ACTIVESCREEN_PTR
 	extern	bpk_decode2
 	extern	___12cb8h__VESA101_PRESENTSCREEN
@@ -22,7 +22,15 @@ __GDECL(___3d9c0h)
 		push    ecx
 		push    esi
 		mov     esi, ebx
-		call    near ___3d154h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___3d154h
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     eax, ___180144h
 		mov     ebx, edx
 		mov     edx, ___1a54d0h
@@ -31,7 +39,7 @@ __GDECL(___3d9c0h)
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    bpa_read_cdecl					;;
+		call    bpa_read					;;
 	add 	esp, 0ch
 	pop 	ecx
 
@@ -39,7 +47,15 @@ __GDECL(___3d9c0h)
 		mov     edx, [___1a112ch__VESA101_ACTIVESCREEN_PTR]
 		push    edx
 		call    near bpk_decode2
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 		call    near ___3d1f0h
 		mov     eax, esi
 		shl     esi, 4
@@ -50,13 +66,27 @@ ___3da0bh:
 		test    esi, esi
 		jle     short ___3da20h
 		call    near ___5e0eah__VRETRACE_WAIT_FOR_START
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 		dec     esi
 		mov     dl, al
 		test    al, al
 		je      short ___3da0bh
 ___3da20h:
-		call    near ___3d2bch
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___3d2bch
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		cmp     dl, 1ch
 		je      short ___3da38h
 		cmp     dl, 39h

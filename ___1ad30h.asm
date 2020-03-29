@@ -236,7 +236,15 @@ ___1b0b1h:
 		mov     [esp+0a0h], edi
 		cmp     esi, byte 4
 		jl      near ___1adfah
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 		add     esp, 0bch
 		pop     ebp
 		pop     edi

@@ -8,7 +8,7 @@ cpu 386
 	extern	___18319ch
 	extern	___243dd0h
 	extern	___243d60h
-	extern	bpa_read_cdecl
+	extern	bpa_read
 	extern	bpk_decode4
 	extern	___1a51cfh
 	extern	___1a51cdh
@@ -51,7 +51,7 @@ __GDECL(___42f04h)
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    bpa_read_cdecl					;;
+		call    bpa_read					;;
 	add 	esp, 0ch
 	pop 	ecx
 
@@ -102,7 +102,7 @@ ___42f9eh:
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    bpa_read_cdecl					;;
+		call    bpa_read					;;
 	add 	esp, 0ch
 	pop 	ecx
 

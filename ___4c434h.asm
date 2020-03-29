@@ -96,7 +96,7 @@ cpu 386
 	extern	___1e7046h
 	extern	___1e703ah
 	extern	___1e703eh
-	extern	rand_
+	extern	rand_watcom106
 	extern	___1e7032h
 	extern	___1e7036h
 	extern	___1840d9h
@@ -1188,7 +1188,13 @@ ___4d4c3h:
 		cmp     dword [eax+___1e6ee4h], byte 4
 		jge     near ___4d68bh
 		mov     ebx, [eax+___1e703ah]
-		call    near rand_
+
+	push 	edx
+	push 	ecx
+		call    rand_watcom106
+	pop 	ecx
+	pop 	edx
+
 		add     ebx, ebx
 		mov     edx, eax
 		inc     ebx
@@ -1201,7 +1207,13 @@ ___4d4c3h:
 		mov     ebx, [eax+___1e703ah]
 		fild    dword [esp+5ch]
 		fstp    dword [eax+___1e7032h]
-		call    near rand_
+
+	push 	edx
+	push 	ecx
+		call    rand_watcom106
+	pop 	ecx
+	pop 	edx
+
 		add     ebx, ebx
 		mov     edx, eax
 		inc     ebx
@@ -1553,7 +1565,13 @@ ___4da84h:
 		fld     dword [edx+___1e6f80h]
 		fmul    qword [___18412dh]
 		fstp    qword [esp+10h]
-		call    near rand_
+
+	push 	edx
+	push 	ecx
+		call    rand_watcom106
+	pop 	ecx
+	pop 	edx
+
 		mov     [esp+5ch], eax
 		fild    dword [esp+5ch]
 		fmul    qword [esp+10h]
@@ -1568,7 +1586,13 @@ ___4da84h:
 		fld     dword [edx+___1e6f80h]
 		fmul    qword [___18412dh]
 		fstp    qword [esp+10h]
-		call    near rand_
+
+	push 	edx
+	push 	ecx
+		call    rand_watcom106
+	pop 	ecx
+	pop 	edx
+
 		mov     [esp+5ch], eax
 		fild    dword [esp+5ch]
 		fmul    qword [esp+10h]

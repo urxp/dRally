@@ -24,7 +24,7 @@ cpu 386
 	extern	___1a42c4h
 	extern	___1a42c8h
 	extern	DISPLAY_SET_PALETTE_COLOR
-	extern	dRally_Audio_setMasterVolume
+	extern	dRally_Sound_setMasterVolume
 	extern	___18353dh
 	extern	___18356dh
 	extern	___183545h
@@ -211,7 +211,7 @@ ___46bf8h:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    near dRally_Audio_setMasterVolume
+		call    near dRally_Sound_setMasterVolume
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -396,7 +396,15 @@ ___46f00h:
 ___46f28h:
 		xor     edi, edi
 		mov     [___243898h], edi
-		call    near ___58c60h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___58c60h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		jmp     near ___46bf2h
 ___46f3ah:
 		xor     ebx, ebx
@@ -487,7 +495,15 @@ ___47064h:
 		mov     [___243898h], eax
 		mov     eax, [___243898h]
 		mov     [___243874h], eax
-		call    near ___58c60h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___58c60h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		xor     edx, edx
 		xor     esi, esi
 		mov     [esp+5ch], edx
@@ -533,7 +549,7 @@ ___47082h:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    near dRally_Audio_setMasterVolume
+		call    near dRally_Sound_setMasterVolume
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx

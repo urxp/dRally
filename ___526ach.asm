@@ -13,14 +13,14 @@ cpu 386
 	extern	___1e6ee0h
 	extern	___1f2490h
 	extern	___243ce8h
-	extern	dRally_Audio_pushSoundEffect
+	extern	dRally_Sound_pushEffect
 	extern	___243d28h
 	extern	___243d58h
 	extern	___1de5b0h
 	extern	___1de5b4h
 	extern	___1de5d0h
 	extern	___1e721eh
-	extern	rand_
+	extern	rand_watcom106
 	extern	___1f24a4h
 	extern	___1de598h
 	extern	___1de81ch
@@ -164,7 +164,7 @@ ___52848h:
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    dRally_Audio_pushSoundEffect
+		call    dRally_Sound_pushEffect
 	add 	esp, 18h
 ___5284fh:
 		mov     ebp, [esp]
@@ -236,11 +236,17 @@ ___52943h:
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    dRally_Audio_pushSoundEffect
+		call    dRally_Sound_pushEffect
 	add 	esp, 18h
 		jmp     near ___52a39h
 ___5298dh:
-		call    near rand_
+
+	push 	edx
+	push 	ecx
+		call    rand_watcom106
+	pop 	ecx
+	pop 	edx
+
 		mov     edx, eax
 		mov     ebx, 4
 		sar     edx, 1fh
@@ -290,7 +296,13 @@ ___52a39h:
 		xor     edx, edx
 		mov     [___196dd0h], ebx
 		mov     [eax+___1f2490h], edx
-		call    near rand_
+
+	push 	edx
+	push 	ecx
+		call    rand_watcom106
+	pop 	ecx
+	pop 	edx
+
 		mov     edx, eax
 		mov     ebx, 96h
 		sar     edx, 1fh

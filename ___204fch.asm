@@ -126,7 +126,15 @@ ___205a3h:
 		mov     edx, 1
 		mov     eax, 6
 		call    near ___13710h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 		mov     eax, 6
 		call    near ___146c4h
 		mov     ebp, eax
@@ -155,9 +163,23 @@ ___20617h:
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
 		call    near ___12e78h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 ___20670h:
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 		and     eax, 0ffh
 		mov     [___1a1158h], eax
 		je      short ___20670h
@@ -166,7 +188,13 @@ ___20670h:
 		call    near ___59b3ch
 		mov     edi, ___187144h
 		mov     esi, ___1818d8h
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 		mov     ebx, [___1a1158h]
 		movsd   
 		movsd   
@@ -210,9 +238,23 @@ ___206ebh:
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
 		call    near ___12e78h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 ___20743h:
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 		and     eax, 0ffh
 		mov     [___1a1150h], eax
 		je      short ___20743h
@@ -221,7 +263,13 @@ ___20743h:
 		mov     edi, ___187176h
 		mov     esi, ___1818e8h
 		call    near ___59b3ch
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 		movsd   
 		movsd   
 		movsd   
@@ -261,9 +309,23 @@ ___207bbh:
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
 		call    near ___12e78h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 ___20813h:
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 		and     eax, 0ffh
 		mov     [___1a1148h], eax
 		je      short ___20813h
@@ -272,7 +334,13 @@ ___20813h:
 		call    near ___59b3ch
 		mov     edi, ___1871a8h
 		mov     esi, ___1818f8h
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 		mov     ebx, [___1a1148h]
 		movsd   
 		movsd   
@@ -314,9 +382,23 @@ ___2088dh:
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
 		call    near ___12e78h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 ___208e5h:
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 		and     eax, 0ffh
 		mov     [___1a114ch], eax
 		je      short ___208e5h
@@ -325,7 +407,13 @@ ___208e5h:
 		mov     edi, ___1871dah
 		mov     esi, ___18190ch
 		call    near ___59b3ch
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 		movsd   
 		movsd   
 		movsd   
@@ -367,9 +455,23 @@ ___2095eh:
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
 		call    near ___12e78h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 ___209b6h:
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 		and     eax, 0ffh
 		mov     [___1a1140h], eax
 		je      short ___209b6h
@@ -379,7 +481,13 @@ ___209b6h:
 		mov     ecx, 6
 		mov     edi, ___18720ch
 		mov     esi, ___181924h
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 		mov     ebx, [___1a1140h]
 		rep movsd   
 		movsw   
@@ -418,9 +526,23 @@ ___20a34h:
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
 		call    near ___12e78h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 ___20a8ch:
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 		and     eax, 0ffh
 		mov     [___1a115ch], eax
 		je      short ___20a8ch
@@ -430,7 +552,13 @@ ___20a8ch:
 		mov     edi, ___18723eh
 		mov     esi, ___181940h
 		call    near ___59b3ch
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 		rep movsd   
 		movsw   
 		imul    esi, [___1a115ch], byte 0fh
@@ -468,9 +596,23 @@ ___20b08h:
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
 		call    near ___12e78h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 ___20b60h:
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 		and     eax, 0ffh
 		mov     [___1a1154h], eax
 		je      short ___20b60h
@@ -480,7 +622,13 @@ ___20b60h:
 		mov     ecx, 6
 		mov     edi, ___187270h
 		mov     esi, ___18195ch
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 		mov     ebx, [___1a1154h]
 		rep movsd   
 		movsb   
@@ -519,9 +667,23 @@ ___20bddh:
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
 		call    near ___12e78h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 ___20c35h:
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 		and     eax, 0ffh
 		mov     [___1a1144h], eax
 		je      short ___20c35h
@@ -531,7 +693,13 @@ ___20c35h:
 		mov     edi, ___1872a2h
 		mov     esi, ___181ac4h
 		call    near ___59b3ch
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 		rep movsd   
 		imul    esi, [___1a1144h], byte 0fh
 		mov     edi, ___1872a2h

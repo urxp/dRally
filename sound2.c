@@ -1,19 +1,4 @@
-#include <stdio.h>
-#include <string.h>
-
-#pragma pack(1)
-
-typedef unsigned int 	dword;
-typedef unsigned short 	word;
-typedef unsigned char 	byte;
-
-#define D(d)	(*(dword *)(d))
-#define W(w)	(*(word *)(w))
-#define B(b)	(*(byte *)(b))
-
-#define X(r)	(*(word *)&r)
-#define H(r)	(*((byte *)&r + 1))
-#define L(r)	(*(byte *)&r)
+#include "drally.h"
 
 extern byte ___24e790h[];
 extern byte ___24e794h[];
@@ -21,140 +6,12 @@ extern byte ___24e79ch[];
 extern byte ___24e7a4h[];
 extern byte ___68c38h[];
 
-
-void ___67994h_cdecl(dword eax, dword edx, dword ebx, dword ecx, dword stk1){
-
-	dword 	esi, edi, ebp;
-	byte 	esp[0xc+0x28];
-
-	D(esp+0x30) = stk1;
-
-	ebp = eax;
-	D(esp+4) = ecx;
-	eax = 0;
-	ecx = edx;
-	ecx -= ebp;
-	esi = eax;
-	ecx++;
-	if(eax){
-		edi = D(___24e790h);
-		D(esp+8) = edi;
-		edi = D(___24e794h);
-		D(esp+8) -= edi;
-		edi = D(esp+8);
-		D(esp) = edi;
-		edi += eax;
-		eax--;
-		eax = ~eax;
-		eax &= edi;
-		edi = D(esp);
-		edi += ecx;
-		if((int)eax < (int)edi){
-			edi = D(___24e794h);
-			eax += edi;
-			eax += 2;
-			D(___24e790h) = eax;
-		}
-		if((int)ecx > (int)esi){
-			edx = esi+ebp-4;
-			if((int)ebx > (int)edx){
-				H(eax) = B(esp+0x30);
-				H(eax) &= 0xfc;
-				ebx = ebp;
-				B(esp+0x30) = H(eax);
-			}
-			if((int)edx < (int)D(esp+4)) D(esp+4) = edx;
-			eax = D(esp+4);
-			esi = (int)esi>>6;
-			eax -= ebx;
-			if((int)eax <= (int)esi) B(esp+0x30) &= 0xfc;
-		}
-	}
-	edi = D(___24e790h);
-	esi = ebp;
-	memcpy(edi, esi, ecx);
-	eax = 0;
-	L(eax) = B(___24e7a4h);
-	ecx = D(___68c38h);
-	eax <<= 2;
-	eax += ecx;
-	esi = D(eax);
-	ecx = D(___24e790h);
-	D(esi) = ecx;
-	esi = ecx+edx;
-	edi = D(eax);
-	esi -= ebp;
-	D(edi+4) = esi;
-	esi = ebx+ecx;
-	ebx = D(eax);
-	esi -= ebp;
-	D(ebx+8) = esi;
-	ebx = D(esp+4);
-	ebx += ecx;
-	esi = D(eax);
-	ebx -= ebp;
-	edx -= ebp;
-	D(esi+0xc) = ebx;
-	edx++;
-	eax = D(eax);
-	L(ebx) = B(esp+0x30);
-	ecx += edx;
-	B(eax+0x10) = L(ebx);
-	L(eax) = L(ebx);
-	D(___24e790h) = ecx;
-	H(eax) = (L(ebx)&4) ? 1 : 0;
-	esi = H(eax);
-	esi++;
-	edx = esi;
-	if(L(ebx)&3){
-		L(eax) &= 3;
-		if(L(eax) != 1){
-			ebx = 0;
-			eax = D(___68c38h);
-			L(ebx) = B(___24e7a4h);
-			eax = D(eax+ebx*4);
-			eax = D(eax+0xc);
-			eax -= esi;
-			esi = eax;
-		}
-		else {
-			eax = 0;
-			L(eax) = B(___24e7a4h);
-			ebx = eax*4;
-			eax = D(___68c38h);
-			esi = D(ebx+eax);
-			esi = D(esi+8);
-		}
-	}
-	else {
-		eax = 0;
-		L(eax) = B(___24e7a4h);
-		ebx = eax*4;
-		eax = D(___68c38h);
-		esi = D(ebx+eax);
-		esi = D(esi+4);
-	}
-	edi = D(___24e790h);
-	ecx = edx;
-	memcpy(edi, esi, ecx);
-	ebx = D(___24e790h);
-	ebx += edx;
-	D(___24e790h) = ebx;
-	eax = ebx+3;
-	L(eax) &= 0xfc;
-	L(edx) = B(___24e7a4h);
-	D(___24e790h) = eax;
-	eax = 0;
-	L(eax) = L(edx);
-	L(edx)++;
-	B(___24e7a4h) = L(edx);
-}
-
-
 void * dRally_Memory_alloc(dword, dword);
 void * dRally_Memory_resize(void * mem, dword size);
 void dRally_Memory_free(dword);
 void ___677cch_cdecl(dword, dword, dword);
+void ___67994h_cdecl(void *, void *, void *, void *, dword);
+dword ___71b70h_cdecl(dword);
 
 void ___67bbch(dword eax, dword edx, dword ebx, dword ecx){
 
@@ -165,300 +22,202 @@ void ___67bbch(dword eax, dword edx, dword ebx, dword ecx){
 	D(esp+0x18) = edx;
 	D(esp+0x10) = ebx;
 	D(esp+0x14) = ecx;
-	ebp = D(___24e790h);
-	ebp -= D(___24e794h);
-	edx = 1;
-	eax = ebp;
-	eax = dRally_Memory_alloc(eax, edx);
-	ecx = ebp;
-	ebx = D(___24e794h);
-	D(esp+0xc) = eax;
-	edi = eax;
-	esi = ebx;
-	edx = eax;
-	memcpy(edi, esi, ecx);
-	edx -= ebx;
-	ecx = D(___24e794h);
-	eax = 0;
-	D(esp+4) = edx;
-	L(eax) = B(___24e7a4h);
-	L(edx) = 1;
-	D(esp) = eax;
-	if(ecx == 0) goto ___67c37h;
-	eax = ecx;
-	esi = 0;
-	dRally_Memory_free(eax);
-	D(___24e794h) = esi;
-___67c37h:
-	if(L(edx)) goto ___67c45h;
-	eax = D(___24e79ch);
-	dRally_Memory_free(eax);
-___67c45h:
-	ebx = 1;
-	edx = D(esp);
-	eax = ebp;
-	___677cch_cdecl(eax, edx, ebx);
-	edi = 0;
-	ebp = D(esp);
-	D(esp+0x24) = edi;
-	if((int)ebp <= 0) goto ___67e23h;
-	D(esp+0x20) = edi;
-___67c69h:
-	esi = D(esp+0x20);
-	edx = D(___68c38h);
-	edx += esi;
-	edx = D(edx);
-	ebx = D(esp+4);
-	eax = D(edx);
-	ebx += eax;
-	D(esp+0x2c) = ebx;
-	eax = D(edx+4);
-	ebx = D(esp+4);
-	ebx += eax;
-	D(esp+0x34) = ebx;
-	eax = D(edx+8);
-	ebx = D(esp+4);
-	ebx += eax;
-	D(esp+8) = ebx;
-	eax = D(edx+0xc);
-	ebx = D(esp+4);
-	ebx += eax;
-	L(eax) = B(edx+0x10);
-	edi = D(esp+0x10);
-	B(esp+0x38) = L(eax);
-	eax = D(esp+0x24);
-	D(esp+0x28) = ebx;
-	if((int)eax < (int)edi) goto ___67de8h;
-	if((int)eax >= (int)D(esp+0x14)) goto ___67de8h;
-	if(D(esp+0x1c) == 0) goto ___67d4bh;
-	if((B(esp+0x38)&4) == 0) goto ___67d4bh;
-	edx = D(esp+0x2c);
-	ebx = D(esp+0x34);
-	ebp = edx;
-	if(edx > ebx) goto ___67d00h;
-	ecx = D(esp+0x34);
-___67cefh:
-	L(ebx) = B(edx+1);
-	ebp++;
-	L(ebx) ^= 0x80;
-	edx += 2;
-	B(ebp-1) = L(ebx);
-	if(edx <= ecx) goto ___67cefh;
-___67d00h:
-	edx = D(esp+0x34);
-	esi = D(esp+0x2c);
-	edx -= esi;
-	eax = edx;
-	edx = (int)edx>>0x1f;
-	eax -= edx;
-	eax = (int)eax>>1;
-	edx = esi+eax;
-	D(esp+0x34) = edx;
-	edx = D(esp+8);
-	edx -= esi;
-	eax = edx;
-	edx = (int)edx>>0x1f;
-	eax -= edx;
-	eax = (int)eax>>1;
-	edx = esi+eax;
-	D(esp+8) = edx;
-	edx = D(esp+0x28);
-	edx -= esi;
-	eax = edx;
-	edx = (int)edx>>0x1f;
-	eax -= edx;
-	eax = (int)eax>>1;
-	edx = esi+eax;
-	D(esp+0x28) = edx;
-	B(esp+0x38) &= 0xfb;
-___67d4bh:
-	if(D(esp+0x18) == 0) goto ___67de8h;
-	edx = D(esp+0x2c);
-	L(ecx) = B(esp+0x38);
-	ebx = edx;
-	L(eax) = (L(ecx)&4) ? 1 : 0;
-	eax &= 0xff;
-	eax++;
-	ecx = D(esp+0x34);
-	ebp = eax;
-	if(edx > ecx) goto ___67da2h;
-	eax += eax;
-	D(esp+0x30) = eax;
-___67d7ch:
-	ecx = ebp;
-	esi = edx;
-	edi = ebx;
-	memcpy(edi, esi, ecx);
-	esi = D(esp+0x30);
-	edi = D(esp+0x34);
-	edx += esi;
-	ebx += ebp;
-	if(edx <= edi) goto ___67d7ch;
-___67da2h:
-	edx = D(esp+0x34);
-	ebp = D(esp+0x2c);
-	edx -= ebp;
-	eax = edx;
-	edx = (int)edx>>0x1f;
-	eax -= edx;
-	eax = (int)eax>>1;
-	edx = eax+ebp;
-	D(esp+0x34) = edx;
-	edx = D(esp+8);
-	edx -= ebp;
-	eax = edx;
-	edx = (int)edx>>0x1f;
-	eax -= edx;
-	eax = (int)eax>>1;
-	edx = eax+ebp;
-	D(esp+8) = edx;
-	edx = D(esp+0x28);
-	edx -= ebp;
-	eax = edx;
-	edx = (int)edx>>0x1f;
-	eax -= edx;
-	eax = (int)eax>>1;
-	edx = eax+ebp;
-	D(esp+0x28) = edx;
-___67de8h:
-	eax = 0;
-	ecx = D(esp+0x28);
-	L(eax) = B(esp+0x38);
-	ebx = D(esp+8);
-	p_eax = eax;
-	edx = D(esp+0x34);
-	eax = D(esp+0x2c);
-	___67994h_cdecl(eax, edx, ebx, ecx, p_eax);
-	eax = D(esp+0x20);
-	edx = D(esp+0x24);
-	ebx = D(esp);
-	eax += 4;
-	edx++;
-	D(esp+0x20) = eax;
-	D(esp+0x24) = edx;
-	if((int)edx < (int)ebx) goto ___67c69h;
-___67e23h:
+	ebp = D(___24e790h)-D(___24e794h);
+	D(esp+0xc) = dRally_Memory_alloc(ebp, 1);
+	memcpy(D(esp+0xc), D(___24e794h), ebp);
+	D(esp+4) = D(esp+0xc)-D(___24e794h);
+	D(esp) = B(___24e7a4h);
+
+	if(D(___24e794h)){
+			
+		dRally_Memory_free(D(___24e794h));
+		D(___24e794h) = 0;
+	}
+
+	___677cch_cdecl(ebp, D(esp), 1);
+	D(esp+0x24) = 0;
+
+	if(D(esp) > 0){
+
+		D(esp+0x20) = 0;
+
+		while(1){
+			
+			esi = D(esp+0x20);
+			edx = D(___68c38h);
+			edx += esi;
+			edx = D(edx);
+			ebx = D(esp+4);
+			eax = D(edx);
+			ebx += eax;
+			D(esp+0x2c) = ebx;
+			eax = D(edx+4);
+			ebx = D(esp+4);
+			ebx += eax;
+			D(esp+0x34) = ebx;
+			eax = D(edx+8);
+			ebx = D(esp+4);
+			ebx += eax;
+			D(esp+8) = ebx;
+			eax = D(edx+0xc);
+			ebx = D(esp+4);
+			ebx += eax;
+			L(eax) = B(edx+0x10);
+			edi = D(esp+0x10);
+			B(esp+0x38) = L(eax);
+			eax = D(esp+0x24);
+			D(esp+0x28) = ebx;
+
+			if(((int)eax >= (int)edi)&&((int)eax < (int)D(esp+0x14))){
+					
+				if(D(esp+0x1c)&&(B(esp+0x38)&4)){
+					
+					edx = D(esp+0x2c);
+					ebx = D(esp+0x34);
+					ebp = edx;
+
+					if(edx <= ebx){
+
+						ecx = D(esp+0x34);
+
+						while(1){
+
+							L(ebx) = B(edx+1);
+							ebp++;
+							L(ebx) ^= 0x80;
+							edx += 2;
+							B(ebp-1) = L(ebx);
+							
+							if(edx > ecx) break;
+						}
+					}
+
+					edx = D(esp+0x34);
+					esi = D(esp+0x2c);
+					edx -= esi;
+					eax = edx;
+					edx = (int)edx>>0x1f;
+					eax -= edx;
+					eax = (int)eax>>1;
+					edx = esi+eax;
+					D(esp+0x34) = edx;
+					edx = D(esp+8);
+					edx -= esi;
+					eax = edx;
+					edx = (int)edx>>0x1f;
+					eax -= edx;
+					eax = (int)eax>>1;
+					edx = esi+eax;
+					D(esp+8) = edx;
+					edx = D(esp+0x28);
+					edx -= esi;
+					eax = edx;
+					edx = (int)edx>>0x1f;
+					eax -= edx;
+					eax = (int)eax>>1;
+					edx = esi+eax;
+					D(esp+0x28) = edx;
+					B(esp+0x38) &= 0xfb;
+				}
+
+				if(D(esp+0x18) != 0){
+
+					edx = D(esp+0x2c);
+					L(ecx) = B(esp+0x38);
+					ebx = edx;
+					L(eax) = (L(ecx)&4) ? 1 : 0;
+					eax &= 0xff;
+					eax++;
+					ecx = D(esp+0x34);
+					ebp = eax;
+
+					if(edx <= ecx){
+						
+						D(esp+0x30) = 2*eax;
+
+						while(1){
+
+							memcpy(ebx, edx, ebp);
+							edx += D(esp+0x30);
+							ebx += ebp;
+
+							if(edx > D(esp+0x34)) break;
+						}
+					}
+
+					edx = D(esp+0x34);
+					ebp = D(esp+0x2c);
+					edx -= ebp;
+					eax = edx;
+					edx = (int)edx>>0x1f;
+					eax -= edx;
+					eax = (int)eax>>1;
+					edx = eax+ebp;
+					D(esp+0x34) = edx;
+					edx = D(esp+8);
+					edx -= ebp;
+					eax = edx;
+					edx = (int)edx>>0x1f;
+					eax -= edx;
+					eax = (int)eax>>1;
+					edx = eax+ebp;
+					D(esp+8) = edx;
+					edx = D(esp+0x28);
+					edx -= ebp;
+					eax = edx;
+					edx = (int)edx>>0x1f;
+					eax -= edx;
+					eax = (int)eax>>1;
+					edx = eax+ebp;
+					D(esp+0x28) = edx;
+				}
+			}
+
+			___67994h_cdecl(D(esp+0x2c), D(esp+0x34), D(esp+8), D(esp+0x28), B(esp+0x38));
+			D(esp+0x20) += 4;
+			D(esp+0x24)++;
+
+			if(D(esp+0x24) >= D(esp)) break;
+		}
+	}
+
 	dRally_Memory_free(D(esp+0xc));
 	dRally_Memory_resize(D(___24e794h), D(___24e790h)-D(___24e794h)); 
-}
-
-extern byte ___19a279h[];
-
-void ___6879ch_cdecl(void){
-
-	if(B(___19a279h)) B(___19a279h) = 0;
-}
-
-extern byte ___688d0h[];
-extern byte ___68910h[];
-extern byte ___68990h[];
-extern byte ___68a10h[];
-extern byte ___68b10h[];
-extern byte ___68b30h[];
-
-void ___68c42h_cdecl(void){
-
-	dword 	n;
-
-	n = -1;
-	while(++n < 0x20){
-
-		W(n*2+___688d0h) = 0xffff;
-		D(n*4+___68910h) = 0;
-		D(n*4+___68990h) = 0;
-		D(n*4+___68a10h) = 0;
-		B(n+___68b10h) = 1;
-		D(n*4+___68b30h) = 0;
-	}
 }
 
 extern byte ___24e864h[];
 extern byte ___24e850h[];
 extern byte ___24e798h[];
 
+typedef unsigned long long 	qword;
+
 void ___71608h_cdecl(dword eax, dword edx, dword ebx, dword ecx){
 
-	dword 	esi, edi, ebp, p_eax;
-	long long ll_tmp;
-	byte 	esp[0x10];
+	void 	* src, * esi, * edi;
+	qword	ll_tmp;
 
-		D(esp) = eax;
-		eax = edx+ebx;
-		ebx = 0;
-		X(ebx) = W(eax+0xe);
-		ebx <<= 4;
-		edi = edx+ebx;
-		edx = D(eax+0x14);
-		edx += edi;
-		esi = D(eax+0x10);
-		edx--;
-		D(esp+4) = edi;
-		D(esp+8) = edx;
-		edx = D(eax+0x18);
-		esi += edi;
-		edi += edx;
-		L(edx) = B(eax+0x1f);
-		esi--;
-		L(edx) &= 1;
-		edi--;
-		B(esp+0xc) = L(edx);
-		if((L(edx)&3) == 0) goto ___71651h;
-		if((int)esi < (int)edi) goto ___7164fh;
-		esi = edi;
-___7164fh:
-		edi = esi;
-___71651h:
-		ebx = D(esp);
-		ebp = ecx*4;
-		if(ebx == 0) goto ___71696h;
-		edx = D(___24e864h);
-		ecx += edx;
-		L(edx) = B(eax+0x1c);
-		B(ecx+1) = L(edx);
-		edx = D(___24e850h);
-		eax = D(eax+0x20);
-		D(edx+ebp+4) = eax;
-		eax = D(___24e798h);
-		D(eax+ebp+4) = 0;
-		eax = D(___24e79ch);
-		D(eax+ebp+4) = 0;
-		goto ___716ddh;
-___71696h:
-		edx = 0;
-		L(edx) = B(eax+0x1c);
-		ebx = edx;
-		edx = D(___24e798h);
-		ebx <<= 0xa;
-		D(edx+ebp+4) = ebx;
-		ebx = 0x6cc;
-		ecx = D(eax+0x20);
-		eax = 0;
-		if(ebx == 0) goto ___716d3h;
-		eax = 0x6d3b;
-		ll_tmp = (int)eax * (int)ecx;
-		eax = ll_tmp;
-		edx = ll_tmp>>0x20;
-		edx = (edx<<0xd)|(eax>>0x13);
-		eax <<= 0xd;
-		ebx = (int)ebx * (int)0x5780;
-		ll_tmp = edx;
-		ll_tmp <<= 0x20;
-		ll_tmp |= eax;
-		eax = ll_tmp/(int)ebx;
-		edx = ll_tmp%(int)ebx;
-		eax = (eax>>1)+(eax&1);
-___716d3h:
-		edx = D(___24e79ch);
-		D(edx+ebp+4) = eax;
-___716ddh:
-		eax = 0;
-		ebx = D(esp+8);
-		L(eax) = B(esp+0xc);
-		ecx = edi;
-		p_eax = eax;
-		edx = esi;
-		eax = D(esp+4);
-		___67994h_cdecl(eax, edx, ebx, ecx, p_eax);
+	src = edx+16*W(edx+ebx+0xe);
+	esi = src+D(edx+ebx+0x10)-1;
+	edi = src+D(edx+ebx+0x18)-1;
+
+	if(B(edx+ebx+0x1f)&1) esi = edi = (esi < edi) ? esi : edi;
+
+	if(eax){
+
+		B(ecx+D(___24e864h)+1) = B(edx+ebx+0x1c);
+		D(D(___24e850h)+4*ecx+4) = D(edx+ebx+0x20);
+		D(D(___24e798h)+4*ecx+4) = 0;
+		D(D(___24e79ch)+4*ecx+4) = 0;
+	}
+	else {
+
+		D(D(___24e798h)+4*ecx+4) = B(edx+ebx+0x1c) << 0xa;
+		ll_tmp = 0x2000 * 0x6d3b * D(edx+ebx+0x20);
+		eax = ll_tmp/(0x6cc * 0x5780);
+		D(D(___24e79ch)+4*ecx+4) = (eax>>1)+(eax&1);
+	}
+
+	___67994h_cdecl(src, esi, src+D(edx+ebx+0x14)-1, edi, B(edx+ebx+0x1f)&1);
 }
 
 dword ___5f248h_cdecl(dword, dword);
@@ -473,6 +232,7 @@ extern byte ___24e858h[];
 extern byte ___24e85ch[];
 extern byte ___24e860h[];
 
+//dword ___716fch(dword ???, s3m_t * ptr, dword size);
 dword ___716fch(dword eax, dword edx, dword ebx){
 
 	dword 	ecx, esi, edi, ebp;
@@ -642,188 +402,7 @@ void ___71a38h_cdecl(void){
 
 extern byte SOUND_TYPE[];
 extern byte ___19a27bh[];
-extern byte ___19a469h[];
-extern byte ___19a46ah[];
-
-dword ___71a44h_cdecl(void){
-
-	dword 	rslt;
-
-	if(B(SOUND_TYPE)&&B(___19a27bh)&&B(___19a469h)){
-
-		rslt = B(___19a469h)-1;
-		rslt <<= 8;
-		rslt += B(___19a46ah);
-
-		return rslt&0xffff;
-	}
-
-	return 0xffffffff;
-}
-
-extern byte ___19a46ch[];
-
-byte ___71a88h_cdecl(dword eax){
-
-	if(B(SOUND_TYPE)&&B(___19a27bh)){
-
-		D(___19a46ch) = eax;
-		return 1;
-	}
-
-	return 0;
-}
-
-void ___6ef2ch(void);
-void SET_AUDIO_DATA_CB(void (*)(void));
-void ___685a4h_cdecl(void);
-
-extern byte ___68a8ch[];
-extern byte MSX_struct_content_ptr[];
-extern byte ___19a280h[];
-extern byte ___19a281h[];
-extern byte ___19a468h[];
-extern byte ___24e86fh[];
-extern byte ___24e870h[];
-extern byte ___24e871h[];
-extern byte ___68c40h[];
-extern byte ___68a90h[];
-extern byte ___24e830h[];
-extern byte ___24e750h[];
-byte get___19a468h(void);
-//extern volatile byte volatile___19a468h;
-
-void ___718ech_cdecl(void){
-
-	dword		eax, ebx, ecx, edx, esi, edi, ebp;
-	long long	 ll_tmp;
-
-		ecx = 0;
-		if(B(SOUND_TYPE) == 0) goto ___71a2fh;
-		if(B(___19a27bh) == 0) goto ___71a2fh;
-		if(B(___19a280h) != 0) goto ___71a2fh;
-		edx = D(MSX_struct_content_ptr);
-		if(edx == 0) goto ___71a2fh;
-		B(___19a468h) = 1;
-		eax = edx;
-		L(edx) = B(edx+0x30);
-		B(___24e870h) = L(edx);
-		L(edx) = B(eax+0x31);
-		L(eax) = B(eax+0x32);
-		B(___24e86fh) = L(eax);
-		esi = L(eax);
-		eax = 0x7a12;
-		B(___24e871h) = L(edx);
-		edx = eax;
-		edx = (int)edx>>0x1f;
-		ll_tmp = edx;
-		ll_tmp <<= 0x20;
-		ll_tmp |= eax;
-		eax = ll_tmp/(int)eax;
-		edx = ll_tmp%(int)edx;
-		edi = D(___24e860h);
-		W(___68c40h) = X(eax);
-		edx = 0;
-		eax = 0;
-___7196ch:
-		esi = D(___24e858h);
-		esi += eax;
-		H(ebx) = B(esi);
-		if(H(ebx) > 0xf) goto ___719bfh;
-		if(H(ebx) > 7) goto ___7198ch;
-		D(edx+___68a90h) = 0x3000;
-		goto ___71996h;
-___7198ch:
-		D(edx+___68a90h) = 0xc000;
-___71996h:
-		if(edi == 0) goto ___719b3h;
-		esi = edi+eax;
-		L(ebx) = B(esi);
-		if((L(ebx)&0x20) == 0) goto ___719b3h;
-		L(ebx) &= 0xf;
-		esi = L(ebx);
-		esi <<= 0xc;
-		D(edx+___68a90h) = esi;
-___719b3h:
-		edx += 4;
-		B(eax+___24e830h) = L(ecx);
-		ecx++;
-		goto ___719c6h;
-___719bfh:
-		B(eax+___24e830h) = 0xff;
-___719c6h:
-		eax++;
-		if((int)eax < 0x20) goto ___7196ch;
-		ebp = 0x8000;
-		eax = ecx*4;
-___719d8h:
-		if((int)eax >= 0x80) goto ___719ebh;
-		eax += 4;
-		ecx++;
-		D(eax+___68a8ch) = ebp;
-		goto ___719d8h;
-___719ebh:
-		ecx = 0x40;
-		edx = 0xffffffff;
-		eax = ___24e750h;
-		memset(eax, edx, ecx);
-		H(ebx) = 0;
-		eax = ___6ef2ch;
-		L(ecx) = 1;
-	SET_AUDIO_DATA_CB(eax);
-	___685a4h_cdecl();
-		B(___19a281h) = H(ebx);
-		B(___19a280h) = L(ecx);
-		if(L(ecx) != get___19a468h()) goto ___71a2fh;
-		//if(L(ecx) != volatile___19a468h) goto ___71a2fh;
-___71a26h:
-		if(get___19a468h() == 1) goto ___71a26h;
-		//if(volatile___19a468h == 1) goto ___71a26h;
-___71a2fh:   
-	return;
-}
-
-extern byte ___24e9dah[];
-extern byte ___19a724h[];
-extern byte ___19a804h[];
-
-
-dword ___71ab0h_cdecl(byte arg1, int arg2){
-	
-	dword 	edx, ebx, esi;
-
-	if(B(___24e9dah)){
-
-		return 0x1e00 - 0x40*arg1 - arg2/2;
-	}
-
-	esi = (arg1%0xc)*8 + arg2/8;
-	edx = 4*W(esi*2+___19a724h+2);
-	edx = (edx>>(arg1/0xc))*(arg2&7);
-	ebx = 4*W(esi*2+___19a724h);
-	ebx = (ebx>>(arg1/0xc))*(8-(arg2&7));
-	edx += ebx;
-
-	return edx;
-}
-
-dword ___71b70h_cdecl(dword eax){
-
-	dword 	ecx;
-
-	if(B(___24e9dah)){
-
-		if(eax > 0x1e00) eax = 0x1e00;
-		eax = 0x1e00-eax;
-		ecx = 0xa-(eax/0x300);
-		eax = 0x1c700*W((eax%0x300)*2+___19a804h);
-
-		return (eax/0x519)>>L(ecx);
-	}
-
-	return eax ? ((eax>>1)+0x2820000)/eax : 0;
-}
-
+extern enum { AMIGA_FREQUENCE_TABLE, LINEAR_FREQUENCE_TABLE } XM_FrequenceTable;
 extern byte ___19ae07h[];
 extern byte ___19ae04h[];
 
@@ -933,11 +512,11 @@ ___757c1h:
 		D(esp+0xc) = eax;
 ___757c8h:
 		if(D(esp+0x10) != 0) goto ___7581ch;
-		H(ebx) = 1;
-		L(ecx) = B(___24e9dah);
+		H(ebx) = LINEAR_FREQUENCE_TABLE;//1;
+		L(ecx) = XM_FrequenceTable;
 		eax = D(___24e798h);
 		edx = 0;
-		B(___24e9dah) = H(ebx);
+		XM_FrequenceTable = H(ebx);
 		L(edx) = B(edi+0xc);
 		ebx = D(esp+4);
 		edx <<= 0xa;
@@ -947,10 +526,10 @@ ___757c8h:
 		edx = (int)edx>>0x18;
 		L(eax) += 0x31;
 		eax &= 0xff;
-		eax = ___71ab0h_cdecl(eax, edx);
+		eax = XM_getPeriod(eax, edx);
 		eax = ___71b70h_cdecl(eax);
 		edx = D(___24e79ch);
-		B(___24e9dah) = L(ecx);
+		XM_FrequenceTable = L(ecx);
 		D(edx+ebx*4+4) = eax;
 ___7581ch:
 		eax = 0;
@@ -1018,9 +597,7 @@ dword ___75840h(dword eax, dword edx, dword ebx){
 		D(___24e9ach) = eax;
 		X(eax) = W(edx+0x4a);
 		W(___24e9d0h) = X(eax);
-		H(eax) = B(___24e9d0h);
-		L(eax) = !!(H(eax)&1);
-		B(___24e9dah) = L(eax);
+		XM_FrequenceTable = (B(___24e9d0h)&1) ? LINEAR_FREQUENCE_TABLE : AMIGA_FREQUENCE_TABLE;
 		X(eax) = W(edx+0x4c);
 		W(___24e9d2h) = X(eax);
 		X(eax) = W(edx+0x4e);

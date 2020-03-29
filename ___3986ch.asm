@@ -54,7 +54,7 @@ cpu 386
 	extern	___2faf0h
 	extern	___1854b8h
 	extern	___24cc54h
-	extern	dRally_Audio_pushSoundEffect
+	extern	dRally_Sound_pushEffect
 	extern	___196a84h
 	extern	___1de814h
 	extern	___1e4f8h
@@ -457,9 +457,25 @@ ___39e6eh:
 		mov     eax, [___1a1108h]
 		xor     ebp, ebp
 		call    near ___12e78h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 ___39ea1h:
-		call    near ___58c60h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___58c60h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		mov     esi, ebp
 		xor     edx, edx
 		xor     edi, edi
@@ -511,7 +527,13 @@ ___39eb0h:
 ___39f52h:
 		call    near ___2ab50h
 		call    near ___38768h
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 		test    al, al
 		je      short ___39f52h
 		call    near ___36adch
@@ -522,10 +544,42 @@ ___39f52h:
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
 		call    near ___12e78h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
+
+	push 	eax
+	push 	ecx
+	push 	edx
 		call    near ___1240ch
-		call    near ___24548h
+	pop 	edx
+	pop 	ecx
+	pop 	eax
+	
+
+	push 	eax
+	push 	ecx
+	push 	edx
+		call    ___24548h
+	pop 	edx
+	pop 	ecx
+	pop 	eax
+
+
+	push 	eax
+	push 	ecx
+	push 	edx
 		call    near ___2faf0h
+	pop 	edx
+	pop 	ecx
+	pop 	eax
+
 		call    near ___38708h
 		push    8000h
 		mov     edx, 1ch
@@ -538,18 +592,32 @@ ___39f52h:
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    dRally_Audio_pushSoundEffect
+		call    dRally_Sound_pushEffect
 	add 	esp, 18h
 		mov     ecx, 46b6eh
 		mov     ebx, ___18250ch
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
 		call    near ___12e78h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 ___39fe7h:
 		call    near ___2ab50h
 		call    near ___38768h
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 		test    al, al
 		je      short ___39fe7h
 		mov     edx, [___196a84h]
@@ -577,7 +645,15 @@ ___3a036h:
 		cmp     eax, dword 150h
 		jl      short ___3a008h
 ___3a049h:
-		call    near ___2b318h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2b318h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		cmp     dword [___185a14h], byte 0
 		jne     near ___3a1c7h
 		cmp     dword [___196a80h], byte 0
@@ -586,7 +662,15 @@ ___3a049h:
 		jne     near ___3a1c7h
 		mov     ebp, 640000h
 ___3a07ah:
-		call    near ___58c60h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___58c60h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		mov     esi, ebp
 		xor     edx, edx
 		xor     edi, edi
@@ -682,7 +766,13 @@ ___3a126h:
 		jne     near ___3a07ah
 ___3a1c7h:
 		mov     ebx, 1
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 		mov     [___196a74h], ebx
 		add     esp, byte 60h
 		pop     ebp

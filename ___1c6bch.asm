@@ -17,7 +17,7 @@ cpu 386
 	extern 	___180ba0h
 	extern 	___185b6fh
 	extern 	___185aach
-	extern 	___2ec68h
+	extern 	___2ec68h_cdecl
 	extern 	___60a84h
 	extern 	___2ab50h
 	extern 	___196adch
@@ -99,7 +99,15 @@ __GDECL(___1c6bch)
 		movsd   
 		movsw   
 		movsb   
-		call    near ___2ec68h
+
+	push 	eax
+	push 	ecx
+	push 	edx
+		call    near ___2ec68h_cdecl
+	pop 	edx
+	pop 	ecx
+	pop 	eax
+
 		call    near ___60a84h
 		mov     [esp+10h], edx
 		mov     esi, 4
@@ -260,8 +268,24 @@ ___1c91bh:
 		call 	__STRCAT
 		xor     al, al
 		mov     [___1a1f63h], al
-		call    near ___23230h
-		call    near ___12d6ch__VESA101_PRESENTBOTTOMSCREEN
+	
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___23230h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12d6ch__VESA101_PRESENTBOTTOMSCREEN
+	pop		eax
+	pop 	ecx
+	pop		edx
+
 		add     esp, byte 14h
 		pop     ebp
 		pop     edi

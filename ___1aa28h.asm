@@ -41,11 +41,27 @@ __GDECL(___1aa28h)
 		mov     edi, ebx
 		mov     eax, 1fh
 		mov     ecx, 51h
-		call    near ___3f71ch__allocateMemory
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___3f71ch__allocateMemory
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     [esp+8], eax
 		mov     eax, 1fh
 		mov     ebx, 14eh
-		call    near ___3f71ch__allocateMemory
+		
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___3f71ch__allocateMemory
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		push    byte 1
 		mov     esi, eax
 		mov     eax, [esp+4]
@@ -74,7 +90,15 @@ __GDECL(___1aa28h)
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
 		call    near ___12e78h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 		call 	getTimerTicks
 		mov 	edx, eax
 		xor     eax, eax
@@ -127,7 +151,13 @@ ___1ab17h:
 		mov     [esp+0ch], eax
 		xor     ecx, ecx
 ___1ab73h:
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 		xor     ebx, ebx
 		mov     edx, [esp+0ch]
 		mov     bl, al
@@ -158,7 +188,15 @@ ___1ab73h:
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
 		call    near ___12e78h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 		mov     edx, [esp+0ch]
 		mov     eax, ebp
 		call    near ___13c9ch
@@ -211,7 +249,15 @@ ___1ac53h:
 		mov     eax, [___1a1108h]
 		add     ecx, byte 28h
 		call    near ___12e78h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 		mov     edx, [esp+4]
 		mov     eax, [esp]
 		add     edx, byte 13h

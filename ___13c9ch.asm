@@ -30,7 +30,15 @@ ___13cbbh:
 		call    near memset_
 		cmp     ecx, 3200h
 		jne     short ___13cbbh
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 		pop     esi
 		pop     ecx
 		pop     ebx

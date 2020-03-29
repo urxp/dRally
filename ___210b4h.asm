@@ -118,7 +118,15 @@ ___21149h:
 		mov     edx, 1
 		mov     eax, 8
 		call    near ___13710h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 		mov     eax, 8
 		call    near ___146c4h
 		mov     ebp, eax
@@ -147,14 +155,28 @@ ___211bdh:
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
 		call    near ___12e78h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 		call    near ___20f78h
 		mov     edi, ___1874c8h
 		and     eax, 0ffh
 		mov     esi, ___1818d8h
 		mov     [___1a1164h], eax
 		call    near ___59b3ch
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 		mov     edx, [___1a1164h]
 		movsd   
 		movsd   
@@ -198,14 +220,28 @@ ___21288h:
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
 		call    near ___12e78h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 		call    near ___20f78h
 		mov     edi, ___1874fah
 		and     eax, 0ffh
 		mov     esi, ___1818e8h
 		mov     [___1a113ch], eax
 		call    near ___59b3ch
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 		mov     eax, [___1a113ch]
 		movsd   
 		movsd   
@@ -246,14 +282,28 @@ ___21350h:
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
 		call    near ___12e78h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 		call    near ___20f78h
 		mov     edi, ___18752ch
 		and     eax, 0ffh
 		mov     esi, ___1818f8h
 		mov     [___1a1110h], eax
 		call    near ___59b3ch
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 		movsd   
 		movsd   
 		movsd   
@@ -294,14 +344,28 @@ ___21417h:
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
 		call    near ___12e78h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 		call    near ___20f78h
 		mov     edi, ___18755eh
 		and     eax, 0ffh
 		mov     esi, ___18190ch
 		mov     [___1a1130h], eax
 		call    near ___59b3ch
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 		mov     ecx, [___1a1130h]
 		movsd   
 		movsd   
@@ -344,7 +408,15 @@ ___214e1h:
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
 		call    near ___12e78h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 		call    near ___20f78h
 		mov     ecx, 6
 		mov     edi, ___187590h
@@ -352,7 +424,13 @@ ___214e1h:
 		mov     esi, ___181924h
 		mov     [___1a1120h], eax
 		call    near ___59b3ch
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 		mov     ebx, [___1a1120h]
 		rep movsd   
 		movsw   
@@ -391,7 +469,15 @@ ___215aeh:
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
 		call    near ___12e78h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 		call    near ___20f78h
 		mov     ecx, 6
 		mov     edi, ___1875c2h
@@ -399,7 +485,13 @@ ___215aeh:
 		mov     esi, ___181940h
 		mov     [___1a1118h], eax
 		call    near ___59b3ch
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 		mov     edx, [___1a1118h]
 		rep movsd   
 		movsw   
@@ -438,7 +530,15 @@ ___2167bh:
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
 		call    near ___12e78h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 		call    near ___20f78h
 		mov     ecx, 6
 		mov     edi, ___1875f4h
@@ -446,7 +546,13 @@ ___2167bh:
 		mov     esi, ___18195ch
 		mov     [___1a111ch], eax
 		call    near ___59b3ch
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 		mov     eax, [___1a111ch]
 		rep movsd   
 		movsb   

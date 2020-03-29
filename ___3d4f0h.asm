@@ -17,7 +17,7 @@ cpu 386
 	extern	___1a54d0h
 	extern	___3d154h
 	extern	___180144h
-	extern	bpa_read_cdecl
+	extern	bpa_read
 	extern	bpk_decode2
 	extern	___12cb8h__VESA101_PRESENTSCREEN
 	extern	___3d1f0h
@@ -44,10 +44,26 @@ __GDECL(___3d4f0h)
 		mov     edi, [___1a1124h__VESA101h_ScreenBufferA]
 		mov     edx, 640000h
 		call 	__MOVS
-		call    near ___2b318h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2b318h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		mov     [esp], edx
 ___3d536h:
-		call    near ___58c60h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___58c60h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		mov     esi, 2
 		mov     edx, ebp
 		mov     eax, ebp
@@ -112,14 +128,22 @@ ___3d55fh:
 		mov     eax, ___182860h
 		mov     ebx, ___18286ch
 		mov     edx, ___1a54d0h
-		call    near ___3d154h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___3d154h
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     eax, ___180144h
 	
 	push 	ecx
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    bpa_read_cdecl					;;
+		call    bpa_read					;;
 	add 	esp, 0ch
 	pop 	ecx
 
@@ -127,24 +151,54 @@ ___3d55fh:
 		mov     ecx, [___1a112ch__VESA101_ACTIVESCREEN_PTR]
 		push    ecx
 		call    near bpk_decode2
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 		call    near ___3d1f0h
 ___3d63dh:
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 		test    al, al
 		je      short ___3d63dh
-		call    near ___3d2bch
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___3d2bch
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		mov     eax, ___182878h
 		mov     ebx, ___182884h
 		mov     edx, ___1a54d0h
-		call    near ___3d154h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___3d154h
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     eax, ___180144h
 	
 	push 	ecx
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    bpa_read_cdecl					;;
+		call    bpa_read					;;
 	add 	esp, 0ch
 	pop 	ecx
 
@@ -152,23 +206,69 @@ ___3d63dh:
 		mov     edi, [___1a112ch__VESA101_ACTIVESCREEN_PTR]
 		push    edi
 		call    near bpk_decode2
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 		call    near ___3d1f0h
 ___3d684h:
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 		test    al, al
 		je      short ___3d684h
-		call    near ___3d2bch
-		call    near ___2b318h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___3d2bch
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2b318h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		mov     ecx, 4b000h
 		mov     esi, [___1a1124h__VESA101h_ScreenBufferA]
 		mov     edi, [___1a112ch__VESA101_ACTIVESCREEN_PTR]
 		call 	__MOVS
 		xor     ebp, ebp
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 		mov     [esp+4], ebp
 ___3d6c3h:
-		call    near ___58c60h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___58c60h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		mov     esi, 2
 		mov     edx, ebp
 		mov     eax, ebp

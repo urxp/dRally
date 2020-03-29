@@ -30,7 +30,15 @@ __GDECL(___2aa08h)
 		call    near ___3a454h
 ___2aa28h:
 		inc     dword [___196a88h]
-		call    near ___58c60h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___58c60h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		call    near ___2a394h
 		mov     eax, [___196a88h]
 		mov     edx, eax

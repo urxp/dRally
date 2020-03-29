@@ -28,7 +28,13 @@ __GDECL(___56594h)
 		call    near __CHK
 		push    ecx
 		push    edx
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 		mov     dh, al
 		test    al, al
 		je      near ___566e8h

@@ -7,7 +7,7 @@ cpu 386
 	extern	___1a1124h__VESA101h_ScreenBufferA
 	extern	___1a10c4h
 	extern	___1398ch__VESA101_PRESENTRECTANGLE
-	extern	dRally_Audio_setMasterVolume
+	extern	dRally_Sound_setMasterVolume
 	extern	___5994ch
 	extern	___59b3ch
 
@@ -103,14 +103,21 @@ ___3aa07h:
 		add     edx, ebx
 		mov     ebx, 96h
 		sub     edx, 500h
-		call    near ___1398ch__VESA101_PRESENTRECTANGLE
+
+	push 	ecx
+	push	ebx
+	push 	edx
+	push 	eax
+		call    ___1398ch__VESA101_PRESENTRECTANGLE
+	add 	esp, 10h
+	
 		cmp     dword [esp], byte 0ffffffffh
 		jne     short ___3aa9ch
 		mov     eax, [esp+0ch]
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    near dRally_Audio_setMasterVolume
+		call    near dRally_Sound_setMasterVolume
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -121,7 +128,7 @@ ___3aa9ch:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    near dRally_Audio_setMasterVolume
+		call    near dRally_Sound_setMasterVolume
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -140,7 +147,13 @@ ___3aaabh:
 		mov     [esp+8], ecx
 		cmp     ebp, byte 2bh
 		jl      near ___3a99ah
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 		call    near ___59b3ch
 		add     esp, byte 28h
 		pop     ebp

@@ -14,7 +14,7 @@ cpu 386
 	extern 	DISPLAY_GET_PALETTE
 	extern	___58c60h
 	extern	___18348dh
-	extern	dRally_Audio_setMasterVolume
+	extern	dRally_Sound_setMasterVolume
 
 section .text
 
@@ -112,7 +112,15 @@ ___4587ch:
 		mov     [esp+8], ecx
 		cmp     ecx, 100h
 		jl      near ___4587ch
-		call    near ___58c60h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___58c60h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		fld     qword [esp+14h]
 		fmul    qword [___18348dh]
 		call    near __CHP
@@ -121,7 +129,7 @@ ___4587ch:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    near dRally_Audio_setMasterVolume
+		call    near dRally_Sound_setMasterVolume
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx

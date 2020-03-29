@@ -14,6 +14,13 @@ __GDECL(entrysize_musics_bpa)
 		push    edx
 		mov     edx, eax
 		mov     eax, ___180124h		;; "MUSICS.BPA"
-		call    near entrysize_bpa
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    entrysize_bpa
+	add 	esp, 8
+	pop 	ecx
+
 		pop     edx
 		retn    

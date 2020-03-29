@@ -117,8 +117,24 @@ ___1d116h:
 		xor     eax, eax
 		mov     esi, ___180cc0h
 		call    near ___135fch
-		call    near ___23230h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+	
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___23230h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 		call    near ___61278h
 		call    near ___623d4h
 		movsd   
@@ -156,10 +172,26 @@ ___1d116h:
 		movsd   
 		movsw   
 		movsb   
-		call    near ___2415ch
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2415ch
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		mov     eax, 2
 		call    near ___13710h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 		mov     dword [___1a1ef8h], 13h
 		pop     edi
 		pop     esi
@@ -183,7 +215,15 @@ ___1d21eh:
 		sub     edx, ebx
 		mov     [___199f9ch], ecx
 		mov     ecx, [edx*4+___1a020ch]
-		call    near ___2415ch
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2415ch
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		mov     ebx, [___1a1ef8h]
 		lea     edx, [ebx*8+0]
 		sub     edx, ebx

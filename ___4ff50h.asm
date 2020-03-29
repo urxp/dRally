@@ -31,8 +31,8 @@ cpu 386
 	extern	___2432bch
 	extern	___243ce8h
 	extern	___2432b4h
-	extern	rand_
-	extern	dRally_Audio_pushSoundEffect
+	extern	rand_watcom106
+	extern	dRally_Sound_pushEffect
 	extern	___184215h
 	extern	___243cf4h
 	extern	___243d74h
@@ -203,7 +203,13 @@ ___50146h:
 		jne     short ___50213h
 		push    8000h
 		push    21000h
-		call    near rand_
+
+	push 	edx
+	push 	ecx
+		call    rand_watcom106
+	pop 	ecx
+	pop 	edx
+
 		mov     edx, eax
 		mov     ebx, 2
 		sar     edx, 1fh
@@ -246,7 +252,13 @@ ___50213h:
 		jle     short ___502d5h
 		push    8000h
 		push    21000h
-		call    near rand_
+
+	push 	edx
+	push 	ecx
+		call    rand_watcom106
+	pop 	ecx
+	pop 	edx
+
 		mov     edx, eax
 		mov     ebx, 2
 		sar     edx, 1fh
@@ -260,7 +272,7 @@ ___502c8h:
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    dRally_Audio_pushSoundEffect
+		call    dRally_Sound_pushEffect
 	add 	esp, 18h
 ___502d5h:
 		imul    eax, [___243c60h], 35eh
@@ -317,14 +329,26 @@ ___503d3h:
 		mov     eax, [esp+140h]
 		mov     [esp+0c8h], eax
 ___503e1h:
-		call    near rand_
+
+	push 	edx
+	push 	ecx
+		call    rand_watcom106
+	pop 	ecx
+	pop 	edx
+
 		mov     edx, eax
 		mov     ebx, 6
 		sar     edx, 1fh
 		idiv    ebx
 		mov     ecx, [esp+0d4h]
 		sub     edx, byte 3
-		call    near rand_
+
+	push 	edx
+	push 	ecx
+		call    rand_watcom106
+	pop 	ecx
+	pop 	edx
+
 		add     ecx, edx
 		mov     edx, eax
 		sar     edx, 1fh
@@ -531,7 +555,13 @@ ___506bbh:
 ___507b3h:
 		cmp     dword [___19bd60h], byte 0
 		jne     near ___509b4h
-		call    near rand_
+
+	push 	edx
+	push 	ecx
+		call    rand_watcom106
+	pop 	ecx
+	pop 	edx
+
 		mov     edx, eax
 		mov     ebx, 5
 		sar     edx, 1fh
@@ -592,7 +622,13 @@ ___50884h:
 		jne     short ___508d7h
 		push    8000h
 		push    50000h
-		call    near rand_
+
+	push 	edx
+	push 	ecx
+		call    rand_watcom106
+	pop 	ecx
+	pop 	edx
+
 		mov     edx, eax
 		mov     ebx, 3
 		sar     edx, 1fh
@@ -631,7 +667,13 @@ ___508d7h:
 		jle     short ___50991h
 		push    8000h
 		push    50000h
-		call    near rand_
+
+	push 	edx
+	push 	ecx
+		call    rand_watcom106
+	pop 	ecx
+	pop 	edx
+
 		mov     edx, eax
 		mov     ebx, 3
 		sar     edx, 1fh
@@ -645,7 +687,7 @@ ___5097fh:
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    dRally_Audio_pushSoundEffect
+		call    dRally_Sound_pushEffect
 	add 	esp, 18h
 ___50991h:
 		mov     eax, [esp+0ech]

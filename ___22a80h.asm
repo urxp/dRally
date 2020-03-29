@@ -21,10 +21,10 @@ cpu 386
 	extern	___18768ah
 	extern	___1a1100h__VESA101h_DefaultScreenBuffer
 	extern	___3a7e0h
-	extern	dRally_Audio____68284h
+	extern	dRally_Sound_getPosition
 	extern	___1a1ef4h
-	extern	dRally_Audio_setPosition
-	extern	dRally_Audio_setMasterVolume
+	extern	dRally_Sound_setPosition
+	extern	dRally_Sound_setMasterVolume
 	extern	___5994ch
 	extern	___59b3ch
 	extern	___2ab50h
@@ -39,7 +39,7 @@ cpu 386
 	extern	___3a6a4h
 	extern	___1854b0h
 	extern	___24cc54h
-	extern	dRally_Audio_pushSoundEffect
+	extern	dRally_Sound_pushEffect
 	extern	___12cb8h__VESA101_PRESENTSCREEN
 	extern 	restoreDefaultScreenBuffer
 
@@ -211,7 +211,7 @@ ___22c85h:
 		call    near ___3a7e0h
 	push 	edx
 	push 	ecx
-		call    near dRally_Audio____68284h
+		call    near dRally_Sound_getPosition
 	pop 	ecx
 	pop 	edx
 		and     eax, 0ff00h
@@ -220,7 +220,7 @@ ___22c85h:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    near dRally_Audio_setPosition
+		call    near dRally_Sound_setPosition
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -228,16 +228,28 @@ ___22c85h:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    near dRally_Audio_setMasterVolume
+		call    near dRally_Sound_setMasterVolume
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 		call    near ___59b3ch
 		xor     edx, edx
 ___22d67h:
 		call    near ___2ab50h
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 		mov     ah, al
 		cmp     al, 3bh
 		jne     short ___22d86h
@@ -248,7 +260,13 @@ ___22d67h:
 ___22d86h:
 		test    ah, ah
 		je      short ___22d67h
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 		call    near ___59b3ch
 		mov     ecx, 4b000h
 		mov     esi, [___1a112ch__VESA101_ACTIVESCREEN_PTR]
@@ -361,7 +379,13 @@ ___22ed9h:
 		call    near ___3a6a4h
 ___22f25h:
 		call    near ___2ab50h
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 		cmp     al, 4bh
 		jb      short ___22f63h
 		jbe     short ___22f9ah
@@ -413,7 +437,7 @@ ___22fa6h:
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    dRally_Audio_pushSoundEffect
+		call    dRally_Sound_pushEffect
 	add 	esp, 18h
 		mov     ecx, 54h
 		mov     edx, 10h
@@ -463,7 +487,15 @@ ___23039h:
 		mov     al, [ebp+___196abch]
 		xor     edx, edx
 		call    near ___21fd4h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 ___2306dh:
 		inc     edx
 		call    near ___2ab50h
@@ -490,7 +522,15 @@ ___23099h:
 		shr     dl, 2
 		dec     cl
 		jne     short ___23097h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 		jmp     near ___231f3h
 ___230c3h:
 		cmp     ebp, byte 11h
@@ -511,7 +551,7 @@ ___230cdh:
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    dRally_Audio_pushSoundEffect
+		call    dRally_Sound_pushEffect
 	add 	esp, 18h
 		mov     ecx, 54h
 		mov     edx, 10h
@@ -562,7 +602,15 @@ ___23161h:
 		mov     al, [ebp+___196abch]
 		xor     edx, edx
 		call    near ___21fd4h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 ___23195h:
 		inc     edx
 		call    near ___2ab50h
@@ -590,7 +638,15 @@ ___231c7h:
 		shr     dl, 2
 		dec     cl
 		jne     short ___231c5h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 		jmp     short ___231f3h
 ___231eeh:
 		mov     edi, 0ffffffffh

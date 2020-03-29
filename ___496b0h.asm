@@ -8,7 +8,7 @@ cpu 386
 	extern	___1f2380h
 	extern	___1f2384h
 	extern	___1f2370h
-	extern	rand_
+	extern	rand_watcom106
 	extern	___1f2374h
 	extern	___1f2378h
 	extern	___196dd0h
@@ -65,7 +65,13 @@ ___4970dh:
 		mov     ecx, 32h
 		mov     [___243d38h], ebp
 ___4972eh:
-		call    near rand_
+
+	push 	edx
+	push 	ecx
+		call    rand_watcom106
+	pop 	ecx
+	pop 	edx
+
 		mov     edx, eax
 		sar     edx, 1fh
 		idiv    ecx
@@ -82,14 +88,26 @@ ___49753h:
 		cmp     eax, dword 1680h
 		jne     short ___49753h
 		mov     dword [___196dd0h], 15eh
-		call    near rand_
+
+	push 	edx
+	push 	ecx
+		call    rand_watcom106
+	pop 	ecx
+	pop 	edx
+
 		mov     edx, eax
 		mov     ebx, 4
 		sar     edx, 1fh
 		idiv    ebx
 		test    edx, edx
 		jne     near ___498c8h
-		call    near rand_
+
+	push 	edx
+	push 	ecx
+		call    rand_watcom106
+	pop 	ecx
+	pop 	edx
+
 		mov     edx, eax
 		mov     ebx, 2
 		sar     edx, 1fh
@@ -101,7 +119,13 @@ ___49753h:
 		shl     ecx, 5
 		cmp     dword [ecx+___1f2488h], byte 0
 		jle     near ___498c8h
-		call    near rand_
+
+	push 	edx
+	push 	ecx
+		call    rand_watcom106
+	pop 	ecx
+	pop 	edx
+
 		mov     edx, eax
 		sar     edx, 1fh
 		idiv    ebx
@@ -182,7 +206,13 @@ ___498c8h:
 		jne     near ___49a21h
 		cmp     dword [___19bd60h], byte 0
 		jne     near ___49a21h
-		call    near rand_
+
+	push 	edx
+	push 	ecx
+		call    rand_watcom106
+	pop 	ecx
+	pop 	edx
+
 		mov     edx, eax
 		mov     ebx, 2
 		sar     edx, 1fh

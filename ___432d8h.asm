@@ -13,7 +13,7 @@ cpu 386
 	extern	___1831ech
 	extern	___1a54d0h
 	extern	___1831f4h
-	extern	bpa_read_cdecl
+	extern	bpa_read
 	extern	bpk_decode2
 
 section .text
@@ -71,7 +71,7 @@ ___43379h:
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    bpa_read_cdecl					;;
+		call    bpa_read					;;
 	add 	esp, 0ch
 	pop 	ecx
 

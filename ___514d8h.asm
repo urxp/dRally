@@ -25,7 +25,7 @@ cpu 386
 	extern	___1df520h
 	extern	___1df524h
 	extern	___243ce8h
-	extern	dRally_Audio_pushSoundEffect
+	extern	dRally_Sound_pushEffect
 	extern	___243d8ch
 	extern	___243d58h
 	extern	___243d28h
@@ -34,7 +34,7 @@ cpu 386
 	extern	___1df528h
 	extern	___243d7ch
 	extern	___1de59ch
-	extern	rand_
+	extern	rand_watcom106
 	extern	___1e6fcch
 	extern	___1e6fd0h
 	extern	___1e6f80h
@@ -261,7 +261,7 @@ ___51830h:
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    dRally_Audio_pushSoundEffect
+		call    dRally_Sound_pushEffect
 	add 	esp, 18h
 ___51844h:
 		mov     edx, [___2438d0h]
@@ -429,7 +429,13 @@ ___51ab5h:
 		mov     [eax+___1de598h], edx
 ___51ad0h:
 		imul    ebx, [___243c60h], 35eh
-		call    near rand_
+
+	push 	edx
+	push 	ecx
+		call    rand_watcom106
+	pop 	ecx
+	pop 	edx
+
 		mov     edx, eax
 		sar     edx, 1fh
 		mov     ecx, 3
@@ -444,7 +450,13 @@ ___51ad0h:
 		mov     esi, [___243c60h]
 		fstp    st1
 		fstp    dword [ebx+___1e6fcch]
-		call    near rand_
+
+	push 	edx
+	push 	ecx
+		call    rand_watcom106
+	pop 	ecx
+	pop 	edx
+
 		mov     edx, eax
 		sar     edx, 1fh
 		idiv    ecx
@@ -460,7 +472,13 @@ ___51ad0h:
 		fstp    st1
 		fstp    dword [ebx+___1e6fd0h]
 		imul    ebx, eax, 35eh
-		call    near rand_
+
+	push 	edx
+	push 	ecx
+		call    rand_watcom106
+	pop 	ecx
+	pop 	edx
+
 		mov     edx, eax
 		mov     ecx, 0bh
 		sar     edx, 1fh
@@ -472,7 +490,13 @@ ___51ad0h:
 		mov     edx, [___243c60h]
 		fstp    dword [ebx+___1e6f84h]
 		imul    ebx, edx, 35eh
-		call    near rand_
+
+	push 	edx
+	push 	ecx
+		call    rand_watcom106
+	pop 	ecx
+	pop 	edx
+
 		mov     edx, eax
 		sar     edx, 1fh
 		idiv    ecx
@@ -481,7 +505,13 @@ ___51ad0h:
 		fild    dword [esp+9ch]
 		fadd    dword [ebx+___1e6f88h]
 		fstp    dword [ebx+___1e6f88h]
-		call    near rand_
+
+	push 	edx
+	push 	ecx
+		call    rand_watcom106
+	pop 	ecx
+	pop 	edx
+
 		mov     edx, eax
 		mov     ebx, 16h
 		sar     edx, 1fh
@@ -542,7 +572,7 @@ ___51ca5h:
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    dRally_Audio_pushSoundEffect
+		call    dRally_Sound_pushEffect
 	add 	esp, 18h
 ___51cbbh:
 		mov     eax, [esp+7ch]

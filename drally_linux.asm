@@ -8,7 +8,6 @@ cpu 386
 	extern 	close
     extern  strcasecmp
     extern  strcmp
-    extern  rand
     extern  memset
 	extern 	memcpy
     extern  getenv
@@ -27,24 +26,17 @@ cpu 386
 	extern 	exit
 	extern 	srand
 	extern 	strncmp
-	extern	___60447h
-	extern	___60450h
 	extern	___6045ch
 	extern	___60441h
-	extern	___6043ah
-	extern	___6043eh
 	extern	___60446h
 	extern	___6044ch
-	extern	___60448h
-	extern	___60454h
     extern  __STRCPY
 	extern 	__VGA13_SETMODE
-	extern 	__VGA13_PRESENTSCREEN
-	extern 	__VESA101_PRESENTSCREEN
+	extern 	__VGA13_PRESENTSCREEN__
+	extern 	__VESA101_PRESENTSCREEN__
 	extern 	__MOVS
 	extern 	INT8_FRAME_COUNTER
 	extern 	__DISPLAY_SET_PALETTE_COLOR
-	extern 	__DISPLAY_SET_PALETTE_COLOR_NOUPDATE
 	extern 	LAST_KEY
 	extern 	__GET_FRAME_COUNTER
 	extern 	__VESA101_SETMODE
@@ -275,36 +267,6 @@ __GDECL(memset_)
         add     esp, 0ch
 		pop 	ecx
         retn
-
-initrandnext_:
-	mov		eax, rand_next
-	ret
-__GDECL(rand_)
-	push		edx
-	call		initrandnext_
-	test		eax,eax
-	je		.L$1
-	imul		edx, dword [eax], 41c64e6dH
-	add		edx,3039H
-	mov		[eax],edx
-	mov		eax,edx
-	shr		eax,10H
-	and		eax,7fffH
-.L$1:
-	pop		edx
-	ret
-__GDECL(srand_)
-	push		edx
-	mov		edx,eax
-	call		initrandnext_
-	test		eax,eax
-	je		.L$2
-	mov		[eax],edx
-.L$2:
-	pop		edx
-	ret
-
-
 
 
 __GDECL(getenv_)
@@ -745,18 +707,7 @@ __GDECL(strstr_)
 
 
 
-__GDECL(GET_FRAME_COUNTER)
-;		jmp		.around
-;.error:	db 	"GET_FRAME_COUNTER not implemented",0ah,0
-;.around:
-;		pushad
-;		push 	.error
-;		call 	printf
-;		add 	esp, 4
-;		popad
-;		mov     eax, [INT8_FRAME_COUNTER]
-;		inc 	dword [INT8_FRAME_COUNTER] ;;;; TEST
-;		retn   
+__GDECL(GET_FRAME_COUNTER) 
 	push 	ecx
 	push 	edx
 	call 	__GET_FRAME_COUNTER
@@ -764,73 +715,39 @@ __GDECL(GET_FRAME_COUNTER)
 	pop 	ecx
 	retn
 
-__GDECL(___60030h)
-	jmp		.around
-.error:	db 	"___60030h not implemented",0ah,0
-.around:
-	pushad
-	push 	.error
-	call 	printf
-	add 	esp, 4
-	popad
-	retn
-
 __GDECL(VGA3_SETMODE)
-	jmp		.around
-.error:	db 	"VGA3_SETMODE not implemented",0ah,0
-.around:
-	pushad
-	push 	.error
-	call 	printf
-	add 	esp, 4
-	popad
 	retn
 __GDECL(VGA13_SETMODE)
-	jmp		.around
-.error:	db 	"VGA13_SETMODE not implemented",0ah,0
-.around:
 	pushad
-	push 	.error
-	call 	printf
-	add 	esp, 4
 	call 	__VGA13_SETMODE
 	popad
 	retn
 
 
 __GDECL(DISPLAY_SET_PALETTE_COLOR)
-		mov 	[save_eax], eax
-		mov 	[save_ecx], ecx
-		mov 	[save_edx], edx
-		pop 	dword [save_esp]
-        call	__DISPLAY_SET_PALETTE_COLOR
-		push 	dword [save_esp]
-		mov 	edx, [save_edx]
-		mov 	ecx, [save_ecx]
-		mov 	eax, [save_eax]
-		ret     10h
-
-__GDECL(DISPLAY_SET_PALETTE_COLOR_NOUPDATE)
-		mov 	[save_eax], eax
-		mov 	[save_ecx], ecx
-		mov 	[save_edx], edx
-		pop 	dword [save_esp]
-        call	__DISPLAY_SET_PALETTE_COLOR_NOUPDATE
-		push 	dword [save_esp]
-		mov 	edx, [save_edx]
-		mov 	ecx, [save_ecx]
-		mov 	eax, [save_eax]
-		ret     10h
+	push 	edx
+	push 	ecx
+	push 	eax
+	push 	dword [esp+1ch]
+	push 	dword [esp+1ch]
+	push 	dword [esp+1ch]
+	push 	dword [esp+1ch]
+	call	__DISPLAY_SET_PALETTE_COLOR
+	add 	esp, 10h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+	ret 	10h
 
 __GDECL(VGA13_PRESENTSCREEN)
-		;pushad
-		;call 	__VGA13_PRESENTSCREEN
-		;popad
+		pushad
+		call 	__VGA13_PRESENTSCREEN__
+		popad
 		retn
 __GDECL(VESA101_PRESENTSCREEN)
-		;pushad
-		;call 	__VESA101_PRESENTSCREEN
-		;popad
+		pushad
+		call 	__VESA101_PRESENTSCREEN__
+		popad
 		retn
 
 __GDECL(POP_LAST_CHAR)
@@ -849,31 +766,15 @@ __GDECL(POP_LAST_KEY)
 		retn 
 
 __GDECL(getTimerTicks)
-		jmp		.around
-.error:	db 	"[FIX] getTimerTicks sufficient, however not correctly implemented",0ah,0
-.around:
-		pushad
-		push 	.error
-		call 	printf
-		add 	esp, 4
-		popad
-
-		push 	ecx
-		push 	edx
-		call 	__GET_TIMER_TICKS
-		pop 	edx
-		pop 	ecx
-
-		retn
+	push 	ecx
+	push 	edx
+	call 	__GET_TIMER_TICKS
+	pop 	edx
+	pop 	ecx
+	retn
 
 __GDECL(VESA101_SETMODE)
-	jmp		.around
-.error:	db 	"VESA101_SETMODE not implemented",0ah,0
-.around:
 	pushad
-	push 	.error
-	call 	printf
-	add 	esp, 4
 	call 	__VESA101_SETMODE
 	popad
 	retn
@@ -1039,58 +940,18 @@ __GDECL(VRETRACE_WAIT_IF_INACTIVE)
 		retn 
 
 __GDECL(IRQ0_TimerISR)
-;	jmp		.around
-;.error:	db 	"IRQ0_TimerISR not implemented",0ah,0
-;.around:
 		pushad
-;	push 	.error
-;	call 	printf
-;	add 	esp, 4
-
-		cmp     byte [___60447h], 1
-		jne     ___60799h
-		call    dword [___60450h]
-___60799h:
 		cmp     dword [___6045ch], byte 0
-		je      ___607d7h
+		je      ___607bdh
 		cmp     byte [___60441h], 0
 		jne     ___607bdh
 		call 	VRETRACE_WAIT_IF_INACTIVE
 ___607bdh:
-	;	mov     bx, [___60434h]
-	;	sub     bx, [___60444h]
-	;	mov     al, 30h
-	;	out     43h, al
-	;	mov     al, bl
-	;	out     40h, al
-	;	mov     al, bh
-	;	out     40h, al
-___607d7h:
-	;	mov     al, 20h
-	;	out     20h, al
 		inc     dword [INT8_FRAME_COUNTER]
-		;inc     dword [___6043ah]
-		;cmp     byte [___6043eh], 1
-		;je      ___60833h
-		;mov     byte [___6043eh], 1
-;		sti     
 		cmp     byte [___60446h], 1
 		jne     ___60807h
 		call    dword [___6044ch]
 ___60807h:
-		;cmp     byte [___60448h], 1
-		;jne     ___60816h
-		;call    dword [___60454h]
-___60816h:
-;		mov     ax, [___60434h]
-;		add     [___6043fh], ax
-;		jae     ___6082ch
-;		pushfd  
-;		call    far dword far [___60420h]
-;___6082ch:
-		;mov     byte [___6043eh], 0
-___60833h:
-
 		popad
 		retn 
 
@@ -1302,8 +1163,6 @@ __GDECL(atoi_)
 
 
 section .data
-rand_next:
-db 	1,0,0,0
 __IsTable:
 db	0,1,1,1,1,1,1,1,1,1,3,3,3,3,3,1
 db	1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1

@@ -1,17 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
-//#define SDL_MAIN_HANDLED
+#include <time.h>
 #include <SDL2/SDL.h>
 typedef struct textbit {
 	unsigned char 	ascii;
 	unsigned char 	fg:4;
 	unsigned char 	bg:4;
-
 } textbit;
 
-extern unsigned int INT8_FRAME_COUNTER;
+unsigned int INT8_FRAME_COUNTER = 0;
 extern unsigned int ___60458h;
-extern textbit B8000[];
+extern textbit * B800;
 extern unsigned char VGA13_ACTIVESCREEN[];
 extern unsigned char VESA101_ACTIVESCREEN[];
 
@@ -25,7 +24,6 @@ SDL_Renderer * GX_Renderer;
 SDL_Texture * GX_Texture;
 
 int dRally_main(int, char *[]);
-void __VGA13_PRESENTSCREEN(void);
 void IRQ0_TimerISR(void);
 void Scancodes_Init(void);
 void IO_Loop(void);
@@ -103,7 +101,7 @@ void __VRETRACE_WAIT_IF_INACTIVE(void){
 	if(VRetraceTicks > (FrameMs - 3)){
 		
 		SDL_Delay(FrameMs - VRetraceTicks);
-		//if(GX.ActiveMode == VGA13) __VGA13_PRESENTSCREEN();
+		//if(GX.ActiveMode == VGA13) __VGA13_PRESENTSCREEN__();
 	}
 */
 }
@@ -115,12 +113,13 @@ void __TIMER_SET_TIMER(void){
 
 unsigned int __GET_TIMER_TICKS(void){
 
-	unsigned int tticks = SDL_GetTicks();
+	time_t 		tmt;
+	struct tm 	ltm;
 
-	tticks /= 10000/182;
-	tticks %=  0x17fe80;
+	time(&tmt);
+	localtime_r(&tmt, &ltm);
 
-	return tticks;
+	return 1640625ULL*(3600*ltm.tm_hour+60*ltm.tm_min+ltm.tm_sec)/90112;
 }
 
 void __WAIT_5(void){
@@ -143,7 +142,7 @@ void __VGA3_PRESENTSCREEN(unsigned int n_lines){
 	for(i = 0; i < n_lines; i++){
 		for(j = 0; j < 80; j++){
 
-			tmp = B8000[80*i+j];
+			tmp = B800[80*i+j];
 			if(!isprint(tmp.ascii)) tmp.ascii = '*';
 
 			if(tmp.bg != tmp.fg) printf("%c", tmp.ascii);
@@ -169,45 +168,7 @@ void __VESA101_PRESENTSCREEN__(void){
 	SDL_DestroyTexture(GX_Texture);
 }
 
-void __VGA13_PRESENTSCREEN(void){
-/*
-    GX_Texture = SDL_CreateTextureFromSurface(GX_Renderer, GX.VGA13.Surface);
-	SDL_RenderCopy(GX_Renderer, GX_Texture, NULL, NULL);
-	SDL_RenderPresent(GX_Renderer);
-	SDL_DestroyTexture(GX_Texture);
-*/
-}
-
-void __VESA101_PRESENTSCREEN(void){
-/*
-    GX_Texture = SDL_CreateTextureFromSurface(GX_Renderer, GX.VESA101.Surface);
-	SDL_RenderCopy(GX_Renderer, GX_Texture, NULL, NULL);
-	SDL_RenderPresent(GX_Renderer);
-	SDL_DestroyTexture(GX_Texture);
-*/
-}
-
 void __DISPLAY_SET_PALETTE_COLOR(int b, int g, int r, int n){
-
-    SDL_Color col;
-
-    col.r = (r<<2)|(r>>4);
-    col.g = (g<<2)|(g>>4);
-    col.b = (b<<2)|(b>>4);
-
-	if(GX.ActiveMode == VGA13){
-		
-		SDL_SetPaletteColors(GX.VGA13.Surface->format->palette, &col, n, 1);
-		//if(n == 0xff) __VGA13_PRESENTSCREEN();
-	}
-	else if(GX.ActiveMode == VESA101){
-		
-		SDL_SetPaletteColors(GX.VESA101.Surface->format->palette, &col, n, 1);
-		//if(n == 0xff) __VESA101_PRESENTSCREEN();
-	}
-}
-
-void __DISPLAY_SET_PALETTE_COLOR_NOUPDATE(int b, int g, int r, int n){
 
     SDL_Color col;
 
@@ -229,9 +190,7 @@ void __VGA13_SETMODE(void){
 
 	if(GX.ActiveMode != VGA13){
 
-		GX.VGA13.Surface = SDL_CreateRGBSurfaceFrom(VGA13_ACTIVESCREEN,
-		                                  320, 200, 8, 320,
-		                                 	0, 0, 0, 0);
+		if(!GX.VGA13.Surface) GX.VGA13.Surface = SDL_CreateRGBSurfaceFrom(VGA13_ACTIVESCREEN, 320, 200, 8, 320, 0, 0, 0, 0);
 
 		if(!GX.Window){
 	
@@ -246,16 +205,9 @@ void __VGA13_SETMODE(void){
 
 			GX_Renderer = SDL_CreateRenderer(GX.Window, -1, SDL_RENDERER_SOFTWARE);
 		}
-		else {
-
-			SDL_SetWindowSize(GX.Window, 640, 480);
-		}
 					
-		//SDL_SetRenderDrawColor(GX_Renderer, 0, 0, 0, 255);	
-		//SDL_RenderClear(GX_Renderer);
 		SDL_RenderSetLogicalSize(GX_Renderer, 320, 200);
 		SDL_ShowWindow(GX.Window);
-		//SDL_RenderPresent(GX_Renderer);
 
 		GX.ActiveMode = VGA13;
 	}
@@ -265,9 +217,7 @@ void __VESA101_SETMODE(void){
 
 	if(GX.ActiveMode != VESA101){
 
-		GX.VESA101.Surface = SDL_CreateRGBSurfaceFrom(VESA101_ACTIVESCREEN,
-		                                  640, 480, 8, 640,
-		                                 	0, 0, 0, 0);
+		if(!GX.VESA101.Surface) GX.VESA101.Surface = SDL_CreateRGBSurfaceFrom(VESA101_ACTIVESCREEN, 640, 480, 8, 640, 0, 0, 0, 0);
 
 		if(!GX.Window){
 
@@ -282,16 +232,9 @@ void __VESA101_SETMODE(void){
 
 			GX_Renderer = SDL_CreateRenderer(GX.Window, -1, SDL_RENDERER_SOFTWARE);
 		}
-		else {
-			
-			SDL_SetWindowSize(GX.Window, 640, 480);
-		}
 		
-		//SDL_SetRenderDrawColor(GX_Renderer, 0, 0, 0, 255);
-		//SDL_RenderClear(GX_Renderer);
 		SDL_RenderSetLogicalSize(GX_Renderer, 640, 480);
 		SDL_ShowWindow(GX.Window);
-		//SDL_RenderPresent(GX_Renderer);
 
 		GX.ActiveMode = VESA101;
 	}
@@ -343,15 +286,14 @@ void __DISPLAY_GET_PALETTE_COLOR(unsigned char * dst, unsigned char n){
 
 int main(int argc, char * argv[]){
 
-	SDL_Init(SDL_INIT_VIDEO);
+	if(SDL_Init(SDL_INIT_VIDEO)){
+		
+		SDL_Log("Failed to init video subsystem: %s", SDL_GetError());
+	}
+	
 	SDL_DisableScreenSaver();
 
 	Scancodes_Init();
-
-	//result = FMOD_System_Create(&fmodex_system);
-    //ERRCHECK(result);
-	//result = FMOD_System_Init(fmodex_system, 32, FMOD_INIT_NORMAL, NULL);
-    //ERRCHECK(result);
 
 	dRally_main(argc, argv);
 

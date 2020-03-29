@@ -27,7 +27,15 @@ __GDECL(___30c60h)
 		mov     eax, 870h
 		mov     ecx, 870h
 		mov     esi, ___1a01e0h
-		call    near ___3f71ch__allocateMemory
+		
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___3f71ch__allocateMemory
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     ebx, eax
 		mov     edi, eax
 		mov     [esp], eax
@@ -94,7 +102,15 @@ ___30d47h:
 		mov     eax, 870h
 		mov     ecx, 870h
 		mov     esi, ___1a01e0h
-		call    near ___3f71ch__allocateMemory
+		
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___3f71ch__allocateMemory
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     ebx, eax
 		mov     edi, eax
 		mov     [esp+4], eax

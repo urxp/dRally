@@ -6,7 +6,7 @@ cpu 386
 	extern 	___12a54h
 	extern 	___24ec0h
 	extern 	___2fc50h
-	extern 	dRally_Audio____64a28h
+	extern 	dRally_Sound____64a28h
 	extern 	dRally_System_clean
 	extern 	___5a101h
 	extern 	VGA3_SETMODE
@@ -35,14 +35,22 @@ __GDECL(___1123ch)
 		push    ebx
 		push    ecx
 		push    edx
+
+	push 	edx
+	push 	ecx
+	push 	eax
 		call    near ___12200h
 		call    near ___12a54h
 		call    near ___24ec0h
 		call    near ___2fc50h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 	push 	eax
 	push 	ecx
 	push 	edx
-		call    near dRally_Audio____64a28h
+		call    near dRally_Sound____64a28h
 	pop 	edx
 	pop 	ecx
 	pop 	eax

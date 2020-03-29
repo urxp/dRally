@@ -236,7 +236,7 @@ cpu 386
 	extern	___183c80h
 	extern	___1a54d0h
 	extern	___1831f4h
-	extern	bpa_read_cdecl
+	extern	bpa_read
 	extern	bpk_decode2
 	extern	___183c8ch
 	extern	___183c98h
@@ -1021,7 +1021,15 @@ __GDECL(___48458h)
 		mov     [___196e70h], edx
 		call    near ___45ad4h
 ___48bc7h:
-		call    near ___58c60h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___58c60h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		inc     edx
 		call    near ___45b60h
 		cmp     edx, byte 3fh
@@ -1034,7 +1042,7 @@ ___48bc7h:
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    bpa_read_cdecl					;;
+		call    bpa_read					;;
 	add 	esp, 0ch
 	pop 	ecx
 
@@ -1050,7 +1058,7 @@ ___48bc7h:
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    bpa_read_cdecl					;;
+		call    bpa_read					;;
 	add 	esp, 0ch
 	pop 	ecx
 
@@ -1359,7 +1367,15 @@ ___48bc7h:
 		call    near ___45ad4h
 		xor     edx, edx
 ___49163h:
-		call    near ___58c60h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___58c60h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		inc     edx
 		call    near ___45c6ch
 		cmp     edx, byte 3fh
@@ -1388,7 +1404,15 @@ ___4918fh:
 		mov     [___196e70h], ecx
 		call    near ___45ad4h
 ___491b4h:
-		call    near ___58c60h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___58c60h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		inc     edx
 		call    near ___45b60h
 		cmp     edx, byte 3fh
@@ -1401,7 +1425,7 @@ ___491b4h:
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    bpa_read_cdecl					;;
+		call    bpa_read					;;
 	add 	esp, 0ch
 	pop 	ecx
 
@@ -1418,7 +1442,7 @@ ___491b4h:
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    bpa_read_cdecl					;;
+		call    bpa_read					;;
 	add 	esp, 0ch
 	pop 	ecx
 
@@ -1426,7 +1450,15 @@ ___491b4h:
 		call    near ___45ad4h
 		xor     edx, edx
 ___4920ah:
-		call    near ___58c60h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___58c60h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		inc     edx
 		call    near ___45c6ch
 		cmp     edx, byte 3fh
@@ -1455,7 +1487,15 @@ ___49236h:
 		mov     [___196e70h], edi
 		call    near ___45ad4h
 ___4925bh:
-		call    near ___58c60h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___58c60h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		inc     edx
 		call    near ___45b60h
 		cmp     edx, byte 3fh
@@ -1474,7 +1514,15 @@ ___4925bh:
 		mov     [___196e70h], ebp
 		call    near ___45ad4h
 ___492b8h:
-		call    near ___58c60h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___58c60h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		inc     edx
 		call    near ___45c6ch
 		cmp     edx, byte 3fh

@@ -12,6 +12,7 @@ cpu 386
 section .text
 
 __GDECL(___596f0h)
+	pushad
 		push    4
 		call    near __CHK
 		cmp     dword [___19bd58h], byte 0
@@ -22,4 +23,5 @@ __GDECL(___596f0h)
 		mov     eax, [___24388ch]
 		mov     [___243884h], eax
 ___5971ch:
+	popad
 		retn    

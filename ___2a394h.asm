@@ -4,11 +4,9 @@ cpu 386
 	extern	__CHK
 	extern	___1a1edch
 	extern	___19df50h
-	extern	___19df54h
-	extern	___19df58h
 	extern	DISPLAY_SET_PALETTE_COLOR
 	extern	___1a1ecch
-    ;extern 	VESA101_PRESENTSCREEN
+   ;extern 	VESA101_PRESENTSCREEN
 
 section .text
 
@@ -40,7 +38,7 @@ ___2a3b2h:
 		mov     edx, [___1a1edch]
 		push    eax
 		shl     edx, 10h
-		mov     eax, [esi+___19df54h]
+		mov     eax, [esi+___19df50h+4]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -51,7 +49,7 @@ ___2a3b2h:
 		mov     edx, [___1a1edch]
 		push    eax
 		shl     edx, 10h
-		mov     eax, [esi+___19df58h]
+		mov     eax, [esi+___19df50h+8]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0

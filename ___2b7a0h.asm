@@ -52,7 +52,15 @@ __GDECL(___2b7a0h)
 		movsd   
 		movsd   
 		movsb   
-		call    near ___2415ch
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2415ch
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		mov     [___185a90h], edx
 		mov     [___243d44h], ebp
 		pop     ebp

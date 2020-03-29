@@ -132,7 +132,15 @@ ___1da4fh:
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
 		call    near ___12e78h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 		push    byte 0
 		push    byte 1
 		push    byte 0
@@ -155,7 +163,15 @@ ___1da4fh:
 		mov     [CONNECTION_TYPE], ecx
 		mov     [___199fach], esi
 		mov     ebx, [eax*4+___1a020ch]
-		call    near ___2415ch
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2415ch
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		mov     edx, [___1a1ef8h]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
@@ -236,7 +252,15 @@ ___1db77h:
 		add     edx, byte 1ah
 		mov     esi, ___180f80h
 		call    near ___13bd4h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 		mov     dl, 0dh
 		movsd   
 		movsd   
@@ -312,7 +336,15 @@ ___1ddcdh:
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
 		call    near ___12e78h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 		mov     ecx, 0ffffffffh
 ___1de18h:
 		test    ecx, ecx
@@ -346,7 +378,15 @@ ___1de3bh:
 		mov     eax, [___1a1108h]
 		mov     esi, ___180fb0h
 		call    near ___12e78h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 		movsw   
 		movsb   
 		lea     esi, [esp+6ch]
@@ -384,7 +424,15 @@ ___1dee8h:
 		mov     eax, [___1a1108h]
 		mov     esi, ___180fb0h
 		call    near ___12e78h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 		movsw   
 		movsb   
 		lea     esi, [esp+6ch]
@@ -434,7 +482,13 @@ ___1dfdfh:
 		je      short ___1e03bh
 		cmp     ebx, byte 1
 		jne     short ___1e03bh
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 		mov     dword [esp+44h], 0ah
 		mov     cl, al
 		mov     edx, esi
@@ -480,7 +534,13 @@ ___1e049h:
 ___1e071h:
 		call    near ___623d4h
 ___1e076h:
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 		call    near ___59b3ch
 		add     esp, byte 70h
 		pop     ebp

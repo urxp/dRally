@@ -28,7 +28,7 @@ cpu 386
 	extern	___1843aah
 	extern	___243ca8h
 	extern	___1e6ef0h
-	extern	rand_
+	extern	rand_watcom106
 	extern	___1843b2h
 	extern	___1e6fd4h
 	extern	___1e7222h
@@ -227,7 +227,13 @@ ___54699h:
 		mov     eax, [___243ca8h]
 		test    byte [edx+eax*4+___1e6ef0h], 1
 		je      short ___548e3h
-		call    near rand_
+
+	push 	edx
+	push 	ecx
+		call    rand_watcom106
+	pop 	ecx
+	pop 	edx
+
 		mov     [esp+11ch], eax
 		fild    dword [esp+11ch]
 		fmul    qword [___1843b2h]
@@ -238,7 +244,13 @@ ___54699h:
 		fstp    st1
 		fstp    dword [edx+___1e6fd4h]
 		imul    edx, eax, 35eh
-		call    near rand_
+
+	push 	edx
+	push 	ecx
+		call    rand_watcom106
+	pop 	ecx
+	pop 	edx
+
 		mov     [esp+11ch], eax
 		fild    dword [esp+11ch]
 		fmul    qword [___1843b2h]

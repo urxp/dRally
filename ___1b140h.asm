@@ -35,7 +35,7 @@ cpu 386
 	extern 	___1854b0h
 	extern 	___24cc54h
 	extern 	___1854ach
-	extern 	dRally_Audio_pushSoundEffect
+	extern 	dRally_Sound_pushEffect
 	extern 	atoi_
 	extern 	___185a54h
 	extern 	___185a14h
@@ -84,7 +84,15 @@ __GDECL(___1b140h)
 		mov     edx, 50h
 		mov     eax, 64h
 		mov     ebx, 60h
-		call    near ___3f71ch__allocateMemory
+		
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___3f71ch__allocateMemory
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		xor     ecx, ecx
 		mov     [esp+10h], edx
 		mov     [esp], ecx
@@ -143,7 +151,15 @@ ___1b1f0h:
 		mov     edx, 173h
 		xor     eax, eax
 		call    near ___135fch
-		call    near ___23230h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___23230h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		xor     edx, edx
 		xor     eax, eax
 		call    near ___13710h
@@ -161,7 +177,15 @@ ___1b1f0h:
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10cch]
 		call    near ___12e78h
-		call    near ___12cb8h__VESA101_PRESENTSCREEN
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___12cb8h__VESA101_PRESENTSCREEN
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 		mov     eax, [___24e4ach]
 		mov     dx, [eax+2]
 		mov     [eax], dx
@@ -385,7 +409,13 @@ ___1b4b9h:
 		inc     esi
 		cmp     esi, byte 46h
 		jl      near ___1b279h
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 		call    near ___59b3ch
 		mov     eax, [___24e4ach]
 		mov     dx, [eax+2]
@@ -686,7 +716,13 @@ ___1b7e9h:
 ___1b7ebh:
 		cmp     esi, byte 1
 		je      near ___1b6e3h
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 		and     eax, 0ffh
 		mov     [esp+1ch], eax
 		cmp     eax, byte 50h
@@ -774,7 +810,7 @@ ___1b8cbh:
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    dRally_Audio_pushSoundEffect
+		call    dRally_Sound_pushEffect
 	add 	esp, 18h
 		mov     eax, [esp+14h]
 		add     eax, byte 0bh
@@ -919,7 +955,7 @@ ___1bb0bh:
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    dRally_Audio_pushSoundEffect
+		call    dRally_Sound_pushEffect
 	add 	esp, 18h
 ___1bb10h:
 		cmp     dword [esp+1ch], byte 1
@@ -945,7 +981,13 @@ ___1bb42h:
 		xor     edx, edx
 		mov     ecx, 390a3h
 		call    near memset_
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 		call    near ___59b3ch
 		mov     ebx, ___1807cch
 		mov     eax, ebp
@@ -959,7 +1001,15 @@ ___1bb42h:
 		mov     eax, [___1a1108h]
 		mov     ebp, [esp]
 		call    near ___12e78h
-		call    near ___23230h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___23230h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		test    ebp, ebp
 		je      short ___1bc14h
 		call    near ___61278h
@@ -980,7 +1030,15 @@ ___1bbd1h:
 		cmp     edx, byte 2
 		jne     short ___1bbfah
 		mov     eax, ___10754h
-		call    near ___60705h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___60705h
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 ___1bbfah:
 		mov     eax, [___185a54h]
 		mov     ebx, 1

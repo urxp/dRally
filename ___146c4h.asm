@@ -18,9 +18,14 @@ cpu 386
 	extern 	___23758h
 	extern 	___14010h
 	extern 	___14368h
-	extern 	dRally_Audio_pushSoundEffect
+	extern 	dRally_Sound_pushEffect
 
 section .text
+
+__GDECL(___146c4h_cdecl)
+	mov 	eax, [esp+4]
+	call	___146c4h
+	retn
 
 __GDECL(___146c4h)
 		push    28h
@@ -47,7 +52,13 @@ ___146efh:
 		call    near ___2ab50h
 		mov     eax, esi
 		call    near ___13a98h
-		call    near ___5994ch
+
+	push 	edx
+	push 	ecx
+		call    ___5994ch
+	pop 	ecx
+	pop 	edx
+
 		mov     dl, al
 		test    esi, esi
 		jne     short ___14731h
@@ -164,7 +175,7 @@ ___148a4h:
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    dRally_Audio_pushSoundEffect
+		call    dRally_Sound_pushEffect
 	add 	esp, 18h
 ___148a9h:
 		cmp     ebp, byte 0fffffffeh
