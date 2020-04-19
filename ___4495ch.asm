@@ -18,7 +18,15 @@ __GDECL(___4495ch)
 		call    near __CHK
 		push    ebx
 		push    edx
-		call    near ___61278h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___61278h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		mov     eax, [___24e4ach]
 		mov     word [eax], 0
 		mov     dx, [eax]

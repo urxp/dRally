@@ -105,11 +105,25 @@ ___1e598h:
 ___1e5c2h:
 		cmp     dword [CONNECTION_TYPE], byte 2
 		jne     short ___1e61ch
-		call    near ___623d4h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___623d4h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		xor     ecx, ecx
 		mov     edx, [___199f9ch]
 		mov     [___199f9ch], ecx
-		call    near ___61cd0h
+
+	push 	edx
+	push 	ecx
+		call    ___61cd0h
+	pop 	ecx
+	pop 	edx
+
 		test    eax, eax
 		jne     short ___1e5ech
 		call    near ___1123ch
@@ -133,7 +147,14 @@ ___1e603h:
 		cmp     dword [CONNECTION_TYPE], byte 2
 		jne     short ___1e61ch
 		xor     eax, eax
-		call    near ___63b20h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___63b20h
+	add 	esp, 8
+	pop  	ecx
+
 ___1e61ch:
 		mov     dword [___19bd60h], 1
 		pop     edi

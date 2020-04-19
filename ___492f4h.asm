@@ -36,7 +36,15 @@ __GDECL(___492f4h)
 		add     esp, byte 4
 		test    edx, edx
 		je      short ___4932ch
-		call    near ___623d4h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___623d4h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 ___4932ch:
 		mov     eax, 70h
 		call    near exit_

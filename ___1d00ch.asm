@@ -135,8 +135,24 @@ ___1d116h:
 	pop		ecx
 	pop		edx
 
-		call    near ___61278h
-		call    near ___623d4h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___61278h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___623d4h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		movsd   
 		movsd   
 		movsd   
@@ -231,7 +247,13 @@ ___1d21eh:
 		sub     edx, ebx
 		mov     [edx*4+___1a020ch], ecx
 		call    near ___2b5f0h
-		call    near ___1caf4h
+
+	push 	edx
+	push 	ecx
+		call    ___1caf4h
+	pop 	ecx
+	pop 	edx
+	
 		test    eax, eax
 		je      short ___1d29fh
 		mov     edi, ___186aa0h

@@ -83,20 +83,50 @@ __GDECL(___44194h)
 		add     eax, eax
 		add     edx, eax
 		mov     [esp+0ch], edx
-		call    near ___60a84h
+
+	push 	eax
+	push 	ecx
+	push 	edx
+		call    ___60a84h
+	pop 	edx
+	pop 	ecx
+	pop 	eax
+
 ___44274h:
 		mov     eax, 2
 		mov     ecx, 0ah
-		call    near ___60a28h
+	
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___60a28h
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     eax, 1
 		mov     ebx, [___24e4b4h]
 		mov     edx, [___243cf4h]
-		call    near ___60b60h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___60b60h
+	add 	esp, 10h
+
 		cmp     eax, dword 0ffh
 		jne     short ___44274h
 		mov     edx, esp
 		mov     eax, 0ah
-		call    near ___611c0h
+	
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___611c0h
+	add 	esp, 8
+	pop 	ecx
+
 		mov     eax, [___24e4ach]
 		mov     word [eax], 0
 		mov     word [eax+2], 0

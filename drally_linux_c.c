@@ -2,11 +2,23 @@
 #include <stdlib.h>
 #include <time.h>
 #include <SDL2/SDL.h>
+
+#pragma pack(1)
+
+struct dostime_t {
+    unsigned char   hour;       /* 0-23 */
+    unsigned char   minute;     /* 0-59 */
+    unsigned char   second;     /* 0-59 */
+    unsigned char   hsecond;    /* 1/100 second; 0-99 */
+};
 typedef struct textbit {
 	unsigned char 	ascii;
 	unsigned char 	fg:4;
 	unsigned char 	bg:4;
 } textbit;
+
+
+struct tm TimeInit;
 
 unsigned int INT8_FRAME_COUNTER = 0;
 extern unsigned int ___60458h;
@@ -121,6 +133,23 @@ unsigned int __GET_TIMER_TICKS(void){
 
 	return 1640625ULL*(3600*ltm.tm_hour+60*ltm.tm_min+ltm.tm_sec)/90112;
 }
+
+
+void _dos_gettime(struct dostime_t * __time){
+
+	Uint32 now;
+
+	now = SDL_GetTicks();
+	__time->hsecond = (now%1000)/10;
+	now /= 1000;
+	now += 3600*TimeInit.tm_hour+60*TimeInit.tm_min+TimeInit.tm_sec;
+    __time->second = now%60;
+	now /= 60;
+    __time->minute = now%60;
+	now /= 60;
+    __time->hour = now%24;
+}
+
 
 void __WAIT_5(void){
 
@@ -286,13 +315,17 @@ void __DISPLAY_GET_PALETTE_COLOR(unsigned char * dst, unsigned char n){
 
 int main(int argc, char * argv[]){
 
+	time_t 		tmt;
+
 	if(SDL_Init(SDL_INIT_VIDEO)){
 		
 		SDL_Log("Failed to init video subsystem: %s", SDL_GetError());
 	}
-	
-	SDL_DisableScreenSaver();
 
+	time(&tmt);
+	localtime_r(&tmt, &TimeInit);
+
+	SDL_DisableScreenSaver();
 	Scancodes_Init();
 
 	dRally_main(argc, argv);
@@ -350,3 +383,24 @@ void save_xm(void * src, unsigned int size, const char * name){
 	fclose(fd);
 }
 
+char * strupr(char * s){
+
+	char * 	ecx;
+	char * 	edx;
+	char 	eax, ebx;
+
+		edx = s;
+L1:
+		eax = *edx;
+		if(eax == 0) goto L3;
+		eax -= 0x61;
+		ebx = eax;
+		if(ebx > 0x19) goto L2;
+		eax += 0x41;
+		*edx = eax;
+L2:
+		edx++;
+		goto L1;
+L3:
+	return s;
+}

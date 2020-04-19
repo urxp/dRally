@@ -10,7 +10,15 @@ section .text
 __GDECL(___1f0dch)
 		push    4
 		call    near __CHK
-		call    near ___61b88h
+	
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___61b88h
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		test    eax, eax
 		jne     short ___1f0fch
 		mov     eax, 1

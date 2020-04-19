@@ -2,7 +2,8 @@
 *.kdev4
 dRally
 drally_linux
-serial16.bin
+ipxnet/*.o
+ipxnet/ipxnet
 *.le
 *.exe
 *.err

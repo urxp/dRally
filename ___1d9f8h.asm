@@ -89,7 +89,15 @@ __GDECL(___1d9f8h)
 ___1da2dh:
 		call    near ___1d83ch
 		mov     eax, [___199fa4h]
-		call    near ___61b88h
+	
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___61b88h
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		test    eax, eax
 		jne     short ___1da4fh
 		call    near ___1ca00h
@@ -179,7 +187,13 @@ ___1da4fh:
 		sub     eax, edx
 		mov     [eax*4+___1a020ch], ebx
 		call    near ___2b5f0h
-		call    near ___61cd0h
+
+	push 	edx
+	push 	ecx
+		call    ___61cd0h
+	pop 	ecx
+	pop 	edx
+
 		test    eax, eax
 		jne     short ___1db77h
 		call    near ___1123ch
@@ -286,8 +300,23 @@ ___1dcd5h:
 		call 	__STRCAT
 		lea     eax, [esp+28h]
 		xor     ebx, ebx
-		call    near ___631d4h
-		call    near ___63228h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___631d4h
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___63228h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		mov     dh, [___59e11h]
 		mov     ecx, 0ffffffffh
 		test    dh, dh
@@ -352,7 +381,15 @@ ___1de18h:
 		dec     ecx
 ___1de1dh:
 		mov     eax, ___180f94h
-		call    near ___63244h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___63244h
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		test    eax, eax
 		je      near ___1decah
 		xor     ecx, ecx
@@ -394,11 +431,35 @@ ___1de3bh:
 		call 	__STRCAT
 		lea     eax, [esp+28h]
 		mov     ecx, 2dh
-		call    near ___631d4h
-		call    near ___63228h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___631d4h
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___63228h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 ___1decah:
 		mov     eax, ___180fb4h
-		call    near ___63244h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___63244h
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		test    eax, eax
 		je      near ___1df77h
 		xor     ecx, ecx
@@ -440,16 +501,48 @@ ___1dee8h:
 		call 	__STRCAT
 		lea     eax, [esp+28h]
 		mov     ecx, 2dh
-		call    near ___631d4h
-		call    near ___63228h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___631d4h
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___63228h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 ___1df77h:
 		mov     eax, ___180fdch
-		call    near ___63244h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___63244h
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     ebx, eax
 		test    eax, eax
 		jne     short ___1df93h
 		mov     eax, ___180fe4h
-		call    near ___63244h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___63244h
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     ebx, eax
 ___1df93h:
 		call    near ___2ab50h
@@ -460,7 +553,15 @@ ___1df93h:
 		cmp     byte [___59e11h], 0
 		je      near ___1ddb5h
 ___1dfb7h:
-		call    near ___60a84h
+
+	push 	eax
+	push 	ecx
+	push 	edx
+		call    ___60a84h
+	pop 	edx
+	pop 	ecx
+	pop 	eax
+
 		mov     ah, [___59e11h]
 		xor     edi, edi
 		xor     esi, esi
@@ -500,7 +601,14 @@ ___1dfdfh:
 		mov     eax, [___199fa0h]
 		mov     edx, 2
 		add     eax, byte 6
-		call    near ___60b48h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___60b48h
+	add 	esp, 8
+	pop 	ecx
+
 		mov     edi, eax
 ___1e023h:
 		call    near ___2ab50h
@@ -515,16 +623,37 @@ ___1e03bh:
 		je      short ___1e049h
 		xor     edx, edx
 		xor     eax, eax
-		call    near ___611c0h
+	
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___611c0h
+	add 	esp, 8
+	pop 	ecx
+
 ___1e049h:
-		call    near ___61278h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___61278h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		cmp     cl, 1
 		je      short ___1e071h
 		mov     edi, ___186b04h
 		xor     dl, dl
 		mov     esi, ___180fech
 		mov     [___185b70h], dl
-		call    near ___1caf4h
+
+	push 	edx
+	push 	ecx
+		call    ___1caf4h
+	pop 	ecx
+	pop 	edx
+	
 		movsd   
 		movsd   
 		movsd   
@@ -532,7 +661,15 @@ ___1e049h:
 		movsb   
 		jmp     short ___1e076h
 ___1e071h:
-		call    near ___623d4h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___623d4h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 ___1e076h:
 
 	push 	edx
@@ -551,7 +688,15 @@ ___1e076h:
 		pop     ebx
 		retn    
 ___1e08ah:
-		call    near ___623d4h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___623d4h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 ___1e08fh:
 		add     esp, byte 70h
 		pop     ebp

@@ -1089,7 +1089,15 @@ ___33ce6h:
 		mov     dl, [___1a1ef8h]
 		mov     [___1a0f9ch], eax
 		mov     [eax], dl
-		call    near ___60a84h
+
+	push 	eax
+	push 	ecx
+	push 	edx
+		call    ___60a84h
+	pop 	edx
+	pop 	ecx
+	pop 	eax
+
 		mov     edi, 1
 ___33dbah:
 		cmp     dword [___196a84h], byte 0
@@ -1109,7 +1117,14 @@ ___33dbah:
 		mov     edx, [___196adch]
 		add     ebx, ___1a01e0h
 		mov     eax, edi
-		call    near ___60b60h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___60b60h
+	add 	esp, 10h
+
 		mov     [esp+0d0h], eax
 ___33e0fh:
 		mov     ebx, 384h
@@ -1132,7 +1147,14 @@ ___33e4ah:
 		lea     edx, [esp+98h]
 		mov     eax, 6ch
 		mov     ebx, [esp+0d0h]
-		call    near ___611c0h
+	
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___611c0h
+	add 	esp, 8
+	pop 	ecx
+
 		cmp     ebx, 0ffh
 		jne     short ___33e6fh
 		call    near ___3881ch

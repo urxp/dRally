@@ -155,7 +155,15 @@ ___2ac47h:
 ___2acebh:
 		cmp     dword [___19bd60h], byte 0
 		je      near ___2b30bh
-		call    near ___6168ch
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___6168ch
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		mov     edx, 1
 		mov     eax, esp
 		call    near ___23594h

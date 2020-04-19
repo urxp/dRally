@@ -251,7 +251,15 @@ __GDECL(___44304h)
 		mov     ecx, 1
 		mov     [eax], di
 		mov     [___243cd0h], ecx
-		call    near ___618c4h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___618c4h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		cmp     dword [___243cach], byte 0
 		jle     short ___44653h
 		xor     edi, edi

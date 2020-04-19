@@ -108,7 +108,14 @@ __GDECL(___1c6bch)
 	pop 	ecx
 	pop 	eax
 
-		call    near ___60a84h
+	push 	eax
+	push 	ecx
+	push 	edx
+		call    ___60a84h
+	pop 	edx
+	pop 	ecx
+	pop 	eax
+
 		mov     [esp+10h], edx
 		mov     esi, 4
 ___1c73eh:
@@ -123,7 +130,14 @@ ___1c73eh:
 		jne     short ___1c76ch
 		mov     edx, [___196adch]
 		mov     eax, esi
-		call    near ___60b48h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___60b48h
+	add 	esp, 8
+	pop 	ecx
+
 		mov     ebx, eax
 ___1c76ch:
 		inc     dword [esp+10h]
@@ -131,7 +145,14 @@ ___1c76ch:
 		jne     short ___1c73eh
 		xor     edx, edx
 		xor     eax, eax
-		call    near ___611c0h
+	
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___611c0h
+	add 	esp, 8
+	pop 	ecx
+
 		mov     edx, eax
 		mov     [___1a103ch], eax
 		mov     eax, [___1a1ef8h]
@@ -203,7 +224,15 @@ ___1c863h:
 		mov     [esp+4], esi
 		mov     [esp+8], edi
 		mov     [esp+0ch], ebp
-		call    near ___60a84h
+
+	push 	eax
+	push 	ecx
+	push 	edx
+		call    ___60a84h
+	pop 	edx
+	pop 	ecx
+	pop 	eax
+
 		mov     [esp+10h], ebx
 		mov     edi, 6ch
 		mov     esi, 1
@@ -222,7 +251,14 @@ ___1c8bah:
 		mov     eax, esi
 		mov     edx, [___196adch]
 		add     ebx, ___1a01e0h
-		call    near ___60b60h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___60b60h
+	add 	esp, 10h
+
 		mov     ebx, eax
 ___1c8f2h:
 		inc     dword [esp+10h]
@@ -232,7 +268,14 @@ ___1c8f2h:
 		mov     eax, 6ch
 		mov     ebx, ___1a116ch
 		xor     esi, esi
-		call    near ___611c0h
+	
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___611c0h
+	add 	esp, 8
+	pop 	ecx
+
 		mov     [esp+10h], esi
 		lea     edx, [ebx+96h]
 ___1c91bh:

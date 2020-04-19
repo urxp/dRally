@@ -87,8 +87,24 @@ __GDECL(___1d688h)
 
 		mov     eax, esp
 		xor     esi, esi
-		call    near ___631d4h
-		call    near ___63228h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___631d4h
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___63228h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		xor     ebx, ebx
 		mov     edi, ___180d40h
 		xor     ecx, ecx
@@ -98,12 +114,28 @@ ___1d78dh:
 		cmp     cl, [___59e11h]
 		jne     short ___1d7d4h
 		mov     eax, edi
-		call    near ___63244h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___63244h
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     esi, eax
 		test    eax, eax
 		jne     short ___1d7b2h
 		mov     eax, ___180d44h
-		call    near ___63244h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___63244h
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     esi, eax
 ___1d7b2h:
 		call    near ___2ab50h

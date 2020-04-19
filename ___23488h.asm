@@ -9,10 +9,15 @@ cpu 386
 section .text
 
 __GDECL(___23488h_cdecl)
-	mov 	ebx, [esp+0ch]
-	mov 	edx, [esp+8]
-	mov 	eax, [esp+4]
+
+	push 	ebx
+
+	mov 	ebx, [esp+10h]
+	mov 	edx, [esp+0ch]
+	mov 	eax, [esp+8]
 	call 	___23488h
+
+	pop 	ebx
 	retn
 
 __GDECL(___23488h)
@@ -98,7 +103,15 @@ ___23520h:
 		inc     esi
 		mov     [___24e4c0h], edi
 		mov     [edi], si
-		call    near ___6168ch
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___6168ch
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		mov     edi, [___24e4c0h]
 ___23587h:
 		mov     [___24e4c0h], edi

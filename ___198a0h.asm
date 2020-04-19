@@ -1137,12 +1137,34 @@ ___1a6b1h:
 		call    near ___3f77ch__freeMemory
 		mov     eax, ebp
 		call    near ___3f77ch__freeMemory
-		call    near ___61278h
-		call    near ___623d4h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___61278h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___623d4h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		mov     eax, [esp+0d8h]
 		inc     eax
 		mov     [___199f9ch], eax
-		call    near ___61cd0h
+
+	push 	edx
+	push 	ecx
+		call    ___61cd0h
+	pop 	ecx
+	pop 	edx
+
 		test    eax, eax
 		jne     short ___1a883h
 		call    near ___1123ch

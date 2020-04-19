@@ -22,20 +22,58 @@ __GDECL(___44130h)
 		push    ebx
 		push    edx
 		mov     ebx, eax
-		call    near ___60a84h
+
+	push 	eax
+	push 	ecx
+	push 	edx
+		call    ___60a84h
+	pop 	edx
+	pop 	ecx
+	pop 	eax
+
 ___44143h:
 		mov     eax, 2
-		call    near ___60a28h
+	
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___60a28h
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     edx, [___243cf4h]
 		mov     eax, ebx
-		call    near ___60b48h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___60b48h
+	add 	esp, 8
+	pop 	ecx
+
 		cmp     al, 0ffh
 		jne     short ___44143h
 		xor     edx, edx
 		xor     eax, eax
-		call    near ___611c0h
+	
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___611c0h
+	add 	esp, 8
+	pop 	ecx
+
 		xor     edx, edx
-		call    near ___61278h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___61278h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		mov     [___243874h], edx
 		mov     [___243898h], edx
 		mov     [___243894h], edx

@@ -1,6 +1,9 @@
 cpu 386
 %include "macros.inc"
 
+	extern	my_int386x
+	extern 	my_int386
+
     extern 	main_
     extern  printf
 	extern 	fscanf
@@ -498,27 +501,27 @@ __GDECL(strncmp_)
 
 
 __GDECL(int386x_)
-	jmp		.around
-.error:	db 	"int386x_ not implemented",0ah,0
-.around:
-	pushad
-	push 	.error
-	call 	printf
-	add 	esp, 4
-	popad
-	retn
-__GDECL(int386_)
-	jmp		.around
-.error:	db 	"int386_ not implemented",0ah,0
-.around:
-	push 	edx
 	push 	ecx
-	push 	.error
-	call 	printf
-	add 	esp, 4
-	pop 	ecx
-	pop 	edx
+	push 	ebx
+	push 	edx
+	push 	eax
+	call 	my_int386x
+	add 	esp, 10h
 	retn
+
+
+
+__GDECL(int386_)
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+	call 	my_int386
+	add 	esp, 0ch
+	pop 	ecx
+	retn
+
+
 __GDECL(toupper_)
 	jmp		.around
 .error:	db 	"toupper_ not implemented",0ah,0
@@ -633,12 +636,7 @@ __GDECL(vsprintf_)
 	add 	esp, 4
 	retn
 __GDECL(__GETDS)
-	jmp		.around
-.error:	db 	"__GETDS not implemented",0ah,0
-.around:
-	push 	.error
-	call 	printf
-	add 	esp, 4
+	mov 	eax, ds
 	retn
 __GDECL(strcpy_)
 	jmp		.around

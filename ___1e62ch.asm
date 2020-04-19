@@ -107,8 +107,24 @@ __GDECL(___1e62ch)
 		mov     esi, 2
 		mov     [___185b6bh], bl
 		mov     [___185aach], esi
-		call    near ___61278h
-		call    near ___623d4h
+	
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___61278h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___623d4h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		cmp     edx, byte 1
 		jne     near ___1e813h
 		mov     ebx, ___1a116ch

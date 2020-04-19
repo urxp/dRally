@@ -26,6 +26,48 @@ typedef void *              pointer;
 FILE * strup_fopen(const char * file_name, const char * mode);
 
 
+#define sES 0
+#define sCS 2
+#define sSS 4
+#define sDS 6
+#define sFS 8
+#define sGS 0xa
+
+#define __ES(base)  W(base + sES)
+#define __CS(base)  W(base + sCS)
+#define __SS(base)  W(base + sSS)
+#define __DS(base)  W(base + sDS)
+#define __FS(base)  W(base + sFS)
+#define __GS(base)  W(base + sGS)
+
+#define rEAX    0
+#define rEBX    4
+#define rECX    8
+#define rEDX    0xc
+#define rESI    0x10
+#define rEDI    0x14
+#define rCF     0x18
+
+#define __EAX(base) D(base + rEAX)
+#define __AX(base)  W(base + rEAX)
+#define __AL(base)  B(base + rEAX)
+#define __EBX(base) D(base + rEBX)
+#define __BX(base)  W(base + rEBX)
+#define __BL(base)  B(base + rEBX)
+#define __ECX(base) D(base + rECX)
+#define __CX(base)  W(base + rECX)
+#define __CL(base)  B(base + rECX)
+#define __EDX(base) D(base + rEDX)
+#define __DX(base)  W(base + rEDX)
+#define __DL(base)  B(base + rEDX)
+#define __ESI(base) D(base + rESI)
+#define __SI(base)  W(base + rESI)
+#define __EDI(base) D(base + rEDI)
+#define __DI(base)  W(base + rEDI)
+#define __CF(base)  D(base + rCF)
+
+
+
 
 
 typedef double  m64fp;

@@ -39,7 +39,7 @@ struct {
 	unsigned int 	size;
 } DOS_MEM[DOS_MEM_POOL] = {{0}};
 
-unsigned int DPMI_ALLOCATE_DOS_MEMORY_BLOCK(dword size, word * sel){
+unsigned int DPMI_ALLOCATE_DOS_MEMORY_BLOCK(dword size, dword * sel){
 	
 	unsigned int idx = 0;
 

@@ -19,7 +19,14 @@ __GDECL(___10754h)
 		jne     short ___10781h
 		mov     eax, 1
 		mov     edx, [___199f9ch]
-		call    near ___63b20h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___63b20h
+	add 	esp, 8
+	pop  	ecx
+
 ___10781h:
 		pop     edx
 		retn    

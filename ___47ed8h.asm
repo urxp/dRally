@@ -1,6 +1,8 @@
 cpu 386
 %include "macros.inc"
 
+	extern 	VGA13_ACTIVESCREEN
+
 	extern	__CHK
 	extern 	__MOVS
 	extern	___24387ch
@@ -140,7 +142,8 @@ ___47fb2h:
 		mov     edi, [___2432d8h]
 		rep movsd   
 		mov     ecx, 3e80h
-		mov     edi, 0a0000h
+		;mov     edi, 0a0000h
+		mov 	edi, VGA13_ACTIVESCREEN
 		mov     esi, [___2432d8h]
 		rep movsd   
 		mov     eax, 5
@@ -252,7 +255,8 @@ ___48103h:
 
 		mov     ecx, 2a80h
 		mov     esi, [___2432d8h]
-		mov     edi, 0a5000h
+		;mov     edi, 0a5000h
+		mov 	edi, VGA13_ACTIVESCREEN+5000h
 		add     esi, 5000h
 		rep movsd   
 		mov     ecx, 2a80h
@@ -394,7 +398,8 @@ ___482bbh:
 		mov     eax, 5
 		push    28000h
 		xor     ebx, ebx
-		mov     ebp, 0a0000h
+		;mov     ebp, 0a0000h
+		mov 	ebp, VGA13_ACTIVESCREEN
 	push 	ecx
 	push 	ebx
 	push 	edx
@@ -438,7 +443,8 @@ ___482fah:
 ___48353h:
 		mov     eax, 5
 		mov     ecx, 3e80h
-		mov     edi, 0a0000h
+		;mov     edi, 0a0000h
+		mov 	edi, VGA13_ACTIVESCREEN
 		push 	edx
 	push 	ecx
 	push 	eax

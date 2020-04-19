@@ -7,7 +7,7 @@ cpu 386
 	extern 	__STRCPY
 	extern 	__STRLEN
 	extern	CONNECTION_TYPE
-	extern	IPX_CHECK
+	extern	NovellNetWare_IPX_InstallationCheck
 	extern	___1a1138h__VESA101h_DefaultScreenBufferB
 	extern	___1a112ch__VESA101_ACTIVESCREEN_PTR
 	extern	___13710h
@@ -78,7 +78,7 @@ __GDECL(___1caf4h)
 	
 	push 	edx
 	push 	ecx
-		call    near IPX_CHECK
+		call    near NovellNetWare_IPX_InstallationCheck
 	pop 	ecx
 	pop 	edx
 	
@@ -153,7 +153,13 @@ ___1cbdah:
 		jne     near ___1cffdh
 		cmp     dword [CONNECTION_TYPE], byte 2
 		jne     short ___1cbf9h
-		call    near ___61cd0h
+
+	push 	edx
+	push 	ecx
+		call    ___61cd0h
+	pop 	ecx
+	pop 	edx
+
 		test    eax, eax
 		jne     short ___1cbf9h
 		call    near ___1123ch
@@ -261,7 +267,14 @@ ___1cd6ch:
 	pop 	ecx
 	pop 	edx
 
-		call    near ___6168ch
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___6168ch
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		mov     edx, 8
 		mov     eax, [___1a0f9ch]
 		call    near ___23594h

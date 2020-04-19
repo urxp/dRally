@@ -2577,7 +2577,15 @@ ___580b2h:
 		cmp     dword [___243cd8h], byte 0
 		jne     short ___580ceh
 		mov     eax, 0fdh
-		call    near ___61418h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___61418h
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 ___580ceh:
 		mov     ebx, 0ffffffffh
 		xor     ecx, ecx
@@ -2747,7 +2755,15 @@ ___5831ah:
 		mov     eax, 0fch
 		mov     edx, 0ffffffffh
 		mov     ebx, ___184964h
-		call    near ___61418h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___61418h
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     [___243d14h], edx
 		call    near ___477d4h
 		xor     edx, edx

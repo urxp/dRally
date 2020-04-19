@@ -30,7 +30,15 @@ ___47eaah:
 		mov     [eax], bx
 		cmp     edx, byte 0ah
 		jl      short ___47eaah
-		call    near ___618c4h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___618c4h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 ___47ed1h:
 		pop     edx
 		pop     ecx

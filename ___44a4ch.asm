@@ -19,8 +19,8 @@ __GDECL(___44a4ch)
 		jle     short ___44a74h
 ___44a61h:
 		inc     ebx
- 		call 	DISPLAY_WAIT_IF_DISABLED
- 		call 	DISPLAY_WAIT_IF_ENABLED
+ 		;call 	DISPLAY_WAIT_IF_DISABLED
+ 		;call 	DISPLAY_WAIT_IF_ENABLED
 		cmp     ebx, ecx
 		jl      short ___44a61h
 ___44a74h:

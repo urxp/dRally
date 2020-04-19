@@ -1583,6 +1583,8 @@ ___61aech:
 		pop     ds
 		popad   
 		iret    
+
+
 ___61b00h:
 		push    28h
 		call    near __CHK
@@ -1619,6 +1621,8 @@ ___61b4ch:
 		pop     ebx
 		retn    
 	align 	4
+
+
 __GDECL(___61b88h)
 		push    0ch
 		call    near __CHK

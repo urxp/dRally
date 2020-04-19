@@ -21,7 +21,15 @@ __GDECL(___23594h)
 		mov     ebx, edx
 		cmp     dword [___19bd60h], byte 0
 		je      near ___2374bh
-		call    near ___6168ch
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___6168ch
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		mov     eax, ebx
 		lea     esi, [eax*4+0]
 		add     esi, eax

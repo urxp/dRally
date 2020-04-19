@@ -146,32 +146,39 @@ db	61h,0,0,0
 __GDECL(___180154h)
 db	64h,72h,2eh,6ch,6fh,67h,0,0
 __GDECL(___18015ch)
-db	44h,45h,41h,54h,48h,20h,52h,41h,4ch,4ch,59h,20h,4dh,50h,2dh,45h
-db	52h,52h,4fh,52h,3ah,20h,4eh,6fh,74h,20h,65h,6eh,6fh,75h,67h,68h
-db	20h,6ch,6fh,77h,20h,6dh,65h,6dh,6fh,72h,79h,20h,61h,76h,61h,69h
-db	6ch,61h,62h,6ch,65h,2eh,20h,41h,62h,6fh,75h,74h,20h,35h,37h,30h
-db	6bh,20h,6eh,65h,65h,64h,65h,64h,21h,0ah,0,0
+;db	44h,45h,41h,54h,48h,20h,52h,41h,4ch,4ch,59h,20h,4dh,50h,2dh,45h
+;db	52h,52h,4fh,52h,3ah,20h,4eh,6fh,74h,20h,65h,6eh,6fh,75h,67h,68h
+;db	20h,6ch,6fh,77h,20h,6dh,65h,6dh,6fh,72h,79h,20h,61h,76h,61h,69h
+;db	6ch,61h,62h,6ch,65h,2eh,20h,41h,62h,6fh,75h,74h,20h,35h,37h,30h
+;db	6bh,20h,6eh,65h,65h,64h,65h,64h,21h,0ah,0,0
+db 	"DEATH RALLY MP-ERROR: Not enough low memory available. About 570k needed!",0ah,0,0
 __GDECL(___1801a8h)
-db	44h,45h,41h,54h,48h,20h,52h,41h,4ch,4ch,59h,20h,4dh,50h,2dh,45h
-db	52h,52h,4fh,52h,3ah,20h,49h,50h,58h,2dh,64h,72h,69h,76h,65h,72h
-db	20h,6eh,6fh,74h,20h,69h,6eh,73h,74h,61h,6ch,6ch,65h,64h,21h,0ah
-db	0,0,0,0
+;db	44h,45h,41h,54h,48h,20h,52h,41h,4ch,4ch,59h,20h,4dh,50h,2dh,45h
+;db	52h,52h,4fh,52h,3ah,20h,49h,50h,58h,2dh,64h,72h,69h,76h,65h,72h
+;db	20h,6eh,6fh,74h,20h,69h,6eh,73h,74h,61h,6ch,6ch,65h,64h,21h,0ah
+;db	0,0,0,0
+db 	"DEATH RALLY MP-ERROR: IPX-driver not installed!",0ah,0,0,0,0
 __GDECL(___1801dch)
-db	44h,45h,41h,54h,48h,20h,52h,41h,4ch,4ch,59h,20h,4dh,50h,2dh,45h
-db	52h,52h,4fh,52h,3ah,20h,53h,6fh,63h,6bh,65h,74h,20h,74h,61h,62h
-db	6ch,65h,20h,69h,73h,20h,66h,75h,6ch,6ch,21h,0ah,0,0,0,0
+;db	44h,45h,41h,54h,48h,20h,52h,41h,4ch,4ch,59h,20h,4dh,50h,2dh,45h
+;db	52h,52h,4fh,52h,3ah,20h,53h,6fh,63h,6bh,65h,74h,20h,74h,61h,62h
+;db	6ch,65h,20h,69h,73h,20h,66h,75h,6ch,6ch,21h,0ah,0,0,0,0
+db 	"DEATH RALLY MP-ERROR: Socket table is full!",0ah,0,0,0,0
 __GDECL(___18020ch)
-db	44h,45h,41h,54h,48h,20h,52h,41h,4ch,4ch,59h,20h,4dh,50h,2dh,45h
-db	52h,52h,4fh,52h,3ah,20h,53h,6fh,63h,6bh,65h,74h,20h,61h,6ch,72h
-db	65h,61h,64h,79h,20h,6fh,70h,65h,6eh,21h,0ah,0
+;db	44h,45h,41h,54h,48h,20h,52h,41h,4ch,4ch,59h,20h,4dh,50h,2dh,45h
+;db	52h,52h,4fh,52h,3ah,20h,53h,6fh,63h,6bh,65h,74h,20h,61h,6ch,72h
+;db	65h,61h,64h,79h,20h,6fh,70h,65h,6eh,21h,0ah,0
+db 	"DEATH RALLY MP-ERROR: Socket already open!",0ah,0
 __GDECL(___180238h)
-db	44h,45h,41h,54h,48h,20h,52h,41h,4ch,4ch,59h,20h,4dh,50h,2dh,45h
-db	52h,52h,4fh,52h,3ah,20h,43h,4fh,4dh,2dh,50h,4fh,52h,54h,20h,6eh
-db	6fh,74h,20h,64h,65h,74h,65h,63h,74h,65h,64h,21h,0ah,0,0,0
+;db	44h,45h,41h,54h,48h,20h,52h,41h,4ch,4ch,59h,20h,4dh,50h,2dh,45h
+;db	52h,52h,4fh,52h,3ah,20h,43h,4fh,4dh,2dh,50h,4fh,52h,54h,20h,6eh
+;db	6fh,74h,20h,64h,65h,74h,65h,63h,74h,65h,64h,21h,0ah,0,0,0
+db 	"DEATH RALLY MP-ERROR: COM-PORT not detected!",0ah,0,0,0
 __GDECL(___180268h)
-db	44h,45h,41h,54h,48h,20h,52h,41h,4ch,4ch,59h,20h,4dh,50h,2dh,45h
-db	52h,52h,4fh,52h,3ah,20h,55h,6eh,6bh,6eh,6fh,77h,6eh,20h,65h,72h
-db	72h,6fh,72h,21h,0ah,0,0,0
+;db	44h,45h,41h,54h,48h,20h,52h,41h,4ch,4ch,59h,20h,4dh,50h,2dh,45h
+;db	52h,52h,4fh,52h,3ah,20h,55h,6eh,6bh,6eh,6fh,77h,6eh,20h,65h,72h
+;db	72h,6fh,72h,21h,0ah,0,0,0
+db 	"DEATH RALLY MP-ERROR: Unknown error!",0ah,0,0,0
+
 __GDECL(___180290h)
 db	50h,6ch,65h,61h,73h,65h,20h,63h,6fh,6eh,73h,75h,6ch,74h,20h,44h
 db	52h,48h,45h,4ch,50h,2eh,45h,58h,45h,20h,66h,6fh,72h,20h,6dh,6fh
@@ -2885,7 +2892,6 @@ db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0ah,0
 __GDECL(___18508ch)
 db	20h,20h,20h,33h,20h,3dh,20h,33h,20h,20h,20h,20h,20h,20h,20h,20h
 db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,0ah,0
-__GDECL(___1850ach)
 db	0,0,0,0
 __GDECL(___1850b0h)
 db	55h,4ch,54h,52h,41h,53h,4eh,44h,0,0,0,0

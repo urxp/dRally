@@ -74,7 +74,14 @@ __GDECL(___40164h)
 		jne     short ___40199h
 		mov     eax, 1
 		mov     edx, [___199f9ch]
-		call    near ___63b20h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___63b20h
+	add 	esp, 8
+	pop  	ecx
+
 ___40199h:
 		cmp     dword [___243cd0h], byte 0
 		jne     near ___4054fh
@@ -328,7 +335,15 @@ ___40502h:
 		je      short ___4052bh
 		xor     eax, eax
 		mov     al, bl
-		call    near ___61418h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___61418h
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		cmp     dword [___243880h], byte 0
 		je      short ___4052bh
 		call    near ___61518h

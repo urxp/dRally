@@ -19,7 +19,7 @@ typedef struct bpa_s {
 void bpa_read(const char *, void *, const char *);
 dword entrysize_bpa(const char *, const char *);
 void * dRally_Memory_alloc(dword, dword);
-void STRUPR_D(char *);
+char * STRUPR_D(char *);
 
 void ___42944h(const char *);
 void VGA3_SETMODE(void);

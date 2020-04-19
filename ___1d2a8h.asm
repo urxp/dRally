@@ -63,7 +63,15 @@ __GDECL(___1d2a8h)
 		jmp     near ___1d4ddh
 ___1d2e0h:
 		mov     eax, [___199fa4h]
-		call    near ___61b88h
+	
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___61b88h
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		test    eax, eax
 		jne     short ___1d2fdh
 		call    near ___1ca00h
@@ -109,7 +117,13 @@ ___1d2fdh:
 		sub     eax, edx
 		mov     [eax*4+___1a020ch], ebx
 		call    near ___2b5f0h
-		call    near ___61cd0h
+
+	push 	edx
+	push 	ecx
+		call    ___61cd0h
+	pop 	ecx
+	pop 	edx
+
 		test    eax, eax
 		jne     short ___1d37ch
 		call    near ___1123ch
@@ -170,7 +184,15 @@ ___1d37ch:
 	pop		ecx
 	pop		edx
 
-		call    near ___60a84h
+
+	push 	eax
+	push 	ecx
+	push 	edx
+		call    ___60a84h
+	pop 	edx
+	pop 	ecx
+	pop 	eax
+
 		xor     ecx, ecx
 		xor     ebx, ebx
 ___1d452h:
@@ -195,7 +217,14 @@ ___1d452h:
 		mov     eax, [___199fa0h]
 		mov     edx, 2
 		add     eax, byte 5
-		call    near ___60b48h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___60b48h
+	add 	esp, 8
+	pop 	ecx
+
 		mov     ebp, eax
 ___1d48fh:
 		call    near ___2ab50h
@@ -211,16 +240,37 @@ ___1d4a8h:
 		je      short ___1d4b6h
 		xor     edx, edx
 		xor     eax, eax
-		call    near ___611c0h
+	
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___611c0h
+	add 	esp, 8
+	pop 	ecx
+
 ___1d4b6h:
-		call    near ___61278h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___61278h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		cmp     ecx, byte 1
 		je      short ___1d4ddh
 		mov     edi, ___186ad2h
 		xor     ah, ah
 		mov     esi, ___180d18h
 		mov     [___185b70h], ah
-		call    near ___1caf4h
+
+	push 	edx
+	push 	ecx
+		call    ___1caf4h
+	pop 	ecx
+	pop 	edx
+	
 		movsd   
 		movsd   
 		movsd   
