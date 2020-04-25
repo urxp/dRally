@@ -95,7 +95,14 @@ ___1d5e4h:
 		mov     [___196a84h], ebx
 		xor     eax, eax
 		mov     ebx, 27fh
-		call    near ___135fch
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___135fch
+	add 	esp, 10h
+
 	
 	push 	edx
 	push 	ecx
@@ -128,7 +135,14 @@ ___1d5e4h:
 	pop 	edx
 
 		mov     eax, 2
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 
 	push 	edx
 	push 	ecx

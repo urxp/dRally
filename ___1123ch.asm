@@ -8,7 +8,6 @@ cpu 386
 	extern 	___2fc50h
 	extern 	dRally_Sound____64a28h
 	extern 	dRally_System_clean
-	extern 	___5a101h
 	extern 	VGA3_SETMODE
 	extern 	___199fbch
 	extern 	___18015ch
@@ -63,7 +62,6 @@ __GDECL(___1123ch)
 	pop 	ecx
 	pop 	eax
 	
-		call    near ___5a101h
 		call    near VGA3_SETMODE
 		mov     eax, [___199fbch]
 		sub     eax, byte 64h

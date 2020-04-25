@@ -8,16 +8,16 @@ cpu 386
 	extern	___63b20h
 	extern	___243cd0h
 	extern	___1a1158h
-	extern	___59e58h
+	extern	kmap
 	extern	___1a1150h
-	extern	___59e60h
+	extern	kmap
 	extern	___1a1148h
-	extern	___59e5bh
+	extern	kmap
 	extern	___1a114ch
-	extern	___59e5dh
-	extern	___59ed8h
-	extern	___59e10h
-	extern	___59ee0h
+	extern	kmap
+	extern	kmap
+	extern	kmap
+	extern	kmap
 	extern	___1a1140h
 	extern	___1a115ch
 	extern	___1a1154h
@@ -87,80 +87,80 @@ ___40199h:
 		jne     near ___4054fh
 		cmp     dword [___1a1158h], 0c8h
 		jne     short ___401beh
-		cmp     byte [___59e58h], 0
+		cmp     byte [kmap+48h], 0
 		je      short ___401beh
 		or      bl, 1
 ___401beh:
 		cmp     dword [___1a1150h], 0d0h
 		jne     short ___401d6h
-		cmp     byte [___59e60h], 0
+		cmp     byte [kmap+50h], 0
 		je      short ___401d6h
 		or      bl, 2
 ___401d6h:
 		cmp     dword [___1a1148h], 0cbh
 		jne     short ___401eeh
-		cmp     byte [___59e5bh], 0
+		cmp     byte [kmap+4bh], 0
 		je      short ___401eeh
 		or      bl, 4
 ___401eeh:
 		cmp     dword [___1a114ch], 0cdh
 		jne     short ___40206h
-		cmp     byte [___59e5dh], 0
+		cmp     byte [kmap+4dh], 0
 		je      short ___40206h
 		or      bl, 8
 ___40206h:
-		cmp     byte [___59ed8h], 0
+		cmp     byte [kmap+0c8h], 0
 		je      short ___40212h
 		or      bl, 1
 ___40212h:
-		cmp     byte [___59e58h], 0
+		cmp     byte [kmap+48h], 0
 		je      short ___4021eh
 		or      bl, 1
 ___4021eh:
 		mov     eax, [___1a1158h]
-		cmp     byte [eax+___59e10h], 0
+		cmp     byte [eax+kmap], 0
 		je      short ___4022fh
 		or      bl, 1
 ___4022fh:
-		cmp     byte [___59ee0h], 0
+		cmp     byte [kmap+0d0h], 0
 		je      short ___4023bh
 		or      bl, 2
 ___4023bh:
-		cmp     byte [___59e60h], 0
+		cmp     byte [kmap+50h], 0
 		je      short ___40247h
 		or      bl, 2
 ___40247h:
 		mov     eax, [___1a1150h]
-		cmp     byte [eax+___59e10h], 0
+		cmp     byte [eax+kmap], 0
 		je      short ___40258h
 		or      bl, 2
 ___40258h:
 		mov     eax, [___1a1148h]
-		cmp     byte [eax+___59e10h], 0
+		cmp     byte [eax+kmap], 0
 		je      short ___40269h
 		or      bl, 4
 ___40269h:
 		mov     eax, [___1a114ch]
-		cmp     byte [eax+___59e10h], 0
+		cmp     byte [eax+kmap], 0
 		je      short ___4027ah
 		or      bl, 8
 ___4027ah:
 		mov     eax, [___1a1140h]
-		cmp     byte [eax+___59e10h], 0
+		cmp     byte [eax+kmap], 0
 		je      short ___4028bh
 		or      bl, 10h
 ___4028bh:
 		mov     eax, [___1a115ch]
-		cmp     byte [eax+___59e10h], 0
+		cmp     byte [eax+kmap], 0
 		je      short ___4029ch
 		or      bl, 20h
 ___4029ch:
 		mov     eax, [___1a1154h]
-		cmp     byte [eax+___59e10h], 0
+		cmp     byte [eax+kmap], 0
 		je      short ___402b5h
 		xor     ch, ch
 		or      bl, 40h
-		mov     [eax+___59e10h], ch
+		mov     [eax+kmap], ch
 ___402b5h:
 		test    bl, 2
 		je      short ___402c2h
@@ -169,7 +169,7 @@ ___402b5h:
 		and     bl, 0fdh
 ___402c2h:
 		mov     eax, [___1a1144h]
-		cmp     byte [eax+___59e10h], 0
+		cmp     byte [eax+kmap], 0
 		je      short ___402d3h
 		or      bl, 42h
 ___402d3h:
@@ -311,7 +311,7 @@ ___404a3h:
 		mov     eax, [___1a1154h]
 		xor     ch, ch
 		or      bl, 40h
-		mov     [eax+___59e10h], ch
+		mov     [eax+kmap], ch
 ___404c1h:
 		test    bl, 10h
 		je      short ___404c9h

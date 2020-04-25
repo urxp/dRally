@@ -21,15 +21,15 @@ cpu 386
 	extern	___1a309ch
 	extern	dRally_Sound____6563ch
 	extern	dRally_Sound_pushEffect
-	extern	___59e10h
+	extern	kmap
 	extern	__STOSB
 	extern	___2432e4h
 	extern	___59cd8h
-	extern	___59e2ch
-	extern	___59each
-	extern	___59e25h
-	extern	___59e41h
-	extern	___59e4bh
+	extern	kmap
+	extern	kmap
+	extern	kmap
+	extern	kmap
+	extern	kmap
 	extern	___243d14h
 	extern	___243898h
 	extern	___243874h
@@ -168,7 +168,7 @@ ___479a3h:
 		call    dRally_Sound_pushEffect
 	add 	esp, 18h
 		mov     ecx, 100h
-		mov     eax, ___59e10h
+		mov     eax, kmap
 		xor     edx, edx
 		call    near __STOSB
 		xor     edx, edx
@@ -190,25 +190,25 @@ ___47a2ah:
 	pop 	edx
 ___47a49h:
 		call    near ___59cd8h
-		cmp     byte [___59e2ch], 0
+		cmp     byte [kmap+1ch], 0
 		jne     short ___47a72h
-		cmp     byte [___59each], 0
+		cmp     byte [kmap+9ch], 0
 		jne     short ___47a72h
-		cmp     byte [___59e25h], 0
+		cmp     byte [kmap+15h], 0
 		jne     short ___47a72h
-		cmp     byte [___59e41h], 0
+		cmp     byte [kmap+31h], 0
 		je      short ___47a77h
 ___47a72h:
 		mov     edx, 1
 ___47a77h:
-		cmp     byte [___59e4bh], 0
+		cmp     byte [kmap+3bh], 0
 		je      short ___47a8ch
 		mov     edx, 1
 		mov     [esp+330h], edx
 ___47a8ch:
 		cmp     dword [___243d14h], byte 0ffffffffh
 		jne     short ___47aa8h
-		cmp     byte [___59e25h], 1
+		cmp     byte [kmap+15h], 1
 		jne     short ___47aa8h
 		mov     dword [___243d14h], 1
 ___47aa8h:
@@ -254,7 +254,7 @@ ___47b29h:
 		test    edx, edx
 		je      near ___47a2ah
 		mov     ecx, 100h
-		mov     eax, ___59e10h
+		mov     eax, kmap
 		xor     edx, edx
 		mov     esi, 19h
 		call    near __STOSB
@@ -452,7 +452,7 @@ ___47d0fh:
 		mov     [___243330h], eax
 		test    ecx, ecx
 		je      short ___47d7dh
-		mov     byte [___59e4bh], 1
+		mov     byte [kmap+3bh], 1
 ___47d7dh:
 		add     esp, 338h
 		pop     ebp

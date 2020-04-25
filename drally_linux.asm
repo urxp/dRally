@@ -48,19 +48,16 @@ cpu 386
 	extern 	__VRETRACE_WAIT_IF_INACTIVE 	
 	extern 	__DPMI_ALLOCATE_DOS_MEMORY_BLOCK
 	extern 	__DPMI_FREE_DOS_MEMORY_BLOCK
-	extern	___5a0bah
-	extern	___59e10h
-	extern	___59f12h
+	extern	kmap
 	extern	LAST_CHAR
-	extern	___59e3ah
-	extern	___59e46h
-	extern	___59fe6h
-	extern	___59e2dh
-	extern	___59eadh
-	extern	___59e48h
-	extern	___59ec8h
-	extern	___59ee3h
-	extern	___59e63h
+	extern	kmap
+	extern	kmap
+	extern	kmap
+	extern	kmap
+	extern	kmap
+	extern	kmap
+	extern	kmap
+	extern	kmap
 	extern	___2432c8h
 	extern 	__GET_TIMER_TICKS
 	extern 	__VGA3_PRESENTSCREEN
@@ -952,93 +949,6 @@ ___607bdh:
 ___60807h:
 		popad
 		retn 
-
-
-
-__GDECL(IRQ1_KeyboardISR_EMU)
-		push    eax
-		push    ebx
-		;push    ecx
-		;push    ds
-		;call 	__GETDS
-		;in      al, 60h
-	mov 	eax, [esp+0ch]
-		mov     ah, al
-		cmp     ah, 0e0h
-		jae     near ___5a21ch
-		movzx   ebx, ah
-		and     bl, 7fh
-		add     bl, [___5a0bah]
-		mov     byte [___5a0bah], 0
-		rol     ah, 1
-		jb      near ___5a209h
-		mov     ah, 1
-		sub     ah, [ebx+___59e10h]
-		mov     byte [ebx+___59e10h], 1
-		mov     [LAST_KEY], bl
-		mov     al, [ebx+___59f12h]
-		mov     [LAST_CHAR], al
-		mov     al, [___59e3ah]
-		or      al, [___59e46h]
-		cmp     al, 0
-		je      short ___5a1c1h
-		nop     
-		nop     
-		nop     
-		nop     
-		mov     al, [ebx+___59fe6h]
-		mov     [LAST_CHAR], al
-___5a1c1h:
-		mov     al, [___59e2dh]
-		add     al, [___59eadh]
-		cmp     al, 1
-		jl      short ___5a204h
-		nop     
-		nop     
-		nop     
-		nop     
-		mov     al, [___59e48h]
-		add     al, [___59ec8h]
-		cmp     al, 1
-		jl      short ___5a204h
-		nop     
-		nop     
-		nop     
-		nop     
-		mov     al, [___59ee3h]
-		add     al, [___59e63h]
-		cmp     al, 1
-		jl      short ___5a204h
-		nop     
-		nop     
-		nop     
-		nop     
-		;mov     al, 20h
-		;out     20h, al
-		jmp     near dword [___2432c8h]
-___5a204h:
-		jmp     short ___5a223h
-		nop     
-		nop     
-		nop     
-___5a209h:
-		mov     byte [LAST_KEY], 0
-		mov     byte [ebx+___59e10h], 0
-		jmp     short ___5a223h
-		nop     
-		nop     
-		nop     
-___5a21ch:
-		mov     byte [___5a0bah], 80h
-___5a223h:
-		;mov     al, 20h
-		;out     20h, al
-		;pop     ds
-		;pop     ecx
-		pop     ebx
-		pop     eax
-		;iret
-		retn    
 
 
 _Alphabet:

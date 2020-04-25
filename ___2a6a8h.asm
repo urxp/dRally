@@ -5,7 +5,7 @@ cpu 386
 	extern 	__MOVS
 	extern 	__STRLEN
 	extern	___19bd60h
-	extern	___59e4ch
+	extern	kmap
 	extern	___3f71ch__allocateMemory
 	extern	___1a0f9ch
 	extern	memset_
@@ -21,7 +21,7 @@ cpu 386
 	extern	fwrite_
 	extern	fclose_
 	extern	___3f77ch__freeMemory
-	extern	___59e4dh
+	extern	kmap
 	extern	___243d44h
 	extern	___196ab4h
 	extern	___180134h
@@ -52,7 +52,7 @@ __GDECL(___2a6a8h)
 		mov     [esp+14h], edx
 		test    ebx, ebx
 		jne     near ___2a9fah
-		cmp     byte [___59e4ch], 0
+		cmp     byte [kmap+3ch], 0
 		je      near ___2a836h
 		mov     ebp, 883h
 		mov     eax, ebp
@@ -171,7 +171,7 @@ ___2a801h:
 		mov     eax, [___1a0f9ch]
 		call    near ___3f77ch__freeMemory
 ___2a836h:
-		cmp     byte [___59e4dh], 0
+		cmp     byte [kmap+3dh], 0
 		je      near ___2a9fah
 		mov     ebp, 2
 		xor     eax, eax

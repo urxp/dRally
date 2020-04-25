@@ -122,7 +122,14 @@ __GDECL(___3ab5ch)
 		mov     [eax*4+___1a020ch], ecx
 		mov     ecx, 6dh
 		xor     eax, eax
-		call    near ___135fch
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___135fch
+	add 	esp, 10h
+
 		
 	push 	edx
 	push 	ecx
@@ -885,7 +892,14 @@ ___3b54eh:
 		call 	__MOVS
 		xor     eax, eax
 		mov     ecx, 0bah
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		push    byte 1
 		mov     edx, [esp+48h]
 		mov     eax, ebp

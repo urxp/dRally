@@ -17,14 +17,14 @@ cpu 386
 	extern	___1a1f63h
 	extern	___23488h
 	extern	___180130h
-	extern	___186a3ch
+	extern	___1866b8h
 	extern	___180cc0h
 	extern	___135fch
 	extern	___23230h
 	extern	___12cb8h__VESA101_PRESENTSCREEN
 	extern	___61278h
 	extern	___623d4h
-	extern	___186a6eh
+	extern	___1866b8h
 	extern	___180cd8h
 	extern	___185b58h
 	extern	___180cf0h
@@ -34,7 +34,7 @@ cpu 386
 	extern	___185b6dh
 	extern	___185b6eh
 	extern	CONNECTION_TYPE
-	extern	___186aa0h
+	extern	___1866b8h
 	extern	___185b6fh
 	extern	___2415ch
 	extern	___13710h
@@ -112,11 +112,18 @@ ___1d116h:
 		mov     ebx, 27fh
 		mov     edx, 173h
 		mov     al, [___180130h]
-		mov     edi, ___186a3ch
+		mov     edi, ___1866b8h+384h
 		mov     [___1a1dbah], al
 		xor     eax, eax
 		mov     esi, ___180cc0h
-		call    near ___135fch
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___135fch
+	add 	esp, 10h
+
 	
 	push 	edx
 	push 	ecx
@@ -160,7 +167,7 @@ ___1d116h:
 		movsd   
 		movsw   
 		mov     dl, 1
-		mov     edi, ___186a6eh
+		mov     edi, ___1866b8h+3b6h
 		mov     esi, ___180cd8h
 		mov     [___185b58h], dl
 		movsd   
@@ -179,7 +186,7 @@ ___1d116h:
 		mov     [___185b6eh], dl
 		mov     [___19bd60h], edi
 		mov     [CONNECTION_TYPE], edi
-		mov     edi, ___186aa0h
+		mov     edi, ___1866b8h+3e8h
 		mov     [___185b6fh], dl
 		mov     edx, 1
 		movsd   
@@ -198,7 +205,14 @@ ___1d116h:
 	pop 	edx
 
 		mov     eax, 2
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 
 	push 	edx
 	push 	ecx
@@ -217,7 +231,14 @@ ___1d116h:
 		retn    
 ___1d21eh:
 		mov     eax, 2
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		xor     eax, eax
 		call    near ___3ab5ch
 		test    eax, eax
@@ -256,7 +277,7 @@ ___1d21eh:
 	
 		test    eax, eax
 		je      short ___1d29fh
-		mov     edi, ___186aa0h
+		mov     edi, ___1866b8h+3e8h
 		mov     esi, ___180d04h
 		movsd   
 		movsd   

@@ -17,9 +17,9 @@
 	extern byte ___196abfh[];
 	extern byte ___196ab8h[];
 	extern byte ___1a2014h[];
-	extern byte ___186cc6h[];
+	extern byte ___1866b8h[];
 	extern byte ___196a90h[];
-	extern byte ___187432h[];
+	extern byte ___1866b8h[];
 	extern byte ___1a1ef8h[];
 	extern byte ___1a020ch[];
 	extern byte ___1a0fb8h[];
@@ -45,7 +45,7 @@
 	extern byte ___1a10cch[];
 	extern byte ___1854bch[];
 	extern byte ___19bd60h[];
-	extern byte ___186a6eh[];
+	extern byte ___1866b8h[];
 	extern byte CONNECTION_TYPE[];
 
 void ___3aaf8h(void);
@@ -93,13 +93,12 @@ void __VESA101_SETMODE(void);
 dword ___12c38h__VESA101_CHECKBANKS(void);
 void VGA3_SETMODE(void);
 void dRally_System_clean(void);
-void ___5a101h(void);
 void ___605deh_cdecl(dword, dword);
 void ___117d4h(void);
 void ___11564h_cdecl(dword, dword, dword);
-void ___135fch_cdecl(dword, dword, dword, dword);
+void ___135fch(dword, dword, dword, dword);
 void ___23230h(void);
-void ___13710h_cdecl(dword, dword);
+void ___13710h(dword, dword);
 void ___12cb8h__VESA101_PRESENTSCREEN(void);
 void ___2b318h(void);
 void ___58c60h(void);
@@ -165,14 +164,14 @@ void ___3e720h(void){
 	if((D(___19bd58h) == 1)||(D(___19bd58h) == 2)){
 
 		___596f0h();
-		strcpy(___186cc6h, "Gamepad/Joystick Enabled");
+		strcpy(___1866b8h+0x60e, "Gamepad/Joystick Enabled");
 	}
 	else {
 
-		strcpy(___186cc6h, "Gamepad/Joystick Disabled");
+		strcpy(___1866b8h+0x60e, "Gamepad/Joystick Disabled");
 	}
 
-	if(D(___196a90h) == 0) strcpy(___187432h, "Pulse Dialing");  
+	if(D(___196a90h) == 0) strcpy(___1866b8h+0xd7a, "Pulse Dialing");  
 
 	srand_watcom106(__GET_TIMER_TICKS());
 	___606dfh();
@@ -187,7 +186,6 @@ void ___3e720h(void){
 
 		dRally_Sound____64a28h();
 		dRally_System_clean();
-		___5a101h();
 		exit(0x70);
 	}
 
@@ -215,7 +213,7 @@ void ___3e720h(void){
 	dRally_Console_newLine("Use arrow keys to change selection and press enter to confirm.", 1);
 	dRally_Console_newLine("", 1);
 
-	___135fch_cdecl(0, 0x173, 0x27f, 0x6d);
+	___135fch(0, 0x173, 0x27f, 0x6d);
 	___23230h();
 
     if(D(esp+0xc) == 0){
@@ -228,7 +226,7 @@ void ___3e720h(void){
 		while(1){
 
 			memcpy(D(___1a112ch__VESA101_ACTIVESCREEN_PTR)+0xd200, D(___1a1138h__VESA101h_DefaultScreenBufferB)+0xd200, 0x2c380);
-			___13710h_cdecl(0, 1);
+			___13710h(0, 1);
 
 			if(D(___196d84h)||D(___185a2ch)){
 				
@@ -288,7 +286,7 @@ void ___3e720h(void){
 				}
 				else {
 						
-					___13710h_cdecl(0, 0);
+					___13710h(0, 0);
 					___13248h_cdecl(D(esp+0x18), D(esp+0x20), 0x1e4, 0x61, 1);
 					___12e78h_cdecl(D(___1a1108h), ___185c0bh, "Please insert Death Rally to CD-ROM drive!", D(esp+0x10));
 					___12e78h_cdecl(D(___1a10cch), ___185ba9h, "CONTINUE", D(esp+0x14));
@@ -338,7 +336,7 @@ void ___3e720h(void){
 				___3da48h();
 				break;
 			case 7:
-				___13710h_cdecl(0, 0);
+				___13710h(0, 0);
 				___13248h_cdecl(0xaa, 0xc8, 0x12c, 0x50, 1);
 				___12e78h_cdecl(D(___1a1108h), ___185c0bh, "Are you sure?", 0x208fd);
 				___148cch_cdecl(0xb4, 0xee, 1, esp+0xc);
@@ -359,7 +357,7 @@ void ___3e720h(void){
 		strcat(___1a1dbah, " has left from Death Rally.");
 		B(___1a1f63h) = 0;
 
-		if(strcmp(___186a6eh, "Abort Current Game") == 0){
+		if(strcmp(___1866b8h+0x3b6, "Abort Current Game") == 0){
 
 			___23488h_cdecl(___1a1dbah, 0x64, 0x14);
 			strcpy(___1a1dbah, "-- ");

@@ -37,7 +37,7 @@ SDL_Texture * GX_Texture;
 
 int dRally_main(int, char *[]);
 void IRQ0_TimerISR(void);
-void Scancodes_Init(void);
+void dRally_Keaboard_init(void);
 void IO_Loop(void);
 void __VGA13_PRESENTSCREEN__(void);
 void __VESA101_PRESENTSCREEN__(void);
@@ -326,7 +326,7 @@ int main(int argc, char * argv[]){
 	localtime_r(&tmt, &TimeInit);
 
 	SDL_DisableScreenSaver();
-	Scancodes_Init();
+	dRally_Keaboard_init();
 
 	dRally_main(argc, argv);
 

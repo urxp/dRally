@@ -2,14 +2,14 @@ cpu 386
 %include "macros.inc"
 
 	extern	__CHK
-	extern	___186a3ch
+	extern	___1866b8h
 	extern	___180cc0h
 	extern	CONNECTION_TYPE
 	extern	___185b6ch
 	extern	___185b6dh
 	extern	___185b6eh
 	extern	___185b6fh
-	extern	___186a6eh
+	extern	___1866b8h
 	extern	___180cd8h
 	extern	___185aach
 	extern	___196a84h
@@ -36,7 +36,7 @@ __GDECL(___1e4f8h)
 		push    esi
 		push    edi
 		mov     edx, 1
-		mov     edi, ___186a3ch
+		mov     edi, ___1866b8h+384h
 		mov     esi, ___180cc0h
 		mov     ecx, [CONNECTION_TYPE]
 		xor     ah, ah
@@ -51,7 +51,7 @@ __GDECL(___1e4f8h)
 		movsd   
 		movsw   
 		mov     [___185b6fh], ah
-		mov     edi, ___186a6eh
+		mov     edi, ___1866b8h+3b6h
 		mov     esi, ___180cd8h
 		mov     [___185aach], ebx
 		mov     [___196a84h], edx
@@ -81,7 +81,14 @@ ___1e598h:
 		je      short ___1e5c2h
 		mov     edx, 1
 		mov     eax, 2
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		xor     edx, edx
 		mov     [___196a84h], edx
 

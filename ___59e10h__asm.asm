@@ -10,121 +10,6 @@ cpu 386
 
 section .text
 
-;__GDECL(___5a0c2h)
-;		cmp     byte [___5a0c1h], 1
-;		je      short ___5a100h   
-;		mov     byte [___5a0c1h], 1
-;		mov 	edx, ___5a0bbh
-;		mov 	al, 1
-;		call 	GET_IRQ_ISR
-;		push    cs
-;		push 	IRQ1_KeyboardISR
-;		mov 	edx, esp
-;		mov 	al, 1
-;		call 	SET_IRQ_ISR
-;		add 	esp, 8   
-;___5a100h:
-;		retn    
-__GDECL(___5a101h)
-;		cmp     byte [___5a0c1h], 0
-;		je      short ___5a12eh
-;		mov     byte [___5a0c1h], 0
-;		mov 	edx, ___5a0bbh
-;		mov 	al, 1
-;		call 	SET_IRQ_ISR   
-;___5a12eh:
-		retn    
-;
-;
-;
-;
-;IRQ1_KeyboardISR:
-;		push    eax
-;		push    ebx
-;		push    ecx
-;		push    ds
-;		call 	__GETDS
-;		in      al, 60h
-;		mov     ah, al
-;		cmp     ah, 0e0h
-;		jae     near ___5a21ch
-;		movzx   ebx, ah
-;		and     bl, 7fh
-;		add     bl, [___5a0bah]
-;		mov     byte [___5a0bah], 0
-;		rol     ah, 1
-;		jb      near ___5a209h
-;		mov     ah, 1
-;		sub     ah, [ebx+___59e10h]
-;		mov     byte [ebx+___59e10h], 1
-;		mov     [LAST_KEY], bl
-;		mov     al, [ebx+___59f12h]
-;		mov     [LAST_CHAR], al
-;		mov     al, [___59e3ah]
-;		or      al, [___59e46h]
-;		cmp     al, 0
-;		je      short ___5a1c1h
-;		nop     
-;		nop     
-;		nop     
-;		nop     
-;		mov     al, [ebx+___59fe6h]
-;		mov     [LAST_CHAR], al
-;___5a1c1h:
-;		mov     al, [___59e2dh]
-;		add     al, [___59eadh]
-;		cmp     al, 1
-;		jl      short ___5a204h
-;		nop     
-;		nop     
-;		nop     
-;		nop     
-;		mov     al, [___59e48h]
-;		add     al, [___59ec8h]
-;		cmp     al, 1
-;		jl      short ___5a204h
-;		nop     
-;		nop     
-;		nop     
-;		nop     
-;		mov     al, [___59ee3h]
-;		add     al, [___59e63h]
-;		cmp     al, 1
-;		jl      short ___5a204h
-;		nop     
-;		nop     
-;		nop     
-;		nop     
-;		mov     al, 20h
-;		out     20h, al
-;		jmp     near dword [___2432c8h]
-;___5a204h:
-;		jmp     short ___5a223h
-;		nop     
-;		nop     
-;		nop     
-;___5a209h:
-;		mov     byte [LAST_KEY], 0
-;		mov     byte [ebx+___59e10h], 0
-;		jmp     short ___5a223h
-;		nop     
-;		nop     
-;		nop     
-;___5a21ch:
-;		mov     byte [___5a0bah], 80h
-;___5a223h:
-;		mov     al, 20h
-;		out     20h, al
-;		pop     ds
-;		pop     ecx
-;		pop     ebx
-;		pop     eax
-;		iret    
-
-
-
-
-
 __GDECL(___5e0eah__VRETRACE_WAIT_FOR_START)
  		jmp 	VRETRACE_WAIT_FOR_START
 
@@ -384,6 +269,11 @@ ___5e3e3h:
 		pop     edi
 		pop     ebp
 		ret     1ch
+
+
+
+
+
 __GDECL(___5e3e8h)
 		push    ebp
 		push    edi
@@ -701,6 +591,9 @@ ___5e764h:
 		pop     edi
 		pop     ebp
 		ret     24h
+
+
+
 __GDECL(___5e769h)
 		push    ebp
 		push    edi
@@ -955,78 +848,28 @@ ___5ea07h:
 
 section .data
 
-__GDECL(___59e10h)
-db	0
-__GDECL(___59e11h)
-db	0,0,0,0,0,0,0,0,0,0,0,0,0,0
-__GDECL(___59e1fh)
-db	0,0,0,0,0,0
-__GDECL(___59e25h)
-db	0,0,0,0
-__GDECL(___59e29h)
-db	0,0,0
-__GDECL(___59e2ch)
-db	0
-__GDECL(___59e2dh)
-db	0,0,0,0,0,0,0,0,0,0,0,0,0
-__GDECL(___59e3ah)
-db	0,0,0,0,0,0,0
-__GDECL(___59e41h)
-db	0,0,0,0,0
-__GDECL(___59e46h)
-db	0,0
-__GDECL(___59e48h)
-db	0,0,0
-__GDECL(___59e4bh)
-db	0
-__GDECL(___59e4ch)
-db	0
-__GDECL(___59e4dh)
-db	0
-__GDECL(___59e4eh)
-db	0
-__GDECL(___59e4fh)
-db	0,0,0,0,0,0,0,0,0
-__GDECL(___59e58h)
-db	0,0,0
-__GDECL(___59e5bh)
-db	0,0
-__GDECL(___59e5dh)
-db	0,0,0
-__GDECL(___59e60h)
-db	0,0,0
-__GDECL(___59e63h)
-db	0,0,0,0,0
-__GDECL(___59e68h)
+;__GDECL(kmap)
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0
-__GDECL(___59each)
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+;__GDECL(LAST_KEY)
 db	0
-__GDECL(___59eadh)
-db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,0,0,0,0,0,0,0
-__GDECL(___59ec8h)
-db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-__GDECL(___59ed8h)
-db	0,0,0
-__GDECL(___59edbh)
-db	0,0
-__GDECL(___59eddh)
-db	0,0,0
-__GDECL(___59ee0h)
-db	0,0,0
-__GDECL(___59ee3h)
-db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-db	0,0,0,0,0,0,0,0,0,0,0,0,0
-__GDECL(LAST_KEY)
+;__GDECL(LAST_CHAR)
 db	0
-__GDECL(LAST_CHAR)
-db	0
-__GDECL(___59f12h)
+;__GDECL(___59f12h)
 db	0,1bh,31h,32h,33h,34h,35h,36h,37h,38h,39h,30h,2dh,3dh,8,9
 db	71h,77h,65h,72h,74h,79h,75h,69h,6fh,70h,5bh,5dh,0dh,0,61h,73h
 db	64h,66h,67h,68h,6ah,6bh,6ch,3bh,27h,0,0,5ch,7ah,78h,63h,76h
@@ -1041,7 +884,7 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,2fh,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0cdh,0c9h,0ceh,0,0cah,0,0cbh,0,0cfh
 db	0cch,0d0h,0d1h,0d2h
-__GDECL(___59fe6h)
+;__GDECL(___59fe6h)
 db	0,1bh,21h,40h,23h,24h,25h,5eh,26h,2ah,28h,29h,5fh,2bh,8,9
 db	51h,57h,45h,52h,54h,59h,55h,49h,4fh,50h,7bh,7dh,0dh,0,41h,53h
 db	44h,46h,47h,48h,4ah,4bh,4ch,3ah,22h,0,0,7ch,5ah,58h,43h,56h
@@ -1056,14 +899,8 @@ db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,2fh,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0cdh,0c9h,0ceh,0,0cah,0,0cbh,0,0cfh
 db	0cch,0d0h,0d1h,0d2h
-__GDECL(___5a0bah)
-db	0
-___5a0bbh:
-db	0,0,0,0
-___5a0bfh:
-db	0,0
-___5a0c1h:
-db	0
+;__GDECL(___5a0bah)
+db	0,0,0,0,0,0,0,0
 
 
 

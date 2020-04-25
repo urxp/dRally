@@ -87,7 +87,14 @@ __GDECL(___23758h)
 		mov     ecx, 171h
 		xor     eax, eax
 		xor     ebp, ebp
-		call    near ___135fch
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___135fch
+	add 	esp, 10h
+
 		mov     ecx, 10923h
 		mov     ebx, ___181cb4h
 		mov     edx, ___185c0bh

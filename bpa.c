@@ -23,7 +23,6 @@ char * STRUPR_D(char *);
 
 void ___42944h(const char *);
 void VGA3_SETMODE(void);
-void ___5a101h(void);
 
 
 static bpa_t bpa;
@@ -119,6 +118,5 @@ void ___42944h(const char * err){
 	VGA3_SETMODE();
 	printf("DEATH RALLY Error: %s\n", err);
 	printf("Please consult DRHELP.EXE for more information on how to resolve this problem.\n");
-	___5a101h();
 	exit(0x70);
 }

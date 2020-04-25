@@ -38,15 +38,36 @@ __GDECL(___1ca00h)
 		xor     edx, edx
 		call 	__MOVS
 		xor     eax, eax
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     eax, 2
 		xor     edx, edx
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		test    ebx, ebx
 		je      short ___1ca63h
 		mov     eax, 7
 		xor     edx, edx
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 ___1ca63h:
 		push    byte 1
 		mov     ecx, 78h

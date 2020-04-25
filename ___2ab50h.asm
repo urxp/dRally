@@ -4,7 +4,7 @@ cpu 386
 	extern	__CHK
 	extern 	__STRCAT
 	extern 	__STRCPY
-	extern	___59e68h
+	extern	kmap
 	extern	___3a454h
 	extern	___196a88h
 	extern	___58c60h
@@ -56,7 +56,7 @@ __GDECL(___2ab50h)
 		push    edi
 		push    ebp
 		sub     esp, 428h
-		cmp     byte [___59e68h], 0
+		cmp     byte [kmap+58h], 0
 		je      short ___2ab74h
 		call    near ___3a454h
 ___2ab74h:

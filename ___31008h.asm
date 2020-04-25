@@ -28,7 +28,7 @@ cpu 386
 	extern	___196aech
 	extern	___33010h
 	extern	___196ae8h
-	extern	___18687ah
+	extern	___1866b8h
 	extern	___1807ech
 	extern	___185a48h
 	extern	___185a44h
@@ -150,7 +150,14 @@ ___3102eh:
 		call 	__MOVS
 		mov     ecx, 6dh
 		xor     eax, eax
-		call    near ___135fch
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___135fch
+	add 	esp, 10h
+
 	
 	push 	edx
 	push 	ecx
@@ -278,7 +285,7 @@ ___3125bh:
 		cmp     ebx, [___196ae8h]
 		jne     near ___3157eh
 		mov     ah, 1
-		mov     edi, ___18687ah
+		mov     edi, ___1866b8h+1c2h
 		mov     esi, ___1807ech
 		mov     [___185a48h], ecx
 		mov     [___185a44h], ecx

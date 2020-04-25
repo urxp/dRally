@@ -35,7 +35,7 @@ cpu 386
 	extern	___13bd4h
 	extern	___611c0h
 	extern	___61278h
-	extern	___186ad2h
+	extern	___1866b8h
 	extern	___180d18h
 	extern	___185b70h
 	extern	___1caf4h
@@ -86,7 +86,14 @@ ___1d2e0h:
 ___1d2fdh:
 		mov     eax, 2
 		xor     edx, edx
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		xor     eax, eax
 		call    near ___3ab5ch
 		test    eax, eax
@@ -137,11 +144,25 @@ ___1d37ch:
 		call 	__MOVS
 		xor     eax, eax
 		mov     ebx, 14eh
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     eax, 2
 		xor     edx, edx
 		mov     ecx, 41h
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		push    byte 1
 		mov     edx, [esp+8]
 		mov     eax, [esp+4]
@@ -260,7 +281,7 @@ ___1d4b6h:
 
 		cmp     ecx, byte 1
 		je      short ___1d4ddh
-		mov     edi, ___186ad2h
+		mov     edi, ___1866b8h+41ah
 		xor     ah, ah
 		mov     esi, ___180d18h
 		mov     [___185b70h], ah

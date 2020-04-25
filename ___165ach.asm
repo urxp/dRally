@@ -32,7 +32,7 @@ cpu 386
 	extern 	___1a10cch
 	extern 	___12e78h
 	extern 	___199f54h
-	extern 	___59e2ch
+	extern 	kmap
 
 section .text
 
@@ -149,7 +149,7 @@ ___16743h:
 		xor     ebx, ebx
 		xor     ah, ah
 		mov     [___199f54h], ebx
-		mov     [___59e2ch], ah
+		mov     [kmap+1ch], ah
 		pop     ebp
 		pop     edi
 		pop     esi

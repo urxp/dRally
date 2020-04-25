@@ -34,7 +34,7 @@ cpu 386
 	extern	___12cb8h__VESA101_PRESENTSCREEN
 	extern	___631d4h
 	extern	___63228h
-	extern	___59e11h
+	extern	kmap
 	extern	___181024h
 	extern	___63244h
 	extern	memset_
@@ -50,7 +50,7 @@ cpu 386
 	extern	___60b48h
 	extern	___611c0h
 	extern	___61278h
-	extern	___186b36h
+	extern	___1866b8h
 	extern	___180fech
 	extern	___185b70h
 	extern	___1caf4h
@@ -116,7 +116,14 @@ ___1e110h:
 ___1e132h:
 		mov     eax, 2
 		xor     edx, edx
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		xor     eax, eax
 		call    near ___3ab5ch
 		test    eax, eax
@@ -170,11 +177,25 @@ ___1e1b1h:
 		call 	__MOVS
 		xor     eax, eax
 		mov     ebx, 113h
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     eax, 2
 		xor     edx, edx
 		mov     ecx, 41h
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		push    byte 1
 		mov     edx, [esp+28h]
 		mov     eax, ebp
@@ -237,7 +258,7 @@ ___1e1b1h:
 	pop 	ecx
 	pop 	edx
 
-		mov     dh, [___59e11h]
+		mov     dh, [kmap+1]
 		xor     ecx, ecx
 		test    dh, dh
 		jne     near ___1e414h
@@ -400,7 +421,7 @@ ___1e3f0h:
 		mov     edx, [esp+30h]
 		mov     eax, [esp+2ch]
 		call    near ___13bd4h
-		cmp     byte [___59e11h], 0
+		cmp     byte [kmap+1], 0
 		je      near ___1e2c7h
 ___1e414h:
 
@@ -412,7 +433,7 @@ ___1e414h:
 	pop 	ecx
 	pop 	eax
 
-		mov     bh, [___59e11h]
+		mov     bh, [kmap+1]
 		xor     edi, edi
 		xor     esi, esi
 		mov     [esp+38h], edi
@@ -493,7 +514,7 @@ ___1e4a8h:
 
 		cmp     bl, 1
 		je      short ___1e4d0h
-		mov     edi, ___186b36h
+		mov     edi, ___1866b8h+47eh
 		xor     cl, cl
 		mov     esi, ___180fech
 		mov     [___185b70h], cl

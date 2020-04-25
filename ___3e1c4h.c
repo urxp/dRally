@@ -2,7 +2,6 @@
 
 	extern byte ___1a0d60h[];
 
-void ___5a101h(void);
 void dRally_System_clean(void);
 dword GET_FILE_SIZE(const char *);
 
@@ -51,7 +50,6 @@ void ___3e1c4h(void){
                 
             printf("\nDEATH RALLY ERROR: File %s is not found!\n", assets[n].name);
             printf("Please consult DRHELP.EXE for more information on how to resolve this problem.\n");
-            ___5a101h();
             dRally_System_clean();
             exit(0x70);
         }
@@ -60,7 +58,6 @@ void ___3e1c4h(void){
                 
             printf("\nDEATH RALLY ERROR: File %s is not in original form!\n", assets[n].name);
             printf("Please consult DRHELP.EXE for more information on how to resolve this problem.\n");
-            ___5a101h();
             dRally_System_clean();
             exit(0x70);
         }
@@ -76,7 +73,7 @@ void ___3e1c4h(void){
 
             printf("\nDEATH RALLY ERROR: File %s is not in original form!\n", cinems[n].name);
             printf("Please consult DRHELP.EXE for more information on how to resolve this problem.\n");
-            ___5a101h();
+
             dRally_System_clean();
             exit(0x70);
         }

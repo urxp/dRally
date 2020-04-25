@@ -4,22 +4,22 @@ cpu 386
 	extern	__CHK
 	extern 	__STRCAT
 	extern 	__STRCPY
-	extern	___186a3ch
+	extern	___1866b8h
 	extern	___180cc0h
-	extern	___186a6eh
+	extern	___1866b8h
 	extern	___180cd8h
 	extern	___196a84h
-	extern	___186ad2h
+	extern	___1866b8h
 	extern	___181048h
 	extern	___196a7ch
 	extern	___185b58h
 	extern	___185b6ch
-	extern	___186b04h
+	extern	___1866b8h
 	extern	___18105ch
 	extern	___185b6dh
 	extern	___185b6eh
 	extern	___185b6fh
-	extern	___186b36h
+	extern	___1866b8h
 	extern	___181068h
 	extern	___185b70h
 	extern	___185b6ah
@@ -57,7 +57,7 @@ __GDECL(___1e62ch)
 		push    esi
 		push    edi
 		mov     edx, eax
-		mov     edi, ___186a3ch
+		mov     edi, ___1866b8h+384h
 		mov     esi, ___180cc0h
 		movsd   
 		movsd   
@@ -65,7 +65,7 @@ __GDECL(___1e62ch)
 		movsd   
 		movsd   
 		movsw   
-		mov     edi, ___186a6eh
+		mov     edi, ___1866b8h+3b6h
 		mov     esi, ___180cd8h
 		mov     ebx, 1
 		mov     ah, 1
@@ -76,7 +76,7 @@ __GDECL(___1e62ch)
 		movsd   
 		movsw   
 		mov     [___196a84h], ebx
-		mov     edi, ___186ad2h
+		mov     edi, ___1866b8h+41ah
 		mov     esi, ___181048h
 		mov     [___196a7ch], ebx
 		mov     [___185b58h], ah
@@ -86,7 +86,7 @@ __GDECL(___1e62ch)
 		movsd   
 		movsw   
 		mov     [___185b6ch], ah
-		mov     edi, ___186b04h
+		mov     edi, ___1866b8h+44ch
 		mov     esi, ___18105ch
 		mov     [___185b6dh], ah
 		mov     [___185b6eh], ah
@@ -95,7 +95,7 @@ __GDECL(___1e62ch)
 		movsw   
 		movsb   
 		mov     [___185b6fh], ah
-		mov     edi, ___186b36h
+		mov     edi, ___1866b8h+47eh
 		mov     esi, ___181068h
 		mov     [___185b70h], ah
 		xor     bl, bl
@@ -182,14 +182,28 @@ ___1e813h:
 		mov     eax, 2
 		mov     ecx, 6dh
 		mov     ebx, 27fh
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		xor     eax, eax
 		mov     edx, 173h
 		mov     [___196a84h], eax
 		mov     [___196a7ch], eax
 		mov     [___19bd60h], eax
 		mov     [CONNECTION_TYPE], eax
-		call    near ___135fch
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___135fch
+	add 	esp, 10h
+
 	
 	push 	edx
 	push 	ecx

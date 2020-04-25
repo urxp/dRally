@@ -104,7 +104,7 @@ __GDECL(___1aa28h)
 		xor     eax, eax
 ___1aaddh:
 		xor     ebx, ebx
-	;mov     bl, [eax]
+	;mov     bl, [eax]				;; ???
 	mov 	bl, al
 		add     eax, byte 2
 		add     edx, ebx

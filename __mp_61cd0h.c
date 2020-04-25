@@ -149,6 +149,13 @@ dword NovellNetWare_IPX_OpenSocket(dword socket_no, dword longevity);
 void NovellNetWare_IPX_GetInternetworkAddress(IPX_InternetworkAddress * ia);
 void _dos_gettime(struct dostime_t * __time);
 
+dword DPMI_ALLOCATE_DOS_MEMORY_BLOCK(dword size, dword * sel);
+
+void * ___61b00h(dword A0, dword * A1){
+
+    return (void *)(DPMI_ALLOCATE_DOS_MEMORY_BLOCK(A0, A1) << 4);
+}
+
 dword ___61cd0h(void){
 
     dword   eax, edx;

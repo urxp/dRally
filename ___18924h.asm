@@ -5,13 +5,13 @@ cpu 386
 	extern 	__MOVS
 	extern 	__STRCAT
 	extern 	___180748h
-	extern 	___186f82h
+	extern 	___1866b8h
 	extern 	___185b85h
 	extern 	___180754h
 	extern 	itoa_
 	extern 	GET_FILE_SIZE
 	extern 	___18808h
-	extern 	___1870e0h
+	extern 	___1866b8h
 	extern 	___18075ch
 	extern 	___1a1138h__VESA101h_DefaultScreenBufferB
 	extern 	___1a112ch__VESA101_ACTIVESCREEN_PTR
@@ -21,7 +21,7 @@ cpu 386
 	extern 	___1854bch
 	extern 	___24cc54h
 	extern 	dRally_Sound_pushEffect
-	extern 	___18687ah
+	extern 	___1866b8h
 	extern 	___18076ch
 	extern 	___185b59h
 	extern 	___185b62h
@@ -77,7 +77,7 @@ ___1893fh:
 		mov     eax, [esp+18h]
 		mov     dl, 1
 		mov     esi, ___180748h
-		lea     edi, [ebp+___186f82h]
+		lea     edi, [ebp+___1866b8h+8cah]
 		mov     [eax+___185b85h], dl
 		movsd   
 		movsd   
@@ -110,7 +110,7 @@ ___1893fh:
 		jle     short ___189c7h
 		mov     eax, [esp+18h]
 		mov     byte [esp+eax*1+10h], 1
-		mov     eax, ___186f82h
+		mov     eax, ___1866b8h+8cah
 		mov     edx, esp
 		add     eax, ebp
 		call    near ___18808h
@@ -121,7 +121,7 @@ ___189c7h:
 		mov     [esp+18h], ebx
 		cmp     ebx, byte 8
 		jl      near ___1893fh
-		mov     edi, ___1870e0h
+		mov     edi, ___1866b8h+0a28h
 		mov     esi, ___18075ch
 		mov     ebp, 0ffffffffh
 		movsd   
@@ -138,13 +138,34 @@ ___189f1h:
 		xor     edx, edx
 		call 	__MOVS
 		xor     eax, eax
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     eax, 1
 		xor     edx, edx
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, 1
 		mov     eax, 5
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 
 	push 	edx
 	push 	ecx
@@ -191,7 +212,7 @@ ___18a9ah:
 		jl      near ___18ce2h
 		mov     al, 1
 		mov     ebx, 883h
-		mov     edi, ___18687ah
+		mov     edi, ___1866b8h+1c2h
 		mov     esi, ___18076ch
 		xor     ch, ch
 		xor     edx, edx

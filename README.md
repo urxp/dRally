@@ -34,5 +34,4 @@ The main goal of this project is to create a port of Death Rally (1996) running 
 
 #### Work in progress
 *   Because of a lot of disassembled code, only 32bit version available at this point
-*   Keyboard input not fully covered 
 *   Multiplayer not available 

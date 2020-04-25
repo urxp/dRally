@@ -3,7 +3,6 @@
 	extern byte ___1a0d60h[];
 
 void dRally_System_clean(void);
-void ___5a101h(void);
 
 void ___3e3cch(void){
 
@@ -12,7 +11,6 @@ void ___3e3cch(void){
     if(!(fd = strup_fopen("CDROM.INI", "rb"))){
 
         printf("Error reading CDROM.INI file!\n");
-        ___5a101h();
         dRally_System_clean();
         exit(0x70);
     }

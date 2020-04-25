@@ -140,7 +140,14 @@ __GDECL(___198a0h)
 		mov     ebx, 27fh
 		mov     edx, 173h
 		xor     eax, eax
-		call    near ___135fch
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___135fch
+	add 	esp, 10h
+
 	
 	push 	edx
 	push 	ecx
@@ -153,7 +160,14 @@ __GDECL(___198a0h)
 		mov     eax, 4
 		xor     edx, edx
 		mov     ecx, 64h
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		push    byte 1
 		mov     edx, 0e9h
 		mov     ebx, 88h
@@ -262,7 +276,14 @@ ___19a8eh:
 		mov     ecx, 58h
 		xor     edx, edx
 		mov     ebx, 1e2h
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		push    byte 1
 		mov     edx, 0c6h
 		mov     eax, 46h

@@ -2,7 +2,6 @@ cpu 386
 %include "macros.inc"
 
 	extern	__CHK
-	extern	___5a101h
 	extern	dRally_System_clean
 	extern	VGA3_SETMODE
 	extern	___183e84h
@@ -19,7 +18,6 @@ __GDECL(___492f4h)
 		push    ebx
 		push    ecx
 		push    edx
-		call    near ___5a101h
 
 	push 	eax
 	push 	ecx

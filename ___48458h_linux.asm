@@ -275,7 +275,7 @@ cpu 386
 	extern	___1a1118h
 	extern	___1a111ch
 	extern	___45c6ch
-	extern	___59e10h
+	extern	kmap
 	extern	__STOSB
 	extern	___59cd8h
 	extern	___183e6ch
@@ -1381,7 +1381,7 @@ ___49163h:
 		cmp     edx, byte 3fh
 		jl      short ___49163h
 		mov     ecx, 100h
-		mov     eax, ___59e10h
+		mov     eax, kmap
 		xor     edx, edx
 		call    near __STOSB
 		xor     edi, edi
@@ -1392,7 +1392,7 @@ ___49188h:
 		mov     eax, edi
 ___4918fh:
 		xor     ebx, ebx
-		mov     bl, [eax+___59e10h]
+		mov     bl, [eax+kmap]
 		inc     eax
 		add     edx, ebx
 		cmp     eax, dword 100h
@@ -1464,7 +1464,7 @@ ___4920ah:
 		cmp     edx, byte 3fh
 		jl      short ___4920ah
 		mov     ecx, 100h
-		mov     eax, ___59e10h
+		mov     eax, kmap
 		xor     edx, edx
 		call    near __STOSB
 		xor     edi, edi
@@ -1475,7 +1475,7 @@ ___4922fh:
 		mov     eax, edi
 ___49236h:
 		xor     ebx, ebx
-		mov     bl, [eax+___59e10h]
+		mov     bl, [eax+kmap]
 		inc     eax
 		add     edx, ebx
 		cmp     eax, dword 100h
@@ -1528,7 +1528,7 @@ ___492b8h:
 		cmp     edx, byte 3fh
 		jl      short ___492b8h
 		mov     ecx, 100h
-		mov     eax, ___59e10h
+		mov     eax, kmap
 		xor     edx, edx
 		call    near __STOSB
 		cmp     dword [___196d9ch], byte 1

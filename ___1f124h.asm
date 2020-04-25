@@ -41,7 +41,7 @@ cpu 386
 	extern	___1a1ffch
 	extern	___18394h
 	extern	___196a90h
-	extern	___187432h
+	extern	___1866b8h
 	extern	___1811b8h
 	extern	___1811c8h
 	extern	___185b38h
@@ -78,13 +78,34 @@ ___1f140h:
 		xor     edx, edx
 		call 	__MOVS
 		xor     eax, eax
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     eax, 2
 		xor     edx, edx
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, 1
 		mov     eax, 7
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 
 	push 	edx
 	push 	ecx
@@ -109,7 +130,14 @@ ___1f1b3h:
 		mov     ecx, 32h
 		xor     edx, edx
 		mov     ebx, 1fah
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		push    byte 1
 		mov     edx, 0deh
 		mov     eax, 4ch
@@ -167,7 +195,14 @@ ___1f248h:
 		mov     ecx, 32h
 		xor     edx, edx
 		mov     ebx, 1fah
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		push    byte 1
 		mov     edx, 0deh
 		mov     eax, 4ch
@@ -225,7 +260,14 @@ ___1f2e1h:
 		mov     ecx, 32h
 		xor     edx, edx
 		mov     ebx, 1fah
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		push    byte 1
 		mov     edx, 0deh
 		mov     eax, 4ch
@@ -283,7 +325,14 @@ ___1f379h:
 		mov     ecx, 32h
 		xor     edx, edx
 		mov     ebx, 1fah
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		push    byte 1
 		mov     edx, 0deh
 		mov     eax, 4ch
@@ -336,7 +385,14 @@ ___1f40dh:
 		mov     ecx, 42h
 		xor     edx, edx
 		mov     ebx, 1e4h
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		push    byte 1
 		mov     edx, 0e1h
 		mov     eax, 52h
@@ -456,15 +512,36 @@ ___1f40dh:
 		xor     edx, edx
 		call 	__MOVS
 		xor     eax, eax
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     eax, 2
 		xor     edx, edx
 		mov     ebx, 1fah
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     eax, 7
 		xor     edx, edx
 		mov     ecx, 32h
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		push    byte 1
 		mov     edx, 0deh
 		mov     eax, 4ch
@@ -513,7 +590,14 @@ ___1f625h:
 		mov     ecx, 4fh
 		xor     edx, edx
 		mov     ebx, 220h
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		push    byte 1
 		mov     edx, 0fah
 		mov     eax, 2eh
@@ -548,7 +632,7 @@ ___1f690h:
 		and     eax, 0ffh
 		mov     [___196a90h], eax
 		je      short ___1f6b6h
-		mov     edi, ___187432h
+		mov     edi, ___1866b8h+0d7ah
 		mov     esi, ___1811b8h
 		movsd   
 		movsd   
@@ -556,7 +640,7 @@ ___1f690h:
 		movsb   
 		jmp     short ___1f6c5h
 ___1f6b6h:
-		mov     edi, ___187432h
+		mov     edi, ___1866b8h+0d7ah
 		mov     esi, ___1811c8h
 		movsd   
 		movsd   

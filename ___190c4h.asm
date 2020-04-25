@@ -182,15 +182,36 @@ ___191b4h:
 		xor     edx, edx
 		call 	__MOVS
 		xor     eax, eax
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, 1
 		mov     ebx, 27fh
 		mov     eax, edx
 		mov     ecx, 6dh
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, 173h
 		xor     eax, eax
-		call    near ___135fch
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___135fch
+	add 	esp, 10h
+
 		cmp     dword [___19bd60h], byte 0
 		je      short ___192f6h
 		mov     ecx, 390a3h

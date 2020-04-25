@@ -10,16 +10,18 @@ cpu 386
 section .text
 
 __GDECL(___13248h_cdecl)
+	push 	ebx
 
-	mov 	eax, [esp+14h]
+	mov 	eax, [esp+18h]
 	push 	eax
 
-	mov 	ecx, [esp+14h]
-	mov 	ebx, [esp+10h]
-	mov 	edx, [esp+0ch]
-	mov 	eax, [esp+8]
+	mov 	ecx, [esp+18h]
+	mov 	ebx, [esp+14h]
+	mov 	edx, [esp+10h]
+	mov 	eax, [esp+0ch]
 
 	call 	___13248h
+	pop 	ebx
 	retn
 
 

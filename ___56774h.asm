@@ -169,9 +169,9 @@ cpu 386
 	extern	___2438c8h
 	extern	___4c21ch
 	extern	___44304h
-	extern	___59e68h
+	extern	kmap
 	extern	___49390h
-	extern	___59e4bh
+	extern	kmap
 	extern	dRally_Sound_getPosition
 	extern	___184408h
 	extern	strcmp_
@@ -187,15 +187,15 @@ cpu 386
 	extern	___18442ch
 	extern	___48458h
 	extern	___243d00h
-	extern	___59e1fh
+	extern	kmap
 	extern	___196da8h
-	extern	___59e4ch
-	extern	___59e4dh
-	extern	___59e4eh
+	extern	kmap
+	extern	kmap
+	extern	kmap
 	extern	___196db0h
-	extern	___59e4fh
+	extern	kmap
 	extern	___196db4h
-	extern	___59e29h
+	extern	kmap
 	extern	___184430h
 	extern	___477d4h
 	extern	___47808h
@@ -249,7 +249,7 @@ cpu 386
 	extern	___46814h
 	extern	___454ach
 	extern	___196d8ch
-	extern	___59e11h
+	extern	kmap
 	extern	___61418h
 	extern	___1846b8h
 	extern	___1846dch
@@ -1664,11 +1664,11 @@ ___5761ah:
 		je      short ___57631h
 		call    near ___44304h
 ___57631h:
-		cmp     byte [___59e68h], 0
+		cmp     byte [kmap+58h], 0
 		je      short ___5763fh
 		call    near ___49390h
 ___5763fh:
-		cmp     byte [___59e4bh], 0
+		cmp     byte [kmap+3bh], 0
 		je      near ___57803h
 		mov     edi, [___19bd60h]
 		test    edi, edi
@@ -1882,7 +1882,7 @@ ___57803h:
 		mov     esi, [___243d00h]
 		test    esi, esi
 		jne     short ___57838h
-		cmp     byte [___59e1fh], 0
+		cmp     byte [kmap+0fh], 0
 		je      short ___57838h
 		mov     edi, 1
 		mov     eax, [___196da8h]
@@ -1894,7 +1894,7 @@ ___57803h:
 ___57832h:
 		mov     [___196da8h], edi
 ___57838h:
-		cmp     byte [___59e1fh], 0
+		cmp     byte [kmap+0fh], 0
 		jne     short ___57849h
 		xor     ecx, ecx
 		mov     [___243d00h], ecx
@@ -1904,7 +1904,7 @@ ___57849h:
 		jg      short ___57866h
 		mov     dword [___196da8h], 1
 ___57866h:
-		cmp     byte [___59e4ch], 0
+		cmp     byte [kmap+3ch], 0
 		je      short ___578a1h
 		cmp     dword [___196da0h], byte 0
 		je      short ___57884h
@@ -1925,9 +1925,9 @@ ___57894h:
 	pop 	ecx
 	pop 	edx
 		xor     cl, cl
-		mov     [___59e4ch], cl
+		mov     [kmap+3ch], cl
 ___578a1h:
-		cmp     byte [___59e4dh], 0
+		cmp     byte [kmap+3dh], 0
 		je      short ___578d8h
 		cmp     dword [___196da4h], byte 0
 		je      short ___578bch
@@ -1947,27 +1947,27 @@ ___578cch:
 	pop		edx
 	pop 	ecx
 		xor     al, al
-		mov     [___59e4dh], al
+		mov     [kmap+3dh], al
 ___578d8h:
-		cmp     byte [___59e4eh], 0
+		cmp     byte [kmap+3eh], 0
 		je      short ___578fdh
 		cmp     dword [___196db0h], byte 0
 		setz    al
 		and     eax, 0ffh
 		xor     dl, dl
 		mov     [___196db0h], eax
-		mov     [___59e4eh], dl
+		mov     [kmap+3eh], dl
 ___578fdh:
-		cmp     byte [___59e4fh], 0
+		cmp     byte [kmap+3fh], 0
 		je      short ___57922h
 		cmp     dword [___196db4h], byte 0
 		setz    al
 		and     eax, 0ffh
 		xor     bl, bl
 		mov     [___196db4h], eax
-		mov     [___59e4fh], bl
+		mov     [kmap+3fh], bl
 ___57922h:
-		cmp     byte [___59e29h], 0
+		cmp     byte [kmap+19h], 0
 		je      near ___57b8eh
 		mov     ecx, [___19bd60h]
 		test    ecx, ecx
@@ -2554,12 +2554,12 @@ ___5803eh:
 		mov     [___196d98h], edx
 		test    eax, eax
 		jne     short ___5806eh
-		cmp     byte [___59e11h], 0
+		cmp     byte [kmap+1], 0
 		jne     short ___580a1h
 ___5806eh:
 		cmp     dword [___19bd60h], byte 0
 		je      near ___5831ah
-		cmp     byte [___59e11h], 0
+		cmp     byte [kmap+1], 0
 		jne     short ___58091h
 		cmp     dword [___243cd8h], byte 0
 		je      near ___5831ah

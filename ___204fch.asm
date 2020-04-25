@@ -18,36 +18,36 @@ cpu 386
 	extern	___5994ch
 	extern	___1a1158h
 	extern	___59b3ch
-	extern	___187144h
+	extern	___1866b8h
 	extern	___1818d8h
 	extern	___19ce70h
 	extern	___1819f0h
 	extern	___1a1150h
-	extern	___187176h
+	extern	___1866b8h
 	extern	___1818e8h
 	extern	___181a0ch
 	extern	___1a1148h
-	extern	___1871a8h
+	extern	___1866b8h
 	extern	___1818f8h
 	extern	___181a2ch
 	extern	___1a114ch
-	extern	___1871dah
+	extern	___1866b8h
 	extern	___18190ch
 	extern	___181a4ch
 	extern	___1a1140h
-	extern	___18720ch
+	extern	___1866b8h
 	extern	___181924h
 	extern	___181a6ch
 	extern	___1a115ch
-	extern	___18723eh
+	extern	___1866b8h
 	extern	___181940h
 	extern	___181a8ch
 	extern	___1a1154h
-	extern	___187270h
+	extern	___1866b8h
 	extern	___18195ch
 	extern	___181aach
 	extern	___1a1144h
-	extern	___1872a2h
+	extern	___1866b8h
 	extern	___181ac4h
 	extern	___20220h
 	extern	___185b1ch
@@ -119,13 +119,34 @@ ___205a3h:
 		xor     edx, edx
 		call 	__MOVS
 		xor     eax, eax
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     eax, 3
 		xor     edx, edx
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, 1
 		mov     eax, 6
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 
 	push 	edx
 	push 	ecx
@@ -145,15 +166,36 @@ ___205a3h:
 ___20617h:
 		xor     edx, edx
 		xor     eax, eax
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     eax, 3
 		xor     edx, edx
 		mov     ecx, 30h
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     eax, 6
 		xor     edx, edx
 		mov     ebx, 143h
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		push    byte 1
 		mov     edx, 79h
 		mov     eax, 127h
@@ -186,7 +228,7 @@ ___20670h:
 		cmp     eax, dword 0aah
 		je      short ___20670h
 		call    near ___59b3ch
-		mov     edi, ___187144h
+		mov     edi, ___1866b8h+0a8ch
 		mov     esi, ___1818d8h
 
 	push 	edx
@@ -202,7 +244,7 @@ ___20670h:
 		movsw   
 		movsb   
 		imul    esi, ebx, byte 0fh
-		mov     edi, ___187144h
+		mov     edi, ___1866b8h+0a8ch
 		add     esi, ___19ce70h
 		call 	__STRCAT
 ___206d8h:
@@ -220,15 +262,36 @@ ___206e1h:
 ___206ebh:
 		xor     edx, edx
 		xor     eax, eax
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     eax, 3
 		xor     edx, edx
 		mov     ecx, 30h
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     eax, 6
 		xor     edx, edx
 		mov     ebx, 143h
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		push    byte 1
 		mov     edx, [esp+14h]
 		mov     eax, 127h
@@ -260,7 +323,7 @@ ___20743h:
 		je      short ___20743h
 		cmp     eax, dword 0aah
 		je      short ___20743h
-		mov     edi, ___187176h
+		mov     edi, ___1866b8h+0abeh
 		mov     esi, ___1818e8h
 		call    near ___59b3ch
 
@@ -275,7 +338,7 @@ ___20743h:
 		movsd   
 		movsw   
 		imul    esi, [___1a1150h], byte 0fh
-		mov     edi, ___187176h
+		mov     edi, ___1866b8h+0abeh
 		add     esi, ___19ce70h
 		call 	__STRCAT
 		cmp     ebp, byte 0ffffffffh
@@ -291,15 +354,36 @@ ___20743h:
 ___207bbh:
 		xor     edx, edx
 		xor     eax, eax
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     eax, 3
 		xor     edx, edx
 		mov     ecx, 30h
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     eax, 6
 		xor     edx, edx
 		mov     ebx, 143h
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		push    byte 1
 		mov     edx, [esp+18h]
 		mov     eax, 127h
@@ -332,7 +416,7 @@ ___20813h:
 		cmp     eax, dword 0aah
 		je      short ___20813h
 		call    near ___59b3ch
-		mov     edi, ___1871a8h
+		mov     edi, ___1866b8h+0af0h
 		mov     esi, ___1818f8h
 
 	push 	edx
@@ -348,7 +432,7 @@ ___20813h:
 		movsd   
 		movsb   
 		imul    esi, ebx, byte 0fh
-		mov     edi, ___1871a8h
+		mov     edi, ___1866b8h+0af0h
 		add     esi, ___19ce70h
 		call 	__STRCAT
 		cmp     ebp, byte 0ffffffffh
@@ -364,15 +448,36 @@ ___20813h:
 ___2088dh:
 		xor     edx, edx
 		xor     eax, eax
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     eax, 3
 		xor     edx, edx
 		mov     ecx, 30h
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     eax, 6
 		xor     edx, edx
 		mov     ebx, 143h
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		push    byte 1
 		mov     edx, [esp+8]
 		mov     eax, 127h
@@ -404,7 +509,7 @@ ___208e5h:
 		je      short ___208e5h
 		cmp     eax, dword 0aah
 		je      short ___208e5h
-		mov     edi, ___1871dah
+		mov     edi, ___1866b8h+0b22h
 		mov     esi, ___18190ch
 		call    near ___59b3ch
 
@@ -421,7 +526,7 @@ ___208e5h:
 		movsd   
 		movsb   
 		imul    esi, [___1a114ch], byte 0fh
-		mov     edi, ___1871dah
+		mov     edi, ___1866b8h+0b22h
 		add     esi, ___19ce70h
 		call 	__STRCAT
 		cmp     ebp, byte 0ffffffffh
@@ -437,15 +542,36 @@ ___208e5h:
 ___2095eh:
 		xor     edx, edx
 		xor     eax, eax
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     eax, 3
 		xor     edx, edx
 		mov     ecx, 30h
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     eax, 6
 		xor     edx, edx
 		mov     ebx, 143h
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		push    byte 1
 		mov     edx, [esp+0ch]
 		mov     eax, 127h
@@ -479,7 +605,7 @@ ___209b6h:
 		je      short ___209b6h
 		call    near ___59b3ch
 		mov     ecx, 6
-		mov     edi, ___18720ch
+		mov     edi, ___1866b8h+0b54h
 		mov     esi, ___181924h
 
 	push 	edx
@@ -492,7 +618,7 @@ ___209b6h:
 		rep movsd   
 		movsw   
 		imul    esi, ebx, byte 0fh
-		mov     edi, ___18720ch
+		mov     edi, ___1866b8h+0b54h
 		add     esi, ___19ce70h
 		call 	__STRCAT
 		cmp     ebp, byte 0ffffffffh
@@ -508,15 +634,36 @@ ___209b6h:
 ___20a34h:
 		xor     edx, edx
 		xor     eax, eax
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     eax, 3
 		xor     edx, edx
 		mov     ecx, 30h
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     eax, 6
 		xor     edx, edx
 		mov     ebx, 143h
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		push    byte 1
 		mov     edx, [esp+30h]
 		mov     eax, 127h
@@ -549,7 +696,7 @@ ___20a8ch:
 		cmp     eax, dword 0aah
 		je      short ___20a8ch
 		mov     ecx, 6
-		mov     edi, ___18723eh
+		mov     edi, ___1866b8h+0b86h
 		mov     esi, ___181940h
 		call    near ___59b3ch
 
@@ -562,7 +709,7 @@ ___20a8ch:
 		rep movsd   
 		movsw   
 		imul    esi, [___1a115ch], byte 0fh
-		mov     edi, ___18723eh
+		mov     edi, ___1866b8h+0b86h
 		add     esi, ___19ce70h
 		call 	__STRCAT
 		cmp     ebp, byte 0ffffffffh
@@ -578,15 +725,36 @@ ___20a8ch:
 ___20b08h:
 		xor     edx, edx
 		xor     eax, eax
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     eax, 3
 		xor     edx, edx
 		mov     ecx, 30h
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     eax, 6
 		xor     edx, edx
 		mov     ebx, 143h
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		push    byte 1
 		mov     edx, [esp+38h]
 		mov     eax, 127h
@@ -620,7 +788,7 @@ ___20b60h:
 		je      short ___20b60h
 		call    near ___59b3ch
 		mov     ecx, 6
-		mov     edi, ___187270h
+		mov     edi, ___1866b8h+0bb8h
 		mov     esi, ___18195ch
 
 	push 	edx
@@ -633,7 +801,7 @@ ___20b60h:
 		rep movsd   
 		movsb   
 		imul    esi, ebx, byte 0fh
-		mov     edi, ___187270h
+		mov     edi, ___1866b8h+0bb8h
 		add     esi, ___19ce70h
 		call 	__STRCAT
 		cmp     ebp, byte 0ffffffffh
@@ -649,15 +817,36 @@ ___20b60h:
 ___20bddh:
 		xor     edx, edx
 		xor     eax, eax
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     eax, 3
 		xor     edx, edx
 		mov     ecx, 30h
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     eax, 6
 		xor     edx, edx
 		mov     ebx, 143h
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		push    byte 1
 		mov     edx, [esp+4]
 		mov     eax, 127h
@@ -690,7 +879,7 @@ ___20c35h:
 		cmp     eax, dword 0aah
 		je      short ___20c35h
 		mov     ecx, 8
-		mov     edi, ___1872a2h
+		mov     edi, ___1866b8h+0beah
 		mov     esi, ___181ac4h
 		call    near ___59b3ch
 
@@ -702,7 +891,7 @@ ___20c35h:
 
 		rep movsd   
 		imul    esi, [___1a1144h], byte 0fh
-		mov     edi, ___1872a2h
+		mov     edi, ___1866b8h+0beah
 		add     esi, ___19ce70h
 		call 	__STRCAT
 		cmp     ebp, byte 0ffffffffh

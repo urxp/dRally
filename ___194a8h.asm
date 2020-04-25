@@ -13,7 +13,7 @@ cpu 386
 	extern 	___3a6a4h
 	extern 	___146c4h
 	extern 	___1807ech
-	extern 	___18687ah
+	extern 	___1866b8h
 	extern 	strcmp_
 	extern 	___3ab5ch
 	extern 	___185b59h
@@ -81,10 +81,24 @@ ___194c3h:
 		xor     edx, edx
 		call 	__MOVS
 		xor     eax, eax
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, 1
 		mov     eax, edx
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		cmp     dword [___185a24h], byte 0
 		jne     short ___19523h
 
@@ -120,14 +134,21 @@ ___1953dh:
 ___1955ah:
 		mov     ecx, 1
 		mov     edx, ___1807ech
-		mov     eax, ___18687ah
+		mov     eax, ___1866b8h+1c2h
 		mov     [esp], ecx
 		call    near strcmp_
 		test    eax, eax
 		jne     near ___1961dh
 		mov     eax, ecx
 		xor     edx, edx
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     eax, ecx
 		call    near ___3ab5ch
 		mov     [esp], eax
@@ -156,7 +177,7 @@ ___1955ah:
 	pop 	edx
 
 		imul    eax, [___1a1ef8h], byte 6ch
-		mov     edi, ___18687ah
+		mov     edi, ___1866b8h+1c2h
 		mov     [eax+___1a020ch], edx
 		call    near ___2b5f0h
 		mov     [___243d44h], esi
@@ -196,7 +217,14 @@ ___19649h:
 		mov     ecx, 50h
 		xor     edx, edx
 		mov     ebx, 12ch
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		push    byte 1
 		mov     edx, 0dch
 		mov     eax, 0aah
@@ -216,11 +244,11 @@ ___19649h:
 		mov     ebx, [esp]
 		and     eax, 0ffh
 		test    ebx, ebx
-		je      short ___19636h
+		je      ___19636h
 		test    eax, eax
-		je      short ___19636h
+		je      ___19636h
 		mov     ah, 1
-		mov     edi, ___18687ah
+		mov     edi, ___1866b8h+1c2h
 		mov     esi, ___1807ech
 		xor     dl, dl
 		xor     ecx, ecx

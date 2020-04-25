@@ -57,7 +57,7 @@ cpu 386
 	extern	dRally_Sound_play
 	extern	___606dfh
 	extern	___605deh_cdecl
-	extern	___59e11h
+	extern	kmap
 	extern	___12cb8h__VESA101_PRESENTSCREEN
 	extern 	VESA101_SETMODE
 
@@ -370,7 +370,7 @@ ___3dbe4h:
 	pop 	ecx
 
 ___3dd9fh:
-		cmp     byte [___59e11h], 1
+		cmp     byte [kmap+1], 1
 		jne     near ___3dbe4h
 ___3ddach:
 

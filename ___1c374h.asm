@@ -6,7 +6,7 @@ cpu 386
 	extern 	___1a1138h__VESA101h_DefaultScreenBufferB
 	extern 	___1a112ch__VESA101_ACTIVESCREEN_PTR
 	extern 	___185a14h
-	extern 	___186e24h
+	extern 	___1866b8h
 	extern 	___180b20h
 	extern 	___180b2ch
 	extern 	___13710h
@@ -67,7 +67,7 @@ ___1c390h:
 		call 	__MOVS
 		cmp     dword [___185a14h], byte 0
 		je      short ___1c3d7h
-		mov     edi, ___186e24h
+		mov     edi, ___1866b8h+076ch
 		mov     esi, ___180b20h
 		movsd   
 		movsd   
@@ -75,7 +75,7 @@ ___1c390h:
 		movsb   
 		jmp     short ___1c3e4h
 ___1c3d7h:
-		mov     edi, ___186e24h
+		mov     edi, ___1866b8h+076ch
 		mov     esi, ___180b2ch
 		movsd   
 		movsd   
@@ -83,13 +83,34 @@ ___1c3d7h:
 ___1c3e4h:
 		xor     edx, edx
 		xor     eax, eax
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     eax, 2
 		xor     edx, edx
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, 1
 		mov     eax, 4
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		cmp     dword [___185a24h], byte 0
 		jne     short ___1c418h
 
@@ -144,7 +165,14 @@ ___1c474h:
 		mov     ecx, 4fh
 		xor     edx, edx
 		mov     ebx, 1aeh
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		push    byte 1
 		mov     edx, 10eh
 		mov     eax, 69h
@@ -247,7 +275,7 @@ ___1c522h:
 ___1c5d4h:
 		cmp     dword [___185a14h], byte 0
 		je      short ___1c605h
-		mov     edi, ___186e24h
+		mov     edi, ___1866b8h+076ch
 		xor     ebx, ebx
 		mov     esi, ___180b2ch
 		mov     [___185a14h], ebx
@@ -266,7 +294,7 @@ ___1c5d4h:
 		retn    
 ___1c605h:
 		mov     edx, 1
-		mov     edi, ___186e24h
+		mov     edi, ___1866b8h+076ch
 		mov     esi, ___180b20h
 		mov     [___185a14h], edx
 		movsd   

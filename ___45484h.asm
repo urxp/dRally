@@ -5,7 +5,7 @@ cpu 386
 	extern	___243314h
 	extern	___3f77ch__freeMemory
 	extern	___243310h
-	extern	___59e11h
+	extern	kmap
 
 section .text
 
@@ -17,5 +17,5 @@ __GDECL(___45484h)
 		mov     eax, [___243310h]
 		call    near ___3f77ch__freeMemory
 		xor     ah, ah
-		mov     [___59e11h], ah
+		mov     [kmap+1], ah
 		retn    

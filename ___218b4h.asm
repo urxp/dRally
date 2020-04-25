@@ -43,7 +43,7 @@ cpu 386
 	extern	___19bd58h
 	extern	___59db8h
 	extern	___217b0h
-	extern	___186cc6h
+	extern	___1866b8h
 	extern	___181c30h
 	extern	___596f0h
 	extern	___181c4ch
@@ -99,10 +99,24 @@ ___21901h:
 		add     edi, 0d200h
 		call 	__MOVS
 		xor     eax, eax
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, 1
 		mov     eax, 3
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 
 	push 	edx
 	push 	ecx
@@ -123,7 +137,14 @@ ___21976h:
 		mov     ecx, 46h
 		xor     edx, edx
 		mov     ebx, 14ah
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		push    byte 1
 		mov     edx, 0dah
 		mov     eax, 0d6h
@@ -381,7 +402,14 @@ ___21c52h:
 		mov     ecx, 46h
 		xor     edx, edx
 		mov     ebx, 14ah
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		push    byte 1
 		mov     edx, 0dah
 		mov     eax, 0d6h
@@ -633,7 +661,7 @@ ___21f2bh:
 		call    near ___217b0h
 ___21f57h:
 		mov     ecx, 6
-		mov     edi, ___186cc6h
+		mov     edi, ___1866b8h+60eh
 		mov     esi, ___181c30h
 
 	push 	edx
@@ -650,7 +678,7 @@ ___21f6eh:
 		cmp     dword [___19bd58h], byte 0
 		jne     near ___21c39h
 		mov     ecx, 6
-		mov     edi, ___186cc6h
+		mov     edi, ___1866b8h+60eh
 		mov     esi, ___181c4ch
 		rep movsd   
 		movsw   

@@ -150,7 +150,13 @@ ___1b1f0h:
 		mov     ebx, 27fh
 		mov     edx, 173h
 		xor     eax, eax
-		call    near ___135fch
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___135fch
+	add 	esp, 10h
 
 	push 	edx
 	push 	ecx
@@ -162,11 +168,25 @@ ___1b1f0h:
 
 		xor     edx, edx
 		xor     eax, eax
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+
 		mov     eax, 2
 		xor     edx, edx
 		mov     ecx, 64h
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		push    byte 1
 		mov     edx, 0e9h
 		mov     ebx, 88h
@@ -840,10 +860,24 @@ ___1b94dh:
 		xor     edx, edx
 		call 	__MOVS
 		xor     eax, eax
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     eax, 2
 		xor     edx, edx
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, 0c5h
 		mov     eax, 97h
 		call    near ___1aa28h
@@ -863,11 +897,25 @@ ___1b9ceh:
 		call 	__MOVS
 		xor     eax, eax
 		mov     ebx, 1c2h
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     eax, 2
 		xor     edx, edx
 		mov     ecx, 10dh
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		push    byte 1
 		mov     edx, [esp+10h]
 		mov     eax, [esp+14h]

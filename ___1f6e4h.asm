@@ -227,21 +227,21 @@ cpu 386
 	extern	___1818b8h
 	extern	___19dacdh
 	extern	___1818c8h
-	extern	___187144h
+	extern	___1866b8h
 	extern	___1818d8h
-	extern	___187176h
+	extern	___1866b8h
 	extern	___1818e8h
-	extern	___1871a8h
+	extern	___1866b8h
 	extern	___1818f8h
-	extern	___1871dah
+	extern	___1866b8h
 	extern	___18190ch
-	extern	___18720ch
+	extern	___1866b8h
 	extern	___181924h
-	extern	___18723eh
+	extern	___1866b8h
 	extern	___181940h
-	extern	___187270h
+	extern	___1866b8h
 	extern	___18195ch
-	extern	___1872a2h
+	extern	___1866b8h
 	extern	___181978h
 	extern	___1a1158h
 	extern	___1a1150h
@@ -251,13 +251,13 @@ cpu 386
 	extern	___1a115ch
 	extern	___1a1154h
 	extern	___1a1144h
-	extern	___1874c8h
-	extern	___1874fah
-	extern	___18752ch
-	extern	___18755eh
-	extern	___187590h
-	extern	___1875c2h
-	extern	___1875f4h
+	extern	___1866b8h
+	extern	___1866b8h
+	extern	___1866b8h
+	extern	___1866b8h
+	extern	___1866b8h
+	extern	___1866b8h
+	extern	___1866b8h
 	extern	___1a1164h
 	extern	___1a113ch
 	extern	___1a1110h
@@ -987,27 +987,27 @@ ___1f7f8h:
 		movsd   
 		movsd   
 		movsb   
-		mov     edi, ___187144h
+		mov     edi, ___1866b8h+0a8ch
 		mov     esi, ___1818d8h
 		movsd   
 		movsd   
 		movsd   
 		movsw   
 		movsb   
-		mov     edi, ___187176h
+		mov     edi, ___1866b8h+0abeh
 		mov     esi, ___1818e8h
 		movsd   
 		movsd   
 		movsd   
 		movsw   
-		mov     edi, ___1871a8h
+		mov     edi, ___1866b8h+0af0h
 		mov     esi, ___1818f8h
 		movsd   
 		movsd   
 		movsd   
 		movsd   
 		movsb   
-		mov     edi, ___1871dah
+		mov     edi, ___1866b8h+0b22h
 		mov     esi, ___18190ch
 		movsd   
 		movsd   
@@ -1016,22 +1016,22 @@ ___1f7f8h:
 		movsd   
 		movsb   
 		mov     ecx, 6
-		mov     edi, ___18720ch
+		mov     edi, ___1866b8h+0b54h
 		mov     esi, ___181924h
 		rep movsd   
 		movsw   
 		mov     ecx, 6
-		mov     edi, ___18723eh
+		mov     edi, ___1866b8h+0b86h
 		mov     esi, ___181940h
 		rep movsd   
 		movsw   
 		mov     ecx, 6
-		mov     edi, ___187270h
+		mov     edi, ___1866b8h+0bb8h
 		mov     esi, ___18195ch
 		rep movsd   
 		movsb   
 		mov     ecx, 8
-		mov     edi, ___1872a2h
+		mov     edi, ___1866b8h+0beah
 		mov     esi, ___181978h
 		rep movsd   
 		mov     esi, [___1a1158h]
@@ -1039,7 +1039,7 @@ ___1f7f8h:
 		shl     eax, 4
 		sub     eax, esi
 		mov     esi, ___19ce70h
-		mov     edi, ___187144h
+		mov     edi, ___1866b8h+0a8ch
 		add     esi, eax
 		call 	__STRCAT
 		mov     esi, [___1a1150h]
@@ -1047,7 +1047,7 @@ ___1f7f8h:
 		shl     eax, 4
 		sub     eax, esi
 		mov     esi, ___19ce70h
-		mov     edi, ___187176h
+		mov     edi, ___1866b8h+0abeh
 		add     esi, eax
 		call 	__STRCAT
 		mov     esi, [___1a1148h]
@@ -1055,7 +1055,7 @@ ___1f7f8h:
 		shl     eax, 4
 		sub     eax, esi
 		mov     esi, ___19ce70h
-		mov     edi, ___1871a8h
+		mov     edi, ___1866b8h+0af0h
 		add     esi, eax
 		call 	__STRCAT
 		mov     esi, [___1a114ch]
@@ -1063,7 +1063,7 @@ ___1f7f8h:
 		shl     eax, 4
 		sub     eax, esi
 		mov     esi, ___19ce70h
-		mov     edi, ___1871dah
+		mov     edi, ___1866b8h+0b22h
 		add     esi, eax
 		call 	__STRCAT
 		mov     esi, [___1a1140h]
@@ -1071,7 +1071,7 @@ ___1f7f8h:
 		shl     eax, 4
 		sub     eax, esi
 		mov     esi, ___19ce70h
-		mov     edi, ___18720ch
+		mov     edi, ___1866b8h+0b54h
 		add     esi, eax
 		call 	__STRCAT
 		mov     esi, [___1a115ch]
@@ -1079,7 +1079,7 @@ ___1f7f8h:
 		shl     eax, 4
 		sub     eax, esi
 		mov     esi, ___19ce70h
-		mov     edi, ___18723eh
+		mov     edi, ___1866b8h+0b86h
 		add     esi, eax
 		call 	__STRCAT
 		mov     esi, [___1a1154h]
@@ -1087,7 +1087,7 @@ ___1f7f8h:
 		shl     eax, 4
 		sub     eax, esi
 		mov     esi, ___19ce70h
-		mov     edi, ___187270h
+		mov     edi, ___1866b8h+0bb8h
 		add     esi, eax
 		call 	__STRCAT
 		mov     esi, [___1a1144h]
@@ -1095,30 +1095,30 @@ ___1f7f8h:
 		shl     eax, 4
 		sub     eax, esi
 		mov     esi, ___19ce70h
-		mov     edi, ___1872a2h
+		mov     edi, ___1866b8h+0beah
 		add     esi, eax
 		call 	__STRCAT
-		mov     edi, ___1874c8h
+		mov     edi, ___1866b8h+0e10h
 		mov     esi, ___1818d8h
 		movsd   
 		movsd   
 		movsd   
 		movsw   
 		movsb   
-		mov     edi, ___1874fah
+		mov     edi, ___1866b8h+0e42h
 		mov     esi, ___1818e8h
 		movsd   
 		movsd   
 		movsd   
 		movsw   
-		mov     edi, ___18752ch
+		mov     edi, ___1866b8h+0e74h
 		mov     esi, ___1818f8h
 		movsd   
 		movsd   
 		movsd   
 		movsd   
 		movsb   
-		mov     edi, ___18755eh
+		mov     edi, ___1866b8h+0ea6h
 		mov     esi, ___18190ch
 		movsd   
 		movsd   
@@ -1127,17 +1127,17 @@ ___1f7f8h:
 		movsd   
 		movsb   
 		mov     ecx, 6
-		mov     edi, ___187590h
+		mov     edi, ___1866b8h+0ed8h
 		mov     esi, ___181924h
 		rep movsd   
 		movsw   
 		mov     ecx, 6
-		mov     edi, ___1875c2h
+		mov     edi, ___1866b8h+0f0ah
 		mov     esi, ___181940h
 		rep movsd   
 		movsw   
 		mov     ecx, 6
-		mov     edi, ___1875f4h
+		mov     edi, ___1866b8h+0f3ch
 		mov     esi, ___18195ch
 		rep movsd   
 		movsb   
@@ -1146,7 +1146,7 @@ ___1f7f8h:
 		shl     eax, 4
 		sub     eax, esi
 		mov     esi, ___1a1f6ah
-		mov     edi, ___1874c8h
+		mov     edi, ___1866b8h+0e10h
 		add     esi, eax
 		call 	__STRCAT
 		mov     esi, [___1a113ch]
@@ -1154,7 +1154,7 @@ ___1f7f8h:
 		shl     eax, 4
 		sub     eax, esi
 		mov     esi, ___1a1f6ah
-		mov     edi, ___1874fah
+		mov     edi, ___1866b8h+0e42h
 		add     esi, eax
 		call 	__STRCAT
 		mov     esi, [___1a1110h]
@@ -1162,7 +1162,7 @@ ___1f7f8h:
 		shl     eax, 4
 		sub     eax, esi
 		mov     esi, ___1a1f6ah
-		mov     edi, ___18752ch
+		mov     edi, ___1866b8h+0e74h
 		add     esi, eax
 		call 	__STRCAT
 		mov     esi, [___1a1130h]
@@ -1170,7 +1170,7 @@ ___1f7f8h:
 		shl     eax, 4
 		sub     eax, esi
 		mov     esi, ___1a1f6ah
-		mov     edi, ___18755eh
+		mov     edi, ___1866b8h+0ea6h
 		add     esi, eax
 		call 	__STRCAT
 		mov     esi, [___1a1120h]
@@ -1178,7 +1178,7 @@ ___1f7f8h:
 		shl     eax, 4
 		sub     eax, esi
 		mov     esi, ___1a1f6ah
-		mov     edi, ___187590h
+		mov     edi, ___1866b8h+0ed8h
 		add     esi, eax
 		call 	__STRCAT
 		mov     esi, [___1a1118h]
@@ -1186,7 +1186,7 @@ ___1f7f8h:
 		shl     eax, 4
 		sub     eax, esi
 		mov     esi, ___1a1f6ah
-		mov     edi, ___1875c2h
+		mov     edi, ___1866b8h+0f0ah
 		add     esi, eax
 		call 	__STRCAT
 		mov     esi, [___1a111ch]
@@ -1194,7 +1194,7 @@ ___1f7f8h:
 		shl     eax, 4
 		sub     eax, esi
 		mov     esi, ___1a1f6ah
-		mov     edi, ___1875f4h
+		mov     edi, ___1866b8h+0f3ch
 		add     esi, eax
 		call 	__STRCAT
 		pop     edi

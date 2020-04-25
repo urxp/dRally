@@ -10,7 +10,6 @@ void ___12a54h(void);
 void dRally_Sound____64a28h(void);
 void VGA3_SETMODE(void);
 void dRally_System_clean(void);
-void ___5a101h(void);
 void ___623d4h(void);
 
 
@@ -23,7 +22,6 @@ void ___3aaf8h(void){
 	___2fc50h();
 	dRally_Sound____64a28h();
     dRally_System_clean();
-	___5a101h();
     if(D(___19bd60h)) ___623d4h();
 	VGA3_SETMODE();
     printf("DEATH RALLY Exit: CTRL+ALT+DEL pressed.\n");

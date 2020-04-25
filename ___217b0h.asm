@@ -51,11 +51,25 @@ __GDECL(___217b0h)
 		call 	__MOVS
 		xor     eax, eax
 		mov     ebx, 253h
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     eax, 3
 		xor     edx, edx
 		mov     ecx, 56h
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		push    byte 1
 		mov     edx, 0c6h
 		mov     eax, 1ch

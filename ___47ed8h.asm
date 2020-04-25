@@ -24,13 +24,13 @@ cpu 386
 	extern	___1a309ch
 	extern	dRally_Sound____6563ch
 	extern	dRally_Sound_pushEffect
-	extern	___59e10h
+	extern	kmap
 	extern	__STOSB
 	extern	___2432e4h
 	extern	___59cd8h
 	extern	___47d8ch
 	extern	___243d14h
-	extern	___59e25h
+	extern	kmap
 	extern	___47e90h
 	extern	___243898h
 	extern	___243874h
@@ -167,7 +167,7 @@ ___47fb2h:
 		call    dRally_Sound_pushEffect
 	add 	esp, 18h
 		mov     ecx, 100h
-		mov     eax, ___59e10h
+		mov     eax, kmap
 		xor     edx, edx
 		call    near __STOSB
 		xor     edx, edx
@@ -198,7 +198,7 @@ ___48077h:
 		xor     eax, eax
 ___4807dh:
 		xor     ebx, ebx
-		mov     bl, [eax+___59e10h]
+		mov     bl, [eax+kmap]
 		inc     eax
 		add     edx, ebx
 		cmp     eax, dword 100h
@@ -225,7 +225,7 @@ ___480bfh:
 		jne     short ___480dfh
 		cmp     dword [___243d14h], byte 0ffffffffh
 		jne     short ___480dfh
-		cmp     byte [___59e25h], 1
+		cmp     byte [kmap+15h], 1
 		jne     short ___480dfh
 		mov     dword [___243d14h], 1
 ___480dfh:
@@ -275,7 +275,7 @@ ___4816fh:
 		test    edx, edx
 		je      near ___4803eh
 		mov     ecx, 100h
-		mov     eax, ___59e10h
+		mov     eax, kmap
 		xor     edx, edx
 		mov     esi, 19h
 		call    near __STOSB

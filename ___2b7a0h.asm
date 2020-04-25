@@ -2,7 +2,7 @@ cpu 386
 %include "macros.inc"
 
 	extern	__CHK
-	extern	___18687ah
+	extern	___1866b8h
 	extern	___1807ech
 	extern	___185b59h
 	extern	___185b62h
@@ -29,7 +29,7 @@ __GDECL(___2b7a0h)
 		push    ebp
 		mov     ah, 1
 		mov     ebp, 1
-		mov     edi, ___18687ah
+		mov     edi, ___1866b8h+1c2h
 		mov     esi, ___1807ech
 		xor     dl, dl
 		mov     [___185b59h], ah

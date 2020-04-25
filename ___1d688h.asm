@@ -18,7 +18,7 @@ cpu 386
 	extern	___631d4h
 	extern	___63228h
 	extern	___180d40h
-	extern	___59e11h
+	extern	kmap
 	extern	___63244h
 	extern	___180d44h
 	extern	___2ab50h
@@ -62,11 +62,25 @@ __GDECL(___1d688h)
 		call 	__MOVS
 		xor     eax, eax
 		mov     ebx, 113h
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     eax, 2
 		xor     edx, edx
 		mov     ecx, 41h
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		push    byte 1
 		mov     edx, 0c5h
 		mov     eax, ebp
@@ -111,7 +125,7 @@ __GDECL(___1d688h)
 ___1d78dh:
 		test    esi, esi
 		jne     short ___1d7d4h
-		cmp     cl, [___59e11h]
+		cmp     cl, [kmap+1]
 		jne     short ___1d7d4h
 		mov     eax, edi
 

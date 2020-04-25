@@ -122,7 +122,7 @@ cpu 386
 	extern	___28880h
 	extern	___28e40h
 	extern	___199f54h
-	extern	___59e4ch
+	extern	kmap
 	extern	___2a6a8h
 	extern	___281d0h
 	extern	___269e4h
@@ -411,7 +411,14 @@ ___2bc81h:
 		xor     eax, eax
 		mov     [___1a1ec4h], ebx
 		mov     ebx, 27fh
-		call    near ___135fch
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___135fch
+	add 	esp, 10h
+
 		cmp     dword [___19bd60h], byte 0
 		je      short ___2bcddh
 		mov     ecx, 390a3h
@@ -1192,7 +1199,14 @@ ___2c5ceh:
 		call    near ___2b6a4h
 		mov     ecx, 6dh
 		xor     eax, eax
-		call    near ___135fch
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___135fch
+	add 	esp, 10h
+
 		cmp     dword [___19bd60h], byte 0
 		je      short ___2c65ch
 		mov     ecx, 390a3h
@@ -1718,7 +1732,7 @@ ___2cc53h:
 ___2cc5bh:
 		cmp     dword [___199f54h], byte 0
 		je      short ___2cc6bh
-		mov     byte [___59e4ch], 1
+		mov     byte [kmap+3ch], 1
 ___2cc6bh:
 		call    near ___2a6a8h
 		mov     ebp, eax
@@ -1873,7 +1887,14 @@ ___2cec8h:
 		mov     ebx, 27fh
 		mov     edx, 173h
 		xor     eax, eax
-		call    near ___135fch
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___135fch
+	add 	esp, 10h
+
 		cmp     dword [___19bd60h], byte 0
 		je      short ___2cf19h
 		mov     ecx, 390a3h
@@ -1961,7 +1982,14 @@ ___2cfc8h:
 		mov     ecx, 6dh
 		mov     [___1a112ch__VESA101_ACTIVESCREEN_PTR], eax
 		xor     eax, eax
-		call    near ___135fch
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___135fch
+	add 	esp, 10h
+
 		cmp     dword [___19bd60h], byte 0
 		je      short ___2d044h
 		mov     ecx, 390a3h

@@ -114,7 +114,15 @@ ___147aeh:
 		cmp     edx, eax
 		je      near ___148a9h
 		mov     eax, esi
-		call    near ___13cech
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___13cech
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		xor     ebx, ebx
 		push    8000h
 		mov     edx, [___1854ach]

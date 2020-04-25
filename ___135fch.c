@@ -1,79 +1,32 @@
 #include "drally.h"
 
-	extern byte ___1a1138h__VESA101h_DefaultScreenBufferB[];
-	extern byte ___1a112ch__VESA101_ACTIVESCREEN_PTR[];
-	extern byte ___1a10b4h[];
+	extern byte * ___1a1138h__VESA101h_DefaultScreenBufferB;	// 640*480
+	extern byte * ___1a112ch__VESA101_ACTIVESCREEN_PTR;			// 640*480
+	extern byte * ___1a10b4h;									// 640x10
 
-void ___135fch_cdecl(dword A1, dword A2, dword A3, dword A4){
+#define COOXY(x,y) (0x280*(y)+(x))	
 
+void ___135fch(dword A1, dword A2, dword A3, dword A4){
 
-	dword 	eax, ebx, ecx, edx, edi, esi, ebp;
-	byte 	esp[0xc];
+	int 	m, n;
 
+	n = -1;
+	while(++n < A4){
 
-	if(A4 > 0){
-
-		D(esp+8) = 0x280*(A2+A4)-0xa00;
-		edx = 0x280*A2-0xa00;
-
-		while(1){
-
-			esi = D(___1a1138h__VESA101h_DefaultScreenBufferB)+edx+A1+2;
-			edi = D(___1a112ch__VESA101_ACTIVESCREEN_PTR)+edx+A1+2;
-			memcpy(edi, esi, A3-6);
-
-			edx += 0x280;
-			if((int)edx >= (int)D(esp+8)) break;
-		}
+		memcpy(&___1a112ch__VESA101_ACTIVESCREEN_PTR[COOXY(A1+2,n+A2-4)], &___1a1138h__VESA101h_DefaultScreenBufferB[COOXY(A1+2,n+A2-4)], A3-6);
 	}
 
-	ebx = D(___1a112ch__VESA101_ACTIVESCREEN_PTR)+0x280*(A2+1);
-	esi = D(___1a10b4h);
+	m = -1;
+	while(++m < 0xa){
 
-	ecx = 0xa;
-	while(1){
+		n = -1;
+		while(++n < 0x280){
 
-		edi = 0x280;
-
-		while(1){
-
-			if(B(esi)) B(ebx) = B(esi);
-			ebx++;
-			esi++;
-			edi--;
-
-			if(edi == 0) break;
+			if(___1a10b4h[COOXY(n,m)]){
+				
+				___1a112ch__VESA101_ACTIVESCREEN_PTR[COOXY(n,m+A2+1)] = ___1a10b4h[COOXY(n,m)];
+				___1a112ch__VESA101_ACTIVESCREEN_PTR[COOXY(n,m+A2+A4-9)] = ___1a10b4h[COOXY(n,m)];
+			}
 		}
-
-		ebx += 0x280;
-		ebx -= 0x280;
-		ecx--;
-
-		if(ecx == 0) break;
-	}
-
-	ebx = D(___1a112ch__VESA101_ACTIVESCREEN_PTR)+0x280*(A2+A4-9);
-	esi = D(___1a10b4h);
-
-	ecx = 0xa;
-	while(1){
-
-		edi = 0x280;
-
-		while(1){
-
-			if(B(esi)) B(ebx) = B(esi);
-			ebx++;
-			esi++;
-			edi--;
-
-			if(edi == 0) break;
-		}
-
-		ebx += 0x280;
-		ebx -= 0x280;
-		ecx--;
-
-		if(ecx == 0) break;
 	}
 }

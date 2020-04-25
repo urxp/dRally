@@ -14,8 +14,8 @@ cpu 386
 	extern	___5994ch
 	extern	___59b3ch
 	extern	___2ab50h
-	extern	___59e4ch
-	extern	___59e4dh
+	extern	kmap
+	extern	kmap
 
 section .text
 
@@ -77,8 +77,8 @@ ___2a67ah:
 		jmp     short ___2a67ah
 ___2a68ah:
 		xor     ah, ah
-		mov     [___59e4ch], ah
-		mov     [___59e4dh], ah
+		mov     [kmap+3ch], ah
+		mov     [kmap+3dh], ah
 
 	push 	edx
 	push 	ecx

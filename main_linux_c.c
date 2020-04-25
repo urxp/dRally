@@ -11,7 +11,6 @@ void dRally_System_init(void);
 void dRally_System_clean(void);
 void ___60466h(unsigned int, unsigned int);
 void ___3e720h(void);
-void ___5a101h(void);
 void ___623d4h(void);
 void bpa_read(char *, void *, char *);
 void VGA3_PRESENTSCREEN(unsigned int);
@@ -24,7 +23,6 @@ static void ___10060h(void){
 
 static void ___100dch(void){
 
-	___5a101h();
 	VGA3_SETMODE();
 	printf("DEATH RALLY Exit: CTRL+ALT+DEL pressed!\n");
 	exit(0x70);

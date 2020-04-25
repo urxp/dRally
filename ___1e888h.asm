@@ -46,12 +46,12 @@ cpu 386
 	extern	___3a6a4h
 	extern	___146c4h
 	extern	___180b88h
-	extern	___186a3ch
+	extern	___1866b8h
 	extern	strcmp_
 	extern	___2b8ach
 	extern	___1c374h
 	extern	___180ba0h
-	extern	___186a6eh
+	extern	___1866b8h
 	extern	___13248h
 	extern	___181078h
 	extern	___148cch
@@ -258,7 +258,14 @@ ___1e9ach:
 		call 	__MOVS
 		mov     ecx, 6dh
 		xor     eax, eax
-		call    near ___135fch
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___135fch
+	add 	esp, 10h
+
 		cmp     dword [___196a7ch], byte 0
 		jne     short ___1ead6h
 		mov     ecx, 390a3h
@@ -292,10 +299,24 @@ ___1eaddh:
 ___1eb0ah:
 		xor     edx, edx
 		xor     eax, eax
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, 1
 		mov     eax, 2
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		cmp     dword [___19bd60h], byte 0
 		je      near ___1edd6h
 		cmp     dword [___196a84h], byte 0
@@ -524,10 +545,24 @@ ___1ed74h:
 		xor     edx, edx
 		call 	__MOVS
 		xor     eax, eax
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, 1
 		mov     eax, 2
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 
 	push 	edx
 	push 	ecx
@@ -574,7 +609,7 @@ ___1ee01h:
 ___1ee20h:
 		mov     edx, ___180b88h
 		xor     esi, esi
-		mov     eax, ___186a3ch
+		mov     eax, ___1866b8h+384h
 		mov     [___196a78h], esi
 		call    near strcmp_
 		test    eax, eax
@@ -590,7 +625,7 @@ ___1ee5ah:
 		xor     eax, eax
 		mov     edx, ___180ba0h
 		mov     [___196a78h], eax
-		mov     eax, ___186a6eh
+		mov     eax, ___1866b8h+3b6h
 		call    near strcmp_
 		test    eax, eax
 		jne     near ___1efcch
@@ -598,7 +633,14 @@ ___1ee5ah:
 		mov     ecx, 50h
 		xor     edx, edx
 		mov     ebx, 12ch
-		call    near ___13710h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13710h
+	add 	esp, 8
+	pop 	ecx
+	
 		push    byte 1
 		mov     edx, 0dch
 		mov     eax, 0aah

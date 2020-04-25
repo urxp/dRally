@@ -20,7 +20,7 @@ cpu 386
 	extern 	___185ba9h
 	extern 	___1a10cch
 	extern 	___12e78h
-	extern 	___59e2ch
+	extern 	kmap
 	extern 	___12cb8h__VESA101_PRESENTSCREEN
 	extern 	___17324h
 
@@ -97,7 +97,7 @@ ___167dch:
 		mov     eax, [___1a10cch]
 		call    near ___12e78h
 		xor     ah, ah
-		mov     [___59e2ch], ah
+		mov     [kmap+1ch], ah
 
 	push 	edx
 	push 	ecx

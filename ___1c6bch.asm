@@ -5,7 +5,7 @@ cpu 386
 	extern 	__MOVS
 	extern 	__STRCAT
 	extern 	__STRCPY
-	extern 	___186a3ch
+	extern 	___1866b8h
 	extern 	___180b88h
 	extern 	___185b58h
 	extern 	___185b6ah
@@ -13,7 +13,7 @@ cpu 386
 	extern 	___185b6ch
 	extern 	___185b6dh
 	extern 	___185b6eh
-	extern 	___186a6eh
+	extern 	___1866b8h
 	extern 	___180ba0h
 	extern 	___185b6fh
 	extern 	___185aach
@@ -72,7 +72,7 @@ __GDECL(___1c6bch)
 		sub     esp, byte 14h
 		mov     ebp, eax
 		mov     dl, 1
-		mov     edi, ___186a3ch
+		mov     edi, ___1866b8h+384h
 		mov     esi, ___180b88h
 		xor     ah, ah
 		xor     ebx, ebx
@@ -88,7 +88,7 @@ __GDECL(___1c6bch)
 		movsd   
 		movsw   
 		mov     [___185b6eh], ah
-		mov     edi, ___186a6eh
+		mov     edi, ___1866b8h+3b6h
 		mov     esi, ___180ba0h
 		xor     edx, edx
 		mov     [___185b6fh], ah

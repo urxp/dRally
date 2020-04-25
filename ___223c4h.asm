@@ -56,7 +56,14 @@ __GDECL(___223c4h)
 		call 	__MOVS
 		mov     ecx, 6dh
 		xor     eax, eax
-		call    near ___135fch
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___135fch
+	add 	esp, 10h
+
 		call    near ___3e03ch
 	
 	push 	edx
