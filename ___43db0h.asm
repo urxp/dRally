@@ -32,7 +32,8 @@ __GDECL(___43db0h)
 		push    ___1a54d0h
 		mov     edx, [___243d50h]
 		push    edx
-		call    near bpk_decode2
+		call 	bpk_decode2
+		add 	esp, 8
 		pop     edx
 		pop     ecx
 		pop     ebx

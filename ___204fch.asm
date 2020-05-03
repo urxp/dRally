@@ -906,7 +906,11 @@ ___20c35h:
 		retn    
 ___20cafh:
 		xor     eax, eax
-		call    near ___20220h
+	push 	edx
+	push 	ecx
+		call    ___20220h
+	pop 	ecx
+	pop 	edx
 		cmp     eax, byte 1
 		jne     short ___20cd3h
 		mov     ebp, 0fffffffeh

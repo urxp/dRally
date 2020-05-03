@@ -434,7 +434,8 @@ ___331ech:
 		push    ___1a54d0h
 		mov     edx, [___1a1114h]
 		push    edx
-		call    near bpk_decode2
+		call 	bpk_decode2
+		add 	esp, 8
 		mov     ecx, 112h
 		mov     edx, 168h
 		mov     ebx, [___1a112ch__VESA101_ACTIVESCREEN_PTR]
@@ -512,7 +513,8 @@ ___333a6h:
 		push    ___1a54d0h
 		mov     esi, [___1a1114h]
 		push    esi
-		call    near bpk_decode2
+		call 	bpk_decode2
+		add 	esp, 8
 		mov     ecx, 112h
 		mov     edx, 168h
 		mov     ebx, [___1a112ch__VESA101_ACTIVESCREEN_PTR]
@@ -570,7 +572,8 @@ ___3349dh:
 		push    ___1a54d0h
 		mov     ebx, [___1a1114h]
 		push    ebx
-		call    near bpk_decode2
+		call 	bpk_decode2
+		add 	esp, 8
 		mov     ecx, 112h
 		mov     edx, 168h
 		mov     ebx, [___1a112ch__VESA101_ACTIVESCREEN_PTR]
@@ -629,7 +632,8 @@ ___33595h:
 		push    ___1a54d0h
 		mov     eax, [___1a1114h]
 		push    eax
-		call    near bpk_decode2
+		call 	bpk_decode2
+		add 	esp, 8
 		mov     ecx, 112h
 		mov     edx, 168h
 		mov     ebx, [___1a112ch__VESA101_ACTIVESCREEN_PTR]
@@ -683,7 +687,8 @@ ___3368ch:
 		push    ___1a54d0h
 		mov     ecx, [___1a1114h]
 		push    ecx
-		call    near bpk_decode2
+		call 	bpk_decode2
+		add 	esp, 8
 		mov     ecx, 112h
 		mov     edx, 168h
 		mov     ebx, [___1a112ch__VESA101_ACTIVESCREEN_PTR]

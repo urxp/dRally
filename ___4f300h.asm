@@ -256,6 +256,7 @@ ___4f513h:
 		push    ___241c78h
 		mov     [___243c60h], edi
 		call    near ___5e769h
+	add 	esp, 1ch
 		mov     edi, [___243c60h]
 		imul    edx, edi, 35eh
 		fld     dword [edx+___1e6f7ch]
@@ -318,6 +319,7 @@ ___4f513h:
 		push    eax
 		push    ___241c78h
 		call    near ___5e769h
+	add 	esp, 1ch
 		mov     edi, [___243c60h]
 		imul    edx, edi, 35eh
 		fld     dword [edx+___1e6f7ch]
@@ -392,6 +394,7 @@ ___4f513h:
 		push    eax
 		push    ___241c78h
 		call    near ___5e769h
+	add 	esp, 1ch
 ___4f80bh:
 		mov     esi, [___243cf4h]
 		xor     edi, edi
@@ -495,6 +498,7 @@ ___4f81bh:
 		push    ___241c78h
 		mov     [___243c60h], edi
 		call    near ___5e769h
+	add 	esp, 1ch
 		mov     edi, [___243c60h]
 		imul    edx, edi, 35eh
 		fld     dword [edx+___1e6f7ch]
@@ -558,6 +562,7 @@ ___4f81bh:
 		push    eax
 		push    ___241c78h
 		call    near ___5e769h
+	add 	esp, 1ch
 		mov     edi, [___243c60h]
 		imul    edx, edi, 35eh
 		fld     dword [edx+___1e6f7ch]
@@ -634,6 +639,7 @@ ___4f81bh:
 		push    eax
 		push    ___241c78h
 		call    near ___5e769h
+	add 	esp, 1ch
 		mov     edi, [___243c60h]
 ___4fbaeh:
 		mov     edx, [___243cf4h]

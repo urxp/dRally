@@ -296,6 +296,7 @@ ___53747h:
 		add     edx, byte 6dh
 		push    edx
 		call    near ___5e3e8h
+		add 	esp, 24h
 		jmp     near ___53922h
 ___53797h:
 		imul    edx, [___243c98h], 12ch
@@ -328,6 +329,7 @@ ___53797h:
 		add     edx, byte 6ch
 		push    edx
 		call    near ___5e3e8h
+		add 	esp, 24h
 		jmp     near ___53922h
 ___5380fh:
 		mov     eax, [___243c6ch]
@@ -348,6 +350,7 @@ ___5380fh:
 		push    eax
 		push    ___243188h
 		call    near ___5e769h
+	add 	esp, 1ch
 		jmp     near ___53922h
 ___53850h:
 		mov     eax, [___243c6ch]
@@ -368,6 +371,7 @@ ___53850h:
 		push    eax
 		push    ___242f78h
 		call    near ___5e769h
+	add 	esp, 1ch
 		jmp     near ___53922h
 ___53891h:
 		mov     eax, [___243c6ch]
@@ -388,6 +392,7 @@ ___53891h:
 		push    eax
 		push    ___242e78h
 		call    near ___5e769h
+	add 	esp, 1ch
 		jmp     short ___53922h
 ___538cfh:
 		mov     eax, [___243c6ch]
@@ -412,6 +417,7 @@ ___538cfh:
 		and     eax, 0ffh
 		push    eax
 		call    near ___5e137h
+		add 	esp, 1ch
 ___53922h:
 		cmp     ebp, [___196db0h]
 		je      near ___53a93h

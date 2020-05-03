@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 extern unsigned int ___19bd60h;
 
@@ -7,6 +8,7 @@ extern unsigned char * B800;
 
 extern void (*___2432c8h)(void);
 
+void dRally_Keyboard_init(void);
 void dRally_System_init(void);
 void dRally_System_clean(void);
 void ___60466h(unsigned int, unsigned int);
@@ -34,6 +36,7 @@ int dRally_main(int argc, char * argv[]){
 	dRally_System_init();
 	___60466h(0x46, 1);
 	___2432c8h = ___100dch;
+	dRally_Keyboard_init();
 	___3e720h();
 
 	if(___19bd60h) ___623d4h();

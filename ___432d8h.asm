@@ -79,7 +79,8 @@ ___43379h:
 		push    ___1a54d0h
 		lea     eax, [esi+ebp*1]
 		push    eax
-		call    near bpk_decode2
+		call 	bpk_decode2
+		add 	esp, 8
 		mov     cl, [esp+24h]
 		mov     ebx, [esp+20h]
 		mov     ebp, [___243d74h]

@@ -52,19 +52,22 @@ __GDECL(___43984h)
 		push    ___243c5ch
 		push    byte 0
 		push    byte 4
-		call    near bpk_decode4
+		call 	bpk_decode4
+		add 	esp, 10h
 		push    ___1a54d0h
 		push    ___2438c4h
 		push    byte 4
 		push    byte 4
-		call    near bpk_decode4
+		call 	bpk_decode4
+		add 	esp, 10h
 		push    ___1a54d0h
 		push    ___1de920h
 		mov     eax, [___243c5ch]
 		push    byte 8
 		shl     eax, 2
 		push    eax
-		call    near bpk_decode4
+		call 	bpk_decode4
+		add 	esp, 10h
 		mov     eax, [___243c5ch]
 		push    ___1a54d0h
 		shl     eax, 2
@@ -72,7 +75,8 @@ __GDECL(___43984h)
 		lea     ebx, [eax+8]
 		push    ebx
 		push    eax
-		call    near bpk_decode4
+		call 	bpk_decode4
+		add 	esp, 10h
 		mov     eax, [___243c5ch]
 		push    ___1a54d0h
 		shl     eax, 3
@@ -82,7 +86,8 @@ __GDECL(___43984h)
 		mov     eax, [___243c5ch]
 		shl     eax, 2
 		push    eax
-		call    near bpk_decode4
+		call 	bpk_decode4
+		add 	esp, 10h
 		mov     edi, [___243c5ch]
 		lea     eax, [edi*4+0]
 		sub     eax, edi
@@ -94,7 +99,8 @@ __GDECL(___43984h)
 		mov     eax, [___2438c4h]
 		shl     eax, 2
 		push    eax
-		call    near bpk_decode4
+		call 	bpk_decode4
+		add 	esp, 10h
 		mov     edi, [___243c5ch]
 		lea     ebx, [edi*4+0]
 		push    ___1a54d0h
@@ -107,7 +113,8 @@ __GDECL(___43984h)
 		add     ebx, eax
 		push    ebx
 		push    eax
-		call    near bpk_decode4
+		call 	bpk_decode4
+		add 	esp, 10h
 		mov     edi, [___243c5ch]
 		lea     eax, [edi*4+0]
 		push    ___1a54d0h
@@ -122,7 +129,8 @@ __GDECL(___43984h)
 		mov     eax, [___2438c4h]
 		shl     eax, 2
 		push    eax
-		call    near bpk_decode4
+		call 	bpk_decode4
+		add 	esp, 10h
 		add     esp, byte 10h
 		pop     edi
 		pop     esi

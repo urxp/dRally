@@ -2,15 +2,31 @@
 
 #define E0(c) (0x80|(c))
 
-enum DR_KEYS {
-    DR_LCTRL = 0x1d,
-    DR_LSHIFT = 0x2a,
-    DR_RSHIFT = 0x36,
-    DR_LALT = 0x38,
-    DR_KP_PERIOD = 0x53,
-    DR_RCTRL = E0(0x1d),
-    DR_RALT = E0(0x38),
-    DR_DELETE = E0(0x53)
+enum DR_SCAN {
+    DR_SCAN_ERROR,
+	DR_SCAN_ESCAPE,
+    DR_SCAN_TAB         = 0xf,
+    DR_SCAN_P           = 0x19,
+    DR_SCAN_LCTRL       = 0x1d,
+    DR_SCAN_LSHIFT      = 0x2a,
+    DR_SCAN_RSHIFT      = 0x36,
+    DR_SCAN_LALT        = 0x38,
+	DR_SCAN_F1          = 0x3b,
+	DR_SCAN_F2          = 0x3c,
+	DR_SCAN_F3          = 0x3d,
+	DR_SCAN_F4          = 0x3e,
+	DR_SCAN_F5          = 0x3f,
+	DR_SCAN_F6          = 0x40,
+	DR_SCAN_F7          = 0x41,
+	DR_SCAN_F8          = 0x42,
+	DR_SCAN_F9          = 0x43,
+	DR_SCAN_F10         = 0x44,
+    DR_SCAN_KP_PERIOD   = 0x53,
+	DR_SCAN_F11         = 0x57,
+	DR_SCAN_F12         = 0x58,
+    DR_SCAN_RCTRL       = E0(0x1d),
+    DR_SCAN_RALT        = E0(0x38),
+    DR_SCAN_DELETE      = E0(0x53)
 };
 
 extern void (*___2432c8h)(void);
@@ -55,7 +71,7 @@ static const byte upper[] = {
 };
 
 
-void dRally_Keaboard_init(void){
+void dRally_Keyboard_init(void){
 
     SCANCODE_TABLE[SDL_SCANCODE_UNKNOWN]        = 0x00;    // is normally an error code
     SCANCODE_TABLE[SDL_SCANCODE_ESCAPE]         = 0x01;    // (Esc)
@@ -170,11 +186,11 @@ void dRally_Keaboard_init(void){
 void dRally_Keyboard_make(SDL_Scancode code){
 
     kmap[LAST_KEY = SCANCODE_TABLE[code]] = 1;
-    LAST_CHAR = (kmap[DR_LSHIFT]|kmap[DR_RSHIFT]) ? upper[LAST_KEY] : lower[LAST_KEY];
+    LAST_CHAR = (kmap[DR_SCAN_LSHIFT]|kmap[DR_SCAN_RSHIFT]) ? upper[LAST_KEY] : lower[LAST_KEY];
 
-    if((kmap[DR_LCTRL]|kmap[DR_RCTRL])
-        &&(kmap[DR_LALT]|kmap[DR_RALT])
-        &&(kmap[DR_DELETE]|kmap[DR_KP_PERIOD])) ___2432c8h();
+    if((kmap[DR_SCAN_LCTRL]|kmap[DR_SCAN_RCTRL])
+        &&(kmap[DR_SCAN_LALT]|kmap[DR_SCAN_RALT])
+        &&(kmap[DR_SCAN_DELETE]|kmap[DR_SCAN_KP_PERIOD])) ___2432c8h();
 }
 
 void dRally_Keyboard_break(SDL_Scancode code){

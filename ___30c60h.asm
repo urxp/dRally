@@ -13,6 +13,11 @@ cpu 386
 
 section .text
 
+__GDECL(___30c60h_cdecl)
+	mov 	eax, [esp+4]
+	call 	___30c60h
+	retn
+
 __GDECL(___30c60h)
 		push    34h
 		call    near __CHK

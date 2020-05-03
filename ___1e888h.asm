@@ -615,7 +615,15 @@ ___1ee20h:
 		test    eax, eax
 		jne     short ___1ee50h
 		mov     edi, 1
-		call    near ___2b8ach
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2b8ach
+	pop		eax
+	pop 	ecx
+	pop 	edx
+
 		mov     [___185a24h], edi
 		jmp     near ___1f075h
 ___1ee50h:

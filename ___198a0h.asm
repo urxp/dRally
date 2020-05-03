@@ -1211,7 +1211,15 @@ ___1a8afh:
 		mov     eax, [___185a54h]
 		mov     ecx, 1
 		call    near ___1c6bch
-		call    near ___2b8ach
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2b8ach
+	pop		eax
+	pop 	ecx
+	pop 	edx
+
 		mov     [___185a24h], ecx
 		mov     eax, ecx
 		add     esp, 110h

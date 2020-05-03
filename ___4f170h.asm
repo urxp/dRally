@@ -130,6 +130,7 @@ ___4f2a2h:
 		push    eax
 		push    ___240a48h
 		call    near ___5e769h
+	add 	esp, 1ch
 ___4f2deh:
 		mov     ecx, [___243d08h]
 		inc     ecx

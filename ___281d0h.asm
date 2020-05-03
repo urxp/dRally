@@ -8,6 +8,16 @@ cpu 386
 
 section .text
 
+__GDECL(___281d0h_cdecl)
+	push 	ebx
+	mov 	ecx, [esp+14h]
+	mov 	ebx, [esp+10h]
+	mov 	edx, [esp+0ch]
+	mov 	eax, [esp+8]
+	call	___281d0h
+	pop 	ebx
+	retn
+
 __GDECL(___281d0h)
 		push    28h
 		call    near __CHK

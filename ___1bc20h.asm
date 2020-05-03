@@ -347,7 +347,15 @@ ___1bec2h:
 		mov     eax, [___185a54h]
 		mov     [___19bd60h], ebp
 		call    near ___1c6bch
-		call    near ___2b8ach
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2b8ach
+	pop		eax
+	pop 	ecx
+	pop 	edx
+
 		mov     eax, ebp
 		mov     [___185a24h], ebp
 		add     esp, byte 20h

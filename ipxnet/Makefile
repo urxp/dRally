@@ -1,6 +1,6 @@
 Makefile = Makefile
-CC = clang-10
-#CC = gcc
+#CC = clang
+CC = gcc
 
 ipxnet: ipxnet.o $(Makefile)
 	$(CC) -s -o $@ $< -lSDL2 -lSDL2_net

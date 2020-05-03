@@ -97,7 +97,8 @@ ___42c3bh:
 ___42c5ch:
 		push    eax
 		push    1a00h
-		call    near bpk_decode4
+		call 	bpk_decode4
+		add 	esp, 10h
 		mov     ebx, [___243ce8h]
 		xor     esi, esi
 		test    ebx, ebx
@@ -114,7 +115,8 @@ ___42c78h:
 		push    eax
 		push    800h
 		inc     esi
-		call    near bpk_decode4
+		call 	bpk_decode4
+		add 	esp, 10h
 		mov     ecx, [___243ce8h]
 		cmp     esi, ecx
 		jne     short ___42caah
@@ -130,7 +132,8 @@ ___42caah:
 		push    eax
 		push    800h
 		inc     esi
-		call    near bpk_decode4
+		call 	bpk_decode4
+		add 	esp, 10h
 		mov     edi, [___243ce8h]
 		cmp     esi, edi
 		jne     short ___42cdch
@@ -145,7 +148,8 @@ ___42cdch:
 		add     eax, 1a00h
 		push    eax
 		push    800h
-		call    near bpk_decode4
+		call 	bpk_decode4
+		add 	esp, 10h
 		mov     ebx, ___1830d0h
 		mov     edx, ___1a54d0h
 		mov     eax, ___1830c4h
@@ -161,7 +165,8 @@ ___42cdch:
 		push    ___1a54d0h
 		mov     ebp, [___243d84h]
 		push    ebp
-		call    near bpk_decode2
+		call 	bpk_decode2
+		add 	esp, 8
 		mov     eax, [___243ce8h]
 		lea     esi, [eax*8+0]
 		add     esi, eax
@@ -210,7 +215,8 @@ ___42d83h:
 		shl     eax, 7
 		push    eax
 		push    1f80h
-		call    near bpk_decode4
+		call 	bpk_decode4
+		add 	esp, 10h
 		mov     ebx, ___183124h
 		mov     edx, ___1a54d0h
 		mov     eax, ___1830c4h
@@ -225,7 +231,8 @@ ___42d83h:
 
 		push    ___1a54d0h
 		push    ___1de210h
-		call    near bpk_decode2
+		call 	bpk_decode2
+		add 	esp, 8
 		mov     ebx, ___183130h
 		mov     edx, ___1a54d0h
 		mov     eax, ___1830c4h
@@ -240,7 +247,8 @@ ___42d83h:
 
 		push    ___1a54d0h
 		push    ___1d7810h
-		call    near bpk_decode2
+		call 	bpk_decode2
+		add 	esp, 8
 		mov     ebx, ___183140h
 		mov     edx, ___1a54d0h
 		mov     eax, ___1830c4h
@@ -255,7 +263,8 @@ ___42d83h:
 
 		push    ___1a54d0h
 		push    ___1d8910h
-		call    near bpk_decode2
+		call 	bpk_decode2
+		add 	esp, 8
 		mov     ebx, ___18314ch
 		mov     edx, ___1a54d0h
 		mov     eax, ___1830c4h
@@ -270,7 +279,8 @@ ___42d83h:
 
 		push    ___1a54d0h
 		push    ___1d8a10h
-		call    near bpk_decode2
+		call 	bpk_decode2
+		add 	esp, 8
 		mov     ebx, ___18315ch
 		mov     edx, ___1a54d0h
 		mov     eax, ___1830c4h
@@ -285,7 +295,8 @@ ___42d83h:
 
 		push    ___1a54d0h
 		push    ___1d2710h
-		call    near bpk_decode2
+		call 	bpk_decode2
+		add 	esp, 8
 		mov     ebx, ___18316ch
 		mov     edx, ___1a54d0h
 		mov     eax, ___1830c4h
@@ -301,7 +312,8 @@ ___42d83h:
 		push    ___1a54d0h
 		mov     eax, [___243d3ch]
 		push    eax
-		call    near bpk_decode2
+		call 	bpk_decode2
+		add 	esp, 8
 		mov     ebx, ___18317ch
 		mov     edx, ___1a54d0h
 		mov     eax, ___1830c4h
@@ -317,7 +329,8 @@ ___42d83h:
 		push    ___1a54d0h
 		mov     edx, [___243d34h]
 		push    edx
-		call    near bpk_decode2
+		call 	bpk_decode2
+		add 	esp, 8
 		mov     ebx, ___18318ch
 		mov     edx, ___1a54d0h
 		mov     eax, ___1830c4h
@@ -349,7 +362,8 @@ ___42ee1h:
 ___42ef0h:
 		push    eax
 		push    800h
-		call    near bpk_decode4
+		call 	bpk_decode4
+		add 	esp, 10h
 		pop     ebp
 		pop     edi
 		pop     esi

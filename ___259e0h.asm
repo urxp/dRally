@@ -8,6 +8,18 @@ cpu 386
 
 section .text
 
+__GDECL(___259e0h_cdecl)
+
+		push 	ebx
+		push 	dword [esp+18h]
+		mov 	ecx, [esp+18h]
+		mov 	ebx, [esp+14h]
+		mov 	edx, [esp+10h]
+		mov 	eax, [esp+0ch]
+		call 	___259e0h
+		pop 	ebx
+		retn
+
 __GDECL(___259e0h)
 		push    1ch
 		call    near __CHK
@@ -35,7 +47,8 @@ ___25a0fh:
 		push    ebx
 		mov     eax, [___1a1e7ch]
 		push    eax
-		call    near bpk_decode2
+		call 	bpk_decode2
+		add 	esp, 8
 		mov     ebx, [esp]
 		lea     eax, [edi*4+0]
 		mov     ecx, 40h

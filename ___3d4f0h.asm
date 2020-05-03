@@ -150,7 +150,8 @@ ___3d55fh:
 		push    ___1a54d0h
 		mov     ecx, [___1a112ch__VESA101_ACTIVESCREEN_PTR]
 		push    ecx
-		call    near bpk_decode2
+		call 	bpk_decode2
+		add 	esp, 8
 
 	push 	edx
 	push 	ecx
@@ -205,7 +206,8 @@ ___3d63dh:
 		push    ___1a54d0h
 		mov     edi, [___1a112ch__VESA101_ACTIVESCREEN_PTR]
 		push    edi
-		call    near bpk_decode2
+		call 	bpk_decode2
+		add 	esp, 8
 
 	push 	edx
 	push 	ecx

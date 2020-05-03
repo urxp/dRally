@@ -50,7 +50,8 @@ __GDECL(___16e6ch)
 		push    edx
 		push    ___1a54d0h
 		mov     esi, ___1a54d0h
-		call    near bpk_decode2
+		call 	bpk_decode2
+		add 	esp, 8
 		mov     ecx, 117h
 		mov     ebx, [___1a112ch__VESA101_ACTIVESCREEN_PTR]
 		mov     edx, 1e9h

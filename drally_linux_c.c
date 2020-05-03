@@ -3,6 +3,10 @@
 #include <time.h>
 #include <SDL2/SDL.h>
 
+#define W_WIDTH 	640
+#define W_HEIGHT 	480
+
+
 #pragma pack(1)
 
 struct dostime_t {
@@ -14,7 +18,7 @@ struct dostime_t {
 typedef struct textbit {
 	unsigned char 	ascii;
 	unsigned char 	fg:4;
-	unsigned char 	bg:4;
+	unsigned char 	bg:3;
 } textbit;
 
 
@@ -26,33 +30,33 @@ extern textbit * B800;
 extern unsigned char VGA13_ACTIVESCREEN[];
 extern unsigned char VESA101_ACTIVESCREEN[];
 
-
+extern unsigned char cp437[];
 extern SDL_AudioDeviceID audio_dev;
 
 unsigned int Ticks = 0;
 unsigned int VRetraceTicks = 0;
 
-SDL_Renderer * GX_Renderer;
-SDL_Texture * GX_Texture;
-
 int dRally_main(int, char *[]);
 void IRQ0_TimerISR(void);
-void dRally_Keaboard_init(void);
 void IO_Loop(void);
 void __VGA13_PRESENTSCREEN__(void);
 void __VESA101_PRESENTSCREEN__(void);
+void __PRESENTSCREEN__(void);
 unsigned char POP_LAST_KEY();
 
-struct {
-	enum { VGA13=1, VESA101} ActiveMode;
+static struct GX {
+	enum { VGA3, VGA13, VESA101 } ActiveMode;
 	struct {
 		SDL_Surface * Surface;
 	} VGA13;
 	struct {
 		SDL_Surface * Surface;
 	} VESA101;
-	SDL_Window * Window;
-} GX = {0,0,0,0};
+	SDL_Surface * 	Surface;
+	SDL_Window * 	Window;
+	SDL_Renderer * 	Renderer;
+	SDL_Texture * 	Texture;
+} GX = {0};
 
 
 
@@ -79,11 +83,7 @@ unsigned int __GET_FRAME_COUNTER(void){
 			IRQ0_TimerISR();
 		//}
 
-		if(!skip){	
-
-			if(GX.ActiveMode == VGA13) __VGA13_PRESENTSCREEN__();
-			else if(GX.ActiveMode == VESA101) __VESA101_PRESENTSCREEN__();
-		}
+		if(!skip) __PRESENTSCREEN__();
 	}
     
 	IO_Loop();
@@ -161,6 +161,7 @@ void __WAIT_5(void){
 	while((__GET_FRAME_COUNTER() < tmp) && !POP_LAST_KEY());
 }
 
+/*
 void __VGA3_PRESENTSCREEN(unsigned int n_lines){
 
 	int i, j;
@@ -180,21 +181,153 @@ void __VGA3_PRESENTSCREEN(unsigned int n_lines){
 		printf("\n");
 	}
 }
+*/
+
+unsigned char unCharBit(int x, int y){
+
+	unsigned char row[288];
+	int i,j,k,m;
+	unsigned char b;
+
+	m = x/8;
+	i = -1;
+	j = 0;
+	while(i++ < m){
+
+		b = cp437[36*y+i];
+		k = 8;
+		while(k--){
+
+			row[j+k] = b&1;
+			b >>= 1; 
+		}
+		j+=8;
+	}
+
+	return row[x];
+}
+
+static void paste_char(unsigned char c, int fg, int bg, int x, int y, unsigned char * p){
+
+	int 	i,j;
+	int 	row, col;
+	unsigned char b;
+
+	row = c/32;
+	col = c%32;
+
+	i = -1;
+	while(++i < 16){
+
+		j = -1;
+		while(++j < 8){
+
+			b = unCharBit(j+col*9, 16*row+i);
+			p[(y+i)*640+(x+j)] = (b != 0) ? (fg*b) : (bg+b);
+		}
+	}
+}
+
+void __VESA101_SETMODE();
+void __DISPLAY_SET_PALETTE_COLOR(int b, int g, int r, int n);
+void VGA3_PRESENTSCREEN(unsigned int n_lines){
+
+	int i, j;
+	textbit tmp;
+
+	if((n_lines == 0)||(n_lines > 25)) n_lines = 25;
+
+	memset(VESA101_ACTIVESCREEN, 1, 0x4b000);
+
+	for(i = 0; i < n_lines; i++){
+		for(j = 0; j < 80; j++){
+
+			paste_char(B800[80*i+j].ascii, B800[80*i+j].fg, B800[80*i+j].bg, 8*j, 16*i, VESA101_ACTIVESCREEN+(40+16*(25-n_lines)/2)*640);
+		}
+	}
+
+	__VESA101_SETMODE();
+
+	__DISPLAY_SET_PALETTE_COLOR(0x00>>2, 0x00>>2, 0x00>>2, 0);
+	__DISPLAY_SET_PALETTE_COLOR(0xaa>>2, 0x00>>2, 0x00>>2, 1);
+	__DISPLAY_SET_PALETTE_COLOR(0x00>>2, 0xaa>>2, 0x00>>2, 2);
+	__DISPLAY_SET_PALETTE_COLOR(0xaa>>2, 0xaa>>2, 0x00>>2, 3);
+	__DISPLAY_SET_PALETTE_COLOR(0x00>>2, 0x00>>2, 0xaa>>2, 4);
+	__DISPLAY_SET_PALETTE_COLOR(0xaa>>2, 0x00>>2, 0xaa>>2, 5);
+	__DISPLAY_SET_PALETTE_COLOR(0x00>>2, 0x55>>2, 0xaa>>2, 6);
+	__DISPLAY_SET_PALETTE_COLOR(0xaa>>2, 0xaa>>2, 0xaa>>2, 7);
+	__DISPLAY_SET_PALETTE_COLOR(0x55>>2, 0x55>>2, 0x55>>2, 8);
+	__DISPLAY_SET_PALETTE_COLOR(0xff>>2, 0x55>>2, 0x55>>2, 9);
+	__DISPLAY_SET_PALETTE_COLOR(0x55>>2, 0xff>>2, 0x55>>2, 10);
+	__DISPLAY_SET_PALETTE_COLOR(0xff>>2, 0xff>>2, 0x55>>2, 11);
+	__DISPLAY_SET_PALETTE_COLOR(0x55>>2, 0x55>>2, 0xff>>2, 12);
+	__DISPLAY_SET_PALETTE_COLOR(0xff>>2, 0x55>>2, 0xff>>2, 13);
+	__DISPLAY_SET_PALETTE_COLOR(0x55>>2, 0xff>>2, 0xff>>2, 14);
+	__DISPLAY_SET_PALETTE_COLOR(0xff>>2, 0xff>>2, 0xff>>2, 15);
+
+
+	unsigned int l_break = 1;
+	unsigned int b_counter = SDL_GetTicks();
+	while(l_break){
+
+		__PRESENTSCREEN__();
+
+		SDL_Event e;
+		while(SDL_PollEvent(&e)){
+
+			if(e.type == SDL_KEYDOWN){
+
+				return;
+			}
+			else if(e.type == SDL_QUIT){
+
+				return;
+			}
+		}
+
+		SDL_Delay(10);
+		l_break = SDL_GetTicks()-b_counter;
+		if(l_break > 10000) break;
+	}
+}
+
+//unsigned char VGA13_ACTIVESCREEN_X2[640*400] = {0};
+
+void __PRESENTSCREEN__(void){
+
+	if(GX.ActiveMode){
+
+		GX.Texture = SDL_CreateTextureFromSurface(GX.Renderer, GX.Surface);
+		SDL_RenderCopy(GX.Renderer, GX.Texture, NULL, NULL);
+		SDL_RenderPresent(GX.Renderer);
+		SDL_DestroyTexture(GX.Texture);
+		GX.Texture = NULL;
+	}
+}
 
 void __VGA13_PRESENTSCREEN__(void){
+/*
+	int 	i,j;
 
-    GX_Texture = SDL_CreateTextureFromSurface(GX_Renderer, GX.VGA13.Surface);
-	SDL_RenderCopy(GX_Renderer, GX_Texture, NULL, NULL);
-	SDL_RenderPresent(GX_Renderer);
-	SDL_DestroyTexture(GX_Texture);
+	i = -1;
+	while(++i < 200){
+
+		j = -1;
+		while(++j < 320){
+
+			VGA13_ACTIVESCREEN_X2[2*i*640+2*j] = VGA13_ACTIVESCREEN[i*320+j];
+			VGA13_ACTIVESCREEN_X2[2*i*640+2*j+1] = VGA13_ACTIVESCREEN[i*320+j];
+			VGA13_ACTIVESCREEN_X2[(2*i+1)*640+2*j] = VGA13_ACTIVESCREEN[i*320+j];
+			VGA13_ACTIVESCREEN_X2[(2*i+1)*640+2*j+1] = VGA13_ACTIVESCREEN[i*320+j];
+		}
+	}
+*/
+    __PRESENTSCREEN__();
 }
 
 void __VESA101_PRESENTSCREEN__(void){
 
-    GX_Texture = SDL_CreateTextureFromSurface(GX_Renderer, GX.VESA101.Surface);
-	SDL_RenderCopy(GX_Renderer, GX_Texture, NULL, NULL);
-	SDL_RenderPresent(GX_Renderer);
-	SDL_DestroyTexture(GX_Texture);
+	__PRESENTSCREEN__();
 }
 
 void __DISPLAY_SET_PALETTE_COLOR(int b, int g, int r, int n){
@@ -205,39 +338,69 @@ void __DISPLAY_SET_PALETTE_COLOR(int b, int g, int r, int n){
     col.g = (g<<2)|(g>>4);
     col.b = (b<<2)|(b>>4);
 
-	if(GX.ActiveMode == VGA13){
-		
-		SDL_SetPaletteColors(GX.VGA13.Surface->format->palette, &col, n, 1);
+	if(GX.ActiveMode) SDL_SetPaletteColors(GX.Surface->format->palette, &col, n, 1);
+}
+
+void DISPLAY_CLEAR_PALETTE(void){
+
+	int 	n;
+
+	n = -1;
+	while(++n < 0x100) __DISPLAY_SET_PALETTE_COLOR(0, 0, 0, n);
+}
+
+void dRally_Display_init(void){
+
+	SDL_ShowCursor(SDL_DISABLE);
+	SDL_DisableScreenSaver();
+
+	//if(!GX.VGA13.Surface) GX.VGA13.Surface = SDL_CreateRGBSurfaceFrom(VGA13_ACTIVESCREEN_X2, 2*320, 2*200, 8, 2*320, 0, 0, 0, 0);
+	if(!GX.VGA13.Surface) GX.VGA13.Surface = SDL_CreateRGBSurfaceFrom(VGA13_ACTIVESCREEN, 320, 200, 8, 320, 0, 0, 0, 0);
+	if(!GX.VESA101.Surface) GX.VESA101.Surface = SDL_CreateRGBSurfaceFrom(VESA101_ACTIVESCREEN, 640, 480, 8, 640, 0, 0, 0, 0);
+
+	if(!GX.Window){
+
+		GX.Window = SDL_CreateWindow(
+			"dRally / Open Source Shadows of Death Rally [1996]",                  		// window title
+			SDL_WINDOWPOS_CENTERED,      	// initial x position
+			SDL_WINDOWPOS_CENTERED,       	// initial y position
+			W_WIDTH,                  			// width, in pixels
+			W_HEIGHT,							// height, in pixels
+			SDL_WINDOW_HIDDEN				// flags - see below
+		);
 	}
-	else if(GX.ActiveMode == VESA101){
-		
-		SDL_SetPaletteColors(GX.VESA101.Surface->format->palette, &col, n, 1);
+
+	if(!GX.Renderer){
+
+		SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "2");
+		GX.Renderer = SDL_CreateRenderer(GX.Window, -1, SDL_RENDERER_ACCELERATED);
 	}
+}
+
+void dRally_Display_clean(void){
+
+	if(GX.VGA13.Surface) SDL_FreeSurface(GX.VGA13.Surface);
+	if(GX.VESA101.Surface) SDL_FreeSurface(GX.VESA101.Surface);
+	if(GX.Texture) SDL_DestroyTexture(GX.Texture);
+	if(GX.Renderer) SDL_DestroyRenderer(GX.Renderer);
+	if(GX.Window) SDL_DestroyWindow(GX.Window);
+}
+
+void __VGA3_SETMODE(void){
+
+	GX.ActiveMode = VGA3;
 }
 
 void __VGA13_SETMODE(void){
 
 	if(GX.ActiveMode != VGA13){
 
-		if(!GX.VGA13.Surface) GX.VGA13.Surface = SDL_CreateRGBSurfaceFrom(VGA13_ACTIVESCREEN, 320, 200, 8, 320, 0, 0, 0, 0);
-
-		if(!GX.Window){
-	
-			GX.Window = SDL_CreateWindow(
-				"dRally / Open Source Shadows of Death Rally [1996]",                  		// window title
-				SDL_WINDOWPOS_CENTERED,      	// initial x position
-				SDL_WINDOWPOS_CENTERED,       	// initial y position
-				640,                  			// width, in pixels
-				480,							// height, in pixels
-				SDL_WINDOW_HIDDEN				// flags - see below
-			);
-
-			GX_Renderer = SDL_CreateRenderer(GX.Window, -1, SDL_RENDERER_SOFTWARE);
-		}
-					
-		SDL_RenderSetLogicalSize(GX_Renderer, 320, 200);
-		SDL_ShowWindow(GX.Window);
-
+		GX.Surface = GX.VGA13.Surface;
+		SDL_SetRenderDrawColor(GX.Renderer, 0, 0, 0, 255);
+		SDL_RenderClear(GX.Renderer);
+		SDL_RenderPresent(GX.Renderer);
+		SDL_RenderSetLogicalSize(GX.Renderer, 320, 200);
+		if(SDL_GetWindowFlags(GX.Window)&SDL_WINDOW_HIDDEN) SDL_ShowWindow(GX.Window);
 		GX.ActiveMode = VGA13;
 	}
 }
@@ -246,25 +409,9 @@ void __VESA101_SETMODE(void){
 
 	if(GX.ActiveMode != VESA101){
 
-		if(!GX.VESA101.Surface) GX.VESA101.Surface = SDL_CreateRGBSurfaceFrom(VESA101_ACTIVESCREEN, 640, 480, 8, 640, 0, 0, 0, 0);
-
-		if(!GX.Window){
-
-			GX.Window = SDL_CreateWindow(
-				"dRally / Open Source Shadows of Death Rally [1996]",                  		// window title
-				SDL_WINDOWPOS_CENTERED,      	// initial x position
-				SDL_WINDOWPOS_CENTERED,       	// initial y position
-				640,                  			// width, in pixels
-				480,							// height, in pixels
-				SDL_WINDOW_HIDDEN				// flags - see below
-			);
-
-			GX_Renderer = SDL_CreateRenderer(GX.Window, -1, SDL_RENDERER_SOFTWARE);
-		}
-		
-		SDL_RenderSetLogicalSize(GX_Renderer, 640, 480);
-		SDL_ShowWindow(GX.Window);
-
+		GX.Surface = GX.VESA101.Surface;
+		SDL_RenderSetLogicalSize(GX.Renderer, 640, 480);
+		if(SDL_GetWindowFlags(GX.Window)&SDL_WINDOW_HIDDEN) SDL_ShowWindow(GX.Window);
 		GX.ActiveMode = VESA101;
 	}
 }
@@ -273,42 +420,24 @@ void DISPLAY_GET_PALETTE(unsigned char * dst){
 
 	unsigned int n = -1;
 
-	if(GX.ActiveMode == VGA13){
+	if(GX.ActiveMode){
 
 		while(++n < 0x100){
 	
-			dst[3*n] = GX.VGA13.Surface->format->palette->colors[n].r >> 2;
-			dst[3*n+1] = GX.VGA13.Surface->format->palette->colors[n].g >> 2;
-			dst[3*n+2] = GX.VGA13.Surface->format->palette->colors[n].b >> 2;
-		}
-
-	}
-	else if(GX.ActiveMode == VESA101){
-
-		while(++n < 0x100){
-	
-			dst[3*n] = GX.VESA101.Surface->format->palette->colors[n].r >> 2;
-			dst[3*n+1] = GX.VESA101.Surface->format->palette->colors[n].g >> 2;
-			dst[3*n+2] = GX.VESA101.Surface->format->palette->colors[n].b >> 2;
+			dst[3*n] = GX.Surface->format->palette->colors[n].r >> 2;
+			dst[3*n+1] = GX.Surface->format->palette->colors[n].g >> 2;
+			dst[3*n+2] = GX.Surface->format->palette->colors[n].b >> 2;
 		}
 	}
 }
 
 void __DISPLAY_GET_PALETTE_COLOR(unsigned char * dst, unsigned char n){
 
-	if(GX.ActiveMode == VGA13){
+	if(GX.ActiveMode){
 
-		dst[0] = GX.VGA13.Surface->format->palette->colors[n].r >> 2;
-		dst[1] = GX.VGA13.Surface->format->palette->colors[n].g >> 2;
-		dst[2] = GX.VGA13.Surface->format->palette->colors[n].b >> 2;
-		//printf("[COLOR %d: 0x%x]\n", n, *(unsigned int *)dst);
-
-	}
-	else if(GX.ActiveMode == VESA101){
-
-		dst[0] = GX.VESA101.Surface->format->palette->colors[n].r >> 2;
-		dst[1] = GX.VESA101.Surface->format->palette->colors[n].g >> 2;
-		dst[2] = GX.VESA101.Surface->format->palette->colors[n].b >> 2;
+		dst[0] = GX.Surface->format->palette->colors[n].r >> 2;
+		dst[1] = GX.Surface->format->palette->colors[n].g >> 2;
+		dst[2] = GX.Surface->format->palette->colors[n].b >> 2;
 	}
 }
 
@@ -320,14 +449,13 @@ int main(int argc, char * argv[]){
 	if(SDL_Init(SDL_INIT_VIDEO)){
 		
 		SDL_Log("Failed to init video subsystem: %s", SDL_GetError());
+		return 0;
 	}
 
 	time(&tmt);
 	localtime_r(&tmt, &TimeInit);
 
-	SDL_DisableScreenSaver();
-	dRally_Keaboard_init();
-
+	dRally_Display_init();
 	dRally_main(argc, argv);
 
 	if(audio_dev){
@@ -339,8 +467,7 @@ int main(int argc, char * argv[]){
 		SDL_CloseAudioDevice(audio_dev);
 	}
 
-	SDL_DestroyRenderer(GX_Renderer);
-	SDL_DestroyWindow(GX.Window);
+	dRally_Display_clean();
 	SDL_Quit();
 
 	return 0;

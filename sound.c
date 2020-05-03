@@ -522,8 +522,8 @@ void ___67e48h_allocSounds_cdecl(TrackerType msx_t, const char * msx_f, TrackerT
 extern char ___185114h[];
 extern dword ___24e868h;
 
-void * extract_musics_bpa(dword, dword);
-dword entrysize_musics_bpa(dword);
+void * extract_musics_bpa(const char *, const char *);
+dword entrysize_musics_bpa(const char *);
 
 void * load_s3m(dword arg0, const char * f_name, dword * size, dword * instr_n){
 

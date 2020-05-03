@@ -34,6 +34,7 @@ cpu 386
 	extern	___60446h
 	extern	___6044ch
     extern  __STRCPY
+	extern 	__VGA3_SETMODE
 	extern 	__VGA13_SETMODE
 	extern 	__VGA13_PRESENTSCREEN__
 	extern 	__VESA101_PRESENTSCREEN__
@@ -50,15 +51,6 @@ cpu 386
 	extern 	__DPMI_FREE_DOS_MEMORY_BLOCK
 	extern	kmap
 	extern	LAST_CHAR
-	extern	kmap
-	extern	kmap
-	extern	kmap
-	extern	kmap
-	extern	kmap
-	extern	kmap
-	extern	kmap
-	extern	kmap
-	extern	___2432c8h
 	extern 	__GET_TIMER_TICKS
 	extern 	__VGA3_PRESENTSCREEN
 	extern 	__WAIT_5
@@ -711,7 +703,12 @@ __GDECL(GET_FRAME_COUNTER)
 	retn
 
 __GDECL(VGA3_SETMODE)
+	pushad
+	call 	__VGA3_SETMODE
+	popad
 	retn
+
+
 __GDECL(VGA13_SETMODE)
 	pushad
 	call 	__VGA13_SETMODE
@@ -773,30 +770,6 @@ __GDECL(VESA101_SETMODE)
 	call 	__VESA101_SETMODE
 	popad
 	retn
-
-__GDECL(VGA3_PRESENTSCREEN)
-	mov 	eax, [esp+4]
-	push 	edx
-	push 	ecx
-	push 	eax
-	call 	__VGA3_PRESENTSCREEN
-	add 	esp, 4
-	pop 	ecx
-	pop 	edx
-	retn
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -60,7 +60,7 @@ static byte ROR_BYTE(byte b, int n){
     return (b>>n)|(b<<(8-n));
 }
 
-void bpk_decode4_cdecl(dword A1, dword A2, dword A3, dword A4){
+void bpk_decode4(dword A1, dword A2, dword A3, dword A4){
 
     qword   ull_tmp;
     dword   eax, ebx, ecx, edx, edi, esi, ebp, tmp, cf;
@@ -324,7 +324,7 @@ ___595d0h:
     return;
 }
 
-void bpk_decode2_cdecl(dword A3, dword A4){
+void bpk_decode2(dword A3, dword A4){
 
-    bpk_decode4_cdecl(0, 0, A3, A4);
+    bpk_decode4(0, 0, A3, A4);
 }

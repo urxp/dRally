@@ -85,13 +85,6 @@ __GDECL(__STRLEN)
 
 
 
-__GDECL(VRETRACE_WAIT_IF_ACTIVE)
-		mov     dx, 3dah
-.active:
-		in      al, dx
-		and     al, 8
-		jne     .active
-		retn
 __GDECL(DISPLAY_WAIT_IF_DISABLED)
 		mov     dx, 3dah
 .disabled:
@@ -105,45 +98,4 @@ __GDECL(DISPLAY_WAIT_IF_ENABLED)
 		in      al, dx
 		and     al, 1
 		je      .enabled
-		retn
-
-__GDECL(VRETRACE_WAIT_FOR_END)
-		cli
-		mov     dx, 3dah
-.inactive:
-		in      al, dx
-		and     al, 8
-		je      .inactive
-.active:
-		in      al, dx
-		and     al, 8
-		jne     .active
-		sti
-		retn
-
-
-__GDECL(__DISPLAY_CLEAR_PALETTE)
-	push 	edx
-	push 	ecx
-	push 	eax
-	call 	DISPLAY_CLEAR_PALETTE
-	pop 	eax
-	pop 	ecx
-	pop 	edx
-	retn
-
-
-__GDECL(DISPLAY_CLEAR_PALETTE)
-		push 	ecx			;;;;;
-		xor     ecx, ecx
-___1112eh:
-		push 	ecx
-		push 	0
-		push 	0
-		push 	0
-		call 	DISPLAY_SET_PALETTE_COLOR
-		inc     ecx
-		cmp     ecx, 100h
-		jl      ___1112eh
-		pop 	ecx 		;;;;;
 		retn

@@ -198,7 +198,15 @@ ___1c2c3h:
 		mov     [___1a1098h], ebx
 		mov     [___196adch], ebx
 		call    near ___1c6bch
-		call    near ___2b8ach
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2b8ach
+	pop		eax
+	pop 	ecx
+	pop 	edx
+
 		mov     [___185a24h], ecx
 		mov     ebx, ecx
 ___1c34bh:

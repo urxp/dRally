@@ -265,19 +265,23 @@ db	45h,6eh,74h,65h,72h,20h,54h,68h,65h,20h,53h,68h,6fh,70h,0,0
 __GDECL(___18077ch)
 db	43h,6fh,6eh,74h,69h,6eh,75h,65h,20h,52h,61h,63h,69h,6eh,67h,0
 __GDECL(___18078ch)
-db	47h,61h,6dh,65h,20h,4ch,6fh,61h,64h,65h,64h,2eh,0,0,0,0
+;db	47h,61h,6dh,65h,20h,4ch,6fh,61h,64h,65h,64h,2eh,0,0,0,0
+db 	"Game Loaded.",0,0,0,0
 __GDECL(___18079ch)
 db	45h,6eh,74h,65h,72h,20h,74h,68h,65h,20h,6eh,61h,6dh,65h,20h,6fh
 db	66h,20h,73h,61h,76h,65h,20h,67h,61h,6dh,65h,3fh,0,0,0,0
 __GDECL(___1807bch)
 db	77h,62h,0,0
 __GDECL(___1807c0h)
-db	47h,61h,6dh,65h,20h,53h,61h,76h,65h,64h,2eh,0
+;db	47h,61h,6dh,65h,20h,53h,61h,76h,65h,64h,2eh,0
+db 	"Game Saved.",0
 __GDECL(___1807cch)
-db	70h,72h,65h,73h,73h,20h,20h,20h,74h,6fh,20h,65h,6eh,74h,65h,72h
-db	20h,63h,68h,61h,74h,20h,6dh,6fh,64h,65h,0,0
+;db	70h,72h,65h,73h,73h,20h,20h,20h,74h,6fh,20h,65h,6eh,74h,65h,72h
+;db	20h,63h,68h,61h,74h,20h,6dh,6fh,64h,65h,0,0
+db 	"press   to enter chat mode",0,0
 __GDECL(___1807e8h)
-db	46h,31h,0,0
+;db	46h,31h,0,0
+db 	"F1",0,0
 __GDECL(___1807ech)
 db	53h,74h,61h,72h,74h,20h,41h,20h,4eh,65h,77h,20h,47h,61h,6dh,65h
 db	0,0,0,0
@@ -845,11 +849,11 @@ __GDECL(___181978h)
 db	48h,6fh,72h,6eh,20h,20h,20h,20h,20h,20h,20h,20h,0fah,0fah,0fah,0fah
 db	0fah,0fah,0fah,0fah,0fah,0fah,0fah,0fah,0fah,0fah,0fah,0fah,0fah,0fah,0fah,0
 __GDECL(___181998h)
-db	49h,6eh,76h,61h,6ch,69h,64h,20h,6bh,65h,79h,20h,63h,6fh,6eh,66h
-db	69h,67h,75h,72h,61h,74h,69h,6fh,6eh,21h,0,0
+db 	"Invalid key configuration!",0,0
 __GDECL(___1819b4h)
-db	50h,72h,65h,73h,73h,20h,61h,6eh,79h,20h,6bh,65h,79h,20h,74h,6fh
-db	20h,72h,65h,2dh,65h,6eh,74h,65h,72h,2eh,0,0
+;db	50h,72h,65h,73h,73h,20h,61h,6eh,79h,20h,6bh,65h,79h,20h,74h,6fh
+;db	20h,72h,65h,2dh,65h,6eh,74h,65h,72h,2eh,0,0
+db 	"Press any key to re-enter.",0,0
 __GDECL(___1819d0h)
 db	50h,72h,65h,73h,73h,20h,61h,20h,6bh,65h,79h,20h,66h,6fh,72h,20h
 db	61h,63h,63h,65h,6ch,65h,72h,61h,74h,65h,2eh,2eh,2eh,0,0,0
@@ -1185,7 +1189,8 @@ db	0,0,0,0,0,0,90h,3fh
 __GDECL(___1821e2h)
 db	0,0,0,0,0,0,90h,3fh,0,0
 __GDECL(___1821ech)
-db	47h,61h,6dh,65h,20h,6eh,6fh,74h,20h,66h,6fh,75h,6eh,64h,2eh,0
+;db	47h,61h,6dh,65h,20h,6eh,6fh,74h,20h,66h,6fh,75h,6eh,64h,2eh,0
+db 	"Game not found.",0
 __GDECL(___1821fch)
 db	0,0,0,0,0,0,0d0h,3fh
 __GDECL(___182204h)
@@ -9898,3 +9903,8 @@ db	0,0,0,5fh
 ;dd	___7ead7h
 ;db 	0,0,0,0,0,0,0,0,0,0,0,0
 
+
+
+
+__GDECL(cp437)
+incbin "cp437.bin"

@@ -50,6 +50,11 @@ void * extract_musics_bpa(const char * fname, dword lock){
     return r_mem;
 }
 
+dword entrysize_musics_bpa(const char * fname){
+
+    return entrysize_bpa("MUSICS.BPA", fname);
+}
+
 void bpa_read(const char * bpa_fname, void * dst, const char * bpa_entry){
 
     FILE *  fd;

@@ -69,7 +69,8 @@ __GDECL(___43b14h)
 		push    ___1a54d0h
 		mov     edx, [___243d8ch]
 		push    edx
-		call    near bpk_decode2
+		call 	bpk_decode2
+		add 	esp, 8
 		mov     ebx, ___18326ch
 		mov     edx, ___1a54d0h
 		mov     eax, ___1831f4h
@@ -85,7 +86,8 @@ __GDECL(___43b14h)
 		push    ___1a54d0h
 		mov     ebx, [___243d7ch]
 		push    ebx
-		call    near bpk_decode2
+		call 	bpk_decode2
+		add 	esp, 8
 		mov     ebx, ___183278h
 		mov     edx, ___1a54d0h
 		mov     eax, ___1831f4h
@@ -101,7 +103,8 @@ __GDECL(___43b14h)
 		push    ___1a54d0h
 		mov     ecx, [___243298h]
 		push    ecx
-		call    near bpk_decode2
+		call 	bpk_decode2
+		add 	esp, 8
 		mov     ebx, ___183284h
 		mov     edx, ___1a54d0h
 		mov     eax, ___1831f4h
@@ -117,7 +120,8 @@ __GDECL(___43b14h)
 		push    ___1a54d0h
 		mov     esi, [___24329ch]
 		push    esi
-		call    near bpk_decode2
+		call 	bpk_decode2
+		add 	esp, 8
 		mov     ebx, ___183290h
 		mov     edx, ___1a54d0h
 		mov     eax, ___1831f4h
@@ -133,7 +137,8 @@ __GDECL(___43b14h)
 		push    ___1a54d0h
 		mov     edi, [___2432a0h]
 		push    edi
-		call    near bpk_decode2
+		call 	bpk_decode2
+		add 	esp, 8
 		mov     ebx, ___18329ch
 		mov     edx, ___1a54d0h
 		mov     eax, ___1831f4h
@@ -149,7 +154,8 @@ __GDECL(___43b14h)
 		push    ___1a54d0h
 		mov     ebp, [___2432a4h]
 		push    ebp
-		call    near bpk_decode2
+		call 	bpk_decode2
+		add 	esp, 8
 		mov     ebx, ___1832a8h
 		mov     edx, ___1a54d0h
 		mov     eax, ___1831f4h
@@ -165,7 +171,8 @@ __GDECL(___43b14h)
 		push    ___1a54d0h
 		mov     eax, [___2432a8h]
 		push    eax
-		call    near bpk_decode2
+		call 	bpk_decode2
+		add 	esp, 8
 		mov     ebx, ___1832b4h
 		mov     edx, ___1a54d0h
 		mov     eax, ___1831f4h
@@ -181,7 +188,8 @@ __GDECL(___43b14h)
 		push    ___1a54d0h
 		mov     edx, [___2432ach]
 		push    edx
-		call    near bpk_decode2
+		call 	bpk_decode2
+		add 	esp, 8
 		mov     ebx, ___1832c0h
 		mov     edx, ___1a54d0h
 		mov     eax, ___1831f4h
@@ -197,7 +205,8 @@ __GDECL(___43b14h)
 		push    ___1a54d0h
 		mov     ebx, [___243d88h]
 		push    ebx
-		call    near bpk_decode2
+		call 	bpk_decode2
+		add 	esp, 8
 		cmp     dword [___196dach], byte 0
 		je      short ___43c80h
 		mov     ebx, ___1832cch
@@ -219,7 +228,8 @@ ___43c85h:
 		push    ___1a54d0h
 		mov     esi, [___243d38h]
 		push    esi
-		call    near bpk_decode2
+		call 	bpk_decode2
+		add 	esp, 8
 		mov     ebx, ___1832ech
 		mov     edx, ___1a54d0h
 		mov     eax, ___1831f4h
@@ -235,7 +245,8 @@ ___43c85h:
 		push    ___1a54d0h
 		mov     edi, [___243d40h]
 		push    edi
-		call    near bpk_decode2
+		call 	bpk_decode2
+		add 	esp, 8
 		mov     ebx, ___1832f8h
 		mov     edx, ___1a54d0h
 		mov     eax, ___1831f4h
@@ -251,7 +262,8 @@ ___43c85h:
 		push    ___1a54d0h
 		mov     ebp, [___243288h]
 		push    ebp
-		call    near bpk_decode2
+		call 	bpk_decode2
+		add 	esp, 8
 		mov     ebx, ___183304h
 		mov     edx, ___1a54d0h
 		mov     eax, ___1831f4h
@@ -267,7 +279,8 @@ ___43c85h:
 		push    ___1a54d0h
 		mov     eax, [___24328ch]
 		push    eax
-		call    near bpk_decode2
+		call 	bpk_decode2
+		add 	esp, 8
 		mov     ebx, ___183310h
 		mov     edx, ___1a54d0h
 		mov     eax, ___1831f4h
@@ -283,7 +296,8 @@ ___43c85h:
 		push    ___1a54d0h
 		mov     edx, [___243290h]
 		push    edx
-		call    near bpk_decode2
+		call 	bpk_decode2
+		add 	esp, 8
 		mov     ebx, ___18331ch
 		mov     edx, ___1a54d0h
 		mov     eax, ___1831f4h
@@ -299,7 +313,8 @@ ___43c85h:
 		push    ___1a54d0h
 		mov     ebx, [___243294h]
 		push    ebx
-		call    near bpk_decode2
+		call 	bpk_decode2
+		add 	esp, 8
 		mov     ebx, ___183328h
 		mov     edx, ___1a54d0h
 		mov     eax, ___1831f4h
@@ -315,7 +330,8 @@ ___43c85h:
 		push    ___1a54d0h
 		mov     ecx, [___243d68h]
 		push    ecx
-		call    near bpk_decode2
+		call 	bpk_decode2
+		add 	esp, 8
 		mov     ebx, ___183334h
 		mov     edx, ___1a54d0h
 		mov     eax, ___1831f4h
@@ -331,7 +347,8 @@ ___43c85h:
 		push    ___1a54d0h
 		mov     esi, [___243d64h]
 		push    esi
-		call    near bpk_decode2
+		call 	bpk_decode2
+		add 	esp, 8
 		pop     ebp
 		pop     edi
 		pop     esi

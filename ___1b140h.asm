@@ -1059,7 +1059,7 @@ ___1bb42h:
 	pop 	edx
 
 		test    ebp, ebp
-		je      short ___1bc14h
+		je      ___1bc14h
 	
 	push 	edx
 	push 	ecx
@@ -1112,7 +1112,15 @@ ___1bbfah:
 		mov     eax, [___185a54h]
 		mov     ebx, 1
 		call    near ___1c6bch
-		call    near ___2b8ach
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2b8ach
+	pop		eax
+	pop 	ecx
+	pop 	edx
+
 		mov     [___185a24h], ebx
 ___1bc14h:
 		add     esp, byte 28h

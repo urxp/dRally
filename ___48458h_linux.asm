@@ -1049,7 +1049,8 @@ ___48bc7h:
 		push    ___1a54d0h
 		;push    0a0000h
 	push 	VGA13_ACTIVESCREEN
-		call    near bpk_decode2
+		call 	bpk_decode2
+		add 	esp, 8
 		mov     ebx, ___183c8ch
 		mov     edx, ___1a4ec0h
 		mov     eax, ___1831f4h
@@ -1432,7 +1433,8 @@ ___491b4h:
 		push    ___1a54d0h
 		;push    0a0000h
 	push 	VGA13_ACTIVESCREEN
-		call    near bpk_decode2
+		call 	bpk_decode2
+		add 	esp, 8
 		mov     ebx, ___183e78h
 		mov     edx, ___1a4ec0h
 		mov     eax, ___1831f4h

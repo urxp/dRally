@@ -50,13 +50,13 @@ void * ___3f71ch__allocateMemory(dword);
 void dRally_Memory_free(void *);
 
 void bpa_read(const char *, void *, const char *);
-void bpk_decode4_cdecl(dword, dword, void *, void *);
-void bpk_decode2_cdecl(void *, void *);
+void bpk_decode4(dword, dword, void *, void *);
+void bpk_decode2(void *, void *);
 
 void ___606dfh(void);
 void __VGA13_SETMODE(void);
 void ___60466h(dword A, dword B);
-void __DISPLAY_CLEAR_PALETTE(void);
+void DISPLAY_CLEAR_PALETTE(void);
 void __VGA13_PRESENTSCREEN__(void);
 void __DISPLAY_SET_PALETTE_COLOR(dword b, dword g, dword r, dword n);
 byte ___5994ch(void);
@@ -246,10 +246,10 @@ void ___10b80h_cdecl(const char * A1, dword A2, const char * A3, dword A4, const
 	printf("[dRally.CINEM] Frames: %d, Length: %d [%.2fs]\n", ___1a1f00h, total_length, (double)total_length/70.0/*71.4285714286*/);
 
 
-	__DISPLAY_CLEAR_PALETTE();
+	DISPLAY_CLEAR_PALETTE();
 	bpa_read("MENU.BPA", EncodedFrame, "FRAMES.BPK");
-	bpk_decode4_cdecl(0x300, 0, &pal, EncodedFrame);
-	bpk_decode4_cdecl(0xfa00, 0x300, VGA13_ACTIVESCREEN, EncodedFrame);
+	bpk_decode4(0x300, 0, &pal, EncodedFrame);
+	bpk_decode4(0xfa00, 0x300, VGA13_ACTIVESCREEN, EncodedFrame);
 	__VGA13_PRESENTSCREEN__();
 
 	n = -1;
@@ -340,7 +340,7 @@ void ___10b80h_cdecl(const char * A1, dword A2, const char * A3, dword A4, const
 	}
 
 	fclose(fd);
-	__DISPLAY_CLEAR_PALETTE();
+	DISPLAY_CLEAR_PALETTE();
 		
 	n = 0;
 	while(n < 6) dRally_Sound____6563ch(++n);

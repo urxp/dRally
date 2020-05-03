@@ -60,7 +60,8 @@ __GDECL(___4313ch)
 		push    eax
 		mov     esi, ___19bd64h
 		lea     edi, [esp+10h]
-		call    near bpk_decode4
+		call 	bpk_decode4
+		add 	esp, 10h
 		call 	__STRCPY
 		mov     esi, ___1831cch
 		mov     edi, esp
@@ -86,7 +87,8 @@ __GDECL(___4313ch)
 		push    eax
 		lea     edi, [esp+10h]
 		mov     esi, ___19bd64h
-		call    near bpk_decode4
+		call 	bpk_decode4
+		add 	esp, 10h
 		call 	__STRCPY
 		mov     esi, ___1831d8h
 		mov     edi, esp
@@ -110,7 +112,8 @@ __GDECL(___4313ch)
 		push    edi
 		push    30ah
 		push    eax
-		call    near bpk_decode4
+		call 	bpk_decode4
+		add 	esp, 10h
 		add     esp, byte 10h
 		pop     edi
 		pop     esi

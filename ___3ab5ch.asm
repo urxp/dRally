@@ -107,7 +107,8 @@ __GDECL(___3ab5ch)
 		mov     ebx, [___1a1114h]
 		push    ebx
 		push    ___1a54d0h
-		call    near bpk_decode2
+		call 	bpk_decode2
+		add 	esp, 8
 		mov     ah, 1
 		mov     edx, [___1a1ef8h]
 		mov     [esp+54h], ah

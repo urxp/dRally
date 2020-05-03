@@ -198,7 +198,15 @@ ___1955ah:
 ___1961dh:
 		cmp     dword [esp], byte 0
 		je      near ___19636h
-		call    near ___2b8ach
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2b8ach
+	pop		eax
+	pop 	ecx
+	pop 	edx
+
 		mov     dword [___185a24h], 1
 ___19636h:
 		cmp     ebp, byte 0ffffffffh
@@ -310,7 +318,15 @@ ___1974dh:
 		call    near ___18924h
 		test    eax, eax
 		je      near ___19636h
-		call    near ___2b8ach
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2b8ach
+	pop		eax
+	pop 	ecx
+	pop 	edx
+
 		mov     dword [___185a24h], 1
 		cmp     ebp, byte 0ffffffffh
 		jne     near ___194c3h

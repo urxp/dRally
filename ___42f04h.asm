@@ -61,7 +61,8 @@ __GDECL(___42f04h)
 		push    eax
 		push    byte 0ah
 		push    300h
-		call    near bpk_decode4
+		call 	bpk_decode4
+		add 	esp, 10h
 		xor     eax, eax
 ___42f9eh:
 		add     eax, byte 3
@@ -83,7 +84,8 @@ ___42f9eh:
 		mov     ebx, 100h
 		push    eax
 		mov     [___243d08h], ebx
-		call    near bpk_decode4
+		call 	bpk_decode4
+		add 	esp, 10h
 		cmp     dword [___196dach], byte 0
 		je      near ___43125h
 		mov     esi, ___19bd64h
