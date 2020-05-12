@@ -68,7 +68,13 @@ __GDECL(___2a608h)
 	pop 	ecx
 	pop 	edx
 
-		call    near ___59b3ch
+
+	push 	edx
+	push 	ecx
+		call    ___59b3ch
+	pop 	ecx
+	pop 	edx
+
 ___2a67ah:
 
 	push 	edx
@@ -92,7 +98,13 @@ ___2a68ah:
 	pop 	ecx
 	pop 	edx
 
-		call    near ___59b3ch
+
+	push 	edx
+	push 	ecx
+		call    ___59b3ch
+	pop 	ecx
+	pop 	edx
+
 		pop     esi
 		pop     edx
 		pop     ecx

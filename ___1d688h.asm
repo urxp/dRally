@@ -161,7 +161,13 @@ ___1d7b2h:
 		cmp     ebx, 96h
 		jl      short ___1d78dh
 ___1d7d4h:
-		call    near ___59b3ch
+
+	push 	edx
+	push 	ecx
+		call    ___59b3ch
+	pop 	ecx
+	pop 	edx
+
 
 	push 	edx
 	push 	ecx

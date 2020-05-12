@@ -106,7 +106,13 @@ ___1ca63h:
 	pop 	ecx
 	pop 	edx
 
-		call    near ___59b3ch
+
+	push 	edx
+	push 	ecx
+		call    ___59b3ch
+	pop 	ecx
+	pop 	edx
+
 ___1cad8h:
 
 	push 	edx
@@ -124,7 +130,13 @@ ___1cad8h:
 	pop 	ecx
 	pop 	edx
 
-		call    near ___59b3ch
+
+	push 	edx
+	push 	ecx
+		call    ___59b3ch
+	pop 	ecx
+	pop 	edx
+
 		pop     edi
 		pop     esi
 		pop     edx

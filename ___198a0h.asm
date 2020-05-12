@@ -314,7 +314,12 @@ ___19a8eh:
 	pop 	ecx
 	pop 	edx
 
-		call    near ___59b3ch
+	push 	edx
+	push 	ecx
+		call    ___59b3ch
+	pop 	ecx
+	pop 	edx
+
 ___19b04h:
 
 	push 	edx
@@ -332,7 +337,12 @@ ___19b04h:
 	pop 	ecx
 	pop 	edx
 
-		call    near ___59b3ch
+	push 	edx
+	push 	ecx
+		call    ___59b3ch
+	pop 	ecx
+	pop 	edx
+
 		xor     eax, eax
 		add     esp, 110h
 		pop     ebp
@@ -787,7 +797,12 @@ ___19fb3h:
 	pop 	ecx
 	pop 	edx
 
-		call    near ___59b3ch
+	push 	edx
+	push 	ecx
+		call    ___59b3ch
+	pop 	ecx
+	pop 	edx
+
 		mov     dword [esp+0f8h], 0ffffffffh
 		mov     eax, [esp+0d0h]
 		mov     [esp+0e0h], eax
@@ -1303,7 +1318,12 @@ ___1a8e5h:
 	pop 	ecx
 	pop 	edx
 
-		call    near ___59b3ch
+	push 	edx
+	push 	ecx
+		call    ___59b3ch
+	pop 	ecx
+	pop 	edx
+
 		mov     eax, [esp+0fch]
 		call    near ___3f77ch__freeMemory
 		mov     eax, ebp

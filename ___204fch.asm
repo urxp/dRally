@@ -227,7 +227,13 @@ ___20670h:
 		je      short ___20670h
 		cmp     eax, dword 0aah
 		je      short ___20670h
-		call    near ___59b3ch
+
+	push 	edx
+	push 	ecx
+		call    ___59b3ch
+	pop 	ecx
+	pop 	edx
+
 		mov     edi, ___1866b8h+0a8ch
 		mov     esi, ___1818d8h
 
@@ -325,7 +331,13 @@ ___20743h:
 		je      short ___20743h
 		mov     edi, ___1866b8h+0abeh
 		mov     esi, ___1818e8h
-		call    near ___59b3ch
+
+	push 	edx
+	push 	ecx
+		call    ___59b3ch
+	pop 	ecx
+	pop 	edx
+
 
 	push 	edx
 	push 	ecx
@@ -415,7 +427,13 @@ ___20813h:
 		je      short ___20813h
 		cmp     eax, dword 0aah
 		je      short ___20813h
-		call    near ___59b3ch
+
+	push 	edx
+	push 	ecx
+		call    ___59b3ch
+	pop 	ecx
+	pop 	edx
+
 		mov     edi, ___1866b8h+0af0h
 		mov     esi, ___1818f8h
 
@@ -511,7 +529,13 @@ ___208e5h:
 		je      short ___208e5h
 		mov     edi, ___1866b8h+0b22h
 		mov     esi, ___18190ch
-		call    near ___59b3ch
+
+	push 	edx
+	push 	ecx
+		call    ___59b3ch
+	pop 	ecx
+	pop 	edx
+
 
 	push 	edx
 	push 	ecx
@@ -603,7 +627,13 @@ ___209b6h:
 		je      short ___209b6h
 		cmp     eax, dword 0aah
 		je      short ___209b6h
-		call    near ___59b3ch
+
+	push 	edx
+	push 	ecx
+		call    ___59b3ch
+	pop 	ecx
+	pop 	edx
+
 		mov     ecx, 6
 		mov     edi, ___1866b8h+0b54h
 		mov     esi, ___181924h
@@ -698,7 +728,13 @@ ___20a8ch:
 		mov     ecx, 6
 		mov     edi, ___1866b8h+0b86h
 		mov     esi, ___181940h
-		call    near ___59b3ch
+
+	push 	edx
+	push 	ecx
+		call    ___59b3ch
+	pop 	ecx
+	pop 	edx
+
 
 	push 	edx
 	push 	ecx
@@ -786,7 +822,13 @@ ___20b60h:
 		je      short ___20b60h
 		cmp     eax, dword 0aah
 		je      short ___20b60h
-		call    near ___59b3ch
+
+	push 	edx
+	push 	ecx
+		call    ___59b3ch
+	pop 	ecx
+	pop 	edx
+
 		mov     ecx, 6
 		mov     edi, ___1866b8h+0bb8h
 		mov     esi, ___18195ch
@@ -881,7 +923,13 @@ ___20c35h:
 		mov     ecx, 8
 		mov     edi, ___1866b8h+0beah
 		mov     esi, ___181ac4h
-		call    near ___59b3ch
+
+	push 	edx
+	push 	ecx
+		call    ___59b3ch
+	pop 	ecx
+	pop 	edx
+
 
 	push 	edx
 	push 	ecx

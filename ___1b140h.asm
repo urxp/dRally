@@ -436,7 +436,12 @@ ___1b4b9h:
 	pop 	ecx
 	pop 	edx
 
-		call    near ___59b3ch
+	push 	edx
+	push 	ecx
+		call    ___59b3ch
+	pop 	ecx
+	pop 	edx
+
 		mov     eax, [___24e4ach]
 		mov     dx, [eax+2]
 		mov     [eax], dx
@@ -1036,7 +1041,12 @@ ___1bb42h:
 	pop 	ecx
 	pop 	edx
 
-		call    near ___59b3ch
+	push 	edx
+	push 	ecx
+		call    ___59b3ch
+	pop 	ecx
+	pop 	edx
+
 		mov     ebx, ___1807cch
 		mov     eax, ebp
 		mov     edx, ___185c0bh

@@ -1395,9 +1395,9 @@ __GDECL(LOC_RESET)
 __GDECL(LOC_END)
 	resb	4
 __GDECL(___1a1f3ch)	
-	resb	3
-__GDECL(___1a1f3fh)	
-	resb	0eh
+	resb	4
+__GDECL(___1a1f40h)	
+	resb	0dh
 __GDECL(___1a1f4dh)	
 	resb	1
 __GDECL(___1a1f4eh)	

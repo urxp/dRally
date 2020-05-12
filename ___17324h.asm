@@ -22,7 +22,13 @@ __GDECL(___17324h)
 	pop 	edx
 
 		xor     bl, bl
-		call    near ___59b3ch
+
+	push 	edx
+	push 	ecx
+		call    ___59b3ch
+	pop 	ecx
+	pop 	edx
+
 		xor     bh, bh
 ___1733eh:
 		cmp     bl, 1ch
@@ -56,7 +62,12 @@ ___17374h:
 	pop 	ecx
 	pop 	edx
 
-		call    near ___59b3ch
+	push 	edx
+	push 	ecx
+		call    ___59b3ch
+	pop 	ecx
+	pop 	edx
+
 		pop     edx
 		pop     ebx
 		retn    

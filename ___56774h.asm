@@ -6,7 +6,7 @@ cpu 386
 	extern 	__STRCPY
 	extern	___243ce8h
 	extern	___243cf4h
-	extern	___3f970h
+	extern	___3f970h_cdecl
 	extern	___49a34h
 	extern	___19bd60h
 	extern	___243d08h
@@ -307,6 +307,13 @@ cpu 386
 
 section .text
 
+__GDECL(___56774h_race_cdecl)
+	mov 	edx, [esp+8]
+	mov 	eax, [esp+4]
+	call 	___56774h_race
+	retn
+
+
 ___56764h:
 dd	___572d7h
 dd	___57364h
@@ -323,8 +330,23 @@ __GDECL(___56774h_race)
 		sub     esp, byte 1ch
 		mov     [___243ce8h], eax
 		mov     [___243cf4h], edx
-		call    near ___3f970h
-		call    near ___49a34h
+	
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___3f970h_cdecl
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+	
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___49a34h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+	
 		cmp     dword [___19bd60h], byte 0
 		je      near ___568c6h
 		xor     ebx, ebx
@@ -927,7 +949,15 @@ ___56c09h:
 ___56c1ch:
 		call    near ___496b0h
 		call    near ___405bch
-		call    near ___49a34h
+	
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___49a34h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+	
 		mov     edx, [___243ce8h]
 		lea     eax, [edx*8+0]
 		add     eax, edx

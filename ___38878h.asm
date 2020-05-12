@@ -14,6 +14,16 @@ cpu 386
 
 section .text
 
+__GDECL(___38878h_cdecl)
+	push 	edx
+	push 	ecx
+	push 	eax
+	call 	___38878h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+	retn
+
 __GDECL(___38878h)
 		push    14h
 		call    near __CHK

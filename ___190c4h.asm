@@ -166,7 +166,13 @@ ___191b4h:
 		mov     [esp+8], ebx
 		test    ebp, ebp
 		jge     near ___190eah
-		call    near ___59b3ch
+
+	push 	edx
+	push 	ecx
+		call    ___59b3ch
+	pop 	ecx
+	pop 	edx
+
 
 	push 	edx
 	push 	ecx
@@ -370,7 +376,12 @@ ___193d4h:
 		mov     [esp+2], dx
 		cmp     ebp, byte 32h
 		jl      near ___1930ah
-		call    near ___59b3ch
+	push 	edx
+	push 	ecx
+		call    ___59b3ch
+	pop 	ecx
+	pop 	edx
+
 
 	push 	edx
 	push 	ecx

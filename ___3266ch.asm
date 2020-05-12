@@ -60,7 +60,7 @@ cpu 386
 	extern	___1a0efbh
 	extern	___32230h
 	extern	___31868h
-	extern	___33010h
+	extern	___33010h_cdecl
 	extern	___185a20h
 	extern	___1854bch
 	extern	___13248h
@@ -100,7 +100,15 @@ __GDECL(___3266ch)
 		mov     ebx, 0b0h
 		mov     esi, 840h
 		mov     [___1a1028h], edx
-		call    near ___31588h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___31588h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+	
 		mov     [esp+5ch], ebx
 		mov     edi, 640000h
 ___326a2h:
@@ -155,7 +163,15 @@ ___326a2h:
 		add     esi, 10180h
 		lea     edi, [eax+10180h]
 		call 	__MOVS
-		call    near ___30df8h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___30df8h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		cmp     dword [___185a3ch], byte 0
 		jne     short ___327bbh
 		mov     edx, [___185a50h]
@@ -170,10 +186,26 @@ ___326a2h:
 ___327bbh:
 		cmp     dword [___185a3ch], byte 0
 		je      short ___327c9h
-		call    near ___17248h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___17248h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 ___327c9h:
 		call 	restoreDefaultScreenBuffer
-		call    near ___3a6a4h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___3a6a4h
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 
 	push 	edx
 	push 	ecx
@@ -192,7 +224,15 @@ ___327c9h:
 		add     esi, 10180h
 		add     edi, 10180h
 		call 	__MOVS
-		call    near ___30df8h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___30df8h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		mov     edx, [___185a50h]
 		lea     eax, [edx*4+0]
 		mov     ebx, 94h
@@ -585,7 +625,15 @@ ___32d5ah:
 ___32d79h:
 		mov     eax, 4
 		mov     esi, 1
-		call    near ___33010h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___33010h_cdecl
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     [___185a20h], esi
 		jmp     short ___32dddh
 ___32d90h:

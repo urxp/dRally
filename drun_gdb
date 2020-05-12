@@ -3,7 +3,7 @@
 cp drally_linux ./dRally/dRally
 
 cd dRally
-#echo "Shadows of Death Rally *** Linux version" 
+#echo "Shadows of Death Rally *** Linux version"
 #echo "Open source port of Death Rally, 1996"
 #echo "Released under the terms of MIT license"
-LD_LIBRARY_PATH=. gdb dRally
+gdb dRally --eval-command=run

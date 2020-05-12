@@ -59,18 +59,6 @@ cpu 386
 
 section .text
 
-__GDECL(WAIT_5)
-	pushad
-	call 	__WAIT_5
-	popad
-	retn
-
-;__GDECL(dRally_main)
-;        mov     eax, [esp+4]
-;        mov     edx, [esp+8]
-;        call    main_
-;        retn
-
 __GDECL(exit_)
 	push 	eax
 	call 	exit
@@ -203,45 +191,6 @@ __GDECL(putchar_)
 		pop 	edx
 		retn
 
-
-
-__GDECL(fscanf_)
-		mov 	[save_ecx], ecx
-		mov 	[save_edx], edx
-		pop 	dword [save_esp]
-        call	fscanf
-		push 	dword [save_esp]
-		mov 	edx, [save_edx]
-		mov 	ecx, [save_ecx]
-		retn
-__GDECL(open_)
-		mov 	[save_ecx], ecx
-		mov 	[save_edx], edx
-		pop 	dword [save_esp]
-        call	open
-		push 	dword [save_esp]
-		mov 	edx, [save_edx]
-		mov 	ecx, [save_ecx]
-		retn
-
-
-__GDECL(close_)
-	push 	ecx
-	push 	edx
-	push 	eax
-	call 	close
-	add 	esp, 4
-	pop 	edx
-	pop 	ecx
-	retn
-
-
-__GDECL(stricmp_)
-        push    edx
-        push    eax
-        call    strcasecmp
-        add     esp, 8
-        retn
 __GDECL(strcmp_)
 		push 	ecx
         push    edx
@@ -259,14 +208,6 @@ __GDECL(memset_)
         add     esp, 0ch
 		pop 	ecx
         retn
-
-
-__GDECL(getenv_)
-        push    eax
-        call    getenv
-        add     esp, 4
-        retn
-
 
 
 __GDECL(fopen_)
@@ -311,15 +252,6 @@ __GDECL(fread_)
         call    fread
         add     esp, 10h
         retn
-__GDECL(fgetc_)
-		push 	ecx
-		push 	edx
-        push    eax
-        call    fgetc
-        add     esp, 4
-		pop 	edx
-		pop 	ecx
-        retn
 __GDECL(fwrite_)
 		push 	ecx
 		push 	ebx
@@ -336,9 +268,6 @@ __GDECL(fputc_)
         add     esp, 8
 		pop 	ecx
         retn
-
-
-
 
 __GDECL(strupr_)
 		push		ebx
@@ -466,25 +395,6 @@ __GDECL(fseek_)
 	pop 	ecx
 	retn
 
-__GDECL(strncmp_)
-		push 	edi
-		push 	esi
-		push 	ecx
-		push 	ebx
-		push 	edx
-		push 	eax
-		call 	strncmp
-		add 	esp, 0ch
-		pop 	ecx
-		pop 	esi
-		pop 	edi
-		retn
-
-
-
-
-
-
 
 
 
@@ -510,15 +420,6 @@ __GDECL(int386_)
 	pop 	ecx
 	retn
 
-
-__GDECL(toupper_)
-	jmp		.around
-.error:	db 	"toupper_ not implemented",0ah,0
-.around:
-	push 	.error
-	call 	printf
-	add 	esp, 4
-	retn
 __GDECL(strcat_)
 	jmp		.around
 .error:	db 	"strcat_ not implemented",0ah,0
@@ -538,15 +439,6 @@ __GDECL(outp_)
 __GDECL(inp_)
 	jmp		.around
 .error:	db 	"inp_ not implemented",0ah,0
-.around:
-	push 	.error
-	call 	printf
-	add 	esp, 4
-	retn
-
-__GDECL(ftell_)
-	jmp		.around
-.error:	db 	"ftell_ not implemented",0ah,0
 .around:
 	push 	.error
 	call 	printf
@@ -608,37 +500,13 @@ __GDECL(sscanf_)
 	call 	printf
 	add 	esp, 4
 	retn
-__GDECL(scanf_)
-	jmp		.around
-.error:	db 	"scanf_ not implemented",0ah,0
-.around:
-	push 	.error
-	call 	printf
-	add 	esp, 4
-	retn
-__GDECL(vsprintf_)
-	jmp		.around
-.error:	db 	"vsprintf_ not implemented",0ah,0
-.around:
-	push 	.error
-	call 	printf
-	add 	esp, 4
-	retn
+
 __GDECL(__GETDS)
 	mov 	eax, ds
 	retn
 __GDECL(strcpy_)
 	jmp		.around
 .error:	db 	"strcpy_ not implemented",0ah,0
-.around:
-	push 	.error
-	call 	printf
-	add 	esp, 4
-	retn
-
-__GDECL(putch_)
-	jmp		.around
-.error:	db 	"putch_ not implemented",0ah,0
 .around:
 	push 	.error
 	call 	printf
@@ -659,22 +527,7 @@ __GDECL(_settextposition_)
 	pop 	ecx
 	retn
 
-__GDECL(kbhit_)
-	jmp		.around
-.error:	db 	"kbhit_ not implemented",0ah,0
-.around:
-	push 	.error
-	call 	printf
-	add 	esp, 4
-	retn
-__GDECL(filelength_)
-	jmp		.around
-.error:	db 	"filelength_ not implemented",0ah,0
-.around:
-	push 	.error
-	call 	printf
-	add 	esp, 4
-	retn
+
 __GDECL(_dos_gettime_)
 	jmp		.around
 .error:	db 	"_dos_gettime_ not implemented",0ah,0
@@ -779,50 +632,6 @@ __GDECL(VGA3_SET_CURSORPOSITION)
 	retn
 
 
-__GDECL(GET_IRQ_ISR)
-	jmp		.around
-.error:	db 	"GET_IRQ_ISR not implemented",0ah,0
-.around:
-		push    eax
-		push    edx
-		push 	ecx
-	push 	.error
-	call 	printf
-	add 	esp, 4
-		pop 	ecx
-		pop     edx
-		pop     eax
-		retn    
-
-__GDECL(SET_IRQ_ISR)
-	jmp		.around
-.error:	db 	"SET_IRQ_ISR not implemented",0ah,0
-.around:
-		push    eax
-		push    edx
-		push 	ecx
-	push 	.error
-	call 	printf
-	add 	esp, 4
-		pop 	ecx
-		pop     edx
-		pop     eax
-		retn    
-
-__GDECL(GET_VRETRACE_INTERVAL)
-	jmp		.around
-.error:	db 	"GET_VRETRACE_INTERVAL not implemented",0ah,0
-.around:
-		push    eax
-		push    edx
-		push 	ecx
-	push 	.error
-	call 	printf
-	add 	esp, 4
-		pop 	ecx
-		pop     edx
-		pop     eax
-		retn    
 
 __GDECL(VRETRACE_WAIT_FOR_START)
 	jmp		.around
@@ -836,62 +645,6 @@ __GDECL(VRETRACE_WAIT_FOR_START)
 		popad
 		retn    
 
-__GDECL(TIMER_SET_TIMER)
-	jmp		.around
-.error:	db 	"TIMER_SET_TIMER not implemented",0ah,0
-.around:
-		pushad
-	push 	.error
-	call 	printf
-	add 	esp, 4
-	call 	__TIMER_SET_TIMER
-		popad
-		retn    
-
-__GDECL(TIMER_SET_INTERVAL)
-	jmp		.around
-.error:	db 	"TIMER_SET_INTERVAL not implemented",0ah,0
-.around:
-		push    eax
-		push    edx
-		push 	ecx
-	push 	.error
-	call 	printf
-	add 	esp, 4
-		pop 	ecx
-		pop     edx
-		pop     eax
-		retn    
-
-__GDECL(ENABLE_IRQ)
-	jmp		.around
-.error:	db 	"ENABLE_IRQ not implemented",0ah,0
-.around:
-		push    eax
-		push    edx
-		push 	ecx
-	push 	.error
-	call 	printf
-	add 	esp, 4
-		pop 	ecx
-		pop     edx
-		pop     eax
-		retn    
-
-__GDECL(RESTORE_IRQ_MASKS)
-	jmp		.around
-.error:	db 	"RESTORE_IRQ_MASKS not implemented",0ah,0
-.around:
-		push    eax
-		push    edx
-		push 	ecx
-	push 	.error
-	call 	printf
-	add 	esp, 4
-		pop 	ecx
-		pop     edx
-		pop     eax
-		retn    
 
 __GDECL(DPMI_GET_FREE_MEMORY_INFORMATION)
 		mov 	eax, 57b0cch
@@ -968,6 +721,17 @@ utoa_:
 	pop		esi
 	pop		ecx
 	ret
+
+;;char * itoa( int value, char * buffer, int radix );
+
+__GDECL(itoa_watcom106)
+	push 	ebx
+	mov 	ebx, [esp+10h]
+	mov 	edx, [esp+0ch]
+	mov 	eax, [esp+8]
+	call	itoa_
+	pop 	ebx
+	retn
 
 __GDECL(itoa_)
 	push		ecx
@@ -1067,8 +831,7 @@ section .bss
 filename:
     resb    20h
 
-save_eax:
-	resb	4
+
 save_ecx:
 	resb	4
 save_edx:

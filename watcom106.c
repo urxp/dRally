@@ -37,6 +37,18 @@ int rand_watcom106(void){
 	return (__seed>>0x10)&0x7fff;
 }
 
+char * strupr_watcom106(char * s){
+
+    char *  p;
+
+    p = s-1;
+    while(++p&&*p){
+
+        if((unsigned char)(*p-0x61) <= 0x19) *p -= 0x20;
+    }
+
+    return s;
+}
 
 int my_int386x(int inter_no, REGS * in_regs, REGS * out_regs, SREGS * seg_regs){
 

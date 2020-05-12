@@ -102,7 +102,7 @@ cpu 386
 	extern	___2ee78h
 	extern	___1854a8h
 	extern	___196adch
-	extern	___33010h
+	extern	___33010h_cdecl
 	extern	___185a20h
 	extern	___1a0224h
 	extern	___31008h
@@ -1634,7 +1634,15 @@ ___2a2a6h:
 		call    dRally_Sound_pushEffect
 	add 	esp, 18h
 		mov     eax, [___196adch]
-		call    near ___33010h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___33010h_cdecl
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 ___2a2d3h:
 		mov     dword [___185a20h], 1
 		add     esp, byte 60h

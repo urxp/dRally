@@ -192,7 +192,12 @@ ___20e51h:
 	pop 	ecx
 	pop 	edx
 
-		call    near ___59b3ch
+	push 	edx
+	push 	ecx
+		call    ___59b3ch
+	pop 	ecx
+	pop 	edx
+
 ___20f18h:
 
 	push 	edx
@@ -210,7 +215,12 @@ ___20f18h:
 	pop 	ecx
 	pop 	edx
 
-		call    near ___59b3ch
+	push 	edx
+	push 	ecx
+		call    ___59b3ch
+	pop 	ecx
+	pop 	edx
+
 		mov     ecx, 4b000h
 		mov     esi, [___1a1124h__VESA101h_ScreenBufferA]
 		mov     edi, [___1a112ch__VESA101_ACTIVESCREEN_PTR]

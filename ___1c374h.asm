@@ -126,7 +126,14 @@ ___1c3e4h:
 ___1c418h:
 		xor     ecx, ecx
 		call 	restoreDefaultScreenBuffer
-		call    near ___3a6a4h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___3a6a4h
+	pop 	eax
+	pop		ecx
+	pop		edx
 
 	push 	edx
 	push 	ecx

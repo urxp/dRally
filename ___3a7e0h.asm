@@ -37,7 +37,15 @@ __GDECL(___3a7e0h)
 		mov     [esp+4], edx
 		mov     [esp+10h], edx
 ___3a812h:
-		call    near ___2aa08h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2aa08h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		imul    edx, [esp+10h], byte 0fh
 		xor     edi, edi
 		mov     ebp, 0bb80h
@@ -159,7 +167,12 @@ ___3a91ah:
 	pop 	ecx
 	pop 	edx
 
-		call    near ___59b3ch
+	push 	edx
+	push 	ecx
+		call    ___59b3ch
+	pop 	ecx
+	pop 	edx
+
 		add     esp, byte 2ch
 		pop     ebp
 		pop     edi

@@ -113,7 +113,15 @@ ___194c3h:
 		jmp     short ___1953dh
 ___19523h:
 		call 	restoreDefaultScreenBuffer
-		call    near ___3a6a4h
+		
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___3a6a4h
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 
 	push 	edx
 	push 	ecx

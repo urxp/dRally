@@ -13,6 +13,11 @@ cpu 386
 
 section .text
 
+__GDECL(___3a968h_cdecl)
+	mov 	eax, [esp+4]
+	call 	___3a968h
+	retn
+
 __GDECL(___3a968h)
 		push    44h
 		call    near __CHK
@@ -32,7 +37,15 @@ __GDECL(___3a968h)
 		mov     [esp+4], edx
 		mov     [esp+10h], edx
 ___3a99ah:
-		call    near ___2aa08h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2aa08h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		imul    edx, [esp+10h], byte 0fh
 		xor     edi, edi
 		mov     ebp, 0bb80h
@@ -154,7 +167,12 @@ ___3aaabh:
 	pop 	ecx
 	pop 	edx
 
-		call    near ___59b3ch
+	push 	edx
+	push 	ecx
+		call    ___59b3ch
+	pop 	ecx
+	pop 	edx
+
 		add     esp, byte 28h
 		pop     ebp
 		pop     edi

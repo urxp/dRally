@@ -211,7 +211,13 @@ ___211bdh:
 		and     eax, 0ffh
 		mov     esi, ___1818d8h
 		mov     [___1a1164h], eax
-		call    near ___59b3ch
+
+	push 	edx
+	push 	ecx
+		call    ___59b3ch
+	pop 	ecx
+	pop 	edx
+
 
 	push 	edx
 	push 	ecx
@@ -297,7 +303,13 @@ ___21288h:
 		and     eax, 0ffh
 		mov     esi, ___1818e8h
 		mov     [___1a113ch], eax
-		call    near ___59b3ch
+
+	push 	edx
+	push 	ecx
+		call    ___59b3ch
+	pop 	ecx
+	pop 	edx
+
 
 	push 	edx
 	push 	ecx
@@ -380,7 +392,13 @@ ___21350h:
 		and     eax, 0ffh
 		mov     esi, ___1818f8h
 		mov     [___1a1110h], eax
-		call    near ___59b3ch
+
+	push 	edx
+	push 	ecx
+		call    ___59b3ch
+	pop 	ecx
+	pop 	edx
+
 
 	push 	edx
 	push 	ecx
@@ -463,7 +481,13 @@ ___21417h:
 		and     eax, 0ffh
 		mov     esi, ___18190ch
 		mov     [___1a1130h], eax
-		call    near ___59b3ch
+
+	push 	edx
+	push 	ecx
+		call    ___59b3ch
+	pop 	ecx
+	pop 	edx
+
 
 	push 	edx
 	push 	ecx
@@ -549,7 +573,13 @@ ___214e1h:
 		and     eax, 0ffh
 		mov     esi, ___181924h
 		mov     [___1a1120h], eax
-		call    near ___59b3ch
+
+	push 	edx
+	push 	ecx
+		call    ___59b3ch
+	pop 	ecx
+	pop 	edx
+
 
 	push 	edx
 	push 	ecx
@@ -631,7 +661,13 @@ ___215aeh:
 		and     eax, 0ffh
 		mov     esi, ___181940h
 		mov     [___1a1118h], eax
-		call    near ___59b3ch
+
+	push 	edx
+	push 	ecx
+		call    ___59b3ch
+	pop 	ecx
+	pop 	edx
+
 
 	push 	edx
 	push 	ecx
@@ -713,7 +749,13 @@ ___2167bh:
 		and     eax, 0ffh
 		mov     esi, ___18195ch
 		mov     [___1a111ch], eax
-		call    near ___59b3ch
+
+	push 	edx
+	push 	ecx
+		call    ___59b3ch
+	pop 	ecx
+	pop 	edx
+
 
 	push 	edx
 	push 	ecx

@@ -26,7 +26,7 @@ cpu 386
 	extern	___1a103ch
 	extern	___196af0h
 	extern	___196aech
-	extern	___33010h
+	extern	___33010h_cdecl
 	extern	___196ae8h
 	extern	___1866b8h
 	extern	___1807ech
@@ -239,7 +239,15 @@ ___311efh:
 		xor     esi, esi
 		mov     [esp+28h], esi
 		call 	restoreDefaultScreenBuffer
-		call    near ___3a6a4h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___3a6a4h
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 
 	push 	edx
 	push 	ecx
@@ -281,7 +289,15 @@ ___3125bh:
 		mov     [___1a103ch], ebx
 		mov     [___196af0h], ecx
 		mov     [___196aech], ecx
-		call    near ___33010h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___33010h_cdecl
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		cmp     ebx, [___196ae8h]
 		jne     near ___3157eh
 		mov     ah, 1

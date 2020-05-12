@@ -143,7 +143,13 @@ __GDECL(___1caf4h)
 	pop 	ecx
 	pop 	edx
 
-		call    near ___59b3ch
+
+	push 	edx
+	push 	ecx
+		call    ___59b3ch
+	pop 	ecx
+	pop 	edx
+
 ___1cbc7h:
 
 	push 	edx
@@ -161,7 +167,13 @@ ___1cbc7h:
 	pop 	ecx
 	pop 	edx
 
-		call    near ___59b3ch
+
+	push 	edx
+	push 	ecx
+		call    ___59b3ch
+	pop 	ecx
+	pop 	edx
+
 ___1cbdah:
 		test    ebp, ebp
 		jne     near ___1cffdh
@@ -458,7 +470,13 @@ ___1cf92h:
 	pop		ecx
 	pop		edx
 
-		call    near ___59b3ch
+
+	push 	edx
+	push 	ecx
+		call    ___59b3ch
+	pop 	ecx
+	pop 	edx
+
 
 	push 	edx
 	push 	ecx

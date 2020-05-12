@@ -713,7 +713,13 @@ ___1e076h:
 	pop 	ecx
 	pop 	edx
 
-		call    near ___59b3ch
+
+	push 	edx
+	push 	ecx
+		call    ___59b3ch
+	pop 	ecx
+	pop 	edx
+
 		add     esp, byte 70h
 		pop     ebp
 		pop     edi

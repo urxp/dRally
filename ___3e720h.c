@@ -191,7 +191,7 @@ void ___3e720h(void){
 
 	___605deh_cdecl(0x3c, 0);
 	___117d4h();
-	___3d38ch();	// APOGEE/GT/REMEDY
+	//___3d38ch();	// APOGEE/GT/REMEDY
 	___3d890h();
 	___117f4h();
 	___1240ch();

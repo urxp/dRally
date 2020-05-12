@@ -176,7 +176,13 @@ ___1f20ch:
 		mov     [___1a1e50h], edi
 		mov     [___199fa4h], ebp
 		mov     [___199fa8h], eax
-		call    near ___59b3ch
+
+	push 	edx
+	push 	ecx
+		call    ___59b3ch
+	pop 	ecx
+	pop 	edx
+
 
 	push 	edx
 	push 	ecx
@@ -242,7 +248,13 @@ ___1f2a1h:
 		mov     [___1a1e50h], ebx
 		mov     [___199fa4h], ecx
 		mov     [___199fa8h], esi
-		call    near ___59b3ch
+
+	push 	edx
+	push 	ecx
+		call    ___59b3ch
+	pop 	ecx
+	pop 	edx
+
 
 	push 	edx
 	push 	ecx
@@ -306,7 +318,13 @@ ___1f33ah:
 		mov     [___1a1e50h], ebp
 		mov     [___199fa4h], eax
 		mov     [___199fa8h], edx
-		call    near ___59b3ch
+
+	push 	edx
+	push 	ecx
+		call    ___59b3ch
+	pop 	ecx
+	pop 	edx
+
 
 	push 	edx
 	push 	ecx
@@ -371,7 +389,13 @@ ___1f3d2h:
 		mov     [___1a1e50h], ecx
 		mov     [___199fa4h], esi
 		mov     [___199fa8h], ecx
-		call    near ___59b3ch
+
+	push 	edx
+	push 	ecx
+		call    ___59b3ch
+	pop 	ecx
+	pop 	edx
+
 
 	push 	edx
 	push 	ecx
@@ -438,7 +462,13 @@ ___1f40dh:
 		add     esp, byte 0ch
 		mov     eax, [esp+50h]
 		mov     [___199fa4h], eax
-		call    near ___59b3ch
+
+	push 	edx
+	push 	ecx
+		call    ___59b3ch
+	pop 	ecx
+	pop 	edx
+
 
 	push 	edx
 	push 	ecx
@@ -497,7 +527,13 @@ ___1f40dh:
 		add     esp, byte 0ch
 		mov     ecx, 28f00h
 		mov     [___1a1e50h], ebx
-		call    near ___59b3ch
+
+	push 	edx
+	push 	ecx
+		call    ___59b3ch
+	pop 	ecx
+	pop 	edx
+
 
 	push 	edx
 	push 	ecx
@@ -574,7 +610,13 @@ ___1f606h:
 
 		cmp     edx, byte 32h
 		jl      short ___1f606h
-		call    near ___59b3ch
+
+	push 	edx
+	push 	ecx
+		call    ___59b3ch
+	pop 	ecx
+	pop 	edx
+
 
 	push 	edx
 	push 	ecx

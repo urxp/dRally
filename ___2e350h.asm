@@ -57,7 +57,7 @@ cpu 386
 	extern	___1854a8h
 	extern	___19bd60h
 	extern	___196adch
-	extern	___33010h
+	extern	___33010h_cdecl
 	extern	___1a0224h
 	extern	___31008h
 	extern	___3266ch
@@ -812,7 +812,15 @@ ___2ebc1h:
 		cmp     dword [___19bd60h], byte 0
 		je      short ___2ebf9h
 		mov     eax, [___196adch]
-		call    near ___33010h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___33010h_cdecl
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		jmp     short ___2ec49h
 ___2ebf9h:
 		mov     ebp, [___1a1ef8h]

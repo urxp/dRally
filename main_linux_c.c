@@ -42,8 +42,9 @@ int dRally_main(int argc, char * argv[]){
 	if(___19bd60h) ___623d4h();
 
 	dRally_System_clean();
+/*
 	bpa_read("MENU.BPA", B800, "dr.bin");
 	VGA3_PRESENTSCREEN(0x17);
-
+*/
 	return 0;
 }

@@ -201,7 +201,12 @@ ___2394dh:
 		call    ___1398ch__VESA101_PRESENTRECTANGLE
 	add 	esp, 10h
 	
-		call    near ___59b3ch
+	push 	edx
+	push 	ecx
+		call    ___59b3ch
+	pop 	ecx
+	pop 	edx
+
 		mov     [esp+13ch], al
 		cmp     al, 0dh
 		jb      short ___2398dh

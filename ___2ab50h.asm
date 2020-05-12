@@ -58,7 +58,15 @@ __GDECL(___2ab50h)
 		sub     esp, 428h
 		cmp     byte [kmap+58h], 0
 		je      short ___2ab74h
-		call    near ___3a454h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___3a454h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 ___2ab74h:
 		inc     dword [___196a88h]
 
@@ -70,7 +78,14 @@ ___2ab74h:
 	pop 	ecx
 	pop 	edx
 
-		call    near ___2a394h
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2a394h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		mov     eax, [___196a88h]
 		mov     edx, eax
 		mov     ebx, 46h

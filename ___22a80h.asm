@@ -239,7 +239,12 @@ ___22c85h:
 	pop 	ecx
 	pop 	edx
 
-		call    near ___59b3ch
+	push 	edx
+	push 	ecx
+		call    ___59b3ch
+	pop 	ecx
+	pop 	edx
+
 		xor     edx, edx
 ___22d67h:
 		call    near ___2ab50h
@@ -267,7 +272,12 @@ ___22d86h:
 	pop 	ecx
 	pop 	edx
 
-		call    near ___59b3ch
+	push 	edx
+	push 	ecx
+		call    ___59b3ch
+	pop 	ecx
+	pop 	edx
+
 		mov     ecx, 4b000h
 		mov     esi, [___1a112ch__VESA101_ACTIVESCREEN_PTR]
 		mov     edi, [___1a10e4h__VESA101h_DefaultScreenBufferA]
@@ -376,7 +386,15 @@ ___22ed9h:
 		call    near ___27f80h
 		xor     edi, edi
 		call 	restoreDefaultScreenBuffer
-		call    near ___3a6a4h
+		
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___3a6a4h
+	pop 	eax
+	pop		ecx
+	pop		edx
+
 ___22f25h:
 		call    near ___2ab50h
 
