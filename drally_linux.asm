@@ -30,8 +30,6 @@ cpu 386
 	extern 	srand
 	extern 	strncmp
 	extern	___6045ch
-	extern	___60441h
-	extern	___60446h
 	extern	___6044ch
     extern  __STRCPY
 	extern 	__VGA3_SETMODE
@@ -659,23 +657,6 @@ __GDECL(VRETRACE_WAIT_IF_INACTIVE)
 	pop 	edx
 	pop 	ecx
 		retn 
-
-__GDECL(IRQ0_TimerISR)
-		pushad
-		cmp     dword [___6045ch], byte 0
-		je      ___607bdh
-		cmp     byte [___60441h], 0
-		jne     ___607bdh
-		call 	VRETRACE_WAIT_IF_INACTIVE
-___607bdh:
-		inc     dword [INT8_FRAME_COUNTER]
-		cmp     byte [___60446h], 1
-		jne     ___60807h
-		call    dword [___6044ch]
-___60807h:
-		popad
-		retn 
-
 
 _Alphabet:
     DB	30H, 31H, 32H, 33H, 34H, 35H, 36H, 37H

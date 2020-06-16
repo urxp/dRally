@@ -12,7 +12,7 @@ cpu 386
 	extern 	___1866b8h
 	extern 	___185ba9h
 	extern 	___1a10e0h
-	extern 	___12e78h
+	extern 	___12e78h_cdecl
 	extern 	___185a5ch
 	extern 	___185b58h
 	extern 	___1a10cch
@@ -108,7 +108,14 @@ ___1440dh:
 		mov     edx, ___185ba9h
 		add     ebx, eax
 		mov     eax, [___1a10e0h]
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		mov     eax, [esp+4]
 		lea     edi, [eax*8+0]
 		mov     esi, [esp]
@@ -198,7 +205,14 @@ ___1455ch:
 		mov     edx, ___185ba9h
 		add     ebx, eax
 		mov     eax, [___1a10cch]
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		mov     eax, [esi*4+___185a64h]
 		lea     edx, [eax*4+0]
 		add     edx, eax

@@ -33,7 +33,7 @@ cpu 386
 	extern 	___185ba9h
 	extern 	___180694h
 	extern 	___1a10cch
-	extern 	___12e78h
+	extern 	___12e78h_cdecl
 
 section .text
 
@@ -398,7 +398,14 @@ ___16e30h:
 		lea     ecx, [eax+0c0h]
 		mov     ebx, ___180694h
 		mov     eax, [___1a10cch]
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		mov     eax, [esp+34h]
 		add     esp, byte 54h
 		pop     ebp

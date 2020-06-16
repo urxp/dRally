@@ -1,15 +1,5 @@
 #include "drally.h"
 
-//#define CINEMATICS_PROGRESS_BAR
-
-#ifdef CINEMATICS_PROGRESS_BAR
-#define CPB_LEN		95		//316
-#define CPB_X		173 	//2
-#define CPB_Y		182 	//164
-#define CPB_BAR 	5		//8
-#define CPB_BORDER 	0 		//2
-#endif
-
 #pragma pack(1)
 typedef struct rgb24_s {
 	byte 	r;
@@ -62,7 +52,7 @@ void __DISPLAY_SET_PALETTE_COLOR(dword b, dword g, dword r, dword n);
 byte ___5994ch(void);
 dword __GET_FRAME_COUNTER(void);
 
-void dRally_Sound____6563ch(byte ch_num);
+void dRally_Sound_freeEffectChannel(byte ch_num);
 void dRally_Sound_pushEffect(byte channel, byte n, dword unk, dword a0, dword a1, dword a2);
 void dRally_Sound_setSampleRate(dword freq);
 void dRally_Sound_play(void);
@@ -198,10 +188,6 @@ void ___108e8h(void){
 
 void ___10b80h_cdecl(const char * A1, dword A2, const char * A3, dword A4, const char * A5, dword A6, dword A7){
 
-#ifdef CINEMATICS_PROGRESS_BAR
-	dword 	 l, k, j, m;
-#endif
-
 	dword 	ch_n, n, skipped;
 	dword 	eax, ebx, ecx, edx, edi, esi;
 	pal256_t 	pal;
@@ -256,56 +242,11 @@ void ___10b80h_cdecl(const char * A1, dword A2, const char * A3, dword A4, const
 	while(++n < 0x10) __DISPLAY_SET_PALETTE_COLOR(pal[n].b, pal[n].g, pal[n].r, n);
 
 	__VGA13_PRESENTSCREEN__();
-
-#ifdef CINEMATICS_PROGRESS_BAR
-	n = CPB_LEN;
-	while(n--){
-
-		VGA13_ACTIVESCREEN[320*CPB_Y+CPB_X+n] -= CPB_BAR;
-		if(VGA13_ACTIVESCREEN[320*CPB_Y+CPB_X+n] > 0xf) VGA13_ACTIVESCREEN[320*CPB_Y+CPB_X+n] = 0;
-		VGA13_ACTIVESCREEN[320*(CPB_Y+1)+CPB_X+n] -= CPB_BAR;
-		if(VGA13_ACTIVESCREEN[320*(CPB_Y+1)+CPB_X+n] > 0xf) VGA13_ACTIVESCREEN[320*(CPB_Y+1)+CPB_X+n] = 0;
-		VGA13_ACTIVESCREEN[320*(CPB_Y+2)+CPB_X+n] -= CPB_BAR;
-		if(VGA13_ACTIVESCREEN[320*(CPB_Y+2)+CPB_X+n] > 0xf) VGA13_ACTIVESCREEN[320*(CPB_Y+2)+CPB_X+n] = 0;
-		VGA13_ACTIVESCREEN[320*(CPB_Y+3)+CPB_X+n] -= CPB_BAR;
-		if(VGA13_ACTIVESCREEN[320*(CPB_Y+3)+CPB_X+n] > 0xf) VGA13_ACTIVESCREEN[320*(CPB_Y+3)+CPB_X+n] = 0;
-	}
-
-	j = l = 0;
-#endif
-
     time = SDL_GetTicks();
 
 	ch_n = 0;
 	___185a0ch = -1;
 	while((++___185a0ch < ___1a1f00h)&&!(skipped = (A6&&___5994ch()))){
-
-#ifdef CINEMATICS_PROGRESS_BAR
-		j += ___1a1f1ch[___185a0ch];
-		m = CPB_LEN*j/total_length;
-
-		if(m > l){
-
-			k = m;
-			while(m-- > l){
-
-				VGA13_ACTIVESCREEN[320*CPB_Y+CPB_X+m] += CPB_BORDER;
-				if((m == 0)||(m == (CPB_LEN-1))){
-
-					VGA13_ACTIVESCREEN[320*(CPB_Y+1)+CPB_X+m] += CPB_BORDER;
-					VGA13_ACTIVESCREEN[320*(CPB_Y+2)+CPB_X+m] += CPB_BORDER;
-				}
-				else{
-					
-					VGA13_ACTIVESCREEN[320*(CPB_Y+1)+CPB_X+m] += CPB_BAR;
-					VGA13_ACTIVESCREEN[320*(CPB_Y+2)+CPB_X+m] += CPB_BAR;
-				}
-				VGA13_ACTIVESCREEN[320*(CPB_Y+3)+CPB_X+m] += CPB_BORDER;
-			}
-
-			l = k;
-		}
-#endif
 
 		esi = __GET_FRAME_COUNTER();
 		eax = 0;
@@ -343,7 +284,7 @@ void ___10b80h_cdecl(const char * A1, dword A2, const char * A3, dword A4, const
 	DISPLAY_CLEAR_PALETTE();
 		
 	n = 0;
-	while(n < 6) dRally_Sound____6563ch(++n);
+	while(n < 6) dRally_Sound_freeEffectChannel(++n);
 
 	dRally_Memory_free(DecodedFrame);
 	dRally_Memory_free(EncodedFrame);

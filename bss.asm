@@ -3034,7 +3034,7 @@ __GDECL(___24e5a0h)
 	resb	1ch
 __GDECL(___24e5bch)	
 	resb	4
-__GDECL(___24e5c0h)	
+;__GDECL(___24e5c0h)	
 	resb	80h
 __GDECL(___24e640h)	
 	resb	4
@@ -3044,32 +3044,30 @@ __GDECL(___24e640h)
 	resb	4
 ;__GDECL(___OpenStreams)
 	resb	4
-__GDECL(___24e650h) 
+;__GDECL(___24e650h) 
 	resb 	7ch
-__GDECL(___24e6cch)	
+;__GDECL(___24e6cch)	
 	resb	84h
-__GDECL(___24e750h)	
+;__GDECL(___24e750h)	
 	resb	40h
-__GDECL(___24e790h)	
+;__GDECL(___24e790h)	
 	resb	4
-__GDECL(___24e794h)	
+;__GDECL(___24e794h)	
 	resb	4
-__GDECL(___24e798h)	
+;__GDECL(___24e798h)	
 	resb	4
-__GDECL(___24e79ch)	
+;__GDECL(___24e79ch)	
 	resb	2
-__GDECL(___24e79eh)	
+;__GDECL(___24e79eh)
+	resb	4
+;__GDECL(___24e7a0h_int)
+;__GDECL(___24e7a0h)	
 	resb	2
-__GDECL(___24e7a0h_int)
-__GDECL(___24e7a0h)	
-	resb	2
-__GDECL(___24e7a2h)	
-	resb	2
-__GDECL(___24e7a4h)	
+;__GDECL(___24e7a2h)	
+	resb	3
+;__GDECL(___24e7a5h)	
 	resb	1
-__GDECL(___24e7a5h)	
-	resb	1
-__GDECL(___24e7a6h)	
+;__GDECL(___24e7a6h)	
 	resb	2
 ;__GDECL(_errno)
 	resb	4
@@ -3079,15 +3077,15 @@ __GDECL(___24e7a6h)
 	resb	8
 ;__GDECL(__Screen)
 	resb	4
-__GDECL(___24e7bch)
+;__GDECL(___24e7bch)
 	resb	2
-__GDECL(___24e7beh)
+;__GDECL(___24e7beh)
 	resb	2
-__GDECL(___24e7c0h)
+;__GDECL(___24e7c0h)
 	resb	4
 ;__GDECL(__TextPos)
 	resb	2
-__GDECL(___24e7c6h)
+;__GDECL(___24e7c6h)
 	resb	2
 ;__GDECL(__ConfigBuffer)
 	resb	2
@@ -3161,6 +3159,7 @@ __GDECL(___24e800h)
 	resb	4
 ;__GDECL(___historical_splitparms)
 	resb	4
+
 __GDECL(___24e830h)	
 	resb	20h
 __GDECL(___24e850h)	
@@ -3189,6 +3188,7 @@ __GDECL(___24e871h)
 	resb	1
 __GDECL(___24e872h)	
 	resb	2
+
 __GDECL(___24e874h)	
 	resb	4
 __GDECL(___24e878h)	
@@ -3205,12 +3205,10 @@ __GDECL(___24e87eh)
 	resb	1
 __GDECL(___24e87fh)	
 	resb	1
-__GDECL(___24e880h)	
+;__GDECL(___24e880h)	
 	resb	20h
-__GDECL(___24e8a0h)	
-	resb	3
-__GDECL(___24e8a3h)	
-	resb	1
+;__GDECL(___24e8a0h)	
+	resb	4
 __GDECL(___24e8a4h)	
 	resb	100h
 __GDECL(___24e9a4h)	

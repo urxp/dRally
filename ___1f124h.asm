@@ -13,7 +13,7 @@ cpu 386
 	extern	___1810a8h
 	extern	___185ba9h
 	extern	___1a10cch
-	extern	___12e78h
+	extern	___12e78h_cdecl
 	extern	___58c60h
 	extern	___1a1e50h
 	extern	___199fa4h
@@ -147,7 +147,14 @@ ___1f1b3h:
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10cch]
 		xor     ebp, ebp
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 
 	push 	edx
 	push 	ecx
@@ -218,7 +225,14 @@ ___1f248h:
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10cch]
 		xor     ebp, ebp
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 
 	push 	edx
 	push 	ecx
@@ -288,7 +302,14 @@ ___1f2e1h:
 		mov     ebx, ___1810e0h
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10cch]
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 
 	push 	edx
 	push 	ecx
@@ -359,7 +380,14 @@ ___1f379h:
 		mov     ebx, ___1810fch
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10cch]
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 
 	push 	edx
 	push 	ecx
@@ -425,7 +453,14 @@ ___1f40dh:
 		mov     ebx, ___181118h
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 
 	push 	edx
 	push 	ecx
@@ -490,7 +525,14 @@ ___1f40dh:
 		mov     ebx, ___181150h
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 
 	push 	edx
 	push 	ecx
@@ -586,7 +628,14 @@ ___1f40dh:
 		mov     ebx, ___181180h
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10cch]
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 
 	push 	edx
 	push 	ecx
@@ -648,7 +697,14 @@ ___1f625h:
 		mov     ebx, ___18119ch
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 
 	push 	edx
 	push 	ecx

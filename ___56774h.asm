@@ -71,8 +71,8 @@ cpu 386
 	extern	___4083ch
 	extern	___4adach
 	extern	___4580ch
-	extern	dRally_Sound____649a8h
-	extern	dRally_Sound____64a28h
+	extern	dRally_Sound_stop
+	extern	dRally_Sound_release
 	extern	___606dfh
 	extern	VGA13_SETMODE
 	extern	___605deh_cdecl
@@ -84,7 +84,7 @@ cpu 386
 	extern	___24cc58h
 	extern	dRally_Sound_setMusicVolume
 	extern	___24cc54h
-	extern	dRally_Sound_setEffectVolume
+	extern	dRally_Sound_setEffectsVolume
 	extern	dRally_Sound_setSampleRate
 	extern	dRally_Sound_play
 	;extern	___659b8h
@@ -156,13 +156,13 @@ cpu 386
 	extern	___2438d4h
 	extern	___196ddch
 	extern	___196de0h
-	extern	dRally_Sound____6563ch
+	extern	dRally_Sound_freeEffectChannel
 	extern	___1e6f80h
 	extern	___1de584h
 	extern	___1e706eh
 	extern	___1e706ah
 	extern	___196df8h
-	extern	dRally_Sound____655b0h
+	extern	dRally_Sound_adjustEffect
 	extern	___54668h
 	extern	___55ae0h
 	extern	___56170h
@@ -445,7 +445,14 @@ ___568c6h:
 	pop 	ecx
 	pop 	edx
 
-		call    near ___49bd4h
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___49bd4h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		mov     eax, [___243d28h]
 		imul    eax, [___243d2ch]
 		
@@ -818,14 +825,14 @@ ___568c6h:
 	push 	eax
 	push 	ecx
 	push 	edx
-		call    near dRally_Sound____649a8h
+		call    near dRally_Sound_stop
 	pop 	edx
 	pop 	ecx
 	pop 	eax
 	push 	eax
 	push 	ecx
 	push 	edx
-		call    near dRally_Sound____64a28h
+		call    near dRally_Sound_release
 	pop 	edx
 	pop 	ecx
 	pop 	eax
@@ -896,7 +903,7 @@ ___56b47h:
 	push 	ecx
 	push 	edx
 	push 	eax
-		call    near dRally_Sound_setEffectVolume
+		call    near dRally_Sound_setEffectsVolume
 	add 	esp, 4
 	pop		edx
 	pop 	ecx
@@ -937,7 +944,7 @@ ___56bf9h:
 	push 	ecx
 	push 	edx
 	push 	eax
-		call    near dRally_Sound_setEffectVolume
+		call    near dRally_Sound_setEffectsVolume
 	add 	esp, 4
 	pop		edx
 	pop 	ecx
@@ -1186,7 +1193,15 @@ ___56f43h:
 		test    edx, edx
 		jle     short ___56f79h
 ___56f5dh:
-		call    near ___52ac4h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___52ac4h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		mov     ebx, [___243c60h]
 		inc     ebx
 		mov     ecx, [___243cf4h]
@@ -1540,7 +1555,7 @@ ___57422h:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    dRally_Sound____6563ch
+		call    dRally_Sound_freeEffectChannel
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -1561,7 +1576,7 @@ ___57471h:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    dRally_Sound____6563ch
+		call    dRally_Sound_freeEffectChannel
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -1569,7 +1584,7 @@ ___57471h:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    dRally_Sound____6563ch
+		call    dRally_Sound_freeEffectChannel
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -1616,7 +1631,7 @@ ___574c5h:
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    near dRally_Sound____655b0h
+		call    near dRally_Sound_adjustEffect
 	add 	esp, 10h
 
 		call    near ___54668h
@@ -1711,7 +1726,7 @@ ___57660h:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    dRally_Sound____6563ch
+		call    dRally_Sound_freeEffectChannel
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -1972,7 +1987,7 @@ ___578cch:
 	push 	ecx
 	push 	edx
 	push 	eax
-		call    near dRally_Sound_setEffectVolume
+		call    near dRally_Sound_setEffectsVolume
 	add 	esp, 4
 	pop		edx
 	pop 	ecx
@@ -2010,7 +2025,7 @@ ___57943h:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    dRally_Sound____6563ch
+		call    dRally_Sound_freeEffectChannel
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -2286,7 +2301,15 @@ ___57ba6h:
 		jl      short ___57ba6h
 		cmp     dword [___19bd60h], byte 0
 		jne     short ___57c2ah
-		call    near ___52d7ch
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___52d7ch
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+	
 ___57c2ah:
 		xor     eax, eax
 		mov     edx, [___243cf4h]
@@ -2404,7 +2427,7 @@ ___57db0h:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    dRally_Sound____6563ch
+		call    dRally_Sound_freeEffectChannel
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -2629,7 +2652,7 @@ ___580e6h:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    dRally_Sound____6563ch
+		call    dRally_Sound_freeEffectChannel
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -2929,14 +2952,14 @@ ___58546h:
 	push 	eax
 	push 	ecx
 	push 	edx
-		call    near dRally_Sound____649a8h
+		call    near dRally_Sound_stop
 	pop 	edx
 	pop 	ecx
 	pop 	eax
 	push 	eax
 	push 	ecx
 	push 	edx
-		call    near dRally_Sound____64a28h
+		call    near dRally_Sound_release
 	pop 	edx
 	pop 	ecx
 	pop 	eax

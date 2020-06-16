@@ -13,7 +13,7 @@ cpu 386
 	extern	___1f094h
 	extern	___185ba9h
 	extern	___1a10cch
-	extern	___12e78h
+	extern	___12e78h_cdecl
 	extern	___19f750h
 	extern	___18e298h
 	extern	___185c7ah
@@ -104,7 +104,14 @@ ___22099h:
 		mov     edx, ___185ba9h
 		sub     ecx, eax
 		mov     eax, [___1a10cch]
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		mov     edx, [esp+5ch]
 		mov     esi, 20a02h
 		lea     eax, [edx*4+0]
@@ -136,7 +143,14 @@ ___22153h:
 		call    near strupr_
 		mov     eax, [___1a10b8h]
 		lea     edi, [esp+14h]
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		call 	__STRCPY
 		lea     eax, [esp+14h]
 		mov     ecx, [esp+58h]
@@ -144,7 +158,14 @@ ___22153h:
 		mov     edx, ___185c7ah
 		call    near strupr_
 		mov     eax, [___1a10b8h]
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		mov     ebx, 0ah
 		mov     edx, esp
 		mov     eax, [ebp+___19f75ch]
@@ -212,7 +233,14 @@ ___22282h:
 		mov     edi, [esp+58h]
 		mov     eax, [___1a10b8h]
 		mov     esi, [esp+68h]
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		mov     eax, [esp+54h]
 		mov     edx, [esp+50h]
 		mov     ebx, [esp+60h]

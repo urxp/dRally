@@ -22,7 +22,15 @@ __GDECL(___47d8ch)
 		mov     cl, al
 		cmp     dword [___19bd60h], byte 0
 		je      near ___47e84h
-		call    near ___61518h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___61518h
+	push 	eax
+	push 	ecx
+	push 	edx
+
 		xor     ebx, ebx
 		mov     esi, [___243cf4h]
 		mov     [esp+4], ebx

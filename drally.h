@@ -5,13 +5,15 @@
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
+#include <time.h>
 #include <SDL2/SDL.h>
 
 typedef unsigned long long  qword;
-typedef unsigned long 	    dword;
+typedef unsigned int 	    dword;
 typedef unsigned short 	    word;
 typedef unsigned char 	    byte;
 typedef void *              pointer;
+typedef void (*void_cb)(void);
 
 #define Q(q)    (*(qword *)(q))
 #define D(d)	(*(dword *)(d))

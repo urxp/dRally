@@ -32,7 +32,7 @@ static byte ROL_BYTE(byte b, int n){
     return (b<<n)|(b>>(8-n));
 }
 
-void * extract_musics_bpa(const char * fname, dword lock){
+void * extract_musics_bpa(const char * fname, int lock){
     
     dword   ex_size, n;
     byte *  r_mem;

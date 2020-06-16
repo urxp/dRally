@@ -15,7 +15,7 @@ cpu 386
 	extern	___1824ech
 	extern	___185c0bh
 	extern	___1a1108h
-	extern	___12e78h
+	extern	___12e78h_cdecl
 	extern	___38184h
 	extern	___1a01ech
 	extern	___1a1ef8h
@@ -116,7 +116,14 @@ ___36148h:
 		mov     ebx, ___1824ech
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		mov     edx, esp
 		mov     eax, 4
 		call    near ___38184h
@@ -242,7 +249,14 @@ ___36303h:
 		mov     edx, ___185c7ah
 ___36313h:
 		add     ecx, 0e6h
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 ___3631eh:
 		inc     ebp
 		cmp     ebp, byte 3
@@ -254,7 +268,14 @@ ___36328h:
 		mov     ebx, ___18250ch
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 
 	push 	edx
 	push 	ecx

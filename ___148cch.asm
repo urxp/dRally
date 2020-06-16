@@ -5,7 +5,7 @@ cpu 386
 	extern 	___18068ch
 	extern 	___185ba9h
 	extern 	___1a10cch
-	extern 	___12e78h
+	extern 	___12e78h_cdecl
 	extern 	___180690h
 	extern 	___1a10e0h
 	extern 	___12cb8h__VESA101_PRESENTSCREEN
@@ -65,7 +65,14 @@ __GDECL(___148cch)
 		mov     ebx, ___18068ch
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10cch]
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		mov     ebx, ___180690h
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10e0h]
@@ -74,13 +81,27 @@ ___1493eh:
 		mov     ebx, ___18068ch
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10e0h]
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		mov     ebx, ___180690h
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10cch]
 ___14961h:
 		mov     ecx, esi
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 
 	push 	edx
 	push 	ecx
@@ -247,12 +268,26 @@ ___14b02h:
 		mov     ebx, ___18068ch
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10cch]
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		mov     ecx, [esp]
 		mov     ebx, ___180690h
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10e0h]
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		jmp     near ___14c08h
 ___14b5ch:
 		cmp     dword [esp+0ch], byte 1
@@ -289,12 +324,26 @@ ___14b91h:
 		mov     ebx, ___18068ch
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10e0h]
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		mov     ecx, [esp]
 		mov     ebx, ___180690h
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10cch]
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		jmp     short ___14c08h
 ___14be8h:
 		mov     dword [esp+14h], 0ffffffffh

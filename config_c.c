@@ -40,7 +40,7 @@ void CONFIG_DEFAULT(void);
 unsigned GET_FILE_SIZE(const char *);
 void dRally_System_clean(void);
 void * dRally_Memory_alloc(dword, dword);
-void dRally_Sound_init(byte, word, byte, byte);
+void dRally_Sound_init(byte);
 int rand_watcom106(void);
 
 #define CONFIG_FILE_NAME ((const char *)___182744h)
@@ -126,6 +126,8 @@ void CONFIG_ENCODE(void * ptr, unsigned size, char key){
     }
 }
 
+static const byte CONFIG_INIT[7] = { 0,0,0,0,0,0,0 };
+
 void CONFIG_READ(void){
 
     FILE *	fd;
@@ -137,9 +139,9 @@ void CONFIG_READ(void){
 
     if(file_size == 0){
     
-        dRally_System_clean();
-        printf(___18274ch);
-        exit(0x70);
+        fd = strup_fopen(CONFIG_FILE_NAME, "wb");
+        file_size = fwrite(CONFIG_INIT, 1, sizeof(CONFIG_INIT), fd);
+        fclose(fd);
     }
 
     fd = strup_fopen(CONFIG_FILE_NAME, "rb");
@@ -148,7 +150,7 @@ void CONFIG_READ(void){
     fread(CONFIG_SOUND_DMA, 1, 1, fd);
     fread(CONFIG_SOUND_ADDR, 4, 1, fd);
 
-    if(file_size == 7){
+    if(file_size == sizeof(CONFIG_INIT)){
 
         fclose(fd);
         CONFIG_DEFAULT();
@@ -218,7 +220,7 @@ void CONFIG_READ(void){
         }
     }
     
-    dRally_Sound_init(B(CONFIG_SOUND_TYPE), W(CONFIG_SOUND_ADDR), B(CONFIG_SOUND_IRQ), B(CONFIG_SOUND_DMA)); 
+    dRally_Sound_init(B(CONFIG_SOUND_TYPE)||!(B(CONFIG_SOUND_IRQ)&&B(CONFIG_SOUND_DMA)&&D(CONFIG_SOUND_ADDR))); 
 }
 
 void CONFIG_WRITE(void){

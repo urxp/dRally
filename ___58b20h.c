@@ -3,12 +3,9 @@
 #include <stdarg.h>
 
 extern unsigned int ___19bd60h;
-extern char ___184bf4h[];
-extern char ___184c3ch[];
 extern char ___184c68h[];
 extern char ___184c6ch[];
 extern char ___184c70h[];
-extern char ___184c74h[];
 
 void ___623d4h(void);
 void VGA3_SETMODE(void);
@@ -58,13 +55,13 @@ void ___58b20h(int err_n, ...){
 
 	VGA3_SETMODE();
 
+	printf("\nESP Fatal Error %d:\n--------------------\n", err_l[n]);
+
 	if(err_l[n] == 0xff){
 
-		printf(___184bf4h, err_n);
+		printf("Undefined Fatal Error %d!\n\a", err_n);	
 		exit(0xff);
 	}
-
-	printf(___184c3ch, err_n);
 
 	va_start(args, err_n);
 	while(err_l[++n]){
@@ -73,10 +70,10 @@ void ___58b20h(int err_n, ...){
 				
 			switch(err_l[++n]){
 			case 'd':
-				printf(___184c68h, va_arg(args, int));
+				printf("%d", va_arg(args, int));
 				break;
 			case 's':
-				printf(___184c6ch, va_arg(args, char *));
+				printf("%s", va_arg(args, char *));
 				break;
 			default:
 				putchar(err_l[--n]);
@@ -86,8 +83,8 @@ void ___58b20h(int err_n, ...){
 	}
 	va_end(args);
 
-	printf(___184c70h);
-	printf(___184c74h);
+	printf("\n\a");
+	printf("Please consult DRHELP.EXE for more information on how to resolve this problem.\n");
 
 	exit(err_n);
 }

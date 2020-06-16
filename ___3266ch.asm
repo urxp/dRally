@@ -49,7 +49,7 @@ cpu 386
 	extern	strupr_
 	extern	___185c7ah
 	extern	___1a10b8h
-	extern	___12e78h
+	extern	___12e78h_cdecl
 	extern	___1a0ef8h
 	extern	___1a103ch
 	extern	___1a1f68h
@@ -79,7 +79,7 @@ cpu 386
 	extern	___1a1ef4h
 	extern	dRally_Sound_setPosition
 	extern	___185a28h
-	extern	dRally_Sound____6563ch
+	extern	dRally_Sound_freeEffectChannel
 	extern	___12940h
 	extern	___3892ch
 	extern 	restoreDefaultScreenBuffer
@@ -490,7 +490,14 @@ ___32b16h:
 		lea     ecx, [eax+22h]
 		mov     edx, ___185c7ah
 		mov     eax, [___1a10b8h]
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		mov     eax, [___185a50h]
 		xor     ebx, ebx
 		mov     edx, eax
@@ -684,12 +691,26 @@ ___32dddh:
 		mov     ebx, ___1823d4h
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10cch]
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		mov     ecx, 28d50h
 		mov     ebx, ___180848h
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 
 	push 	edx
 	push 	ecx
@@ -828,7 +849,7 @@ ___32ed0h:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    dRally_Sound____6563ch
+		call    dRally_Sound_freeEffectChannel
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx

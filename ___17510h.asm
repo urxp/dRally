@@ -51,7 +51,7 @@ cpu 386
 	extern 	___19dda5h
 	extern 	___185ba9h
 	extern 	___1a10e0h
-	extern 	___12e78h
+	extern 	___12e78h_cdecl
 	extern 	___185b8bh
 	extern 	___1a112ch__VESA101_ACTIVESCREEN_PTR
 	extern 	___1398ch__VESA101_PRESENTRECTANGLE
@@ -194,7 +194,14 @@ __GDECL(___17510h)
 		add     ecx, eax
 		mov     eax, [___1a10e0h]
 		xor     ebp, ebp
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		xor     ebx, ebx
 		jmp     short ___17713h
 ___17700h:
@@ -1118,7 +1125,14 @@ ___182bfh:
 		add     esi, ebp
 		mov     eax, [___1a10e0h]
 		mov     ecx, esi
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		xor     ebx, ebx
 		mov     bl, [esp+94h]
 		mov     bl, [ebx+___185b8bh]

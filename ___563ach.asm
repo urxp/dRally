@@ -15,7 +15,7 @@ cpu 386
 	extern	___1e6f88h
 	extern	___1e6f84h
 	extern	__CHP
-	extern	dRally_Sound____6563ch
+	extern	dRally_Sound_freeEffectChannel
 
 section .text
 
@@ -149,7 +149,7 @@ ___56542h:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    dRally_Sound____6563ch
+		call    dRally_Sound_freeEffectChannel
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx

@@ -17,7 +17,7 @@ cpu 386
 	extern	___182574h
 	extern	___185c0bh
 	extern	___1a1108h
-	extern	___12e78h
+	extern	___12e78h_cdecl
 	extern	___182580h
 	extern	___35dd0h
 	extern	___1a0238h
@@ -171,12 +171,26 @@ ___3993bh:
 		call 	__STRCAT
 		mov     ecx, 46a2eh
 		mov     eax, [___1a1108h]
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		mov     ecx, 0d738h
 		mov     ebx, ___182580h
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		xor     edx, edx
 		call    near ___35dd0h
 		mov     [esp+5ch], edx
@@ -401,7 +415,14 @@ ___39cf7h:
 		mov     edx, ___185c0bh
 		sub     ecx, eax
 		mov     eax, [___1a1108h]
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		xor     ecx, ecx
 		mov     [esp+5ch], ecx
 ___39deeh:
@@ -456,7 +477,14 @@ ___39e6eh:
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
 		xor     ebp, ebp
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 
 	push 	edx
 	push 	ecx
@@ -543,7 +571,14 @@ ___39f52h:
 		mov     ebx, ___1826a8h
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 
 	push 	edx
 	push 	ecx
@@ -598,7 +633,14 @@ ___39f52h:
 		mov     ebx, ___18250ch
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 
 	push 	edx
 	push 	ecx

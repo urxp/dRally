@@ -1,7 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-#include <SDL2/SDL.h>
+#include "drally.h"
 
 #define W_WIDTH 	640
 #define W_HEIGHT 	480
@@ -31,13 +28,11 @@ extern unsigned char VGA13_ACTIVESCREEN[];
 extern unsigned char VESA101_ACTIVESCREEN[];
 
 extern unsigned char cp437[];
-extern SDL_AudioDeviceID audio_dev;
 
 unsigned int Ticks = 0;
 unsigned int VRetraceTicks = 0;
 
 int dRally_main(int, char *[]);
-void IRQ0_TimerISR(void);
 void IO_Loop(void);
 void __VGA13_PRESENTSCREEN__(void);
 void __VESA101_PRESENTSCREEN__(void);
@@ -59,6 +54,18 @@ static struct GX {
 } GX = {0};
 
 
+extern dword ___60441h;
+extern dword ___6045ch;
+extern byte ___60446h;
+extern void (*___6044ch)(void);
+void __VRETRACE_WAIT_IF_INACTIVE(void);
+
+static void IRQ0_TimerISR(void){
+
+	if((___6045ch != 0)&&(___60441h == 0)) __VRETRACE_WAIT_IF_INACTIVE();
+	INT8_FRAME_COUNTER++;
+	if(___60446h == 1) ___6044ch();
+}
 
 int skip;
 unsigned int __GET_FRAME_COUNTER(void){
@@ -441,6 +448,7 @@ void __DISPLAY_GET_PALETTE_COLOR(unsigned char * dst, unsigned char n){
 	}
 }
 
+void dRally_Sound_quit(void);
 
 int main(int argc, char * argv[]){
 
@@ -458,15 +466,7 @@ int main(int argc, char * argv[]){
 	dRally_Display_init();
 	dRally_main(argc, argv);
 
-	if(audio_dev){
-
-		printf("[dRally.SOUND] Closing audio device.\n");
-
-		SDL_PauseAudioDevice(audio_dev, 1);
-		SDL_ClearQueuedAudio(audio_dev);
-		SDL_CloseAudioDevice(audio_dev);
-	}
-
+	dRally_Sound_quit();
 	dRally_Display_clean();
 	SDL_Quit();
 

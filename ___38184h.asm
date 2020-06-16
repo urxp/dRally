@@ -11,7 +11,7 @@
 	extern	___185c7ah
 	extern	___251e8h
 	extern	___1a10b8h
-	extern	___12e78h
+	extern	___12e78h_cdecl
 	extern	___1a01e0h
 	extern	strupr_
 	extern	___1a112ch__VESA101_ACTIVESCREEN_PTR
@@ -116,7 +116,14 @@ ___3826eh:
 		call    near ___251e8h
 		sub     ecx, eax
 		mov     eax, [___1a10b8h]
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		xor     eax, eax
 		mov     al, [esp+ebp*1+14h]
 		imul    eax, eax, byte 6ch
@@ -130,7 +137,14 @@ ___3826eh:
 		mov     edx, ___185c7ah
 		call    near strupr_
 		mov     eax, [___1a10b8h]
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		xor     eax, eax
 		mov     al, [esp+ebp*1+14h]
 		imul    eax, eax, byte 6ch

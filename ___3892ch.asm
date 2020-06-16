@@ -11,7 +11,7 @@ cpu 386
 	extern	___185c0bh
 	extern	___37ed4h
 	extern	___1a1108h
-	extern	___12e78h
+	extern	___12e78h_cdecl
 	extern	___12cb8h__VESA101_PRESENTSCREEN
 	extern	___2b318h
 	extern	___58c60h
@@ -47,8 +47,8 @@ cpu 386
 	extern	___185a14h
 	extern	___185a3ch
 	extern	___185a4ch
-	extern	dRally_Sound____649a8h
-	extern	dRally_Sound____64a28h
+	extern	dRally_Sound_stop
+	extern	dRally_Sound_release
 	extern	___180130h
 	extern	___1a0d60h
 	extern	___1826c8h
@@ -104,7 +104,14 @@ __GDECL(___3892ch)
 		call    near ___37ed4h
 		mov     eax, [___1a1108h]
 		xor     ebp, ebp
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 
 	push 	edx
 	push 	ecx
@@ -605,7 +612,14 @@ ___38ec1h:
 		mov     [___196ab4h], eax
 		call    near ___38708h
 		mov     eax, [___1a1108h]
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 
 	push 	edx
 	push 	ecx
@@ -659,7 +673,14 @@ ___38ec1h:
 		mov     ebx, ___18250ch
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 
 	push 	edx
 	push 	ecx
@@ -676,7 +697,14 @@ ___38f61h:
 		mov     ebx, ___18250ch
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 
 	push 	edx
 	push 	ecx
@@ -875,14 +903,14 @@ ___391b2h:
 	push 	eax
 	push 	ecx
 	push 	edx
-		call    near dRally_Sound____649a8h
+		call    near dRally_Sound_stop
 	pop 	edx
 	pop 	ecx
 	pop 	eax
 	push 	eax
 	push 	ecx
 	push 	edx
-		call    near dRally_Sound____64a28h
+		call    near dRally_Sound_release
 	pop 	edx
 	pop 	ecx
 	pop 	eax
@@ -924,14 +952,14 @@ ___391b2h:
 	push 	eax
 	push 	ecx
 	push 	edx
-		call    near dRally_Sound____649a8h
+		call    near dRally_Sound_stop
 	pop 	edx
 	pop 	ecx
 	pop 	eax
 	push 	eax
 	push 	ecx
 	push 	edx
-		call    near dRally_Sound____64a28h
+		call    near dRally_Sound_release
 	pop 	edx
 	pop 	ecx
 	pop 	eax
@@ -1124,14 +1152,14 @@ ___39439h:
 	push 	eax
 	push 	ecx
 	push 	edx
-		call    near dRally_Sound____649a8h
+		call    near dRally_Sound_stop
 	pop 	edx
 	pop 	ecx
 	pop 	eax
 	push 	eax
 	push 	ecx
 	push 	edx
-		call    near dRally_Sound____64a28h
+		call    near dRally_Sound_release
 	pop 	edx
 	pop 	ecx
 	pop 	eax
@@ -1173,14 +1201,14 @@ ___39439h:
 	push 	eax
 	push 	ecx
 	push 	edx
-		call    near dRally_Sound____649a8h
+		call    near dRally_Sound_stop
 	pop 	edx
 	pop 	ecx
 	pop 	eax
 	push 	eax
 	push 	ecx
 	push 	edx
-		call    near dRally_Sound____64a28h
+		call    near dRally_Sound_release
 	pop 	edx
 	pop 	ecx
 	pop 	eax

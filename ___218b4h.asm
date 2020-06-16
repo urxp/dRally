@@ -16,7 +16,7 @@ cpu 386
 	extern	___181bfch
 	extern	___185c0bh
 	extern	___1a1108h
-	extern	___12e78h
+	extern	___12e78h_cdecl
 	extern	___1a1ea4h
 	extern	___5994ch
 	extern	___19bd60h
@@ -37,7 +37,7 @@ cpu 386
 	extern	dRally_Sound_pushEffect
 	extern	CONFIG_WRITE
 	extern	___181c18h
-	extern	dRally_Sound_setEffectVolume
+	extern	dRally_Sound_setEffectsVolume
 	extern	___204fch
 	extern	___210b4h
 	extern	___19bd58h
@@ -153,7 +153,14 @@ ___21976h:
 		mov     ebx, ___181bfch
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		mov     ecx, 18h
 		mov     edx, 0ach
 		mov     ebx, [___1a112ch__VESA101_ACTIVESCREEN_PTR]
@@ -333,7 +340,14 @@ ___21b29h:
 		call    near ___1f094h
 		sub     ecx, eax
 		mov     eax, [___1a10cch]
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		mov     ecx, 20h
 		mov     ebx, 78h
 		mov     edx, [___1a112ch__VESA101_ACTIVESCREEN_PTR]
@@ -418,7 +432,14 @@ ___21c52h:
 		mov     ebx, ___181c18h
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		mov     ecx, 18h
 		mov     edx, 0ach
 		mov     ebx, [___1a112ch__VESA101_ACTIVESCREEN_PTR]
@@ -598,7 +619,14 @@ ___21e05h:
 		call    near ___1f094h
 		sub     ecx, eax
 		mov     eax, [___1a10cch]
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		mov     ecx, 20h
 		mov     ebx, 78h
 		mov     edx, [___1a112ch__VESA101_ACTIVESCREEN_PTR]
@@ -618,7 +646,7 @@ ___21e05h:
 	push 	ecx
 	push 	edx
 	push 	eax
-		call    near dRally_Sound_setEffectVolume
+		call    near dRally_Sound_setEffectsVolume
 	add 	esp, 4
 	pop		edx
 	pop 	ecx

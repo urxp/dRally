@@ -1,9 +1,16 @@
 #include "drally.h"
 
-	extern byte ___106cbh[];
-	extern byte ___10718h[];
-	extern byte ___10728h[];
-	extern byte ___10738h[];
+#define COOXY(x,y) (0x280*(y)+(x))
+
+	const char ___106cbh[19][4] = { 
+		"TR1","TR2","TR3","TR4","TR5","TR6","TR7","TR8","TR9",
+		"TR1","TR2","TR3","TR4","TR5","TR6","TR7","TR8","TR9",
+		"TR0" };
+
+	dword ___10718h[4] = { COOXY( 51, 177), COOXY(163, 216), COOXY( 51, 274), COOXY(163, 313) };
+	dword ___10728h[4] = { COOXY( 24, 201), COOXY(136, 240), COOXY( 24, 298), COOXY(136, 337) };
+	dword ___10738h[4] = { COOXY( 53, 129), COOXY(165, 168), COOXY( 53, 226), COOXY(165, 265) };
+
 	extern byte ___196a74h[];
 	extern byte ___1a112ch__VESA101_ACTIVESCREEN_PTR[];
 	extern byte ___1a10e4h__VESA101h_DefaultScreenBufferA[];
@@ -236,7 +243,6 @@ void ___33010h_cdecl(dword A1){
 	byte 	esp[0xfc];
 
 	eax = A1;
-
 
 		D(esp+0xc8) = eax;
 		ecx = 0x13;

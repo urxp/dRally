@@ -22,7 +22,7 @@ cpu 386
 	extern	___243e73h
 	extern	rand_watcom106
 	extern	___1a309ch
-	extern	dRally_Sound____6563ch
+	extern	dRally_Sound_freeEffectChannel
 	extern	dRally_Sound_pushEffect
 	extern	kmap
 	extern	__STOSB
@@ -150,7 +150,7 @@ ___47fb2h:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    dRally_Sound____6563ch
+		call    dRally_Sound_freeEffectChannel
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -183,7 +183,7 @@ ___4803eh:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    dRally_Sound____6563ch
+		call    dRally_Sound_freeEffectChannel
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -285,7 +285,7 @@ ___4816fh:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    dRally_Sound____6563ch
+		call    dRally_Sound_freeEffectChannel
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -448,7 +448,7 @@ ___48353h:
 		push 	edx
 	push 	ecx
 	push 	eax
-		call    dRally_Sound____6563ch
+		call    dRally_Sound_freeEffectChannel
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx

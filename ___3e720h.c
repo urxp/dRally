@@ -78,15 +78,15 @@ void restoreDefaultScreenBufferA();
 
 void dRally_Sound_load(dword msx_t, dword msx_f, dword sfx_t, dword sfx_f, dword num_ch);
 void dRally_Sound_setMusicVolume(dword vol);
-void dRally_Sound_setEffectVolume(dword vol);
+void dRally_Sound_setEffectsVolume(dword vol);
 void dRally_Sound_setMasterVolume(dword vol);
 byte dRally_Sound_setPosition(dword pos_n);
 void dRally_Sound_setSampleRate(dword freq);
 void dRally_Sound_pushEffect(byte channel, byte n, dword unk, 
 						dword a0, dword a1, dword a2);
 void dRally_Sound_play(void);
-void dRally_Sound____64a28h(void);
-void dRally_Sound____649a8h(void);
+void dRally_Sound_release(void);
+void dRally_Sound_stop(void);
 dword __GET_TIMER_TICKS(void);
 void srand_watcom106(dword);
 void __VESA101_SETMODE(void);
@@ -151,7 +151,7 @@ void ___3e720h(void){
 	___3d908h();
 	dRally_Sound_load(1, "MEN-MUS.CMF", 2, "MEN-SAM.CMF", 5);
 	dRally_Sound_setMusicVolume(D(___24cc58h));
-	dRally_Sound_setEffectVolume(D(___24cc54h));
+	dRally_Sound_setEffectsVolume(D(___24cc54h));
 	dRally_Sound_setPosition(0x2d00);
 	dRally_Sound_setSampleRate(0x5622);
 	dRally_Sound_play();
@@ -184,7 +184,7 @@ void ___3e720h(void){
 				"                   Use UNIVBE or similar emulator to fix the problem.\n");
 		printf("Please consult DRHELP.EXE for more information on how to resolve this problem.\n");
 
-		dRally_Sound____64a28h();
+		dRally_Sound_release();
 		dRally_System_clean();
 		exit(0x70);
 	}
@@ -263,7 +263,7 @@ void ___3e720h(void){
 
 					restoreDefaultScreenBuffer();
 					___3a7e0h_cdecl(0xffffffff);
-					dRally_Sound____649a8h();
+					dRally_Sound_stop();
 					dRally_Sound_play();
 					dRally_Sound_setPosition(D(___1a1ef4h));
 					D(esp+0x24) = 0;
@@ -382,6 +382,6 @@ void ___3e720h(void){
 	___24ec0h();
 	___2fc50h();
 	
-    dRally_Sound____649a8h();
-    dRally_Sound____64a28h(); 
+    dRally_Sound_stop();
+    dRally_Sound_release(); 
 }

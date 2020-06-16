@@ -19,7 +19,7 @@ cpu 386
 	extern 	___180824h
 	extern 	___185ba9h
 	extern 	___1a10cch
-	extern 	___12e78h
+	extern 	___12e78h_cdecl
 	extern 	___12cb8h__VESA101_PRESENTSCREEN
 	extern 	___24e4ach
 	extern 	___2ab50h
@@ -196,7 +196,14 @@ ___1b1f0h:
 		mov     ebx, ___180824h
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10cch]
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 
 	push 	edx
 	push 	ecx
@@ -891,7 +898,7 @@ ___1b94dh:
 		jne     short ___1b9ceh
 		mov     [esp+1ch], eax
 		mov     [esp], eax
-		jmp     short ___1ba46h
+		jmp     ___1ba46h
 ___1b9ceh:
 		mov     ecx, 2a580h
 		mov     esi, [___1a1138h__VESA101h_DefaultScreenBufferB]
@@ -929,7 +936,14 @@ ___1b9ceh:
 		mov     ebx, ___180a78h
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		mov     byte [esp+24h], 1
 ___1ba46h:
 		cmp     dword [esp+8], byte 2
@@ -1052,13 +1066,27 @@ ___1bb42h:
 		mov     edx, ___185c0bh
 		call    near ___3f77ch__freeMemory
 		mov     eax, [___1a10fch]
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		mov     ecx, 390d9h
 		mov     ebx, ___1807e8h
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
 		mov     ebp, [esp]
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 
 	push 	edx
 	push 	ecx

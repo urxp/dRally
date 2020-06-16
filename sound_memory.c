@@ -1,17 +1,4 @@
-#include <stdio.h>
-#include <string.h>
-
-typedef unsigned int 	dword;
-typedef unsigned short 	word;
-typedef unsigned char 	byte;
-
-#define D(d)	(*(dword *)(d))
-#define W(w)	(*(word *)(w))
-#define B(b)	(*(byte *)(b))
-
-#define X(r)	(*(word *)&r)
-#define H(r)	(*((byte *)&r + 1))
-#define L(r)	(*(byte *)&r)
+#include "drally.h"
 
 void * dRally_Memory_alloc(dword, dword);
 void dRally_Memory_free(void *);
@@ -34,19 +21,19 @@ static dword is2pow(dword d){
     dword r = -1;
     while(d&=(d-++r));
     
-    return !!r;
+    return !!(r == 1);
 }
 
 static dword next2pow(dword d){
 
-    dword c = 0;
+    dword r = 1;
     while(d){
 
         d >>= 1;
-        c++;
+        r <<= 1;
     }
 
-    return 1<<c;
+    return r;
 }
 
 void * ptr_align(void * src, dword a){
@@ -83,7 +70,8 @@ void * ___5f26ch_cdecl(dword size){
 
     rslt = alloc.next;
     if((size+alloc.next) > alloc.end) ___58b20h(0x17);
-    alloc.next = ptr_align(alloc.next+size, 4);
+    //alloc.next = ptr_align(alloc.next+size, 4);
+    alloc.next += size;
 
     return rslt;
 }
@@ -92,7 +80,7 @@ void ___5f2b4h_cdecl(void){
 
     if(alloc.next == alloc.start){
     
-        dRally_Memory_free(alloc.next);
+        dRally_Memory_free(alloc.start);
     }
     else {
             

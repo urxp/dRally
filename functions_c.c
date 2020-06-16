@@ -1,17 +1,4 @@
-#include <stdio.h>
-#include <string.h>
-
-typedef unsigned int 	dword;
-typedef unsigned short 	word;
-typedef unsigned char 	byte;
-
-#define D(d)	(*(dword *)(d))
-#define W(w)	(*(word *)(w))
-#define B(b)	(*(byte *)(b))
-
-#define X(r)	(*(word *)&r)
-#define H(r)	(*((byte *)&r + 1))
-#define L(r)	(*(byte *)&r)
+#include "drally.h"
 
 static void loc_strupr(char * s){
 
@@ -54,4 +41,16 @@ unsigned GET_FILE_SIZE(const char * file_name){
 	fclose(fd);
 
 	return size;
+}
+
+dword MULSHIFT(dword d0, dword d1){
+
+	dword 	rslt, q_rslt;
+	
+	q_rslt = ((qword)d0*(qword)d1)>>0x10; 
+	rslt = (d0>>0x10)*d1 + (d0&0xffff)*(d1>>0x10) + (((d0&0xffff)*(d1&0xffff))>>0x10);
+
+	if(q_rslt != rslt) printf("MULSHIFT doesn't match\n");
+
+	return rslt;
 }

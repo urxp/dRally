@@ -18,7 +18,7 @@ cpu 386
 	extern	___182574h
 	extern	___185c0bh
 	extern	___1a1108h
-	extern	___12e78h
+	extern	___12e78h_cdecl
 	extern	___182580h
 	extern	___182594h
 	extern	___180724h
@@ -182,7 +182,14 @@ ___36bb8h:
 		call 	__STRCAT
 		mov     ecx, 46a2eh
 		mov     eax, [___1a1108h]
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 ___36c64h:
 		cmp     dword [___19bd60h], byte 0
 		je      short ___36c86h
@@ -190,13 +197,27 @@ ___36c64h:
 		mov     ebx, ___182580h
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 ___36c86h:
 		mov     ecx, 0d8a0h
 		mov     ebx, ___182594h
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		mov     edx, [___1a1ef8h]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
@@ -220,7 +241,14 @@ ___36c86h:
 		mov     eax, [___1a1108h]
 		mov     edi, esp
 		mov     esi, ___1825b4h
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		movsw   
 		movsb   
 		mov     ebx, esp
@@ -230,7 +258,14 @@ ___36c86h:
 		call 	__STRCAT
 		mov     eax, [___1a1108h]
 		lea     ecx, [ebp+11f80h]
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		mov     edx, [___1a1ef8h]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
@@ -251,7 +286,14 @@ ___36c86h:
 		mov     eax, [___1a1108h]
 		mov     edi, esp
 		mov     esi, ___1825b4h
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		movsw   
 		movsb   
 		mov     ebx, esp
@@ -261,7 +303,14 @@ ___36c86h:
 		call 	__STRCAT
 		mov     eax, [___1a1108h]
 		lea     ecx, [ebp+15900h]
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		mov     edx, [___1a1ef8h]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
@@ -282,7 +331,14 @@ ___36c86h:
 		mov     eax, [___1a1108h]
 		mov     edi, esp
 		mov     esi, ___1825b4h
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		movsw   
 		movsb   
 		lea     esi, [esp+64h]
@@ -305,7 +361,14 @@ ___36ed7h:
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
 		lea     ecx, [ebp+19280h]
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		mov     edx, [___1a1ef8h]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
@@ -325,7 +388,14 @@ ___36ed7h:
 		movsd   
 		movsd   
 		movsb   
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		lea     esi, [esp+64h]
 		mov     edi, esp
 		mov     ebx, esp
@@ -335,7 +405,14 @@ ___36ed7h:
 		call 	__STRCAT
 		mov     eax, [___1a1108h]
 		lea     ecx, [ebp+1cc00h]
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		mov     edx, [___1a1ef8h]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
@@ -354,7 +431,14 @@ ___36ed7h:
 		movsd   
 		movsd   
 		movsd   
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		lea     esi, [esp+64h]
 		mov     edi, esp
 		mov     ebx, esp
@@ -364,7 +448,14 @@ ___36ed7h:
 		call 	__STRCAT
 		mov     eax, [___1a1108h]
 		lea     ecx, [ebp+20580h]
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		cmp     dword [___196ae8h], byte 0
 		jle     near ___37ebch
 		mov     eax, [___1a1028h]
@@ -446,7 +537,14 @@ ___37201h:
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
 		mov     esi, ___180724h
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		mov     ebx, 0ah
 		lea     edx, [esp+64h]
 		mov     eax, [___196ae8h]
@@ -463,7 +561,14 @@ ___37201h:
 		mov     eax, [___1a1108h]
 		mov     edi, esp
 		mov     esi, ___1825b4h
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		movsw   
 		movsb   
 		mov     ebx, esp
@@ -475,7 +580,14 @@ ___37201h:
 		mov     eax, [___1a1108h]
 		lea     ecx, [ebp+2a300h]
 		mov     esi, ___182640h
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		mov     ebx, 0ah
 		lea     edx, [esp+64h]
 		mov     eax, [___196aech]
@@ -487,7 +599,14 @@ ___37201h:
 		movsd   
 		movsd   
 		movsd   
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		lea     esi, [esp+64h]
 		mov     edi, esp
 		mov     ebx, esp
@@ -499,7 +618,14 @@ ___37201h:
 		mov     eax, [___1a1108h]
 		lea     ecx, [ebp+2dc80h]
 		mov     esi, ___18264ch
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		mov     ebx, 0ah
 		lea     edx, [esp+64h]
 		mov     eax, [___196af0h]
@@ -512,7 +638,14 @@ ___37201h:
 		movsd   
 		movsd   
 		movsb   
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		lea     esi, [esp+64h]
 		mov     edi, esp
 		mov     ebx, esp
@@ -523,7 +656,14 @@ ___37201h:
 		mov     eax, [___1a1108h]
 		lea     ecx, [ebp+31600h]
 		mov     edi, esp
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		mov     ebx, 0ah
 		mov     eax, [___196aech]
 		mov     ecx, [___196af0h]
@@ -540,7 +680,14 @@ ___37201h:
 		movsd   
 		movsd   
 		movsw   
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		lea     esi, [esp+64h]
 		mov     edi, esp
 		mov     ebx, esp
@@ -552,7 +699,14 @@ ___37201h:
 		mov     eax, [___1a1108h]
 		lea     ecx, [ebp+34f80h]
 		mov     esi, ___182670h
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		mov     ebx, 0ah
 		lea     edx, [esp+64h]
 		mov     eax, [___1a1134h]
@@ -568,7 +722,14 @@ ___37201h:
 		mov     eax, [___1a1108h]
 		mov     edi, esp
 		mov     esi, ___1825b4h
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		movsw   
 		movsb   
 		mov     ebx, esp
@@ -578,7 +739,14 @@ ___37201h:
 		call 	__STRCAT
 		mov     eax, [___1a1108h]
 		lea     ecx, [ebp+38900h]
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		mov     ebx, 0ah
 		lea     edx, [esp+78h]
 		mov     eax, [___1a10a0h]
@@ -650,7 +818,14 @@ ___37576h:
 		mov     eax, [___1a1108h]
 		mov     edi, esp
 		mov     esi, ___1825b4h
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		movsw   
 		movsb   
 		mov     ebx, esp
@@ -660,7 +835,14 @@ ___37576h:
 		call 	__STRCAT
 		mov     eax, [___1a1108h]
 		lea     ecx, [ebp+3c280h]
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		mov     edx, [___1a1ef8h]
 		lea     edi, [edx*8+0]
 		sub     edi, edx
@@ -916,7 +1098,14 @@ ___37abeh:
 		mov     eax, [___1a1108h]
 		mov     edi, esp
 		mov     esi, ___1825b4h
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		movsw   
 		movsb   
 		mov     ebx, esp
@@ -926,7 +1115,14 @@ ___37abeh:
 		call 	__STRCAT
 		mov     eax, [___1a1108h]
 		lea     ecx, [ebp+3fc00h]
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		mov     edx, [___1a1ef8h]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
@@ -1047,7 +1243,14 @@ ___37d82h:
 		mov     eax, [___1a1108h]
 		mov     edi, esp
 		mov     esi, ___1825b4h
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		movsw   
 		movsb   
 		mov     ebx, esp
@@ -1057,7 +1260,14 @@ ___37d82h:
 		call 	__STRCAT
 		mov     eax, [___1a1108h]
 		lea     ecx, [ebp+43580h]
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 ___37ebch:
 		xor     ebx, ebx
 		mov     [___196ae8h], ebx

@@ -16,7 +16,7 @@ cpu 386
 	extern	___185c0bh
 	extern	___1a10fch
 	extern	___1a116ch
-	extern	___12e78h
+	extern	___12e78h_cdecl
 	extern	___1807e8h
 	extern	___1a1108h
 	extern	___1a1f4eh
@@ -100,13 +100,27 @@ __GDECL(___23758h)
 		mov     edx, ___185c0bh
 		mov     eax, [___1a10fch]
 		mov     esi, ___1a116ch
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		mov     ecx, 10959h
 		mov     ebx, ___1807e8h
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
 		mov     edi, 1298ch
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 ___23843h:
 		cmp     byte [ebp+___1a1f4eh], 0
 		jne     short ___2385fh
@@ -114,7 +128,14 @@ ___23843h:
 		mov     eax, [___1a1108h]
 		mov     ecx, edi
 		mov     ebx, esi
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 ___2385fh:
 		cmp     byte [ebp+___1a1f4eh], 1
 		jne     short ___2387bh
@@ -122,7 +143,14 @@ ___2385fh:
 		mov     eax, [___1a10fch]
 		mov     ecx, edi
 		mov     ebx, esi
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 ___2387bh:
 		cmp     byte [ebp+___1a1f4eh], 2
 		jne     short ___23897h
@@ -130,7 +158,14 @@ ___2387bh:
 		mov     eax, [___1a110ch]
 		mov     ecx, edi
 		mov     ebx, esi
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 ___23897h:
 		add     edi, 2580h
 		inc     ebp
@@ -179,7 +214,14 @@ ___23920h:
 		mov     edx, ___185c0bh
 		mov     eax, [___1a110ch]
 		lea     ecx, [ebp+4650ch]
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 ___2393ah:
 		cmp     dword [esp+130h], byte 14h
 		jle     short ___2394dh
@@ -382,7 +424,14 @@ ___23c8eh:
 		lea     esi, [ebp+4650ch]
 		mov     eax, [___1a110ch]
 		mov     ecx, esi
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		xor     ebx, ebx
 		mov     bl, [esp+13ch]
 		mov     bl, [ebx+___185bedh]
@@ -495,7 +544,14 @@ ___23f03h:
 		mov     ecx, 4650ch
 		mov     eax, [___1a110ch]
 		xor     ebp, ebp
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		xor     edx, edx
 		jmp     short ___23f5dh
 ___23f4ah:

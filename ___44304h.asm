@@ -263,7 +263,15 @@ __GDECL(___44304h)
 		cmp     dword [___243cach], byte 0
 		jle     short ___44653h
 		xor     edi, edi
-		call    near ___40164h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___40164h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		mov     [___243cach], edi
 ___44653h:
 		xor     ebp, ebp

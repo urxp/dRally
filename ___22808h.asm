@@ -30,8 +30,8 @@ cpu 386
 	extern	___19eb54h
 	extern	___19eb58h
 	extern	DISPLAY_SET_PALETTE_COLOR
-	extern	dRally_Sound____649a8h
-	extern	dRally_Sound____64a28h
+	extern	dRally_Sound_stop
+	extern	dRally_Sound_release
 	extern	___181c9ch
 	extern	___181ca8h
 	extern	dRally_Sound_load
@@ -270,14 +270,14 @@ ___2297dh:
 	push 	eax
 	push 	ecx
 	push 	edx
-		call    near dRally_Sound____649a8h
+		call    near dRally_Sound_stop
 	pop 	edx
 	pop 	ecx
 	pop 	eax
 	push 	eax
 	push 	ecx
 	push 	edx
-		call    near dRally_Sound____64a28h
+		call    near dRally_Sound_release
 	pop 	edx
 	pop 	ecx
 	pop 	eax

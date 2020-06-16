@@ -25,7 +25,7 @@ cpu 386
 	extern	___18068ch
 	extern	___185ba9h
 	extern	___1a10e0h
-	extern	___12e78h
+	extern	___12e78h_cdecl
 	extern	___180690h
 	extern	___1a1e6ch
 	extern	___1a1ea8h
@@ -257,12 +257,26 @@ ___3ad02h:
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10e0h]
 		lea     ecx, [esi+0a0h]
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		mov     ebx, ___180690h
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10e0h]
 		lea     ecx, [esi+14ah]
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		mov     edx, [esp+44h]
 		lea     eax, [edx*4+0]
 		add     eax, edx
@@ -591,7 +605,14 @@ ___3b13ch:
 		mov     edx, ___185ba9h
 		add     ebx, eax
 		mov     eax, [___1a10cch]
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		mov     edx, [esp+44h]
 		add     edx, byte 3ch
 		lea     eax, [edx*4+0]
@@ -920,7 +941,14 @@ ___3b54eh:
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10cch]
 		add     ecx, byte 50h
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		mov     edx, [___196a94h]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
@@ -949,7 +977,14 @@ ___3b62ch:
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10e0h]
 ___3b63bh:
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		mov     edx, [esp+44h]
 		add     edx, byte 66h
 		lea     eax, [edx*4+0]
@@ -967,7 +1002,14 @@ ___3b66dh:
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10e0h]
 ___3b67ch:
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		mov     edx, [esp+44h]
 		add     edx, 82h
 		lea     eax, [edx*4+0]
@@ -986,7 +1028,14 @@ ___3b6b2h:
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10e0h]
 ___3b6c1h:
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 
 	push 	edx
 	push 	ecx
@@ -1094,7 +1143,14 @@ ___3b7d7h:
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10e0h]
 ___3b7e6h:
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		imul    eax, [esp+38h], 280h
 		add     eax, ebp
 		lea     ecx, [eax+2eh]
@@ -1109,7 +1165,14 @@ ___3b80eh:
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10e0h]
 ___3b81dh:
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		imul    ecx, [esp+30h], 280h
 		add     ecx, ebp
 		add     ecx, byte 2eh
@@ -1124,7 +1187,14 @@ ___3b845h:
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10e0h]
 ___3b854h:
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		mov     edx, [esp+24h]
 		mov     eax, [___1a112ch__VESA101_ACTIVESCREEN_PTR]
 		add     eax, edx
@@ -1335,12 +1405,26 @@ ___3bad9h:
 		mov     ebx, ___1807cch
 		mov     edx, ___185c0bh
 		mov     eax, [___1a10fch]
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		mov     ecx, 390d9h
 		mov     ebx, ___1807e8h
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 ___3bb14h:
 	
 	push 	edx

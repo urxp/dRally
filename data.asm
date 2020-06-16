@@ -1648,7 +1648,8 @@ db	0,0,0,0,0,0,59h,40h
 __GDECL(___182fa7h)
 db	0,0,0,0,0,0,0d4h,40h,0
 __GDECL(___182fb0h)
-db	2eh,42h,50h,41h,0,0,0,0
+;db	2eh,42h,50h,41h,0,0,0,0
+db 	".BPA",0,0,0,0
 __GDECL(___182fb8h)
 db	44h,45h,41h,54h,48h,20h,52h,41h,4ch,4ch,59h,20h,45h,72h,72h,6fh
 db	72h,3ah,20h,46h,69h,6ch,65h,20h,25h,73h,20h,69h,73h,20h,6dh,69h
@@ -2211,7 +2212,8 @@ db	2dh,49h,4dh,41h,2eh,53h,43h,58h,0
 __GDECL(___183f45h)
 db	0,0,0,0,0,0,0eh,40h,0,0,0
 __GDECL(___183f50h)
-db	2dh,49h,4eh,46h,2eh,42h,49h,4eh,0
+;db	2dh,49h,4eh,46h,2eh,42h,49h,4eh,0
+db 	"-INF.BIN",0
 __GDECL(___183f59h)
 db	0,0,0,0,0,0,24h,40h
 __GDECL(___183f61h)
@@ -2777,15 +2779,24 @@ db	0
 __GDECL(___184be9h)
 db	0,0,0,0,0,6ah,0d8h,40h,0,0,0
 __GDECL(___184bf4h)
-db	0ah,45h,53h,50h,20h,46h,61h,74h,61h,6ch,20h,45h,72h,72h,6fh,72h
-db	20h,32h,35h,35h,3ah,0ah,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh
-db	2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,0ah,55h,6eh,64h,65h,66h
-db	69h,6eh,65h,64h,20h,46h,61h,74h,61h,6ch,20h,45h,72h,72h,6fh,72h
-db	20h,25h,64h,21h,0ah,7,0,0
+;db	0ah,45h,53h,50h,20h,46h,61h,74h,61h,6ch,20h,45h,72h,72h,6fh,72h
+;db	20h,32h,35h,35h,3ah,0ah,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh
+;db	2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,0ah,55h,6eh,64h,65h,66h
+;db	69h,6eh,65h,64h,20h,46h,61h,74h,61h,6ch,20h,45h,72h,72h,6fh,72h
+;db	20h,25h,64h,21h,0ah,7,0,0
+db 	0ah
+db 	"ESP Fatal Error 255:",0ah
+db 	"--------------------",0ah
+db 	"Undefined Fatal Error %d!",0ah,7,0,0
+
 __GDECL(___184c3ch)
-db	0ah,"ESP Fatal Error %d:",0ah
-db	2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh
-db	2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,0ah,0,0
+;db	0ah,"ESP Fatal Error %d:",0ah
+;db	2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh
+;db	2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,2dh,0ah,0,0
+db	0ah
+db 	"ESP Fatal Error %d:",0ah
+db 	"--------------------",0ah,0,0
+
 __GDECL(___184c68h)
 db	25h,64h,0,0
 __GDECL(___184c6ch)
@@ -2793,11 +2804,12 @@ db	25h,73h,0,0
 __GDECL(___184c70h)
 db	0ah,7,0,0
 __GDECL(___184c74h)
-db	50h,6ch,65h,61h,73h,65h,20h,63h,6fh,6eh,73h,75h,6ch,74h,20h,44h
-db	52h,48h,45h,4ch,50h,2eh,45h,58h,45h,20h,66h,6fh,72h,20h,6dh,6fh
-db	72h,65h,20h,69h,6eh,66h,6fh,72h,6dh,61h,74h,69h,6fh,6eh,20h,6fh
-db	6eh,20h,68h,6fh,77h,20h,74h,6fh,20h,72h,65h,73h,6fh,6ch,76h,65h
-db	20h,74h,68h,69h,73h,20h,70h,72h,6fh,62h,6ch,65h,6dh,2eh,0ah,0
+;db	50h,6ch,65h,61h,73h,65h,20h,63h,6fh,6eh,73h,75h,6ch,74h,20h,44h
+;db	52h,48h,45h,4ch,50h,2eh,45h,58h,45h,20h,66h,6fh,72h,20h,6dh,6fh
+;db	72h,65h,20h,69h,6eh,66h,6fh,72h,6dh,61h,74h,69h,6fh,6eh,20h,6fh
+;db	6eh,20h,68h,6fh,77h,20h,74h,6fh,20h,72h,65h,73h,6fh,6ch,76h,65h
+;db	20h,74h,68h,69h,73h,20h,70h,72h,6fh,62h,6ch,65h,6dh,2eh,0ah,0
+db 	"Please consult DRHELP.EXE for more information on how to resolve this problem.",0ah,0
 __GDECL(___184cc4h)
 db	2fh,73h,0,0
 __GDECL(___184cc8h)
@@ -9168,11 +9180,11 @@ db	0,0
 db	0,0,0,0
 ;__GDECL(__argv)
 db	0,0,0,0
-__GDECL(MASTER_VOLUME)
+;__GDECL(MASTER_VOLUME)
 db	0,0,1,0
-__GDECL(MSX_VOLUME)
+;__GDECL(MSX_VOLUME)
 db	0,0,1,0
-__GDECL(SFX_VOLUME)
+;__GDECL(SFX_VOLUME)
 db	0,0,1,0
 __GDECL(___199ff4h)
 db	0,0,0,0
@@ -9296,29 +9308,24 @@ db	0,0,0,0
 
 
 
-__GDECL(___19a278h)
+;__GDECL(___19a278h)
 db	0,0,0
-__GDECL(___19a27bh)
-db	0
-__GDECL(___19a27ch)
-db	0
-__GDECL(___19a27dh)
-db	0
-__GDECL(___19a27eh)
+;__GDECL(___19a27bh)
+db	0,0,0
+;__GDECL(msx_samples)
 db	0,0
-__GDECL(___19a280h)
+;__GDECL(___19a280h)
+db	0,0,0,0
+;__GDECL(MSX_struct_content_ptr)
+db	0,0,0,0
+;__GDECL(MSX_struct_type)
+db	0,0,0,0
+;__GDECL(SFX_struct_content_ptr)
+db	0,0,0,0
+;__GDECL(SFX_struct_type)
 db	0,0,0,0
 
-__GDECL(MSX_struct_content_ptr)
-db	0,0,0,0
-__GDECL(MSX_struct_type)
-db	0,0,0,0
-__GDECL(SFX_struct_content_ptr)
-db	0,0,0,0
-__GDECL(SFX_struct_type)
-db	0
-__GDECL(___19a291h)
-db	0,0,0
+
 ;_xlat:
 db	0,9,1,1,0bh,6,4,5,5,5,2,3,0ffh,0ffh,7,8
 db	6,8,1,0ffh
@@ -9407,9 +9414,9 @@ dd	0;__ConfigBuffer
 db	0,0,0
 ;__GDECL(___WD_Present)
 db	0,0,0,0
-__GDECL(___19a464h)
+;__GDECL(___19a464h)
 db	0,0,0,0
-__GDECL(___19a468h)
+;__GDECL(___19a468h)
 db	0
 ;__GDECL(S3M_Position_Order)
 db	0
@@ -9417,25 +9424,23 @@ db	0
 db	0,0
 ;__GDECL(S3M_NewPosition)
 db	0ffh,0ffh,0ffh,0ffh
-__GDECL(___19a470h)
+;__GDECL(___19a470h)
 db	0,0,0,0
-__GDECL(___19a474h)
+;__GDECL(___19a474h)
 db	0,0,0,0
-__GDECL(___19a478h)
+;__GDECL(___19a478h)
 db	0,0,0,0
-__GDECL(___19a47ch)
+;__GDECL(___19a47ch)
 db	0,0,0,0
-__GDECL(___19a480h)
+;__GDECL(___19a480h)
 db	0,0,0,0
-__GDECL(___19a484h)
+;__GDECL(___19a484h)
 db	0,6bh,0,65h,40h,5fh,0,5ah,0c0h,54h,0,50h,80h,4bh,40h,47h
 db	40h,43h,80h,3fh,0,3ch,0b0h,38h
-__GDECL(___19a49ch)
+;__GDECL(___19a49ch)
 db	0d7h,1eh,5,1fh,31h,1fh,6eh,1fh,0abh,1fh,0e9h,1fh,28h,20h,58h,20h
-db	0abh,20h,0ddh,20h,0fh,21h,51h,21h,85h,21h,0cbh,21h,13h,22h
-__GDECL(___19a4bah)
-db	35h,22h
-__GDECL(___19a4bch)
+db	0abh,20h,0ddh,20h,0fh,21h,51h,21h,85h,21h,0cbh,21h,13h,22h,35h,22h
+;__GDECL(___19a4bch)
 db	0,0,18h,0,31h,0,4ah,0,61h,0,78h,0,8dh,0,0a1h,0
 db	0b4h,0,0c5h,0,0d4h,0,0e0h,0,0ebh,0,0f4h,0,0fah,0,0fdh,0
 db	0ffh,0,0fdh,0,0fah,0,0f4h,0,0ebh,0,0e0h,0,0d4h,0,0c5h,0
@@ -9444,60 +9449,58 @@ db	0,0,0e8h,0ffh,0cfh,0ffh,0b6h,0ffh,9fh,0ffh,88h,0ffh,73h,0ffh,5fh,0ffh
 db	4ch,0ffh,3bh,0ffh,2ch,0ffh,20h,0ffh,15h,0ffh,0ch,0ffh,6,0ffh,3,0ffh
 db	1,0ffh,3,0ffh,6,0ffh,0ch,0ffh,15h,0ffh,20h,0ffh,2ch,0ffh,3bh,0ffh
 db	4ch,0ffh,5fh,0ffh,73h,0ffh,88h,0ffh,9fh,0ffh,0b6h,0ffh,0cfh,0ffh,0e8h,0ffh
-__GDECL(___19a53ch)
+;__GDECL(___19a53ch)
 db	1
-__GDECL(___19a53dh)
+;__GDECL(___19a53dh)
 db	0
-__GDECL(___19a53eh)
+;__GDECL(___19a53eh)
 db	0
-__GDECL(___19a53fh)
+;__GDECL(___19a53fh)
 db	0
-__GDECL(___19a540h)
+;__GDECL(___19a540h)
 db	1,0
-__GDECL(___19a542h)
+;__GDECL(___19a542h)
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-__GDECL(___19a562h)
+;__GDECL(___19a562h)
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-__GDECL(___19a582h)
+;__GDECL(___19a582h)
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-__GDECL(___19a592h)
+;__GDECL(cmd_cmd_mem)
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-__GDECL(___19a5a2h)
+;__GDECL(cmd_info_mem)
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-__GDECL(___19a5b2h)
+;__GDECL(___19a5b2h)
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-__GDECL(___19a5c2h)
+;__GDECL(___19a5c2h)
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-__GDECL(___19a5d2h)
-db	0,0,0,0,0,0,0,0,0,0,0,0,0,0
-__GDECL(___19a5e0h)
+;__GDECL(___19a5d2h)
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+;__GDECL(___19a5e2h)
 db	0,0
-__GDECL(___19a5e2h)
-db	0,0
-__GDECL(___19a5e4h)
+;__GDECL(___19a5e4h)
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-__GDECL(___19a5f4h)
+;__GDECL(___19a5f4h)
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-__GDECL(___19a604h)
+;__GDECL(___19a604h)
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-__GDECL(___19a624h)
+;__GDECL(___19a624h)
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-__GDECL(___19a644h)
+;__GDECL(___19a644h)
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-__GDECL(___19a664h)
+;__GDECL(___19a664h)
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-__GDECL(___19a674h)
+;__GDECL(___19a674h)
 db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-__GDECL(___19a684h)
+;__GDECL(___19a684h)
 db	0
-__GDECL(___19a685h)
+;__GDECL(___19a685h)
 db	0
-__GDECL(___19a686h)
+;__GDECL(___19a686h)
 db	0,0
 __GDECL(___19a688h)
 db	0,0,0,0
@@ -9524,9 +9527,9 @@ db	0c1h,3,0bah,3,0b4h,3,0adh,3,0a6h,3,9fh,3,99h,3,92h,3
 times 0e0h db 0
 times 600h db 0
 
-__GDECL(___19ae04h)
+;__GDECL(___19ae04h)
 db	0,0,0
-__GDECL(___19ae07h)
+;__GDECL(___19ae07h)
 db	0,0,0,0,0
 ;__GDECL(___EFG_printf)
 dd	0;_no_support_loaded_

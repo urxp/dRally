@@ -37,7 +37,7 @@ cpu 386
 	extern	dRally_Sound_pushEffect
 	extern	___148cch
 	extern	___196aa4h
-	extern	dRally_Sound____6563ch
+	extern	dRally_Sound_freeEffectChannel
 	extern	___1806dch
 	extern	___1806e4h
 	extern	___1a1e84h
@@ -381,7 +381,7 @@ ___31ca8h:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    dRally_Sound____6563ch
+		call    dRally_Sound_freeEffectChannel
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -708,7 +708,7 @@ ___321efh:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    dRally_Sound____6563ch
+		call    dRally_Sound_freeEffectChannel
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx

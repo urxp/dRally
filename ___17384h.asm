@@ -9,7 +9,7 @@ cpu 386
 	extern 	___185ba9h
 	extern 	___1a10e0h
 	extern 	___18072ch
-	extern 	___12e78h
+	extern 	___12e78h_cdecl
 	extern 	___1398ch__VESA101_PRESENTRECTANGLE
 	extern 	___196ae4h
 	extern 	___185cbch
@@ -65,7 +65,14 @@ ___173f7h:
 		mov     eax, [___1a10e0h]
 		add     ecx, ebx
 		mov     ebx, ___18072ch
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 ___17420h:
 		cmp     dword [___196ae0h], byte 14h
 		jle     short ___17431h

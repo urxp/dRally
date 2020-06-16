@@ -10,3 +10,4 @@ ipxnet/ipxnet
 z_regex*
 *.o
 *.obj
+*_ok.c

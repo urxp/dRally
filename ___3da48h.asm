@@ -40,8 +40,8 @@ cpu 386
 	extern	___182848h
 	extern	___1828a0h
 	extern	___182890h
-	extern	dRally_Sound____649a8h
-	extern	dRally_Sound____64a28h
+	extern	dRally_Sound_stop
+	extern	dRally_Sound_release
 	extern	___181c90h
 	extern	___1828bch
 	extern	___10b80h_cdecl
@@ -51,7 +51,7 @@ cpu 386
 	extern	___24cc58h
 	extern	dRally_Sound_setMusicVolume
 	extern	___24cc54h
-	extern	dRally_Sound_setEffectVolume
+	extern	dRally_Sound_setEffectsVolume
 	extern	dRally_Sound_setPosition
 	extern	dRally_Sound_setSampleRate
 	extern	dRally_Sound_play
@@ -257,14 +257,14 @@ ___3dbe4h:
 	push 	eax
 	push 	ecx
 	push 	edx
-		call    near dRally_Sound____649a8h
+		call    near dRally_Sound_stop
 	pop 	edx
 	pop 	ecx
 	pop 	eax
 	push 	eax
 	push 	ecx
 	push 	edx
-		call    near dRally_Sound____64a28h
+		call    near dRally_Sound_release
 	pop 	edx
 	pop 	ecx
 	pop 	eax
@@ -288,14 +288,14 @@ ___3dbe4h:
 	push 	eax
 	push 	ecx
 	push 	edx
-		call    near dRally_Sound____649a8h
+		call    near dRally_Sound_stop
 	pop 	edx
 	pop 	ecx
 	pop 	eax
 	push 	eax
 	push 	ecx
 	push 	edx
-		call    near dRally_Sound____64a28h
+		call    near dRally_Sound_release
 	pop 	edx
 	pop 	ecx
 	pop 	eax
@@ -324,7 +324,7 @@ ___3dbe4h:
 	push 	ecx
 	push 	edx
 	push 	eax
-		call    near dRally_Sound_setEffectVolume
+		call    near dRally_Sound_setEffectsVolume
 	add 	esp, 4
 	pop		edx
 	pop 	ecx

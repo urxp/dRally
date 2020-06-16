@@ -1,596 +1,304 @@
-typedef unsigned int 	dword;
-typedef unsigned short 	word;
-typedef unsigned char 	byte;
+#include "drally.h"
 
-#define D(d)	(*(dword *)(d))
-#define W(w)	(*(word *)(w))
-#define B(b)	(*(byte *)(b))
+#define __BOUNDS(v, l, h) 	((v)<(l)?(l):(v)>(h)?(h):(v))
+#define COO32UV(u,v) 	(0x20*(v)+(u))
+#define COO256UV(u,v) 	(0x100*(v)+(u))
 
-#define X(r)	(*(word *)&r)
-#define H(r)	(*((byte *)&r + 1))
-#define L(r)	(*(byte *)&r)
+#pragma pack(1)
+typedef struct sample_s {
+	word 	left;
+	word 	right;
+} sample_t;
 
-#define __BOUNDS(v, l, h) (v)<(l)?(l):(v)>(h)?(h):(v)
+typedef struct sampledata_s{
+	void *	start_p;
+	void * 	end_p;
+	void *	loopstart_p;
+	void * 	loopend_p;
+	byte 	flags;
+} sampledata_t;
 
-extern byte ___68d7ch[];
-extern byte ___68e14h[];
-extern byte ___68d88h[];
-extern byte ___68d84h[];
-extern byte ___68d90h[];
-extern byte ___68e94h[];
-extern byte ___68d94h[];
-extern byte ___68d7dh[];
-extern byte ___68d48h[];
-extern byte ___68d40h[];
-extern byte ___68d80h[];
-extern byte ___68d5eh[];
-extern byte ___68d5ch[];
-extern byte ___68d5dh[];
-extern byte ___68d68h[];
-extern byte ___68d34h[];
-extern byte ___68d38h[];
-extern byte ___68d60h[];
-extern byte ___68d44h[];
-extern byte ___68d64h[];
-extern byte ___68d6ch[];
-extern byte ___68d78h[];
-extern byte ___68d72h[];
-extern byte ___68c40h[];
-extern byte SOUND_SAMPLERATE[];
-extern byte ___68d70h[];
-extern byte ___68d74h[];
-extern byte ___688d0h[];
-extern byte ___68b30h[];
-extern byte ___68b10h[];
-extern byte ___68c38h[];
-extern byte ___68910h[];
-extern byte ___68a10h[];
-extern byte ___68bb0h[];
-extern byte ___68990h[];
-extern byte ___68d30h[];
-extern byte ___68d8ch[];
-extern byte ___68a90h[];
-extern byte ___68eb4h[];
-extern byte ___68c3ch[];
+typedef struct sound_mod_s {
+	int 	type;
+	int 	channels;
+	int 	samples;
+	void * 	data;
+	dword 	size;
+} sound_mod_t;
 
-extern void (*AUDIO_DATA_CB)(void);
+typedef struct sound_s {
+	int 			channels;
+	sound_mod_t		msx;
+	sound_mod_t 	sfx;
+} sound_t;
 
-dword ___694c0h_cdecl(dword esi, dword * edi){
+	extern sound_t Sound;
+	extern byte ___68e94h[];
+	extern byte ___68d78h[];
+	extern word SOUND_SAMPLERATE;
+	extern word ___688d0h[32];
+	extern dword ___68910h[32];
+	extern dword ___68a10h[32];
+	extern dword ___68bb0h[32];
+	extern dword ___68990h[32];
+	extern int SampleRateMultiplier;
+	extern void (*AUDIO_DATA_CB)(void);
 
-	dword 	n, eax, ebx, ecx, edx, ebp, p_esi;
-
-	p_esi = esi;
-
-		eax = D(___68d7ch);
-		ecx = D(esi*4+___68e14h);
-		edx = D(___68d88h);
-		ebp = D(___68d84h);
-
-		if(B(esi+___68e94h)){
-
-			edx = ~edx;
-			ebp = ~ebp;
-			edx += 1;
-			ebp += !edx;
-		}
-
-		esi = D(esi*4+___68d94h);
-
-		n = -1;
-		while(++n < D(___68d90h)){
-
-			ebx = B(esi+1);
-			eax = B(esi);
-			ebx -= eax;
-			ebx = (ebx<<5)|(ecx>>0x1b);
-			H(eax) = B(___68d7dh);
-			ebx += D(___68d48h);
-			L(eax) += B(ebx+0x1fe0);
-			ecx += edx;
-			ebx = D(eax*4+D(___68d40h));
-			esi += ebp+!!(ecx < edx);
-			edi[n] += ebx;
-		}
-
-		D(p_esi*4+___68e14h) = ecx;
-		D(p_esi*4+___68d94h) = esi;
-
-		return esi;
-}
-
-dword ___69923h_cdecl(dword esi, dword * edi){
-
-	dword 	n, eax, ebx, ecx, edx, ebp, p_esi;
-
-	p_esi = esi;
-
-		eax = D(___68d7ch);
-		ecx = D(esi*4+___68e14h);
-		edx = D(___68d88h);
-		ebp = D(___68d84h);
-
-		if(B(esi+___68e94h)){
-				
-			edx = ~edx;
-			ebp = ~ebp;
-			edx += 1;
-			ebp += !edx;
-		}
-
-		esi = D(esi*4+___68d94h);
-
-		n = -1;
-		while(++n < D(___68d90h)){
-
-			ebx = B(esi+1);
-			eax = B(esi);
-			ebx -= eax;
-			ebx = (ebx<<5)|(ecx>>0x1b);
-			H(eax) = B(___68d7dh);
-			ebx += D(___68d48h);
-			L(eax) += B(ebx+0x1fe0);
-			ecx += edx;
-			ebx = D(eax*4+D(___68d40h));
-			esi += ebp+!!(ecx < edx);
-			edi[n] += ebx;
-			edi[n+0x3c0] += ebx;
-		}
-
-		D(p_esi*4+___68e14h) = ecx;
-		D(p_esi*4+___68d94h) = esi;
-
-		return esi;
-}
-
-dword ___69e52h_cdecl(dword esi, dword * edi){
-
-	dword 	n, eax, ebx, ecx, edx, edx2, ebp, p_esi;
-
-	p_esi = esi;
-
-		eax = D(___68d7ch);
-		ecx = D(esi*4+___68e14h);
-		edx2 = D(___68d80h);
-		ebp = D(___68d84h);
-		edx = D(___68d88h);
-
-		if(B(esi+___68e94h)){
-				
-			edx = ~edx;
-			ebp = ~ebp;
-			edx += 1;
-			ebp += !edx;
-		}
-
-		esi = D(esi*4+___68d94h);
-
-		n = -1;
-		while(++n < D(___68d90h)){
-
-			ebx = B(esi+1);
-			eax = B(esi);
-			ebx -= eax;
-			ebx = (ebx<<5)|(ecx>>0x1b);
-			H(eax) = B(___68d7dh);
-			ebx += D(___68d48h);
-			L(eax) += B(ebx+0x1fe0);
-			ecx += edx;
-			L(edx2) = L(eax);
-			ebx = D(eax*4+D(___68d40h));
-			esi += ebp+!!(ecx < edx);
-			edi[n] += ebx;
-			ebx = D(edx2*4+D(___68d40h));
-			edi[n+0x3c0] += ebx;
-		}
-
-		D(p_esi*4+___68e14h) = ecx;
-		D(p_esi*4+___68d94h) = esi;
-
-		return esi;
-}
-
-byte shrink_bytes(dword d){
-
-	byte 	rslt = 0;
-
-	dword 	n = -1;
-	while(++n < sizeof(d)) rslt |= ((d>>(8*n))&1)<<n;
-
-	return rslt;
-}
-
-void new___6a600h_cdecl(void){
-
-	dword 	eax, ebx, ecx, edx, esi, edi, ebp;
-
-	ebp = D(___68d68h);
-	edi = D(___68d60h);
-	ecx = D(___68d38h);		// L
-	esi = D(___68d34h);		// R
-	ebx = D(___68d64h);
-	edx = D(___68d44h);
-
-	switch(shrink_bytes(D(___68d5ch)&0x00ffffff)){
-	case 0:
-		while(ebp){
-
-			B(edi) = B(edx+(int)(short)W(esi+2));
-			D(esi) = 0;
-			edi += 1;
-			esi += 4;
-			ebp--;
-		}
-		break;
-	case 1:
-		while(ebp){
-
-			B(edi) = B(edx+(int)(short)W(ecx+2));
-			B(edi+1) = B(edx+(int)(short)W(esi+2));
-			D(esi) = D(ecx) = 0;
-			edi += 2;
-			esi += 4;
-			ecx += 4;
-			ebp--;
-		}
-		break;
-	case 2:
-		while(ebp){
-
-			W(edi) = __BOUNDS((int)D(esi), -32768, 32767);
-			D(esi) = 0;
-			edi += 2;
-			esi += 4;
-			ebp--;
-		}
-		break;
-	case 3:
-		while(ebp){
-
-			W(edi) = __BOUNDS((int)D(ecx), -32768, 32767);		// L
-			W(edi+2) = __BOUNDS((int)D(esi), -32768, 32767);	// R
-			D(esi) = D(ecx) = 0;
-			edi += 4;
-			esi += 4;
-			ecx += 4;
-			ebp--;
-		}
-		break;
-	case 4:
-	case 5:
-	case 6:
-	case 7:
-		while(ebp){
-
-			W(ebx) = __BOUNDS((int)D(ecx), -32768, 32767);
-			W(edi) = __BOUNDS((int)D(esi), -32768, 32767);
-			D(esi) = D(ecx) = 0;
-			edi += 2;
-			ebx += 2;
-			esi += 4;
-			ecx += 4;
-			ebp--;
-		}
-		break;
-	default:
-		break;
-	}
-}
-
-void new___6a600h_cdecl(void);
-dword ___694c0h_cdecl(dword, dword *);
-dword ___69923h_cdecl(dword, dword *);
-dword ___69e52h_cdecl(dword, dword *);
+#define SAMPLE 		(SampleLib_getSample(0))
+sampledata_t * SampleLib_getSample(int smpl_id);
 
 
-void ___691deh_cdecl(dword eax, dword edx, dword edi){
+word ___68c40h;
+dword ___68d90h;
+dword ___68d8ch;
+byte ___68d80h;
+byte ___68d7ch;
+dword ___68d74h;
+extern dword ___68d70h;
+byte * ___68d48h;
+dword * ___68d40h;
+#define RIGHT_BFR ___68d34h
+int * ___68d34h;
+#define LEFT_BFR ___68d38h
+int * ___68d38h;
+byte * 	___68b30h[32];
+void * 	___68d94h[32];
+dword 	___68e14h[32];
+byte 	___68e94h[32];
+dword ___68a90h[32] = {0};
+qword	___68d84h;
 
-	dword 	ebx, ecx, esi, ebp;
-	unsigned long long 	ll_tmp, ll_tmp_sig;
-	dword (*loc_cb)(dword, dword *);
 
-	D(___68d60h) = edi;
-	D(___68d64h) = edx;
-	D(___68d68h) = eax;
-	D(___68d6ch) = eax;
-	D(___68d78h) = 0;
+const byte ___68eb4h[16] = { 0xff, 0xf3, 0xe6, 0xd8, 0xc9, 0xb9, 0xa8, 0x96, 0x96, 0x84, 0x71, 0x5d, 0x48, 0x32, 0x1b, 0 };
 
-	while(1){
 
-		if(W(___68d72h) == 0){
+void ___691deh_cdecl(dword samples, sample_t * dst_stream){
+
+	dword 	eax, edx, ebx, ecx, edi, esi, ebp;
+	qword 	ll_tmp, ll_tmp_sig;
+	dword 	balance_id, n;
+	dword 	samples_done, samples_togo, channel_n;
+	qword 	q_tmp;
+	sampledata_t *	unk;
+	byte *	___68d94h_chn;
+
+	samples_togo = samples;
+	samples_done = 0;
+
+	while(samples_togo != 0){
+
+		if((___68d70h>>0x10) == 0){
 
 			AUDIO_DATA_CB();
-			edx = W(___68c40h);
-			eax = W(SOUND_SAMPLERATE);
-			ll_tmp = (long long)(int)eax * (long long)(int)edx;
-			eax = ll_tmp;
-			edx = ll_tmp >> 0x20;
-			edx = (edx<<0x10)|(eax>>0x10);
-			eax <<= 0x10;
-			ebx = 0x30d4;
-			ll_tmp = edx;
-			ll_tmp <<= 0x20;
-			ll_tmp |= eax;
-			eax = ll_tmp/ebx;
-			edx = ll_tmp%ebx;
-			D(___68d70h) += eax;
+			ll_tmp = SOUND_SAMPLERATE*___68c40h;
+			___68d70h += 0x4000*ll_tmp/0xc35;
 		}
 
-		eax = W(___68d72h);
-		if(eax > D(___68d6ch)) eax = D(___68d6ch);
-		W(___68d72h) -= X(eax);
-		D(___68d74h) = eax;
-		esi = 0;
+		if((___68d70h>>0x10) > samples_togo){
+			
+			___68d74h = samples_togo;
+			___68d70h -= samples_togo<<0x10;
+		}
+		else {
 
-		while(1){
+			___68d74h = ___68d70h>>0x10;
+			___68d70h &= 0xffff;
+		}
 
-			ebx = W(esi*2+___688d0h);
+		channel_n = -1;
+		while(++channel_n < Sound.channels){
+
+			ebx = ___688d0h[channel_n];
 
 			if(ebx){
 
+				___68e94h[channel_n] = 0;
 				if(X(ebx) != 0xffff){
 
-					ebx--;
-					ebx <<= 2;
-					ebx += D(___68c38h);
-					ebx = D(ebx);
-					D(esi*4+___68b30h) = ebx;
-					B(esi+___68e94h) = 0;
-					eax = D(ebx);
-					eax += D(esi*4+___68910h);
-					L(edx) = B(ebx+0x10);
-					L(edx) &= 3;
+					unk = &SAMPLE[ebx-1];
+					___68b30h[channel_n] = unk;
+					___68d94h[channel_n] = unk->start_p+___68910h[channel_n];
 
-					if(L(edx)){
+					if(___68d94h[channel_n] >= unk->end_p){
 
-						if(L(edx) != 1){
+						switch(unk->flags&3){
+						case 0:
+							___68d94h[channel_n] = 0;
+							___68b30h[channel_n] = 0;
+							break;
+						case 1:
+							if(___68d94h[channel_n] > unk->loopstart_p){
 
-							if((eax >= D(ebx+4))&&(eax > D(ebx+8))){
+								eax = (void *)___68d94h[channel_n]-unk->loopstart_p;
+								ebp = unk->end_p-unk->loopstart_p;
+								eax = (eax%ebp)+unk->loopstart_p;
+							}
+							break;
+						default:
+							if(___68d94h[channel_n] > unk->loopstart_p){
 
-								eax -= D(ebx+8);
-								ebp = D(ebx+4);
-								ebp -= D(ebx+8);
+								eax = (void *)___68d94h[channel_n]-unk->loopstart_p;
+								ebp = unk->end_p-unk->loopstart_p;
 								ebp <<= 1;
-								ll_tmp_sig = (long long)(int)eax;
-								eax = ll_tmp_sig/(int)ebp;
-								edx = ll_tmp_sig%(int)ebp;
+								edx = eax%ebp;
+								eax = eax/ebp;
 								ebp >>= 1;
 
 								if(eax > ebp){
 
-									B(esi+___68e94h) = 1;
-									eax = edx;
-									eax = 0-eax;
-									eax += ebp;
+									___68e94h[channel_n] = 1;
+									eax = ebp-edx;
 								}
 								else {
 								
 									eax = edx;
 								}
 
-								eax += D(ebx+8);
+								___68d94h[channel_n] = unk->loopstart_p+eax;
 							}
-						}
-						else {
-
-							if((eax >= D(ebx+4))&&(eax > D(ebx+8))){
-
-								eax -= D(ebx+8);
-								ebp = D(ebx+4);
-								ebp -= D(ebx+8);
-								ll_tmp_sig = (long long)(int)eax;
-								eax = ll_tmp_sig/(int)ebp;
-								edx = ll_tmp_sig%(int)ebp;
-								eax = edx;
-								eax += D(ebx+8);
-							}
-						}
-
-						D(esi*4+___68d94h) = eax;
-						D(esi*4+___68e14h) = 0;
-					}
-					else {
-
-						if(eax >= D(ebx+4)){
-
-							eax = 0;
-							D(esi*4+___68d94h) = eax;
-							D(esi*4+___68e14h) = eax;
-							B(esi+___68e94h) = L(eax);
-							D(esi*4+___68b30h) = eax;
-							B(esi+___68b10h) = 1;
-						}
-						else {
-
-							D(esi*4+___68d94h) = eax;
-							D(esi*4+___68e14h) = 0;
 						}
 					}
 				}
 				else {
 
-					eax = 0;
-					D(esi*4+___68d94h) = eax;
-					D(esi*4+___68e14h) = eax;
-					B(esi+___68e94h) = L(eax);
-					D(esi*4+___68b30h) = eax;
-					B(esi+___68b10h) = 1;
+					___68d94h[channel_n] = 0;
+					___68b30h[channel_n] = 0;
 				}
 
-				W(esi*2+___688d0h) = 0;
-				D(esi*4+___68910h) = 0;
+				___68e14h[channel_n] = 0;
+				___688d0h[channel_n] = 0;
+				___68910h[channel_n] = 0;
 			}
 
-			ebx = D(esi*4+___68b30h);
+			unk = ___68b30h[channel_n];
 
-			if(ebx){
+			if(unk){
 
-				eax = D(esi*4+___68a10h);
-				ll_tmp = (long long)(int)eax * (long long)(int)D(esi*4+___68bb0h);
-				eax = ll_tmp;
-				edx = ll_tmp>>0x20;
-				eax = (eax>>0x19)|(edx<<7);
-				eax <<= 8;
+				ll_tmp = (long long)(int)___68a10h[channel_n] * (long long)(int)___68bb0h[channel_n];
+				eax = (ll_tmp>>0x19);
 
-				if(eax){
+				if(eax--){
 					
-					H(eax)--;
-					D(___68d7ch) = eax;
-					eax = D(esi*4+___68990h);
-					ll_tmp = (long long)(int)eax * (long long)(int)D(___68d30h);
-					eax = ll_tmp;
-					edx = ll_tmp>>0x20;
-					D(___68d84h) = edx;
-					X(eax) = 0;
-					D(___68d88h) = eax;
-					eax = (eax>>0x10)|(edx<<0x10);
-					D(___68d8ch) = eax;
-					edi = D(___68d78h);
-					edi <<= 2;
+					___68d7ch = eax;
+					ll_tmp = (long long)(int)___68990h[channel_n] * (long long)SampleRateMultiplier;
+					___68d84h = ll_tmp&~0xffffULL;
+					___68d8ch = ll_tmp>>0x10;
 
-					if((B(___68d5ch)&1) == 0){
-
-						edi += D(___68d34h);
-						loc_cb = ___694c0h_cdecl;
-					}
-					else {
-
-						eax = D(esi*4+___68a90h);
-						eax >>= 0xc;
-						if(eax == 0){
-
-							edi += D(___68d34h);
-							loc_cb = ___694c0h_cdecl;
-						}
-						else {
-
-							if(L(eax) < 0xf){
-
-								if((L(eax) < 7)||(L(eax) > 8)){
-
-									edx = B(eax+___68eb4h);
-									edx = (int)edx * (int)D(___68d7ch);
-									edx >>= 8;
-									L(eax) = 0-L(eax);
-									L(eax) += 0x10;
-									eax = B(eax+___68eb4h);
-									eax = (int)eax * (int)D(___68d7ch);
-									eax >>= 8;
-									D(___68d7ch) = edx;
-									D(___68d80h) = eax;
-									edi += D(___68d34h);
-									loc_cb = ___69e52h_cdecl;
-								}
-								else {
-
-									edi += D(___68d34h);
-									eax = (int)D(___68d7ch)*0x96;
-									eax >>= 8;
-									D(___68d7ch) = eax;
-									loc_cb = ___69923h_cdecl;
-								}
-							}
-							else {
-									
-								edi += D(___68d38h);
-								loc_cb = ___694c0h_cdecl;
-							}
-						}
+					switch(eax = (___68a90h[channel_n]>>0xc)&0xf){
+					case 0x0:			// RIGHT ONLY
+						balance_id = 0;
+						break;
+					case 0x7: case 0x8:	// BALANCED
+						___68d7ch = (___68d7ch*0x96)>>0x8;
+						balance_id = 1;
+						break;
+					case 0x1: case 0x2: case 0x3: case 0x4: case 0x5: case 0x6:
+					case 0x9: case 0xa: case 0xb: case 0xc: case 0xd: case 0xe:
+						___68d80h = (___68d7ch*___68eb4h[0x10-eax])>>0x8;
+						___68d7ch = (___68d7ch*___68eb4h[eax])>>0x8;
+						balance_id = 2;
+						break;
+					case 0xf:			// LEFT ONLY
+						balance_id = 3;
+						break;
+					default:
+						break;
 					}
 
-					ecx = D(___68d74h);
+					edi = samples_done;
+					ecx = ___68d74h;
+					do {
 
-					while(1){
-
-						if(B(esi+___68e94h) == 0){
-
-							eax = D(ebx+4);
-							eax -= D(esi*4+___68d94h);
-						}
-						else {
-								
-							eax = D(esi*4+___68d94h);
-							eax -= D(ebx+8);
-						}
+						eax = (___68e94h[channel_n] == 0) ? (unk->end_p-___68d94h[channel_n]) : (___68d94h[channel_n]-unk->loopstart_p);
 
 						if((int)eax < 0) eax = 0;
-						edx = 0;
 
-						if(D(___68d8ch) == edx){
+						if(___68d8ch == 0){
 
-							D(___68d90h) = ecx;
+							___68d90h = ecx;
 						}
 						else {
 
-							edx = (edx<<0x10)|(eax>>0x10);
-							eax <<= 0x10;
-							X(eax) = W(esi*4+___68e14h);
-							if(B(esi+___68e94h) == 0) X(eax) = 0-X(eax);
-							ll_tmp = edx;
-							ll_tmp <<= 0x20;
-							ll_tmp |= eax;
-							eax = ll_tmp/D(___68d8ch);
-							edx = ll_tmp%D(___68d8ch);
-							eax++;
-							D(___68d90h) = eax;
-							if(D(___68d90h) > ecx) D(___68d90h) = ecx;
+							ll_tmp = eax;
+							ll_tmp <<= 0x10;
+							ll_tmp += ((___68e94h[channel_n] != 0) ? ___68e14h[channel_n] : -___68e14h[channel_n])&0xffff;
+							___68d90h = 1+ll_tmp/___68d8ch;
+							if(___68d90h > ecx) ___68d90h = ecx;
 						}
 
-						ecx -= D(___68d90h);
-						eax = loc_cb(esi, edi);
-						edi += 4*D(___68d90h);
-						if(ecx == 0) break;
-						if((B(ebx+0x10)&3) == 0){
+						ecx -= ___68d90h;
+						q_tmp = (___68e94h[channel_n] == 0) ? ___68d84h : -___68d84h;
 
-							D(esi*4+___68d94h) = 0;
-							D(esi*4+___68e14h) = 0;
-							D(esi*4+___68b30h) = 0;
-							B(esi+___68b10h) = 1;
-							break;
-						}
+						n = -1;
+						while(++n < ___68d90h){
 
-						if((B(ebx+0x10)&2) != 0){
+							___68d94h_chn = ___68d94h[channel_n];
+							ebx = COO32UV(___68e14h[channel_n]>>0x1b, 0xff+___68d94h_chn[1]-___68d94h_chn[0]);
 
-							if(B(esi+___68e94h)){
-
-								eax -= D(ebx+8);
-								D(esi*4+___68e14h) = ~D(esi*4+___68e14h);
-								eax = ~eax;
-								D(esi*4+___68e14h) += 1;
-								eax += 1+!D(esi*4+___68e14h);
-								eax += D(ebx+8);
+							switch(balance_id){
+							case 0:
+								RIGHT_BFR[edi+n] += ___68d40h[COO256UV((___68d94h_chn[0]+___68d48h[ebx])&0xff, ___68d7ch)];
+								break;
+							case 1: 
+								LEFT_BFR[edi+n] += ___68d40h[COO256UV((___68d94h_chn[0]+___68d48h[ebx])&0xff, ___68d7ch)];
+								RIGHT_BFR[edi+n] += ___68d40h[COO256UV((___68d94h_chn[0]+___68d48h[ebx])&0xff, ___68d7ch)];
+								break;
+							case 2:
+								LEFT_BFR[edi+n] += ___68d40h[COO256UV((___68d94h_chn[0]+___68d48h[ebx])&0xff, ___68d80h)];
+								RIGHT_BFR[edi+n] += ___68d40h[COO256UV((___68d94h_chn[0]+___68d48h[ebx])&0xff, ___68d7ch)];
+								break;
+							case 3:
+								LEFT_BFR[edi+n] += ___68d40h[COO256UV((___68d94h_chn[0]+___68d48h[ebx])&0xff, ___68d7ch)];
+								break;
+							default:
+								break;
 							}
-							else {
-									
-								eax -= D(ebx+0xc);
-								D(esi*4+___68e14h) = ~D(esi*4+___68e14h);
-								eax = ~eax;
-								D(esi*4+___68e14h) += 1;
-								eax += 1+!D(esi*4+___68e14h);
-								eax += D(ebx+0xc);
-							}
+							___68d94h[channel_n] += (q_tmp+___68e14h[channel_n])>>0x20;
+							___68e14h[channel_n] += q_tmp;
+						}
 
-							D(esi*4+___68d94h) = eax;
-							B(esi+___68e94h) ^= 1;
+						edi += ___68d90h;
+
+						if(ecx != 0){
+			
+							switch(unk->flags&3){
+							case 0:
+								___68d94h[channel_n] = 0;
+								___68e14h[channel_n] = 0;
+								___68b30h[channel_n] = 0;
+								ecx = 0;
+								break;
+							case 1:
+								___68d94h[channel_n] += unk->loopstart_p-unk->loopend_p;
+								break;
+							case 2:
+							case 3:
+								eax = (___68e94h[channel_n] != 0) 
+									? (unk->loopstart_p+(unk->loopstart_p-___68d94h[channel_n]))
+									: (unk->loopend_p+(unk->loopend_p-___68d94h[channel_n]));
+
+								___68d94h[channel_n] = eax+!(___68e14h[channel_n] = -1*___68e14h[channel_n]);
+								___68e94h[channel_n] = !___68e94h[channel_n];
+								break;
+							default:
+								break;
+							}
 						}
-						else {
-								
-							eax -= D(ebx+0xc);
-							eax += D(ebx+8);
-							D(esi*4+___68d94h) = eax;
-						}
-					}
+
+					} while(ecx != 0);
 				}
 			}
-		
-			esi++;
-			if(esi > D(___68c3ch)) break;
 		}
 
-		eax = D(___68d74h);
-		D(___68d78h) += eax;
-		D(___68d6ch) -= eax;
-		if(D(___68d6ch) == 0) break;
+		samples_done += ___68d74h;
+		samples_togo -= ___68d74h;
 	}
 	
-	new___6a600h_cdecl();
+	n = -1;
+	while(++n < samples){
+		
+		dst_stream[n].left = __BOUNDS(LEFT_BFR[n], -32768, 32767);
+		dst_stream[n].right = __BOUNDS(RIGHT_BFR[n], -32768, 32767);
+		LEFT_BFR[n] = RIGHT_BFR[n] = 0;
+	}
 }

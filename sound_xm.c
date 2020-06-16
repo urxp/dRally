@@ -1,12 +1,5 @@
 #include "drally.h"
 
-enum { AMIGA_FREQUENCE_TABLE, LINEAR_FREQUENCE_TABLE } XM_FrequenceTable;
-
-static dword XM_AFT_Frequency(dword period){
-
-	return 8363 * 1712 / period;
-}
-
 static dword XM_LFT_Frequency(dword period){
 
 	int r_period, k, pos;
@@ -72,42 +65,10 @@ static dword XM_LFT_Frequency(dword period){
 
 dword ___71b70h_cdecl(dword period){
 
-	switch (XM_FrequenceTable){
-	case LINEAR_FREQUENCE_TABLE:	// 2.789272030651341	(exact 728/261)
-		return 0x2d8*XM_LFT_Frequency(period)/0x105;
-	case AMIGA_FREQUENCE_TABLE:		// 1.469329188090398	(exact 12288/8363)
-									// 1.469348659003831	767/522 (0x2ff/0x20a)
-		return period ? 0x3000*XM_AFT_Frequency(period)/0x20ab : 0;
-	}
+	return 0x2d8*XM_LFT_Frequency(period)/0x105;
 }
 
-dword XM_getPeriod(byte Note, int FineTune){
-#define AFT_SAFEBOUNDS
+dword XM_getPeriod(int Note, int FineTune){
 
-	dword 	pos, frac;
-
-	static const word AmigaPTab[] = {
-#ifdef AFT_SAFEBOUNDS
-		                                907,907,907,907,907,907,907,907,
-#endif
-		907,900,894,887,881,875,868,862,856,850,844,838,832,826,820,814,
-		808,802,796,791,785,779,774,768,762,757,752,746,741,736,730,725,
-		720,715,709,704,699,694,689,684,678,675,670,665,660,655,651,646,
-		640,636,632,628,623,619,614,610,604,601,597,592,588,584,580,575,
-		570,567,563,559,555,551,547,543,538,535,532,528,524,520,516,513,
-		508,505,502,498,494,491,487,484,480,477,474,470,467,463,460,457,
-		454//,450,447,443,440,437,434,431,428,425,422,419,416,413,410,407
-	};
-
-	switch (XM_FrequenceTable){
-	case LINEAR_FREQUENCE_TABLE:
-		return 10*12*16*4 - Note*16*4 - FineTune/2;
-	case AMIGA_FREQUENCE_TABLE:
-		pos = (Note%12)*8 + FineTune/16;
-#ifdef AFT_SAFEBOUNDS
-		pos += 8;	// +8 to avoid getting out of bounds
-#endif
-		frac = FineTune%16;
-		return (AmigaPTab[pos]*(0x10-frac) + AmigaPTab[pos+1]*frac)>>(Note/12);
-	}
+	return 10*12*16*4 - Note*16*4 - FineTune/2;
 }

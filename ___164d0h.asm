@@ -17,7 +17,7 @@ cpu 386
 	extern 	___180694h
 	extern 	___185ba9h
 	extern 	___1a10cch
-	extern 	___12e78h
+	extern 	___12e78h_cdecl
 
 section .text
 
@@ -67,7 +67,14 @@ __GDECL(___164d0h)
 		call    near ___13094h
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10cch]
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		pop     edx
 		pop     ecx
 		pop     ebx

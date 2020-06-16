@@ -18,7 +18,7 @@ cpu 386
 	extern	___1a01e0h
 	extern	___1a10b8h
 	extern	___185c7ah
-	extern	___12e78h
+	extern	___12e78h_cdecl
 	extern	___12cb8h__VESA101_PRESENTSCREEN
 
 section .text
@@ -246,7 +246,14 @@ ___3099bh:
 		add     ecx, edx
 		mov     edx, ___185c7ah
 		add     ecx, byte 22h
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 
 	push 	edx
 	push 	ecx

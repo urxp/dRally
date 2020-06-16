@@ -9,7 +9,7 @@ cpu 386
 	extern	itoa_
 	extern	___185ba9h
 	extern	___1a10cch
-	extern	___12e78h
+	extern	___12e78h_cdecl
 
 section .text
 
@@ -109,7 +109,14 @@ ___35ee2h:
 		mov     eax, [___1a10cch]
 		add     ecx, 18ch
 ___35efah:
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		mov     eax, [esp+4]
 		mov     edi, [esp+10h]
 		mov     edx, [esp+0ch]

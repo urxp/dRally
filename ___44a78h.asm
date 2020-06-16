@@ -91,7 +91,15 @@ ___44b28h:
 		jne     near ___44de4h
 		lea     edx, [ebp-1]
 		mov     [___243d0ch], edx
-		call    near ___61518h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___61518h
+	push 	eax
+	push 	ecx
+	push 	edx
+
 		mov     ebx, [___24331ch]
 		shl     ebx, 2
 		mov     eax, [ebx+___24cee0h]
@@ -124,7 +132,15 @@ ___44bc7h:
 		je      short ___44c2ah
 		test    ecx, ecx
 		jne     short ___44c2ah
-		call    near ___61518h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___61518h
+	push 	eax
+	push 	ecx
+	push 	edx
+
 		call    near GET_FRAME_COUNTER
 		cmp     eax, ebp
 		jbe     short ___44bc7h
@@ -171,7 +187,15 @@ ___44c69h:
 		je      short ___44ccch
 		test    ecx, ecx
 		jne     short ___44ccch
-		call    near ___61518h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___61518h
+	push 	eax
+	push 	ecx
+	push 	edx
+
 		call    near GET_FRAME_COUNTER
 		cmp     eax, ebp
 		jbe     short ___44c69h
@@ -286,7 +310,15 @@ ___44e29h:
 		je      short ___44e8ch
 		test    ecx, ecx
 		jne     short ___44e8ch
-		call    near ___61518h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___61518h
+	push 	eax
+	push 	ecx
+	push 	edx
+
 		call    near GET_FRAME_COUNTER
 		cmp     eax, ebp
 		jbe     short ___44e29h
@@ -327,7 +359,15 @@ ___44eb7h:
 		je      short ___44f1ah
 		test    ecx, ecx
 		jne     short ___44f1ah
-		call    near ___61518h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___61518h
+	push 	eax
+	push 	ecx
+	push 	edx
+
 		call    near GET_FRAME_COUNTER
 		cmp     eax, ebp
 		jbe     short ___44eb7h

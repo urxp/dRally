@@ -7,7 +7,7 @@ cpu 386
 	extern	___180998h
 	extern	___185c0bh
 	extern	___1a1108h
-	extern	___12e78h
+	extern	___12e78h_cdecl
 	extern	___1a112ch__VESA101_ACTIVESCREEN_PTR
 	extern	___1398ch__VESA101_PRESENTRECTANGLE
 	extern	___1a10fch
@@ -41,7 +41,14 @@ __GDECL(___38878h)
 		mov     ebx, ___180998h
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		mov     ecx, 14h
 		mov     ebx, 168h
 		mov     edx, [___1a112ch__VESA101_ACTIVESCREEN_PTR]
@@ -63,7 +70,14 @@ ___388d6h:
 		mov     ebx, ___180998h
 		mov     edx, ___185c0bh
 		mov     eax, [___1a10fch]
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		mov     ecx, 14h
 		mov     ebx, 168h
 		mov     edx, [___1a112ch__VESA101_ACTIVESCREEN_PTR]

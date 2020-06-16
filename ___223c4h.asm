@@ -25,7 +25,7 @@ cpu 386
 	extern	itoa_
 	extern	___185c7ah
 	extern	___1a10b8h
-	extern	___12e78h
+	extern	___12e78h_cdecl
 	extern	___18768ah
 	extern	___12cb8h__VESA101_PRESENTSCREEN
 	extern	___2b318h
@@ -229,7 +229,14 @@ ___22638h:
 ___2263dh:
 		mov     edx, ___185c7ah
 		mov     eax, [___1a10b8h]
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		mov     esi, [esp+30h]
 		mov     edi, esp
 		call 	__STRCPY
@@ -243,7 +250,14 @@ ___2263dh:
 		mov     ebx, esp
 		mov     edx, ___185c7ah
 		mov     eax, [___1a10b8h]
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		mov     ebx, 0ah
 		mov     edx, esp
 		mov     eax, [ebp+___1a0e34h]
@@ -257,7 +271,14 @@ ___2263dh:
 		mov     edx, ___185c7ah
 		mov     eax, [___1a10b8h]
 		lea     ecx, [esi+158h]
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 ___226d2h:
 		mov     ebx, [ebp+___1a0e34h]
 		cmp     ebx, byte 0ah
@@ -268,7 +289,14 @@ ___226d2h:
 		mov     ebx, esp
 		mov     edx, ___185c7ah
 		mov     eax, [___1a10b8h]
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 ___226f7h:
 		cmp     dword [ebp+___1a0e34h], byte 64h
 		jl      short ___22715h
@@ -276,7 +304,14 @@ ___226f7h:
 		mov     ebx, esp
 		mov     edx, ___185c7ah
 		mov     eax, [___1a10b8h]
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 ___22715h:
 		imul    esi, [ebp+___1a0e38h], byte 18h
 		mov     ecx, [esp+3ch]
@@ -292,7 +327,14 @@ ___22715h:
 		mov     ebx, eax
 		mov     eax, esi
 		inc     edi
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		mov     [esp+40h], edi
 		mov     eax, [esp+38h]
 		mov     edx, [esp+30h]

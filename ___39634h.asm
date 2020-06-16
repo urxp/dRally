@@ -10,7 +10,7 @@ cpu 386
 	extern	itoa_
 	extern	___185ba9h
 	extern	___1a10cch
-	extern	___12e78h
+	extern	___12e78h_cdecl
 	extern	___1a01e0h
 	extern	___185c7ah
 	extern	strupr_
@@ -128,7 +128,14 @@ ___3977bh:
 		mov     eax, [___1a10cch]
 		add     ecx, byte 42h
 ___3978eh:
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		mov     eax, [___196adch]
 		sub     eax, ebp
 		dec     eax
@@ -143,7 +150,14 @@ ___3978eh:
 		mov     edx, ___185c7ah
 		call    near strupr_
 		mov     eax, [___1a10b8h]
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		mov     eax, [___196adch]
 		sub     eax, ebp
 		dec     eax
@@ -162,7 +176,14 @@ ___3978eh:
 		sub     ecx, eax
 		mov     eax, [___1a10b8h]
 		inc     ebp
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		mov     eax, [esp+20h]
 		mov     edx, [esp+28h]
 		mov     ebx, [esp+24h]

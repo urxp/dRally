@@ -1,5 +1,6 @@
 #include "drally.h"
 
+#pragma pack(1)
 typedef struct s3m_position_s {
     byte    Order;
     byte    Row;

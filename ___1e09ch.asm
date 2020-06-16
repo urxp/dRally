@@ -28,7 +28,7 @@ cpu 386
 	extern	___181010h
 	extern	___185c0bh
 	extern	___1a1108h
-	extern	___12e78h
+	extern	___12e78h_cdecl
 	extern	___180ac8h
 	extern	___13bd4h
 	extern	___12cb8h__VESA101_PRESENTSCREEN
@@ -212,7 +212,14 @@ ___1e1b1h:
 		add     esi, byte 28h
 		mov     eax, [___1a1108h]
 		mov     ecx, esi
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		mov     edx, [esp+24h]
 		add     edx, byte 1eh
 		lea     eax, [edx*4+0]
@@ -223,7 +230,14 @@ ___1e1b1h:
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
 		add     ecx, byte 28h
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 		mov     ebx, [esp+24h]
 		lea     edi, [ebp+0fh]
 		add     ebx, byte 13h
@@ -305,7 +319,14 @@ ___1e2edh:
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
 		lea     esi, [esp+40h]
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 
 	push 	edx
 	push 	ecx
@@ -371,7 +392,14 @@ ___1e389h:
 		mov     ebx, ___181010h
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
-		call    near ___12e78h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___12e78h_cdecl
+	add 	esp, 10h
+
 
 	push 	edx
 	push 	ecx
