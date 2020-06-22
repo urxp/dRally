@@ -98,7 +98,7 @@ typedef struct music_s {
     byte        speed;
 } music_t;
 
-extern byte * ___68b30h[];
+extern byte * ___68b30h[32];
 byte SOUND = 0;
 byte SOUND_LOADED = 0;
 byte SOUND_PLANES = 0;
@@ -116,8 +116,6 @@ extern dword ___68e14h[];
 extern byte ___68e94h[];
 
 
-void * extract_musics_bpa(const char *, int);
-dword entrysize_musics_bpa(const char *);
 void ___58b20h(int n, ...);
 void * dRally_Memory_alloc(dword, dword);
 void ___65788h_updateVolume_cdecl(void);
@@ -305,18 +303,20 @@ void ___67e48h_allocSounds_cdecl(TrackerType msx_t, const char * msx_f, TrackerT
 	SOUND_LOADED = 1;
 }
 
+dword bpa_entrysize(const char *, const char *);
+void * extract_musics_bpa(const char *, dword *);
+
 void load_s3m(const char * f_name, sound_mod_t * smod){
 
 	dword 	n;
 	s3m_t *	s3m;
 
-	s3m = extract_musics_bpa(f_name, 1);
+	s3m = extract_musics_bpa(f_name, &smod->size);
 
 	if(strncmp(s3m->signature, "SCRM", 4)) ___58b20h(0x28, f_name);
 	if(s3m->data[0] == 0xff) ___58b20h(0x29, f_name);
 	Music.s3m_p = s3m;
 
-	smod->size 		= entrysize_musics_bpa(f_name);
 	smod->samples 	= s3m->instruments_n;
 	smod->data 		= s3m;
 	smod->channels 	= 0;
@@ -332,13 +332,12 @@ void load_xm(const char * f_name, sound_mod_t * smod){
 
 	xm_t *	xm;
 
-	xm = extract_musics_bpa(f_name, 1);
+	xm = extract_musics_bpa(f_name, &smod->size);
 
 	if(strncmp(xm->id_text, "Extended Module: ", 0x11)) ___58b20h(0x28, f_name);
 	if(xm->__1ah != 0x1a) ___58b20h(0x28, f_name);
 	if(xm->version < 0x104) ___58b20h(0x28, f_name);
 
-	smod->size = entrysize_musics_bpa(f_name);
 	smod->samples = xm->instruments;
 	smod->data = xm;
 	smod->channels = xm->channels;
@@ -434,4 +433,36 @@ void ___68c42h_cdecl(void){
 		___68a10h[n] = 0;
 		___68b30h[n] = 0;
 	}
+}
+
+static byte ROL_BYTE(byte b, int n){
+
+    return (b<<n)|(b>>(8-n));
+}
+
+static void cmf_decode(byte * p, size_t size){
+
+	size_t	n;
+
+	if(p&&size){
+
+		n = -1;
+		while(++n < size) p[n] = ROL_BYTE(p[n], n%7)+0xef*n+0x93;
+	}
+}
+
+void bpa_read(const char *, void *, const char *);
+dword bpa_entrysize(const char *, const char *);
+void * extract_musics_bpa(const char * fname, dword * size){
+    
+    dword   ex_size, n;
+    byte *  r_mem;
+
+    ex_size = bpa_entrysize("MUSICS.BPA", fname);
+    r_mem = dRally_Memory_alloc(ex_size, 0);
+    bpa_read("MUSICS.BPA", r_mem, fname);
+
+    if((*size = ex_size)) cmf_decode(r_mem, ex_size);
+
+    return r_mem;
 }

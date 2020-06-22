@@ -75,7 +75,7 @@ cpu 386
 	extern	___196a84h
 	extern	___1a020ch
 	extern	___1a0fb8h
-	extern	___11378h
+	extern ___11378h_cdecl_float
 	extern	___1a1eb4h
 	extern	___27078h
 	extern	___185a38h
@@ -1009,7 +1009,8 @@ ___2998fh:
 		sub     esp, byte 4
 		fstp    dword [esp]
 		mov     ecx, 1dd80h
-		call    near ___11378h
+		call	___11378h_cdecl_float
+		add 	esp, 0ch
 		mov     esi, 0c4h
 ___299edh:
 		mov     eax, [___1a112ch__VESA101_ACTIVESCREEN_PTR]

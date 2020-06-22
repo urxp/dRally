@@ -19,9 +19,9 @@ cpu 386
 	extern 	___196a84h
 	extern 	___5994ch
 	extern 	___2ab50h
-	extern 	___13bd4h
+	extern 	___13bd4h_cdecl
 	extern 	___23594h
-	extern 	___13c9ch
+	extern 	___13c9ch_cdecl
 	extern 	___196ab8h
 	extern 	___1a2010h
 	extern 	___185a14h
@@ -157,7 +157,14 @@ ___1c252h:
 		call    near ___2ab50h
 		call    near ___2ab50h
 		mov     eax, 0a6h
-		call    near ___13bd4h
+	
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13bd4h_cdecl
+	add 	esp, 8
+	pop 	ecx
+
 		mov     edx, 0bh
 		mov     eax, ebp
 		call    near ___23594h
@@ -165,7 +172,14 @@ ___1c252h:
 		je      near ___1c34bh
 		mov     edx, 0d8h
 		mov     eax, 0a6h
-		call    near ___13c9ch
+	
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13c9ch_cdecl
+	add 	esp, 8
+	pop 	ecx
+
 		mov     edx, ebp
 		xor     eax, eax
 ___1c2a8h:

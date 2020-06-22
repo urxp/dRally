@@ -18,3 +18,14 @@ double * fpu_st(int n){
 
 	return &fpu_stack[(fpu_top+7-(n%8))%8];
 }
+
+/*
+					C3	C2	C0
+	ST(0) > SRC		 0	 0	 0
+	ST(0) < SRC		 0	 0	 1
+	ST(0) = SRC		 1	 0	 0
+	Unordered*		 1	 1	 1
+
+	6: C3, 2: C2, 0: C1
+	6: ZF, 2: PF, 0: CF
+*/

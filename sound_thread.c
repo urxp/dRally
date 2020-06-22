@@ -127,6 +127,7 @@ void * PACKED_PATTERN;
 
 extern word ___688d0h[32];
 extern dword ___68910h[32];
+extern byte * ___68b30h[32];
 
 word ___19a542h[16] = {0};
 word ___19a562h[16] = {0};
@@ -258,8 +259,13 @@ void ___6ef2ch(void){
 							___68910h[tmp_chn] = 0;
 							___68990h[tmp_chn] = 0;
 							___68a10h[tmp_chn] = 0;
+							___68b30h[tmp_chn] = 0;
 						}
 
+						S3M_Position.Order = 0;
+						S3M_Position.Row = 0;
+						___19a540h = 1;
+						___19a53fh = 0;
 						___19a685h = 0;
 						___19a686h = 0;
 						___19a5e2h = 0;

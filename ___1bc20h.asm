@@ -39,9 +39,9 @@ cpu 386
 	extern 	___196a84h
 	extern 	___5994ch
 	extern 	___2ab50h
-	extern 	___13bd4h
+	extern 	___13bd4h_cdecl
 	extern 	___23594h
-	extern 	___13c9ch
+	extern 	___13c9ch_cdecl
 	extern 	___180afch
 	extern 	___180974h
 	extern 	___3f77ch__freeMemory
@@ -269,7 +269,14 @@ ___1be57h:
 		mov     edx, ecx
 		mov     eax, esi
 		mov     ebx, 0bh
-		call    near ___13bd4h
+	
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13bd4h_cdecl
+	add 	esp, 8
+	pop 	ecx
+
 		mov     edx, 12h
 		mov     eax, ebp
 		call    near ___23488h
@@ -285,7 +292,14 @@ ___1beach:
 		mov     edx, ecx
 		mov     eax, esi
 		mov     ebx, ___1a116ch
-		call    near ___13c9ch
+	
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13c9ch_cdecl
+	add 	esp, 8
+	pop 	ecx
+
 		lea     ecx, [ebx+96h]
 		xor     edx, edx
 ___1bec2h:

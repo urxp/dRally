@@ -433,19 +433,7 @@ void switch_YY(byte A1){
     }
 }
 
-dword zz_stats = 0;
-
 void switch_ZZ(byte A1){
-
-    dword new_zz_stats;
-
-    new_zz_stats = zz_stats;
-    new_zz_stats |= (1<<A1);
-    if(new_zz_stats != zz_stats){
-
-        // 0x0a09f  ::  1010000010011111b (0,1,2,3,4,7,13,15)
-        printf("==[ZZ]======================= 0x%08x\n", (zz_stats = new_zz_stats));
-    }
 
     switch(A1){
     case 0:

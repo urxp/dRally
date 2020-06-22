@@ -22,10 +22,10 @@ cpu 386
 	extern	___63244h
 	extern	___180d44h
 	extern	___2ab50h
-	extern	___13bd4h
+	extern	___13bd4h_cdecl
 	extern	___59b3ch
 	extern	___5994ch
-	extern	___13c9ch
+	extern	___13c9ch_cdecl
 	extern	___180d48h
 
 section .text
@@ -164,7 +164,14 @@ ___1d7b2h:
 		mov     edx, 0d8h
 		mov     eax, 0c3h
 		inc     ebx
-		call    near ___13bd4h
+	
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13bd4h_cdecl
+	add 	esp, 8
+	pop 	ecx
+
 		cmp     ebx, 96h
 		jl      short ___1d78dh
 ___1d7d4h:
@@ -189,7 +196,14 @@ ___1d7d4h:
 		lea     eax, [ebp+0fh]
 		add     edx, byte 13h
 		add     ebx, byte 1eh
-		call    near ___13c9ch
+	
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13c9ch_cdecl
+	add 	esp, 8
+	pop 	ecx
+
 		lea     eax, [ebx*4+0]
 		add     eax, ebx
 		shl     eax, 7

@@ -1,24 +1,19 @@
 #include "drally.h"
 
-
 #pragma pack(push,1)
 
-typedef struct entry_s {
-    const char  name[0xd];
-    dword       size;
-} entry_t;
+typedef struct bpa_entry_s {
+    __BYTE__    name[0xd];
+    __DWORD__   size;
+} bpa_entry_t;
 
 typedef struct bpa_s {
-    dword       n;
-    entry_t     fat[255];
+    __DWORD__       n;
+    bpa_entry_t     fat[255];
 } bpa_t;
 
 #pragma pack(pop)
 
-
-void bpa_read(const char *, void *, const char *);
-dword entrysize_bpa(const char *, const char *);
-void * dRally_Memory_alloc(dword, dword);
 char * STRUPR_D(char *);
 
 void ___42944h(const char *);
@@ -27,32 +22,15 @@ void VGA3_SETMODE(void);
 
 static bpa_t bpa;
 
-static byte ROL_BYTE(byte b, int n){
+static void BPA_encodeEntryName(char * s){
 
-    return (b<<n)|(b>>(8-n));
-}
+    dword 	n;
 
-void * extract_musics_bpa(const char * fname, int lock){
-    
-    dword   ex_size, n;
-    byte *  r_mem;
-
-    ex_size = entrysize_bpa("MUSICS.BPA", fname);
-    r_mem = dRally_Memory_alloc(ex_size, lock);
-    bpa_read("MUSICS.BPA", r_mem, fname);
-
-    if(ex_size){
-
+    if(s){
+	
         n = -1;
-        while(++n < ex_size) r_mem[n] = ROL_BYTE(r_mem[n], n%7)+0x93-0x11*n;
+        while(s[++n]) s[n] += 0x75-3*n;
     }
-
-    return r_mem;
-}
-
-dword entrysize_musics_bpa(const char * fname){
-
-    return entrysize_bpa("MUSICS.BPA", fname);
 }
 
 void bpa_read(const char * bpa_fname, void * dst, const char * bpa_entry){
@@ -63,10 +41,9 @@ void bpa_read(const char * bpa_fname, void * dst, const char * bpa_entry){
 
     STRUPR_D(strcpy(entry, bpa_entry));
     fd = strup_fopen(bpa_fname, "rb");
-    fread(&bpa, sizeof(bpa_t), 1, fd);
+    fread(&bpa, 1, sizeof(bpa_t), fd);
 
-    n = -1;
-    while(entry[++n]) entry[n] += 0x75-3*n;
+    BPA_encodeEntryName(entry);
 
     offset = 0;
     n = -1;
@@ -84,11 +61,11 @@ void bpa_read(const char * bpa_fname, void * dst, const char * bpa_entry){
     }
 
     fseek(fd, offset, SEEK_CUR);
-    fread(dst, bpa.fat[n].size, 1, fd);
+    fread(dst, 1, bpa.fat[n].size, fd);
     fclose(fd);
 }
 
-dword entrysize_bpa(const char * bpa_fname, const char * bpa_entry){
+dword bpa_entrysize(const char * bpa_fname, const char * bpa_entry){
 
 	FILE * 	fd;
 	char 	entry[0xd], err[0x50];
@@ -96,11 +73,10 @@ dword entrysize_bpa(const char * bpa_fname, const char * bpa_entry){
 
 	STRUPR_D(strcpy(entry, bpa_entry));
 	fd  = strup_fopen(bpa_fname, "rb");
-    fread(&bpa, sizeof(bpa_t), 1, fd);
+    fread(&bpa, 1, sizeof(bpa_t), fd);
 	fclose(fd);
 
-	n = -1;
-    while(entry[++n]) entry[n] += 0x75-3*n;
+	BPA_encodeEntryName(entry);
 
 	n = -1;
 	while((++n < bpa.n)&&strcmp(bpa.fat[n].name, entry));

@@ -32,7 +32,7 @@ cpu 386
 	extern	___199fa0h
 	extern	___60b48h
 	extern	___2ab50h
-	extern	___13bd4h
+	extern	___13bd4h_cdecl
 	extern	___611c0h
 	extern	___61278h
 	extern	___1866b8h
@@ -266,7 +266,14 @@ ___1d48fh:
 		call    near ___2ab50h
 		mov     edx, esi
 		mov     eax, edi
-		call    near ___13bd4h
+	
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13bd4h_cdecl
+	add 	esp, 8
+	pop 	ecx
+
 		inc     ebx
 		cmp     ecx, byte 1
 		jne     short ___1d452h

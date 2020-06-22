@@ -5,7 +5,7 @@ cpu 386
 	extern 	___5994ch
 	extern 	___59b3ch
 	extern 	___2ab50h
-	extern 	___13bd4h
+	extern 	___13bd4h_cdecl
 
 section .text
 
@@ -51,7 +51,14 @@ ___17354h:
 		mov     edx, 141h
 		mov     eax, 0a4h
 		inc     bh
-		call    near ___13bd4h
+	
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13bd4h_cdecl
+	add 	esp, 8
+	pop 	ecx
+
 		cmp     bl, 1
 		jne     short ___1733eh
 ___17374h:

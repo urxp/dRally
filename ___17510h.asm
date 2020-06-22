@@ -68,7 +68,7 @@ cpu 386
 	extern 	___1a1ef8h
 	extern 	___1a0220h
 	extern 	___1a0fb8h
-	extern 	___11378h
+	extern ___11378h_cdecl_float
 	extern 	memset_
 	extern 	___1a1e88h
 	extern 	___1a1eb4h
@@ -758,7 +758,8 @@ ___17d82h:
 		imul    esi, [esp+78h], 280h
 		fstp    dword [esp]
 		mov     edi, 0c4h
-		call    near ___11378h
+		call	___11378h_cdecl_float
+		add 	esp, 0ch
 		mov     ecx, esi
 		add     esi, 3c00h
 ___17df7h:
@@ -884,7 +885,8 @@ ___17f2ch:
 		fild    word [esp+0a0h]
 		sub     esp, byte 4
 		fstp    dword [esp]
-		call    near ___11378h
+		call	___11378h_cdecl_float
+		add 	esp, 0ch
 		imul    esi, [esp+6ch], 280h
 		mov     edi, 0c4h
 		mov     ecx, esi

@@ -18,7 +18,6 @@ cpu 386
 	extern	___135fch
 	extern	___23230h
 	extern	___1a0fb8h
-	extern	___11378h
 	extern	___1a112ch__VESA101_ACTIVESCREEN_PTR
 	extern	___1a10f8h
 	extern	___19de70h
@@ -60,7 +59,7 @@ cpu 386
 	extern	___13248h
 	extern	___182730h
 	extern	___196a94h
-	extern	___13bd4h
+	extern	___13bd4h_cdecl
 	extern	___18768ah
 	extern	___1876a2h
 	extern	___1876bah
@@ -76,6 +75,7 @@ cpu 386
 	extern	___1a10fch
 	extern	___1807e8h
 	extern	___1a1108h
+	extern ___11378h_cdecl_float
 
 section .text
 
@@ -161,7 +161,8 @@ __GDECL(___3ab5ch)
 		mov     ebp, 3fh
 		fstp    dword [esp]
 		mov     edi, [esp+38h]
-		call    near ___11378h
+		call	___11378h_cdecl_float
+		add 	esp, 0ch
 		test    edi, edi
 		je      short ___3ac47h
 		mov     ecx, 0f9h
@@ -957,7 +958,14 @@ ___3b54eh:
 		add     edx, byte 4fh
 		add     edx, eax
 		lea     eax, [ebp+16h]
-		call    near ___13bd4h
+	
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13bd4h_cdecl
+	add 	esp, 8
+	pop 	ecx
+
 		mov     edx, [esp+44h]
 		add     edx, byte 4ah
 		lea     eax, [edx*4+0]
@@ -1082,7 +1090,14 @@ ___3b717h:
 		call    near ___2ab50h
 		add     edx, [esp+3ch]
 		mov     eax, [esp+40h]
-		call    near ___13bd4h
+	
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13bd4h_cdecl
+	add 	esp, 8
+	pop 	ecx
+
 		xor     al, al
 		cmp     cl, 0c8h
 		jne     short ___3b74ah
@@ -1370,7 +1385,8 @@ ___3b9feh:
 		fild    word [esp+58h]
 		sub     esp, byte 4
 		fstp    dword [esp]
-		call    near ___11378h
+		call	___11378h_cdecl_float
+		add 	esp, 0ch
 		jmp     short ___3bad9h
 ___3ba76h:
 		push    8000h

@@ -36,7 +36,7 @@ cpu 386
 	extern	___180f68h
 	extern	___180ac8h
 	extern	___180f80h
-	extern	___13bd4h
+	extern	___13bd4h_cdecl
 	extern	___196a90h
 	extern	___180f8ch
 	extern	___180f90h
@@ -328,7 +328,14 @@ ___1db77h:
 		lea     eax, [ebp+0fh]
 		add     edx, byte 1ah
 		mov     esi, ___180f80h
-		call    near ___13bd4h
+	
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13bd4h_cdecl
+	add 	esp, 8
+	pop 	ecx
+
 
 	push 	edx
 	push 	ecx
@@ -633,7 +640,14 @@ ___1df93h:
 		call    near ___2ab50h
 		mov     edx, [esp+5ch]
 		mov     eax, [esp+54h]
-		call    near ___13bd4h
+	
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13bd4h_cdecl
+	add 	esp, 8
+	pop 	ecx
+
 		cmp     byte [kmap+1], 0
 		je      near ___1ddb5h
 ___1dfb7h:
@@ -699,7 +713,14 @@ ___1e023h:
 		call    near ___2ab50h
 		mov     edx, [esp+58h]
 		mov     eax, ebp
-		call    near ___13bd4h
+	
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13bd4h_cdecl
+	add 	esp, 8
+	pop 	ecx
+
 		inc     esi
 		jmp     short ___1dfdfh
 ___1e03bh:

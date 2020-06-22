@@ -892,7 +892,15 @@ ___1b94dh:
 	
 		mov     edx, 0c5h
 		mov     eax, 97h
-		call    near ___1aa28h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___1aa28h
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     [esp+8], eax
 		cmp     eax, byte 1
 		jne     short ___1b9ceh

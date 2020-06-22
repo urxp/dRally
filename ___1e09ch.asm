@@ -30,7 +30,7 @@ cpu 386
 	extern	___1a1108h
 	extern	___12e78h_cdecl
 	extern	___180ac8h
-	extern	___13bd4h
+	extern	___13bd4h_cdecl
 	extern	___12cb8h__VESA101_PRESENTSCREEN
 	extern	___631d4h
 	extern	___63228h
@@ -243,7 +243,14 @@ ___1e1b1h:
 		add     ebx, byte 13h
 		mov     eax, edi
 		mov     edx, ebx
-		call    near ___13bd4h
+	
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13bd4h_cdecl
+	add 	esp, 8
+	pop 	ecx
+
 
 	push 	edx
 	push 	ecx
@@ -448,7 +455,14 @@ ___1e3f0h:
 		call    near ___2ab50h
 		mov     edx, [esp+30h]
 		mov     eax, [esp+2ch]
-		call    near ___13bd4h
+	
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13bd4h_cdecl
+	add 	esp, 8
+	pop 	ecx
+
 		cmp     byte [kmap+1], 0
 		je      near ___1e2c7h
 ___1e414h:
@@ -514,7 +528,14 @@ ___1e484h:
 		call    near ___2ab50h
 		mov     edx, edi
 		mov     eax, ebp
-		call    near ___13bd4h
+	
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13bd4h_cdecl
+	add 	esp, 8
+	pop 	ecx
+
 		inc     esi
 		jmp     short ___1e43ch
 ___1e49ah:

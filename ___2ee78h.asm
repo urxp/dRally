@@ -29,7 +29,7 @@ cpu 386
 	extern	___27f80h
 	extern	___1716ch
 	extern	___12cb8h__VESA101_PRESENTSCREEN
-	extern	___13bd4h
+	extern	___13bd4h_cdecl
 	extern	___17324h
 	extern	___185a20h
 	extern	___2ab50h
@@ -399,7 +399,14 @@ ___2f1c2h:
 		je      short ___2f1ech
 		mov     edx, 141h
 		mov     eax, 0a4h
-		call    near ___13bd4h
+	
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13bd4h_cdecl
+	add 	esp, 8
+	pop 	ecx
+
 ___2f1ech:
 		mov     esi, [esp+8]
 		xor     edx, edx

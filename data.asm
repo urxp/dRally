@@ -348,17 +348,21 @@ __GDECL(___180980h)
 db	20h,63h,6ch,6fh,73h,65h,64h,20h,74h,68h,65h,20h,6eh,65h,74h,67h
 db	61h,6dh,65h,2eh,0,0,0,0
 __GDECL(___180998h)
-db	57h,61h,69h,74h,69h,6eh,67h,20h,66h,6fh,72h,20h,6fh,74h,68h,65h
-db	72h,20h,70h,6ch,61h,79h,65h,72h,73h,2eh,2eh,2eh,0,0,0,0
+;db	57h,61h,69h,74h,69h,6eh,67h,20h,66h,6fh,72h,20h,6fh,74h,68h,65h
+;db	72h,20h,70h,6ch,61h,79h,65h,72h,73h,2eh,2eh,2eh,0,0,0,0
+db 	"Waiting for other players...",0,0,0,0
 __GDECL(___1809b8h)
-db	50h,72h,65h,73h,73h,20h,45h,53h,43h,20h,74h,6fh,20h,6ch,65h,61h
-db	76h,65h,20h,6eh,65h,74h,67h,61h,6dh,65h,0,0
+;db	50h,72h,65h,73h,73h,20h,45h,53h,43h,20h,74h,6fh,20h,6ch,65h,61h
+;db	76h,65h,20h,6eh,65h,74h,67h,61h,6dh,65h,0,0
+db 	"Press ESC to leave netgame",0,0
 __GDECL(___1809d4h)
-db	48h,6fh,73h,74h,20h,63h,6ch,6fh,73h,65h,64h,20h,74h,68h,65h,20h
-db	67h,61h,6dh,65h,21h,0,0,0
+;db	48h,6fh,73h,74h,20h,63h,6ch,6fh,73h,65h,64h,20h,74h,68h,65h,20h
+;db	67h,61h,6dh,65h,21h,0,0,0
+db 	"Host closed the game!",0,0,0
 __GDECL(___1809ech)
-db	48h,6fh,73h,74h,20h,73h,74h,61h,72h,74h,65h,64h,20h,74h,68h,65h
-db	20h,67h,61h,6dh,65h,21h,0,0
+;db	48h,6fh,73h,74h,20h,73h,74h,61h,72h,74h,65h,64h,20h,74h,68h,65h
+;db	20h,67h,61h,6dh,65h,21h,0,0
+db 	"Host started the game!",0,0
 __GDECL(___180a04h)
 db	4ch,6fh,6fh,6bh,69h,6eh,67h,20h,66h,6fh,72h,20h,6eh,65h,74h,67h
 db	61h,6dh,65h,73h,2ch,20h,70h,72h,65h,73h,73h,20h,65h,6eh,74h,65h
