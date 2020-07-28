@@ -15,12 +15,12 @@ cpu 386
 	extern	___1a0fach
 	extern	___180724h
 	extern	___1a0228h
-	extern	itoa_
+	extern	itoa_watcom106
 	extern	___185c7ah
 	extern	___251e8h
 	extern	___1a10b8h
 	extern	___12e78h_cdecl
-	extern	strupr_
+	extern	strupr_watcom106
 	extern	___1a0224h
 
 section .text
@@ -179,7 +179,15 @@ ___38048h:
 		mov     [esp+14h], eax
 		mov     eax, [eax+___1a0228h]
 		add     ebp, 2f80h
-		call    near itoa_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    itoa_watcom106
+	add 	esp, 0ch
+	pop 	ecx
+
 		call 	__STRCAT
 		mov     eax, esp
 		mov     ecx, [esp+24h]
@@ -204,7 +212,15 @@ ___38048h:
 		mov     ebx, esp
 		mov     edx, ___185c7ah
 		mov     esi, [esp+28h]
-		call    near strupr_
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    strupr_watcom106
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     eax, [___1a10b8h]
 		mov     edi, [esp+20h]
 
@@ -223,7 +239,15 @@ ___38048h:
 		mov     ecx, [esp+28h]
 		mov     eax, [eax+___1a0224h]
 		mov     [esp+20h], edi
-		call    near itoa_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    itoa_watcom106
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     eax, esp
 		mov     ebx, esp
 		mov     edx, ___185c7ah

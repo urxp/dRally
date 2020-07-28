@@ -3,7 +3,7 @@ cpu 386
 
 	extern 	__CHK
 	extern 	___1a112ch__VESA101_ACTIVESCREEN_PTR
-	extern 	memset_
+	extern 	memset
 	extern 	___1a10d8h
 	extern 	___1a10f0h
 
@@ -59,7 +59,15 @@ ___13295h:
 		mov     ebx, esi
 		add     eax, byte 2
 		add     ecx, 280h
-		call    near memset_
+		
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    memset
+	add 	esp, 0ch
+	pop 	ecx
+
 		cmp     ecx, edi
 		jl      short ___13295h
 ___132b7h:

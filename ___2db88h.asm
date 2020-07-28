@@ -10,14 +10,14 @@ cpu 386
 	extern	___1a1e5ch
 	extern	___2d054h
 	extern	___1a017ch
-	extern	itoa_
+	extern	itoa_watcom106
 	extern	___180728h
 	extern	___25180h
 	extern	___12f60h
 	extern	___19bd60h
 	extern	___13248h
 	extern	___193ae0h
-	extern	___13094h
+	extern	___13094h_cdecl
 	extern	___193b08h
 	extern	___193b30h
 	extern	___193b58h
@@ -84,7 +84,15 @@ ___2dbf1h:
 		call    near ___2d054h
 		mov     eax, [___1a017ch]
 		mov     edi, esp
-		call    near itoa_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    itoa_watcom106
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     ax, [___180728h]
 		lea     esi, [esp+14h]
 		mov     [esp], ax
@@ -127,7 +135,7 @@ ___2dca5h:
 		shl     eax, 2
 		sub     eax, edx
 		cmp     ebp, [eax*4+___1a0224h]
-		jge     short ___2dd66h
+		jge     ___2dd66h
 		push    byte 1
 		mov     ecx, 77h
 		mov     ebx, 180h
@@ -136,22 +144,64 @@ ___2dca5h:
 		call    near ___13248h
 		mov     edx, 136aah
 		mov     eax, ___193ae0h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, 15eaah
 		mov     eax, ___193b08h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, 186aah
 		mov     eax, ___193b30h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, 1aeaah
 		mov     eax, ___193b58h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, 1d6aah
 		mov     eax, ___193b80h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, 1feaah
 		mov     eax, ___193ba8h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		jmp     short ___2dd6bh
 ___2dd66h:
 		call    near ___2d184h

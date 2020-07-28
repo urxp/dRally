@@ -5,10 +5,7 @@ cpu 386
 	extern 	___1a1100h__VESA101h_DefaultScreenBuffer
     extern  ___1a10e4h__VESA101h_DefaultScreenBufferA
 	extern  ___1a1124h__VESA101h_ScreenBufferA
-	extern 	DISPLAY_SET_PALETTE_COLOR
 	extern	VGA13_ACTIVESCREEN
-
-    extern  memset_
 
 section .text
 
@@ -33,6 +30,7 @@ __GDECL(__MOVS)
 		rep movsb   
 		pop     edi
         retn
+
 __GDECL(__STRCPY)
 		push    edi
 ___10261h:
@@ -49,6 +47,7 @@ ___10261h:
 ___10279h:
 		pop     edi
         retn
+
 __GDECL(__STRCAT)
         push    ecx     ;;;;; added
 		push    edi
@@ -72,6 +71,7 @@ ___1037fh:
 		pop     edi
         pop     ecx     ;;;;; added
         retn
+
 __GDECL(__STRLEN)
         push    edi     ;;;;; added
 		sub     ecx, ecx
@@ -92,6 +92,7 @@ __GDECL(DISPLAY_WAIT_IF_DISABLED)
 		and     al, 1
 		jne     .disabled
 		retn
+		
 __GDECL(DISPLAY_WAIT_IF_ENABLED)
 		mov     dx, 3dah
 .enabled:

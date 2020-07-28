@@ -13,7 +13,7 @@ cpu 386
 
 section .text
 
-__GDECL(___2836ch)
+__GDECL(shop___2836ch)
 		push    18h
 		call    near __CHK
 		push    ebx

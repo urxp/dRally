@@ -16,13 +16,13 @@ cpu 386
 	extern	___1a0230h
 	extern	___1a0e28h
 	extern	___1a01e0h
-	extern	strupr_
+	extern	strupr_watcom106
 	extern	___196a94h
 	extern	___1a0e38h
 	extern	___27d24h
 	extern	CONFIG_WRITE
 	extern	___180724h
-	extern	itoa_
+	extern	itoa_watcom106
 	extern	___185c7ah
 	extern	___1a10b8h
 	extern	___12e78h_cdecl
@@ -161,7 +161,15 @@ ___224f4h:
 		mov     edi, edx
 		call 	__STRCPY
 		mov     eax, edx
-		call    near strupr_
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    strupr_watcom106
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     edx, [___1a1ef8h]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
@@ -212,7 +220,15 @@ ___225e0h:
 		mov     esi, ___180724h
 		inc     eax
 		mov     edi, esp
-		call    near itoa_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    itoa_watcom106
+	add 	esp, 0ch
+	pop 	ecx
+
 		call 	__STRCAT
 		mov     ecx, [esp+40h]
 		imul    eax, ecx, byte 16h
@@ -242,7 +258,15 @@ ___2263dh:
 		call 	__STRCPY
 		mov     eax, esp
 		mov     edi, [esp+40h]
-		call    near strupr_
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    strupr_watcom106
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		imul    eax, edi, byte 16h
 		add     eax, 90h
 		imul    esi, eax, 280h
@@ -261,7 +285,15 @@ ___2263dh:
 		mov     ebx, 0ah
 		mov     edx, esp
 		mov     eax, [ebp+___1a0e34h]
-		call    near itoa_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    itoa_watcom106
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     eax, [ebp+___1a0e34h]
 		test    eax, eax
 		jl      short ___226d2h
@@ -322,7 +354,15 @@ ___22715h:
 		call 	__STRCPY
 		mov     eax, esp
 		mov     edi, [esp+40h]
-		call    near strupr_
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    strupr_watcom106
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     esi, [___1a10b8h]
 		mov     ebx, eax
 		mov     eax, esi
@@ -387,7 +427,15 @@ ___22715h:
 
 		xor     edx, edx
 ___227cfh:
-		call    near ___2ab50h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2ab50h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+	
 
 	push 	edx
 	push 	ecx

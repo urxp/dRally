@@ -8,7 +8,7 @@ extern char ___184c6ch[];
 extern char ___184c70h[];
 
 void ___623d4h(void);
-void VGA3_SETMODE(void);
+void __VGA3_SETMODE(void);
 void dRally_System_clean(void);
 
 unsigned char err_l[] = 
@@ -53,7 +53,7 @@ void ___58b20h(int err_n, ...){
 	
 	if(___19bd60h) ___623d4h();
 
-	VGA3_SETMODE();
+	__VGA3_SETMODE();
 
 	printf("\nESP Fatal Error %d:\n--------------------\n", err_l[n]);
 

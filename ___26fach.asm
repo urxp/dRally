@@ -6,7 +6,7 @@ cpu 386
 	extern	___1a01fch
 	extern	___13248h
 	extern	___192870h
-	extern	___13094h
+	extern	___13094h_cdecl
 
 section .text
 
@@ -46,22 +46,64 @@ ___26febh:
 		add     ebx, eax
 		mov     edx, 136aah
 		mov     eax, ebx
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, 15eaah
 		lea     eax, [ebx+28h]
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, 186aah
 		lea     eax, [ebx+50h]
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, 1aeaah
 		lea     eax, [ebx+78h]
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, 1d6aah
 		lea     eax, [ebx+0a0h]
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, 1feaah
 		lea     eax, [ebx+0c8h]
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		add     esp, byte 4
 		pop     edx
 		pop     ecx

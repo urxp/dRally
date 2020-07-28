@@ -9,7 +9,7 @@ cpu 386
     extern  ___19eb50h
     extern  ___19eb54h
     extern  ___19eb58h
-    extern  DISPLAY_SET_PALETTE_COLOR
+    extern  __DISPLAY_SET_PALETTE_COLOR
     extern  ___59b3ch
     extern  ___5994ch
     extern  ___3892ch
@@ -108,7 +108,10 @@ ___19115h:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near DISPLAY_SET_PALETTE_COLOR
+
+		call    __DISPLAY_SET_PALETTE_COLOR
+		add 	esp, 10h
+		
 		mov     eax, [esp+4]
 		inc     eax
 		add     edi, byte 0ch
@@ -153,7 +156,10 @@ ___191b4h:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near DISPLAY_SET_PALETTE_COLOR
+
+		call    __DISPLAY_SET_PALETTE_COLOR
+		add 	esp, 10h
+		
 		mov     ecx, [esp+4]
 		inc     ecx
 		add     edi, byte 0ch
@@ -332,7 +338,10 @@ ___19336h:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near DISPLAY_SET_PALETTE_COLOR
+
+		call    __DISPLAY_SET_PALETTE_COLOR
+		add 	esp, 10h
+		
 		mov     ebx, [esp+4]
 		inc     ebx
 		add     edi, byte 0ch
@@ -377,7 +386,10 @@ ___193d4h:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near DISPLAY_SET_PALETTE_COLOR
+
+		call    __DISPLAY_SET_PALETTE_COLOR
+		add 	esp, 10h
+		
 		mov     eax, [esp+4]
 		inc     eax
 		add     edi, byte 0ch

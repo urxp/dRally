@@ -29,7 +29,7 @@ cpu 386
 	extern	___1a1e6ch
 	extern	___1a1ea8h
 	extern	___18e2a4h
-	extern	itoa_
+	extern	itoa_watcom106
 	extern	___180728h
 	extern	___25180h
 	extern	___12f60h
@@ -52,7 +52,7 @@ cpu 386
 	extern	___1a0220h
 	extern	___1a10cch
 	extern	___185a14h
-	extern	___148cch
+	extern	___148cch_cdecl
 	extern	___1854ach
 	extern	___1a1138h__VESA101h_DefaultScreenBufferB
 	extern	___13710h
@@ -65,8 +65,8 @@ cpu 386
 	extern	___1876bah
 	extern	___12cb8h__VESA101_PRESENTSCREEN
 	extern	___2ab50h
-	extern	memset_
-	extern	strlwr_
+	extern	memset
+	extern	strlwr_watcom106
 	extern	___1a1efch
 	extern	___185bedh
 	extern	___19bd60h
@@ -78,6 +78,11 @@ cpu 386
 	extern ___11378h_cdecl_float
 
 section .text
+
+__GDECL(___3ab5ch_cdecl)
+	mov 	eax, [esp+4]
+	call 	___3ab5ch
+	retn
 
 __GDECL(___3ab5ch)
 		push    8ch
@@ -368,7 +373,15 @@ ___3ae5eh:
 		lea     edx, [esp+18h]
 		mov     eax, [___18e2a4h]
 		lea     esi, [esp+18h]
-		call    near itoa_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    itoa_watcom106
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     ax, [___180728h]
 		mov     edx, [esp+44h]
 		mov     [esp+0ch], ax
@@ -732,7 +745,15 @@ ___3b2d3h:
 		lea     edx, [esp+18h]
 		mov     eax, [___18e2a4h]
 		lea     esi, [esp+18h]
-		call    near itoa_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    itoa_watcom106
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     ax, [___180728h]
 		mov     edx, [esp+44h]
 		mov     [esp+0ch], ax
@@ -886,7 +907,14 @@ ___3b4e1h:
 		add     edx, 0d3h
 		mov     ebx, esi
 		mov     [___185a14h], esi
-		call    near ___148cch
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___148cch_cdecl
+	add 	esp, 10h
+
 		test    al, al
 		jne     short ___3b54eh
 		push    8000h
@@ -1086,8 +1114,24 @@ ___3b717h:
 
 		mov     cl, al
 		mov     [esp+58h], al
-		call    near ___2ab50h
-		call    near ___2ab50h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2ab50h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+	
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2ab50h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+	
 		add     edx, [esp+3ch]
 		mov     eax, [esp+40h]
 	
@@ -1141,7 +1185,15 @@ ___3b790h:
 		mov     edx, 0c4h
 		add     eax, byte 16h
 		add     ecx, 280h
-		call    near memset_
+		
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    memset
+	add 	esp, 0ch
+	pop 	ecx
+
 		cmp     ecx, esi
 		jne     short ___3b790h
 		imul    eax, [esp+28h], 280h
@@ -1327,7 +1379,15 @@ ___3b97bh:
 		sub     eax, edx
 		shl     eax, 2
 		add     eax, ___1a01e0h
-		call    near strlwr_
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    strlwr_watcom106
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     edx, [___1a1ef8h]
 		lea     eax, [edx*8+0]
 		sub     eax, edx

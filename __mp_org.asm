@@ -14,7 +14,7 @@ cpu 386
 	extern	___24e596h
 	extern	__STOSB
 	extern	___24e4c0h
-	extern	memset_
+	extern	memset
 	extern	___24e4ach
 	extern	___24e46ch
 	extern	CONNECTION_TYPE
@@ -47,14 +47,14 @@ cpu 386
 	extern	___24cdc0h
 	extern	___24cee0h
 	extern	___199fc0h
-	extern	__GETDS
+	;extern	__GETDS
 	extern	___24e47ch
 	extern	inp_
 	extern	___199fc8h
 	extern	___199fcch
 	extern	___199fc4h
 	extern	outp_
-	extern	int386_
+	extern	int386
 	extern	___24e48ch
 	extern	___24e4cch
 	extern	___24e4d4h
@@ -94,29 +94,29 @@ cpu 386
 	extern	___199f9ch
 	extern	___24e568h
 	extern	___24e570h
-	extern	_dos_gettime_
+	extern	_dos_gettime
 	extern	___24e4b0h
 	extern	___24e4a8h
 	extern	___24e468h
 	extern	___24e488h
 	extern	___199fb0h
-	extern	memcpy_
+	extern	memcpy
 	extern	___80000h
-	extern	_fmemcpy_
-	extern	strlen_
+	;extern	_fmemcpy_
+	extern	strlen
 	extern	___1850ach
 	extern	___24e328h
-	extern	strcpy_
-	extern	strcat_
-	extern	strupr_
-	extern	strstr_
+	extern	strcpy
+	extern	strcat
+	extern	strupr_watcom106
+	extern	strstr
 	extern	___24e4d8h
 	extern	___24e470h
-	extern	int386x_
+	extern	int386x
 	extern	___199fd4h
 	extern	___24e4fah
 	extern	___24e4e8h
-	extern 	getTimerTicks
+	extern 	__GET_TIMER_TICKS
 
 section .text
 
@@ -244,12 +244,23 @@ __GDECL(___60a28h)
 		call    near __CHK
 		push    edx
 		push 	eax
-		call 	getTimerTicks
+
+	push 	edx
+	push 	ecx
+		call	__GET_TIMER_TICKS
+	pop 	ecx
+	pop 	edx
+
 		mov 	edx, eax
 		pop		eax
 		add     edx, eax
 ___60a41h:
-		call 	getTimerTicks
+	push 	edx
+	push 	ecx
+		call	__GET_TIMER_TICKS
+	pop 	ecx
+	pop 	edx
+
 		cmp     edx, eax
 		ja      short ___60a41h
 		pop     edx
@@ -264,7 +275,13 @@ __GDECL(___60a84h)
 		mov     ecx, 0ah
 		xor     edx, edx
 		mov     eax, ___24e3f0h
-		call    near __STOSD
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    __STOSD
+	add 	esp, 0ch
+
 		mov     eax, [___199fb8h]
 		mov     [___24e3f0h], eax
 		mov     byte [___199fb6h], 1
@@ -285,12 +302,26 @@ ___60ab7h:
 		mov     ecx, 0ah
 		xor     edx, edx
 		mov     eax, ___24e596h
-		call    near __STOSB
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    __STOSB
+	add 	esp, 0ch
+
 		mov     eax, [___24e4c0h]
 		add     eax, byte 4
 		mov     ebx, 1000h
 		xor     edx, edx
-		call    near memset_
+		
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    memset
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     eax, [___24e4c0h]
 		mov     word [eax], 0
 		mov     word [eax+2], 0
@@ -299,7 +330,15 @@ ___60ab7h:
 		add     eax, byte 4
 		mov     ebx, 1000h
 		xor     edx, edx
-		call    near memset_
+		
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    memset
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     eax, [___24e4ach]
 		mov     word [eax], 0
 		mov     word [eax+2], 0
@@ -478,11 +517,22 @@ ___60d37h:
 		dec     edx
 		cmp     edi, edx
 		jne     near ___60ea2h
-		call 	getTimerTicks
+
+	push 	edx
+	push 	ecx
+		call	__GET_TIMER_TICKS
+	pop 	ecx
+	pop 	edx
+
 		mov 	edx, eax
 		add     edx, byte 2
 ___60d5bh:
-		call 	getTimerTicks
+	push 	edx
+	push 	ecx
+		call	__GET_TIMER_TICKS
+	pop 	ecx
+	pop 	edx
+
 		cmp 	edx, eax
 		ja      short ___60d5bh
 		mov     eax, [___24e4c0h]
@@ -640,7 +690,13 @@ ___60f1eh:
 		and     edx, 0fffh
 		cmp     byte [edx+eax*1+4], 0c5h
 		jne     short ___60f17h
-		call 	getTimerTicks
+
+	push 	edx
+	push 	ecx
+		call	__GET_TIMER_TICKS
+	pop 	ecx
+	pop 	edx
+
 		mov     [___199fd0h], eax
 		xor     edx, edx
 ___60f5eh:
@@ -658,7 +714,13 @@ ___60f5eh:
 		mov     eax, [___199fd0h]
 		add     eax, byte 5
 		push 	eax
-		call 	getTimerTicks
+
+	push 	edx
+	push 	ecx
+		call	__GET_TIMER_TICKS
+	pop 	ecx
+	pop 	edx
+
 		mov 	ebx, eax
 		pop 	eax
 		cmp 	eax, ebx
@@ -795,7 +857,13 @@ ___61113h:
 		and     edx, 0fffh
 		cmp     byte [edx+eax*1+4], 0d3h
 		jne     short ___6110fh
-		call 	getTimerTicks
+
+	push 	edx
+	push 	ecx
+		call	__GET_TIMER_TICKS
+	pop 	ecx
+	pop 	edx
+
 		mov     [___199fd0h], eax
 		xor     edx, edx
 ___61158h:
@@ -813,7 +881,13 @@ ___61158h:
 		mov     eax, [___199fd0h]
 		add     eax, byte 5
 		push 	eax
-		call 	getTimerTicks
+
+	push 	edx
+	push 	ecx
+		call	__GET_TIMER_TICKS
+	pop 	ecx
+	pop 	edx
+
 		mov 	ebx, eax
 		pop 	eax
 		cmp 	eax, ebx
@@ -919,11 +993,23 @@ ___61291h:
 ___6129fh:
 		cmp     ebx, byte 2
 		je      short ___612b7h
-		call 	getTimerTicks
+
+	push 	edx
+	push 	ecx
+		call	__GET_TIMER_TICKS
+	pop 	ecx
+	pop 	edx
+
 		mov 	edx, eax
 		add     edx, byte 2
 ___612b3h:
-		call 	getTimerTicks
+
+	push 	edx
+	push 	ecx
+		call	__GET_TIMER_TICKS
+	pop 	ecx
+	pop 	edx
+
 		cmp 	edx, eax
 		ja      short ___612b3h
 ___612b7h:
@@ -1063,7 +1149,15 @@ __GDECL(___61418h)
 		mov     ebx, 32h
 		xor     edx, edx
 		mov     eax, ___24e50ch
-		call    near memset_
+		
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    memset
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     eax, [___24e54eh]
 		shr     eax, 4
 		and     eax, 0ffffh
@@ -1134,7 +1228,15 @@ __GDECL(___61518h)
 		mov     ebx, 32h
 		xor     edx, edx
 		mov     eax, ___24e554h
-		call    near memset_
+		
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    memset
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     dword [___24e564h], 0ah
 		call    near ___632e8h
 		mov     ecx, 0fh
@@ -1393,7 +1495,15 @@ ___61892h:
 		mov     ebx, 32h
 		xor     edx, edx
 		mov     eax, ___24e554h
-		call    near memset_
+		
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    memset
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     dword [___24e564h], 0ah
 		call    near ___632e8h
 ___618bbh:
@@ -1485,7 +1595,15 @@ ___619b9h:
 		mov     ebx, 32h
 		xor     edx, edx
 		mov     eax, ___24e554h
-		call    near memset_
+		
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    memset
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     dword [___24e564h], 0ah
 		call    near ___632e8h
 ___619e2h:
@@ -1511,14 +1629,22 @@ ___61a04h:
 		push    gs
 		mov     ebp, esp
 		cld     
-		call    near __GETDS
+		;call    near __GETDS
 		xor     ecx, ecx
 ___61a15h:
 		test    ecx, ecx
 		jne     near ___61aech
 		mov     eax, [___24e47ch]
 		add     eax, byte 2
-		call    near inp_
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    inp_
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		and     eax, byte 7
 		cmp     eax, byte 6
 		ja      near ___61ae2h
@@ -1526,13 +1652,29 @@ ___61a15h:
 ___61a3eh:
 		mov     eax, [___24e47ch]
 		add     eax, byte 6
-		call    near inp_
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    inp_
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     [___199fc8h], eax
 		jmp     short ___61a15h
 ___61a52h:
 		mov     eax, [___24e47ch]
 		add     eax, byte 5
-		call    near inp_
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    inp_
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     [___199fcch], eax
 		jmp     short ___61a15h
 ___61a66h:
@@ -1550,13 +1692,28 @@ ___61a6ch:
 		mov     dl, [edx+eax*1+4]
 		and     edx, 0ffh
 		mov     eax, [___24e47ch]
-		call    near outp_
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    outp_
+	add 	esp, 8
+	pop 	ecx
+
 		mov     eax, [___24e4c4h]
 		inc     word [eax+2]
 		jmp     short ___61a6ch
 ___61aa8h:
 		mov     eax, [___24e47ch]
-		call    near inp_
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    inp_
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     ebx, eax
 		mov     eax, [___24e46ch]
 		mov     dx, [eax]
@@ -1566,7 +1723,15 @@ ___61aa8h:
 		inc     word [eax]
 		mov     eax, [___24e47ch]
 		add     eax, byte 5
-		call    near inp_
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    inp_
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		test    al, 1
 		jne     short ___61aa8h
 		jmp     near ___61a15h
@@ -1576,7 +1741,14 @@ ___61ae2h:
 ___61aech:
 		mov     edx, 20h
 		mov     eax, edx
-		call    near outp_
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    outp_
+	add 	esp, 8
+	pop 	ecx
+
 		pop     gs
 		pop     fs
 		pop     es
@@ -1601,7 +1773,15 @@ ___61b00h:
 		mov     ebx, esp
 		mov     edx, esp
 		mov     eax, 31h
-		call    near int386_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    int386
+	add 	esp, 0ch
+	pop 	ecx
+
 		;mov     eax, [esp+0ch]
 		mov 	eax, __EDX(esp)
 		mov     [ecx], eax
@@ -1630,11 +1810,23 @@ __GDECL(___61b88h)
 		push    edx
 		mov     ebx, eax
 		call    near ___61bb8h
-		call 	getTimerTicks
+
+	push 	edx
+	push 	ecx
+		call	__GET_TIMER_TICKS
+	pop 	ecx
+	pop 	edx
+
 		mov 	edx, eax
 		inc     edx
 ___61ba8h:
-		call 	getTimerTicks
+
+	push 	edx
+	push 	ecx
+		call	__GET_TIMER_TICKS
+	pop 	ecx
+	pop 	edx
+
 		cmp 	edx, eax
 		ja      short ___61ba8h
 		mov     eax, ebx
@@ -1654,14 +1846,37 @@ ___61bb8h:
 		mov     ecx, eax
 		lea     ebx, [eax+4]
 		mov     eax, ebx
-		call    near inp_
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    inp_
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     edi, eax
 		mov     edx, 10h
 		mov     eax, ebx
-		call    near outp_
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    outp_
+	add 	esp, 8
+	pop 	ecx
+
 		lea     esi, [ecx+6]
 		mov     eax, esi
-		call    near inp_
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    inp_
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		test    al, 0f0h
 		je      short ___61bf6h
 		xor     eax, eax
@@ -1669,9 +1884,24 @@ ___61bb8h:
 ___61bf6h:
 		mov     edx, 1fh
 		mov     eax, ebx
-		call    near outp_
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    outp_
+	add 	esp, 8
+	pop 	ecx
+
 		mov     eax, esi
-		call    near inp_
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    inp_
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		and     eax, 0f0h
 		cmp     eax, dword 0f0h
 		je      short ___61c1dh
@@ -1685,16 +1915,46 @@ ___61bf6h:
 ___61c1dh:
 		mov     edx, edi
 		mov     eax, ebx
-		call    near outp_
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    outp_
+	add 	esp, 8
+	pop 	ecx
+
 		lea     ebx, [ecx+7]
 		mov     eax, ebx
-		call    near inp_
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    inp_
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     esi, eax
 		mov     edx, 55h
 		mov     eax, ebx
-		call    near outp_
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    outp_
+	add 	esp, 8
+	pop 	ecx
+
 		mov     eax, ebx
-		call    near inp_
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    inp_
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		cmp     eax, byte 55h
 		je      short ___61c55h
 		mov     eax, 1
@@ -1707,9 +1967,24 @@ ___61c1dh:
 ___61c55h:
 		mov     edx, 0aah
 		mov     eax, ebx
-		call    near outp_
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    outp_
+	add 	esp, 8
+	pop 	ecx
+
 		mov     eax, ebx
-		call    near inp_
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    inp_
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		cmp     eax, dword 0aah
 		je      short ___61c7ah
 		mov     eax, 1
@@ -1722,17 +1997,46 @@ ___61c55h:
 ___61c7ah:
 		mov     edx, esi
 		mov     eax, ebx
-		call    near outp_
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    outp_
+	add 	esp, 8
+	pop 	ecx
+
 		lea     ebx, [ecx+2]
 		mov     edx, 1
 		mov     eax, ebx
-		call    near outp_
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    outp_
+	add 	esp, 8
+	pop 	ecx
+
 		mov     eax, ebx
-		call    near inp_
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    inp_
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     ecx, eax
 		xor     edx, edx
 		mov     eax, ebx
-		call    near outp_
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    outp_
+	add 	esp, 8
+	pop 	ecx
+
 		test    cl, 80h
 		jne     short ___61cb4h
 		mov     eax, 2
@@ -1901,32 +2205,80 @@ ___61e9dh:
 		lea     eax, [edx+4]
 		mov     ebx, 1000h
 		xor     edx, edx
-		call    near memset_
+		
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    memset
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     eax, [___24cee0h]
 		add     eax, byte 4
 		mov     ebx, 1000h
 		xor     edx, edx
-		call    near memset_
+		
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    memset
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     eax, [___24cee4h]
 		add     eax, byte 4
 		mov     ebx, 1000h
 		xor     edx, edx
-		call    near memset_
+		
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    memset
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     eax, [___24cee8h]
 		add     eax, byte 4
 		mov     ebx, 1000h
 		xor     edx, edx
-		call    near memset_
+		
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    memset
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     eax, [___24ceech]
 		add     eax, byte 4
 		mov     ebx, 1000h
 		xor     edx, edx
-		call    near memset_
+		
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    memset
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     eax, [___24e4c0h]
 		add     eax, byte 4
 		mov     ebx, 1000h
 		xor     edx, edx
-		call    near memset_
+		
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    memset
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     ebp, [CONNECTION_TYPE]
 		cmp     ebp, byte 1
 		je      short ___61f8bh
@@ -2141,7 +2493,15 @@ ___62287h:
 		mov     ebx, 32h
 		xor     edx, edx
 		mov     eax, ___24e554h
-		call    near memset_
+		
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    memset
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     eax, [___24e4b4h]
 		shr     eax, 4
 		and     eax, 0ffffh
@@ -2158,7 +2518,15 @@ ___62287h:
 		mov     ebx, 32h
 		xor     edx, edx
 		mov     eax, ___24e554h
-		call    near memset_
+		
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    memset
+	add 	esp, 0ch
+	pop 	ecx
+
 		movsx   eax, cx
 		mov     [___24e568h], eax
 		mov     [___24e564h], edi
@@ -2189,7 +2557,15 @@ ___62332h:
 		jle     short ___62332h
 ___62355h:
 		mov     eax, esp
-		call    near _dos_gettime_
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    _dos_gettime
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		movzx   esi, byte [esp]
 		shl     esi, 18h
 		xor     eax, eax
@@ -2262,21 +2638,45 @@ ___623f9h:
 		mov     ebx, ___24e48ch
 		mov     edx, ebx
 		mov     eax, 31h
-		call    near int386_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    int386
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     __EAX(___24e48ch), esi
 		mov     eax, [___24e480h]
 		mov     __EDX(___24e48ch), eax
 		mov     ebx, ___24e48ch
 		mov     edx, ebx
 		mov     eax, 31h
-		call    near int386_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    int386
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     __EAX(___24e48ch), esi
 		mov     eax, [___24e4bch]
 		mov     __EDX(___24e48ch), eax
 		mov     ebx, ___24e48ch
 		mov     edx, ebx
 		mov     eax, 31h
-		call    near int386_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    int386
+	add 	esp, 0ch
+	pop 	ecx
+
 ___62471h:
 		cmp     dword [CONNECTION_TYPE], byte 2
 		jne     near ___62631h
@@ -2289,7 +2689,15 @@ ___62471h:
 		mov     ebx, 32h
 		xor     edx, edx
 		mov     eax, ___24e554h
-		call    near memset_
+		
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    memset
+	add 	esp, 0ch
+	pop 	ecx
+
 		movsx   eax, cx
 		mov     [___24e568h], eax
 		mov     dword [___24e564h], 1
@@ -2301,42 +2709,90 @@ ___62471h:
 		mov     ebx, ___24e48ch
 		mov     edx, ebx
 		mov     eax, 31h
-		call    near int386_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    int386
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     __EAX(___24e48ch), ecx
 		mov     eax, [___24e460h]
 		mov     __EDX(___24e48ch), eax
 		mov     ebx, ___24e48ch
 		mov     edx, ebx
 		mov     eax, 31h
-		call    near int386_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    int386
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     __EAX(___24e48ch), ecx
 		mov     eax, [___24e448h]
 		mov     __EDX(___24e48ch), eax
 		mov     ebx, ___24e48ch
 		mov     edx, ebx
 		mov     eax, 31h
-		call    near int386_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    int386
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     __EAX(___24e48ch), ecx
 		mov     eax, [___24e454h]
 		mov     __EDX(___24e48ch), eax
 		mov     ebx, ___24e48ch
 		mov     edx, ebx
 		mov     eax, 31h
-		call    near int386_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    int386
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     __EAX(___24e48ch), ecx
 		mov     eax, [___24e458h]
 		mov     __EDX(___24e48ch), eax
 		mov     ebx, ___24e48ch
 		mov     edx, ebx
 		mov     eax, 31h
-		call    near int386_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    int386
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     __EAX(___24e48ch), ecx
 		mov     eax, [___24e44ch]
 		mov     __EDX(___24e48ch), eax
 		mov     ebx, ___24e48ch
 		mov     edx, ebx
 		mov     eax, 31h
-		call    near int386_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    int386
+	add 	esp, 0ch
+	pop 	ecx
+
 		xor     ecx, ecx
 ___6258fh:
 		lea     eax, [ecx*4+0]
@@ -2347,7 +2803,15 @@ ___6258fh:
 		mov     ebx, ___24e48ch
 		mov     edx, ebx
 		mov     eax, 31h
-		call    near int386_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    int386
+	add 	esp, 0ch
+	pop 	ecx
+
 		inc     ecx
 		cmp     ecx, byte 0fh
 		jle     short ___6258fh
@@ -2362,7 +2826,15 @@ ___625cah:
 		mov     ebx, ___24e48ch
 		mov     edx, ebx
 		mov     eax, 31h
-		call    near int386_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    int386
+	add 	esp, 0ch
+	pop 	ecx
+
 		inc     ecx
 		cmp     ecx, byte 0fh
 		jle     short ___625cah
@@ -2377,7 +2849,15 @@ ___62601h:
 		mov     ebx, ___24e48ch
 		mov     edx, ebx
 		mov     eax, 31h
-		call    near int386_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    int386
+	add 	esp, 0ch
+	pop 	ecx
+
 		inc     ecx
 		cmp     ecx, byte 0fh
 		jle     short ___62601h
@@ -2389,42 +2869,90 @@ ___62631h:
 		mov     ebx, ___24e48ch
 		mov     edx, ebx
 		mov     eax, 31h
-		call    near int386_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    int386
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     __EAX(___24e48ch), ebp
 		mov     eax, [___24cf18h]
 		mov     __EDX(___24e48ch), eax
 		mov     ebx, ___24e48ch
 		mov     edx, ebx
 		mov     eax, 31h
-		call    near int386_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    int386
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     __EAX(___24e48ch), ebp
 		mov     eax, [___24cf1ch]
 		mov     __EDX(___24e48ch), eax
 		mov     ebx, ___24e48ch
 		mov     edx, ebx
 		mov     eax, 31h
-		call    near int386_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    int386
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     __EAX(___24e48ch), ebp
 		mov     eax, [___24cf20h]
 		mov     __EDX(___24e48ch), eax
 		mov     ebx, ___24e48ch
 		mov     edx, ebx
 		mov     eax, 31h
-		call    near int386_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    int386
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     __EAX(___24e48ch), ebp
 		mov     eax, [___24cf24h]
 		mov     __EDX(___24e48ch), eax
 		mov     ebx, ___24e48ch
 		mov     edx, ebx
 		mov     eax, 31h
-		call    near int386_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    int386
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     __EAX(___24e48ch), ebp
 		mov     eax, [___24e4b8h]
 		mov     __EDX(___24e48ch), eax
 		mov     ebx, ___24e48ch
 		mov     edx, ebx
 		mov     eax, 31h
-		call    near int386_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    int386
+	add 	esp, 0ch
+	pop 	ecx
+
 		pop     ebp
 		pop     edi
 		pop     esi
@@ -2462,7 +2990,15 @@ ___62c68h:
 		mov     ebx, ___24e48ch
 		mov     edx, ebx
 		mov     eax, 31h
-		call    near int386_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    int386
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     eax, __ECX(___24e48ch)
 		mov     [___24e4b0h], eax
 		mov     eax, __EDX(___24e48ch)
@@ -2473,7 +3009,15 @@ ___62c68h:
 		mov     ebx, ___24e48ch
 		mov     edx, ebx
 		mov     eax, 31h
-		call    near int386_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    int386
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     eax, __ECX(___24e48ch)
 		mov     [___24e468h], eax
 		mov     eax, __EDX(___24e48ch)
@@ -2487,35 +3031,93 @@ ___62c68h:
 		add     eax, byte 4
 		mov     ebx, 1000h
 		xor     edx, edx
-		call    near memset_
+		
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    memset
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     eax, [___24e4c4h]
 		add     eax, byte 4
 		mov     ebx, 1000h
 		xor     edx, edx
-		call    near memset_
+		
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    memset
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     eax, [esp]
 		inc     eax
 		xor     edx, edx
-		call    near outp_
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    outp_
+	add 	esp, 8
+	pop 	ecx
+
 		mov     eax, [esp]
 		add     eax, byte 3
 		mov     edx, 83h
-		call    near outp_
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    outp_
+	add 	esp, 8
+	pop 	ecx
+
 		mov     edx, ecx
 		mov     eax, [esp]
-		call    near outp_
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    outp_
+	add 	esp, 8
+	pop 	ecx
+
 		mov     eax, [esp]
 		inc     eax
 		xor     edx, edx
-		call    near outp_
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    outp_
+	add 	esp, 8
+	pop 	ecx
+
 		mov     eax, [esp]
 		add     eax, byte 3
 		mov     edx, 3
-		call    near outp_
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    outp_
+	add 	esp, 8
+	pop 	ecx
+
 		mov     eax, [esp]
 		add     eax, byte 4
 		mov     edx, 0bh
-		call    near outp_
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    outp_
+	add 	esp, 8
+	pop 	ecx
+
 		mov     edx, [esp]
 		mov     eax, edx
 		call    near ___61bb8h
@@ -2534,7 +3136,15 @@ ___62dcbh:
 		mov     eax, [___24e4d4h]
 		mov     ebx, 2
 		mov     edx, esp
-		call    near memcpy_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    memcpy
+	add 	esp, 0ch
+	pop		ecx
+
 		mov     eax, [___24e46ch]
 		shr     eax, 4
 		and     eax, 0ffffh
@@ -2543,7 +3153,15 @@ ___62dcbh:
 		add     eax, byte 2
 		mov     ebx, 2
 		lea     edx, [esp+4]
-		call    near memcpy_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    memcpy
+	add 	esp, 0ch
+	pop		ecx
+
 		mov     eax, [___24e46ch]
 		and     eax, byte 0fh
 		mov     [esp+4], eax
@@ -2551,7 +3169,15 @@ ___62dcbh:
 		add     eax, byte 4
 		mov     ebx, 2
 		lea     edx, [esp+4]
-		call    near memcpy_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    memcpy
+	add 	esp, 0ch
+	pop		ecx
+
 		mov     eax, [___24e4c4h]
 		shr     eax, 4
 		and     eax, 0ffffh
@@ -2560,7 +3186,15 @@ ___62dcbh:
 		add     eax, byte 6
 		mov     ebx, 2
 		lea     edx, [esp+4]
-		call    near memcpy_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    memcpy
+	add 	esp, 0ch
+	pop		ecx
+
 		mov     eax, [___24e4c4h]
 		and     eax, byte 0fh
 		mov     [esp+4], eax
@@ -2568,14 +3202,30 @@ ___62dcbh:
 		add     eax, byte 8
 		mov     ebx, 2
 		lea     edx, [esp+4]
-		call    near memcpy_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    memcpy
+	add 	esp, 0ch
+	pop		ecx
+
 		mov     eax, [___199fc4h]
 		mov     [esp+4], eax
 		mov     eax, [___24e4d4h]
 		add     eax, byte 0ah
 		mov     ebx, 2
 		lea     edx, [esp+4]
-		call    near memcpy_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    memcpy
+	add 	esp, 0ch
+	pop		ecx
+
 		mov     cl, [esp+8]
 		mov     eax, 1
 		shl     eax, cl
@@ -2584,7 +3234,15 @@ ___62dcbh:
 		add     eax, byte 0ch
 		mov     ebx, 2
 		lea     edx, [esp+4]
-		call    near memcpy_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    memcpy
+	add 	esp, 0ch
+	pop		ecx
+
 		mov     eax, [___24e4d4h]
 		mov     [esp+4], eax
 		lea     esi, [eax+0eh]
@@ -2597,7 +3255,7 @@ ___62dcbh:
 		;mov     ecx, cs
 		db	8ch,0c9h
 		mov     ebx, ___80000h
-		call    near _fmemcpy_
+		;call    near _fmemcpy_
 		mov     __EAX(___24e48ch), 205h
 		mov     ecx, [esp+8]
 		add     ecx, byte 8
@@ -2612,7 +3270,15 @@ ___62dcbh:
 		mov     ebx, ___24e48ch
 		mov     edx, ebx
 		mov     eax, 31h
-		call    near int386_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    int386
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     __EAX(___24e48ch), 201h
 		mov     __EBX(___24e48ch), ecx
 		mov     eax, [___24e4d4h]
@@ -2625,7 +3291,15 @@ ___62dcbh:
 		mov     ebx, ___24e48ch
 		mov     edx, ebx
 		mov     eax, 31h
-		call    near int386_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    int386
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     eax, [___199fa4h]
 		add     eax, byte 2
 		cmp     dword [___199fb0h], byte 4
@@ -2635,18 +3309,41 @@ ___62dcbh:
 ___62f85h:
 		xor     edx, edx
 ___62f87h:
-		call    near outp_
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    outp_
+	add 	esp, 8
+	pop 	ecx
+
 		xor     edx, edx
 ___62f8eh:
 		mov     eax, [___199fa4h]
-		call    near inp_
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    inp_
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		inc     edx
 		cmp     edx, byte 10h
 		jl      short ___62f8eh
 ___62f9eh:
 		mov     eax, [___199fa4h]
 		add     eax, byte 2
-		call    near inp_
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    inp_
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     edx, eax
 		and     edx, byte 7
 		cmp     edx, byte 6
@@ -2659,12 +3356,28 @@ ___62fbdh:
 ___62fc7h:
 		mov     eax, [___199fa4h]
 		add     eax, byte 5
-		call    near inp_
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    inp_
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		jmp     short ___62fe0h
 ___62fd6h:
 		mov     eax, [___199fa4h]
 ___62fdbh:
-		call    near inp_
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    inp_
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 ___62fe0h:
 		test    dl, 1
 		je      short ___62f9eh
@@ -2673,10 +3386,25 @@ ___62fe0h:
 		shl     edx, cl
 		not     edx
 		mov     eax, 21h
-		call    near inp_
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    inp_
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		and     edx, eax
 		mov     eax, 21h
-		call    near outp_
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    outp_
+	add 	esp, 8
+	pop 	ecx
+
 		cli     
 		mov     eax, [esp]
 		inc     eax
@@ -2687,10 +3415,24 @@ ___62fe0h:
 ___6301dh:
 		mov     edx, 0bh
 ___63022h:
-		call    near outp_
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    outp_
+	add 	esp, 8
+	pop 	ecx
+
 		mov     edx, 0c2h
 		mov     eax, 20h
-		call    near outp_
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    outp_
+	add 	esp, 8
+	pop 	ecx
+
 		sti     
 ___63037h:
 		add     esp, byte 10h
@@ -2708,35 +3450,93 @@ ___63040h:
 		mov     [esp], edx
 		inc     eax
 		xor     edx, edx
-		call    near outp_
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    outp_
+	add 	esp, 8
+	pop 	ecx
+
 		lea     eax, [ebx+4]
 		xor     edx, edx
-		call    near outp_
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    outp_
+	add 	esp, 8
+	pop 	ecx
+
 		lea     ecx, [ebx+3]
 		mov     edx, 83h
 		mov     eax, ecx
-		call    near outp_
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    outp_
+	add 	esp, 8
+	pop 	ecx
+
 		mov     edx, 30h
 		mov     eax, ebx
-		call    near outp_
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    outp_
+	add 	esp, 8
+	pop 	ecx
+
 		mov     edx, 3
 		mov     eax, ecx
-		call    near outp_
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    outp_
+	add 	esp, 8
+	pop 	ecx
+
 		xor     edx, edx
 ___6308fh:
 		mov     eax, ebx
-		call    near inp_
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    inp_
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		inc     edx
 		cmp     edx, byte 10h
 		jl      short ___6308fh
 		mov     eax, 21h
-		call    near inp_
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    inp_
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     cl, [esp]
 		mov     edx, 1
 		shl     edx, cl
 		or      edx, eax
 		mov     eax, 21h
-		call    near outp_
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    outp_
+	add 	esp, 8
+	pop 	ecx
+
 		mov     __EAX(___24e48ch), 201h
 		mov     ecx, [esp]
 		add     ecx, byte 8
@@ -2748,7 +3548,15 @@ ___6308fh:
 		mov     ebx, ___24e48ch
 		mov     edx, ebx
 		mov     eax, 31h
-		call    near int386_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    int386
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     __EAX(___24e48ch), 205h
 		mov     __EBX(___24e48ch), ecx
 		mov     eax, [___24e4b0h]
@@ -2758,7 +3566,15 @@ ___6308fh:
 		mov     ebx, ___24e48ch
 		mov     edx, ebx
 		mov     eax, 31h
-		call    near int386_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    int386
+	add 	esp, 0ch
+	pop 	ecx
+
 		add     esp, byte 4
 		pop     ecx
 		pop     ebx
@@ -2773,19 +3589,42 @@ ___63190h:
 		add     eax, byte 5
 		cmp     dword [CONNECTION_TYPE], byte 1
 		jne     short ___631bbh
-		call    near inp_
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    inp_
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		test    al, 40h
 		je      short ___631d0h
 		mov     edx, 3
 		jmp     short ___631c9h
 ___631bbh:
-		call    near inp_
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    inp_
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		test    al, 40h
 		je      short ___631d0h
 		mov     edx, 0bh
 ___631c9h:
 		mov     eax, ebx
-		call    near outp_
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    outp_
+	add 	esp, 8
+	pop 	ecx
+
 ___631d0h:
 		pop     edx
 		pop     ebx
@@ -2800,7 +3639,15 @@ __GDECL(___631d4h)
 		mov     ecx, eax
 		xor     ebx, ebx
 		mov     eax, ecx
-		call    near strlen_
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    strlen
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		cmp     ebx, eax
 		jb      short ___631f4h
 		pop     edx
@@ -2810,16 +3657,39 @@ __GDECL(___631d4h)
 ___631f4h:
 		mov     eax, [___199fa4h]
 		add     eax, byte 5
-		call    near inp_
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    inp_
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		test    al, 20h
 		je      short ___631f4h
 		mov     dl, [ecx+ebx*1]
 		and     edx, 0ffh
 		mov     eax, [___199fa4h]
-		call    near outp_
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    outp_
+	add 	esp, 8
+	pop 	ecx
+
 		inc     ebx
 		mov     eax, ecx
-		call    near strlen_
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    strlen
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		cmp     ebx, eax
 		jb      short ___631f4h
 		pop     edx
@@ -2832,7 +3702,14 @@ __GDECL(___63228h)
 		push    edx
 		mov     edx, ___1850ach
 		mov     eax, ___24e328h
-		call    near strcpy_
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    strcpy
+	add 	esp, 8
+	pop 	ecx
+
 		pop     edx
 		retn    
 __GDECL(___63244h)
@@ -2859,17 +3736,46 @@ ___63261h:
 		mov     [esp], al
 		mov     edx, esp
 		mov     eax, ___24e328h
-		call    near strcat_
+		
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    strcat
+	add 	esp, 8
+	pop 	ecx
+
 		mov     eax, [___24e4ach]
 		inc     word [eax+2]
 		jmp     short ___63261h
 ___6329bh:
 		mov     eax, ebx
-		call    near strupr_
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    strupr_watcom106
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     edx, eax
 		mov     eax, ___24e328h
-		call    near strupr_
-		call    near strstr_
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    strupr_watcom106
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    strstr
+	add 	esp, 8
+	pop 	ecx
+
 		test    eax, eax
 		setnz   al
 		and     eax, 0ffh
@@ -2935,11 +3841,27 @@ __GDECL(IPX_CHECK)
 		mov     ebx, 0ch
 		xor     edx, edx
 		mov     eax, ___24e470h
-		call    near memset_
+		
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    memset
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     ebx, 1ch
 		xor     edx, edx
 		mov     eax, ___24e48ch
-		call    near memset_
+		
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    memset
+	add 	esp, 0ch
+	pop 	ecx
+
 		;mov     edx, ds
 		db	8ch,0dah
 		mov     eax, ___24e470h
@@ -2952,7 +3874,14 @@ __GDECL(IPX_CHECK)
 		mov     ebx, ___24e48ch
 		mov     edx, ebx
 		mov     eax, 2fh
-		call    near int386x_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    int386x
+	add 	esp, 10h
+
 		cmp     __AL(___24e48ch), 0ffh
 		setz    al
 		and     eax, 0ffh
@@ -2974,7 +3903,15 @@ ___6364eh:
 		mov     ebx, 32h
 		xor     edx, edx
 		mov     eax, ___24e554h
-		call    near memset_
+		
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    memset
+	add 	esp, 0ch
+	pop 	ecx
+
 		lea     eax, [ebp*4+0]
 		sub     eax, ebp
 		mov     eax, [NoSplit eax*2+___24cd60h]
@@ -3026,7 +3963,15 @@ ___636d0h:
 		mov     ebx, 32h
 		xor     edx, edx
 		mov     eax, ___24e554h
-		call    near memset_
+		
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    memset
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     eax, [___24e54eh]
 		shr     eax, 4
 		and     eax, 0ffffh
@@ -3071,7 +4016,15 @@ ___63767h:
 		mov     ebx, 32h
 		xor     edx, edx
 		mov     eax, ___24e554h
-		call    near memset_
+		
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    memset
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     dword [___24e564h], 0ah
 		;mov     edx, ds
 		db	8ch,0dah
@@ -3106,7 +4059,15 @@ ___637cch:
 		mov     ebx, 32h
 		xor     edx, edx
 		mov     eax, ___24e554h
-		call    near memset_
+		
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    memset
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     edx, ecx
 		lea     eax, [edx*4+0]
 		sub     eax, edx
@@ -3156,17 +4117,40 @@ ___638ech:
 		mov     ebx, 0ch
 		xor     edx, edx
 		mov     eax, ___24e470h
-		call    near memset_
+		
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    memset
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     ebx, 1ch
 		xor     edx, edx
 		mov     eax, ___24e48ch
-		call    near memset_
+		
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    memset
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     __AX(___24e48ch), 7a00h
 		mov     ecx, ___24e470h
 		mov     ebx, ___24e48ch
 		mov     edx, ebx
 		mov     eax, 2fh
-		call    near int386x_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    int386x
+	add 	esp, 10h
+
 		cmp     __AL(___24e48ch), 0ffh
 		je      short ___63955h
 		mov     dword [___199fbch], 65h
@@ -3262,7 +4246,15 @@ ___63957h:
 		mov     ebx, 32h
 		xor     edx, edx
 		mov     eax, ___24e554h
-		call    near memset_
+		
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    memset
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     dword [___24e564h], 1ah
 		call    near ___632e8h
 		mov     eax, [___24e570h]
@@ -3335,7 +4327,15 @@ ___63b4ah:
 		mov     ebx, 32h
 		xor     edx, edx
 		mov     eax, ___24e4d8h
-		call    near memset_
+		
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    memset
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     eax, [___24e45ch]
 		shr     eax, 4
 		and     eax, 0ffffh

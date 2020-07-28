@@ -26,12 +26,12 @@ cpu 386
 	extern	___181118h
 	extern	___185c0bh
 	extern	___1a1108h
-	extern	itoa_
-	extern	strupr_
+	extern	itoa_watcom106
+	extern	strupr_watcom106
 	extern	___1854c8h
 	extern	___17510h
 	extern	___18114ch
-	extern	sscanf_
+	extern	sscanf
 	extern	___181150h
 	extern	___1855c8h
 	extern	___18117ch
@@ -473,9 +473,25 @@ ___1f40dh:
 		mov     ebx, 10h
 		mov     edx, esp
 		mov     eax, [___199fa4h]
-		call    near itoa_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    itoa_watcom106
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     eax, esp
-		call    near strupr_
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    strupr_watcom106
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		push    byte 0
 		push    byte 1
 		push    byte 1
@@ -493,7 +509,7 @@ ___1f40dh:
 		push    ___18114ch
 		lea     eax, [esp+8]
 		push    eax
-		call    near sscanf_
+		call    sscanf
 		add     esp, byte 0ch
 		mov     eax, [esp+50h]
 		mov     [___199fa4h], eax
@@ -545,9 +561,25 @@ ___1f40dh:
 		mov     ebx, 0ah
 		mov     edx, esp
 		mov     eax, [___199fa8h]
-		call    near itoa_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    itoa_watcom106
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     eax, esp
-		call    near strupr_
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    strupr_watcom106
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		push    byte 0
 		push    byte 1
 		push    byte 1
@@ -565,7 +597,7 @@ ___1f40dh:
 		lea     eax, [esp+8]
 		push    eax
 		mov     ebx, 4
-		call    near sscanf_
+		call    sscanf
 		add     esp, byte 0ch
 		mov     ecx, 28f00h
 		mov     [___1a1e50h], ebx

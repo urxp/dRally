@@ -19,7 +19,7 @@ typedef struct NetPage {
 	extern char ___24e328h[];
 
 	void ___6168ch(void);
-	char * STRUPR_D(char * s);
+	char * strupr_watcom106(char * s);
 
 static void npg_writeb(NetPage * npg, byte b){
 
@@ -49,5 +49,5 @@ dword ___63244h(char * A1){
 		strcat(___24e328h, buff);
 	}
 
-	return (strstr(STRUPR_D(___24e328h), STRUPR_D(A1)) != 0) ? 1 : 0;
+	return (strstr(strupr_watcom106(___24e328h), strupr_watcom106(A1)) != 0) ? 1 : 0;
 }

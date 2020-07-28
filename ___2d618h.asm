@@ -4,7 +4,7 @@ cpu 386
 	extern	__CHK
 	extern	___13248h
 	extern	___192d20h
-	extern	___13094h
+	extern	___13094h_cdecl
 	extern	___192d48h
 	extern	___192d70h
 	extern	___192d98h
@@ -27,22 +27,64 @@ __GDECL(___2d618h)
 		call    near ___13248h
 		mov     edx, 136aah
 		mov     eax, ___192d20h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, 15eaah
 		mov     eax, ___192d48h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, 186aah
 		mov     eax, ___192d70h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, 1aeaah
 		mov     eax, ___192d98h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, 1d6aah
 		mov     eax, ___192dc0h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, 1feaah
 		mov     eax, ___192de8h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		pop     edx
 		pop     ecx
 		pop     ebx

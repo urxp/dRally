@@ -6,7 +6,7 @@ cpu 386
 	extern	___196adch
 	extern	___1a112ch__VESA101_ACTIVESCREEN_PTR
 	extern	___1a0fc0h
-	extern	itoa_
+	extern	itoa_watcom106
 	extern	___185ba9h
 	extern	___1a10cch
 	extern	___12e78h_cdecl
@@ -93,7 +93,15 @@ ___35ea3h:
 		mov     ebx, 0ah
 		lea     edx, [esp+14h]
 		lea     eax, [ebp+1]
-		call    near itoa_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    itoa_watcom106
+	add 	esp, 0ch
+	pop 	ecx
+
 		test    ebp, ebp
 		jne     short ___35ee2h
 		mov     ecx, [esp+10h]

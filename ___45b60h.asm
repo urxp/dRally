@@ -9,7 +9,7 @@ cpu 386
 	extern	___1a33c4h
 	extern	___1a4ec2h
 	extern	___1a33c8h
-	extern	DISPLAY_SET_PALETTE_COLOR
+	extern	__DISPLAY_SET_PALETTE_COLOR
 
 section .text
 
@@ -82,7 +82,10 @@ ___45b86h:
 		xor     eax, eax
 		mov     al, bl
 		push    eax
-		call    near DISPLAY_SET_PALETTE_COLOR
+
+		call    __DISPLAY_SET_PALETTE_COLOR
+		add 	esp, 10h
+		
 		mov     ecx, [esp+4]
 		inc     ecx
 		add     esi, byte 0ch

@@ -101,7 +101,13 @@ ___3df2ch:
 		mov     ecx, 13h
 		mov     eax, ___1a202fh
 		xor     edx, edx
-		call    near __STOSB
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    __STOSB
+	add 	esp, 0ch
+
 		xor     dh, dh
 		mov     [___1a2148h], dh
 ___3e030h:

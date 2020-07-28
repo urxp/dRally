@@ -5,7 +5,7 @@ cpu 386
 	extern 	__MOVS
 	extern	___1a01e0h
 	extern	___3f71ch__allocateMemory
-	extern	___3f77ch__freeMemory
+	extern	dRally_Memory_free
 	extern	___1a1ef8h
 	extern	___1a0224h
 	extern	___1a0228h
@@ -75,7 +75,15 @@ ___30cc7h:
 ___30cf3h:
 		mov     eax, [esp]
 		mov     edx, [esp+8]
-		call    near ___3f77ch__freeMemory
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    dRally_Memory_free
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     eax, [___1a1ef8h]
 		sub     edx, eax
 		mov     [___1a1ef8h], edx
@@ -149,7 +157,15 @@ ___30da7h:
 ___30dd3h:
 		mov     eax, [esp+4]
 		mov     edx, [esp+0ch]
-		call    near ___3f77ch__freeMemory
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    dRally_Memory_free
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     eax, [___1a1ef8h]
 		sub     edx, eax
 		mov     [___1a1ef8h], edx

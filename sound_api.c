@@ -196,7 +196,6 @@ void dRally_Sound_quit(void){
 		printf("[dRally.SOUND] Closing audio device.\n");
 
 		SDL_PauseAudioDevice(audio_dev, 1);
-		SDL_ClearQueuedAudio(audio_dev);
 		SDL_CloseAudioDevice(audio_dev);
 	}
 }

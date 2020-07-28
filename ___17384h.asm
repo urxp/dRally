@@ -5,7 +5,7 @@ cpu 386
 	extern 	___2ab50h
 	extern 	___196ae0h
 	extern 	___1a112ch__VESA101_ACTIVESCREEN_PTR
-	extern 	memset_
+	extern 	memset
 	extern 	___185ba9h
 	extern 	___1a10e0h
 	extern 	___18072ch
@@ -30,7 +30,15 @@ __GDECL(___17384h)
 		mov     [esp+4], edx
 		mov     esi, ebx
 		mov     [esp], ecx
-		call    near ___2ab50h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2ab50h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+	
 		mov     edx, [___196ae0h]
 		inc     edx
 		mov     [___196ae0h], edx
@@ -51,7 +59,15 @@ ___173d1h:
 		mov     edx, 0c4h
 		add     eax, esi
 		add     ecx, 280h
-		call    near memset_
+		
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    memset
+	add 	esp, 0ch
+	pop 	ecx
+
 		cmp     ecx, ebp
 		je      short ___17420h
 		jmp     short ___173d1h

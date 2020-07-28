@@ -16,7 +16,7 @@ cpu 386
 	extern	___19eb50h
 	extern	___19eb54h
 	extern	___19eb58h
-	extern	DISPLAY_SET_PALETTE_COLOR
+	extern	__DISPLAY_SET_PALETTE_COLOR
 	extern	___1828c8h
 	extern	___1828d4h
 	extern	___3d9c0h
@@ -59,7 +59,7 @@ cpu 386
 	extern	___605deh_cdecl
 	extern	kmap
 	extern	___12cb8h__VESA101_PRESENTSCREEN
-	extern 	VESA101_SETMODE
+	extern 	__VESA101_SETMODE
 
 section .text
 
@@ -169,7 +169,10 @@ ___3db31h:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near DISPLAY_SET_PALETTE_COLOR
+
+		call    __DISPLAY_SET_PALETTE_COLOR
+		add 	esp, 10h
+		
 		mov     ebx, [esp+64h]
 		inc     ebx
 		add     edi, byte 0ch
@@ -357,7 +360,12 @@ ___3dbe4h:
 	pop 	ecx
 	pop 	edx
 
-		call 	VESA101_SETMODE
+	push 	edx
+	push 	ecx
+		call 	__VESA101_SETMODE
+	pop 	ecx
+	pop 	edx
+
 		mov     eax, 3ch
 		;mov     ebx, edi
 		mov     edx, edi
@@ -455,7 +463,10 @@ ___3de07h:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near DISPLAY_SET_PALETTE_COLOR
+
+		call    __DISPLAY_SET_PALETTE_COLOR
+		add 	esp, 10h
+		
 		mov     eax, [esp+64h]
 		inc     eax
 		add     edi, byte 0ch

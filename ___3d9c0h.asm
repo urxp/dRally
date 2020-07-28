@@ -10,7 +10,7 @@ cpu 386
 	extern	bpk_decode2
 	extern	___12cb8h__VESA101_PRESENTSCREEN
 	extern	___3d1f0h
-	extern	VRETRACE_WAIT_FOR_START
+	extern	__VRETRACE_WAIT_FOR_START
 	extern	___5994ch
 	extern	___3d2bch
 
@@ -66,7 +66,12 @@ __GDECL(___3d9c0h)
 ___3da0bh:
 		test    esi, esi
 		jle     short ___3da20h
-		call    near VRETRACE_WAIT_FOR_START
+
+	push 	edx
+	push 	ecx
+		call    __VRETRACE_WAIT_FOR_START
+	pop 	ecx
+	pop 	edx
 
 	push 	edx
 	push 	ecx

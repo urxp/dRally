@@ -46,8 +46,24 @@ ___1733eh:
 
 		mov     bl, al
 ___17354h:
-		call    near ___2ab50h
-		call    near ___2ab50h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2ab50h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+	
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2ab50h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+	
 		mov     edx, 141h
 		mov     eax, 0a4h
 		inc     bh

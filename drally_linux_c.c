@@ -1,25 +1,15 @@
 #include "drally.h"
 
-#define W_WIDTH 	640
-#define W_HEIGHT 	480
+#define W_WIDTH 	1024//640
+#define W_HEIGHT 	768//480
 
 
 #pragma pack(1)
-
-struct dostime_t {
-    unsigned char   hour;       /* 0-23 */
-    unsigned char   minute;     /* 0-59 */
-    unsigned char   second;     /* 0-59 */
-    unsigned char   hsecond;    /* 1/100 second; 0-99 */
-};
 typedef struct textbit {
 	unsigned char 	ascii;
 	unsigned char 	fg:4;
 	unsigned char 	bg:3;
 } textbit;
-
-
-struct tm TimeInit;
 
 unsigned int INT8_FRAME_COUNTER = 0;
 extern unsigned int ___60458h;
@@ -37,7 +27,7 @@ void IO_Loop(void);
 void __VGA13_PRESENTSCREEN__(void);
 void __VESA101_PRESENTSCREEN__(void);
 void __PRESENTSCREEN__(void);
-unsigned char POP_LAST_KEY();
+byte dRally_Keyboard_popLastKey();
 
 static struct GX {
 	enum { VGA3, VGA13, VESA101 } ActiveMode;
@@ -130,34 +120,6 @@ void __TIMER_SET_TIMER(void){
 	//Ticks = SDL_GetTicks();
 }
 
-unsigned int __GET_TIMER_TICKS(void){
-
-	time_t 		tmt;
-	struct tm 	ltm;
-
-	time(&tmt);
-	localtime_r(&tmt, &ltm);
-
-	return 1640625ULL*(3600*ltm.tm_hour+60*ltm.tm_min+ltm.tm_sec)/90112;
-}
-
-
-void _dos_gettime(struct dostime_t * __time){
-
-	Uint32 now;
-
-	now = SDL_GetTicks();
-	__time->hsecond = (now%1000)/10;
-	now /= 1000;
-	now += 3600*TimeInit.tm_hour+60*TimeInit.tm_min+TimeInit.tm_sec;
-    __time->second = now%60;
-	now /= 60;
-    __time->minute = now%60;
-	now /= 60;
-    __time->hour = now%24;
-}
-
-
 void __WAIT_5(void){
 
 	unsigned int tmp = 5;
@@ -165,7 +127,7 @@ void __WAIT_5(void){
 	tmp *= ___60458h;
 	tmp += __GET_FRAME_COUNTER();
 
-	while((__GET_FRAME_COUNTER() < tmp) && !POP_LAST_KEY());
+	while((__GET_FRAME_COUNTER() < tmp) && !dRally_Keyboard_popLastKey());
 }
 
 /*
@@ -381,6 +343,7 @@ void dRally_Display_init(void){
 
 		SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "2");
 		GX.Renderer = SDL_CreateRenderer(GX.Window, -1, SDL_RENDERER_ACCELERATED);
+		//GX.Renderer = SDL_CreateRenderer(GX.Window, -1, SDL_RENDERER_SOFTWARE);
 	}
 }
 
@@ -403,9 +366,9 @@ void __VGA13_SETMODE(void){
 	if(GX.ActiveMode != VGA13){
 
 		GX.Surface = GX.VGA13.Surface;
-		SDL_SetRenderDrawColor(GX.Renderer, 0, 0, 0, 255);
-		SDL_RenderClear(GX.Renderer);
-		SDL_RenderPresent(GX.Renderer);
+	//	SDL_SetRenderDrawColor(GX.Renderer, 0, 0, 0, 255);
+	//	SDL_RenderClear(GX.Renderer);
+	//	SDL_RenderPresent(GX.Renderer);
 		SDL_RenderSetLogicalSize(GX.Renderer, 320, 200);
 		if(SDL_GetWindowFlags(GX.Window)&SDL_WINDOW_HIDDEN) SDL_ShowWindow(GX.Window);
 		GX.ActiveMode = VGA13;
@@ -446,31 +409,6 @@ void __DISPLAY_GET_PALETTE_COLOR(unsigned char * dst, unsigned char n){
 		dst[1] = GX.Surface->format->palette->colors[n].g >> 2;
 		dst[2] = GX.Surface->format->palette->colors[n].b >> 2;
 	}
-}
-
-void dRally_Sound_quit(void);
-
-int main(int argc, char * argv[]){
-
-	time_t 		tmt;
-
-	if(SDL_Init(SDL_INIT_VIDEO)){
-		
-		SDL_Log("Failed to init video subsystem: %s", SDL_GetError());
-		return 0;
-	}
-
-	time(&tmt);
-	localtime_r(&tmt, &TimeInit);
-
-	dRally_Display_init();
-	dRally_main(argc, argv);
-
-	dRally_Sound_quit();
-	dRally_Display_clean();
-	SDL_Quit();
-
-	return 0;
 }
 
 void save_s3m(void * src, unsigned int size, const char * name){

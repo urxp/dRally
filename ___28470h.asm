@@ -20,8 +20,24 @@ __GDECL(___28470h)
 		push    esi
 		push    edi
 		push    ebp
-		call    near ___2ab50h
-		call    near ___2ab50h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2ab50h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+	
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2ab50h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+	
 		mov     ebx, [___1a1ee4h]
 		mov     edx, 8dh
 		shl     ebx, 8
@@ -40,8 +56,24 @@ __GDECL(___28470h)
 		xor     ecx, ecx
 		mov     [___1a1ed0h], ecx
 ___284d6h:
-		call    near ___2ab50h
-		call    near ___2ab50h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2ab50h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+	
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2ab50h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+	
 		mov     ebx, [___1a1ee4h]
 		mov     edx, 8dh
 		shl     ebx, 8
@@ -60,8 +92,24 @@ ___284d6h:
 		xor     ebp, ebp
 		mov     [___1a1ed0h], ebp
 ___2852ch:
-		call    near ___2ab50h
-		call    near ___2ab50h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2ab50h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+	
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2ab50h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+	
 		mov     ebx, [___1a1ee4h]
 		mov     edx, 8dh
 		shl     ebx, 8
@@ -80,8 +128,24 @@ ___2852ch:
 		xor     ebx, ebx
 		mov     [___1a1ed0h], ebx
 ___28580h:
-		call    near ___2ab50h
-		call    near ___2ab50h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2ab50h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+	
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2ab50h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+	
 		mov     ebx, [___1a1ee4h]
 		mov     edx, 8dh
 		shl     ebx, 8

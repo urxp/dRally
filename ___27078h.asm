@@ -12,7 +12,7 @@ cpu 386
 	extern	___1a01b8h
 	extern	___259e0h
 	extern	___18e2a4h
-	extern	itoa_
+	extern	itoa_watcom106
 	extern	___180728h
 	extern	___25180h
 	extern	___12f60h
@@ -20,7 +20,7 @@ cpu 386
 	extern	___1a1ef8h
 	extern	___1a01fch
 	extern	___18e298h
-	extern	___13094h
+	extern	___13094h_cdecl
 	extern	___1a1e78h
 
 section .text
@@ -101,7 +101,15 @@ ___270fdh:
 		mov     edx, esp
 		mov     eax, [eax+___18e2a4h]
 		lea     edi, [esp+14h]
-		call    near itoa_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    itoa_watcom106
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     ax, [___180728h]
 		mov     esi, esp
 		mov     [esp+14h], ax
@@ -131,7 +139,14 @@ ___270fdh:
 		add     eax, ___18e298h
 		mov     edx, 136aah
 		add     eax, 1f0h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, [___1a1ef8h]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
@@ -146,7 +161,14 @@ ___270fdh:
 		add     eax, ___18e298h
 		mov     edx, 15eaah
 		add     eax, 218h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, [___1a1ef8h]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
@@ -161,7 +183,14 @@ ___270fdh:
 		add     eax, ___18e298h
 		mov     edx, 186aah
 		add     eax, 240h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, [___1a1ef8h]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
@@ -176,7 +205,14 @@ ___270fdh:
 		add     eax, ___18e298h
 		mov     edx, 1aeaah
 		add     eax, 268h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, [___1a1ef8h]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
@@ -191,7 +227,14 @@ ___270fdh:
 		add     eax, ___18e298h
 		mov     edx, 1d6aah
 		add     eax, 290h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, [___1a1ef8h]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
@@ -207,7 +250,14 @@ ___270fdh:
 		mov     edx, 1feaah
 		add     eax, 2b8h
 		mov     ecx, 40h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, 10h
 		mov     ebx, [___1a112ch__VESA101_ACTIVESCREEN_PTR]
 		mov     esi, [___1a1e78h]

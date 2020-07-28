@@ -9,7 +9,7 @@ cpu 386
 	extern 	___1a112ch__VESA101_ACTIVESCREEN_PTR
 	extern 	___1a1e58h
 	extern 	___18c812h
-	extern 	___13094h
+	extern 	___13094h_cdecl
 	extern 	___18c862h
 	extern 	___18c8b2h
 	extern 	___18c902h
@@ -232,34 +232,104 @@ ___16a26h:
 		jne     near ___16cf2h
 		mov     edx, eax
 		mov     eax, ___18c812h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, [esp+38h]
 		mov     eax, ___18c862h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     eax, ___18c8b2h
 		mov     edx, esi
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, [esp+40h]
 		mov     eax, ___18c902h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, [esp+44h]
 		mov     eax, ___18c952h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     eax, ___18c9a2h
 		mov     edx, ecx
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, [esp+48h]
 		mov     eax, ___18c9f2h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, [esp+3ch]
 		mov     eax, ___18ca42h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, [esp+4ch]
 		mov     eax, ___18ca92h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     eax, ___18cae2h
 		mov     edx, ebx
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     ebx, [___1a1ef8h]
 		lea     eax, [ebx*8+0]
 		sub     eax, ebx
@@ -313,34 +383,104 @@ ___16cbfh:
 ___16cf2h:
 		mov     edx, eax
 		mov     eax, ___18cb32h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, [esp+38h]
 		mov     eax, ___18cb82h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     eax, ___18cbd2h
 		mov     edx, esi
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, [esp+40h]
 		mov     eax, ___18cc22h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, [esp+44h]
 		mov     eax, ___18cc72h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     eax, ___18ccc2h
 		mov     edx, ecx
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, [esp+48h]
 		mov     eax, ___18cd12h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, [esp+3ch]
 		mov     eax, ___18cd62h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, [esp+4ch]
 		mov     eax, ___18cdb2h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     eax, ___18ce02h
 		mov     edx, ebx
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     ebx, [___1a1ef8h]
 		lea     eax, [ebx*8+0]
 		sub     eax, ebx

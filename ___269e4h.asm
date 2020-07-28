@@ -11,7 +11,7 @@ cpu 386
 	extern	___259e0h
 	extern	___1a1ef8h
 	extern	___1a01ech
-	extern	itoa_
+	extern	itoa_watcom106
 	extern	___185c7ah
 	extern	___251e8h
 	extern	___1a10b8h
@@ -25,7 +25,7 @@ cpu 386
 	extern	___12f60h
 	extern	___13248h
 	extern	___194170h
-	extern	___13094h
+	extern	___13094h_cdecl
 
 section .text
 
@@ -79,7 +79,15 @@ ___26a15h:
 		mov     eax, edx
 		mov     edx, esp
 		mov     ecx, 27f1ah
-		call    near itoa_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    itoa_watcom106
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     eax, esp
 		mov     ebx, esp
 		mov     edx, ___185c7ah
@@ -137,7 +145,15 @@ ___26b2ah:
 		imul    eax, [ebx+___1a01ech]
 		mov     ebx, ecx
 		mov     edx, esp
-		call    near itoa_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    itoa_watcom106
+	add 	esp, 0ch
+	pop 	ecx
+
 		jmp     near ___26bdfh
 ___26b3fh:
 		mov     eax, ___181f60h
@@ -190,7 +206,15 @@ ___26bb6h:
 		mov     edx, esp
 		mov     eax, [esi+___18e974h]
 ___26bdah:
-		call    near itoa_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    itoa_watcom106
+	add 	esp, 0ch
+	pop 	ecx
+
 ___26bdfh:
 		mov     esi, esp
 		mov     ax, [___180728h]
@@ -323,22 +347,64 @@ ___26dcbh:
 		add     esi, eax
 		mov     edx, 136aah
 		mov     eax, esi
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, 15eaah
 		lea     eax, [esi+28h]
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, 186aah
 		lea     eax, [esi+50h]
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, 1aeaah
 		lea     eax, [esi+78h]
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, 1d6aah
 		lea     eax, [esi+0a0h]
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, 1feaah
 		lea     eax, [esi+0c8h]
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		add     esp, byte 28h
 		pop     ebp
 		pop     edi

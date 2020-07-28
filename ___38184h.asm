@@ -7,13 +7,13 @@
 	extern 	__STRCPY
 	extern	___180724h
 	extern	___1a0228h
-	extern	itoa_
+	extern	itoa_watcom106
 	extern	___185c7ah
 	extern	___251e8h
 	extern	___1a10b8h
 	extern	___12e78h_cdecl
 	extern	___1a01e0h
-	extern	strupr_
+	extern	strupr_watcom106
 	extern	___1a112ch__VESA101_ACTIVESCREEN_PTR
 	extern	___1a0220h
 	extern	___19de70h
@@ -104,7 +104,15 @@ ___3826eh:
 		mov     esi, ___180724h
 		mov     eax, [eax+___1a0228h]
 		mov     edi, esp
-		call    near itoa_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    itoa_watcom106
+	add 	esp, 0ch
+	pop 	ecx
+
 		call 	__STRCAT
 		mov     eax, [esp+34h]
 		imul    eax, ebp
@@ -135,7 +143,15 @@ ___3826eh:
 		call 	__STRCPY
 		mov     eax, esp
 		mov     edx, ___185c7ah
-		call    near strupr_
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    strupr_watcom106
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     eax, [___1a10b8h]
 
 	push 	ecx

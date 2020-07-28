@@ -5,7 +5,6 @@ cpu 386
 	extern 	___19dec0h
 	extern 	___1a0ffch
 	extern 	___1a0ffbh
-	extern 	___18918h
 
 section .text
 
@@ -82,3 +81,11 @@ ___1988bh:
 		jge     near ___18918h
 		mov     [esp+4], ebx
 		jmp     near ___197eah
+___18918h:
+		add     esp, byte 0ch
+		pop     ebp
+		pop     edi
+		pop     esi
+		pop     ecx
+		pop     ebx
+		retn    

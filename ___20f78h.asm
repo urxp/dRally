@@ -39,7 +39,15 @@ __GDECL(___20f78h)
 		mov     [___199f3ch], ah
 		mov     ecx, 201h
 ___20f99h:
-		call    near ___2ab50h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2ab50h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+	
 		cmp     dword [___19bd58h], byte 0
 		jle     near ___2105dh
 		call    near ___59db8h
@@ -74,25 +82,57 @@ ___21001h:
 		mov     dl, [___199f41h]
 ___21019h:
 		mov     eax, ecx
-		call    near inp_
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    inp_
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		test    al, 10h
 		jne     short ___2102ah
 		mov     dl, [___199f42h]
 ___2102ah:
 		mov     eax, ecx
-		call    near inp_
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    inp_
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		test    al, 20h
 		jne     short ___2103bh
 		mov     dl, [___199f43h]
 ___2103bh:
 		mov     eax, ecx
-		call    near inp_
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    inp_
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		test    al, 40h
 		jne     short ___2104ch
 		mov     dl, [___199f44h]
 ___2104ch:
 		mov     eax, ecx
-		call    near inp_
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    inp_
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		test    al, 80h
 		jne     short ___2105dh
 		mov     dl, [___199f45h]

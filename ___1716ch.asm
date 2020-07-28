@@ -4,7 +4,7 @@ cpu 386
 	extern 	__CHK
 	extern 	___13248h
 	extern 	___18c1d2h
-	extern 	___13094h
+	extern 	___13094h_cdecl
 	extern 	___18c222h
 	extern 	___18c272h
 	extern 	___18c2c2h
@@ -35,36 +35,106 @@ __GDECL(___1716ch)
 		call    near ___13248h
 		mov     edx, 160bch
 		mov     eax, ___18c1d2h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, 188bch
 		mov     eax, ___18c222h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, 1b0bch
 		mov     eax, ___18c272h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, 1d8bch
 		mov     eax, ___18c2c2h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, 200bch
 		mov     eax, ___18c312h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, 228bch
 		mov     eax, ___18c362h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, 250bch
 		mov     eax, ___18c3b2h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, 278bch
 		mov     eax, ___18c402h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, 2a0bch
 		mov     eax, ___18c452h
 		mov     ecx, 316c0h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, 2c8bch
 		mov     eax, ___18c4a2h
 		mov     ebx, ___180694h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10cch]
 

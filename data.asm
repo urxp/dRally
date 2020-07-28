@@ -136,7 +136,8 @@ db 	"MUSICS.BPA",0,0
 __GDECL(___180130h)
 db	0,0,0,0
 __GDECL(___180134h)
-db	72h,62h,0,0
+;db	72h,62h,0,0
+db 	"rb",0,0
 __GDECL(___180138h)
 db	"FRAMES.BPK",0,0
 __GDECL(___180144h)
@@ -180,11 +181,13 @@ __GDECL(___180268h)
 db 	"DEATH RALLY MP-ERROR: Unknown error!",0ah,0,0,0
 
 __GDECL(___180290h)
-db	50h,6ch,65h,61h,73h,65h,20h,63h,6fh,6eh,73h,75h,6ch,74h,20h,44h
-db	52h,48h,45h,4ch,50h,2eh,45h,58h,45h,20h,66h,6fh,72h,20h,6dh,6fh
-db	72h,65h,20h,69h,6eh,66h,6fh,72h,6dh,61h,74h,69h,6fh,6eh,20h,6fh
-db	6eh,20h,68h,6fh,77h,20h,74h,6fh,20h,72h,65h,73h,6fh,6ch,76h,65h
-db	20h,74h,68h,69h,73h,20h,70h,72h,6fh,62h,6ch,65h,6dh,2eh,0ah,0
+;db	50h,6ch,65h,61h,73h,65h,20h,63h,6fh,6eh,73h,75h,6ch,74h,20h,44h
+;db	52h,48h,45h,4ch,50h,2eh,45h,58h,45h,20h,66h,6fh,72h,20h,6dh,6fh
+;db	72h,65h,20h,69h,6eh,66h,6fh,72h,6dh,61h,74h,69h,6fh,6eh,20h,6fh
+;db	6eh,20h,68h,6fh,77h,20h,74h,6fh,20h,72h,65h,73h,6fh,6ch,76h,65h
+;db	20h,74h,68h,69h,73h,20h,70h,72h,6fh,62h,6ch,65h,6dh,2eh,0ah,0
+db 	"Please consult DRHELP.EXE for more information on how to resolve this problem.",0ah,0
+
 __GDECL(___1802e0h)
 db	0,0,0,0,0,0,24h,40h
 __GDECL(___1802e8h)
@@ -207,9 +210,11 @@ times 0f4h db 0
 times 0ch db 0
 
 __GDECL(___18068ch)
-db	79h,65h,73h,0
+;db	79h,65h,73h,0
+db 	"yes",0
 __GDECL(___180690h)
-db	6eh,6fh,0,0
+;db	6eh,6fh,0,0
+db 	"no",0,0
 __GDECL(___180694h)
 ;db	43h,4fh,4eh,54h,49h,4eh,55h,45h,0,0,0,0
 db 	"CONTINUE",0,0,0,0
@@ -255,15 +260,20 @@ __GDECL(___180730h)
 db	55h,6eh,64h,65h,72h,20h,63h,6fh,6eh,73h,74h,72h,75h,63h,74h,69h
 db	6fh,6eh,2eh,2eh,2eh,0,0,0
 __GDECL(___180748h)
-db	45h,6dh,70h,74h,79h,20h,53h,6ch,6fh,74h,0,0
+;db	45h,6dh,70h,74h,79h,20h,53h,6ch,6fh,74h,0,0
+db 	"Empty Slot",0,0
 __GDECL(___180754h)
-db	44h,52h,2eh,53h,47h,0,0,0
+;db	44h,52h,2eh,53h,47h,0,0,0
+db 	"DR.SG",0,0,0
 __GDECL(___18075ch)
-db	51h,75h,69h,63h,6bh,73h,61h,76h,65h,20h,53h,6ch,6fh,74h,0,0
+;db	51h,75h,69h,63h,6bh,73h,61h,76h,65h,20h,53h,6ch,6fh,74h,0,0
+db 	"Quicksave Slot",0,0
 __GDECL(___18076ch)
-db	45h,6eh,74h,65h,72h,20h,54h,68h,65h,20h,53h,68h,6fh,70h,0,0
+;db	45h,6eh,74h,65h,72h,20h,54h,68h,65h,20h,53h,68h,6fh,70h,0,0
+db 	"Enter The Shop",0,0
 __GDECL(___18077ch)
-db	43h,6fh,6eh,74h,69h,6eh,75h,65h,20h,52h,61h,63h,69h,6eh,67h,0
+;db	43h,6fh,6eh,74h,69h,6eh,75h,65h,20h,52h,61h,63h,69h,6eh,67h,0
+db 	"Continue Racing",0
 __GDECL(___18078ch)
 ;db	47h,61h,6dh,65h,20h,4ch,6fh,61h,64h,65h,64h,2eh,0,0,0,0
 db 	"Game Loaded.",0,0,0,0
@@ -271,7 +281,8 @@ __GDECL(___18079ch)
 db	45h,6eh,74h,65h,72h,20h,74h,68h,65h,20h,6eh,61h,6dh,65h,20h,6fh
 db	66h,20h,73h,61h,76h,65h,20h,67h,61h,6dh,65h,3fh,0,0,0,0
 __GDECL(___1807bch)
-db	77h,62h,0,0
+;db	77h,62h,0,0
+db 	"wb",0,0
 __GDECL(___1807c0h)
 ;db	47h,61h,6dh,65h,20h,53h,61h,76h,65h,64h,2eh,0
 db 	"Game Saved.",0
@@ -283,13 +294,16 @@ __GDECL(___1807e8h)
 ;db	46h,31h,0,0
 db 	"F1",0,0
 __GDECL(___1807ech)
-db	53h,74h,61h,72h,74h,20h,41h,20h,4eh,65h,77h,20h,47h,61h,6dh,65h
-db	0,0,0,0
+;db	53h,74h,61h,72h,74h,20h,41h,20h,4eh,65h,77h,20h,47h,61h,6dh,65h
+;db	0,0,0,0
+db 	"Start A New Game",0,0,0,0
 __GDECL(___180800h)
-db	45h,6eh,64h,20h,63h,75h,72h,72h,65h,6eh,74h,20h,67h,61h,6dh,65h
-db	3fh,0,0,0
+;db	45h,6eh,64h,20h,63h,75h,72h,72h,65h,6eh,74h,20h,67h,61h,6dh,65h
+;db	3fh,0,0,0
+db 	"End current game?",0,0,0
 __GDECL(___180814h)
-db	53h,74h,61h,72h,74h,20h,52h,61h,63h,69h,6eh,67h,0,0,0,0
+;db	53h,74h,61h,72h,74h,20h,52h,61h,63h,69h,6eh,67h,0,0,0,0
+db 	"Start Racing",0,0,0,0
 __GDECL(___180824h)
 db	57h,61h,69h,74h,2eh,2eh,2eh,0
 __GDECL(___18082ch)
@@ -588,7 +602,8 @@ db	20h,43h,4fh,4dh,2dh,70h,6fh,72h,74h,20h,62h,61h,73h,65h,20h,61h
 db	64h,64h,72h,65h,73h,73h,20h,28h,69h,6eh,20h,68h,65h,78h,29h,3fh
 db	0,0,0,0
 __GDECL(___18114ch)
-db	25h,78h,0,0
+;db	25h,78h,0,0
+db 	"%x",0,0
 __GDECL(___181150h)
 db	45h,6eh,74h,65h,72h,20h,74h,68h,65h,20h,43h,75h,73h,74h,6fh,6dh
 db	20h,43h,4fh,4dh,2dh,70h,6fh,72h,74h,20h,49h,52h,51h,20h,28h,69h
@@ -914,13 +929,16 @@ __GDECL(___181be4h)
 db	47h,61h,6dh,65h,70h,61h,64h,20h,6eh,6fh,74h,20h,64h,65h,74h,65h
 db	63h,74h,65h,64h,21h,0,0,0
 __GDECL(___181bfch)
-db	41h,64h,6ah,75h,73h,74h,20h,6dh,75h,73h,69h,63h,20h,76h,6fh,6ch
-db	75h,6dh,65h,3ah,0,0,0,0
+;db	41h,64h,6ah,75h,73h,74h,20h,6dh,75h,73h,69h,63h,20h,76h,6fh,6ch
+;db	75h,6dh,65h,3ah,0,0,0,0
+db 	"Adjust music volume:",0,0,0,0
 __GDECL(___181c14h)
-db	25h,0,0,0
+;db	25h,0,0,0
+db 	"%",0,0,0
 __GDECL(___181c18h)
-db	41h,64h,6ah,75h,73h,74h,20h,65h,66h,66h,65h,63h,74h,20h,76h,6fh
-db	6ch,75h,6dh,65h,3ah,0,0,0
+;db	41h,64h,6ah,75h,73h,74h,20h,65h,66h,66h,65h,63h,74h,20h,76h,6fh
+;db	6ch,75h,6dh,65h,3ah,0,0,0
+db 	"Adjust effect volume:",0,0,0
 __GDECL(___181c30h)
 ;db	47h,61h,6dh,65h,70h,61h,64h,2fh,4ah,6fh,79h,73h,74h,69h,63h,6bh
 ;db	20h,45h,6eh,61h,62h,6ch,65h,64h,0,0,0,0
@@ -1123,49 +1141,65 @@ db	47h,6fh,74h,74h,61h,20h,65h,61h,72h,6eh,20h,69h,74h,2eh,20h,47h
 db	6fh,20h,64h,6fh,20h,69h,74h,20h,61h,6ch,72h,65h,61h,64h,79h,2eh
 db	0,0,0,0
 __GDECL(___181fc8h)
-db	59h,6fh,75h,20h,77h,6fh,75h,6ch,64h,20h,67h,65h,74h,20h,61h,20h
-db	24h,0,0,0
+;db	59h,6fh,75h,20h,77h,6fh,75h,6ch,64h,20h,67h,65h,74h,20h,61h,20h
+;db	24h,0,0,0
+db 	"You would get a $",0,0,0
 __GDECL(___181fdch)
-db	20h,72h,65h,66h,75h,6eh,64h,0
+;db	20h,72h,65h,66h,75h,6eh,64h,0
+db 	" refund",0
 __GDECL(___181fe4h)
-db	66h,72h,6fh,6dh,20h,79h,6fh,75h,72h,20h,6fh,6ch,64h,20h,63h,61h
-db	72h,20h,61h,6eh,64h,20h,75h,70h,67h,72h,61h,64h,65h,73h,2eh,0
+;db	66h,72h,6fh,6dh,20h,79h,6fh,75h,72h,20h,6fh,6ch,64h,20h,63h,61h
+;db	72h,20h,61h,6eh,64h,20h,75h,70h,67h,72h,61h,64h,65h,73h,2eh,0
+db 	"from your old car and upgrades.",0
 __GDECL(___182004h)
-db	4dh,6fh,6eh,65h,79h,20h,72h,65h,74h,75h,72h,6eh,65h,64h,3ah,20h
-db	0,0,0,0
+;db	4dh,6fh,6eh,65h,79h,20h,72h,65h,74h,75h,72h,6eh,65h,64h,3ah,20h
+;db	0,0,0,0
+db 	"Money returned: ",0,0,0,0
 __GDECL(___182018h)
-db	42h,75h,79h,20h,61h,20h,0,0
+;db	42h,75h,79h,20h,61h,20h,0,0
+db 	"Buy a ",0,0
 __GDECL(___182020h)
-db	20h,3fh,0,0
+;db	20h,3fh,0,0
+db 	" ?",0,0
 __GDECL(___182024h)
-db	66h,72h,6fh,6dh,20h,79h,6fh,75h,72h,20h,6fh,6ch,64h,20h,63h,61h
-db	72h,20h,61h,6eh,64h,20h,75h,70h,67h,72h,61h,64h,65h,73h,2eh,0
+;db	66h,72h,6fh,6dh,20h,79h,6fh,75h,72h,20h,6fh,6ch,64h,20h,63h,61h
+;db	72h,20h,61h,6eh,64h,20h,75h,70h,67h,72h,61h,64h,65h,73h,2eh,0
+db 	"from your old car and upgrades.",0
 __GDECL(___182044h)
-db	20h,77h,6fh,75h,6ch,64h,20h,63h,6fh,73h,74h,20h,0,0,0,0
+;db	20h,77h,6fh,75h,6ch,64h,20h,63h,6fh,73h,74h,20h,0,0,0,0
+db 	" would cost ",0,0,0,0
 __GDECL(___182054h)
-db	50h,75h,72h,63h,68h,61h,73h,65h,20h,69h,74h,20h,3fh,0,0,0
+;db	50h,75h,72h,63h,68h,61h,73h,65h,20h,69h,74h,20h,3fh,0,0,0
+db 	"Purchase it ?",0,0,0
 __GDECL(___182064h)
-db	55h,73h,65h,20h,61h,72h,72h,6fh,77h,73h,20h,74h,6fh,20h,63h,68h
-db	61h,6eh,67h,65h,20h,74h,68h,65h,20h,63h,6fh,6ch,6fh,72h,0,0
+;db	55h,73h,65h,20h,61h,72h,72h,6fh,77h,73h,20h,74h,6fh,20h,63h,68h
+;db	61h,6eh,67h,65h,20h,74h,68h,65h,20h,63h,6fh,6ch,6fh,72h,0,0
+db	"Use arrows to change the color",0,0
 __GDECL(___182084h)
-db	6fh,66h,20h,79h,6fh,75h,72h,20h,63h,61h,72h,20h,61h,6eh,64h,20h
-db	70h,72h,65h,73h,73h,20h,45h,6eh,74h,65h,72h,0
+;db	6fh,66h,20h,79h,6fh,75h,72h,20h,63h,61h,72h,20h,61h,6eh,64h,20h
+;db	70h,72h,65h,73h,73h,20h,45h,6eh,74h,65h,72h,0
+db 	"of your car and press Enter",0
 __GDECL(___1820a0h)
-db	77h,68h,65h,6eh,20h,66h,69h,6eh,69h,73h,68h,65h,64h,2eh,0,0
+;db	77h,68h,65h,6eh,20h,66h,69h,6eh,69h,73h,68h,65h,64h,2eh,0,0
+db 	"when finished.",0,0
 __GDECL(___1820b0h)
-db	5bh,52h,65h,70h,61h,69h,72h,20h,79h,6fh,75h,72h,20h,63h,61h,72h
-db	20h,66h,69h,72h,73h,74h,2eh,0
+;db	5bh,52h,65h,70h,61h,69h,72h,20h,79h,6fh,75h,72h,20h,63h,61h,72h
+;db	20h,66h,69h,72h,73h,74h,2eh,0
+db 	"[Repair your car first.",0
 __GDECL(___1820c8h)
-db	57h,68h,61h,74h,27h,63h,68h,61h,20h,67h,6fh,6eh,6eh,61h,20h,64h
-db	6fh,20h,77h,69h,74h,68h,20h,74h,68h,61h,74h,20h,70h,69h,6ch,65h
-db	20h,6fh,66h,0
+;db	57h,68h,61h,74h,27h,63h,68h,61h,20h,67h,6fh,6eh,6eh,61h,20h,64h
+;db	6fh,20h,77h,69h,74h,68h,20h,74h,68h,61h,74h,20h,70h,69h,6ch,65h
+;db	20h,6fh,66h,0
+db 	"What'cha gonna do with that pile of",0
 __GDECL(___1820ech)
-db	6ah,75h,6eh,6bh,2ch,20h,63h,61h,72h,72h,79h,20h,69h,74h,20h,61h
-db	72h,6fh,75h,6eh,64h,3fh,20h,4ch,65h,74h,20h,6dh,65h,20h,73h,70h
-db	65h,6ch,6ch,0
+;db	6ah,75h,6eh,6bh,2ch,20h,63h,61h,72h,72h,79h,20h,69h,74h,20h,61h
+;db	72h,6fh,75h,6eh,64h,3fh,20h,4ch,65h,74h,20h,6dh,65h,20h,73h,70h
+;db	65h,6ch,6ch,0
+db 	"junk, carry it around? Let me spell",0
 __GDECL(___182110h)
-db	74h,68h,69h,73h,20h,6fh,75h,74h,20h,66h,6fh,72h,20h,79h,6fh,75h
-db	3ah,20h,52h,2dh,45h,2dh,50h,2dh,41h,2dh,49h,2dh,52h,2eh,0
+;db	74h,68h,69h,73h,20h,6fh,75h,74h,20h,66h,6fh,72h,20h,79h,6fh,75h
+;db	3ah,20h,52h,2dh,45h,2dh,50h,2dh,41h,2dh,49h,2dh,52h,2eh,0
+db 	"this out for you: R-E-P-A-I-R.",0
 __GDECL(___18212fh)
 db	0,0,0,0,0,0,0d0h,3fh,0
 __GDECL(___182138h)
@@ -1419,9 +1453,11 @@ db	65h,6eh,64h,61h,6eh,69h,30h,2eh,68h,61h,66h,0
 __GDECL(___1826d4h)
 db	65h,6eh,64h,61h,6eh,69h,30h,65h,2eh,63h,6dh,66h,0,0,0,0
 __GDECL(___1826e4h)
-db	48h,53h,2dh,50h,49h,43h,0,0
+;db	48h,53h,2dh,50h,49h,43h,0,0
+db 	"HS-PIC",0,0
 __GDECL(___1826ech)
-db	2eh,50h,43h,58h,0,0,0,0
+;db	2eh,50h,43h,58h,0,0,0,0
+db 	".PCX",0,0,0,0
 
 times 2ch db 0 
 
@@ -2192,9 +2228,10 @@ db	49h,4eh,46h,4fh,32h,2eh,42h,50h,4bh,0,0,0
 __GDECL(___183e78h)
 db	49h,4eh,46h,4fh,32h,2eh,50h,41h,4ch,0,0,0
 __GDECL(___183e84h)
-db	44h,45h,41h,54h,48h,20h,52h,41h,4ch,4ch,59h,20h,45h,78h,69h,74h
-db	3ah,20h,43h,54h,52h,4ch,2bh,41h,4ch,54h,2bh,44h,45h,4ch,20h,70h
-db	72h,65h,73h,73h,65h,64h,21h,0ah,0,0,0,0
+;db	44h,45h,41h,54h,48h,20h,52h,41h,4ch,4ch,59h,20h,45h,78h,69h,74h
+;db	3ah,20h,43h,54h,52h,4ch,2bh,41h,4ch,54h,2bh,44h,45h,4ch,20h,70h
+;db	72h,65h,73h,73h,65h,64h,21h,0ah,0,0,0,0
+db 	"DEATH RALLY Exit: CTRL+ALT+DEL pressed!",0ah,0,0,0,0
 __GDECL(___183eb0h)
 db	44h,45h,41h,54h,48h,20h,52h,41h,4ch,4ch,59h,20h,45h,72h,72h,6fh
 db	72h,3ah,20h,48h,61h,72h,64h,77h,61h,72h,65h,20h,63h,6fh,6eh,66h
@@ -2206,11 +2243,14 @@ db	72h,65h,20h,69h,6eh,66h,6fh,72h,6dh,61h,74h,69h,6fh,6eh,20h,6fh
 db	6eh,20h,68h,6fh,77h,20h,74h,6fh,20h,72h,65h,73h,6fh,6ch,76h,65h
 db	20h,74h,68h,69h,73h,20h,70h,72h,6fh,62h,6ch,65h,6dh,2eh,0ah,0
 __GDECL(___183f28h)
-db	48h,53h,2dh,50h,49h,43h,0,0
+;db	48h,53h,2dh,50h,49h,43h,0,0
+db 	"HS-PIC",0,0
 __GDECL(___183f30h)
-db	2eh,50h,43h,58h,0,0,0,0
+;db	2eh,50h,43h,58h,0,0,0,0
+db 	".PCX",0,0,0,0
 __GDECL(___183f38h)
-db	77h,62h,0,0
+;db	77h,62h,0,0
+db 	"wb",0,0
 __GDECL(___183f3ch)
 db	2dh,49h,4dh,41h,2eh,53h,43h,58h,0
 __GDECL(___183f45h)
@@ -2745,41 +2785,50 @@ db	20h,20h,20h,20h,20h,20h,50h,52h,45h,53h,53h,20h,45h,4eh,54h,45h
 db	52h,20h,54h,4fh,20h,41h,42h,4fh,52h,54h,20h,20h,20h,20h,20h,20h
 db	0,0,0,0
 __GDECL(___184aa8h)
-db	20h,20h,20h,20h,20h,57h,45h,4ch,43h,4fh,4dh,45h,20h,54h,4fh,20h
-db	44h,45h,41h,54h,48h,20h,52h,41h,4ch,4ch,59h,21h,20h,20h,20h,20h
-db	0,0,0,0
+;db	20h,20h,20h,20h,20h,57h,45h,4ch,43h,4fh,4dh,45h,20h,54h,4fh,20h
+;db	44h,45h,41h,54h,48h,20h,52h,41h,4ch,4ch,59h,21h,20h,20h,20h,20h
+;db	0,0,0,0
+db 	"     WELCOME TO DEATH RALLY!    ",0,0,0,0
 __GDECL(___184acch)
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	0,0,0,0
+;db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
+;db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
+;db	0,0,0,0
+db 	"                                ",0,0,0,0
 __GDECL(___184af0h)
-db	20h,50h,52h,45h,53h,53h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	0,0,0,0
+;db	20h,50h,52h,45h,53h,53h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
+;db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
+;db	0,0,0,0
+db 	" PRESS                          ",0,0,0,0
 __GDECL(___184b14h)
-db	20h,20h,20h,20h,46h,31h,2dh,49h,4eh,46h,4fh,20h,53h,43h,52h,45h
-db	45h,4eh,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	0,0,0,0
+;db	20h,20h,20h,20h,46h,31h,2dh,49h,4eh,46h,4fh,20h,53h,43h,52h,45h
+;db	45h,4eh,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
+;db	0,0,0,0
+db 	"    F1-INFO SCREEN              ",0,0,0,0
 __GDECL(___184b38h)
-db	20h,20h,20h,20h,20h,50h,2dh,50h,41h,55h,53h,45h,20h,20h,20h,20h
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	0,0,0,0
+;db	20h,20h,20h,20h,20h,50h,2dh,50h,41h,55h,53h,45h,20h,20h,20h,20h
+;db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
+;db	0,0,0,0
+db 	"     P-PAUSE                    ",0,0,0,0
 __GDECL(___184b5ch)
-db	20h,20h,20h,54h,41h,42h,2dh,54h,4fh,47h,47h,4ch,45h,20h,53h,54h
-db	41h,54h,55h,53h,20h,42h,41h,52h,20h,20h,20h,20h,20h,20h,20h,20h
-db	0,0,0,0
+;db	20h,20h,20h,54h,41h,42h,2dh,54h,4fh,47h,47h,4ch,45h,20h,53h,54h
+;db	41h,54h,55h,53h,20h,42h,41h,52h,20h,20h,20h,20h,20h,20h,20h,20h
+;db	0,0,0,0
+db 	"   TAB-TOGGLE STATUS BAR        ",0,0,0,0
 __GDECL(___184b80h)
-db	20h,20h,20h,45h,53h,43h,2dh,41h,42h,4fh,52h,54h,20h,52h,41h,43h
-db	45h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	0,0,0,0
+;db	20h,20h,20h,45h,53h,43h,2dh,41h,42h,4fh,52h,54h,20h,52h,41h,43h
+;db	45h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
+;db	0,0,0,0
+db 	"   ESC-ABORT RACE               ",0,0,0,0
 __GDECL(___184ba4h)
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
-db	0,0,0,0
+;db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
+;db	20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h
+;db	0,0,0,0
+db 	"                                ",0,0,0,0
 __GDECL(___184bc8h)
-db	20h,20h,20h,20h,50h,52h,45h,53h,53h,20h,45h,4eh,54h,45h,52h,20h
-db	54h,4fh,20h,43h,4fh,4eh,54h,49h,4eh,55h,45h,20h,20h,20h,20h,20h
-db	0
+;db	20h,20h,20h,20h,50h,52h,45h,53h,53h,20h,45h,4eh,54h,45h,52h,20h
+;db	54h,4fh,20h,43h,4fh,4eh,54h,49h,4eh,55h,45h,20h,20h,20h,20h,20h
+;db	0
+db 	"    PRESS ENTER TO CONTINUE     ",0
 __GDECL(___184be9h)
 db	0,0,0,0,0,6ah,0d8h,40h,0,0,0
 __GDECL(___184bf4h)

@@ -15,7 +15,7 @@ cpu 386
 	extern 	___180ac8h
 	extern 	___12cb8h__VESA101_PRESENTSCREEN
 	extern 	___24e4ach
-	extern 	memset_
+	extern 	memset
 	extern 	___196a84h
 	extern 	___5994ch
 	extern 	___2ab50h
@@ -25,15 +25,15 @@ cpu 386
 	extern 	___196ab8h
 	extern 	___1a2010h
 	extern 	___185a14h
-	extern 	atoi_
+	extern 	atoi
 	extern 	___185a54h
 	extern 	___23488h
-	extern 	___3f77ch__freeMemory
+	extern 	dRally_Memory_free
 	extern 	___19bd60h
 	extern 	___1a1098h
 	extern 	___196adch
 	extern 	___1c6bch
-	extern 	___2b8ach
+	extern 	shop_main
 	extern 	___185a24h
 
 section .text
@@ -139,7 +139,15 @@ __GDECL(___1c178h)
 		mov     eax, [___24e4ach]
 		xor     edx, edx
 		add     eax, byte 4
-		call    near memset_
+		
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    memset
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     ecx, 1
 ___1c252h:
 		cmp     dword [___196a84h], byte 0
@@ -154,8 +162,24 @@ ___1c252h:
 		xor     ebx, ebx
 		mov     edx, 0d8h
 		mov     bl, al
-		call    near ___2ab50h
-		call    near ___2ab50h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2ab50h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+	
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2ab50h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+	
 		mov     eax, 0a6h
 	
 	push 	ecx
@@ -207,19 +231,51 @@ ___1c2c3h:
 		mov     [___185a14h], eax
 		mov     eax, esp
 		mov     edx, ecx
-		call    near atoi_
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    atoi
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+	
 		mov     [___185a54h], eax
 		mov     eax, [esp+8]
 		call    near ___23488h
 		mov     eax, [esp+8]
-		call    near ___3f77ch__freeMemory
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    dRally_Memory_free
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     eax, ebp
 		mov     ebx, 1000h
-		call    near ___3f77ch__freeMemory
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    dRally_Memory_free
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     eax, [___24e4ach]
 		xor     edx, edx
 		add     eax, byte 4
-		call    near memset_
+		
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    memset
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     ebx, 2
 		mov     eax, [___185a54h]
 		mov     [___19bd60h], ecx
@@ -230,7 +286,7 @@ ___1c2c3h:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    ___2b8ach
+		call    shop_main
 	pop		eax
 	pop 	ecx
 	pop 	edx

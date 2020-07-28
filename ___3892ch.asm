@@ -18,7 +18,7 @@ cpu 386
 	extern	___19eb50h
 	extern	___19eb54h
 	extern	___19eb58h
-	extern	DISPLAY_SET_PALETTE_COLOR
+	extern	__DISPLAY_SET_PALETTE_COLOR
 	extern	___2ab50h
 	extern	___38768h
 	extern	___5994ch
@@ -69,7 +69,7 @@ cpu 386
 	extern	___196aa0h
 	extern	___196a9ch
 	extern	___196a98h
-	extern 	VESA101_SETMODE
+	extern 	__VESA101_SETMODE
 
 section .text
 
@@ -178,7 +178,10 @@ ___389a3h:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near DISPLAY_SET_PALETTE_COLOR
+
+		call    __DISPLAY_SET_PALETTE_COLOR
+		add 	esp, 10h
+		
 		mov     eax, [esp+68h]
 		inc     eax
 		add     edi, byte 0ch
@@ -223,7 +226,10 @@ ___38a40h:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near DISPLAY_SET_PALETTE_COLOR
+
+		call    __DISPLAY_SET_PALETTE_COLOR
+		add 	esp, 10h
+		
 		mov     ecx, [esp+68h]
 		inc     ecx
 		add     edi, byte 0ch
@@ -234,7 +240,15 @@ ___38a40h:
 		cmp     ebp, 640000h
 		jne     near ___38994h
 ___38ae2h:
-		call    near ___2ab50h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2ab50h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+	
 		call    near ___38768h
 
 	push 	edx
@@ -303,7 +317,10 @@ ___38b0eh:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near DISPLAY_SET_PALETTE_COLOR
+
+		call    __DISPLAY_SET_PALETTE_COLOR
+		add 	esp, 10h
+		
 		mov     ebx, [esp+68h]
 		inc     ebx
 		add     edi, byte 0ch
@@ -348,7 +365,10 @@ ___38babh:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near DISPLAY_SET_PALETTE_COLOR
+
+		call    __DISPLAY_SET_PALETTE_COLOR
+		add 	esp, 10h
+		
 		mov     eax, [esp+68h]
 		inc     eax
 		add     edi, byte 0ch
@@ -479,7 +499,10 @@ ___38d19h:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near DISPLAY_SET_PALETTE_COLOR
+
+		call    __DISPLAY_SET_PALETTE_COLOR
+		add 	esp, 10h
+		
 		mov     eax, [esp+68h]
 		inc     eax
 		add     edi, byte 0ch
@@ -494,7 +517,15 @@ ___38d19h:
 		xor     ecx, ecx
 		mov     [___185a28h], ecx
 ___38dcch:
-		call    near ___2ab50h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2ab50h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+	
 		call    near ___38768h
 
 	push 	edx
@@ -516,7 +547,15 @@ ___38de7h:
 		test    dl, dl
 		jne     short ___38e0fh
 ___38df4h:
-		call    near ___2ab50h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2ab50h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+	
 		call    near ___38768h
 
 	push 	edx
@@ -538,7 +577,15 @@ ___38e0fh:
 		test    dl, dl
 		jne     short ___38e2fh
 ___38e1ch:
-		call    near ___2ab50h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2ab50h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+	
 		call    near ___38768h
 
 	push 	edx
@@ -715,7 +762,15 @@ ___38f61h:
 	pop		edx
 
 ___38f86h:
-		call    near ___2ab50h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2ab50h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+	
 		call    near ___38768h
 
 	push 	edx
@@ -796,7 +851,10 @@ ___38fe9h:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near DISPLAY_SET_PALETTE_COLOR
+
+		call    __DISPLAY_SET_PALETTE_COLOR
+		add 	esp, 10h
+		
 		mov     eax, [esp+68h]
 		inc     eax
 		add     edi, byte 0ch
@@ -842,7 +900,10 @@ ___39085h:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near DISPLAY_SET_PALETTE_COLOR
+
+		call    __DISPLAY_SET_PALETTE_COLOR
+		add 	esp, 10h
+		
 		mov     ecx, [esp+68h]
 		inc     ecx
 		add     edi, byte 0ch
@@ -887,7 +948,10 @@ ___39122h:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near DISPLAY_SET_PALETTE_COLOR
+
+		call    __DISPLAY_SET_PALETTE_COLOR
+		add 	esp, 10h
+		
 		mov     ebx, [esp+68h]
 		inc     ebx
 		add     edi, byte 0ch
@@ -1011,7 +1075,11 @@ ___39275h:
 	pop 	ecx
 	pop 	edx
 
-		call 	VESA101_SETMODE
+	push 	edx
+	push 	ecx
+		call 	__VESA101_SETMODE
+	pop 	ecx
+	pop 	edx
 
 	push 	edx
 	push 	ecx
@@ -1067,7 +1135,10 @@ ___392eeh:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near DISPLAY_SET_PALETTE_COLOR
+
+		call    __DISPLAY_SET_PALETTE_COLOR
+		add 	esp, 10h
+		
 		mov     edx, [esp+68h]
 		inc     edx
 		add     esi, byte 0ch
@@ -1136,7 +1207,10 @@ ___393a9h:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near DISPLAY_SET_PALETTE_COLOR
+
+		call    __DISPLAY_SET_PALETTE_COLOR
+		add 	esp, 10h
+		
 		mov     ebx, [esp+68h]
 		inc     ebx
 		add     edi, byte 0ch
@@ -1259,7 +1333,11 @@ ___394feh:
 	pop 	ecx
 	pop 	edx
 
-		call 	VESA101_SETMODE
+	push 	edx
+	push 	ecx
+		call 	__VESA101_SETMODE
+	pop 	ecx
+	pop 	edx
 
 	push 	edx
 	push 	ecx
@@ -1320,7 +1398,10 @@ ___39588h:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near DISPLAY_SET_PALETTE_COLOR
+
+		call    __DISPLAY_SET_PALETTE_COLOR
+		add 	esp, 10h
+		
 		mov     eax, [esp+68h]
 		inc     eax
 		add     esi, byte 0ch

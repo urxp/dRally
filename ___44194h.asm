@@ -35,19 +35,43 @@ __GDECL(___44194h)
 		mov     ecx, 0ah
 		mov     eax, ___24cef0h
 		xor     edx, edx
-		call    near __STOSB
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    __STOSB
+	add 	esp, 0ch
+
 		mov     ecx, 0ah
 		mov     eax, ___24cefah
 		xor     edx, edx
-		call    near __STOSB
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    __STOSB
+	add 	esp, 0ch
+
 		mov     ecx, 0ah
 		mov     eax, ___24cf04h
 		xor     edx, edx
-		call    near __STOSB
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    __STOSB
+	add 	esp, 0ch
+
 		mov     ecx, 0ah
 		mov     eax, ___24cf0eh
 		xor     edx, edx
-		call    near __STOSB
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    __STOSB
+	add 	esp, 0ch
+
 		mov     eax, [___24e4ach]
 		xor     edx, edx
 		mov     word [eax], 0

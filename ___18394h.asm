@@ -15,7 +15,7 @@ cpu 386
 	extern 	___59720h
 	extern 	___19bd60h
 	extern 	___23758h
-	extern 	memset_
+	extern 	memset
 
 section .text
 
@@ -178,7 +178,15 @@ ___18580h:
 		add     ebx, byte 14h
 		add     eax, ebp
 		add     esi, 280h
-		call    near memset_
+		
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    memset
+	add 	esp, 0ch
+	pop 	ecx
+
 		cmp     esi, edi
 		jne     short ___18580h
 		mov     edi, esp
@@ -247,7 +255,15 @@ ___186a8h:
 		mov     edx, edi
 		add     eax, ebp
 		add     ecx, 280h
-		call    near memset_
+		
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    memset
+	add 	esp, 0ch
+	pop 	ecx
+
 		cmp     ecx, esi
 		jne     short ___186a8h
 		mov     esi, [esp+4ch]

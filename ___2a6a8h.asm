@@ -8,7 +8,7 @@ cpu 386
 	extern	kmap
 	extern	___3f71ch__allocateMemory
 	extern	___1a0f9ch
-	extern	memset_
+	extern	memset
 	extern	rand_watcom106
 	extern	___1a1ef8h
 	extern	___185a14h
@@ -17,15 +17,15 @@ cpu 386
 	extern	___1a01e0h
 	extern	___1807bch
 	extern	___182164h
-	extern	fopen_
-	extern	fwrite_
-	extern	fclose_
-	extern	___3f77ch__freeMemory
+	extern	strupr_fopen
+	extern	fwrite
+	extern	fclose
+	extern	dRally_Memory_free
 	extern	kmap
 	extern	___243d44h
 	extern	___196ab4h
 	extern	___180134h
-	extern	fread_
+	extern	fread
 	extern	___1a023ch
 	extern	___1a0240h
 	extern	___1a0a50h
@@ -67,7 +67,15 @@ __GDECL(___2a6a8h)
 
 		mov     ebx, ebp
 		mov     [___1a0f9ch], eax
-		call    near memset_
+		
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    memset
+	add 	esp, 0ch
+	pop 	ecx
+
 
 	push 	edx
 	push 	ecx
@@ -160,16 +168,46 @@ ___2a801h:
 		mov     edx, ___1807bch
 		mov     eax, ___182164h
 		mov     ebx, 1
-		call    near fopen_
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    strupr_fopen
+	add 	esp, 8
+	pop 	ecx
+
 		mov     edi, eax
 		mov     edx, ebp
 		mov     eax, [___1a0f9ch]
 		mov     ecx, edi
-		call    near fwrite_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    fwrite
+	add 	esp, 10h
+
 		mov     eax, edi
-		call    near fclose_
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    fclose
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     eax, [___1a0f9ch]
-		call    near ___3f77ch__freeMemory
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    dRally_Memory_free
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 ___2a836h:
 		cmp     byte [kmap+3dh], 0
 		je      near ___2a9fah
@@ -190,11 +228,26 @@ ___2a836h:
 	pop 	edx
 
 		mov     [___1a0f9ch], eax
-		call    near memset_
+		
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    memset
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     edx, ___180134h
 		mov     eax, ___182164h
 		mov     [esp+14h], ebp
-		call    near fopen_
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    strupr_fopen
+	add 	esp, 8
+	pop 	ecx
+
 		mov     edi, eax
 		test    eax, eax
 		je      near ___2a9f2h
@@ -202,9 +255,24 @@ ___2a836h:
 		mov     edx, 883h
 		mov     eax, [___1a0f9ch]
 		mov     ecx, edi
-		call    near fread_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    fread
+	add 	esp, 10h
+
 		mov     eax, edi
-		call    near fclose_
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    fclose
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     eax, [___1a0f9ch]
 		mov     al, [eax]
 		mov     ecx, 1
@@ -259,7 +327,15 @@ ___2a8ceh:
 		mov     [___196a94h], eax
 		call 	__MOVS
 		mov     eax, [___1a0f9ch]
-		call    near ___3f77ch__freeMemory
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    dRally_Memory_free
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     eax, [___1a1ef8h]
 		lea     edx, [eax*8+0]
 		sub     edx, eax

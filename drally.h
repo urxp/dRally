@@ -25,7 +25,7 @@ typedef void (*void_cb)(void);
 #define H(r)	((byte *)&r)[1]
 #define L(r)	((byte *)&r)[0]
 
-FILE * strup_fopen(const char * file_name, const char * mode);
+FILE * strupr_fopen(const char * file_name, const char * mode);
 
 
 #define sES 0
@@ -85,7 +85,7 @@ double * fpu_st(int);
 void fpu_push(double);
 double fpu_pop(void);
 
-
+#define dR_PI   3.141592653589793238462643383279502884197169399375105820974
 
 
 #define __SIZEOF_BYTE__    1

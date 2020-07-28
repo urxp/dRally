@@ -17,16 +17,21 @@ cpu 386
 	extern	___19f750h
 	extern	___18e298h
 	extern	___185c7ah
-	extern	strupr_
+	extern	strupr_watcom106
 	extern	___1a10b8h
 	extern	___19f75ch
-	extern	itoa_
+	extern	itoa_watcom106
 	extern	___19f760h
 	extern	___19f764h
 	extern	___181c70h
 	extern	___180724h
 
 section .text
+
+__GDECL(___21fd4h_cdecl)
+	mov 	eax, [esp+4]
+	call 	___21fd4h
+	retn
 
 __GDECL(___21fd4h)
 		push    88h
@@ -140,7 +145,15 @@ ___22153h:
 		call 	__STRCPY
 		lea     eax, [esp+14h]
 		mov     esi, [esp+54h]
-		call    near strupr_
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    strupr_watcom106
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     eax, [___1a10b8h]
 		lea     edi, [esp+14h]
 
@@ -156,7 +169,15 @@ ___22153h:
 		mov     ecx, [esp+58h]
 		lea     ebx, [esp+14h]
 		mov     edx, ___185c7ah
-		call    near strupr_
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    strupr_watcom106
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     eax, [___1a10b8h]
 
 	push 	ecx
@@ -169,16 +190,40 @@ ___22153h:
 		mov     ebx, 0ah
 		mov     edx, esp
 		mov     eax, [ebp+___19f75ch]
-		call    near itoa_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    itoa_watcom106
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     ebx, 0ah
 		lea     edx, [esp+3ch]
 		mov     eax, [ebp+___19f760h]
-		call    near itoa_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    itoa_watcom106
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     ebx, 0ah
 		lea     edx, [esp+28h]
 		mov     eax, [ebp+___19f764h]
 		mov     edi, esp
-		call    near itoa_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    itoa_watcom106
+	add 	esp, 0ch
+	pop 	ecx
+
 		call 	__STRLEN
 		cmp     ecx, byte 1
 		jne     short ___22234h

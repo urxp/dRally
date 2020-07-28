@@ -29,11 +29,11 @@ cpu 386
 	extern	___59b3ch
 	extern	___1a1f4dh
 	extern	___181cd4h
-	extern	strcmp_
+	extern	strcmp
 	extern	___1a1dbah
 	extern	___181ce0h
 	extern	DPMI_GET_FREE_MEMORY_INFORMATION
-	extern	itoa_
+	extern	itoa_watcom106
 	extern	___1a1f63h
 	extern	___232f8h
 	extern	___181cf8h
@@ -187,7 +187,15 @@ ___23897h:
 		mov     [esp+138h], ebp
 		mov     [esp+130h], ebp
 ___238c3h:
-		call    near ___2ab50h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2ab50h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+	
 		mov     eax, [esp+130h]
 		inc     eax
 		mov     [esp+130h], eax
@@ -298,7 +306,14 @@ ___23a0ah:
 		jl      short ___23a0ah
 		mov     edx, ___181cd4h
 		mov     eax, esp
-		call    near strcmp_
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    strcmp
+	add 	esp,8
+	pop 	ecx
+
 		test    eax, eax
 		jne     short ___23ac0h
 		mov     edi, ___1a1dbah
@@ -311,8 +326,21 @@ ___23a0ah:
 		movsd   
 		movsd   
 		movsw   
-		call    near DPMI_GET_FREE_MEMORY_INFORMATION
-		call    near itoa_
+	
+	push 	edx
+	push 	ecx
+		call    DPMI_GET_FREE_MEMORY_INFORMATION
+	pop		ecx
+	pop 	edx
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    itoa_watcom106
+	add 	esp, 0ch
+	pop 	ecx
+
 		lea     esi, [esp+98h]
 		mov     edi, ___1a1dbah
 		xor     dl, dl

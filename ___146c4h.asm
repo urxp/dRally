@@ -48,8 +48,24 @@ ___146efh:
 		mov     edx, [___196a84h]
 		test    edx, edx
 		jne     near ___148b2h
-		call    near ___2ab50h
-		call    near ___2ab50h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2ab50h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+	
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2ab50h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+	
 		mov     eax, esi
 		call    near ___13a98h
 

@@ -7,7 +7,7 @@ cpu 386
 	extern	___1a1124h__VESA101h_ScreenBufferA
 	extern	___13248h
 	extern	___190bd8h
-	extern	___13094h
+	extern	___13094h_cdecl
 	extern	___180848h
 	extern	___185c0bh
 	extern	___1a1108h
@@ -57,7 +57,14 @@ __GDECL(___3174ch)
 ___317c9h:
 		mov     edx, ecx
 		mov     eax, ebx
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		add     ebx, byte 3ch
 		add     ecx, 2800h
 		cmp     ebx, esi
@@ -98,7 +105,15 @@ ___317c9h:
 		call    dRally_Sound_pushEffect
 	add 	esp, 18h
 ___31824h:
-		call    near ___2ab50h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2ab50h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+	
 
 	push 	edx
 	push 	ecx

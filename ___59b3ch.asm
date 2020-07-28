@@ -2,7 +2,7 @@ cpu 386
 %include "macros.inc"
 
 	extern	__CHK
-	extern	POP_LAST_CHAR
+	extern	dRally_Keyboard_popLastChar
 	extern	___199f4ch
 	extern	___199f48h
 	extern	___24cc6ch
@@ -15,7 +15,7 @@ cpu 386
 	extern	___199f3ch
 	extern	inp_
 	extern	___199f60h
-	extern 	getTimerTicks
+	extern 	__GET_TIMER_TICKS
 
 section .text
 
@@ -28,7 +28,13 @@ __GDECL(___59b3ch)
 		push    esi
 		push    edi
 		push    ebp
-		call    near POP_LAST_CHAR
+
+	push 	edx
+	push 	ecx
+		call    dRally_Keyboard_popLastChar
+	pop 	ecx
+	pop 	edx
+
 		mov     edx, [___199f4ch]
 		mov     bh, al
 		test    edx, edx
@@ -70,7 +76,13 @@ ___59bd5h:
 		cmp     dword [___19bd58h], byte 0
 		jle     near ___59ccch
 		mov     ecx, [___199f74h]
-		call 	getTimerTicks
+
+	push 	edx
+	push 	ecx
+		call	__GET_TIMER_TICKS
+	pop 	ecx
+	pop 	edx
+
 		mov 	edx, eax
 		test    ecx, ecx
 		jne     short ___59bfbh
@@ -87,25 +99,57 @@ ___59c0ch:
 		test    cl, cl
 		jne     short ___59c58h
 		mov     eax, 201h
-		call    near inp_
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    inp_
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		test    al, 10h
 		jne     short ___59c28h
 		mov     bl, 0dh
 ___59c28h:
 		mov     eax, 201h
-		call    near inp_
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    inp_
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		test    al, 20h
 		jne     short ___59c38h
 		mov     bl, 1bh
 ___59c38h:
 		mov     eax, 201h
-		call    near inp_
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    inp_
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		test    al, 40h
 		jne     short ___59c48h
 		mov     bl, 0dh
 ___59c48h:
 		mov     eax, 201h
-		call    near inp_
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    inp_
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		test    al, 80h
 		jne     short ___59c58h
 		mov     bl, 1bh

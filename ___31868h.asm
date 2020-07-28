@@ -20,7 +20,7 @@ cpu 386
 	extern	___1a112ch__VESA101_ACTIVESCREEN_PTR
 	extern	___1a1e80h
 	extern	___1930e0h
-	extern	___13094h
+	extern	___13094h_cdecl
 	extern	___193180h
 	extern	___193130h
 	extern	___182370h
@@ -35,7 +35,7 @@ cpu 386
 	extern	___2ab50h
 	extern	___24cc54h
 	extern	dRally_Sound_pushEffect
-	extern	___148cch
+	extern	___148cch_cdecl
 	extern	___196aa4h
 	extern	dRally_Sound_freeEffectChannel
 	extern	___1806dch
@@ -237,7 +237,14 @@ ___31a77h:
 		add     edx, ebp
 		mov     eax, ___1930e0h
 		add     edx, 80h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, [esp+4ch]
 		add     edx, byte 35h
 		lea     eax, [edx*4+0]
@@ -249,7 +256,14 @@ ___31a77h:
 		mov     eax, ___193130h
 		add     edx, 80h
 		mov     edi, esp
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		call 	__STRCPY
 		lea     esi, [esp+34h]
 		mov     edi, esp
@@ -266,7 +280,14 @@ ___31a77h:
 		add     eax, edx
 		lea     edx, [eax+80h]
 		mov     eax, esp
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, [esp+4ch]
 		add     edx, byte 55h
 		lea     eax, [edx*4+0]
@@ -276,7 +297,14 @@ ___31a77h:
 		add     eax, ebx
 		lea     edx, [eax+80h]
 		mov     eax, ___1931d0h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, [esp+4ch]
 		add     edx, byte 65h
 		lea     eax, [edx*4+0]
@@ -285,7 +313,14 @@ ___31a77h:
 		lea     edx, [ebx+eax*1]
 		mov     eax, ___193220h
 		add     edx, 80h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, [esp+4ch]
 		add     edx, byte 75h
 		lea     eax, [edx*4+0]
@@ -294,7 +329,14 @@ ___31a77h:
 		add     eax, ebx
 		lea     edx, [eax+80h]
 		mov     eax, ___193270h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, [esp+4ch]
 		add     edx, 85h
 		lea     eax, [edx*4+0]
@@ -303,7 +345,14 @@ ___31a77h:
 		lea     edx, [ebx+eax*1]
 		mov     eax, ___1932c0h
 		add     edx, 80h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, [esp+4ch]
 		add     edx, 95h
 		lea     eax, [edx*4+0]
@@ -312,7 +361,14 @@ ___31a77h:
 		lea     edx, [ebx+eax*1]
 		mov     eax, ___193310h
 		add     edx, 80h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, [esp+4ch]
 		add     edx, 0a5h
 		lea     eax, [edx*4+0]
@@ -321,7 +377,14 @@ ___31a77h:
 		lea     edx, [ebx+eax*1]
 		mov     eax, ___193360h
 		add     edx, 80h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, [esp+4ch]
 		add     edx, 0b5h
 		lea     eax, [edx*4+0]
@@ -330,7 +393,14 @@ ___31a77h:
 		lea     edx, [ebx+eax*1]
 		mov     eax, ___1933b0h
 		add     edx, 80h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 
 	push 	edx
 	push 	ecx
@@ -343,7 +413,15 @@ ___31a77h:
 		xor     edx, edx
 ___31c7dh:
 		inc     edx
-		call    near ___2ab50h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2ab50h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+	
 		cmp     edx, byte 32h
 		jl      short ___31c7dh
 		push    8000h
@@ -361,7 +439,15 @@ ___31c7dh:
 		xor     edx, edx
 ___31ca8h:
 		inc     edx
-		call    near ___2ab50h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2ab50h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+	
 		cmp     edx, byte 14h
 		jl      short ___31ca8h
 		mov     edi, 1
@@ -372,7 +458,14 @@ ___31ca8h:
 		add     edx, 0beh
 		add     eax, 80h
 		mov     [esp+40h], edi
-		call    near ___148cch
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___148cch_cdecl
+	add 	esp, 10h
+
 		cmp     edi, [esp+40h]
 		jne     near ___321efh
 		mov     eax, [esp+48h]
@@ -509,7 +602,14 @@ ___31e6ah:
 		add     edx, ebp
 		mov     eax, ___193400h
 		add     edx, 80h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, [esp+4ch]
 		add     edx, byte 35h
 		lea     eax, [edx*4+0]
@@ -519,7 +619,14 @@ ___31e6ah:
 		add     eax, esi
 		lea     edx, [eax+80h]
 		mov     eax, ___193450h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, [esp+4ch]
 		add     edx, byte 45h
 		lea     eax, [edx*4+0]
@@ -528,7 +635,14 @@ ___31e6ah:
 		add     eax, esi
 		lea     edx, [eax+80h]
 		mov     eax, ___1934a0h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, [esp+4ch]
 		add     edx, byte 55h
 		lea     eax, [edx*4+0]
@@ -537,7 +651,14 @@ ___31e6ah:
 		add     eax, esi
 		lea     edx, [eax+80h]
 		mov     eax, ___1934f0h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, [esp+4ch]
 		add     edx, byte 65h
 		lea     eax, [edx*4+0]
@@ -547,7 +668,14 @@ ___31e6ah:
 		mov     eax, ___193540h
 		add     edx, 80h
 		mov     ebx, 4
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 ___31f2eh:
 
 	push 	edx
@@ -593,7 +721,14 @@ ___31f2eh:
 		add     edx, eax
 		mov     eax, esp
 		add     edx, 80h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, [esp+4ch]
 		add     edx, 85h
 		lea     eax, [edx*4+0]
@@ -605,7 +740,14 @@ ___31f2eh:
 		mov     esi, ___193630h
 		mov     eax, ___1935e0h
 		mov     edi, esp
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		call 	__STRCPY
 		lea     esi, [esp+34h]
 		mov     edi, esp
@@ -622,7 +764,14 @@ ___31f2eh:
 		add     eax, edx
 		lea     edx, [eax+80h]
 		mov     eax, esp
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, [esp+4ch]
 		add     edx, 0a5h
 		lea     eax, [edx*4+0]
@@ -632,7 +781,14 @@ ___31f2eh:
 		add     edx, eax
 		mov     eax, ___193680h
 		add     edx, 80h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, [esp+4ch]
 		add     edx, 0b5h
 		lea     eax, [edx*4+0]
@@ -642,7 +798,14 @@ ___31f2eh:
 		add     eax, ebx
 		lea     edx, [eax+80h]
 		mov     eax, ___1936d0h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 
 	push 	edx
 	push 	ecx
@@ -655,7 +818,15 @@ ___31f2eh:
 		xor     edx, edx
 ___32137h:
 		inc     edx
-		call    near ___2ab50h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2ab50h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+	
 		cmp     edx, byte 32h
 		jl      short ___32137h
 		push    8000h
@@ -673,7 +844,15 @@ ___32137h:
 		xor     edx, edx
 ___32162h:
 		inc     edx
-		call    near ___2ab50h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2ab50h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+	
 		cmp     edx, byte 14h
 		jl      short ___32162h
 		mov     ecx, 1
@@ -684,7 +863,14 @@ ___32162h:
 		add     edx, 0beh
 		add     eax, 80h
 		lea     ecx, [esp+40h]
-		call    near ___148cch
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___148cch_cdecl
+	add 	esp, 10h
+
 		cmp     dword [esp+40h], byte 1
 		jne     short ___321efh
 		mov     eax, [esp+48h]

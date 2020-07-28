@@ -19,12 +19,12 @@ cpu 386
 	extern	___1a0228h
 	extern	srand_watcom106
 	extern	rand_watcom106
-	extern	itoa_
+	extern	itoa_watcom106
 	extern	___1a01e0h
 	extern	___13248h
 	extern	___193018h
 	extern	___192ff0h
-	extern	___13094h
+	extern	___13094h_cdecl
 	extern	___18239ch
 	extern	___193040h
 	extern	___1823b8h
@@ -37,7 +37,7 @@ cpu 386
 	extern	___12e78h_cdecl
 	extern	___12cb8h__VESA101_PRESENTSCREEN
 	extern	___17324h
-	extern 	getTimerTicks
+	extern 	__GET_TIMER_TICKS
 
 section .text
 
@@ -164,7 +164,11 @@ ___323b0h:
 		inc     esi
 		jmp     short ___323b0h
 ___323c4h:
-		call 	getTimerTicks
+	push 	edx
+	push 	ecx
+		call	__GET_TIMER_TICKS
+	pop 	ecx
+	pop 	edx
 
 	push 	edx
 	push 	ecx
@@ -196,7 +200,15 @@ ___323c4h:
 		lea     edx, [esp+6ch]
 		mov     [eax*4+___1a01ech], edi
 		mov     eax, edi
-		call    near itoa_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    itoa_watcom106
+	add 	esp, 0ch
+	pop 	ecx
+
 		xor     edx, edx
 		mov     dl, [esp+esi*1+78h]
 		lea     eax, [edx*8+0]
@@ -224,7 +236,14 @@ ___323c4h:
 		mov     eax, ___192ff0h
 		add     edx, byte 38h
 		mov     edi, esp
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		call 	__STRCPY
 		lea     esi, [esp+6ch]
 		mov     edi, esp
@@ -240,7 +259,14 @@ ___323c4h:
 		add     eax, esi
 		lea     edx, [eax+38h]
 		mov     eax, esp
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     esi, ___193040h
 		mov     edi, esp
 		call 	__STRCPY
@@ -258,7 +284,14 @@ ___323c4h:
 		add     eax, edi
 		lea     edx, [eax+38h]
 		mov     eax, esp
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		lea     edx, [ebp+58h]
 		lea     eax, [edx*4+0]
 		add     eax, edx
@@ -266,7 +299,14 @@ ___323c4h:
 		lea     edx, [edi+eax*1]
 		mov     eax, ___193068h
 		add     edx, byte 38h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		lea     edx, [ebp+68h]
 		lea     eax, [edx*4+0]
 		add     eax, edx
@@ -274,7 +314,14 @@ ___323c4h:
 		add     eax, edi
 		lea     edx, [eax+38h]
 		mov     eax, ___193090h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		lea     edx, [ebp+73h]
 		lea     eax, [edx*4+0]
 		add     eax, edx
@@ -282,7 +329,14 @@ ___323c4h:
 		add     eax, edi
 		lea     edx, [eax+38h]
 		mov     eax, ___1930b8h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		lea     edx, [ebp+96h]
 		lea     eax, [edx*4+0]
 		add     eax, edx

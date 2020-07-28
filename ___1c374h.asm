@@ -25,10 +25,10 @@ cpu 386
 	extern 	___185ba9h
 	extern 	___1a10e0h
 	extern 	___185a54h
-	extern 	itoa_
+	extern 	itoa_watcom106
 	extern 	___1855c8h
 	extern 	___17510h
-	extern 	atoi_
+	extern 	atoi
 	extern 	___180b60h
 	extern 	CONNECTION_TYPE
 	extern 	___198a0h
@@ -220,7 +220,15 @@ ___1c474h:
 		mov     ebx, 0ah
 		mov     edx, esp
 		mov     eax, [___185a54h]
-		call    near itoa_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    itoa_watcom106
+	add 	esp, 0ch
+	pop 	ecx
+
 		push    byte 0
 		push    byte 1
 		push    byte 1
@@ -232,7 +240,15 @@ ___1c474h:
 		lea     eax, [esp+14h]
 		call    near ___17510h
 		mov     eax, esp
-		call    near atoi_
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    atoi
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+	
 		mov     [___185a54h], eax
 		cmp     eax, byte 64h
 		jge     near ___1c461h
@@ -281,7 +297,15 @@ ___1c522h:
 		mov     edx, esp
 		mov     eax, edi
 		mov     [___185a54h], edi
-		call    near itoa_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    itoa_watcom106
+	add 	esp, 0ch
+	pop 	ecx
+
 		push    byte 0
 		push    byte 1
 		push    byte 1
@@ -293,7 +317,15 @@ ___1c522h:
 		lea     eax, [esp+14h]
 		call    near ___17510h
 		mov     eax, esp
-		call    near atoi_
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    atoi
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+	
 		mov     [___185a54h], eax
 		cmp     eax, edi
 		jl      near ___1c522h

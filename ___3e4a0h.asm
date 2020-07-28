@@ -7,13 +7,12 @@ cpu 386
 	extern	___1a0d60h
 	extern	___182bf0h
 	extern	GET_FILE_SIZE
-	extern	malloc_
-	extern	GET_FILE_SIZE
-	extern	free_
+	extern	malloc
+	extern	free
 	extern	___180134h
-	extern	fopen_
-	extern	fread_
-	extern	fseek_
+	extern	strupr_fopen
+	extern	fread
+	extern	fseek
 
 section .text
 
@@ -51,7 +50,15 @@ __GDECL(___3e4a0h)
 		jmp     near ___3e6efh
 ___3e521h:
 		mov     eax, 10000h
-		call    near malloc_
+	
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    malloc
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     edi, eax
 		mov     esi, eax
 		mov     eax, esp
@@ -68,7 +75,15 @@ ___3e521h:
 		jge     short ___3e555h
 ___3e53dh:
 		mov     eax, edi
-		call    near free_
+	
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    free
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		xor     edx, edx
 		mov     eax, edx
 		add     esp, 110h
@@ -82,7 +97,14 @@ ___3e53dh:
 ___3e555h:
 		mov     edx, ___180134h
 		mov     eax, esp
-		call    near fopen_
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    strupr_fopen
+	add 	esp, 8
+	pop 	ecx
+
 		mov     ebp, eax
 		mov     [esp+104h], eax
 		test    eax, eax
@@ -91,7 +113,14 @@ ___3e555h:
 		mov     edx, 4
 		mov     ecx, eax
 		lea     eax, [esp+100h]
-		call    near fread_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    fread
+	add 	esp, 10h
+
 		mov     eax, [esp+100h]
 		mov     ebx, 1
 		sub     eax, 2b7916f1h
@@ -99,11 +128,26 @@ ___3e555h:
 		mov     [esp+108h], eax
 		mov     eax, ebp
 		mov     ecx, ebp
-		call    near fseek_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    fseek
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     ebx, 1
 		mov     edx, 10000h
 		mov     eax, edi
-		call    near fread_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    fread
+	add 	esp, 10h
+
 		mov     dl, [edi+7cd1h]
 		sub     dl, [edi+1403h]
 		mov     dh, [edi+9ab2h]
@@ -143,7 +187,15 @@ ___3e62dh:
 		sub     edx, byte 4
 		mov     eax, [esp+104h]
 		shl     edx, 10h
-		call    near fseek_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    fseek
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     dl, [esi+7cd1h]
 		mov     dh, [esi+1403h]
 		mov     bl, [esi+9ab2h]
@@ -184,7 +236,15 @@ ___3e6c1h:
 		cmp     dword [esp+10ch], byte 1
 		jne     short ___3e6e3h
 		mov     eax, esi
-		call    near free_
+	
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    free
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		xor     edx, edx
 		mov     eax, edx
 		add     esp, 110h
@@ -198,7 +258,15 @@ ___3e6c1h:
 ___3e6e3h:
 		mov     eax, esi
 		mov     edx, 1
-		call    near free_
+	
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    free
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 ___3e6efh:
 		mov     eax, edx
 		add     esp, 110h

@@ -37,7 +37,7 @@ cpu 386
 	extern	___58c60h
 	extern	___6168ch
 	extern	___23594h
-	extern	___3f77ch__freeMemory
+	extern	dRally_Memory_free
 	extern	___180864h
 	extern	___1a1ef8h
 	extern	___1a01e0h
@@ -370,7 +370,15 @@ ___1ce1ah:
 		jl      near ___1cd6ch
 		mov     eax, [___1a0f9ch]
 		mov     ecx, ___1a116ch
-		call    near ___3f77ch__freeMemory
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    dRally_Memory_free
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		xor     edx, edx
 		lea     ebx, [ecx+96h]
 ___1ce3bh:

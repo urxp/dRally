@@ -6,7 +6,7 @@ cpu 386
 	extern	___19eb50h
 	extern	___19eb54h
 	extern	___19eb58h
-	extern	DISPLAY_SET_PALETTE_COLOR
+	extern	__DISPLAY_SET_PALETTE_COLOR
 	extern	___1a112ch__VESA101_ACTIVESCREEN_PTR
 	extern	___1a10e4h__VESA101h_DefaultScreenBufferA
 	extern	___1a1138h__VESA101h_DefaultScreenBufferB
@@ -122,7 +122,10 @@ ___3102eh:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near DISPLAY_SET_PALETTE_COLOR
+
+		call    __DISPLAY_SET_PALETTE_COLOR
+		add 	esp, 10h
+		
 		mov     ebx, [esp+28h]
 		inc     ebx
 		add     esi, byte 0ch
@@ -266,7 +269,15 @@ ___31234h:
 		cmp     al, 1
 		je      short ___3125bh
 		mov     edi, [esp+28h]
-		call    near ___2ab50h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2ab50h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+	
 		inc     edi
 
 	push 	edx
@@ -436,7 +447,10 @@ ___31384h:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near DISPLAY_SET_PALETTE_COLOR
+
+		call    __DISPLAY_SET_PALETTE_COLOR
+		add 	esp, 10h
+		
 		mov     ecx, [esp+28h]
 		inc     ecx
 		add     edi, byte 0ch
@@ -494,7 +508,10 @@ ___3146fh:
 		inc     ebp
 		push    esi
 		mov     [esp+38h], ebp
-		call    near DISPLAY_SET_PALETTE_COLOR
+
+		call    __DISPLAY_SET_PALETTE_COLOR
+		add 	esp, 10h
+		
 		cmp     ebp, 100h
 		jl      short ___3146fh
 		mov     dl, 4
@@ -512,7 +529,13 @@ ___31496h:
 		mov     eax, esp
 		xor     edx, edx
 		mov     ebx, 4
-		call    near __STOSB
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    __STOSB
+	add 	esp, 0ch
+
 		xor     esi, esi
 ___314cah:
 

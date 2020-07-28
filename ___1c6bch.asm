@@ -119,8 +119,24 @@ __GDECL(___1c6bch)
 		mov     [esp+10h], edx
 		mov     esi, 4
 ___1c73eh:
-		call    near ___2ab50h
-		call    near ___2ab50h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2ab50h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+	
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2ab50h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+	
 		mov     eax, [esp+10h]
 		mov     edx, eax
 		mov     edi, 0ah
@@ -238,8 +254,24 @@ ___1c863h:
 		mov     esi, 1
 		mov     ebp, 0ah
 ___1c8bah:
-		call    near ___2ab50h
-		call    near ___2ab50h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2ab50h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+	
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2ab50h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+	
 		mov     eax, [esp+10h]
 		mov     edx, eax
 		sar     edx, 1fh

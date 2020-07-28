@@ -159,8 +159,24 @@ ___1d78dh:
 
 		mov     esi, eax
 ___1d7b2h:
-		call    near ___2ab50h
-		call    near ___2ab50h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2ab50h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+	
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2ab50h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+	
 		mov     edx, 0d8h
 		mov     eax, 0c3h
 		inc     ebx
@@ -232,7 +248,15 @@ ___1d7d4h:
 		xor     ebx, ebx
 ___1d825h:
 		inc     ebx
-		call    near ___2ab50h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2ab50h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+	
 		cmp     ebx, byte 3ch
 		jl      short ___1d825h
 ___1d830h:

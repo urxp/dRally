@@ -29,7 +29,7 @@ cpu 386
 	extern	___19eb50h
 	extern	___19eb54h
 	extern	___19eb58h
-	extern	DISPLAY_SET_PALETTE_COLOR
+	extern	__DISPLAY_SET_PALETTE_COLOR
 	extern	dRally_Sound_stop
 	extern	dRally_Sound_release
 	extern	___181c9ch
@@ -39,7 +39,7 @@ cpu 386
 	extern	dRally_Sound_setMusicVolume
 	extern	dRally_Sound_setSampleRate
 	extern	dRally_Sound_play
-	extern 	VESA101_SETMODE
+	extern 	__VESA101_SETMODE
 
 section .text
 
@@ -98,7 +98,12 @@ ___228abh:
 	pop 	ecx
 	pop 	edx
 
-		call 	VESA101_SETMODE
+	push 	edx
+	push 	ecx
+		call 	__VESA101_SETMODE
+	pop 	ecx
+	pop 	edx
+
 		mov     eax, 46h
 		;xor     ebx, ebx
 		xor 	edx, edx
@@ -254,7 +259,10 @@ ___2297dh:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near DISPLAY_SET_PALETTE_COLOR
+
+		call    __DISPLAY_SET_PALETTE_COLOR
+		add 	esp, 10h
+		
 		mov     eax, [esp+64h]
 		inc     eax
 		add     edi, byte 0ch

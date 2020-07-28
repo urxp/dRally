@@ -6,12 +6,12 @@ cpu 386
 	extern	___1a1ef8h
 	extern	___1a0210h
 	extern	___1a112ch__VESA101_ACTIVESCREEN_PTR
-	extern	memset_
+	extern	memset
 	extern	___181f64h
-	extern	itoa_
+	extern	itoa_watcom106
 	extern	___181f78h
 	extern	___181f84h
-	extern	___13094h
+	extern	___13094h_cdecl
 	extern	___181fa4h
 	extern	___12cb8h__VESA101_PRESENTSCREEN
 	extern	___1854a4h
@@ -20,6 +20,11 @@ cpu 386
 	extern	___185a38h
 
 section .text
+
+__GDECL(___28ab4h_cdecl)
+	mov 	eax, [esp+4]
+	call 	___28ab4h
+	retn
 
 __GDECL(___28ab4h)
 		push    54h
@@ -47,7 +52,15 @@ ___28af3h:
 		mov     ebx, edi
 		add     eax, 0aah
 		add     ecx, 280h
-		call    near memset_
+		
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    memset
+	add 	esp, 0ch
+	pop 	ecx
+
 		cmp     ecx, 22600h
 		jne     short ___28af3h
 		mov     ecx, [___1a1ef8h]
@@ -62,7 +75,15 @@ ___28af3h:
 		sub     eax, ebx
 		mov     ebx, 0ah
 		mov     esi, ___181f64h
-		call    near itoa_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    itoa_watcom106
+	add 	esp, 0ch
+	pop 	ecx
+
 		movsd   
 		movsd   
 		movsd   
@@ -76,14 +97,35 @@ ___28af3h:
 		mov     edx, 186aah
 		call 	__STRCAT
 		mov     eax, ___181f84h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, 1aeaah
 		mov     eax, esp
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, 1d6aah
 		mov     eax, ___181fa4h
 		xor     ebx, ebx
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 
 	push 	edx
 	push 	ecx

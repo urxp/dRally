@@ -11,13 +11,13 @@ cpu 386
 	extern	___1a01fch
 	extern	___1a0180h
 	extern	___1a01e0h
-	extern	strupr_
+	extern	strupr_watcom106
 	extern	___25230h
 	extern	___185c7ah
 	extern	___1a10b8h
 	extern	___12e78h_cdecl
 	extern	___1a0210h
-	extern	itoa_
+	extern	itoa_watcom106
 	extern	___180728h
 	extern	___250e0h
 	extern	___185c0bh
@@ -32,7 +32,7 @@ cpu 386
 	extern	___181f56h
 	extern	ceil_
 	extern	__CHP
-	extern	memset_
+	extern	memset
 	extern	___185bedh
 	extern	___1a1e90h
 	extern	___18e938h
@@ -112,7 +112,15 @@ ___253c1h:
 		add     esi, eax
 		call 	__STRCPY
 		lea     eax, [esp+14h]
-		call    near strupr_
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    strupr_watcom106
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		lea     eax, [esp+14h]
 		lea     ebx, [esp+14h]
 		call    near ___25230h
@@ -146,7 +154,15 @@ ___25475h:
 		mov     edx, esp
 		mov     eax, [eax*4+___1a0210h]
 		mov     esi, esp
-		call    near itoa_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    itoa_watcom106
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     ax, [___180728h]
 		lea     edi, [esp+14h]
 		mov     [esp+14h], ax
@@ -179,7 +195,15 @@ ___25475h:
 		mov     ebx, 0ah
 		mov     eax, [edx+eax*4+___18e220h]
 		mov     edx, esp
-		call    near itoa_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    itoa_watcom106
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     al, [___180130h]
 		mov     edi, esp
 		mov     [esp+14h], al
@@ -212,7 +236,15 @@ ___2555ch:
 		mov     ebx, 0ah
 		mov     edx, esp
 		mov     eax, [eax*4+___1a0228h]
-		call    near itoa_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    itoa_watcom106
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     al, [___180130h]
 		mov     edi, esp
 		mov     [esp+14h], al
@@ -257,7 +289,15 @@ ___2565dh:
 		mov     ebx, [esp+28h]
 		add     eax, 224h
 		add     ecx, 280h
-		call    near memset_
+		
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    memset
+	add 	esp, 0ch
+	pop 	ecx
+
 		cmp     ecx, 30980h
 		jne     short ___2565dh
 		mov     edx, [___1a1ef8h]
@@ -270,7 +310,15 @@ ___2565dh:
 		mov     edx, esp
 		mov     eax, [eax*4+___1a01ech]
 		lea     edi, [esp+14h]
-		call    near itoa_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    itoa_watcom106
+	add 	esp, 0ch
+	pop 	ecx
+
 		call 	__STRCPY
 		xor     ebx, ebx
 		xor     edx, edx

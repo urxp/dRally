@@ -82,8 +82,7 @@ void dRally_Sound_setEffectsVolume(dword vol);
 void dRally_Sound_setMasterVolume(dword vol);
 byte dRally_Sound_setPosition(dword pos_n);
 void dRally_Sound_setSampleRate(dword freq);
-void dRally_Sound_pushEffect(byte channel, byte n, dword unk, 
-						dword a0, dword a1, dword a2);
+void dRally_Sound_pushEffect(byte channel, byte n, dword unk, dword a0, dword a1, dword a2);
 void dRally_Sound_play(void);
 void dRally_Sound_release(void);
 void dRally_Sound_stop(void);
@@ -91,7 +90,7 @@ dword __GET_TIMER_TICKS(void);
 void srand_watcom106(dword);
 void __VESA101_SETMODE(void);
 dword ___12c38h__VESA101_CHECKBANKS(void);
-void VGA3_SETMODE(void);
+void __VGA3_SETMODE(void);
 void dRally_System_clean(void);
 void ___605deh_cdecl(dword, dword);
 void ___117d4h(void);
@@ -179,7 +178,7 @@ void ___3e720h(void){
 
 	if(___12c38h__VESA101_CHECKBANKS()){
 			
-		VGA3_SETMODE();
+		__VGA3_SETMODE();
 		printf(	"DEATH RALLY Error: Your VGA-adapter is not fully VESA (VBE 1.0) compliant.\n"
 				"                   Use UNIVBE or similar emulator to fix the problem.\n");
 		printf("Please consult DRHELP.EXE for more information on how to resolve this problem.\n");
@@ -207,10 +206,11 @@ void ___3e720h(void){
 	B(0x6c*D(___1a1ef8h)+___1a01e0h) = 0;
 
 	dRally_Console_clear();
-	dRally_Console_newLine("          Welcome to Death Rally - Full version 1.1", 1);
-	dRally_Console_newLine("    Developed by Remedy Entertainment for Apogee Software", 1);
+	dRally_Console_newLine("           Welcome to Death Rally - Full version 1.1", 1);
+	//dRally_Console_newLine("    Developed by Remedy Entertainment for Apogee Software", 1);
+	dRally_Console_newLine("       Powered by dRally, open source Death Rally engine", 1);
 	dRally_Console_newLine("", 1);
-	dRally_Console_newLine("Use arrow keys to change selection and press enter to confirm.", 1);
+	dRally_Console_newLine(" Use arrow keys to change selection and press enter to confirm.", 1);
 	dRally_Console_newLine("", 1);
 
 	___135fch(0, 0x173, 0x27f, 0x6d);
@@ -322,10 +322,10 @@ void ___3e720h(void){
 			case 2:
 				___1e888h_cdecl(eax);
 				break;
-			case 3:
+			case 3:	// CONFIGURE
 				___218b4h();
 				break;
-			case 4:
+			case 4: // HALL OF FAME
 				___22a80h();
 				D(esp+0x24) = 1;
 				break;
@@ -349,20 +349,17 @@ void ___3e720h(void){
 		}
 	}
 
+#if defined(DR_MULTIPLAYER)
 	if(D(___19bd60h)){
 
 		ebx = 6;
-		strcpy(___1a1dbah, "-- ");
-		strcat(___1a1dbah, ___1a01e0h+0x6c*D(___1a1ef8h));
-		strcat(___1a1dbah, " has left from Death Rally.");
+		strcat(strcat(strcpy(___1a1dbah, "-- "), ___1a01e0h+0x6c*D(___1a1ef8h)), " has left from Death Rally.");
 		B(___1a1f63h) = 0;
 
 		if(strcmp(___1866b8h+0x3b6, "Abort Current Game") == 0){
 
 			___23488h_cdecl(___1a1dbah, 0x64, 0x14);
-			strcpy(___1a1dbah, "-- ");
-			strcat(___1a1dbah, ___1a01e0h+0x6c*D(___1a1ef8h));
-			strcat(___1a1dbah, " aborted current netgame.");
+			strcat(strcat(strcpy(___1a1dbah, "-- "), ___1a01e0h+0x6c*D(___1a1ef8h)), " aborted current netgame.");
 			B(___1a1f63h) = 0;
 
 			if(D(CONNECTION_TYPE) != 2) ebx = 9;
@@ -374,6 +371,7 @@ void ___3e720h(void){
 		D(___19bd60h) = 0;
 		D(CONNECTION_TYPE) = 0;
 	}
+#endif
 
 	___3d79ch();
 	CONFIG_WRITE();
@@ -382,6 +380,5 @@ void ___3e720h(void){
 	___24ec0h();
 	___2fc50h();
 	
-    dRally_Sound_stop();
     dRally_Sound_release(); 
 }

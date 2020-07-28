@@ -17,7 +17,7 @@
 
 dword __GET_TIMER_TICKS(void);
 dword __GET_FRAME_COUNTER(void);
-byte POP_LAST_KEY(void);
+byte dRally_Keyboard_popLastKey(void);
 void ___59db8h(void);
 byte inp_(dword);
 
@@ -27,7 +27,7 @@ byte ___5994ch(void){
 
 
 	__GET_FRAME_COUNTER();
-	H(ebx) = POP_LAST_KEY();
+	H(ebx) = dRally_Keyboard_popLastKey();
 
 	if(D(___199f4ch) != 0){
 

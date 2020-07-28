@@ -15,14 +15,37 @@ dword ___61bb8h(dword A1){
 		mov     ecx, eax
 		lea     ebx, [eax+4]
 		mov     eax, ebx
-		call    near inp_
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    inp_
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     edi, eax
 		mov     edx, 10h
 		mov     eax, ebx
-		call    near outp_
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    outp_
+	add 	esp, 8
+	pop 	ecx
+
 		lea     esi, [ecx+6]
 		mov     eax, esi
-		call    near inp_
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    inp_
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		test    al, 0f0h
 		je      short ___61bf6h
 		xor     eax, eax
@@ -30,9 +53,24 @@ dword ___61bb8h(dword A1){
 ___61bf6h:
 		mov     edx, 1fh
 		mov     eax, ebx
-		call    near outp_
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    outp_
+	add 	esp, 8
+	pop 	ecx
+
 		mov     eax, esi
-		call    near inp_
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    inp_
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		and     eax, 0f0h
 		cmp     eax, dword 0f0h
 		je      short ___61c1dh
@@ -46,16 +84,46 @@ ___61bf6h:
 ___61c1dh:
 		mov     edx, edi
 		mov     eax, ebx
-		call    near outp_
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    outp_
+	add 	esp, 8
+	pop 	ecx
+
 		lea     ebx, [ecx+7]
 		mov     eax, ebx
-		call    near inp_
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    inp_
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     esi, eax
 		mov     edx, 55h
 		mov     eax, ebx
-		call    near outp_
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    outp_
+	add 	esp, 8
+	pop 	ecx
+
 		mov     eax, ebx
-		call    near inp_
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    inp_
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		cmp     eax, byte 55h
 		je      short ___61c55h
 		mov     eax, 1
@@ -68,9 +136,24 @@ ___61c1dh:
 ___61c55h:
 		mov     edx, 0aah
 		mov     eax, ebx
-		call    near outp_
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    outp_
+	add 	esp, 8
+	pop 	ecx
+
 		mov     eax, ebx
-		call    near inp_
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    inp_
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		cmp     eax, dword 0aah
 		je      short ___61c7ah
 		mov     eax, 1
@@ -83,17 +166,46 @@ ___61c55h:
 ___61c7ah:
 		mov     edx, esi
 		mov     eax, ebx
-		call    near outp_
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    outp_
+	add 	esp, 8
+	pop 	ecx
+
 		lea     ebx, [ecx+2]
 		mov     edx, 1
 		mov     eax, ebx
-		call    near outp_
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    outp_
+	add 	esp, 8
+	pop 	ecx
+
 		mov     eax, ebx
-		call    near inp_
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    inp_
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     ecx, eax
 		xor     edx, edx
 		mov     eax, ebx
-		call    near outp_
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    outp_
+	add 	esp, 8
+	pop 	ecx
+
 		test    cl, 80h
 		jne     short ___61cb4h
 		mov     eax, 2

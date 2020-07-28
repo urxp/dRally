@@ -14,7 +14,7 @@ cpu 386
 	extern	___1a1ef8h
 	extern	___182564h
 	extern	___1a0230h
-	extern	itoa_
+	extern	itoa_watcom106
 	extern	___182574h
 	extern	___185c0bh
 	extern	___1a1108h
@@ -70,7 +70,7 @@ cpu 386
 	extern	___1a0ff4h
 	extern	___1a01e0h
 	extern	___19f750h
-	extern	strupr_
+	extern	strupr_watcom106
 	extern	___18268ch
 	extern	___182698h
 
@@ -173,7 +173,15 @@ ___36bb8h:
 		lea     edx, [esp+64h]
 		mov     eax, [eax*4+___1a0230h]
 		mov     edi, esp
-		call    near itoa_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    itoa_watcom106
+	add 	esp, 0ch
+	pop 	ecx
+
 		call 	__STRCAT
 		mov     esi, ___182574h
 		mov     edi, esp
@@ -228,7 +236,15 @@ ___36c86h:
 		lea     edx, [esp+64h]
 		mov     eax, [eax*4+___1a0228h]
 		lea     edi, [esp+64h]
-		call    near itoa_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    itoa_watcom106
+	add 	esp, 0ch
+	pop 	ecx
+
 		call 	__STRCAT
 		mov     edi, esp
 		mov     ecx, 120e8h
@@ -277,7 +293,15 @@ ___36c86h:
 		lea     edx, [esp+64h]
 		mov     eax, [eax*4+___1a022ch]
 		mov     ecx, 15a68h
-		call    near itoa_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    itoa_watcom106
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     ebx, esp
 		mov     edx, ___185c0bh
 		movsd   
@@ -322,7 +346,15 @@ ___36c86h:
 		lea     edx, [esp+64h]
 		mov     eax, [eax*4+___1a0230h]
 		mov     ecx, 193e8h
-		call    near itoa_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    itoa_watcom106
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     ebx, esp
 		mov     edx, ___185c0bh
 		movsd   
@@ -354,7 +386,15 @@ ___36c86h:
 		lea     esi, [esp+64h]
 		mov     eax, [___196ab8h]
 		mov     edi, esp
-		call    near itoa_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    itoa_watcom106
+	add 	esp, 0ch
+	pop 	ecx
+
 		call 	__STRCAT
 ___36ed7h:
 		mov     ebx, esp
@@ -380,7 +420,15 @@ ___36ed7h:
 		lea     edx, [esp+64h]
 		mov     eax, [eax*4+___1a0238h]
 		mov     ecx, 1cd68h
-		call    near itoa_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    itoa_watcom106
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     ebx, esp
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
@@ -424,7 +472,15 @@ ___36ed7h:
 		lea     edx, [esp+64h]
 		mov     eax, [eax*4+___1a0210h]
 		mov     ecx, 206e8h
-		call    near itoa_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    itoa_watcom106
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     ebx, esp
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
@@ -523,7 +579,15 @@ ___37167h:
 		mov     esi, ___181f50h
 		mov     eax, [___196adch]
 		mov     edi, esp
-		call    near itoa_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    itoa_watcom106
+	add 	esp, 0ch
+	pop 	ecx
+
 		call 	__STRCAT
 		lea     esi, [esp+64h]
 		mov     edi, esp
@@ -549,7 +613,15 @@ ___37201h:
 		lea     edx, [esp+64h]
 		mov     eax, [___196ae8h]
 		lea     edi, [esp+64h]
-		call    near itoa_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    itoa_watcom106
+	add 	esp, 0ch
+	pop 	ecx
+
 		call 	__STRCAT
 		mov     edi, esp
 		mov     ecx, 2a468h
@@ -592,7 +664,15 @@ ___37201h:
 		lea     edx, [esp+64h]
 		mov     eax, [___196aech]
 		mov     ecx, 2dde8h
-		call    near itoa_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    itoa_watcom106
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     ebx, esp
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
@@ -630,7 +710,15 @@ ___37201h:
 		lea     edx, [esp+64h]
 		mov     eax, [___196af0h]
 		mov     ecx, 31768h
-		call    near itoa_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    itoa_watcom106
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     ebx, esp
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
@@ -670,7 +758,15 @@ ___37201h:
 		lea     edx, [esp+64h]
 		add     eax, ecx
 		mov     esi, ___18265ch
-		call    near itoa_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    itoa_watcom106
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     ecx, 350e8h
 		mov     ebx, esp
 		mov     edx, ___185c0bh
@@ -711,7 +807,15 @@ ___37201h:
 		lea     edx, [esp+64h]
 		mov     eax, [___1a1134h]
 		mov     ecx, 38a68h
-		call    near itoa_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    itoa_watcom106
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     ebx, esp
 		mov     edx, ___185c0bh
 		movsd   
@@ -750,16 +854,40 @@ ___37201h:
 		mov     ebx, 0ah
 		lea     edx, [esp+78h]
 		mov     eax, [___1a10a0h]
-		call    near itoa_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    itoa_watcom106
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     ebx, 0ah
 		lea     edx, [esp+50h]
 		mov     eax, [___1a10a8h]
-		call    near itoa_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    itoa_watcom106
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     ebx, 0ah
 		lea     edx, [esp+8ch]
 		mov     eax, [___1a1090h]
 		lea     edi, [esp+78h]
-		call    near itoa_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    itoa_watcom106
+	add 	esp, 0ch
+	pop 	ecx
+
 		call 	__STRLEN
 		cmp     ecx, byte 1
 		jne     short ___37519h
@@ -919,7 +1047,15 @@ ___37576h:
 		sub     eax, edx
 		shl     eax, 3
 		add     eax, ebx
-		call    near strupr_
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    strupr_watcom106
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     edx, [___1a1ef8h]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
@@ -1003,7 +1139,15 @@ ___3787ch:
 		sub     eax, edx
 		shl     eax, 3
 		add     eax, ebx
-		call    near strupr_
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    strupr_watcom106
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     edx, [___1a1ef8h]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
@@ -1030,16 +1174,40 @@ ___379feh:
 		mov     ebx, 0ah
 		lea     edx, [esp+78h]
 		mov     eax, [___1a1034h]
-		call    near itoa_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    itoa_watcom106
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     ebx, 0ah
 		lea     edx, [esp+50h]
 		mov     eax, [___1a108ch]
-		call    near itoa_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    itoa_watcom106
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     ebx, 0ah
 		lea     edx, [esp+8ch]
 		mov     eax, [___1a0ff4h]
 		lea     edi, [esp+78h]
-		call    near itoa_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    itoa_watcom106
+	add 	esp, 0ch
+	pop 	ecx
+
 		call 	__STRLEN
 		cmp     ecx, byte 1
 		jne     short ___37a61h
@@ -1142,7 +1310,15 @@ ___37abeh:
 		lea     edx, [esp+78h]
 		mov     eax, [ebx+eax*8+___19f75ch]
 		mov     ebx, 0ah
-		call    near itoa_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    itoa_watcom106
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     edx, [___1a1ef8h]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
@@ -1162,7 +1338,15 @@ ___37abeh:
 		lea     edx, [esp+50h]
 		mov     eax, [ebx+eax*8+___19f760h]
 		mov     ebx, 0ah
-		call    near itoa_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    itoa_watcom106
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     edx, [___1a1ef8h]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
@@ -1183,7 +1367,15 @@ ___37abeh:
 		mov     eax, [ebx+eax*8+___19f764h]
 		mov     ebx, 0ah
 		lea     edi, [esp+78h]
-		call    near itoa_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    itoa_watcom106
+	add 	esp, 0ch
+	pop 	ecx
+
 		call 	__STRLEN
 		cmp     ecx, byte 1
 		jne     short ___37d25h

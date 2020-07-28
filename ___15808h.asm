@@ -17,7 +17,7 @@ cpu 386
 	extern 	___1806c0h
 	extern 	___1806c8h
 	extern 	___18af12h
-	extern 	___13094h
+	extern 	___13094h_cdecl
 	extern 	___18af62h
 	extern 	___18afb2h
 	extern 	___18b002h
@@ -187,7 +187,14 @@ ___159deh:
 		add     eax, esi
 		lea     edx, [eax+80h]
 		mov     eax, ___18af12h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		lea     edx, [ebp+35h]
 		lea     eax, [edx*4+0]
 		add     eax, edx
@@ -195,7 +202,14 @@ ___159deh:
 		lea     edx, [esi+eax*1]
 		mov     eax, ___18af62h
 		add     edx, 80h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		lea     edx, [ebp+45h]
 		lea     eax, [edx*4+0]
 		add     eax, edx
@@ -203,7 +217,14 @@ ___159deh:
 		lea     edx, [esi+eax*1]
 		mov     eax, ___18afb2h
 		add     edx, 80h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		lea     edx, [ebp+55h]
 		lea     eax, [edx*4+0]
 		add     eax, edx
@@ -211,7 +232,14 @@ ___159deh:
 		lea     edx, [esi+eax*1]
 		mov     eax, ___18b002h
 		add     edx, 80h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		lea     edx, [ebp+65h]
 		lea     eax, [edx*4+0]
 		add     eax, edx
@@ -219,7 +247,14 @@ ___159deh:
 		add     eax, esi
 		lea     edx, [eax+80h]
 		mov     eax, ___18b052h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		lea     edx, [ebp+75h]
 		lea     eax, [edx*4+0]
 		add     eax, edx
@@ -227,7 +262,14 @@ ___159deh:
 		lea     edx, [esi+eax*1]
 		mov     eax, ___18b0a2h
 		add     edx, 80h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		lea     edx, [ebp+85h]
 		lea     eax, [edx*4+0]
 		add     eax, edx
@@ -237,7 +279,14 @@ ___159deh:
 		mov     edi, esp
 		mov     eax, ___18b0f2h
 		mov     esi, ___18b142h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		call 	__STRCPY
 		lea     esi, [esp+34h]
 		mov     edi, esp
@@ -253,7 +302,14 @@ ___159deh:
 		add     eax, ebx
 		lea     edx, [eax+80h]
 		mov     eax, esp
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		lea     edx, [ebp+0a5h]
 		lea     eax, [edx*4+0]
 		add     eax, edx
@@ -261,7 +317,14 @@ ___159deh:
 		lea     edx, [ebx+eax*1]
 		mov     eax, ___18b192h
 		add     edx, 80h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		lea     edx, [ebp+0b5h]
 		lea     eax, [edx*4+0]
 		add     eax, edx
@@ -269,7 +332,14 @@ ___159deh:
 		lea     edx, [ebx+eax*1]
 		mov     eax, ___18b1e2h
 		add     edx, 80h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		jmp     near ___15dffh
 ___15bb6h:
 		cmp     ecx, byte 0ffffffffh
@@ -330,7 +400,14 @@ ___15c5ch:
 		add     edx, eax
 		mov     eax, ___18b232h
 		add     edx, 80h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		lea     edx, [ebp+35h]
 		lea     eax, [edx*4+0]
 		add     eax, edx
@@ -339,7 +416,14 @@ ___15c5ch:
 		add     edx, eax
 		mov     eax, ___18b282h
 		add     edx, 80h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		lea     edx, [ebp+45h]
 		lea     eax, [edx*4+0]
 		add     eax, edx
@@ -348,7 +432,14 @@ ___15c5ch:
 		add     edx, eax
 		mov     eax, ___18b2d2h
 		add     edx, 80h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		lea     edx, [ebp+55h]
 		lea     eax, [edx*4+0]
 		add     eax, edx
@@ -357,7 +448,14 @@ ___15c5ch:
 		add     eax, esi
 		lea     edx, [eax+80h]
 		mov     eax, ___18b322h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		lea     edx, [ebp+65h]
 		lea     eax, [edx*4+0]
 		add     eax, edx
@@ -365,7 +463,14 @@ ___15c5ch:
 		add     eax, esi
 		lea     edx, [eax+80h]
 		mov     eax, ___18b372h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		lea     edx, [ebp+75h]
 		lea     eax, [edx*4+0]
 		add     eax, edx
@@ -373,7 +478,14 @@ ___15c5ch:
 		add     eax, esi
 		lea     edx, [eax+80h]
 		mov     eax, ___18b3c2h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		lea     edx, [ebp+85h]
 		lea     eax, [edx*4+0]
 		add     eax, edx
@@ -381,7 +493,14 @@ ___15c5ch:
 		add     eax, esi
 		lea     edx, [eax+80h]
 		mov     eax, ___18b412h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		lea     edx, [ebp+95h]
 		lea     eax, [edx*4+0]
 		add     eax, edx
@@ -389,7 +508,14 @@ ___15c5ch:
 		add     eax, esi
 		lea     edx, [eax+80h]
 		mov     eax, ___18b462h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		lea     edx, [ebp+0a5h]
 		lea     eax, [edx*4+0]
 		add     eax, edx
@@ -397,7 +523,14 @@ ___15c5ch:
 		add     eax, esi
 		lea     edx, [eax+80h]
 		mov     eax, ___18b4b2h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		lea     edx, [ebp+0b5h]
 		lea     eax, [edx*4+0]
 		add     eax, edx
@@ -405,7 +538,14 @@ ___15c5ch:
 		lea     edx, [esi+eax*1]
 		mov     eax, ___18b502h
 		add     edx, 80h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, [___1a1ef8h]
 		lea     eax, [edx*8+0]
 		sub     eax, edx

@@ -9,7 +9,7 @@ cpu 386
 	extern	___24cee4h
 	extern	___24cee8h
 	extern	___24ceech
-	extern	memset_
+	extern	memset
 
 section .text
 
@@ -50,32 +50,80 @@ __GDECL(___4495ch)
 		mov     ebx, 1000h
 		mov     word [edx+2], 0
 		xor     edx, edx
-		call    near memset_
+		
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    memset
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     ebx, 1000h
 		mov     eax, [___24cee0h]
 		xor     edx, edx
 		add     eax, byte 4
-		call    near memset_
+		
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    memset
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     ebx, 1000h
 		mov     eax, [___24cee4h]
 		xor     edx, edx
 		add     eax, byte 4
-		call    near memset_
+		
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    memset
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     ebx, 1000h
 		mov     eax, [___24cee8h]
 		xor     edx, edx
 		add     eax, byte 4
-		call    near memset_
+		
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    memset
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     ebx, 1000h
 		mov     eax, [___24ceech]
 		xor     edx, edx
 		add     eax, byte 4
-		call    near memset_
+		
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    memset
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     ebx, 1000h
 		mov     eax, [___24e4c0h]
 		xor     edx, edx
 		add     eax, byte 4
-		call    near memset_
+		
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    memset
+	add 	esp, 0ch
+	pop 	ecx
+
 		pop     edx
 		pop     ebx
 		retn    

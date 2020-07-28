@@ -99,7 +99,15 @@ ___2a67ah:
 
 		test    al, al
 		jne     short ___2a68ah
-		call    near ___2ab50h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2ab50h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+	
 		jmp     short ___2a67ah
 ___2a68ah:
 		xor     ah, ah

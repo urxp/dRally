@@ -13,7 +13,7 @@ cpu 386
 	extern	___1a1ef8h
 	extern	___182564h
 	extern	___1a0230h
-	extern	itoa_
+	extern	itoa_watcom106
 	extern	___182574h
 	extern	___185c0bh
 	extern	___1a1108h
@@ -43,7 +43,7 @@ cpu 386
 	extern	___19eb50h
 	extern	___19eb54h
 	extern	___19eb58h
-	extern	DISPLAY_SET_PALETTE_COLOR
+	extern	__DISPLAY_SET_PALETTE_COLOR
 	extern	___2ab50h
 	extern	___38768h
 	extern	___5994ch
@@ -162,7 +162,15 @@ ___3993bh:
 		lea     edx, [esp+28h]
 		mov     eax, [eax*4+___1a0230h]
 		mov     edi, esp
-		call    near itoa_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    itoa_watcom106
+	add 	esp, 0ch
+	pop 	ecx
+
 		call 	__STRCAT
 		mov     esi, ___182574h
 		mov     edi, esp
@@ -396,7 +404,15 @@ ___39cf7h:
 		mov     esi, ___181f50h
 		mov     eax, [___196adch]
 		mov     edi, esp
-		call    near itoa_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    itoa_watcom106
+	add 	esp, 0ch
+	pop 	ecx
+
 		call 	__STRCAT
 		lea     esi, [esp+28h]
 		mov     edi, esp
@@ -542,7 +558,10 @@ ___39eb0h:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near DISPLAY_SET_PALETTE_COLOR
+
+		call    __DISPLAY_SET_PALETTE_COLOR
+		add 	esp, 10h
+		
 		mov     ebx, [esp+5ch]
 		inc     ebx
 		add     edi, byte 0ch
@@ -553,7 +572,15 @@ ___39eb0h:
 		cmp     ebp, 640000h
 		jne     near ___39ea1h
 ___39f52h:
-		call    near ___2ab50h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2ab50h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+	
 		call    near ___38768h
 
 	push 	edx
@@ -651,7 +678,15 @@ ___39f52h:
 	pop		edx
 
 ___39fe7h:
-		call    near ___2ab50h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2ab50h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+	
 		call    near ___38768h
 
 	push 	edx
@@ -751,7 +786,10 @@ ___3a089h:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near DISPLAY_SET_PALETTE_COLOR
+
+		call    __DISPLAY_SET_PALETTE_COLOR
+		add 	esp, 10h
+		
 		mov     ebx, [esp+5ch]
 		inc     ebx
 		add     edi, byte 0ch
@@ -796,7 +834,10 @@ ___3a126h:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near DISPLAY_SET_PALETTE_COLOR
+
+		call    __DISPLAY_SET_PALETTE_COLOR
+		add 	esp, 10h
+		
 		mov     eax, [esp+5ch]
 		inc     eax
 		add     edi, byte 0ch

@@ -7,13 +7,13 @@ cpu 386
 	extern	___1a112ch__VESA101_ACTIVESCREEN_PTR
 	extern	___1a0fe8h
 	extern	___1a0228h
-	extern	itoa_
+	extern	itoa_watcom106
 	extern	___185ba9h
 	extern	___1a10cch
 	extern	___12e78h_cdecl
 	extern	___1a01e0h
 	extern	___185c7ah
-	extern	strupr_
+	extern	strupr_watcom106
 	extern	___1a10b8h
 	extern	___1a0224h
 	extern	___251e8h
@@ -108,7 +108,15 @@ ___39715h:
 		mov     ebx, 0ah
 		mov     edx, esp
 		mov     eax, [eax+___1a0228h]
-		call    near itoa_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    itoa_watcom106
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     eax, [___196adch]
 		sub     eax, ebp
 		dec     eax
@@ -148,7 +156,15 @@ ___3978eh:
 		call 	__STRCPY
 		mov     eax, esp
 		mov     edx, ___185c7ah
-		call    near strupr_
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    strupr_watcom106
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     eax, [___1a10b8h]
 
 	push 	ecx
@@ -168,7 +184,15 @@ ___3978eh:
 		mov     edx, esp
 		mov     eax, [eax+___1a0224h]
 		mov     ecx, [esp+28h]
-		call    near itoa_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    itoa_watcom106
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     eax, esp
 		mov     ebx, esp
 		mov     edx, ___185c7ah

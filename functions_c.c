@@ -1,43 +1,29 @@
 #include "drally.h"
 
-static void loc_strupr(char * s){
+char * strupr_watcom106(char *);
 
-	while(s&&*s){
-
-		if((*s >= 0x61)&&(*s <= 0x7a)) *s -= 0x20;
-		s++;
-	}
-}
-
-char * STRUPR_D(char * s){
-
-	loc_strupr(s);
-
-	return s;
-}
-
-FILE * strup_fopen(const char * file_name, const char * mode){
+FILE * strupr_fopen(const char * file_name, const char * mode){
 
 	char buffer[256];
 
-	strcpy(buffer, file_name);
-	loc_strupr(buffer);
+	if(strlen(file_name) > 255){
 
-	return fopen(buffer, mode);
+		printf("File name too long: (%s)\n", file_name);
+		return NULL;
+	}
 
+	return fopen(strupr_watcom106(strcpy(buffer, file_name)), mode);
 }
 
-unsigned GET_FILE_SIZE(const char * file_name){
+dword GET_FILE_SIZE(const char * file_name){
 
 	FILE * fd;
-	unsigned size;
+	dword size;
 
-    printf("[dRally.File] Checking size of %s\n", file_name);
-
-	if(!(fd = strup_fopen(file_name, "rb"))) return 0;
+	if(!(fd = strupr_fopen(file_name, "rb"))) return 0;
 
 	fseek(fd, 0, SEEK_END);
-	size = (unsigned)ftell(fd);
+	size = (dword)ftell(fd);
 	fclose(fd);
 
 	return size;
@@ -53,4 +39,9 @@ dword MULSHIFT(dword d0, dword d1){
 	if(q_rslt != rslt) printf("MULSHIFT doesn't match\n");
 
 	return rslt;
+}
+
+void my_ceil(double * dval){
+
+	*dval = ceil(*dval);
 }

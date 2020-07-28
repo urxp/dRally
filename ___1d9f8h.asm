@@ -43,7 +43,7 @@ cpu 386
 	extern	___631d4h
 	extern	___63228h
 	extern	kmap
-	extern	memset_
+	extern	memset
 	extern	___180f94h
 	extern	___63244h
 	extern	___180f9ch
@@ -427,7 +427,15 @@ ___1ddcdh:
 		mov     edx, edi
 		add     eax, esi
 		add     esi, 280h
-		call    near memset_
+		
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    memset
+	add 	esp, 0ch
+	pop 	ecx
+
 		cmp     esi, 2800h
 		jne     short ___1ddcdh
 		mov     ecx, [esp+60h]
@@ -482,7 +490,15 @@ ___1de3bh:
 		mov     ebx, edi
 		add     eax, ecx
 		add     ecx, 280h
-		call    near memset_
+		
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    memset
+	add 	esp, 0ch
+	pop 	ecx
+
 		cmp     ecx, 2800h
 		jne     short ___1de3bh
 		mov     ecx, [esp+64h]
@@ -559,7 +575,15 @@ ___1dee8h:
 		mov     edx, edi
 		add     eax, ecx
 		add     ecx, 280h
-		call    near memset_
+		
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    memset
+	add 	esp, 0ch
+	pop 	ecx
+
 		cmp     ecx, 2800h
 		jne     short ___1dee8h
 		mov     ecx, [esp+68h]
@@ -636,8 +660,24 @@ ___1df77h:
 
 		mov     ebx, eax
 ___1df93h:
-		call    near ___2ab50h
-		call    near ___2ab50h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2ab50h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+	
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2ab50h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+	
 		mov     edx, [esp+5ch]
 		mov     eax, [esp+54h]
 	
@@ -709,8 +749,24 @@ ___1dfdfh:
 
 		mov     edi, eax
 ___1e023h:
-		call    near ___2ab50h
-		call    near ___2ab50h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2ab50h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+	
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2ab50h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+	
 		mov     edx, [esp+58h]
 		mov     eax, ebp
 	

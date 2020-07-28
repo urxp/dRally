@@ -19,7 +19,7 @@ cpu 386
 	extern	___19eb50h
 	extern	___19eb54h
 	extern	___19eb58h
-	extern	DISPLAY_SET_PALETTE_COLOR
+	extern	__DISPLAY_SET_PALETTE_COLOR
 	extern	dRally_Sound_getPosition
 	extern	___1a1ef4h
 	extern	dRally_Sound_setPosition
@@ -222,7 +222,10 @@ ___2ef85h:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near DISPLAY_SET_PALETTE_COLOR
+
+		call    __DISPLAY_SET_PALETTE_COLOR
+		add 	esp, 10h
+		
 		mov     eax, [esp]
 		inc     eax
 		add     edi, byte 0ch
@@ -267,7 +270,10 @@ ___2f020h:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near DISPLAY_SET_PALETTE_COLOR
+
+		call    __DISPLAY_SET_PALETTE_COLOR
+		add 	esp, 10h
+		
 		mov     ecx, [esp]
 		inc     ecx
 		add     edi, byte 0ch
@@ -446,7 +452,10 @@ ___2f1f7h:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near DISPLAY_SET_PALETTE_COLOR
+
+		call    __DISPLAY_SET_PALETTE_COLOR
+		add 	esp, 10h
+		
 		mov     ebx, [esp]
 		inc     ebx
 		add     edi, byte 0ch
@@ -491,7 +500,10 @@ ___2f292h:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near DISPLAY_SET_PALETTE_COLOR
+
+		call    __DISPLAY_SET_PALETTE_COLOR
+		add 	esp, 10h
+		
 		mov     eax, [esp]
 		inc     eax
 		add     edi, byte 0ch
@@ -533,8 +545,24 @@ ___2f37bh:
 ___2f381h:
 		cmp     dword [___185a20h], byte 0
 		jne     near ___2f8ach
-		call    near ___2ab50h
-		call    near ___2ab50h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2ab50h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+	
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2ab50h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+	
 		mov     eax, [___185a38h]
 		test    eax, eax
 		jle     short ___2f3aah
@@ -774,7 +802,10 @@ ___2f5b1h:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near DISPLAY_SET_PALETTE_COLOR
+
+		call    __DISPLAY_SET_PALETTE_COLOR
+		add 	esp, 10h
+		
 		mov     edx, [esp]
 		inc     edx
 		add     esi, byte 0ch
@@ -1086,7 +1117,10 @@ ___2f998h:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near DISPLAY_SET_PALETTE_COLOR
+
+		call    __DISPLAY_SET_PALETTE_COLOR
+		add 	esp, 10h
+		
 		mov     ecx, [esp]
 		inc     ecx
 		add     edi, byte 0ch
@@ -1131,7 +1165,10 @@ ___2fa33h:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near DISPLAY_SET_PALETTE_COLOR
+
+		call    __DISPLAY_SET_PALETTE_COLOR
+		add 	esp, 10h
+		
 		mov     ebx, [esp]
 		inc     ebx
 		add     edi, byte 0ch

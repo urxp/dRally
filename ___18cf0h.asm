@@ -10,9 +10,9 @@ cpu 386
 	extern 	___1866b8h
 	extern 	___185b85h
 	extern 	___180754h
-	extern 	itoa_
+	extern 	itoa_watcom106
 	extern 	GET_FILE_SIZE
-	extern 	___18808h
+	extern 	___18808h_cdecl
 	extern 	___1866b8h
 	extern 	___18075ch
 	extern 	___1a1138h__VESA101h_DefaultScreenBufferB
@@ -26,23 +26,23 @@ cpu 386
 	extern 	___1a1108h
 	extern 	___12e78h_cdecl
 	extern 	___12cb8h__VESA101_PRESENTSCREEN
-	extern 	strcmp_
+	extern 	strcmp
 	extern 	___180130h
 	extern 	___1858c8h
 	extern 	___17510h
 	extern 	___3f71ch__allocateMemory
 	extern 	___1a0f9ch
-	extern 	memset_
+	extern 	memset
 	extern 	rand_watcom106
 	extern 	___1a1ef8h
 	extern 	___185a14h
 	extern 	___196a94h
 	extern 	___1a01e0h
 	extern 	___1807bch
-	extern 	fopen_
-	extern 	fwrite_
-	extern 	fclose_
-	extern 	___3f77ch__freeMemory
+	extern 	strupr_fopen
+	extern 	fwrite
+	extern 	fclose
+	extern 	dRally_Memory_free
 	extern 	___1807c0h
 	extern 	___2a608h
 
@@ -79,7 +79,15 @@ ___18d0bh:
 		lea     edx, [esp+2ch]
 		lea     esi, [esp+2ch]
 		lea     edi, [esp+10h]
-		call    near itoa_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    itoa_watcom106
+	add 	esp, 0ch
+	pop 	ecx
+
 		call 	__STRCAT
 		lea     eax, [esp+10h]
 
@@ -96,7 +104,14 @@ ___18d0bh:
 		mov     eax, ___1866b8h+8cah
 		lea     edx, [esp+10h]
 		add     eax, ebp
-		call    near ___18808h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___18808h_cdecl
+	add 	esp, 8
+	pop 	ecx
+
 ___18d88h:
 		mov     ebx, [esp+28h]
 		inc     ebx
@@ -207,7 +222,14 @@ ___18db5h:
 		add     esi, ___1866b8h+8cah
 		mov     edx, ___180748h
 		mov     eax, esi
-		call    near strcmp_
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    strcmp
+	add 	esp,8
+	pop 	ecx
+
 		test    eax, eax
 		je      short ___18ea6h
 		mov     edi, esp
@@ -250,7 +272,15 @@ ___18ee0h:
 
 		mov     ebx, ebp
 		mov     [___1a0f9ch], eax
-		call    near memset_
+		
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    memset
+	add 	esp, 0ch
+	pop 	ecx
+
 
 	push 	edx
 	push 	ecx
@@ -338,24 +368,62 @@ ___19001h:
 		mov     eax, [esp+24h]
 		movsd   
 		movsw   
-		call    near itoa_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    itoa_watcom106
+	add 	esp, 0ch
+	pop 	ecx
+
 		lea     esi, [esp+2ch]
 		lea     edi, [esp+10h]
 		mov     edx, ___1807bch
 		call 	__STRCAT
 		lea     eax, [esp+10h]
 		mov     ebx, 1
-		call    near fopen_
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    strupr_fopen
+	add 	esp, 8
+	pop 	ecx
+
 		mov     esi, eax
 		mov     edx, ebp
 		mov     eax, [___1a0f9ch]
 		mov     ecx, esi
-		call    near fwrite_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    fwrite
+	add 	esp, 10h
+	
 		mov     eax, esi
-		call    near fclose_
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    fclose
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     eax, [___1a0f9ch]
 		xor     edx, edx
-		call    near ___3f77ch__freeMemory
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    dRally_Memory_free
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		xor     eax, eax
 
 	push 	ecx

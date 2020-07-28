@@ -8,7 +8,7 @@ cpu 386
 	extern	___1a1e5ch
 	extern	___2d054h
 	extern	___1a0174h
-	extern	itoa_
+	extern	itoa_watcom106
 	extern	___180728h
 	extern	___25180h
 	extern	___12f60h
@@ -56,7 +56,15 @@ ___2d8dbh:
 		call    near ___2d054h
 		mov     eax, [___1a0174h]
 		lea     edi, [esp+14h]
-		call    near itoa_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    itoa_watcom106
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     ax, [___180728h]
 		mov     esi, esp
 		mov     [esp+14h], ax

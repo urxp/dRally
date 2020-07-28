@@ -31,7 +31,7 @@ cpu 386
 	extern	___196dech
 	extern	___182ed4h
 	extern	___1de7d0h
-	extern	strcmp_
+	extern	strcmp
 	extern	___196df4h
 
 section .text
@@ -429,7 +429,14 @@ ___40d27h:
 		shl     eax, 2
 		mov     edx, ___182ed4h
 		add     eax, ___1de7d0h
-		call    near strcmp_
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    strcmp
+	add 	esp,8
+	pop 	ecx
+
 		test    eax, eax
 		jne     short ___40da3h
 		cmp     dword [___196df4h], byte 0

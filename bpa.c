@@ -14,10 +14,10 @@ typedef struct bpa_s {
 
 #pragma pack(pop)
 
-char * STRUPR_D(char *);
+char * strupr_watcom106(char *);
 
 void ___42944h(const char *);
-void VGA3_SETMODE(void);
+void __VGA3_SETMODE(void);
 
 
 static bpa_t bpa;
@@ -39,8 +39,8 @@ void bpa_read(const char * bpa_fname, void * dst, const char * bpa_entry){
     char    entry[0xd], err[0x50];
     dword   n, offset;
 
-    STRUPR_D(strcpy(entry, bpa_entry));
-    fd = strup_fopen(bpa_fname, "rb");
+    strupr_watcom106(strcpy(entry, bpa_entry));
+    fd = strupr_fopen(bpa_fname, "rb");
     fread(&bpa, 1, sizeof(bpa_t), fd);
 
     BPA_encodeEntryName(entry);
@@ -71,8 +71,8 @@ dword bpa_entrysize(const char * bpa_fname, const char * bpa_entry){
 	char 	entry[0xd], err[0x50];
 	dword 	n;
 
-	STRUPR_D(strcpy(entry, bpa_entry));
-	fd  = strup_fopen(bpa_fname, "rb");
+	strupr_watcom106(strcpy(entry, bpa_entry));
+	fd  = strupr_fopen(bpa_fname, "rb");
     fread(&bpa, 1, sizeof(bpa_t), fd);
 	fclose(fd);
 
@@ -96,7 +96,7 @@ dword bpa_entrysize(const char * bpa_fname, const char * bpa_entry){
 
 void ___42944h(const char * err){
 
-	VGA3_SETMODE();
+	__VGA3_SETMODE();
 	printf("DEATH RALLY Error: %s\n", err);
 	printf("Please consult DRHELP.EXE for more information on how to resolve this problem.\n");
 	exit(0x70);

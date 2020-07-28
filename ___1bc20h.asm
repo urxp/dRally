@@ -7,7 +7,7 @@ cpu 386
 	extern 	__STRCPY
 	extern 	__STRLEN
 	extern 	___185a54h
-	extern 	itoa_
+	extern 	itoa_watcom106
 	extern 	___3f71ch__allocateMemory
 	extern 	___1a1138h__VESA101h_DefaultScreenBufferB
 	extern 	___1a112ch__VESA101_ACTIVESCREEN_PTR
@@ -35,7 +35,7 @@ cpu 386
 	extern 	___23230h
 	extern 	___12d6ch__VESA101_PRESENTBOTTOMSCREEN
 	extern 	___24e4ach
-	extern 	memset_
+	extern 	memset
 	extern 	___196a84h
 	extern 	___5994ch
 	extern 	___2ab50h
@@ -44,11 +44,11 @@ cpu 386
 	extern 	___13c9ch_cdecl
 	extern 	___180afch
 	extern 	___180974h
-	extern 	___3f77ch__freeMemory
+	extern 	dRally_Memory_free
 	extern 	___196adch
 	extern 	___19bd60h
 	extern 	___1c6bch
-	extern 	___2b8ach
+	extern 	shop_main
 	extern 	___185a24h
 	extern 	___180980h
 
@@ -71,7 +71,15 @@ __GDECL(___1bc20h)
 		mov     [esp+18h], ebx
 		mov     ebx, 0ah
 		lea     edx, [esp+0ch]
-		call    near itoa_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    itoa_watcom106
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     eax, 12h
 		mov     ecx, 28f00h
 		
@@ -251,7 +259,15 @@ ___1bd55h:
 		xor     edx, edx
 		add     eax, byte 4
 		mov     ecx, [esp+18h]
-		call    near memset_
+		
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    memset
+	add 	esp, 0ch
+	pop 	ecx
+
 		add     ecx, byte 13h
 ___1be57h:
 		cmp     dword [___196a84h], byte 0
@@ -264,8 +280,24 @@ ___1be57h:
 	pop 	edx
 
 		movzx   edi, al
-		call    near ___2ab50h
-		call    near ___2ab50h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2ab50h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+	
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2ab50h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+	
 		mov     edx, ecx
 		mov     eax, esi
 		mov     ebx, 0bh
@@ -331,7 +363,15 @@ ___1bec2h:
 		call 	__STRCAT
 		mov     eax, [___196ab8h]
 		mov     esi, esp
-		call    near itoa_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    itoa_watcom106
+	add 	esp, 0ch
+	pop 	ecx
+
 		call 	__STRCAT
 		mov     esi, ___180974h
 		mov     ebx, 6
@@ -361,14 +401,38 @@ ___1bec2h:
 		lea     edx, [ecx+1]
 		call    near ___23488h
 		mov     eax, ebp
-		call    near ___3f77ch__freeMemory
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    dRally_Memory_free
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     eax, [esp+1ch]
 		mov     ebx, 1000h
-		call    near ___3f77ch__freeMemory
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    dRally_Memory_free
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     eax, [___24e4ach]
 		xor     edx, edx
 		add     eax, byte 4
-		call    near memset_
+		
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    memset
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     eax, 2
 		mov     ebp, 1
 		mov     [___196adch], eax
@@ -379,7 +443,7 @@ ___1bec2h:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    ___2b8ach
+		call    shop_main
 	pop		eax
 	pop 	ecx
 	pop 	edx
@@ -460,11 +524,35 @@ ___1c065h:
 		mov     eax, [___24e4ach]
 		xor     edx, edx
 		add     eax, byte 4
-		call    near memset_
+		
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    memset
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     eax, ebp
-		call    near ___3f77ch__freeMemory
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    dRally_Memory_free
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     eax, [esp+1ch]
-		call    near ___3f77ch__freeMemory
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    dRally_Memory_free
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		xor     eax, eax
 		add     esp, byte 20h
 		pop     ebp

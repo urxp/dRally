@@ -1,27 +1,6 @@
 
 #include "drally.h"
 
-#pragma pack(1)
-
-typedef struct REGS {
-    dword   __eax;
-    dword   __ebx;
-    dword   __ecx;
-    dword   __edx;
-    dword   __esi;
-    dword   __edi;
-    dword   __cf;
-} REGS;
-
-typedef struct SREGS {
-    word    __es;
-    word    __cs;
-    word    __ss;
-    word    __ds;
-    word    __fs;
-    word    __gs;
-} SREGS;
-
 static unsigned int __seed = 1;
 
 void srand_watcom106(unsigned int seed){
@@ -50,13 +29,52 @@ char * strupr_watcom106(char * s){
     return s;
 }
 
-int my_int386x(int inter_no, REGS * in_regs, REGS * out_regs, SREGS * seg_regs){
+char * strlwr_watcom106(char * s){
 
-    printf("int386x_ not implemented");
+    char *  p;
+
+    p = s-1;
+    while(++p&&*p){
+
+        if((unsigned char)(*p-0x41) <= 0x19) *p += 0x20;
+    }
+
+    return s;
 }
 
-int my_int386(int inter_no, REGS * in_regs, REGS * out_regs){
+char * utoa_watcom106(int value, char * str, int radix){
 
-    printf("int386_ not implemented");
+    char    __buff[0x28];
+    char *  buff;
+    char *  p;
+
+    const char ___Alphabet[] = "0123456789abcdefghijklmnopqrstuvwxyz";
+
+    p = str;
+    buff = __buff;
+	*buff++ = 0;
+
+    if(radix > 1){
+        
+        while(value||!*(buff-1)){
+
+            *buff++ = ___Alphabet[value%radix];
+            value /= radix;
+        }
+    }
+
+    while((*p++ = *--buff));
+
+	return str;
 }
 
+char * itoa_watcom106(int value, char * str, int radix){
+
+    if((radix == 0xa)&&(value < 0)){
+
+        *str = '-';
+        return utoa_watcom106(-value, str+1, radix)-1;
+    }
+
+	return utoa_watcom106(value, str, radix);
+}

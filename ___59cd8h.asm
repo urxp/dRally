@@ -56,25 +56,57 @@ ___59d43h:
 		mov     byte [kmap+0d0h], 1
 ___59d5ch:
 		mov     eax, 201h
-		call    near inp_
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    inp_
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		test    al, 10h
 		jne     short ___59d71h
 		mov     byte [kmap+1ch], 1
 ___59d71h:
 		mov     eax, 201h
-		call    near inp_
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    inp_
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		test    al, 20h
 		jne     short ___59d86h
 		mov     byte [kmap+1ch], 1
 ___59d86h:
 		mov     eax, 201h
-		call    near inp_
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    inp_
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		test    al, 40h
 		jne     short ___59d9bh
 		mov     byte [kmap+1ch], 1
 ___59d9bh:
 		mov     eax, 201h
-		call    near inp_
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    inp_
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		test    al, 80h
 		jne     short ___59db0h
 		mov     byte [kmap+1ch], 1

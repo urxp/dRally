@@ -49,7 +49,7 @@ cpu 386
 	extern	___1a01ech
 	extern	___13248h
 	extern	___1820b0h
-	extern	___13094h
+	extern	___13094h_cdecl
 	extern	___180130h
 	extern	___18224ch
 	extern	___182270h
@@ -752,20 +752,55 @@ ___2eb07h:
 		call    near ___13248h
 		mov     edx, 136aah
 		mov     eax, ___1820b0h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, 15eaah
 		mov     eax, ___180130h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, 186aah
 		mov     eax, ___18224ch
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, 1aeaah
 		mov     eax, ___182270h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, 1d6aah
 		mov     eax, ___182294h
 		xor     ebx, ebx
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 
 	push 	edx
 	push 	ecx

@@ -69,7 +69,7 @@ cpu 386
 	extern 	___1a0220h
 	extern 	___1a0fb8h
 	extern ___11378h_cdecl_float
-	extern 	memset_
+	extern 	memset
 	extern 	___1a1e88h
 	extern 	___1a1eb4h
 	extern 	___1a020ch
@@ -97,7 +97,13 @@ __GDECL(___17510h)
 		mov     [esp+38h], ebx
 		xor     edx, edx
 		mov     bl, 44h
-		call    near __STOSB
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    __STOSB
+	add 	esp, 0ch
+
 		mov     ah, 41h
 		mov     dl, 42h
 		mov     cl, 46h
@@ -771,7 +777,15 @@ ___17df7h:
 		add     eax, byte 65h
 		mov     edx, edi
 		add     ecx, 280h
-		call    near memset_
+		
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    memset
+	add 	esp, 0ch
+	pop 	ecx
+
 		cmp     ecx, esi
 		jne     short ___17df7h
 		mov     ebx, [esp+64h]
@@ -900,7 +914,15 @@ ___17fa1h:
 		add     eax, byte 65h
 		mov     edx, edi
 		add     ecx, 280h
-		call    near memset_
+		
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    memset
+	add 	esp, 0ch
+	pop 	ecx
+
 		cmp     ecx, esi
 		jne     short ___17fa1h
 		mov     ebx, [esp+64h]
@@ -1044,7 +1066,15 @@ ___18176h:
 		add     ebx, byte 14h
 		add     eax, ebp
 		add     esi, 280h
-		call    near memset_
+		
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    memset
+	add 	esp, 0ch
+	pop 	ecx
+
 		cmp     esi, [esp+84h]
 		jne     short ___18176h
 		mov     edi, esp
@@ -1118,7 +1148,15 @@ ___182bfh:
 		mov     edx, 0c4h
 		add     eax, ebp
 		add     ecx, 280h
-		call    near memset_
+		
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    memset
+	add 	esp, 0ch
+	pop 	ecx
+
 		cmp     ecx, esi
 		jne     short ___182bfh
 		mov     esi, [esp+48h]

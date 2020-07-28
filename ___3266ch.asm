@@ -11,7 +11,7 @@ cpu 386
 	extern	___19eb50h
 	extern	___19eb54h
 	extern	___19eb58h
-	extern	DISPLAY_SET_PALETTE_COLOR
+	extern	__DISPLAY_SET_PALETTE_COLOR
 	extern	___1a1138h__VESA101h_DefaultScreenBufferB
 	extern	___1a10e4h__VESA101h_DefaultScreenBufferA
 	extern	___1a112ch__VESA101_ACTIVESCREEN_PTR
@@ -41,12 +41,12 @@ cpu 386
 	extern	___18549ch
 	extern	___1a0f98h
 	extern	___1a0228h
-	extern	itoa_
+	extern	itoa_watcom106
 	extern	___180130h
 	extern	___181f50h
 	extern	___180724h
 	extern	___1a01e0h
-	extern	strupr_
+	extern	strupr_watcom106
 	extern	___185c7ah
 	extern	___1a10b8h
 	extern	___12e78h_cdecl
@@ -54,7 +54,7 @@ cpu 386
 	extern	___1a103ch
 	extern	___1a1f68h
 	extern	___1a1f69h
-	extern	memset_
+	extern	memset
 	extern	___1a0ef9h
 	extern	___1a0efah
 	extern	___1a0efbh
@@ -145,7 +145,10 @@ ___326a2h:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near DISPLAY_SET_PALETTE_COLOR
+
+		call    __DISPLAY_SET_PALETTE_COLOR
+		add 	esp, 10h
+		
 		mov     ecx, [esp+5ch]
 		inc     ecx
 		add     esi, byte 0ch
@@ -254,8 +257,24 @@ ___327c9h:
 ___3284bh:
 		xor     esi, esi
 ___3284dh:
-		call    near ___2ab50h
-		call    near ___2ab50h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2ab50h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+	
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2ab50h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+	
 		mov     eax, 4bh
 		call    near ___3079ch
 
@@ -451,7 +470,15 @@ ___32aa7h:
 		mov     ebx, 0ah
 		lea     edx, [esp+3ch]
 		mov     eax, [eax+___1a0228h]
-		call    near itoa_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    itoa_watcom106
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     al, [___180130h]
 		lea     edi, [esp+3ch]
 		mov     [esp], al
@@ -475,7 +502,15 @@ ___32b16h:
 		lea     eax, [esp+50h]
 		lea     esi, [esp+50h]
 		mov     edi, esp
-		call    near strupr_
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    strupr_watcom106
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		call 	__STRCAT
 		mov     eax, [___185a50h]
 		xor     edx, edx
@@ -521,8 +556,24 @@ ___32b16h:
 
 		mov     dl, 4
 ___32c39h:
-		call    near ___2ab50h
-		call    near ___2ab50h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2ab50h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+	
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2ab50h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+	
 		mov     eax, ebx
 		call    near ___3079ch
 		cmp     dl, [___1a1f67h]
@@ -537,7 +588,15 @@ ___32c66h:
 		mov     ebx, 14h
 		lea     eax, [esp+3ch]
 		mov     edx, ebp
-		call    near memset_
+		
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    memset
+	add 	esp, 0ch
+	pop 	ecx
+
 		mov     al, [ecx+___1a0ef8h]
 		mov     [esp+50h], al
 		mov     al, [ecx+___1a0ef9h]
@@ -615,7 +674,15 @@ ___32d52h:
 		jne     short ___32d79h
 ___32d5ah:
 		mov     esi, [esp+5ch]
-		call    near ___2ab50h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2ab50h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+	
 		inc     esi
 
 	push 	edx
@@ -735,7 +802,15 @@ ___32dddh:
 		call    dRally_Sound_pushEffect
 	add 	esp, 18h
 ___32e85h:
-		call    near ___2ab50h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2ab50h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+	
 
 	push 	edx
 	push 	ecx
@@ -818,7 +893,10 @@ ___32ed0h:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near DISPLAY_SET_PALETTE_COLOR
+
+		call    __DISPLAY_SET_PALETTE_COLOR
+		add 	esp, 10h
+		
 		mov     eax, [esp+5ch]
 		inc     eax
 		add     edi, byte 0ch
@@ -873,7 +951,10 @@ ___32fbah:
 		push    esi
 		push    esi
 		push    esi
-		call    near DISPLAY_SET_PALETTE_COLOR
+
+		call    __DISPLAY_SET_PALETTE_COLOR
+		add 	esp, 10h
+		
 		mov     eax, [esp+5ch]
 		inc     eax
 		mov     [esp+5ch], eax

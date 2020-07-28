@@ -12,7 +12,7 @@ cpu 386
 	extern 	___12e78h_cdecl
 	extern 	___19ded0h
 	extern 	___180a34h
-	extern 	itoa_
+	extern 	itoa_watcom106
 	extern 	___25138h
 	extern 	___1a1108h
 	extern 	___1a10fch
@@ -97,7 +97,15 @@ ___1adfah:
 		mov     esi, ___180a34h
 		inc     eax
 		mov     edi, esp
-		call    near itoa_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    itoa_watcom106
+	add 	esp, 0ch
+	pop 	ecx
+
 		call 	__STRCAT
 		mov     eax, [esp+0a4h]
 		cmp     eax, [esp+0b4h]
@@ -188,7 +196,15 @@ ___1af86h:
 		lea     edx, [esp+50h]
 		lea     esi, [esp+50h]
 		mov     edi, esp
-		call    near itoa_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    itoa_watcom106
+	add 	esp, 0ch
+	pop 	ecx
+
 		call 	__STRCAT
 		mov     ecx, [esp+0ach]
 		mov     ebx, esp

@@ -262,7 +262,15 @@ ___300c7h:
 	pop		edx
 
 ___300e2h:
-		call    near ___2ab50h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2ab50h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+	
 
 	push 	edx
 	push 	ecx
@@ -436,7 +444,15 @@ ___302e3h:
 		xor     edx, edx
 ___302efh:
 		inc     edx
-		call    near ___2ab50h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2ab50h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+	
 		cmp     edx, byte 8
 		jl      short ___302efh
 		mov     ecx, 54h
@@ -603,7 +619,15 @@ ___304b5h:
 		xor     edx, edx
 ___304c1h:
 		inc     edx
-		call    near ___2ab50h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2ab50h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+	
 		cmp     edx, byte 8
 		jl      short ___304c1h
 		mov     ecx, 54h

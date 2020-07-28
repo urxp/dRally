@@ -8,7 +8,7 @@ void ___3e3cch(void){
 
     FILE *  fd;
 
-    if(!(fd = strup_fopen("CDROM.INI", "rb"))){
+    if(!(fd = strupr_fopen("CDROM.INI", "rb"))){
 
         printf("Error reading CDROM.INI file!\n");
         dRally_System_clean();

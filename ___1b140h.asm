@@ -36,7 +36,7 @@ cpu 386
 	extern 	___24cc54h
 	extern 	___1854ach
 	extern 	dRally_Sound_pushEffect
-	extern 	atoi_
+	extern 	atoi
 	extern 	___185a54h
 	extern 	___185a14h
 	extern 	___196ab8h
@@ -49,9 +49,9 @@ cpu 386
 	extern 	___1a1108h
 	extern 	___1854bch
 	extern 	___1ad30h
-	extern 	memset_
+	extern 	memset
 	extern 	___1807cch
-	extern 	___3f77ch__freeMemory
+	extern 	dRally_Memory_free
 	extern 	___1a10fch
 	extern 	___1807e8h
 	extern 	___61278h
@@ -66,7 +66,7 @@ cpu 386
 	extern 	___10754h
 	extern 	___60705h
 	extern 	___1c6bch
-	extern 	___2b8ach
+	extern 	shop_main
 	extern 	___185a24h
 
 section .text
@@ -101,7 +101,13 @@ __GDECL(___1b140h)
 		lea     eax, [esp+4]
 		xor     edx, edx
 		mov     [esp+0ch], ebx
-		call    near __STOSB
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    __STOSB
+	add 	esp, 0ch
+
 		mov     dl, [___180130h]
 		xor     eax, eax
 ___1b18eh:
@@ -218,7 +224,15 @@ ___1b1f0h:
 		mov     [eax], dx
 		mov     edi, 12h
 ___1b279h:
-		call    near ___2ab50h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2ab50h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		mov     edx, 0ah
 		mov     eax, ebp
 		call    near ___23594h
@@ -466,7 +480,15 @@ ___1b4b9h:
 		mov     [esp+24h], bl
 		mov     [esp+18h], eax
 ___1b505h:
-		call    near ___2ab50h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2ab50h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+	
 		mov     esi, 1
 		mov     edi, 0ah
 ___1b514h:
@@ -846,7 +868,15 @@ ___1b8cbh:
 	add 	esp, 18h
 		mov     eax, [esp+14h]
 		add     eax, byte 0bh
-		call    near atoi_
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    atoi
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     [___185a54h], eax
 		mov     eax, [esi+___19deech]
 		mov     [___185a14h], eax
@@ -1055,7 +1085,14 @@ ___1bb42h:
 		mov     [eax-4], dx
 		xor     edx, edx
 		mov     ecx, 390a3h
-		call    near memset_
+		
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    memset
+	add 	esp, 0ch
+	pop 	ecx
 
 	push 	edx
 	push 	ecx
@@ -1072,7 +1109,15 @@ ___1bb42h:
 		mov     ebx, ___1807cch
 		mov     eax, ebp
 		mov     edx, ___185c0bh
-		call    near ___3f77ch__freeMemory
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    dRally_Memory_free
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     eax, [___1a10fch]
 
 	push 	ecx
@@ -1162,7 +1207,7 @@ ___1bbfah:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    ___2b8ach
+		call    shop_main
 	pop		eax
 	pop 	ecx
 	pop 	edx

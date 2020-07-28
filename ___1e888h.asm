@@ -18,7 +18,7 @@ cpu 386
 	extern	___19eb50h
 	extern	___19eb54h
 	extern	___19eb58h
-	extern	DISPLAY_SET_PALETTE_COLOR
+	extern	__DISPLAY_SET_PALETTE_COLOR
 	extern	___1a1138h__VESA101h_DefaultScreenBufferB
 	extern	___135fch
 	extern	___196a7ch
@@ -47,14 +47,14 @@ cpu 386
 	extern	___146c4h
 	extern	___180b88h
 	extern	___1866b8h
-	extern	strcmp_
-	extern	___2b8ach
+	extern	strcmp
+	extern	shop_main
 	extern	___1c374h
 	extern	___180ba0h
 	extern	___1866b8h
 	extern	___13248h
 	extern	___181078h
-	extern	___148cch
+	extern	___148cch_cdecl
 	extern	___1a116ch
 	extern	___1a1f4eh
 	extern	___1a1f4dh
@@ -191,7 +191,10 @@ ___1e905h:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near DISPLAY_SET_PALETTE_COLOR
+
+		call    __DISPLAY_SET_PALETTE_COLOR
+		add 	esp, 10h
+
 		mov     ecx, [esp]
 		inc     ecx
 		mov     [esp], ecx
@@ -240,7 +243,10 @@ ___1e9ach:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near DISPLAY_SET_PALETTE_COLOR
+
+		call    __DISPLAY_SET_PALETTE_COLOR
+		add 	esp, 10h
+		
 		mov     ecx, [esp]
 		inc     ecx
 		mov     [esp], ecx
@@ -435,7 +441,10 @@ ___1eb91h:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near DISPLAY_SET_PALETTE_COLOR
+
+		call    __DISPLAY_SET_PALETTE_COLOR
+		add 	esp, 10h
+		
 		mov     ecx, [esp]
 		inc     ecx
 		mov     [esp], ecx
@@ -484,7 +493,10 @@ ___1ec38h:
 		sar     eax, 10h
 		and     eax, 0ffh
 		push    eax
-		call    near DISPLAY_SET_PALETTE_COLOR
+
+		call    __DISPLAY_SET_PALETTE_COLOR
+		add 	esp, 10h
+		
 		mov     ecx, [esp]
 		inc     ecx
 		mov     [esp], ecx
@@ -540,8 +552,24 @@ ___1ed4fh:
 	pop 	edx
 
 		mov     dl, al
-		call    near ___2ab50h
-		call    near ___2ab50h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2ab50h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+	
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___2ab50h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+	
 		cmp     edx, byte 1
 		jne     short ___1ed4fh
 ___1ed74h:
@@ -643,7 +671,14 @@ ___1ee20h:
 		xor     esi, esi
 		mov     eax, ___1866b8h+384h
 		mov     [___196a78h], esi
-		call    near strcmp_
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    strcmp
+	add 	esp,8
+	pop 	ecx
+
 		test    eax, eax
 		jne     short ___1ee50h
 		mov     edi, 1
@@ -651,7 +686,7 @@ ___1ee20h:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    ___2b8ach
+		call    shop_main
 	pop		eax
 	pop 	ecx
 	pop 	edx
@@ -666,7 +701,14 @@ ___1ee5ah:
 		mov     edx, ___180ba0h
 		mov     [___196a78h], eax
 		mov     eax, ___1866b8h+3b6h
-		call    near strcmp_
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    strcmp
+	add 	esp,8
+	pop 	ecx
+
 		test    eax, eax
 		jne     near ___1efcch
 		mov     eax, 2
@@ -702,7 +744,14 @@ ___1ee5ah:
 		mov     edx, 102h
 		mov     eax, 0b4h
 		mov     [esp], ebx
-		call    near ___148cch
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___148cch_cdecl
+	add 	esp, 10h
+
 		mov     ecx, [esp]
 		and     eax, 0ffh
 		test    ecx, ecx

@@ -9,14 +9,14 @@ cpu 386
 	extern	___1a01fch
 	extern	___1a0218h
 	extern	___1923c0h
-	extern	___13094h
+	extern	___13094h_cdecl
 	extern	___192e10h
 	extern	___1a0214h
 	extern	___18220ch
 	extern	___182214h
 	extern	___18221ch
 	extern	__CHP
-	extern	itoa_
+	extern	itoa_watcom106
 	extern	___182224h
 	extern	___18222ch
 	extern	___182234h
@@ -65,7 +65,7 @@ ___2d2edh:
 		shl     eax, 2
 		sub     eax, ebx
 		cmp     dword [eax*4+___1a0218h], byte 0ffffffffh
-		jne     short ___2d375h
+		jne     ___2d375h
 		and     edx, 0ffh
 		mov     eax, edx
 		shl     eax, 4
@@ -75,19 +75,54 @@ ___2d2edh:
 		add     ebx, eax
 		mov     edx, 136aah
 		mov     eax, ebx
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, 15eaah
 		lea     eax, [ebx+28h]
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, 186aah
 		lea     eax, [ebx+50h]
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, 1aeaah
 		lea     eax, [ebx+78h]
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, 1d6aah
 		lea     eax, [ebx+0a0h]
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, 1feaah
 		lea     eax, [ebx+0c8h]
 		jmp     near ___2d608h
@@ -115,7 +150,15 @@ ___2d375h:
 		call    near __CHP
 		fistp   dword [esp+60h]
 		mov     eax, [esp+60h]
-		call    near itoa_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    itoa_watcom106
+	add 	esp, 0ch
+	pop 	ecx
+
 ___2d3f2h:
 		mov     ebx, [___1a1ef8h]
 		lea     eax, [ebx*8+0]
@@ -138,7 +181,15 @@ ___2d3f2h:
 		call    near __CHP
 		fistp   dword [esp+60h]
 		mov     eax, [esp+60h]
-		call    near itoa_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    itoa_watcom106
+	add 	esp, 0ch
+	pop 	ecx
+
 ___2d451h:
 		mov     ebx, [___1a1ef8h]
 		lea     eax, [ebx*8+0]
@@ -160,7 +211,15 @@ ___2d451h:
 		call    near __CHP
 		fistp   dword [esp+60h]
 		mov     eax, [esp+60h]
-		call    near itoa_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    itoa_watcom106
+	add 	esp, 0ch
+	pop 	ecx
+
 ___2d4adh:
 		mov     ebx, [___1a1ef8h]
 		lea     eax, [ebx*8+0]
@@ -182,7 +241,15 @@ ___2d4adh:
 		call    near __CHP
 		fistp   dword [esp+60h]
 		mov     eax, [esp+60h]
-		call    near itoa_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    itoa_watcom106
+	add 	esp, 0ch
+	pop 	ecx
+
 ___2d509h:
 		mov     ebx, [___1a1ef8h]
 		lea     eax, [ebx*8+0]
@@ -204,7 +271,15 @@ ___2d509h:
 		call    near __CHP
 		fistp   dword [esp+60h]
 		mov     eax, [esp+60h]
-		call    near itoa_
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    itoa_watcom106
+	add 	esp, 0ch
+	pop 	ecx
+
 ___2d565h:
 		lea     esi, [esp+50h]
 		mov     edi, esp
@@ -214,23 +289,65 @@ ___2d565h:
 		mov     edx, 136aah
 		call 	__STRCAT
 		mov     eax, esp
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, 15eaah
 		mov     eax, ___192e38h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, 186aah
 		mov     eax, ___192e60h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, 1aeaah
 		mov     eax, ___192e88h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, 1d6aah
 		mov     eax, ___192eb0h
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     edx, 1feaah
 		mov     eax, ___192ed8h
 ___2d608h:
-		call    near ___13094h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___13094h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		add     esp, byte 64h
 		pop     edi
 		pop     esi

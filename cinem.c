@@ -216,7 +216,7 @@ void ___10b80h_cdecl(const char * A1, dword A2, const char * A3, dword A4, const
 		dRally_Sound_play();
 	}
 
-	fd = strup_fopen(buffer, "rb");
+	fd = strupr_fopen(buffer, "rb");
 	___1a1f00h = 0;
 	fread(&___1a1f00h, 2, 1, fd);
 	___1a1f10h = ___3f71ch__allocateMemory(___1a1f00h);

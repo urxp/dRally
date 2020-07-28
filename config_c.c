@@ -139,12 +139,12 @@ void CONFIG_READ(void){
 
     if(file_size == 0){
     
-        fd = strup_fopen(CONFIG_FILE_NAME, "wb");
+        fd = strupr_fopen(CONFIG_FILE_NAME, "wb");
         file_size = fwrite(CONFIG_INIT, 1, sizeof(CONFIG_INIT), fd);
         fclose(fd);
     }
 
-    fd = strup_fopen(CONFIG_FILE_NAME, "rb");
+    fd = strupr_fopen(CONFIG_FILE_NAME, "rb");
     fread(CONFIG_SOUND_TYPE, 1, 1, fd);
     fread(CONFIG_SOUND_IRQ, 1, 1, fd);
     fread(CONFIG_SOUND_DMA, 1, 1, fd);
@@ -263,14 +263,14 @@ void CONFIG_WRITE(void){
 
     CONFIG_ENCODE(config_src, 0xb76, key);
 
-    fd = strup_fopen(CONFIG_FILE_NAME, "rb");
+    fd = strupr_fopen(CONFIG_FILE_NAME, "rb");
     fread(CONFIG_SOUND_TYPE, 1, 1, fd);
     fread(CONFIG_SOUND_IRQ, 1, 1, fd);
     fread(CONFIG_SOUND_DMA, 1, 1, fd);
     fread(CONFIG_SOUND_ADDR, 4, 1, fd);
     fclose(fd);
 
-    fd = strup_fopen(CONFIG_FILE_NAME, "wb");
+    fd = strupr_fopen(CONFIG_FILE_NAME, "wb");
     fwrite(CONFIG_SOUND_TYPE, 1, 1, fd);
     fwrite(CONFIG_SOUND_IRQ, 1, 1, fd);
     fwrite(CONFIG_SOUND_DMA, 1, 1, fd);
