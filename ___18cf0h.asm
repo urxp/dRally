@@ -8,7 +8,6 @@ cpu 386
 	extern 	__STRLEN
 	extern 	___180748h
 	extern 	___1866b8h
-	extern 	___185b85h
 	extern 	___180754h
 	extern 	itoa_watcom106
 	extern 	GET_FILE_SIZE
@@ -19,7 +18,7 @@ cpu 386
 	extern 	___1a112ch__VESA101_ACTIVESCREEN_PTR
 	extern 	___13710h
 	extern 	___12cb8h__VESA101_PRESENTSCREEN
-	extern 	___146c4h
+	extern 	___146c4h_cdecl
 	extern 	___13248h
 	extern 	___18079ch
 	extern 	___185c0bh
@@ -35,7 +34,7 @@ cpu 386
 	extern 	memset
 	extern 	rand_watcom106
 	extern 	___1a1ef8h
-	extern 	___185a14h
+	extern 	___185a14h_UseWeapons
 	extern 	___196a94h
 	extern 	___1a01e0h
 	extern 	___1807bch
@@ -45,6 +44,7 @@ cpu 386
 	extern 	dRally_Memory_free
 	extern 	___1807c0h
 	extern 	___2a608h
+	extern	___185b58h
 
 section .text
 
@@ -66,7 +66,7 @@ ___18d0bh:
 		mov     dl, 1
 		mov     esi, ___180748h
 		lea     edi, [ebp+___1866b8h+8cah]
-		mov     [eax+___185b85h], dl
+		mov     [eax+___185b58h+2dh], dl
 		movsd   
 		movsd   
 		movsw   
@@ -174,7 +174,15 @@ ___18db5h:
 	pop		edx
 
 		mov     eax, 5
-		call    near ___146c4h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___146c4h_cdecl
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+	
 		mov     esi, eax
 		mov     ebp, eax
 		test    eax, eax
@@ -298,7 +306,7 @@ ___18ee0h:
 		mov     [eax], dl
 		mov     dl, [___1a1ef8h]
 		mov     [eax+1], dl
-		mov     dl, [___185a14h]
+		mov     dl, [___185a14h_UseWeapons]
 		mov     [eax+2], dl
 		mov     dl, [___196a94h]
 		mov     [eax+3], dl

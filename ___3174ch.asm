@@ -21,6 +21,11 @@ cpu 386
 
 section .text
 
+__GDECL(___3174ch_cdecl)
+	mov 	eax, [esp+4]
+	call 	___3174ch
+	retn
+
 __GDECL(___3174ch)
 		push    24h
 		call    near __CHK

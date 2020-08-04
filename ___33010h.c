@@ -97,7 +97,7 @@
 	extern byte ___1de7ech[];
 	extern byte ___1de814h[];
 	extern byte ___196a94h[];
-	extern byte ___185a14h[];
+	extern byte ___185a14h_UseWeapons[];
 	extern byte ___1de7fch[];
 	extern byte ___1a0244h[];
 	extern byte ___1de7f0h[];
@@ -1124,7 +1124,7 @@ ___33ffch:
 		eax = D(___196a94h);
 		D(ebx+___1de814h) = eax;
 ___34007h:
-		eax = D(___185a14h);
+		eax = D(___185a14h_UseWeapons);
 		D(ebx+___1de7fch) = eax;
 		eax = D(esp+0xd0);
 		edx = 0;
@@ -1149,7 +1149,7 @@ ___34007h:
 		edx = (int)edx>>0x1f;
 		edx = eax%esi;  // idiv esi
 		if(edx != 0) goto ___3409fh;
-		if(D(___185a14h) == 0) goto ___3409fh;
+		if(D(___185a14h_UseWeapons) == 0) goto ___3409fh;
 		D(ebx+___1de7f0h) = 1;
 ___3409fh:
 		eax = rand_watcom106();
@@ -1158,7 +1158,7 @@ ___3409fh:
 		edx = (int)edx>>0x1f;
 		edx = eax%esi;  // idiv esi
 		if(edx != 0) goto ___340c7h;
-		if(D(___185a14h) == 0) goto ___340c7h;
+		if(D(___185a14h_UseWeapons) == 0) goto ___340c7h;
 		D(ebx+___1de7f4h) = 1;
 ___340c7h:
 		eax = rand_watcom106();
@@ -1167,7 +1167,7 @@ ___340c7h:
 		edx = (int)edx>>0x1f;
 		edx = eax%esi;  // idiv esi
 		if(edx != 0) goto ___340efh;
-		if(D(___185a14h) == 0) goto ___340efh;
+		if(D(___185a14h_UseWeapons) == 0) goto ___340efh;
 		D(ebx+___1de7f8h) = 8;
 ___340efh:
 		edx = D(esp+0xd0);
@@ -1309,7 +1309,7 @@ ___3428eh:
 		D(___1de7e0h) = ecx;
 		D(___1de7f0h) = ecx;
 		D(___1de7f4h) = ebx;
-		ecx = D(___185a14h);
+		ecx = D(___185a14h_UseWeapons);
 		D(___1de800h) = edi;
 		if(ecx == 0) goto ___3430dh;
 		D(___1de7f8h) = 8;
@@ -1317,7 +1317,7 @@ ___3428eh:
 ___3430dh:
 		D(___1de7f8h) = ecx;
 ___34313h:
-		eax = D(___185a14h);
+		eax = D(___185a14h_UseWeapons);
 		D(___1de7fch) = eax;
 		eax = D(___1a0fe0h);
 		ebx = 0;
@@ -1521,14 +1521,14 @@ ___346f5h:
 		edx <<= 2;
 		if(ebx == 0) goto ___34732h;
 		if((int)D(edx+___1de7e0h) >= 3) goto ___34755h;
-		ecx = D(___185a14h);
+		ecx = D(___185a14h_UseWeapons);
 		if(ecx != 1) goto ___34755h;
 		D(___196a9ch) = ecx;
 		goto ___34755h;
 ___34732h:
 		if(D(___196ae8h) == 4) goto ___34755h;
 		if((int)D(edx+___1de7e0h) >= 3) goto ___34755h;
-		edi = D(___185a14h);
+		edi = D(___185a14h_UseWeapons);
 		if(edi != 1) goto ___34755h;
 		D(___196a9ch) = edi;
 ___34755h:

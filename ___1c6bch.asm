@@ -8,15 +8,9 @@ cpu 386
 	extern 	___1866b8h
 	extern 	___180b88h
 	extern 	___185b58h
-	extern 	___185b6ah
-	extern 	___185b6bh
-	extern 	___185b6ch
-	extern 	___185b6dh
-	extern 	___185b6eh
 	extern 	___1866b8h
 	extern 	___180ba0h
-	extern 	___185b6fh
-	extern 	___185aach
+	extern 	___185a5ch
 	extern 	___2ec68h_cdecl
 	extern 	___60a84h
 	extern 	___2ab50h
@@ -60,6 +54,11 @@ cpu 386
 
 section .text
 
+__GDECL(___1c6bch_cdecl)
+	mov 	eax, [esp+4]
+	call 	___1c6bch
+	retn
+
 __GDECL(___1c6bch)
 		push    30h
 		call    near __CHK
@@ -77,22 +76,22 @@ __GDECL(___1c6bch)
 		xor     ah, ah
 		xor     ebx, ebx
 		mov     [___185b58h], ah
-		mov     [___185b6ah], dl
-		mov     [___185b6bh], dl
-		mov     [___185b6ch], ah
-		mov     [___185b6dh], ah
+		mov     [___185b58h+12h], dl
+		mov     [___185b58h+13h], dl
+		mov     [___185b58h+14h], ah
+		mov     [___185b58h+15h], ah
 		movsd   
 		movsd   
 		movsd   
 		movsd   
 		movsd   
 		movsw   
-		mov     [___185b6eh], ah
+		mov     [___185b58h+16h], ah
 		mov     edi, ___1866b8h+3b6h
 		mov     esi, ___180ba0h
 		xor     edx, edx
-		mov     [___185b6fh], ah
-		mov     [___185aach], edx
+		mov     [___185b58h+17h], ah
+		mov     [___185a5ch+50h], edx
 		movsd   
 		movsd   
 		movsd   

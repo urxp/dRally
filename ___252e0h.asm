@@ -3,7 +3,7 @@ cpu 386
 
 	extern	__CHK
 	extern 	__STRLEN
-	extern	___185b8bh
+	extern	___185ba9h
 
 section .text
 
@@ -29,7 +29,7 @@ __GDECL(___252e0h)
 ___252fah:
 		xor     ecx, ecx
 		mov     cl, [edx]
-		mov     cl, [ecx+___185b8bh]
+		mov     cl, [ecx+___185ba9h-1eh]
 		and     ecx, 0ffh
 		inc     edx
 		inc     ebx

@@ -61,7 +61,7 @@ cpu 386
 	extern	CONNECTION_TYPE
 	extern	___1e62ch
 	extern	___2b318h
-	extern	___185a14h
+	extern	___185a14h_UseWeapons
 	extern	___196a80h
 	extern	___196a74h
 
@@ -731,7 +731,7 @@ ___3a049h:
 	pop 	ecx
 	pop 	edx
 
-		cmp     dword [___185a14h], byte 0
+		cmp     dword [___185a14h_UseWeapons], byte 0
 		jne     near ___3a1c7h
 		cmp     dword [___196a80h], byte 0
 		jne     near ___3a1c7h

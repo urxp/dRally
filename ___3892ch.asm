@@ -44,7 +44,7 @@ cpu 386
 	extern	___1854b8h
 	extern	___24cc54h
 	extern	dRally_Sound_pushEffect
-	extern	___185a14h
+	extern	___185a14h_UseWeapons
 	extern	___185a3ch
 	extern	___185a4ch
 	extern	dRally_Sound_stop
@@ -784,7 +784,7 @@ ___38f86h:
 ___38f99h:
 		cmp     dword [esp+64h], byte 2
 		je      near ___39383h
-		cmp     dword [___185a14h], byte 0
+		cmp     dword [___185a14h_UseWeapons], byte 0
 		je      short ___38fc3h
 		cmp     dword [___185a3ch], byte 0
 		jne     short ___38fc3h

@@ -45,3 +45,19 @@ void my_ceil(double * dval){
 
 	*dval = ceil(*dval);
 }
+
+extern void * ___1a1100h__VESA101h_DefaultScreenBuffer;
+extern void * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
+
+void restoreDefaultScreenBuffer(void){
+    
+	___1a112ch__VESA101_ACTIVESCREEN_PTR = ___1a1100h__VESA101h_DefaultScreenBuffer;
+}
+
+extern void * ___1a10e4h__VESA101h_DefaultScreenBufferA;
+extern void * ___1a1124h__VESA101h_ScreenBufferA;
+
+void restoreDefaultScreenBufferA(void){
+		
+	___1a1124h__VESA101h_ScreenBufferA = ___1a10e4h__VESA101h_DefaultScreenBufferA;
+}

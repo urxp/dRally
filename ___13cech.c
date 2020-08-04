@@ -1,19 +1,19 @@
 #include "drally.h"
 
 #pragma pack(1)
-typedef struct coo_s {
-	dword 	row_n;			// +00
-	int 	x;				// +04
-	int 	y;				// +08
-	dword 	row_h;			// +0C
-	dword 	w;				// +10
-	dword 	h;				// +14
-	dword 	row_i;			// +18
-} coo_t;
+typedef struct menubox_s {
+	__DWORD__ 	row_n;			// +00
+	__DWORD__ 	x;				// +04
+	__DWORD__ 	y;				// +08
+	__DWORD__ 	row_h;			// +0C
+	__DWORD__ 	w;				// +10
+	__DWORD__ 	h;				// +14
+	__DWORD__ 	row_i;			// +18
+} menubox_t;
 
 #define COOXY(x,y) (0x280*(y)+(x))
 
-	extern coo_t ___185a5ch[];
+	extern menubox_t ___185a5ch[];
 #define box ___185a5ch
 	
 	extern byte * ___1a112ch__VESA101_ACTIVESCREEN_PTR;

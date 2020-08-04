@@ -42,7 +42,7 @@ cpu 386
 	extern 	__STOSD
 	extern 	___196ab8h
 	extern 	___1a2011h
-	extern 	___185a14h
+	extern 	___185a14h_UseWeapons
 	extern 	___180888h
 	extern 	___185c0bh
 	extern 	___1a110ch
@@ -504,7 +504,7 @@ ___19ca1h:
 		mov     eax, [esp+0fch]
 		push    byte 1
 		mov     ecx, 106h
-		mov     dl, [___185a14h]
+		mov     dl, [___185a14h_UseWeapons]
 		mov     ebx, 1c2h
 		mov     [eax+1eh], dl
 		mov     edx, [esp+0e0h]
@@ -618,7 +618,7 @@ ___19ca1h:
 		movsd   
 		movsd   
 		movsw   
-		cmp     dword [___185a14h], byte 0
+		cmp     dword [___185a14h_UseWeapons], byte 0
 		je      short ___19e78h
 		mov     esi, ___1808c8h
 		jmp     short ___19e7dh

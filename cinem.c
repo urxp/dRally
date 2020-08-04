@@ -199,8 +199,7 @@ void ___10b80h_cdecl(const char * A1, dword A2, const char * A3, dword A4, const
 	int 	total_length;
 
 
-	strcpy(buffer, ___1a0d60h);
-	strcat(buffer, A1);
+	strcat(strcpy(buffer, ___1a0d60h), A1);
 	DecodedFrame = ___3f71ch__allocateMemory(0xfa00);
 	EncodedFrame = ___3f71ch__allocateMemory(0xfa00);
 
@@ -229,6 +228,7 @@ void ___10b80h_cdecl(const char * A1, dword A2, const char * A3, dword A4, const
 	total_length = 0;
 	n = -1;
 	while(++n < ___1a1f00h) total_length += ___1a1f1ch[n];
+	printf("[dRally.CINEM] HAF: %s\n", A1);
 	printf("[dRally.CINEM] Frames: %d, Length: %d [%.2fs]\n", ___1a1f00h, total_length, (double)total_length/70.0/*71.4285714286*/);
 
 

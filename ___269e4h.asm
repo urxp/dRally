@@ -16,7 +16,7 @@ cpu 386
 	extern	___251e8h
 	extern	___1a10b8h
 	extern	___12e78h_cdecl
-	extern	___185a14h
+	extern	___185a14h_UseWeapons
 	extern	___1a01fch
 	extern	___18e974h
 	extern	___181f60h
@@ -107,7 +107,7 @@ ___26a15h:
 		sub     ebx, edx
 		shl     ebx, 2
 		sub     ebx, edx
-		mov     ecx, [___185a14h]
+		mov     ecx, [___185a14h_UseWeapons]
 		shl     ebx, 2
 		test    ecx, ecx
 		je      short ___26affh
@@ -176,7 +176,7 @@ ___26b3fh:
 		sub     eax, edx
 		shl     eax, 2
 		sub     eax, edx
-		mov     ebx, [___185a14h]
+		mov     ebx, [___185a14h_UseWeapons]
 		shl     eax, 2
 		test    ebx, ebx
 		je      short ___26bb6h

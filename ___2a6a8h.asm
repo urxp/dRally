@@ -11,7 +11,7 @@ cpu 386
 	extern	memset
 	extern	rand_watcom106
 	extern	___1a1ef8h
-	extern	___185a14h
+	extern	___185a14h_UseWeapons
 	extern	___196a94h
 	extern	___18075ch
 	extern	___1a01e0h
@@ -93,7 +93,7 @@ __GDECL(___2a6a8h)
 		mov     [eax], dl
 		mov     dl, [___1a1ef8h]
 		mov     [eax+1], dl
-		mov     dl, [___185a14h]
+		mov     dl, [___185a14h_UseWeapons]
 		mov     edi, esp
 		mov     [eax+2], dl
 		mov     dl, [___196a94h]
@@ -319,7 +319,7 @@ ___2a8ceh:
 		xor     eax, eax
 		mov     al, [edx+2]
 		mov     ecx, 870h
-		mov     [___185a14h], eax
+		mov     [___185a14h_UseWeapons], eax
 		xor     eax, eax
 		mov     edi, ___1a01e0h
 		mov     al, [edx+3]

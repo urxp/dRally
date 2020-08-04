@@ -14,7 +14,7 @@ cpu 386
 	extern	___1a01ech
 	extern	___199f54h
 	extern	___1a0224h
-	extern	___185a14h
+	extern	___185a14h_UseWeapons
 	extern	___1a0248h
 	extern	___1a0228h
 	extern	srand_watcom106
@@ -111,7 +111,7 @@ ___322e6h:
 		shl     eax, 2
 		cmp     esi, [eax+___1a0224h]
 		jl      near ___32654h
-		cmp     dword [___185a14h], byte 0
+		cmp     dword [___185a14h_UseWeapons], byte 0
 		je      near ___32654h
 		cmp     dword [eax+___1a0248h], byte 1
 		jne     near ___32654h

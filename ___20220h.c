@@ -1,4 +1,5 @@
 #include "drally.h"
+#include "drally_keyboard.h"
 
 	extern byte ___185ba9h[];
 	extern byte ___1a10cch[];
@@ -17,21 +18,21 @@ byte ___5994ch(void);
 byte ___59b3ch(void);
 
 static const byte ReservedKeys[0xf] = { 
-	0x19,	// DR_SCAN_P
-	0x0f,	// DR_SCAN_TAB
-	0x3b,	// DR_SCAN_F1
-	0x3c,	// DR_SCAN_F2
-	0x3d,	// DR_SCAN_F3
-	0x3e,	// DR_SCAN_F4
-	0x3f,	// DR_SCAN_F5
-	0x40,	// DR_SCAN_F6
-	0x41,	// DR_SCAN_F7
-	0x42,	// DR_SCAN_F8
-	0x43,	// DR_SCAN_F9
-	0x44,	// DR_SCAN_F10
-	0x57,	// DR_SCAN_F11
-	0x58,	// DR_SCAN_F12
-	0x01	// DR_SCAN_ESCAPE
+	DR_SCAN_P,
+	DR_SCAN_TAB,
+	DR_SCAN_F1,
+	DR_SCAN_F2,
+	DR_SCAN_F3,
+	DR_SCAN_F4,
+	DR_SCAN_F5,
+	DR_SCAN_F6,
+	DR_SCAN_F7,
+	DR_SCAN_F8,
+	DR_SCAN_F9,
+	DR_SCAN_F10,
+	DR_SCAN_F11,
+	DR_SCAN_F12,
+	DR_SCAN_ESCAPE
 };
 
 static dword InvalidConfiguration(void){

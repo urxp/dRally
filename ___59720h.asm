@@ -101,7 +101,15 @@ ___597ceh:
 		add     ecx, eax
 		test    edx, edx
 		jle     short ___597eah
-		call    near ___59db8h
+	
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___59db8h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 ___597eah:
 		cmp     dword [___19bd58h], byte 0
 		jle     near ___59942h

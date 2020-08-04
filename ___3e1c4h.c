@@ -15,27 +15,27 @@ typedef struct file_s {
 
 static file_t assets[14] = {
 
-    {"ENGINE.BPA",  0x5e879},
-    {"IBFILES.BPA", 0x14fe5},
-    {"MENU.BPA",    0x305aa5},
-    {"MUSICS.BPA",  0x57615f},
-    {"TR0.BPA",     0x52597},
-    {"TR1.BPA",     0x4e772},
-    {"TR2.BPA",     0x47ddd},
-    {"TR3.BPA",     0x546fb},
-    {"TR4.BPA",     0x3f972},
-    {"TR5.BPA",     0x69778},
-    {"TR6.BPA",     0x57bc8},
-    {"TR7.BPA",     0x65e97},
-    {"TR8.BPA",     0x3dd12},
-    {"TR9.BPA",     0x68623}
+    { "ENGINE.BPA",  0x5e879 },
+    { "IBFILES.BPA", 0x14fe5 },
+    { "MENU.BPA",    0x305aa5 },
+    { "MUSICS.BPA",  0x57615f },
+    { "TR0.BPA",     0x52597 },
+    { "TR1.BPA",     0x4e772 },
+    { "TR2.BPA",     0x47ddd },
+    { "TR3.BPA",     0x546fb },
+    { "TR4.BPA",     0x3f972 },
+    { "TR5.BPA",     0x69778 },
+    { "TR6.BPA",     0x57bc8 },
+    { "TR7.BPA",     0x65e97 },
+    { "TR8.BPA",     0x3dd12 },
+    { "TR9.BPA",     0x68623 }
 };
 
 static file_t cinems[3] = {
 
-    {"SANIM.HAF",   0x1485040},
-    {"ENDANI.HAF",  0x39ed6b},
-    {"ENDANI0.HAF", 0x6dc2fc}
+    { "SANIM.HAF",   0x1485040 },
+    { "ENDANI.HAF",  0x39ed6b },
+    { "ENDANI0.HAF", 0x6dc2fc }
 };
 
 void ___3e1c4h(void){

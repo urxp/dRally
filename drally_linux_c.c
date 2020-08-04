@@ -1,7 +1,7 @@
 #include "drally.h"
 
-#define W_WIDTH 	1024//640
-#define W_HEIGHT 	768//480
+#define W_WIDTH 	800//1024//640
+#define W_HEIGHT 	600//768//480
 
 
 #pragma pack(1)

@@ -63,7 +63,7 @@ extern byte ___1a1130h[];
 extern byte ___1a1118h[];
 extern byte ___1a111ch[];
 extern byte ___1a1f3ch[];
-extern byte ___185b38h[];
+extern byte ___185a5ch[];
 extern byte ___199fa4h[];
 extern byte ___199fa8h[];
 extern byte ___1a1e50h[];
@@ -166,7 +166,7 @@ void CONFIG_READ(void){
 
         memcpy(___24cc58h, config_dst, 4);
         memcpy(___24cc54h, config_dst+4, 4);
-        memcpy(___185b38h, config_dst+8, 4);
+        memcpy(___185a5ch+0xdc, config_dst+8, 4);
         memcpy(___196a94h, config_dst+0xc, 4);
         memcpy(___19bd58h, config_dst+0x10, 4);
         memcpy(___1a201ah, config_dst+0x14, 0x15);
@@ -194,7 +194,7 @@ void CONFIG_READ(void){
         memcpy(___1a111ch, config_dst+0xb6e, 4);
         memcpy(___1a1f3ch, config_dst+0xb72, 4);
 
-        switch(D(___185b38h)){
+        switch(D(___185a5ch+0xdc)){
         case 0:
             D(___199fa4h) = 0x3f8;
             D(___199fa8h) = 4;
@@ -233,7 +233,7 @@ void CONFIG_WRITE(void){
     config_src = dRally_Memory_alloc(0x1388, 0);
     memcpy(config_src, ___24cc58h, 4);
     memcpy(config_src+4, ___24cc54h, 4);
-    memcpy(config_src+8, ___185b38h, 4);
+    memcpy(config_src+8, ___185a5ch+0xdc, 4);
     memcpy(config_src+0xc, ___196a94h, 4);
     memcpy(config_src+0x10, ___19bd58h, 4);
     memcpy(config_src+0x14, ___1a201ah, 0x15);

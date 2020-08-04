@@ -6,11 +6,8 @@
 	extern byte ___1a112ch__VESA101_ACTIVESCREEN_PTR[];
 	extern byte ___1a1100h__VESA101h_DefaultScreenBuffer[];
 	extern byte ___1866b8h[];
-	extern byte ___185b59h[];
+	extern byte ___185b58h[];
 	extern byte ___1a1ef8h[];
-	extern byte ___185b62h[];
-	extern byte ___185b63h[];
-	extern byte ___185b65h[];
 	extern byte ___185a48h[];
 	extern byte ___185a44h[];
 	extern byte ___185a40h[];
@@ -20,9 +17,7 @@
 	extern byte ___1866b8h[];
 	extern byte ___185c0bh[];
 	extern byte ___1a1108h[];
-	extern byte ___185a90h[];
-	extern byte ___185b61h[];
-	extern byte ___185a78h[];
+	extern byte ___185a5ch[];
 
 void ___13710h(dword, dword);
 void ___12cb8h__VESA101_PRESENTSCREEN(void);
@@ -41,7 +36,8 @@ void ___13248h_cdecl(dword, dword ,dword, dword, dword);
 void ___2b5f0h(void);
 
 
-void ___194a8h(void){
+// START RACING
+void menu___194a8h(void){
 
 	dword 	eax, ebx, ecx, edx, edi, esi, ebp;
 	byte 	esp[4];
@@ -75,10 +71,10 @@ void ___194a8h(void){
 
 				if(___3ab5ch_cdecl(1)){
 					
-					B(___185b59h) = 0;
-					B(___185b62h) = 1;
-					B(___185b63h) = 1;
-					B(___185b65h) = 1;
+					B(___185b58h+1) = 0;
+					B(___185b58h+0xa) = 1;
+					B(___185b58h+0xb) = 1;
+					B(___185b58h+0xd) = 1;
 					D(___185a48h) = 1;
 					D(___185a44h) = 1;
 					D(___185a40h) = 1;
@@ -88,7 +84,7 @@ void ___194a8h(void){
 					D(0x6c*D(___1a1ef8h)+___1a020ch) = edx;
 					___2b5f0h();
 					D(___243d44h) = 1;
-					B(___185b62h) = 1;  
+					B(___185b58h+0xa) = 1;  
 					strcpy(___1866b8h, "Continue Racing");
 					strcpy(___1866b8h+0x1c2, "Enter The Shop");
 					shop_main();
@@ -110,10 +106,10 @@ void ___194a8h(void){
 
 			if(D(esp)&&eax){
 				
-				B(___185b59h) = 1;
-				B(___185b62h) = 0;
-				B(___185b63h) = 0;
-				B(___185b65h) = 0;
+				B(___185b58h+1) = 1;
+				B(___185b58h+0xa) = 0;
+				B(___185b58h+0xb) = 0;
+				B(___185b58h+0xd) = 0;
 				D(___185a48h) = 0;
 				D(___185a44h) = 0;
 				strcpy(___1866b8h+0x1c2, "Start A New Game");
@@ -123,7 +119,7 @@ void ___194a8h(void){
 				___2415ch();
 				___2b5f0h();
 				D(___243d44h) = 1;
-				D(___185a90h) = 0;
+				D(___185a5ch+0x34) = 0;
 			}
 			break;
 		case 2:
@@ -140,18 +136,18 @@ void ___194a8h(void){
 			___18cf0h();
 			break;
 		case 5:
-			D(___185a90h) = 0;
-			while(B(D(___185a90h)+___185b61h) == 0){
+			D(___185a5ch+0x34) = 0;
+			while(B(D(___185a5ch+0x34)+___185b58h+9) == 0){
 
-				edx = D(___185a78h)-1;
+				edx = D(___185a5ch+0x1c)-1;
 
-				if((int)D(___185a90h) >= (int)edx){
+				if((int)D(___185a5ch+0x34) >= (int)edx){
 
-					D(___185a90h) = 0;
+					D(___185a5ch+0x34) = 0;
 				}
 				else {
 
-					D(___185a90h)++;
+					D(___185a5ch+0x34)++;
 				}
 			}
 			return;

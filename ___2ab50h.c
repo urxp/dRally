@@ -172,7 +172,7 @@ void ___2ab50h(void){
 			edx = 0x64;
 			strcat(edi, esi);
 			eax = D(___1a0f9ch);
-			___23488h(eax, edx, ebx);
+			___23488h_cdecl(eax, edx, ebx);
 			eax = D(___1a0f9ch);
 			dRally_Memory_free(eax);
 		}

@@ -50,7 +50,15 @@ ___20f99h:
 	
 		cmp     dword [___19bd58h], byte 0
 		jle     near ___2105dh
-		call    near ___59db8h
+	
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___59db8h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		cmp     ebx, byte 0fh
 		jle     near ___2105dh
 		mov     eax, [___243888h]

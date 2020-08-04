@@ -34,21 +34,18 @@ cpu 386
 	extern	___185a44h
 	extern	___185a40h
 	extern	___185a3ch
-	extern	___185b59h
-	extern	___185b62h
+	extern	___185b58h
 	extern	___1866b8h
 	extern	___180814h
-	extern	___185b65h
-	extern	___185b63h
 	extern	___2415ch
 	extern	___243d44h
-	extern	___185a90h
+	extern	___185a5ch
 	extern	___185a2ch
 	extern	___1854a4h
 	extern	___24cc54h
 	extern	dRally_Sound_pushEffect
 	extern	___2b318h
-	extern	___185a14h
+	extern	___185a14h_UseWeapons
 	extern	___185a4ch
 	extern	dRally_Sound_setMasterVolume
 	extern	___58c60h
@@ -241,7 +238,13 @@ ___311efh:
 		call    near ___27f80h
 		xor     esi, esi
 		mov     [esp+28h], esi
+
+	push 	edx
+	push 	ecx
 		call 	restoreDefaultScreenBuffer
+	pop 	ecx
+	pop 	edx
+
 
 	push 	edx
 	push 	ecx
@@ -322,18 +325,18 @@ ___3125bh:
 		xor     bl, bl
 		xor     ebp, ebp
 		mov     ecx, 1
-		mov     [___185b59h], ah
+		mov     [___185b58h+1], ah
 		movsd   
 		movsd   
 		movsd   
 		movsd   
 		movsb   
-		mov     [___185b62h], dl
+		mov     [___185b58h+0ah], dl
 		mov     edi, ___1866b8h
 		mov     esi, ___180814h
 		xor     dh, dh
-		mov     [___185b65h], bl
-		mov     [___185b63h], dh
+		mov     [___185b58h+0dh], bl
+		mov     [___185b58h+0bh], dh
 		movsd   
 		movsd   
 		movsd   
@@ -348,7 +351,7 @@ ___3125bh:
 	pop 	edx
 
 		mov     [___243d44h], ecx
-		mov     [___185a90h], ebp
+		mov     [___185a5ch+34h], ebp
 		mov     [___185a2ch], ecx
 		mov     [___196ae8h], ebp
 		add     esp, byte 30h
@@ -387,7 +390,7 @@ ___31320h:
 		mov     ebp, 640000h
 		mov     [esp+2ch], eax
 ___3135ah:
-		cmp     dword [___185a14h], byte 0
+		cmp     dword [___185a14h_UseWeapons], byte 0
 		je      short ___31375h
 		cmp     dword [___185a4ch], byte 0
 		je      short ___31375h
@@ -463,7 +466,7 @@ ___31384h:
 		mov     [esp+2ch], edx
 		cmp     ebp, 0fffe0000h
 		jne     near ___3135ah
-		cmp     dword [___185a14h], byte 0
+		cmp     dword [___185a14h_UseWeapons], byte 0
 		je      short ___31462h
 		cmp     dword [___185a4ch], byte 0
 		je      short ___31462h

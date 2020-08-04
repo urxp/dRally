@@ -22,7 +22,7 @@ cpu 386
 	extern 	___196ab8h
 	extern 	___1a2011h
 	extern 	___1a116ch
-	extern 	___185a14h
+	extern 	___185a14h_UseWeapons
 	extern 	___1a1f4eh
 	extern 	___1a1f4dh
 	extern 	___180864h
@@ -198,7 +198,7 @@ ___1bd30h:
 		cmp     edx, byte 9
 		jl      short ___1bd30h
 		mov     ecx, ___1a116ch
-		mov     al, [___185a14h]
+		mov     al, [___185a14h_UseWeapons]
 		xor     edx, edx
 		lea     ebx, [ecx+96h]
 		mov     [ebp+11h], al

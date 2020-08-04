@@ -63,10 +63,10 @@ byte ___5994ch(void){
 			if((int)(D(___243888h)+0x32) < (int)D(___243890h)) L(ebx) = 0xcd;
 			if((int)(D(___243884h)-0x32) > (int)D(___24388ch)) L(ebx) = 0xc8;
 			if((int)(D(___243884h)+0x32) < (int)D(___24388ch)) L(ebx) = 0xd0;
-			if(inp_(0x201) == 0x10) L(ebx) = 0x1c;
-			if(inp_(0x201) == 0x20) L(ebx) = 1;
-			if(inp_(0x201) == 0x40) L(ebx) = 0x1c;
-			if(inp_(0x201) == 0x80) L(ebx) = 1;
+			if((inp_(0x201)&0x10) == 0) L(ebx) = 0x1c;
+			if((inp_(0x201)&0x20) == 0) L(ebx) = 1;
+			if((inp_(0x201)&0x40) == 0) L(ebx) = 0x1c;
+			if((inp_(0x201)&0x80) == 0) L(ebx) = 1;
 		}
 
 		if((int)edx < (int)D(___199f60h)){

@@ -28,14 +28,8 @@ cpu 386
 	extern	___180cd8h
 	extern	___185b58h
 	extern	___180cf0h
-	extern	___185b6ah
-	extern	___185b6bh
-	extern	___185b6ch
-	extern	___185b6dh
-	extern	___185b6eh
 	extern	CONNECTION_TYPE
 	extern	___1866b8h
-	extern	___185b6fh
 	extern	___2415ch
 	extern	___13710h
 	extern	___3ab5ch
@@ -178,16 +172,16 @@ ___1d116h:
 		movsw   
 		xor     dh, dh
 		mov     esi, ___180cf0h
-		mov     [___185b6ah], dh
-		mov     [___185b6bh], dh
-		mov     [___185b6ch], dl
-		mov     [___185b6dh], dl
+		mov     [___185b58h+12h], dh
+		mov     [___185b58h+13h], dh
+		mov     [___185b58h+14h], dl
+		mov     [___185b58h+15h], dl
 		xor     edi, edi
-		mov     [___185b6eh], dl
+		mov     [___185b58h+16h], dl
 		mov     [___19bd60h], edi
 		mov     [CONNECTION_TYPE], edi
 		mov     edi, ___1866b8h+3e8h
-		mov     [___185b6fh], dl
+		mov     [___185b58h+17h], dl
 		mov     edx, 1
 		movsd   
 		movsd   

@@ -7,7 +7,7 @@ cpu 386
 	extern	___199f54h
 	extern	rand_watcom106
 	extern	___196b24h
-	extern	___185a14h
+	extern	___185a14h_UseWeapons
 	extern	___1a1ef8h
 	extern	___1a01fch
 	extern	___1806a0h
@@ -98,7 +98,7 @@ ___3189eh:
 		mov     [esp+44h], esi
 		cmp     edx, edi
 		jge     near ___32207h
-		cmp     dword [___185a14h], byte 0
+		cmp     dword [___185a14h_UseWeapons], byte 0
 		je      near ___32207h
 		mov     ecx, 5
 		mov     [___196b24h], ecx

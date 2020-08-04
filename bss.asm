@@ -836,13 +836,13 @@ __GDECL(___1a0168h)
 	resb	4
 __GDECL(___1a016ch)	
 	resb	4
-__GDECL(___1a0170h)	
+__GDECL(___1a0170h_PriceMines)	
 	resb	4
-__GDECL(___1a0174h)	
+__GDECL(___1a0174h_PriceSpikedBumpers)	
 	resb	4
-__GDECL(___1a0178h)	
+__GDECL(___1a0178h_PriceRocketFuel)	
 	resb	4
-__GDECL(___1a017ch)	
+__GDECL(___1a017ch_PriceSabotage)	
 	resb	4
 __GDECL(___1a0180h)	
 	resb	4

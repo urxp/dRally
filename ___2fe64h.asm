@@ -248,7 +248,13 @@ ___3009bh:
 		jl      short ___3006eh
 ___300c7h:
 		xor     edx, edx
+
+	push 	edx
+	push 	ecx
 		call 	restoreDefaultScreenBuffer
+	pop 	ecx
+	pop 	edx
+
 		xor     eax, eax
 		mov     [esp], edx
 		call    near ___3a968h

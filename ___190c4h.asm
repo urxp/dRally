@@ -5,7 +5,7 @@ cpu 386
 	extern 	__MOVS
     extern  ___2b318h
     extern  ___58c60h
-    extern  ___13a98h
+    extern  ___13a98h_cdecl
     extern  ___19eb50h
     extern  ___19eb54h
     extern  ___19eb58h
@@ -69,7 +69,15 @@ ___190eah:
 		test    edx, edx
 		je      short ___1910bh
 		mov     eax, 1
-		call    near ___13a98h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___13a98h_cdecl
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx 
+	
 ___1910bh:
 		xor     edi, edi
 		mov     esi, [esp+8]
@@ -298,7 +306,15 @@ ___1930ah:
 		test    edx, edx
 		je      short ___1932bh
 		mov     eax, 1
-		call    near ___13a98h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___13a98h_cdecl
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx 
+	
 ___1932bh:
 		mov     esi, [esp]
 		xor     edx, edx

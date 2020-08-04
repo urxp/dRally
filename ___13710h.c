@@ -1,26 +1,25 @@
 #include "drally.h"
 
 #pragma pack(1)
-typedef struct coo_s {
-	dword 	row_n;
-	int 	x;
-	int 	y;
-	dword 	row_h;
-	dword 	w;
-	dword 	h;
-	dword 	row_i;
-} coo_t;
+typedef struct menubox_s {
+	__DWORD__ 	row_n;			// +00
+	__DWORD__ 	x;				// +04
+	__DWORD__ 	y;				// +08
+	__DWORD__ 	row_h;			// +0C
+	__DWORD__ 	w;				// +10
+	__DWORD__ 	h;				// +14
+	__DWORD__ 	row_i;			// +18
+} menubox_t;
 
-	extern coo_t ___185a5ch[];
-#define box ___185a5ch
-	extern byte ___1866b8h[];
+	extern menubox_t ___185a5ch[9];
+	extern byte ___185b58h[9][9];
+	extern char ___1866b8h[9][9][50];
 	extern byte * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
 	extern byte ___1a1e68h[];
 	extern byte ___1a10f4h[];
 	extern byte ___185ba9h[];
 	extern byte ___1a10cch[];
 	extern byte ___1a10d0h[];
-	extern byte ___185b58h[];
 	extern byte ___1a10e0h[];
 
 #define COOXY(x,y) (0x280*(y)+(x))	
@@ -30,38 +29,37 @@ void ___12e78h_cdecl(dword, dword, dword, dword);
 
 void ___13710h(dword A1, dword A2){
 
-	int 	n,i,j;
-	dword 	ebx, esi;
+	int 			n, i, j;
+	byte 			px;
+	menubox_t * 	mBox;
+	byte *			mSwitch;
+	char(*mList)[50];
 
-	___13248h_cdecl(box[A1].x, box[A1].y, box[A1].w, box[A1].h, A2);
+	mBox = &___185a5ch[A1];
+	mList = ___1866b8h[A1];
+	mSwitch = ___185b58h[A1];
+
+	___13248h_cdecl(mBox->x, mBox->y, mBox->w, mBox->h, A2);
 
 	n = -1;
-	while(++n < box[A1].row_n){
+	while(++n < mBox->row_n){
 
-		if(n != box[A1].row_i){
+		if(n != mBox->row_i){
 
-			if(B(9*A1+n+___185b58h) != 1){
+			if((mSwitch[n] != 1)||(A2 == 0)){
 
-				___12e78h_cdecl(D(___1a10d0h), ___185ba9h, ___1866b8h+450*A1+0x32*n, COOXY(box[A1].x+32,box[A1].y+n*box[A1].row_h+5));
+				___12e78h_cdecl(D(___1a10d0h), ___185ba9h, mList[n], COOXY(mBox->x+32,mBox->y+n*mBox->row_h+5));
 			}
 			else {
 
-				if(A2 == 0){
-					
-					___12e78h_cdecl(D(___1a10d0h), ___185ba9h, ___1866b8h+450*A1+0x32*n, COOXY(box[A1].x+32,box[A1].y+n*box[A1].row_h+5));
-				}
-
-				if(A2 == 1){
-
-					___12e78h_cdecl(D(___1a10e0h), ___185ba9h, ___1866b8h+450*A1+0x32*n, COOXY(box[A1].x+32,box[A1].y+n*box[A1].row_h+5));
-				}
+				___12e78h_cdecl(D(___1a10e0h), ___185ba9h, mList[n], COOXY(mBox->x+32,mBox->y+n*mBox->row_h+5));
 			}
 		}
 		else {
 
 			if(A2 == 0){
 
-				___12e78h_cdecl(D(___1a10d0h), ___185ba9h, ___1866b8h+450*A1+0x32*n, COOXY(box[A1].x+32,box[A1].y+n*box[A1].row_h+5));
+				___12e78h_cdecl(D(___1a10d0h), ___185ba9h, mList[n], COOXY(mBox->x+32,mBox->y+n*mBox->row_h+5));
 			}
 			else {
 
@@ -71,11 +69,12 @@ void ___13710h(dword A1, dword A2){
 					j = -1;
 					while(++j < 0x14){
 
-						if(B(D(___1a10f4h)+(int)D(___1a1e68h)*0x190+0x14*i+j)) ___1a112ch__VESA101_ACTIVESCREEN_PTR[COOXY(box[A1].x+j+9,box[A1].y+n*box[A1].row_h+i+11)] = B(D(___1a10f4h)+(int)D(___1a1e68h)*0x190+0x14*i+j);
+						px = B(D(___1a10f4h)+(int)D(___1a1e68h)*0x190+0x14*i+j);
+						if(px) ___1a112ch__VESA101_ACTIVESCREEN_PTR[COOXY(mBox->x+j+9,mBox->y+n*mBox->row_h+i+11)] = px;
 					}
 				}
 
-				___12e78h_cdecl(D(___1a10cch), ___185ba9h, ___1866b8h+450*A1+0x32*n, COOXY(box[A1].x+32,box[A1].y+n*box[A1].row_h+5));
+				___12e78h_cdecl(D(___1a10cch), ___185ba9h, mList[n], COOXY(mBox->x+32,mBox->y+n*mBox->row_h+5));
 			}
 		}
 	}

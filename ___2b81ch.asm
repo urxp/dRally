@@ -3,7 +3,7 @@ cpu 386
 
 	extern	__CHK
 	extern	___1a1ef8h
-	extern	___185a14h
+	extern	___185a14h_UseWeapons
 	extern	___1a01fch
 	extern	___18e974h
 
@@ -18,7 +18,7 @@ __GDECL(___2b81ch)
 		sub     eax, edx
 		shl     eax, 2
 		sub     eax, edx
-		mov     edx, [___185a14h]
+		mov     edx, [___185a14h_UseWeapons]
 		shl     eax, 2
 		test    edx, edx
 		je      short ___2b872h

@@ -1,7 +1,6 @@
 #include "drally.h"
 
 	extern byte ___1866b8h[];
-	extern byte ___185b85h[];
 	extern byte ___1866b8h[];
 	extern byte ___18075ch[];
 	extern byte ___1a1138h__VESA101h_DefaultScreenBufferB[];
@@ -9,10 +8,7 @@
 	extern byte ___1854bch[];
 	extern byte ___24cc54h[];
 	extern byte ___1866b8h[];
-	extern byte ___185b59h[];
-	extern byte ___185b62h[];
-	extern byte ___185b63h[];
-	extern byte ___185b65h[];
+	extern byte ___185b58h[];
 	extern byte ___1866b8h[];
 	extern byte ___185a48h[];
 	extern byte ___185a44h[];
@@ -22,7 +18,7 @@
 	extern byte ___196ab4h[];
 	extern byte ___1a0f9ch[];
 	extern byte ___1a1ef8h[];
-	extern byte ___185a14h[];
+	extern byte ___185a14h_UseWeapons[];
 	extern byte ___1a01e0h[];
 	extern byte ___196a94h[];
 	extern byte ___1a023ch[];
@@ -63,7 +59,7 @@ dword ___18924h(void){
 	n = -1;
 	while(++n < 8){
 
-		B(n+___185b85h) = 1;
+		B(n+___185b58h+0x2d) = 1;
 		strcpy(0x32*n+___1866b8h+0x8ca, "Empty Slot");
 		strcpy(esp, "DR.SG");
 		itoa_watcom106(n, esp+0x20, 0xa);
@@ -100,11 +96,11 @@ dword ___18924h(void){
 	}
 	else {
 
-		B(___185b59h) = 0;
-		B(___185b62h) = 1;
-		B(___185b63h) = 1; 
+		B(___185b58h+1) = 0;
+		B(___185b58h+0xa) = 1;
+		B(___185b58h+0xb) = 1; 
 		strcpy(___1866b8h+0x1c2, "Enter The Shop");
-		B(___185b65h) = 1;
+		B(___185b58h+0xd) = 1;
 		D(___185a48h) = 0;
 		D(___185a44h) = 0;
 		D(___185a40h) = 0;
@@ -126,7 +122,7 @@ dword ___18924h(void){
 		while(++n < 0x883) B(n+D(___1a0f9ch)) = ROL_BYTE(B(n+D(___1a0f9ch)), n%6)+key-0x11*n;
 
 		D(___1a1ef8h) = B(D(___1a0f9ch)+1);
-		D(___185a14h) = B(D(___1a0f9ch)+2);
+		D(___185a14h_UseWeapons) = B(D(___1a0f9ch)+2);
 		D(___196a94h) = B(D(___1a0f9ch)+3);
 		memcpy(___1a01e0h, D(___1a0f9ch)+0x13, 0x870);
 		dRally_Memory_free(D(___1a0f9ch));

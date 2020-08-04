@@ -1,4 +1,4 @@
-cpu 386
+ cpu 386
 %include "macros.inc"
 
 	extern	__CHK

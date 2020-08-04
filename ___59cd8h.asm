@@ -26,7 +26,15 @@ __GDECL(___59cd8h)
 		push    edi
 		cmp     dword [___19bd58h], byte 0
 		jle     near ___59db0h
-		call    near ___59db8h
+	
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___59db8h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 		mov     eax, [___243888h]
 		mov     ebx, [___243890h]
 		sub     eax, byte 32h

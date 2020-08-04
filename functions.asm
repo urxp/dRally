@@ -1,24 +1,7 @@
 cpu 386
 %include "macros.inc"
 
-    extern 	___1a112ch__VESA101_ACTIVESCREEN_PTR
-	extern 	___1a1100h__VESA101h_DefaultScreenBuffer
-    extern  ___1a10e4h__VESA101h_DefaultScreenBufferA
-	extern  ___1a1124h__VESA101h_ScreenBufferA
-	extern	VGA13_ACTIVESCREEN
-
 section .text
-
-__GDECL(restoreDefaultScreenBuffer)
-        mov     eax, [___1a1100h__VESA101h_DefaultScreenBuffer]
-        mov     [___1a112ch__VESA101_ACTIVESCREEN_PTR], eax
-        retn
-
-__GDECL(restoreDefaultScreenBufferA)
-		mov     eax, [___1a10e4h__VESA101h_DefaultScreenBufferA]
-		mov     [___1a1124h__VESA101h_ScreenBufferA], eax
-        retn
-
 
 __GDECL(__MOVS)
 		push    edi

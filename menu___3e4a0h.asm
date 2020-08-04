@@ -16,7 +16,7 @@ cpu 386
 
 section .text
 
-__GDECL(___3e4a0h)
+__GDECL(menu___3e4a0h)
 		push    12ch
 		call    near __CHK
 		push    ebx

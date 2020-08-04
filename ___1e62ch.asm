@@ -13,18 +13,11 @@ cpu 386
 	extern	___181048h
 	extern	___196a7ch
 	extern	___185b58h
-	extern	___185b6ch
 	extern	___1866b8h
 	extern	___18105ch
-	extern	___185b6dh
-	extern	___185b6eh
-	extern	___185b6fh
 	extern	___1866b8h
 	extern	___181068h
-	extern	___185b70h
-	extern	___185b6ah
-	extern	___185b6bh
-	extern	___185aach
+	extern	___185a5ch
 	extern	___61278h
 	extern	___623d4h
 	extern	___1a116ch
@@ -90,28 +83,28 @@ __GDECL(___1e62ch)
 		movsd   
 		movsd   
 		movsw   
-		mov     [___185b6ch], ah
+		mov     [___185b58h+14h], ah
 		mov     edi, ___1866b8h+44ch
 		mov     esi, ___18105ch
-		mov     [___185b6dh], ah
-		mov     [___185b6eh], ah
+		mov     [___185b58h+15h], ah
+		mov     [___185b58h+16h], ah
 		movsd   
 		movsd   
 		movsw   
 		movsb   
-		mov     [___185b6fh], ah
+		mov     [___185b58h+17h], ah
 		mov     edi, ___1866b8h+47eh
 		mov     esi, ___181068h
-		mov     [___185b70h], ah
+		mov     [___185b58h+18h], ah
 		xor     bl, bl
 		movsd   
 		movsd   
 		movsd   
 		movsb   
-		mov     [___185b6ah], bl
+		mov     [___185b58h+12h], bl
 		mov     esi, 2
-		mov     [___185b6bh], bl
-		mov     [___185aach], esi
+		mov     [___185b58h+13h], bl
+		mov     [___185a5ch+50h], esi
 	
 	push 	edx
 	push 	ecx

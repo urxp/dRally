@@ -5,7 +5,7 @@ cpu 386
 	extern 	__MOVS
 	extern 	___1a1138h__VESA101h_DefaultScreenBufferB
 	extern 	___1a112ch__VESA101_ACTIVESCREEN_PTR
-	extern 	___185a14h
+	extern 	___185a14h_UseWeapons
 	extern 	___1866b8h
 	extern 	___180b20h
 	extern 	___180b2ch
@@ -14,7 +14,7 @@ cpu 386
 	extern 	___12cb8h__VESA101_PRESENTSCREEN
 	extern 	___1a1100h__VESA101h_DefaultScreenBuffer
 	extern 	___3a6a4h
-	extern 	___146c4h
+	extern 	___146c4h_cdecl
 	extern 	___2fe64h
 	extern 	___13248h
 	extern 	___180b38h
@@ -33,12 +33,16 @@ cpu 386
 	extern 	CONNECTION_TYPE
 	extern 	___198a0h
 	extern 	___1bc20h
-	extern 	___185ae4h
-	extern 	___185b7ch
-	extern 	___185acch
+	extern 	___185a5ch
 	extern 	restoreDefaultScreenBuffer
+	extern	___185b58h
 
 section .text
+
+__GDECL(___1c374h_cdecl)
+	mov 	eax, [esp+4]
+	call 	___1c374h
+	retn;
 
 ___1c360h:
 dd	___1c451h
@@ -65,7 +69,7 @@ ___1c390h:
 		add     esi, 0d200h
 		add     edi, 0d200h
 		call 	__MOVS
-		cmp     dword [___185a14h], byte 0
+		cmp     dword [___185a14h_UseWeapons], byte 0
 		je      short ___1c3d7h
 		mov     edi, ___1866b8h+076ch
 		mov     esi, ___180b20h
@@ -125,7 +129,12 @@ ___1c3e4h:
 		jmp     short ___1c434h
 ___1c418h:
 		xor     ecx, ecx
+
+	push 	edx
+	push 	ecx
 		call 	restoreDefaultScreenBuffer
+	pop 	ecx
+	pop 	edx
 
 	push 	edx
 	push 	ecx
@@ -146,7 +155,15 @@ ___1c418h:
 		mov     [___185a24h], ecx
 ___1c434h:
 		mov     eax, 4
-		call    near ___146c4h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___146c4h_cdecl
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     ebp, eax
 		cmp     eax, byte 4
 		ja      near ___1c461h
@@ -340,12 +357,12 @@ ___1c522h:
 		pop     ebx
 		retn    
 ___1c5d4h:
-		cmp     dword [___185a14h], byte 0
+		cmp     dword [___185a14h_UseWeapons], byte 0
 		je      short ___1c605h
 		mov     edi, ___1866b8h+076ch
 		xor     ebx, ebx
 		mov     esi, ___180b2ch
-		mov     [___185a14h], ebx
+		mov     [___185a14h_UseWeapons], ebx
 		movsd   
 		movsd   
 		movsd   
@@ -363,7 +380,7 @@ ___1c605h:
 		mov     edx, 1
 		mov     edi, ___1866b8h+076ch
 		mov     esi, ___180b20h
-		mov     [___185a14h], edx
+		mov     [___185a14h_UseWeapons], edx
 		movsd   
 		movsd   
 		movsw   
@@ -414,17 +431,17 @@ ___1c685h:
 		xor     esi, esi
 		mov     ebp, 0ffffffffh
 ___1c68ch:
-		mov     [___185ae4h], esi
+		mov     [___185a5ch+88h], esi
 ___1c692h:
-		mov     eax, [___185ae4h]
-		cmp     byte [eax+___185b7ch], 0
+		mov     eax, [___185a5ch+88h]
+		cmp     byte [eax+___185b58h+24h], 0
 		jne     near ___1c461h
-		mov     edx, [___185acch]
+		mov     edx, [___185a5ch+70h]
 		dec     edx
 		cmp     eax, edx
 		jge     short ___1c6b7h
 		inc     eax
-		mov     [___185ae4h], eax
+		mov     [___185a5ch+88h], eax
 		jmp     short ___1c692h
 ___1c6b7h:
 		xor     esi, esi

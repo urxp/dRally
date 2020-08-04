@@ -20,6 +20,9 @@ typedef struct SREGS {
     word    __gs;
 } SREGS;
 
+__BYTE__ PORT_201h = 0;
+
+
 int int386x(int inter_no, REGS * in_regs, REGS * out_regs, SREGS * seg_regs){
 
     printf("int386x not implemented\n");
@@ -45,12 +48,16 @@ byte inp_(dword A1){
 
     printf("inp_ not implemented\n");
 
+    if(A1 == 0x201) return PORT_201h;
+
     return 0;
 }
 
 void outp_(dword A1, dword A2){
 
     printf("outp_ not implemented\n");
+
+    if(A1 == 0x201) PORT_201h = 0xff;
 }
 
 void __STOSB(dword A1, dword A2, dword A3){

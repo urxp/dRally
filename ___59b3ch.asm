@@ -71,7 +71,15 @@ ___59bbch:
 ___59bc7h:
 		cmp     dword [___19bd58h], byte 0
 		jle     short ___59bd5h
-		call    near ___59db8h
+	
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___59db8h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+
 ___59bd5h:
 		cmp     dword [___19bd58h], byte 0
 		jle     near ___59ccch

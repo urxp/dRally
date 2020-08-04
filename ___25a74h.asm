@@ -17,7 +17,7 @@ cpu 386
 	extern	___25180h
 	extern	___12f60h
 	extern	___13248h
-	extern	___185a14h
+	extern	___185a14h_UseWeapons
 	extern	___18e298h
 	extern	___13094h_cdecl
 	extern	___1a1e78h
@@ -130,7 +130,7 @@ ___25af9h:
 		shl     eax, 3
 		sub     eax, edx
 		shl     eax, 5
-		mov     edx, [___185a14h]
+		mov     edx, [___185a14h_UseWeapons]
 		add     eax, ___18e298h
 		test    edx, edx
 		je      near ___25ce5h

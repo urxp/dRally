@@ -32,7 +32,7 @@
 	extern byte ___1a0fb8h[];
 	extern byte ___185a20h[];
 	extern byte ___1a1ec4h[];
-	extern byte ___185a14h[];
+	extern byte ___185a14h_UseWeapons[];
 	extern byte ___1a01fch[];
 	extern byte ___196ab0h[];
 	extern byte ___196a98h[];
@@ -178,7 +178,7 @@ void shop_main(void){
 		ebx -= eax;
 		ST(0) = (int)ST(0);
 		ebx <<= 2;
-		esi = D(___185a14h);
+		esi = D(___185a14h_UseWeapons);
 		ebx -= eax;
 		D(esp+0xc) = (int)FPOP();
 		ebx <<= 2;

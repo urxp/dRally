@@ -51,7 +51,7 @@ cpu 386
 	extern	dRally_Sound_pushEffect
 	extern	___1a0220h
 	extern	___1a10cch
-	extern	___185a14h
+	extern	___185a14h_UseWeapons
 	extern	___148cch_cdecl
 	extern	___1854ach
 	extern	___1a1138h__VESA101h_DefaultScreenBufferB
@@ -902,11 +902,11 @@ ___3b4e1h:
 		jl      short ___3b4aah
 		mov     esi, 1
 		mov     edx, [esp+44h]
-		mov     ecx, ___185a14h
+		mov     ecx, ___185a14h_UseWeapons
 		lea     eax, [ebp+82h]
 		add     edx, 0d3h
 		mov     ebx, esi
-		mov     [___185a14h], esi
+		mov     [___185a14h_UseWeapons], esi
 
 	push 	ecx
 	push 	ebx

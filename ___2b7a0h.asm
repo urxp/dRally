@@ -4,10 +4,7 @@ cpu 386
 	extern	__CHK
 	extern	___1866b8h
 	extern	___1807ech
-	extern	___185b59h
-	extern	___185b62h
-	extern	___185b63h
-	extern	___185b65h
+	extern	___185b58h
 	extern	___1866b8h
 	extern	___180814h
 	extern	___185a48h
@@ -15,7 +12,7 @@ cpu 386
 	extern	___185a40h
 	extern	___185a3ch
 	extern	___2415ch
-	extern	___185a90h
+	extern	___185a5ch
 	extern	___243d44h
 
 section .text
@@ -32,15 +29,15 @@ __GDECL(___2b7a0h)
 		mov     edi, ___1866b8h+1c2h
 		mov     esi, ___1807ech
 		xor     dl, dl
-		mov     [___185b59h], ah
-		mov     [___185b62h], dl
-		mov     [___185b63h], dl
+		mov     [___185b58h+1], ah
+		mov     [___185b58h+0ah], dl
+		mov     [___185b58h+0bh], dl
 		movsd   
 		movsd   
 		movsd   
 		movsd   
 		movsb   
-		mov     [___185b65h], dl
+		mov     [___185b58h+0dh], dl
 		mov     edi, ___1866b8h
 		xor     edx, edx
 		mov     esi, ___180814h
@@ -61,7 +58,7 @@ __GDECL(___2b7a0h)
 	pop 	ecx
 	pop 	edx
 
-		mov     [___185a90h], edx
+		mov     [___185a5ch+34h], edx
 		mov     [___243d44h], ebp
 		pop     ebp
 		pop     edi

@@ -5,8 +5,8 @@ cpu 386
 	extern	___1a112ch__VESA101_ACTIVESCREEN_PTR
 	extern	___1a1e70h
 	extern	___13248h
-	extern	___28c1ch
-	extern	___185a14h
+	extern	underground___28c1ch
+	extern	___185a14h_UseWeapons
 	extern	___185a4ch
 	extern	___194da0h
 	extern	___13094h_cdecl
@@ -62,8 +62,14 @@ ___26e80h:
 		mov     edx, 72h
 		mov     eax, 90h
 		call    near ___13248h
-		call    near ___28c1ch
-		mov     edx, [___185a14h]
+
+	push 	edx
+	push 	ecx
+		call    underground___28c1ch
+	pop 	ecx
+	pop 	edx
+
+		mov     edx, [___185a14h_UseWeapons]
 		mov     [___185a4ch], eax
 		test    edx, edx
 		je      short ___26f2ah

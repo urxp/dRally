@@ -7,7 +7,7 @@ cpu 386
 	extern	___1a112ch__VESA101_ACTIVESCREEN_PTR
 	extern	___1a1e5ch
 	extern	___2d054h
-	extern	___1a0174h
+	extern	___1a0174h_PriceSpikedBumpers
 	extern	itoa_watcom106
 	extern	___180728h
 	extern	___25180h
@@ -54,7 +54,7 @@ ___2d8dbh:
 		mov     ebx, 0ah
 		mov     edx, esp
 		call    near ___2d054h
-		mov     eax, [___1a0174h]
+		mov     eax, [___1a0174h_PriceSpikedBumpers]
 		lea     edi, [esp+14h]
 
 	push 	ecx

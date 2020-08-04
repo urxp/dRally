@@ -7,7 +7,7 @@ cpu 386
 	extern	___1a112ch__VESA101_ACTIVESCREEN_PTR
 	extern	___13710h
 	extern	___12cb8h__VESA101_PRESENTSCREEN
-	extern	___146c4h
+	extern	___146c4h_cdecl
 	extern	___1f0dch
 	extern	___13248h
 	extern	___1810a8h
@@ -44,9 +44,15 @@ cpu 386
 	extern	___1866b8h
 	extern	___1811b8h
 	extern	___1811c8h
-	extern	___185b38h
+	extern	___185a5ch
 
 section .text
+
+__GDECL(___1f124h_cdecl)
+	mov 	eax, [esp+4]
+	call 	___1f124h
+	retn
+
 
 ___1f104h:
 dd	___1f1b3h
@@ -116,7 +122,15 @@ ___1f140h:
 	pop		edx
 
 		mov     eax, 7
-		call    near ___146c4h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___146c4h_cdecl
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+	
 		mov     ebp, eax
 		cmp     eax, byte 7
 		ja      near ___1f6c5h
@@ -781,7 +795,7 @@ ___1f6c5h:
 		jne     near ___1f140h
 ___1f6ceh:
 		mov     eax, [___1a1e50h]
-		mov     [___185b38h], eax
+		mov     [___185a5ch+0dch], eax
 		add     esp, byte 54h
 		pop     ebp
 		pop     edi

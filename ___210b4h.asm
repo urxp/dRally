@@ -9,7 +9,7 @@ cpu 386
 	extern	___1a112ch__VESA101_ACTIVESCREEN_PTR
 	extern	___13710h
 	extern	___12cb8h__VESA101_PRESENTSCREEN
-	extern	___146c4h
+	extern	___146c4h_cdecl
 	extern	___13248h
 	extern	___181b04h
 	extern	___185c0bh
@@ -47,9 +47,8 @@ cpu 386
 	extern	___18195ch
 	extern	___1a111ch
 	extern	___20d18h
-	extern	___185b54h
-	extern	___185ba0h
-	extern	___185b3ch
+	extern	___185a5ch
+	extern	___185b58h
 
 section .text
 
@@ -73,7 +72,15 @@ __GDECL(___210b4h)
 		push    edi
 		push    ebp
 		sub     esp, byte 34h
-		call    near ___1f6e4h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___1f6e4h
+	pop 	eax
+	pop 	ecx
+	pop 	edx
+	
 		cmp     esi, byte 0ffffffffh
 		je      near ___2127eh
 		mov     edx, 15031h
@@ -149,7 +156,15 @@ ___21149h:
 	pop		edx
 
 		mov     eax, 8
-		call    near ___146c4h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___146c4h_cdecl
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+	
 		mov     ebp, eax
 		inc     eax
 		cmp     eax, byte 8
@@ -850,19 +865,19 @@ ___2176ah:
 		jne     near ___21275h
 		xor     ebx, ebx
 		mov     ebp, 0ffffffffh
-		mov     [___185b54h], ebx
+		mov     [___185a5ch+0f8h], ebx
 ___21780h:
-		mov     eax, [___185b54h]
-		cmp     byte [eax+___185ba0h], 0
+		mov     eax, [___185a5ch+0f8h]
+		cmp     byte [eax+___185b58h+0x48], 0
 		jne     near ___21275h
-		mov     esi, [___185b3ch]
+		mov     esi, [___185a5ch+0e0h]
 		dec     esi
 		cmp     eax, esi
 		jge     short ___217a5h
 		inc     eax
-		mov     [___185b54h], eax
+		mov     [___185a5ch+0f8h], eax
 		jmp     short ___21780h
 ___217a5h:
 		xor     ecx, ecx
-		mov     [___185b54h], ecx
+		mov     [___185a5ch+0f8h], ecx
 		jmp     short ___21780h

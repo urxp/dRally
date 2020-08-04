@@ -40,7 +40,7 @@ void ___3a6a4h(void);
 void ___12cb8h__VESA101_PRESENTSCREEN(void);
 void restoreDefaultScreenBuffer(void);
 
-void ___22a80h(void){
+void menu___22a80h(void){
 
 	dword 	eax, ebx, ecx, edx, edi, esi, ebp;
 	byte 	esp[0x40];

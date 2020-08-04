@@ -52,7 +52,6 @@ cpu 386
 	extern 	___185ba9h
 	extern 	___1a10e0h
 	extern 	___12e78h_cdecl
-	extern 	___185b8bh
 	extern 	___1a112ch__VESA101_ACTIVESCREEN_PTR
 	extern 	___1398ch__VESA101_PRESENTRECTANGLE
 	extern 	___17384h
@@ -213,7 +212,7 @@ __GDECL(___17510h)
 ___17700h:
 		xor     eax, eax
 		mov     al, [esp+ebx*1]
-		mov     al, [eax+___185b8bh]
+		mov     al, [eax+___185ba9h-1eh]
 		and     eax, 0ffh
 		inc     ebx
 		add     ebp, eax
@@ -1043,7 +1042,7 @@ ___18128h:
 		call 	__STRLEN
 		xor     eax, eax
 		mov     al, [esp+ecx*1-1]
-		mov     al, [eax+___185b8bh]
+		mov     al, [eax+___185ba9h-1eh]
 		and     eax, 0ffh
 		mov     edx, [esp+8ch]
 		sub     ebp, eax
@@ -1057,7 +1056,7 @@ ___18176h:
 		xor     eax, eax
 		mov     al, [esp+ecx*1-1]
 		xor     ebx, ebx
-		mov     bl, [eax+___185b8bh]
+		mov     bl, [eax+___185ba9h-1eh]
 		mov     eax, [___1a112ch__VESA101_ACTIVESCREEN_PTR]
 		mov     edi, [esp+3ch]
 		add     eax, esi
@@ -1085,7 +1084,7 @@ ___18176h:
 		mov     al, [esp+ecx*1-1]
 		mov     edx, [___1a112ch__VESA101_ACTIVESCREEN_PTR]
 		mov     ecx, [esp+54h]
-		mov     bl, [eax+___185b8bh]
+		mov     bl, [eax+___185ba9h-1eh]
 		mov     eax, [esp+50h]
 		add     ebx, byte 14h
 		add     edx, ecx
@@ -1175,7 +1174,7 @@ ___182bfh:
 
 		xor     ebx, ebx
 		mov     bl, [esp+94h]
-		mov     bl, [ebx+___185b8bh]
+		mov     bl, [ebx+___185ba9h-1eh]
 		mov     ecx, [esp+44h]
 		mov     edi, [esp+3ch]
 		mov     edx, [___1a112ch__VESA101_ACTIVESCREEN_PTR]
@@ -1195,7 +1194,7 @@ ___182bfh:
 	
 		xor     eax, eax
 		mov     al, [esp+94h]
-		mov     al, [eax+___185b8bh]
+		mov     al, [eax+___185ba9h-1eh]
 		and     eax, 0ffh
 		add     ebp, eax
 ___1834dh:

@@ -3,7 +3,7 @@
 
 	extern byte ___1a1ef8h[];
 	extern byte ___1a021ch[];
-	extern byte ___185a14h[];
+	extern byte ___185a14h_UseWeapons[];
 	extern byte ___1a01fch[];
 	extern byte ___18e974h[];
 	extern byte ___1a01ech[];
@@ -55,8 +55,8 @@ char * itoa_watcom106(int value, char * buffer, int radix);
 void ___31008h(void);
 void ___3266ch(void);
 void ___33010h_cdecl(dword A1);
-void ___2ee78h(void);
-dword ___28c1ch(void);
+void underground_main(void);
+dword underground___28c1ch(void);
 void ___13094h_cdecl(dword, dword);
 void ___27a10h(void);
 void ___276f0h(void);
@@ -99,7 +99,7 @@ void shop___28e40h(void){
 		ebx = 8*eax;
 		ebx -= eax;
 		ebx <<= 2;
-		edx = D(___185a14h);
+		edx = D(___185a14h_UseWeapons);
 		ebx -= eax;
 		D(esp+0x50) = (int)FPOP();
 		ebx <<= 2;
@@ -989,7 +989,7 @@ ___29f83h:
 		ebx -= eax;
 		ebx <<= 2;
 		if((int)D(ebx+___1a01ech) >= 0xa) goto ___29fe8h;
-		if(D(___185a14h) == 0) goto ___29fe8h;
+		if(D(___185a14h_UseWeapons) == 0) goto ___29fe8h;
 		eax = D(ebx+___1a01fch);
 		edx = 8*eax;
 		edx -= eax;
@@ -1016,7 +1016,7 @@ ___29fe8h:
 		eax -= edx;
 		eax <<= 2;
 		if((int)D(eax+___1a01ech) < 0xa) goto ___2a039h;
-		if(D(___185a14h) == 0) goto ___2a039h;
+		if(D(___185a14h_UseWeapons) == 0) goto ___2a039h;
 		eax = D(eax+___1a01fch);
 		edx = 8*eax;
 		edx -= eax;
@@ -1037,7 +1037,7 @@ ___2a039h:
 		ebx -= eax;
 		ebx <<= 2;
 		if((int)D(ebx+___1a01ech) >= 0xa) goto ___2a093h;
-		if(D(___185a14h) != 0) goto ___2a093h;
+		if(D(___185a14h_UseWeapons) != 0) goto ___2a093h;
 		eax = D(ebx+___1a01fch);
 		edx = 8*eax;
 		edx -= eax;
@@ -1059,7 +1059,7 @@ ___2a093h:
 		eax -= edx;
 		eax <<= 2;
 		if((int)D(eax+___1a01ech) < 0xa) goto ___2a0d9h;
-		if(D(___185a14h) != 0) goto ___2a0d9h;
+		if(D(___185a14h_UseWeapons) != 0) goto ___2a0d9h;
 		eax = D(eax+___1a01fch);
 		esi = 8*eax;
 		esi -= eax;
@@ -1109,49 +1109,32 @@ ___2a162h:
 		___12cb8h__VESA101_PRESENTSCREEN();
 		return;
 
+
+
+// CONTINUE
 ___2a1afh:
-		edx = D(___1a1ef8h);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 2;
-		eax -= edx;
+		if((D(0x6c*D(___1a1ef8h)+___1a01ech) == 0x64)&&(D(___185a14h_UseWeapons) == 0)){
 
-		if((D(4*eax+___1a01ech) == 0x64)&&(D(___185a14h) == 0)){
-
-			ecx = 0x77;
-			ebx = 0x180;
-			edx = 0x72;
-			eax = 0x90;
-			___13248h_cdecl(eax, edx, ebx, ecx, 1);
-			edx = 0x136aa;
-			eax = "[Repair your car first.";
-			___13094h_cdecl(eax, edx);
-			edx = 0x15eaa;
-			eax = "";
-			___13094h_cdecl(eax, edx);
-			edx = 0x186aa;
-			eax = "What'cha gonna do with that pile of";
-			___13094h_cdecl(eax, edx);
-			edx = 0x1aeaa;
-			eax = "junk, carry it around? Let me spell";
-			___13094h_cdecl(eax, edx);
-			edx = 0x1d6aa;
-			eax = "this out for you: R-E-P-A-I-R.";
-			___13094h_cdecl(eax, edx);
+			___13248h_cdecl(0x90, 0x72, 0x180, 0x77, 1);
+			___13094h_cdecl("[Repair your car first.", 0x136aa);
+			___13094h_cdecl("", 0x15eaa);
+			___13094h_cdecl("What'cha gonna do with that pile of", 0x186aa);
+			___13094h_cdecl("junk, carry it around? Let me spell", 0x1aeaa);
+			___13094h_cdecl("this out for you: R-E-P-A-I-R.", 0x1d6aa);
 			___12cb8h__VESA101_PRESENTSCREEN();
 			dRally_Sound_pushEffect(2, 0x17, 0, D(___24cc54h), D(___1854a4h), 0x8000);
 		}
 		else {
 
+#if defined(DR_MULTIPLAYER)
 			if(D(___19bd60h) == 0){
+#endif // DR_MULTIPLAYER
 
-				eax = ___28c1ch();
-				ebx = D(___185a14h);
-				D(___185a4ch) = eax;
+				D(___185a4ch) = underground___28c1ch();
 
-				if((ebx != 0)&&(eax != 0)){
+				if((D(___185a14h_UseWeapons) != 0)&&(D(___185a4ch) != 0)){
 				
-					___2ee78h();
+					underground_main();
 				}
 				else {
 
@@ -1171,13 +1154,7 @@ ___2a1afh:
 						if((int)edx >= 0x14) break;
 					}
 
-					edx = D(___1a1ef8h);
-					eax = 8*edx;
-					eax -= edx;
-					eax <<= 2;
-					eax -= edx;
-
-					if((int)ecx < (int)D(4*eax+___1a0224h)){
+					if((int)ecx < (int)D(0x6c*D(___1a1ef8h)+___1a0224h)){
 
 						___31008h();
 					}
@@ -1186,27 +1163,26 @@ ___2a1afh:
 						___3266ch();
 					}
 				}
+#if defined(DR_MULTIPLAYER)				
 			}
 			else {
 
-				esi = 0;
-				D(___1a1028h) = esi;
-				eax = ___28c1ch();
-				edi = D(___185a14h);
-				D(___185a4ch) = eax;
+				D(___1a1028h) = 0;
+				D(___185a4ch) = underground___28c1ch();
 
-				if((edi == 0)||(eax == 0)){
+				if((D(___185a14h_UseWeapons) == 0)||(D(___185a4ch) == 0)){
 
 					dRally_Sound_pushEffect(1, 0x18, 0, D(___24cc54h), D(___1854a8h), 0x8000);
 					___33010h_cdecl(D(___196adch));
 				}
 				else {
 				
-					___2ee78h();
+					underground_main();
 				}
 
 				D(___185a20h) = 1;
 			}
+#endif // DR_MULTIPLAYER
 		}
 
 		return;

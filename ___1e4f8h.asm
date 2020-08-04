@@ -5,13 +5,9 @@ cpu 386
 	extern	___1866b8h
 	extern	___180cc0h
 	extern	CONNECTION_TYPE
-	extern	___185b6ch
-	extern	___185b6dh
-	extern	___185b6eh
-	extern	___185b6fh
 	extern	___1866b8h
 	extern	___180cd8h
-	extern	___185aach
+	extern	___185a5ch
 	extern	___196a84h
 	extern	___196a78h
 	extern	___13710h
@@ -24,6 +20,7 @@ cpu 386
 	extern	___19bd60h
 	extern	___60719h
 	extern	___63b20h
+	extern	___185b58h
 
 section .text
 
@@ -41,19 +38,19 @@ __GDECL(___1e4f8h)
 		mov     ecx, [CONNECTION_TYPE]
 		xor     ah, ah
 		xor     ebx, ebx
-		mov     [___185b6ch], ah
-		mov     [___185b6dh], ah
-		mov     [___185b6eh], ah
+		mov     [___185b58h+14h], ah
+		mov     [___185b58h+15h], ah
+		mov     [___185b58h+16h], ah
 		movsd   
 		movsd   
 		movsd   
 		movsd   
 		movsd   
 		movsw   
-		mov     [___185b6fh], ah
+		mov     [___185b58h+17h], ah
 		mov     edi, ___1866b8h+3b6h
 		mov     esi, ___180cd8h
-		mov     [___185aach], ebx
+		mov     [___185a5ch+50h], ebx
 		mov     [___196a84h], edx
 		movsd   
 		movsd   
@@ -63,19 +60,19 @@ __GDECL(___1e4f8h)
 		movsw   
 		cmp     ecx, byte 2
 		jne     short ___1e568h
-		mov     byte [___185b6ch], 1
+		mov     byte [___185b58h+14h], 1
 ___1e568h:
 		cmp     dword [CONNECTION_TYPE], byte 1
 		jne     short ___1e578h
-		mov     byte [___185b6dh], 1
+		mov     byte [___185b58h+15h], 1
 ___1e578h:
 		cmp     dword [CONNECTION_TYPE], byte 3
 		jne     short ___1e588h
-		mov     byte [___185b6eh], 1
+		mov     byte [___185b58h+16h], 1
 ___1e588h:
 		cmp     dword [CONNECTION_TYPE], byte 4
 		jne     short ___1e598h
-		mov     byte [___185b6fh], 1
+		mov     byte [___185b58h+17h], 1
 ___1e598h:
 		cmp     dword [___196a78h], byte 0
 		je      short ___1e5c2h

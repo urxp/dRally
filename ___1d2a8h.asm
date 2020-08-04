@@ -37,8 +37,8 @@ cpu 386
 	extern	___61278h
 	extern	___1866b8h
 	extern	___180d18h
-	extern	___185b70h
 	extern	___1caf4h
+	extern	___185b58h
 
 section .text
 
@@ -321,7 +321,7 @@ ___1d4b6h:
 		mov     edi, ___1866b8h+41ah
 		xor     ah, ah
 		mov     esi, ___180d18h
-		mov     [___185b70h], ah
+		mov     [___185b58h+18h], ah
 
 	push 	edx
 	push 	ecx
