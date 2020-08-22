@@ -220,7 +220,7 @@ void CONFIG_READ(void){
         }
     }
     
-    dRally_Sound_init(B(CONFIG_SOUND_TYPE)||!(B(CONFIG_SOUND_IRQ)&&B(CONFIG_SOUND_DMA)&&D(CONFIG_SOUND_ADDR))); 
+    dRally_Sound_init(B(CONFIG_SOUND_TYPE)||!(B(CONFIG_SOUND_IRQ)||B(CONFIG_SOUND_DMA)||D(CONFIG_SOUND_ADDR))); 
 }
 
 void CONFIG_WRITE(void){

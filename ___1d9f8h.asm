@@ -11,7 +11,7 @@ cpu 386
 	extern	___61b88h
 	extern	___1ca00h
 	extern	___13710h
-	extern	___3ab5ch
+	extern	___3ab5ch_cdecl
 	extern	___1a1138h__VESA101h_DefaultScreenBufferB
 	extern	___1a112ch__VESA101_ACTIVESCREEN_PTR
 	extern	___13248h
@@ -121,7 +121,15 @@ ___1da4fh:
 	pop 	ecx
 	
 		xor     eax, eax
-		call    near ___3ab5ch
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___3ab5ch_cdecl
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+	
 		test    eax, eax
 		je      near ___1e08fh
 		mov     ecx, 28f00h

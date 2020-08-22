@@ -75,6 +75,27 @@ cpu 386
 
 section .text
 
+__GDECL(___17510h_cdecl)
+	push 	ebx
+
+	mov 	ecx, [esp+14h]
+	mov 	ebx, [esp+10h]
+	mov 	edx, [esp+0ch]
+	mov 	eax, [esp+8]
+
+	push 	dword [esp+28h]
+	push 	dword [esp+28h]
+	push 	dword [esp+28h]
+	push 	dword [esp+28h]
+	push 	dword [esp+28h]
+
+
+	call 	___17510h
+
+	pop 	ebx
+	retn
+
+
 __GDECL(___17510h)
 		push    0b8h
 		call    near __CHK

@@ -10,12 +10,12 @@ cpu 386
 	extern	___185cbch
 	extern	___1a1ed0h
 	extern	___1a01b8h
-	extern	___259e0h
+	extern	___259e0h_cdecl
 	extern	___18e2a4h
 	extern	itoa_watcom106
 	extern	___180728h
-	extern	___25180h
-	extern	___12f60h
+	extern	___25180h_cdecl
+	extern	___12f60h_cdecl
 	extern	___13248h
 	extern	___185a14h_UseWeapons
 	extern	___18e298h
@@ -89,7 +89,14 @@ ___25af9h:
 		push    eax
 		mov     ecx, [ecx*4+___1a01b8h]
 		mov     eax, 10h
-		call    near ___259e0h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___259e0h_cdecl
+	add 	esp, 14h
+	
 		mov     edx, [___1a1ee4h]
 		lea     eax, [edx*8+0]
 		sub     eax, edx
@@ -114,12 +121,27 @@ ___25af9h:
 		mov     [esp], ax
 		call 	__STRCAT
 		mov     eax, esp
-		call    near ___25180h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___25180h_cdecl
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		lea     edx, [eax+20590h]
 		mov     ebx, 180h
 		mov     eax, esp
 		mov     ecx, 77h
-		call    near ___12f60h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___12f60h_cdecl
+	add 	esp, 8
+	pop 	ecx
+
 		push    byte 1
 		mov     edx, 72h
 		mov     eax, 90h

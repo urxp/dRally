@@ -40,7 +40,7 @@ cpu 386
 	extern	___24385ch
 	extern	___243860h
 	extern	___1de580h
-	extern	___424c8h
+	extern	___424c8h_cdecl
 	extern	___1e6fd9h
 	extern	___1c9ec0h
 	extern	___1c9ec4h
@@ -565,7 +565,14 @@ ___4159ch:
 		sub     eax, esi
 		sub     ebx, eax
 		mov     eax, ebx
-		call    near ___424c8h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___424c8h_cdecl
+	add 	esp, 8
+	pop 	ecx
+
 		mov     ebx, 1
 		cmp     ebx, [___243cf4h]
 		jge     short ___4162bh
@@ -583,7 +590,14 @@ ___415edh:
 		add     ecx, byte 4
 		mov     eax, edi
 		inc     ebx
-		call    near ___424c8h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___424c8h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		mov     ebp, [___243cf4h]
 		add     esi, 4000h
 		cmp     ebx, ebp

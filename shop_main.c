@@ -77,7 +77,7 @@
 	extern byte ___1a01f8h[];
 	extern byte ___1807c0h[];
 
-void ___2b6a4h(void);
+void shop___2b6a4h(void);
 void ___11378h_cdecl(dword, dword, dword);
 void restoreDefaultScreenBuffer(void);
 void ___3a6a4h(void);
@@ -237,7 +237,7 @@ ___2b9cah:
 		memcpy(D(___1a10e4h__VESA101h_DefaultScreenBufferA), D(___1a112ch__VESA101_ACTIVESCREEN_PTR), 0x4b000);
 		D(___1a112ch__VESA101_ACTIVESCREEN_PTR) = D(___1a10e4h__VESA101h_DefaultScreenBufferA);
 		memcpy(D(___1a10e4h__VESA101h_DefaultScreenBufferA)+0xf000, D(___1a1138h__VESA101h_DefaultScreenBufferB)+0xf000, 0x29b80);
-		___2b6a4h();
+		shop___2b6a4h();
 		edx = D(___1a1ef8h);
 		eax = edx*8;
 		eax -= edx;
@@ -274,7 +274,7 @@ ___2bae9h:
 		D(___185a20h) = edi;
 		edi = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
 		memcpy(edi, esi, ecx);
-		___2b6a4h();
+		shop___2b6a4h();
 		eax = 0;
 		edx = D(___185a3ch);
 		D(esp+0x24) = eax;
@@ -791,7 +791,7 @@ ___2c5ceh:
 		edi += 0xf000;
 		edx = 0x173;
 		memcpy(edi, esi, ecx);
-		___2b6a4h();
+		shop___2b6a4h();
 		ecx = 0x6d;
 		eax = 0;
 		___135fch(eax, edx, ebx, ecx);
@@ -1012,7 +1012,7 @@ ___2c6aeh:
 	if((int)eax > 0){
 
 		memcpy(D(___1a112ch__VESA101_ACTIVESCREEN_PTR)+0xf000, D(___1a1138h__VESA101h_DefaultScreenBufferB)+0xf000, 0x29b80);
-		___2b6a4h();
+		shop___2b6a4h();
 		___2b318h();
 
 		D(esp+0x20) = 0x20;

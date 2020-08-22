@@ -32,7 +32,7 @@ cpu 386
 	extern	___1866b8h
 	extern	___2415ch
 	extern	___13710h
-	extern	___3ab5ch
+	extern	___3ab5ch_cdecl
 	extern	___199f9ch
 	extern	___1a020ch
 	extern	___2b5f0h
@@ -234,7 +234,15 @@ ___1d21eh:
 	pop 	ecx
 	
 		xor     eax, eax
-		call    near ___3ab5ch
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___3ab5ch_cdecl
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+	
 		test    eax, eax
 		je      short ___1d29fh
 		mov     dword [CONNECTION_TYPE], 2

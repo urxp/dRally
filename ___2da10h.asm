@@ -10,8 +10,8 @@ cpu 386
 	extern	___1a0178h_PriceRocketFuel
 	extern	itoa_watcom106
 	extern	___180728h
-	extern	___25180h
-	extern	___12f60h
+	extern	___25180h_cdecl
+	extern	___12f60h_cdecl
 	extern	___2d184h
 	extern	___2d20ch
 
@@ -70,10 +70,25 @@ ___2da53h:
 		mov     [esp+14h], ax
 		call 	__STRCAT
 		lea     eax, [esp+14h]
-		call    near ___25180h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___25180h_cdecl
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		lea     edx, [eax+34660h]
 		lea     eax, [esp+14h]
-		call    near ___12f60h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___12f60h_cdecl
+	add 	esp, 8
+	pop 	ecx
+
 ___2dad9h:
 		cmp     dword [___1a0a58h], byte 0
 		jne     short ___2db2bh

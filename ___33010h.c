@@ -179,8 +179,6 @@
 	extern byte ___1a0230h[];
 	extern byte ___1de834h[];
 	extern byte ___1de78ch[];
-	extern byte ___181c9ch[];
-	extern byte ___181ca8h[];
 	extern byte ___24cc58h[];
 	extern byte ___1a1f67h[];
 	extern byte ___1a1f68h[];
@@ -2342,53 +2340,32 @@ ___358d8h:
 		if(D(___196ae8h) != 1) goto ___35922h;
 		if(D(___19bd60h) == 0) goto ___359f6h;
 ___35922h:
-		edx = D(___1a1ef8h);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 2;
-		eax -= edx;
-		edx = D(eax*4+___1a020ch);
-		eax = 4*edx;
-		eax -= edx;
-		edx = D(___1a0fb8h);
-		edx += eax;
+		edx = D(___1a0fb8h)+3*D(0x6c*D(___1a1ef8h)+___1a020ch);
 		___11378h_cdecl(B(edx), B(edx+1), B(edx+2));
-		ecx = ___181c9ch;
-		ebx = 2;
-		edx = ___181ca8h;
-		eax = 1;
-		dRally_Sound_load(eax, edx, ebx, ecx, 5);
-		eax = D(___24cc58h);
-		dRally_Sound_setMusicVolume(eax);
-		eax = 0x5622;
-		dRally_Sound_setSampleRate(eax);
+		dRally_Sound_load(1, "MEN-MUS.CMF", 2, "MEN-SAM.CMF", 5);
+		dRally_Sound_setMusicVolume(D(___24cc58h));
+		dRally_Sound_setSampleRate(0x5622);
 		dRally_Sound_play();
 		___606dfh();
 		__VESA101_SETMODE();
-		eax = 0x46;
-		edx = 0;
-		___605deh_cdecl(eax, edx);
+		___605deh_cdecl(0x46, 0);
 ___359f6h:
 		___12940h();
-		eax = 0;
-		D(esp+0xd0) = eax;
-		esi = 0;
 
+		D(esp+0xd0) = 0;
 		while(1){
 
-			eax = B(esp+0xd0);
-			__DISPLAY_SET_PALETTE_COLOR(esi, esi, esi, eax);
-			edx = D(esp+0xd0);
-			edx++;
-			D(esp+0xd0) = edx;
+			__DISPLAY_SET_PALETTE_COLOR(0, 0, 0, B(esp+0xd0));
+			D(esp+0xd0)++;
 		
-			if((int)edx >= 0x100) break;
+			if((int)D(esp+0xd0) >= 0x100) break;
 		}
 
-		ecx = D(___19bd60h);
-		if(ecx == 0){
-				
-			D(esp+0xd0) = ecx;
+#if defined(DR_MULTIPLAYER)
+		if(D(___19bd60h) == 0){
+#endif // DR_MULTIPLAYER
+
+			D(esp+0xd0) = 0;
 			eax = 0;
 			edx = 0;
 			ecx = D(___1a1ef8h);
@@ -2442,7 +2419,8 @@ ___359f6h:
 						if(ebx == 0x150){
 							
 							if(D(___196ae8h) == 1){
-
+	
+								// after beating adversary
 								___22808h();
 							}
 							else {
@@ -2460,6 +2438,7 @@ ___359f6h:
 
 				___3892ch_cdecl(0);
 			}
+#if defined(DR_MULTIPLAYER)
 		}
 		else {
 
@@ -2467,4 +2446,5 @@ ___359f6h:
 
 			if(D(___196a80h) != 0) ___1e4f8h();
 		}
+#endif // DR_MULTIPLAYER
 }

@@ -12,8 +12,8 @@ cpu 386
 	extern	___1a017ch_PriceSabotage
 	extern	itoa_watcom106
 	extern	___180728h
-	extern	___25180h
-	extern	___12f60h
+	extern	___25180h_cdecl
+	extern	___12f60h_cdecl
 	extern	___19bd60h
 	extern	___13248h
 	extern	___193ae0h
@@ -98,10 +98,25 @@ ___2dbf1h:
 		mov     [esp], ax
 		call 	__STRCAT
 		mov     eax, esp
-		call    near ___25180h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    ___25180h_cdecl
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		lea     edx, [eax+346c8h]
 		mov     eax, esp
-		call    near ___12f60h
+
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___12f60h_cdecl
+	add 	esp, 8
+	pop 	ecx
+
 ___2dc74h:
 		cmp     dword [___1a0a5ch], byte 0
 		jne     near ___2dd6bh

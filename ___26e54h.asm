@@ -24,7 +24,7 @@ cpu 386
 	extern	___1865fch
 	extern	___1a1ea0h
 	extern	___1a1ee8h
-	extern	___259e0h
+	extern	___259e0h_cdecl
 
 section .text
 
@@ -195,7 +195,14 @@ ___26f7fh:
 		mov     eax, 1b0h
 		mov     ecx, [___1a1ea0h]
 		mov     ebx, [___1a1ee8h]
-		call    near ___259e0h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___259e0h_cdecl
+	add 	esp, 14h
+	
 		pop     esi
 		pop     edx
 		pop     ecx

@@ -87,59 +87,28 @@ void shop___28e40h(void){
 	byte 	__esp[0xc+0x60];
 	byte * 	esp = __esp+0xc;
 
-		edx = D(___1a1ef8h);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 2;
-		eax -= edx;
-		FPUSH((int)D(4*eax+___1a021ch));
-		ST(0) = 0.25*ST(0);
-		ST(0) = ceil(ST(0));
-		eax = D(___1a1ef8h);
-		ebx = 8*eax;
-		ebx -= eax;
-		ebx <<= 2;
-		edx = D(___185a14h_UseWeapons);
-		ebx -= eax;
+/*
+		FPUSH((int)D(0x6c*D(___1a1ef8h)+___1a021ch));
+		ST(0) = ceil(0.25*ST(0));
 		D(esp+0x50) = (int)FPOP();
-		ebx <<= 2;
-		if(edx == 0) goto ___28ee7h;
-		eax = D(ebx+___1a01fch);
-		edx = 8*eax;
-		edx -= eax;
-		edx <<= 3;
-		edx -= eax;
-		edx <<= 5;
-		eax = D(edx+___18e974h);
-		edx = eax;
-		ecx = 0xa;
-		edx = (int)edx>>0x1f;
-		eax = (long long)(int)eax/(int)ecx;
-		edx = D(ebx+___1a01ech);
-		edx = edx*eax;
-		eax = edx;
-		edx = (int)edx>>0x1f;
-		eax -= edx;
-		eax = (int)eax>>1;
-		esi = eax;
-		goto ___28f19h;
-___28ee7h:
-		eax = D(ebx+___1a01fch);
-		edx = 8*eax;
-		edx -= eax;
-		edx <<= 3;
-		edx -= eax;
-		edx <<= 5;
-		eax = D(edx+___18e974h);
-		edx = eax;
-		ecx = 0xa;
-		edx = (int)edx>>0x1f;
-		eax = (long long)(int)eax/(int)ecx;
-		esi = D(ebx+___1a01ech);
-		esi = esi*eax;
-___28f19h:
-		ebx = D(esp+0x50);
-		ebx -= esi;
+*/
+		D(esp+0x50) = (D(0x6c*D(___1a1ef8h)+___1a021ch)+3)/4;
+
+		ebx = 0x6c*D(___1a1ef8h);
+		eax = (long long)(int)D(0x6e0*D(ebx+___1a01fch)+___18e974h)/0xa;
+
+		if(D(___185a14h_UseWeapons) == 0){
+	
+			esi = D(ebx+___1a01ech)*eax;
+		}
+		else {
+
+			eax = D(ebx+___1a01ech)*eax;
+			edx = (int)eax>>0x1f;
+			esi = (int)(eax-edx)>>2;
+		}
+
+		ebx = D(esp+0x50)-esi;
 		D(esp+0x50) = ebx;
 
 		if((int)ebx < 0) D(esp+0x50) = 0;

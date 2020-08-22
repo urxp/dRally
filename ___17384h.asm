@@ -15,7 +15,7 @@ cpu 386
 	extern 	___185cbch
 	extern 	___1a01b8h
 	extern 	___1a1ed0h
-	extern 	___259e0h
+	extern	___259e0h_cdecl
 
 section .text
 
@@ -118,7 +118,7 @@ ___17431h:
 		cmp     dword [___196ae4h], byte 0
 		jne     near ___174fdh
 		cmp     dword [esp], byte 0
-		je      short ___174eah
+		je      ___174eah
 		push    ___185cbch
 		mov     esi, [esp+20h]
 		mov     eax, [esp+1ch]
@@ -127,7 +127,14 @@ ___17431h:
 		add     esi, byte 50h
 		add     eax, 1a0h
 		mov     edx, esi
-		call    near ___259e0h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___259e0h_cdecl
+	add 	esp, 14h
+	
 		lea     eax, [esi*4+0]
 		add     eax, esi
 		mov     edx, [___1a112ch__VESA101_ACTIVESCREEN_PTR]

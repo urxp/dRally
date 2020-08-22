@@ -7,7 +7,7 @@ cpu 386
 	extern	___185cbch
 	extern	___1a01b8h
 	extern	___1a1ed0h
-	extern	___259e0h
+	extern	___259e0h_cdecl
 
 section .text
 
@@ -47,7 +47,14 @@ __GDECL(___28470h)
 		push    ebx
 		mov     ecx, [ecx*4+___1a01b8h]
 		mov     ebx, [___1a1ed0h]
-		call    near ___259e0h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___259e0h_cdecl
+	add 	esp, 14h
+	
 		mov     edx, [___1a1ed0h]
 		inc     edx
 		mov     [___1a1ed0h], edx
@@ -83,7 +90,14 @@ ___284d6h:
 		push    ebx
 		mov     ecx, [ecx*4+___1a01b8h]
 		mov     ebx, [___1a1ed0h]
-		call    near ___259e0h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___259e0h_cdecl
+	add 	esp, 14h
+	
 		mov     esi, [___1a1ed0h]
 		inc     esi
 		mov     [___1a1ed0h], esi
@@ -119,7 +133,14 @@ ___2852ch:
 		push    ebx
 		mov     ecx, [ecx*4+___1a01b8h]
 		mov     ebx, [___1a1ed0h]
-		call    near ___259e0h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___259e0h_cdecl
+	add 	esp, 14h
+	
 		mov     eax, [___1a1ed0h]
 		inc     eax
 		mov     [___1a1ed0h], eax
@@ -155,7 +176,14 @@ ___28580h:
 		push    ebx
 		mov     ecx, [ecx*4+___1a01b8h]
 		mov     ebx, [___1a1ed0h]
-		call    near ___259e0h
+
+	push 	ecx
+	push 	ebx
+	push 	edx
+	push 	eax
+		call    ___259e0h_cdecl
+	add 	esp, 14h
+	
 		mov     ecx, [___1a1ed0h]
 		inc     ecx
 		mov     [___1a1ed0h], ecx

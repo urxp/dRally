@@ -251,9 +251,11 @@ db	5bh,0,0,0
 __GDECL(___180720h)
 db	7bh,0,0,0
 __GDECL(___180724h)
-db	2eh,0,0,0
+;db	2eh,0,0,0
+db 	".",0,0,0
 __GDECL(___180728h)
-db	24h,0,0,0
+;db	24h,0,0,0
+db 	"$",0,0,0
 __GDECL(___18072ch)
 db	7fh,0,0,0
 __GDECL(___180730h)
@@ -966,7 +968,8 @@ db	0,0,0,0,0,0,0e9h,3fh,0,0
 __GDECL(___181c70h)
 db	3ah,0,0,0
 __GDECL(___181c74h)
-db	65h,6eh,64h,61h,6eh,69h,2eh,68h,61h,66h,0,0
+;db	65h,6eh,64h,61h,6eh,69h,2eh,68h,61h,66h,0,0
+db 	"endani.haf",0,0
 __GDECL(___181c80h)
 ;db	65h,6eh,64h,61h,6eh,69h,2dh,65h,2eh,63h,6dh,66h,0,0,0,0
 db 	"endani-e.cmf",0,0,0,0
@@ -1476,10 +1479,12 @@ db 	".PCX",0,0,0,0
 times 2ch db 0 
 
 __GDECL(___182720h)
-db	6ch,69h,63h,65h,6eh,63h,65h,33h,2eh,62h,70h,6bh,0,0,0,0
+;db	6ch,69h,63h,65h,6eh,63h,65h,33h,2eh,62h,70h,6bh,0,0,0,0
+db 	"licence3.bpk",0,0,0,0
 __GDECL(___182730h)
-db	53h,65h,6ch,65h,63h,74h,20h,64h,69h,66h,66h,69h,63h,75h,6ch,74h
-db	79h,3ah,0,0
+;db	53h,65h,6ch,65h,63h,74h,20h,64h,69h,66h,66h,69h,63h,75h,6ch,74h
+;db	79h,3ah,0,0
+db 	"Select difficulty:",0,0
 __GDECL(___182744h)
 db	64h,72h,2eh,63h,66h,67h,0,0
 __GDECL(___18274ch)
@@ -2529,9 +2534,11 @@ db	0a3h,0aeh,0b5h,0f7h,0a9h,0aah,0eah,3fh
 __GDECL(___184275h)
 db	33h,33h,33h,33h,33h,33h,0fbh,3fh,0,0,0
 __GDECL(___184280h)
-db	24h,0,0,0
+;db	24h,0,0,0
+db 	"$",0,0,0
 __GDECL(___184284h)
-db	25h,0
+;db	25h,0
+db 	"%",0
 __GDECL(___184286h)
 db	9ah,99h,99h,99h,99h,99h,0f1h,3fh,0,0
 __GDECL(___184290h)
