@@ -11,3 +11,4 @@ z_regex*
 *.o
 *.obj
 *_ok.c
+gee.c

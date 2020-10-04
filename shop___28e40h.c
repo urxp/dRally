@@ -70,7 +70,9 @@ void ___262b4h(void);
 void ___269e4h(void);
 void ___25a74h(void);
 byte ___5994ch(void);
+#if defined(DR_MULTIPLAYER)
 void ___23758h(void);
+#endif // DR_MULTIPLAYER
 void ___12cb8h__VESA101_PRESENTSCREEN(void);
 void ___2ab50h(void);
 void ___259e0h_cdecl(dword, dword, dword, dword, dword);

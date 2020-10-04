@@ -35,11 +35,14 @@ void dRally_Sound_pushEffect(byte channel, byte n, dword unk, dword a0, dword a1
 byte ___5994ch(void);
 byte ___59b3ch(void);
 void ___2ab50h(void);
+#if defined(DR_MULTIPLAYER)
 void ___23758h(void);
+#endif // DR_MULTIPLAYER
 void ___3a6a4h(void);
 void ___12cb8h__VESA101_PRESENTSCREEN(void);
 void restoreDefaultScreenBuffer(void);
 
+// HALL OF FAME
 void menu___22a80h(void){
 
 	dword 	eax, ebx, ecx, edx, edi, esi, ebp;
@@ -207,7 +210,9 @@ ___22d67h:
 		H(eax) = L(eax);
 		if(L(eax) != 0x3b) goto ___22d86h;
 		if(edx == D(___19bd60h)) goto ___22d86h;
+#if defined(DR_MULTIPLAYER)
 		___23758h();
+#endif // DR_MULTIPLAYER
 		H(eax) = L(edx);
 ___22d86h:
 		if(H(eax) == 0) goto ___22d67h;
@@ -345,7 +350,9 @@ ___22f76h:
 		goto ___231f3h;
 ___22f83h:
 		if(D(___19bd60h) == 0) goto ___231f3h;
+#if defined(DR_MULTIPLAYER)
 		___23758h();
+#endif // DR_MULTIPLAYER
 		goto ___231f3h;
 ___22f9ah:
 		if((int)ebp <= 0) goto ___22fa1h;

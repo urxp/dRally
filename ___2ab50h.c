@@ -21,12 +21,14 @@ void ___12d6ch__VESA101_PRESENTBOTTOMSCREEN(void);
 void * ___3f71ch__allocateMemory(dword);
 void dRally_Memory_free(void *);
 void ___6168ch(void);
+#if defined(DR_MULTIPLAYER)
 void ___23230h(void);
 void ___233c0h(void);
 void ___1e4f8h(void);
 void ___1e62ch_cdecl(dword);
-void ___23488h_cdecl(dword, dword, dword);
 dword ___23594h_cdecl(dword, dword);
+void ___23488h_cdecl(dword, dword, dword);
+#endif // DR_MULTIPLAYER
 void ___2aa08h(void);
 
 void ___2ab50h(void){

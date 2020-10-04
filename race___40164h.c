@@ -78,6 +78,8 @@ void race___40164h(void){
 		}
 		if(((ActionFlags&2) != 0)&&((ActionFlags&0x40) != 0)) ActionFlags &= 0xfd;
 		if(B(D(___1a1144h)+kmap) != 0) ActionFlags |= 0x42;							// HORN
+		
+#if defined(DR_GAMEPAD)
 		if((int)D(___19bd58h) > 0){
 			B(B(___199f3fh)+___24cc64h) = 0;
 			B(B(___199f3eh)+___24cc64h) = 0;
@@ -107,6 +109,8 @@ void race___40164h(void){
 				B(D(___1a1154h)+kmap) = 0;
 			}
 		}
+#endif // DR_GAMEPAD
+
 		if((ActionFlags&0x10) != 0) ActionFlags |= 1;
 		D(4*D(0x35e*D(___243ce8h)+___1e6f70h)+0x35e*D(___243ce8h)+___1e6f30h) = ActionFlags;
 		D(0x35e*D(___243ce8h)+___1e6f70h)++;

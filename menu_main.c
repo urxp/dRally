@@ -75,7 +75,9 @@ void ___58c60h(void);
 void ___13a98h_cdecl(dword);
 void ___3a7e0h_cdecl(dword);
 dword ___146c4h_cdecl(dword);
+#if defined(DR_CDCHECK)
 dword menu___3e4a0h(void);
+#endif // DR_CDCHECK
 void ___13248h_cdecl(dword, dword ,dword, dword, dword);
 void ___12e78h_cdecl(dword, dword, dword, dword);
 void ___13bd4h_cdecl(dword, dword);
@@ -83,7 +85,7 @@ byte ___5994ch(void);
 byte ___59b3ch(void);
 void ___2ab50h(void);
 void menu___194a8h(void);
-void menu___1e888h(dword);
+//void menu___1e888h(dword);
 void menu___218b4h(void);
 void menu___22a80h(void);
 void menu___3d4f0h(void);
@@ -237,7 +239,7 @@ void menu_main(void){
 
 			switch(eax){
 			case 0:
-				menu___1e888h(0);
+				//menu___1e888h(0);
 				break;
 			case 1: // START RACING
 #if defined(DR_CDCHECK)
@@ -283,7 +285,7 @@ void menu_main(void){
 #endif // DR_CDCHECK
 				break;
 			case 2:
-				menu___1e888h(2);
+				//menu___1e888h(2);
 				break;
 			case 3:	// CONFIGURE
 				menu___218b4h();

@@ -12,9 +12,9 @@ __GDECL(___19bd48h)
 	resb	8
 __GDECL(___19bd54h)
 	resb	4
-__GDECL(___19bd58h)
+__GDECL(___19bd58h)			;; DR_GAMEPAD
 	resb	8
-__GDECL(___19bd60h)
+__GDECL(___19bd60h)			;; DR_MULTIPLAYER
 	resb	4
 __GDECL(___19bd64h)
 	resb	2
@@ -2352,74 +2352,12 @@ __GDECL(___1f24a4h)
 	resb	165ch
 __GDECL(___1f3b00h)	
 	resb	8
-__GDECL(___1f3b08h)	
-	resb	4
-__GDECL(___1f3b0ch)	
-	resb	4
-__GDECL(___1f3b10h)	
-	resb	12ch
-__GDECL(___1f3c3ch)	
-	resb	12ch
-__GDECL(___1f3d68h)	
-	resb	12ch
-__GDECL(___1f3e94h)	
-	resb	4
-__GDECL(___1f3e98h)	
-	resb	4
-__GDECL(___1f3e9ch)	
-	resb	4
-__GDECL(___1f3ea0h)	
-	resb	4
-__GDECL(___1f3ea4h)	
-	resb	190h
-__GDECL(___1f4034h)	
-	resb	190h
-__GDECL(___1f41c4h)	
-	resb	190h
-__GDECL(___1f4354h)	
-	resb	190h
-__GDECL(___1f44e4h)	
-	resb	4
-__GDECL(___1f44e8h)	
-	resb	4
-__GDECL(___1f44ech)	
-	resb	4
-__GDECL(___1f44f0h)	
-	resb	4
-__GDECL(___1f44f4h)	
-	resb	12ch
-__GDECL(___1f4620h)	
-	resb	12ch
-__GDECL(___1f474ch)	
-	resb	4
-__GDECL(___1f4750h)	
-	resb	4
-__GDECL(___1f4754h)	
-	resb	4c2f4h
-__GDECL(___240a48h)	
-	resb	0e4h
-__GDECL(___240b2ch)	
-	resb	1ch
+__GDECL(___1f3b08h)		;; 100*0xc50 = 0x4cf40
+	resb	4cf40h
+__GDECL(___240a48h)
+	resb	100h
 __GDECL(___240b48h)	
-	resb	4
-__GDECL(___240b4ch)	
-	resb	4
-__GDECL(___240b50h)	
-	resb	4
-__GDECL(___240b54h)	
-	resb	4
-__GDECL(___240b58h)	
-	resb	4
-__GDECL(___240b5ch)	
-	resb	4
-__GDECL(___240b60h)	
-	resb	4
-__GDECL(___240b64h)	
-	resb	8
-__GDECL(___240b6ch)	
-	resb	4
-__GDECL(___240b70h)	
-	resb	1108h
+	resb	1130h		;; 100*0x2c = 0x1130
 __GDECL(___241c78h)	
 	resb	0fch
 __GDECL(___241d74h)	

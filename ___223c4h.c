@@ -15,7 +15,9 @@
 	extern byte ___18768ah[];
 	extern byte ___19bd60h[];
 
+#if defined(DR_MULTIPLAYER)
 void ___23758h(void);
+#endif // DR_MULTIPLAYER
 void ___135fch(dword, dword, dword, dword);
 void ___3e03ch(void);
 void ___23230h(void);
@@ -258,11 +260,13 @@ void ___223c4h(void){
 		___2ab50h();
 		H(eax) = ___5994ch();
 		
+#if defined(DR_MULTIPLAYER)
 		if((H(eax) == 0x3b)&&(D(___19bd60h) != 0)){
 		
 			___23758h();
 			H(eax) = 0;
 		}
+#endif // DR_MULTIPLAYER
 
 		if(H(eax) != 0) break;
 	}

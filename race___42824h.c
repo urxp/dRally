@@ -56,9 +56,7 @@ typedef rgb24_t pal256_t[0x100];
 	extern byte ___1e8048h[];
 	extern byte ___1e7c48h[];
 	extern byte ___243c88h[];
-	extern byte ___1f3b08h[];
 	extern byte ___243c94h[];
-	extern byte ___240b48h[];
 	extern byte ___19bd66h[];
 	extern byte ___243d5ch[];
 	extern byte ___243078h[];
@@ -93,6 +91,7 @@ typedef rgb24_t pal256_t[0x100];
 void bpa_read(const char *, void *, const char *);
 void bpk_decode2(void *, void *);
 void bpk_decode4(dword, dword, void *, void *);
+void race___43488h(void);
 
 static void race___42f04h(void){
 
@@ -254,38 +253,6 @@ static void race___43984h(void){
 	bpk_decode4(4*D(___2438c4h), 0xc*D(___243c5ch)+8, ___1e8448h, ___1a54d0h);
 	bpk_decode4(4*D(___2438c4h), 4*D(___2438c4h)+0xc*D(___243c5ch)+8, ___1e8048h, ___1a54d0h);
 	bpk_decode4(4*D(___2438c4h), 8*D(___2438c4h)+0xc*D(___243c5ch)+8, ___1e7c48h, ___1a54d0h);
-}
-
-static void race___43488h(void){
-
-	char 	fname[0x10];
-
-	bpa_read(___243dd0h, ___1a54d0h, strcat(strcpy(fname, ___19bd64h), "-SCE.BPK"));
-	bpk_decode4(1, 0, ___243c88h, ___1a54d0h);
-	//bpk_decode4(0xc50*D(___243c88h)+1, 1, ___1f3b08h, ___1a54d0h); //? +1
-	bpk_decode4(0xc50*D(___243c88h), 1, ___1f3b08h, ___1a54d0h);
-	bpk_decode4(1, 0xc50*D(___243c88h)+1, ___243c94h, ___1a54d0h);
-
-	if(0x2c*D(___243c94h) > 0) bpk_decode4(0x2c*D(___243c94h), 0xc50*D(___243c88h)+2, ___240b48h, ___1a54d0h);
-
-	switch((B(___19bd66h)-0x30)&0xff){
-	case 0: 
-	case 3:
-	case 4:
-	case 5:
-	case 6:
-	case 7:
-	case 8:
-	case 9:
-		bpk_decode4(0x493e0, 0x2c*D(___243c94h)+0xc50*D(___243c88h)+2, D(___243d5ch), ___1a54d0h);
-		break;
-	case 1:
-	case 2:
-		bpk_decode4(0x5f370, 0x2c*D(___243c94h)+0xc50*D(___243c88h)+2, D(___243d5ch), ___1a54d0h);
-		break;
-	default:
-		break;
-	}
 }
 
 static void race___43744h(void){

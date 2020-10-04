@@ -45,7 +45,9 @@ void ___2d898h(void);
 void ___2da10h(void);
 void ___2db88h(void);
 byte ___5994ch(void);
+#if defined(DR_MULTIPLAYER)
 void ___23758h(void);
+#endif // DR_MULTIPLAYER
 void ___2deb0h(void);
 void ___2df34h(void);
 void ___2dfd0h(void);
@@ -513,7 +515,9 @@ ___2f506h:
 		goto ___2f559h;
 ___2f512h:
 		if(D(___19bd60h) == 0) goto ___2f559h;
+#if defined(DR_MULTIPLAYER)
 		___23758h();
+#endif // DR_MULTIPLAYER
 		goto ___2f559h;
 ___2f522h:
 		___2deb0h();

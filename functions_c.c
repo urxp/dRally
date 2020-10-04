@@ -61,3 +61,39 @@ void restoreDefaultScreenBufferA(void){
 		
 	___1a1124h__VESA101h_ScreenBufferA = ___1a10e4h__VESA101h_DefaultScreenBufferA;
 }
+
+// ASM HELPERS
+
+void ___idiv32(void * eax, void * edx, int dv){
+
+	long long 	ll_tmp;
+
+	ll_tmp = D(edx);
+	ll_tmp <<= 0x20;
+	ll_tmp += D(eax);
+	
+	D(eax) = ll_tmp/dv;
+	D(edx) = ll_tmp%dv;
+}
+
+void ___idiv16(void * ax, void * dx, short dv){
+
+	int 	ll_tmp;
+
+	ll_tmp = W(dx);
+	ll_tmp <<= 0x10;
+	ll_tmp += W(ax);
+	
+	W(ax) = ll_tmp/dv;
+	W(dx) = ll_tmp%dv;
+}
+
+void ___imul32(void * eax, void * edx, int mp){
+
+	long long 	ll_tmp;
+
+	ll_tmp = (long long)(int)D(eax)*mp;
+
+	D(eax) = ll_tmp;
+	D(edx) = ll_tmp>>0x20;
+}

@@ -889,7 +889,7 @@ ___4cc82h:
 		edx = D(___243d60h);
 		L(eax) = B(edx+eax);
 		L(eax) &= 0xf;
-		L(eax) &= 0xff;
+		eax &= 0xff;
 		D(esp+0x2c) = eax;
 		goto ___4d094h;
 ___4d08ch:
@@ -917,7 +917,7 @@ ___4d094h:
 		edx = D(___243d60h);
 		L(eax) = B(edx+eax);
 		L(eax) &= 0xf;
-		L(eax) &= 0xff;
+		eax &= 0xff;
 		D(esp+0x50) = eax;
 		goto ___4d10ch;
 ___4d104h:
@@ -944,7 +944,7 @@ ___4d10ch:
 		eax = D(___243d60h);
 		L(eax) = B(edx+eax);
 		L(eax) &= 0xf;
-		L(eax) &= 0xff;
+		eax &= 0xff;
 		D(esp+0x48) = eax;
 		goto ___4d181h;
 ___4d179h:
@@ -971,7 +971,7 @@ ___4d181h:
 		eax = D(___243d60h);
 		L(eax) = B(edx+eax);
 		L(eax) &= 0xf;
-		L(eax) &= 0xff;
+		eax &= 0xff;
 		D(esp+0x4c) = eax;
 		goto ___4d1f6h;
 ___4d1eeh:
@@ -999,7 +999,7 @@ ___4d1f6h:
 		edx = D(___243d60h);
 		L(eax) = B(edx+eax);
 		L(eax) &= 0xf;
-		L(eax) &= 0xff;
+		eax &= 0xff;
 		D(esp+0x54) = eax;
 		goto ___4d26eh;
 ___4d266h:
@@ -1026,7 +1026,7 @@ ___4d26eh:
 		eax = D(___243d60h);
 		L(eax) = B(edx+eax);
 		L(eax) &= 0xf;
-		L(eax) &= 0xff;
+		eax &= 0xff;
 		D(esp+0x40) = eax;
 		goto ___4d2e3h;
 ___4d2dbh:
@@ -1053,7 +1053,7 @@ ___4d2e3h:
 		eax = D(___243d60h);
 		L(eax) = B(edx+eax);
 		L(eax) &= 0xf;
-		L(eax) &= 0xff;
+		eax &= 0xff;
 		D(esp+0x44) = eax;
 		goto ___4d358h;
 ___4d350h:

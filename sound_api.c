@@ -200,6 +200,7 @@ void dRally_Sound_quit(void){
 	}
 }
 
+// 00065710h
 void dRally_Sound_setMasterVolume(dword vol){
 
 	if(SOUND&&SOUND_LOADED){
@@ -209,6 +210,7 @@ void dRally_Sound_setMasterVolume(dword vol){
 	}
 }
 
+// 0006572ch
 void dRally_Sound_setMusicVolume(dword vol){
 
 	if(SOUND&&SOUND_LOADED){
@@ -218,6 +220,7 @@ void dRally_Sound_setMusicVolume(dword vol){
 	}
 }
 
+// 00065770h
 void dRally_Sound_setEffectsVolume(dword vol){
 
 	if(SOUND&&SOUND_LOADED){
@@ -227,6 +230,7 @@ void dRally_Sound_setEffectsVolume(dword vol){
 	}
 }
 
+// 000649a8h
 void dRally_Sound_stop(void){
 
 	if(SOUND&&SOUND_LOADED&&SOUND_PLAYING){
@@ -246,6 +250,7 @@ void dRally_Sound_stop(void){
 	dRally_System_removeExitCallback(dRally_Sound_stop);
 }
 
+// 00064a28h
 void dRally_Sound_release(void){
 
 	dRally_Sound_stop();
@@ -276,6 +281,7 @@ void dRally_Sound_release(void){
 	dRally_System_removeExitCallback(dRally_Sound_release);
 }
 
+// 00064864h
 void dRally_Sound_load(dword msx_t, const char * msx_f, dword sfx_t, const char * sfx_f, dword num_ch){
 
     dword   n;
@@ -290,6 +296,7 @@ void dRally_Sound_load(dword msx_t, const char * msx_f, dword sfx_t, const char 
 	dRally_System_addExitCallback(dRally_Sound_release);
 }
 
+// 000648d8h
 void dRally_Sound_play(void){
 
 	dword 	i, n;
@@ -344,6 +351,7 @@ void dRally_Sound_play(void){
 	}
 }
 
+// 000655b0h
 void dRally_Sound_adjustEffect(byte channel, dword vol, dword freq, dword balance){
 
 	if(SOUND&&SOUND_LOADED&&Sound.sfx.data&&channel){
@@ -359,6 +367,7 @@ void dRally_Sound_adjustEffect(byte channel, dword vol, dword freq, dword balanc
 	}
 }
 
+// 000654d4h
 void dRally_Sound_pushEffect(byte sfx_channel, byte n, dword offset, dword vol, dword freq, dword balance){
 
 	byte 	l_channel;
@@ -377,11 +386,13 @@ void dRally_Sound_pushEffect(byte sfx_channel, byte n, dword offset, dword vol, 
 	}
 }
 
+// 00065990h
 void dRally_Sound_setSampleRate(dword freq){
 
 	SOUND_SAMPLERATE = __BOUNDS(freq, 0x1f40, 0xac44);
 }
 
+// 0006563ch
 void dRally_Sound_freeEffectChannel(byte ch_num){
 
 	if(SOUND&&SOUND_LOADED&&Sound.sfx.data&&ch_num){
@@ -394,11 +405,13 @@ void dRally_Sound_freeEffectChannel(byte ch_num){
 	___24e750h[ch_num] = 0xffff;
 }
 
+// 000658b0h
 dword dRally_Sound_getPosition(void){
 
 	return (SOUND&&SOUND_LOADED&&Sound.msx.type) ? ___71a44h_cdecl() : 0xffffffff;
 }
 
+// 000658b8h
 byte dRally_Sound_setPosition(dword pos_n){
 
 	return (SOUND&&SOUND_LOADED&&Sound.msx.type) ? ___71a88h_cdecl(pos_n) : 0;

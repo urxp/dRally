@@ -60,7 +60,7 @@ static byte ROR_BYTE(byte b, int n){
     return (b>>n)|(b<<(8-n));
 }
 
-void bpk_decode4(dword A1, dword A2, dword A3, dword A4){
+static void __bpk_decode4(dword A1, dword A2, dword A3, dword A4){
 
     qword   ull_tmp;
     dword   eax, ebx, ecx, edx, edi, esi, ebp, tmp, cf;
@@ -324,7 +324,18 @@ ___595d0h:
     return;
 }
 
-void bpk_decode2(dword A3, dword A4){
+void bpk_decode2(void * dst, void * src){
 
-    bpk_decode4(0, 0, A3, A4);
+    __bpk_decode4(0, 0, dst, src);
+}
+
+/*
+	[size]		- max number of decoded bytes to copy, copy all if 0
+	[offset]	- copy decoded bytes from offset
+	[dst]		- decoded destination pointer
+	[src]		- encoded source pointer
+*/
+void bpk_decode4(dword size, dword offset, void * dst, void * src){
+
+	__bpk_decode4(size, offset, dst, src);
 }

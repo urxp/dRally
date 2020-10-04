@@ -29,7 +29,9 @@ void CONFIG_READ(void);
 void CONFIG_WRITE(void);
 void ___3d908h(void);
 void dRally_Sound_release(void);
+#if defined(DR_MULTIPLAYER)
 void ___23488h_cdecl(dword, dword, dword);
+#endif // DR_MULTIPLAYER
 void menu_main();
 
 void ___3e720h(void){

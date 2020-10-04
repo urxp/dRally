@@ -94,9 +94,10 @@ void __VRETRACE_WAIT_FOR_START(void){
 
 	VRetraceTicks = SDL_GetTicks();
 	VRetraceTicks %= FrameMs;
-	if(VRetraceTicks) SDL_Delay(FrameMs - VRetraceTicks);
-	SDL_Delay(1);
-
+	
+	//if(VRetraceTicks) SDL_Delay(FrameMs - VRetraceTicks);
+	//SDL_Delay(1);
+	SDL_Delay(FrameMs - VRetraceTicks);
 }
 
 void __VRETRACE_WAIT_IF_INACTIVE(void){

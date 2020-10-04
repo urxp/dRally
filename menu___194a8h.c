@@ -64,7 +64,7 @@ void menu___194a8h(void){
 		if(ebp == 0xffffffff) return;
 
 		switch(ebp){
-		case 0:
+		case 0: // START A NEW GAME / ENTER THE SHOP
 			if(strcmp(___1866b8h+0x1c2, "Start A New Game") == 0){
 
 				___13710h(1, 0);
@@ -97,7 +97,7 @@ void menu___194a8h(void){
 				D(___185a24h) = 1;
 			}
 			break;
-		case 1:
+		case 1: // END CURRENT GAME
 			___13710h(1, 0);
 			___13248h_cdecl(0xaa, 0xdc, 0x12c, 0x50, 1);
 			___12e78h_cdecl(D(___1a1108h), ___185c0bh, "End current game?", 0x23ae8);
@@ -122,7 +122,7 @@ void menu___194a8h(void){
 				D(___185a5ch+0x34) = 0;
 			}
 			break;
-		case 2:
+		case 2: // SEE CURRENT STATISTICS
 			___190c4h();
 			break;
 		case 3:	// LOAD GAME
@@ -132,10 +132,10 @@ void menu___194a8h(void){
 				D(___185a24h) = 1;
 			}
 			break;
-		case 4:
+		case 4: // SAVE GAME
 			___18cf0h();
 			break;
-		case 5:
+		case 5: // PREVIOUS MENU
 			D(___185a5ch+0x34) = 0;
 			while(B(D(___185a5ch+0x34)+___185b58h+9) == 0){
 

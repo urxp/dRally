@@ -33,10 +33,12 @@ void dRally_Sound_setEffectsVolume(dword vol);
 void dRally_Sound_pushEffect(byte channel, byte n, dword unk, dword a0, dword a1, dword a2);
 void CONFIG_WRITE();
 void ___596f0h(void);
+#if defined(DR_MULTIPLAYER)
 void ___23758h(void);
+#endif // DR_MULTIPLAYER
 void menu___204fch(void);
-void ___210b4h(void);
-void ___217b0h(void);
+//void ___210b4h(void);
+//void ___217b0h(void);
 void ___59db8h(void);
 
 void menu___218b4h(void){
@@ -127,7 +129,9 @@ void menu___218b4h(void){
 					if((B(esp+0x14) == 0xcd)&&((int)D(esp+0x1c) < 0x80)) D(esp+0x1c) += 2;
 					if((B(esp+0x14) == 0x4d)&&((int)D(esp+0x1c) < 0x80)) D(esp+0x1c) += 2;
 
+#if defined(DR_MULTIPLAYER)
 					if((B(esp+0x14) == 0x3b)&&(D(___19bd60h) != 0)) ___23758h();
+#endif // DR_MULTIPLAYER
 
 					ecx = 0x26700;
 					while(1){
@@ -243,7 +247,9 @@ void menu___218b4h(void){
 					if((B(esp+0x14) == 0xcd)&&((int)D(esp+0x18) < 0x80)) D(esp+0x18) += 2;
 					if((B(esp+0x14) == 0x4d)&&((int)D(esp+0x18) < 0x80)) D(esp+0x18) += 2;
 
+#if defined(DR_MULTIPLAYER)
 					if((B(esp+0x14) == 0x3b)&&(D(___19bd60h) != 0)) ___23758h();
+#endif // DR_MULTIPLAYER
 
 					ecx = 0x26700;
 					while(1){
@@ -321,9 +327,10 @@ void menu___218b4h(void){
 				menu___204fch();
 				break;
 			case 3:	// DEFINE GAMEPAD/JOYSTICK
-				___210b4h();
+				//___210b4h();
 				break;
 			case 4: // GAMEPAD/JOYSTICK
+			/*
 				D(___19bd58h) = !D(___19bd58h);
 
 				if(D(___19bd58h) == 1){
@@ -342,6 +349,7 @@ void menu___218b4h(void){
 					B(___185b58h+3*9+3) = 0;
 					strcpy(___1866b8h+0x60e, "Gamepad/Joystick Disabled");
 				}
+			*/
 				break;
 			case 5:
 				D(esp+0xc) = 0xffffffff;

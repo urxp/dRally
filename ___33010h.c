@@ -187,7 +187,6 @@
 
 void * ___3f71ch__allocateMemory(dword size);
 void dRally_Memory_free(void *);
-void ___23488h_cdecl(dword, dword, dword);
 void bpa_read(const char *, void *, const char *);
 void bpk_decode2(void *, void *);
 void ___12e78h_cdecl(byte *, byte *, const char *, dword);
@@ -202,7 +201,6 @@ void ___12cb8h__VESA101_PRESENTSCREEN(void);
 void __WAIT_5(void);
 void ___60a84h(void);
 dword ___60b60h(dword, dword, dword, dword);
-void ___38878h_cdecl(void);
 void ___2ab50h(void);
 dword ___611c0h(dword A1, dword A2);
 void ___3881ch(void);
@@ -213,7 +211,13 @@ void ___12a54h(void);
 void ___60719h(void);
 void race_main(dword, dword);
 void ___60705h(void (*A)(void));
+#if defined(DR_MULTIPLAYER)
+void ___38878h_cdecl(void);
 void ___10754h(void);
+void ___3986ch(void);
+void ___1e4f8h(void);
+void ___23488h_cdecl(dword, dword, dword);
+#endif // DR_MULTIPLAYER
 void ___2ec68h_cdecl(void);
 void ___11378h_cdecl(dword A1, dword A2, dword A3);
 void dRally_Sound_load(dword msx_t, dword msx_f, dword sfx_t, dword sfx_f, dword num_ch);
@@ -231,8 +235,6 @@ void ___22808h(void);
 void ___3deb8h(void);
 void ___117d4h(void);
 void ___117f4h(void);
-void ___3986ch(void);
-void ___1e4f8h(void);
 void ___3079ch_cdecl(dword);
 
 void ___33010h_cdecl(dword A1){
@@ -858,99 +860,83 @@ ___33af9h:
 		D(esp+0xd0) = edi;
 		if((int)eax <= 0) goto ___33c89h;
 		D(esp+0xf4) = edi;
-___33b18h:
-		edx = D(esp+0xd0);
-		eax = 0;
-		L(eax) = B(esp+edx+0xcc);
-		eax = 0x6c*eax;
-		ebx = 0xa;
-		esi = ___180724h;
-		edx = esp+0x4c;
-		eax = D(eax+___1a0228h);
-		edi = esp+0x4c;
-		eax = itoa_watcom106(eax, edx, ebx);
-		strcat(edi, esi);
-		eax = esp+0x4c;
-		ecx = D(esp+0xf4);
-		ebx = esp+0x4c;
-		eax = ___251e8h_cdecl(eax);
-		ecx = D(esp+ecx+0x88);
-		edx = ___185c7ah;
-		ecx -= eax;
-		eax = D(___1a10b8h);
-		___12e78h_cdecl(eax, edx, ebx, ecx);
-		edx = D(esp+0xd0);
-		eax = 0;
-		L(eax) = B(esp+edx+0xcc);
-		eax = 0x6c*eax;
-		esi = ___1a01e0h;
-		edi = esp+0x4c;
-		ecx = D(esp+0xf4);
-		esi += eax;
-		ebx = esp+0x4c;
-		strcpy(edi, esi);
-		eax = esp+0x4c;
-		edx = ___185c7ah;
-		eax = strupr_watcom106(eax);
-		eax = D(___1a10b8h);
-		ecx = D(esp+ecx+0xa8);
-		___12e78h_cdecl(eax, edx, ebx, ecx);
-		eax = D(esp+0xf4);
-		edx = D(esp+0xd0);
-		edi = D(esp+eax+0xb8);
-		eax = 0;
-		L(eax) = B(esp+edx+0xcc);
-		eax = 0x6c*eax;
-		ecx = 0x40;
-		ebx = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
-		esi = D(eax+___1a0220h);
-		ebx += edi;
-		edx = ecx;
-		esi = D(esi*4+___19de70h);
-		L(edx) >>= 2;
-___33c38h:
-		H(ecx) = L(edx);
-___33c3ah:
-		eax = D(esi);
-		D(ebx) = eax;
-		ebx += 4;
-		esi += 4;
-		H(ecx)--;
-		if(H(ecx) != 0) goto ___33c3ah;
-		ebx += 0x280;
-		L(edx) <<= 2;
-		ebx -= edx;
-		L(edx) >>= 2;
-		L(ecx)--;
-		if(L(ecx) != 0) goto ___33c38h;
-		eax = D(esp+0xf4);
-		edx = D(esp+0xd0);
-		ebx = D(esp+0xc8);
-		eax += 4;
-		edx++;
-		D(esp+0xf4) = eax;
-		D(esp+0xd0) = edx;
-		if((int)edx < (int)ebx) goto ___33b18h;
+
+		while(1){
+
+			itoa_watcom106(D(0x6c*B(esp+D(esp+0xd0)+0xcc)+___1a0228h), esp+0x4c, 0xa);
+			strcat(esp+0x4c, ___180724h);
+			eax = ___251e8h_cdecl(esp+0x4c);
+			___12e78h_cdecl(D(___1a10b8h), ___185c7ah, esp+0x4c, D(esp+D(esp+0xf4)+0x88)-eax);
+			strcpy(esp+0x4c, ___1a01e0h+0x6c*B(esp+D(esp+0xd0)+0xcc));
+			strupr_watcom106(esp+0x4c);
+			___12e78h_cdecl(D(___1a10b8h), ___185c7ah, esp+0x4c, D(esp+D(esp+0xf4)+0xa8));
+			eax = D(esp+0xf4);
+			edx = D(esp+0xd0);
+			edi = D(esp+eax+0xb8);
+			eax = 0x6c*B(esp+edx+0xcc);
+			ecx = 0x40;
+			ebx = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
+			esi = D(eax+___1a0220h);
+			ebx += edi;
+			edx = ecx;
+			esi = D(esi*4+___19de70h);
+			L(edx) >>= 2;
+
+			while(1){
+
+				H(ecx) = L(edx);
+
+				while(1){
+
+					eax = D(esi);
+					D(ebx) = eax;
+					ebx += 4;
+					esi += 4;
+					H(ecx)--;
+
+					if(H(ecx) == 0) break;
+				}
+
+				ebx += 0x280;
+				L(edx) <<= 2;
+				ebx -= edx;
+				L(edx) >>= 2;
+				L(ecx)--;
+			
+				if(L(ecx) == 0) break;
+			}
+
+			eax = D(esp+0xf4);
+			edx = D(esp+0xd0);
+			ebx = D(esp+0xc8);
+			eax += 4;
+			edx++;
+			D(esp+0xf4) = eax;
+			D(esp+0xd0) = edx;
+
+			if((int)edx >= (int)ebx) break;
+		}
+
 ___33c89h:
 		eax = D(___1a1100h__VESA101h_DefaultScreenBuffer);
 		D(___1a112ch__VESA101_ACTIVESCREEN_PTR) = eax;
 		eax = 0xffffffff;
 		___3a968h_cdecl(eax);
-		if(D(___19bd60h) == 0) goto ___33cadh;
-		eax = 0x1e00;
-		goto ___33cb2h;
-___33cadh:
 		eax = 0x2800;
-___33cb2h:
+#if defined(DR_MULTIPLAYER)
+		if(D(___19bd60h) != 0) eax = 0x1e00;
+#endif // DR_MULTIPLAYER
 		dRally_Sound_setPosition(eax);
 		eax = 0x10000;
 		dRally_Sound_setMasterVolume(eax);
 		___12cb8h__VESA101_PRESENTSCREEN();
 		__WAIT_5();
+
+#if defined(DR_MULTIPLAYER)
 		if(D(___19bd60h) == 0) goto ___33e7eh;
-		if(D(___196a84h) == 0) goto ___33ce6h;
-		D(___185a34h) = 1;
-___33ce6h:
+
+		if(D(___196a84h) != 0) D(___185a34h) = 1;
+
 		edx = D(___196a84h);
 		if(edx != 0) goto ___33e7eh;
 		L(edx) = B(___1a1168h);
@@ -1002,54 +988,42 @@ ___33ce6h:
 		B(eax) = L(edx);
 		___60a84h();
 		edi = 1;
-___33dbah:
-		if(D(___196a84h) != 0) goto ___33e4ah;
-		___38878h_cdecl();
-		___2ab50h();
-		___2ab50h();
-		ebx = 0xa;
-		edx = esi;
-		eax = esi;
-		edx = (int)edx>>0x1f;
-		edx = eax%ebx;  // idiv ebx
-		if(edx != 1) goto ___33e0fh;
-		ebx = 0x6c*D(___1a1ef8h);
-		ecx = 0x6c;
-		edx = D(___196adch);
-		ebx = ebx+___1a01e0h;
-		eax = edi;
-		eax = ___60b60h(eax, edx, ebx, ecx);
-		D(esp+0xd0) = eax;
-___33e0fh:
-		ebx = 0x384;
-		edx = esi;
-		eax = esi;
-		edx = (int)edx>>0x1f;
-		edx = eax%ebx;  // idiv ebx
-		if(edx != 0x383) goto ___33e36h;
-		ebx = 0x13;
-		eax = D(___1a0f9ch);
-		edx = edi;
-		___23488h_cdecl(eax, edx, ebx);
-___33e36h:
-		edx = D(esp+0xd0);
-		esi++;
-		if(edx != 0xff) goto ___33dbah;
-___33e4ah:
+	
+		while(1){
+
+			if(D(___196a84h) != 0) break;
+			___38878h_cdecl();
+			___2ab50h();
+			___2ab50h();
+			edx = esi;
+			eax = esi;
+			edx = (int)edx>>0x1f;
+			edx = eax%0xa;
+
+			if(edx == 1) D(esp+0xd0) = ___60b60h(edi, D(___196adch), 0x6c*D(___1a1ef8h)+___1a01e0h, 0x6c);
+
+			edx = esi;
+			eax = esi;
+			edx = (int)edx>>0x1f;
+			edx = eax%0x384;
+
+			if(edx == 0x383) ___23488h_cdecl(D(___1a0f9ch), edi, 0x13);
+
+			esi++;
+		
+			if(D(esp+0xd0) == 0xff) break;
+		}
+
 		edx = esp+0x98;
-		eax = 0x6c;
 		ebx = D(esp+0xd0);
-		eax = ___611c0h(eax, edx);
-		if(ebx != 0xff)  goto ___33e6fh;
-		___3881ch();
-___33e6fh:
+		eax = ___611c0h(0x6c, edx);
+		if(ebx == 0xff) ___3881ch();
 		___12cb8h__VESA101_PRESENTSCREEN();
 		eax = D(___1a0f9ch);
 		dRally_Memory_free(eax);
 ___33e7eh:
-		if(D(___196a84h) == 0) goto ___33e91h;
-		D(___185a34h) = 1;
-___33e91h:
+#endif // DR_MULTIPLAYER
+		if(D(___196a84h) != 0) D(___185a34h) = 1;
 		edi = D(___196a84h);
 		if(edi != 0) return;
 		ecx = D(___1a1ef8h);
@@ -1066,25 +1040,27 @@ ___33e91h:
 		D(___1a0ff4h) = edi;
 		edx = 0;
 		eax = 0;
-___33eech:
-		edi = D(eax+___1a0224h);
-		if((int)edx >= (int)edi) goto ___33f01h;
-		if(ecx == D(esp+0xd0)) goto ___33f01h;
-		edx = edi;
-___33f01h:
-		esi = D(esp+0xd0);
-		esi++;
-		eax += 0x6c;
-		D(esp+0xd0) = esi;
-		if((int)esi < 0x14) goto ___33eech;
-		if(D(___19bd60h) != 0) goto ___33f36h;
-		if((int)D(___196aa4h) <= 0) goto ___33f36h;
-		D(___1de81ch) = 1;
-		goto ___33f3eh;
-___33f36h:
-		ebx = 0;
-		D(___1de81ch) = ebx;
-___33f3eh:
+
+		while(1){
+
+			edi = D(eax+___1a0224h);
+			if(((int)edx < (int)edi)&&(ecx != D(esp+0xd0))) edx = edi;
+			eax += 0x6c;
+
+			D(esp+0xd0)++;
+			if((int)D(esp+0xd0) >= 0x14) break;
+		}
+
+		if((D(___19bd60h) != 0)||((int)D(___196aa4h) <= 0)){
+
+			ebx = 0;
+			D(___1de81ch) = ebx;
+		}
+		else {
+		
+			D(___1de81ch) = 1;
+		}
+
 		esi = 0;
 		edi = D(esp+0xc8);
 		D(esp+0xd0) = esi;
@@ -1115,13 +1091,16 @@ ___33f5dh:
 		D(ebx+___1de800h) = eax;
 		eax = D(___1a1ef8h);
 		D(ebx+___1de7ech) = esi;
-		if(edx != eax) goto ___33ffch;
-		D(ebx+___1de814h) = 3;
-		goto ___34007h;
-___33ffch:
-		eax = D(___196a94h);
-		D(ebx+___1de814h) = eax;
-___34007h:
+
+		if(edx != eax){
+
+			D(ebx+___1de814h) = D(___196a94h);
+		}
+		else {
+		
+			D(ebx+___1de814h) = 3;
+		}
+
 		eax = D(___185a14h_UseWeapons);
 		D(ebx+___1de7fch) = eax;
 		eax = D(esp+0xd0);
@@ -1131,73 +1110,67 @@ ___34007h:
 		esi = D(eax+___1a0244h);
 		D(ebx+___1de7f0h) = esi;
 		esi = D(eax+___1a0240h);
-		eax = D(eax+___1a023ch);
+		eax = D(eax+___1a023ch);		// LOAD BOUGHT MINES 
 		D(ebx+___1de7f4h) = esi;
 		esi = D(___1a1ef8h);
 		D(ebx+___1de7f8h) = eax;
-		if(edx == esi) goto ___340efh;
-		edi = D(___19bd60h);
-		if(edi != 0) goto ___340efh;
-		D(ebx+___1de7f8h) = edi;
-		D(ebx+___1de7f4h) = edi;
-		D(ebx+___1de7f0h) = edi;
-		eax = rand_watcom106();
-		edx = eax;
-		esi = 5;
-		edx = (int)edx>>0x1f;
-		edx = eax%esi;  // idiv esi
-		if(edx != 0) goto ___3409fh;
-		if(D(___185a14h_UseWeapons) == 0) goto ___3409fh;
-		D(ebx+___1de7f0h) = 1;
-___3409fh:
-		eax = rand_watcom106();
-		edx = eax;
-		esi = 5;
-		edx = (int)edx>>0x1f;
-		edx = eax%esi;  // idiv esi
-		if(edx != 0) goto ___340c7h;
-		if(D(___185a14h_UseWeapons) == 0) goto ___340c7h;
-		D(ebx+___1de7f4h) = 1;
-___340c7h:
-		eax = rand_watcom106();
-		edx = eax;
-		esi = 5;
-		edx = (int)edx>>0x1f;
-		edx = eax%esi;  // idiv esi
-		if(edx != 0) goto ___340efh;
-		if(D(___185a14h_UseWeapons) == 0) goto ___340efh;
-		D(ebx+___1de7f8h) = 8;
-___340efh:
+
+		if(edx != esi){
+#if defined(DR_MULTIPLAYER)			
+			if(D(___19bd60h) == 0){
+#endif // DR_MULTIPLAYER
+				D(ebx+___1de7f8h) = 0;
+				D(ebx+___1de7f4h) = 0;
+				D(ebx+___1de7f0h) = 0;
+				eax = rand_watcom106();
+				edx = eax;
+				edx = (int)edx>>0x1f;
+				edx = eax%5;
+				if((edx == 0)&&(D(___185a14h_UseWeapons) != 0)) D(ebx+___1de7f0h) = 1;
+				eax = rand_watcom106();
+				edx = eax;
+				edx = (int)edx>>0x1f;
+				edx = eax%5;
+				if((edx == 0)&&(D(___185a14h_UseWeapons) != 0)) D(ebx+___1de7f4h) = 1;
+				eax = rand_watcom106();
+				edx = eax;
+				edx = (int)edx>>0x1f;
+				edx = eax%5;
+				if((edx == 0)&&(D(___185a14h_UseWeapons) != 0)) D(ebx+___1de7f8h) = 8;
+#if defined(DR_MULTIPLAYER)	
+			}
+#endif // DR_MULTIPLAYER
+		}
+
 		edx = D(esp+0xd0);
-		eax = 0;
 		edi = D(___1a1ef8h);
-		L(eax) = B(esp+edx+0xcc);
-		if(eax == edi) goto ___34112h;
-		if(D(___19bd60h) == 0) goto ___34132h;
-___34112h:
-		edx = D(esp+0xd0);
-		eax = 0;
-		L(eax) = B(esp+edx+0xcc);
-		eax = 0x6c*eax;
-		edx = D(eax+___1a020ch);
-		eax = D(___1a0fb8h);
-		goto ___34140h;
-___34132h:
-		eax = 0x6c*eax;
-		edx = D(eax+___1a020ch);
-		eax = D(___1a0fe0h);
-___34140h:
-		edx = edx*3;
-		eax += edx;
-		edx = 0;
-		L(edx) = B(eax);
-		D(ebx+___1de804h) = edx;
-		edx = 0;
-		L(edx) = B(eax+1);
-		D(ebx+___1de808h) = edx;
-		L(eax) = B(eax+2);
-		eax &= 0xff;
-		D(ebx+___1de80ch) = eax;
+		eax = B(esp+edx+0xcc);
+		
+		if(eax == edi){
+
+			edx = D(0x6c*B(esp+D(esp+0xd0)+0xcc)+___1a020ch);
+			eax = D(___1a0fb8h);
+		}
+		else {
+#if defined(DR_MULTIPLAYER)
+			if(D(___19bd60h) != 0){
+
+				edx = D(0x6c*B(esp+D(esp+0xd0)+0xcc)+___1a020ch);
+				eax = D(___1a0fb8h);
+			}
+			else {
+#endif // DR_MULTIPLAYER
+				edx = D(0x6c*eax+___1a020ch);
+				eax = D(___1a0fe0h);
+#if defined(DR_MULTIPLAYER)
+			}
+#endif // DR_MULTIPLAYER
+		}
+
+		eax = eax+edx*3;
+		D(ebx+___1de804h) = B(eax);
+		D(ebx+___1de808h) = B(eax+1);
+		D(ebx+___1de80ch) = B(eax+2);
 
 #if defined(DR_MULTIPLAYER)
 		if(D(___19bd60h) != 0){
@@ -1272,67 +1245,70 @@ ___341cfh:
 		edx = 0;
 		eax = D(esp+0xc8);
 		D(esp+0xd0) = edx;
-		if((int)eax <= 0) goto ___3428eh;
-		edi = D(esp+0xc8);
-		ecx = D(___1a1ef8h);
-		eax = 0;
-___34261h:
-		if((int)edx >= (int)D(eax+___1a0224h)) goto ___34278h;
-		if(ecx == D(esp+0xd0)) goto ___34278h;
-		edx = D(eax+___1a0224h);
-___34278h:
-		esi = D(esp+0xd0);
-		esi++;
-		eax += 0x6c;
-		D(esp+0xd0) = esi;
-		if((int)esi < (int)edi) goto ___34261h;
-___3428eh:
+
+		if((int)eax > 0){
+
+			edi = D(esp+0xc8);
+			ecx = D(___1a1ef8h);
+			eax = 0;
+
+			while(1){
+
+				if(((int)edx < (int)D(eax+___1a0224h))&&(ecx != D(esp+0xd0))) edx = D(eax+___1a0224h);
+				esi = D(esp+0xd0);
+				esi++;
+				eax += 0x6c;
+				D(esp+0xd0) = esi;
+			
+				if((int)esi >= (int)edi) break;
+			}
+		}
+
 		ebx = D(___1a1ef8h);
 		eax = 8*ebx;
 		eax -= ebx;
 		eax <<= 2;
 		eax -= ebx;
-		if((int)edx >= (int)D(eax*4+___1a0224h)) goto ___3435fh;
-		ecx = D(___19bd60h);
-		if(ecx != 0) goto ___3435fh;
-		edi = ___1de7d0h;
-		esi = ___18244ch;
-		ebx = 1;
-		D(edi) = D(esi); edi += 4; esi += 4;
-		D(edi) = D(esi); edi += 4; esi += 4;
-		W(edi) = W(esi); edi += 2; esi += 2;   
-		eax = D(___196a94h);
-		edi = 6;
-		D(___1de814h) = eax;
-		D(___1de7e0h) = ecx;
-		D(___1de7f0h) = ecx;
-		D(___1de7f4h) = ebx;
-		ecx = D(___185a14h_UseWeapons);
-		D(___1de800h) = edi;
-		if(ecx == 0) goto ___3430dh;
-		D(___1de7f8h) = 8;
-		goto ___34313h;
-___3430dh:
-		D(___1de7f8h) = ecx;
-___34313h:
-		eax = D(___185a14h_UseWeapons);
-		D(___1de7fch) = eax;
-		eax = D(___1a0fe0h);
-		ebx = 0;
-		L(ebx) = B(eax+0x1e);
-		D(___1de8ach) = ebx;
-		ebx = 0;
-		L(ebx) = B(eax+0x1f);
-		D(___1de8b0h) = ebx;
-		L(eax) = B(eax+0x20);
-		eax &= 0xff;
-		D(___1de8b4h) = eax;
-		eax = D(___1de8ach);
-		D(___1de900h) = eax;
-		eax = D(___1de8b4h);
-		D(___1de904h) = ebx;
-		D(___1de908h) = eax;
-___3435fh:
+
+		if((int)edx < (int)D(eax*4+___1a0224h)){
+#if defined(DR_MULTIPLAYR)
+			if(D(___19bd60h) == 0){
+#endif // DR_MULTIPLAYER
+				edi = ___1de7d0h;
+				esi = ___18244ch;
+				D(edi) = D(esi); edi += 4; esi += 4;
+				D(edi) = D(esi); edi += 4; esi += 4;
+				W(edi) = W(esi); edi += 2; esi += 2;   
+				eax = D(___196a94h);
+				edi = 6;
+				D(___1de814h) = eax;
+				D(___1de7e0h) = 0;
+				D(___1de7f0h) = 0;
+				D(___1de7f4h) = 1;
+				ecx = D(___185a14h_UseWeapons);
+				D(___1de800h) = edi;
+
+				if(ecx == 0){
+
+					D(___1de7f8h) = 0;
+				}
+				else {
+
+					D(___1de7f8h) = 8;
+				}
+
+				D(___1de7fch) = D(___185a14h_UseWeapons);
+				D(___1de8ach) = B(D(___1a0fe0h)+0x1e);
+				D(___1de8b0h) = B(D(___1a0fe0h)+0x1f);
+				D(___1de8b4h) = B(D(___1a0fe0h)+0x20);
+				D(___1de900h) = D(___1de8ach);
+				D(___1de904h) = D(___1de8b0h);
+				D(___1de908h) = D(___1de8b4h);
+#if defined(DR_MULTIPLAYR)
+			}
+#endif // DR_MULTIPLAYER
+		}
+
 		ebx = D(___1a1ef8h);
 		ecx = 8*ebx;
 		ecx -= ebx;

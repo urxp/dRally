@@ -68,7 +68,9 @@ FILE * strupr_fopen(const char * file_name, const char * mode);
 #define __DI(base)  W(base + rEDI)
 #define __CF(base)  D(base + rCF)
 
-
+void ___idiv32(void * eax, void * edx, int dv);
+void ___idiv16(void * ax, void * dx, short dv);
+void ___imul32(void * eax, void * edx, int mp);
 
 
 

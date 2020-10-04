@@ -198,7 +198,6 @@ void race___400ech(void);
 void race___46a10h(void);
 void race___45d3ch(void);
 void race___560d8h(void);
-void race___47ed8h(dword);
 void race___454ach(void);
 void race___46814h(void);
 void __VGA13_PRESENTSCREEN__(void);
@@ -227,7 +226,11 @@ void race___47808h(dword, dword, dword);
 void race___477d4h(void);
 void race___48458h(void);
 void race___49390h(void);
+#if defined(DR_MULTIPLAYER)
 void race___44304h(void);
+void race___44a78h(void);
+void race___47ed8h(dword);
+#endif // DR_MULTIPLAYER
 void race___4c21ch(void);
 void race___56170h(void);
 void race___55ae0h(void);
@@ -241,7 +244,6 @@ void race___4c434h(void);
 void race___4b62ch(void);
 void race___5209ch(void);
 void race___563ach(void);
-void race___44a78h(void);
 void race___405bch(void);
 void race___496b0h(void);
 void race___4af3ch(void);
@@ -257,7 +259,8 @@ void race___492f4h(void);
 void dRally_Sound_stop(void);
 void dRally_Sound_release(void);
 void ___606dfh(void);
-void ___605deh_cdecl(dword, dword);void dRally_Sound_load(dword msx_t, dword msx_f, dword sfx_t, dword sfx_f, dword num_ch);
+void ___605deh_cdecl(dword, dword);
+void dRally_Sound_load(dword msx_t, dword msx_f, dword sfx_t, dword sfx_f, dword num_ch);
 void dRally_Sound_setMasterVolume(dword vol);
 void dRally_Sound_setMusicVolume(dword vol);
 void dRally_Sound_setEffectsVolume(dword vol);
@@ -513,10 +516,15 @@ ___56cb5h:
 		edx = 0;
 		D(___196df0h) = edx;
 ___56d25h:
-		if(D(___19bd60h) == 0) goto ___56d3ch;
-		if(D(___24387ch) == 0) goto ___56d3ch;
-		race___44a78h();
-___56d3ch:
+#if defined(DR_MULTIPLAYER)
+		if(D(___19bd60h) != 0){
+
+			if(D(___24387ch) != 0){
+			
+				race___44a78h();
+			}
+		}
+#endif // DR_MULTIPLAYER
 		esi = 0;
 		D(___243d08h) = esi;
 		if((int)D(___243874h) <= 0) goto ___56db2h;
@@ -1044,10 +1052,15 @@ ___57603h:
 		if(D(___1de580h) == 6) goto ___5761ah;
 		race___4c21ch();
 ___5761ah:
-		if(D(___19bd60h) == 0) goto ___57631h;
-		if(D(___24387ch) == 0) goto ___57631h;
-		race___44304h();
-___57631h:
+#if defined(DR_MULTIPLAYER)
+		if(D(___19bd60h) != 0){
+		
+			if(D(___24387ch) != 0){
+		
+				race___44304h();
+			}
+		}
+#endif // DR_MULTIPLAYER
 		if(B(kmap+0x58) == 0) goto ___5763fh;
 		race___49390h();
 ___5763fh:
@@ -1653,39 +1666,46 @@ ___580e6h:
 		esi++;
 		D(___243d08h) = esi;
 		if((int)esi < 0xe) goto ___580e6h;
-		if(D(___19bd60h) == 0) goto ___581c5h;
-		if(D(___243cd8h) == 0) goto ___581c5h;
-		ebx = ___1846b8h;
-		edx = 0;
-		race___47808h(0, edx, ebx);
-		ebx = ___1846dch;
-		edx = 1;
-		race___47808h(0, edx, ebx);
-		ebx = ___184700h;
-		edx = ebp;
-		race___47808h(0, edx, ebx);
-		ebx = ___184724h;
-		edx = 3;
-		race___47808h(0, edx, ebx);
-		ebx = ___184748h;
-		edx = 4;
-		race___47808h(0, edx, ebx);
-		ebx = ___18476ch;
-		edx = 5;
-		race___47808h(0, edx, ebx);
-		ebx = ___184790h;
-		edx = 6;
-		race___47808h(0, edx, ebx);
-		ebx = ___1847b4h;
-		edx = 7;
-		race___47808h(0, edx, ebx);
-		ebx = ___1847d8h;
-		edx = 8;
-		race___47808h(0, edx, ebx);
-		eax = 1;
-		race___47ed8h(eax);
-		goto ___58268h;
-___581c5h:
+
+#if defined(DR_MULTIPLAYER)
+		if(D(___19bd60h) != 0){
+
+			if(D(___243cd8h) != 0){
+
+				ebx = ___1846b8h;
+				edx = 0;
+				race___47808h(0, edx, ebx);
+				ebx = ___1846dch;
+				edx = 1;
+				race___47808h(0, edx, ebx);
+				ebx = ___184700h;
+				edx = ebp;
+				race___47808h(0, edx, ebx);
+				ebx = ___184724h;
+				edx = 3;
+				race___47808h(0, edx, ebx);
+				ebx = ___184748h;
+				edx = 4;
+				race___47808h(0, edx, ebx);
+				ebx = ___18476ch;
+				edx = 5;
+				race___47808h(0, edx, ebx);
+				ebx = ___184790h;
+				edx = 6;
+				race___47808h(0, edx, ebx);
+				ebx = ___1847b4h;
+				edx = 7;
+				race___47808h(0, edx, ebx);
+				ebx = ___1847d8h;
+				edx = 8;
+				race___47808h(0, edx, ebx);
+				eax = 1;
+				race___47ed8h(eax);
+				goto ___58268h;
+			}
+		}
+#endif // DR_MULTIPLAYER
+
 		ebx = ___1847fch;
 		edx = 0;
 		race___47808h(0, edx, ebx);
@@ -1719,11 +1739,16 @@ ___58207h:
 		edx = 8;
 		race___47808h(0, edx, ebx);
 ___58268h:
-		if(D(___19bd60h) == 0) goto ___58281h;
-		if(D(___243cd8h) != 0) goto ___58281h;
-		eax = 0;
-		race___47ed8h(eax);
-___58281h:
+#if defined(DR_MULTIPLAYER)
+		if(D(___19bd60h) != 0){
+
+			if(D(___243cd8h) == 0){
+			
+				eax = 0;
+				race___47ed8h(eax);
+			}
+		}
+#endif // DR_MULTIPLAYER
 		if(D(___19bd60h) != 0) goto ___58291h;
 		eax = 0;
 		race___478c8h(eax);
@@ -1754,49 +1779,56 @@ ___582f7h:
 		D(___24387ch) = 1;
 		D(___243cd8h) = edx;
 ___5831ah:
-		if(D(___19bd60h) == 0) goto ___583ffh;
-		edi = D(___243318h);
-		if(edi != 1) goto ___583ffh;
-		eax = 0;
-		D(___24387ch) = eax;
-		eax = 0xfc;
-		edx = 0xffffffff;
-		ebx = ___184964h;
-	 	___61418h(eax);
-		D(___243d14h) = edx;
-		race___477d4h();
-		edx = 0;
-		race___47808h(0, edx, ebx);
-		ebx = ___184988h;
-		edx = edi;
-		race___47808h(0, edx, ebx);
-		ebx = ___1849ach;
-		edx = ebp;
-		race___47808h(0, edx, ebx);
-		ebx = ___1849d0h;
-		edx = 3;
-		race___47808h(0, edx, ebx);
-		ebx = ___1849f4h;
-		edx = 4;
-		race___47808h(0, edx, ebx);
-		ebx = ___184a18h;
-		edx = 5;
-		race___47808h(0, edx, ebx);
-		ebx = ___184a3ch;
-		edx = 6;
-		race___47808h(0, edx, ebx);
-		ebx = ___184a60h;
-		edx = 7;
-		race___47808h(0, edx, ebx);
-		ebx = ___184a84h;
-		edx = 8;
-		race___47808h(0, edx, ebx);
-		eax = 0;
-		ecx = 0xffffffff;
-		race___47ed8h(eax);
-		D(___243d14h) = edi;
-		D(___1de814h) = ecx;
-___583ffh:
+#if defined(DR_MULTIPLAYER)
+		if(D(___19bd60h) != 0){
+
+			edi = D(___243318h);
+
+			if(edi == 1){
+
+				eax = 0;
+				D(___24387ch) = eax;
+				eax = 0xfc;
+				edx = 0xffffffff;
+				ebx = ___184964h;
+				___61418h(eax);
+				D(___243d14h) = edx;
+				race___477d4h();
+				edx = 0;
+				race___47808h(0, edx, ebx);
+				ebx = ___184988h;
+				edx = edi;
+				race___47808h(0, edx, ebx);
+				ebx = ___1849ach;
+				edx = ebp;
+				race___47808h(0, edx, ebx);
+				ebx = ___1849d0h;
+				edx = 3;
+				race___47808h(0, edx, ebx);
+				ebx = ___1849f4h;
+				edx = 4;
+				race___47808h(0, edx, ebx);
+				ebx = ___184a18h;
+				edx = 5;
+				race___47808h(0, edx, ebx);
+				ebx = ___184a3ch;
+				edx = 6;
+				race___47808h(0, edx, ebx);
+				ebx = ___184a60h;
+				edx = 7;
+				race___47808h(0, edx, ebx);
+				ebx = ___184a84h;
+				edx = 8;
+				race___47808h(0, edx, ebx);
+				eax = 0;
+				ecx = 0xffffffff;
+				race___47ed8h(eax);
+				D(___243d14h) = edi;
+				D(___1de814h) = ecx;
+			}
+		}
+#endif // DR_MULTIPLAYER
+
 		esi = D(___196dd8h);
 		esi++;
 		D(___196dd8h) = esi;

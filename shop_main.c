@@ -120,7 +120,9 @@ void ___269e4h(void);
 void ___26e54h(void);
 void ___30a84h_cdecl(dword, dword);
 void ___30c60h_cdecl(dword);
+#if defined(DR_MULTIPLAYER)
 void ___23758h(void);
+#endif // DR_MULTIPLAYER
 void shop___2836ch(void);
 void shop___283ech(void);
 void shop___285f8h(void);

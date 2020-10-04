@@ -17,7 +17,9 @@ void ___12cb8h__VESA101_PRESENTSCREEN(void);
 void ___1398ch__VESA101_PRESENTRECTANGLE(dword offset, void * src, dword w, dword h);
 void ___2ab50h(void);
 byte ___5994ch(void);
+#if defined(DR_MULTIPLAYER)
 void ___23758h(void);
+#endif // DR_MULTIPLAYER
 void dRally_Sound_pushEffect(byte channel, byte n, dword unk, dword a0, dword a1, dword a2);
 
 int ___148cch_cdecl(int x, int y, dword A3, int * A4){

@@ -9,7 +9,9 @@
 	extern byte ___1854b8h[];
 	extern byte ___19bd60h[];
 
+#if defined(DR_MULTIPLAYER)
 void ___23758h(void);
+#endif // DR_MULTIPLAYER
 void menu___14010h(dword);
 void ___14368h_cdecl(dword);
 void dRally_Sound_pushEffect(byte channel, byte n, dword unk, dword a0, dword a1, dword a2);
