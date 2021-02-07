@@ -16,8 +16,7 @@ typedef struct spectator_s {
 	extern spectator_t ___1df720h[];
 	extern byte ___243ce8h[];
 	extern byte ___196dach[];
-	extern byte ___1e6f84h[];
-	extern byte ___1e6f88h[];
+	extern byte ___1e6ed0h[];
 	extern byte ___196dc8h[];
 	extern byte ___196dcch[];
 	extern byte ___196d98h[];
@@ -56,13 +55,13 @@ void race___52d7ch(void){
 				SPECTATORS[n].timestamp = __GET_FRAME_COUNTER();
 			}
 
-			if(SPECTATORS[n].x > (int)F32(0x35e*D(___243ce8h)+___1e6f84h)){
-				if(SPECTATORS[n].y > (int)F32(0x35e*D(___243ce8h)+___1e6f88h)) SPECTATORS[n].rot = 2*!D(___196dach);
-				else if(SPECTATORS[n].y < (int)F32(0x35e*D(___243ce8h)+___1e6f88h)) SPECTATORS[n].rot = 1+2*!!D(___196dach);
+			if(SPECTATORS[n].x > (int)F32(0x35e*D(___243ce8h)+___1e6ed0h+0xb4)){
+				if(SPECTATORS[n].y > (int)F32(0x35e*D(___243ce8h)+___1e6ed0h+0xb8)) SPECTATORS[n].rot = 2*!D(___196dach);
+				else if(SPECTATORS[n].y < (int)F32(0x35e*D(___243ce8h)+___1e6ed0h+0xb8)) SPECTATORS[n].rot = 1+2*!!D(___196dach);
 			}
-			else if(SPECTATORS[n].x < (int)F32(0x35e*D(___243ce8h)+___1e6f84h)){
-				if(SPECTATORS[n].y > (int)F32(0x35e*D(___243ce8h)+___1e6f88h)) SPECTATORS[n].rot = 1+2*!D(___196dach);
-				else if(SPECTATORS[n].y < (int)F32(0x35e*D(___243ce8h)+___1e6f88h)) SPECTATORS[n].rot = 2*!!D(___196dach);
+			else if(SPECTATORS[n].x < (int)F32(0x35e*D(___243ce8h)+___1e6ed0h+0xb4)){
+				if(SPECTATORS[n].y > (int)F32(0x35e*D(___243ce8h)+___1e6ed0h+0xb8)) SPECTATORS[n].rot = 1+2*!D(___196dach);
+				else if(SPECTATORS[n].y < (int)F32(0x35e*D(___243ce8h)+___1e6ed0h+0xb8)) SPECTATORS[n].rot = 2*!!D(___196dach);
 			}
 		}
 	}

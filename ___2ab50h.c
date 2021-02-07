@@ -2,18 +2,12 @@
 
 	extern byte ___19bd60h[];
 	extern byte ___1a116ch[];
-	extern byte ___1a1f4fh[];
 	extern byte ___1a1f4eh[];
-	extern byte ___1a1dbah[];
 	extern byte ___185a1ch[];
-	extern byte ___1a1f63h[];
 	extern byte ___196a74h[];
-	extern byte ___1a0f9ch[];
-	extern byte ___180864h[];
+	extern void * ___1a0f9ch;
 	extern byte ___1a1ef8h[];
 	extern byte ___1a01e0h[];
-	extern byte ___182174h[];
-	extern byte ___182194h[];
 
 
 void ___12cb8h__VESA101_PRESENTSCREEN(void);
@@ -43,41 +37,29 @@ void ___2ab50h(void){
 	if(D(___19bd60h) != 0){
 
 		___6168ch();
-		edx = 1;
-		eax = esp;
-		eax = ___23594h_cdecl(eax, edx);
+		eax = ___23594h_cdecl(esp, 1);
 
 		if(eax != 0){
 
-			ebx = 0;
-			D(esp+0x418) = ebx;
+			D(esp+0x418) = 0;
 			ebx = ___1a116ch;
 			edx = ebx+0x96;
 			
 			while(1){
 
-				esi = edx;
-				edi = ebx;
-				strcpy(edi, esi);
-				eax = D(esp+0x418);
-				L(ecx) = B(eax+___1a1f4fh);
-				ebx += 0x96;
-				B(eax+___1a1f4eh) = L(ecx);
-				ecx = eax+1;
+				strcpy(ebx, edx);
+				B(D(esp+0x418)+___1a1f4eh) = B(D(esp+0x418)+___1a1f4eh+1);
 				edx += 0x96;
-				D(esp+0x418) = ecx;
+				ebx += 0x96;
+				D(esp+0x418)++;
 
-				if((int)ecx >= 0x15) break;
+				if((int)D(esp+0x418) >= 0x15) break;
 			}
 
-			esi = esp;
-			edi = ___1a1dbah;
-			H(edx) = 1;
-			strcpy(edi, esi);
-			edi = D(___185a1ch);
-			B(___1a1f63h) = H(edx);
+			strcpy(___1a116ch+0xc4e, esp);
+			B(___1a1f4eh+0x15) = 1;
 
-			if(edi){
+			if(D(___185a1ch)){
 		
 				if(D(___196a74h) == 1){
 						
@@ -95,41 +77,29 @@ void ___2ab50h(void){
 			}
 		}
 
-		edx = 6;
-		eax = esp;
-		eax = ___23594h_cdecl(eax, edx);
+		eax = ___23594h_cdecl(esp, 6);
 
 		if(eax != 0){
 
-			edx = 0;
-			D(esp+0x418) = edx;
+			D(esp+0x418) = 0;
 			edx = ___1a116ch;
 			ebx = edx+0x96;
 		
 			while(1){
 
-				esi = ebx;
-				edi = edx;
-				strcpy(edi, esi);
-				eax = D(esp+0x418);
-				L(ecx) = B(eax+___1a1f4fh);
-				edx += 0x96;
-				B(eax+___1a1f4eh) = L(ecx);
-				ecx = eax+1;
+				strcpy(edx, ebx);
+				B(D(esp+0x418)+___1a1f4eh) = B(D(esp+0x418)+___1a1f4eh+1);
 				ebx += 0x96;
-				D(esp+0x418) = ecx;
+				edx += 0x96;
+				D(esp+0x418)++;
 			
-				if((int)ecx >= 0x15) break;
+				if((int)D(esp+0x418) >= 0x15) break;
 			}
 
-			esi = esp;
-			edi = ___1a1dbah;
-			strcpy(edi, esi);
-			L(ebx) = 0;
-			edi = D(___185a1ch);
-			B(___1a1f63h) = L(ebx);
+			strcpy(___1a116ch+0xc4e, esp);
+			B(___1a1f4eh+0x15) = 0;
 
-			if(edi){
+			if(D(___185a1ch)){
 
 				if(D(___196a74h) == 1){
 
@@ -147,73 +117,41 @@ void ___2ab50h(void){
 			}
 		}
 
-		edx = 7;
-		eax = esp;
-		eax = ___23594h_cdecl(eax, edx);
+		eax = ___23594h_cdecl(esp, 7);
 
 		if(eax != 0){
 
-			eax = 0x64;
-			___3f71ch__allocateMemory(eax);
-			edi = eax;
-			D(___1a0f9ch) = eax;
-			eax = D(___180864h);
-			edx = D(___1a1ef8h);
-			D(edi) = eax;
-			eax = 8*edx;
-			eax -= edx;
-			eax <<= 2;
-			eax -= edx;
-			esi = ___1a01e0h;
-			eax <<= 2;
-			esi += eax;
-			ebx = 8;
-			strcat(edi, esi);
-			esi = ___182174h;
-			edi = D(___1a0f9ch);
-			edx = 0x64;
-			strcat(edi, esi);
-			eax = D(___1a0f9ch);
-			___23488h_cdecl(eax, edx, ebx);
-			eax = D(___1a0f9ch);
-			dRally_Memory_free(eax);
+			___1a0f9ch = ___3f71ch__allocateMemory(0x64);
+			strcpy(___1a0f9ch, "-- ");
+			strcat(___1a0f9ch, ___1a01e0h+0x6c*D(___1a1ef8h));
+			strcat(___1a0f9ch, " is currently on Death Rally.");
+			___23488h_cdecl(___1a0f9ch, 0x64, 8);
+			dRally_Memory_free(___1a0f9ch);
 		}
 
-		edx = 0x14;
-		eax = esp;
-		eax = ___23594h_cdecl(eax, edx);
+		eax = ___23594h_cdecl(esp, 0x14);
 
 		if(eax != 0){
 
-			edx = 0;
-			D(esp+0x418) = edx;
+			D(esp+0x418) = 0;
 			edx = ___1a116ch;
 			ebx = edx+0x96;
 		
 			while(1){
 		
-				esi = ebx;
-				edi = edx;
-				strcpy(edi, esi);
-				eax = D(esp+0x418);
-				L(ecx) = B(eax+___1a1f4fh);
-				edx += 0x96;
-				B(eax+___1a1f4eh) = L(ecx);
-				ecx = eax+1;
+				strcpy(edx, ebx);
+				B(D(esp+0x418)+___1a1f4eh) = B(D(esp+0x418)+___1a1f4eh+1);
 				ebx += 0x96;
-				D(esp+0x418) = ecx;
-			
-				if((int)ecx >= 0x15) break;
+				edx += 0x96;
+				D(esp+0x418)++;
+							
+				if((int)D(esp+0x418) >= 0x15) break;
 			}
 
-			esi = esp;
-			edi = ___1a1dbah;
-			strcpy(edi, esi);
-			H(ebx) = 0;
-			edi = D(___185a1ch);
-			B(___1a1f63h) = H(ebx);
+			strcpy(___1a116ch+0xc4e, esp);
+			B(___1a1f4eh+0x15) = 0;
 
-			if(edi){
+			if(D(___185a1ch)){
 
 				if(D(___196a74h) == 1){
 				
@@ -230,46 +168,33 @@ void ___2ab50h(void){
 				}
 			}
 
-			edx = 0x13;
 			___1e4f8h();
-			D(___1a1ef8h) = edx;
+			D(___1a1ef8h) = 0x13;
 		}
 
-		edx = 9;
-		eax = esp;
-		eax = ___23594h_cdecl(eax, edx);
+		eax = ___23594h_cdecl(esp, 9);
 
 		if(eax != 0){
 
-			ebx = 0;
 			edx = ___1a116ch;
-			D(esp+0x418) = ebx;
+			D(esp+0x418) = 0;
 			ebx = edx+0x96;
 
 			while(1){
 
-				esi = ebx;
-				edi = edx;
-				strcpy(edi, esi);
-				eax = D(esp+0x418);
-				L(ecx) = B(eax+___1a1f4fh);
-				edx += 0x96;
-				B(eax+___1a1f4eh) = L(ecx);
-				ecx = eax+1;
+				strcpy(edx, ebx);
+				B(D(esp+0x418)+___1a1f4eh) = B(D(esp+0x418)+___1a1f4eh+1);
 				ebx += 0x96;
-				D(esp+0x418) = ecx;
+				edx += 0x96;
+				D(esp+0x418)++;
 			
-				if((int)ecx >= 0x15) break;
+				if((int)D(esp+0x418) >= 0x15) break;
 			}
 
-			esi = esp;
-			edi = ___1a1dbah;
-			strcpy(edi, esi);
-			L(ecx) = 0;
-			edi = D(___185a1ch);
-			B(___1a1f63h) = L(ecx);
+			strcpy(___1a116ch+0xc4e, esp);
+			B(___1a1f4eh+0x15) = 0;
 
-			if(edi){
+			if(D(___185a1ch)){
 		
 				if(D(___196a74h) == 1){
 				
@@ -286,57 +211,34 @@ void ___2ab50h(void){
 				}
 			}
 
-			eax = 1;
-			___1e62ch_cdecl(eax);
+			___1e62ch_cdecl(1);
 		}
 
-		edx = 0x13;
-		eax = esp+0x400;
-		eax = ___23594h_cdecl(eax, edx);
+		eax = ___23594h_cdecl(esp+0x400, 0x13);
 
 		if(eax != 0){
 
-			edx = 0;
-			D(esp+0x418) = edx;
+			D(esp+0x418) = 0;
 			edx = ___1a116ch;
 			ebx = edx+0x96;
 		
 			while(1){
 
-				esi = ebx;
-				edi = edx;
-				strcpy(edi, esi);
-				eax = D(esp+0x418);
-				L(ecx) = B(eax+___1a1f4fh);
-				edx += 0x96;
-				B(eax+___1a1f4eh) = L(ecx);
-				ecx = eax+1;
+				strcpy(edx, ebx);
+				B(D(esp+0x418)+___1a1f4eh) = B(D(esp+0x418)+___1a1f4eh+1);
 				ebx += 0x96;
-				D(esp+0x418) = ecx;
+				edx += 0x96;
+				D(esp+0x418)++;
 			
-				if((int)ecx >= 0x15) break;
+				if((int)D(esp+0x418) >= 0x15) break;
 			}
 
-			edx = 0;
-			eax = D(___180864h);
-			L(edx) = B(esp+0x400);
-			D(___1a1dbah) = eax;
-			eax = 8*edx;
-			eax -= edx;
-			eax <<= 2;
-			eax -= edx;
-			esi = ___1a01e0h;
-			eax <<= 2;
-			edi = ___1a1dbah;
-			esi += eax;
-			strcat(edi, esi);
-			esi = ___182194h;
-			strcat(edi, esi);
-			H(ecx) = 0;
-			edi = D(___185a1ch);
-			B(___1a1f63h) = H(ecx);
+			strcpy(___1a116ch+0xc4e, "-- ");
+			strcat(___1a116ch+0xc4e, ___1a01e0h+0x6c*B(esp+0x400));
+			strcat(___1a116ch+0xc4e, " is waiting for you to join the next race.");
+			B(___1a1f4eh+0x15) = 0;
 
-			if(edi){
+			if(D(___185a1ch)){
 
 				if(D(___196a74h) == 1){
 				

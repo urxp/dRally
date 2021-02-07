@@ -7,17 +7,11 @@ cpu 386
 	extern 	__STRLEN
 	extern 	___3f71ch__allocateMemory
 	extern 	__STOSB
-	extern 	___180130h
-	extern 	___19deb0h
-	extern 	___19debbh
-	extern 	___19dee2h
-	extern 	___19dec2h
-	extern 	___19decch
+	extern 	___19ded0h
 	extern 	___135fch
 	extern 	___23230h
 	extern 	___13710h
 	extern 	___13248h_cdecl
-	extern 	___180824h
 	extern 	___185ba9h
 	extern 	___1a10cch
 	extern 	___12e78h_cdecl
@@ -25,17 +19,9 @@ cpu 386
 	extern 	___24e4ach
 	extern 	___2ab50h
 	extern 	___23594h
-	extern 	___19ded0h
-	extern 	___19dedah
-	extern 	___19dee3h
-	extern 	___19deech
-	extern 	___19dedbh
 	extern 	___5994ch
 	extern 	___59b3ch
-	extern 	___19decfh
-	extern 	___1854b0h
 	extern 	___24cc54h
-	extern 	___1854ach
 	extern 	dRally_Sound_pushEffect
 	extern 	atoi
 	extern 	___185a54h
@@ -45,16 +31,12 @@ cpu 386
 	extern 	___1a1138h__VESA101h_DefaultScreenBufferB
 	extern 	___1a112ch__VESA101_ACTIVESCREEN_PTR
 	extern 	___1aa28h
-	extern 	___180a78h
 	extern 	___185c0bh
 	extern 	___1a1108h
-	extern 	___1854bch
 	extern 	___1ad30h
 	extern 	memset
-	extern 	___1807cch
 	extern 	dRally_Memory_free
 	extern 	___1a10fch
-	extern 	___1807e8h
 	extern 	___61278h
 	extern 	___623d4h
 	extern 	___199f9ch
@@ -109,18 +91,18 @@ __GDECL(___1b140h)
 		call    __STOSB
 	add 	esp, 0ch
 
-		mov     dl, [___180130h]
+		mov     dl, 0
 		xor     eax, eax
 ___1b18eh:
+		mov     [eax+___19ded0h], dl
 		add     eax, byte 20h
-		mov     [eax+___19deb0h], dl
 		cmp     eax, dword 80h
 		jne     short ___1b18eh
-		mov     dl, [___180130h]
+		mov     dl, 0
 		xor     eax, eax
 ___1b1a6h:
+		mov     [eax+___19ded0h+0bh], dl
 		add     eax, byte 20h
-		mov     [eax+___19debbh], dl
 		cmp     eax, dword 80h
 		jne     short ___1b1a6h
 		mov     esi, 9
@@ -130,9 +112,9 @@ ___1b1bdh:
 		mov     edx, esi
 		shl     eax, 5
 ___1b1c4h:
-		inc     eax
 		xor     cl, cl
-		mov     [eax+___19dee2h], cl
+		mov     [eax+___19ded0h+13h], cl
+		inc     eax
 		cmp     eax, edx
 		jne     short ___1b1c4h
 		inc     ebx
@@ -141,16 +123,16 @@ ___1b1c4h:
 		jl      short ___1b1bdh
 		xor     eax, edx
 ___1b1dch:
-		add     eax, byte 20h
 		xor     ch, ch
-		mov     [eax+___19dec2h], ch
+		mov     [eax+___19ded0h+12h], ch
+		add     eax, byte 20h
 		cmp     eax, dword 80h
 		jne     short ___1b1dch
 		xor     eax, eax
 ___1b1f0h:
-		add     eax, byte 20h
 		xor     esi, esi
-		mov     [eax+___19decch], esi
+		mov     [eax+___19ded0h+1ch], esi
+		add     eax, byte 20h
 		cmp     eax, dword 80h
 		jne     short ___1b1f0h
 		mov     ecx, 6dh
@@ -207,7 +189,7 @@ ___1b1f0h:
 	add 	esp, 14h
 	
 		mov     ecx, 294fah
-		mov     ebx, ___180824h
+		mov     ebx, loc_wait
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10cch]
 
@@ -265,12 +247,12 @@ ___1b2a0h:
 		xor     eax, eax
 ___1b2bfh:
 		xor     ebx, ebx
-		inc     eax
 		mov     bl, [ebp+0]
 		mov     cl, [edx+0dh]
 		shl     ebx, 5
 		inc     edx
-		mov     [ebx+eax*1+___19dedah], cl
+		mov     [ebx+eax+___19ded0h+0bh], cl
+		inc     eax
 		cmp     eax, byte 7
 		jl      short ___1b2bfh
 		mov     edx, ebp
@@ -283,7 +265,7 @@ ___1b2dch:
 		lea     ecx, [ebx+eax*1]
 		mov     bl, [edx+14h]
 		inc     eax
-		mov     [ecx+___19dee3h], bl
+		mov     [ecx+___19ded0h+13h], bl
 		cmp     eax, byte 9
 		jl      short ___1b2dch
 		xor     eax, eax
@@ -291,13 +273,13 @@ ___1b2dch:
 		mov     edx, eax
 		shl     edx, 5
 		mov     al, [ebp+14h]
-		mov     [edx+___19dee2h], al
+		mov     [edx+___19ded0h+12h], al
 		xor     eax, eax
 		mov     al, [ebp+0]
 		xor     edx, edx
 		shl     eax, 5
 		mov     dl, [ebp+1eh]
-		mov     [eax+___19deech], edx
+		mov     [eax+___19ded0h+1ch], edx
 		xor     eax, eax
 		mov     al, [ebp+0]
 		mov     byte [esp+eax*1+4], 1
@@ -309,20 +291,20 @@ ___1b333h:
 		xor     edx, edx
 		mov     dl, [ebp+0]
 		mov     ebx, edx
-		mov     dl, [___180130h]
+		mov     dl, 0
 		shl     ebx, 5
 		inc     eax
 		mov     [ebx+___19ded0h], dl
 		cmp     eax, byte 4
 		jl      short ___1b333h
-		mov     dl, [___180130h]
+		mov     dl, 0
 		xor     eax, eax
 ___1b357h:
 		xor     ebx, ebx
 		mov     bl, [ebp+0]
 		shl     ebx, 5
 		inc     eax
-		mov     [ebx+___19dedbh], dl
+		mov     [ebx+___19ded0h+0bh], dl
 		cmp     eax, byte 4
 		jl      short ___1b357h
 		xor     ebx, ebx
@@ -331,10 +313,10 @@ ___1b36dh:
 ___1b36fh:
 		xor     edx, edx
 		mov     dl, [ebp+0]
-		inc     eax
 		shl     edx, 5
 		xor     cl, cl
-		mov     [edx+eax*1+___19dee2h], cl
+		mov     [edx+eax+___19ded0h+13h], cl
+		inc     eax
 		cmp     eax, byte 9
 		jl      short ___1b36fh
 		inc     ebx
@@ -347,7 +329,7 @@ ___1b38eh:
 		xor     ch, ch
 		shl     edx, 5
 		inc     eax
-		mov     [edx+___19dee2h], ch
+		mov     [edx+___19ded0h+12h], ch
 		cmp     eax, byte 4
 		jl      short ___1b38eh
 		xor     eax, eax
@@ -357,7 +339,7 @@ ___1b3a6h:
 		xor     ebx, ebx
 		shl     edx, 5
 		inc     eax
-		mov     [edx+___19deech], ebx
+		mov     [edx+___19ded0h+1ch], ebx
 		cmp     eax, byte 4
 		jl      short ___1b3a6h
 		xor     eax, eax
@@ -398,7 +380,7 @@ ___1b423h:
 		xor     edx, edx
 		mov     dl, [ebp+0]
 		mov     ebx, edx
-		mov     dl, [___180130h]
+		mov     dl, 0
 		shl     ebx, 5
 		inc     eax
 		mov     [ebx+___19ded0h], dl
@@ -409,10 +391,10 @@ ___1b441h:
 		xor     edx, edx
 		mov     dl, [ebp+0]
 		mov     ebx, edx
-		mov     dl, [___180130h]
+		mov     dl, 0
 		shl     ebx, 5
 		inc     eax
-		mov     [ebx+___19dedbh], dl
+		mov     [ebx+___19ded0h+0bh], dl
 		cmp     eax, byte 4
 		jl      short ___1b441h
 		xor     ebx, ebx
@@ -421,10 +403,10 @@ ___1b45fh:
 ___1b461h:
 		xor     edx, edx
 		mov     dl, [ebp+0]
-		inc     eax
 		shl     edx, 5
 		xor     cl, cl
-		mov     [edx+eax*1+___19dee2h], cl
+		mov     [edx+eax+___19ded0h+13h], cl
+		inc     eax
 		cmp     eax, byte 9
 		jl      short ___1b461h
 		inc     ebx
@@ -437,7 +419,7 @@ ___1b480h:
 		xor     ch, ch
 		shl     edx, 5
 		inc     eax
-		mov     [edx+___19dee2h], ch
+		mov     [edx+___19ded0h+12h], ch
 		cmp     eax, byte 4
 		jl      short ___1b480h
 		xor     eax, eax
@@ -447,7 +429,7 @@ ___1b498h:
 		xor     ecx, ecx
 		shl     edx, 5
 		inc     eax
-		mov     [edx+___19deech], ecx
+		mov     [edx+___19ded0h+1ch], ecx
 		cmp     eax, byte 4
 		jl      short ___1b498h
 		xor     eax, eax
@@ -519,12 +501,12 @@ ___1b545h:
 		xor     eax, eax
 ___1b549h:
 		xor     ebx, ebx
-		inc     eax
 		mov     bl, [ebp+0]
 		mov     cl, [edx+2]
 		shl     ebx, 5
 		inc     edx
-		mov     [ebx+eax*1+___19decfh], cl
+		mov     [ebx+eax+___19ded0h], cl
+		inc     eax
 		cmp     eax, byte 0bh
 		jl      short ___1b549h
 		mov     edx, ebp
@@ -537,7 +519,7 @@ ___1b566h:
 		lea     ecx, [ebx+eax*1]
 		mov     bl, [edx+0ch]
 		inc     eax
-		mov     [ecx+___19dedbh], bl
+		mov     [ecx+___19ded0h+0bh], bl
 		cmp     eax, byte 7
 		jl      short ___1b566h
 		mov     edx, ebp
@@ -550,20 +532,20 @@ ___1b585h:
 		lea     ecx, [ebx+eax*1]
 		mov     bl, [edx+14h]
 		inc     eax
-		mov     [ecx+___19dee3h], bl
+		mov     [ecx+___19ded0h+13h], bl
 		cmp     eax, byte 9
 		jl      short ___1b585h
 		xor     eax, eax
 		mov     al, [ebp+0]
 		shl     eax, 5
 		mov     dl, [ebp+14h]
-		mov     [eax+___19dee2h], dl
+		mov     [eax+___19ded0h+12h], dl
 		xor     eax, eax
 		mov     al, [ebp+0]
 		xor     edx, edx
 		shl     eax, 5
 		mov     dl, [ebp+1eh]
-		mov     [eax+___19deech], edx
+		mov     [eax+___19ded0h+1ch], edx
 		xor     eax, eax
 		mov     dl, 1
 		mov     al, [ebp+0]
@@ -585,7 +567,7 @@ ___1b5f6h:
 		xor     edx, edx
 		mov     dl, [ebp+0]
 		mov     ebx, edx
-		mov     dl, [___180130h]
+		mov     dl, 0
 		shl     ebx, 5
 		inc     eax
 		mov     [ebx+___19ded0h], dl
@@ -596,10 +578,10 @@ ___1b614h:
 		xor     edx, edx
 		mov     dl, [ebp+0]
 		mov     ebx, edx
-		mov     dl, [___180130h]
+		mov     dl, 0
 		shl     ebx, 5
 		inc     eax
-		mov     [ebx+___19dedbh], dl
+		mov     [ebx+___19ded0h+0bh], dl
 		cmp     eax, byte 4
 		jl      short ___1b614h
 		xor     ebx, ebx
@@ -608,10 +590,10 @@ ___1b632h:
 ___1b634h:
 		xor     edx, edx
 		mov     dl, [ebp+0]
-		inc     eax
 		shl     edx, 5
 		xor     ch, ch
-		mov     [edx+eax*1+___19dee2h], ch
+		mov     [edx+eax+___19ded0h+13h], ch
+		inc     eax
 		cmp     eax, byte 9
 		jl      short ___1b634h
 		inc     ebx
@@ -624,7 +606,7 @@ ___1b653h:
 		xor     bl, bl
 		shl     edx, 5
 		inc     eax
-		mov     [edx+___19dee2h], bl
+		mov     [edx+___19ded0h+12h], bl
 		cmp     eax, byte 4
 		jl      short ___1b653h
 		xor     eax, eax
@@ -634,7 +616,7 @@ ___1b66bh:
 		xor     ebx, ebx
 		shl     edx, 5
 		inc     eax
-		mov     [edx+___19deech], ebx
+		mov     [edx+___19ded0h+1ch], ebx
 		cmp     eax, byte 4
 		jl      short ___1b66bh
 		xor     eax, eax
@@ -715,20 +697,20 @@ ___1b74dh:
 		xor     edx, edx
 		mov     dl, [ebp+0]
 		mov     ebx, edx
-		mov     dl, [___180130h]
+		mov     dl, 0
 		shl     ebx, 5
 		inc     eax
 		mov     [ebx+___19ded0h], dl
 		cmp     eax, byte 4
 		jl      short ___1b74dh
-		mov     bl, [___180130h]
+		mov     bl, 0
 		xor     eax, eax
 ___1b771h:
 		xor     edx, edx
 		mov     dl, [ebp+0]
 		shl     edx, 5
 		inc     eax
-		mov     [edx+___19dedbh], bl
+		mov     [edx+___19ded0h+0bh], bl
 		cmp     eax, byte 4
 		jl      short ___1b771h
 		xor     ebx, ebx
@@ -737,10 +719,10 @@ ___1b787h:
 ___1b789h:
 		xor     edx, edx
 		mov     dl, [ebp+0]
-		inc     eax
 		shl     edx, 5
 		xor     ch, ch
-		mov     [edx+eax*1+___19dee2h], ch
+		mov     [edx+eax+___19ded0h+13h], ch
+		inc     eax
 		cmp     eax, byte 9
 		jl      short ___1b789h
 		inc     ebx
@@ -753,7 +735,7 @@ ___1b7a8h:
 		xor     bl, bl
 		shl     edx, 5
 		inc     eax
-		mov     [edx+___19dee2h], bl
+		mov     [edx+___19ded0h+12h], bl
 		cmp     eax, byte 4
 		jl      short ___1b7a8h
 		xor     eax, eax
@@ -763,7 +745,7 @@ ___1b7c0h:
 		xor     ebx, ebx
 		shl     edx, 5
 		inc     eax
-		mov     [edx+___19deech], ebx
+		mov     [edx+___19ded0h+1ch], ebx
 		cmp     eax, byte 4
 		jl      short ___1b7c0h
 		xor     eax, eax
@@ -820,7 +802,7 @@ ___1b861h:
 		mov     ch, 1
 		push    8000h
 		mov     eax, 1
-		mov     edx, [___1854b0h]
+		mov     edx, 28000h
 		xor     ebx, ebx
 		mov     [esp+28h], ch
 		push    edx
@@ -842,7 +824,7 @@ ___1b8a2h:
 		mov     dh, 1
 		push    8000h
 		mov     eax, 1
-		mov     ecx, [___1854b0h]
+		mov     ecx, 28000h
 		xor     ebx, ebx
 		mov     [esp+28h], dh
 		push    ecx
@@ -863,7 +845,7 @@ ___1b8cbh:
 		je      near ___1baedh
 		push    8000h
 		mov     edx, 19h
-		mov     ecx, [___1854ach]
+		mov     ecx, 28000h
 		mov     eax, 1
 		push    ecx
 		xor     ebx, ebx
@@ -886,20 +868,20 @@ ___1b8cbh:
 	pop 	edx
 
 		mov     [___185a54h], eax
-		mov     eax, [esi+___19deech]
+		mov     eax, [esi+___19ded0h+1ch]
 		mov     [___185a14h_UseWeapons], eax
 		xor     eax, eax
-		mov     al, [esi+___19dee2h]
+		mov     al, [esi+___19ded0h+12h]
 		mov     [___196ab8h], eax
 		xor     eax, eax
 ___1b94dh:
 		xor     ebx, ebx
 		mov     bl, [esp+20h]
 		mov     edx, ebx
-		inc     eax
 		shl     edx, 5
-		mov     dl, [edx+eax*1+___19dee2h]
-		mov     [eax+___1a2010h], dl
+		mov     dl, [edx+eax+___19ded0h+13h]
+		mov     [eax+___1a2010h+1], dl
+		inc     eax
 		cmp     eax, byte 9
 		jl      short ___1b94dh
 		mov     ecx, 2a580h
@@ -986,7 +968,7 @@ ___1b9ceh:
 	add 	esp, 14h
 	
 		mov     ecx, [esp+18h]
-		mov     ebx, ___180a78h
+		mov     ebx, __dfr_180a78h
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
 
@@ -1006,7 +988,7 @@ ___1ba53h:
 		xor     edx, edx
 		mov     dl, [esp+20h]
 		mov     ebx, edx
-		mov     dl, [___180130h]
+		mov     dl, 0
 		shl     ebx, 5
 		inc     eax
 		mov     [ebx+___19ded0h], dl
@@ -1017,10 +999,10 @@ ___1ba72h:
 		xor     edx, edx
 		mov     dl, [esp+20h]
 		mov     ebx, edx
-		mov     dl, [___180130h]
+		mov     dl, 0
 		shl     ebx, 5
 		inc     eax
-		mov     [ebx+___19dedbh], dl
+		mov     [ebx+___19ded0h+0bh], dl
 		cmp     eax, byte 4
 		jl      short ___1ba72h
 		xor     ebx, ebx
@@ -1029,10 +1011,10 @@ ___1ba91h:
 ___1ba93h:
 		xor     edx, edx
 		mov     dl, [esp+20h]
-		inc     eax
 		shl     edx, 5
 		xor     cl, cl
-		mov     [edx+eax*1+___19dee2h], cl
+		mov     [edx+eax+___19ded0h+13h], cl
+		inc     eax
 		cmp     eax, byte 9
 		jl      short ___1ba93h
 		inc     ebx
@@ -1045,7 +1027,7 @@ ___1bab3h:
 		xor     ch, ch
 		shl     edx, 5
 		inc     eax
-		mov     [edx+___19dee2h], ch
+		mov     [edx+___19ded0h+12h], ch
 		cmp     eax, byte 4
 		jl      short ___1bab3h
 		xor     eax, eax
@@ -1056,7 +1038,7 @@ ___1bacch:
 		xor     ecx, ecx
 		shl     ebx, 5
 		inc     eax
-		mov     [ebx+___19deech], ecx
+		mov     [ebx+___19ded0h+1ch], ecx
 		cmp     eax, byte 4
 		jl      short ___1bacch
 		xor     al, al
@@ -1065,7 +1047,7 @@ ___1bacch:
 ___1baedh:
 		push    8000h
 		mov     edx, 1dh
-		mov     ebx, [___1854bch]
+		mov     ebx, 28000h
 		mov     eax, 1
 		push    ebx
 		mov     ecx, [___24cc54h]
@@ -1121,7 +1103,7 @@ ___1bb42h:
 	pop 	ecx
 	pop 	edx
 
-		mov     ebx, ___1807cch
+		mov     ebx, chat_mode
 		mov     eax, ebp
 		mov     edx, ___185c0bh
 
@@ -1143,7 +1125,7 @@ ___1bb42h:
 	add 	esp, 10h
 
 		mov     ecx, 390d9h
-		mov     ebx, ___1807e8h
+		mov     ebx, k_f1
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
 		mov     ebp, [esp]
@@ -1237,4 +1219,14 @@ ___1bc14h:
 		pop     ecx
 		pop     ebx
 		retn    
+
+section .data
+chat_mode:
+	db 	"press   to enter chat mode",0,0
+k_f1:
+	db 	"F1",0,0
+loc_wait:
+	db 	"Wait...",0
+__dfr_180a78h:
+	db	4ch,6fh,6fh,6bh,69h,6eh,67h,20h,66h,6fh,72h,20h,6eh,65h,74h,67h,61h,6dh,65h,73h,2ch,20h,70h,72h,65h,73h,73h,20h,65h,6eh,74h,65h,72h,20h,74h,6fh,20h,6ah,6fh,69h,6eh,2eh,2eh,2eh,0,0,0,0
 */

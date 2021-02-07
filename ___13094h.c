@@ -1,50 +1,61 @@
 #include "drally.h"
 
+#pragma pack(1)
+typedef struct font_props_s {
+	byte 	w;
+	byte 	h;
+	byte 	props[];
+} font_props_t;
+
+typedef __BYTE__ let16x16_t[16][16];
+typedef let16x16_t font16x16_t[0x60];
+
+
 #define COOXY(x,y) (0x280*(y)+(x))
 
-	extern byte ___185c0bh;
-	extern byte ___185c0ch;
+	extern font_props_t ___185c0bh;
 	extern byte * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
-	extern byte * ___1a10fch;
-	extern byte * ___1a110ch;
-	extern byte * ___1a1108h;
-	extern byte ___185bedh[];
+	extern font16x16_t * ___1a10fch;
+	extern font16x16_t * ___1a110ch;
+	extern font16x16_t * ___1a1108h;
 
-void ___13094h_cdecl(const char * A1, dword A2){
+void ___13094h_cdecl(const char * a_str, int a_offset){
+// 16x16 fonts
 
-	dword 	ebx, ecx, edi;
-	dword 	n, f_color, i, j;
-	byte	c;
+	int 		n, dx, dy, sx, sy;
+	byte		px;
+	let16x16_t *	let16;
+	font16x16_t *  	fnt16;
 
-	byte * 	fonts[3] = { ___1a10fch, ___1a110ch, ___1a1108h };
-
-	f_color = 0;
+	fnt16 = ___1a10fch;
 	n = -1;
-	while(A1[++n]){
+	while(a_str[++n]){
 
-		switch(A1[n]){
+		switch(a_str[n]){
 		case 0x7b:
-			f_color = 0;
+			fnt16 = ___1a10fch;
 			break;
 		case 0x7d:
-			f_color = 1;
+			fnt16 = ___1a110ch;
 			break;
 		case 0x5b:
-			f_color = 2;
+			fnt16 = ___1a1108h;
 			break;
 		default:
-			j = -1;
-			while(++j < ___185c0ch){
+			let16 = &(*fnt16)[a_str[n]-0x20];
+			dx = a_offset%0x280;
+			dy = a_offset/0x280;
+			sy = -1;
+			while(++sy < ___185c0bh.h){
 
-				i = -1;
-				while(++i < ___185c0bh){
+				sx = -1;
+				while(++sx < ___185c0bh.w){
 
-					c = fonts[f_color][___185c0bh*(j+(A1[n]-0x20)*___185c0ch)+i];
-					if(c != 0) ___1a112ch__VESA101_ACTIVESCREEN_PTR[COOXY(i+(A2%0x280), j+(A2/0x280))] = c;
+					if(px = (*let16)[sy][sx]) ___1a112ch__VESA101_ACTIVESCREEN_PTR[COOXY(dx+sx, dy+sy)] = px;
 				}
 			}
 
-			A2 += ___185bedh[A1[n]];
+			a_offset += ___185c0bh.props[a_str[n]-0x20];
 			break;
 		}
 	}

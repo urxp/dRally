@@ -17,24 +17,20 @@ typedef rgb24_t pal256_t[0x100];
 	extern dword ___1a1f00h;
 	extern byte * ___1a1f10h;
 	extern byte * ___1a1f1ch;
-	extern dword ___185a0ch;
 	extern pal256_t ___1a0a60h;
-	extern dword read_p;
-	extern dword write_p;
 	extern byte * ___1a1f18h;
 	extern byte * ___1a1f14h;
 	extern dword * ___1a1f24h;
 	extern dword ___1a1f2ch;
 	extern dword ___1a1f04h;
 	extern dword LOC_RESET;
-	extern dword ___1859cch;
 	extern dword LOC_END;
-	extern dword ___1859c8h;
 	extern dword ___1a1f30h;
 	extern dword ___1a1f08h;
 	extern byte ___1a2042h[];
 	extern byte * ___1a1f28h;
 	extern byte ___1a2149h;
+
 
 void * ___3f71ch__allocateMemory(dword);
 void dRally_Memory_free(void *);
@@ -58,7 +54,15 @@ void dRally_Sound_setSampleRate(dword freq);
 void dRally_Sound_play(void);
 void dRally_Sound_load(dword msx_t, dword msx_f, dword sfx_t, dword sfx_f, dword num_ch);
 
-dword ___10784h(void){
+
+static dword ___1859c8h = 0;
+static dword ___1859cch = 0;
+static dword read_p = 0;
+static dword write_p = 0;
+static dword ___185a0ch = 0;
+
+
+static dword ___10784h(void){
 
 	dword 	n, rslt;
 
@@ -102,7 +106,7 @@ dword ___10784h(void){
 	return rslt&~(-1<<___1a1f2ch);
 }
 
-void ___108e8h(void){
+static void ___108e8h(void){
 
 	dword 	r, n, df_bits, next, val, ecx, edi;
 
@@ -186,7 +190,16 @@ void ___108e8h(void){
 	dRally_Memory_free(___1a1f24h);
 }
 
-void ___10b80h_cdecl(const char * A1, dword A2, const char * A3, dword A4, const char * A5, dword A6, dword A7){
+void ___10b80h_cdecl(
+		const char * 	a_haf_file,
+		int 			a_msx_fmt,		// 1 - S3M
+		const char * 	a_msx_file,
+		int		 		a_sfx_fmt,		// 2 - XM
+		const char * 	a_sfx_file,
+		int 			a_skip,
+		int 			a_height){
+
+	// in dr implementation video frame is cropped beginning from the top if a_height is less than 120
 
 	dword 	ch_n, n, skipped;
 	dword 	eax, ebx, ecx, edx, edi, esi;
@@ -199,17 +212,17 @@ void ___10b80h_cdecl(const char * A1, dword A2, const char * A3, dword A4, const
 	int 	total_length;
 
 
-	strcat(strcpy(buffer, ___1a0d60h), A1);
-	DecodedFrame = ___3f71ch__allocateMemory(0xfa00);
-	EncodedFrame = ___3f71ch__allocateMemory(0xfa00);
+	strcat(strcpy(buffer, ___1a0d60h), a_haf_file);
+	DecodedFrame = ___3f71ch__allocateMemory(0xfa00);	// 320x200
+	EncodedFrame = ___3f71ch__allocateMemory(0xfa00);	// 320x200
 
-	if(A2) dRally_Sound_load(A2, A3, A4, A5, 6);
+	if(a_msx_fmt) dRally_Sound_load(a_msx_fmt, a_msx_file, a_sfx_fmt, a_sfx_file, 6);
 
 	___606dfh();
 	__VGA13_SETMODE();
 	___60466h(0x46, 1);
 
-	if(A2){
+	if(a_msx_fmt){
 	
 		dRally_Sound_setSampleRate(0x5622);
 		dRally_Sound_play();
@@ -228,7 +241,7 @@ void ___10b80h_cdecl(const char * A1, dword A2, const char * A3, dword A4, const
 	total_length = 0;
 	n = -1;
 	while(++n < ___1a1f00h) total_length += ___1a1f1ch[n];
-	printf("[dRally.CINEM] HAF: %s\n", A1);
+	printf("[dRally.CINEM] HAF: %s\n", a_haf_file);
 	printf("[dRally.CINEM] Frames: %d, Length: %d [%.2fs]\n", ___1a1f00h, total_length, (double)total_length/70.0/*71.4285714286*/);
 
 
@@ -246,7 +259,7 @@ void ___10b80h_cdecl(const char * A1, dword A2, const char * A3, dword A4, const
 
 	ch_n = 0;
 	___185a0ch = -1;
-	while((++___185a0ch < ___1a1f00h)&&!(skipped = (A6&&___5994ch()))){
+	while((++___185a0ch < ___1a1f00h)&&!(skipped = (a_skip&&___5994ch()))){
 
 		esi = __GET_FRAME_COUNTER();
 		eax = 0;
@@ -262,8 +275,8 @@ void ___10b80h_cdecl(const char * A1, dword A2, const char * A3, dword A4, const
 		n = 0xf;
 		while(++n < 0x100) __DISPLAY_SET_PALETTE_COLOR(___1a0a60h[n].b, ___1a0a60h[n].g, ___1a0a60h[n].r, n);
 
-		if(A7 > 0x78) A7 = 0x78;
-		memcpy(VGA13_ACTIVESCREEN+((200-A7)/2)*320, DecodedFrame+((0x78-A7)/2)*320, A7*320);
+		if(a_height > 0x78) a_height = 0x78;
+		memcpy(VGA13_ACTIVESCREEN+((200-a_height)/2)*320, DecodedFrame+((0x78-a_height)/2)*320, a_height*320);
 		__VGA13_PRESENTSCREEN__();
 
 		if(___1a1f10h[___185a0ch]){

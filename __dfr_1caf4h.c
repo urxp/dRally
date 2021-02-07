@@ -10,10 +10,7 @@
 	extern byte ___19bd60h[];
 	extern byte ___1a116ch[];
 	extern byte ___1a1f4eh[];
-	extern byte ___1a1f4dh[];
-	extern byte ___1a1dbah[];
-	extern byte ___1a1f63h[];
-	extern byte ___1a0f9ch[];
+	extern void * ___1a0f9ch;
 	extern byte ___1a1ef8h[];
 	extern byte ___1a01e0h[];
 	extern byte ___185b58h[];
@@ -90,31 +87,31 @@ dword ___1caf4h(void){
 		while(1){
 
 			strcpy(ecx, ecx+0x96);
+			B(edx+___1a1f4eh) = B(edx+___1a1f4eh+1);
 			edx++;
-			B(edx+___1a1f4dh) = B(edx+___1a1f4eh);
 			ecx += 0x96;
 			if((int)edx >= 0x15) break;
 		}
 
-		strcpy(___1a1dbah, "");
+		strcpy(___1a116ch+0xc4e, "");
 
 		ebx = ___1a116ch;
 		edx = 0;
 		while(1){
 
 			strcpy(ebx, ebx+0x96);
+			B(edx+___1a1f4eh) = B(edx+___1a1f4eh+1);
 			edx++;
-			B(edx+___1a1f4dh) = B(edx+___1a1f4eh);
 		
 			ebx += 0x96;
 			if((int)edx >= 0x15) break;
 		}
 
-		B(___1a1f63h) = 0;
-		strcpy(___1a1dbah, "-- Connecting to Death Rally multiplayer.");
-		D(___1a0f9ch) = ___3f71ch__allocateMemory(0x64);
+		B(___1a1f4eh+0x15) = 0;
+		strcpy(___1a116ch+0xc4e, "-- Connecting to Death Rally multiplayer.");
+		___1a0f9ch = ___3f71ch__allocateMemory(0x64);
 
-		if(D(CONNECTION_TYPE) == 2) ___23488h_cdecl(D(___1a0f9ch), 0, 7);
+		if(D(CONNECTION_TYPE) == 2) ___23488h_cdecl(___1a0f9ch, 0, 7);
 
 		ebp = 0;
 		while(1){
@@ -122,24 +119,24 @@ dword ___1caf4h(void){
 			___58c60h();
 			___6168ch();
 
-			if(___23594h_cdecl(D(___1a0f9ch), 8) != 0){
+			if(___23594h_cdecl(___1a0f9ch, 8) != 0){
 
-				memcpy(esp, D(___1a0f9ch), 0x64);
+				memcpy(esp, ___1a0f9ch, 0x64);
 				ecx = ___1a116ch;
 
 				edx = 0;
 				while(1){
 
 					strcpy(ecx, ecx+0x96);
+					B(edx+___1a1f4eh) = B(edx+___1a1f4eh+1);
 					edx++;
-					B(edx+___1a1f4dh) = B(edx+___1a1f4eh);
 				
 					ecx += 0x96;
 					if((int)edx >= 0x15) break;
 				}
 
-				strcpy(___1a1dbah, esp);
-				B(___1a1f63h) = 0;
+				strcpy(___1a116ch+0xc4e, esp);
+				B(___1a1f4eh+0x15) = 0;
 			}
 
 			ebp++;
@@ -147,24 +144,24 @@ dword ___1caf4h(void){
 			if((int)ebp >= 0x1e) break;
 		}
 
-		dRally_Memory_free(D(___1a0f9ch));
+		dRally_Memory_free(___1a0f9ch);
 
 		ecx = ___1a116ch;
 		edx = 0;
 		while(1){
 
 			strcpy(ecx, ecx+0x96);
+			B(edx+___1a1f4eh) = B(edx+___1a1f4eh+1);
 			edx++;
-			B(edx+___1a1f4dh) = B(edx+___1a1f4eh);
 			ecx += 0x96;
 			if((int)edx >= 0x15) break;
 		}
 
-		strcpy(___1a1dbah, "-- ");
-		strcat(___1a1dbah, 0x6c*D(___1a1ef8h)+___1a01e0h);
-		strcat(___1a1dbah, " has joined to Death Rally.");
-		B(___1a1f63h) = 0;
-		___23488h_cdecl(___1a1dbah, strlen(___1a1dbah)+1, 6);
+		strcpy(___1a116ch+0xc4e, "-- ");
+		strcat(___1a116ch+0xc4e, 0x6c*D(___1a1ef8h)+___1a01e0h);
+		strcat(___1a116ch+0xc4e, " has joined to Death Rally.");
+		B(___1a1f4eh+0x15) = 0;
+		___23488h_cdecl(___1a116ch+0xc4e, strlen(___1a116ch+0xc4e)+1, 6);
 		___23230h();
 		___12d6ch__VESA101_PRESENTBOTTOMSCREEN();
 		B(___185b58h) = 0;

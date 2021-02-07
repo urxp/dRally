@@ -1,7 +1,5 @@
 #include "drally.h"
-
-	extern byte ___1a54d0h[];
-
+#include "assets.h"
 
 	extern void * ___1a1e68h;
 	extern void * ___1a10d8h;
@@ -34,26 +32,7 @@
 	extern void * ___1a0fa8h;
 	extern void * ___1a0fc0h;
 	extern void * ___1a0fa4h;
-	extern void * ___19de70h;
-	extern void * ___19de74h;
-	extern void * ___19de78h;
-	extern void * ___19de7ch;
-	extern void * ___19de80h;
-	extern void * ___19de84h;
-	extern void * ___19de88h;
-	extern void * ___19de8ch;
-	extern void * ___19de90h;
-	extern void * ___19de94h;
-	extern void * ___19de98h;
-	extern void * ___19de9ch;
-	extern void * ___19dea0h;
-	extern void * ___19dea4h;
-	extern void * ___19dea8h;
-	extern void * ___19deach;
-	extern void * ___19deb0h;
-	extern void * ___19deb4h;
-	extern void * ___19deb8h;
-	extern void * ___19debch;
+	extern byte ___19de70h[];
 	extern void * ___1a0fb4h;
 	extern void * ___1a1128h;
 	extern void * ___1a10f8h;
@@ -73,25 +52,6 @@
 	extern void * ___1a10a4h;
 
 	extern void * ___1a1040h[];
-	//extern void * ___1a1040h;
-	//extern void * ___1a1044h;
-	//extern void * ___1a1048h;
-	//extern void * ___1a104ch;
-	//extern void * ___1a1050h;
-	//extern void * ___1a1054h;
-	//extern void * ___1a1058h;
-	//extern void * ___1a105ch;
-	//extern void * ___1a1060h;
-	//extern void * ___1a1064h;
-	//extern void * ___1a1068h;
-	//extern void * ___1a106ch;
-	//extern void * ___1a1070h;
-	//extern void * ___1a1074h;
-	//extern void * ___1a1078h;
-	//extern void * ___1a107ch;
-	//extern void * ___1a1080h;
-	//extern void * ___1a1084h;
-	//extern void * ___1a1088h;
 
 	extern void * ___1a1030h;
 	extern void * ___1a1038h;
@@ -103,29 +63,10 @@
 	extern void * ___1a1e78h;
 	extern void * ___1a1eb8h;
 	extern void * ___1a0180h;
-	extern void * ___1a0184h;
-	extern void * ___1a0188h;
-	extern void * ___1a018ch;
-	extern void * ___1a0190h;
-	extern void * ___1a0194h;
-	extern void * ___1a01b8h;
-	extern void * ___1a01bch;
-	extern void * ___1a01c0h;
-	extern void * ___1a01c4h;
-	extern void * ___1a01c8h;
-	extern void * ___1a01cch;
-	extern void * ___1a01a8h;
-	extern void * ___1a01ach;
-	extern void * ___1a01b0h;
-	extern void * ___1a01b4h;
-	extern void * ___1a0198h;
-	extern void * ___1a019ch;
-	extern void * ___1a01a0h;
-	extern void * ___1a01a4h;
-	extern void * ___1a01d0h;
-	extern void * ___1a01d4h;
-	extern void * ___1a01d8h;
-	extern void * ___1a01dch;
+	extern void * ___1a01b8h[6];
+	extern void * ___1a01a8h[4];
+	extern void * ___1a0198h[4];
+	extern void * ___1a01d0h[4];
 	extern void * ___1a1e8ch;
 	extern void * ___1a1ea0h;
 	extern void * ___1a1e7ch;
@@ -140,10 +81,6 @@
 	extern void * ___1a1ea8h;
 	extern void * ___1a1e6ch;
 	extern void * ___1a1e98h;
-	extern void * ___1a1each;
-	extern void * ___1a1e94h;
-	extern void * ___1a1e9ch;
-	extern void * ___1a1e70h;
 	extern void * ___1a1e5ch;
 	extern void * ___1a1e58h;
 	extern void * ___1a1e54h;
@@ -159,9 +96,6 @@
 
 void * ___3f71ch__allocateMemory(dword);
 void dRally_Memory_free(void *);
-void bpk_decode4(dword, dword, void *, void *);
-void bpk_decode2(void *, void *);
-void bpa_read(char *, void *, char *);
 
 void ___117d4h(void){
 
@@ -170,254 +104,105 @@ void ___117d4h(void){
 
 void ___117f4h(void){
 
-    ___1a10d8h = ___3f71ch__allocateMemory(0xa00);
-    ___1a10f0h = ___3f71ch__allocateMemory(0xa00);
-    ___1a0fb8h = ___3f71ch__allocateMemory(0x300);
-    ___1a0fe0h = ___3f71ch__allocateMemory(0x300);
-    ___1a10c8h = ___3f71ch__allocateMemory(0x600);
-    ___1a10c4h = ___3f71ch__allocateMemory(0x8ca);
-    ___1a10cch = ___3f71ch__allocateMemory(0x18000);
-    ___1a10fch = ___3f71ch__allocateMemory(0x6000);
-    ___1a110ch = ___3f71ch__allocateMemory(0x6000);
-    ___1a1108h = ___3f71ch__allocateMemory(0x6000);
-    ___1a10b8h = ___3f71ch__allocateMemory(0x1a28);
-    ___1a1138h__VESA101h_DefaultScreenBufferB = ___3f71ch__allocateMemory(0x4b000);
-    ___1a0fe8h = ___3f71ch__allocateMemory(0x2e00);
-    ___1a0fbch = ___3f71ch__allocateMemory(0x516c);
-    ___1a0fd8h = ___3f71ch__allocateMemory(0x19a20);
-    ___1a0fcch = ___3f71ch__allocateMemory(0x22e);
-    ___1a0fd0h = ___3f71ch__allocateMemory(0x71a);
-    ___1a0fd4h = ___3f71ch__allocateMemory(0x3ba);
-    ___1a0fech = ___3f71ch__allocateMemory(0x3fc0);
-    ___1a0fc4h = ___3f71ch__allocateMemory(0x3fc0);
-    ___1a0fe4h = ___3f71ch__allocateMemory(0x3fc0);
-    ___1a0fdch = ___3f71ch__allocateMemory(0x71a);
-    ___1a0fach = ___3f71ch__allocateMemory(0x3ba);
-    ___1a0fc8h = ___3f71ch__allocateMemory(0x22e);
-    ___1a0fb0h = ___3f71ch__allocateMemory(0x2f4);
-    ___1a0ff0h = ___3f71ch__allocateMemory(0x2f4);
-    ___1a0fa8h = ___3f71ch__allocateMemory(0x2f4);
-    ___1a0fc0h = ___3f71ch__allocateMemory(0x3a64);
-    ___1a0fa4h = ___3f71ch__allocateMemory(0x1e780);
-    ___19de70h = ___3f71ch__allocateMemory(0x1000);
-    ___19de74h = ___3f71ch__allocateMemory(0x1000);
-    ___19de78h = ___3f71ch__allocateMemory(0x1000);
-    ___19de7ch = ___3f71ch__allocateMemory(0x1000);
-    ___19de80h = ___3f71ch__allocateMemory(0x1000);
-    ___19de84h = ___3f71ch__allocateMemory(0x1000);
-    ___19de88h = ___3f71ch__allocateMemory(0x1000);
-    ___19de8ch = ___3f71ch__allocateMemory(0x1000);
-    ___19de90h = ___3f71ch__allocateMemory(0x1000);
-    ___19de94h = ___3f71ch__allocateMemory(0x1000);
-    ___19de98h = ___3f71ch__allocateMemory(0x1000);
-    ___19de9ch = ___3f71ch__allocateMemory(0x1000);
-    ___19dea0h = ___3f71ch__allocateMemory(0x1000);
-    ___19dea4h = ___3f71ch__allocateMemory(0x1000);
-    ___19dea8h = ___3f71ch__allocateMemory(0x1000);
-    ___19deach = ___3f71ch__allocateMemory(0x1000);
-    ___19deb0h = ___3f71ch__allocateMemory(0x1000);
-    ___19deb4h = ___3f71ch__allocateMemory(0x1000);
-    ___19deb8h = ___3f71ch__allocateMemory(0x1000);
-    ___19debch = ___3f71ch__allocateMemory(0x1000);
-    ___1a0fb4h = ___3f71ch__allocateMemory(0x1000);
+	___1a10c8h = dRally_Assets_loadRaw("MENU.BPA", "bgcop.pal", 0x600);
+    ___1a0fb8h = dRally_Assets_loadRaw("MENU.BPA", "copper.pal", 0x300);
+    ___1a0fe0h = dRally_Assets_loadRaw("MENU.BPA", "carcol.pal", 0x300);
 
-    bpa_read("MENU.BPA", ___1a10c8h, "bgcop.pal");
-    bpa_read("MENU.BPA", ___1a54d0h, "15x150.bpk");
-    bpk_decode2(___1a10c4h, ___1a54d0h);
-    bpa_read("MENU.BPA", ___1a54d0h, "f-big3a.bpk");
-    bpk_decode2(___1a10cch, ___1a54d0h);
-    bpa_read("MENU.BPA", ___1a54d0h, "f-sma3a.bpk");
-    bpk_decode2(___1a1108h, ___1a54d0h);
-    bpa_read("MENU.BPA", ___1a54d0h, "f-sma3b.bpk");
-    bpk_decode2(___1a10fch, ___1a54d0h);
-    bpa_read("MENU.BPA", ___1a54d0h, "f-sma3c.bpk");
-    bpk_decode2(___1a110ch, ___1a54d0h);
-    bpa_read("MENU.BPA", ___1a54d0h, "f-med1a.bpk");
-    bpk_decode2(___1a10b8h, ___1a54d0h);
-    bpa_read("MENU.BPA", ___1a54d0h, "rank1c.bpk");
-    bpk_decode2(___1a0fbch, ___1a54d0h);
-    bpa_read("MENU.BPA", ___1a54d0h, "resupok1.bpk");
-    bpk_decode2(___1a0fd8h, ___1a54d0h);
-    bpa_read("MENU.BPA", ___1a54d0h, "mulsbg2.bpk");
-    bpk_decode2(___1a0fe8h, ___1a54d0h);
-    bpa_read("MENU.BPA", ___1a54d0h, "rankinf1.bpk");
-    bpk_decode2(___1a0fcch, ___1a54d0h);
-    bpa_read("MENU.BPA", ___1a54d0h, "rankinf2.bpk");
-    bpk_decode2(___1a0fd0h, ___1a54d0h);
-    bpa_read("MENU.BPA", ___1a54d0h, "rankinf3.bpk");
-    bpk_decode2(___1a0fd4h, ___1a54d0h);
-    bpa_read("MENU.BPA", ___1a54d0h, "race-eas.bpk");
-    bpk_decode2(___1a0fech, ___1a54d0h);
-    bpa_read("MENU.BPA", ___1a54d0h, "race-med.bpk");
-    bpk_decode2(___1a0fc4h, ___1a54d0h);
-    bpa_read("MENU.BPA", ___1a54d0h, "race-har.bpk");
-    bpk_decode2(___1a0fe4h, ___1a54d0h);
-    bpa_read("MENU.BPA", ___1a54d0h, "p-name.bpk");
-    bpk_decode2(___1a0fdch, ___1a54d0h);
-    bpa_read("MENU.BPA", ___1a54d0h, "p-pist.bpk");
-    bpk_decode2(___1a0fach, ___1a54d0h);
-    bpa_read("MENU.BPA", ___1a54d0h, "p-rank.bpk");
-    bpk_decode2(___1a0fc8h, ___1a54d0h);
-    bpa_read("MENU.BPA", ___1a54d0h, "pts-easy.bpk");
-    bpk_decode2(___1a0fb0h, ___1a54d0h);
-    bpa_read("MENU.BPA", ___1a54d0h, "pts-med.bpk");
-    bpk_decode2(___1a0ff0h, ___1a54d0h);
-    bpa_read("MENU.BPA", ___1a54d0h, "pts-hard.bpk");
-    bpk_decode2(___1a0fa8h, ___1a54d0h);
-    bpa_read("MENU.BPA", ___1a54d0h, "placing.bpk");
-    bpk_decode2(___1a0fc0h, ___1a54d0h);
-    bpa_read("MENU.BPA", ___1a54d0h, "carres.bpk");
-    bpk_decode2(___1a0fa4h, ___1a54d0h);
-    bpa_read("MENU.BPA", ___1a54d0h, "face01.bpk");
-    bpk_decode2(___19de70h, ___1a54d0h);
-    bpa_read("MENU.BPA", ___1a54d0h, "face02.bpk");
-    bpk_decode2(___19de74h, ___1a54d0h);
-    bpa_read("MENU.BPA", ___1a54d0h, "face03.bpk");
-    bpk_decode2(___19de78h, ___1a54d0h);
-    bpa_read("MENU.BPA", ___1a54d0h, "face04.bpk");
-    bpk_decode2(___19de7ch, ___1a54d0h);
-    bpa_read("MENU.BPA", ___1a54d0h, "face05.bpk");
-    bpk_decode2(___19de80h, ___1a54d0h);
-    bpa_read("MENU.BPA", ___1a54d0h, "face06.bpk");
-    bpk_decode2(___19de84h, ___1a54d0h);
-    bpa_read("MENU.BPA", ___1a54d0h, "face07.bpk");
-    bpk_decode2(___19de88h, ___1a54d0h);
-    bpa_read("MENU.BPA", ___1a54d0h, "face08.bpk");
-    bpk_decode2(___19de8ch, ___1a54d0h);
-    bpa_read("MENU.BPA", ___1a54d0h, "face09.bpk");
-    bpk_decode2(___19de90h, ___1a54d0h);
-    bpa_read("MENU.BPA", ___1a54d0h, "face10.bpk");
-    bpk_decode2(___19de94h, ___1a54d0h);
-    bpa_read("MENU.BPA", ___1a54d0h, "face11.bpk");
-    bpk_decode2(___19de98h, ___1a54d0h);
-    bpa_read("MENU.BPA", ___1a54d0h, "face12.bpk");
-    bpk_decode2(___19de9ch, ___1a54d0h);
-    bpa_read("MENU.BPA", ___1a54d0h, "face13.bpk");
-    bpk_decode2(___19dea0h, ___1a54d0h);
-    bpa_read("MENU.BPA", ___1a54d0h, "face14.bpk");
-    bpk_decode2(___19dea4h, ___1a54d0h);
-    bpa_read("MENU.BPA", ___1a54d0h, "face15.bpk");
-    bpk_decode2(___19dea8h, ___1a54d0h);
-    bpa_read("MENU.BPA", ___1a54d0h, "face16.bpk");
-    bpk_decode2(___19deach, ___1a54d0h);
-    bpa_read("MENU.BPA", ___1a54d0h, "face17.bpk");
-    bpk_decode2(___19deb0h, ___1a54d0h);
-    bpa_read("MENU.BPA", ___1a54d0h, "face18.bpk");
-    bpk_decode2(___19deb4h, ___1a54d0h);
-    bpa_read("MENU.BPA", ___1a54d0h, "face19.bpk");
-    bpk_decode2(___19deb8h, ___1a54d0h);
-    bpa_read("MENU.BPA", ___1a54d0h, "face20.bpk");
-    bpk_decode2(___19debch, ___1a54d0h);
-    bpa_read("MENU.BPA", ___1a54d0h, "facexx.bpk");
-    bpk_decode2(___1a0fb4h, ___1a54d0h);
-    bpa_read("MENU.BPA", ___1a0fb8h, "copper.pal");
-    bpa_read("MENU.BPA", ___1a0fe0h, "carcol.pal");
-    bpa_read("MENU.BPA", ___1a54d0h, "corn3a.bpk");
-    bpk_decode2(___1a10f0h, ___1a54d0h);
-    bpa_read("MENU.BPA", ___1a54d0h, "corn3b.bpk");
-    bpk_decode2(___1a10d8h, ___1a54d0h);
-    bpa_read("MENU.BPA", ___1a54d0h, "menubg5.bpk");
-    bpk_decode2(___1a1138h__VESA101h_DefaultScreenBufferB, ___1a54d0h); 
+	___1a10c4h = dRally_Assets_loadDecode("MENU.BPA", "15x150.bpk", 0x8ca);
+    ___1a10cch = dRally_Assets_loadDecode("MENU.BPA", "f-big3a.bpk", 0x18000);
+    ___1a1108h = dRally_Assets_loadDecode("MENU.BPA", "f-sma3a.bpk", 0x6000);
+    ___1a10fch = dRally_Assets_loadDecode("MENU.BPA", "f-sma3b.bpk", 0x6000);
+    ___1a110ch = dRally_Assets_loadDecode("MENU.BPA", "f-sma3c.bpk", 0x6000);
+    ___1a10b8h = dRally_Assets_loadDecode("MENU.BPA", "f-med1a.bpk", 0x1a28);
+    ___1a0fbch = dRally_Assets_loadDecode("MENU.BPA", "rank1c.bpk", 0x516c);
+    ___1a0fd8h = dRally_Assets_loadDecode("MENU.BPA", "resupok1.bpk", 0x19a20);
+    ___1a0fe8h = dRally_Assets_loadDecode("MENU.BPA", "mulsbg2.bpk", 0x2e00);
+    ___1a0fcch = dRally_Assets_loadDecode("MENU.BPA", "rankinf1.bpk", 0x22e);
+    ___1a0fd0h = dRally_Assets_loadDecode("MENU.BPA", "rankinf2.bpk", 0x71a);
+    ___1a0fd4h = dRally_Assets_loadDecode("MENU.BPA", "rankinf3.bpk", 0x3ba);
+    ___1a0fech = dRally_Assets_loadDecode("MENU.BPA", "race-eas.bpk", 0x3fc0);
+    ___1a0fc4h = dRally_Assets_loadDecode("MENU.BPA", "race-med.bpk", 0x3fc0);
+    ___1a0fe4h = dRally_Assets_loadDecode("MENU.BPA", "race-har.bpk", 0x3fc0);
+    ___1a0fdch = dRally_Assets_loadDecode("MENU.BPA", "p-name.bpk", 0x71a);
+    ___1a0fach = dRally_Assets_loadDecode("MENU.BPA", "p-pist.bpk", 0x3ba);
+    ___1a0fc8h = dRally_Assets_loadDecode("MENU.BPA", "p-rank.bpk", 0x22e);
+    ___1a0fb0h = dRally_Assets_loadDecode("MENU.BPA", "pts-easy.bpk", 0x2f4);
+    ___1a0ff0h = dRally_Assets_loadDecode("MENU.BPA", "pts-med.bpk", 0x2f4);
+    ___1a0fa8h = dRally_Assets_loadDecode("MENU.BPA", "pts-hard.bpk", 0x2f4);
+    ___1a0fc0h = dRally_Assets_loadDecode("MENU.BPA", "placing.bpk", 0x3a64);
+    ___1a0fa4h = dRally_Assets_loadDecode("MENU.BPA", "carres.bpk", 0x1e780);
+	
+    D(___19de70h+0x00) = dRally_Assets_loadDecode("MENU.BPA", "face01.bpk", 0x1000);
+    D(___19de70h+0x04) = dRally_Assets_loadDecode("MENU.BPA", "face02.bpk", 0x1000);
+    D(___19de70h+0x08) = dRally_Assets_loadDecode("MENU.BPA", "face03.bpk", 0x1000);
+    D(___19de70h+0x0c) = dRally_Assets_loadDecode("MENU.BPA", "face04.bpk", 0x1000);
+    D(___19de70h+0x10) = dRally_Assets_loadDecode("MENU.BPA", "face05.bpk", 0x1000);
+    D(___19de70h+0x14) = dRally_Assets_loadDecode("MENU.BPA", "face06.bpk", 0x1000);
+    D(___19de70h+0x18) = dRally_Assets_loadDecode("MENU.BPA", "face07.bpk", 0x1000);
+    D(___19de70h+0x1c) = dRally_Assets_loadDecode("MENU.BPA", "face08.bpk", 0x1000);
+    D(___19de70h+0x20) = dRally_Assets_loadDecode("MENU.BPA", "face09.bpk", 0x1000);
+    D(___19de70h+0x24) = dRally_Assets_loadDecode("MENU.BPA", "face10.bpk", 0x1000);
+    D(___19de70h+0x28) = dRally_Assets_loadDecode("MENU.BPA", "face11.bpk", 0x1000);
+    D(___19de70h+0x2c) = dRally_Assets_loadDecode("MENU.BPA", "face12.bpk", 0x1000);
+    D(___19de70h+0x30) = dRally_Assets_loadDecode("MENU.BPA", "face13.bpk", 0x1000);
+    D(___19de70h+0x34) = dRally_Assets_loadDecode("MENU.BPA", "face14.bpk", 0x1000);
+    D(___19de70h+0x38) = dRally_Assets_loadDecode("MENU.BPA", "face15.bpk", 0x1000);
+    D(___19de70h+0x3c) = dRally_Assets_loadDecode("MENU.BPA", "face16.bpk", 0x1000);
+    D(___19de70h+0x40) = dRally_Assets_loadDecode("MENU.BPA", "face17.bpk", 0x1000);
+    D(___19de70h+0x44) = dRally_Assets_loadDecode("MENU.BPA", "face18.bpk", 0x1000);
+    D(___19de70h+0x48) = dRally_Assets_loadDecode("MENU.BPA", "face19.bpk", 0x1000);
+    D(___19de70h+0x4c) = dRally_Assets_loadDecode("MENU.BPA", "face20.bpk", 0x1000);
+
+    ___1a0fb4h = dRally_Assets_loadDecode("MENU.BPA", "facexx.bpk", 0x1000);
+    ___1a10f0h = dRally_Assets_loadDecode("MENU.BPA", "corn3a.bpk", 0xa00);
+    ___1a10d8h = dRally_Assets_loadDecode("MENU.BPA", "corn3b.bpk", 0xa00);
+    ___1a1138h__VESA101h_DefaultScreenBufferB = dRally_Assets_loadDecode("MENU.BPA", "menubg5.bpk", 0x4b000);
 }
+
+void * all_3800;
 
 void ___1240ch(void){
 
 	dword 	n;
 
 	___1a1e68h = 0;
-	___1a1128h = ___3f71ch__allocateMemory(0x7530);
-	___1a10f8h = ___3f71ch__allocateMemory(0x1b18);
-	___1a1104h = ___3f71ch__allocateMemory(0x1100);
-	___1a10d4h = ___3f71ch__allocateMemory(0x5000);
-	___1a10bch = ___3f71ch__allocateMemory(0x2800);
-	___1a10e8h = ___3f71ch__allocateMemory(0x2800);
-	___1a10dch = ___3f71ch__allocateMemory(0x8700);
-	___1a10ach = ___3f71ch__allocateMemory(0x2800);
-	___1a10c0h = ___3f71ch__allocateMemory(0xaa00);
-	___1a10ech = ___3f71ch__allocateMemory(0x111c);
-	___1a10b4h = ___3f71ch__allocateMemory(0x1900);
-	___1a10f4h = ___3f71ch__allocateMemory(0x4e20);
-	___1a10d0h = ___3f71ch__allocateMemory(0x18000);
-	___1a10e0h = ___3f71ch__allocateMemory(0x18000);
-	___1a0ff8h = ___3f71ch__allocateMemory(0x2800);
-	___1a10a4h = ___3f71ch__allocateMemory(0x1500);
+
+	all_3800 = dRally_Assets_loadDecode("MENU.BPA", "trsnap2m.bpk", 0x15*0x3800);
 
 	n = -1;
-	while(++n < 0x13){
+	while(++n < 0x13) ___1a1040h[n] = all_3800+0x3800*n;
 
-		___1a1040h[n] = ___3f71ch__allocateMemory(0x3800);
-	}
+	___1a1030h = all_3800+0x3f000;
+	___1a1038h = all_3800+0x42800;
 
-	___1a1030h = ___3f71ch__allocateMemory(0x3800);
-	___1a1038h = ___3f71ch__allocateMemory(0x3800);
-
-	n = -1;
-	while(++n < 0x13){
-
-		bpa_read("MENU.BPA", ___1a54d0h, "trsnap2m.bpk");
-		bpk_decode4(0x3800, 4*n*0xe00, ___1a1040h[n], ___1a54d0h);
-	}
-
-	bpa_read("MENU.BPA", ___1a54d0h, "trsnap2m.bpk");
-	bpk_decode4(0x3800, 0x3f000, ___1a1030h, ___1a54d0h);
-	bpa_read("MENU.BPA", ___1a54d0h, "trsnap2m.bpk");
-	bpk_decode4(0x3800, 0x42800, ___1a1038h, ___1a54d0h);
-	bpa_read("MENU.BPA", ___1a54d0h, "cursor.bpk");
-	bpk_decode2(___1a10f4h, ___1a54d0h);
-	bpa_read("MENU.BPA", ___1a54d0h, "f-big3b.bpk");
-	bpk_decode2(___1a10e0h, ___1a54d0h);
-	bpa_read("MENU.BPA", ___1a54d0h, "f-big3d.bpk");
-	bpk_decode2(___1a10d0h, ___1a54d0h);
-	bpa_read("MENU.BPA", ___1a54d0h, "chatlin1.bpk");
-	bpk_decode2(___1a10b4h, ___1a54d0h);
-	bpa_read("MENU.BPA", ___1a54d0h, "chattext.bpk");
-	bpk_decode2(___1a1128h, ___1a54d0h);
-	bpa_read("MENU.BPA", ___1a54d0h, "entertx2.bpk");
-	bpk_decode2(___1a10d4h, ___1a54d0h);
-	bpa_read("MENU.BPA", ___1a54d0h, "shoptxt1.bpk");
-	bpk_decode2(___1a10bch, ___1a54d0h);
-	bpa_read("MENU.BPA", ___1a54d0h, "shoptxt2.bpk");
-	bpk_decode2(___1a10e8h, ___1a54d0h);
-	bpa_read("MENU.BPA", ___1a54d0h, "fametxt.bpk");
-	bpk_decode2(___1a10dch, ___1a54d0h);
-	bpa_read("MENU.BPA", ___1a54d0h, "recotxt.bpk");
-	bpk_decode2(___1a10ach, ___1a54d0h);
-	bpa_read("MENU.BPA", ___1a54d0h, "recobar.bpk");
-	bpk_decode2(___1a10c0h, ___1a54d0h);
-	bpa_read("MENU.BPA", ___1a54d0h, "lic-lin1.bpk");
-	bpk_decode2(___1a10ech, ___1a54d0h);
-	bpa_read("MENU.BPA", ___1a54d0h, "facesel1.bpk");
-	bpk_decode2(___1a10f8h, ___1a54d0h);	
-	bpa_read("MENU.BPA", ___1a54d0h, "facearr1.bpk");
-	bpk_decode2(___1a1104h, ___1a54d0h);
-	bpa_read("MENU.BPA", ___1a54d0h, "mseletx1.bpk");
-	bpk_decode2(___1a0ff8h, ___1a54d0h);
-	bpa_read("MENU.BPA", ___1a54d0h, "trarr1.bpk");
-	bpk_decode2(___1a10a4h, ___1a54d0h);
+	___1a10f4h = dRally_Assets_loadDecode("MENU.BPA", "cursor.bpk", 0x4e20);
+	___1a10e0h = dRally_Assets_loadDecode("MENU.BPA", "f-big3b.bpk", 0x18000);
+	___1a10d0h = dRally_Assets_loadDecode("MENU.BPA", "f-big3d.bpk", 0x18000);
+	___1a10b4h = dRally_Assets_loadDecode("MENU.BPA", "chatlin1.bpk", 0x1900);
+	___1a1128h = dRally_Assets_loadDecode("MENU.BPA", "chattext.bpk", 0x7530);
+	___1a10d4h = dRally_Assets_loadDecode("MENU.BPA", "entertx2.bpk", 0x5000);
+	___1a10bch = dRally_Assets_loadDecode("MENU.BPA", "shoptxt1.bpk", 0x2800);
+	___1a10e8h = dRally_Assets_loadDecode("MENU.BPA", "shoptxt2.bpk", 0x2800);
+	___1a10dch = dRally_Assets_loadDecode("MENU.BPA", "fametxt.bpk", 0x8700);
+	___1a10ach = dRally_Assets_loadDecode("MENU.BPA", "recotxt.bpk", 0x2800);
+	___1a10c0h = dRally_Assets_loadDecode("MENU.BPA", "recobar.bpk", 0xaa00);
+	___1a10ech = dRally_Assets_loadDecode("MENU.BPA", "lic-lin1.bpk", 0x111c);
+	___1a10f8h = dRally_Assets_loadDecode("MENU.BPA", "facesel1.bpk", 0x1b18);
+	___1a1104h = dRally_Assets_loadDecode("MENU.BPA", "facearr1.bpk", 0x1100);
+	___1a0ff8h = dRally_Assets_loadDecode("MENU.BPA", "mseletx1.bpk", 0x2800);
+	___1a10a4h = dRally_Assets_loadDecode("MENU.BPA", "trarr1.bpk", 0x1500);
 }
 
 void ___2faf0h(void){
 
-    ___1a0f90h = ___3f71ch__allocateMemory(0x1b80);
-    ___1a0f88h = ___3f71ch__allocateMemory(0xe400);
-    ___1a0f84h = ___3f71ch__allocateMemory(0x2eb8);
-    ___1a0f98h = ___3f71ch__allocateMemory(0x110);
-    ___1a0f8ch = ___3f71ch__allocateMemory(0x8700);
     ___1a1114h = ___3f71ch__allocateMemory(0x18150);
-    ___1a0f94h = ___3f71ch__allocateMemory(0xf0d2);
 
-    bpa_read("MENU.BPA", ___1a54d0h, "badtit.bpk");
-    bpk_decode2(___1a0f90h, ___1a54d0h);
-    bpa_read("MENU.BPA", ___1a54d0h, "badsnap.bpk");
-    bpk_decode2(___1a0f88h, ___1a54d0h);
-    bpa_read("MENU.BPA", ___1a54d0h, "escbox.bpk");
-    bpk_decode2(___1a0f84h, ___1a54d0h);
-    bpa_read("MENU.BPA", ___1a54d0h, "prep4.bpk");
-    bpk_decode2(___1a0f8ch, ___1a54d0h);
-    bpa_read("MENU.BPA", ___1a54d0h, "signline.bpk");
-    bpk_decode2(___1a0f98h, ___1a54d0h);
-    bpa_read("MENU.BPA", ___1a54d0h, "prepw1.bpk");
-    bpk_decode2(___1a0f94h, ___1a54d0h);  
+    ___1a0f90h = dRally_Assets_loadDecode("MENU.BPA", "badtit.bpk", 0x1b80);
+    ___1a0f88h = dRally_Assets_loadDecode("MENU.BPA", "badsnap.bpk", 0xe400);
+    ___1a0f84h = dRally_Assets_loadDecode("MENU.BPA", "escbox.bpk", 0x2eb8);
+    ___1a0f8ch = dRally_Assets_loadDecode("MENU.BPA", "prep4.bpk", 0x8700);
+    ___1a0f98h = dRally_Assets_loadDecode("MENU.BPA", "signline.bpk", 0x110);
+    ___1a0f94h = dRally_Assets_loadDecode("MENU.BPA", "prepw1.bpk", 0xf0d2); 
 }
 
 void ___12200h(void){
@@ -454,26 +239,26 @@ void ___12200h(void){
 	dRally_Memory_free(___1a0fa8h);
 	dRally_Memory_free(___1a0fc0h);
 	dRally_Memory_free(___1a0fa4h);
-	dRally_Memory_free(___19de70h);
-	dRally_Memory_free(___19de74h);
-	dRally_Memory_free(___19de78h);
-	dRally_Memory_free(___19de7ch);
-	dRally_Memory_free(___19de80h);
-	dRally_Memory_free(___19de84h);
-	dRally_Memory_free(___19de88h);
-	dRally_Memory_free(___19de8ch);
-	dRally_Memory_free(___19de90h);
-	dRally_Memory_free(___19de94h);
-	dRally_Memory_free(___19de98h);
-	dRally_Memory_free(___19de9ch);
-	dRally_Memory_free(___19dea0h);
-	dRally_Memory_free(___19dea4h);
-	dRally_Memory_free(___19dea8h);
-	dRally_Memory_free(___19deach);
-	dRally_Memory_free(___19deb0h);
-	dRally_Memory_free(___19deb4h);
-	dRally_Memory_free(___19deb8h);
-	dRally_Memory_free(___19debch);
+	dRally_Memory_free(D(___19de70h+0x00));
+	dRally_Memory_free(D(___19de70h+0x04));
+	dRally_Memory_free(D(___19de70h+0x08));
+	dRally_Memory_free(D(___19de70h+0x0c));
+	dRally_Memory_free(D(___19de70h+0x10));
+	dRally_Memory_free(D(___19de70h+0x14));
+	dRally_Memory_free(D(___19de70h+0x18));
+	dRally_Memory_free(D(___19de70h+0x1c));
+	dRally_Memory_free(D(___19de70h+0x20));
+	dRally_Memory_free(D(___19de70h+0x24));
+	dRally_Memory_free(D(___19de70h+0x28));
+	dRally_Memory_free(D(___19de70h+0x2c));
+	dRally_Memory_free(D(___19de70h+0x30));
+	dRally_Memory_free(D(___19de70h+0x34));
+	dRally_Memory_free(D(___19de70h+0x38));
+	dRally_Memory_free(D(___19de70h+0x3c));
+	dRally_Memory_free(D(___19de70h+0x40));
+	dRally_Memory_free(D(___19de70h+0x44));
+	dRally_Memory_free(D(___19de70h+0x48));
+	dRally_Memory_free(D(___19de70h+0x4c));
 	dRally_Memory_free(___1a0fb4h);
 }
 
@@ -500,14 +285,7 @@ void ___12a54h(void){
 	dRally_Memory_free(___1a0ff8h);
 	dRally_Memory_free(___1a10a4h);
 
-	n = -1;
-	while(++n < 0x13){
-
-		dRally_Memory_free(___1a1040h[n]);
-	}
-
-	dRally_Memory_free(___1a1030h);
-	dRally_Memory_free(___1a1038h);
+	dRally_Memory_free(all_3800);
 }
 
 void ___24ec0h(void){
@@ -522,29 +300,24 @@ void ___24ec0h(void){
 	dRally_Memory_free(___1a1e78h);
 	dRally_Memory_free(___1a1eb8h);
 	dRally_Memory_free(___1a0180h);
-	dRally_Memory_free(___1a0184h);
-	dRally_Memory_free(___1a0188h);
-	dRally_Memory_free(___1a018ch);
-	dRally_Memory_free(___1a0190h);
-	dRally_Memory_free(___1a0194h);
-	dRally_Memory_free(___1a01b8h);
-	dRally_Memory_free(___1a01bch);
-	dRally_Memory_free(___1a01c0h);
-	dRally_Memory_free(___1a01c4h);
-	dRally_Memory_free(___1a01c8h);
-	dRally_Memory_free(___1a01cch);
-	dRally_Memory_free(___1a01a8h);
-	dRally_Memory_free(___1a01ach);
-	dRally_Memory_free(___1a01b0h);
-	dRally_Memory_free(___1a01b4h);
-	dRally_Memory_free(___1a0198h);
-	dRally_Memory_free(___1a019ch);
-	dRally_Memory_free(___1a01a0h);
-	dRally_Memory_free(___1a01a4h);
-	dRally_Memory_free(___1a01d0h);
-	dRally_Memory_free(___1a01d4h);
-	dRally_Memory_free(___1a01d8h);
-	dRally_Memory_free(___1a01dch);
+	dRally_Memory_free(___1a01b8h[0]);
+	dRally_Memory_free(___1a01b8h[1]);
+	dRally_Memory_free(___1a01b8h[2]);
+	dRally_Memory_free(___1a01b8h[3]);
+	dRally_Memory_free(___1a01b8h[4]);
+	dRally_Memory_free(___1a01b8h[5]);
+	dRally_Memory_free(___1a01a8h[0]);
+	dRally_Memory_free(___1a01a8h[1]);
+	dRally_Memory_free(___1a01a8h[2]);
+	dRally_Memory_free(___1a01a8h[3]);
+	dRally_Memory_free(___1a0198h[0]);
+	dRally_Memory_free(___1a0198h[1]);
+	dRally_Memory_free(___1a0198h[2]);
+	dRally_Memory_free(___1a0198h[3]);
+	dRally_Memory_free(___1a01d0h[0]);
+	dRally_Memory_free(___1a01d0h[1]);
+	dRally_Memory_free(___1a01d0h[2]);
+	dRally_Memory_free(___1a01d0h[3]);
 	dRally_Memory_free(___1a1e8ch);
 	dRally_Memory_free(___1a1ea0h);
 	dRally_Memory_free(___1a1e7ch);
@@ -559,10 +332,6 @@ void ___24ec0h(void){
 	dRally_Memory_free(___1a1ea8h);
 	dRally_Memory_free(___1a1e6ch);
 	dRally_Memory_free(___1a1e98h);
-	dRally_Memory_free(___1a1each);
-	dRally_Memory_free(___1a1e94h);
-	dRally_Memory_free(___1a1e9ch);
-	dRally_Memory_free(___1a1e70h);
 	dRally_Memory_free(___1a1e5ch);
 	dRally_Memory_free(___1a1e58h);
 	dRally_Memory_free(___1a1e54h);

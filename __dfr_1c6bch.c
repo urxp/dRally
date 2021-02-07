@@ -7,10 +7,8 @@ cpu 386
 	extern 	__STRCAT
 	extern 	__STRCPY
 	extern 	___1866b8h
-	extern 	___180b88h
 	extern 	___185b58h
 	extern 	___1866b8h
-	extern 	___180ba0h
 	extern 	___185a5ch
 	extern 	___2ec68h_cdecl
 	extern 	___60a84h
@@ -26,30 +24,13 @@ cpu 386
 	extern 	___196a98h
 	extern 	___196a9ch
 	extern 	___196aa0h
-	extern 	___1a0224h
-	extern 	___1a01ech
-	extern 	___1a01f0h
-	extern 	___1a01f4h
-	extern 	___1a01f8h
-	extern 	___1a01fch
-	extern 	___1a0210h
-	extern 	___1a0228h
-	extern 	___18e2a4h
-	extern 	___1a021ch
+	extern 	___18e298h
 	extern 	___1a1168h
-	extern 	___1a024ch
-	extern 	___1a02b8h
-	extern 	___1a0324h
 	extern 	___60b60h
 	extern 	___1a116ch
-	extern 	___1a1f4fh
 	extern 	___1a1f4eh
-	extern 	___1a1dbah
-	extern 	___180bb4h
-	extern 	___1a2011h
+	extern 	___1a2010h
 	extern 	___18d492h
-	extern 	___180724h
-	extern 	___1a1f63h
 	extern 	___23230h
 	extern 	___12d6ch__VESA101_PRESENTBOTTOMSCREEN
 
@@ -73,7 +54,7 @@ __GDECL(___1c6bch)
 		mov     ebp, eax
 		mov     dl, 1
 		mov     edi, ___1866b8h+384h
-		mov     esi, ___180b88h
+		mov     esi, __dfr_180b88h
 		xor     ah, ah
 		xor     ebx, ebx
 		mov     [___185b58h], ah
@@ -89,7 +70,7 @@ __GDECL(___1c6bch)
 		movsw   
 		mov     [___185b58h+16h], ah
 		mov     edi, ___1866b8h+3b6h
-		mov     esi, ___180ba0h
+		mov     esi, __dfr_180ba0h
 		xor     edx, edx
 		mov     [___185b58h+17h], ah
 		mov     [___185a5ch+50h], edx
@@ -208,21 +189,21 @@ ___1c7d2h:
 		sub     eax, edx
 		lea     edx, [eax*4+0]
 		xor     ebx, ebx
-		mov     [edx+___1a0224h], ebx
-		mov     [edx+___1a01ech], ebx
-		mov     [edx+___1a01f0h], ebx
-		mov     [edx+___1a01f4h], ebx
-		mov     [edx+___1a01f8h], ebx
-		mov     [edx+___1a01fch], ebx
+		mov     [edx+___1a01e0h+44h], ebx
+		mov     [edx+___1a01e0h+0ch], ebx
+		mov     [edx+___1a01e0h+10h], ebx
+		mov     [edx+___1a01e0h+14h], ebx
+		mov     [edx+___1a01e0h+18h], ebx
+		mov     [edx+___1a01e0h+1ch], ebx
 		lea     eax, [ebx*8+0]
-		mov     [edx+___1a0210h], ebp
+		mov     [edx+___1a01e0h+30h], ebp
 		shl     eax, 3
 		mov     ebp, 1
 		shl     eax, 5
-		mov     [edx+___1a0228h], ebp
-		mov     eax, [eax+___18e2a4h]
+		mov     [edx+___1a01e0h+48h], ebp
+		mov     eax, [eax+___18e298h+0xc]
 		mov     [esp+10h], ebx
-		mov     [edx+___1a021ch], eax
+		mov     [edx+___1a01e0h+3ch], eax
 ___1c863h:
 		mov     eax, [esp+10h]
 		mov     dl, [esp+10h]
@@ -232,9 +213,9 @@ ___1c863h:
 		cmp     edx, byte 4
 		jl      short ___1c863h
 		mov     ecx, ___1a01e0h
-		mov     esi, ___1a024ch
-		mov     edi, ___1a02b8h
-		mov     ebp, ___1a0324h
+		mov     esi, ___1a01e0h+6ch
+		mov     edi, ___1a01e0h+6ch+6ch
+		mov     ebp, ___1a01e0h+6ch+6ch+6ch
 		xor     ebx, ebx
 		mov     [esp], ecx
 		mov     [esp+4], esi
@@ -319,16 +300,16 @@ ___1c91bh:
 		add     ebx, 96h
 		add     edx, 96h
 		lea     edi, [esi+1]
-		mov     al, [eax+___1a1f4fh]
+		mov     al, [eax+___1a1f4eh+1]
 		mov     [esp+10h], edi
 		mov     [esi+___1a1f4eh], al
 		cmp     edi, byte 15h
 		jl      short ___1c91bh
 		mov     ecx, 8
 		mov     edx, [___196ad4h]
-		mov     edi, ___1a1dbah
-		mov     esi, ___180bb4h
-		mov     dl, [edx+___1a2011h]
+		mov     edi, ___1a116ch+0c4eh
+		mov     esi, __dfr_180bb4h
+		mov     dl, [edx+___1a2010h+1]
 		rep movsd   
 		movsb   
 		and     edx, 0ffh
@@ -336,13 +317,13 @@ ___1c91bh:
 		shl     eax, 4
 		mov     esi, ___18d492h
 		sub     eax, edx
-		mov     edi, ___1a1dbah
+		mov     edi, ___1a116ch+0c4eh
 		add     esi, eax
 		call 	__STRCAT
-		mov     esi, ___180724h
+		mov     esi, loc_dot
 		call 	__STRCAT
 		xor     al, al
-		mov     [___1a1f63h], al
+		mov     [___1a1f4eh+15h], al
 	
 	push 	edx
 	push 	ecx
@@ -369,4 +350,14 @@ ___1c91bh:
 		pop     ecx
 		pop     ebx
 		retn    
+	
+section .data
+loc_dot:
+	db 	".",0,0,0
+__dfr_180b88h:
+	db 	"Continue Current Game",0,0,0
+__dfr_180ba0h:
+	db 	"Abort Current Game",0,0
+__dfr_180bb4h:
+	db	"-- Prepare for the first track, ",0,0,0,0
 */

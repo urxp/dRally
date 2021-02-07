@@ -2,33 +2,22 @@
 
 	extern byte ___196a74h[];
 	extern byte ___1a2147h[];
-	extern byte ___18250ch[];
 	extern byte ___185c0bh[];
 	extern byte ___1a1108h[];
 	extern byte ___19eb50h[];
-	extern byte ___19eb54h[];
-	extern byte ___19eb58h[];
 	extern byte ___1a1138h__VESA101h_DefaultScreenBufferB[];
 	extern byte ___1a112ch__VESA101_ACTIVESCREEN_PTR[];
 	extern byte ___1a0fbch[];
 	extern byte ___1a0fd8h[];
 	extern byte ___185a28h[];
 	extern byte ___1a1ef8h[];
-	extern byte ___1a0224h[];
+	extern byte ___1a01e0h[];
 	extern byte ___196ab4h[];
-	extern byte ___1826a8h[];
-	extern byte ___1854b8h[];
 	extern byte ___24cc54h[];
 	extern byte ___185a14h_UseWeapons[];
 	extern byte ___185a3ch[];
 	extern byte ___185a4ch[];
-	extern byte ___180130h[];
 	extern byte ___1a0d60h[];
-	extern byte ___1826c8h[];
-	extern byte ___181c90h[];
-	extern byte ___1826d4h[];
-	extern byte ___181c9ch[];
-	extern byte ___181ca8h[];
 	extern byte ___24cc58h[];
 	extern byte ___196aa0h[];
 	extern byte ___196a9ch[];
@@ -85,7 +74,7 @@ void ___3892ch_cdecl(dword A1, dword A2){
 		___36adch();
 		eax = 0x14;
 		ecx = 0x46b6e;
-		ebx = ___18250ch;
+		ebx = "Press any key to continue...";
 		edx = ___185c0bh;
 		___37ed4h_cdecl(eax);
 		eax = D(___1a1108h);
@@ -114,7 +103,7 @@ ___389a3h:
 		eax &= 0xff;
 		rr = eax;
 		edx = esi;
-		eax = D(edi+___19eb54h);
+		eax = D(edi+___19eb50h+4);
 		___imul32(&eax, &edx, edx);
 		eax += 0x8000;
 		edx += !!(eax < 0x8000);
@@ -124,7 +113,7 @@ ___389a3h:
 		eax &= 0xff;
 		gg = eax;
 		edx = esi;
-		eax = D(edi+___19eb58h);
+		eax = D(edi+___19eb50h+8);
 		___imul32(&eax, &edx, edx);
 		eax += 0x8000;
 		edx += !!(eax < 0x8000);
@@ -158,7 +147,7 @@ ___38a40h:
 		eax &= 0xff;
 		rr = eax;
 		edx = esi;
-		eax = D(edi+___19eb54h);
+		eax = D(edi+___19eb50h+4);
 		___imul32(&eax, &edx, edx);
 		eax += 0x8000;
 		edx += !!(eax < 0x8000);
@@ -168,7 +157,7 @@ ___38a40h:
 		eax &= 0xff;
 		gg = eax;
 		edx = esi;
-		eax = D(edi+___19eb58h);
+		eax = D(edi+___19eb50h+8);
 		___imul32(&eax, &edx, edx);
 		eax += 0x8000;
 		edx += !!(eax < 0x8000);
@@ -213,7 +202,7 @@ ___38b0eh:
 		eax &= 0xff;
 		rr = eax;
 		edx = esi;
-		eax = D(edi+___19eb54h);
+		eax = D(edi+___19eb50h+4);
 		___imul32(&eax, &edx, edx);
 		eax += 0x8000;
 		edx += !!(eax < 0x8000);
@@ -223,7 +212,7 @@ ___38b0eh:
 		eax &= 0xff;
 		gg = eax;
 		edx = esi;
-		eax = D(edi+___19eb58h);
+		eax = D(edi+___19eb50h+8);
 		___imul32(&eax, &edx, edx);
 		eax += 0x8000;
 		edx += !!(eax < 0x8000);
@@ -257,7 +246,7 @@ ___38babh:
 		eax &= 0xff;
 		rr = eax;
 		edx = esi;
-		eax = D(edi+___19eb54h);
+		eax = D(edi+___19eb50h+4);
 		___imul32(&eax, &edx, edx);
 		eax += 0x8000;
 		edx += !!(eax < 0x8000);
@@ -267,7 +256,7 @@ ___38babh:
 		eax &= 0xff;
 		gg = eax;
 		edx = esi;
-		eax = D(edi+___19eb58h);
+		eax = D(edi+___19eb50h+8);
 		___imul32(&eax, &edx, edx);
 		eax += 0x8000;
 		edx += !!(eax < 0x8000);
@@ -361,7 +350,7 @@ ___38d19h:
 		eax &= 0xff;
 		rr = eax;
 		edx = esi;
-		eax = D(edi+___19eb54h);
+		eax = D(edi+___19eb50h+4);
 		___imul32(&eax, &edx, edx);
 		eax += 0x8000;
 		edx += !!(eax < 0x8000);
@@ -371,7 +360,7 @@ ___38d19h:
 		eax &= 0xff;
 		gg = eax;
 		edx = esi;
-		eax = D(edi+___19eb58h);
+		eax = D(edi+___19eb50h+8);
 		___imul32(&eax, &edx, edx);
 		eax += 0x8000;
 		edx += !!(eax < 0x8000);
@@ -439,7 +428,7 @@ ___38e2fh:
 		D(esp+0x68) = esi;
 		eax ^= eax;
 ___38e71h:
-		ebp = D(eax+___1a0224h);
+		ebp = D(eax+___1a01e0h+0x44);
 		if((int)esi >= (int)ebp) goto ___38e83h;
 		if(edx == D(esp+0x68)) goto ___38e83h;
 		esi = ebp;
@@ -454,7 +443,7 @@ ___38e83h:
 		eax -= edi;
 		eax <<= 0x2;
 		eax -= edi;
-		if((int)esi >= (int)D(eax*4+___1a0224h)) goto ___38ec1h;
+		if((int)esi >= (int)D(eax*4+___1a01e0h+0x44)) goto ___38ec1h;
 		if(D(___196ab4h) != 0) goto ___38ec1h;
 		B(___1a2147h) = 1;
 ___38ec1h:
@@ -463,9 +452,9 @@ ___38ec1h:
 		eax -= edi;
 		eax <<= 0x2;
 		eax -= edi;
-		L(eax) = !!((int)esi < (int)D(eax*4+___1a0224h));
+		L(eax) = !!((int)esi < (int)D(eax*4+___1a01e0h+0x44));
 		ecx = 0x46b6e;
-		ebx = ___1826a8h;
+		ebx = "Please wait while loading...";
 		eax &= 0xff;
 		edx = ___185c0bh;
 		D(___196ab4h) = eax;
@@ -481,9 +470,9 @@ ___38ec1h:
 		eax = 0x1;
 		ecx = D(___24cc54h);
 		ebx ^= ebx;
-		dRally_Sound_pushEffect(eax, edx, ebx, ecx, D(___1854b8h), 0x8000);
+		dRally_Sound_pushEffect(eax, edx, ebx, ecx, 0x28000, 0x8000);
 		ecx = 0x46b6e;
-		ebx = ___18250ch;
+		ebx = "Press any key to continue...";
 		edx = ___185c0bh;
 		eax = D(___1a1108h);
 		___12e78h_cdecl(eax, edx, ebx, ecx);
@@ -491,7 +480,7 @@ ___38ec1h:
 ___38f61h:
 		if(D(esp+0x64) != 1) goto ___38f86h;
 		ecx = 0x46b6e;
-		ebx = ___18250ch;
+		ebx = "Press any key to continue...";
 		edx = ___185c0bh;
 		eax = D(___1a1108h);
 		___12e78h_cdecl(eax, edx, ebx, ecx);
@@ -531,7 +520,7 @@ ___38fe9h:
 		eax &= 0xff;
 		rr = eax;
 		edx = esi;
-		eax = D(edi+___19eb54h);
+		eax = D(edi+___19eb50h+4);
 		___imul32(&eax, &edx, edx);
 		eax += 0x8000;
 		edx += !!(eax < 0x8000);
@@ -541,7 +530,7 @@ ___38fe9h:
 		eax &= 0xff;
 		gg = eax;
 		edx = esi;
-		eax = D(edi+___19eb58h);
+		eax = D(edi+___19eb50h+8);
 		___imul32(&eax, &edx, edx);
 		eax += 0x8000;
 		edx += !!(eax < 0x8000);
@@ -576,7 +565,7 @@ ___39085h:
 		eax &= 0xff;
 		rr = eax;
 		edx = esi;
-		eax = D(edi+___19eb54h);
+		eax = D(edi+___19eb50h+4);
 		___imul32(&eax, &edx, edx);
 		eax += 0x8000;
 		edx += !!(eax < 0x8000);
@@ -586,7 +575,7 @@ ___39085h:
 		eax &= 0xff;
 		gg = eax;
 		edx = esi;
-		eax = D(edi+___19eb58h);
+		eax = D(edi+___19eb50h+8);
 		___imul32(&eax, &edx, edx);
 		eax += 0x8000;
 		edx += !!(eax < 0x8000);
@@ -620,7 +609,7 @@ ___39122h:
 		eax &= 0xff;
 		rr = eax;
 		edx = esi;
-		eax = D(edi+___19eb54h);
+		eax = D(edi+___19eb50h+4);
 		___imul32(&eax, &edx, edx);
 		eax += 0x8000;
 		edx += !!(eax < 0x8000);
@@ -630,7 +619,7 @@ ___39122h:
 		eax &= 0xff;
 		gg = eax;
 		edx = esi;
-		eax = D(edi+___19eb58h);
+		eax = D(edi+___19eb50h+8);
 		___imul32(&eax, &edx, edx);
 		eax += 0x8000;
 		edx += !!(eax < 0x8000);
@@ -650,27 +639,27 @@ ___391b2h:
 		if(ebp != 0xfffe0000) goto ___38fcdh;
 		if(B(___1a2147h) != 1) goto ___39617h;
 		dRally_Sound_release();
-		L(eax) = B(___180130h);
+		L(eax) = 0;
 		B(esp) = L(eax);
 		esi = ___1a0d60h;
 		edi = esp;
 		strcat(edi, esi);
-		esi = ___1826c8h;
+		esi = "endani0.haf";
 		edi = esp;
 		strcat(edi, esi);
 		eax = esp;
 		eax = GET_FILE_SIZE(eax);
 		if((int)eax <= 0) goto ___39275h;
 		ecx = 0x2;
-		ebx = ___181c90h;
+		ebx = "tr0-mus.cmf";
 		edx = 0x1;
-		eax = ___1826c8h;
-		___10b80h_cdecl(eax, edx, ebx, ecx, ___1826d4h, 1, 0x78);
+		eax = "endani0.haf";
+		___10b80h_cdecl(eax, edx, ebx, ecx, "endani0e.cmf", 1, 0x78);
 		dRally_Sound_release();
 ___39275h:
-		ecx = ___181c9ch;
+		ecx = "MEN-SAM.CMF";
 		ebx = 0x2;
-		edx = ___181ca8h;
+		edx = "MEN-MUS.CMF";
 		eax = 0x1;
 		dRally_Sound_load(eax, edx, ebx, ecx, 5);
 		eax = D(___24cc58h);
@@ -705,7 +694,7 @@ ___392eeh:
 		eax &= 0xff;
 		rr = eax;
 		edx = edi;
-		eax = D(esi+___19eb54h);
+		eax = D(esi+___19eb50h+4);
 		___imul32(&eax, &edx, edx);
 		eax += 0x8000;
 		edx += !!(eax < 0x8000);
@@ -715,7 +704,7 @@ ___392eeh:
 		eax &= 0xff;
 		gg = eax;
 		edx = edi;
-		eax = D(esi+___19eb58h);
+		eax = D(esi+___19eb50h+8);
 		___imul32(&eax, &edx, edx);
 		eax += 0x8000;
 		edx += !!(eax < 0x8000);
@@ -756,7 +745,7 @@ ___393a9h:
 		eax &= 0xff;
 		rr = eax;
 		edx = esi;
-		eax = D(edi+___19eb54h);
+		eax = D(edi+___19eb50h+4);
 		___imul32(&eax, &edx, edx);
 		eax += 0x8000;
 		edx += !!(eax < 0x8000);
@@ -766,7 +755,7 @@ ___393a9h:
 		eax &= 0xff;
 		gg = eax;
 		edx = esi;
-		eax = D(edi+___19eb58h);
+		eax = D(edi+___19eb50h+8);
 		___imul32(&eax, &edx, edx);
 		eax += 0x8000;
 		edx += !!(eax < 0x8000);
@@ -786,27 +775,27 @@ ___39439h:
 		if(ebp != 0xfffe0000) goto ___3938dh;
 		if(B(___1a2147h) != 1) goto ___39617h;
 		dRally_Sound_release();
-		L(eax) = B(___180130h);
+		L(eax) = 0;
 		B(esp) = L(eax);
 		esi = ___1a0d60h;
 		edi = esp;
 		strcat(edi, esi);
-		esi = ___1826c8h;
+		esi = "endani0.haf";
 		edi = esp;
 		strcat(edi, esi);
 		eax = esp;
 		eax = GET_FILE_SIZE(eax);
 		if((int)eax <= 0) goto ___394feh;
 		ecx = 0x2;
-		ebx = ___181c90h;
+		ebx = "tr0-mus.cmf";
 		edx = 0x1;
-		eax = ___1826c8h;
-		___10b80h_cdecl(eax, edx, ebx, ecx, ___1826d4h, 1, 0x78);
+		eax = "endani0.haf";
+		___10b80h_cdecl(eax, edx, ebx, ecx, "endani0e.cmf", 1, 0x78);
 		dRally_Sound_release();
 ___394feh:
-		ecx = ___181c9ch;
+		ecx = "MEN-SAM.CMF";
 		ebx = 0x2;
-		edx = ___181ca8h;
+		edx = "MEN-MUS.CMF";
 		eax = 0x1;
 		dRally_Sound_load(eax, edx, ebx, ecx, 5);
 		eax = D(___24cc58h);
@@ -845,7 +834,7 @@ ___39588h:
 		eax &= 0xff;
 		rr = eax;
 		edx = edi;
-		eax = D(esi+___19eb54h);
+		eax = D(esi+___19eb50h+4);
 		___imul32(&eax, &edx, edx);
 		eax += 0x8000;
 		edx += !!(eax < 0x8000);
@@ -855,7 +844,7 @@ ___39588h:
 		eax &= 0xff;
 		gg = eax;
 		edx = edi;
-		eax = D(esi+___19eb58h);
+		eax = D(esi+___19eb50h+8);
 		___imul32(&eax, &edx, edx);
 		eax += 0x8000;
 		edx += !!(eax < 0x8000);

@@ -2,15 +2,10 @@
 #include "drally_keyboard.h"
 
 	extern byte ___1a1ef8h[];
-	extern byte ___1a021ch[];
+	extern byte ___1a01e0h[];
 	extern byte ___185a14h_UseWeapons[];
-	extern byte ___1a01fch[];
-	extern byte ___18e974h[];
-	extern byte ___1a01ech[];
 	extern byte ___1a1ec4h[];
 	extern byte ___1a1ee4h[];
-	extern byte ___18e2a4h[];
-	extern byte ___1854b8h[];
 	extern byte ___24cc54h[];
 	extern byte ___185c0bh[];
 	extern byte ___1a110ch[];
@@ -18,38 +13,23 @@
 	extern byte ___185ba9h[];
 	extern byte ___1a10cch[];
 	extern byte ___1a10e0h[];
-	extern byte ___185cbch[];
+#define CARENCS ___185cbch
+	extern __DWORD__ ___185cbch[][0x40];
 	extern byte ___1a1ed0h[];
-	extern byte ___1a01b8h[];
+	extern void * ___1a01b8h[6];
 	extern byte ___1a112ch__VESA101_ACTIVESCREEN_PTR[];
 	extern byte ___1a1e68h[];
 	extern byte ___1a10f4h[];
 	extern byte ___19bd60h[];
-	extern byte ___1854ach[];
-	extern byte ___1a0210h[];
-	extern byte ___1a01f0h[];
-	extern byte ___1a01f4h[];
-	extern byte ___1a01f8h[];
 	extern byte ___1a1e88h[];
 	extern byte ___196a84h[];
-	extern byte ___1a020ch[];
 	extern byte ___1a0fb8h[];
 	extern byte ___1a1eb4h[];
 	extern byte ___185a38h[];
-	extern byte ___18e938h[];
-	extern byte ___18e944h[];
-	extern byte ___18e93ch[];
-	extern byte ___18e954h[];
-	extern byte ___18e940h[];
-	extern byte ___18e964h[];
-	extern byte ___1854c4h[];
-	extern byte ___1854a4h[];
 	extern byte ___1a1028h[];
 	extern byte ___185a4ch[];
-	extern byte ___1854a8h[];
 	extern byte ___196adch[];
 	extern byte ___185a20h[];
-	extern byte ___1a0224h[];
 
 char * itoa_watcom106(int value, char * buffer, int radix);
 void ___31008h(void);
@@ -90,22 +70,22 @@ void shop___28e40h(void){
 	byte * 	esp = __esp+0xc;
 
 /*
-		FPUSH((int)D(0x6c*D(___1a1ef8h)+___1a021ch));
+		FPUSH((int)D(0x6c*D(___1a1ef8h)+___1a01e0h+0x3c));
 		ST(0) = ceil(0.25*ST(0));
 		D(esp+0x50) = (int)FPOP();
 */
-		D(esp+0x50) = (D(0x6c*D(___1a1ef8h)+___1a021ch)+3)/4;
+		D(esp+0x50) = (D(0x6c*D(___1a1ef8h)+___1a01e0h+0x3c)+3)/4;
 
 		ebx = 0x6c*D(___1a1ef8h);
-		eax = (long long)(int)D(0x6e0*D(ebx+___1a01fch)+___18e974h)/0xa;
+		eax = (long long)(int)D(0x6e0*D(ebx+___1a01e0h+0x1c)+___18e298h+0x6dc)/0xa;
 
 		if(D(___185a14h_UseWeapons) == 0){
 	
-			esi = D(ebx+___1a01ech)*eax;
+			esi = D(ebx+___1a01e0h+0xc)*eax;
 		}
 		else {
 
-			eax = D(ebx+___1a01ech)*eax;
+			eax = D(ebx+___1a01e0h+0xc)*eax;
 			edx = (int)eax>>0x1f;
 			esi = (int)(eax-edx)>>2;
 		}
@@ -147,13 +127,13 @@ ___28f77h:
 		eax <<= 3;
 		eax -= edx;
 		eax <<= 5;
-		eax = D(eax+___18e2a4h);
+		eax = D(eax+___18e298h+0xc);
 		eax -= ebp;
 		if((int)eax >= 0) goto ___291c4h;
 		eax = ___28ab4h_cdecl(eax);
 		if(eax) return;
 		edi = esp;
-		dRally_Sound_pushEffect(1, 0x1c, 0, D(___24cc54h), D(___1854b8h), 0x8000);
+		dRally_Sound_pushEffect(1, 0x1c, 0, D(___24cc54h), 0x28000, 0x8000);
 		ecx = 0x77;
 		ebx = 0x180;
 		edx = 0x72;
@@ -201,7 +181,7 @@ ___28f77h:
 		esi = "Money returned: ";
 		eax <<= 5;
 		ebx = 0xa;
-		eax = D(eax+___18e2a4h);
+		eax = D(eax+___18e298h+0xc);
 		D(edi) = D(esi); edi += 4; esi += 4;
 		D(edi) = D(esi); edi += 4; esi += 4;
 		D(edi) = D(esi); edi += 4; esi += 4;
@@ -251,7 +231,7 @@ ___291c4h:
 		eax = ___28ab4h_cdecl(eax);
 		if(eax) return;
 		edi = esp;
-		dRally_Sound_pushEffect(1, 0x1c, 0, D(___24cc54h), D(___1854b8h), 0x8000);
+		dRally_Sound_pushEffect(1, 0x1c, 0, D(___24cc54h), 0x28000, 0x8000);
 		ecx = 0x77;
 		ebx = 0x180;
 		edx = 0x72;
@@ -311,7 +291,7 @@ ___291c4h:
 		ebx = 0xa;
 		eax <<= 5;
 		esi = "$";
-		eax = D(eax+___18e2a4h);
+		eax = D(eax+___18e298h+0xc);
 		edx = esp+0x3c;
 		eax -= ebp;
 		edi = esp;
@@ -355,18 +335,7 @@ ___29410h:
 		esi = 0xaa*ebp;
 		___2ab50h();
 		___2ab50h();
-		eax = D(___1a1ee4h);
-		edx = 0x8d;
-		eax <<= 8;
-		ecx = D(___1a1ee4h);
-		eax = eax+___185cbch;
-		ebx = D(___1a1ed0h);
-		esp -= 4;
-		D(esp) = eax;
-		ecx = D(4*ecx+___1a01b8h);
-		eax = 0x10;
-		___259e0h_cdecl(eax, edx, ebx, ecx, D(esp));
-		esp += 4;
+		___259e0h_cdecl(0x10, 0x8d, D(___1a1ed0h), ___1a01b8h[D(___1a1ee4h)], CARENCS[D(___1a1ee4h)]);
 		ecx = 0x40;
 		ebx = 0x60;
 		edx = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
@@ -436,7 +405,7 @@ ___2952dh:
 			break;
 		case DR_SCAN_ENTER:
 		case DR_SCAN_KP_ENTER:
-			dRally_Sound_pushEffect(1, 0x1c, 0, D(___24cc54h), D(___1854b8h), 0x8000);
+			dRally_Sound_pushEffect(1, 0x1c, 0, D(___24cc54h), 0x28000, 0x8000);
 			D(esp+0x54) = 0xffffffff;
 			break;
 #if defined(DR_MULTIPLAYER)
@@ -447,7 +416,7 @@ ___2952dh:
 		case DR_SCAN_Y:
 		case DR_SCAN_LEFT:
 		case DR_SCAN_KP_4:
-			if(ebp == 1) dRally_Sound_pushEffect(1, 0x19, 0, D(___24cc54h), D(___1854ach), 0x8000);
+			if(ebp == 1) dRally_Sound_pushEffect(1, 0x19, 0, D(___24cc54h), 0x28000, 0x8000);
 			
 			ebp = 0;
 			ecx = 0x1e000;
@@ -465,7 +434,7 @@ ___2952dh:
 		case DR_SCAN_N:
 		case DR_SCAN_RIGHT:
 		case DR_SCAN_KP_6:
-			if(ebp == 0) dRally_Sound_pushEffect(1, 0x19, 0, D(___24cc54h), D(___1854ach), 0x8000);
+			if(ebp == 0) dRally_Sound_pushEffect(1, 0x19, 0, D(___24cc54h), 0x28000, 0x8000);
 			
 			ebp = 1;
 			ecx = 0x1e000;
@@ -493,32 +462,32 @@ ___2952dh:
 		eax <<= 2;
 		eax -= edx;
 		ebx = D(___1a1ee4h);
-		D(4*eax+___1a01fch) = ebx;
+		D(4*eax+___1a01e0h+0x1c) = ebx;
 		edx = 8*ebx;
 		edx -= ebx;
 		edx <<= 3;
 		edx -= ebx;
-		ecx = D(4*eax+___1a0210h);
+		ecx = D(4*eax+___1a01e0h+0x30);
 		edx <<= 5;
 		ebx = D(esp+0x50);
-		edx = D(edx+___18e2a4h);
-		D(4*eax+___1a01ech) = ebp;
+		edx = D(edx+___18e298h+0xc);
+		D(4*eax+___1a01e0h+0xc) = ebp;
 		edx -= ebx;
-		ebx = D(4*eax+___1a01fch);
+		ebx = D(4*eax+___1a01e0h+0x1c);
 		ecx -= edx;
 		edx = 8*ebx;
-		D(4*eax+___1a01f0h) = ebp;
+		D(4*eax+___1a01e0h+0x10) = ebp;
 		edx -= ebx;
-		D(4*eax+___1a01f4h) = ebp;
+		D(4*eax+___1a01e0h+0x14) = ebp;
 		edx <<= 3;
-		D(4*eax+___1a01f8h) = ebp;
+		D(4*eax+___1a01e0h+0x18) = ebp;
 		edx -= ebx;
-		D(4*eax+___1a0210h) = ecx;
+		D(4*eax+___1a01e0h+0x30) = ecx;
 		edx <<= 5;
 		ecx = 0x77;
-		edx = D(edx+___18e2a4h);
+		edx = D(edx+___18e298h+0xc);
 		ebx = 0x180;
-		D(4*eax+___1a021ch) = edx;
+		D(4*eax+___1a01e0h+0x3c) = edx;
 		___25330h();
 		___25e40h();
 		___26650h();
@@ -608,26 +577,26 @@ ___29842h:
 
 		if(B(esp+0x5c) == DR_SCAN_LEFT){
 
-			if((int)D(0x6c*D(___1a1ef8h)+___1a020ch) > 0) D(0x6c*D(___1a1ef8h)+___1a020ch) -= 2;
+			if((int)D(0x6c*D(___1a1ef8h)+___1a01e0h+0x2c) > 0) D(0x6c*D(___1a1ef8h)+___1a01e0h+0x2c) -= 2;
 		}
 
 		if(B(esp+0x5c) == DR_SCAN_KP_4){
 
-			if((int)D(0x6c*D(___1a1ef8h)+___1a020ch) > 0) D(0x6c*D(___1a1ef8h)+___1a020ch) -= 2;
+			if((int)D(0x6c*D(___1a1ef8h)+___1a01e0h+0x2c) > 0) D(0x6c*D(___1a1ef8h)+___1a01e0h+0x2c) -= 2;
 		}
 
 		if(B(esp+0x5c) == DR_SCAN_RIGHT){
 			
-			if((int)D(0x6c*D(___1a1ef8h)+___1a020ch) < 0xfd) D(0x6c*D(___1a1ef8h)+___1a020ch) += 2;
+			if((int)D(0x6c*D(___1a1ef8h)+___1a01e0h+0x2c) < 0xfd) D(0x6c*D(___1a1ef8h)+___1a01e0h+0x2c) += 2;
 		}
 
 		if(B(esp+0x5c) == DR_SCAN_KP_6){
 
-			if((int)D(0x6c*D(___1a1ef8h)+___1a020ch) < 0xfd) D(0x6c*D(___1a1ef8h)+___1a020ch) += 2;
+			if((int)D(0x6c*D(___1a1ef8h)+___1a01e0h+0x2c) < 0xfd) D(0x6c*D(___1a1ef8h)+___1a01e0h+0x2c) += 2;
 		}
 
 		eax = 0x6c*D(___1a1ef8h);
-		edx = D(eax+___1a020ch);
+		edx = D(eax+___1a01e0h+0x2c);
 		eax = D(___1a0fb8h);
 		edx = 3*edx;
 		edx += eax;
@@ -693,7 +662,7 @@ ___29842h:
 		eax = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
 		ecx = 0x18;
 		eax += 0x1de3c;
-		ebx = D(edx+___1a020ch);
+		ebx = D(edx+___1a01e0h+0x2c);
 		esi = D(___1a1eb4h);
 		ebx += eax;
 		edx = 0xa;
@@ -724,11 +693,11 @@ ___29842h:
 		___2ab50h();
 		___2ab50h();
 		___1398ch__VESA101_PRESENTRECTANGLE(
-			D(0x6c*D(___1a1ef8h)+___1a020ch)+0x1de48,
-			D(___1a112ch__VESA101_ACTIVESCREEN_PTR)+0x1de3c+D(0x6c*D(___1a1ef8h)+___1a020ch)+0xc,
+			D(0x6c*D(___1a1ef8h)+___1a01e0h+0x2c)+0x1de48,
+			D(___1a112ch__VESA101_ACTIVESCREEN_PTR)+0x1de3c+D(0x6c*D(___1a1ef8h)+___1a01e0h+0x2c)+0xc,
 			0xe,
 			0x18);
-		___259e0h_cdecl(0x10, 0x8d, D(___1a1ed0h), D(4*D(___1a1ee4h)+___1a01b8h), 0x100*D(___1a1ee4h)+___185cbch);
+		___259e0h_cdecl(0x10, 0x8d, D(___1a1ed0h), ___1a01b8h[D(___1a1ee4h)], CARENCS[D(___1a1ee4h)]);
 		___1398ch__VESA101_PRESENTRECTANGLE(0x16090, D(___1a112ch__VESA101_ACTIVESCREEN_PTR)+0x16090, 0x60, 0x40);
 		D(___1a1ed0h)++;
 
@@ -750,7 +719,7 @@ ___29842h:
 		eax <<= 2;
 		eax -= edx;
 		eax <<= 2;
-		ebx = D(eax+___1a01fch);
+		ebx = D(eax+___1a01e0h+0x1c);
 		if((int)ebx >= 5) goto ___29b67h;
 		eax = ebx+1;
 		D(___1a1ee4h) = eax;
@@ -773,54 +742,54 @@ ___29ba4h:
 		eax -= edx;
 		eax <<= 2;
 		eax -= edx;
-		ebx = D(4*eax+___1a01fch);
+		ebx = D(4*eax+___1a01e0h+0x1c);
 		edx = 8*ebx;
 		edx -= ebx;
 		edx <<= 3;
 		edx -= ebx;
 		edx <<= 5;
-		eax = D(4*eax+___1a01f0h);
-		if((int)eax >= (int)D(edx+___18e938h)) goto ___29cd7h;
-		eax = D(edx+4*eax+___18e944h);
+		eax = D(4*eax+___1a01e0h+0x10);
+		if((int)eax >= (int)D(edx+___18e298h+0x6a0)) goto ___29cd7h;
+		eax = D(edx+4*eax+___18e298h+0x6ac);
 		eax = ___28ab4h_cdecl(eax);
 		if(eax) return;
-		dRally_Sound_pushEffect(1, 0x1c, 0, D(___24cc54h), D(___1854b8h), 0x8000);
+		dRally_Sound_pushEffect(1, 0x1c, 0, D(___24cc54h), 0x28000, 0x8000);
 		edx = D(___1a1ef8h);
 		eax = 8*edx;
 		eax -= edx;
 		eax <<= 2;
 		eax -= edx;
-		ebx = D(4*eax+___1a01fch);
+		ebx = D(4*eax+___1a01e0h+0x1c);
 		edx = 8*ebx;
 		edx -= ebx;
 		edx <<= 3;
 		edx -= ebx;
 		edx <<= 5;
-		ebx = D(4*eax+___1a01f0h);
-		edx = D(edx+4*ebx+___18e944h);
-		D(4*eax+___1a0210h) -= edx;
-		ebx = D(4*eax+___1a01fch);
+		ebx = D(4*eax+___1a01e0h+0x10);
+		edx = D(edx+4*ebx+___18e298h+0x6ac);
+		D(4*eax+___1a01e0h+0x30) -= edx;
+		ebx = D(4*eax+___1a01e0h+0x1c);
 		edx = 8*ebx;
 		edx -= ebx;
 		edx <<= 3;
 		edx -= ebx;
-		ebx = D(4*eax+___1a01f0h);
+		ebx = D(4*eax+___1a01e0h+0x10);
 		edx <<= 5;
-		ecx = D(4*eax+___1a021ch);
-		edx = D(edx+4*ebx+___18e944h);
+		ecx = D(4*eax+___1a01e0h+0x3c);
+		edx = D(edx+4*ebx+___18e298h+0x6ac);
 		ecx += edx;
-		D(4*eax+___1a021ch) = ecx;
+		D(4*eax+___1a01e0h+0x3c) = ecx;
 		___273d8h();
 		edx = D(___1a1ef8h);
 		eax = 8*edx;
 		eax -= edx;
 		eax <<= 2;
 		eax -= edx;
-		edi = D(4*eax+___1a01f0h);
+		edi = D(4*eax+___1a01e0h+0x10);
 		esi = 0x136;
 		edi++;
 		D(___185a38h) = esi;
-		D(4*eax+___1a01f0h) = edi;
+		D(4*eax+___1a01e0h+0x10) = edi;
 		___25330h();
 		___12cb8h__VESA101_PRESENTSCREEN();
 		return;
@@ -834,54 +803,54 @@ ___29cebh:
 		eax -= edx;
 		eax <<= 2;
 		eax -= edx;
-		ebx = D(4*eax+___1a01fch);
+		ebx = D(4*eax+___1a01e0h+0x1c);
 		edx = 8*ebx;
 		edx -= ebx;
 		edx <<= 3;
 		edx -= ebx;
 		edx <<= 5;
-		eax = D(4*eax+___1a01f4h);
-		if((int)eax >= (int)D(edx+___18e93ch)) goto ___29e1fh;
-		eax = D(edx+4*eax+___18e954h);
+		eax = D(4*eax+___1a01e0h+0x14);
+		if((int)eax >= (int)D(edx+___18e298h+0x6a4)) goto ___29e1fh;
+		eax = D(edx+4*eax+___18e298h+0x6bc);
 		eax = ___28ab4h_cdecl(eax);
 		if(eax) return;
-		dRally_Sound_pushEffect(1, 0x1c, 0, D(___24cc54h), D(___1854b8h), 0x8000);
+		dRally_Sound_pushEffect(1, 0x1c, 0, D(___24cc54h), 0x28000, 0x8000);
 		edx = D(___1a1ef8h);
 		eax = 8*edx;
 		eax -= edx;
 		eax <<= 2;
 		eax -= edx;
-		ebx = D(4*eax+___1a01fch);
+		ebx = D(4*eax+___1a01e0h+0x1c);
 		edx = 8*ebx;
 		edx -= ebx;
 		edx <<= 3;
 		edx -= ebx;
 		edx <<= 5;
-		ebx = D(4*eax+___1a01f4h);
-		edx = D(edx+4*ebx+___18e954h);
-		D(4*eax+___1a0210h) -= edx;
-		ebx = D(4*eax+___1a01fch);
+		ebx = D(4*eax+___1a01e0h+0x14);
+		edx = D(edx+4*ebx+___18e298h+0x6bc);
+		D(4*eax+___1a01e0h+0x30) -= edx;
+		ebx = D(4*eax+___1a01e0h+0x1c);
 		edx = 8*ebx;
 		edx -= ebx;
 		edx <<= 3;
 		edx -= ebx;
-		ebx = D(4*eax+___1a01f4h);
+		ebx = D(4*eax+___1a01e0h+0x14);
 		edx <<= 5;
-		ecx = D(4*eax+___1a021ch);
-		edx = D(edx+4*ebx+___18e954h);
+		ecx = D(4*eax+___1a01e0h+0x3c);
+		edx = D(edx+4*ebx+___18e298h+0x6bc);
 		ecx += edx;
-		D(4*eax+___1a021ch) = ecx;
+		D(4*eax+___1a01e0h+0x3c) = ecx;
 		___276f0h();
 		edx = D(___1a1ef8h);
 		eax = 8*edx;
 		eax -= edx;
 		eax <<= 2;
 		eax -= edx;
-		edi = D(4*eax+___1a01f4h);
+		edi = D(4*eax+___1a01e0h+0x14);
 		esi = 0x136;
 		edi++;
 		D(___185a38h) = esi;
-		D(4*eax+___1a01f4h) = edi;
+		D(4*eax+___1a01e0h+0x14) = edi;
 		___25330h();
 		___12cb8h__VESA101_PRESENTSCREEN();
 		return;
@@ -895,56 +864,56 @@ ___29e33h:
 		edx -= eax;
 		edx <<= 2;
 		edx -= eax;
-		ebx = D(4*edx+___1a01fch);
+		ebx = D(4*edx+___1a01e0h+0x1c);
 		eax = 8*ebx;
 		eax -= ebx;
 		eax <<= 3;
 		eax -= ebx;
 		eax <<= 5;
-		edx = D(4*edx+___1a01f8h);
-		if((int)edx >= (int)D(eax+___18e940h)) goto ___29f6fh;
-		eax = D(eax+4*edx+___18e964h);
+		edx = D(4*edx+___1a01e0h+0x18);
+		if((int)edx >= (int)D(eax+___18e298h+0x6a8)) goto ___29f6fh;
+		eax = D(eax+4*edx+___18e298h+0x6cc);
 		eax = ___28ab4h_cdecl(eax);
 		if(eax) return;
-		dRally_Sound_pushEffect(1, 0x1c, 0, D(___24cc54h), D(___1854b8h), 0x8000);
+		dRally_Sound_pushEffect(1, 0x1c, 0, D(___24cc54h), 0x28000, 0x8000);
 		edx = D(___1a1ef8h);
 		eax = 8*edx;
 		eax -= edx;
 		eax <<= 2;
 		eax -= edx;
-		ebx = D(4*eax+___1a01fch);
+		ebx = D(4*eax+___1a01e0h+0x1c);
 		edx = 8*ebx;
 		edx -= ebx;
 		edx <<= 3;
 		edx -= ebx;
-		ebx = D(4*eax+___1a01f8h);
+		ebx = D(4*eax+___1a01e0h+0x18);
 		edx <<= 5;
-		ebp = D(4*eax+___1a0210h);
-		edx = D(edx+4*ebx+___18e964h);
-		ebx = D(4*eax+___1a01fch);
+		ebp = D(4*eax+___1a01e0h+0x30);
+		edx = D(edx+4*ebx+___18e298h+0x6cc);
+		ebx = D(4*eax+___1a01e0h+0x1c);
 		ebp -= edx;
 		edx = 8*ebx;
 		edx -= ebx;
 		edx <<= 3;
 		edx -= ebx;
 		edx <<= 5;
-		ebx = D(4*eax+___1a01f8h);
-		edx = D(edx+4*ebx+___18e964h);
-		ebx = D(4*eax+___1a021ch);
-		D(4*eax+___1a0210h) = ebp;
+		ebx = D(4*eax+___1a01e0h+0x18);
+		edx = D(edx+4*ebx+___18e298h+0x6cc);
+		ebx = D(4*eax+___1a01e0h+0x3c);
+		D(4*eax+___1a01e0h+0x30) = ebp;
 		ebx += edx;
-		D(4*eax+___1a021ch) = ebx;
+		D(4*eax+___1a01e0h+0x3c) = ebx;
 		___27a10h();
 		edx = D(___1a1ef8h);
 		eax = 8*edx;
 		eax -= edx;
 		eax <<= 2;
 		eax -= edx;
-		esi = D(4*eax+___1a01f8h);
+		esi = D(4*eax+___1a01e0h+0x18);
 		ecx = 0x136;
 		esi++;
 		D(___185a38h) = ecx;
-		D(4*eax+___1a01f8h) = esi;
+		D(4*eax+___1a01e0h+0x18) = esi;
 		___25330h();
 		___12cb8h__VESA101_PRESENTSCREEN();
 		return;
@@ -959,20 +928,20 @@ ___29f83h:
 		ebx <<= 2;
 		ebx -= eax;
 		ebx <<= 2;
-		if((int)D(ebx+___1a01ech) >= 0xa) goto ___29fe8h;
+		if((int)D(ebx+___1a01e0h+0xc) >= 0xa) goto ___29fe8h;
 		if(D(___185a14h_UseWeapons) == 0) goto ___29fe8h;
-		eax = D(ebx+___1a01fch);
+		eax = D(ebx+___1a01e0h+0x1c);
 		edx = 8*eax;
 		edx -= eax;
 		edx <<= 3;
 		edx -= eax;
 		edx <<= 5;
-		eax = D(edx+___18e974h);
+		eax = D(edx+___18e298h+0x6dc);
 		edx = eax;
 		ecx = 0xa;
 		edx = (int)edx>>0x1f;
 		eax = (long long)(int)eax/(int)ecx;
-		edx = D(ebx+___1a01ech);
+		edx = D(ebx+___1a01e0h+0xc);
 		edx = edx*eax;
 		eax = edx;
 		edx = (int)edx>>0x1f;
@@ -986,15 +955,15 @@ ___29fe8h:
 		eax <<= 2;
 		eax -= edx;
 		eax <<= 2;
-		if((int)D(eax+___1a01ech) < 0xa) goto ___2a039h;
+		if((int)D(eax+___1a01e0h+0xc) < 0xa) goto ___2a039h;
 		if(D(___185a14h_UseWeapons) == 0) goto ___2a039h;
-		eax = D(eax+___1a01fch);
+		eax = D(eax+___1a01e0h+0x1c);
 		edx = 8*eax;
 		edx -= eax;
 		edx <<= 3;
 		edx -= eax;
 		edx <<= 5;
-		eax = D(edx+___18e974h);
+		eax = D(edx+___18e298h+0x6dc);
 		edx = eax;
 		edx = (int)edx>>0x1f;
 		eax -= edx;
@@ -1007,20 +976,20 @@ ___2a039h:
 		ebx <<= 2;
 		ebx -= eax;
 		ebx <<= 2;
-		if((int)D(ebx+___1a01ech) >= 0xa) goto ___2a093h;
+		if((int)D(ebx+___1a01e0h+0xc) >= 0xa) goto ___2a093h;
 		if(D(___185a14h_UseWeapons) != 0) goto ___2a093h;
-		eax = D(ebx+___1a01fch);
+		eax = D(ebx+___1a01e0h+0x1c);
 		edx = 8*eax;
 		edx -= eax;
 		edx <<= 3;
 		edx -= eax;
 		edx <<= 5;
-		eax = D(edx+___18e974h);
+		eax = D(edx+___18e298h+0x6dc);
 		edx = eax;
 		ecx = 0xa;
 		edx = (int)edx>>0x1f;
 		eax = (long long)(int)eax/(int)ecx;
-		esi = D(ebx+___1a01ech);
+		esi = D(ebx+___1a01e0h+0xc);
 		esi = esi*eax;
 ___2a093h:
 		edx = D(___1a1ef8h);
@@ -1029,52 +998,52 @@ ___2a093h:
 		eax <<= 2;
 		eax -= edx;
 		eax <<= 2;
-		if((int)D(eax+___1a01ech) < 0xa) goto ___2a0d9h;
+		if((int)D(eax+___1a01e0h+0xc) < 0xa) goto ___2a0d9h;
 		if(D(___185a14h_UseWeapons) != 0) goto ___2a0d9h;
-		eax = D(eax+___1a01fch);
+		eax = D(eax+___1a01e0h+0x1c);
 		esi = 8*eax;
 		esi -= eax;
 		esi <<= 3;
 		esi -= eax;
 		esi <<= 5;
-		esi = D(esi+___18e974h);
+		esi = D(esi+___18e298h+0x6dc);
 ___2a0d9h:
 		edx = D(___1a1ef8h);
 		eax = 8*edx;
 		eax -= edx;
 		eax <<= 2;
 		eax -= edx;
-		if((int)D(4*eax+___1a01ech) <= 0) return;
+		if((int)D(4*eax+___1a01e0h+0xc) <= 0) return;
 		eax = esi;
 		eax = ___28ab4h_cdecl(eax);
 		if(eax) return;
-		dRally_Sound_pushEffect(1, 0x1f, 0, D(___24cc54h), D(___1854c4h), 0x8000);
+		dRally_Sound_pushEffect(1, 0x1f, 0, D(___24cc54h), 0x28000, 0x8000);
 		edx = D(___1a1ef8h);
 		eax = 8*edx;
 		eax -= edx;
 		eax <<= 2;
 		eax -= edx;
 		eax <<= 2;
-		edi = D(eax+___1a01ech);
+		edi = D(eax+___1a01e0h+0xc);
 		if((int)edi >= 0xa) goto ___2a159h;
 		edx = 0;
-		D(eax+___1a01ech) = edx;
+		D(eax+___1a01e0h+0xc) = edx;
 		goto ___2a162h;
 ___2a159h:
 		ebp = edi-0xa;
-		D(eax+___1a01ech) = ebp;
+		D(eax+___1a01e0h+0xc) = ebp;
 ___2a162h:
 		edx = D(___1a1ef8h);
 		eax = 8*edx;
 		eax -= edx;
 		eax <<= 2;
 		eax -= edx;
-		ebx = D(4*eax+___1a0210h);
-		ecx = D(4*eax+___1a021ch);
+		ebx = D(4*eax+___1a01e0h+0x30);
+		ecx = D(4*eax+___1a01e0h+0x3c);
 		ebx -= esi;
 		ecx += esi;
-		D(4*eax+___1a0210h) = ebx;
-		D(4*eax+___1a021ch) = ecx;
+		D(4*eax+___1a01e0h+0x30) = ebx;
+		D(4*eax+___1a01e0h+0x3c) = ecx;
 		___25330h();
 		___269e4h();
 		___12cb8h__VESA101_PRESENTSCREEN();
@@ -1084,7 +1053,7 @@ ___2a162h:
 
 // CONTINUE
 ___2a1afh:
-		if((D(0x6c*D(___1a1ef8h)+___1a01ech) == 0x64)&&(D(___185a14h_UseWeapons) == 0)){
+		if((D(0x6c*D(___1a1ef8h)+___1a01e0h+0xc) == 0x64)&&(D(___185a14h_UseWeapons) == 0)){
 
 			___13248h_cdecl(0x90, 0x72, 0x180, 0x77, 1);
 			___13094h_cdecl("[Repair your car first.", 0x136aa);
@@ -1093,7 +1062,7 @@ ___2a1afh:
 			___13094h_cdecl("junk, carry it around? Let me spell", 0x1aeaa);
 			___13094h_cdecl("this out for you: R-E-P-A-I-R.", 0x1d6aa);
 			___12cb8h__VESA101_PRESENTSCREEN();
-			dRally_Sound_pushEffect(2, 0x17, 0, D(___24cc54h), D(___1854a4h), 0x8000);
+			dRally_Sound_pushEffect(2, 0x17, 0, D(___24cc54h), 0x25500, 0x8000);
 		}
 		else {
 
@@ -1109,7 +1078,7 @@ ___2a1afh:
 				}
 				else {
 
-					dRally_Sound_pushEffect(1, 0x18, 0, D(___24cc54h), D(___1854a8h), 0x8000);
+					dRally_Sound_pushEffect(1, 0x18, 0, D(___24cc54h), 0x28000, 0x8000);
 					edi = D(___1a1ef8h);
 					ecx = 0;
 					edx = 0;
@@ -1117,7 +1086,7 @@ ___2a1afh:
 
 					while(1){
 
-						esi = D(eax+___1a0224h);
+						esi = D(eax+___1a01e0h+0x44);
 						if(((int)ecx < (int)esi)&&(edx != edi)) ecx = esi;
 						edx++;
 						eax += 0x6c;
@@ -1125,7 +1094,7 @@ ___2a1afh:
 						if((int)edx >= 0x14) break;
 					}
 
-					if((int)ecx < (int)D(0x6c*D(___1a1ef8h)+___1a0224h)){
+					if((int)ecx < (int)D(0x6c*D(___1a1ef8h)+___1a01e0h+0x44)){
 
 						___31008h();
 					}
@@ -1143,7 +1112,7 @@ ___2a1afh:
 
 				if((D(___185a14h_UseWeapons) == 0)||(D(___185a4ch) == 0)){
 
-					dRally_Sound_pushEffect(1, 0x18, 0, D(___24cc54h), D(___1854a8h), 0x8000);
+					dRally_Sound_pushEffect(1, 0x18, 0, D(___24cc54h), 0x28000, 0x8000);
 					___33010h_cdecl(D(___196adch));
 				}
 				else {

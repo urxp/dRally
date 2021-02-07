@@ -13,7 +13,6 @@ cpu 386
 	extern 	___23230h
 	extern 	___13710h
 	extern 	___13248h_cdecl
-	extern 	___180824h
 	extern 	___185ba9h
 	extern 	___1a10cch
 	extern 	___12e78h_cdecl
@@ -22,61 +21,30 @@ cpu 386
 	extern 	__STOSB
 	extern 	___2ab50h
 	extern 	___23594h
-	extern 	___18082ch
-	extern 	___180848h
 	extern 	___5994ch
 	extern 	___59b3ch
 	extern 	___1a116ch
 	extern 	___1a1f4eh
-	extern 	___1a1f4dh
-	extern 	___180864h
 	extern 	___1a1ef8h
-	extern 	___1a1dbah
 	extern 	___1a01e0h
-	extern 	___180868h
-	extern 	___1a1f63h
 	extern 	___23488h
 	extern 	___12d6ch__VESA101_PRESENTBOTTOMSCREEN
-	extern 	___180130h
-	extern 	___1a0ff1h
+	extern 	___1a0ffch
 	extern 	___19dec0h
 	extern 	__STOSD
 	extern 	___196ab8h
-	extern 	___1a2011h
+	extern 	___1a2010h
 	extern 	___185a14h_UseWeapons
-	extern 	___180888h
 	extern 	___185c0bh
 	extern 	___1a110ch
-	extern 	___180890h
-	extern 	___1808a4h
-	extern 	___1808b8h
-	extern 	___1808c8h
-	extern 	___1808cch
 	extern 	___1a112ch__VESA101_ACTIVESCREEN_PTR
-	extern 	___1a0220h
 	extern 	___19de70h
-	extern 	___1808d0h
 	extern 	___1a1108h
-	extern 	___1808ech
-	extern 	___180918h
-	extern 	___18093ch
-	extern 	___25138h
-	extern 	___180940h
-	extern 	___180944h
-	extern 	___180948h
-	extern 	___1a0ffch
-	extern 	___19dec4h
-	extern 	___19dec8h
-	extern 	___19decch
+	extern 	___25138h_cdecl
 	extern 	memset
-	extern 	___197d0h
+	extern 	___197d0h_cdecl
 	extern 	___1398ch__VESA101_PRESENTRECTANGLE
-	extern 	___1807cch
 	extern 	___1a10fch
-	extern 	___1807e8h
-	extern 	___18094ch
-	extern 	___180964h
-	extern 	___180974h
 	extern 	dRally_Memory_free
 	extern 	___61278h
 	extern 	___623d4h
@@ -92,7 +60,6 @@ cpu 386
 	extern 	___1c6bch
 	extern 	shop_main
 	extern 	___185a24h
-	extern 	___180980h
 
 section .text
 
@@ -189,7 +156,7 @@ __GDECL(___198a0h)
 	add 	esp, 14h
 	
 		mov     ecx, 294fah
-		mov     ebx, ___180824h
+		mov     ebx, loc_wait
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10cch]
 
@@ -332,7 +299,7 @@ ___19a8eh:
 	add 	esp, 14h
 	
 		mov     ecx, 20851h
-		mov     ebx, ___18082ch
+		mov     ebx, n_reserved
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10cch]
 
@@ -344,7 +311,7 @@ ___19a8eh:
 	add 	esp, 10h
 
 		mov     ecx, 25851h
-		mov     ebx, ___180848h
+		mov     ebx, press_k
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10cch]
 
@@ -416,33 +383,33 @@ ___19b26h:
 ___19b33h:
 		mov     esi, ecx
 		mov     edi, ebx
-		inc     edx
 		call 	__STRCPY
 		add     ebx, 96h
-		mov     al, [edx+___1a1f4eh]
+		mov     al, [edx+___1a1f4eh+1]
 		add     ecx, 96h
-		mov     [edx+___1a1f4dh], al
+		mov     [edx+___1a1f4eh], al
+		inc     edx
 		cmp     edx, byte 15h
 		jl      short ___19b33h
-		mov     eax, [___180864h]
+		mov     eax, [ddash]
 		mov     edx, [___1a1ef8h]
-		mov     [___1a1dbah], eax
+		mov     [___1a116ch+0c4eh], eax
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
 		sub     eax, edx
 		mov     esi, ___1a01e0h
 		shl     eax, 2
-		mov     edi, ___1a1dbah
+		mov     edi, ___1a116ch+0c4eh
 		add     esi, eax
 		call 	__STRCAT
-		mov     esi, ___180868h
+		mov     esi, new_netgame
 		call 	__STRCAT
 		xor     cl, cl
 		mov     ebx, 6
-		mov     [___1a1f63h], cl
+		mov     [___1a1f4eh+15h], cl
 		call 	__STRLEN
-		mov     eax, ___1a1dbah
+		mov     eax, ___1a116ch+0c4eh
 		lea     edx, [ecx+1]
 		mov     edi, 1
 		call    near ___23488h
@@ -464,12 +431,12 @@ ___19b33h:
 	pop 	ecx
 	pop		edx
 
-		mov     dl, [___180130h]
+		mov     dl, 0
 		mov     [esp+108h], edi
 		xor     eax, eax
 ___19c27h:
+		mov     [eax+___1a0ffch], dl
 		add     eax, byte 0bh
-		mov     [eax+___1a0ff1h], dl
 		cmp     eax, byte 2ch
 		jne     short ___19c27h
 		mov     ecx, 4
@@ -511,7 +478,7 @@ ___19c7fh:
 		xor     eax, eax
 ___19ca1h:
 		inc     edx
-		mov     bl, [eax+___1a2011h]
+		mov     bl, [eax+___1a2010h+1]
 		inc     eax
 		mov     [edx+14h], bl
 		cmp     eax, byte 9
@@ -543,7 +510,7 @@ ___19ca1h:
 		add     esi, eax
 		mov     edx, [esp+0dch]
 		call 	__STRCPY
-		mov     esi, ___180888h
+		mov     esi, s_game
 		mov     edi, esp
 		add     edx, byte 73h
 		call 	__STRCAT
@@ -557,7 +524,7 @@ ___19ca1h:
 		lea     ecx, [eax+16h]
 		mov     edx, ___185c0bh
 		mov     eax, [___1a110ch]
-		mov     esi, ___180890h
+		mov     esi, __dfr_180890h
 
 	push 	ecx
 	push 	ebx
@@ -598,7 +565,7 @@ ___19ca1h:
 		add     ecx, eax
 		mov     eax, [___1a110ch]
 		add     ecx, byte 5dh
-		mov     esi, ___1808a4h
+		mov     esi, __dfr_1808a4h
 
 	push 	ecx
 	push 	ebx
@@ -627,7 +594,7 @@ ___19ca1h:
 		add     ecx, eax
 		mov     eax, [___1a110ch]
 		add     ecx, byte 5dh
-		mov     esi, ___1808b8h
+		mov     esi, __dfr_1808b8h
 
 	push 	ecx
 	push 	ebx
@@ -642,10 +609,10 @@ ___19ca1h:
 		movsw   
 		cmp     dword [___185a14h_UseWeapons], byte 0
 		je      short ___19e78h
-		mov     esi, ___1808c8h
+		mov     esi, __dfr_1808c8h
 		jmp     short ___19e7dh
 ___19e78h:
-		mov     esi, ___1808cch
+		mov     esi, __dfr_1808cch
 ___19e7dh:
 		mov     edi, esp
 		call 	__STRCAT
@@ -684,7 +651,7 @@ ___19e7dh:
 		shl     eax, 2
 		sub     eax, edx
 		mov     ecx, 40h
-		mov     esi, [eax*4+___1a0220h]
+		mov     esi, [eax*4+___1a01e0h+40h]
 		mov     edx, ecx
 		mov     esi, [esi*4+___19de70h]
 		shr     dl, 2
@@ -742,7 +709,7 @@ ___19fb3h:
 		add     edx, byte 0ah
 		mov     edi, esp
 		lea     eax, [edx*4+0]
-		mov     esi, ___1808d0h
+		mov     esi, __dfr_1808d0h
 		add     eax, edx
 		mov     edx, [esp+0c4h]
 		shl     eax, 7
@@ -765,7 +732,7 @@ ___19fb3h:
 		mov     edx, [esp+0dch]
 		mov     edi, esp
 		add     edx, 0dah
-		mov     esi, ___1808ech
+		mov     esi, __dfr_1808ech
 		lea     eax, [edx*4+0]
 		mov     ecx, 0ah
 		add     eax, edx
@@ -788,7 +755,7 @@ ___19fb3h:
 	add 	esp, 10h
 
 		mov     edx, [esp+0dch]
-		mov     esi, ___180918h
+		mov     esi, __dfr_180918h
 		add     edx, 0eah
 		mov     ecx, 8
 		lea     eax, [edx*4+0]
@@ -813,7 +780,7 @@ ___19fb3h:
 		mov     eax, [esp+0dch]
 		mov     edi, esp
 		add     eax, 8dh
-		mov     esi, ___18093ch
+		mov     esi, __dfr_18093ch
 		mov     [esp+0d4h], eax
 		mov     edx, eax
 		shl     eax, 2
@@ -828,7 +795,15 @@ ___19fb3h:
 		mov     edx, ___185c0bh
 		mov     eax, esp
 		lea     ecx, [esi+27h]
-		call    near ___25138h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    near ___25138h_cdecl
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		sub     ecx, eax
 		mov     eax, [___1a1108h]
 
@@ -862,7 +837,7 @@ ___19fb3h:
 	add 	esp, 10h
 
 		mov     eax, [esp+0dch]
-		mov     esi, ___180940h
+		mov     esi, __dfr_180940h
 		add     eax, 9dh
 		mov     ecx, [esp+0c4h]
 		mov     [esp+0c0h], eax
@@ -877,7 +852,15 @@ ___19fb3h:
 		add     ecx, eax
 		mov     eax, esp
 		add     ecx, byte 27h
-		call    near ___25138h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    near ___25138h_cdecl
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		sub     ecx, eax
 		mov     eax, [___1a1108h]
 
@@ -891,7 +874,7 @@ ___19fb3h:
 		mov     edx, [esp+0dch]
 		mov     edi, esp
 		add     edx, 0adh
-		mov     esi, ___180944h
+		mov     esi, __dfr_180944h
 		lea     eax, [edx*4+0]
 		mov     ebx, esp
 		add     eax, edx
@@ -902,7 +885,15 @@ ___19fb3h:
 		add     edx, eax
 		mov     eax, esp
 		lea     ecx, [edx+27h]
-		call    near ___25138h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    near ___25138h_cdecl
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     edx, ___185c0bh
 		sub     ecx, eax
 		mov     eax, [___1a1108h]
@@ -917,7 +908,7 @@ ___19fb3h:
 		mov     edx, [esp+0dch]
 		mov     edi, esp
 		add     edx, 0bdh
-		mov     esi, ___180948h
+		mov     esi, __dfr_180948h
 		lea     eax, [edx*4+0]
 		mov     ebx, esp
 		add     eax, edx
@@ -928,7 +919,15 @@ ___19fb3h:
 		add     edx, eax
 		mov     eax, esp
 		lea     ecx, [edx+27h]
-		call    near ___25138h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    near ___25138h_cdecl
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     edx, ___185c0bh
 		sub     ecx, eax
 		mov     eax, [___1a1108h]
@@ -1052,11 +1051,11 @@ ___1a335h:
 ___1a36dh:
 		cmp     edx, [___19dec0h]
 		je      short ___1a3deh
-		cmp     edx, [___19dec4h]
+		cmp     edx, [___19dec0h+4]
 		je      short ___1a3deh
-		cmp     edx, [___19dec8h]
+		cmp     edx, [___19dec0h+8]
 		je      short ___1a3deh
-		cmp     edx, [___19decch]
+		cmp     edx, [___19dec0h+0ch]
 		je      short ___1a3deh
 		cmp     dword [ebx+___19dec0h], byte 0
 		jne     short ___1a3deh
@@ -1100,7 +1099,7 @@ ___1a3e7h:
 		jne     short ___1a446h
 ___1a422h:
 		imul    ebx, ebx, byte 0bh
-		mov     al, [___180130h]
+		mov     al, 0
 		mov     [ebx+___1a0ffch], al
 		xor     eax, eax
 		mov     ecx, 1
@@ -1202,7 +1201,14 @@ ___1a557h:
 		jne     short ___1a557h
 		mov     edx, 3
 		xor     eax, eax
-		call    near ___197d0h
+	
+	push 	ecx
+	push 	edx
+	push 	eax
+		call    ___197d0h_cdecl
+	add 	esp, 8
+	pop 	ecx
+	
 		imul    ebx, [___1a1ef8h], byte 6ch
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
@@ -1268,7 +1274,7 @@ ___1a647h:
 		jne     near ___1a2d8h
 ___1a655h:
 		mov     ecx, 390a3h
-		mov     ebx, ___1807cch
+		mov     ebx, chat_mode
 		mov     edx, ___185c0bh
 		mov     eax, [___1a10fch]
 
@@ -1280,7 +1286,7 @@ ___1a655h:
 	add 	esp, 10h
 
 		mov     ecx, 390d9h
-		mov     ebx, ___1807e8h
+		mov     ebx, k_f1
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
 		mov     edi, [esp+0f8h]
@@ -1312,28 +1318,28 @@ ___1a6a4h:
 ___1a6b1h:
 		mov     esi, ecx
 		mov     edi, edx
-		inc     ebx
 		call 	__STRCPY
 		add     edx, 96h
-		mov     al, [ebx+___1a1f4eh]
+		mov     al, [ebx+___1a1f4eh+1]
 		add     ecx, 96h
-		mov     [ebx+___1a1f4dh], al
+		mov     [ebx+___1a1f4eh], al
+		inc     ebx
 		cmp     ebx, byte 15h
 		jl      short ___1a6b1h
-		mov     eax, [___180864h]
+		mov     eax, [ddash]
 		mov     edx, [___1a1ef8h]
-		mov     [___1a1dbah], eax
+		mov     [___1a116ch+0c4eh], eax
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
 		sub     eax, edx
 		mov     esi, ___1a01e0h
 		shl     eax, 2
-		mov     edi, ___1a1dbah
+		mov     edi, ___1a116ch+0c4eh
 		add     esi, eax
 		mov     ebx, 0ah
 		call 	__STRCAT
-		mov     esi, ___18094ch
+		mov     esi, __dfr_18094ch
 		mov     edx, esp
 		call 	__STRCAT
 		mov     eax, [esp+108h]
@@ -1348,7 +1354,7 @@ ___1a6b1h:
 	pop 	ecx
 
 		call 	__STRCAT
-		mov     esi, ___180964h
+		mov     esi, __dfr_180964h
 		mov     ebx, 0ah
 		mov     edx, esp
 		call 	__STRCAT
@@ -1364,11 +1370,11 @@ ___1a6b1h:
 	pop 	ecx
 
 		call 	__STRCAT
-		mov     esi, ___180974h
+		mov     esi, __dfr_180974h
 		call 	__STRCAT
 		xor     cl, cl
 		mov     ebx, 6
-		mov     [___1a1f63h], cl
+		mov     [___1a1f4eh+15h], cl
 	
 	push 	edx
 	push 	ecx
@@ -1388,7 +1394,7 @@ ___1a6b1h:
 	pop		edx
 
 		call 	__STRLEN
-		mov     eax, ___1a1dbah
+		mov     eax, ___1a116ch+0c4eh
 		lea     edx, [ecx+1]
 		call    near ___23488h
 		mov     eax, [esp+0fch]
@@ -1490,30 +1496,30 @@ ___1a8d8h:
 ___1a8e5h:
 		mov     esi, ecx
 		mov     edi, edx
-		inc     ebx
 		call 	__STRCPY
 		add     edx, 96h
-		mov     al, [ebx+___1a1f4eh]
+		mov     al, [ebx+___1a1f4eh+1]
 		add     ecx, 96h
-		mov     [ebx+___1a1f4dh], al
+		mov     [ebx+___1a1f4eh], al
+		inc     ebx
 		cmp     ebx, byte 15h
 		jl      short ___1a8e5h
-		mov     eax, [___180864h]
+		mov     eax, [ddash]
 		mov     edx, [___1a1ef8h]
-		mov     [___1a1dbah], eax
+		mov     [___1a116ch+0c4eh], eax
 		lea     eax, [edx*8+0]
 		sub     eax, edx
 		shl     eax, 2
 		sub     eax, edx
 		mov     esi, ___1a01e0h
 		shl     eax, 2
-		mov     edi, ___1a1dbah
+		mov     edi, ___1a116ch+0c4eh
 		add     esi, eax
 		call 	__STRCAT
-		mov     esi, ___180980h
+		mov     esi, __dfr_180980h
 		xor     bh, bh
 		call 	__STRCAT
-		mov     [___1a1f63h], bh
+		mov     [___1a1f4eh+15h], bh
 	
 	push 	edx
 	push 	ecx
@@ -1534,7 +1540,7 @@ ___1a8e5h:
 
 		call 	__STRLEN
 		mov     ebx, 6
-		mov     eax, ___1a1dbah
+		mov     eax, ___1a116ch+0c4eh
 		lea     edx, [ecx+1]
 		call    near ___23488h
 		mov     eax, [esp+0fch]
@@ -1599,4 +1605,54 @@ ___1a8e5h:
 		pop     ecx
 		pop     ebx
 		retn    
+
+section .data
+chat_mode:
+	db 	"press   to enter chat mode",0,0
+k_f1:
+	db 	"F1",0,0
+loc_wait:
+	db 	"Wait...",0
+n_reserved:
+	db 	"All netgames are reserved!",0,0
+press_k:
+	db 	"Press any key to continue.",0,0
+ddash:
+	db 	"-- ",0
+new_netgame:
+	db 	" has initialized a new netgame.",0
+s_game:
+	db 	"'s game",0
+__dfr_180890h:
+	db	53h,65h,6ch,65h,63h,74h,65h,64h,20h,74h,72h,61h,63h,6bh,73h,3ah,20h,0,0,0
+__dfr_1808a4h:
+	db	53h,74h,61h,72h,74h,69h,6eh,67h,20h,6dh,6fh,6eh,65h,79h,3ah,20h,24h,0,0,0
+__dfr_1808b8h:
+	db	57h,65h,61h,70h,6fh,6eh,20h,6dh,6fh,64h,65h,3ah,20h,0,0,0
+__dfr_1808c8h:
+	db	4fh,6eh,0,0
+__dfr_1808cch:
+	db	4fh,66h,66h,0
+__dfr_1808d0h:
+	db	49h,6eh,69h,74h,69h,61h,6ch,69h,7ah,69h,6eh,67h,20h,61h,20h,6eh,65h,77h,20h,6eh,65h,74h,67h,61h,6dh,65h,0,0
+__dfr_1808ech:
+	db	50h,72h,65h,73h,73h,20h,45h,4eh,54h,45h,52h,20h,77h,68h,65h,6eh,20h,61h,6ch,6ch,20h,70h,6ch,61h,79h,65h,72h,73h,20h,68h,61h,76h,65h,20h,61h,72h,72h,69h,76h,65h,64h,0,0,0
+__dfr_180918h:
+	db	6fh,72h,20h,70h,72h,65h,73h,73h,20h,45h,53h,43h,20h,74h,6fh,20h,63h,6ch,6fh,73h,65h,20h,79h,6fh,75h,72h,20h,67h,61h,6dh,65h,2eh,0,0,0,0
+__dfr_18093ch:
+	db	31h,2eh,0,0
+__dfr_180940h:
+	db	32h,2eh,0,0
+__dfr_180944h:
+	db	33h,2eh,0,0
+__dfr_180948h:
+	db	34h,2eh,0,0
+__dfr_18094ch:
+	db	27h,73h,20h,67h,61h,6dh,65h,20h,73h,74h,61h,72h,74h,65h,64h,20h,77h,69h,74h,68h,20h,0,0,0
+__dfr_180964h:
+	db	20h,70h,6ch,61h,79h,65h,72h,73h,20h,61h,6eh,64h,20h,0,0,0
+__dfr_180974h:
+	db	20h,74h,72h,61h,63h,6bh,28h,73h,29h,2eh,0,0
+__dfr_180980h:
+	db	20h,63h,6ch,6fh,73h,65h,64h,20h,74h,68h,65h,20h,6eh,65h,74h,67h,61h,6dh,65h,2eh,0,0,0,0
 */

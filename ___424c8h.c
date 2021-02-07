@@ -7,6 +7,7 @@ void ___424c8h_cdecl(dword A1, const char * A2){
 
 	int 	n, x, y;
 	byte 	px;
+	int 	b;
 
 	n = -1;
 	while(A2[++n]){

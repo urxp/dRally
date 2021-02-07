@@ -4,7 +4,6 @@ The main goal of this project is to create a port of Death Rally (1996) running 
 
 #### Linux requirements
 * GCC/Clang C compiler
-* Netwide Assembler (NASM)
 * GNU/Make
 * SDL2
 
@@ -28,5 +27,5 @@ The main goal of this project is to create a port of Death Rally (1996) running 
     [1] CDROM.INI contains relative location of CINEM directory (./CINEM)
 
 #### Work in progress
-*   Because of a lot of disassembled code, only 32bit version available at this point
+*   Only 32bit version available at this point
 *   Multiplayer not available 

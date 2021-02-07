@@ -2,10 +2,8 @@
 
 	extern byte ___1866b8h[];
 	extern byte ___1866b8h[];
-	extern byte ___18075ch[];
 	extern byte ___1a1138h__VESA101h_DefaultScreenBufferB[];
 	extern byte ___1a112ch__VESA101_ACTIVESCREEN_PTR[];
-	extern byte ___1854bch[];
 	extern byte ___24cc54h[];
 	extern byte ___1866b8h[];
 	extern byte ___185b58h[];
@@ -16,19 +14,12 @@
 	extern byte ___185a3ch[];
 	extern byte ___243d44h[];
 	extern byte ___196ab4h[];
-	extern byte ___1a0f9ch[];
+	extern void * ___1a0f9ch;
 	extern byte ___1a1ef8h[];
 	extern byte ___185a14h_UseWeapons[];
 	extern byte ___1a01e0h[];
 	extern byte ___196a94h[];
-	extern byte ___1a023ch[];
-	extern byte ___1a0240h[];
 	extern byte ___1a0a50h[];
-	extern byte ___1a0244h[];
-	extern byte ___1a0a54h[];
-	extern byte ___1a0248h[];
-	extern byte ___1a0a58h[];
-	extern byte ___1a0a5ch[];
 
 
 dword ___146c4h_cdecl(dword);
@@ -84,7 +75,7 @@ dword ___18924h(void){
 		___12cb8h__VESA101_PRESENTSCREEN();
 		n = ___146c4h_cdecl(5);
 
-		if((B(esp+n+0x10) == 0)&&(n != -1)) dRally_Sound_pushEffect(1, 0x1d, 0, D(___24cc54h), D(___1854bch), 0x8000);
+		if((B(esp+n+0x10) == 0)&&(n != -1)) dRally_Sound_pushEffect(1, 0x1d, 0, D(___24cc54h), 0x28000, 0x8000);
 
 		if((n >= 0)&&(n <= 7)&&(B(esp+n+0x10) == 1)) break;
 		if(n == -1) break;
@@ -108,28 +99,28 @@ dword ___18924h(void){
 		D(___243d44h) = 0;
 		D(___196ab4h) = 0;
 		strcpy(___1866b8h, "Continue Racing"); 
-		D(___1a0f9ch) = ___3f71ch__allocateMemory(0x883);
-		memset(D(___1a0f9ch), 0, 0x883);
+		___1a0f9ch = ___3f71ch__allocateMemory(0x883);
+		memset(___1a0f9ch, 0, 0x883);
 		strcpy(esp, "DR.SG");
 		itoa_watcom106(n, esp+0x20, 0xa);
 		eax = strupr_fopen(strcat(esp, esp+0x20), "rb");
-		fread(D(___1a0f9ch), 0x883, 1, eax);
+		fread(___1a0f9ch, 0x883, 1, eax);
 		fclose(eax);
 
-		key = B(D(___1a0f9ch));
+		key = B(___1a0f9ch);
 
 		n = 0;
-		while(++n < 0x883) B(n+D(___1a0f9ch)) = ROL_BYTE(B(n+D(___1a0f9ch)), n%6)+key-0x11*n;
+		while(++n < 0x883) B(___1a0f9ch+n) = ROL_BYTE(B(___1a0f9ch+n), n%6)+key-0x11*n;
 
-		D(___1a1ef8h) = B(D(___1a0f9ch)+1);
-		D(___185a14h_UseWeapons) = B(D(___1a0f9ch)+2);
-		D(___196a94h) = B(D(___1a0f9ch)+3);
-		memcpy(___1a01e0h, D(___1a0f9ch)+0x13, 0x870);
-		dRally_Memory_free(D(___1a0f9ch));
-		D(___1a0a50h) = !!(D(0x6c*D(___1a1ef8h)+___1a023ch) != 8);
-		D(___1a0a54h) = !!(D(0x6c*D(___1a1ef8h)+___1a0240h) != 1);
-		D(___1a0a58h) = !!(D(0x6c*D(___1a1ef8h)+___1a0244h) != 1);
-		D(___1a0a5ch) = !!(D(0x6c*D(___1a1ef8h)+___1a0248h) != 1);
+		D(___1a1ef8h) = B(___1a0f9ch+1);
+		D(___185a14h_UseWeapons) = B(___1a0f9ch+2);
+		D(___196a94h) = B(___1a0f9ch+3);
+		memcpy(___1a01e0h, ___1a0f9ch+0x13, 0x870);
+		dRally_Memory_free(___1a0f9ch);
+		D(___1a0a50h) = !!(D(0x6c*D(___1a1ef8h)+___1a01e0h+0x5c) != 8);
+		D(___1a0a50h+4) = !!(D(0x6c*D(___1a1ef8h)+___1a01e0h+0x60) != 1);
+		D(___1a0a50h+8) = !!(D(0x6c*D(___1a1ef8h)+___1a01e0h+0x64) != 1);
+		D(___1a0a50h+0xc) = !!(D(0x6c*D(___1a1ef8h)+___1a01e0h+0x68) != 1);
 		___2a608h_cdecl("Game Loaded.");
 		eax = 1;
 	}

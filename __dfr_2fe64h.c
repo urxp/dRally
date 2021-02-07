@@ -10,11 +10,9 @@ cpu 386
 	extern	___1a112ch__VESA101_ACTIVESCREEN_PTR
 	extern	___135fch
 	extern	___19bd60h
-	extern	___1807cch
 	extern	___185c0bh
 	extern	___1a10fch
 	extern	___12e78h_cdecl
-	extern	___1807e8h
 	extern	___1a1108h
 	extern	___23230h
 	extern	___25330h
@@ -26,21 +24,16 @@ cpu 386
 	extern	___2fca4h
 	extern	___196ab8h
 	extern	___196af4h
-	extern	___1a2011h
-	extern	___1a1100h__VESA101h_DefaultScreenBuffer
+	extern	___1a2010h
 	extern	___3a968h_cdecl
 	extern	___12cb8h__VESA101_PRESENTSCREEN
 	extern	___2ab50h
 	extern	___5994ch
 	extern	___23758h
-	extern	___1854b0h
 	extern	___24cc54h
 	extern	dRally_Sound_pushEffect
 	extern	___1a1030h
 	extern	___1a1038h
-	extern	___1854ach
-	extern	___1854bch
-	extern	___1a2010h
 	extern 	restoreDefaultScreenBuffer
 
 section .text
@@ -78,7 +71,7 @@ __GDECL(___2fe64h)
 		cmp     dword [___19bd60h], byte 0
 		je      short ___2fefbh
 		mov     ecx, 390a3h
-		mov     ebx, ___1807cch
+		mov     ebx, chat_mode
 		mov     edx, ___185c0bh
 		mov     eax, [___1a10fch]
 
@@ -90,7 +83,7 @@ __GDECL(___2fe64h)
 	add 	esp, 10h
 
 		mov     ecx, 390d9h
-		mov     ebx, ___1807e8h
+		mov     ebx, k_f1
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
 
@@ -235,7 +228,7 @@ ___3006eh:
 		mov     ebx, [___1a112ch__VESA101_ACTIVESCREEN_PTR]
 		xor     eax, eax
 		mov     esi, [ebp+___196af4h]
-		mov     al, [edi+___1a2011h]
+		mov     al, [edi+___1a2010h+1]
 		mov     edx, 80h
 		add     ebx, esi
 		mov     esi, [eax*4+___1a1040h]
@@ -350,7 +343,7 @@ ___30183h:
 ___3018dh:
 		push    8000h
 		mov     edx, 1ah
-		mov     edi, [___1854b0h]
+		mov     edi, 28000h
 		mov     eax, 1
 		push    edi
 		mov     ecx, [___24cc54h]
@@ -526,7 +519,7 @@ ___3035bh:
 ___30363h:
 		push    8000h
 		mov     edx, 1ah
-		mov     edi, [___1854b0h]
+		mov     edi, 28000h
 		mov     eax, 1
 		push    edi
 		mov     ecx, [___24cc54h]
@@ -692,7 +685,7 @@ ___304f3h:
 ___3051dh:
 		push    8000h
 		mov     edx, 19h
-		mov     ecx, [___1854ach]
+		mov     ecx, 28000h
 		mov     eax, 1
 		push    ecx
 		xor     ebx, ebx
@@ -710,7 +703,7 @@ ___3051dh:
 		jle     near ___30618h
 		xor     dl, dl
 		mov     eax, edi
-		mov     [edi+___1a2011h], dl
+		mov     [edi+___1a2010h+1], dl
 		test    edi, edi
 		jle     short ___30571h
 		lea     eax, [edi-1]
@@ -736,7 +729,7 @@ ___3057bh:
 ___305bdh:
 		mov     edx, 80h
 		mov     ebx, [___1a112ch__VESA101_ACTIVESCREEN_PTR]
-		movzx   esi, byte [edi+___1a2011h]
+		movzx   esi, byte [edi+___1a2010h+1]
 		mov     ecx, [ebp+___196af4h]
 		mov     esi, [esi*4+___1a1040h]
 		add     ebx, ecx
@@ -766,7 +759,7 @@ ___305e9h:
 ___30618h:
 		push    8000h
 		mov     edx, 1dh
-		mov     ebp, [___1854bch]
+		mov     ebp, 28000h
 		mov     eax, 1
 		push    ebp
 		mov     ecx, [___24cc54h]
@@ -814,10 +807,10 @@ ___30694h:
 		jne     short ___30692h
 		mov     eax, [___196ab8h]
 		mov     edx, [___1a1160h]
-		inc     eax
 		mov     dl, [edx+___196abch]
+		mov     [eax+___1a2010h+1], dl
+		inc     eax
 		mov     [___196ab8h], eax
-		mov     [eax+___1a2010h], dl
 		jmp     short ___306dah
 ___306d3h:
 		mov     dword [esp], 0fffffffeh
@@ -844,7 +837,7 @@ ___306edh:
 		lea     eax, [edi+1]
 		xor     dh, dh
 		mov     [___196ab8h], eax
-		mov     [edi+___1a2011h], dh
+		mov     [edi+___1a2010h+1], dh
 ___30711h:
 		mov     ecx, 4b000h
 		mov     ebx, 27fh
@@ -867,7 +860,7 @@ ___30711h:
 		cmp     dword [___19bd60h], byte 0
 		je      short ___3078dh
 		mov     ecx, 390a3h
-		mov     ebx, ___1807cch
+		mov     ebx, chat_mode
 		mov     edx, ___185c0bh
 		mov     eax, [___1a10fch]
 
@@ -879,7 +872,7 @@ ___30711h:
 	add 	esp, 10h
 
 		mov     ecx, 390d9h
-		mov     ebx, ___1807e8h
+		mov     ebx, k_f1
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
 
@@ -908,4 +901,10 @@ ___3078dh:
 		pop     ecx
 		pop     ebx
 		retn    
+
+section .data
+chat_mode:
+	db 	"press   to enter chat mode",0,0
+k_f1:
+	db 	"F1",0,0
 */

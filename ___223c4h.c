@@ -4,15 +4,12 @@
 	extern byte ___1a112ch__VESA101_ACTIVESCREEN_PTR[];
 	extern byte ___1a10dch[];
 	extern byte ___1a1ef8h[];
-	extern byte ___1a0e34h[];
-	extern byte ___1a0230h[];
 	extern byte ___1a0e28h[];
 	extern byte ___1a01e0h[];
 	extern byte ___196a94h[];
-	extern byte ___1a0e38h[];
 	extern byte ___185c7ah[];
 	extern byte ___1a10b8h[];
-	extern byte ___18768ah[];
+	extern char ___18768ah[][0x18];
 	extern byte ___19bd60h[];
 
 #if defined(DR_MULTIPLAYER)
@@ -37,60 +34,31 @@ void ___223c4h(void){
 
 	dword 	eax, ebx, ecx, edx, edi, esi, ebp;
 	byte 	esp[0x44];
+	int 	i, j, n;
+	byte 	px;
 
 
-	ecx = 0x4b000;
-	ebx = 0x27f;
-	esi = D(___1a1138h__VESA101h_DefaultScreenBufferB);
-	edi = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
-	edx = 0x173;
-	memcpy(edi, esi, ecx);
-	ecx = 0x6d;
-	eax = 0;
-	___135fch(eax, edx, ebx, ecx);
+	memcpy(D(___1a112ch__VESA101_ACTIVESCREEN_PTR), D(___1a1138h__VESA101h_DefaultScreenBufferB), 0x4b000);
+	___135fch(0, 0x173, 0x27f, 0x6d);
 	___3e03ch();
 	___23230h();
-	ecx = 0x36;
-	edx = 0x280;
-	ebx = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
-	esi = D(___1a10dch);
-	ebx += 0xd200;
 
-	while(1){
+	j = -1;
+	while(++j < 0x36){
 
-		edi = edx;
+		i = -1;
+		while(++i < 0x280){
 
-		while(1){
-
-			L(eax) = B(esi);
-			if(L(eax) != 0) B(ebx) = L(eax);
-			ebx++;
-			esi++;
-			edi--;
-
-			if(edi == 0) break;
+			if((px = B(D(___1a10dch)+0x280*j+i)) != 0) B(D(___1a112ch__VESA101_ACTIVESCREEN_PTR)+0xd200+0x280*j+i) = px;
 		}
-
-		ebx += 0x280;
-		ebx -= edx;
-		ecx--;
-
-		if(ecx == 0) break;
 	}
 
-	edx = D(___1a1ef8h);
-	eax = 8*edx;
-	eax -= edx;
-	eax <<= 2;
-	eax -= edx;
-	ecx = D(___1a0e34h);
-	edx = 0xffffffff;
-	ebx = D(4*eax+___1a0230h);
-	D(esp+0x2c) = edx;
+	n = D(___1a01e0h+0x6c*D(___1a1ef8h)+0x50);
+	D(esp+0x2c) = 0xffffffff;
 	eax = 0;
 	edx = 0;
 
-	if((int)ebx >= (int)ecx){
+	if(n >= (int)D(___1a0e28h+0xc)){
 
 		while(1){
 			
@@ -98,7 +66,7 @@ void ___223c4h(void){
 			eax++;
 
 			if((int)edx >= 0xc8) break;
-			if((int)ebx < (int)D(edx+___1a0e34h)){
+			if(n < (int)D(edx+___1a0e28h+0xc)){
 			
 				D(esp+0x2c) = eax;
 				break;
@@ -107,91 +75,36 @@ void ___223c4h(void){
 	}
 	else {
 
-		D(esp+0x2c) = eax;
+		D(esp+0x2c) = 0;
 	}
 
-	edi = D(esp+0x2c);
+	if((int)D(esp+0x2c) >= 0){
 
-	if((int)edi >= 0){
+		if((int)D(esp+0x2c) < 9){
 
-		if(edi != 9){
+			n = 9;
+			while(1){
 
-			ebx = 9;
+				memcpy(___1a0e28h+0x14*n, ___1a0e28h+0x14*(n-1), 0x14);
 
-			if((int)edi < (int)ebx){
-
-				edx = ___1a0e28h;
-				ebp = ___1a0e28h;
-				edx += 0xa0;
-				ebp += 0xb4;
-
-				while(1){
-
-					ecx = 0x14;
-					esi = edx;
-					edi = ebp;
-					memcpy(edi, esi, ecx);
-					ebx--;
-					ecx = D(esp+0x2c);
-					ebp -= 0x14;
-					edx -= 0x14;
-
-					if((int)ebx <= (int)ecx) break;
-				}
+				n--;
+				if(n <= (int)D(esp+0x2c)) break;
 			}
 		}
 
-		edx = D(___1a1ef8h);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 2;
-		eax -= edx;
-		edx = D(esp+0x2c);
-		ebx = 4*edx;
-		esi = ___1a01e0h;
-		ebx += edx;
-		edx = ___1a0e28h;
-		ebx <<= 2;
-		eax <<= 2;
-		edx += ebx;
-		esi += eax;
-		edi = edx;
-		strcpy(edi, esi);
-		eax = edx;
-		eax = strupr_watcom106(eax);
-		edx = D(___1a1ef8h);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 2;
-		eax -= edx;
-		eax = D(4*eax+___1a0230h);
-		D(ebx+___1a0e34h) = eax;
-		eax = D(___196a94h);
-		edx = D(esp+0x2c);
-		D(ebx+___1a0e38h) = eax;
-		eax = 4*edx;
-		eax -= edx;
-		eax <<= 2;
-		eax -= edx;
-		eax += eax;
-		ecx = 0x18;
-		edx = eax+0x8a;
-		ebx = 0x25b;
-		eax = 0x11;
-		___27d24h_cdecl(eax, edx, ebx, ecx);
+		strcpy(___1a0e28h+0x14*D(esp+0x2c), ___1a01e0h+0x6c*D(___1a1ef8h));
+		strupr_watcom106(___1a0e28h+0x14*D(esp+0x2c));
+		D(0x14*D(esp+0x2c)+___1a0e28h+0xc) = D(___1a01e0h+0x6c*D(___1a1ef8h)+0x50);
+		D(0x14*D(esp+0x2c)+___1a0e28h+0x10) = D(___196a94h);
+		___27d24h_cdecl(0x11, 0x16*D(esp+0x2c)+0x8a, 0x25b, 0x18);
 		CONFIG_WRITE();
 	}
 
-	edi = 0x16889;
-	ebp = ___1a0e28h;
-	eax = 0x16950;
-	edx = 0x16948;
-	ebx = 0x169ad;
-	D(esp+0x38) = edi;
-	D(esp+0x30) = ebp;
-	D(esp+0x28) = eax;
-	D(esp+0x34) = edx;
-	D(esp+0x3c) = ebx;
+	D(esp+0x38) = 0x16889;
+	D(esp+0x30) = ___1a0e28h;
+	D(esp+0x28) = 0x16950;
+	D(esp+0x34) = 0x16948;
+	D(esp+0x3c) = 0x169ad;
 	D(esp+0x40) = 0;
 	ebp = 0;
 
@@ -206,46 +119,35 @@ void ___223c4h(void){
 		strupr_watcom106(esp);
 		esi = 0x280*(0x16*D(esp+0x40)+0x90);
 		___12e78h_cdecl(D(___1a10b8h), ___185c7ah, esp, D(esp+0x38));
-		itoa_watcom106(D(ebp+___1a0e34h), esp, 10);
+		itoa_watcom106(D(ebp+___1a0e28h+0xc), esp, 10);
 
-		if(((int)D(ebp+___1a0e34h) >= 0)&&((int)D(ebp+___1a0e34h) < 0xa)){
+		if(((int)D(ebp+___1a0e28h+0xc) >= 0)&&((int)D(ebp+___1a0e28h+0xc) < 0xa)){
 				
 			___12e78h_cdecl(D(___1a10b8h), ___185c7ah, esp, esi+0x158);
 		}
 
-		if(((int)D(ebp+___1a0e34h) >= 0xa)&&((int)D(ebp+___1a0e34h) < 0x64)){
+		if(((int)D(ebp+___1a0e28h+0xc) >= 0xa)&&((int)D(ebp+___1a0e28h+0xc) < 0x64)){
 
 			___12e78h_cdecl(D(___1a10b8h), ___185c7ah, esp, D(esp+0x28));
 		}
 
-		if((int)D(ebp+___1a0e34h) >= 0x64){
+		if((int)D(ebp+___1a0e28h+0xc) >= 0x64){
 				
 			___12e78h_cdecl(D(___1a10b8h), ___185c7ah, esp, D(esp+0x34));
 		}
 
-		strcpy(esp, 0x18*D(ebp+___1a0e38h)+___18768ah);
+		strcpy(esp, ___18768ah[D(ebp+___1a0e28h+0x10)]);
 		___12e78h_cdecl(D(___1a10b8h), ___185c7ah, strupr_watcom106(esp), D(esp+0x3c));
-		edi = D(esp+0x40);
-		edi++;
-		D(esp+0x40) = edi;
-		eax = D(esp+0x38);
-		edx = D(esp+0x30);
-		ebx = D(esp+0x28);
-		ecx = D(esp+0x34);
-		esi = D(esp+0x3c);
-		eax += 0x3700;
-		edx += 0x14;
-		ebx += 0x3700;
-		ecx += 0x3700;
-		esi += 0x3700;
-		D(esp+0x38) = eax;
-		D(esp+0x30) = edx;
-		D(esp+0x28) = ebx;
-		D(esp+0x34) = ecx;
-		D(esp+0x3c) = esi;
+
+		D(esp+0x40)++;
+		D(esp+0x38) += 0x3700;
+		D(esp+0x30) += 0x14;
+		D(esp+0x28) += 0x3700;
+		D(esp+0x34) += 0x3700;
+		D(esp+0x3c) += 0x3700;
 
 		ebp += 0x14;
-		if((int)edi >= 0xa) break;
+		if((int)D(esp+0x40) >= 0xa) break;
 	}
 
 	___12cb8h__VESA101_PRESENTSCREEN();

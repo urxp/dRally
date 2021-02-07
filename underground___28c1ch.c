@@ -1,19 +1,15 @@
 #include "drally.h"
 
 	extern byte ___1a1ef8h[];
-	extern byte ___1a01fch[];
+	extern byte ___1a01e0h[];
 	extern byte ___1a0174h_PriceSpikedBumpers[];
 	extern byte ___1a0178h_PriceRocketFuel[];
 	extern byte ___1a017ch_PriceSabotage[];
 	extern byte ___1a0170h_PriceMines[];
-	extern byte ___1a0a50h[];
-	extern byte ___1a0a54h[];
-	extern byte ___1a0a58h[];
-	extern byte ___1a0a5ch[];
 
 dword underground___28c1ch(void){
 
-	switch(D(0x6c*D(___1a1ef8h)+___1a01fch)){
+	switch(D(0x6c*D(___1a1ef8h)+___1a01e0h+0x1c)){
 	case 0:
 		D(___1a0170h_PriceMines) = 0x96;
 		D(___1a0174h_PriceSpikedBumpers) = 0xc8;

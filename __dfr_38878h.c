@@ -5,7 +5,6 @@ cpu 386
 	extern	__CHK
 	extern	___196bdch
 	extern	___3881ch
-	extern	___180998h
 	extern	___185c0bh
 	extern	___1a1108h
 	extern	___12e78h_cdecl
@@ -45,7 +44,7 @@ __GDECL(___38878h)
 	pop 	edx
 
 		mov     ecx, 102beh
-		mov     ebx, ___180998h
+		mov     ebx, __dfr_180998h
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
 
@@ -80,7 +79,7 @@ ___388d6h:
 	pop 	edx
 
 		mov     ecx, 102beh
-		mov     ebx, ___180998h
+		mov     ebx, __dfr_180998h
 		mov     edx, ___185c0bh
 		mov     eax, [___1a10fch]
 
@@ -112,4 +111,8 @@ ___38925h:
 		pop     ecx
 		pop     ebx
 		retn    
+
+section .data
+__dfr_180998h:
+	db 	"Waiting for other players...",0,0,0,0
 */

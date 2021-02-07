@@ -3,10 +3,9 @@
 
 	extern byte ___185ba9h[];
 	extern byte ___1a10cch[];
-	extern dword ___1a1140h[];
+	extern __DWORD__ ___1a1140h[8];
 	extern void * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
 	extern void * ___1a1124h__VESA101h_ScreenBufferA;
-	extern byte ___1854bch[];
 	extern byte ___24cc54h[];
 
 void ___12cb8h__VESA101_PRESENTSCREEN(void);
@@ -44,7 +43,7 @@ static dword InvalidConfiguration(void){
 	___12e78h_cdecl(D(___1a10cch), ___185ba9h, msg, 0x1fcc2-___252e0h_cdecl(msg));
 	___12e78h_cdecl(D(___1a10cch), ___185ba9h, "Press any key to re-enter.", 0x24bdf);
 	___12cb8h__VESA101_PRESENTSCREEN();
-	dRally_Sound_pushEffect(1, 0x1d, 0, D(___24cc54h), D(___1854bch), 0x8000);
+	dRally_Sound_pushEffect(1, 0x1d, 0, D(___24cc54h), 0x28000, 0x8000);
 	___5994ch();
 	___59b3ch();
 	while(___5994ch() == 0);

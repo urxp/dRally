@@ -1,10 +1,9 @@
 #include "drally.h"
 
-	extern byte ___1a0a54h[];
+	extern byte ___1a0a50h[];
 	extern byte ___1a112ch__VESA101_ACTIVESCREEN_PTR[];
 	extern byte ___1a1e5ch[];
 	extern byte ___1a0174h_PriceSpikedBumpers[];
-	extern byte ___180728h[];
 
 dword ___25180h_cdecl(dword);
 void ___12f60h_cdecl(dword, dword);
@@ -20,7 +19,7 @@ void ___2d898h(void){
 	byte 	esp[0x28];
 
 
-		if(D(___1a0a54h) != 1) goto ___2d961h;
+		if(D(___1a0a50h+4) != 1) goto ___2d961h;
 		ecx = 0x60;
 		ebx = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
 		esi = D(___1a1e5ch);
@@ -50,7 +49,7 @@ ___2d8dbh:
 		eax = D(___1a0174h_PriceSpikedBumpers);
 		edi = esp+0x14;
 		eax = itoa_watcom106(eax, edx, ebx);
-		X(eax) = W(___180728h);
+		X(eax) = W("$");
 		esi = esp;
 		W(esp+0x14) = X(eax);
 		strcat(edi, esi);
@@ -60,7 +59,7 @@ ___2d8dbh:
 		eax = esp+0x14;
 		___12f60h_cdecl(eax, edx);
 ___2d961h:
-		if(D(___1a0a54h) != 0) goto ___2d9b3h;
+		if(D(___1a0a50h+4) != 0) goto ___2d9b3h;
 		ecx = 0x60;
 		ebx = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
 		esi = D(___1a1e5ch);
@@ -85,7 +84,7 @@ ___2d98eh:
 		if(L(ecx)) goto ___2d98ch;
 		___2d184h();
 ___2d9b3h:
-		if(D(___1a0a54h) != 0xffffffff) goto ___2da05h;
+		if(D(___1a0a50h+4) != 0xffffffff) goto ___2da05h;
 		ecx = 0x60;
 		ebx = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
 		esi = D(___1a1e5ch);

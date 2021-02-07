@@ -12,7 +12,6 @@
 	extern byte ___1a1ebch[];
 	extern byte ___185ba9h[];
 	extern byte ___1a10cch[];
-	extern byte ___1854b8h[];
 	extern byte ___19bd58h[];
 	extern byte ___1866b8h[];
 	extern byte ___185a5ch[];
@@ -203,7 +202,7 @@ void menu___218b4h(void){
 				}
 
 				D(___24cc58h) = 0x200*D(esp+0x1c);
-				dRally_Sound_pushEffect(1, 0x16, 0, D(___24cc54h), D(___1854b8h), 0x8000);
+				dRally_Sound_pushEffect(1, 0x16, 0, D(___24cc54h), 0x28000, 0x8000);
 				break;
 			case 1: // EFFECT VOLUME
 				___13710h(3, 0);
@@ -321,7 +320,7 @@ void menu___218b4h(void){
 				}
 
 				D(___24cc54h) = 0x200*D(esp+0x18);
-				dRally_Sound_pushEffect(1, 0x16, 0, D(___24cc54h), D(___1854b8h), 0x8000);
+				dRally_Sound_pushEffect(1, 0x16, 0, D(___24cc54h), 0x28000, 0x8000);
 				break;
 			case 2: // DEFINE KEYBOARD
 				menu___204fch();

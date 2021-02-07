@@ -5,20 +5,10 @@
 	extern	___243894h
 	extern	___243878h
 	extern	___243ce8h
-	extern	___1e6fd8h
-	extern	___1e6fdah
-	extern	___24e4c0h
-	extern	___1de598h
-	extern	___1de5b4h
-	extern	___1de5b0h
-	extern	___1de5d0h
 	extern	___1e6ed0h
-	extern	___1e6f84h
+	extern	___24e4c0h
+	extern	___1de580h
 	extern	__CHP
-	extern	___1e6f88h
-	extern	___1e701eh
-	extern	___1e7022h
-	extern	___1e6edch
 	extern	___243cd0h
 	extern	___618c4h
 	extern	___243cach
@@ -40,8 +30,8 @@ void race___44304h(void){
 		cmp     eax, [___243878h]
 		jl      near ___446a2h
 		imul    edx, [___243ce8h], 35eh
-		mov     cl, [edx+___1e6fd8h]
-		mov     al, [edx+___1e6fdah]
+		mov     cl, [edx+___1e6ed0h+0x108]
+		mov     al, [edx+___1e6ed0h+0x10a]
 		shl     cl, 4
 		shl     al, 3
 		add     cl, al
@@ -67,7 +57,7 @@ void race___44304h(void){
 		inc     esi
 		shl     ebx, 2
 		mov     [eax], si
-		mov     esi, [ebx+___1de598h]
+		mov     esi, [ebx+___1de580h+0x18]
 		sar     esi, 4
 		mov     [esp], esi
 		mov     si, [eax]
@@ -78,7 +68,7 @@ void race___44304h(void){
 		mov     di, [eax]
 		inc     edi
 		mov     [eax], di
-		mov     esi, [ebx+___1de598h]
+		mov     esi, [ebx+___1de580h+0x18]
 		sar     esi, 0ch
 		mov     [esp], esi
 		mov     esi, edi
@@ -87,7 +77,7 @@ void race___44304h(void){
 		and     esi, 0ffffh
 		mov     [esi+eax*1+4], ch
 		inc     word [eax]
-		mov     esi, [ebx+___1de5b4h]
+		mov     esi, [ebx+___1de580h+0x34]
 		sar     esi, 0ah
 		mov     [esp], esi
 		mov     si, [eax]
@@ -98,7 +88,7 @@ void race___44304h(void){
 		mov     di, [eax]
 		inc     edi
 		mov     [eax], di
-		mov     esi, [ebx+___1de5b0h]
+		mov     esi, [ebx+___1de580h+0x30]
 		sar     esi, 0ah
 		mov     [esp], esi
 		mov     esi, edi
@@ -111,7 +101,7 @@ void race___44304h(void){
 		mov     [eax], si
 		and     esi, 0fffh
 		and     esi, 0ffffh
-		mov     bl, [ebx+___1de5d0h]
+		mov     bl, [ebx+___1de580h+0x50]
 		mov     [esi+eax*1+4], bl
 		mov     di, [eax]
 		inc     edi
@@ -129,7 +119,7 @@ void race___44304h(void){
 		mov     bl, [edx+___1e6ed0h]
 		mov     [esi+4], bl
 		inc     word [eax]
-		fld     dword [edx+___1e6f84h]
+		fld     dword [edx+___1e6ed0h+0xb4]
 		call    near __CHP
 		fistp   dword [esp]
 		mov     ebx, [esp]
@@ -145,7 +135,7 @@ void race___44304h(void){
 		mov     si, [eax]
 		inc     esi
 		mov     [eax], si
-		fld     dword [edx+___1e6f84h]
+		fld     dword [edx+___1e6ed0h+0xb4]
 		call    near __CHP
 		fistp   dword [esp]
 		mov     ebx, [esp]
@@ -155,7 +145,7 @@ void race___44304h(void){
 		mov     di, [eax]
 		inc     edi
 		mov     [eax], di
-		fld     dword [edx+___1e6f88h]
+		fld     dword [edx+___1e6ed0h+0xb8]
 		call    near __CHP
 		fistp   dword [esp]
 		mov     ebx, [esp]
@@ -169,7 +159,7 @@ void race___44304h(void){
 		and     ebx, 0ffffh
 		mov     [ebx+eax*1+4], cl
 		inc     word [eax]
-		fld     dword [edx+___1e6f88h]
+		fld     dword [edx+___1e6ed0h+0xb8]
 		call    near __CHP
 		fistp   dword [esp]
 		mov     ebx, [esp]
@@ -179,7 +169,7 @@ void race___44304h(void){
 		and     ebx, 0ffffh
 		mov     [ebx+eax*1+4], cl
 		inc     word [eax]
-		fld     dword [edx+___1e701eh]
+		fld     dword [edx+___1e6ed0h+0x14e]
 		call    near __CHP
 		fistp   dword [esp]
 		mov     ebx, [esp]
@@ -195,7 +185,7 @@ void race___44304h(void){
 		mov     si, [eax]
 		inc     esi
 		mov     [eax], si
-		fld     dword [edx+___1e701eh]
+		fld     dword [edx+___1e6ed0h+0x14e]
 		call    near __CHP
 		fistp   dword [esp]
 		mov     ebx, [esp]
@@ -207,7 +197,7 @@ void race___44304h(void){
 		mov     di, [eax]
 		inc     edi
 		mov     [eax], di
-		fld     dword [edx+___1e7022h]
+		fld     dword [edx+___1e6ed0h+0x152]
 		call    near __CHP
 		fistp   dword [esp]
 		mov     ebx, [esp]
@@ -221,7 +211,7 @@ void race___44304h(void){
 		and     ebx, 0ffffh
 		mov     [ebx+eax*1+4], cl
 		inc     word [eax]
-		fld     dword [edx+___1e7022h]
+		fld     dword [edx+___1e6ed0h+0x152]
 		call    near __CHP
 		fistp   dword [esp]
 		mov     ebx, [esp]
@@ -236,7 +226,7 @@ void race___44304h(void){
 		mov     [eax], cx
 		and     bh, 0fh
 		and     ebx, 0ffffh
-		mov     dl, [edx+___1e6edch]
+		mov     dl, [edx+___1e6ed0h+0xc]
 		mov     [ebx+eax*1+4], dl
 		mov     si, [eax]
 		inc     esi

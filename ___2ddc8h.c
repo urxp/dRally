@@ -1,14 +1,8 @@
 #include "drally.h"
 
 	extern byte ___1a112ch__VESA101_ACTIVESCREEN_PTR[];
-	extern byte ___1a1e70h[];
-	extern byte ___194e90h[];
-	extern byte ___194eb8h[];
-	extern byte ___194ee0h[];
-	extern byte ___194f08h[];
-	extern byte ___194f30h[];
-	extern byte ___194f58h[];
-	extern byte ___1865fch[];
+	extern void * ___1a1e98h;
+	extern __DWORD__ ___1865fch[];
 	extern byte ___1a1ea0h[];
 	extern byte ___1a1ee8h[];
 
@@ -24,7 +18,7 @@ void ___2ddc8h(void){
 
 		ecx = 0x60;
 		ebx = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
-		esi = D(___1a1e70h);
+		esi = ___1a1e98h+0x9000;
 		ebx += 0x27a30;
 		edx = ecx;
 		L(edx) >>= 2;
@@ -49,22 +43,22 @@ ___2ddf4h:
 		eax = 0x90;
 		___13248h_cdecl(eax, edx, ebx, ecx, 1);
 		edx = 0x136aa;
-		eax = ___194e90h;
+		eax = "[CONTINUE";
 		___13094h_cdecl(eax, edx);
 		edx = 0x15eaa;
-		eax = ___194eb8h;
+		eax = "";
 		___13094h_cdecl(eax, edx);
 		edx = 0x186aa;
-		eax = ___194ee0h;
+		eax = "Exit the Underground Market and";
 		___13094h_cdecl(eax, edx);
 		edx = 0x1aeaa;
-		eax = ___194f08h;
+		eax = "enter the Race Sign-Up.";
 		___13094h_cdecl(eax, edx);
 		edx = 0x1d6aa;
-		eax = ___194f30h;
+		eax = "";
 		___13094h_cdecl(eax, edx);
 		edx = 0x1feaa;
-		eax = ___194f58h;
+		eax = "Press [Esc{ for previous menu";
 		___13094h_cdecl(eax, edx);
 		edx = 0x10d;
 		eax = 0x1b0;

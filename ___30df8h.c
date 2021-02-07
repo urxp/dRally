@@ -7,8 +7,6 @@
 	extern byte * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
 	extern byte ___1a1f64h[];
 	extern byte * ___1a1040h[];
-	extern byte ___1a1f65h[];
-	extern byte ___1a1f66h[];
 	extern byte ___185c0bh[];
 	extern byte ___1a1108h[];
 	extern byte * ___1a10d4h;
@@ -34,8 +32,8 @@ void ___30df8h(void){
 		while(++i < 0x80){
 
 			___1a112ch__VESA101_ACTIVESCREEN_PTR[COOXY(0x20+i, 0x80+j)] = ___1a1040h[B(___1a1f64h)][COO80UV(i, j)];
-			___1a112ch__VESA101_ACTIVESCREEN_PTR[COOXY(0xc0+i, 0x80+j)] = ___1a1040h[B(___1a1f65h)][COO80UV(i, j)];
-			___1a112ch__VESA101_ACTIVESCREEN_PTR[COOXY(0x160+i, 0x80+j)] = ___1a1040h[B(___1a1f66h)][COO80UV(i, j)];
+			___1a112ch__VESA101_ACTIVESCREEN_PTR[COOXY(0xc0+i, 0x80+j)] = ___1a1040h[B(___1a1f64h+1)][COO80UV(i, j)];
+			___1a112ch__VESA101_ACTIVESCREEN_PTR[COOXY(0x160+i, 0x80+j)] = ___1a1040h[B(___1a1f64h+2)][COO80UV(i, j)];
 		}
 	}
 

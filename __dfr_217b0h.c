@@ -4,18 +4,15 @@ cpu 386
 
 	extern	__CHK
 	extern 	__MOVS
-	extern	___1854bch
 	extern	___24cc54h
 	extern	dRally_Sound_pushEffect
 	extern	___1a1138h__VESA101h_DefaultScreenBufferB
 	extern	___1a112ch__VESA101_ACTIVESCREEN_PTR
 	extern	___13710h
 	extern	___13248h_cdecl
-	extern	___181be4h
 	extern	___185ba9h
 	extern	___1a10cch
 	extern	___12e78h_cdecl
-	extern	___180848h
 	extern	___12cb8h__VESA101_PRESENTSCREEN
 	extern	___5994ch
 	extern	___59b3ch
@@ -32,7 +29,7 @@ __GDECL(___217b0h)
 		push    edi
 		push    8000h
 		mov     eax, 1
-		mov     edx, [___1854bch]
+		mov     edx, 28000h
 		mov     ecx, [___24cc54h]
 		push    edx
 		xor     ebx, ebx
@@ -83,7 +80,7 @@ __GDECL(___217b0h)
 	add 	esp, 14h
 	
 		mov     ecx, 2088ch
-		mov     ebx, ___181be4h
+		mov     ebx, __dfr_181be4h
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10cch]
 
@@ -95,7 +92,7 @@ __GDECL(___217b0h)
 	add 	esp, 10h
 
 		mov     ecx, 25861h
-		mov     ebx, ___180848h
+		mov     ebx, press_k
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10cch]
 
@@ -156,4 +153,10 @@ ___21880h:
 		pop     ecx
 		pop     ebx
 		retn    
+
+section .data
+press_k:
+	db 	"Press any key to continue.",0,0
+__dfr_181be4h:
+	db 	"Gamepad not detected!",0,0,0
 */

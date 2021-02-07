@@ -12,40 +12,26 @@ cpu 386
 	extern	___12cb8h__VESA101_PRESENTSCREEN
 	extern	___146c4h_cdecl
 	extern	___13248h_cdecl
-	extern	___181b04h
 	extern	___185c0bh
 	extern	___1a1108h
 	extern	___12e78h_cdecl
 	extern	___20f78h
 	extern	___1866b8h
-	extern	___1818d8h
 	extern	___1a1164h
 	extern	___59b3ch
 	extern	___5994ch
 	extern	___1a1f6ah
-	extern	___181b24h
 	extern	___1866b8h
-	extern	___1818e8h
 	extern	___1a113ch
-	extern	___181b40h
 	extern	___1866b8h
-	extern	___1818f8h
 	extern	___1a1110h
-	extern	___181b60h
 	extern	___1866b8h
-	extern	___18190ch
 	extern	___1a1130h
-	extern	___181b80h
 	extern	___1866b8h
-	extern	___181924h
 	extern	___1a1120h
-	extern	___181ba0h
 	extern	___1866b8h
-	extern	___181940h
 	extern	___1a1118h
-	extern	___181bc4h
 	extern	___1866b8h
-	extern	___18195ch
 	extern	___1a111ch
 	extern	___20d18h
 	extern	___185a5ch
@@ -216,7 +202,7 @@ ___211bdh:
 	add 	esp, 14h
 	
 		mov     ecx, [esp+2ch]
-		mov     ebx, ___181b04h
+		mov     ebx, __dfr_181b04h
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
 
@@ -239,7 +225,7 @@ ___211bdh:
 		call    near ___20f78h
 		mov     edi, ___1866b8h+0e10h
 		and     eax, 0ffh
-		mov     esi, ___1818d8h
+		mov     esi, __dfr_1818d8h
 		mov     [___1a1164h], eax
 
 	push 	edx
@@ -322,7 +308,7 @@ ___21288h:
 	add 	esp, 14h
 	
 		mov     ecx, [esp+28h]
-		mov     ebx, ___181b24h
+		mov     ebx, __dfr_181b24h
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
 
@@ -345,7 +331,7 @@ ___21288h:
 		call    near ___20f78h
 		mov     edi, ___1866b8h+0e42h
 		and     eax, 0ffh
-		mov     esi, ___1818e8h
+		mov     esi, __dfr_1818e8h
 		mov     [___1a113ch], eax
 
 	push 	edx
@@ -425,7 +411,7 @@ ___21350h:
 	add 	esp, 14h
 	
 		mov     ecx, [esp+14h]
-		mov     ebx, ___181b40h
+		mov     ebx, __dfr_181b40h
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
 
@@ -448,7 +434,7 @@ ___21350h:
 		call    near ___20f78h
 		mov     edi, ___1866b8h+0e74h
 		and     eax, 0ffh
-		mov     esi, ___1818f8h
+		mov     esi, __dfr_1818f8h
 		mov     [___1a1110h], eax
 
 	push 	edx
@@ -528,7 +514,7 @@ ___21417h:
 	add 	esp, 14h
 	
 		mov     ecx, [esp+8]
-		mov     ebx, ___181b60h
+		mov     ebx, __dfr_181b60h
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
 
@@ -551,7 +537,7 @@ ___21417h:
 		call    near ___20f78h
 		mov     edi, ___1866b8h+0ea6h
 		and     eax, 0ffh
-		mov     esi, ___18190ch
+		mov     esi, __dfr_18190ch
 		mov     [___1a1130h], eax
 
 	push 	edx
@@ -633,7 +619,7 @@ ___214e1h:
 	add 	esp, 14h
 	
 		mov     ecx, [esp+4]
-		mov     ebx, ___181b80h
+		mov     ebx, __dfr_181b80h
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
 
@@ -657,7 +643,7 @@ ___214e1h:
 		mov     ecx, 6
 		mov     edi, ___1866b8h+0ed8h
 		and     eax, 0ffh
-		mov     esi, ___181924h
+		mov     esi, __dfr_181924h
 		mov     [___1a1120h], eax
 
 	push 	edx
@@ -735,7 +721,7 @@ ___215aeh:
 	add 	esp, 14h
 	
 		mov     ecx, [esp+30h]
-		mov     ebx, ___181ba0h
+		mov     ebx, __dfr_181ba0h
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
 
@@ -759,7 +745,7 @@ ___215aeh:
 		mov     ecx, 6
 		mov     edi, ___1866b8h+0f0ah
 		and     eax, 0ffh
-		mov     esi, ___181940h
+		mov     esi, __dfr_181940h
 		mov     [___1a1118h], eax
 
 	push 	edx
@@ -837,7 +823,7 @@ ___2167bh:
 	add 	esp, 14h
 	
 		mov     ecx, [esp+10h]
-		mov     ebx, ___181bc4h
+		mov     ebx, __dfr_181bc4h
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
 
@@ -861,7 +847,7 @@ ___2167bh:
 		mov     ecx, 6
 		mov     edi, ___1866b8h+0f3ch
 		and     eax, 0ffh
-		mov     esi, ___18195ch
+		mov     esi, __dfr_18195ch
 		mov     [___1a111ch], eax
 
 	push 	edx
@@ -931,4 +917,35 @@ ___217a5h:
 		xor     ecx, ecx
 		mov     [___185a5ch+0f8h], ecx
 		jmp     short ___21780h
+
+
+section .data
+__dfr_1818d8h:
+	db 	"Accelerate    ",0,0
+__dfr_1818e8h:
+	db 	"Brake        ",0,0,0
+__dfr_1818f8h:
+	db 	"Steer Left    ",0fah,0fah,0,0,0,0
+__dfr_18190ch:
+	db 	"Steer Right   ",0fah,0fah,0fah,0fah,0fah,0fah,0,0,0,0
+__dfr_181924h:
+	db 	"Turbo Boost  ",0fah,0fah,0fah,0fah,0fah,0fah,0fah,0fah,0fah,0fah,0fah,0fah,0,0,0
+__dfr_181940h:
+	db 	"Machine Gun  ",0fah,0fah,0fah,0fah,0fah,0fah,0fah,0fah,0fah,0fah,0fah,0fah,0,0,0
+__dfr_18195ch:
+	db 	"Drop Mine    ",0fah,0fah,0fah,0fah,0fah,0fah,0fah,0fah,0fah,0fah,0fah,0,0,0,0
+__dfr_181b04h:
+	db 	"Move gamepad for accelerate...",0,0
+__dfr_181b24h:
+	db 	"Move gamepad for brake...",0,0,0
+__dfr_181b40h:
+	db 	"Move gamepad for left steer...",0,0
+__dfr_181b60h:
+	db 	"Move gamepad for right steer...",0
+__dfr__181b80h:
+	db 	"Move gamepad for turbo boost...",0
+__dfr_181ba0h:
+	db 	"Move gamepad  for machine gun...",0,0,0,0
+__dfr_181bc4h:
+	db 	"Move gamepad for drop mine...",0,0,0
 */

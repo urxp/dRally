@@ -1,7 +1,6 @@
 #include "drally.h"
 
 	extern byte ___196bd8h[];
-	extern byte ___18250ch[];
 	extern byte ___185c0bh[];
 	extern byte ___1a10fch[];
 	extern byte ___1a112ch__VESA101_ACTIVESCREEN_PTR[];
@@ -23,7 +22,7 @@ void ___38768h(void){
 		if(edx != 0x1e) goto ___387c6h;
 		___38708h();
 		ecx = 0x46b6e;
-		ebx = ___18250ch;
+		ebx = "Press any key to continue...";
 		edx = ___185c0bh;
 		eax = D(___1a10fch);
 		___12e78h_cdecl(eax, edx, ebx, ecx);
@@ -37,7 +36,7 @@ ___387c6h:
 		if(D(___196bd8h) != 0x3c) goto ___38815h;
 		___38708h();
 		ecx = 0x46b6e;
-		ebx = ___18250ch;
+		ebx = "Press any key to continue...";
 		edx = ___185c0bh;
 		eax = D(___1a1108h);
 		___12e78h_cdecl(eax, edx, ebx, ecx);

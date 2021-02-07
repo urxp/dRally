@@ -1,23 +1,16 @@
 #include "drally.h"
 
 	extern byte ___1866b8h[];
-	extern byte ___180754h[];
 	extern byte ___1866b8h[];
-	extern byte ___18075ch[];
 	extern byte ___1a1138h__VESA101h_DefaultScreenBufferB[];
 	extern byte ___1a112ch__VESA101_ACTIVESCREEN_PTR[];
-	extern byte ___18079ch[];
 	extern byte ___185c0bh[];
 	extern byte ___1a1108h[];
-	extern byte ___180130h[];
-	extern byte ___1858c8h[];
-	extern byte ___1a0f9ch[];
+	extern void * ___1a0f9ch;
 	extern byte ___1a1ef8h[];
 	extern byte ___185a14h_UseWeapons[];
 	extern byte ___196a94h[];
 	extern byte ___1a01e0h[];
-	extern byte ___1807bch[];
-	extern byte ___1807c0h[];
 	extern byte ___185b58h[];
 
 void ___2a608h_cdecl(dword);
@@ -33,6 +26,25 @@ void ___13248h_cdecl(dword, dword ,dword, dword, dword);
 char * itoa_watcom106(int value, char * buffer, int radix);
 dword GET_FILE_SIZE(const char *);
 void ___18808h_cdecl(dword, dword);
+
+const byte ___1858c8h[] = {
+	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+	1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+	1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+	1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+	1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+	1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+	1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,
+	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+};
 
 static byte ROR_BYTE(byte b, int n){
 
@@ -62,7 +74,7 @@ void ___18cf0h(void){
 		W(edi) = W(esi); edi += 2; esi += 2;
 		B(edi++) = B(esi++);
 		edi = esp+0x10;
-		esi = ___180754h;
+		esi = "DR.SG";
 		ebx = 0xa;
 		D(edi) = D(esi); edi += 4; esi += 4;
 		W(edi) = W(esi); edi += 2; esi += 2;
@@ -91,7 +103,7 @@ void ___18cf0h(void){
 	}
 
 	edi = ___1866b8h+0xa28;
-	esi = ___18075ch;
+	esi = "Quicksave Slot";
 	D(edi) = D(esi); edi += 4; esi += 4;
 	D(edi) = D(esi); edi += 4; esi += 4;
 	D(edi) = D(esi); edi += 4; esi += 4;
@@ -145,25 +157,23 @@ void ___18cf0h(void){
 
 	if((int)D(esp+0x24) >= 0){
 
-		ebp = 0x883;
-		D(___1a0f9ch) = ___3f71ch__allocateMemory(ebp);
-		memset(D(___1a0f9ch), 0, ebp);
+		___1a0f9ch = ___3f71ch__allocateMemory(0x883);
+		memset(___1a0f9ch, 0, 0x883);
 		eax = rand_watcom106();
 		edx = eax;
 		ebx = 0xff;
 		edx = (int)edx>>0x1f;
 		edx = (long long)(int)eax%(int)ebx;
 		D(esp+0x20) = edx;
-		eax = D(___1a0f9ch);
 		L(edx) = B(esp+0x20);
-		B(eax) = L(edx);
+		B(___1a0f9ch) = L(edx);
 		L(edx) = B(___1a1ef8h);
-		B(eax+1) = L(edx);
+		B(___1a0f9ch+1) = L(edx);
 		L(edx) = B(___185a14h_UseWeapons);
-		B(eax+2) = L(edx);
+		B(___1a0f9ch+2) = L(edx);
 		L(edx) = B(___196a94h);
-		B(eax+3) = L(edx);
-		eax ^= eax;
+		B(___1a0f9ch+3) = L(edx);
+		eax = 0;
 		D(esp+0x28) = eax;
 		edi = esp;
 		edx = D(esp+0x28);
@@ -173,7 +183,7 @@ void ___18cf0h(void){
 
 			while(1){
 				esi = edx;
-				eax = D(___1a0f9ch);
+				eax = ___1a0f9ch;
 				esi++;
 				eax += edx;
 				L(edx) = B(esp+edx);
@@ -187,10 +197,10 @@ void ___18cf0h(void){
 			}
 		}
 
-		memcpy(D(___1a0f9ch)+0x13, ___1a01e0h, 0x870);
+		memcpy(___1a0f9ch+0x13, ___1a01e0h, 0x870);
 		D(esp+0x28) = 1;
 
-		if((int)ebp > (int)D(esp+0x28)){
+		if((int)D(esp+0x28) < 0x883){
 
 			L(eax) = B(esp+0x28);
 			H(eax) = 0x11;
@@ -200,7 +210,7 @@ void ___18cf0h(void){
 			while(1){
 
 				edi = D(esp+0x28);
-				ebx = D(___1a0f9ch);
+				ebx = ___1a0f9ch;
 				ebx += edi;
 				L(eax) = B(esp+0x20);
 				H(edx) = B(ebx);
@@ -225,14 +235,14 @@ void ___18cf0h(void){
 				D(esp+0x28) = eax;
 				B(esp+0x30) = H(ecx);
 			
-				if((int)ebp <= (int)eax) break;
+				if((int)eax >= 0x883) break;
 			}
 		}
 
 		eax = strupr_fopen(strcat(strcpy(esp+0x10, "DR.SG"), itoa_watcom106(D(esp+0x24), esp+0x2c, 0xa)), "wb");
-		fwrite(D(___1a0f9ch), ebp, 1, eax);
+		fwrite(___1a0f9ch, 0x883, 1, eax);
 		fclose(eax);
-		dRally_Memory_free(D(___1a0f9ch));
+		dRally_Memory_free(___1a0f9ch);
 		___13710h(0, 0);
 		___13710h(1, 0);
 		___13710h(5, 0);

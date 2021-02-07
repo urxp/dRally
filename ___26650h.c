@@ -1,24 +1,16 @@
 #include "drally.h"
 
+typedef char char40[40];
+
 	extern byte ___1a112ch__VESA101_ACTIVESCREEN_PTR[];
-	extern byte ___1a1e94h[];
+	extern void * ___1a1e98h;
 	extern byte ___1a1ef8h[];
-	extern byte ___1a01fch[];
-	extern byte ___1a01f8h[];
-	extern byte ___18e940h[];
-	extern byte ___1864fch[];
-	extern byte ___1a01d0h[];
+	extern byte ___1a01e0h[];
+	extern byte ___18e298h[];
+	extern __DWORD__ ___1864fch[][0x10];
+	extern void * ___1a01d0h[4];
 	extern byte ___1a1eech[];
-	extern byte ___18e964h[];
-	extern byte ___180728h[];
-	extern byte ___191c40h[];
 	extern byte ___1a1eb8h[];
-	extern byte ___191010h[];
-	extern byte ___191038h[];
-	extern byte ___191060h[];
-	extern byte ___191088h[];
-	extern byte ___1910b0h[];
-	extern byte ___1910d8h[];
 
 void ___13094h_cdecl(const char *, dword);
 dword ___25180h_cdecl(dword);
@@ -27,16 +19,51 @@ void ___13248h_cdecl(dword, dword ,dword, dword, dword);
 char * itoa_watcom106(int value, char * buffer, int radix);
 void ___259e0h_cdecl(dword, dword, dword, dword, dword);
 
+static const char40 ___191c40h[4][6] = {
+	[0] = {
+		[0] = "[Steel Triumph Plating",
+		[1] = "",
+		[2] = "Steel Triumph won't stop the hurt,",
+		[3] = "but it just might keep you in one",
+		[4] = "piece to the finish line.",
+		[5] = ""
+	},
+	[1] = {
+		[0] = "[FerroChromium Armor",
+		[1] = "",
+		[2] = "What the rival guns give, this",
+		[3] = "armor can take, but you'd better",
+		[4] = "shoot back, there's a limit.",
+		[5] = ""
+	},
+	[2] = {
+		[0] = "[Titanium Plating",
+		[1] = "",
+		[2] = "See this big gun; see this armor.",
+		[3] = "[BANG!{ Now see the armor. Smile to",
+		[4] = "your reflection. Looking good.",
+		[5] = ""
+	},
+	[3] = {
+		[0] = "[Accesteel Armor",
+		[1] = "",
+		[2] = "All but the most extreme shots",
+		[3] = "bounce off like hail on hard",
+		[4] = "concrete.",
+		[5] = ""
+	}
+};
+
 // SHOP ARMOR
 void ___26650h(void){
 
-	dword 	eax, ebx, ecx, edx, edi, esi, ebp, p5;
+	dword 	eax, ebx, ecx, edx, edi, esi, ebp;
 	byte 	esp[0x28];
 
 
 		ecx = 0x60;
 		ebx = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
-		esi = D(___1a1e94h);
+		esi = ___1a1e98h+0x4800;
 		ebx += 0x27960;
 		edx = ecx;
 		L(edx) >>= 0x2;
@@ -61,44 +88,36 @@ ___26680h:
 		eax <<= 0x2;
 		eax -= edx;
 		edx = 4*eax;
-		ebx = D(edx+___1a01fch);
+		ebx = D(edx+___1a01e0h+0x1c);
 		eax = 8*ebx;
 		eax -= ebx;
 		eax <<= 0x3;
 		eax -= ebx;
 		eax <<= 0x5;
-		ebx = D(edx+___1a01f8h);
-		ecx = D(eax+___18e940h);
+		ebx = D(edx+___1a01e0h+0x18);
+		ecx = D(eax+___18e298h+0x6a8);
 		if((int)ebx >= (int)ecx) goto ___26910h;
-		eax = ebx;
-		eax <<= 0x6;
-		edx = 0x10d;
-		eax = ___1864fch+eax;
-		ecx = D(ebx*4+___1a01d0h);
-		p5 = eax;
-		ebx = D(___1a1eech);
-		eax = 0xe0;
-		___259e0h_cdecl(eax, edx, ebx, ecx, p5);
+		___259e0h_cdecl(0xe0, 0x10d, D(___1a1eech), ___1a01d0h[ebx], ___1864fch[ebx]);
 		edx = D(___1a1ef8h);
 		ebx = 8*edx;
 		ebx -= edx;
 		ebx <<= 0x2;
 		ebx -= edx;
 		ebx <<= 0x2;
-		edx = D(ebx+___1a01fch);
+		edx = D(ebx+___1a01e0h+0x1c);
 		eax = 8*edx;
 		eax -= edx;
 		eax <<= 0x3;
 		eax -= edx;
 		edx = eax;
-		eax = D(ebx+___1a01f8h);
+		eax = D(ebx+___1a01e0h+0x18);
 		edx <<= 0x5;
 		ebx = 0xa;
-		eax = D(edx+eax*4+___18e964h);
+		eax = D(edx+eax*4+___18e298h+0x6cc);
 		edx = esp;
 		esi = esp;
 		eax = itoa_watcom106(eax, edx, ebx);
-		X(eax) = W(___180728h);
+		X(eax) = W("$");
 		edi = esp+0x14;
 		W(esp+0x14) = X(eax);
 		strcat(edi, esi);
@@ -112,89 +131,12 @@ ___26680h:
 		edx = 0x72;
 		eax = 0x90;
 		___13248h_cdecl(eax, edx, ebx, ecx, 1);
-		edx = D(___1a1ef8h);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 0x2;
-		eax -= edx;
-		edx = D(4*eax+___1a01f8h);
-		eax = edx;
-		eax <<= 0x4;
-		eax -= edx;
-		eax <<= 0x4;
-		edx = 0x136aa;
-		eax = ___191c40h+eax;
-		___13094h_cdecl(eax, edx);
-		edx = D(___1a1ef8h);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 0x2;
-		eax -= edx;
-		edx = D(4*eax+___1a01f8h);
-		eax = edx;
-		eax <<= 0x4;
-		eax -= edx;
-		eax <<= 0x4;
-		eax = ___191c40h+eax;
-		edx = 0x15eaa;
-		eax += 0x28;
-		___13094h_cdecl(eax, edx);
-		edx = D(___1a1ef8h);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 0x2;
-		eax -= edx;
-		edx = D(4*eax+___1a01f8h);
-		eax = edx;
-		eax <<= 0x4;
-		eax -= edx;
-		eax <<= 0x4;
-		eax = ___191c40h+eax;
-		edx = 0x186aa;
-		eax += 0x50;
-		___13094h_cdecl(eax, edx);
-		edx = D(___1a1ef8h);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 0x2;
-		eax -= edx;
-		edx = D(4*eax+___1a01f8h);
-		eax = edx;
-		eax <<= 0x4;
-		eax -= edx;
-		eax <<= 0x4;
-		eax = ___191c40h+eax;
-		edx = 0x1aeaa;
-		eax += 0x78;
-		___13094h_cdecl(eax, edx);
-		edx = D(___1a1ef8h);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 0x2;
-		eax -= edx;
-		edx = D(4*eax+___1a01f8h);
-		eax = edx;
-		eax <<= 0x4;
-		eax -= edx;
-		eax <<= 0x4;
-		eax = ___191c40h+eax;
-		edx = 0x1d6aa;
-		eax += 0xa0;
-		___13094h_cdecl(eax, edx);
-		edx = D(___1a1ef8h);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 0x2;
-		eax -= edx;
-		edx = D(4*eax+___1a01f8h);
-		eax = edx;
-		eax <<= 0x4;
-		eax -= edx;
-		eax <<= 0x4;
-		eax = ___191c40h+eax;
-		edx = 0x1feaa;
-		eax += 0xc8;
-		___13094h_cdecl(eax, edx);
+		___13094h_cdecl(___191c40h[D(___1a01e0h+0x18+0x6c*D(___1a1ef8h))][0], 0x136aa);
+		___13094h_cdecl(___191c40h[D(___1a01e0h+0x18+0x6c*D(___1a1ef8h))][1], 0x15eaa);
+		___13094h_cdecl(___191c40h[D(___1a01e0h+0x18+0x6c*D(___1a1ef8h))][2], 0x186aa);
+		___13094h_cdecl(___191c40h[D(___1a01e0h+0x18+0x6c*D(___1a1ef8h))][3], 0x1aeaa);
+		___13094h_cdecl(___191c40h[D(___1a01e0h+0x18+0x6c*D(___1a1ef8h))][4], 0x1d6aa);
+		___13094h_cdecl(___191c40h[D(___1a01e0h+0x18+0x6c*D(___1a1ef8h))][5], 0x1feaa);
 		return;
 ___26910h:
 		ebx = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
@@ -230,22 +172,16 @@ ___26946h:
 		eax = 0x90;
 		___13248h_cdecl(eax, edx, ebx, ecx, 1);
 		edx = 0x136aa;
-		eax = ___191010h;
-		___13094h_cdecl(eax, edx);
+		___13094h_cdecl("[NO MORE ARMOR UPGRADES", edx);
 		edx = 0x15eaa;
-		eax = ___191038h;
-		___13094h_cdecl(eax, edx);
+		___13094h_cdecl("", edx);
 		edx = 0x186aa;
-		eax = ___191060h;
-		___13094h_cdecl(eax, edx);
+		___13094h_cdecl("You got the best shining knight's", edx);
 		edx = 0x1aeaa;
-		eax = ___191088h;
-		___13094h_cdecl(eax, edx);
+		___13094h_cdecl("armor this warhorsepower chariot", edx);
 		edx = 0x1d6aa;
-		eax = ___1910b0h;
-		___13094h_cdecl(eax, edx);
+		___13094h_cdecl("can carry to any road battle.", edx);
 		edx = 0x1feaa;
-		eax = ___1910d8h;
-		___13094h_cdecl(eax, edx);
+		___13094h_cdecl("", edx);
 		return;
 }

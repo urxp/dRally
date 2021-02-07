@@ -1,11 +1,7 @@
 #include "drally.h"
 
 	extern byte ___1a4ec0h[];
-	extern byte ___1a4ec1h[];
 	extern byte ___1a33c0h[];
-	extern byte ___1a4ec2h[];
-	extern byte ___1a33c4h[];
-	extern byte ___1a33bch[];
 
 void __DISPLAY_SET_PALETTE_COLOR(dword b, dword g, dword r, dword n);
 
@@ -34,7 +30,7 @@ ___45a42h:
 		edx = (int)edx>>0x10;
 		___idiv32(&eax, &edx, ebx);
 		edx = 0;
-		L(edx) = B(ecx+___1a4ec1h);
+		L(edx) = B(ecx+___1a4ec0h+1);
 		ebx = edi;
 		edx <<= 0x10;
 		D(esi+___1a33c0h) = eax;
@@ -43,18 +39,18 @@ ___45a42h:
 		edx = (int)edx>>0x10;
 		___idiv32(&eax, &edx, ebx);
 		edx = 0;
-		L(edx) = B(ecx+___1a4ec2h);
+		L(edx) = B(ecx+___1a4ec0h+2);
 		ebx = edi;
 		edx <<= 0x10;
-		D(esi+___1a33c4h) = eax;
+		D(esi+___1a33c0h+4) = eax;
 		eax = 0;
 		eax = (eax >> 0x10)|(edx << 0x10);
 		edx = (int)edx>>0x10;
 		___idiv32(&eax, &edx, ebx);
 		ebx = D(esp);
-		esi += 0xc;
 		ebx++;
-		D(esi+___1a33bch) = eax;
+		D(esi+___1a33c0h+8) = eax;
+		esi += 0xc;
 		D(esp) = ebx;
 		if((int)ebx < 0x100) goto ___45a42h;
 		return;

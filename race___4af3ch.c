@@ -54,21 +54,12 @@ typedef struct x2c_s {
 	extern byte ___243cf8h[];
 	extern byte ___243d74h[];
 	extern byte ___243d40h[];
-	extern byte ___1e6f88h[];
-	extern byte ___1e6f84h[];
-	extern byte ___1e6edch[];
-	extern byte ___183fb1h[];
-	extern byte ___1e6cc8h[];
-	extern byte ___1e6c1eh[];
-	extern byte ___1e6b82h[];
+	extern byte ___1e6ed0h[];
 	extern byte ___1f2488h[];
-	extern byte ___1f248ch[];
 	extern byte ___1df720h[];
-	extern byte ___1df724h[];
 	extern byte ___243c5ch[];
 	extern byte ___1de920h[];
 	extern byte ___1ded20h[];
-	extern byte ___1ded1ch[];
 	extern byte ___243c88h[];
 	extern byte ___243c94h[];
 	extern byte ___243d5ch[];
@@ -309,8 +300,8 @@ ___4b1aah:
 		ecx--;
 		edi ^= edi;
 ___4b1fah:
-		FPUSH(F32(edx+___1e6f88h));
-		FPUSH(F32(edx+___1e6f84h));
+		FPUSH(F32(edx+___1e6ed0h+0xb8));
+		FPUSH(F32(edx+___1e6ed0h+0xb4));
 		ST(0) = (int)ST(0);
 		eax = ecx;
 		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
@@ -325,34 +316,34 @@ ___4b1fah:
 		eax = esi;
 		FPUSH((int)D(esp+0x4));
 		eax -= ebp;
-		F32(edx+___1e6f84h) = (float)FPOP();
+		F32(edx+___1e6ed0h+0xb4) = (float)FPOP();
 		D(esp+0x4) = eax;
-		eax = D(edx+___1e6edch);
+		eax = D(edx+___1e6ed0h+0xc);
 		FPUSH((int)D(esp+0x4));
 		eax -= 0x30;
-		F32(edx+___1e6f88h) = (float)FPOP();
+		F32(edx+___1e6ed0h+0xb8) = (float)FPOP();
 		D(esp+0x38) = eax;
-		D(edx+___1e6edch) = eax;
+		D(edx+___1e6ed0h+0xc) = eax;
 		if((int)edi <= (int)eax) goto ___4b270h;
 		if((int)edi <= (int)eax) goto ___4b263h;
 		eax = 0-eax;
 ___4b263h:
 		ebp = 0x5f;
 		ebp -= eax;
-		D(edx+___1e6edch) = ebp;
+		D(edx+___1e6ed0h+0xc) = ebp;
 ___4b270h:
-		eax = 0x640*D(edx+___1e6edch);
-		FPUSH(F64(___183fb1h));
-		FPUSH((int)D(edx+___1e6edch));
+		eax = 0x640*D(edx+___1e6ed0h+0xc);
+		FPUSH(3.75);
+		FPUSH((int)D(edx+___1e6ed0h+0xc));
 		ST(0) = ST(0)*ST(1);
-		FPUSH((int)D(edx+___1e6edch));
-		edx += 0x35e;
+		FPUSH((int)D(edx+___1e6ed0h+0xc));
 		ST(2) = ST(2)*ST(0); FPOP();
-		F32(edx+___1e6cc8h) = (float)FPOP();
-		F32(edx+___1e6c1eh) = (float)FPOP();
+		F32(edx+___1e6ed0h+0x156) = (float)FPOP();
+		F32(edx+___1e6ed0h+0xac) = (float)FPOP();
 		eax += ebx;
 		ebx += 0x25800;
-		D(edx+___1e6b82h) = eax;
+		D(edx+___1e6ed0h+0x10) = eax;
+		edx += 0x35e;
 		if(edx != 0xd78) goto ___4b1fah;
 		ebx = D(___243d28h);
 		ecx = D(___243d2ch);
@@ -369,13 +360,13 @@ ___4b2ceh:
 		eax -= edi;
 		D(edx+___1f2488h) = eax;
 ___4b2eah:
-		eax = D(edx+___1f248ch);
+		eax = D(edx+___1f2488h+4);
 		D(esp+0x38) = eax;
 		if((int)esi >= (int)eax) goto ___4b306h;
 		edi = D(esp+0x38);
 		eax = ecx;
 		eax -= edi;
-		D(edx+___1f248ch) = eax;
+		D(edx+___1f2488h+4) = eax;
 ___4b306h:
 		edx += 0x120;
 		if(edx != 0x1200) goto ___4b2ceh;
@@ -396,14 +387,14 @@ ___4b32bh:
 		eax += edi;
 		D(edx+___1df720h) = eax;
 ___4b349h:
-		eax = D(edx+___1df724h);
+		eax = D(edx+___1df720h+4);
 		D(esp+0x38) = eax;
 		if((int)esi >= (int)eax) goto ___4b367h;
 		ebp = D(esp+0x38);
 		eax = ecx;
 		eax -= ebp;
 		eax += edi;
-		D(edx+___1df724h) = eax;
+		D(edx+___1df720h+4) = eax;
 ___4b367h:
 		edx += 0x20;
 		if(edx != 0x280) goto ___4b32bh;
@@ -421,9 +412,9 @@ ___4b394h:
 		ebp = D(eax+___1ded20h);
 		D(eax+___1de920h) = edx;
 		edx = ecx;
-		eax += 0x4;
 		edx -= ebp;
-		D(eax+___1ded1ch) = edx;
+		D(eax+___1ded20h) = edx;
+		eax += 0x4;
 		if((int)eax < (int)ebx) goto ___4b394h;
 ___4b3b9h:
 

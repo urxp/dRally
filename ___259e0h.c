@@ -1,27 +1,30 @@
 #include "drally.h"
 
-	extern void * ___1a1e7ch;
-	extern void * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
+typedef byte img96x64_t[0x40][0x60];
+
+#define COOXY(x,y) (0x280*(y)+(x))
+
+	extern img96x64_t * ___1a1e7ch;
+	extern byte * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
 
 void bpk_decode2(void *, void *);
 
-void ___259e0h_cdecl(dword A1, dword A2, int A3, dword A4, int * A5){
+void ___259e0h_cdecl(int dx, int dy, int aFrameIdx, void * aEncoded, int * aOffsets){
 
-	int 	i, j, off;
+	int 	x, y, offset;
 
-	off = 0;
-	i = -1;
-	while(++i < A3) off += A5[i];
+	offset = 0;
+	while(aFrameIdx--) offset += aOffsets[aFrameIdx];
 
-	bpk_decode2(___1a1e7ch, A4+off);
+	bpk_decode2(___1a1e7ch, aEncoded+offset);
 
-	j = -1;
-	while(++j < 0x40){
+	y = -1;
+	while(++y < 0x40){
 
-		i = -1;
-		while(++i < 0x18){
+		x = -1;
+		while(++x < 0x60){
 
-			D(___1a112ch__VESA101_ACTIVESCREEN_PTR+0x280*(A2+j)+A1+4*i) = D(___1a1e7ch+0x60*j+4*i);
+			___1a112ch__VESA101_ACTIVESCREEN_PTR[COOXY(dx+x, dy+y)] = (*___1a1e7ch)[y][x];
 		}
 	}
 }

@@ -16,11 +16,10 @@ typedef struct x655_s {
 	extern x655_t ___19eb50h[];
 	extern x655_t ___19df50h[];
 	extern byte ___1a1ef8h[];
-	extern byte ___1a020ch[];
+	extern byte ___1a01e0h[];
 	extern rgb24_t * ___1a0fb8h;
 	extern byte ___196ad8h[];
 	extern rgb24_t * ___1a10c8h;
-	extern byte ___1821e2h[];
 	extern byte ___1a1edch[];
 
 void ___12940h(void);
@@ -38,11 +37,11 @@ void ___2b318h(void){
 
 	if(!(p_pal = ___1a0fb8h)) p_pal = dummy_pal;
 
-	___11564h_cdecl(p_pal[D(0x6c*D(___1a1ef8h)+___1a020ch)].r, p_pal[D(0x6c*D(___1a1ef8h)+___1a020ch)].g, p_pal[D(0x6c*D(___1a1ef8h)+___1a020ch)].b);
+	___11564h_cdecl(p_pal[D(0x6c*D(___1a1ef8h)+___1a01e0h+0x2c)].r, p_pal[D(0x6c*D(___1a1ef8h)+___1a01e0h+0x2c)].g, p_pal[D(0x6c*D(___1a1ef8h)+___1a01e0h+0x2c)].b);
 
 	if(!(p_pal = ___1a0fb8h)) p_pal = dummy_pal;
 
-	___24010h(p_pal[D(0x6c*D(___1a1ef8h)+___1a020ch)].r, p_pal[D(0x6c*D(___1a1ef8h)+___1a020ch)].g, p_pal[D(0x6c*D(___1a1ef8h)+___1a020ch)].b);
+	___24010h(p_pal[D(0x6c*D(___1a1ef8h)+___1a01e0h+0x2c)].r, p_pal[D(0x6c*D(___1a1ef8h)+___1a01e0h+0x2c)].g, p_pal[D(0x6c*D(___1a1ef8h)+___1a01e0h+0x2c)].b);
 	
 	if(!(p_pal = ___1a10c8h)) p_pal = dummy_pal;
 

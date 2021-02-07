@@ -1,4 +1,5 @@
 #include "drally.h"
+#include "drally_keyboard.h"
 
 #pragma pack(1)
 
@@ -43,21 +44,15 @@ void * dRally_Memory_alloc(dword, dword);
 void dRally_Sound_init(byte);
 int rand_watcom106(void);
 
-#define CONFIG_FILE_NAME ((const char *)___182744h)
+#define CONFIG_FILE_NAME "dr.cfg"
 
-extern byte ___182744h[];
-extern byte ___18274ch[];
 extern byte CONFIG_SOUND_TYPE[];
 extern byte CONFIG_SOUND_IRQ[];
 extern byte CONFIG_SOUND_DMA[];
 extern byte CONFIG_SOUND_ADDR[];
 extern byte ___24cc54h[];
 extern byte ___24cc58h[];
-extern byte ___1a1140h[];
-extern byte ___1a115ch[];
-extern byte ___1a1154h[];
-extern byte ___1a114ch[];
-extern byte ___1a1144h[];
+extern __DWORD__ ___1a1140h[8];
 extern byte ___1a113ch[];
 extern byte ___1a1130h[];
 extern byte ___1a1118h[];
@@ -70,9 +65,6 @@ extern byte ___1a1e50h[];
 extern byte ___1a1120h[];
 extern byte ___1a1110h[];
 extern byte ___1a1164h[];
-extern byte ___1a1158h[];
-extern byte ___1a1150h[];
-extern byte ___1a1148h[];
 extern byte ___1a0e28h[];
 extern byte ___19f750h[];
 extern byte ___196a90h[];
@@ -80,14 +72,10 @@ extern byte ___1a1ffch[];
 extern byte ___1a201ah[];
 extern byte ___19bd58h[];
 extern byte ___196a94h[];
-extern byte ___180130h[];
-extern byte ___182794h[];
-extern byte ___182798h[];
 extern byte ___199f42h[];
 extern byte ___199f41h[];
 extern byte ___199f3eh[];
 extern byte ___199f3fh[];
-extern byte ___1827a0h[];
 extern byte ___199f43h[];
 extern byte ___199f44h[];
 extern byte ___199f45h[];
@@ -175,16 +163,16 @@ void CONFIG_READ(void){
         memcpy(___1a1e50h, config_dst+0x42, 4);
         memcpy(___199fa4h, config_dst+0x46, 4);
         memcpy(___199fa8h, config_dst+0x4a, 4);
-        memcpy(___19f750h, config_dst+0x4e, 0xa20);
+        memcpy(___19f750h, config_dst+0x4e, 0xa20);     // 0x19f750-0x1a0170
         memcpy(___1a0e28h, config_dst+0xa6e, 0xc8);
-        memcpy(___1a1158h, config_dst+0xb36, 4);
-        memcpy(___1a1150h, config_dst+0xb3a, 4);
-        memcpy(___1a1148h, config_dst+0xb3e, 4);
-        memcpy(___1a114ch, config_dst+0xb42, 4);
-        memcpy(___1a1140h, config_dst+0xb46, 4);
-        memcpy(___1a115ch, config_dst+0xb4a, 4);
-        memcpy(___1a1154h, config_dst+0xb4e, 4);
-        memcpy(___1a1144h, config_dst+0xb52, 4);
+        memcpy(&___1a1140h[6], config_dst+0xb36, 4);
+        memcpy(&___1a1140h[4], config_dst+0xb3a, 4);
+        memcpy(&___1a1140h[2], config_dst+0xb3e, 4);
+        memcpy(&___1a1140h[3], config_dst+0xb42, 4);
+        memcpy(&___1a1140h[0], config_dst+0xb46, 4);
+        memcpy(&___1a1140h[7], config_dst+0xb4a, 4);
+        memcpy(&___1a1140h[5], config_dst+0xb4e, 4);
+        memcpy(&___1a1140h[1], config_dst+0xb52, 4);
         memcpy(___1a1164h, config_dst+0xb56, 4);
         memcpy(___1a113ch, config_dst+0xb5a, 4);
         memcpy(___1a1110h, config_dst+0xb5e, 4);
@@ -244,14 +232,14 @@ void CONFIG_WRITE(void){
     memcpy(config_src+0x4a, ___199fa8h, 4);
     memcpy(config_src+0x4e, ___19f750h, 0xa20);
     memcpy(config_src+0xa6e, ___1a0e28h, 0xc8);
-    memcpy(config_src+0xb36, ___1a1158h, 4);
-    memcpy(config_src+0xb3a, ___1a1150h, 4);
-    memcpy(config_src+0xb3e, ___1a1148h, 4);
-    memcpy(config_src+0xb42, ___1a114ch, 4);
-    memcpy(config_src+0xb46, ___1a1140h, 4);
-    memcpy(config_src+0xb4a, ___1a115ch, 4);
-    memcpy(config_src+0xb4e, ___1a1154h, 4);
-    memcpy(config_src+0xb52, ___1a1144h, 4);
+    memcpy(config_src+0xb36, &___1a1140h[6], 4);
+    memcpy(config_src+0xb3a, &___1a1140h[4], 4);
+    memcpy(config_src+0xb3e, &___1a1140h[2], 4);
+    memcpy(config_src+0xb42, &___1a1140h[3], 4);
+    memcpy(config_src+0xb46, &___1a1140h[0], 4);
+    memcpy(config_src+0xb4a, &___1a1140h[7], 4);
+    memcpy(config_src+0xb4e, &___1a1140h[5], 4);
+    memcpy(config_src+0xb52, &___1a1140h[1], 4);
     memcpy(config_src+0xb56, ___1a1164h, 4);
     memcpy(config_src+0xb5a, ___1a113ch, 4);
     memcpy(config_src+0xb5e, ___1a1110h, 4);
@@ -306,12 +294,17 @@ dword default_records[18][6][2] = {
 */
 };
 
+name_t hof_default_names[] = {
+
+    "SAM SPEED ", "JANE HONDA", "DUKE NUKEM", "NASTY NICK", "MOTOR MARY",
+    "MAD MAC   ", "MATT MILER", "CLINT WEST", "LEE VICE  ", "DARK RYDER"
+};
+
 void CONFIG_DEFAULT(void){
 
     dword       eax, ebx, ecx, edx, esi, edi, ebp;
     dword       track, car, n;
     hof_entry *     hof_n;
-    name_t *        hof_default_names;
     record_t *      record;
 
     D(___24cc54h) = 0xc000;
@@ -322,9 +315,9 @@ void CONFIG_DEFAULT(void){
     D(___19bd58h) = 0;
     D(___196a90h) = 1;
     D(___1a1f3ch) = 0;
-    B(___1a201ah) = B(___180130h);
+    B(___1a201ah) = 0;
     D(___24cc58h) = 0x8000;
-    D(___1a1ffch) = D(___182794h);
+    D(___1a1ffch) = D("atz");
 
     record = ___19f750h;
     car = -1;
@@ -333,7 +326,7 @@ void CONFIG_DEFAULT(void){
         track = -1;
         while(++track < 0x12){
 
-            memcpy(record->name, ___182798h, 7);
+            memcpy(record->name, "Remedy", 7);
             record->min = 0;
             record->sec = default_records[track][car][0];
             record->sec100 = default_records[track][car][1];
@@ -347,19 +340,18 @@ void CONFIG_DEFAULT(void){
     D(___1a1120h) = B(___199f43h);
     D(___1a1130h) = B(___199f3fh);
     D(___1a113ch) = B(___199f41h);
-    D(___1a1140h) = 0x2a;
-    D(___1a1144h) = 0x39;
-    D(___1a1148h) = 0xcb;
-    D(___1a114ch) = 0xcd;
-    D(___1a1150h) = 0x2c;
-    D(___1a1154h) = 0x38;
-    D(___1a1158h) = 0x1e;
-    D(___1a115ch) = 0x1d;
+    ___1a1140h[0] = DR_SCAN_LSHIFT;
+    ___1a1140h[1] = DR_SCAN_SPACE;
+    ___1a1140h[2] = DR_SCAN_LEFT;
+    ___1a1140h[3] = DR_SCAN_RIGHT;
+    ___1a1140h[4] = DR_SCAN_Z;
+    ___1a1140h[5] = DR_SCAN_LALT;
+    ___1a1140h[6] = DR_SCAN_A;
+    ___1a1140h[7] = DR_SCAN_LCTRL;
     D(___1a1164h) = B(___199f42h);
 
-    
     hof_n = ___1a0e28h;
-    hof_default_names = ___1827a0h;
+    
     n = -1;
     while(++n < 10){
 

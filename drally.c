@@ -43,10 +43,7 @@ int main(int argc, char * argv[]){
 #if defined(DR_MULTIPLAYER)
 	if(___19bd60h) ___623d4h();
 #endif
-/*
-	bpa_read("MENU.BPA", B800, "dr.bin");
-	VGA3_PRESENTSCREEN(0x17);
-*/
+
 	dRally_Sound_quit();
 	dRally_Display_clean();
 	dRally_System_clean();

@@ -2,8 +2,6 @@
 
 	extern byte ___1a01e0h[];
 	extern byte ___1a1ef8h[];
-	extern byte ___1a0224h[];
-	extern byte ___1a0228h[];
 	extern byte ___19bd60h[];
 
 void * ___3f71ch__allocateMemory(dword);
@@ -64,15 +62,15 @@ ___30cf3h:
 		edx = 0xffffff94;
 		ecx ^= ecx;
 ___30d19h:
-		esi = D(edx+___1a0224h);
-		if(esi != D(ecx+___1a0224h)) goto ___30d33h;
+		esi = D(edx+___1a01e0h+0x44);
+		if(esi != D(ecx+___1a01e0h+0x44)) goto ___30d33h;
 		if((int)eax <= 0) goto ___30d33h;
-		ebx = D(edx+___1a0228h);
+		ebx = D(edx+___1a01e0h+0x48);
 		goto ___30d36h;
 ___30d33h:
 		ebx = eax+1;
 ___30d36h:
-		D(ecx+___1a0228h) = ebx;
+		D(ecx+___1a01e0h+0x48) = ebx;
 		edx += 0x6c;
 		eax++;
 		ecx += 0x6c;

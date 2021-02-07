@@ -17,7 +17,6 @@ extern textbit * B800;
 extern unsigned char VGA13_ACTIVESCREEN[];
 extern unsigned char VESA101_ACTIVESCREEN[];
 
-extern unsigned char cp437[];
 
 unsigned int Ticks = 0;
 unsigned int VRetraceTicks = 0;
@@ -131,137 +130,12 @@ void __WAIT_5(void){
 	while((__GET_FRAME_COUNTER() < tmp) && !dRally_Keyboard_popLastKey());
 }
 
-/*
-void __VGA3_PRESENTSCREEN(unsigned int n_lines){
 
-	int i, j;
-	textbit tmp;
 
-	if((n_lines == 0)||(n_lines > 25)) n_lines = 25;
-
-	for(i = 0; i < n_lines; i++){
-		for(j = 0; j < 80; j++){
-
-			tmp = B800[80*i+j];
-			if(!isprint(tmp.ascii)) tmp.ascii = '*';
-
-			if(tmp.bg != tmp.fg) printf("%c", tmp.ascii);
-			else printf(" ");
-		}
-		printf("\n");
-	}
-}
-*/
-
-unsigned char unCharBit(int x, int y){
-
-	unsigned char row[288];
-	int i,j,k,m;
-	unsigned char b;
-
-	m = x/8;
-	i = -1;
-	j = 0;
-	while(i++ < m){
-
-		b = cp437[36*y+i];
-		k = 8;
-		while(k--){
-
-			row[j+k] = b&1;
-			b >>= 1; 
-		}
-		j+=8;
-	}
-
-	return row[x];
-}
-
-static void paste_char(unsigned char c, int fg, int bg, int x, int y, unsigned char * p){
-
-	int 	i,j;
-	int 	row, col;
-	unsigned char b;
-
-	row = c/32;
-	col = c%32;
-
-	i = -1;
-	while(++i < 16){
-
-		j = -1;
-		while(++j < 8){
-
-			b = unCharBit(j+col*9, 16*row+i);
-			p[(y+i)*640+(x+j)] = (b != 0) ? (fg*b) : (bg+b);
-		}
-	}
-}
 
 void __VESA101_SETMODE();
 void __DISPLAY_SET_PALETTE_COLOR(int b, int g, int r, int n);
-void VGA3_PRESENTSCREEN(unsigned int n_lines){
 
-	int i, j;
-	textbit tmp;
-
-	if((n_lines == 0)||(n_lines > 25)) n_lines = 25;
-
-	memset(VESA101_ACTIVESCREEN, 1, 0x4b000);
-
-	for(i = 0; i < n_lines; i++){
-		for(j = 0; j < 80; j++){
-
-			paste_char(B800[80*i+j].ascii, B800[80*i+j].fg, B800[80*i+j].bg, 8*j, 16*i, VESA101_ACTIVESCREEN+(40+16*(25-n_lines)/2)*640);
-		}
-	}
-
-	__VESA101_SETMODE();
-
-	__DISPLAY_SET_PALETTE_COLOR(0x00>>2, 0x00>>2, 0x00>>2, 0);
-	__DISPLAY_SET_PALETTE_COLOR(0xaa>>2, 0x00>>2, 0x00>>2, 1);
-	__DISPLAY_SET_PALETTE_COLOR(0x00>>2, 0xaa>>2, 0x00>>2, 2);
-	__DISPLAY_SET_PALETTE_COLOR(0xaa>>2, 0xaa>>2, 0x00>>2, 3);
-	__DISPLAY_SET_PALETTE_COLOR(0x00>>2, 0x00>>2, 0xaa>>2, 4);
-	__DISPLAY_SET_PALETTE_COLOR(0xaa>>2, 0x00>>2, 0xaa>>2, 5);
-	__DISPLAY_SET_PALETTE_COLOR(0x00>>2, 0x55>>2, 0xaa>>2, 6);
-	__DISPLAY_SET_PALETTE_COLOR(0xaa>>2, 0xaa>>2, 0xaa>>2, 7);
-	__DISPLAY_SET_PALETTE_COLOR(0x55>>2, 0x55>>2, 0x55>>2, 8);
-	__DISPLAY_SET_PALETTE_COLOR(0xff>>2, 0x55>>2, 0x55>>2, 9);
-	__DISPLAY_SET_PALETTE_COLOR(0x55>>2, 0xff>>2, 0x55>>2, 10);
-	__DISPLAY_SET_PALETTE_COLOR(0xff>>2, 0xff>>2, 0x55>>2, 11);
-	__DISPLAY_SET_PALETTE_COLOR(0x55>>2, 0x55>>2, 0xff>>2, 12);
-	__DISPLAY_SET_PALETTE_COLOR(0xff>>2, 0x55>>2, 0xff>>2, 13);
-	__DISPLAY_SET_PALETTE_COLOR(0x55>>2, 0xff>>2, 0xff>>2, 14);
-	__DISPLAY_SET_PALETTE_COLOR(0xff>>2, 0xff>>2, 0xff>>2, 15);
-
-
-	unsigned int l_break = 1;
-	unsigned int b_counter = SDL_GetTicks();
-	while(l_break){
-
-		__PRESENTSCREEN__();
-
-		SDL_Event e;
-		while(SDL_PollEvent(&e)){
-
-			if(e.type == SDL_KEYDOWN){
-
-				return;
-			}
-			else if(e.type == SDL_QUIT){
-
-				return;
-			}
-		}
-
-		SDL_Delay(10);
-		l_break = SDL_GetTicks()-b_counter;
-		if(l_break > 10000) break;
-	}
-}
-
-//unsigned char VGA13_ACTIVESCREEN_X2[640*400] = {0};
 
 void __PRESENTSCREEN__(void){
 

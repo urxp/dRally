@@ -1,16 +1,12 @@
 /*
 #include "drally.h"
 
-	extern byte ___180998h[];
 	extern byte ___185c0bh[];
 	extern byte ___1a1108h[];
-	extern byte ___1809b8h[];
 	extern byte ___1a1ef8h[];
 	extern byte ___1a01e0h[];
 	extern byte ___24e4ach[];
-	extern byte ___1809d4h[];
 	extern byte ___1a1098h[];
-	extern byte ___1809ech[];
 
 void ___13248h_cdecl(dword, dword ,dword, dword, dword);
 void ___12e78h_cdecl(dword, dword, dword, dword);
@@ -54,7 +50,7 @@ dword ___1aa28h(dword A1, dword A2, dword A3){
 		eax = 4*edx;
 		ecx = D(esp);
 		eax += edx;
-		ebx = ___180998h;		// "Waiting for other players..."
+		ebx = "Waiting for other players...";
 		eax <<= 7;
 		edx = ___185c0bh;
 		ecx += eax;
@@ -68,7 +64,7 @@ dword ___1aa28h(dword A1, dword A2, dword A3){
 		edx = D(esp);
 		eax <<= 7;
 		eax += edx;
-		ebx = ___1809b8h;		// "Press ESC to leave netgame"
+		ebx = "Press ESC to leave netgame";		// "Press ESC to leave netgame"
 		ecx = eax+0x28;
 		edx = ___185c0bh;
 		eax = D(___1a1108h);
@@ -149,7 +145,7 @@ ___1ab73h:
 		ecx = D(esp);
 		eax <<= 7;
 		eax += ecx;
-		ebx = ___1809d4h;		// "Host closed the game!"
+		ebx = "Host closed the game!";		// "Host closed the game!"
 		ecx = eax+0x28;
 		edx = ___185c0bh;
 		eax = D(___1a1108h);
@@ -191,7 +187,7 @@ ___1ac53h:
 		eax = 4*edx;
 		ecx = D(esp);
 		eax += edx;
-		ebx = ___1809ech;		// "Host started the game!"
+		ebx = "Host started the game!";
 		eax <<= 7;
 		edx = ___185c0bh;
 		ecx += eax;

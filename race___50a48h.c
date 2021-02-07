@@ -1,18 +1,13 @@
 #include "drally.h"
 
 	extern byte ___243c60h[];
-	extern byte ___1e7086h[];
+	extern byte ___1e6ed0h[];
 	extern byte ___196dc8h[];
-	extern byte ___1e70a2h[];
 	extern byte ___196dcch[];
 	extern byte ___196d98h[];
-	extern byte ___1e70a6h[];
-	extern byte ___1de5e0h[];
-	extern byte ___1de604h[];
+	extern byte ___1de580h[];
 	extern byte ___243298h[];
-	extern byte ___1e6edch[];
 	extern byte ___243d80h[];
-	extern byte ___1de5dch[];
 
 void race___50a48h(void){
 
@@ -21,13 +16,13 @@ void race___50a48h(void){
 
 		ecx = D(___243c60h);
 		eax = 0x35e*ecx;
-		if(D(eax+___1e7086h) == 0) goto ___50b63h;
+		if(D(eax+___1e6ed0h+0x1b6) == 0) goto ___50b63h;
 		ebx = D(___196dc8h);
-		edx = D(eax+___1e70a2h);
+		edx = D(eax+___1e6ed0h+0x1d2);
 		esi = D(___196dcch);
 		edx -= ebx;
 		ebx = D(___196d98h);
-		eax = D(eax+___1e70a6h);
+		eax = D(eax+___1e6ed0h+0x1d6);
 		ebx += edx;
 		eax -= esi;
 		D(esp) = ebx;
@@ -47,13 +42,13 @@ ___50ad6h:
 		ebx = 0;
 ___50ae0h:
 		eax = 0x94*ecx;
-		edx = D(eax+___1de5e0h);
-		eax = D(eax+4*edx+___1de604h);
+		edx = D(eax+___1de580h+0x60);
+		eax = D(eax+4*edx+___1de580h+0x84);
 		edx = 0x35e*ecx;
 		eax = D(4*eax+___243298h);
 		eax += ebx;
 		esi = eax+ebp;
-		eax = D(edx+___1e6edch);
+		eax = D(edx+___1e6ed0h+0xc);
 		edx = eax;
 		edx = (int)edx>>0x1f;
 		eax -= edx;
@@ -80,21 +75,21 @@ ___50b31h:
 ___50b55h:
 		eax = 0x35e*ecx;
 		edx = 0;
-		D(eax+___1e7086h) = edx;
+		D(eax+___1e6ed0h+0x1b6) = edx;
 ___50b63h:
 		eax = 8*ecx;
 		eax += ecx;
 		eax <<= 2;
 		eax += ecx;
 		eax <<= 2;
-		ebx = D(eax+___1de5e0h);
-		edx = D(eax+___1de5dch);
+		ebx = D(eax+___1de580h+0x60);
+		edx = D(eax+___1de580h+0x5c);
 		ebx++;
 		edx--;
-		D(eax+___1de5e0h) = ebx;
+		D(eax+___1de580h+0x60) = ebx;
 		if((int)edx >= (int)ebx) goto ___50b94h;
 		edi = 0;
-		D(eax+___1de5e0h) = edi;
+		D(eax+___1de580h+0x60) = edi;
 ___50b94h:
 		D(___243c60h) = ecx;
 }

@@ -8,14 +8,11 @@ cpu 386
 	extern	___1a112ch__VESA101_ACTIVESCREEN_PTR
 	extern	___13710h
 	extern	___13248h_cdecl
-	extern	___180bd8h
 	extern	___185ba9h
 	extern	___1a10cch
 	extern	___12e78h_cdecl
-	extern	___180bech
 	extern	___185c0bh
 	extern	___1a1108h
-	extern	___180848h
 	extern	___12cb8h__VESA101_PRESENTSCREEN
 	extern	___5994ch
 	extern	___59b3ch
@@ -84,7 +81,7 @@ ___1ca63h:
 	add 	esp, 14h
 
 		mov     ecx, 20851h
-		mov     ebx, ___180bd8h
+		mov     ebx, __dfr_180bd8h
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10cch]
 
@@ -96,7 +93,7 @@ ___1ca63h:
 	add 	esp, 10h
 
 		mov     ecx, 25851h
-		mov     ebx, ___180bech
+		mov     ebx, __dfr_180bech
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
 
@@ -108,7 +105,7 @@ ___1ca63h:
 	add 	esp, 10h
 
 		mov     ecx, 2a851h
-		mov     ebx, ___180848h
+		mov     ebx, press_k
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10cch]
 
@@ -172,4 +169,12 @@ ___1cad8h:
 		pop     ecx
 		pop     ebx
 		retn    
+
+section .data
+press_k:
+	db 	"Press any key to continue.",0,0
+__dfr_180bd8h:
+	db	43h,4fh,4dh,2dh,70h,6fh,72h,74h,20h,6eh,6fh,74h,20h,66h,6fh,75h,6eh,64h,0,0
+__dfr_180bech:
+	db	50h,6ch,65h,61h,73h,65h,20h,73h,65h,6ch,65h,63h,74h,20h,61h,20h,43h,4fh,4dh,2dh,70h,6fh,72h,74h,20h,66h,72h,6fh,6dh,20h,53h,65h,72h,69h,61h,6ch,2fh,43h,4fh,4dh,20h,4fh,70h,74h,69h,6fh,6eh,73h,0,0,0,0
 */

@@ -4,7 +4,7 @@
 	extern byte ___1a1e80h[];
 	extern byte ___196aa4h[];
 	extern byte ___1a1ef8h[];
-	extern byte ___1a0210h[];
+	extern byte ___1a01e0h[];
 	extern byte ___185ba9h[];
 	extern byte ___1a10cch[];
 
@@ -103,50 +103,50 @@ dword ___15808h(void){
 		___13094h_cdecl("", 0x280*(ebp+0xa5)+D(esp+0x48)+0x80);
 		___13094h_cdecl("", 0x280*(ebp+0xb5)+D(esp+0x48)+0x80);
 
-		if((int)D(0x6c*D(___1a1ef8h)+___1a0210h) < (int)D(esp+0x44)){
+		if((int)D(0x6c*D(___1a1ef8h)+___1a01e0h+0x30) < (int)D(esp+0x44)){
 
 			D(esp+0x40) = ___14c50h();
 		}
 		else {
 
-			D(0x6c*D(___1a1ef8h)+___1a0210h) -= D(esp+0x44);
+			D(0x6c*D(___1a1ef8h)+___1a01e0h+0x30) -= D(esp+0x44);
 		}
 	}
 	else {
 
 		if(D(___196aa4h) == 1){
 
-			D(0x6c*D(___1a1ef8h)+___1a0210h) += 0x2ee0;
+			D(0x6c*D(___1a1ef8h)+___1a01e0h+0x30) += 0x2ee0;
 			strcpy(esp+0x34, "12000");
 		}
 
 		if(D(___196aa4h) == 2){
 
-			D(0x6c*D(___1a1ef8h)+___1a0210h) += 0x1f40;
+			D(0x6c*D(___1a1ef8h)+___1a01e0h+0x30) += 0x1f40;
 			strcpy(esp+0x34, "8000");
 		}
 
 		if(D(___196aa4h) == 3){
 
-			D(0x6c*D(___1a1ef8h)+___1a0210h) += 0x1770;
+			D(0x6c*D(___1a1ef8h)+___1a01e0h+0x30) += 0x1770;
 			strcpy(esp+0x34, "6000");
 		}
 
 		if(D(___196aa4h) == 4){
 
-			D(0x6c*D(___1a1ef8h)+___1a0210h) += 0xfa0;
+			D(0x6c*D(___1a1ef8h)+___1a01e0h+0x30) += 0xfa0;
 			strcpy(esp+0x34, "4000");
 		}
 
 		if(D(___196aa4h) == 5){
 
-			D(0x6c*D(___1a1ef8h)+___1a0210h) += 0x7d0;
+			D(0x6c*D(___1a1ef8h)+___1a01e0h+0x30) += 0x7d0;
 			strcpy(esp+0x34, "2000");
 		}
 
 		if(D(___196aa4h) == 6){
 
-			D(0x6c*D(___1a1ef8h)+___1a0210h) += 0x3e8;
+			D(0x6c*D(___1a1ef8h)+___1a01e0h+0x30) += 0x3e8;
 			strcpy(esp+0x34, "1000");
 		}
 

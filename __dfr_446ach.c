@@ -5,7 +5,7 @@ cpu 386
 	extern	__CHK
 	extern	___24331ch
 	extern	___24cee0h
-	extern	___243d9dh
+	extern	___243d9eh
 	extern	___196e60h
 
 section .text
@@ -26,9 +26,9 @@ ___446cah:
 		mov     cx, [ebx+2]
 		add     ecx, eax
 		and     ecx, 0fffh
-		inc     eax
 		mov     dl, [ecx+ebx*1+4]
-		mov     [eax+___243d9dh], dl
+		mov     [eax+___243d9eh], dl
+		inc     eax
 		cmp     eax, byte 13h
 		jl      short ___446cah
 		xor     eax, eax

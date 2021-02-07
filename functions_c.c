@@ -8,8 +8,8 @@ FILE * strupr_fopen(const char * file_name, const char * mode){
 
 	if(strlen(file_name) > 255){
 
-		printf("File name too long: (%s)\n", file_name);
-		return NULL;
+		printf("[strupr_fopen] File name too long: (%s)\n", file_name);
+		return ((void *)0);
 	}
 
 	return fopen(strupr_watcom106(strcpy(buffer, file_name)), mode);
@@ -96,4 +96,21 @@ void ___imul32(void * eax, void * edx, int mp){
 
 	D(eax) = ll_tmp;
 	D(edx) = ll_tmp>>0x20;
+}
+
+double create_double(int lsb, int b1, int b2, int b3, int b4, int b5, int b6, int msb){
+
+	unsigned long long 	rslt;
+
+	rslt = 0;
+	rslt <<= 8; rslt |= msb&0xff;
+	rslt <<= 8; rslt |= b6&0xff;
+	rslt <<= 8; rslt |= b5&0xff;
+	rslt <<= 8; rslt |= b4&0xff;
+	rslt <<= 8; rslt |= b3&0xff;
+	rslt <<= 8; rslt |= b2&0xff;
+	rslt <<= 8; rslt |= b1&0xff;
+	rslt <<= 8; rslt |= lsb&0xff;
+
+	return *(double *)&rslt;
 }

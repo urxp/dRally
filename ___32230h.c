@@ -2,27 +2,11 @@
 
 	extern byte ___1a1028h[];
 	extern byte ___1a0ef8h[];
-	extern byte ___1a0ef9h[];
-	extern byte ___1a0efah[];
-	extern byte ___1a0efbh[];
 	extern byte ___19bd60h[];
 	extern byte ___1a1ef8h[];
-	extern byte ___1a01ech[];
 	extern byte ___199f54h[];
-	extern byte ___1a0224h[];
-	extern byte ___185a14h_UseWeapons[];
-	extern byte ___1a0248h[];
-	extern byte ___1a0228h[];
 	extern byte ___1a01e0h[];
-	extern byte ___193018h[];
-	extern byte ___192ff0h[];
-	extern byte ___18239ch[];
-	extern byte ___193040h[];
-	extern byte ___1823b8h[];
-	extern byte ___193068h[];
-	extern byte ___193090h[];
-	extern byte ___1930b8h[];
-	extern byte ___180694h[];
+	extern byte ___185a14h_UseWeapons[];
 	extern byte ___185ba9h[];
 	extern byte ___1a10cch[];
 
@@ -46,11 +30,11 @@ dword ___32230h(void){
 		edx = D(___1a1028h);
 		L(eax) = B(edx*4+___1a0ef8h);
 		B(esp+0x78) = L(eax);
-		L(eax) = B(edx*4+___1a0ef9h);
+		L(eax) = B(edx*4+___1a0ef8h+1);
 		B(esp+0x79) = L(eax);
-		L(eax) = B(edx*4+___1a0efah);
+		L(eax) = B(edx*4+___1a0ef8h+2);
 		B(esp+0x7a) = L(eax);
-		L(eax) = B(edx*4+___1a0efbh);
+		L(eax) = B(edx*4+___1a0ef8h+3);
 		ebp = 0xa5;
 		B(esp+0x7b) = L(eax);
 		edx ^= edx;
@@ -61,7 +45,7 @@ dword ___32230h(void){
 ___3229ah:
 		if(eax == ebx) goto ___322a8h;
 		if(ecx != esi) goto ___322a8h;
-		D(edx+___1a01ech) = esi;
+		D(edx+___1a01e0h+0xc) = esi;
 ___322a8h:
 		eax++;
 		edx += 0x6c;
@@ -77,7 +61,7 @@ ___322c1h:
 		D(esp+0x7c) = eax;
 		eax ^= eax;
 ___322d6h:
-		ebx = D(edx+___1a0224h);
+		ebx = D(edx+___1a01e0h+0x44);
 		if((int)esi >= (int)ebx) goto ___322e6h;
 		if(eax == ecx) goto ___322e6h;
 		esi = ebx;
@@ -92,16 +76,16 @@ ___322e6h:
 		eax <<= 0x2;
 		eax -= edx;
 		eax <<= 0x2;
-		if((int)esi < (int)D(eax+___1a0224h)) goto ___32654h;
+		if((int)esi < (int)D(eax+___1a01e0h+0x44)) goto ___32654h;
 		if(D(___185a14h_UseWeapons) == 0) goto ___32654h;
-		if(D(eax+___1a0248h) != 1) goto ___32654h;
+		if(D(eax+___1a01e0h+0x68) != 1) goto ___32654h;
 		eax ^= eax;
 ___3233bh:
 		edx ^= edx;
 		L(edx) = B(esp+eax+0x78);
 		edx = 0x6c*edx;
 		eax++;
-		L(edx) = B(edx+___1a0228h);
+		L(edx) = B(edx+___1a01e0h+0x48);
 		B(esp+eax+0x33) = L(edx);
 		if((int)eax < 4) goto ___3233bh;
 		edx = D(___1a1ef8h);
@@ -110,7 +94,7 @@ ___3233bh:
 		eax <<= 0x2;
 		eax -= edx;
 		edi = B(esp+0x34);
-		if(edi != D(eax*4+___1a0228h)) goto ___3237bh;
+		if(edi != D(eax*4+___1a01e0h+0x48)) goto ___3237bh;
 		edi = B(esp+0x35);
 ___3237bh:
 		edx = D(___1a1ef8h);
@@ -124,7 +108,7 @@ ___32394h:
 		edx ^= edx;
 		L(edx) = B(esp+eax+0x34);
 		if((int)edx >= (int)edi) goto ___323a8h;
-		if(edx == D(esi+___1a0228h)) goto ___323a8h;
+		if(edx == D(esi+___1a01e0h+0x48)) goto ___323a8h;
 		edi = edx;
 ___323a8h:
 		eax++;
@@ -134,7 +118,7 @@ ___323b0h:
 		eax ^= eax;
 		L(eax) = B(esp+esi+0x78);
 		eax = 0x6c*eax;
-		if(edi == D(eax+___1a0228h)) goto ___323c4h;
+		if(edi == D(eax+___1a01e0h+0x48)) goto ___323c4h;
 		esi++;
 		goto ___323b0h;
 ___323c4h:
@@ -154,7 +138,7 @@ ___323c4h:
 		eax -= edx;
 		ebx = 0xa;
 		edx = esp+0x6c;
-		D(eax*4+___1a01ech) = edi;
+		D(eax*4+___1a01e0h+0xc) = edi;
 		eax = edi;
 		eax = itoa_watcom106(eax, edx, ebx);
 		edx ^= edx;
@@ -178,17 +162,15 @@ ___323c4h:
 		eax += edx;
 		edx = D(esp+0x80);
 		eax <<= 0x7;
-		esi = ___193018h;
 		edx += eax;
-		eax = ___192ff0h;
 		edx += 0x38;
 		edi = esp;
-		___13094h_cdecl(eax, edx);
-		strcpy(edi, esi);
+		___13094h_cdecl("Money talks, and [the damage is", edx);
+		strcpy(edi, "[done, ");
 		esi = esp+0x6c;
 		edi = esp;
 		strcat(edi, esi);
-		esi = ___18239ch;
+		esi = "% worth! Sabotage says that";
 		edi = esp;
 		edx = ebp+0x38;
 		strcat(edi, esi);
@@ -198,15 +180,13 @@ ___323c4h:
 		eax <<= 0x7;
 		eax += esi;
 		edx = eax+0x38;
-		eax = esp;
-		___13094h_cdecl(eax, edx);
-		esi = ___193040h;
+		___13094h_cdecl(esp, edx);
 		edi = esp;
-		strcpy(edi, esi);
+		strcpy(edi, "[");
 		esi = esp+0x5c;
 		edi = esp;
 		strcat(edi, esi);
-		esi = ___1823b8h;
+		esi = " is going down{ and staying";
 		edi = esp;
 		edx = ebp+0x48;
 		strcat(edi, esi);
@@ -216,45 +196,26 @@ ___323c4h:
 		eax <<= 0x7;
 		eax += edi;
 		edx = eax+0x38;
-		eax = esp;
-		___13094h_cdecl(eax, edx);
+		___13094h_cdecl(esp, edx);
 		edx = ebp+0x58;
 		eax = 4*edx;
 		eax += edx;
 		eax <<= 0x7;
 		edx = edi+eax;
-		eax = ___193068h;
 		edx += 0x38;
-		___13094h_cdecl(eax, edx);
+		___13094h_cdecl("down. That's dough baked luck for", edx);
 		edx = ebp+0x68;
 		eax = 4*edx;
 		eax += edx;
 		eax <<= 0x7;
 		eax += edi;
 		edx = eax+0x38;
-		eax = ___193090h;
-		___13094h_cdecl(eax, edx);
-		edx = ebp+0x73;
-		eax = 4*edx;
-		eax += edx;
-		eax <<= 0x7;
-		eax += edi;
-		edx = eax+0x38;
-		eax = ___1930b8h;
-		___13094h_cdecl(eax, edx);
-		edx = ebp+0x96;
-		eax = 4*edx;
-		eax += edx;
-		eax <<= 0x7;
-		ebx = ___180694h;
-		ecx = eax+0xc0;
-		edx = ___185ba9h;
-		eax = D(___1a10cch);
-		___12e78h_cdecl(eax, edx, ebx, ecx);
+		___13094h_cdecl("you. And luck, she ain't no lady.", edx);
+		___13094h_cdecl("", edi+0x280*(ebp+0x73)+0x38);
+		___12e78h_cdecl(D(___1a10cch), ___185ba9h, "CONTINUE", 0x280*(ebp+0x96)+0xc0);
 		___12cb8h__VESA101_PRESENTSCREEN();
 		___17324h();
-		eax = D(esp+0x7c);
-		return eax;
+		return D(esp+0x7c);
 ___32654h:
 		esi ^= esi;
 		D(esp+0x7c) = esi;

@@ -4,13 +4,9 @@
 	extern byte ___243cf4h[];
 	extern byte ___243c60h[];
 	extern byte ___243874h[];
-	extern byte ___1e6ef0h[];
+	extern byte ___1e6ed0h[];
 	extern byte ___1de580h[];
-	extern byte ___1e6fdah[];
-	extern byte ___1e7226h[];
 	extern byte ___243ce8h[];
-	extern byte ___1e6f88h[];
-	extern byte ___1e6f84h[];
 
 
 void dRally_Sound_pushEffect(byte channel, byte n, dword unk, dword a0, dword a1, dword a2);
@@ -35,13 +31,13 @@ ___563e4h:
 		if((int)D(___243874h) <= 0) goto ___5642eh;
 		eax = 0x35e*D(___243c60h);
 ___563fbh:
-		L(ecx) = B(eax+___1e6ef0h);
+		L(ecx) = B(eax+___1e6ed0h+0x20);
 		if((L(ecx)&2) == 0) goto ___56422h;
 		if((L(ecx)&0x40) == 0) goto ___56422h;
-		ecx = D(eax+___1e6ef0h);
+		ecx = D(eax+___1e6ed0h+0x20);
 		ecx &= 0xbd;
 		ebx = 1;
-		D(eax+___1e6ef0h) = ecx;
+		D(eax+___1e6ed0h+0x20) = ecx;
 ___56422h:
 		eax += 4;
 		edx++;
@@ -55,12 +51,12 @@ ___5642eh:
 		D(esp+0xc) = eax;
 		if(ebx != 1) goto ___56542h;
 		eax = 0x35e*esi;
-		if(D(eax+___1e6fdah) != 0) goto ___56542h;
-		if(D(eax+___1e7226h) != 0) goto ___5656eh;
+		if(D(eax+___1e6ed0h+0x10a) != 0) goto ___56542h;
+		if(D(eax+___1e6ed0h+0x356) != 0) goto ___5656eh;
 		edx = D(___243c60h);
 		ecx = D(___243ce8h);
 		esi <<= 0xc;
-		D(eax+___1e7226h) = ebx;
+		D(eax+___1e6ed0h+0x356) = ebx;
 		L(ebx) = B(___243c60h);
 		esi += 0x21000;
 		L(ebx) += 0xb;
@@ -75,11 +71,11 @@ ___5642eh:
 		goto ___5656eh;
 ___564c2h:
 		edx = 0x35e*ecx;
-		FPUSH(F32(eax+___1e6f88h));
-		FPUSH(F32(eax+___1e6f84h));
-		ST(0) = ST(0)-(double)F32(edx+___1e6f84h);
+		FPUSH(F32(eax+___1e6ed0h+0xb8));
+		FPUSH(F32(eax+___1e6ed0h+0xb4));
+		ST(0) = ST(0)-(double)F32(edx+___1e6ed0h+0xb4);
 		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
-		ST(0) = ST(0)-(double)F32(edx+___1e6f88h);
+		ST(0) = ST(0)-(double)F32(edx+___1e6ed0h+0xb8);
 		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
 		ST(0) = (int)ST(0);
 		D(esp+4) = (int)FPOP();
@@ -109,9 +105,9 @@ ___564c2h:
 		goto ___5656eh;
 ___56542h:
 		eax = 0x35e*D(___243c60h);
-		if(D(eax+___1e7226h) != 1) goto ___5656eh;
+		if(D(eax+___1e6ed0h+0x356) != 1) goto ___5656eh;
 		esi = 0;
-		D(eax+___1e7226h) = esi;
+		D(eax+___1e6ed0h+0x356) = esi;
 		L(eax) = B(___243c60h);
 		L(eax) += 0xb;
 		eax &= 0xff;

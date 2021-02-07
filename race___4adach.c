@@ -46,7 +46,6 @@ typedef struct x2c_s {
 	extern byte ___243d08h[];
 	extern byte ___243c88h[];
 	extern byte ___243c98h[];
-	extern byte ___1e8844h[];
 	extern byte ___243c94h[];
 	extern byte ___1e8848h[];
 
@@ -74,7 +73,7 @@ void race___4adach(void){
 					}
 					else {
 
-						D(0x190*i+4*j+___1e8844h) = k;
+						D(0x190*i+4*j+___1e8848h-4) = k;
 					}
 				}
 			}

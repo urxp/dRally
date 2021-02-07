@@ -8,9 +8,7 @@
 	extern byte ___1a1e68h[];
 	extern byte ___1a10f4h[];
 	extern byte ___19bd60h[];
-	extern byte ___1854ach[];
 	extern byte ___24cc54h[];
-	extern byte ___1854b8h[];
 
 void ___12e78h_cdecl(dword, dword, dword, dword);
 void ___12cb8h__VESA101_PRESENTSCREEN(void);
@@ -76,7 +74,7 @@ int ___148cch_cdecl(int x, int y, dword A3, int * A4){
 		case DR_SCAN_Y:
 		case DR_SCAN_LEFT:
 		case DR_SCAN_KP_4:
-			if(*A4 == 0) dRally_Sound_pushEffect(1, 0x19, 0, D(___24cc54h), D(___1854ach), 0x8000);
+			if(*A4 == 0) dRally_Sound_pushEffect(1, 0x19, 0, D(___24cc54h), 0x28000, 0x8000);
 
 			n = -1;
 			while(++n < 0x19) memset(D(___1a112ch__VESA101_ACTIVESCREEN_PTR)+0x280*(y+n)+x+2, 0xc4, 0xf0);
@@ -88,7 +86,7 @@ int ___148cch_cdecl(int x, int y, dword A3, int * A4){
 		case DR_SCAN_N:
 		case DR_SCAN_RIGHT:
 		case DR_SCAN_KP_6:
-			if(*A4 == 1) dRally_Sound_pushEffect(1, 0x19, 0, D(___24cc54h), D(___1854ach), 0x8000);
+			if(*A4 == 1) dRally_Sound_pushEffect(1, 0x19, 0, D(___24cc54h), 0x28000, 0x8000);
 			
 			n = -1;
 			while(++n < 0x19) memset(D(___1a112ch__VESA101_ACTIVESCREEN_PTR)+0x280*(y+n)+x+2, 0xc4, 0xf0);
@@ -111,7 +109,7 @@ int ___148cch_cdecl(int x, int y, dword A3, int * A4){
 		}
 	}
 
-	dRally_Sound_pushEffect(1, 0x1c, 0, D(___24cc54h), D(___1854b8h), 0x8000);
+	dRally_Sound_pushEffect(1, 0x1c, 0, D(___24cc54h), 0x28000, 0x8000);
 
 	return !!(status != -2);
 }

@@ -21,17 +21,14 @@
 
 	extern byte ___243cech[];
 	extern byte ___243ce8h[];
-	extern byte ___1de868h[];
-	extern byte ___1de814h[];
+	extern byte ___1de7d0h[];
 	extern byte ___243cf4h[];
 	extern byte ___243c60h[];
 	extern byte ___243ce0h[];
-	extern byte ___1de598h[];
-	extern byte ___1e6fd8h[];
+	extern byte ___1de580h[];
 	extern byte ___1e6ed0h[];
 	extern byte ___185a50h[];
-	extern byte ___1de588h[];
-	extern byte ___1de4f0h[];
+	extern byte ___1de580h[];
 
 // DIFFICULTY ADJUSTMENT
 void race___4c21ch(void){
@@ -51,10 +48,10 @@ void race___4c21ch(void){
 		edx = D(___243ce8h);
 		while(ecx--||++ecx){ D(edi) = D(esi); edi += 4; esi += 4; }
 		if(edx != 0) goto ___4c26ah;
-		esi = D(___1de868h);
+		esi = D(___1de7d0h+0x54+0x44);
 		goto ___4c270h;
 ___4c26ah:
-		esi = D(___1de814h);
+		esi = D(___1de7d0h+0x44);
 ___4c270h:
 		ecx = 0;
 		edi = D(___243cf4h);
@@ -69,12 +66,12 @@ ___4c295h:
 		if(edi != D(___243ce8h)) goto ___4c2b8h;
 		if(D(___243ce0h) == 0) goto ___4c3f1h;
 ___4c2b8h:
-		if((int)D(ecx+___1de598h) <= 0) goto ___4c3f1h;
-		edi = B(edx+___1e6fd8h);
+		if((int)D(ecx+___1de580h+0x18) <= 0) goto ___4c3f1h;
+		edi = B(edx+___1e6ed0h+0x108);
 		edi = edi*ebx;
 		edi += D(edx+___1e6ed0h);
 		D(esp+0x34) = edi;
-		edi = B(eax+___1e6fd8h);
+		edi = B(eax+___1e6ed0h+0x108);
 		edi = edi*ebx;
 		edi += D(eax+___1e6ed0h);
 		D(esp+0x38) = edi;
@@ -88,11 +85,11 @@ ___4c2b8h:
 		ST(1) = ST(1)+ST(0); FPOP();
 		F32(esp+0x3c) = (float)FPOP();
 ___4c30ch:
-		edi = B(edx+___1e6fd8h);
+		edi = B(edx+___1e6ed0h+0x108);
 		edi = edi*ebx;
 		edi += D(edx+___1e6ed0h);
 		D(esp+0x38) = edi;
-		edi = B(eax+___1e6fd8h);
+		edi = B(eax+___1e6ed0h+0x108);
 		edi = edi*ebx;
 		edi += D(eax+___1e6ed0h);
 		D(esp+0x30) = edi;
@@ -107,11 +104,11 @@ ___4c30ch:
 		F32(esp+0x3c) = (float)FPOP();
 ___4c355h:
 		if(D(___185a50h) == 2) goto ___4c3f1h;
-		edi = B(edx+___1e6fd8h);
+		edi = B(edx+___1e6ed0h+0x108);
 		edi = edi*ebx;
 		edi += D(edx+___1e6ed0h);
 		D(esp+0x34) = edi;
-		edi = B(eax+___1e6fd8h);
+		edi = B(eax+___1e6ed0h+0x108);
 		edi = edi*ebx;
 		edi += D(eax+___1e6ed0h);
 		D(esp+0x38) = edi;
@@ -125,11 +122,11 @@ ___4c355h:
 		ST(1) = ST(0)-ST(1); FPOP();
 		F32(esp+0x3c) = (float)FPOP();
 ___4c3a8h:
-		edi = B(edx+___1e6fd8h);
+		edi = B(edx+___1e6ed0h+0x108);
 		edi = edi*ebx;
 		edi += D(edx+___1e6ed0h);
 		D(esp+0x38) = edi;
-		edi = B(eax+___1e6fd8h);
+		edi = B(eax+___1e6ed0h+0x108);
 		edi = edi*ebx;
 		edi += D(eax+___1e6ed0h);
 		D(esp+0x34) = edi;
@@ -143,13 +140,13 @@ ___4c3a8h:
 		ST(1) = ST(0)-ST(1); FPOP();
 		F32(esp+0x3c) = (float)FPOP();
 ___4c3f1h:
-		FPUSH(F32(ecx+___1de588h));
+		FPUSH(F32(ecx+___1de580h+8));
 		ST(0) = ST(0)*(double)F32(esp+0x3c);
 		edi = D(___243c60h);
-		ecx += 0x94;
 		eax += 0x35e;
 		edi++;
-		F32(ecx+___1de4f0h) = (float)FPOP();
+		F32(ecx+___1de580h+4) = (float)FPOP();
+		ecx += 0x94;
 		D(___243c60h) = edi;
 		if((int)edi < (int)D(___243cf4h)) goto ___4c295h;
 ___4c425h:

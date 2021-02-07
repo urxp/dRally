@@ -25,6 +25,23 @@ typedef struct racer_s {
 	dword 	rocket_fuel;		// 	+0x64
 	dword 	sabotage;			//	+0x68
 } racer_t;
+typedef char char40[40];
+typedef char char12[12];
+typedef struct cardata_s {
+    char12      		name;                           // +000
+    __DWORD__   		price;                          // +00C
+    char40      		txt_info[6];                    // +010
+    char40      		txt_winfo[6];                   // +100
+    char40      		txt_bought[6];                  // +1F0
+    char40      		txt_engine_upgrades[4][6];      // +2E0
+    __DWORD__   		n_engine_upgrades;              // +6A0
+    __DWORD__   		n_tire_upgrades;                // +6A4
+    __DWORD__   		n_armor_upgrades;               // +6A8
+    __DWORD__   		price_engine_upgrades[4];       // +6AC
+    __DWORD__   		price_tire_upgrades[4];         // +6BC
+    __DWORD__   		price_armor_upgrades[4];        // +6CC
+    __SIGNED_DWORD__   	price_repair;                   // +6DC
+} cardata_t;
 #pragma pack(pop)
 
 
@@ -36,17 +53,7 @@ typedef struct racer_s {
 	extern byte ___1a1ef8h[];
 	extern byte ___199f54h[];
 	extern byte ___185a30h[];
-	extern byte ___1a01d4h[];
-	extern byte ___1a01d8h[];
-	extern byte ___1a01dch[];
-	extern byte ___1a01d0h[];
-	extern byte ___1a0190h[];
-	extern byte ___1a0234h[];
-	extern byte ___18e938h[];
-	extern byte ___18e2a4h[];
-	extern byte ___1a0224h[];
-	extern byte ___1a0214h[];
-	extern byte ___1a0218h[];
+	extern cardata_t ___18e298h[6];
 	extern byte ___1a1ee8h[];
 	extern byte ___1a1ec0h[];
 	extern byte ___1a1ee0h[];
@@ -117,14 +124,14 @@ void ___2415ch(void){
 		Racers[n].points = ((201-(int)(77.0*log10((double)(n+1))))*2-11*n)/4;
 		Racers[n].wins = 0;
 		Racers[n].races = 0;
-		D(0x6c*n+___1a0234h) = 0;
+		D(Racers[n].unk3) = 0;
 		Racers[n].income = 0;
 		Racers[n].damage = 0;
 		Racers[n].money = rand_watcom106()%0x186a0;
-		Racers[n].engine = rand_watcom106()%D(Racers[n].car*0x6e0+___18e938h);
-		Racers[n].tires = rand_watcom106()%D(Racers[n].car*0x6e0+___18e938h+4);
-		Racers[n].armor = rand_watcom106()%D(Racers[n].car*0x6e0+___18e938h+8);
-		Racers[n].refund = D(Racers[n].car*0x6e0+___18e2a4h);
+		Racers[n].engine = rand_watcom106()%___18e298h[Racers[n].car].n_engine_upgrades;
+		Racers[n].tires = rand_watcom106()%___18e298h[Racers[n].car].n_tire_upgrades;
+		Racers[n].armor = rand_watcom106()%___18e298h[Racers[n].car].n_armor_upgrades;
+		Racers[n].refund = ___18e298h[Racers[n].car].price;
 		Racers[n].rank = n+1;
 
 		edx = n;
@@ -143,14 +150,14 @@ void ___2415ch(void){
 	Racers[D(___1a1ef8h)].car = 0;
 	Racers[D(___1a1ef8h)].wins = 0;
 	Racers[D(___1a1ef8h)].races = 0;
-	D(0x6c*D(___1a1ef8h)+___1a0234h) = 0;
+	D(Racers[D(___1a1ef8h)].unk3) = 0;
 	Racers[D(___1a1ef8h)].points = 0;
 	Racers[D(___1a1ef8h)].income = 0;
 	Racers[D(___1a1ef8h)].money = 495;
-	D(0x6c*D(___1a1ef8h)+___1a0214h) = 0xffffffff;
-	D(0x6c*D(___1a1ef8h)+___1a0218h) = 0xffffffff;
+	D((__BYTE__ *)Racers[D(___1a1ef8h)].unk2) = 0xffffffff;
+	D((__BYTE__ *)Racers[D(___1a1ef8h)].unk2+4) = 0xffffffff;
 	Racers[D(___1a1ef8h)].rank = 20;
-	Racers[D(___1a1ef8h)].refund = D(___18e2a4h);
+	Racers[D(___1a1ef8h)].refund = ___18e298h[0].price;
 	___2b318h();
 	D(___1a1ee8h) = 0;
 	D(___1a1ec0h) = 0;

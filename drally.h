@@ -89,6 +89,7 @@ double fpu_pop(void);
 
 #define dR_PI   3.141592653589793238462643383279502884197169399375105820974
 
+double create_double(int LSB, int, int, int, int, int, int, int MSB);
 
 #define __SIZEOF_BYTE__    1
 #define __SIZEOF_WORD__    2
@@ -128,6 +129,5 @@ typedef signed char             __SIGNED_BYTE__;
         typedef __SIGNED_DWORD__ __SIGNED__;
     #endif
 #endif
-
 
 #endif // __DRALLY_H

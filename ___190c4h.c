@@ -1,15 +1,11 @@
 #include "drally.h"
 
     extern byte ___19eb50h[];
-    extern byte ___19eb54h[];
-    extern byte ___19eb58h[];
     extern byte ___1a1138h__VESA101h_DefaultScreenBufferB[];
     extern byte ___1a112ch__VESA101_ACTIVESCREEN_PTR[];
     extern byte ___19bd60h[];
-    extern byte ___1807cch[];
     extern byte ___185c0bh[];
     extern byte ___1a10fch[];
-    extern byte ___1807e8h[];
     extern byte ___1a1108h[];
 
 void ___2b318h(void);
@@ -65,7 +61,7 @@ ___19115h:
 		eax &= 0xff;
 		rr = eax;
 		edx = esi;
-		eax = D(edi+___19eb54h);
+		eax = D(edi+___19eb50h+4);
 		ll_tmp = (long long)(int)eax*(int)edx; edx = ll_tmp>>0x20; eax = ll_tmp;
 		eax += 0x8000;
 		edx += !!(eax < 0x8000);
@@ -75,7 +71,7 @@ ___19115h:
 		eax &= 0xff;
 		gg = eax;
 		edx = esi;
-		eax = D(edi+___19eb58h);
+		eax = D(edi+___19eb50h+8);
 		ll_tmp = (long long)(int)eax*(int)edx; edx = ll_tmp>>0x20; eax = ll_tmp;
 		eax += 0x8000;
 		edx += !!(eax < 0x8000);
@@ -109,7 +105,7 @@ ___191b4h:
 		eax &= 0xff;
 		rr = eax;
 		edx = esi;
-		eax = D(edi+___19eb54h);
+		eax = D(edi+___19eb50h+4);
 		ll_tmp = (long long)(int)eax*(int)edx; edx = ll_tmp>>0x20; eax = ll_tmp;
 		eax += 0x8000;
 		edx += !!(eax < 0x8000);
@@ -119,7 +115,7 @@ ___191b4h:
 		eax &= 0xff;
 		gg = eax;
 		edx = esi;
-		eax = D(edi+___19eb58h);
+		eax = D(edi+___19eb50h+8);
 		ll_tmp = (long long)(int)eax*(int)edx; edx = ll_tmp>>0x20; eax = ll_tmp;
 		eax += 0x8000;
 		edx += !!(eax < 0x8000);
@@ -160,12 +156,12 @@ ___191b4h:
 		___135fch(eax, edx, ebx, ecx);
 		if(D(___19bd60h) == 0) goto ___192f6h;
 		ecx = 0x390a3;
-		ebx = ___1807cch;
+		ebx = "press   to enter chat mode";
 		edx = ___185c0bh;
 		eax = D(___1a10fch);
 		___12e78h_cdecl(eax, edx, ebx, ecx);
 		ecx = 0x390d9;
-		ebx = ___1807e8h;
+		ebx = "F1";
 		edx = ___185c0bh;
 		eax = D(___1a1108h);
 		___12e78h_cdecl(eax, edx, ebx, ecx);
@@ -205,7 +201,7 @@ ___19336h:
 		eax &= 0xff;
 		rr = eax;
 		edx = esi;
-		eax = D(edi+___19eb54h);
+		eax = D(edi+___19eb50h+4);
 		ll_tmp = (long long)(int)eax*(int)edx; edx = ll_tmp>>0x20; eax = ll_tmp;
 		eax += 0x8000;
 		edx += !!(eax < 0x8000);
@@ -215,7 +211,7 @@ ___19336h:
 		eax &= 0xff;
 		gg = eax;
 		edx = esi;
-		eax = D(edi+___19eb58h);
+		eax = D(edi+___19eb50h+8);
 		ll_tmp = (long long)(int)eax*(int)edx; edx = ll_tmp>>0x20; eax = ll_tmp;
 		eax += 0x8000;
 		edx += !!(eax < 0x8000);
@@ -249,7 +245,7 @@ ___193d4h:
 		eax &= 0xff;
 		rr = eax;
 		edx = esi;
-		eax = D(edi+___19eb54h);
+		eax = D(edi+___19eb50h+4);
 		ll_tmp = (long long)(int)eax*(int)edx; edx = ll_tmp>>0x20; eax = ll_tmp;
 		eax += 0x8000;
 		edx += !!(eax < 0x8000);
@@ -259,7 +255,7 @@ ___193d4h:
 		eax &= 0xff;
 		gg = eax;
 		edx = esi;
-		eax = D(edi+___19eb58h);
+		eax = D(edi+___19eb50h+8);
 		ll_tmp = (long long)(int)eax*(int)edx; edx = ll_tmp>>0x20; eax = ll_tmp;
 		eax += 0x8000;
 		edx += !!(eax < 0x8000);

@@ -1,6 +1,5 @@
 #include "drally.h"
 
-	extern byte ___180144h[];
 	extern byte ___1a54d0h[];
 	extern byte ___1a112ch__VESA101_ACTIVESCREEN_PTR[];
 
@@ -25,7 +24,7 @@ dword ___3d9c0h_cdecl(dword A1, dword A2, dword A3){
 
 		esi = ebx;
 		___3d154h(eax);
-		eax = ___180144h;
+		eax = "MENU.BPA";
 		ebx = edx;
 		edx = ___1a54d0h;
 		bpa_read(eax, edx, ebx);

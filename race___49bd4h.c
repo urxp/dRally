@@ -39,26 +39,15 @@ typedef struct spectator_s {
 	dword		timestamp;
 } spectator_t;
 
-	extern byte ___19bd64h[];
+	extern char ___19bd64h[16];
 	extern byte ___243dd0h[];
 	extern byte ___243d90h[];
 	extern byte ___1a54d0h[];
 	extern byte ___243d28h[];
 	extern byte ___243d2ch[];
 	extern byte ___243cech[];
-	extern byte ___1e6f84h[];
-	extern byte ___1e6f88h[];
-	extern byte ___1e6edch[];
-	extern byte ___1e72e2h[];
-	extern byte ___1e72e6h[];
-	extern byte ___1e723ah[];
-	extern byte ___1e7640h[];
+	extern byte ___1e6ed0h[];
 	extern byte ___1f2488h[];
-	extern byte ___1e7644h[];
-	extern byte ___1e7598h[];
-	extern byte ___1e799eh[];
-	extern byte ___1e79a2h[];
-	extern byte ___1e78f6h[];
 #define SPECTATORS ___1df720h
 	extern spectator_t ___1df720h[];
 	extern byte ___243d30h[];
@@ -84,21 +73,21 @@ void race___49bd4h(void){
 	D(___243d2ch) = TrxInf->h;
 	D(___243cech) = TrxInf->unk0;
 
-	F32(___1e6f84h) = (float)TrxInf->startups[0].x;
-	F32(___1e6f88h) = (float)TrxInf->startups[0].y;
-	D(___1e6edch) = TrxInf->startups[0].rot;
+	F32(___1e6ed0h+0xb4) = (float)TrxInf->startups[0].x;
+	F32(___1e6ed0h+0xb8) = (float)TrxInf->startups[0].y;
+	D(___1e6ed0h+0xc) = TrxInf->startups[0].rot;
 
-	F32(___1e72e2h) = (float)TrxInf->startups[1].x;
-	F32(___1e72e6h) = (float)TrxInf->startups[1].y;
-	D(___1e723ah) = TrxInf->startups[1].rot;
+	F32(___1e6ed0h+0xb4+0x35e) = (float)TrxInf->startups[1].x;
+	F32(___1e6ed0h+0xb8+0x35e) = (float)TrxInf->startups[1].y;
+	D(___1e6ed0h+0xc+0x35e) = TrxInf->startups[1].rot;
 
-	F32(___1e7640h) = (float)TrxInf->startups[2].x;
-	F32(___1e7644h) = (float)TrxInf->startups[2].y;
-	D(___1e7598h) = TrxInf->startups[2].rot;
+	F32(___1e6ed0h+0xb4+2*0x35e) = (float)TrxInf->startups[2].x;
+	F32(___1e6ed0h+0xb8+2*0x35e) = (float)TrxInf->startups[2].y;
+	D(___1e6ed0h+0xc+2*0x35e) = TrxInf->startups[2].rot;
 
-	F32(___1e799eh) = (float)TrxInf->startups[3].x;
-	F32(___1e79a2h) = (float)TrxInf->startups[3].y;
-	D(___1e78f6h) = TrxInf->startups[3].rot;
+	F32(___1e6ed0h+0xb4+3*0x35e) = (float)TrxInf->startups[3].x;
+	F32(___1e6ed0h+0xb8+3*0x35e) = (float)TrxInf->startups[3].y;
+	D(___1e6ed0h+0xc+3*0x35e) = TrxInf->startups[3].rot;
 
 	n = -1;
 	while(++n < 0x10){

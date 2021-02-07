@@ -5,11 +5,6 @@ void dRally_Memory_free(void *);
 void * dRally_Memory_resize(void *, dword);
 void ___58b20h(int, ...);
 
-/*
-void * ___24cc7ch;  // next
-void * ___24cc80h;  // end
-void * ___24cc84h;  // start
-*/
 struct alloc {
     void *  next;
     void *  end;

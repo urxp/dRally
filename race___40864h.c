@@ -3,27 +3,17 @@
 	extern byte ___243d80h[];
 	extern byte ___1d8110h[];
 	extern byte ___243ce8h[];
-	extern byte ___1de5b4h[];
-	extern byte ___182f37h[];
-	extern byte ___1de5ach[];
-	extern byte ___1de5b0h[];
-	extern byte ___182f47h[];
+	extern byte ___1de580h[];
 	extern byte ___243d34h[];
-	extern byte ___1de5a8h[];
 	extern byte ___243cdch[];
 	extern byte ___243cb8h[];
 	extern byte ___1d7810h[];
-	extern byte ___182f3fh[];
 	extern byte ___243334h[];
 	extern byte ___243ca0h[];
-	extern byte ___1de598h[];
-	extern byte ___182f4fh[];
 	extern byte ___1de210h[];
-	extern byte ___182f57h[];
 	extern byte ___1de530h[];
 	extern byte ___196de8h[];
 	extern byte ___196dech[];
-	extern byte ___182ed4h[];
 	extern byte ___1de7d0h[];
 	extern byte ___196df4h[];
 
@@ -63,8 +53,8 @@ ___40897h:
 		eax += edx;
 		eax <<= 0x2;
 		eax += edx;
-		FPUSH((int)D(eax*4+___1de5b4h));
-		ST(0) = ST(0)*F64(___182f37h);
+		FPUSH((int)D(eax*4+___1de580h+0x34));
+		ST(0) = ST(0)*create_double(0x3d,0x0a,0xd7,0xa3,0x70,0x3d,0x42,0x3f);
 		ST(0) = (int)ST(0);
 		D(esp+0x8) = (int)FPOP();
 		if((int)D(esp+8) >= 0) goto ___408e2h;
@@ -101,11 +91,11 @@ ___40920h:
 		eax <<= 0x2;
 		edx += eax;
 		edx <<= 0x2;
-		ecx = D(edx+___1de5ach);
+		ecx = D(edx+___1de580h+0x2c);
 		ebp = D(___243d80h);
 		if(ecx == 0) goto ___40a21h;
-		FPUSH((int)D(edx+___1de5b0h));
-		ST(0) = ST(0)*F64(___182f47h);
+		FPUSH((int)D(edx+___1de580h+0x30));
+		ST(0) = ST(0)*create_double(0x9a,0x99,0x99,0x99,0x99,0x99,0x41,0x3f);
 		ST(0) = (int)ST(0);
 		D(esp+0x4) = (int)FPOP();
 		if((int)D(esp+4) >= 0) goto ___4096dh;
@@ -168,7 +158,7 @@ ___409ddh:
 		D(esp+0xc) = esi;
 ___40a01h:
 		eax = 0x94*D(___243ce8h);
-		ebx = D(eax+___1de5a8h);
+		ebx = D(eax+___1de580h+0x28);
 		D(___243d80h) = ebp;
 		if((int)edi >= (int)ebx) goto ___40bd0h;
 		goto ___409b4h;
@@ -220,7 +210,7 @@ ___40a21h:
 		D(esp) = edx;
 		p6 = 0x2097;
 		FPUSH((int)D(esp));
-		ST(0) = ST(0)*F64(___182f3fh);
+		ST(0) = ST(0)*1.42;
 		p5 = 0x10;
 		ebx = 0x6;
 		eax = ___1d7810h;
@@ -284,7 +274,7 @@ ___40b13h:
 		D(esp) = edx;
 		p6 = 0x2097;
 		FPUSH((int)D(esp));
-		ST(0) = ST(0)*F64(___182f3fh);
+		ST(0) = ST(0)*1.42;
 		p5 = 0x10;
 		ebx = 0x6;
 		eax = ___1d7810h;
@@ -294,110 +284,71 @@ ___40b13h:
 		ecx = D(esp);
 		eax = ___4256ch_cdecl(eax, edx, ebx, ecx, p5, p6, p7, p8);
 ___40bd0h:
-		edx = D(___243ce8h);
-		eax = 8*edx;
-		eax += edx;
-		eax <<= 0x2;
-		eax += edx;
-		FPUSH((int)D(eax*4+___1de598h));
-		ST(0) = ST(0)*F64(___182f4fh);
-		ebx = 0xa;
-		edx = 0x8;
-		ST(0) = dR_Math_ceil(ST(0));
-		p8 = 0xfffffff0;
-		eax = ___1de210h;
-		ST(0) = F64(___182f57h)-ST(0);
-		p7 = 0xfffffff8;
-		ST(0) = (int)ST(0);
-		p6 = 0x2c90;
-		D(esp) = (int)FPOP();
-		p5 = 0;
-		ecx = D(esp);
-		esi = ___1de530h;
-		eax = ___4256ch_cdecl(eax, edx, ebx, ecx, p5, p6, p7, p8);
-		ecx = 0xa;
-		ebp = D(___243d80h);
-		edx = 0x8;
-		ebx = eax+ebp;
-___40c46h:
+	FPUSH((int)D(___1de580h+0x94*D(___243ce8h)+0x18));
+	ST(0) = ST(0)*create_double(0,0,0,0,0,0,0x50,0x3f);
+	ST(0) = dR_Math_ceil(ST(0));
+	ST(0) = 100.0-ST(0);
+	ST(0) = (int)ST(0);
+	D(esp) = (int)FPOP();
+	esi = ___1de530h;
+	eax = ___4256ch_cdecl(___1de210h, 0x8, 0xa, D(esp), 0, 0x2c90, 0xfffffff8, 0xfffffff0);
+	ecx = 0xa;
+	edx = 0x8;
+	ebx = D(___243d80h)+eax;
+
+	while(1){
+
 		H(ecx) = L(edx);
-___40c48h:
-		L(eax) = B(esi);
-		if(L(eax) == 0) goto ___40c50h;
-		B(ebx) = L(eax);
-___40c50h:
-		ebx++;
-		esi++;
-		H(ecx)--;
-		if(H(ecx)) goto ___40c48h;
+
+		while(1){
+
+			L(eax) = B(esi);
+			if(L(eax) != 0) B(ebx) = L(eax);
+			ebx++;
+			esi++;
+			H(ecx)--;
+			if(H(ecx) == 0) break;
+		}
+
 		ebx += 0x200;
 		ebx -= edx;
 		L(ecx)--;
-		if(L(ecx)) goto ___40c46h;
-		edx = D(___243ce8h);
-		eax = 8*edx;
-		eax += edx;
-		eax <<= 0x2;
-		eax += edx;
-		edi = D(eax*4+___1de598h);
+		if(L(ecx) == 0) break;
+	}
+
+	edi = D(___1de580h+0x94*D(___243ce8h)+0x18);
+	ebp = D(___243d80h);
+
+	if((int)edi < 0x5000){
+
+		if(D(___196de8h) == 0) dRally_Sound_pushEffect(2, 1, 0, 0x10000, 0x50000, 0x8000);
+
 		ebp = D(___243d80h);
-		if((int)edi >= 0x5000) goto ___40cc5h;
-		if(D(___196de8h) != 0) goto ___40cb4h;
-		ecx = 0x10000;
-		edx = 0x1;
-		eax = 0x2;
-		ebx ^= ebx;
-		dRally_Sound_pushEffect(eax, edx, ebx, ecx, 0x50000, 0x8000);
-___40cb4h:
-		edx = 0x1;
-		ebp = D(___243d80h);
-		D(___196de8h) = edx;
-___40cc5h:
-		edx = D(___243ce8h);
-		eax = 8*edx;
-		eax += edx;
-		eax <<= 0x2;
-		eax += edx;
-		if((int)D(eax*4+___1de598h) >= 0x2800) goto ___40d27h;
-		ecx = D(___196dech);
+		D(___196de8h) = 1;
+	}
+
+	if((int)D(___1de580h+0x94*D(___243ce8h)+0x18) < 0x2800){
+
 		D(___243d80h) = ebp;
-		if(ecx) goto ___40d16h;
-		ecx = 0x10000;
-		edx = 0x1;
-		eax = 0x2;
-		ebx ^= ebx;
-		dRally_Sound_pushEffect(eax, edx, ebx, ecx, 0x50000, 0x8000);
-___40d16h:
-		esi = 0x1;
+
+		if(D(___196dech) == 0) dRally_Sound_pushEffect(2, 1, 0, 0x10000, 0x50000, 0x8000);
+
 		ebp = D(___243d80h);
-		D(___196dech) = esi;
-___40d27h:
-		edx = D(___243ce8h);
-		eax = 8*edx;
-		eax += edx;
-		eax <<= 0x2;
-		eax += edx;
-		edi = D(eax*4+___1de598h);
-		D(___243d80h) = ebp;
-		if(edi) goto ___40da3h;
-		eax = 4*edx;
-		eax += edx;
-		eax <<= 0x2;
-		eax += edx;
-		eax <<= 0x2;
-		edx = ___182ed4h;
-		eax = ___1de7d0h+eax;
-		eax = strcmp(eax, edx);
-		if(eax) goto ___40da3h;
-		if(D(___196df4h) != 0) goto ___40d99h;
-		ecx = 0x10000;
-		edx = 0x20;
-		eax = 0x2;
-		ebx ^= ebx;
-		dRally_Sound_pushEffect(eax, edx, ebx, ecx, 0x50000, 0x8000);
-___40d99h:
-		D(___196df4h) = 1;
-___40da3h:
-		ebp = D(___243d80h);
-		return;
+		D(___196dech) = 1;
+	}
+
+	edi = D(___1de580h+0x94*D(___243ce8h)+0x18);
+	D(___243d80h) = ebp;
+
+	if(edi == 0){
+
+		if(strcmp(___1de7d0h+0x54*D(___243ce8h), "DUKE NUKEM") == 0){
+
+			if(D(___196df4h) == 0) dRally_Sound_pushEffect(2, 0x20, 0, 0x10000, 0x50000, 0x8000);
+
+			D(___196df4h) = 1;
+		}
+	}
+
+	ebp = D(___243d80h);
 }

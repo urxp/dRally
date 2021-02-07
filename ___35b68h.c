@@ -1,12 +1,6 @@
 #include "drally.h"
 
-	extern byte ___1824d4h[];
-	extern byte ___1824dch[];
-	extern byte ___19eb44h[];
-	extern byte ___19eb48h[];
-	extern byte ___19eb4ch[];
-	extern byte ___1824e4h[];
-	extern byte ___1824e8h[];
+	extern byte ___19eb50h[];
 
 // SOMETHING WITH RACE RESULTS CAR COLORS
 void ___35b68h_cdecl(dword A0, dword A1, dword A2, dword A3){
@@ -33,7 +27,7 @@ void ___35b68h_cdecl(dword A0, dword A1, dword A2, dword A3){
 		D(esp+0x38) = eax;
 		FPUSH(F32(esp+0x40));
 		FPUSH(ST(0));
-		FPUSH(F64(___1824d4h));
+		FPUSH(10.0);
 		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
 		ST(0) = ST(0)/ST(1);
 		FPUSH(F32(esp+0x3c));
@@ -44,7 +38,7 @@ void ___35b68h_cdecl(dword A0, dword A1, dword A2, dword A3){
 		d_tmp = ST(0); ST(0) = ST(3); ST(3) = d_tmp;
 		ST(5) = ST(5)-ST(0); FPOP();
 		d_tmp = ST(0); ST(0) = ST(4); ST(4) = d_tmp;
-		FPUSH(F64(___1824dch));
+		FPUSH(0.125);
 		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
 		ST(0) = ST(0)*ST(1);
 		d_tmp = ST(0); ST(0) = ST(5); ST(5) = d_tmp;
@@ -70,17 +64,16 @@ ___35bfah:
 		FPUSH(ST(0));
 		ST(0) = ST(0)*(double)F32(esp+0x24);
 		FPUSH(F32(esp+0x40));
-		ST(0) = ST(0)/F64(___1824d4h);
+		ST(0) = ST(0)/10.0;
 		FPUSH(ST(2));
 		ST(0) = ST(0)*(double)F32(esp+0x20);
 		FPUSH(F32(esp+0x3c));
-		ST(0) = ST(0)/F64(___1824d4h);
+		ST(0) = ST(0)/10.0;
 		d_tmp = ST(0); ST(0) = ST(4); ST(4) = d_tmp;
 		ST(0) = ST(0)*(double)F32(esp+0x1c);
 		FPUSH(F32(esp+0x38));
-		ST(0) = ST(0)/F64(___1824d4h);
+		ST(0) = ST(0)/10.0;
 		ebx = edi;
-		ecx += 0xc;
 		d_tmp = ST(0); ST(0) = ST(3); ST(3) = d_tmp;
 		ST(4) = ST(4)+ST(0); FPOP();
 		d_tmp = ST(0); ST(0) = ST(4); ST(4) = d_tmp;
@@ -107,7 +100,7 @@ ___35bfah:
 		edx = D(esp+0x8);
 		ebx = edi;
 		edx <<= 0x10;
-		D(ecx+___19eb44h) = eax;
+		D(ecx+___19eb50h) = eax;
 		eax ^= eax;
 		eax = (eax>>0x10)|(edx<<0x10);
 		edx = (int)edx>>0x10;
@@ -115,7 +108,7 @@ ___35bfah:
 		edx = D(esp+0xc);
 		ebx = edi;
 		edx <<= 0x10;
-		D(ecx+___19eb48h) = eax;
+		D(ecx+___19eb50h+4) = eax;
 		eax ^= eax;
 		eax = (eax>>0x10)|(edx<<0x10);
 		edx = (int)edx>>0x10;
@@ -123,13 +116,14 @@ ___35bfah:
 		ebx = D(esp+0x34);
 		esi++;
 		ebx++;
-		D(ecx+___19eb4ch) = eax;
+		D(ecx+___19eb50h+8) = eax;
+		ecx += 0xc;
 		D(esp+0x34) = ebx;
 		if((int)ebx < 8) goto ___35bfah;
-		FPUSH(F32(___1824e4h));
+		FPUSH(63.0f);
 		FPUSH(ST(0));
 		ST(0) = ST(0)-(double)F32(esp+0x40);
-		FPUSH(F32(___1824e8h));
+		FPUSH(0.125f);
 		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
 		ST(0) = ST(0)*ST(1);
 		FPUSH(ST(2));
@@ -159,7 +153,6 @@ ___35d12h:
 		d_tmp = ST(0); ST(0) = ST(2); ST(2) = d_tmp;
 		ST(0) = ST(0)*(double)F32(esp+0x30);
 		ebx = edi;
-		ecx += 0xc;
 		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
 		ST(0) = ST(0)+(double)F32(esp+0x40);
 		d_tmp = ST(0); ST(0) = ST(2); ST(2) = d_tmp;
@@ -186,7 +179,7 @@ ___35d12h:
 		edx = D(esp+0x8);
 		ebx = edi;
 		edx <<= 0x10;
-		D(ecx+___19eb44h) = eax;
+		D(ecx+___19eb50h) = eax;
 		eax ^= eax;
 		eax = (eax>>0x10)|(edx<<0x10);
 		edx = (int)edx>>0x10;
@@ -194,7 +187,7 @@ ___35d12h:
 		edx = D(esp+0xc);
 		ebx = edi;
 		edx <<= 0x10;
-		D(ecx+___19eb48h) = eax;
+		D(ecx+___19eb50h+4) = eax;
 		eax ^= eax;
 		eax = (eax>>0x10)|(edx<<0x10);
 		edx = (int)edx>>0x10;
@@ -202,7 +195,8 @@ ___35d12h:
 		ebx = D(esp+0x18);
 		esi++;
 		ebx++;
-		D(ecx+___19eb4ch) = eax;
+		D(ecx+___19eb50h+8) = eax;
+		ecx += 0xc;
 		D(esp+0x18) = ebx;
 		if((int)ebx < 8) goto ___35d12h;
 		return;

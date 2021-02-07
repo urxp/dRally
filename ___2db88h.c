@@ -1,19 +1,12 @@
 #include "drally.h"
 
 	extern byte ___1a1ef8h[];
-	extern byte ___1a0224h[];
-	extern byte ___1a0a5ch[];
+	extern byte ___1a01e0h[];
+	extern byte ___1a0a50h[];
 	extern byte ___1a112ch__VESA101_ACTIVESCREEN_PTR[];
 	extern byte ___1a1e5ch[];
 	extern byte ___1a017ch_PriceSabotage[];
-	extern byte ___180728h[];
 	extern byte ___19bd60h[];
-	extern byte ___193ae0h[];
-	extern byte ___193b08h[];
-	extern byte ___193b30h[];
-	extern byte ___193b58h[];
-	extern byte ___193b80h[];
-	extern byte ___193ba8h[];
 
 void ___2d184h(void);
 void ___2d20ch(void);
@@ -36,7 +29,7 @@ void ___2db88h(void){
 		eax ^= eax;
 		ebp ^= ebp;
 ___2dba7h:
-		ebx = D(eax+___1a0224h);
+		ebx = D(eax+___1a01e0h+0x44);
 		if((int)ebp >= (int)ebx) goto ___2dbb7h;
 		if(edx == ecx) goto ___2dbb7h;
 		ebp = ebx;
@@ -44,7 +37,7 @@ ___2dbb7h:
 		edx++;
 		eax += 0x6c;
 		if((int)edx < 0x14) goto ___2dba7h;
-		if(D(___1a0a5ch) != 1) goto ___2dc74h;
+		if(D(___1a0a50h+0xc) != 1) goto ___2dc74h;
 		ecx = 0x60;
 		ebx = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
 		esi = D(___1a1e5ch);
@@ -74,7 +67,7 @@ ___2dbf1h:
 		eax = D(___1a017ch_PriceSabotage);
 		edi = esp;
 		eax = itoa_watcom106(eax, edx, ebx);
-		X(eax) = W(___180728h);
+		X(eax) = W("$");
 		esi = esp+0x14;
 		W(esp) = X(eax);
 		strcat(edi, esi);
@@ -84,7 +77,7 @@ ___2dbf1h:
 		eax = esp;
 		___12f60h_cdecl(eax, edx);
 ___2dc74h:
-		if(D(___1a0a5ch) != 0) goto ___2dd6bh;
+		if(D(___1a0a50h+0xc) != 0) goto ___2dd6bh;
 		ecx = 0x60;
 		ebx = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
 		esi = D(___1a1e5ch);
@@ -113,35 +106,23 @@ ___2dca5h:
 		eax -= edx;
 		eax <<= 0x2;
 		eax -= edx;
-		if((int)ebp >= (int)D(eax*4+___1a0224h)) goto ___2dd66h;
+		if((int)ebp >= (int)D(eax*4+___1a01e0h+0x44)) goto ___2dd66h;
 		ecx = 0x77;
 		ebx = 0x180;
 		edx = 0x72;
 		eax = 0x90;
 		___13248h_cdecl(eax, edx, ebx, ecx, 1);
-		edx = 0x136aa;
-		eax = ___193ae0h;
-		___13094h_cdecl(eax, edx);
-		edx = 0x15eaa;
-		eax = ___193b08h;
-		___13094h_cdecl(eax, edx);
-		edx = 0x186aa;
-		eax = ___193b30h;
-		___13094h_cdecl(eax, edx);
-		edx = 0x1aeaa;
-		eax = ___193b58h;
-		___13094h_cdecl(eax, edx);
-		edx = 0x1d6aa;
-		eax = ___193b80h;
-		___13094h_cdecl(eax, edx);
-		edx = 0x1feaa;
-		eax = ___193ba8h;
-		___13094h_cdecl(eax, edx);
+		___13094h_cdecl("[No sabotage. No way.", 0x136aa);
+		___13094h_cdecl("", 0x15eaa);
+		___13094h_cdecl("What? You crazy, man? Nobody", 0x186aa);
+		___13094h_cdecl("touches the Adversary's auto-", 0x1aeaa);
+		___13094h_cdecl("mobile and lives, nobody.", 0x1d6aa);
+		___13094h_cdecl("", 0x1feaa);
 		goto ___2dd6bh;
 ___2dd66h:
 		___2d184h();
 ___2dd6bh:
-		if(D(___1a0a5ch) != 0xffffffff) goto ___2ddbdh;
+		if(D(___1a0a50h+0xc) != 0xffffffff) goto ___2ddbdh;
 		ecx = 0x60;
 		ebx = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
 		esi = D(___1a1e5ch);

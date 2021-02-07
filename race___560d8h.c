@@ -2,8 +2,7 @@
 
 	extern byte ___243ce8h[];
 	extern byte ___243cf4h[];
-	extern byte ___1e6fdah[];
-	extern byte ___1e6fd9h[];
+	extern byte ___1e6ed0h[];
 	extern byte ___243c60h[];
 
 void race___560d8h(void){
@@ -16,13 +15,13 @@ void race___560d8h(void){
 
 		if(n != D(___243ce8h)){
 
-			if((D(0x35e*n+___1e6fdah) == 0)&&(D(0x35e*D(___243ce8h)+___1e6fdah) == 0)){
+			if((D(0x35e*n+___1e6ed0h+0x10a) == 0)&&(D(0x35e*D(___243ce8h)+___1e6ed0h+0x10a) == 0)){
 
-				if(B(0x35e*D(___243ce8h)+___1e6fd9h) < B(0x35e*n+___1e6fd9h)){
+				if(B(0x35e*D(___243ce8h)+___1e6ed0h+0x109) < B(0x35e*n+___1e6ed0h+0x109)){
 
-					b_tmp = B(0x35e*n+___1e6fd9h);
-					B(0x35e*n+___1e6fd9h) = B(0x35e*D(___243ce8h)+___1e6fd9h);
-					B(0x35e*D(___243ce8h)+___1e6fd9h) = b_tmp;
+					b_tmp = B(0x35e*n+___1e6ed0h+0x109);
+					B(0x35e*n+___1e6ed0h+0x109) = B(0x35e*D(___243ce8h)+___1e6ed0h+0x109);
+					B(0x35e*D(___243ce8h)+___1e6ed0h+0x109) = b_tmp;
 				}
 			}
 		}

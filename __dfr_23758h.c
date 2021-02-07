@@ -13,38 +13,25 @@ cpu 386
 	extern	___1a1124h__VESA101h_ScreenBufferA
 	extern	___1a1138h__VESA101h_DefaultScreenBufferB
 	extern	___135fch
-	extern	___181cb4h
-	extern	___185c0bh
 	extern	___1a10fch
 	extern	___1a116ch
 	extern	___12e78h_cdecl
-	extern	___1807e8h
 	extern	___1a1108h
 	extern	___1a1f4eh
 	extern	___1a110ch
 	extern	___12cb8h__VESA101_PRESENTSCREEN
 	extern	___2ab50h
-	extern	___18072ch
-	extern	___185c6ch
 	extern	___1398ch__VESA101_PRESENTRECTANGLE
 	extern	___59b3ch
-	extern	___1a1f4dh
-	extern	___181cd4h
 	extern	strcmp
-	extern	___1a1dbah
-	extern	___181ce0h
 	extern	DPMI_GET_FREE_MEMORY_INFORMATION
 	extern	itoa_watcom106
-	extern	___1a1f63h
 	extern	___232f8h
-	extern	___181cf8h
 	extern	___1a1ef8h
 	extern	___1a01e0h
-	extern	___181cfch
 	extern	___23488h
-	extern	___185bedh
+	extern	___185c0bh
 	extern	___1a1efch
-	extern	___180130h
 	extern	___5994ch
 	extern	___19bd60h
 	extern	___196a84h
@@ -97,7 +84,7 @@ __GDECL(___23758h)
 	add 	esp, 10h
 
 		mov     ecx, 10923h
-		mov     ebx, ___181cb4h
+		mov     ebx, __dfr_181cb4h
 		mov     edx, ___185c0bh
 		mov     eax, [___1a10fch]
 		mov     esi, ___1a116ch
@@ -110,7 +97,7 @@ __GDECL(___23758h)
 	add 	esp, 10h
 
 		mov     ecx, 10959h
-		mov     ebx, ___1807e8h
+		mov     ebx, k_f1
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
 		mov     edi, 1298ch
@@ -219,7 +206,7 @@ ___238e1h:
 		je      short ___2393ah
 		jmp     short ___238e1h
 ___23920h:
-		mov     ebx, ___18072ch
+		mov     ebx, loc_h7f
 		mov     edx, ___185c0bh
 		mov     eax, [___1a110ch]
 		lea     ecx, [ebp+4650ch]
@@ -242,7 +229,7 @@ ___2394dh:
 		add     eax, 4650ch
 		xor     ebx, ebx
 		lea     edx, [eax+ebp*1]
-		mov     bl, [___185c6ch]
+		mov     bl, [___185c0bh+61h]
 		lea     eax, [ebp+4650ch]
 
 	push 	ecx
@@ -297,15 +284,15 @@ ___239c5h:
 ___23a0ah:
 		mov     esi, ebx
 		mov     edi, ecx
-		inc     edx
 		call 	__STRCPY
 		add     ecx, 96h
-		mov     al, [edx+___1a1f4eh]
+		mov     al, [edx+___1a1f4eh+1]
 		add     ebx, 96h
-		mov     [edx+___1a1f4dh], al
+		mov     [edx+___1a1f4eh], al
+		inc     edx
 		cmp     edx, byte 15h
 		jl      short ___23a0ah
-		mov     edx, ___181cd4h
+		mov     edx, __dfr_181cd4h
 		mov     eax, esp
 
 	push 	ecx
@@ -317,8 +304,8 @@ ___23a0ah:
 
 		test    eax, eax
 		jne     short ___23ac0h
-		mov     edi, ___1a1dbah
-		mov     esi, ___181ce0h
+		mov     edi, ___1a116ch+0c4eh
+		mov     esi, __dfr_181ce0h
 		mov     ebx, 0ah
 		lea     edx, [esp+98h]
 		movsd   
@@ -343,10 +330,10 @@ ___23a0ah:
 	pop 	ecx
 
 		lea     esi, [esp+98h]
-		mov     edi, ___1a1dbah
+		mov     edi, ___1a116ch+0c4eh
 		xor     dl, dl
 		call 	__STRCAT
-		mov     [___1a1f63h], dl
+		mov     [___1a1f4eh+15h], dl
 	
 	push 	edx
 	push 	ecx
@@ -359,21 +346,21 @@ ___23a0ah:
 		mov     [esp], dl
 		jmp     near ___23f6dh
 ___23ac0h:
-		mov     ax, [___181cf8h]
-		mov     [___1a1dbah], ax
+		mov     ax, [__dfr_181cf8h]
+		mov     [___1a116ch+0c4eh], ax
 		imul    esi, [___1a1ef8h], byte 6ch
-		mov     edi, ___1a1dbah
+		mov     edi, ___1a116ch+0c4eh
 		add     esi, ___1a01e0h
 		call 	__STRCAT
-		mov     esi, ___181cfch
+		mov     esi, __dfr_181cfch
 		call 	__STRCAT
 		mov     esi, esp
 		call 	__STRCAT
 		mov     al, 2
 		mov     ebx, 1
-		mov     [___1a1f63h], al
+		mov     [___1a1f4eh+15h], al
 		call 	__STRLEN
-		mov     eax, ___1a1dbah
+		mov     eax, ___1a116ch+0c4eh
 		lea     edx, [ecx+1]
 		call    near ___23488h
 	
@@ -397,7 +384,7 @@ ___23b7dh:
 		call 	__STRLEN
 		xor     eax, eax
 		mov     al, [esp+ecx*1-1]
-		mov     al, [eax+___185bedh]
+		mov     al, [eax+___185c0bh-20h+2]
 		and     eax, 0ffh
 		mov     edx, 46500h
 		sub     ebp, eax
@@ -479,7 +466,7 @@ ___23c8eh:
 
 		xor     ebx, ebx
 		mov     bl, [esp+13ch]
-		mov     bl, [ebx+___185bedh]
+		mov     bl, [ebx+___185c0bh-20h+2]
 		mov     eax, [___1a112ch__VESA101_ACTIVESCREEN_PTR]
 		add     eax, 4650ch
 		mov     ecx, 0fh
@@ -496,7 +483,7 @@ ___23c8eh:
 	
 		xor     eax, eax
 		mov     al, [esp+13ch]
-		mov     al, [eax+___185bedh]
+		mov     al, [eax+___185c0bh-20h+2]
 		and     eax, 0ffh
 		add     ebp, eax
 		jmp     near ___23f72h
@@ -543,29 +530,29 @@ ___23d8bh:
 ___23dd0h:
 		mov     esi, ebx
 		mov     edi, ecx
-		inc     edx
 		call 	__STRCPY
 		add     ecx, 96h
-		mov     al, [edx+___1a1f4eh]
+		mov     al, [edx+___1a1f4eh+1]
 		add     ebx, 96h
-		mov     [edx+___1a1f4dh], al
+		mov     [edx+___1a1f4eh], al
+		inc     edx
 		cmp     edx, byte 15h
 		jl      short ___23dd0h
 		imul    esi, [___1a1ef8h], byte 6ch
-		mov     edi, ___1a1dbah
-		mov     ax, [___181cf8h]
+		mov     edi, ___1a116ch+0c4eh
+		mov     ax, [__dfr_181cf8h]
 		add     esi, ___1a01e0h
-		mov     [___1a1dbah], ax
+		mov     [___1a116ch+0c4eh], ax
 		call 	__STRCAT
-		mov     esi, ___181cfch
+		mov     esi, __dfr_181cfch
 		call 	__STRCAT
 		mov     esi, esp
 		call 	__STRCAT
 		mov     cl, 2
 		mov     ebx, 1
-		mov     [___1a1f63h], cl
+		mov     [___1a1f4eh+15h], cl
 		call 	__STRLEN
-		mov     eax, ___1a1dbah
+		mov     eax, ___1a116ch+0c4eh
 		lea     edx, [ecx+1]
 		call    near ___23488h
 	
@@ -577,7 +564,7 @@ ___23dd0h:
 	pop 	ecx
 	pop 	edx
 	
-		mov     al, [___180130h]
+		mov     al, 0
 		lea     edi, [esp+98h]
 		mov     [esp], al
 		call 	__STRLEN
@@ -610,7 +597,7 @@ ___23f03h:
 ___23f4ah:
 		xor     eax, eax
 		mov     al, [esp+edx*1]
-		mov     al, [eax+___185bedh]
+		mov     al, [eax+___185c0bh-20h+2]
 		and     eax, 0ffh
 		inc     edx
 		add     ebp, eax
@@ -688,4 +675,20 @@ ___23ff6h:
 		pop     ecx
 		pop     ebx
 		retn    
+
+section .data
+loc_h7f:
+	db 	7fh,0,0,0
+k_f1:
+	db 	"F1",0,0
+__dfr_181cb4h:
+	db 	"press   to minimize chat window",0
+__dfr_181cd4h:
+	db 	"/memavail",0,0,0
+__dfr_181ce0h:
+	db 	"-- Memory available: ",0,0,0
+__dfr_181cf8h:
+	db	3ch,0,0,0
+__dfr_181cfch:
+	db	3eh,20h,0
 */

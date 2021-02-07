@@ -25,6 +25,20 @@ typedef struct racer_s {
 	dword 	rocket_fuel;		// 	+0x64
 	dword 	sabotage;			//	+0x68
 } racer_t;
+
+typedef char char80[80];
+typedef struct eventtext_s {
+	char80 	l0;
+	char80 	l1;
+	char80 	l2;
+	char80 	l3;
+	char80 	l4;
+	char80 	l5;
+	char80 	l6;
+	char80 	l7;
+	char80 	l8;
+	char80 	l9;
+} eventtext_t;
 #pragma pack(pop)
 
 #define Racers ___1a01e0h
@@ -33,9 +47,83 @@ typedef struct racer_s {
 	extern byte ___1a112ch__VESA101_ACTIVESCREEN_PTR[];
 	extern byte ___1a1e60h[];
 	extern byte ___1a1ef8h[];
-	extern byte ___189c52h[];
 	extern byte ___185ba9h[];
 	extern byte ___1a10cch[];
+
+static const eventtext_t l_data[6] = {
+	{
+		"",
+		"",
+		"[I am one grateful reaper, driver.",
+		"",
+		"[More car corpses{ for my domain. You",
+		"are my sweetest minion. Your dead-",
+		"serious dedication has earned you",
+		"a parking space among my horsemen.",
+		"[A bonus of $600 to you{, horse-",
+		"powered serial-auto-killer."
+	},
+	{
+		"",
+		"",
+		"[I am one grateful reaper, driver.",
+		"",
+		"[More car corpses{ for my domain. You",
+		"are my sweetest minion. Your dead-",
+		"serious dedication has earned you",
+		"a parking space among my horsemen.",
+		"[A bonus of $1,000 to you{, horse-",
+		"powered serial-auto-killer."
+	},
+	{
+		"",
+		"",
+		"[I am one grateful reaper, driver.",
+		"",
+		"[More car corpses{ for my domain. You",
+		"are my sweetest minion. Your dead-",
+		"serious dedication has earned you",
+		"a parking space among my horsemen.",
+		"[A bonus of $2,000 to you{, horse-",
+		"powered serial-auto-killer."
+	},
+	{
+		"",
+		"",
+		"[I am one grateful reaper, driver.",
+		"",
+		"[More car corpses{ for my domain. You",
+		"are my sweetest minion. Your dead-",
+		"serious dedication has earned you",
+		"a parking space among my horsemen.",
+		"[A bonus of $3,000 to you{, horse-",
+		"powered serial-auto-killer."
+	},
+	{
+		"",
+		"",
+		"[I am one grateful reaper, driver.",
+		"",
+		"[More car corpses{ for my domain. You",
+		"are my sweetest minion. Your dead-",
+		"serious dedication has earned you",
+		"a parking space among my horsemen.",
+		"[A bonus of $4,000 to you{, horse-",
+		"powered serial-auto-killer."
+	},
+	{
+		"",
+		"",
+		"[I am one grateful reaper, driver.",
+		"",
+		"[More car corpses{ for my domain. You",
+		"are my sweetest minion. Your dead-",
+		"serious dedication has earned you",
+		"a parking space among my horsemen.",
+		"[A bonus of $5,000 to you{, horse-",
+		"powered serial-auto-killer."
+	}
+};
 
 void ___13248h_cdecl(dword, dword ,dword, dword, dword);
 void ___12e78h_cdecl(dword, dword, dword, dword);
@@ -99,15 +187,15 @@ void ___1549ch(void){
 		Racers[D(___1a1ef8h)].money += 0x258;
 	}
 
-	___13094h_cdecl(___189c52h+0x320*n+0x000, 0x154a1);
-	___13094h_cdecl(___189c52h+0x320*n+0x050, 0x17ca1);
-	___13094h_cdecl(___189c52h+0x320*n+0x0a0, 0x1a4a1);
-	___13094h_cdecl(___189c52h+0x320*n+0x0f0, 0x1cca1);
-	___13094h_cdecl(___189c52h+0x320*n+0x140, 0x1f4a1);
-	___13094h_cdecl(___189c52h+0x320*n+0x190, 0x21ca1);
-	___13094h_cdecl(___189c52h+0x320*n+0x1e0, 0x244a1);
-	___13094h_cdecl(___189c52h+0x320*n+0x230, 0x26ca1);
-	___13094h_cdecl(___189c52h+0x320*n+0x280, 0x294a1);
-	___13094h_cdecl(___189c52h+0x320*n+0x2d0, 0x2bca1);
+	___13094h_cdecl(l_data[n].l0, 0x154a1);
+	___13094h_cdecl(l_data[n].l1, 0x17ca1);
+	___13094h_cdecl(l_data[n].l2, 0x1a4a1);
+	___13094h_cdecl(l_data[n].l3, 0x1cca1);
+	___13094h_cdecl(l_data[n].l4, 0x1f4a1);
+	___13094h_cdecl(l_data[n].l5, 0x21ca1);
+	___13094h_cdecl(l_data[n].l6, 0x244a1);
+	___13094h_cdecl(l_data[n].l7, 0x26ca1);
+	___13094h_cdecl(l_data[n].l8, 0x294a1);
+	___13094h_cdecl(l_data[n].l9, 0x2bca1);
 	___12e78h_cdecl(D(___1a10cch), ___185ba9h, "CONTINUE", 0x316c0);
 }

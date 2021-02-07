@@ -9,7 +9,7 @@ cpu 386
 	extern	CONNECTION_TYPE
 	extern	___24331ch
 	extern	___243ce8h
-	extern	___1e6eech
+	extern	___1e6ed0h
 	extern	___243d08h
 	extern	___196e60h
 	extern	___243d0ch
@@ -23,7 +23,6 @@ cpu 386
 	extern	___1a51c0h
 	extern	__GET_FRAME_COUNTER
 	extern	___446ach
-	extern	___1e6ef0h
 	extern	___44a4ch
 	extern	___44730h
 
@@ -67,9 +66,9 @@ ___44ad0h:
 		mov     eax, edx
 		add     edx, byte 40h
 ___44aeeh:
-		add     eax, byte 4
 		xor     ebx, ebx
-		mov     [eax+___1e6eech], ebx
+		mov     [eax+___1e6ed0h+0x20], ebx
+		add     eax, byte 4
 		cmp     eax, edx
 		jne     short ___44aeeh
 		mov     ebp, 10h
@@ -285,7 +284,7 @@ ___44d7dh:
 		movzx   esi, cl
 		imul    ecx, ebp, 35eh
 		mov     edx, [___243d08h]
-		mov     [ecx+edx*4+___1e6ef0h], esi
+		mov     [ecx+edx*4+___1e6ed0h+0x20], esi
 		mov     dx, [eax+2]
 		mov     ecx, edx
 		and     ecx, edi
@@ -480,7 +479,7 @@ ___44f9eh:
 		je      short ___44fbah
 		imul    edx, [___243c60h], 35eh
 		mov     eax, [___196e64h]
-		or      byte [edx+eax*4+___1e6ef0h], 10h
+		or      byte [edx+eax*4+___1e6ed0h+0x20], 10h
 ___44fbah:
 		mov     eax, [___24331ch]
 		mov     eax, [eax*4+___24cee0h]
@@ -491,7 +490,7 @@ ___44fbah:
 		je      short ___44ff0h
 		imul    edx, [___243c60h], 35eh
 		mov     eax, [___196e64h]
-		or      byte [edx+eax*4+___1e6ef0h], 20h
+		or      byte [edx+eax*4+___1e6ed0h+0x20], 20h
 ___44ff0h:
 		mov     eax, [___24331ch]
 		mov     eax, [eax*4+___24cee0h]
@@ -502,7 +501,7 @@ ___44ff0h:
 		je      short ___45026h
 		imul    edx, [___243c60h], 35eh
 		mov     eax, [___196e64h]
-		or      byte [edx+eax*4+___1e6ef0h], 40h
+		or      byte [edx+eax*4+___1e6ed0h+0x20], 40h
 ___45026h:
 		mov     eax, [___24331ch]
 		mov     edx, [eax*4+___24cee0h]

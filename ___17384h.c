@@ -4,10 +4,10 @@
 	extern byte ___1a112ch__VESA101_ACTIVESCREEN_PTR[];
 	extern byte ___185ba9h[];
 	extern byte ___1a10e0h[];
-	extern byte ___18072ch[];
 	extern byte ___196ae4h[];
-	extern byte ___185cbch[];
-	extern byte ___1a01b8h[];
+#define CARENCS ___185cbch
+	extern __DWORD__ ___185cbch[][0x40];
+	extern void * ___1a01b8h[6];
 	extern byte ___1a1ed0h[];
 
 void ___259e0h_cdecl(dword, dword, dword, dword, dword);
@@ -19,12 +19,14 @@ void ___17384h_cdecl(dword A1, dword A2, dword A3, dword A4, dword A5, dword A6)
 
 	int 	n;
 
+	dword 	H7F = 0x7f;
+
 	___2ab50h();
 	D(___196ae0h)++;
 
 	if((int)D(___196ae0h) <= 0xa){
 
-		___12e78h_cdecl(D(___1a10e0h), ___185ba9h, ___18072ch, 0x280*A2+A1+A3);
+		___12e78h_cdecl(D(___1a10e0h), ___185ba9h, &H7F, 0x280*A2+A1+A3);
 	}
 	else {
 
@@ -44,7 +46,7 @@ void ___17384h_cdecl(dword A1, dword A2, dword A3, dword A4, dword A5, dword A6)
 
 		if(A4 != 0){
 
-			___259e0h_cdecl(A5+0x1a0, A6+0x50, D(___1a1ed0h), D(___1a01b8h), ___185cbch);
+			___259e0h_cdecl(A5+0x1a0, A6+0x50, D(___1a1ed0h), ___1a01b8h[0], CARENCS[0]);
 
 			___1398ch__VESA101_PRESENTRECTANGLE(
 				0x280*(A6+0x50)+A5+0x1a0,

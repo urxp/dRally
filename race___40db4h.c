@@ -8,12 +8,11 @@
 	extern byte ___243ca4h[];
 	extern byte ___24332ch[];
 	extern byte ___243ce8h[];
-	extern byte ___1e6fdah[];
+	extern byte ___1e6ed0h[];
 	extern byte ___1a10a0h[];
 	extern byte ___1a10a8h[];
 	extern byte ___1a1094h[];
 	extern byte ___1a109ch[];
-	extern byte ___182f5fh[];
 	extern byte ___1a1090h[];
 	extern byte ___1a102ch[];
 	extern byte ___243cdch[];
@@ -47,7 +46,7 @@ void race___40db4h(void){
 		D(___24332ch) = eax;
 		if((int)ebx <= 0xbe) goto ___40ef4h;
 		eax = 0x35e*D(___243ce8h);
-		if(D(eax+___1e6fdah) != 0) goto ___40ef4h;
+		if(D(eax+___1e6ed0h+0x10a) != 0) goto ___40ef4h;
 		ebx = 0x46;
 		eax = D(___243334h);
 		esi = D(___243cd4h);
@@ -102,7 +101,7 @@ void race___40db4h(void){
 		edx = (int)edx>>0x1f;
 		___idiv32(&eax, &edx, ebx);
 		//idiv    ebx
-		FPUSH(F64(___182f5fh));
+		FPUSH(1.42);
 		FPUSH((int)D(esp));
 		ST(0) = ST(0)*ST(1);
 		D(esp) = edx;

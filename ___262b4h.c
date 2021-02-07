@@ -1,24 +1,33 @@
 #include "drally.h"
+#include "assets.h"
 
-	extern byte ___1a112ch__VESA101_ACTIVESCREEN_PTR[];
-	extern byte ___1a1each[];
+#pragma pack(1)
+typedef char char40[40];
+typedef char char12[12];
+typedef struct cardata_s {
+    char12      		name;                           // +000
+    __DWORD__   		price;                          // +00C
+    char40      		txt_info[6];                    // +010
+    char40      		txt_winfo[6];                   // +100
+    char40      		txt_bought[6];                  // +1F0
+    char40      		txt_engine_upgrades[4][6];      // +2E0
+    __DWORD__   		n_engine_upgrades;              // +6A0
+    __DWORD__   		n_tire_upgrades;                // +6A4
+    __DWORD__   		n_armor_upgrades;               // +6A8
+    __DWORD__   		price_engine_upgrades[4];       // +6AC
+    __DWORD__   		price_tire_upgrades[4];         // +6BC
+    __DWORD__   		price_armor_upgrades[4];        // +6CC
+    __SIGNED_DWORD__   	price_repair;                   // +6DC
+} cardata_t;
+
+#define COOXY(x,y) (0x280*(y)+(x))
+
+	extern byte * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
 	extern byte ___1a1ef8h[];
-	extern byte ___1a01fch[];
-	extern byte ___1a01f4h[];
-	extern byte ___18e93ch[];
-	extern byte ___18643ch[];
-	extern byte ___1a0198h[];
+	extern byte ___1a01e0h[];
+	extern cardata_t ___18e298h[6];
+	extern __DWORD__ ___18643ch[][0xc];
 	extern byte ___1a1ec0h[];
-	extern byte ___18e954h[];
-	extern byte ___180728h[];
-	extern byte ___1914c0h[];
-	extern byte ___1a1eb8h[];
-	extern byte ___190f20h[];
-	extern byte ___190f48h[];
-	extern byte ___190f70h[];
-	extern byte ___190f98h[];
-	extern byte ___190fc0h[];
-	extern byte ___190fe8h[];
 
 void ___13094h_cdecl(const char *, dword);
 dword ___25180h_cdecl(dword);
@@ -27,226 +36,92 @@ void ___13248h_cdecl(dword, dword ,dword, dword, dword);
 void ___259e0h_cdecl(dword, dword, dword, dword, dword);
 char * itoa_watcom106(int value, char * buffer, int radix);
 
+static const char40 ___1914c0h[4][6] = {
+	[0] = {
+		[0] = "[Trackmaster 155",
+		[1] = "",
+		[2] = "These wheels will let you do some",
+		[3] = "rapid fire cornerings on that",
+		[4] = "shimmering silver street.",
+		[5] = ""
+	},
+	[1] = {
+		[0] = "[Roadrunner NS 175",
+		[1] = "",
+		[2] = "With these fat tires, you'll shoot",
+		[3] = "from the starting-line like a",
+		[4] = "blood lusting bullet.",
+		[5] = ""
+	},
+	[2] = {
+		[0] = "[Slidestop 200",
+		[1] = "",
+		[2] = "These fat bottomed tires'll kiss",
+		[3] = "the road like crazy, they just",
+		[4] = "can't get enough. They're hot.",
+		[5] = ""
+	},
+	[3] = {
+		[0] = "[Racer-X230",
+		[1] = "",
+		[2] = "Zorro's Zs were nothing. Carve",
+		[3] = "your whole signature, to the",
+		[4] = "rainbow-oiled road, doing 160.",
+		[5] = ""
+	}
+};
+
 // SHOP TIRES
 void ___262b4h(void){
 
 	dword 	eax, ebx, ecx, edx, edi, esi, ebp, p5;
 	byte 	esp[0x28];
+	int 	i, j;
 
+	byte *	bases4 = getAssets(MENU_BASES4);
+	byte * 	maxi1f = getAssets(MENU_MAXI1F);
+	void * 	tires[4] = { getAssets(MENU_TIRE1), getAssets(MENU_TIRE2), getAssets(MENU_TIRE3), getAssets(MENU_TIRE4) };
 
-		ecx = 0x60;
-		ebx = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
-		esi = D(___1a1each);
-		ebx += 0x278f8;
-		edx = ecx;
-		L(edx) >>= 0x2;
-___262e2h:
-		H(ecx) = L(edx);
-___262e4h:
-		eax = D(esi);
-		D(ebx) = eax;
-		ebx += 0x4;
-		esi += 0x4;
-		H(ecx)--;
-		if(H(ecx)) goto ___262e4h;
-		ebx += 0x280;
-		L(edx) <<= 0x2;
-		ebx -= edx;
-		L(edx) >>= 0x2;
-		L(ecx)--;
-		if(L(ecx)) goto ___262e2h;
-		edx = D(___1a1ef8h);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 0x2;
-		eax -= edx;
-		edx = 4*eax;
-		ebx = D(edx+___1a01fch);
-		eax = 8*ebx;
-		eax -= ebx;
-		eax <<= 0x3;
-		eax -= ebx;
-		eax <<= 0x5;
-		ebx = D(edx+___1a01f4h);
-		ecx = D(eax+___18e93ch);
-		if((int)ebx >= (int)ecx) goto ___2657bh;
-		eax = 4*ebx;
-		eax -= ebx;
-		eax <<= 0x4;
-		edx = 0x10d;
-		eax = ___18643ch+eax;
-		ecx = D(4*ebx+___1a0198h);
-		p5 = eax;
-		ebx = D(___1a1ec0h);
-		eax = 0x78;
-		___259e0h_cdecl(eax, edx, ebx, ecx, p5);
-		edx = D(___1a1ef8h);
-		ebx = 8*edx;
-		ebx -= edx;
-		ebx <<= 0x2;
-		ebx -= edx;
-		ebx <<= 0x2;
-		edx = D(ebx+___1a01fch);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 0x3;
-		eax -= edx;
-		edx = eax;
-		eax = D(ebx+___1a01f4h);
-		edx <<= 0x5;
-		ebx = 0xa;
-		eax = D(edx+eax*4+___18e954h);
-		edx = esp;
-		esi = esp;
-		eax = itoa_watcom106(eax, edx, ebx);
-		X(eax) = W(___180728h);
-		edi = esp+0x14;
-		W(esp+0x14) = X(eax);
-		strcat(edi, esi);
-		eax = esp+0x14;
-		eax = ___25180h_cdecl(eax);
-		edx = eax+0x345f8;
-		ebx = 0x180;
-		eax = esp+0x14;
-		ecx = 0x77;
-		___12f60h_cdecl(eax, edx);
-		edx = 0x72;
-		eax = 0x90;
-		___13248h_cdecl(eax, edx, ebx, ecx, 1);
-		edx = D(___1a1ef8h);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 0x2;
-		eax -= edx;
-		edx = D(eax*4+___1a01f4h);
-		eax = edx;
-		eax <<= 0x4;
-		eax -= edx;
-		eax <<= 0x4;
-		edx = 0x136aa;
-		eax = ___1914c0h+eax;
-		___13094h_cdecl(eax, edx);
-		edx = D(___1a1ef8h);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 0x2;
-		eax -= edx;
-		edx = D(eax*4+___1a01f4h);
-		eax = edx;
-		eax <<= 0x4;
-		eax -= edx;
-		eax <<= 0x4;
-		eax = ___1914c0h+eax;
-		edx = 0x15eaa;
-		eax += 0x28;
-		___13094h_cdecl(eax, edx);
-		edx = D(___1a1ef8h);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 0x2;
-		eax -= edx;
-		edx = D(eax*4+___1a01f4h);
-		eax = edx;
-		eax <<= 0x4;
-		eax -= edx;
-		eax <<= 0x4;
-		eax = ___1914c0h+eax;
-		edx = 0x186aa;
-		eax += 0x50;
-		___13094h_cdecl(eax, edx);
-		edx = D(___1a1ef8h);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 0x2;
-		eax -= edx;
-		edx = D(eax*4+___1a01f4h);
-		eax = edx;
-		eax <<= 0x4;
-		eax -= edx;
-		eax <<= 0x4;
-		eax = ___1914c0h+eax;
-		edx = 0x1aeaa;
-		eax += 0x78;
-		___13094h_cdecl(eax, edx);
-		edx = D(___1a1ef8h);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 0x2;
-		eax -= edx;
-		edx = D(eax*4+___1a01f4h);
-		eax = edx;
-		eax <<= 0x4;
-		eax -= edx;
-		eax <<= 0x4;
-		eax = ___1914c0h+eax;
-		edx = 0x1d6aa;
-		eax += 0xa0;
-		___13094h_cdecl(eax, edx);
-		edx = D(___1a1ef8h);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 0x2;
-		eax -= edx;
-		edx = D(eax*4+___1a01f4h);
-		eax = edx;
-		eax <<= 0x4;
-		eax -= edx;
-		eax <<= 0x4;
-		eax = ___1914c0h+eax;
-		edx = 0x1feaa;
-		eax += 0xc8;
-		___13094h_cdecl(eax, edx);
-		return;
-___2657bh:
-		ebx = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
-		edx = ecx-1;
-		eax = D(___1a1eb8h);
-		ecx = 0x40;
-		esi = 4*edx;
-		ebx += 0x2a0f8;
-		esi -= edx;
-		eax += 0x6000;
-		esi <<= 0xb;
-		edx = 0x60;
-		esi += eax;
-		L(edx) >>= 0x2;
-___265afh:
-		H(ecx) = L(edx);
-___265b1h:
-		eax = D(esi);
-		D(ebx) = eax;
-		ebx += 0x4;
-		esi += 0x4;
-		H(ecx)--;
-		if(H(ecx)) goto ___265b1h;
-		ebx += 0x280;
-		L(edx) <<= 0x2;
-		ebx -= edx;
-		L(edx) >>= 0x2;
-		L(ecx)--;
-		if(L(ecx)) goto ___265afh;
-		ecx = 0x77;
-		ebx = 0x180;
-		edx = 0x72;
-		eax = 0x90;
-		___13248h_cdecl(eax, edx, ebx, ecx, 1);
-		edx = 0x136aa;
-		eax = ___190f20h;
-		___13094h_cdecl(eax, edx);
-		edx = 0x15eaa;
-		eax = ___190f48h;
-		___13094h_cdecl(eax, edx);
-		edx = 0x186aa;
-		eax = ___190f70h;
-		___13094h_cdecl(eax, edx);
-		edx = 0x1aeaa;
-		eax = ___190f98h;
-		___13094h_cdecl(eax, edx);
-		edx = 0x1d6aa;
-		eax = ___190fc0h;
-		___13094h_cdecl(eax, edx);
-		edx = 0x1feaa;
-		eax = ___190fe8h;
-		___13094h_cdecl(eax, edx);
-		return;
+	j = -1;
+	while(++j < 0x60){
+
+		i = -1;
+		while(++i < 0x60) ___1a112ch__VESA101_ACTIVESCREEN_PTR[COOXY(120+i, 253+j)] = bases4[0x2400+0x60*j+i];
+	}
+
+	ebx = D(___1a01e0h+0x14+0x6c*D(___1a1ef8h));		// 0...4
+	ecx = ___18e298h[D(___1a01e0h+0x1c+0x6c*D(___1a1ef8h))].n_tire_upgrades;
+
+	if((int)ebx < (int)ecx){
+
+		___259e0h_cdecl(0x78, 0x10d, D(___1a1ec0h), tires[ebx], ___18643ch[ebx]);
+		itoa_watcom106(___18e298h[D(___1a01e0h+0x1c+0x6c*D(___1a1ef8h))].price_tire_upgrades[ebx], esp, 0xa);
+		strcpy(esp+0x14, "$");
+		strcat(esp+0x14, esp);
+		___12f60h_cdecl(esp+0x14, ___25180h_cdecl(esp+0x14)+0x345f8);
+		___13248h_cdecl(0x90, 0x72, 0x180, 0x77, 1);
+		___13094h_cdecl(___1914c0h[D(0x6c*D(___1a1ef8h)+___1a01e0h+0x14)][0], 0x136aa);
+		___13094h_cdecl(___1914c0h[D(0x6c*D(___1a1ef8h)+___1a01e0h+0x14)][1], 0x15eaa);
+		___13094h_cdecl(___1914c0h[D(0x6c*D(___1a1ef8h)+___1a01e0h+0x14)][2], 0x186aa);
+		___13094h_cdecl(___1914c0h[D(0x6c*D(___1a1ef8h)+___1a01e0h+0x14)][3], 0x1aeaa);
+		___13094h_cdecl(___1914c0h[D(0x6c*D(___1a1ef8h)+___1a01e0h+0x14)][4], 0x1d6aa);
+		___13094h_cdecl(___1914c0h[D(0x6c*D(___1a1ef8h)+___1a01e0h+0x14)][5], 0x1feaa);
+	}
+	else {
+
+		j = -1;
+		while(++j < 0x40){
+
+			i = -1;
+			while(++i < 0x60) ___1a112ch__VESA101_ACTIVESCREEN_PTR[COOXY(120+i, 269+j)] = maxi1f[0x1800*(ecx-1)+0x6000+0x60*j+i];
+		}
+
+		___13248h_cdecl(0x90, 0x72, 0x180, 0x77, 1);
+		___13094h_cdecl("[NO MORE TIRE UPGRADES", 0x136aa);
+		___13094h_cdecl("", 0x15eaa);
+		___13094h_cdecl("You've got the best fat, sticky", 0x186aa);
+		___13094h_cdecl("tires this vehicle can boast. You", 0x1aeaa);
+		___13094h_cdecl("are in close touch with the road.", 0x1d6aa);
+		___13094h_cdecl("", 0x1feaa);
+	}
 }

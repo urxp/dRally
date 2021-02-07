@@ -6,11 +6,9 @@ cpu 386
 	extern 	__STRCAT
 	extern 	__STRCPY
 	extern	___1a0d60h
-	extern	___182bf0h
 	extern	GET_FILE_SIZE
 	extern	malloc
 	extern	free
-	extern	___180134h
 	extern	strupr_fopen
 	extern	fread
 	extern	fseek
@@ -30,7 +28,7 @@ __GDECL(menu___3e4a0h)
 		mov     esi, ___1a0d60h
 		mov     edi, esp
 		call 	__STRCPY
-		mov     esi, ___182bf0h
+		mov     esi, __dfr_182bf0h
 		mov     edi, esp
 		mov     edx, 1
 		call 	__STRCAT
@@ -96,7 +94,7 @@ ___3e53dh:
 		pop     ebx
 		retn    
 ___3e555h:
-		mov     edx, ___180134h
+		mov     edx, loc_rb
 		mov     eax, esp
 
 	push 	ecx
@@ -278,4 +276,11 @@ ___3e6efh:
 		pop     ecx
 		pop     ebx
 		retn    
+
+
+section .data
+loc_rb:
+	db 	"rb",0,0
+__dfr_182bf0h:
+	db 	"DR.IDF",0,0
 */

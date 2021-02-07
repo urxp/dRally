@@ -9,36 +9,25 @@ cpu 386
 	extern	___1a116ch
 	extern	___185a58h
 	extern	___1a1f4eh
-	extern	___1a1f4dh
 	extern	___1a1ef8h
 	extern	___1a01e0h
-	extern	___1a1dbah
-	extern	___180864h
-	extern	___180ca4h
-	extern	___1a1f63h
 	extern	___23488h
-	extern	___180130h
 	extern	___1866b8h
-	extern	___180cc0h
 	extern	___135fch
 	extern	___23230h
 	extern	___12cb8h__VESA101_PRESENTSCREEN
 	extern	___61278h
 	extern	___623d4h
 	extern	___1866b8h
-	extern	___180cd8h
 	extern	___185b58h
-	extern	___180cf0h
 	extern	CONNECTION_TYPE
 	extern	___1866b8h
 	extern	___2415ch
 	extern	___13710h
 	extern	___3ab5ch_cdecl
 	extern	___199f9ch
-	extern	___1a020ch
 	extern	___2b5f0h
 	extern	___1caf4h
-	extern	___180d04h
 
 section .text
 
@@ -61,12 +50,12 @@ __GDECL(___1d00ch)
 ___1d03eh:
 		mov     esi, ebx
 		mov     edi, ecx
-		inc     edx
 		call 	__STRCPY
 		add     ecx, 96h
-		mov     al, [edx+___1a1f4eh]
+		mov     al, [edx+___1a1f4eh+1]
 		add     ebx, 96h
-		mov     [edx+___1a1f4dh], al
+		mov     [edx+___1a1f4eh], al
+		inc     edx
 		cmp     edx, byte 15h
 		jl      short ___1d03eh
 		mov     ebx, [___1a1ef8h]
@@ -75,18 +64,18 @@ ___1d03eh:
 		shl     edx, 2
 		mov     esi, ___1a01e0h
 		sub     edx, ebx
-		mov     edi, ___1a1dbah
+		mov     edi, ___1a116ch+0c4eh
 		shl     edx, 2
-		mov     eax, [___180864h]
+		mov     eax, [ddash]
 		add     esi, edx
-		mov     [___1a1dbah], eax
+		mov     [___1a116ch+0c4eh], eax
 		call 	__STRCAT
-		mov     esi, ___180ca4h
+		mov     esi, __dfr_180ca4h
 		mov     ebx, 6
 		call 	__STRCAT
 		xor     ah, ah
 		mov     edx, 64h
-		mov     [___1a1f63h], ah
+		mov     [___1a1f4eh+15h], ah
 		mov     eax, edi
 		call    near ___23488h
 		mov     ebx, ___1a116ch
@@ -95,22 +84,22 @@ ___1d03eh:
 ___1d116h:
 		mov     esi, ecx
 		mov     edi, ebx
-		inc     edx
 		call 	__STRCPY
 		add     ebx, 96h
-		mov     al, [edx+___1a1f4eh]
+		mov     al, [edx+___1a1f4eh+1]
 		add     ecx, 96h
-		mov     [edx+___1a1f4dh], al
+		mov     [edx+___1a1f4eh], al
+		inc     edx
 		cmp     edx, byte 15h
 		jl      short ___1d116h
 		mov     ecx, 6dh
 		mov     ebx, 27fh
 		mov     edx, 173h
-		mov     al, [___180130h]
+		mov     al, 0
 		mov     edi, ___1866b8h+384h
-		mov     [___1a1dbah], al
+		mov     [___1a116ch+0c4eh], al
 		xor     eax, eax
-		mov     esi, ___180cc0h
+		mov     esi, __dfr_180cc0h
 
 	push 	ecx
 	push 	ebx
@@ -163,7 +152,7 @@ ___1d116h:
 		movsw   
 		mov     dl, 1
 		mov     edi, ___1866b8h+3b6h
-		mov     esi, ___180cd8h
+		mov     esi, __dfr_180cd8h
 		mov     [___185b58h], dl
 		movsd   
 		movsd   
@@ -172,7 +161,7 @@ ___1d116h:
 		movsd   
 		movsw   
 		xor     dh, dh
-		mov     esi, ___180cf0h
+		mov     esi, __dfr_180cf0h
 		mov     [___185b58h+12h], dh
 		mov     [___185b58h+13h], dh
 		mov     [___185b58h+14h], dl
@@ -254,7 +243,7 @@ ___1d21eh:
 		xor     ecx, ecx
 		sub     edx, ebx
 		mov     [___199f9ch], ecx
-		mov     ecx, [edx*4+___1a020ch]
+		mov     ecx, [edx*4+___1a01e0h+2ch]
 
 	push 	edx
 	push 	ecx
@@ -269,7 +258,7 @@ ___1d21eh:
 		sub     edx, ebx
 		shl     edx, 2
 		sub     edx, ebx
-		mov     [edx*4+___1a020ch], ecx
+		mov     [edx*4+___1a01e0h+2ch], ecx
 	
 	push 	edx
 	push 	ecx
@@ -286,7 +275,7 @@ ___1d21eh:
 		test    eax, eax
 		je      short ___1d29fh
 		mov     edi, ___1866b8h+3e8h
-		mov     esi, ___180d04h
+		mov     esi, __dfr_180d04h
 		movsd   
 		movsd   
 		movsd   
@@ -300,4 +289,18 @@ ___1d29fh:
 		pop     ecx
 		pop     ebx
 		retn    
+
+section .data
+ddash:
+	db 	"-- ",0
+__dfr_180ca4h:
+	db 	" has left from Death Rally.",0
+__dfr_180cc0h:
+	db	49h,6eh,69h,74h,69h,61h,6ch,69h,7ah,65h,20h,41h,20h,4eh,65h,77h,20h,47h,61h,6dh,65h,0,0,0
+__dfr_180cd8h:
+	db	4ah,6fh,69h,6eh,20h,41h,6eh,20h,45h,78h,69h,73h,74h,69h,6eh,67h,20h,47h,61h,6dh,65h,0,0,0
+__dfr_180cf0h:
+	db	4eh,65h,74h,77h,6fh,72h,6bh,20h,43h,6fh,6eh,6eh,65h,63h,74h,69h,6fh,6eh,0,0
+__dfr_180d04h:
+	db	44h,69h,73h,63h,6fh,6eh,6eh,65h,63h,74h,20h,4eh,65h,74h,77h,6fh,72h,6bh,0,0
 */

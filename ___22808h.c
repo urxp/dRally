@@ -11,7 +11,7 @@ typedef struct x655_s {
 
 	extern byte ___1a0d60h[];
 	extern byte ___1a1ef8h[];
-	extern byte ___1a020ch[];
+	extern byte ___1a01e0h[];
 	extern byte ___1a0fb8h[];
 	extern byte ___24cc58h[];
 
@@ -59,7 +59,7 @@ void ___22808h(void){
 	___2faf0h();
 	___3d2bch();
 	___12940h();
-	esi = D(___1a0fb8h)+3*D(0x6c*D(___1a1ef8h)+___1a020ch);
+	esi = D(___1a0fb8h)+3*D(0x6c*D(___1a1ef8h)+___1a01e0h+0x2c);
 	___11564h_cdecl(B(esi), B(esi+1), B(esi+2));
 	___223c4h();
 	___2b318h();

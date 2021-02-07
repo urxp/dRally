@@ -14,7 +14,7 @@ cpu 386
 	extern	___1a1ef8h
 	extern	CONNECTION_TYPE
 	extern	___199fach
-	extern	___1a020ch
+	extern	___1a01e0h
 	extern	___2415ch
 	extern	___2b5f0h
 	extern	___61cd0h
@@ -22,11 +22,9 @@ cpu 386
 	extern	___1a1138h__VESA101h_DefaultScreenBufferB
 	extern	___1a112ch__VESA101_ACTIVESCREEN_PTR
 	extern	___13248h_cdecl
-	extern	___180aa8h
 	extern	___185c0bh
 	extern	___1a1108h
 	extern	___12e78h_cdecl
-	extern	___180ac8h
 	extern	___12cb8h__VESA101_PRESENTSCREEN
 	extern	___60a84h
 	extern	___5994ch
@@ -37,7 +35,6 @@ cpu 386
 	extern	___611c0h
 	extern	___61278h
 	extern	___1866b8h
-	extern	___180d18h
 	extern	___1caf4h
 	extern	___185b58h
 
@@ -116,7 +113,7 @@ ___1d2fdh:
 		sub     eax, edx
 		mov     [CONNECTION_TYPE], esi
 		mov     [___199fach], edi
-		mov     ebx, [eax*4+___1a020ch]
+		mov     ebx, [eax*4+___1a01e0h+2ch]
 
 	push 	edx
 	push 	ecx
@@ -131,7 +128,7 @@ ___1d2fdh:
 		sub     eax, edx
 		shl     eax, 2
 		sub     eax, edx
-		mov     [eax*4+___1a020ch], ebx
+		mov     [eax*4+___1a01e0h+2ch], ebx
 	
 	push 	edx
 	push 	ecx
@@ -194,7 +191,7 @@ ___1d37ch:
 		lea     eax, [edx*4+0]
 		mov     ecx, [esp]
 		add     eax, edx
-		mov     ebx, ___180aa8h
+		mov     ebx, __dfr_180aa8h
 		shl     eax, 7
 		mov     edx, ___185c0bh
 		add     ecx, eax
@@ -219,7 +216,7 @@ ___1d37ch:
 		shl     eax, 7
 		add     edi, byte 0fh
 		add     eax, ebp
-		mov     ebx, ___180ac8h
+		mov     ebx, __dfr_180ac8h
 		lea     ecx, [eax+28h]
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
@@ -342,7 +339,7 @@ ___1d4b6h:
 		je      short ___1d4ddh
 		mov     edi, ___1866b8h+41ah
 		xor     ah, ah
-		mov     esi, ___180d18h
+		mov     esi, __dfr_180d18h
 		mov     [___185b58h+18h], ah
 
 	push 	edx
@@ -365,4 +362,12 @@ ___1d4ddh:
 		pop     ecx
 		pop     ebx
 		retn    
+
+section .data
+__dfr_180aa8h:
+	db 	"Waiting for remote player...",0,0,0,0
+__dfr_180ac8h:
+	db 	"Press ESC to abort",0,0
+__dfr_180d18h:
+	db	44h,69h,73h,63h,6fh,6eh,6eh,65h,63h,74h,20h,53h,65h,72h,69h,61h,6ch,0,0,0
 */

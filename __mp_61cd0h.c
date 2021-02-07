@@ -104,15 +104,12 @@ struct dostime_t {
     extern dword ___24e4c8h;
     extern NetPage * ___24e4ach;
     extern dword ___24cf18h;
-    extern NetPage * ___24cee0h;
-    extern NetPage * ___24cee4h;
-    extern NetPage * ___24cee8h;
+    extern NetPage * ___24cee0h[];
     extern dword ___24cf1ch;
     extern dword ___24cf20h;
     extern dword ___24cf24h;
     extern dword ___24e4b8h;
     extern NetPage * ___24e4c0h;
-    extern NetPage * ___24ceech;
     extern dword ___24e484h;
     extern IPX_InternetworkAddress * ___24e4b4h;
     extern dword ___24e460h;
@@ -121,25 +118,19 @@ struct dostime_t {
     extern dword ___24e3f0h[];
     extern dword ___199fa0h;
     extern dword ___199f9ch;
-    extern byte ___24e552h[];
     extern dword ___24e458h;
     extern IPX_EventControlBlock * ___24e45ch;
     extern IPX_EventControlBlock * ___24e54eh;
     extern IPX_Header * ___24e548h;
     extern dword ___24e44ch;
-    extern byte ___24e54ch[];
-    extern byte ___24e58eh[];
     extern IPX_Header * ___24cd00h[];
     extern dword ___24ce60h[];
     extern dword ___24ce20h[];
     extern byte * ___24cdc0h[];
     extern IPX_EventControlBlock * ___24cd60h[];
     extern byte * ___24e58ah;
-    extern byte ___24cd64h[];
     extern byte * ___24e464h;
     extern dword ___24cea0h[];
-    extern byte ___24cd04h[];
-    extern byte ___24cdc4h[];
 
 void * ___61b00h(dword A0, dword * A1);
 void ___637cch(dword);
@@ -164,17 +155,17 @@ dword ___61cd0h(void){
     struct dostime_t esp;
 
 	if(!(___24e4ach = ___61b00h(sizeof(NetPage), &___24e4c8h))) return (CONNECTION_TYPE = !(___199fbch = 0x64));
-	if(!(___24cee0h = ___61b00h(sizeof(NetPage), &___24cf18h))) return (CONNECTION_TYPE = !(___199fbch = 0x64));
-	if(!(___24cee4h = ___61b00h(sizeof(NetPage), &___24cf1ch))) return (CONNECTION_TYPE = !(___199fbch = 0x64));
-	if(!(___24cee8h = ___61b00h(sizeof(NetPage), &___24cf20h))) return (CONNECTION_TYPE = !(___199fbch = 0x64));
-	if(!(___24ceech = ___61b00h(sizeof(NetPage), &___24cf24h))) return (CONNECTION_TYPE = !(___199fbch = 0x64));
+	if(!(___24cee0h[0] = ___61b00h(sizeof(NetPage), &___24cf18h))) return (CONNECTION_TYPE = !(___199fbch = 0x64));
+	if(!(___24cee0h[1] = ___61b00h(sizeof(NetPage), &___24cf1ch))) return (CONNECTION_TYPE = !(___199fbch = 0x64));
+	if(!(___24cee0h[2] = ___61b00h(sizeof(NetPage), &___24cf20h))) return (CONNECTION_TYPE = !(___199fbch = 0x64));
+	if(!(___24cee0h[3] = ___61b00h(sizeof(NetPage), &___24cf24h))) return (CONNECTION_TYPE = !(___199fbch = 0x64));
 	if(!(___24e4c0h = ___61b00h(sizeof(NetPage), &___24e4b8h))) return (CONNECTION_TYPE = !(___199fbch = 0x64));
 
     memset(___24e4ach, 0, sizeof(NetPage));
-	memset(___24cee0h, 0, sizeof(NetPage));
-	memset(___24cee4h, 0, sizeof(NetPage));
-	memset(___24cee8h, 0, sizeof(NetPage));
-	memset(___24ceech, 0, sizeof(NetPage));
+	memset(___24cee0h[0], 0, sizeof(NetPage));
+	memset(___24cee0h[1], 0, sizeof(NetPage));
+	memset(___24cee0h[2], 0, sizeof(NetPage));
+	memset(___24cee0h[3], 0, sizeof(NetPage));
 	memset(___24e4c0h, 0, sizeof(NetPage));
 
     if(CONNECTION_TYPE == 2){

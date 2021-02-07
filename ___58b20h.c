@@ -3,9 +3,6 @@
 #include <stdarg.h>
 
 extern unsigned int ___19bd60h;
-extern char ___184c68h[];
-extern char ___184c6ch[];
-extern char ___184c70h[];
 
 void ___623d4h(void);
 void __VGA3_SETMODE(void);

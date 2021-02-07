@@ -1,7 +1,6 @@
 #include "drally.h"
 
 	extern byte ___1a1ef0h[];
-	extern byte ___1854b0h[];
 	extern byte ___24cc54h[];
 
 void dRally_Sound_pushEffect(byte channel, byte n, dword unk, dword a0, dword a1, dword a2);
@@ -25,7 +24,7 @@ void ___2dfd0h(void){
 		eax = 0x1;
 		ecx = D(___24cc54h);
 		ebx = 0;
-		dRally_Sound_pushEffect(eax, edx, ebx, ecx, D(___1854b0h), 0x8000);
+		dRally_Sound_pushEffect(eax, edx, ebx, ecx, 0x28000, 0x8000);
 ___2e00ch:
 		ecx = D(___1a1ef0h);
 		ecx--;

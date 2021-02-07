@@ -7,8 +7,8 @@
 	extern byte ___2432c8h[];
 	extern byte ___1a1ef8h[];
 	extern byte ___1a01e0h[];
-	extern byte ___1a1dbah[];
-	extern byte ___1a1f63h[];
+	extern byte ___1a1f4eh[];
+	extern byte ___1a116ch[];
 	extern byte ___19bd60h[];
 	extern byte ___1866b8h[];
 	extern byte CONNECTION_TYPE[];
@@ -61,19 +61,19 @@ void ___3e720h(void){
 	if(D(___19bd60h)){
 
 		ebx = 6;
-		strcat(strcat(strcpy(___1a1dbah, "-- "), ___1a01e0h+0x6c*D(___1a1ef8h)), " has left from Death Rally.");
-		B(___1a1f63h) = 0;
+		strcat(strcat(strcpy(___1a116ch+0xc4e, "-- "), ___1a01e0h+0x6c*D(___1a1ef8h)), " has left from Death Rally.");
+		B(___1a1f4eh+0x15) = 0;
 
 		if(strcmp(___1866b8h+0x3b6, "Abort Current Game") == 0){
 
-			___23488h_cdecl(___1a1dbah, 0x64, 0x14);
-			strcat(strcat(strcpy(___1a1dbah, "-- "), ___1a01e0h+0x6c*D(___1a1ef8h)), " aborted current netgame.");
-			B(___1a1f63h) = 0;
+			___23488h_cdecl(___1a116ch+0xc4e, 0x64, 0x14);
+			strcat(strcat(strcpy(___1a116ch+0xc4e, "-- "), ___1a01e0h+0x6c*D(___1a1ef8h)), " aborted current netgame.");
+			B(___1a1f4eh+0x15) = 0;
 
 			if(D(CONNECTION_TYPE) != 2) ebx = 9;
 		}
 
-		___23488h_cdecl(___1a1dbah, 0x64, ebx);
+		___23488h_cdecl(___1a116ch+0xc4e, 0x64, ebx);
 		___61278h();
 		___623d4h();
 		D(___19bd60h) = 0;

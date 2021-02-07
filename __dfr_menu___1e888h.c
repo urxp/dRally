@@ -3,12 +3,9 @@
 	extern byte ___19bd60h[];
 	extern byte ___196a78h[];
 	extern byte ___196a84h[];
-	extern byte ___1a1100h__VESA101h_DefaultScreenBuffer[];
 	extern byte ___1a112ch__VESA101_ACTIVESCREEN_PTR[];
 	extern byte ___185a34h[];
 	extern byte ___19eb50h[];
-	extern byte ___19eb54h[];
-	extern byte ___19eb58h[];
 	extern byte ___1a1138h__VESA101h_DefaultScreenBufferB[];
 	extern byte ___196a7ch[];
 	extern byte ___185c0bh[];
@@ -25,11 +22,7 @@
 	extern byte ___1866b8h[];
 	extern byte ___1a116ch[];
 	extern byte ___1a1f4eh[];
-	extern byte ___1a1f4dh[];
-	extern byte ___1a1dbah[];
 	extern byte ___1a01e0h[];
-	extern byte ___18108ch[];
-	extern byte ___1a1f63h[];
 	extern byte ___185a5ch[];
 	extern byte ___185b58h[];
 
@@ -126,7 +119,7 @@ void menu___1e888h(dword A1){
 						eax = D(esp+8);
 						eax = 3*eax;
 						edx = edi;
-						eax = D(4*eax+___19eb54h);
+						eax = D(4*eax+___19eb50h+4);
 						ll_tmp = (long long)(int)eax*(int)edx; edx = ll_tmp>>0x20; eax = ll_tmp;
 						eax += 0x8000;
 						edx += !!(eax < 0x8000);
@@ -138,7 +131,7 @@ void menu___1e888h(dword A1){
 						eax = D(esp+0xc);
 						eax = 3*eax;
 						edx = edi;
-						eax = D(4*eax+___19eb58h);
+						eax = D(4*eax+___19eb50h+8);
 						ll_tmp = (long long)(int)eax*(int)edx; edx = ll_tmp>>0x20; eax = ll_tmp;
 						eax += 0x8000;
 						edx += !!(eax < 0x8000);
@@ -178,7 +171,7 @@ void menu___1e888h(dword A1){
 						eax = D(esp+8);
 						eax = 3*eax;
 						edx = edi;
-						eax = D(4*eax+___19eb54h);
+						eax = D(4*eax+___19eb50h+4);
 						ll_tmp = (long long)(int)eax*(int)edx; edx = ll_tmp>>0x20; eax = ll_tmp;
 						eax += 0x8000;
 						edx += !!(eax < 0x8000);
@@ -190,7 +183,7 @@ void menu___1e888h(dword A1){
 						eax = D(esp+0xc);
 						eax = 3*eax;
 						edx = edi;
-						eax = D(4*eax+___19eb58h);
+						eax = D(4*eax+___19eb50h+8);
 						ll_tmp = (long long)(int)eax*(int)edx; edx = ll_tmp>>0x20; eax = ll_tmp;
 						eax += 0x8000;
 						edx += !!(eax < 0x8000);
@@ -271,7 +264,7 @@ void menu___1e888h(dword A1){
 						eax = D(esp+8);
 						eax = 3*eax;
 						edx = edi;
-						eax = D(4*eax+___19eb54h);
+						eax = D(4*eax+___19eb50h+4);
 						ll_tmp = (long long)(int)eax*(int)edx; edx = ll_tmp>>0x20; eax = ll_tmp;
 						eax += 0x8000;
 						edx += !!(eax < 0x8000);
@@ -283,7 +276,7 @@ void menu___1e888h(dword A1){
 						eax = D(esp+0xc);
 						eax = 3*eax;
 						edx = edi;
-						eax = D(4*eax+___19eb58h);
+						eax = D(4*eax+___19eb50h+8);
 						ll_tmp = (long long)(int)eax*(int)edx; edx = ll_tmp>>0x20; eax = ll_tmp;
 						eax += 0x8000;
 						edx += !!(eax < 0x8000);
@@ -323,7 +316,7 @@ void menu___1e888h(dword A1){
 						eax = D(esp+8);
 						eax = 3*eax;
 						edx = edi;
-						eax = D(4*eax+___19eb54h);
+						eax = D(4*eax+___19eb50h+4);
 						ll_tmp = (long long)(int)eax*(int)edx; edx = ll_tmp>>0x20; eax = ll_tmp;
 						eax += 0x8000;
 						edx += !!(eax < 0x8000);
@@ -335,7 +328,7 @@ void menu___1e888h(dword A1){
 						eax = D(esp+0xc);
 						eax = 3*eax;
 						edx = edi;
-						eax = D(4*eax+___19eb58h);
+						eax = D(4*eax+___19eb50h+8);
 						ll_tmp = (long long)(int)eax*(int)edx; edx = ll_tmp>>0x20; eax = ll_tmp;
 						eax += 0x8000;
 						edx += !!(eax < 0x8000);
@@ -463,21 +456,20 @@ void menu___1e888h(dword A1){
 
 							esi = ebx;
 							edi = ebp;
-							edx++;
 							strcpy(edi, esi);
+							B(edx+___1a1f4eh) = B(edx+___1a1f4eh+1);
+
+							edx++;
 							ebp += 0x96;
-							L(eax) = B(edx+___1a1f4eh);
 							ebx += 0x96;
-							B(edx+___1a1f4dh) = L(eax);
-						
 							if((int)edx >= 0x15) break;
 						}
 
-						strcpy(___1a1dbah, "-- ");
-						strcat(___1a1dbah, 0x6c*D(___1a1ef8h)+___1a01e0h);
-						strcat(___1a1dbah, ___18108ch);
-						B(___1a1f63h) = 0;
-						___23488h_cdecl(___1a1dbah, 0x64, 0x14);
+						strcpy(___1a116ch+0xc4e, "-- ");
+						strcat(___1a116ch+0xc4e, 0x6c*D(___1a1ef8h)+___1a01e0h);
+						strcat(___1a116ch+0xc4e, " aborted current netgame.");
+						B(___1a1f4eh+0x15) = 0;
+						___23488h_cdecl(___1a116ch+0xc4e, 0x64, 0x14);
 						___23230h();
 						___1e4f8h();
 						D(___196a84h) = 0;

@@ -12,52 +12,36 @@ cpu 386
 	extern	___1a0fbch
 	extern	___1a0fd8h
 	extern	___1a1ef8h
-	extern	___182564h
-	extern	___1a0230h
+	extern	___1a01e0h
 	extern	itoa_watcom106
-	extern	___182574h
 	extern	___185c0bh
 	extern	___1a1108h
 	extern	___12e78h_cdecl
-	extern	___182580h
 	extern	___35dd0h
-	extern	___1a0238h
-	extern	___1a01e0h
 	extern	___1a0f18h
 	extern	___1a1168h
 	extern	___1de7d0h
-	extern	___1a0224h
-	extern	___1a0228h
 	extern	___39634h
 	extern	___196ad4h
 	extern	___1a2010h
 	extern	___18d492h
-	extern	___181f50h
-	extern	___182628h
-	extern	___25138h
-	extern	___1de810h
-	extern	___18250ch
+	extern	___25138h_cdecl
 	extern	___38184h_cdecl
 	extern	___38708h
 	extern	___12cb8h__VESA101_PRESENTSCREEN
 	extern	___58c60h
 	extern	___19eb50h
-	extern	___19eb54h
-	extern	___19eb58h
 	extern	__DISPLAY_SET_PALETTE_COLOR
 	extern	___2ab50h
 	extern	___38768h
 	extern	___5994ch
 	extern	___36adch
-	extern	___1826a8h
 	extern	___1240ch
 	extern	___24548h
 	extern	___2faf0h
-	extern	___1854b8h
 	extern	___24cc54h
 	extern	dRally_Sound_pushEffect
 	extern	___196a84h
-	extern	___1de814h
 	extern	___1e4f8h
 	extern	CONNECTION_TYPE
 	extern	___1e62ch
@@ -152,7 +136,7 @@ ___3993bh:
 		lea     eax, [edx*8+0]
 		mov     ebx, 0ah
 		sub     eax, edx
-		mov     esi, ___182564h
+		mov     esi, __dfr_182564h
 		shl     eax, 2
 		movsd   
 		movsd   
@@ -161,7 +145,7 @@ ___3993bh:
 		sub     eax, edx
 		lea     esi, [esp+28h]
 		lea     edx, [esp+28h]
-		mov     eax, [eax*4+___1a0230h]
+		mov     eax, [eax*4+___1a01e0h+50h]
 		mov     edi, esp
 
 	push 	ecx
@@ -173,7 +157,7 @@ ___3993bh:
 	pop 	ecx
 
 		call 	__STRCAT
-		mov     esi, ___182574h
+		mov     esi, __dfr_182574h
 		mov     edi, esp
 		mov     ebx, esp
 		mov     edx, ___185c0bh
@@ -189,7 +173,7 @@ ___3993bh:
 	add 	esp, 10h
 
 		mov     ecx, 0d738h
-		mov     ebx, ___182580h
+		mov     ebx, __dfr_182580h
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
 
@@ -219,8 +203,8 @@ ___39a0bh:
 		imul    edx, esi, byte 6ch
 		lea     eax, [ebx+1]
 		imul    ebx, eax, byte 6ch
-		mov     edx, [edx+___1a0238h]
-		cmp     edx, [ebx+___1a0238h]
+		mov     edx, [edx+___1a01e0h+58h]
+		cmp     edx, [ebx+___1a01e0h+58h]
 		jle     near ___39b5bh
 		mov     ecx, [___1a1ef8h]
 		mov     ebx, eax
@@ -302,8 +286,8 @@ ___39b6ah:
 		lea     eax, [edi+1]
 		imul    ebx, edi, byte 6ch
 		imul    edx, eax, byte 6ch
-		mov     ebx, [ebx+___1a0224h]
-		cmp     ebx, [edx+___1a0224h]
+		mov     ebx, [ebx+___1a01e0h+44h]
+		cmp     ebx, [edx+___1a01e0h+44h]
 		jle     near ___39cadh
 		mov     ecx, [___1a1ef8h]
 		mov     ebx, eax
@@ -387,7 +371,7 @@ ___39cb6h:
 		shl     esi, 2
 ___39ce0h:
 		mov     ebx, [esp+5ch]
-		mov     [eax+___1a0228h], edx
+		mov     [eax+___1a01e0h+48h], edx
 		add     eax, byte 6ch
 		inc     ebx
 		dec     edx
@@ -408,7 +392,7 @@ ___39cf7h:
 		add     esi, eax
 		lea     edx, [esp+28h]
 		call 	__STRCPY
-		mov     esi, ___181f50h
+		mov     esi, __dfr_181f50h
 		mov     eax, [___196adch]
 		mov     edi, esp
 
@@ -424,11 +408,19 @@ ___39cf7h:
 		lea     esi, [esp+28h]
 		mov     edi, esp
 		call 	__STRCAT
-		mov     esi, ___182628h
+		mov     esi, __dfr_182628h
 		mov     edi, esp
 		call 	__STRCAT
 		mov     eax, esp
-		call    near ___25138h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    near ___25138h_cdecl
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		mov     edx, eax
 		sar     edx, 1fh
 		sub     eax, edx
@@ -464,22 +456,22 @@ ___39deeh:
 		mov     ebx, [esp+58h]
 		xor     eax, eax
 ___39e1ah:
-		cmp     dword [eax+___1de810h], byte 1
+		cmp     dword [eax+___1de7d0h+0x40], byte 1
 		jne     short ___39e2bh
 		mov     dl, [esp+5ch]
 		mov     [esp+50h], dl
 ___39e2bh:
-		cmp     dword [eax+___1de810h], byte 2
+		cmp     dword [eax+___1de7d0h+0x40], byte 2
 		jne     short ___39e3ch
 		mov     dl, [esp+5ch]
 		mov     [esp+51h], dl
 ___39e3ch:
-		cmp     dword [eax+___1de810h], byte 3
+		cmp     dword [eax+___1de7d0h+0x40], byte 3
 		jne     short ___39e4dh
 		mov     dl, [esp+5ch]
 		mov     [esp+52h], dl
 ___39e4dh:
-		cmp     dword [eax+___1de810h], byte 4
+		cmp     dword [eax+___1de7d0h+0x40], byte 4
 		jne     short ___39e5eh
 		mov     dl, [esp+5ch]
 		mov     [esp+53h], dl
@@ -494,7 +486,7 @@ ___39e6eh:
 		lea     edx, [esp+50h]
 		mov     ecx, 46b6eh
 		mov     eax, [___196adch]
-		mov     ebx, ___18250ch
+		mov     ebx, __dfr_18250ch
 	
 	push 	ecx
 	push 	edx
@@ -559,7 +551,7 @@ ___39eb0h:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+___19eb54h]
+		mov     eax, [edi+___19eb50h+4]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -569,7 +561,7 @@ ___39eb0h:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+___19eb58h]
+		mov     eax, [edi+___19eb50h+8]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -633,7 +625,7 @@ ___39f52h:
 	pop 	edx
 	
 		mov     ecx, 46b6eh
-		mov     ebx, ___1826a8h
+		mov     ebx, __dfr_1826a8h
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
 
@@ -689,7 +681,7 @@ ___39f52h:
 	
 		push    8000h
 		mov     edx, 1ch
-		mov     esi, [___1854b8h]
+		mov     esi, 28000h
 		mov     eax, 1
 		push    esi
 		mov     ecx, [___24cc54h]
@@ -701,7 +693,7 @@ ___39f52h:
 		call    dRally_Sound_pushEffect
 	add 	esp, 18h
 		mov     ecx, 46b6eh
-		mov     ebx, ___18250ch
+		mov     ebx, __dfr_18250ch
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
 
@@ -752,7 +744,7 @@ ___39fe7h:
 		xor     eax, eax
 		mov     [esp+5ch], edi
 ___3a008h:
-		cmp     dword [eax+___1de814h], byte 0ffffffffh
+		cmp     dword [eax+___1de7d0h+0x44], byte 0ffffffffh
 		jne     short ___3a036h
 		test    edx, edx
 		jne     short ___3a036h
@@ -817,7 +809,7 @@ ___3a089h:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+___19eb54h]
+		mov     eax, [edi+___19eb50h+4]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -827,7 +819,7 @@ ___3a089h:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+___19eb58h]
+		mov     eax, [edi+___19eb50h+8]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -865,7 +857,7 @@ ___3a126h:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+___19eb54h]
+		mov     eax, [edi+___19eb50h+4]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -875,7 +867,7 @@ ___3a126h:
 		and     eax, 0ffh
 		push    eax
 		mov     edx, esi
-		mov     eax, [edi+___19eb58h]
+		mov     eax, [edi+___19eb50h+8]
 		imul    edx
 		add     eax, 8000h
 		adc     edx, byte 0
@@ -915,4 +907,20 @@ ___3a1c7h:
 		pop     ecx
 		pop     ebx
 		retn    
+
+section .data
+__dfr_181f50h:
+	db	20h,0,0,0
+__dfr_18250ch:
+	db 	"Press any key to continue...",0,0,0,0
+__dfr_182564h:
+	db 	"Status after ",0,0,0
+__dfr_182574h:
+	db 	" race(s)",0,0,0,0
+__dfr_182580h:
+	db 	"Multiplayer Ranking",0
+__dfr_182628h:
+	db 	"-player race:",0,0,0
+__dfr_1826a8h:
+	db 	"Please wait while loading...",0,0,0,0
 */

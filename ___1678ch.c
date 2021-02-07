@@ -2,16 +2,6 @@
 
 	extern byte ___1a112ch__VESA101_ACTIVESCREEN_PTR[];
 	extern byte ___1a1e74h[];
-	extern byte ___18d172h[];
-	extern byte ___18d1c2h[];
-	extern byte ___18d212h[];
-	extern byte ___18d262h[];
-	extern byte ___18d2b2h[];
-	extern byte ___18d302h[];
-	extern byte ___18d352h[];
-	extern byte ___18d3a2h[];
-	extern byte ___18d3f2h[];
-	extern byte ___18d442h[];
 	extern byte ___185ba9h[];
 	extern byte ___1a10cch[];
 	extern byte kmap[];

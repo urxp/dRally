@@ -1,18 +1,12 @@
 #include "drally.h"
 
 	extern byte ___2438d0h[];
-	extern byte ___1df528h[];
-	extern byte ___196dc8h[];
 	extern byte ___1df520h[];
+	extern byte ___196dc8h[];
 	extern byte ___196d98h[];
 	extern byte ___196dcch[];
-	extern byte ___1df524h[];
 	extern byte ___243d7ch[];
 	extern byte ___243d80h[];
-	extern byte ___1df52ch[];
-	extern byte ___1df518h[];
-	extern byte ___1df510h[];
-	extern byte ___1df514h[];
 
 dword __GET_FRAME_COUNTER(void);
 
@@ -28,14 +22,14 @@ void race___51ce0h(void){
 ___51d06h:
 		ebp = D(esp);
 		ebp <<= 4;
-		if(D(ebp+___1df528h) == 0xffffffff) goto ___51e72h;
+		if(D(ebp+___1df520h+8) == 0xffffffff) goto ___51e72h;
 		edx = D(___196dc8h);
 		eax = D(ebp+___1df520h);
 		edi = D(___196d98h);
 		eax -= edx;
 		ebx = D(___196dcch);
 		edi += eax;
-		eax = D(ebp+___1df524h);
+		eax = D(ebp+___1df520h+4);
 		eax -= ebx;
 		if((int)edi < 8) goto ___51de2h;
 		edx = edi+8;
@@ -43,7 +37,7 @@ ___51d06h:
 		if((int)eax < 8) goto ___51de2h;
 		edx = eax+8;
 		if((int)edx >= 0xc8) goto ___51de2h;
-		if(D(ebp+___1df528h) == 5) goto ___51de2h;
+		if(D(ebp+___1df520h+8) == 5) goto ___51de2h;
 		eax <<= 9;
 		esi = 0;
 		eax -= 0x1000;
@@ -55,7 +49,7 @@ ___51d88h:
 		eax = 0;
 ___51d92h:
 		edx = D(___243d7ch);
-		ebx = D(ebp+___1df528h);
+		ebx = D(ebp+___1df520h+8);
 		edx += eax;
 		ebx <<= 8;
 		edx += ecx;
@@ -79,32 +73,29 @@ ___51dbch:
 ___51de2h:
 		edx = D(esp);
 		edx <<= 4;
-		ebx = D(edx+___1df52ch);
+		ebx = D(edx+___1df520h+0xc);
 		ebx += 0x5;
 		eax = __GET_FRAME_COUNTER();
 		if(eax < ebx) goto ___51e0bh;
-		D(edx+___1df528h)++;
+		D(edx+___1df520h+8)++;
 		eax = __GET_FRAME_COUNTER();
-		D(edx+___1df52ch) = eax;
+		D(edx+___1df520h+0xc) = eax;
 ___51e0bh:
 		edx = D(esp);
 		edx <<= 4;
-		if((int)D(edx+___1df528h) <= 5) goto ___51e72h;
+		if((int)D(edx+___1df520h+8) <= 5) goto ___51e72h;
 		ebx = D(___2438d0h);
 		edi = 0xffffffff;
 		ebx--;
 		eax = edx;
 		ebx <<= 4;
-		D(edx+___1df528h) = edi;
+		D(edx+___1df520h+8) = edi;
 		if((int)edx >= (int)ebx) goto ___51e60h;
 ___51e35h:
+		D(eax+___1df520h+8) = D(eax+___1df520h+0x10+8);
+		D(eax+___1df520h) = D(eax+___1df520h+0x10);
+		D(eax+___1df520h+4) = D(eax+___1df520h+0x10+4);
 		eax += 0x10;
-		edx = D(eax+___1df528h);
-		D(eax+___1df518h) = edx;
-		edx = D(eax+___1df520h);
-		D(eax+___1df510h) = edx;
-		edx = D(eax+___1df524h);
-		D(eax+___1df514h) = edx;
 		if((int)eax < (int)ebx) goto ___51e35h;
 ___51e60h:
 		eax = D(___2438d0h);

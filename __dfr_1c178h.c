@@ -3,10 +3,8 @@
 
 	extern byte ___1a1138h__VESA101h_DefaultScreenBufferB[];
 	extern byte ___1a112ch__VESA101_ACTIVESCREEN_PTR[];
-	extern byte ___180aa8h[];
 	extern byte ___185c0bh[];
 	extern byte ___1a1108h[];
-	extern byte ___180ac8h[];
 	extern byte ___24e4ach[];
 	extern byte ___196a84h[];
 	extern byte ___196ab8h[];
@@ -63,12 +61,12 @@ void ___1c178h(void){
 	eax = 0x97;
 	___13248h_cdecl(eax, edx, ebx, ecx, 1);
 	ecx = 0x20dbf;
-	ebx = ___180aa8h;
+	ebx = "Waiting for remote player...";
 	edx = ___185c0bh;
 	eax = D(___1a1108h);
 	___12e78h_cdecl(eax, edx, ebx, ecx);
 	ecx = 0x2383f;
-	ebx = ___180ac8h;
+	ebx = "Press ESC to abort";
 	edx = ___185c0bh;
 	eax = D(___1a1108h);
 	___12e78h_cdecl(eax, edx, ebx, ecx);
@@ -110,10 +108,10 @@ ___1c2a8h:
 	D(___196ab8h) = eax;
 	eax = 0;
 ___1c2c3h:
-	eax++;
 	L(ebx) = B(edx+8);
 	edx++;
-	B(eax+___1a2010h) = L(ebx);
+	B(eax+___1a2010h+1) = L(ebx);
+	eax++;
 	if((int)eax < 9) goto ___1c2c3h;
 	eax = 0;
 	L(eax) = B(ebp+0x11);

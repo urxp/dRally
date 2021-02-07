@@ -7,9 +7,6 @@ cpu 386
 	extern	___24e4ach
 	extern	___24e4c0h
 	extern	___24cee0h
-	extern	___24cee4h
-	extern	___24cee8h
-	extern	___24ceech
 	extern	memset
 
 section .text
@@ -39,13 +36,13 @@ __GDECL(___4495ch)
 		mov     edx, [___24cee0h]
 		mov     word [edx], 0
 		mov     word [edx+2], 0
-		mov     edx, [___24cee4h]
+		mov     edx, [___24cee0h+4]
 		mov     word [edx], 0
 		mov     word [edx+2], 0
-		mov     edx, [___24cee8h]
+		mov     edx, [___24cee0h+8]
 		mov     word [edx], 0
 		mov     word [edx+2], 0
-		mov     edx, [___24ceech]
+		mov     edx, [___24cee0h+0xc]
 		add     eax, byte 4
 		mov     word [edx], 0
 		mov     ebx, 1000h
@@ -74,7 +71,7 @@ __GDECL(___4495ch)
 	pop 	ecx
 
 		mov     ebx, 1000h
-		mov     eax, [___24cee4h]
+		mov     eax, [___24cee0h+4]
 		xor     edx, edx
 		add     eax, byte 4
 		
@@ -87,7 +84,7 @@ __GDECL(___4495ch)
 	pop 	ecx
 
 		mov     ebx, 1000h
-		mov     eax, [___24cee8h]
+		mov     eax, [___24cee0h+8]
 		xor     edx, edx
 		add     eax, byte 4
 		
@@ -100,7 +97,7 @@ __GDECL(___4495ch)
 	pop 	ecx
 
 		mov     ebx, 1000h
-		mov     eax, [___24ceech]
+		mov     eax, [___24cee0h+0xc]
 		xor     edx, edx
 		add     eax, byte 4
 		

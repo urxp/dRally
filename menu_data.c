@@ -136,3 +136,40 @@ char ___1866b8h[9][9][50] = {
         /*8*/   0
     }
 };
+
+const __DWORD__ ___186658h[] = {    // REPAIR ANIMATION
+    0x5b3, 0x5bb, 0x5aa, 0x5ad, 0x598, 0x597, 0x5a9, 0x593, 0x5a5, 0x5b0, 0x5aa, 0x593,
+    0x597, 0x580, 0x580, 0x5a9, 0x5bb, 0x5b8, 0x5b3, 0x5bf, 0x5bb, 0x5a9, 0x59d, 0x5a3
+};
+
+const __DWORD__ ___1865fch[] = {    // CONTINUE ANIMATION
+    0x602, 0x5f7, 0x622, 0x613, 0x608, 0x601, 0x5ee, 0x5dc, 0x5d5, 0x5dc, 0x5da, 0x5ec,
+    0x5f7, 0x5fd, 0x60c, 0x651, 0x639, 0x62e, 0x61e, 0x630, 0x627, 0x629, 0x61b
+};
+
+const char ___18768ah[][0x18] = {
+    [0] = "speed makes me dizzy",
+    [1] = "i live to ride",
+    [2] = "petrol in my veins"
+};
+
+const char ___18d492h[][0xf] = {
+    [0] = "Suburbia",
+    [1] = "Downtown",
+    [2] = "Utopia",
+    [3] = "Rock Zone",
+    [4] = "Snake Alley",
+    [5] = "Oasis",
+    [6] = "Velodrome",
+    [7] = "Holocaust",
+    [8] = "Bogota",
+    [9] = "West End",
+    [10] = "Newark",
+    [11] = "Complex",
+    [12] = "Hell Mountain",
+    [13] = "Desert Run",
+    [14] = "Palm Side",
+    [15] = "Eidolon",
+    [16] = "Toxic Dump",
+    [17] = "Borneo"
+};

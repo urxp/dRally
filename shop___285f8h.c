@@ -3,7 +3,6 @@
 #define COOXY(x,y) (0x280*(y)+(x))
 #define COO10UV(u,v) (0x10*(v)+(u))
 
-	extern byte ___1854b0h[];
 	extern byte ___24cc54h[];
 	extern byte ___1a1ec4h[];
 	extern byte ___1a1ee4h[];
@@ -26,7 +25,7 @@ void shop___285f8h(void){
 	int 	i, j;
 	byte 	px;
 
-	dRally_Sound_pushEffect(1, 0x1a, 0, D(___24cc54h), D(___1854b0h), 0x8000);
+	dRally_Sound_pushEffect(1, 0x1a, 0, D(___24cc54h), 0x28000, 0x8000);
 
 	switch(D(___1a1ec4h)){
 	case 0:

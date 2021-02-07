@@ -3,14 +3,7 @@
 	extern byte ___1a112ch__VESA101_ACTIVESCREEN_PTR[];
 	extern byte ___1a1124h__VESA101h_ScreenBufferA[];
 	extern byte ___19eb50h[];
-	extern byte ___19eb54h[];
-	extern byte ___19eb58h[];
-	extern byte ___182860h[];
-	extern byte ___18286ch[];
 	extern byte ___1a54d0h[];
-	extern byte ___180144h[];
-	extern byte ___182878h[];
-	extern byte ___182884h[];
 
 void ___2b318h(void);
 void ___58c60h(void);
@@ -71,7 +64,7 @@ ___3d55fh:
 		eax &= 0xff;
 		rr = eax;
 		edx = esi;
-		eax = D(edi+___19eb54h);
+		eax = D(edi+___19eb50h+4);
 		ll_tmp = (long long)(int)eax*(int)edx; edx = ll_tmp>>0x20; eax = ll_tmp;
 		eax += 0x8000;
 		edx += !!(eax < 0x8000);
@@ -81,7 +74,7 @@ ___3d55fh:
 		eax &= 0xff;
 		gg = eax;
 		edx = esi;
-		eax = D(edi+___19eb58h);
+		eax = D(edi+___19eb50h+8);
 		ll_tmp = (long long)(int)eax*(int)edx; edx = ll_tmp>>0x20; eax = ll_tmp;
 		eax += 0x8000;
 		edx += !!(eax < 0x8000);
@@ -101,11 +94,11 @@ ___3d55fh:
 		ebp--;
 		D(esp) = ebx;
 		if((int)ebp >= 0) goto ___3d536h;
-		eax = ___182860h;
-		ebx = ___18286ch;
+		eax = "credit1.pal";
+		ebx = "credit1.bpk";
 		edx = ___1a54d0h;
 		___3d154h(eax);
-		eax = ___180144h;
+		eax = "MENU.BPA";
 		bpa_read(eax, edx, ebx);
 		ecx = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
 		bpk_decode2(ecx, ___1a54d0h);
@@ -115,11 +108,11 @@ ___3d63dh:
 		L(eax) = ___5994ch();
 		if(L(eax) == 0) goto ___3d63dh;
 		___3d2bch();
-		eax = ___182878h;
-		ebx = ___182884h;
+		eax = "credit2.pal";
+		ebx = "credit2.bpk";
 		edx = ___1a54d0h;
 		___3d154h(eax);
-		eax = ___180144h;
+		eax = "MENU.BPA";
 		bpa_read(eax, edx, ebx);
 		edi = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
 		bpk_decode2(edi, ___1a54d0h);
@@ -167,7 +160,7 @@ ___3d6edh:
 		eax &= 0xff;
 		rr = eax;
 		edx = esi;
-		eax = D(edi+___19eb54h);
+		eax = D(edi+___19eb50h+4);
 		ll_tmp = (long long)(int)eax*(int)edx; edx = ll_tmp>>0x20; eax = ll_tmp;
 		eax += 0x8000;
 		edx += !!(eax < 0x8000);
@@ -177,7 +170,7 @@ ___3d6edh:
 		eax &= 0xff;
 		gg = eax;
 		edx = esi;
-		eax = D(edi+___19eb58h);
+		eax = D(edi+___19eb50h+8);
 		ll_tmp = (long long)(int)eax*(int)edx; edx = ll_tmp>>0x20; eax = ll_tmp;
 		eax += 0x8000;
 		edx += !!(eax < 0x8000);

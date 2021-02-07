@@ -1,24 +1,36 @@
 #include "drally.h"
+#include "pxl.h"
 
-	extern byte ___1a112ch__VESA101_ACTIVESCREEN_PTR[];
-	extern byte ___1a1e98h[];
+#pragma pack(1)
+typedef char char40[40];
+typedef char char12[12];
+typedef struct cardata_s {
+    char12      		name;                           // +000
+    __DWORD__   		price;                          // +00C
+    char40      		txt_info[6];                    // +010
+    char40      		txt_winfo[6];                   // +100
+    char40      		txt_bought[6];                  // +1F0
+    char40      		txt_engine_upgrades[4][6];      // +2E0
+    __DWORD__   		n_engine_upgrades;              // +6A0
+    __DWORD__   		n_tire_upgrades;                // +6A4
+    __DWORD__   		n_armor_upgrades;               // +6A8
+    __DWORD__   		price_engine_upgrades[4];       // +6AC
+    __DWORD__   		price_tire_upgrades[4];         // +6BC
+    __DWORD__   		price_armor_upgrades[4];        // +6CC
+    __SIGNED_DWORD__   	price_repair;                   // +6DC
+} cardata_t;
+
+#define COOXY(x,y) (0x280*(y)+(x))
+
+	extern byte * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
+	extern byte * ___1a1e98h;
 	extern byte ___1a1ef8h[];
-	extern byte ___1a01fch[];
-	extern byte ___1a01f0h[];
-	extern byte ___18e938h[];
-	extern byte ___1862bch[];
-	extern byte ___1a01a8h[];
+	extern byte ___1a01e0h[];
+	extern __DWORD__ ___1862bch[][0x18];
+	extern void * ___1a01a8h[4];
 	extern byte ___1a1ec8h[];
-	extern byte ___18e944h[];
-	extern byte ___180728h[];
-	extern byte ___18e298h[];
-	extern byte ___1a1eb8h[];
-	extern byte ___190e30h[];
-	extern byte ___190e58h[];
-	extern byte ___190e80h[];
-	extern byte ___190ea8h[];
-	extern byte ___190ed0h[];
-	extern byte ___190ef8h[];
+	extern cardata_t ___18e298h[6];
+	extern byte * ___1a1eb8h;
 
 void ___13094h_cdecl(const char *, dword);
 dword ___25180h_cdecl(dword);
@@ -30,286 +42,51 @@ char * itoa_watcom106(int value, char * buffer, int radix);
 // SHOP, ENGINE
 void ___25e40h(void){
 
-	dword 	eax, ebx, ecx, edx, edi, esi, ebp, p5;
+	dword 	ebx, ecx;
 	byte 	esp[0x28];
+	int 	i, j;
+
+	pxl_2D	dst;
+	pxl_2D	src;
 
 
-		ecx = 0x60;
-		ebx = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
-		esi = D(___1a1e98h);
-		ebx += 0x27890;
-		edx = ecx;
-		L(edx) >>= 2;
-___25e6eh:
-		H(ecx) = L(edx);
-___25e70h:
-		eax = D(esi);
-		D(ebx) = eax;
-		ebx += 0x4;
-		esi += 0x4;
-		H(ecx)--;
-		if(H(ecx)) goto ___25e70h;
-		ebx += 0x280;
-		L(edx) <<= 2;
-		ebx -= edx;
-		L(edx) >>= 2;
-		L(ecx)--;
-		if(L(ecx)) goto ___25e6eh;
-		edx = D(___1a1ef8h);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 2;
-		eax -= edx;
-		edx = 4*eax;
-		ebx = D(edx+___1a01fch);
-		eax = 8*ebx;
-		eax -= ebx;
-		eax <<= 3;
-		eax -= ebx;
-		eax <<= 5;
-		ebx = D(edx+___1a01f0h);
-		ecx = D(eax+___18e938h);
-		if((int)ebx >= (int)ecx) goto ___261e1h;
-		eax = 4*ebx;
-		eax -= ebx;
-		eax <<= 5;
-		edx = 0x10d;
-		eax = ___1862bch+eax;
-		ecx = D(ebx*4+___1a01a8h);
-		p5 = eax;
-		ebx = D(___1a1ec8h);
-		eax = 0x10;
-		___259e0h_cdecl(eax, edx, ebx, ecx, p5);
-		edx = D(___1a1ef8h);
-		ebx = 8*edx;
-		ebx -= edx;
-		ebx <<= 2;
-		ebx -= edx;
-		ebx <<= 2;
-		edx = D(ebx+___1a01fch);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 3;
-		eax -= edx;
-		edx = eax;
-		eax = D(ebx+___1a01f0h);
-		edx <<= 5;
-		ebx = 0xa;
-		eax = D(edx+eax*4+___18e944h);
-		edx = esp;
-		esi = esp;
-		eax = itoa_watcom106(eax, edx, ebx);
-		X(eax) = W(___180728h);
-		edi = esp+0x14;
-		D(esp+0x14) = X(eax);
-		strcat(edi, esi);
-		eax = esp+0x14;
-		eax = ___25180h_cdecl(eax);
-		edx = eax+0x34590;
-		ebx = 0x180;
-		eax = esp+0x14;
-		ecx = 0x77;
-		___12f60h_cdecl(eax, edx);
-		edx = 0x72;
-		eax = 0x90;
-		___13248h_cdecl(eax, edx, ebx, ecx, 1);
-		edx = D(___1a1ef8h);
-		ebx = 8*edx;
-		ebx -= edx;
-		ebx <<= 2;
-		ebx -= edx;
-		ebx <<= 2;
-		edx = D(ebx+___1a01fch);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 3;
-		eax -= edx;
-		esi = ___18e298h;
-		eax <<= 5;
-		edx = D(ebx+___1a01f0h);
-		esi += eax;
-		eax = edx;
-		eax <<= 4;
-		eax -= edx;
-		edx = eax;
-		edx <<= 4;
-		eax = esi+0x2e0;
-		eax += edx;
-		edx = 0x136aa;
-		___13094h_cdecl(eax, edx);
-		edx = D(___1a1ef8h);
-		ebx = 8*edx;
-		ebx -= edx;
-		ebx <<= 2;
-		ebx -= edx;
-		ebx <<= 2;
-		edx = D(ebx+___1a01fch);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 3;
-		eax -= edx;
-		esi = ___18e298h;
-		eax <<= 5;
-		edx = D(ebx+___1a01f0h);
-		esi += eax;
-		eax = edx;
-		eax <<= 4;
-		eax -= edx;
-		edx = eax;
-		edx <<= 4;
-		eax = esi+0x2e0;
-		eax += edx;
-		edx = 0x15eaa;
-		eax += 0x28;
-		___13094h_cdecl(eax, edx);
-		edx = D(___1a1ef8h);
-		ebx = 8*edx;
-		ebx -= edx;
-		ebx <<= 2;
-		ebx -= edx;
-		ebx <<= 2;
-		edx = D(ebx+___1a01fch);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 3;
-		eax -= edx;
-		ecx = ___18e298h;
-		eax <<= 5;
-		edx = D(ebx+___1a01f0h);
-		ecx += eax;
-		eax = edx;
-		eax <<= 4;
-		eax -= edx;
-		edx = eax;
-		edx <<= 4;
-		eax = ecx+0x2e0;
-		eax += edx;
-		edx = 0x186aa;
-		eax += 0x50;
-		___13094h_cdecl(eax, edx);
-		edx = D(___1a1ef8h);
-		esi = 8*edx;
-		esi -= edx;
-		esi <<= 2;
-		esi -= edx;
-		esi <<= 2;
-		edx = D(esi+___1a01fch);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 3;
-		eax -= edx;
-		ebx = ___18e298h;
-		eax <<= 5;
-		edx = D(esi+___1a01f0h);
-		ebx += eax;
-		eax = edx;
-		eax <<= 4;
-		eax -= edx;
-		edx = eax;
-		edx <<= 4;
-		eax = ebx+0x2e0;
-		eax += edx;
-		edx = 0x1aeaa;
-		eax += 0x78;
-		___13094h_cdecl(eax, edx);
-		edx = D(___1a1ef8h);
-		ebx = 8*edx;
-		ebx -= edx;
-		ebx <<= 2;
-		ebx -= edx;
-		ebx <<= 2;
-		edx = D(ebx+___1a01fch);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 3;
-		eax -= edx;
-		esi = ___18e298h;
-		eax <<= 5;
-		edx = D(ebx+___1a01f0h);
-		esi += eax;
-		eax = edx;
-		eax <<= 4;
-		eax -= edx;
-		esi += 0x2e0;
-		eax <<= 4;
-		eax += esi;
-		edx = 0x1d6aa;
-		eax += 0xa0;
-		___13094h_cdecl(eax, edx);
-		edx = D(___1a1ef8h);
-		ebx = 8*edx;
-		ebx -= edx;
-		ebx <<= 2;
-		ebx -= edx;
-		ebx <<= 2;
-		edx = D(ebx+___1a01fch);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 3;
-		eax -= edx;
-		esi = ___18e298h;
-		eax <<= 5;
-		edx = D(ebx+___1a01f0h);
-		esi += eax;
-		eax = edx;
-		eax <<= 4;
-		eax -= edx;
-		esi += 0x2e0;
-		eax <<= 4;
-		eax += esi;
-		edx = 0x1feaa;
-		eax += 0xc8;
-		___13094h_cdecl(eax, edx);
-		return;
-___261e1h:
-		ebx = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
-		edx = ecx-1;
-		esi = D(___1a1eb8h);
-		eax = 4*edx;
-		ecx = 0x40;
-		eax -= edx;
-		ebx += 0x2a090;
-		eax <<= 0xb;
-		edx = 0x60;
-		esi += eax;
-		L(edx) >>= 2;
-___26211h:
-		H(ecx) = L(edx);
-___26213h:
-		eax = D(esi);
-		D(ebx) = eax;
-		ebx += 0x4;
-		esi += 0x4;
-		H(ecx)--;
-		if(H(ecx)) goto ___26213h;
-		ebx += 0x280;
-		L(edx) <<= 2;
-		ebx -= edx;
-		L(edx) >>= 2;
-		L(ecx)--;
-		if(L(ecx)) goto ___26211h;
-		ecx = 0x77;
-		ebx = 0x180;
-		edx = 0x72;
-		eax = 0x90;
-		___13248h_cdecl(eax, edx, ebx, ecx, 1);
-		edx = 0x136aa;
-		eax = ___190e30h;
-		___13094h_cdecl(eax, edx);
-		edx = 0x15eaa;
-		eax = ___190e58h;
-		___13094h_cdecl(eax, edx);
-		edx = 0x186aa;
-		eax = ___190e80h;
-		___13094h_cdecl(eax, edx);
-		edx = 0x1aeaa;
-		eax = ___190ea8h;
-		___13094h_cdecl(eax, edx);
-		edx = 0x1d6aa;
-		eax = ___190ed0h;
-		___13094h_cdecl(eax, edx);
-		edx = 0x1feaa;
-		eax = ___190ef8h;
-		___13094h_cdecl(eax, edx);
-		return;
+	pxlSet(&dst, ___1a112ch__VESA101_ACTIVESCREEN_PTR, 640, 480);
+	pxlSetPosition(&dst, 16, 253);
+	pxlSet(&src, ___1a1e98h, 96, 96);
+	pxlCopy(&dst, &src, PXL_ENTIRE);
+
+	ebx = D(0x6c*D(___1a1ef8h)+___1a01e0h+0x10);
+	ecx = ___18e298h[D(0x6c*D(___1a1ef8h)+___1a01e0h+0x1c)].n_engine_upgrades;
+
+	if((int)ebx < (int)ecx){
+
+		___259e0h_cdecl(0x10, 0x10d, D(___1a1ec8h), ___1a01a8h[ebx], ___1862bch[ebx]);
+		itoa_watcom106(___18e298h[D(0x6c*D(___1a1ef8h)+___1a01e0h+0x1c)].price_engine_upgrades[ebx], esp, 0xa);
+		strcpy(esp+0x14, "$");
+		strcat(esp+0x14, esp);
+		___12f60h_cdecl(esp+0x14, ___25180h_cdecl(esp+0x14)+0x34590);
+		___13248h_cdecl(0x90, 0x72, 0x180, 0x77, 1);
+		___13094h_cdecl(___18e298h[D(0x6c*D(___1a1ef8h)+___1a01e0h+0x1c)].txt_engine_upgrades[ebx][0], 0x136aa);
+		___13094h_cdecl(___18e298h[D(0x6c*D(___1a1ef8h)+___1a01e0h+0x1c)].txt_engine_upgrades[ebx][1], 0x15eaa);
+		___13094h_cdecl(___18e298h[D(0x6c*D(___1a1ef8h)+___1a01e0h+0x1c)].txt_engine_upgrades[ebx][2], 0x186aa);
+		___13094h_cdecl(___18e298h[D(0x6c*D(___1a1ef8h)+___1a01e0h+0x1c)].txt_engine_upgrades[ebx][3], 0x1aeaa);
+		___13094h_cdecl(___18e298h[D(0x6c*D(___1a1ef8h)+___1a01e0h+0x1c)].txt_engine_upgrades[ebx][4], 0x1d6aa);
+		___13094h_cdecl(___18e298h[D(0x6c*D(___1a1ef8h)+___1a01e0h+0x1c)].txt_engine_upgrades[ebx][5], 0x1feaa);
+	}
+	else {
+
+		pxlSetPosition(&dst, 16, 269);
+		pxlSet(&src, ___1a1eb8h, 96, 768);
+		pxlSetRectangle(&src, 96, 64);
+		pxlSetPosition(&src, 0, (ecx-1)*64);
+		pxlCopy(&dst, &src, PXL_RECTANGLE);
+
+		___13248h_cdecl(0x90, 0x72, 0x180, 0x77, 1);
+		___13094h_cdecl("[NO MORE ENGINE UPGRADES", 0x136aa);
+		___13094h_cdecl("", 0x15eaa);
+		___13094h_cdecl("You've got the most beastly motor", 0x186aa);
+		___13094h_cdecl("monster this vehicle can carry.", 0x1aeaa);
+		___13094h_cdecl("Hear its powerful & sublime sound.", 0x1d6aa);
+		___13094h_cdecl("", 0x1feaa);
+	}
 }

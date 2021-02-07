@@ -1,18 +1,13 @@
 #include "drally.h"
 
-	extern byte ___180724h[];
-	extern byte ___1a0228h[];
+	extern byte ___1a01e0h[];
 	extern byte ___185c7ah[];
 	extern byte ___1a10b8h[];
-	extern byte ___1a01e0h[];
 	extern byte ___1a112ch__VESA101_ACTIVESCREEN_PTR[];
-	extern byte ___1a0220h[];
 	extern byte ___19de70h[];
-	extern byte ___1a01fch[];
 	extern byte ___1a0fa4h[];
 	extern byte ___1a1ef8h[];
 	extern byte ___19bd60h[];
-	extern byte ___1a020ch[];
 	extern byte ___1a0fb8h[];
 	extern byte ___1a0fe0h[];
 	extern byte ___196adch[];
@@ -96,8 +91,8 @@ ___3826eh:
 		eax = 0x6c*eax;
 		ebx = 0xa;
 		edx = esp;
-		esi = ___180724h;
-		eax = D(eax+___1a0228h);
+		esi = ".";
+		eax = D(eax+___1a01e0h+0x48);
 		edi = esp;
 		itoa_watcom106(eax, edx, ebx);
 		strcat(edi, esi);
@@ -107,11 +102,10 @@ ___3826eh:
 		ebx = esp;
 		D(esp+0x38) = eax;
 		eax = esp;
-		edx = ___185c7ah;
 		eax = ___251e8h_cdecl(eax);
 		ecx -= eax;
 		eax = D(___1a10b8h);
-		___12e78h_cdecl(eax, edx, ebx, ecx);
+		___12e78h_cdecl(eax, ___185c7ah, ebx, ecx);
 		eax ^= eax;
 		L(eax) = B(esp+ebp+0x14);
 		eax = 0x6c*eax;
@@ -122,10 +116,9 @@ ___3826eh:
 		ebx = esp;
 		strcpy(edi, esi);
 		eax = esp;
-		edx = ___185c7ah;
 		eax = strupr_watcom106(eax);
 		eax = D(___1a10b8h);
-		___12e78h_cdecl(eax, edx, ebx, ecx);
+		___12e78h_cdecl(eax, ___185c7ah, ebx, ecx);
 		eax ^= eax;
 		L(eax) = B(esp+ebp+0x14);
 		eax = 0x6c*eax;
@@ -133,7 +126,7 @@ ___3826eh:
 		ebx = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
 		ebx += ecx;
 		ecx = 0x40;
-		esi = D(eax+___1a0220h);
+		esi = D(eax+___1a01e0h+0x40);
 		ebx += 0x1a6;
 		edx = ecx;
 		esi = D(esi*4+___19de70h);
@@ -162,7 +155,7 @@ ___38357h:
 		eax ^= eax;
 		L(eax) = B(esp+ebp+0x14);
 		eax = 0x6c*eax;
-		esi = 0x5140*D(eax+___1a01fch);
+		esi = 0x5140*D(eax+___1a01e0h+0x1c);
 		ebp++;
 		eax = D(___1a0fa4h);
 		ecx = 0x34;
@@ -217,7 +210,7 @@ ___38444h:
 		eax -= edx;
 		eax <<= 0x2;
 		eax -= edx;
-		edx = D(eax*4+___1a020ch);
+		edx = D(eax*4+___1a01e0h+0x2c);
 		eax = 4*edx;
 		eax -= edx;
 		edx = D(___1a0fb8h);
@@ -227,7 +220,7 @@ ___38470h:
 		eax -= edx;
 		eax <<= 0x2;
 		eax -= edx;
-		edx = D(eax*4+___1a020ch);
+		edx = D(eax*4+___1a01e0h+0x2c);
 		eax = 4*edx;
 		eax -= edx;
 		edx = D(___1a0fe0h);
@@ -266,7 +259,7 @@ ___384f1h:
 		eax -= edx;
 		eax <<= 0x2;
 		eax -= edx;
-		edx = D(eax*4+___1a020ch);
+		edx = D(eax*4+___1a01e0h+0x2c);
 		eax = 4*edx;
 		eax -= edx;
 		edx = D(___1a0fb8h);
@@ -276,7 +269,7 @@ ___3851dh:
 		eax -= edx;
 		eax <<= 0x2;
 		eax -= edx;
-		edx = D(eax*4+___1a020ch);
+		edx = D(eax*4+___1a01e0h+0x2c);
 		eax = 4*edx;
 		eax -= edx;
 		edx = D(___1a0fe0h);
@@ -316,7 +309,7 @@ ___385a7h:
 		eax -= edx;
 		eax <<= 0x2;
 		eax -= edx;
-		edx = D(eax*4+___1a020ch);
+		edx = D(eax*4+___1a01e0h+0x2c);
 		eax = 4*edx;
 		eax -= edx;
 		edx = D(___1a0fb8h);
@@ -328,7 +321,7 @@ ___385d3h:
 		eax -= edx;
 		eax <<= 0x2;
 		eax -= edx;
-		edx = D(eax*4+___1a020ch);
+		edx = D(eax*4+___1a01e0h+0x2c);
 		eax = 4*edx;
 		eax -= edx;
 		edx = D(___1a0fe0h);
@@ -368,7 +361,7 @@ ___38663h:
 		eax -= edx;
 		eax <<= 0x2;
 		eax -= edx;
-		edx = D(eax*4+___1a020ch);
+		edx = D(eax*4+___1a01e0h+0x2c);
 		eax = 4*edx;
 		eax -= edx;
 		edx = D(___1a0fb8h);
@@ -380,7 +373,7 @@ ___3868fh:
 		eax -= edx;
 		eax <<= 0x2;
 		eax -= edx;
-		edx = D(eax*4+___1a020ch);
+		edx = D(eax*4+___1a01e0h+0x2c);
 		eax = 4*edx;
 		eax -= edx;
 		edx = D(___1a0fe0h);

@@ -14,15 +14,12 @@ cpu 386
 	extern	___1a111ch
 	extern	___1a112ch__VESA101_ACTIVESCREEN_PTR
 	extern	___1a1124h__VESA101h_ScreenBufferA
-	extern	___181ae4h
 	extern	___13248h_cdecl
 	extern	___185ba9h
 	extern	___252e0h_cdecl
 	extern	___1a10cch
 	extern	___12e78h_cdecl
-	extern	___1819b4h
 	extern	___12cb8h__VESA101_PRESENTSCREEN
-	extern	___1854bch
 	extern	___24cc54h
 	extern	dRally_Sound_pushEffect
 	extern	___5994ch
@@ -145,7 +142,7 @@ ___20e51h:
 		mov     ecx, 56h
 		mov     eax, 1ah
 		lea     edi, [esp+4]
-		mov     esi, ___181ae4h
+		mov     esi, __dfr_181ae4h
 
 	push 	ecx
 	push 	ebx
@@ -182,7 +179,7 @@ ___20e51h:
 	add 	esp, 10h
 
 		mov     ecx, 24bdfh
-		mov     ebx, ___1819b4h
+		mov     ebx, __dfr_1819b4h
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10cch]
 
@@ -204,7 +201,7 @@ ___20e51h:
 
 		push    8000h
 		mov     edx, 1dh
-		mov     esi, [___1854bch]
+		mov     esi, 28000h
 		mov     eax, 1
 		push    esi
 		mov     ecx, [___24cc54h]
@@ -285,4 +282,10 @@ ___20f66h:
 		pop     ecx
 		pop     ebx
 		retn    
+
+section .data
+__dfr_1819b4h:
+	db 	"Press any key to re-enter.",0,0
+__dfr_181ae4h:
+	db 	"Invalid gamepad configuration!",0,0
 */

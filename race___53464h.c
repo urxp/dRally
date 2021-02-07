@@ -1,4 +1,5 @@
 #include "drally.h"
+#include "drally_race.h"
 
 typedef struct x2c_s {
     __DWORD__   __0;        // +00
@@ -58,7 +59,6 @@ typedef struct xc50_s {
 	extern byte ___243188h[];
 	extern byte ___242f78h[];
 	extern byte ___242e78h[];
-	extern byte ___196db0h[];
 	extern byte ___1e8848h[];
 	extern byte ___243c9ch[];
 	extern byte ___196dc8h[];
@@ -79,6 +79,8 @@ void race___53464h(void){
 	dword 		eax, ebx, ecx, edx, edi, esi;
 	dword 		A1, A2, A3, A4, A5, A6, A7, A8, A9;
 	int 		skip;
+	int 		a, b, c, i, j;
+	byte 		px;
 	xc50_t *	p;
 	x2c_t * 	q;
 
@@ -125,27 +127,17 @@ void race___53464h(void){
 
 						if((int)ebx <= 0){
 
-							skip = 0;
-							if((int)abs(D(___243c6ch)-D(___196d8ch)) >= (int)D(___196d8ch)){
-								
-								if((int)abs(D(___243c68h)-D(___196d8ch)) >= (int)D(___196d8ch)){
-									
-									if((int)abs(D(___243c64h)-D(___196d8ch)) >= (int)D(___196d8ch)) skip = 1;
-								}
-							}
+							a = abs(D(___243c6ch)-D(___196d8ch));
+							b = abs(D(___243c68h)-D(___196d8ch));
+							c = abs(D(___243c64h)-D(___196d8ch));
 
-							if(!skip){
+							if((a < (int)D(___196d8ch))||(b < (int)D(___196d8ch))||(c < (int)D(___196d8ch))){
 								
-								skip = 0;
-								if((int)abs(D(___243c78h)-D(___196d94h)) >= (int)D(___196d94h)){
-									
-									if((int)abs(D(___243c74h)-D(___196d94h)) >= (int)D(___196d94h)){
-										
-										if((int)abs(D(___243c70h)-D(___196d94h)) >= (int)D(___196d94h)) skip = 1;
-									}
-								}
+								a = abs(D(___243c78h)-D(___196d94h));
+								b = abs(D(___243c74h)-D(___196d94h));
+								c = abs(D(___243c70h)-D(___196d94h));
 
-								if(!skip){
+								if((a < (int)D(___196d94h))||(b < (int)D(___196d94h))||(c < (int)D(___196d94h))){
 									
 									ebx = p->_84C[D(___243d08h)]-0x80;
 
@@ -172,34 +164,34 @@ void race___53464h(void){
 										___5e3e8h(A1,A2,A3,A4,A5,A6,A7,A8,A9);
 										break;
 									case 1:
-										A7 = D(___243c6ch)+D(___196d98h);
-										A6 = D(___243c78h);
-										A5 = D(___243c68h)+D(___196d98h);
-										A4 = D(___243c74h);
-										A3 = D(___243c64h)+D(___196d98h);
-										A2 = D(___243c70h);
-										A1 = ___243188h;
-										___5e769h(A1,A2,A3,A4,A5,A6,A7);
+										___5e769h(
+											___243188h,
+											D(___243c70h),
+											D(___243c64h)+D(___196d98h),
+											D(___243c74h),
+											D(___243c68h)+D(___196d98h),
+											D(___243c78h),
+											D(___243c6ch)+D(___196d98h));
 										break;
 									case 2:
-										A7 = D(___243c6ch)+D(___196d98h);
-										A6 = D(___243c78h);
-										A5 = D(___243c68h)+D(___196d98h);
-										A4 = D(___243c74h);
-										A3 = D(___243c64h)+D(___196d98h);
-										A2 = D(___243c70h);
-										A1 = ___242f78h;
-										___5e769h(A1,A2,A3,A4,A5,A6,A7);
+										___5e769h(
+											___242f78h,
+											D(___243c70h),
+											D(___243c64h)+D(___196d98h),
+											D(___243c74h),
+											D(___243c68h)+D(___196d98h),
+											D(___243c78h),
+											D(___243c6ch)+D(___196d98h));
 										break;
 									case 3:
-										A7 = D(___243c6ch)+D(___196d98h);
-										A6 = D(___243c78h);
-										A5 = D(___243c68h)+D(___196d98h);
-										A4 = D(___243c74h);
-										A3 = D(___243c64h)+D(___196d98h);
-										A2 = D(___243c70h);
-										A1 = ___242e78h;
-										___5e769h(A1,A2,A3,A4,A5,A6,A7);
+										___5e769h(
+											___242e78h,
+											D(___243c70h),
+											D(___243c64h)+D(___196d98h),
+											D(___243c74h),
+											D(___243c68h)+D(___196d98h),
+											D(___243c78h),
+											D(___243c6ch)+D(___196d98h));
 										break;
 									case 10:
 										A9 = D(___243c6ch)+D(___196d98h);
@@ -228,7 +220,7 @@ void race___53464h(void){
 							}
 						}
 
-						if(D(___196db0h) != 0){
+						if(dRally_Race_getSettings(RACE_TEXTURES)){
 						
 							D(___243c9ch) = D(0x190*D(___243c98h)+4*D(___243d08h)+___1e8848h);
 
@@ -258,36 +250,23 @@ void race___53464h(void){
 
 										ebx = 0x200*q->_1C+q->_18+D(___196d98h)+0x60+D(___243d80h);
 										esi = D(___243d5ch)+q->__8;
-										edx = q->__4;
 
-										while(1){
+										j = -1;
+										while(++j < q->__4){
 
 											if((int)ebx > (int)D(___243d80h)){
 
-												ecx = q->__0;
-
-												while(1){
-
-													if(B(esi) != 0) B(ebx) = B(esi);
-													ebx++;
-													esi++;
-													ecx--;
-												
-													if(ecx == 0) break;
+												i = -1;
+												while(++i < q->__0){
+													
+													if((px = B(esi+i))) B(ebx+i) = px;
 												}
-
-												ebx -= q->__0;
-											}
-											else {
-
-												esi += q->__0;
 											}
 
+											esi += q->__0;
 											ebx += 0x200;
 											eax = D(___243d80h)+0x19000;
 											if((int)ebx >= (int)eax) break;
-											edx--;
-											if(edx == 0) break;
 										}
 									}
 								}

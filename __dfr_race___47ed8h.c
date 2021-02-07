@@ -16,13 +16,9 @@ cpu 386
 	extern	___2432d4h
 	extern	memset
 	extern	___243d80h
-	extern	___243e53h
-	extern	___243e57h
-	extern	___243e5fh
-	extern	___243e5bh
-	extern	___243e73h
+	extern	___243e74h
 	extern	rand_watcom106
-	extern	___1a309ch
+	extern	___1a30a0h
 	extern	dRally_Sound_freeEffectChannel
 	extern	dRally_Sound_pushEffect
 	extern	kmap
@@ -38,11 +34,7 @@ cpu 386
 	extern	___58c60h
 	extern	___47304h
 	extern	___24330ch
-	extern	___243e74h
 	extern	___2432dch
-	extern	___243e94h
-	extern	___243e80h
-	extern	___243e7ch
 	extern	___243d70h
 	extern	___47620h
 	extern	dRally_Memory_free
@@ -126,12 +118,12 @@ ___47f41h:
 		mov     bl, 64h
 		xor     edx, edx
 ___47f83h:
+		mov     [eax+___243e74h], edx
+		mov     [eax+___243e74h+4], edx
+		mov     [eax+___243e74h+0xc], edx
+		mov     [eax+___243e74h+8], edx
+		mov     [eax+___243e74h+0x20], bl
 		add     eax, byte 21h
-		mov     [eax+___243e53h], edx
-		mov     [eax+___243e57h], edx
-		mov     [eax+___243e5fh], edx
-		mov     [eax+___243e5bh], edx
-		mov     [eax+___243e73h], bl
 		cmp     eax, dword 7ce9h
 		jne     short ___47f83h
 		mov     esi, 13ch
@@ -147,8 +139,8 @@ ___47fb2h:
 		mov     edx, eax
 		sar     edx, 1fh
 		idiv    esi
+		mov     [ebx+___1a30a0h], edx
 		add     ebx, byte 4
-		mov     [ebx+___1a309ch], edx
 		cmp     ebx, 190h
 		jne     short ___47fb2h
 		mov     ecx, 3e80h
@@ -362,7 +354,7 @@ ___481bah:
 		xor     ebp, ebp
 ___481f8h:
 		imul    eax, ebp, byte 21h
-		cmp     byte [eax+___243e94h], 64h
+		cmp     byte [eax+___243e74h+0x20], 64h
 		je      short ___4820bh
 		inc     dword [esp+330h]
 ___4820bh:
@@ -382,7 +374,7 @@ ___4820bh:
 		imul    ebx, ebp, byte 21h
 		add     eax, edx
 		shl     eax, 10h
-		mov     [ebx+___243e80h], eax
+		mov     [ebx+___243e74h+0xc], eax
 
 	push 	edx
 	push 	ecx
@@ -396,7 +388,7 @@ ___4820bh:
 		idiv    esi
 		sub     edx, byte 2
 		shl     edx, 10h
-		mov     [ebx+___243e7ch], edx
+		mov     [ebx+___243e74h+8], edx
 		imul    eax, [___2432d0h], 0cch
 		mov     ecx, 0cch
 		mov     esi, [___2432cch]

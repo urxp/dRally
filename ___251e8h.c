@@ -1,14 +1,22 @@
 #include "drally.h"
 
-	extern byte ___185c5ch[];
+#pragma pack(1)
+typedef struct font_props_s {
+	byte 	w;
+	byte 	h;
+	byte 	props[];
+} font_props_t;
+
+	extern font_props_t ___185c7ah;
 
 dword ___251e8h_cdecl(const char * A1){
 
-	int 	rslt, n;
+	int 	n, offset;
 
-	rslt = 0;
+
+	offset = 0;
 	n = -1;
-	while(A1[++n]) rslt += B(___185c5ch+A1[n]);
+	while(A1[++n]) offset += ___185c7ah.props[A1[n]-0x20];
 
-	return rslt;
+	return offset;
 }

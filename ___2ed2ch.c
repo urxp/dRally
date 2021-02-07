@@ -6,7 +6,7 @@
 	extern byte ___1a1e54h[];
 	extern byte ___1a1e64h[];
 	extern byte ___1a1e58h[];
-	extern byte ___1a1e70h[];
+	extern void * ___1a1e98h;
 
 void ___25330h(void);
 void ___2d728h(void);
@@ -79,7 +79,7 @@ ___2ede2h:
 		if(L(ecx)) goto ___2ede0h;
 		ecx = 0x60;
 		ebx = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
-		esi = D(___1a1e70h);
+		esi = ___1a1e98h+0x9000;
 		ebx += 0x27a30;
 		edx = ecx;
 		L(edx) >>= 2;

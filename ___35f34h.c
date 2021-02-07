@@ -1,8 +1,7 @@
 #include "drally.h"
 
 	extern byte ___1a0ef8h[];
-	extern byte ___1a01fch[];
-	extern byte ___1a0ef7h[];
+	extern byte ___1a01e0h[];
 
 void ___35f34h_cdecl(dword A1, dword A2, dword A3){
 
@@ -29,12 +28,12 @@ ___35f51h:
 		edi = B(eax+ebp+___1a0ef8h);
 		edi = 0x6c*edi;
 		D(esp+0x4) = ebp;
-		edi = D(edi+___1a01fch);
+		edi = D(edi+___1a01e0h+0x1c);
 ___35f81h:
 		L(eax) = B(ecx+ebp+___1a0ef8h);
 		eax &= 0xff;
 		eax = 0x6c*eax;
-		if((int)edi <= (int)D(eax+___1a01fch)) goto ___35f9bh;
+		if((int)edi <= (int)D(eax+___1a01e0h+0x1c)) goto ___35f9bh;
 		ecx++;
 		goto ___35f81h;
 ___35f9bh:
@@ -45,7 +44,7 @@ ___35fa1h:
 		L(ebx) = B(eax+___1a0ef8h);
 		ebx = 0x6c*ebx;
 		edx = esi-1;
-		if((int)edi >= (int)D(ebx+___1a01fch)) goto ___35fbch;
+		if((int)edi >= (int)D(ebx+___1a01e0h+0x1c)) goto ___35fbch;
 		esi = edx;
 		eax--;
 		goto ___35fa1h;
@@ -54,10 +53,10 @@ ___35fbch:
 		esi = D(esp+0x4);
 		ebx ^= ebx;
 		L(ebx) = B(ecx+esi+___1a0ef8h);
-		ecx++;
 		D(esp) = ebx;
 		L(ebx) = B(eax+___1a0ef8h);
-		B(ecx+esi+___1a0ef7h) = L(ebx);
+		B(ecx+esi+___1a0ef8h) = L(ebx);
+		ecx++;
 		L(ebx) = B(esp);
 		esi = edx;
 		B(eax+___1a0ef8h) = L(ebx);

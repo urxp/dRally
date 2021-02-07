@@ -1,63 +1,19 @@
 #include "drally.h"
 #include "drally_keyboard.h"
 
-	extern byte ___19dd70h[];
-	extern byte ___19dd90h[];
-	extern byte ___19dd8eh[];
-	extern byte ___19dda0h[];
-	extern byte ___19dd91h[];
-	extern byte ___19dd82h[];
-	extern byte ___19dd9eh[];
-	extern byte ___19dd92h[];
-	extern byte ___19dd93h[];
-	extern byte ___19dd96h[];
-	extern byte ___19dd87h[];
-	extern byte ___19dd94h[];
-	extern byte ___19dda1h[];
-	extern byte ___19dda2h[];
-	extern byte ___19dd95h[];
-	extern byte ___19dd88h[];
-	extern byte ___19dd89h[];
-	extern byte ___19dd84h[];
-	extern byte ___19dd80h[];
-	extern byte ___19dd83h[];
-	extern byte ___19dd9fh[];
-	extern byte ___19dd86h[];
-	extern byte ___19dd8fh[];
-	extern byte ___19dd81h[];
-	extern byte ___19dd9dh[];
-	extern byte ___19dd73h[];
-	extern byte ___19dd85h[];
-	extern byte ___19dd9ch[];
-	extern byte ___19dd75h[];
-	extern byte ___19dd74h[];
-	extern byte ___19dd72h[];
-	extern byte ___19dd76h[];
-	extern byte ___19dd77h[];
-	extern byte ___19dd7bh[];
-	extern byte ___19dd78h[];
-	extern byte ___19dd79h[];
-	extern byte ___19dd7dh[];
-	extern byte ___19dd7ch[];
-	extern byte ___19dd7ah[];
-	extern byte ___19dda3h[];
-	extern byte ___19dda4h[];
-	extern byte ___19dda9h[];
-	extern byte ___19dda5h[];
+	extern byte ___19dd70h[256];
 	extern byte ___185ba9h[];
 	extern byte ___1a10e0h[];
 	extern byte ___1a112ch__VESA101_ACTIVESCREEN_PTR[];
 	extern byte ___19bd60h[];
-	extern byte ___1854ach[];
 	extern byte ___24cc54h[];
 	extern byte ___19de70h[];
 	extern byte ___1a1104h[];
 	extern byte ___1a1ef8h[];
-	extern byte ___1a0220h[];
+	extern byte ___1a01e0h[];
 	extern byte ___1a0fb8h[];
 	extern byte ___1a1e88h[];
 	extern byte ___1a1eb4h[];
-	extern byte ___1a020ch[];
 
 void ___1398ch__VESA101_PRESENTRECTANGLE(dword offset, void * src, dword w, dword h);
 void ___17384h_cdecl(dword, dword, dword, dword, dword, dword);
@@ -75,6 +31,7 @@ dword ___17510h_cdecl(dword A1, dword A2, dword A3, dword A4, dword A5, dword A6
 	long long 	ll_tmp;
 	dword 	eax, eax1, eax2, ebx, ecx, edx, edi, esi, ebp;
 	byte 	esp[0x9c+0xc+4+0x14];
+	int 	i, j;
 
 
 	D(esp+0x40) = A1;
@@ -90,48 +47,48 @@ dword ___17510h_cdecl(dword A1, dword A2, dword A3, dword A4, dword A5, dword A6
 	D(esp+0x90) = 0x3f;
 	D(esp+0x38) = 0x70;
 	memset(___19dd70h, 0, 0x100);
-	B(___19dd90h) = 0x44;
-	B(___19dd8eh) = 0x41;
-	B(___19dda0h) = 0x42;
-	B(___19dd91h) = 0x46;
-	B(___19dd82h) = 0x45;
-	B(___19dd9eh) = 0x43;
-	B(___19dd92h) = 0x47;
-	B(___19dd93h) = 0x48;
-	B(___19dd96h) = 0x4c;
-	B(___19dd87h) = 0x49;
-	B(___19dd94h) = 0x4a;
-	B(___19dda1h) = 0x4e;
-	B(___19dda2h) = 0x4d;
-	B(___19dd95h) = 0x4b;
-	B(___19dd88h) = 0x4f;
-	B(___19dd89h) = 0x50;
-	B(___19dd84h) = 0x54;
-	B(___19dd80h) = 0x51;
-	B(___19dd83h) = 0x52;
-	B(___19dd9fh) = 0x56;
-	B(___19dd86h) = 0x55;
-	B(___19dd8fh) = 0x53;
-	B(___19dd81h) = 0x57;
-	B(___19dd9dh) = 0x58;
-	B(___19dd73h) = 0x32;
-	B(___19dd85h) = 0x59;
-	B(___19dd9ch) = 0x5a;
-	B(___19dd75h) = 0x34;
-	B(___19dd74h) = 0x33;
-	B(___19dd72h) = 0x31;
-	B(___19dd76h) = 0x35;
-	B(___19dd77h) = 0x36;
-	B(___19dd7bh) = 0x30;
-	B(___19dd78h) = 0x37;
-	B(___19dd79h) = 0x38;
-	B(___19dd7dh) = 0x3d;
-	B(___19dd7ch) = 0x2d;
-	B(___19dd7ah) = 0x39;
-	B(___19dda3h) = 0x2c;
-	B(___19dda4h) = 0x2e;
-	B(___19dda9h) = 0x20;
-	B(___19dda5h) = 0x2f;
+	___19dd70h[0x20] = 'D';
+	___19dd70h[0x1e] = 'A';
+	___19dd70h[0x30] = 'B';
+	___19dd70h[0x21] = 'F';
+	___19dd70h[0x12] = 'E';
+	___19dd70h[0x2e] = 'C';
+	___19dd70h[0x22] = 'G';
+	___19dd70h[0x23] = 'H';
+	___19dd70h[0x26] = 'L';
+	___19dd70h[0x17] = 'I';
+	___19dd70h[0x24] = 'J';
+	___19dd70h[0x31] = 'N';
+	___19dd70h[0x32] = 'M';
+	___19dd70h[0x25] = 'K';
+	___19dd70h[0x18] = 'O';
+	___19dd70h[0x19] = 'P';
+	___19dd70h[0x14] = 'T';
+	___19dd70h[0x10] = 'Q';
+	___19dd70h[0x13] = 'R';
+	___19dd70h[0x2f] = 'V';
+	___19dd70h[0x16] = 'U';
+	___19dd70h[0x1f] = 'S';
+	___19dd70h[0x11] = 'W';
+	___19dd70h[0x2d] = 'X';
+	___19dd70h[0x03] = '2';
+	___19dd70h[0x15] = 'Y';
+	___19dd70h[0x2c] = 'Z';
+	___19dd70h[0x05] = '4';
+	___19dd70h[0x04] = '3';
+	___19dd70h[0x02] = '1';
+	___19dd70h[0x06] = '5';
+	___19dd70h[0x07] = '6';
+	___19dd70h[0x0b] = '0';
+	___19dd70h[0x08] = '7';
+	___19dd70h[0x09] = '8';
+	___19dd70h[0x0d] = '=';
+	___19dd70h[0x0c] = '-';
+	___19dd70h[0x0a] = '9';
+	___19dd70h[0x33] = ',';
+	___19dd70h[0x34] = '.';
+	___19dd70h[0x39] = ' ';
+	___19dd70h[0x35] = '/';
 	B(esp+0x95) = 0;
 	___12e78h_cdecl(D(___1a10e0h), ___185ba9h, strcpy(esp, D(esp+0x40)), D(esp+0x3c)+0x280*D(esp+0x8c));
 	ebp = 0;
@@ -248,14 +205,14 @@ dword ___17510h_cdecl(dword A1, dword A2, dword A3, dword A4, dword A5, dword A6
 
 				eax = 0x6c*D(___1a1ef8h);
 				edx = D(esp+0x7c);
-				D(eax+___1a0220h) = edx;
+				D(eax+___1a01e0h+0x40) = edx;
 			}
 
 			if(D(esp+0xbc) != 0){
 			
 				eax = 0x6c*D(___1a1ef8h);
 				edx = D(esp+0x80);
-				D(eax+___1a020ch) = edx;
+				D(eax+___1a01e0h+0x2c) = edx;
 			}
 			break;
 		case DR_SCAN_F1:
@@ -267,7 +224,7 @@ dword ___17510h_cdecl(dword A1, dword A2, dword A3, dword A4, dword A5, dword A6
 		case DR_SCAN_KP_8:
 			if(D(esp+0xbc) != 0){
 
-				dRally_Sound_pushEffect(1, 0x19, 0, D(___24cc54h), D(___1854ach), 0x8000);
+				dRally_Sound_pushEffect(1, 0x19, 0, D(___24cc54h), 0x28000, 0x8000);
 
 				if((int)D(esp+0x7c) <= 0){
 				
@@ -278,118 +235,38 @@ dword ___17510h_cdecl(dword A1, dword A2, dword A3, dword A4, dword A5, dword A6
 					D(esp+0x7c)--;
 				}
 
-				ecx = D(esp+0x70);
-				eax = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
-				esi = D(esp+0x90);
-				eax += ecx;
-				ecx = 0x40;
-				eax += esi;
-				esi = D(esp+0x7c);
-				ebx = eax+0x1b;
-				edx = ecx;
-				esi = D(4*esi+___19de70h);
-				edi = D(esp+0x70);
-				L(edx) >>= 2;
+				ebx = D(___1a112ch__VESA101_ACTIVESCREEN_PTR)+D(esp+0x70)+D(esp+0x90)+0x1b;
 
-				while(1){
+				j = -1;
+				while(++j < 0x40){
 
-					H(ecx) = L(edx);
-
-					while(1){
-
-						eax = D(esi);
-						D(ebx) = eax;
-						ebx += 0x4;
-						esi += 0x4;
-						H(ecx)--;
-
-						if(H(ecx) == 0) break;
-					}
-
-					ebx += 0x280;
-					L(edx) <<= 2;
-					ebx -= edx;
-					L(edx) >>= 2;
-					L(ecx)--;
-
-					if(L(ecx) == 0) break;
+					i = -1;
+					while(++i < 0x40) B(ebx+0x280*j+i) = B(D(___19de70h+4*D(esp+0x7c))+0x40*j+i);
 				}
 
-				eax = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
-				edx = D(esp+0x90);
-				eax += edi;
-				eax += edx;
-				ecx = 0x40;
-				edx = eax+0x1b;
-				ebx = ecx;
-				eax = D(esp+0x60);
-				esi ^= esi;
-				___1398ch__VESA101_PRESENTRECTANGLE(eax, edx, ebx, ecx);
+				___1398ch__VESA101_PRESENTRECTANGLE(D(esp+0x60), D(___1a112ch__VESA101_ACTIVESCREEN_PTR)+D(esp+0x70)+D(esp+0x90)+0x1b, 0x40, 0x40);
 
+				esi = 0;
 				while(1){
 
-					edx = D(esp+0x38);
-					ebx = D(esp+0x90);
-					ecx = D(esp+0x0bc);
-					eax2 = edx;
-					eax = D(esp+0x3c);
-					edx = D(esp+0x8c);
-					eax1 = ebx;
-					ebx = ebp;
-					esi++;
-					___17384h_cdecl(eax, edx, ebx, ecx, eax1, eax2);
+					___17384h_cdecl(D(esp+0x3c), D(esp+0x8c), ebp, D(esp+0x0bc), D(esp+0x90), D(esp+0x38));
 
+					esi++;
 					if((int)esi >= 5) break;
 				}
 
-				ecx = D(esp+0x74);
-				esi = D(esp+0x90);
-				eax = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
-				edx = 0x44;
-				eax += ecx;
-				ecx = 0x10;
-				eax += esi;
-				esi = D(___1a1104h);
-				ebx = eax+0x19;
-				esi += 0x880;
-				edi = D(esp+0x74);
-				L(edx) >>= 2;
+				ebx = D(___1a112ch__VESA101_ACTIVESCREEN_PTR)+D(esp+0x74)+D(esp+0x90)+0x19;
 
-				while(1){
+				j = -1;
+				while(++j < 0x10){
 
-					H(ecx) = L(edx);
-
-					while(1){
-
-						eax = D(esi);
-						D(ebx) = eax;
-						ebx += 0x4;
-						esi += 0x4;
-						H(ecx)--;
-
-						if(H(ecx) == 0) break;
-					}
-
-					ebx += 0x280;
-					L(edx) <<= 2;
-					ebx -= edx;
-					L(edx) >>= 2;
-					L(ecx)--;
-
-					if(L(ecx) == 0) break;
+					i = -1;
+					while(++i < 0x44) B(ebx+0x280*j+i) = B(D(___1a1104h)+0x880+0x44*j+i);
 				}
 
-				eax = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
-				edx = D(esp+0x90);
-				eax += edi;
-				eax += edx;
-				ecx = 0x10;
-				edx = eax+0x19;
-				ebx = 0x44;
-				eax = D(esp+0x68);
-				esi ^= esi;
-				___1398ch__VESA101_PRESENTRECTANGLE(eax, edx, ebx, ecx);
+				___1398ch__VESA101_PRESENTRECTANGLE(D(esp+0x68), D(___1a112ch__VESA101_ACTIVESCREEN_PTR)+D(esp+0x74)+D(esp+0x90)+0x19, 0x44, 0x10);
 
+				esi = 0;
 				while(1){
 
 					ebx = D(esp+0x38);
@@ -454,7 +331,7 @@ dword ___17510h_cdecl(dword A1, dword A2, dword A3, dword A4, dword A5, dword A6
 				esi ^= esi;
 				edx = D(esp+0x7c);
 				D(esp+0x88) = esi;
-				D(eax+___1a0220h) = edx;
+				D(eax+___1a01e0h+0x40) = edx;
 			}
 			break;
 		case DR_SCAN_LEFT:
@@ -712,7 +589,7 @@ dword ___17510h_cdecl(dword A1, dword A2, dword A3, dword A4, dword A5, dword A6
 			if(D(esp+0xbc) != 0){
 
 				eax = 0x1;
-				edx = D(___1854ach);
+				edx = 0x28000;
 				ecx = D(___24cc54h);
 				eax1 = edx;
 				ebx ^= ebx;
@@ -903,15 +780,15 @@ dword ___17510h_cdecl(dword A1, dword A2, dword A3, dword A4, dword A5, dword A6
 				esi ^= esi;
 				edx = D(esp+0x7c);
 				D(esp+0x88) = esi;
-				D(eax+___1a0220h) = edx;
+				D(eax+___1a01e0h+0x40) = edx;
 			}
 			break;
 		default:
-			if(B(D(esp+0x4c)+B(D(esp+0x88)+___19dd70h)) == 1){
+			if(B(D(esp+0x4c)+___19dd70h[D(esp+0x88)]) == 1){
 
 				if((strlen(esp) < D(esp+0x0ac))&&((int)ebp < (int)D(esp+0xb0))){
 						
-					B(esp+0x94) = B(D(esp+0x88)+___19dd70h);
+					B(esp+0x94) = ___19dd70h[D(esp+0x88)];
 
 					if((B(esp+0x94) > 0x40)&&(B(esp+0x94) < 0x5b)) B(esp+0x94) += 0x20;
 

@@ -4,7 +4,6 @@
 #define COO10UV(u,v) (0x10*(v)+(u))
 
 	extern byte ___1a1ec4h[];
-	extern byte ___1854b0h[];
 	extern byte ___24cc54h[];
 	extern byte ___1a1ee4h[];
 	extern byte ___1a112ch__VESA101_ACTIVESCREEN_PTR[];
@@ -29,7 +28,7 @@ void shop___28880h(void){
 	byte 	px;
 
 
-	if((int)D(___1a1ec4h) < 5) dRally_Sound_pushEffect(1, 0x1a, 0, D(___24cc54h), D(___1854b0h), 0x8000);
+	if((int)D(___1a1ec4h) < 5) dRally_Sound_pushEffect(1, 0x1a, 0, D(___24cc54h), 0x28000, 0x8000);
 
 	switch(D(___1a1ec4h)){
 	case 0:

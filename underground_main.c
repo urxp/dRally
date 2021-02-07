@@ -1,16 +1,14 @@
 #include "drally.h"
 
 	extern byte ___1a1ef8h[];
-	extern byte ___1a0224h[];
+	extern byte ___1a01e0h[];
 	extern byte ___19bd60h[];
-	extern byte ___1a0a5ch[];
-	extern byte ___1865fch[];
+	extern byte ___1a0a50h[];
+	extern __DWORD__ ___1865fch[];
 	extern byte ___1a1ea0h[];
 	extern byte ___1a1ee8h[];
 	extern byte ___1a112ch__VESA101_ACTIVESCREEN_PTR[];
 	extern byte ___19eb50h[];
-	extern byte ___19eb54h[];
-	extern byte ___19eb58h[];
 	extern byte ___1a1ef4h[];
 	extern byte ___1a1ef0h[];
 	extern byte ___185a40h[];
@@ -18,15 +16,10 @@
 	extern byte ___185a38h[];
 	extern byte ___185a28h[];
 	extern byte ___1a1138h__VESA101h_DefaultScreenBufferB[];
-	extern byte ___1807cch[];
 	extern byte ___185c0bh[];
 	extern byte ___1a10fch[];
-	extern byte ___1807e8h[];
 	extern byte ___1a1108h[];
 	extern byte ___1a1124h__VESA101h_ScreenBufferA[];
-	extern byte ___1807c0h[];
-	extern byte ___18078ch[];
-	extern byte ___1821ech[];
 	extern byte ___196a84h[];
 	extern byte ___185a34h[];
 	extern byte ___185a2ch[];
@@ -93,7 +86,7 @@ void underground_main(void){
 		eax = 0;
 		D(esp) = edx;
 ___2ee98h:
-		ecx = D(eax+___1a0224h);
+		ecx = D(eax+___1a01e0h+0x44);
 		if((int)edx >= (int)ecx) goto ___2eea9h;
 		if(esi == D(esp)) goto ___2eea9h;
 		edx = ecx;
@@ -109,9 +102,9 @@ ___2eea9h:
 		eax -= ebx;
 		eax <<= 2;
 		eax -= ebx;
-		if((int)edx >= (int)D(4*eax+___1a0224h)) goto ___2eee6h;
+		if((int)edx >= (int)D(4*eax+___1a01e0h+0x44)) goto ___2eee6h;
 		ecx = 0;
-		D(___1a0a5ch) = ecx;
+		D(___1a0a50h+0xc) = ecx;
 ___2eee6h:
 		___2b318h();
 		ebp = 0x32;
@@ -166,7 +159,7 @@ ___2ef85h:
 		eax &= 0xff;
 		rr = eax;
 		edx = esi;
-		eax = D(edi+___19eb54h);
+		eax = D(edi+___19eb50h+4);
 		ll_tmp = (long long)(int)eax*(int)edx; edx = ll_tmp>>0x20; eax = ll_tmp;
 		eax += 0x8000;
 		edx += !!(eax < 0x8000);
@@ -176,7 +169,7 @@ ___2ef85h:
 		eax &= 0xff;
 		gg = eax;
 		edx = esi;
-		eax = D(edi+___19eb58h);
+		eax = D(edi+___19eb50h+8);
 		ll_tmp = (long long)(int)eax*(int)edx; edx = ll_tmp>>0x20; eax = ll_tmp;
 		eax += 0x8000;
 		edx += !!(eax < 0x8000);
@@ -210,7 +203,7 @@ ___2f020h:
 		eax &= 0xff;
 		rr = eax;
 		edx = esi;
-		eax = D(edi+___19eb54h);
+		eax = D(edi+___19eb50h+4);
 		ll_tmp = (long long)(int)eax*(int)edx; edx = ll_tmp>>0x20; eax = ll_tmp;
 		eax += 0x8000;
 		edx += !!(eax < 0x8000);
@@ -220,7 +213,7 @@ ___2f020h:
 		eax &= 0xff;
 		gg = eax;
 		edx = esi;
-		eax = D(edi+___19eb58h);
+		eax = D(edi+___19eb50h+8);
 		ll_tmp = (long long)(int)eax*(int)edx; edx = ll_tmp>>0x20; eax = ll_tmp;
 		eax += 0x8000;
 		edx += !!(eax < 0x8000);
@@ -325,7 +318,7 @@ ___2f1f7h:
 		eax &= 0xff;
 		rr = eax;
 		edx = esi;
-		eax = D(edi+___19eb54h);
+		eax = D(edi+___19eb50h+4);
 		ll_tmp = (long long)(int)eax*(int)edx; edx = ll_tmp>>0x20; eax = ll_tmp;
 		eax += 0x8000;
 		edx += !!(eax < 0x8000);
@@ -335,7 +328,7 @@ ___2f1f7h:
 		eax &= 0xff;
 		gg = eax;
 		edx = esi;
-		eax = D(edi+___19eb58h);
+		eax = D(edi+___19eb50h+8);
 		ll_tmp = (long long)(int)eax*(int)edx; edx = ll_tmp>>0x20; eax = ll_tmp;
 		eax += 0x8000;
 		edx += !!(eax < 0x8000);
@@ -369,7 +362,7 @@ ___2f292h:
 		eax &= 0xff;
 		rr = eax;
 		edx = esi;
-		eax = D(edi+___19eb54h);
+		eax = D(edi+___19eb50h+4);
 		ll_tmp = (long long)(int)eax*(int)edx; edx = ll_tmp>>0x20; eax = ll_tmp;
 		eax += 0x8000;
 		edx += !!(eax < 0x8000);
@@ -379,7 +372,7 @@ ___2f292h:
 		eax &= 0xff;
 		gg = eax;
 		edx = esi;
-		eax = D(edi+___19eb58h);
+		eax = D(edi+___19eb50h+8);
 		ll_tmp = (long long)(int)eax*(int)edx; edx = ll_tmp>>0x20; eax = ll_tmp;
 		eax += 0x8000;
 		edx += !!(eax < 0x8000);
@@ -570,7 +563,7 @@ ___2f5b1h:
 		eax &= 0xff;
 		rr = eax;
 		edx = edi;
-		eax = D(esi+___19eb54h);
+		eax = D(esi+___19eb50h+4);
 		ll_tmp = (long long)(int)eax*(int)edx; edx = ll_tmp>>0x20; eax = ll_tmp;
 		eax += 0x8000;
 		edx += !!(eax < 0x8000);
@@ -580,7 +573,7 @@ ___2f5b1h:
 		eax &= 0xff;
 		gg = eax;
 		edx = edi;
-		eax = D(esi+___19eb58h);
+		eax = D(esi+___19eb50h+8);
 		ll_tmp = (long long)(int)eax*(int)edx; edx = ll_tmp>>0x20; eax = ll_tmp;
 		eax += 0x8000;
 		edx += !!(eax < 0x8000);
@@ -680,12 +673,12 @@ ___2f7b8h:
 		___135fch(eax, edx, ebx, ecx);
 		if(D(___19bd60h) == 0) goto ___2f809h;
 		ecx = 0x390a3;
-		ebx = ___1807cch;
+		ebx = "press   to enter chat mode";
 		edx = ___185c0bh;
 		eax = D(___1a10fch);
 		___12e78h_cdecl(eax, edx, ebx, ecx);
 		ecx = 0x390d9;
-		ebx = ___1807e8h;
+		ebx = "F1";
 		edx = ___185c0bh;
 		eax = D(___1a1108h);
 		___12e78h_cdecl(eax, edx, ebx, ecx);
@@ -697,15 +690,15 @@ ___2f809h:
 		edi = D(___1a1124h__VESA101h_ScreenBufferA);
 		memcpy(edi, esi, ecx);
 		if(ebp != 1) goto ___2f843h;
-		eax = ___1807c0h;
+		eax = "Game Saved.";
 		___2a608h_cdecl(eax);
 ___2f843h:
 		if(ebp != 2) goto ___2f852h;
-		eax = ___18078ch;
+		eax = "Game Loaded.";
 		___2a608h_cdecl(eax);
 ___2f852h:
 		if(ebp != 3) goto ___2f861h;
-		eax = ___1821ech;
+		eax = "Game not found.";
 		___2a608h_cdecl(eax);
 ___2f861h:
 		ecx = 0x4b000;
@@ -785,7 +778,7 @@ ___2f998h:
 		eax &= 0xff;
 		rr = eax;
 		edx = esi;
-		eax = D(edi+___19eb54h);
+		eax = D(edi+___19eb50h+4);
 		ll_tmp = (long long)(int)eax*(int)edx; edx = ll_tmp>>0x20; eax = ll_tmp;
 		eax += 0x8000;
 		edx += !!(eax < 0x8000);
@@ -795,7 +788,7 @@ ___2f998h:
 		eax &= 0xff;
 		gg = eax;
 		edx = esi;
-		eax = D(edi+___19eb58h);
+		eax = D(edi+___19eb50h+8);
 		ll_tmp = (long long)(int)eax*(int)edx; edx = ll_tmp>>0x20; eax = ll_tmp;
 		eax += 0x8000;
 		edx += !!(eax < 0x8000);
@@ -829,7 +822,7 @@ ___2fa33h:
 		eax &= 0xff;
 		rr = eax;
 		edx = esi;
-		eax = D(edi+___19eb54h);
+		eax = D(edi+___19eb50h+4);
 		ll_tmp = (long long)(int)eax*(int)edx; edx = ll_tmp>>0x20; eax = ll_tmp;
 		eax += 0x8000;
 		edx += !!(eax < 0x8000);
@@ -839,7 +832,7 @@ ___2fa33h:
 		eax &= 0xff;
 		gg = eax;
 		edx = esi;
-		eax = D(edi+___19eb58h);
+		eax = D(edi+___19eb50h+8);
 		ll_tmp = (long long)(int)eax*(int)edx; edx = ll_tmp>>0x20; eax = ll_tmp;
 		eax += 0x8000;
 		edx += !!(eax < 0x8000);

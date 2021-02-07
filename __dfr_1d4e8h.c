@@ -8,15 +8,9 @@ cpu 386
 	extern	___1a116ch
 	extern	___185a58h
 	extern	___1a1f4eh
-	extern	___1a1f4dh
-	extern	___180864h
 	extern	___1a1ef8h
-	extern	___1a1dbah
 	extern	___1a01e0h
-	extern	___180ca4h
-	extern	___1a1f63h
 	extern	___23488h
-	extern	___180130h
 	extern	___1e62ch
 	extern	___196a84h
 	extern	___135fch
@@ -44,32 +38,32 @@ __GDECL(___1d4e8h)
 ___1d50ah:
 		mov     esi, ebx
 		mov     edi, ecx
-		inc     edx
 		call 	__STRCPY
 		add     ecx, 96h
-		mov     al, [edx+___1a1f4eh]
+		mov     al, [edx+___1a1f4eh+1]
 		add     ebx, 96h
-		mov     [edx+___1a1f4dh], al
+		mov     [edx+___1a1f4eh], al
+		inc     edx
 		cmp     edx, byte 15h
 		jl      short ___1d50ah
-		mov     edx, [___180864h]
+		mov     edx, [ddash]
 		mov     ebx, [___1a1ef8h]
-		mov     [___1a1dbah], edx
+		mov     [___1a116ch+0c4eh], edx
 		lea     edx, [ebx*8+0]
 		sub     edx, ebx
 		shl     edx, 2
 		sub     edx, ebx
 		mov     esi, ___1a01e0h
 		shl     edx, 2
-		mov     edi, ___1a1dbah
+		mov     edi, ___1a116ch+0c4eh
 		add     esi, edx
 		call 	__STRCAT
-		mov     esi, ___180ca4h
+		mov     esi, __dfr_180ca4h
 		mov     ebx, 9
 		call 	__STRCAT
 		xor     ah, ah
 		mov     edx, 64h
-		mov     [___1a1f63h], ah
+		mov     [___1a1f4eh+15h], ah
 		mov     eax, edi
 		mov     ecx, ___1a116ch
 		call    near ___23488h
@@ -78,18 +72,18 @@ ___1d50ah:
 ___1d5e4h:
 		mov     esi, ebx
 		mov     edi, ecx
-		inc     edx
 		call 	__STRCPY
 		add     ecx, 96h
-		mov     al, [edx+___1a1f4eh]
+		mov     al, [edx+___1a1f4eh+1]
 		add     ebx, 96h
-		mov     [edx+___1a1f4dh], al
+		mov     [edx+___1a1f4eh], al
+		inc     edx
 		cmp     edx, byte 15h
 		jl      short ___1d5e4h
 		mov     ecx, 6dh
-		mov     al, [___180130h]
+		mov     al, 0
 		mov     edx, 173h
-		mov     [___1a1dbah], al
+		mov     [___1a116ch+0c4eh], al
 		xor     eax, eax
 		xor     ebx, ebx
 		call    near ___1e62ch
@@ -159,4 +153,10 @@ ___1d5e4h:
 		pop     ecx
 		pop     ebx
 		retn    
+
+section .data
+ddash:
+	db 	"-- ",0
+__dfr_180ca4h:
+	db 	" has left from Death Rally.",0
 */

@@ -3,18 +3,10 @@
 	extern byte ___243d80h[];
 	extern byte ___243d88h[];
 	extern byte ___243c60h[];
-	extern byte ___1e7082h[];
+	extern byte ___1e6ed0h[];
 	extern byte ___196dc8h[];
-	extern byte ___1e709ah[];
 	extern byte ___196d98h[];
 	extern byte ___196dcch[];
-	extern byte ___1e709eh[];
-	extern byte ___1e707eh[];
-	extern byte ___1e7092h[];
-	extern byte ___1e7096h[];
-	extern byte ___1e707ah[];
-	extern byte ___1e708ah[];
-	extern byte ___1e708eh[];
 
 void race___50ba4h(void){
 
@@ -25,14 +17,14 @@ void race___50ba4h(void){
 		ebx = D(___243d80h);
 		esi = D(___243d88h);
 		eax = 0x35e*D(___243c60h);
-		if((int)D(eax+___1e7082h) <= 0) goto ___50cabh;
+		if((int)D(eax+___1e6ed0h+0x1b2) <= 0) goto ___50cabh;
 		edi = D(___196dc8h);
-		edx = D(eax+___1e709ah);
+		edx = D(eax+___1e6ed0h+0x1ca);
 		ecx = D(___196d98h);
 		edx -= edi;
 		ebp = D(___196dcch);
 		ecx += edx;
-		edx = D(eax+___1e709eh);
+		edx = D(eax+___1e6ed0h+0x1ce);
 		D(esp) = ecx;
 		edx -= ebp;
 		if((int)ecx < 0) goto ___50c99h;
@@ -42,7 +34,7 @@ void race___50ba4h(void){
 		ecx = edx+0x8;
 		if((int)ecx >= 0xc8) goto ___50c99h;
 		edx <<= 0x9;
-		eax = D(eax+___1e7082h);
+		eax = D(eax+___1e6ed0h+0x1b2);
 		edi ^= edi;
 		eax--;
 		D(esp+0x1c) = edi;
@@ -79,31 +71,31 @@ ___50c76h:
 ___50c99h:
 		eax = 0x35e*D(___243c60h);
 		edi ^= edi;
-		D(eax+___1e7082h) = edi;
+		D(eax+___1e6ed0h+0x1b2) = edi;
 ___50cabh:
 		eax = 0x35e*D(___243c60h);
-		if((int)D(eax+___1e707eh) <= 0) goto ___50dc7h;
+		if((int)D(eax+___1e6ed0h+0x1ae) <= 0) goto ___50dc7h;
 		ecx = D(___196dc8h);
-		edx = D(eax+___1e7092h);
+		edx = D(eax+___1e6ed0h+0x1c2);
 		edx -= ecx;
 		ecx = D(___196d98h);
 		ecx += edx;
 		edi = D(___196dcch);
 		D(esp+0x34) = ecx;
-		ecx = D(eax+___1e7092h);
-		edx = D(eax+___1e7096h);
-		D(eax+___1e709ah) = ecx;
+		ecx = D(eax+___1e6ed0h+0x1c2);
+		edx = D(eax+___1e6ed0h+0x1c6);
+		D(eax+___1e6ed0h+0x1ca) = ecx;
 		ebp = D(esp+0x34);
-		ecx = D(eax+___1e7096h);
+		ecx = D(eax+___1e6ed0h+0x1c6);
 		edx -= edi;
-		D(eax+___1e709eh) = ecx;
+		D(eax+___1e6ed0h+0x1ce) = ecx;
 		if((int)ebp < 0) goto ___50da8h;
 		ecx = ebp+0x8;
 		if((int)ecx >= 0x140) goto ___50da8h;
 		if((int)edx < 0) goto ___50da8h;
 		ecx = edx+0x8;
 		if((int)ecx >= 0xc8) goto ___50da8h;
-		eax = D(eax+___1e707eh);
+		eax = D(eax+___1e6ed0h+0x1ae);
 		eax--;
 		eax <<= 0x6;
 		D(esp+0x24) = eax;
@@ -142,35 +134,35 @@ ___50d86h:
 		if(edi != 0x40) goto ___50d56h;
 ___50da8h:
 		eax = 0x35e*D(___243c60h);
-		edx = D(eax+___1e707eh);
+		edx = D(eax+___1e6ed0h+0x1ae);
 		edi ^= edi;
 		edx++;
-		D(eax+___1e707eh) = edi;
-		D(eax+___1e7082h) = edx;
+		D(eax+___1e6ed0h+0x1ae) = edi;
+		D(eax+___1e6ed0h+0x1b2) = edx;
 ___50dc7h:
 		eax = 0x35e*D(___243c60h);
-		if((int)D(eax+___1e707ah) <= 0) goto ___50edch;
+		if((int)D(eax+___1e6ed0h+0x1aa) <= 0) goto ___50edch;
 		ecx = D(___196dc8h);
-		edx = D(eax+___1e708ah);
+		edx = D(eax+___1e6ed0h+0x1ba);
 		edx -= ecx;
 		ecx = D(___196d98h);
 		ecx += edx;
 		edi = D(___196dcch);
 		D(esp+0x30) = ecx;
-		ecx = D(eax+___1e708ah);
-		edx = D(eax+___1e708eh);
-		D(eax+___1e7092h) = ecx;
+		ecx = D(eax+___1e6ed0h+0x1ba);
+		edx = D(eax+___1e6ed0h+0x1be);
+		D(eax+___1e6ed0h+0x1c2) = ecx;
 		ebp = D(esp+0x30);
-		ecx = D(eax+___1e708eh);
+		ecx = D(eax+___1e6ed0h+0x1be);
 		edx -= edi;
-		D(eax+___1e7096h) = ecx;
+		D(eax+___1e6ed0h+0x1c6) = ecx;
 		if((int)ebp < 0) goto ___50ebdh;
 		ecx = ebp+0x8;
 		if((int)ecx >= 0x140) goto ___50ebdh;
 		if((int)edx < 0) goto ___50ebdh;
 		ecx = edx+0x8;
 		if((int)ecx >= 0xc8) goto ___50ebdh;
-		eax = D(eax+___1e707ah);
+		eax = D(eax+___1e6ed0h+0x1aa);
 		eax--;
 		eax <<= 0x6;
 		D(esp+0x2c) = eax;
@@ -208,11 +200,11 @@ ___50e9ah:
 		if(ebp != 0x40) goto ___50e69h;
 ___50ebdh:
 		eax = 0x35e*D(___243c60h);
-		edx = D(eax+___1e707ah);
+		edx = D(eax+___1e6ed0h+0x1aa);
 		edi ^= edi;
 		edx++;
-		D(eax+___1e707ah) = edi;
-		D(eax+___1e707eh) = edx;
+		D(eax+___1e6ed0h+0x1aa) = edi;
+		D(eax+___1e6ed0h+0x1ae) = edx;
 ___50edch:
 		D(___243d88h) = esi;
 		D(___243d80h) = ebx;

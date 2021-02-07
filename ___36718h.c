@@ -1,29 +1,19 @@
 #include "drally.h"
 
 	extern byte ___1a1028h[];
-	extern byte ___1de810h[];
-	extern byte ___1a0f00h[];
-	extern byte ___1a0f03h[];
-	extern byte ___1a0f02h[];
-	extern byte ___1a0f01h[];
+	extern byte ___1de7d0h[];
+	extern byte ___1a0ef8h[];
 	extern byte ___1a112ch__VESA101_ACTIVESCREEN_PTR[];
 	extern byte ___1a0fe4h[];
-	extern byte ___182544h[];
 	extern byte ___185c0bh[];
 	extern byte ___1a1108h[];
-	extern byte ___1a01ech[];
+	extern byte ___1a01e0h[];
 	extern byte ___1a1ef8h[];
 	extern byte ___196ab0h[];
 	extern byte ___1a0fa8h[];
-	extern byte ___1a0224h[];
-	extern byte ___182558h[];
 	extern byte ___185c7ah[];
 	extern byte ___1a10b8h[];
-	extern byte ___18255ch[];
-	extern byte ___182560h[];
 	extern byte ___19eb50h[];
-	extern byte ___19eb54h[];
-	extern byte ___19eb58h[];
 
 void __DISPLAY_SET_PALETTE_COLOR(dword b, dword g, dword r, dword n);
 void ___12cb8h__VESA101_PRESENTSCREEN(void);
@@ -49,24 +39,24 @@ void ___36718h_cdecl(dword A1){
 		D(esp+0x4) = ebx;
 		ebx = 0x4;
 ___36747h:
-		if(D(edx+___1de810h) != 1) goto ___3675dh;
+		if(D(edx+___1de7d0h+0x40) != 1) goto ___3675dh;
 		eax = D(esp+0x4);
-		L(eax) = B(eax+___1a0f00h);
+		L(eax) = B(eax+___1a0ef8h+8);
 		B(esp) = L(eax);
 ___3675dh:
-		if(D(edx+___1de810h) != 2) goto ___36774h;
+		if(D(edx+___1de7d0h+0x40) != 2) goto ___36774h;
 		eax = D(esp+0x4);
-		L(eax) = B(eax+___1a0f00h);
+		L(eax) = B(eax+___1a0ef8h+8);
 		B(esp+0x1) = L(eax);
 ___36774h:
-		if(D(edx+___1de810h) != 3) goto ___3678bh;
+		if(D(edx+___1de7d0h+0x40) != 3) goto ___3678bh;
 		eax = D(esp+0x4);
-		L(eax) = B(eax+___1a0f00h);
+		L(eax) = B(eax+___1a0ef8h+8);
 		B(esp+0x2) = L(eax);
 ___3678bh:
-		if(ebx != D(edx+___1de810h)) goto ___367a1h;
+		if(ebx != D(edx+___1de7d0h+0x40)) goto ___367a1h;
 		eax = D(esp+0x4);
-		L(eax) = B(eax+___1a0f00h);
+		L(eax) = B(eax+___1a0ef8h+8);
 		B(esp+0x3) = L(eax);
 ___367a1h:
 		ecx = D(esp+0x4);
@@ -80,13 +70,13 @@ ___367b3h:
 		edx = 0x3;
 		eax ^= eax;
 		___35f34h_cdecl(eax, edx, ebx);
-		L(eax) = B(___1a0f03h);
+		L(eax) = B(___1a0ef8h+0xb);
 		B(esp) = L(eax);
-		L(eax) = B(___1a0f02h);
+		L(eax) = B(___1a0ef8h+0xa);
 		B(esp+0x1) = L(eax);
-		L(eax) = B(___1a0f01h);
+		L(eax) = B(___1a0ef8h+9);
 		B(esp+0x2) = L(eax);
-		L(eax) = B(___1a0f00h);
+		L(eax) = B(___1a0ef8h+8);
 		B(esp+0x3) = L(eax);
 ___367e7h:
 		if(ebp) goto ___3684bh;
@@ -112,7 +102,7 @@ ___36816h:
 		ecx--;
 		if(ecx) goto ___3680ch;
 		ecx = 0xd890;
-		ebx = ___182544h;
+		ebx = "Hard Race Results";
 		edx = ___185c0bh;
 		eax = D(___1a1108h);
 		___12e78h_cdecl(eax, edx, ebx, ecx);
@@ -128,7 +118,7 @@ ___36851h:
 		edx ^= edx;
 		L(edx) = B(esp+eax);
 		eax = 0x6c*edx;
-		if(D(eax+___1a01ech) == 0x64) goto ___368d0h;
+		if(D(eax+___1a01e0h+0xc) == 0x64) goto ___368d0h;
 		if(edx != D(___1a1ef8h)) goto ___36883h;
 		if(D(___196ab0h) == 1) goto ___36a27h;
 ___36883h:
@@ -170,7 +160,7 @@ ___368edh:
 		edx ^= edx;
 		L(edx) = B(esp+edi);
 		eax = 0x6c*edx;
-		if(D(eax+___1a01ech) == 0x64) goto ___36a15h;
+		if(D(eax+___1a01e0h+0xc) == 0x64) goto ___36a15h;
 		if(edx != D(___1a1ef8h)) goto ___3691fh;
 		if(D(___196ab0h) == 1) goto ___36a15h;
 ___3691fh:
@@ -181,10 +171,10 @@ ___3691fh:
 		eax = 0x13*eax;
 		eax += 0x59;
 		eax = 0x280*eax;
-		edi = D(edx+___1a0224h);
+		edi = D(edx+___1a01e0h+0x44);
 		edi += 0xa;
-		ebx = ___182558h;
-		D(edx+___1a0224h) = edi;
+		ebx = "+10";
+		D(edx+___1a01e0h+0x44) = edi;
 		ecx = eax+0xe6;
 		edx = ___185c7ah;
 		eax = D(___1a10b8h);
@@ -193,7 +183,7 @@ ___36960h:
 		eax ^= eax;
 		L(eax) = B(esp+edi);
 		edx = 0x6c*eax;
-		if(D(edx+___1a01ech) == 0x64) goto ___36a15h;
+		if(D(edx+___1a01e0h+0xc) == 0x64) goto ___36a15h;
 		if(eax != D(___1a1ef8h)) goto ___3698ah;
 		if(D(___196ab0h) == 1) goto ___36a15h;
 ___3698ah:
@@ -204,15 +194,15 @@ ___3698ah:
 		edx = 0x13*edx;
 		edx += 0x59;
 		edx = 0x280*edx;
-		edi = D(eax+___1a0224h);
+		edi = D(eax+___1a01e0h+0x44);
 		edi += 0x7;
-		ebx = ___18255ch;
+		ebx = "+7";
 		goto ___369fah;
 ___369b2h:
 		eax ^= eax;
 		L(eax) = B(esp+edi);
 		edx = 0x6c*eax;
-		if(D(edx+___1a01ech) == 0x64) goto ___36a15h;
+		if(D(edx+___1a01e0h+0xc) == 0x64) goto ___36a15h;
 		if(eax != D(___1a1ef8h)) goto ___369d4h;
 		if(D(___196ab0h) == 1) goto ___36a15h;
 ___369d4h:
@@ -223,11 +213,11 @@ ___369d4h:
 		edx = 0x13*edx;
 		edx += 0x59;
 		edx = 0x280*edx;
-		edi = D(eax+___1a0224h);
+		edi = D(eax+___1a01e0h+0x44);
 		edi += 0x4;
-		ebx = ___182560h;
+		ebx = "+4";
 ___369fah:
-		D(eax+___1a0224h) = edi;
+		D(eax+___1a01e0h+0x44) = edi;
 		ecx = edx+0xe6;
 		eax = D(___1a10b8h);
 		edx = ___185c7ah;
@@ -258,7 +248,7 @@ ___36a3ah:
 		eax &= 0xff;
 		rr = eax;
 		edx = ebp;
-		eax = D(esi+___19eb54h);
+		eax = D(esi+___19eb50h+4);
 		___imul32(&eax, &edx, edx);
 		eax += 0x8000;
 		edx += !!(eax < 0x8000);
@@ -268,7 +258,7 @@ ___36a3ah:
 		eax &= 0xff;
 		gg = eax;
 		edx = ebp;
-		eax = D(esi+___19eb58h);
+		eax = D(esi+___19eb50h+8);
 		___imul32(&eax, &edx, edx);
 		eax += 0x8000;
 		edx += !!(eax < 0x8000);

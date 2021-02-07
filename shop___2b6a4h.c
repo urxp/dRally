@@ -13,7 +13,7 @@
 	extern byte ___196aa4h[];
 	extern byte ___196aa8h[];
 	extern byte ___1a1ef8h[];
-	extern byte ___1a0218h[];
+	extern byte ___1a01e0h[];
 
 
 void ___27f80h_cdecl(dword, dword, dword, dword);
@@ -56,7 +56,7 @@ void shop___2b6a4h(void){
 		&&(D(___196aa0h) != 1)
 		&&(D(___196aa4h) == 0)
 		&&(D(___196aa8h) == 0)
-		&&(D(0x6c*D(___1a1ef8h)+___1a0218h) != 4)) ___27f80h_cdecl(0x1aa, 0xf3, 0x6c, 0x72);
+		&&(D(0x6c*D(___1a1ef8h)+___1a01e0h+0x38) != 4)) ___27f80h_cdecl(0x1aa, 0xf3, 0x6c, 0x72);
 
 	___25a74h();
 	___25e40h();

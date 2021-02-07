@@ -16,43 +16,28 @@ cpu 386
 	extern	___1a1138h__VESA101h_DefaultScreenBufferB
 	extern	___1a112ch__VESA101_ACTIVESCREEN_PTR
 	extern	___13248h_cdecl
-	extern	___180f40h
 	extern	___185c0bh
 	extern	___1a1108h
 	extern	___12e78h_cdecl
 	extern	___12cb8h__VESA101_PRESENTSCREEN
-	extern	___1856c8h
 	extern	___1a201ah
 	extern 	___17510h_cdecl
 	extern	___1a1ef8h
 	extern	CONNECTION_TYPE
 	extern	___199fach
-	extern	___1a020ch
+	extern	___1a01e0h
 	extern	___2415ch
 	extern	___2b5f0h
 	extern	___61cd0h
 	extern	___1123ch
 	extern	___1d688h
-	extern	___180f5ch
-	extern	___180f68h
-	extern	___180ac8h
-	extern	___180f80h
 	extern	___13bd4h_cdecl
 	extern	___196a90h
-	extern	___180f8ch
-	extern	___180f90h
 	extern	___631d4h
 	extern	___63228h
 	extern	kmap
 	extern	memset
-	extern	___180f94h
 	extern	___63244h
-	extern	___180f9ch
-	extern	___180fb0h
-	extern	___180fb4h
-	extern	___180fc0h
-	extern	___180fdch
-	extern	___180fe4h
 	extern	___2ab50h
 	extern	___60a84h
 	extern	___5994ch
@@ -61,7 +46,6 @@ cpu 386
 	extern	___611c0h
 	extern	___61278h
 	extern	___1866b8h
-	extern	___180fech
 	extern	___1caf4h
 	extern	___623d4h
 	extern	___59b3ch
@@ -173,7 +157,7 @@ ___1da4fh:
 	add 	esp, 14h
 	
 		mov     ecx, 28f64h
-		mov     ebx, ___180f40h
+		mov     ebx, __dfr_180f40h
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
 
@@ -197,7 +181,7 @@ ___1da4fh:
 		push    byte 1
 		push    byte 0
 		push    190h
-		mov     ecx, ___1856c8h
+		mov     ecx, __dfr_1856c8h
 		mov     ebx, 116h
 		push    byte 14h
 		mov     edx, 64h
@@ -221,7 +205,7 @@ ___1da4fh:
 		sub     eax, edx
 		mov     [CONNECTION_TYPE], ecx
 		mov     [___199fach], esi
-		mov     ebx, [eax*4+___1a020ch]
+		mov     ebx, [eax*4+___1a01e0h+2ch]
 
 	push 	edx
 	push 	ecx
@@ -236,7 +220,7 @@ ___1da4fh:
 		sub     eax, edx
 		shl     eax, 2
 		sub     eax, edx
-		mov     [eax*4+___1a020ch], ebx
+		mov     [eax*4+___1a01e0h+2ch], ebx
 	
 	push 	edx
 	push 	ecx
@@ -290,7 +274,7 @@ ___1db77h:
 		push    byte 1
 		mov     edx, [esp+54h]
 		mov     eax, ebp
-		mov     esi, ___180f5ch
+		mov     esi, __dfr_180f5ch
 
 	push 	ecx
 	push 	ebx
@@ -329,7 +313,7 @@ ___1db77h:
 		add     eax, edx
 		shl     eax, 7
 		add     eax, ebp
-		mov     ebx, ___180f68h
+		mov     ebx, __dfr_180f68h
 		lea     ecx, [eax+28h]
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
@@ -347,7 +331,7 @@ ___1db77h:
 		add     eax, edx
 		shl     eax, 7
 		add     eax, ebp
-		mov     ebx, ___180ac8h
+		mov     ebx, __dfr_180ac8h
 		lea     ecx, [eax+28h]
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
@@ -363,7 +347,7 @@ ___1db77h:
 		mov     edx, [esp+50h]
 		lea     eax, [ebp+0fh]
 		add     edx, byte 1ah
-		mov     esi, ___180f80h
+		mov     esi, __dfr_180f80h
 	
 	push 	ecx
 	push 	edx
@@ -391,10 +375,10 @@ ___1db77h:
 		mov     [esp+6ch], dl
 		test    edi, edi
 		je      short ___1dcd0h
-		mov     esi, ___180f8ch
+		mov     esi, __dfr_180f8ch
 		jmp     short ___1dcd5h
 ___1dcd0h:
-		mov     esi, ___180f90h
+		mov     esi, __dfr_180f90h
 ___1dcd5h:
 		lea     edi, [esp+28h]
 		call 	__STRCAT
@@ -475,7 +459,7 @@ ___1ddcdh:
 		cmp     esi, 2800h
 		jne     short ___1ddcdh
 		mov     ecx, [esp+60h]
-		mov     ebx, ___180f68h
+		mov     ebx, __dfr_180f68h
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
 
@@ -501,7 +485,7 @@ ___1de18h:
 		jle     short ___1de1dh
 		dec     ecx
 ___1de1dh:
-		mov     eax, ___180f94h
+		mov     eax, __dfr_180f94h
 
 	push 	edx
 	push 	ecx
@@ -538,11 +522,11 @@ ___1de3bh:
 		cmp     ecx, 2800h
 		jne     short ___1de3bh
 		mov     ecx, [esp+64h]
-		mov     ebx, ___180f9ch
+		mov     ebx, __dfr_180f9ch
 		mov     edx, ___185c0bh
 		lea     edi, [esp+28h]
 		mov     eax, [___1a1108h]
-		mov     esi, ___180fb0h
+		mov     esi, __dfr_180fb0h
 
 	push 	ecx
 	push 	ebx
@@ -586,7 +570,7 @@ ___1de3bh:
 	pop 	edx
 
 ___1decah:
-		mov     eax, ___180fb4h
+		mov     eax, __dfr_180fb4h
 
 	push 	edx
 	push 	ecx
@@ -623,11 +607,11 @@ ___1dee8h:
 		cmp     ecx, 2800h
 		jne     short ___1dee8h
 		mov     ecx, [esp+68h]
-		mov     ebx, ___180fc0h
+		mov     ebx, __dfr_180fc0h
 		mov     edx, ___185c0bh
 		lea     edi, [esp+28h]
 		mov     eax, [___1a1108h]
-		mov     esi, ___180fb0h
+		mov     esi, __dfr_180fb0h
 
 	push 	ecx
 	push 	ebx
@@ -671,7 +655,7 @@ ___1dee8h:
 	pop 	edx
 
 ___1df77h:
-		mov     eax, ___180fdch
+		mov     eax, __dfr_180fdch
 
 	push 	edx
 	push 	ecx
@@ -684,7 +668,7 @@ ___1df77h:
 		mov     ebx, eax
 		test    eax, eax
 		jne     short ___1df93h
-		mov     eax, ___180fe4h
+		mov     eax, __dfr_180fe4h
 
 	push 	edx
 	push 	ecx
@@ -842,7 +826,7 @@ ___1e049h:
 		je      short ___1e071h
 		mov     edi, ___1866b8h+44ch
 		xor     dl, dl
-		mov     esi, ___180fech
+		mov     esi, __dfr_180fech
 		mov     [___185b58h+18h], dl
 
 	push 	edx
@@ -909,4 +893,53 @@ ___1e08fh:
 		pop     ecx
 		pop     ebx
 		retn    
+
+section .data
+__dfr_180ac8h:
+	db 	"Press ESC to abort",0,0
+__dfr_180f40h:
+	db	45h,6eh,74h,65h,72h,20h,74h,68h,65h,20h,6eh,75h,6dh,62h,65h,72h,20h,74h,6fh,20h,64h,69h,61h,6ch,3fh,0,0,0
+__dfr_180f5ch:
+	db	44h,69h,61h,6ch,69h,6eh,67h,3ah,20h,0,0,0
+__dfr_180f68h:
+	db	57h,61h,69h,74h,69h,6eh,67h,20h,66h,6fh,72h,20h,61h,6eh,73h,77h,65h,72h,2eh,2eh,2eh,0,0,0
+__dfr_180f80h:
+	db	41h,54h,45h,31h,58h,31h,56h,31h,44h,0,0,0
+__dfr_180f8ch:
+	db	54h,0,0,0
+__dfr_180f90h:
+	db	50h,0,0,0
+__dfr__180f94h:
+	db	42h,55h,53h,59h,0,0,0,0
+__dfr_180f9ch:
+	db	42h,75h,73h,79h,21h,20h,52h,65h,2dh,64h,69h,61h,6ch,69h,6eh,67h,2eh,2eh,2eh,0
+__dfr_180fb0h:
+	db	41h,2fh,0,0
+__dfr_180fb4h:
+	db	4eh,4fh,20h,43h,41h,52h,52h,49h,45h,52h,0,0
+__dfr_180fc0h:
+	db	4eh,6fh,20h,63h,61h,72h,72h,69h,65h,72h,21h,20h,52h,65h,2dh,64h,69h,61h,6ch,69h,6eh,67h,2eh,2eh,2eh,0,0,0
+__dfr_180fdch:
+	db	43h,4fh,4eh,4eh,45h,43h,54h,0
+__dfr_180fe4h:
+	db	43h,41h,52h,52h,49h,45h,52h,0
+__dfr_180fech:
+	db	44h,69h,73h,63h,6fh,6eh,6eh,65h,63h,74h,20h,4dh,6fh,64h,65h,6dh,0,0,0,0
+__dfr_1856c8h:
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0
+db	1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 */

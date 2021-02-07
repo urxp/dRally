@@ -198,6 +198,7 @@ static void ___5e769h_order(byte * A0, int A1, int A2, int A3, int A4, int A5, i
 void ___5e137h(dword A1, int A2, int A3, int A4, int A5, int A6, int A7){
 
     int     i, j, args[6];
+    int     a, b, c;
 
     args[0] = A2;
     args[1] = A3;
@@ -206,8 +207,12 @@ void ___5e137h(dword A1, int A2, int A3, int A4, int A5, int A6, int A7){
     args[4] = A6;
     args[5] = A7;
 
-    j = 2*(!(A6 < A4)&&(A4 < A2)) + 4*((A6 < A4)&&(A6 < A2));
-    i = 2*((A6 < A4)&&!(A4 < A2)) + 4*(!(A6 < A4)&&!(A6 < A2));
+    a = (A6 < A4);
+    b = (A4 < A2);
+    c = (A6 < A2);
+ 
+    i = a ? 2*!b : 4*!c;
+    j = a ? 4*c : 2*b;
     
     ___5e137h_order(A1, args[j+1], args[j], args[i+1], args[i], args[6-(i+j)+1], args[6-(i+j)]);
 }
@@ -216,6 +221,7 @@ void ___5e137h(dword A1, int A2, int A3, int A4, int A5, int A6, int A7){
 void ___5e3e8h(int A1, int A2, int A3, int A4, int A5, int A6, int A7, int A8, int A9){
 
     int     i, j, args[9];
+    int     a, b, c;
 
     args[0] = A1;
     args[1] = A2;
@@ -227,8 +233,12 @@ void ___5e3e8h(int A1, int A2, int A3, int A4, int A5, int A6, int A7, int A8, i
     args[7] = A8;
     args[8] = A9;
 
-    j = 3*(!(A8 < A5)&&(A5 < A2))+6*((A8 < A5)&&(A8 < A2));
-    i = 3*((A8 < A5)&&!(A5 < A2))+6*(!(A8 < A5)&&!(A8 < A2));
+    a = (A8 < A5);
+    b = (A5 < A2);
+    c = (A8 < A2);
+
+    i = a ? 3*!b : 6*!c;
+    j = a ? 6*c : 3*b;
 
     ___5e3e8h_order(args[j+2], args[j+1], args[j], args[i+2], args[i+1], args[i], args[9-(i+j)+2], args[9-(i+j)+1], args[9-(i+j)]);
 }
@@ -237,6 +247,7 @@ void ___5e3e8h(int A1, int A2, int A3, int A4, int A5, int A6, int A7, int A8, i
 void ___5e769h(byte * A1, int A2, int A3, int A4, int A5, int A6, int A7){
 
 	int 	i, j, args[6];
+    int     a, b, c;
 
 	args[0] = A2;
 	args[1] = A3;
@@ -245,8 +256,12 @@ void ___5e769h(byte * A1, int A2, int A3, int A4, int A5, int A6, int A7){
 	args[4] = A6;
 	args[5] = A7;
 
-	j = 2*(!(A6 < A4)&&(A4 < A2))+4*((A6 < A4)&&(A6 < A2));
-	i = 2*((A6 < A4)&&!(A4 < A2))+4*(!(A6 < A4)&&!(A6 < A2));
+    a = (A6 < A4);
+    b = (A4 < A2);
+    c = (A6 < A2);
+
+    i = a ? 2*!b : 4*!c;
+    j = a ? 4*c : 2*b;
 
 	___5e769h_order(A1, args[j+1], args[j], args[i+1], args[i], args[6-(i+j)+1], args[6-(i+j)]);
 }

@@ -5,14 +5,8 @@ cpu 386
 	extern	__CHK
 	extern	___24cef0h
 	extern	__STOSB
-	extern	___24cefah
-	extern	___24cf04h
-	extern	___24cf0eh
 	extern	___24e4ach
 	extern	___1a1168h
-	extern	___1a1169h
-	extern	___1a116ah
-	extern	___1a116bh
 	extern	___60a84h
 	extern	___60a28h
 	extern	___24e4b4h
@@ -20,9 +14,6 @@ cpu 386
 	extern	___60b60h
 	extern	___611c0h
 	extern	___24cee0h
-	extern	___24cee4h
-	extern	___24cee8h
-	extern	___24ceech
 
 section .text
 
@@ -44,7 +35,7 @@ __GDECL(___44194h)
 	add 	esp, 0ch
 
 		mov     ecx, 0ah
-		mov     eax, ___24cefah
+		mov     eax, ___24cef0h+0xa
 		xor     edx, edx
 
 	push 	ecx
@@ -54,7 +45,7 @@ __GDECL(___44194h)
 	add 	esp, 0ch
 
 		mov     ecx, 0ah
-		mov     eax, ___24cf04h
+		mov     eax, ___24cef0h+0x14
 		xor     edx, edx
 
 	push 	ecx
@@ -64,7 +55,7 @@ __GDECL(___44194h)
 	add 	esp, 0ch
 
 		mov     ecx, 0ah
-		mov     eax, ___24cf0eh
+		mov     eax, ___24cef0h+0x1e
 		xor     edx, edx
 
 	push 	ecx
@@ -85,7 +76,7 @@ __GDECL(___44194h)
 		add     edx, eax
 		mov     [esp], edx
 		xor     edx, edx
-		mov     dl, [___1a1169h]
+		mov     dl, [___1a1168h+1]
 		lea     eax, [edx*4+0]
 		add     eax, edx
 		mov     edx, ___24cef0h
@@ -93,7 +84,7 @@ __GDECL(___44194h)
 		add     edx, eax
 		mov     [esp+4], edx
 		xor     edx, edx
-		mov     dl, [___1a116ah]
+		mov     dl, [___1a1168h+2]
 		lea     eax, [edx*4+0]
 		add     eax, edx
 		mov     edx, ___24cef0h
@@ -101,7 +92,7 @@ __GDECL(___44194h)
 		add     edx, eax
 		mov     [esp+8], edx
 		xor     edx, edx
-		mov     dl, [___1a116bh]
+		mov     dl, [___1a1168h+3]
 		lea     eax, [edx*4+0]
 		add     eax, edx
 		mov     edx, ___24cef0h
@@ -158,13 +149,13 @@ ___44274h:
 		mov     eax, [___24cee0h]
 		mov     word [eax], 0
 		mov     word [eax+2], 0
-		mov     eax, [___24cee4h]
+		mov     eax, [___24cee0h+4]
 		mov     word [eax], 0
 		mov     word [eax+2], 0
-		mov     eax, [___24cee8h]
+		mov     eax, [___24cee0h+8]
 		mov     word [eax], 0
 		mov     word [eax+2], 0
-		mov     eax, [___24ceech]
+		mov     eax, [___24cee0h+0xc]
 		mov     word [eax], 0
 		mov     word [eax+2], 0
 		add     esp, byte 10h

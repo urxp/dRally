@@ -1,32 +1,10 @@
 #include "drally.h"
 
 	extern byte ___1a1ef8h[];
-	extern byte ___1a0214h[];
-	extern byte ___1a0210h[];
+	extern byte ___1a01e0h[];
 	extern byte ___1a112ch__VESA101_ACTIVESCREEN_PTR[];
 	extern byte ___1a1e58h[];
-	extern byte ___18c812h[];
-	extern byte ___18c862h[];
-	extern byte ___18c8b2h[];
-	extern byte ___18c902h[];
-	extern byte ___18c952h[];
-	extern byte ___18c9a2h[];
-	extern byte ___18c9f2h[];
-	extern byte ___18ca42h[];
-	extern byte ___18ca92h[];
-	extern byte ___18cae2h[];
-	extern byte ___18cb32h[];
-	extern byte ___18cb82h[];
-	extern byte ___18cbd2h[];
-	extern byte ___18cc22h[];
-	extern byte ___18cc72h[];
-	extern byte ___18ccc2h[];
-	extern byte ___18cd12h[];
-	extern byte ___18cd62h[];
-	extern byte ___18cdb2h[];
-	extern byte ___18ce02h[];
 	extern byte ___185ba9h[];
-	extern byte ___180694h[];
 	extern byte ___1a10cch[];
 
 dword ___14c50h(void);
@@ -36,322 +14,68 @@ void ___13248h_cdecl(dword, dword ,dword, dword, dword);
 
 dword ___168b4h(void){
 
-	dword 	eax, ebx, ecx, edx, edi, esi, ebp;
+	dword 	ebp;
 	byte 	esp[0x54];
+	int 	i, j;
 
 
+	D(esp+0x50) = 0;
+	if((D(0x6c*D(___1a1ef8h)+___1a01e0h+0x34) == 0)&&((int)D(0x6c*D(___1a1ef8h)+___1a01e0h+0x30) < 0x4650)) D(esp+0x50) = 1;
+	if((D(0x6c*D(___1a1ef8h)+___1a01e0h+0x34) == 1)&&((int)D(0x6c*D(___1a1ef8h)+___1a01e0h+0x30) < 0x34bc)) D(esp+0x50) = 1;
+	if((D(0x6c*D(___1a1ef8h)+___1a01e0h+0x34) == 2)&&((int)D(0x6c*D(___1a1ef8h)+___1a01e0h+0x30) < 0x2328)) D(esp+0x50) = 1;
+	if((D(0x6c*D(___1a1ef8h)+___1a01e0h+0x34) == 3)&&((int)D(0x6c*D(___1a1ef8h)+___1a01e0h+0x30) < 0x1194)) D(esp+0x50) = 1;
+	if((D(0x6c*D(___1a1ef8h)+___1a01e0h+0x34) == 4)&&((int)D(0x6c*D(___1a1ef8h)+___1a01e0h+0x30) < 0x8ca)) D(esp+0x50) = 1;
+	___13248h_cdecl(0x21, 0x83, 0x1e2, 0xe6, 1);
 
-		ebx = D(___1a1ef8h);
-		eax = 8*ebx;
-		eax -= ebx;
-		edi = 0x83;
-		eax <<= 2;
-		esi = 0x21;
-		eax -= ebx;
-		edx = 0;
-		eax <<= 2;
-		D(esp+0x34) = edx;
-		ecx = D(eax+___1a0214h);
-		D(esp+0x50) = edx;
-		if(ecx) goto ___16910h;
-		if((int)D(eax+___1a0210h) >= 0x4650) goto ___16910h;
-		D(esp+0x50) = 1;
-___16910h:
-		ebx = D(___1a1ef8h);
-		eax = 8*ebx;
-		eax -= ebx;
-		eax <<= 2;
-		eax -= ebx;
-		eax <<= 2;
-		ecx = D(eax+___1a0214h);
-		if(ecx != 1) goto ___16942h;
-		if((int)D(eax+___1a0210h) >= 0x34bc) goto ___16942h;
-		D(esp+0x50) = ecx;
-___16942h:
-		ebx = D(___1a1ef8h);
-		eax = 8*ebx;
-		eax -= ebx;
-		eax <<= 2;
-		eax -= ebx;
-		eax <<= 2;
-		if(D(eax+___1a0214h) != 2) goto ___16976h;
-		if((int)D(eax+___1a0210h) >= 0x2328) goto ___16976h;
-		D(esp+0x50) = 1;
-___16976h:
-		ebx = D(___1a1ef8h);
-		eax = 8*ebx;
-		eax -= ebx;
-		eax <<= 2;
-		eax -= ebx;
-		eax <<= 2;
-		if(D(eax+___1a0214h) != 3) goto ___169aah;
-		if((int)D(eax+___1a0210h) >= 0x1194) goto ___169aah;
-		D(esp+0x50) = 1;
-___169aah:
-		ebx = D(___1a1ef8h);
-		eax = 8*ebx;
-		eax -= ebx;
-		eax <<= 2;
-		eax -= ebx;
-		eax <<= 2;
-		if(D(eax+___1a0214h) != 4) goto ___169deh;
-		if((int)D(eax+___1a0210h) >= 0x8ca) goto ___169deh;
-		D(esp+0x50) = 1;
-___169deh:
-		ecx = 0xe6;
-		ebx = 0x1e2;
-		edx = edi;
-		eax = esi;
-		___13248h_cdecl(eax, edx, ebx, ecx, 1);
-		ebx = edi+0x35;
-		eax = 4*ebx;
-		eax += ebx;
-		eax <<= 7;
-		D(esp) = eax;
-		ecx = D(esp);
-		eax = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
-		eax += ecx;
-		ecx = 0x60;
-		eax += esi;
-		esi = D(___1a1e58h);
-		ebx = eax+0xc;
-		edx = ecx;
-		L(edx) >>= 2;
-___16a24h:
-		H(ecx) = L(edx);
-___16a26h:
-		eax = D(esi);
-		D(ebx) = eax;
-		ebx += 4;
-		esi += 4;
-		H(ecx)--;
-		if(H(ecx)) goto ___16a26h;
-		ebx += 0x280;
-		L(edx) <<= 2;
-		ebx -= edx;
-		L(edx) >>= 2;
-		L(ecx)--;
-		if(L(ecx)) goto ___16a24h;
-		ebx = edi+0x95;
-		ecx = edi+0x85;
-		eax = edi+0x75;
-		edx = 4*ebx;
-		D(esp+0x4) = eax;
-		eax = edi+0x65;
-		edx += ebx;
-		D(esp+0x8) = eax;
-		eax = edi+0x55;
-		ebx = ecx;
-		D(esp+0xc) = eax;
-		eax = edi+0x45;
-		ecx <<= 2;
-		D(esp+0x20) = eax;
-		eax = edi+0x25;
-		ecx += ebx;
-		esi = edi+0x15;
-		D(esp+0x24) = eax;
-		eax = edi+0x5;
-		ebx = D(esp+0x4);
-		D(esp+0x30) = eax;
-		eax = 4*ebx;
-		eax += ebx;
-		eax <<= 7;
-		ebx = D(esp+0x8);
-		D(esp+0x1c) = eax;
-		eax = 4*ebx;
-		eax += ebx;
-		eax <<= 7;
-		ebx = D(esp+0xc);
-		D(esp+0x28) = eax;
-		eax = 4*ebx;
-		eax += ebx;
-		eax <<= 7;
-		ebx = D(esp+0x20);
-		D(esp+0x2c) = eax;
-		eax = 4*ebx;
-		eax += ebx;
-		eax <<= 7;
-		ebx = D(esp+0x24);
-		D(esp+0x14) = eax;
-		eax = 4*ebx;
-		eax += ebx;
-		eax <<= 7;
-		D(esp+0x18) = eax;
-		eax = 4*esi;
-		eax += esi;
-		eax <<= 7;
-		ebx = D(esp+0x30);
-		D(esp+0x10) = eax;
-		eax = 4*ebx;
-		edx <<= 7;
-		eax += ebx;
-		ebx = edx+0x80;
-		edx = D(esp+0x1c);
-		edx += 0x80;
-		D(esp+0x3c) = edx;
-		edx = D(esp+0x28);
-		ecx <<= 7;
-		edx += 0x80;
-		ecx += 0x80;
-		D(esp+0x48) = edx;
-		edx = D(esp+0x14);
-		D(esp+0x4c) = ecx;
-		edx += 0x80;
-		ecx = D(esp+0x2c);
-		D(esp+0x44) = edx;
-		edx = D(esp);
-		ecx += 0x80;
-		edx += 0x80;
-		esi = D(esp+0x18);
-		D(esp+0x40) = edx;
-		edx = D(esp+0x10);
-		esi += 0x80;
-		edx += 0x80;
-		eax <<= 7;
-		D(esp+0x38) = edx;
-		edx = D(esp+0x50);
-		eax += 0x80;
-		if(edx) goto ___16cf2h;
-		___13094h_cdecl("", eax);
-		___13094h_cdecl("     [It's pay-back time, driver.", D(esp+0x38));
-		___13094h_cdecl("", esi);
-		___13094h_cdecl("     This is what I like to see, a guy", D(esp+0x40));
-		___13094h_cdecl("     who keeps his part of the bargain.", D(esp+0x44));
-		___13094h_cdecl("     Ah, the sweet smell of money. Come", ecx);
-		___13094h_cdecl("     to papa, my babies. [Real nice doing", D(esp+0x48));
-		___13094h_cdecl("     [business with you{, thunderboy.{", D(esp+0x3c));
-		___13094h_cdecl("     Thanks, and good racing riddance.", D(esp+0x4c));
-		___13094h_cdecl("", ebx);
-		ebx = D(___1a1ef8h);
-		eax = 8*ebx;
-		eax -= ebx;
-		eax <<= 2;
-		eax -= ebx;
-		eax <<= 2;
-		if(D(eax+___1a0214h) != 0) goto ___16c41h;
-		D(eax+___1a0210h) -= 0x4650;
-___16c41h:
-		ebx = D(___1a1ef8h);
-		eax = 8*ebx;
-		eax -= ebx;
-		eax <<= 2;
-		eax -= ebx;
-		eax <<= 2;
-		if(D(eax+___1a0214h) != 1) goto ___16c6bh;
-		D(eax+___1a0210h) -= 0x34bc;
-___16c6bh:
-		ebx = D(___1a1ef8h);
-		eax = 8*ebx;
-		eax -= ebx;
-		eax <<= 2;
-		eax -= ebx;
-		eax <<= 2;
-		if(D(eax+___1a0214h) != 2) goto ___16c95h;
-		D(eax+___1a0210h) -= 0x2328;
-___16c95h:
-		ebx = D(___1a1ef8h);
-		eax = 8*ebx;
-		eax -= ebx;
-		eax <<= 2;
-		eax -= ebx;
-		eax <<= 2;
-		if(D(eax+___1a0214h) != 3) goto ___16cbfh;
-		D(eax+___1a0210h) -= 0x1194;
-___16cbfh:
-		ebx = D(___1a1ef8h);
-		eax = 8*ebx;
-		eax -= ebx;
-		eax <<= 2;
-		eax -= ebx;
-		eax <<= 2;
-		if(D(eax+___1a0214h) != 4) goto ___16e30h;
-		D(eax+___1a0210h) -= 0x8ca;
-		goto ___16e30h;
-___16cf2h:
-		edx = eax;
-		eax = ___18cb32h;
-		___13094h_cdecl(eax, edx);
-		edx = D(esp+0x38);
-		eax = ___18cb82h;
-		___13094h_cdecl(eax, edx);
-		eax = ___18cbd2h;
-		edx = esi;
-		___13094h_cdecl(eax, edx);
-		edx = D(esp+0x40);
-		eax = ___18cc22h;
-		___13094h_cdecl(eax, edx);
-		edx = D(esp+0x44);
-		eax = ___18cc72h;
-		___13094h_cdecl(eax, edx);
-		eax = ___18ccc2h;
-		edx = ecx;
-		___13094h_cdecl(eax, edx);
-		edx = D(esp+0x48);
-		eax = ___18cd12h;
-		___13094h_cdecl(eax, edx);
-		edx = D(esp+0x3c);
-		eax = ___18cd62h;
-		___13094h_cdecl(eax, edx);
-		edx = D(esp+0x4c);
-		eax = ___18cdb2h;
-		___13094h_cdecl(eax, edx);
-		eax = ___18ce02h;
-		edx = ebx;
-		___13094h_cdecl(eax, edx);
-		ebx = D(___1a1ef8h);
-		eax = 8*ebx;
-		eax -= ebx;
-		eax <<= 2;
-		eax -= ebx;
-		if(D(4*eax+___1a0214h) != 0) goto ___16d99h;
-		ebp = 0x4650;
-___16d99h:
-		ebx = D(___1a1ef8h);
-		eax = 8*ebx;
-		eax -= ebx;
-		eax <<= 2;
-		eax -= ebx;
-		if(D(4*eax+___1a0214h) != 1) goto ___16dbch;
-		ebp = 0x34bc;
-___16dbch:
-		ebx = D(___1a1ef8h);
-		eax = 8*ebx;
-		eax -= ebx;
-		eax <<= 2;
-		eax -= ebx;
-		if(D(4*eax+___1a0214h) != 2) goto ___16ddfh;
-		ebp = 0x2328;
-___16ddfh:
-		ebx = D(___1a1ef8h);
-		eax = 8*ebx;
-		eax -= ebx;
-		eax <<= 2;
-		eax -= ebx;
-		if(D(4*eax+___1a0214h) != 3) goto ___16e02h;
-		ebp = 0x1194;
-___16e02h:
-		ebx = D(___1a1ef8h);
-		eax = 8*ebx;
-		eax -= ebx;
-		eax <<= 2;
-		eax -= ebx;
-		if(D(4*eax+___1a0214h) != 4) goto ___16e25h;
-		ebp = 0x8ca;
-___16e25h:
-		eax = ebp;
-		eax = ___14c50h();
-		D(esp+0x34) = eax;
-___16e30h:
-		ebx = edi+0xb9;
-		eax = 4*ebx;
-		eax += ebx;
-		eax <<= 7;
-		edx = ___185ba9h;
-		ecx = eax+0xc0;
-		ebx = ___180694h;
-		eax = D(___1a10cch);
-		___12e78h_cdecl(eax, edx, ebx, ecx);
-		eax = D(esp+0x34);
+	j = -1;
+	while(++j < 0x60){
 
-		return eax;
+		i = -1;
+		while(++i < 0x60) B(D(___1a112ch__VESA101_ACTIVESCREEN_PTR)+0x280*(0x83+0x35)+0x21+0xc+0x280*j+i) = B(D(___1a1e58h)+0x60*j+i);
+	}
+
+	if(D(esp+0x50)){
+
+		___13094h_cdecl("", 0x280*(0x83+0x5)+0x80);
+		___13094h_cdecl("     [It's pay-back time, driver.", 0x280*(0x83+0x15)+0x80);
+		___13094h_cdecl("", 0x280*(0x83+0x25)+0x80);
+		___13094h_cdecl("     Tut tut, hotshot, [I can't see my", 0x280*(0x83+0x35)+0x80);
+		___13094h_cdecl("     [money anywhere.{ I ain't amused,", 0x280*(0x83+0x45)+0x80);
+		___13094h_cdecl("     joker. A deal is a deal. I got a", 0x280*(0x83+0x55)+0x80);
+		___13094h_cdecl("     reputation to look after. Too bad.", 0x280*(0x83+0x65)+0x80);
+		___13094h_cdecl("     Nothing personal, but [I got to hurt", 0x280*(0x83+0x75)+0x80);
+		___13094h_cdecl("     [you some now.{ Hurt 'im, boyz.", 0x280*(0x83+0x85)+0x80);
+		___13094h_cdecl("", 0x280*(0x83+0x95)+0x80);
+
+		if(D(___1a01e0h+0x34+0x6c*D(___1a1ef8h)) == 0) ebp = 0x4650;
+		if(D(___1a01e0h+0x34+0x6c*D(___1a1ef8h)) == 1) ebp = 0x34bc;
+		if(D(___1a01e0h+0x34+0x6c*D(___1a1ef8h)) == 2) ebp = 0x2328;
+		if(D(___1a01e0h+0x34+0x6c*D(___1a1ef8h)) == 3) ebp = 0x1194;
+		if(D(___1a01e0h+0x34+0x6c*D(___1a1ef8h)) == 4) ebp = 0x8ca;
+
+		___14c50h();
+	}
+	else {
+
+		___13094h_cdecl("", 0x280*(0x83+0x5)+0x80);
+		___13094h_cdecl("     [It's pay-back time, driver.", 0x280*(0x83+0x15)+0x80);
+		___13094h_cdecl("", 0x280*(0x83+0x25)+0x80);
+		___13094h_cdecl("     This is what I like to see, a guy", 0x280*(0x83+0x35)+0x80);
+		___13094h_cdecl("     who keeps his part of the bargain.", 0x280*(0x83+0x45)+0x80);
+		___13094h_cdecl("     Ah, the sweet smell of money. Come", 0x280*(0x83+0x55)+0x80);
+		___13094h_cdecl("     to papa, my babies. [Real nice doing", 0x280*(0x83+0x65)+0x80);
+		___13094h_cdecl("     [business with you{, thunderboy.{", 0x280*(0x83+0x75)+0x80);
+		___13094h_cdecl("     Thanks, and good racing riddance.", 0x280*(0x83+0x85)+0x80);
+		___13094h_cdecl("", 0x280*(0x83+0x95)+0x80);
+
+		if(D(___1a01e0h+0x34+0x6c*D(___1a1ef8h)) == 0) D(___1a01e0h+0x30+0x6c*D(___1a1ef8h)) -= 0x4650;
+		if(D(___1a01e0h+0x34+0x6c*D(___1a1ef8h)) == 1) D(___1a01e0h+0x30+0x6c*D(___1a1ef8h)) -= 0x34bc;
+		if(D(___1a01e0h+0x34+0x6c*D(___1a1ef8h)) == 2) D(___1a01e0h+0x30+0x6c*D(___1a1ef8h)) -= 0x2328;
+		if(D(___1a01e0h+0x34+0x6c*D(___1a1ef8h)) == 3) D(___1a01e0h+0x30+0x6c*D(___1a1ef8h)) -= 0x1194;
+		if(D(___1a01e0h+0x34+0x6c*D(___1a1ef8h)) == 4) D(___1a01e0h+0x30+0x6c*D(___1a1ef8h)) -= 0x8ca;
+	}
+
+	___12e78h_cdecl(D(___1a10cch), ___185ba9h, "CONTINUE", 0x280*(0x83+0xb9)+0xc0);
+
+	return 0;
 }

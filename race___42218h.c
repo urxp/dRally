@@ -15,8 +15,7 @@
 	extern byte ___243874h[];
 	extern byte ___243898h[];
 	extern byte ___243ce8h[];
-	extern byte ___1e6f74h[];
-	extern byte ___1e6f70h[];
+	extern byte ___1e6ed0h[];
 	extern byte CONNECTION_TYPE[];
 
 void dRally_Sound_pushEffect(byte channel, byte n, dword unk, dword a0, dword a1, dword a2);
@@ -104,9 +103,9 @@ ___422deh:
 		eax = 0x35e*D(___243ce8h);
 		ecx = 0x10000;
 		edx = 0x2c;
-		D(eax+___1e6f74h) = esi;
+		D(eax+___1e6ed0h+0xa4) = esi;
 		ebx = esi;
-		D(eax+___1e6f70h) = esi;
+		D(eax+___1e6ed0h+0xa0) = esi;
 		eax = 0x5;
 		dRally_Sound_pushEffect(eax, edx, ebx, ecx, 0x28000, 0x8000);
 ___42379h:

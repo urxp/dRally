@@ -9,7 +9,7 @@ typedef struct rgb24_s {
 
 typedef rgb24_t pal256_t[0x100];
 
-	extern byte ___19bd64h[];
+	extern char ___19bd64h[16];
 	extern byte ___243dd0h[];
 	extern byte ___243d60h[];
 	extern pal256_t ___1a51d0h;
@@ -28,23 +28,14 @@ typedef rgb24_t pal256_t[0x100];
 	extern byte ___243d74h[];
 	extern byte ___243cf4h[];
 	extern byte ___1de580h[];
-	extern byte ___196dfch[];
-	extern byte ___1de7f4h[];
 	extern byte ___243d8ch[];
 	extern byte ___243d7ch[];
 	extern byte ___243298h[];
-	extern byte ___24329ch[];
-	extern byte ___2432a0h[];
-	extern byte ___2432a4h[];
-	extern byte ___2432a8h[];
-	extern byte ___2432ach[];
 	extern byte ___243d88h[];
 	extern byte ___243d38h[];
 	extern byte ___243d40h[];
 	extern byte ___243288h[];
-	extern byte ___24328ch[];
 	extern byte ___243290h[];
-	extern byte ___243294h[];
 	extern byte ___243d68h[];
 	extern byte ___243d64h[];
 	extern byte ___243c5ch[];
@@ -55,9 +46,6 @@ typedef rgb24_t pal256_t[0x100];
 	extern byte ___1e8448h[];
 	extern byte ___1e8048h[];
 	extern byte ___1e7c48h[];
-	extern byte ___243c88h[];
-	extern byte ___243c94h[];
-	extern byte ___19bd66h[];
 	extern byte ___243d5ch[];
 	extern byte ___243078h[];
 	extern byte ___242d78h[];
@@ -72,11 +60,7 @@ typedef rgb24_t pal256_t[0x100];
 	extern byte ___243d4ch[];
 	extern byte ___243d48h[];
 	extern byte ___243ce8h[];
-	extern byte ___1de5ach[];
 	extern byte ___1c9f10h[];
-	extern byte ___1cb910h[];
-	extern byte ___1cc110h[];
-	extern byte ___1cc910h[];
 	extern byte ___243d84h[];
 	extern byte ___1d5890h[];
 	extern byte ___1de210h[];
@@ -87,6 +71,7 @@ typedef rgb24_t pal256_t[0x100];
 	extern byte ___243d3ch[];
 	extern byte ___243d34h[];
 	extern byte ___1d8110h[];
+	extern byte ___1de7d0h[];
 	
 void bpa_read(const char *, void *, const char *);
 void bpk_decode2(void *, void *);
@@ -99,28 +84,16 @@ static void race___42f04h(void){
 	FILE * 		fd;
 	char 		fname[0x10];
 	pal256_t 	pal;
-/*
-	byte 	rix[0xa];
-*/
+
 	strcat(strcpy(fname, ___19bd64h), "-IMA.BPK");
 	bpa_read(___243dd0h, D(___243d60h), fname);
-/*
-	bpk_decode4(0xa, 0, &rix, D(___243d60h));
-*/
 	bpk_decode4(0x300, 0xa, &pal, D(___243d60h));
 
 	n = -1;
 	while(++n < 0x100) ___1a51d0h[n] = pal[n];
 
 	bpk_decode4(D(___243d28h)*D(___243d2ch), 0x30a, D(___243d58h), D(___243d60h));
-/*
-	strcat(strcpy(fname, ___19bd64h), ".SCX");
-	fd = fopen(fname, "wb");
-	fwrite(&rix, 1, 0xa, fd);
-	fwrite(&pal, sizeof(pal256_t), 1, fd);
-	fwrite(D(___243d58h), 1, D(___243d28h)*D(___243d2ch), fd);
-	fclose(fd);
-*/
+
 	if(D(___196dach) != 0){
 
 		strcat(strcpy(fname, ___19bd64h), "-FLIP.PAL");
@@ -144,41 +117,31 @@ static void race___42f04h(void){
 static void race___4313ch(void){
 
 	char 	fname[0x10];
-/*
-	FILE * 	fd;
-	byte 	header[0x30a];
-*/
+
 	strcat(strcpy(fname, ___19bd64h), "-MAS.BPK");
 	bpa_read(___243dd0h, ___1a54d0h, fname);
 	bpk_decode4(D(___243d28h)*D(___243d2ch), 0x30a, D(___243d60h), ___1a54d0h);
-/*
-	bpk_decode4(0x30a, 0, &header, ___1a54d0h);
-	fd = fopen(strcat(strcpy(fname, ___19bd64h), "-MAS.SCX"), "wb");
-	fwrite(&header, 1, 0x30a, fd);
-	fwrite(D(___243d60h), 1, D(___243d28h)*D(___243d2ch), fd);
-	fclose(fd);
-*/
+
 	strcat(strcpy(fname, ___19bd64h), "-VAI.BPK");
 	bpa_read(___243dd0h, ___1a54d0h, fname);
 	bpk_decode4(D(___243d30h)*D(___243d04h), 0x30a, D(___243d78h), ___1a54d0h);
-/*
-	bpk_decode4(0x30a, 0, &header, ___1a54d0h);
-	fd = fopen(strcat(strcpy(fname, ___19bd64h), "-VAI.SCX"), "wb");
-	fwrite(&header, 1, 0x30a, fd);
-	fwrite(D(___243d78h), 1, D(___243d30h)*D(___243d04h), fd);
-	fclose(fd);
-*/
+
 	strcat(strcpy(fname, ___19bd64h), "-LR1.BPK");
 	bpa_read(___243dd0h, ___1a54d0h, fname);
 	bpk_decode4(D(___243cf8h)*D(___243d10h), 0x30a, D(___243d54h), ___1a54d0h);   
-/*
-	bpk_decode4(0x30a, 0, &header, ___1a54d0h);
-	fd = fopen(strcat(strcpy(fname, ___19bd64h), "-LR1.SCX"), "wb");
-	fwrite(&header, 1, 0x30a, fd);
-	fwrite(D(___243d54h), 1, D(___243cf8h)*D(___243d10h), fd);
-	fclose(fd);
-*/
 }
+
+typedef char char14[14];
+
+static const char14 ___196dfch[7] = {
+	[0] = "KUPLA",
+	[1] = "PICKUP",
+	[2] = "SEDAN",
+	[3] = "CAMARO",
+	[4] = "PORCHE",
+	[5] = "LOTUS",
+	[6] = "SPECIAL"
+};
 
 static void race___432d8h(void){
 
@@ -189,8 +152,8 @@ static void race___432d8h(void){
 	n = -1;
 	while(++n < D(___243cf4h)){
 
-		suffix = ((D(0x54*n+___1de7f4h) == 1)&&((int)D(0x94*n+___1de580h) < 6)) ? "-S.BPK" : ".BPK";
-		strcat(strcpy(fname, 0xe*D(0x94*n+___1de580h)+___196dfch), suffix);
+		suffix = ((D(0x54*n+___1de7d0h+0x24) == 1)&&((int)D(0x94*n+___1de580h) < 6)) ? "-S.BPK" : ".BPK";
+		strcat(strcpy(fname, ___196dfch[D(0x94*n+___1de580h)]), suffix);
 		bpa_read("ENGINE.BPA", ___1a54d0h, fname);
 		bpk_decode2(0x25800*n+D(___243d74h), ___1a54d0h);
 
@@ -211,15 +174,15 @@ static void race___43b14h(void){
 	bpa_read("ENGINE.BPA", ___1a54d0h, "FLAME1.BPK");
 	bpk_decode2(D(___243298h), ___1a54d0h);
 	bpa_read("ENGINE.BPA", ___1a54d0h, "FLAME2.BPK");
-	bpk_decode2(D(___24329ch), ___1a54d0h);
+	bpk_decode2(D(___243298h+4), ___1a54d0h);
 	bpa_read("ENGINE.BPA", ___1a54d0h, "FLAME3.BPK");
-	bpk_decode2(D(___2432a0h), ___1a54d0h);
+	bpk_decode2(D(___243298h+8), ___1a54d0h);
 	bpa_read("ENGINE.BPA", ___1a54d0h, "FLAME4.BPK");
-	bpk_decode2(D(___2432a4h), ___1a54d0h);
+	bpk_decode2(D(___243298h+0xc), ___1a54d0h);
 	bpa_read("ENGINE.BPA", ___1a54d0h, "FLAME5.BPK");
-	bpk_decode2(D(___2432a8h), ___1a54d0h);
+	bpk_decode2(D(___243298h+0x10), ___1a54d0h);
 	bpa_read("ENGINE.BPA", ___1a54d0h, "FLAME6.BPK");
-	bpk_decode2(D(___2432ach), ___1a54d0h);
+	bpk_decode2(D(___243298h+0x14), ___1a54d0h);
 	bpa_read("ENGINE.BPA", ___1a54d0h, "SHOTS.BPK");
 	bpk_decode2(D(___243d88h), ___1a54d0h);
 	bpa_read("ENGINE.BPA", ___1a54d0h, D(___196dach) ? "OBST_REV.BPK" : "OBSTACLE.BPK");
@@ -229,11 +192,11 @@ static void race___43b14h(void){
 	bpa_read("ENGINE.BPA", ___1a54d0h, "SPLAT3.BPK");
 	bpk_decode2(D(___243288h), ___1a54d0h);
 	bpa_read("ENGINE.BPA", ___1a54d0h, "SPLAT4.BPK");
-	bpk_decode2(D(___24328ch), ___1a54d0h);
+	bpk_decode2(D(___243288h+4), ___1a54d0h);
 	bpa_read("ENGINE.BPA", ___1a54d0h, "ROCKET1.BPK");
 	bpk_decode2(D(___243290h), ___1a54d0h);
 	bpa_read("ENGINE.BPA", ___1a54d0h, "ROCKET2.BPK");
-	bpk_decode2(D(___243294h), ___1a54d0h);
+	bpk_decode2(D(___243290h+4), ___1a54d0h);
 	bpa_read("ENGINE.BPA", ___1a54d0h, "BURN1A.BPK");
 	bpk_decode2(D(___243d68h), ___1a54d0h);
 	bpa_read("ENGINE.BPA", ___1a54d0h, "SMOKE.BPK");
@@ -304,7 +267,7 @@ static void race___42be4h(void){
 
 	bpa_read("IBFILES.BPA", ___1a54d0h, "BOARDS.BPK");
 
-	if(D(0x94*D(___243ce8h)+___1de5ach) == 0){
+	if(D(0x94*D(___243ce8h)+___1de580h+0x2c) == 0){
 
 		bpk_decode4(0x1a00, 0x1a00*D(___243ce8h)+0x8800, ___1c9f10h, ___1a54d0h);
 	}
@@ -315,11 +278,12 @@ static void race___42be4h(void){
 
 	n = -1;
 	if(++n == D(___243ce8h)) n++;
-	bpk_decode4(0x800, 0x2200*n+0x1a00, ___1cb910h, ___1a54d0h);
+	bpk_decode4(0x800, 0x2200*n+0x1a00, ___1c9f10h+0x1a00, ___1a54d0h);
 	if(++n == D(___243ce8h)) n++;
-	bpk_decode4(0x800, 0x2200*n+0x1a00, ___1cc110h, ___1a54d0h);
+	bpk_decode4(0x800, 0x2200*n+0x1a00, ___1c9f10h+0x2200, ___1a54d0h);
 	if(++n == D(___243ce8h)) n++;
-	bpk_decode4(0x800, 0x2200*n+0x1a00, ___1cc910h, ___1a54d0h);
+	bpk_decode4(0x800, 0x2200*n+0x1a00, ___1c9f10h+0x2a00, ___1a54d0h);
+
 
 	bpa_read("IBFILES.BPA", ___1a54d0h, "RASTI1.BPK");
 	bpk_decode2(D(___243d84h), ___1a54d0h);
@@ -364,7 +328,7 @@ static void race___42be4h(void){
 	bpk_decode2(D(___243d34h), ___1a54d0h);
 	bpa_read("IBFILES.BPA", ___1a54d0h, "SMALLBAR.BPK");
 
-	if(D(0x94*D(___243ce8h)+___1de5ach) == 0){
+	if(D(0x94*D(___243ce8h)+___1de580h+0x2c) == 0){
 
 		bpk_decode4(0x800, 0x800*D(___243ce8h)+0x2000, ___1d8110h, ___1a54d0h);
 	}

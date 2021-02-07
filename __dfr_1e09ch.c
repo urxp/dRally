@@ -5,7 +5,6 @@ cpu 386
 	extern	__CHK
 	extern 	__MOVS
 	extern 	__STRCAT
-	extern	___181000h
 	extern	___19bd60h
 	extern	___1d4e8h
 	extern	___1d83ch
@@ -17,7 +16,7 @@ cpu 386
 	extern	___1a1ef8h
 	extern	CONNECTION_TYPE
 	extern	___199fach
-	extern	___1a020ch
+	extern	___1a01e0h
 	extern	___2415ch
 	extern	___2b5f0h
 	extern	___61cd0h
@@ -26,24 +25,16 @@ cpu 386
 	extern	___1a1138h__VESA101h_DefaultScreenBufferB
 	extern	___1a112ch__VESA101_ACTIVESCREEN_PTR
 	extern	___13248h_cdecl
-	extern	___181010h
 	extern	___185c0bh
 	extern	___1a1108h
 	extern	___12e78h_cdecl
-	extern	___180ac8h
 	extern	___13bd4h_cdecl
 	extern	___12cb8h__VESA101_PRESENTSCREEN
 	extern	___631d4h
 	extern	___63228h
 	extern	kmap
-	extern	___181024h
 	extern	___63244h
 	extern	memset
-	extern	___18102ch
-	extern	___181044h
-	extern	___180fb4h
-	extern	___180fdch
-	extern	___180fe4h
 	extern	___2ab50h
 	extern	___60a84h
 	extern	___5994ch
@@ -52,7 +43,6 @@ cpu 386
 	extern	___611c0h
 	extern	___61278h
 	extern	___1866b8h
-	extern	___180fech
 	extern	___1caf4h
 	extern	___623d4h
 	extern	___59b3ch
@@ -72,7 +62,7 @@ __GDECL(___1e09ch)
 		sub     esp, byte 44h
 		mov     edx, 0c5h
 		mov     edi, esp
-		mov     esi, ___181000h
+		mov     esi, __dfr_181000h
 		xor     ah, ah
 		mov     [esp+24h], edx
 		mov     [esp+41h], ah
@@ -146,7 +136,7 @@ ___1e132h:
 		sub     eax, edx
 		mov     [CONNECTION_TYPE], ecx
 		mov     [___199fach], esi
-		mov     ebx, [eax*4+___1a020ch]
+		mov     ebx, [eax*4+___1a01e0h+2ch]
 
 	push 	edx
 	push 	ecx
@@ -161,7 +151,7 @@ ___1e132h:
 		sub     eax, edx
 		shl     eax, 2
 		sub     eax, edx
-		mov     [eax*4+___1a020ch], ebx
+		mov     [eax*4+___1a01e0h+2ch], ebx
 	
 	push 	edx
 	push 	ecx
@@ -227,7 +217,7 @@ ___1e1b1h:
 		lea     eax, [edx*4+0]
 		add     eax, edx
 		shl     eax, 7
-		mov     ebx, ___181010h
+		mov     ebx, __dfr_181010h
 		mov     [esp+18h], eax
 		lea     esi, [eax+ebp*1]
 		mov     edx, ___185c0bh
@@ -247,7 +237,7 @@ ___1e1b1h:
 		lea     eax, [edx*4+0]
 		add     eax, edx
 		shl     eax, 7
-		mov     ebx, ___180ac8h
+		mov     ebx, __dfr_180ac8h
 		lea     ecx, [eax+ebp*1]
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
@@ -315,7 +305,7 @@ ___1e1b1h:
 ___1e2c7h:
 		test    ecx, ecx
 		jne     near ___1e414h
-		mov     eax, ___181024h
+		mov     eax, __dfr_181024h
 
 	push 	edx
 	push 	ecx
@@ -352,7 +342,7 @@ ___1e2edh:
 		cmp     esi, 2800h
 		jne     short ___1e2edh
 		mov     ecx, [esp+34h]
-		mov     ebx, ___18102ch
+		mov     ebx, __dfr_18102ch
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
 		lea     esi, [esp+40h]
@@ -373,7 +363,7 @@ ___1e2edh:
 	pop		ecx
 	pop		edx
 
-		mov     eax, [___181044h]
+		mov     eax, [__dfr_181044h]
 		mov     edi, esp
 		mov     [esp], eax
 		call 	__STRCAT
@@ -397,7 +387,7 @@ ___1e2edh:
 	pop 	edx
 
 ___1e36fh:
-		mov     eax, ___180fb4h
+		mov     eax, __dfr_180fb4h
 
 	push 	edx
 	push 	ecx
@@ -434,7 +424,7 @@ ___1e389h:
 		cmp     ecx, 2800h
 		jne     short ___1e389h
 		mov     ecx, [esp+28h]
-		mov     ebx, ___181010h
+		mov     ebx, __dfr_181010h
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
 
@@ -464,7 +454,7 @@ ___1e389h:
 	pop 	edx
 
 ___1e3d4h:
-		mov     eax, ___180fdch
+		mov     eax, __dfr_180fdch
 
 	push 	edx
 	push 	ecx
@@ -477,7 +467,7 @@ ___1e3d4h:
 		mov     ecx, eax
 		test    eax, eax
 		jne     short ___1e3f0h
-		mov     eax, ___180fe4h
+		mov     eax, __dfr_180fe4h
 
 	push 	edx
 	push 	ecx
@@ -635,7 +625,7 @@ ___1e4a8h:
 		je      short ___1e4d0h
 		mov     edi, ___1866b8h+47eh
 		xor     cl, cl
-		mov     esi, ___180fech
+		mov     esi, __dfr_180fech
 		mov     [___185b58h+18h], cl
 
 	push 	edx
@@ -701,4 +691,26 @@ ___1e4eeh:
 		pop     ecx
 		pop     ebx
 		retn    
+
+section .data
+__dfr_180ac8h:
+	db 	"Press ESC to abort",0,0
+__dfr_180fb4h:
+	db	4eh,4fh,20h,43h,41h,52h,52h,49h,45h,52h,0,0
+__dfr_180fdch:
+	db	43h,4fh,4eh,4eh,45h,43h,54h,0
+__dfr_180fe4h:
+	db	43h,41h,52h,52h,49h,45h,52h,0
+__dfr_180fech:
+	db	44h,69h,73h,63h,6fh,6eh,6eh,65h,63h,74h,20h,4dh,6fh,64h,65h,6dh,0,0,0,0
+__dfr_181000h:
+	db	41h,54h,45h,31h,58h,31h,56h,31h,53h,30h,3dh,30h,0,0,0,0
+__dfr_181010h:
+	db	57h,61h,69h,74h,69h,6eh,67h,20h,66h,6fh,72h,20h,63h,61h,6ch,6ch,2eh,2eh,2eh,0
+__dfr_181024h:
+	db	52h,49h,4eh,47h,0,0,0,0
+__dfr_18102ch:
+	db	45h,73h,74h,61h,62h,6ch,69h,73h,68h,69h,6eh,67h,20h,63h,6fh,6eh,6eh,65h,63h,74h,69h,6fh,6eh,0
+__dfr_181044h:
+	db	41h,54h,41h,0
 */

@@ -1,46 +1,38 @@
 #include "drally.h"
 
 	extern byte ___19eb50h[];
-	extern byte ___19eb54h[];
-	extern byte ___19eb58h[];
 	extern byte ___1a112ch__VESA101_ACTIVESCREEN_PTR[];
 	extern byte ___1a10e4h__VESA101h_DefaultScreenBufferA[];
 	extern byte ___1a1138h__VESA101h_DefaultScreenBufferB[];
 	extern byte ___1a0f90h[];
 	extern byte ___1a0f88h[];
 	extern byte ___1a0f84h[];
-	extern byte ___1a1100h__VESA101h_DefaultScreenBuffer[];
 	extern byte ___1a1028h[];
 	extern byte ___1a103ch[];
 	extern byte ___196af0h[];
 	extern byte ___196aech[];
 	extern byte ___196ae8h[];
 	extern byte ___1866b8h[];
-	extern byte ___1807ech[];
 	extern byte ___185a48h[];
 	extern byte ___185a44h[];
 	extern byte ___185a40h[];
 	extern byte ___185a3ch[];
 	extern byte ___185b58h[];
 	extern byte ___1866b8h[];
-	extern byte ___180814h[];
 	extern byte ___243d44h[];
 	extern byte ___185a5ch[];
 	extern byte ___185a2ch[];
-	extern byte ___1854a4h[];
 	extern byte ___24cc54h[];
 	extern byte ___185a14h_UseWeapons[];
 	extern byte ___185a4ch[];
 	extern byte ___1a1ef4h[];
 	extern byte ___185a28h[];
-	extern byte ___1a1f67h[];
-	extern byte ___1a1f68h[];
-	extern byte ___1a1f69h[];
-	extern byte ___1de810h[];
+	extern byte ___1a1f64h[];
+	extern byte ___1de7d0h[];
 	extern byte ___1a1ef8h[];
-	extern byte ___1a0224h[];
+	extern byte ___1a01e0h[];
 	extern byte ___19bd60h[];
-	extern byte ___1a0a5ch[];
+	extern byte ___1a0a50h[];
 	extern byte ___185a20h[];
 
 void restoreDefaultScreenBuffer(void);
@@ -92,7 +84,7 @@ ___3102eh:
 		eax &= 0xff;
 		rr = eax;
 		edx = edi;
-		eax = D(esi+___19eb54h);
+		eax = D(esi+___19eb50h+4);
 		___imul32(&eax, &edx, edx);
 		eax += 0x8000;
 		edx += !!(eax < 0x8000);
@@ -102,7 +94,7 @@ ___3102eh:
 		eax &= 0xff;
 		gg = eax;
 		edx = edi;
-		eax = D(esi+___19eb58h);
+		eax = D(esi+___19eb50h+8);
 		___imul32(&eax, &edx, edx);
 		eax += 0x8000;
 		edx += !!(eax < 0x8000);
@@ -236,7 +228,7 @@ ___3125bh:
 		if(ebx != D(___196ae8h)) goto ___3157eh;
 		H(eax) = 1;
 		edi = ___1866b8h+0x1c2;
-		esi = ___1807ech;
+		esi = "Start A New Game";
 		D(___185a48h) = ecx;
 		D(___185a44h) = ecx;
 		D(___185a40h) = ecx;
@@ -253,7 +245,7 @@ ___3125bh:
 		B(edi++) = B(esi++);
 		B(___185b58h+0xa) = L(edx);
 		edi = ___1866b8h;
-		esi = ___180814h;
+		esi = "Start Racing";
 		H(edx) = 0;
 		B(___185b58h+0xd) = L(ebx);
 		B(___185b58h+0xb) = H(edx);
@@ -268,7 +260,7 @@ ___3125bh:
 		D(___196ae8h) = ebp;
 		return;
 ___31320h:
-		eax = D(___1854a4h);
+		eax = 0x25500;
 		edx = 0x17;
 		eax -= 0x1000;
 		ecx = D(___24cc54h);
@@ -306,7 +298,7 @@ ___31384h:
 		eax &= 0xff;
 		rr = eax;
 		edx = esi;
-		eax = D(edi+___19eb54h);
+		eax = D(edi+___19eb50h+4);
 		___imul32(&eax, &edx, edx);
 		eax += 0x8000;
 		edx += !!(eax < 0x8000);
@@ -316,7 +308,7 @@ ___31384h:
 		eax &= 0xff;
 		gg = eax;
 		edx = esi;
-		eax = D(edi+___19eb58h);
+		eax = D(edi+___19eb50h+8);
 		___imul32(&eax, &edx, edx);
 		eax += 0x8000;
 		edx += !!(eax < 0x8000);
@@ -366,9 +358,9 @@ ___3146fh:
 ___31496h:
 		eax = ebx;
 		___3079ch_cdecl(eax);
-		if(L(edx) > B(___1a1f67h)) goto ___31496h;
-		if(L(edx) > B(___1a1f68h)) goto ___31496h;
-		if(L(edx) > B(___1a1f69h)) goto ___31496h;
+		if(L(edx) > B(___1a1f64h+3)) goto ___31496h;
+		if(L(edx) > B(___1a1f64h+4)) goto ___31496h;
+		if(L(edx) > B(___1a1f64h+5)) goto ___31496h;
 		ecx = 0x4;
 		eax = esp;
 		edx ^= edx;
@@ -382,7 +374,7 @@ ___314cah:
 		___idiv32(&eax, &edx, ebx);
 		edx++;
 		eax = edx;
-		D(esi+___1de810h) = edx;
+		D(esi+___1de7d0h+0x40) = edx;
 		if(B(esp+edx-1) != 0) goto ___314cah;
 		H(edx) = 1;
 		esi += 0x54;
@@ -398,7 +390,7 @@ ___314cah:
 		eax ^= eax;
 		D(esp+0x28) = ebx;
 ___31517h:
-		ecx = D(eax+___1a0224h);
+		ecx = D(eax+___1a01e0h+0x44);
 		if((int)edx >= (int)ecx) goto ___31529h;
 		if(esi == D(esp+0x28)) goto ___31529h;
 		edx = ecx;
@@ -414,12 +406,12 @@ ___31529h:
 		eax -= esi;
 		eax <<= 0x2;
 		eax -= esi;
-		if((int)edx >= (int)D(eax*4+___1a0224h)) goto ___3156ah;
+		if((int)edx >= (int)D(eax*4+___1a01e0h+0x44)) goto ___3156ah;
 		esi ^= esi;
-		D(___1a0a5ch) = esi;
+		D(___1a0a50h+0xc) = esi;
 		goto ___31574h;
 ___3156ah:
-		D(___1a0a5ch) = 1;
+		D(___1a0a50h+0xc) = 1;
 ___31574h:
 		D(___185a20h) = 1;
 ___3157eh:

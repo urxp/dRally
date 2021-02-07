@@ -1,29 +1,56 @@
 #include "drally.h"
 
+typedef char char40[40];
+
 	extern byte ___1a1ef8h[];
-	extern byte ___1a01fch[];
-	extern byte ___1a0218h[];
-	extern byte ___1923c0h[];
-	extern byte ___192e10h[];
-	extern byte ___1a0214h[];
-	extern byte ___18220ch[];
-	extern byte ___182214h[];
-	extern byte ___18221ch[];
-	extern byte ___182224h[];
-	extern byte ___18222ch[];
-	extern byte ___182234h[];
-	extern byte ___18223ch[];
-	extern byte ___182244h[];
-	extern byte ___180724h[];
-	extern byte ___192e38h[];
-	extern byte ___192e60h[];
-	extern byte ___192e88h[];
-	extern byte ___192eb0h[];
-	extern byte ___192ed8h[];
+	extern byte ___1a01e0h[];
 
 char * itoa_watcom106(int value, char * buffer, int radix);
 void ___13094h_cdecl(const char *, dword);
 void ___13248h_cdecl(dword, dword ,dword, dword, dword);
+
+static const char40 ___1923c0h[5][6] = {
+	[0] = {
+		[0] = "[Borrow $12,000 - Pay $18,000",
+		[1] = "",
+		[2] = "With better gear you'd already be",
+		[3] = "on the top, eh? So how does a",
+		[4] = "short-term loan of [$12,000{ sound?",
+		[5] = ""
+	},
+	[1] = {
+		[0] = "[Borrow $9,000 - Pay $13,500",
+		[1] = "",
+		[2] = "With better gear you'd already be",
+		[3] = "on the top, eh? So how does a",
+		[4] = "short-term loan of [$9,000{ sound?",
+		[5] = ""
+	},
+	[2] = {
+		[0] = "[Borrow $6,000 - Pay $9,000",
+		[1] = "",
+		[2] = "With better gear you'd already be",
+		[3] = "on the top, eh? So how does a",
+		[4] = "short-term loan of [$6,000{ sound?",
+		[5] = ""
+	},
+	[3] = {
+		[0] = "[Borrow $3,000 - Pay $4,500",
+		[1] = "",
+		[2] = "With better gear you'd already be",
+		[3] = "on the top, eh? So how does a",
+		[4] = "short-term loan of [$3,000{ sound?",
+		[5] = ""
+	},
+	[4] = {
+		[0] = "[Borrow $1,500 - Pay $2,250",
+		[1] = "",
+		[2] = "With better gear you'd already be",
+		[3] = "on the top, eh? So how does a",
+		[4] = "short-term loan of [$1,500{ sound?",
+		[5] = ""
+	}
+};
 
 // LOANSHARK STUFF
 void ___2d294h(void){
@@ -43,62 +70,40 @@ void ___2d294h(void){
 		eax <<= 0x2;
 		eax -= ebx;
 		L(edx) = 0x5;
-		H(edx) = B(eax*4+___1a01fch);
-		ebx = D(eax*4+___1a01fch);
+		H(edx) = B(eax*4+___1a01e0h+0x1c);
+		ebx = D(eax*4+___1a01e0h+0x1c);
 		L(edx) -= H(edx);
 		if(ebx != 0) goto ___2d2edh;
 		L(edx) = 0x4;
 ___2d2edh:
-		ebx = D(___1a1ef8h);
-		eax = 8*ebx;
-		eax -= ebx;
-		eax <<= 0x2;
-		eax -= ebx;
-		if(D(eax*4+___1a0218h) != 0xffffffff) goto ___2d375h;
+		eax = 27*D(___1a1ef8h);
+		if(D(___1a01e0h+0x38+0x6c*D(___1a1ef8h)) != 0xffffffff) goto ___2d375h;
 		edx &= 0xff;
-		eax = edx;
-		eax <<= 0x4;
-		eax -= edx;
-		ebx = ___1923c0h;
-		eax <<= 0x4;
-		ebx += eax;
-		edx = 0x136aa;
-		eax = ebx;
-		___13094h_cdecl(eax, edx);
-		edx = 0x15eaa;
-		eax = ebx+0x28;
-		___13094h_cdecl(eax, edx);
-		edx = 0x186aa;
-		eax = ebx+0x50;
-		___13094h_cdecl(eax, edx);
-		edx = 0x1aeaa;
-		eax = ebx+0x78;
-		___13094h_cdecl(eax, edx);
-		edx = 0x1d6aa;
-		eax = ebx+0xa0;
-		___13094h_cdecl(eax, edx);
-		edx = 0x1feaa;
-		eax = ebx+0xc8;
-		goto ___2d608h;
+		___13094h_cdecl(___1923c0h[edx][0], 0x136aa);
+		___13094h_cdecl(___1923c0h[edx][1], 0x15eaa);
+		___13094h_cdecl(___1923c0h[edx][2], 0x186aa);
+		___13094h_cdecl(___1923c0h[edx][3], 0x1aeaa);
+		___13094h_cdecl(___1923c0h[edx][4], 0x1d6aa);
+		___13094h_cdecl(___1923c0h[edx][5], 0x1feaa);
+		return;
 ___2d375h:
-		esi = ___192e10h;
 		edi = esp;
-		strcpy(edi, esi);
+		strcpy(edi, "[Pay back $");
 		ebx = D(___1a1ef8h);
 		eax = 8*ebx;
 		eax -= ebx;
 		eax <<= 0x2;
 		eax -= ebx;
 		eax <<= 0x2;
-		if(D(eax+___1a0214h) != 0) goto ___2d3f2h;
-		eax = D(eax+___1a0218h);
+		if(D(eax+___1a01e0h+0x34) != 0) goto ___2d3f2h;
+		eax = D(eax+___1a01e0h+0x38);
 		eax--;
 		D(esp+0x60) = eax;
 		FPUSH((int)D(esp+0x60));
-		ST(0) = ST(0)/F64(___18220ch);
-		ST(0) = ST(0)*F64(___182214h);
+		ST(0) = ST(0)/3.0;
+		ST(0) = ST(0)*6000.0;
 		ebx = 0xa;
-		ST(0) = ST(0)+F64(___18221ch);
+		ST(0) = ST(0)+12000.0;
 		edx = esp+0x50;
 		ST(0) = (int)ST(0);
 		D(esp+0x60) = (int)FPOP();
@@ -111,16 +116,16 @@ ___2d3f2h:
 		eax <<= 0x2;
 		eax -= ebx;
 		eax <<= 0x2;
-		edi = D(eax+___1a0214h);
+		edi = D(eax+___1a01e0h+0x34);
 		if(edi != 1) goto ___2d451h;
-		eax = D(eax+___1a0218h);
+		eax = D(eax+___1a01e0h+0x38);
 		eax -= edi;
 		D(esp+0x60) = eax;
 		FPUSH((int)D(esp+0x60));
-		ST(0) = ST(0)/F64(___18220ch);
-		ST(0) = ST(0)*F64(___182224h);
+		ST(0) = ST(0)/3.0;
+		ST(0) = ST(0)*4500.0;
 		ebx = 0xa;
-		ST(0) = ST(0)+F64(___18222ch);
+		ST(0) = ST(0)+9000.0;
 		edx = esp+0x50;
 		ST(0) = (int)ST(0);
 		D(esp+0x60) = (int)FPOP();
@@ -133,15 +138,15 @@ ___2d451h:
 		eax <<= 0x2;
 		eax -= ebx;
 		eax <<= 0x2;
-		if(D(eax+___1a0214h) != 2) goto ___2d4adh;
-		eax = D(eax+___1a0218h);
+		if(D(eax+___1a01e0h+0x34) != 2) goto ___2d4adh;
+		eax = D(eax+___1a01e0h+0x38);
 		eax--;
 		D(esp+0x60) = eax;
 		FPUSH((int)D(esp+0x60));
-		ST(0) = ST(0)/F64(___18220ch);
-		ST(0) = ST(0)*F64(___182234h);
+		ST(0) = ST(0)/3.0;
+		ST(0) = ST(0)*3000.0;
 		ebx = 0xa;
-		ST(0) = ST(0)+F64(___182214h);
+		ST(0) = ST(0)+6000.0;
 		edx = esp+0x50;
 		ST(0) = (int)ST(0);
 		D(esp+0x60) = (int)FPOP();
@@ -154,15 +159,15 @@ ___2d4adh:
 		eax <<= 0x2;
 		eax -= ebx;
 		eax <<= 0x2;
-		if(D(eax+___1a0214h) != 3) goto ___2d509h;
-		eax = D(eax+___1a0218h);
+		if(D(eax+___1a01e0h+0x34) != 3) goto ___2d509h;
+		eax = D(eax+___1a01e0h+0x38);
 		eax--;
 		D(esp+0x60) = eax;
 		FPUSH((int)D(esp+0x60));
-		ST(0) = ST(0)/F64(___18220ch);
-		ST(0) = ST(0)*F64(___18223ch);
+		ST(0) = ST(0)/3.0;
+		ST(0) = ST(0)*1500.0;
 		ebx = 0xa;
-		ST(0) = ST(0)+F64(___182234h);
+		ST(0) = ST(0)+3000.0;
 		edx = esp+0x50;
 		ST(0) = (int)ST(0);
 		D(esp+0x60) = (int)FPOP();
@@ -175,15 +180,15 @@ ___2d509h:
 		eax <<= 0x2;
 		eax -= ebx;
 		eax <<= 0x2;
-		if(D(eax+___1a0214h) != 4) goto ___2d565h;
-		eax = D(eax+___1a0218h);
+		if(D(eax+___1a01e0h+0x34) != 4) goto ___2d565h;
+		eax = D(eax+___1a01e0h+0x38);
 		eax--;
 		D(esp+0x60) = eax;
 		FPUSH((int)D(esp+0x60));
-		ST(0) = ST(0)/F64(___18220ch);
-		ST(0) = ST(0)*F64(___182244h);
+		ST(0) = ST(0)/3.0;
+		ST(0) = ST(0)*750.0;
 		ebx = 0xa;
-		ST(0) = ST(0)+F64(___18223ch);
+		ST(0) = ST(0)+1500.0;
 		edx = esp+0x50;
 		ST(0) = (int)ST(0);
 		D(esp+0x60) = (int)FPOP();
@@ -193,27 +198,13 @@ ___2d565h:
 		esi = esp+0x50;
 		edi = esp;
 		strcat(edi, esi);
-		esi = ___180724h;
+		esi = ".";
 		edi = esp;
-		edx = 0x136aa;
 		strcat(edi, esi);
-		eax = esp;
-		___13094h_cdecl(eax, edx);
-		edx = 0x15eaa;
-		eax = ___192e38h;
-		___13094h_cdecl(eax, edx);
-		edx = 0x186aa;
-		eax = ___192e60h;
-		___13094h_cdecl(eax, edx);
-		edx = 0x1aeaa;
-		eax = ___192e88h;
-		___13094h_cdecl(eax, edx);
-		edx = 0x1d6aa;
-		eax = ___192eb0h;
-		___13094h_cdecl(eax, edx);
-		edx = 0x1feaa;
-		eax = ___192ed8h;
-___2d608h:
-		___13094h_cdecl(eax, edx);
-		return;
+		___13094h_cdecl(esp, 0x136aa);
+		___13094h_cdecl("", 0x15eaa);
+		___13094h_cdecl("Petrol brain, you owe me. You'd", 0x186aa);
+		___13094h_cdecl("better be here to pay me back, or", 0x1aeaa);
+		___13094h_cdecl("else we have nothing to discuss.", 0x1d6aa);
+		___13094h_cdecl("", 0x1feaa);
 }

@@ -2,11 +2,7 @@
 
 	extern byte ___24330ch[];
 	extern byte ___2432dch[];
-	extern byte ___243e94h[];
-	extern byte ___243e80h[];
-	extern byte ___243e7ch[];
 	extern byte ___243e74h[];
-	extern byte ___243e78h[];
 	extern byte ___2432d8h[];
 
 // RACE OVER, LEAVING RACE DIALOG BOX UNLOAD ANIMATION
@@ -24,24 +20,24 @@ dword ___47620h(void){
 ___47648h:
 		eax = D(esp+0x4);
 		D(___24330ch) = edi;
-		L(edx) = B(eax+___243e94h);
+		L(edx) = B(eax+___243e74h+0x20);
 		D(___2432dch) = ebp;
 		if(L(edx) > 0x46) goto ___477a1h;
 		eax ^= eax;
 		if((int)edi <= 0) goto ___47684h;
 		edx = D(esp+0x4);
 ___47671h:
-		ecx = D(edx+___243e80h);
+		ecx = D(edx+___243e74h+0xc);
 		ecx += ebp;
 		eax++;
-		D(edx+___243e80h) = ecx;
+		D(edx+___243e74h+0xc) = ecx;
 		if((int)eax < (int)edi) goto ___47671h;
 ___47684h:
 		edx ^= edx;
 		if((int)edi <= 0) goto ___476a7h;
 		eax = D(esp+0x4);
 ___4768eh:
-		ebx = D(eax+___243e7ch);
+		ebx = D(eax+___243e74h+8);
 		esi = D(eax+___243e74h);
 		esi += ebx;
 		edx++;
@@ -52,32 +48,32 @@ ___476a7h:
 		edx ^= edx;
 		if((int)edi <= 0) goto ___476c8h;
 ___476b1h:
-		ecx = D(eax+___243e78h);
-		ecx += D(eax+___243e80h);
+		ecx = D(eax+___243e74h+4);
+		ecx += D(eax+___243e74h+0xc);
 		edx++;
-		D(eax+___243e78h) = ecx;
+		D(eax+___243e74h+4) = ecx;
 		if((int)edx < (int)edi) goto ___476b1h;
 ___476c8h:
 		if((int)D(eax+___243e74h) > 0) goto ___476e7h;
 		edx ^= edx;
 		D(eax+___243e74h) = edx;
-		edx = D(eax+___243e7ch);
+		edx = D(eax+___243e74h+8);
 		edx = 0-edx;
-		D(eax+___243e7ch) = edx;
+		D(eax+___243e74h+8) = edx;
 ___476e7h:
 		eax = D(esp+0x4);
 		if((int)D(eax+___243e74h) < 0x13c0000) goto ___47713h;
 		D(eax+___243e74h) = 0x13c0000;
-		eax = D(eax+___243e7ch);
+		eax = D(eax+___243e74h+8);
 		edx = D(esp+0x4);
 		eax = 0-eax;
-		D(edx+___243e7ch) = eax;
+		D(edx+___243e74h+8) = eax;
 ___47713h:
 		eax = D(esp+0x4);
 		ebx = D(esp+0x4);
 		D(___24330ch) = edi;
 		D(___2432dch) = ebp;
-		eax = D(eax+___243e78h);
+		eax = D(eax+___243e74h+4);
 		ebx = D(ebx+___243e74h);
 		eax += 0x8000;
 		ebx += 0x8000;
@@ -88,7 +84,7 @@ ___47713h:
 		eax = D(esp+0x4);
 		H(edx) = 0x46;
 		ebx++;
-		B(eax+___243e94h) = H(edx);
+		B(eax+___243e74h+0x20) = H(edx);
 		D(esp) = ebx;
 		goto ___477a1h;
 ___47760h:

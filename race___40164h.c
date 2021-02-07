@@ -1,18 +1,12 @@
 #include "drally.h"
+#include "drally_keyboard.h"
 
 	extern byte ___19bd60h[];
 	extern byte CONNECTION_TYPE[];
 	extern byte ___199f9ch[];
 	extern byte ___243cd0h[];
-	extern byte ___1a1158h[];
 	extern byte kmap[];
-	extern byte ___1a1150h[];
-	extern byte ___1a1148h[];
-	extern byte ___1a114ch[];
-	extern byte ___1a1140h[];
-	extern byte ___1a115ch[];
-	extern byte ___1a1154h[];
-	extern byte ___1a1144h[];
+	extern __DWORD__ ___1a1140h[8];
 	extern byte ___19bd58h[];
 	extern byte ___199f3fh[];
 	extern byte ___24cc64h[];
@@ -35,8 +29,7 @@
 	extern byte ___1a1118h[];
 	extern byte ___1a111ch[];
 	extern byte ___243ce8h[];
-	extern byte ___1e6f70h[];
-	extern byte ___1e6f30h[];
+	extern byte ___1e6ed0h[];
 	extern byte ___24387ch[];
 	extern byte ___243880h[];
 	extern byte ___243898h[];
@@ -62,22 +55,22 @@ void race___40164h(void){
 	if((D(___19bd60h) != 0)&&(D(CONNECTION_TYPE) == 2)) ___63b20h(1, D(___199f9ch));
 	ActionFlags = 0;
 	if(D(___243cd0h) == 0){
-		if((D(___1a1158h) == 0xc8)&&(B(kmap+0x48) != 0)) ActionFlags |= 1;			// UP
-		if((D(___1a1150h) == 0xd0)&&(B(kmap+0x50) != 0)) ActionFlags |= 2;			// DOWN
-		if((D(___1a1148h) == 0xcb)&&(B(kmap+0x4b) != 0)) ActionFlags |= 4;			// LEFT
-		if((D(___1a114ch) == 0xcd)&&(B(kmap+0x4d) != 0)) ActionFlags |= 8;			// RIGHT
-		if((B(kmap+0xc8) != 0)||(B(kmap+0x48) != 0)||(B(D(___1a1158h)+kmap) != 0)) ActionFlags |= 1;
-		if((B(kmap+0xd0) != 0)||(B(kmap+0x50) != 0)||(B(D(___1a1150h)+kmap) != 0)) ActionFlags |= 2;
-		if(B(D(___1a1148h)+kmap) != 0) ActionFlags |= 4;
-		if(B(D(___1a114ch)+kmap) != 0) ActionFlags |= 8;
-		if(B(D(___1a1140h)+kmap) != 0) ActionFlags |= 0x10;							// TURBO BOOST
-		if(B(D(___1a115ch)+kmap) != 0) ActionFlags |= 0x20;							// MACHINE GUN
-		if(B(D(___1a1154h)+kmap) != 0){
+		if((___1a1140h[6] == DR_SCAN_UP)&&(B(kmap+DR_SCAN_KP_8) != 0)) ActionFlags |= 1;			// UP
+		if((___1a1140h[4]== DR_SCAN_DOWN)&&(B(kmap+DR_SCAN_KP_2) != 0)) ActionFlags |= 2;			// DOWN
+		if((___1a1140h[2] == DR_SCAN_LEFT)&&(B(kmap+DR_SCAN_KP_4) != 0)) ActionFlags |= 4;			// LEFT
+		if((___1a1140h[3] == DR_SCAN_RIGHT)&&(B(kmap+DR_SCAN_KP_6) != 0)) ActionFlags |= 8;			// RIGHT
+		if((B(kmap+DR_SCAN_UP) != 0)||(B(kmap+DR_SCAN_KP_8) != 0)||(B(___1a1140h[6]+kmap) != 0)) ActionFlags |= 1;
+		if((B(kmap+DR_SCAN_DOWN) != 0)||(B(kmap+DR_SCAN_KP_2) != 0)||(B(___1a1140h[4]+kmap) != 0)) ActionFlags |= 2;
+		if(B(___1a1140h[2]+kmap) != 0) ActionFlags |= 4;
+		if(B(___1a1140h[3]+kmap) != 0) ActionFlags |= 8;
+		if(B(___1a1140h[0]+kmap) != 0) ActionFlags |= 0x10;							// TURBO BOOST
+		if(B(___1a1140h[7]+kmap) != 0) ActionFlags |= 0x20;							// MACHINE GUN
+		if(B(___1a1140h[5]+kmap) != 0){
 			ActionFlags |= 0x40;													// DROP MINE
-			B(D(___1a1154h)+kmap) = 0;
+			B(___1a1140h[5]+kmap) = 0;
 		}
 		if(((ActionFlags&2) != 0)&&((ActionFlags&0x40) != 0)) ActionFlags &= 0xfd;
-		if(B(D(___1a1144h)+kmap) != 0) ActionFlags |= 0x42;							// HORN
+		if(B(___1a1140h[1]+kmap) != 0) ActionFlags |= 0x42;							// HORN
 		
 #if defined(DR_GAMEPAD)
 		if((int)D(___19bd58h) > 0){
@@ -106,15 +99,15 @@ void race___40164h(void){
 			if(B(D(___1a1118h)+___24cc64h) != 0) ActionFlags |= 0x20;
 			if(B(D(___1a111ch)+___24cc64h) != 0){
 				ActionFlags |= 0x40;
-				B(D(___1a1154h)+kmap) = 0;
+				B(___1a1140h[5]+kmap) = 0;
 			}
 		}
 #endif // DR_GAMEPAD
 
 		if((ActionFlags&0x10) != 0) ActionFlags |= 1;
-		D(4*D(0x35e*D(___243ce8h)+___1e6f70h)+0x35e*D(___243ce8h)+___1e6f30h) = ActionFlags;
-		D(0x35e*D(___243ce8h)+___1e6f70h)++;
-		if((int)D(0x35e*D(___243ce8h)+___1e6f70h) > 0xf) D(0x35e*D(___243ce8h)+___1e6f70h) = 0;
+		D(4*D(0x35e*D(___243ce8h)+___1e6ed0h+0xa0)+0x35e*D(___243ce8h)+___1e6ed0h+0x60) = ActionFlags;
+		D(0x35e*D(___243ce8h)+___1e6ed0h+0xa0)++;
+		if((int)D(0x35e*D(___243ce8h)+___1e6ed0h+0xa0) > 0xf) D(0x35e*D(___243ce8h)+___1e6ed0h+0xa0) = 0;
 		if((D(___19bd60h) != 0)&&(D(___24387ch) != 0)){
 			___61418h(ActionFlags);
 			if(D(___243880h) != 0) ___61518h();

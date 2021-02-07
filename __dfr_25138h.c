@@ -1,46 +1,21 @@
-/*
-cpu 386
-%include "macros.inc"
+#include "drally.h"
 
-	extern	__CHK
-	extern 	__STRLEN
-	extern	___185bedh
+#pragma pack(1)
+typedef struct font_props_s {
+	byte 	w;
+	byte 	h;
+	byte 	props[];
+} font_props_t;
 
-section .text
+	extern font_props_t ___185c0bh;
 
-__GDECL(___25138h)
-		push    1ch
-		call    near __CHK
-		push    ebx
-		push    ecx
-		push    edx
-		push    esi
-		push    edi
-		push    ebp
-		mov     ebp, eax
-		mov     edx, eax
-		xor     ebx, ebx
-		xor     esi, esi
-		jmp     short ___25166h
-___25152h:
-		xor     ecx, ecx
-		mov     cl, [edx]
-		mov     cl, [ecx+___185bedh]
-		and     ecx, 0ffh
-		inc     edx
-		inc     ebx
-		add     esi, ecx
-___25166h:
-		mov     edi, ebp
-		call 	__STRLEN
-		cmp     ebx, ecx
-		jb      short ___25152h
-		mov     eax, esi
-		pop     ebp
-		pop     edi
-		pop     esi
-		pop     edx
-		pop     ecx
-		pop     ebx
-		retn    
-*/
+int ___25138h_cdecl(const char * A1){
+
+	int 	n, offset;
+
+	offset = 0;
+	n = -1;
+	while(A1[++n]) offset += ___185c0bh.props[A1[n]-0x20];
+
+	return offset;
+}

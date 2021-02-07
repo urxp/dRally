@@ -7,23 +7,15 @@
 	extern byte ___2432d8h[];
 	extern byte ___2432d4h[];
 	extern byte ___243d80h[];
-	extern byte ___243e53h[];
-	extern byte ___243e57h[];
-	extern byte ___243e5fh[];
-	extern byte ___243e5bh[];
-	extern byte ___243e73h[];
-	extern byte ___1a309ch[];
+	extern byte ___243e74h[];
+	extern byte ___1a30a0h[];
 	extern byte kmap[];
 	extern byte ___2432e4h[];
 	extern byte ___243d14h[];
 	extern byte ___243898h[];
 	extern byte ___243874h[];
 	extern byte ___24330ch[];
-	extern byte ___243e74h[];
 	extern byte ___2432dch[];
-	extern byte ___243e94h[];
-	extern byte ___243e80h[];
-	extern byte ___243e7ch[];
 	extern byte ___243d70h[];
 	extern byte ___243894h[];
 	extern byte ___243878h[];
@@ -82,12 +74,12 @@ ___47932h:
 		L(ebx) = 0x64;
 		edx ^= edx;
 ___47974h:
+		D(eax+___243e74h) = edx;
+		D(eax+___243e74h+4) = edx;
+		D(eax+___243e74h+0xc) = edx;
+		D(eax+___243e74h+8) = edx;
+		B(eax+___243e74h+0x20) = L(ebx);
 		eax += 0x21;
-		D(eax+___243e53h) = edx;
-		D(eax+___243e57h) = edx;
-		D(eax+___243e5fh) = edx;
-		D(eax+___243e5bh) = edx;
-		B(eax+___243e73h) = L(ebx);
 		if(eax != 0x7ce9) goto ___47974h;
 		esi = 0x13c;
 		ebx ^= ebx;
@@ -96,8 +88,8 @@ ___479a3h:
 		edx = eax;
 		edx = (int)edx>>0x1f;
 		___idiv32(&eax, &edx, esi);
+		D(ebx+___1a30a0h) = edx;
 		ebx += 0x4;
-		D(ebx+___1a309ch) = edx;
 		if(ebx != 0x190) goto ___479a3h;
 		ecx = 0x3e80;
 		esi = D(___2432d4h);
@@ -211,7 +203,7 @@ ___47b74h:
 		D(___2432cch) = edx;
 ___47bb2h:
 		eax = 0x21*edi;
-		if(B(eax+___243e94h) == 0x64) goto ___47bc5h;
+		if(B(eax+___243e74h+0x20) == 0x64) goto ___47bc5h;
 		D(esp+0x334)++;
 ___47bc5h:
 		ebx = D(___2432cch);
@@ -224,7 +216,7 @@ ___47bc5h:
 		ebx = 0x21*edi;
 		edx += ecx;
 		edx <<= 0x10;
-		D(ebx+___243e80h) = edx;
+		D(ebx+___243e74h+0xc) = edx;
 		eax = rand_watcom106();
 		edx = eax;
 		esi = 0x4;
@@ -233,7 +225,7 @@ ___47bc5h:
 		eax = edx-2;
 		eax <<= 0x10;
 		esi = D(___2432d0h);
-		D(ebx+___243e7ch) = eax;
+		D(ebx+___243e74h+8) = eax;
 		eax = 0xcc*esi;
 		ecx = 0xcc;
 		edx = D(___243d70h);

@@ -1,8 +1,6 @@
 #include "drally.h"
 
 	extern byte ___19eb50h[];
-	extern byte ___19eb54h[];
-	extern byte ___19eb58h[];
 
 void __DISPLAY_SET_PALETTE_COLOR(dword b, dword g, dword r, dword n);
 
@@ -30,7 +28,7 @@ ___2b60eh:
 		eax &= 0xff;
 		rr = eax;
 		edx = edi;
-		eax = D(esi+___19eb54h);
+		eax = D(esi+___19eb50h+4);
 		___imul32(&eax, &edx, edx);
 		eax += 0x8000;
 		edx += !!(eax < 0x8000);
@@ -40,7 +38,7 @@ ___2b60eh:
 		eax &= 0xff;
 		gg = eax;
 		edx = edi;
-		eax = D(esi+___19eb58h);
+		eax = D(esi+___19eb50h+8);
 		___imul32(&eax, &edx, edx);
 		eax += 0x8000;
 		edx += !!(eax < 0x8000);

@@ -7,16 +7,14 @@ cpu 386
 	extern	___196adch
 	extern	___1a112ch__VESA101_ACTIVESCREEN_PTR
 	extern	___1a0fe8h
-	extern	___1a0228h
+	extern	___1a01e0h
 	extern	itoa_watcom106
 	extern	___185ba9h
 	extern	___1a10cch
 	extern	___12e78h_cdecl
-	extern	___1a01e0h
 	extern	___185c7ah
 	extern	strupr_watcom106
 	extern	___1a10b8h
-	extern	___1a0224h
 	extern	___251e8h_cdecl
 
 section .text
@@ -108,7 +106,7 @@ ___39715h:
 		imul    eax, eax, byte 6ch
 		mov     ebx, 0ah
 		mov     edx, esp
-		mov     eax, [eax+___1a0228h]
+		mov     eax, [eax+___1a01e0h+48h]
 
 	push 	ecx
 	push 	ebx
@@ -122,7 +120,7 @@ ___39715h:
 		sub     eax, ebp
 		dec     eax
 		imul    eax, eax, byte 6ch
-		cmp     dword [eax+___1a0228h], byte 1
+		cmp     dword [eax+___1a01e0h+48h], byte 1
 		jne     short ___3977bh
 		mov     ecx, [esp+30h]
 		mov     ebx, esp
@@ -183,7 +181,7 @@ ___3978eh:
 		mov     edi, [esp+2ch]
 		mov     ebx, 0ah
 		mov     edx, esp
-		mov     eax, [eax+___1a0224h]
+		mov     eax, [eax+___1a01e0h+44h]
 		mov     ecx, [esp+28h]
 
 	push 	ecx

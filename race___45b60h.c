@@ -3,10 +3,6 @@
 	extern byte ___196e70h[];
 	extern byte ___1a33c0h[];
 	extern byte ___1a4ec0h[];
-	extern byte ___1a4ec1h[];
-	extern byte ___1a33c4h[];
-	extern byte ___1a4ec2h[];
-	extern byte ___1a33c8h[];
 
 void __DISPLAY_SET_PALETTE_COLOR(dword b, dword g, dword r, dword n);
 
@@ -43,8 +39,8 @@ ___45b86h:
 		eax = (int)eax>>0x10;
 		ecx ^= ecx;
 		D(esp) = eax;
-		L(ecx) = B(ebx+___1a4ec1h);
-		eax = D(esi+___1a33c4h);
+		L(ecx) = B(ebx+___1a4ec0h+1);
+		eax = D(esi+___1a33c0h+4);
 		ecx <<= 0x10;
 		___imul32(&eax, &edx, edx);
 		eax += 0x8000;
@@ -52,11 +48,11 @@ ___45b86h:
 		eax = (eax>>0x10)|(edx<<0x10);
 		ecx -= eax;
 		ecx += 0x8000;
-		L(ebx) = B(ebx+___1a4ec2h);
+		L(ebx) = B(ebx+___1a4ec0h+2);
 		ecx = (int)ecx>>0x10;
 		edx = D(___196e70h);
 		ebx &= 0xff;
-		eax = D(esi+___1a33c8h);
+		eax = D(esi+___1a33c0h+8);
 		edx <<= 0x10;
 		ebx <<= 0x10;
 		___imul32(&eax, &edx, edx);

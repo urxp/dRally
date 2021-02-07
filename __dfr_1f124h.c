@@ -11,7 +11,6 @@ cpu 386
 	extern	___146c4h_cdecl
 	extern	___1f0dch
 	extern	___13248h_cdecl
-	extern	___1810a8h
 	extern	___185ba9h
 	extern	___1a10cch
 	extern	___12e78h_cdecl
@@ -21,30 +20,17 @@ cpu 386
 	extern	___199fa8h
 	extern	___59b3ch
 	extern	___5994ch
-	extern	___1810c4h
-	extern	___1810e0h
-	extern	___1810fch
-	extern	___181118h
 	extern	___185c0bh
 	extern	___1a1108h
 	extern	itoa_watcom106
 	extern	strupr_watcom106
-	extern	___1854c8h
 	extern 	___17510h_cdecl
-	extern	___18114ch
 	extern	sscanf
-	extern	___181150h
-	extern	___1855c8h
-	extern	___18117ch
-	extern	___181180h
-	extern	___18119ch
 	extern	___1858c8h
 	extern	___1a1ffch
 	extern	___18394h_cdecl
 	extern	___196a90h
 	extern	___1866b8h
-	extern	___1811b8h
-	extern	___1811c8h
 	extern	___185a5ch
 
 section .text
@@ -165,7 +151,7 @@ ___1f1b3h:
 	add 	esp, 14h
 	
 		mov     ecx, 23cd6h
-		mov     ebx, ___1810a8h
+		mov     ebx, __dfr_1810a8h
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10cch]
 		xor     ebp, ebp
@@ -250,7 +236,7 @@ ___1f248h:
 	add 	esp, 14h
 	
 		mov     ecx, 23cd6h
-		mov     ebx, ___1810c4h
+		mov     ebx, __dfr_1810c4h
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10cch]
 		xor     ebp, ebp
@@ -335,7 +321,7 @@ ___1f2e1h:
 	add 	esp, 14h
 	
 		mov     ecx, 23cd6h
-		mov     ebx, ___1810e0h
+		mov     ebx, __dfr_1810e0h
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10cch]
 
@@ -420,7 +406,7 @@ ___1f379h:
 	add 	esp, 14h
 	
 		mov     ecx, 23cd6h
-		mov     ebx, ___1810fch
+		mov     ebx, __dfr_1810fch
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10cch]
 
@@ -500,7 +486,7 @@ ___1f40dh:
 	add 	esp, 14h
 	
 		mov     ecx, 2445ch
-		mov     ebx, ___181118h
+		mov     ebx, __dfr_181118h
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
 
@@ -546,7 +532,7 @@ ___1f40dh:
 		push    byte 1
 		push    byte 1
 		push    140h
-		mov     ecx, ___1854c8h
+		mov     ecx, __dfr_1854c8h
 		mov     ebx, 0f8h
 		push    byte 3
 		mov     edx, 5ch
@@ -563,7 +549,7 @@ ___1f40dh:
 		je      near ___1f6c5h
 		lea     eax, [esp+50h]
 		push    eax
-		push    ___18114ch
+		push    __dfr_18114ch
 		lea     eax, [esp+8]
 		push    eax
 		call    sscanf
@@ -602,7 +588,7 @@ ___1f40dh:
 	add 	esp, 14h
 	
 		mov     ecx, 2445ch
-		mov     ebx, ___181150h
+		mov     ebx, __dfr_181150h
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
 
@@ -648,7 +634,7 @@ ___1f40dh:
 		push    byte 1
 		push    byte 1
 		push    140h
-		mov     ecx, ___1855c8h
+		mov     ecx, _dfr__1855c8h
 		mov     ebx, 0f8h
 		push    byte 2
 		mov     edx, 5ch
@@ -664,7 +650,7 @@ ___1f40dh:
 		test    eax, eax
 		je      near ___1f6c5h
 		push    ___199fa8h
-		push    ___18117ch
+		push    __dfr_18117ch
 		lea     eax, [esp+8]
 		push    eax
 		mov     ebx, 4
@@ -735,7 +721,7 @@ ___1f40dh:
 	add 	esp, 14h
 	
 		mov     ecx, 23cd6h
-		mov     ebx, ___181180h
+		mov     ebx, __dfr_181180h
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10cch]
 
@@ -811,7 +797,7 @@ ___1f625h:
 	add 	esp, 14h
 	
 		mov     ecx, 28f42h
-		mov     ebx, ___18119ch
+		mov     ebx, __dfr_18119ch
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
 
@@ -855,7 +841,7 @@ ___1f690h:
 		mov     [___196a90h], eax
 		je      short ___1f6b6h
 		mov     edi, ___1866b8h+0d7ah
-		mov     esi, ___1811b8h
+		mov     esi, __dfr_1811b8h
 		movsd   
 		movsd   
 		movsd   
@@ -863,7 +849,7 @@ ___1f690h:
 		jmp     short ___1f6c5h
 ___1f6b6h:
 		mov     edi, ___1866b8h+0d7ah
-		mov     esi, ___1811c8h
+		mov     esi, __dfr_1811c8h
 		movsd   
 		movsd   
 		movsd   
@@ -882,4 +868,64 @@ ___1f6ceh:
 		pop     ecx
 		pop     ebx
 		retn    
+
+section .data
+__dfr_1810a8h:
+	db	53h,74h,61h,6eh,64h,61h,72h,64h,20h,43h,4fh,4dh,31h,20h,61h,63h,74h,69h,76h,61h,74h,65h,64h,2eh,0,0,0,0
+__dfr__1810c4h:
+	db	53h,74h,61h,6eh,64h,61h,72h,64h,20h,43h,4fh,4dh,32h,20h,61h,63h,74h,69h,76h,61h,74h,65h,64h,2eh,0,0,0,0
+__dfr_1810e0h:
+	db	53h,74h,61h,6eh,64h,61h,72h,64h,20h,43h,4fh,4dh,33h,20h,61h,63h,74h,69h,76h,61h,74h,65h,64h,2eh,0,0,0,0
+__dfr_1810fch:
+	db	53h,74h,61h,6eh,64h,61h,72h,64h,20h,43h,4fh,4dh,34h,20h,61h,63h,74h,69h,76h,61h,74h,65h,64h,2eh,0,0,0,0
+__dfr_181118h:
+	db	45h,6eh,74h,65h,72h,20h,74h,68h,65h,20h,43h,75h,73h,74h,6fh,6dh,20h,43h,4fh,4dh,2dh,70h,6fh,72h,74h,20h,62h,61h,73h,65h,20h,61h,64h,64h,72h,65h,73h,73h,20h,28h,69h,6eh,20h,68h,65h,78h,29h,3fh,0,0,0,0
+__dfr_18114ch:
+	db 	"%x",0,0
+__dfr_181150h:
+	db	45h,6eh,74h,65h,72h,20h,74h,68h,65h,20h,43h,75h,73h,74h,6fh,6dh,20h,43h,4fh,4dh,2dh,70h,6fh,72h,74h,20h,49h,52h,51h,20h,28h,69h,6eh,20h,64h,65h,63h,69h,6dh,61h,6ch,29h,3fh,0
+__dfr_18117ch:
+	db	25h,69h,0,0
+__dfr_181180h:
+	db	43h,75h,73h,74h,6fh,6dh,20h,43h,4fh,4dh,2dh,70h,6fh,72h,74h,20h,61h,63h,74h,69h,76h,61h,74h,65h,64h,2eh,0,0
+__dfr_18119ch:
+	db	45h,6eh,74h,65h,72h,20h,6dh,6fh,64h,65h,6dh,20h,69h,6eh,69h,74h,69h,61h,6ch,20h,73h,74h,72h,69h,6eh,67h,3fh,0
+__dfr_1811b8h:
+	db	54h,6fh,6eh,65h,20h,44h,69h,61h,6ch,69h,6eh,67h,0,0,0,0
+__dfr_1811c8h:
+	db 	"Pulse Dialing",0,0,0
+__dfr_1854c8h:
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0
+db	0,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	0,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+__dfr_1855c8h:
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 */

@@ -4,8 +4,6 @@
 	extern byte ___1a112ch__VESA101_ACTIVESCREEN_PTR[];
 	extern byte ___1a1124h__VESA101h_ScreenBufferA[];
 	extern byte ___19eb50h[];
-	extern byte ___19eb54h[];
-	extern byte ___19eb58h[];
 	extern byte ___24cc58h[];
 	extern byte ___24cc54h[];
 	extern byte kmap[];
@@ -79,7 +77,7 @@ void menu___3da48h(void){
 				eax &= 0xff;
 				rr = eax;
 				edx = esi;
-				eax = D(edi+___19eb54h);
+				eax = D(edi+___19eb50h+4);
 				ll_tmp = (long long)(int)eax*(int)edx; edx = ll_tmp>>0x20; eax = ll_tmp;
 				eax += 0x8000;
 				edx += !!(eax < 0x8000);
@@ -89,7 +87,7 @@ void menu___3da48h(void){
 				eax &= 0xff;
 				gg = eax;
 				edx = esi;
-				eax = D(edi+___19eb58h);
+				eax = D(edi+___19eb50h+8);
 				ll_tmp = (long long)(int)eax*(int)edx; edx = ll_tmp>>0x20; eax = ll_tmp;
 				eax += 0x8000;
 				edx += !!(eax < 0x8000);
@@ -184,7 +182,7 @@ void menu___3da48h(void){
 				eax &= 0xff;
 				rr = eax;
 				edx = esi;
-				eax = D(edi+___19eb54h);
+				eax = D(edi+___19eb50h+4);
 				ll_tmp = (long long)(int)eax*(int)edx; edx = ll_tmp>>0x20; eax = ll_tmp;
 				eax += 0x8000;
 				edx += !!(eax < 0x8000);
@@ -194,7 +192,7 @@ void menu___3da48h(void){
 				eax &= 0xff;
 				gg = eax;
 				edx = esi;
-				eax = D(edi+___19eb58h);
+				eax = D(edi+___19eb50h+8);
 				ll_tmp = (long long)(int)eax*(int)edx; edx = ll_tmp>>0x20; eax = ll_tmp;
 				eax += 0x8000;
 				edx += !!(eax < 0x8000);

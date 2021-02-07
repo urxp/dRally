@@ -7,26 +7,14 @@ cpu 386
 	extern 	__STRCPY
 	extern 	__STRLEN
 	extern 	___13248h_cdecl
-	extern 	___180a04h
 	extern 	___185c0bh
 	extern 	___1a110ch
 	extern 	___12e78h_cdecl
 	extern 	___19ded0h
-	extern 	___180a34h
 	extern 	itoa_watcom106
-	extern 	___25138h
+	extern 	___25138h_cdecl
 	extern 	___1a1108h
 	extern 	___1a10fch
-	extern 	___180888h
-	extern 	___19deech
-	extern 	___180a38h
-	extern 	___180a40h
-	extern 	___180a4ch
-	extern 	___180890h
-	extern 	___19dee2h
-	extern 	___1808a4h
-	extern 	___180a54h
-	extern 	___180a58h
 	extern 	___12cb8h__VESA101_PRESENTSCREEN
 
 section .text
@@ -58,7 +46,7 @@ __GDECL(___1ad30h)
 		add     eax, edx
 		shl     eax, 7
 		add     eax, edi
-		mov     ebx, ___180a04h
+		mov     ebx, __dfr_180a04h
 		lea     ecx, [eax+14h]
 		mov     edx, ___185c0bh
 		mov     eax, [___1a110ch]
@@ -102,7 +90,7 @@ ___1adfah:
 		mov     eax, [esp+0b4h]
 		mov     ebx, 0ah
 		mov     edx, esp
-		mov     esi, ___180a34h
+		mov     esi, __dfr_180a34h
 		inc     eax
 		mov     edi, esp
 
@@ -122,7 +110,15 @@ ___1adfah:
 		mov     ecx, [esp+0a0h]
 		mov     ebx, esp
 		mov     edx, ___185c0bh
-		call    near ___25138h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    near ___25138h_cdecl
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		sub     ecx, eax
 		mov     eax, [___1a1108h]
 		jmp     short ___1ae81h
@@ -131,7 +127,15 @@ ___1ae65h:
 		mov     ecx, [esp+0a0h]
 		mov     ebx, esp
 		mov     edx, ___185c0bh
-		call    near ___25138h
+
+	push 	edx
+	push 	ecx
+	push 	eax
+		call    near ___25138h_cdecl
+	add 	esp, 4
+	pop 	ecx
+	pop 	edx
+
 		sub     ecx, eax
 		mov     eax, [___1a10fch]
 ___1ae81h:
@@ -154,19 +158,19 @@ ___1ae81h:
 		je      near ___1b047h
 		mov     edi, esp
 		call 	__STRCPY
-		mov     esi, ___180888h
+		mov     esi, s_game
 		mov     edi, esp
 		call 	__STRCAT
-		cmp     dword [ebx+___19deech], byte 0
+		cmp     dword [ebx+___19ded0h+1ch], byte 0
 		je      short ___1af0ah
-		mov     esi, ___180a38h
+		mov     esi, __dfr_180a38h
 		jmp     short ___1af0fh
 ___1af0ah:
-		mov     esi, ___180a40h
+		mov     esi, __dfr_180a40h
 ___1af0fh:
 		mov     edi, esp
 		call 	__STRCAT
-		mov     esi, ___180a4ch
+		mov     esi, __dfr_180a4ch
 		mov     edi, esp
 		call 	__STRCAT
 		mov     eax, [esp+0a4h]
@@ -192,10 +196,10 @@ ___1af86h:
 
 		mov     edi, esp
 		mov     edx, [esp+0b8h]
-		mov     esi, ___180890h
+		mov     esi, __dfr_180890h
 		xor     eax, eax
 		mov     ebx, 0ah
-		mov     al, [edx+___19dee2h]
+		mov     al, [edx+___19ded0h+12h]
 		movsd   
 		movsd   
 		movsd   
@@ -219,7 +223,7 @@ ___1af86h:
 		mov     edx, ___185c0bh
 		mov     edi, esp
 		mov     eax, [___1a10fch]
-		mov     esi, ___1808a4h
+		mov     esi, __dfr_1808a4h
 
 	push 	ecx
 	push 	ebx
@@ -252,12 +256,12 @@ ___1b047h:
 		mov     eax, [esp+0b8h]
 		cmp     byte [eax+___19ded0h], 0ffh
 		jne     short ___1b0b1h
-		mov     ebx, ___180a54h
+		mov     ebx, __dfr_180a54h
 		mov     edx, ___185c0bh
 		mov     edi, esp
 		mov     eax, [___1a10fch]
 		mov     ecx, ebp
-		mov     esi, ___180a58h
+		mov     esi, __dfr_180a58h
 
 	push 	ecx
 	push 	ebx
@@ -283,7 +287,7 @@ ___1b047h:
 	add 	esp, 10h
 
 		mov     ecx, [esp+0b0h]
-		mov     ebx, ___180a54h
+		mov     ebx, __dfr_180a54h
 		mov     edx, ___185c0bh
 		mov     eax, [___1a10fch]
 
@@ -331,4 +335,26 @@ ___1b0b1h:
 		pop     esi
 		pop     ecx
 		retn    
+
+section .data
+s_game:
+	db 	"'s game",0
+__dfr_180890h:
+	db	53h,65h,6ch,65h,63h,74h,65h,64h,20h,74h,72h,61h,63h,6bh,73h,3ah,20h,0,0,0
+__dfr_1808a4h:
+	db	53h,74h,61h,72h,74h,69h,6eh,67h,20h,6dh,6fh,6eh,65h,79h,3ah,20h,24h,0,0,0
+__dfr_180a04h:
+	db	4ch,6fh,6fh,6bh,69h,6eh,67h,20h,66h,6fh,72h,20h,6eh,65h,74h,67h,61h,6dh,65h,73h,2ch,20h,70h,72h,65h,73h,73h,20h,65h,6eh,74h,65h,72h,20h,74h,6fh,20h,6ah,6fh,69h,6eh,2eh,2eh,2eh,0,0,0,0
+__dfr_180a34h:
+	db	2eh,20h,0,0
+__dfr_180a38h:
+	db	20h,77h,69h,74h,68h,20h,0,0
+__dfr_180a40h:
+	db	20h,77h,69h,74h,68h,6fh,75h,74h,20h,0,0,0
+__dfr_180a4ch:
+	db	77h,65h,61h,70h,6fh,6eh,73h,0
+__dfr__180a54h:
+	db	2dh,2dh,0,0
+__dfr_180a58h:
+	db	54h,68h,65h,20h,6eh,65h,74h,67h,61h,6dh,65h,20h,69h,73h,20h,61h,6ch,72h,65h,61h,64h,79h,20h,69h,6eh,20h,75h,73h,65h,21h,0,0
 */

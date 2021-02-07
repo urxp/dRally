@@ -1,9 +1,7 @@
 #include "drally.h"
 
 	extern byte ___1866b8h[];
-	extern byte ___1807ech[];
 	extern byte ___185b58h[];
-	extern byte ___180814h[];
 	extern byte ___185a48h[];
 	extern byte ___185a44h[];
 	extern byte ___185a40h[];
@@ -20,7 +18,7 @@ void ___2b7a0h(void){
 		H(eax) = 1;
 		ebp = 1;
 		edi = ___1866b8h+0x1c2;
-		esi = ___1807ech;
+		esi = "Start A New Game";
 		L(edx) = 0;
 		B(___185b58h+1) = H(eax);
 		B(___185b58h+0xa) = L(edx);
@@ -33,7 +31,7 @@ void ___2b7a0h(void){
 		B(___185b58h+0xd) = L(edx);
 		edi = ___1866b8h;
 		edx = 0;
-		esi = ___180814h;
+		esi = "Start Racing";
 		D(___185a48h) = edx;
 		D(___185a44h) = edx;
 		D(___185a40h) = edx;

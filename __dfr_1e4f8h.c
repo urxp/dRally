@@ -4,10 +4,8 @@ cpu 386
 
 	extern	__CHK
 	extern	___1866b8h
-	extern	___180cc0h
 	extern	CONNECTION_TYPE
 	extern	___1866b8h
-	extern	___180cd8h
 	extern	___185a5ch
 	extern	___196a84h
 	extern	___196a78h
@@ -35,7 +33,7 @@ __GDECL(___1e4f8h)
 		push    edi
 		mov     edx, 1
 		mov     edi, ___1866b8h+384h
-		mov     esi, ___180cc0h
+		mov     esi, __dfr_180cc0h
 		mov     ecx, [CONNECTION_TYPE]
 		xor     ah, ah
 		xor     ebx, ebx
@@ -50,7 +48,7 @@ __GDECL(___1e4f8h)
 		movsw   
 		mov     [___185b58h+17h], ah
 		mov     edi, ___1866b8h+3b6h
-		mov     esi, ___180cd8h
+		mov     esi, __dfr_180cd8h
 		mov     [___185a5ch+50h], ebx
 		mov     [___196a84h], edx
 		movsd   
@@ -168,4 +166,10 @@ ___1e61ch:
 		pop     ecx
 		pop     ebx
 		retn    
+
+section .data
+__dfr_180cc0h:
+	db	49h,6eh,69h,74h,69h,61h,6ch,69h,7ah,65h,20h,41h,20h,4eh,65h,77h,20h,47h,61h,6dh,65h,0,0,0
+__dfr_180cd8h:
+	db	4ah,6fh,69h,6eh,20h,41h,6eh,20h,45h,78h,69h,73h,74h,69h,6eh,67h,20h,47h,61h,6dh,65h,0,0,0
 */

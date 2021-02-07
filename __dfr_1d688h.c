@@ -11,23 +11,19 @@ cpu 386
 	extern	___1a112ch__VESA101_ACTIVESCREEN_PTR
 	extern	___13710h
 	extern	___13248h_cdecl
-	extern	___180d2ch
 	extern	___185c0bh
 	extern	___1a1108h
 	extern	___12e78h_cdecl
 	extern	___12cb8h__VESA101_PRESENTSCREEN
 	extern	___631d4h
 	extern	___63228h
-	extern	___180d40h
 	extern	kmap
 	extern	___63244h
-	extern	___180d44h
 	extern	___2ab50h
 	extern	___13bd4h_cdecl
 	extern	___59b3ch
 	extern	___5994ch
 	extern	___13c9ch_cdecl
-	extern	___180d48h
 
 section .text
 
@@ -94,7 +90,7 @@ __GDECL(___1d688h)
 	add 	esp, 14h
 	
 		mov     ecx, 20ddch
-		mov     ebx, ___180d2ch
+		mov     ebx, __dfr_180d2ch
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
 
@@ -135,7 +131,7 @@ __GDECL(___1d688h)
 	pop 	edx
 
 		xor     ebx, ebx
-		mov     edi, ___180d40h
+		mov     edi, __dfr_180d40h
 		xor     ecx, ecx
 ___1d78dh:
 		test    esi, esi
@@ -155,7 +151,7 @@ ___1d78dh:
 		mov     esi, eax
 		test    eax, eax
 		jne     short ___1d7b2h
-		mov     eax, ___180d44h
+		mov     eax, __dfr_180d44h
 
 	push 	edx
 	push 	ecx
@@ -233,7 +229,7 @@ ___1d7d4h:
 		shl     eax, 7
 		mov     edx, ___185c0bh
 		lea     ecx, [eax+ebp*1]
-		mov     ebx, ___180d48h
+		mov     ebx, __dfr_180d48h
 		mov     eax, [___1a1108h]
 		add     ecx, byte 28h
 
@@ -277,4 +273,14 @@ ___1d830h:
 		pop     ecx
 		pop     ebx
 		retn    
+
+section .data
+__dfr_180d2ch:
+	db	52h,65h,73h,65h,74h,74h,69h,6eh,67h,20h,6dh,6fh,64h,65h,6dh,2eh,2eh,2eh,0,0
+__dfr_180d40h:
+	db	4fh,4bh,0,0
+__dfr_180d44h:
+	db	30h,0,0,0
+__dfr_180d48h:
+	db	4eh,6fh,20h,6dh,6fh,64h,65h,6dh,20h,64h,65h,74h,65h,63h,74h,65h,64h,2eh,0,0
 */

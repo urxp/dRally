@@ -3,10 +3,7 @@
 
 	extern byte ___196a84h[];
 	extern byte ___185a5ch[];
-	extern byte ___1854ach[];
 	extern byte ___24cc54h[];
-	extern byte ___1854a0h[];
-	extern byte ___1854b8h[];
 	extern byte ___19bd60h[];
 
 #if defined(DR_MULTIPLAYER)
@@ -51,20 +48,20 @@ int ___146c4h_cdecl(dword A1){
 			if(A1){
 
 				rslt = -1;
-				dRally_Sound_pushEffect(1, 0x16, 0, D(___24cc54h), D(___1854a0h), 0x8000);
+				dRally_Sound_pushEffect(1, 0x16, 0, D(___24cc54h), 0x28000, 0x8000);
 			}
 			else {
 
 				if(D(0x1c*A1+___185a5ch+0x18) == (D(0x1c*A1+___185a5ch)-1)) break;
 				___13cech(A1);
-				dRally_Sound_pushEffect(1, 0x19, 0, D(___24cc54h), D(___1854ach), 0x8000);
+				dRally_Sound_pushEffect(1, 0x19, 0, D(___24cc54h), 0x28000, 0x8000);
 			}
 			break;
 		case DR_SCAN_ENTER:
 		case DR_SCAN_SPACE:
 		case DR_SCAN_KP_ENTER:
 			rslt = (int)D(0x1c*A1+___185a5ch+0x18);
-			dRally_Sound_pushEffect(1, 0x1c, 0, D(___24cc54h), D(___1854b8h), 0x8000);
+			dRally_Sound_pushEffect(1, 0x1c, 0, D(___24cc54h), 0x28000, 0x8000);
 			break;
 #if defined(DR_MULTIPLAYER)
 		case DR_SCAN_F1:
@@ -74,12 +71,12 @@ int ___146c4h_cdecl(dword A1){
 		case DR_SCAN_UP:
 		case DR_SCAN_KP_8:
 			menu___14010h(A1);
-			dRally_Sound_pushEffect(1, 0x19, 0, D(___24cc54h), D(___1854ach), 0x8000);
+			dRally_Sound_pushEffect(1, 0x19, 0, D(___24cc54h), 0x28000, 0x8000);
 			break;
 		case DR_SCAN_DOWN:
 		case DR_SCAN_KP_2:
 			___14368h_cdecl(A1);
-			dRally_Sound_pushEffect(1, 0x19, 0, D(___24cc54h), D(___1854ach), 0x8000);
+			dRally_Sound_pushEffect(1, 0x19, 0, D(___24cc54h), 0x28000, 0x8000);
 			break;
 		default:
 			break;

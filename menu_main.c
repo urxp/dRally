@@ -3,22 +3,14 @@
 	extern byte ___24cc58h[];
 	extern byte ___24cc54h[];
 	extern byte ___196abch[];
-	extern byte ___1a2011h[];
-	extern byte ___196abdh[];
-	extern byte ___1a2012h[];
-	extern byte ___196abeh[];
+	extern byte ___1a2010h[];
 	extern byte ___19bd58h[];
-	extern byte ___1a2013h[];
-	extern byte ___196abfh[];
 	extern byte ___196ab8h[];
-	extern byte ___1a2014h[];
 	extern byte ___196a90h[];
 	extern byte ___1a1ef8h[];
-	extern byte ___1a020ch[];
 	extern byte ___1a0fb8h[];
 	extern byte ___1a1138h__VESA101h_DefaultScreenBufferB[];
 	extern byte ___1a112ch__VESA101_ACTIVESCREEN_PTR[];
-	extern byte ___1a0220h[];
 	extern byte ___1a01e0h[];
 	extern byte ___196d84h[];
 	extern byte ___185a2ch[];
@@ -30,7 +22,6 @@
 	extern byte ___1a1108h[];
 	extern byte ___185ba9h[];
 	extern byte ___1a10cch[];
-	extern byte ___1854bch[];
 	extern byte ___1866b8h[];
 	extern byte ___185b58h[];
 
@@ -114,11 +105,11 @@ void menu_main(void){
 	dRally_Sound_setPosition(0x2d00);
 	dRally_Sound_setSampleRate(0x5622);
 	dRally_Sound_play();
-	B(___1a2011h) = B(___196abch);
-	B(___1a2012h) = B(___196abdh);
-	B(___1a2013h) = B(___196abeh);
+	B(___1a2010h+1) = B(___196abch);
+	B(___1a2010h+2) = B(___196abch+1);
+	B(___1a2010h+3) = B(___196abch+2);
 	D(___196ab8h) = 4;
-	B(___1a2014h) = B(___196abfh);
+	B(___1a2010h+4) = B(___196abch+3);
 
 	if((D(___19bd58h) == 1)||(D(___19bd58h) == 2)){
 
@@ -161,10 +152,10 @@ void menu_main(void){
 	___3d2bch();
 	___12940h();
 
-	edx = 3*D(___1a020ch+0x6c*D(___1a1ef8h))+D(___1a0fb8h);
+	edx = 3*D(___1a01e0h+0x2c+0x6c*D(___1a1ef8h))+D(___1a0fb8h);
 	___11564h_cdecl(B(edx), B(edx+1), B(edx+2));
 	memcpy(D(___1a112ch__VESA101_ACTIVESCREEN_PTR), D(___1a1138h__VESA101h_DefaultScreenBufferB), 0x4b000);
-	D(0x6c*D(___1a1ef8h)+___1a0220h) = 0;
+	D(0x6c*D(___1a1ef8h)+___1a01e0h+0x40) = 0;
 	B(0x6c*D(___1a1ef8h)+___1a01e0h) = 0;
 
 	dRally_Console_clear();
@@ -259,7 +250,7 @@ void menu_main(void){
 
 					while(1){
 
-						dRally_Sound_pushEffect(1, 0x1d, 0, D(___24cc54h), D(___1854bch), 0x8000);
+						dRally_Sound_pushEffect(1, 0x1d, 0, D(___24cc54h), 0x28000, 0x8000);
 						___5994ch();
 						___59b3ch();
 						H(ebx) = 0;

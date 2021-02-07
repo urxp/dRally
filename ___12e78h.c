@@ -4,7 +4,7 @@
 typedef struct font_props_s {
 	byte 	w;
 	byte 	h;
-	byte 	props[0x60];
+	byte 	props[];
 } font_props_t;
 
 

@@ -1,22 +1,10 @@
 #include "drally.h"
 
 	extern byte ___1a112ch__VESA101_ACTIVESCREEN_PTR[];
-	extern byte ___1a1e70h[];
+	extern void * ___1a1e98h;
 	extern byte ___185a14h_UseWeapons[];
 	extern byte ___185a4ch[];
-	extern byte ___194da0h[];
-	extern byte ___194dc8h[];
-	extern byte ___194df0h[];
-	extern byte ___194e18h[];
-	extern byte ___194e40h[];
-	extern byte ___194e68h[];
-	extern byte ___194cb0h[];
-	extern byte ___194cd8h[];
-	extern byte ___194d00h[];
-	extern byte ___194d28h[];
-	extern byte ___194d50h[];
-	extern byte ___194d78h[];
-	extern byte ___1865fch[];
+	extern __DWORD__ ___1865fch[];
 	extern byte ___1a1ea0h[];
 	extern byte ___1a1ee8h[];
 
@@ -33,7 +21,7 @@ void ___26e54h(void){
 
 		ecx = 0x60;
 		ebx = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
-		esi = D(___1a1e70h);
+		esi = ___1a1e98h+0x9000;
 		ebx += 0x27a30;
 		edx = ecx;
 		L(edx) >>= 0x2;
@@ -63,47 +51,43 @@ ___26e80h:
 		if(edx == 0) goto ___26f2ah;
 		if(eax == 0) goto ___26f2ah;
 		edx = 0x136aa;
-		eax = ___194da0h;
+		eax = "[CONTINUE";
 		___13094h_cdecl(eax, edx);
 		edx = 0x15eaa;
-		eax = ___194dc8h;
+		eax = "";
 		___13094h_cdecl(eax, edx);
 		edx = 0x186aa;
-		eax = ___194df0h;
+		eax = "Exit the Shop and enter the";
 		___13094h_cdecl(eax, edx);
 		edx = 0x1aeaa;
-		eax = ___194e18h;
+		eax = "Underground Market.";
 		___13094h_cdecl(eax, edx);
 		edx = 0x1d6aa;
-		eax = ___194e40h;
+		eax = "";
 		___13094h_cdecl(eax, edx);
 		edx = 0x1feaa;
-		eax = ___194e68h;
+		eax = "Press [Esc{ for previous menu";
 		goto ___26f7fh;
 ___26f2ah:
 		edx = 0x136aa;
-		eax = ___194cb0h;
+		eax = "[CONTINUE";
 		___13094h_cdecl(eax, edx);
 		edx = 0x15eaa;
-		eax = ___194cd8h;
+		eax = "";
 		___13094h_cdecl(eax, edx);
 		edx = 0x186aa;
-		eax = ___194d00h;
+		eax = "Exit the Shop and enter the Race";
 		___13094h_cdecl(eax, edx);
 		edx = 0x1aeaa;
-		eax = ___194d28h;
+		eax = "Sign-Up.";
 		___13094h_cdecl(eax, edx);
 		edx = 0x1d6aa;
-		eax = ___194d50h;
+		eax = "";
 		___13094h_cdecl(eax, edx);
 		edx = 0x1feaa;
-		eax = ___194d78h;
+		eax = "Press [Esc{ for previous menu";
 ___26f7fh:
 		___13094h_cdecl(eax, edx);
-		edx = 0x10d;
-		eax = 0x1b0;
-		ecx = D(___1a1ea0h);
-		ebx = D(___1a1ee8h);
-		___259e0h_cdecl(eax, edx, ebx, ecx, ___1865fch);
+		___259e0h_cdecl(0x1b0, 0x10d, D(___1a1ee8h), D(___1a1ea0h), ___1865fch);
 		return; 
 }

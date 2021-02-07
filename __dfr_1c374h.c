@@ -8,29 +8,22 @@ cpu 386
 	extern 	___1a112ch__VESA101_ACTIVESCREEN_PTR
 	extern 	___185a14h_UseWeapons
 	extern 	___1866b8h
-	extern 	___180b20h
-	extern 	___180b2ch
 	extern 	___13710h
 	extern 	___185a24h
 	extern 	___12cb8h__VESA101_PRESENTSCREEN
-	extern 	___1a1100h__VESA101h_DefaultScreenBuffer
 	extern 	___3a6a4h
 	extern 	___146c4h_cdecl
 	extern 	___2fe64h
 	extern 	___13248h_cdecl
-	extern 	___180b38h
 	extern 	___185c0bh
 	extern 	___1a1108h
 	extern 	___12e78h_cdecl
-	extern 	___180728h
 	extern 	___185ba9h
 	extern 	___1a10e0h
 	extern 	___185a54h
 	extern 	itoa_watcom106
-	extern 	___1855c8h
 	extern 	___17510h_cdecl
 	extern 	atoi
-	extern 	___180b60h
 	extern 	CONNECTION_TYPE
 	extern 	___198a0h
 	extern 	___1bc20h
@@ -74,7 +67,7 @@ ___1c390h:
 		cmp     dword [___185a14h_UseWeapons], byte 0
 		je      short ___1c3d7h
 		mov     edi, ___1866b8h+076ch
-		mov     esi, ___180b20h
+		mov     esi, __dfr_180b20h
 		movsd   
 		movsd   
 		movsw   
@@ -82,7 +75,7 @@ ___1c390h:
 		jmp     short ___1c3e4h
 ___1c3d7h:
 		mov     edi, ___1866b8h+076ch
-		mov     esi, ___180b2ch
+		mov     esi, __dfr_180b2ch
 		movsd   
 		movsd   
 		movsd   
@@ -211,7 +204,7 @@ ___1c474h:
 	add 	esp, 14h
 	
 		mov     ecx, 2c182h
-		mov     ebx, ___180b38h
+		mov     ebx, __dfr_180b38h
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
 
@@ -223,7 +216,7 @@ ___1c474h:
 	add 	esp, 10h
 
 		mov     ecx, 2e982h
-		mov     ebx, ___180728h
+		mov     ebx, dollar_s
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10e0h]
 
@@ -259,7 +252,7 @@ ___1c474h:
 		push    byte 1
 		push    byte 1
 		push    96h
-		mov     ecx, ___1855c8h
+		mov     ecx, __dfr_1855c8h
 		mov     ebx, 12ah
 		push    byte 5
 		mov     edx, 96h
@@ -301,7 +294,7 @@ ___1c522h:
 	add 	esp, 14h
 	
 		mov     ecx, 2c182h
-		mov     ebx, ___180b60h
+		mov     ebx, __dfr_180b60h
 		mov     edx, ___185c0bh
 		mov     eax, [___1a1108h]
 
@@ -313,7 +306,7 @@ ___1c522h:
 	add 	esp, 10h
 
 		mov     ecx, 2e982h
-		mov     ebx, ___180728h
+		mov     ebx, dollar_s
 		mov     edx, ___185ba9h
 		mov     eax, [___1a10e0h]
 
@@ -350,7 +343,7 @@ ___1c522h:
 		push    byte 1
 		push    byte 1
 		push    96h
-		mov     ecx, ___1855c8h
+		mov     ecx, __dfr_1855c8h
 		mov     ebx, 12ah
 		push    byte 5
 		mov     edx, 96h
@@ -391,7 +384,7 @@ ___1c5d4h:
 		je      short ___1c605h
 		mov     edi, ___1866b8h+076ch
 		xor     ebx, ebx
-		mov     esi, ___180b2ch
+		mov     esi, __dfr_180b2ch
 		mov     [___185a14h_UseWeapons], ebx
 		movsd   
 		movsd   
@@ -409,7 +402,7 @@ ___1c5d4h:
 ___1c605h:
 		mov     edx, 1
 		mov     edi, ___1866b8h+076ch
-		mov     esi, ___180b20h
+		mov     esi, __dfr_180b20h
 		mov     [___185a14h_UseWeapons], edx
 		movsd   
 		movsd   
@@ -476,4 +469,33 @@ ___1c692h:
 ___1c6b7h:
 		xor     esi, esi
 		jmp     short ___1c68ch
+
+section .data
+dollar_s:
+	db 	24h,0,0,0
+__dfr_180b20h:
+	db	57h,65h,61h,70h,6fh,6eh,73h,20h,4fh,6eh,0,0
+__dfr_180b2ch:
+	db	57h,65h,61h,70h,6fh,6eh,73h,20h,4fh,66h,66h,0
+__dfr_180b38h:
+	db	45h,6eh,74h,65h,72h,20h,74h,68h,65h,20h,73h,75h,6dh,20h,61h,76h,61h,69h,6ch,61h,62h,6ch,65h,20h,74h,6fh,20h,65h,61h,63h,68h,20h,70h,6ch,61h,79h,65h,72h,3fh,0
+__dfr_180b60h:
+	db	45h,6eh,74h,65h,72h,20h,74h,68h,65h,20h,73h,75h,6dh,20h,61h,76h,61h,69h,6ch,61h,62h,6ch,65h,20h,74h,6fh,20h,65h,61h,63h,68h,20h,70h,6ch,61h,79h,65h,72h,3fh,0
+__dfr_1855c8h:
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+db	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 */

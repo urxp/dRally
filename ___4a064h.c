@@ -1,15 +1,6 @@
 #include "drally.h"
 
-	extern byte ___183f59h[];
-	extern byte ___183f61h[];
-	extern byte ___1a51cdh[];
-	extern byte ___1a51ceh[];
-	extern byte ___1a51cfh[];
-	extern byte ___183f69h[];
-	extern byte ___183f6dh[];
 	extern byte ___1a51d0h[];
-	extern byte ___1a51d1h[];
-	extern byte ___1a51d2h[];
 
 void ___4a064h_cdecl(dword A0, dword A1, dword A2, dword A3){
 
@@ -27,7 +18,7 @@ void ___4a064h_cdecl(dword A0, dword A1, dword A2, dword A3){
 		D(esp+0x30) = eax;
 		FPUSH(F32(esp+0x34));
 		FPUSH(ST(0));
-		FPUSH(F64(___183f59h));
+		FPUSH(10.0);
 		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
 		ST(0) = ST(0)/ST(1);
 		FPUSH(F32(esp+0x2c));
@@ -38,7 +29,7 @@ void ___4a064h_cdecl(dword A0, dword A1, dword A2, dword A3){
 		d_tmp = ST(0); ST(0) = ST(3); ST(3) = d_tmp;
 		ST(5) = ST(5)-ST(0); FPOP();
 		d_tmp = ST(0); ST(0) = ST(4); ST(4) = d_tmp;
-		FPUSH(F64(___183f61h));
+		FPUSH(5.0);
 		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
 		ST(0) = ST(0)/ST(1);
 		d_tmp = ST(0); ST(0) = ST(5); ST(5) = d_tmp;
@@ -62,17 +53,16 @@ ___4a0edh:
 		FPUSH(ST(0));
 		ST(0) = ST(0)*(double)F32(esp+0x10);
 		FPUSH(F32(esp+0x34));
-		ST(0) = ST(0)/F64(___183f59h);
+		ST(0) = ST(0)/10.0;
 		FPUSH(ST(2));
 		ST(0) = ST(0)*(double)F32(esp+0xc);
 		FPUSH(F32(esp+0x2c));
-		ST(0) = ST(0)/F64(___183f59h);
+		ST(0) = ST(0)/10.0;
 		d_tmp = ST(0); ST(0) = ST(4); ST(4) = d_tmp;
 		ST(0) = ST(0)*(double)F32(esp+0x14);
 		FPUSH(F32(esp+0x30));
-		ST(0) = ST(0)/F64(___183f59h);
+		ST(0) = ST(0)/10.0;
 		ecx = D(esp+0x20);
-		eax += 3;
 		edx++;
 		ecx++;
 		d_tmp = ST(0); ST(0) = ST(3); ST(3) = d_tmp;
@@ -92,18 +82,19 @@ ___4a0edh:
 		L(ebx) = B(esp+0x28);
 		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
 		D(esp+0x28) = (int)FPOP();
-		B(eax+___1a51cdh) = L(ebx);
+		B(eax+___1a51d0h) = L(ebx);
 		L(ebx) = B(esp+0x28);
 		D(esp+0x28) = (int)FPOP();
-		B(eax+___1a51ceh) = L(ebx);
+		B(eax+___1a51d0h+1) = L(ebx);
 		L(ebx) = B(esp+0x28);
 		D(esp+0x20) = ecx;
-		B(eax+___1a51cfh) = L(ebx);
+		B(eax+___1a51d0h+2) = L(ebx);
+		eax += 3;
 		if((int)ecx < 5) goto ___4a0edh;
-		FPUSH(F32(___183f69h));
+		FPUSH(63.0);
 		FPUSH(ST(0));
 		ST(0) = ST(0)-(double)F32(esp+0x2c);
-		FPUSH(F32(___183f6dh));
+		FPUSH(5.0);
 		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
 		ST(0) = ST(0)/ST(1);
 		FPUSH(ST(2));
@@ -151,9 +142,9 @@ ___4a1d5h:
 		B(eax+___1a51d0h) = L(ebx);
 		L(ebx) = B(esp+0x28);
 		D(esp+0x28) = (int)FPOP();
-		B(eax+___1a51d1h) = L(ebx);
+		B(eax+___1a51d0h+1) = L(ebx);
 		L(ebx) = B(esp+0x28);
-		B(eax+___1a51d2h) = L(ebx);
+		B(eax+___1a51d0h+2) = L(ebx);
 		ebx = D(esp+0x24);
 		eax += 3;
 		ebx++;

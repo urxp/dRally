@@ -3,54 +3,56 @@
 	extern byte ___1a1ef8h[];
 	extern byte ___1a0a50h[];
 	extern byte ___19bd60h[];
-	extern byte ___1a0a5ch[];
-	extern byte ___1a0224h[];
+	extern byte ___1a01e0h[];
 
 void ___2ec68h_cdecl(void){
 
 	dword 	eax, ebx, ecx, edx, esi, edi, ebp;
 
-		esi = D(___1a1ef8h);
+
+	ecx = 4;
+	while(ecx&&ecx--) D(___1a0a50h+4*ecx) = 1;
+
+#if defined(DR_MULTIPLAYER)
+	if(D(___19bd60h) != 0){
+
 		ecx = 4;
-		edx = 1;
-		eax = ___1a0a50h;
-		while(ecx&&ecx--) D(4*ecx+eax) = edx;
-		if(D(___19bd60h) == 0) goto ___2ecb6h;
-		ecx = 4;
-		edx = 1;
-		eax = ___1a0a50h;
-		ebx = 0;
-		while(ecx&&ecx--) D(4*ecx+eax) = edx;
-		D(___1a0a5ch) = ebx;
-___2ecb6h:
-		esi = D(___1a1ef8h);
-		edx = 0;
-		eax = 0;
-		ebx = 0;
-___2ecc2h:
-		ecx = D(eax+___1a0224h);
-		if((int)ebx >= (int)ecx) goto ___2ecd2h;
-		if(edx == esi) goto ___2ecd2h;
-		ebx = ecx;
-___2ecd2h:
+		while(ecx&&ecx--) D(___1a0a50h+4*ecx) = 1;
+		D(___1a0a50h+0xc) = 0;
+	}
+#endif // DR_MULTIPLAYER
+
+	edx = 0;
+	eax = 0;
+	ebx = 0;
+
+	while(1){
+
+		ecx = D(eax+___1a01e0h+0x44);
+		
+		if((int)ebx < (int)ecx){
+		
+			if(edx != D(___1a1ef8h)) ebx = ecx;
+		}
+
 		edx++;
 		eax += 0x6c;
-		if((int)edx < 0x14) goto ___2ecc2h;
-		edi = D(___19bd60h);
-		if(edi) goto ___2ed04h;
-		eax = esi*8;
-		eax -= esi;
-		eax <<= 2;
-		eax -= esi;
-		if((int)ebx >= (int)D(eax*4+___1a0224h)) goto ___2ed04h;
-		D(___1a0a5ch) = edi;
-		goto ___2ed0eh;
-___2ed04h:
-		D(___1a0a5ch) = 1;
-___2ed0eh:
-		if(D(___19bd60h) == 0) goto ___2ed1fh;
-		ecx = 0;
-		D(___1a0a5ch) = ecx;
-___2ed1fh:
-		D(___1a1ef8h) = esi;
+		if((int)edx >= 0x14) break;
+	}
+
+#if defined(DR_MULTIPLAYER)
+	if(D(___19bd60h) != 0){
+
+		D(___1a0a50h+0xc) = 1;
+	}
+	else {
+#endif // DR_MULTIPLAYER
+
+		D(___1a0a50h+0xc) = !((int)ebx < (int)D(___1a01e0h+0x6c*D(___1a1ef8h)+0x44));
+
+#if defined(DR_MULTIPLAYER)
+	}
+
+	if(D(___19bd60h) != 0) D(___1a0a50h+0xc) = 0;
+#endif // DR_MULTIPLAYER
 }

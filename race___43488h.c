@@ -43,7 +43,7 @@ typedef struct x2c_s {
     extern dword ___243c94h;
     extern char ___243dd0h[];
     extern byte ___1a54d0h[];
-    extern char ___19bd64h[];
+    extern char ___19bd64h[16];
     extern xc50_t ___1f3b08h[];
     extern x2c_t ___240b48h[];		// <0x240b48 - 0x240b74)
     extern void * ___243d5ch;
@@ -64,19 +64,19 @@ void race___43488h(void){
 
     if(___243c94h > 0) bpk_decode4(sizeof(x2c_t)*___243c94h, sizeof(xc50_t)*___243c88h+2, &___240b48h, ___1a54d0h);
 
-    switch((___19bd64h[2]-0x30)&0xff){
-    case 0:
-    case 3:
-    case 4:
-    case 5:
-    case 6:
-    case 7:
-    case 8:
-    case 9:
+    switch(___19bd64h[2]){
+    case '0':
+    case '3':
+    case '4':
+    case '5':
+    case '6':
+    case '7':
+    case '8':
+    case '9':
         bpk_decode4(0x493e0, sizeof(x2c_t)*___243c94h+sizeof(xc50_t)*___243c88h+2, ___243d5ch, ___1a54d0h);
         break;
-    case 1:
-    case 2:
+    case '1':
+    case '2':
         bpk_decode4(0x5f370, sizeof(x2c_t)*___243c94h+sizeof(xc50_t)*___243c88h+2, ___243d5ch, ___1a54d0h);
         break;
     default: 

@@ -31,7 +31,7 @@ typedef struct xc50_s {
 	extern byte ___243c88h[];
 	extern byte ___196dc8h[];
 	extern byte ___196dcch[];
-	extern byte ___19bd66h[];
+	extern char ___19bd64h[16];
 	extern byte ___243c98h[];
 
 // SOMETHING WITH 3D-LIKE OBJECTS
@@ -67,7 +67,7 @@ ___4f078h:
 		D(eax+(void *)&___1f3b08h->_9E8) = edx;
 		edx = 0;
 		D(eax+(void *)&___1f3b08h->_C44) = edx;
-		if(B(___19bd66h) == 0x30) goto ___4f146h;
+		if(___19bd64h[2] == 0x30) goto ___4f146h;
 		edx = D(esp);
 		edx += D(eax+(void *)&___1f3b08h->_390);
 		ebx = D(eax+(void *)&___1f3b08h->_9E4);

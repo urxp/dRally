@@ -11,8 +11,7 @@
 	extern byte ___243c8ch[];
 	extern byte ___243cbch[];
 	extern byte ___243ce8h[];
-	extern byte ___1de594h[];
-	extern byte ___183f45h[];
+	extern byte ___1de580h[];
 	extern byte ___196d88h[];
 	extern byte ___196d8ch[];
 	extern byte ___196d90h[];
@@ -20,8 +19,7 @@
 	extern byte ___196d98h[];
 	extern byte ___2438d0h[];
 	extern byte ___243cf0h[];
-	extern byte ___1df528h[];
-	extern byte ___1df52ch[];
+	extern byte ___1df520h[];
 	extern byte ___243178h[];
 	extern byte ___243ce4h[];
 	extern byte ___243d08h[];
@@ -62,7 +60,7 @@ void race___49a34h(void){
 	D(___243c90h) = 0;
 	D(___243c8ch) = 0;
 	D(___243cbch) = 0;
-	F32(___243cf0h) = 3.75/(double)F32(0x94*D(___243ce8h)+___1de594h);
+	F32(___243cf0h) = 3.75/(double)F32(0x94*D(___243ce8h)+___1de580h+0x14);
 	D(___196d88h) = 0x100;
 	D(___196d8ch) = 0x80;
 	D(___196d90h) = 0xc8;
@@ -73,8 +71,8 @@ void race___49a34h(void){
 	n = -1;
 	while(++n < 0x20){
 
-		D(0x10*n+___1df528h) = 0xffffffff;
-		D(0x10*n+___1df52ch) = 0;
+		D(0x10*n+___1df520h+8) = 0xffffffff;
+		D(0x10*n+___1df520h+0xc) = 0;
 	}
 
 	D(___243ce4h) = 0;

@@ -4,39 +4,8 @@
 	extern byte ___1a1e84h[];
 	extern byte ___196aa8h[];
 	extern byte ___1a1ef8h[];
-	extern byte ___1806b0h[];
-	extern byte ___1a0210h[];
-	extern byte ___1806b8h[];
-	extern byte ___1806dch[];
-	extern byte ___1806c0h[];
-	extern byte ___1806c8h[];
-	extern byte ___1806e4h[];
-	extern byte ___18b552h[];
-	extern byte ___18b5a2h[];
-	extern byte ___18b5f2h[];
-	extern byte ___18b642h[];
-	extern byte ___18b692h[];
-	extern byte ___18b6e2h[];
-	extern byte ___18b732h[];
+	extern byte ___1a01e0h[];
 	extern byte ___1a1ff1h[];
-	extern byte ___1806e8h[];
-	extern byte ___18b782h[];
-	extern byte ___1806f8h[];
-	extern byte ___18b7d2h[];
-	extern byte ___18b822h[];
-	extern byte ___180708h[];
-	extern byte ___18070ch[];
-	extern byte ___18b872h[];
-	extern byte ___18b8c2h[];
-	extern byte ___18b912h[];
-	extern byte ___18b962h[];
-	extern byte ___18b9b2h[];
-	extern byte ___18ba02h[];
-	extern byte ___18ba52h[];
-	extern byte ___18baa2h[];
-	extern byte ___18baf2h[];
-	extern byte ___18bb42h[];
-	extern byte ___180694h[];
 	extern byte ___185ba9h[];
 	extern byte ___1a10cch[];
 
@@ -48,373 +17,132 @@ void ___13248h_cdecl(dword, dword ,dword, dword, dword);
 // HITMAN RESULT
 dword ___15e3ch(void){
 
-	dword 	eax, ebx, ecx, edx, edi, esi, ebp;
 	byte 	esp[0x4c];
+	byte 	px;
+	int 	i, j;
 
 
-		edx = 0x21;
-		ebp = 0x83;
-		ecx = 0xe6;
-		eax = 0x21;
-		ebx = 0;
-		D(esp+0x48) = edx;
-		D(esp+0x40) = ebx;
-		ebx = 0x1e2;
-		edx = ebp;
-		___13248h_cdecl(eax, edx, ebx, ecx, 1);
-		ecx = 0x80;
-		edx = 0x68;
-		ebx = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
-		esi = D(___1a1e84h);
-		ebx += 0x1a42d;
-___15e97h:
-		edi = edx;
-___15e99h:
-		L(eax) = B(esi);
-		if(L(eax) == 0) goto ___15ea1h;
-		B(ebx) = L(eax);
-___15ea1h:
-		ebx++;
-		esi++;
-		edi--;
-		if(edi) goto ___15e99h;
-		ebx += 0x280;
-		ebx -= edx;
-		ecx--;
-		if(ecx) goto ___15e97h;
-		ecx = D(___196aa8h);
-		if((int)ecx <= 0) goto ___16258h;
-		if(ecx != 1) goto ___15eeeh;
-		edx = D(___1a1ef8h);
-		eax = 8*edx;
-		eax -= edx;
-		edi = esp+0x34;
-		eax <<= 2;
-		esi = ___1806b0h;
-		eax -= edx;
-		D(edi) = D(esi); edi += 4; esi += 4;
-		B(edi++) = B(esi++);
-		D(eax*4+___1a0210h) += 0x1770;
-___15eeeh:
-		if(D(___196aa8h) != 2) goto ___15f2ah;
-		edx = D(___1a1ef8h);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 2;
-		eax -= edx;
-		edi = esp+0x34;
-		edx = D(eax*4+___1a0210h);
-		esi = ___1806b8h;
-		edx += 0xfa0;
-		D(edi) = D(esi); edi += 4; esi += 4;
-		B(edi++) = B(esi++);
-		D(eax*4+___1a0210h) = edx;
-___15f2ah:
-		if(D(___196aa8h) != 3) goto ___15f66h;
-		edx = D(___1a1ef8h);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 2;
-		eax -= edx;
-		edi = esp+0x34;
-		ecx = D(eax*4+___1a0210h);
-		esi = ___1806dch;
-		ecx += 0xbb8;
-		D(edi) = D(esi); edi += 4; esi += 4;
-		B(edi++) = B(esi++);
-		D(eax*4+___1a0210h) = ecx;
-___15f66h:
-		if(D(___196aa8h) != 4) goto ___15f99h;
-		edx = D(___1a1ef8h);
-		eax = 8*edx;
-		eax -= edx;
-		edi = esp+0x34;
-		eax <<= 2;
-		esi = ___1806c0h;
-		eax -= edx;
-		D(edi) = D(esi); edi += 4; esi += 4;
-		B(edi++) = B(esi++);
-		D(eax*4+___1a0210h) += 0x7d0;
-___15f99h:
-		if(D(___196aa8h) != 5) goto ___15fd5h;
-		edx = D(___1a1ef8h);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 2;
-		eax -= edx;
-		edi = esp+0x34;
-		edx = D(eax*4+___1a0210h);
-		esi = ___1806c8h;
-		edx += 0x3e8;
-		D(edi) = D(esi); edi += 4; esi += 4;
-		B(edi++) = B(esi++);
-		D(eax*4+___1a0210h) = edx;
-___15fd5h:
-		if(D(___196aa8h) != 6) goto ___16006h;
-		eax = D(___1806e4h);
-		edx = D(___1a1ef8h);
-		D(esp+0x34) = eax;
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 2;
-		eax -= edx;
-		D(eax*4+___1a0210h) += 0x1f4;
-___16006h:
-		edx = ebp+0x25;
-		eax = 4*edx;
-		eax += edx;
-		esi = D(esp+0x48);
-		eax <<= 7;
-		eax += esi;
-		edx = eax+0x80;
-		eax = ___18b552h;
-		___13094h_cdecl(eax, edx);
-		edx = ebp+0x35;
-		eax = 4*edx;
-		eax += edx;
-		eax <<= 7;
-		edx = esi+eax;
-		eax = ___18b5a2h;
-		edx += 0x80;
-		___13094h_cdecl(eax, edx);
-		edx = ebp+0x45;
-		eax = 4*edx;
-		eax += edx;
-		eax <<= 7;
-		edx = esi+eax;
-		eax = ___18b5f2h;
-		edx += 0x80;
-		___13094h_cdecl(eax, edx);
-		edx = ebp+0x55;
-		eax = 4*edx;
-		eax += edx;
-		eax <<= 7;
-		eax += esi;
-		edx = eax+0x80;
-		eax = ___18b642h;
-		___13094h_cdecl(eax, edx);
-		edx = ebp+0x65;
-		eax = 4*edx;
-		eax += edx;
-		eax <<= 7;
-		edx = esi+eax;
-		eax = ___18b692h;
-		edx += 0x80;
-		___13094h_cdecl(eax, edx);
-		edx = ebp+0x75;
-		eax = 4*edx;
-		eax += edx;
-		eax <<= 7;
-		edi = esp;
-		edx = esi+eax;
-		eax = ___18b6e2h;
-		edx += 0x80;
-		esi = ___18b732h;
-		___13094h_cdecl(eax, edx);
-		strcpy(edi, esi);
-		esi = ___1a1ff1h;
-		edi = esp;
-		strcat(edi, esi);
-		esi = ___1806e8h;
-		edi = esp;
-		strcat(edi, esi);
-		edx = ebp+0x85;
-		eax = 4*edx;
-		eax += edx;
-		edx = D(esp+0x48);
-		eax <<= 7;
-		esi = ___18b782h;
-		edx += eax;
-		eax = esp;
-		edx += 0x80;
-		edi = esp;
-		___13094h_cdecl(eax, edx);
-		strcpy(edi, esi);
-		esi = esp+0x34;
-		edi = esp;
-		strcat(edi, esi);
-		esi = ___1806f8h;
-		edi = esp;
-		edx = ebp+0x95;
-		strcat(edi, esi);
-		eax = 4*edx;
-		eax += edx;
-		edx = D(esp+0x48);
-		eax <<= 7;
-		edx += eax;
-		eax = esp;
-		edx += 0x80;
-		___13094h_cdecl(eax, edx);
-		edx = ebp+0xa5;
-		eax = 4*edx;
-		eax += edx;
-		edx = D(esp+0x48);
-		eax <<= 7;
-		eax += edx;
-		edx = eax+0x80;
-		eax = ___18b7d2h;
-		___13094h_cdecl(eax, edx);
-		edx = ebp+0xb5;
-		eax = 4*edx;
-		eax += edx;
-		edx = D(esp+0x48);
-		eax <<= 7;
-		edx += eax;
-		eax = ___18b822h;
-		edx += 0x80;
-		___13094h_cdecl(eax, edx);
-		goto ___16494h;
-___16258h:
-		if(ecx != 0xffffffff) goto ___16270h;
-		edi = esp+0x34;
-		esi = ___1806dch;
-		D(edi) = D(esi); edi += 4; esi += 4;
-		B(edi++) = B(esi++);
-		D(esp+0x44) = 0xbb8;
-___16270h:
-		if(D(___196aa8h) != 0xfffffffe) goto ___1628dh;
-		edx = 0x7d0;
-		edi = esp+0x34;
-		esi = ___1806c0h;
-		D(esp+0x44) = edx;
-		D(edi) = D(esi); edi += 4; esi += 4;
-		B(edi++) = B(esi++);
-___1628dh:
-		if(D(___196aa8h) != 0xfffffffd) goto ___162aah;
-		ecx = 0x3e8;
-		edi = esp+0x34;
-		esi = ___1806c8h;
-		D(esp+0x44) = ecx;
-		D(edi) = D(esi); edi += 4; esi += 4;
-		B(edi++) = B(esi++);
-___162aah:
-		if(D(___196aa8h) != 0xfffffffc) goto ___162c5h;
-		edi = 0x2ee;
-		eax = D(___180708h);
-		D(esp+0x44) = edi;
-		D(esp+0x34) = eax;
-___162c5h:
-		if(D(___196aa8h) != 0xfffffffb) goto ___162e0h;
-		edx = 0x1f4;
-		eax = D(___1806e4h);
-		D(esp+0x44) = edx;
-		D(esp+0x34) = eax;
-___162e0h:
-		if(D(___196aa8h) != 0xfffffffa) goto ___162fbh;
-		ecx = 0xfa;
-		eax = D(___18070ch);
-		D(esp+0x44) = ecx;
-		D(esp+0x34) = eax;
-___162fbh:
-		edx = ebp+0x25;
-		eax = 4*edx;
-		eax += edx;
-		esi = D(esp+0x48);
-		eax <<= 7;
-		eax += esi;
-		edx = eax+0x80;
-		eax = ___18b872h;
-		___13094h_cdecl(eax, edx);
-		edx = ebp+0x35;
-		eax = 4*edx;
-		eax += edx;
-		eax <<= 7;
-		edx = esi+eax;
-		eax = ___18b8c2h;
-		edx += 0x80;
-		___13094h_cdecl(eax, edx);
-		edx = ebp+0x45;
-		eax = 4*edx;
-		eax += edx;
-		eax <<= 7;
-		edx = esi+eax;
-		eax = ___18b912h;
-		edx += 0x80;
-		___13094h_cdecl(eax, edx);
-		edx = ebp+0x55;
-		eax = 4*edx;
-		eax += edx;
-		eax <<= 7;
-		edx = esi+eax;
-		eax = ___18b962h;
-		edx += 0x80;
-		___13094h_cdecl(eax, edx);
-		edx = ebp+0x65;
-		eax = 4*edx;
-		eax += edx;
-		eax <<= 7;
-		eax += esi;
-		edx = eax+0x80;
-		eax = ___18b9b2h;
-		___13094h_cdecl(eax, edx);
-		edx = ebp+0x75;
-		eax = 4*edx;
-		eax += edx;
-		eax <<= 7;
-		eax += esi;
-		edx = eax+0x80;
-		eax = ___18ba02h;
-		___13094h_cdecl(eax, edx);
-		edx = ebp+0x85;
-		eax = 4*edx;
-		eax += edx;
-		eax <<= 7;
-		eax += esi;
-		edx = eax+0x80;
-		eax = ___18ba52h;
-		___13094h_cdecl(eax, edx);
-		edx = ebp+0x95;
-		eax = 4*edx;
-		eax += edx;
-		eax <<= 7;
-		eax += esi;
-		edx = eax+0x80;
-		eax = ___18baa2h;
-		___13094h_cdecl(eax, edx);
-		edx = ebp+0xa5;
-		eax = 4*edx;
-		eax += edx;
-		eax <<= 7;
-		eax += esi;
-		edx = eax+0x80;
-		eax = ___18baf2h;
-		___13094h_cdecl(eax, edx);
-		edx = ebp+0xb5;
-		eax = 4*edx;
-		eax += edx;
-		eax <<= 7;
-		eax += esi;
-		edx = eax+0x80;
-		eax = ___18bb42h;
-		___13094h_cdecl(eax, edx);
-		edx = D(___1a1ef8h);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 2;
-		eax -= edx;
-		eax <<= 2;
-		ebx = D(esp+0x44);
-		edx = D(eax+___1a0210h);
-		if((int)edx < (int)ebx) goto ___16489h;
-		ecx = edx;
-		ecx -= ebx;
-		D(eax+___1a0210h) = ecx;
-		goto ___16494h;
-___16489h:
-		eax = ebx;
-		eax = ___14c50h();
-		D(esp+0x40) = eax;
-___16494h:
-		edx = ebp+0xb9;
-		eax = 4*edx;
-		eax += edx;
-		eax <<= 7;
-		ebx = ___180694h;
-		ecx = eax+0xc0;
-		edx = ___185ba9h;
-		eax = D(___1a10cch);
-		___12e78h_cdecl(eax, edx, ebx, ecx);
-		eax = D(esp+0x40);
+	___13248h_cdecl(0x21, 0x83, 0x1e2, 0xe6, 1);
 
-		return eax;    
+	j = -1;
+	while(++j < 0x80){
+
+		i = -1;
+		while(++i < 0x68){
+
+			if((px = B(D(___1a1e84h)+0x68*j+i))) B(D(___1a112ch__VESA101_ACTIVESCREEN_PTR)+0x1a42d+0x280*j+i) = px;
+		}
+	}
+
+	if((int)D(___196aa8h) <= 0){
+
+		if(D(___196aa8h) == 0xffffffff){
+		
+			D(esp+0x44) = 0xbb8;
+			strcpy(esp+0x34, "3000");
+		}
+
+		if(D(___196aa8h) == 0xfffffffe){
+
+			D(esp+0x44) = 0x7d0;
+			strcpy(esp+0x34, "2000");
+		}
+
+		if(D(___196aa8h) == 0xfffffffd){
+		
+			D(esp+0x44) = 0x3e8;
+			strcpy(esp+0x34, "1000");
+		}
+
+		if(D(___196aa8h) == 0xfffffffc){
+		
+			D(esp+0x44) = 0x2ee;
+			strcpy(esp+0x34, "750");
+		}
+
+		if(D(___196aa8h) == 0xfffffffb){
+		
+			D(esp+0x44) = 0x1f4;
+			strcpy(esp+0x34, "500");
+		}
+
+		if(D(___196aa8h) == 0xfffffffa){
+
+			D(esp+0x44) = 0xfa;
+			strcpy(esp+0x34, "250");
+		}
+
+		___13094h_cdecl("[Your hit missed!", 0x1a4a1);
+		___13094h_cdecl("", 0x1cca1);
+		___13094h_cdecl("You sissy Sunday driver. [The", 0x1f4a1);
+		___13094h_cdecl("[simplest job, and you screw it up!", 0x21ca1);
+		___13094h_cdecl("I bet you are afraid of the dark as", 0x244a1);
+		___13094h_cdecl("well. I'll show you what happens", 0x26ca1);
+		___13094h_cdecl("when you break your promises to me.", 0x294a1);
+		___13094h_cdecl("[I'm gonna make you pay!", 0x2bca1);
+		___13094h_cdecl("", 0x2e4a1);
+		___13094h_cdecl("", 0x30ca1);
+
+		if((int)D(0x6c*D(___1a1ef8h)+___1a01e0h+0x30) < (int)D(esp+0x44)){
+
+			___14c50h();
+		}
+		else {
+
+			D(0x6c*D(___1a1ef8h)+___1a01e0h+0x30) -= D(esp+0x44);
+		}
+	}
+	else {
+
+		if(D(___196aa8h) == 1){
+
+			strcpy(esp+0x34, "6000");
+			D(___1a01e0h+0x30+0x6c*D(___1a1ef8h)) += 0x1770;
+		}
+
+		if(D(___196aa8h) == 2){
+
+			strcpy(esp+0x34, "4000");
+			D(___1a01e0h+0x30+0x6c*D(___1a1ef8h)) += 0xfa0;
+		}
+
+		if(D(___196aa8h) == 3){
+
+			strcpy(esp+0x34, "3000");
+			D(___1a01e0h+0x30+0x6c*D(___1a1ef8h)) += 0xbb8;
+		}
+
+		if(D(___196aa8h) == 4){
+
+			strcpy(esp+0x34, "2000");
+			D(___1a01e0h+0x30+0x6c*D(___1a1ef8h)) += 0x7d0;
+		}
+
+		if(D(___196aa8h) == 5){
+
+			strcpy(esp+0x34, "1000");
+			D(___1a01e0h+0x30+0x6c*D(___1a1ef8h)) += 0x3e8;
+		}
+
+		if(D(___196aa8h) == 6){
+
+			strcpy(esp+0x34, "500");
+			D(___1a01e0h+0x30+0x6c*D(___1a1ef8h)) += 0x1f4;
+		}
+
+		___13094h_cdecl("[You totally slew that car.", 0x1a4a1);
+		___13094h_cdecl("", 0x1cca1);
+		___13094h_cdecl("A killer race! The bullets took the", 0x1f4a1);
+		___13094h_cdecl("sky like clouds of locusts, and", 0x21ca1);
+		___13094h_cdecl("the screams of motors were a", 0x244a1);
+		___13094h_cdecl("banshee wail. [Death!{ You were", 0x26ca1);
+		___13094h_cdecl(strcat(strcat(strcpy(esp, "beautiful, ["), ___1a1ff1h), " is in a car-"), 0x294a1);
+		___13094h_cdecl(strcat(strcat(strcpy(esp, "[coffin grave. $"), esp+0x34), ", your money."), 0x2bca1);
+		___13094h_cdecl("", 0x2e4a1);
+		___13094h_cdecl("", 0x30ca1);
+	}
+
+	___12e78h_cdecl(D(___1a10cch), ___185ba9h, "CONTINUE", 0x316c0);
+
+	return 0;
 }

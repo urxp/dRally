@@ -4,8 +4,6 @@ cpu 386
 
 	extern 	__CHK
 	extern 	__STRCAT
-	extern 	___180710h
-	extern 	___180144h
 	extern 	___1a1114h
 	extern 	bpa_read
 	extern 	___1a54d0h
@@ -13,15 +11,9 @@ cpu 386
 	extern 	___1a112ch__VESA101_ACTIVESCREEN_PTR
 	extern 	___196adch
 	extern 	___1a1ef8h
-	extern 	___18071ch
-	extern 	___180720h
 	extern 	itoa_watcom106
-	extern 	___180724h
 	extern 	___13094h_cdecl
 	extern 	___1a01e0h
-	extern 	___1a0224h
-	extern 	___180728h
-	extern 	___1a0238h
 
 section .text
 
@@ -35,8 +27,8 @@ __GDECL(___16e6ch)
 		push    edi
 		push    ebp
 		sub     esp, byte 74h
-		mov     ebx, ___180710h
-		mov     eax, ___180144h
+		mov     ebx, mp_res_bpk
+		mov     eax, loc_menu_bpa
 		mov     edx, [___1a1114h]
 	
 	push 	ecx
@@ -92,10 +84,10 @@ ___16f0eh:
 		dec     eax
 		cmp     eax, edx
 		jne     short ___16f28h
-		mov     ax, [___18071ch]
+		mov     ax, 5bh
 		jmp     short ___16f2eh
 ___16f28h:
-		mov     ax, [___180720h]
+		mov     ax, 7bh
 ___16f2eh:
 		mov     [esp], ax
 		mov     ebx, 0ah
@@ -113,7 +105,7 @@ ___16f2eh:
 	pop 	ecx
 
 		call 	__STRCAT
-		mov     esi, ___180724h
+		mov     esi, loc_dot
 		mov     edi, esp
 		mov     edx, [esp+64h]
 		call 	__STRCAT
@@ -132,10 +124,10 @@ ___16f2eh:
 		dec     eax
 		cmp     eax, ebx
 		jne     short ___16fb9h
-		mov     ax, [___18071ch]
+		mov     ax, 5bh
 		jmp     short ___16fbfh
 ___16fb9h:
-		mov     ax, [___180720h]
+		mov     ax, 7bh
 ___16fbfh:
 		mov     [esp], ax
 		mov     eax, [___196adch]
@@ -162,10 +154,10 @@ ___16fbfh:
 		dec     eax
 		cmp     eax, ecx
 		jne     short ___1701eh
-		mov     ax, [___18071ch]
+		mov     ax, 5bh
 		jmp     short ___17024h
 ___1701eh:
-		mov     ax, [___180720h]
+		mov     ax, 7bh
 ___17024h:
 		mov     [esp], ax
 		mov     eax, [___196adch]
@@ -175,7 +167,7 @@ ___17024h:
 		mov     ebx, 0ah
 		lea     edx, [esp+50h]
 		lea     esi, [esp+50h]
-		mov     eax, [eax+___1a0224h]
+		mov     eax, [eax+___1a01e0h+44h]
 		mov     edi, esp
 
 	push 	ecx
@@ -203,13 +195,13 @@ ___17024h:
 		dec     eax
 		cmp     eax, esi
 		jne     short ___17094h
-		mov     ax, [___18071ch]
+		mov     ax, 5bh
 		jmp     short ___1709ah
 ___17094h:
-		mov     ax, [___180720h]
+		mov     ax, 7bh
 ___1709ah:
 		mov     [esp], ax
-		mov     esi, ___180728h
+		mov     esi, dollar_s
 		mov     edi, esp
 		call 	__STRCAT
 		mov     eax, [___196adch]
@@ -220,7 +212,7 @@ ___1709ah:
 		lea     edx, [esp+50h]
 		lea     esi, [esp+50h]
 		mov     edi, esp
-		mov     eax, [eax+___1a0238h]
+		mov     eax, [eax+___1a01e0h+58h]
 		inc     ebp
 
 	push 	ecx
@@ -266,4 +258,14 @@ ___1715fh:
 		pop     ecx
 		pop     ebx
 		retn    
+
+section .data
+loc_menu_bpa:
+	db 	"MENU.BPA",0
+mp_res_bpk:
+	db 	"mp-res.bpk",0,0
+loc_dot:
+	db 	".",0,0,0
+dollar_s:
+	db 	24h,0,0,0
 */

@@ -4,36 +4,16 @@
 	extern byte ___1a112ch__VESA101_ACTIVESCREEN_PTR[];
 	extern byte ___185c0bh[];
 	extern byte ___1a1108h[];
-	extern byte ___1a1158h[];
 	extern byte ___1866b8h[];
 	extern byte ___19ce70h[];
-	extern byte ___1a1150h[];
 	extern byte ___1866b8h[];
-	extern byte ___1818e8h[];
-	extern byte ___181a0ch[];
-	extern byte ___1a1148h[];
 	extern byte ___1866b8h[];
-	extern byte ___1818f8h[];
-	extern byte ___181a2ch[];
-	extern byte ___1a114ch[];
 	extern byte ___1866b8h[];
-	extern byte ___18190ch[];
-	extern byte ___181a4ch[];
-	extern byte ___1a1140h[];
+	extern __DWORD__ ___1a1140h[8];
 	extern byte ___1866b8h[];
-	extern byte ___181924h[];
-	extern byte ___181a6ch[];
-	extern byte ___1a115ch[];
 	extern byte ___1866b8h[];
-	extern byte ___181940h[];
-	extern byte ___181a8ch[];
-	extern byte ___1a1154h[];
 	extern byte ___1866b8h[];
-	extern byte ___18195ch[];
-	extern byte ___181aach[];
-	extern byte ___1a1144h[];
 	extern byte ___1866b8h[];
-	extern byte ___181ac4h[];
 	extern byte ___185a5ch[];
 	extern byte ___185b58h[];
 
@@ -134,25 +114,15 @@ ___20617h:
 
 		while(1){
 
-			D(___1a1158h) = ___5994ch();
+			___1a1140h[6] = ___5994ch();
 
-			if((D(___1a1158h) != 0)&&(D(___1a1158h) != 0xaa)) break;
+			if((___1a1140h[6] != 0)&&(___1a1140h[6] != 0xaa)) break;
 		}
 
 		___59b3ch();
-		edi = ___1866b8h+0xa8c;
-		esi = "Accelerate    ";
-		eax = ___5994ch();
-		ebx = D(___1a1158h);
-		D(edi) = D(esi); edi += 4; esi += 4;
-		D(edi) = D(esi); edi += 4; esi += 4;
-		D(edi) = D(esi); edi += 4; esi += 4;
-		W(edi) = W(esi); edi += 2; esi += 2;
-		B(edi++) = B(esi++);
-		esi = 0xf*ebx;
-		edi = ___1866b8h+0xa8c;
-		esi = esi+___19ce70h;
-		strcat(edi, esi);
+		___5994ch();
+		strcpy(___1866b8h+0xa8c, "Accelerate    ");
+		strcat(___1866b8h+0xa8c, ___19ce70h+0xf*___1a1140h[6]);
 ___206d8h:
 		if(ebp != 0xffffffff) goto ___205a3h;
 ___206e1h:
@@ -164,296 +134,193 @@ ___206ebh:
 		___13248h_cdecl(0x127, D(esp+0x10), 0x143, 0x30, 1);
 		___12e78h_cdecl(D(___1a1108h), ___185c0bh, "Press a key for brake...", D(esp+0x24));
 		___12cb8h__VESA101_PRESENTSCREEN();
-___20743h:
-		eax = ___5994ch();
-		eax &= 0xff;
-		D(___1a1150h) = eax;
-		if(eax == 0) goto ___20743h;
-		if(eax == 0xaa) goto ___20743h;
-		edi = ___1866b8h+0xabe;
-		esi = ___1818e8h;
-		eax = ___59b3ch();
-		eax = ___5994ch();
-		D(edi) = D(esi); edi += 4; esi += 4;
-		D(edi) = D(esi); edi += 4; esi += 4;
-		D(edi) = D(esi); edi += 4; esi += 4;
-		W(edi) = W(esi); edi += 2; esi += 2;
-		esi = 0xf*D(___1a1150h);
-		edi = ___1866b8h+0xabe;
-		esi = esi+___19ce70h;
-		strcat(edi, esi);
+
+		while(1){
+
+			eax = ___5994ch();
+			eax &= 0xff;
+			___1a1140h[4] = eax;
+		
+			if((eax != 0)&&(eax != 0xaa)) break;
+		}
+
+		___59b3ch();
+		___5994ch();
+		strcpy(___1866b8h+0xabe, "Brake        ");
+		strcat(___1866b8h+0xabe, ___19ce70h+0xf*___1a1140h[4]);
 		if(ebp != 0xffffffff) goto ___205a3h;
 		return;
 ___207bbh:
-		edx = 0;
-		eax = 0;
-		___13710h(eax, edx);
-		eax = 0x3;
-		edx = 0;
-		ecx = 0x30;
-		___13710h(eax, edx);
-		eax = 0x6;
-		edx = 0;
-		ebx = 0x143;
-		___13710h(eax, edx);
-		edx = D(esp+0x14);
-		eax = 0x127;
-		___13248h_cdecl(eax, edx, ebx, ecx, 1);
-		ecx = D(esp+0x38);
-		ebx = ___181a0ch;
-		edx = ___185c0bh;
-		eax = D(___1a1108h);
-		___12e78h_cdecl(eax, edx, ebx, ecx);
+		___13710h(0, 0);
+		___13710h(0x3, 0);
+		___13710h(0x6, 0);
+		___13248h_cdecl(0x127, D(esp+0x14), 0x143, 0x30, 1);
+		___12e78h_cdecl(D(___1a1108h), ___185c0bh, "Press a key for left steer...", D(esp+0x38));
 		___12cb8h__VESA101_PRESENTSCREEN();
-___20813h:
-		eax = ___5994ch();
-		eax &= 0xff;
-		D(___1a1148h) = eax;
-		if(eax == 0) goto ___20813h;
-		if(eax == 0xaa) goto ___20813h;
-		eax = ___59b3ch();
-		edi = ___1866b8h+0xaf0;
-		esi = ___1818f8h;
-		eax = ___5994ch();
-		ebx = D(___1a1148h);
-		D(edi) = D(esi); edi += 4; esi += 4;
-		D(edi) = D(esi); edi += 4; esi += 4;
-		D(edi) = D(esi); edi += 4; esi += 4;
-		D(edi) = D(esi); edi += 4; esi += 4;
-		B(edi++) = B(esi++);
-		esi = 0xf*ebx;
-		edi = ___1866b8h+0xaf0;
-		esi = esi+___19ce70h;
-		strcat(edi, esi);
+
+		while(1){
+
+			eax = ___5994ch();
+			eax &= 0xff;
+			___1a1140h[2] = eax;
+		
+			if((eax != 0)&&(eax != 0xaa)) break;
+		}
+
+		___59b3ch();
+		___5994ch();
+		strcpy(___1866b8h+0xaf0, "Steer Left    \xfa\xfa");
+		strcat(___1866b8h+0xaf0, ___19ce70h+0xf*___1a1140h[2]);
 		if(ebp != 0xffffffff) goto ___205a3h;
 		return;
 ___2088dh:
-		edx = 0;
-		eax = 0;
-		___13710h(eax, edx);
-		eax = 0x3;
-		edx = 0;
-		ecx = 0x30;
-		___13710h(eax, edx);
-		eax = 0x6;
-		edx = 0;
-		ebx = 0x143;
-		___13710h(eax, edx);
-		edx = D(esp+4);
-		eax = 0x127;
-		___13248h_cdecl(eax, edx, ebx, ecx, 1);
-		ecx = D(esp+0x1c);
-		ebx = ___181a2ch;
-		edx = ___185c0bh;
-		eax = D(___1a1108h);
-		___12e78h_cdecl(eax, edx, ebx, ecx);
+		___13710h(0, 0);
+		___13710h(0x3, 0);
+		___13710h(0x6, 0);
+		___13248h_cdecl(0x127, D(esp+4), 0x143, 0x30, 1);
+		___12e78h_cdecl(D(___1a1108h), ___185c0bh, "Press a key for right steer...", D(esp+0x1c));
 		___12cb8h__VESA101_PRESENTSCREEN();
-___208e5h:
-		eax = ___5994ch();
-		eax &= 0xff;
-		D(___1a114ch) = eax;
-		if(eax == 0) goto ___208e5h;
-		if(eax == 0xaa) goto ___208e5h;
-		edi = ___1866b8h+0xb22;
-		esi = ___18190ch;
-		eax = ___59b3ch();
-		eax = ___5994ch();
-		D(edi) = D(esi); edi += 4; esi += 4;
-		D(edi) = D(esi); edi += 4; esi += 4;
-		D(edi) = D(esi); edi += 4; esi += 4;
-		D(edi) = D(esi); edi += 4; esi += 4;
-		D(edi) = D(esi); edi += 4; esi += 4;
-		B(edi++) = B(esi++);
-		esi = 0xf*D(___1a114ch);
-		edi = ___1866b8h+0xb22;
-		esi = esi+___19ce70h;
-		strcat(edi, esi);
+
+		while(1){
+
+			eax = ___5994ch();
+			eax &= 0xff;
+			___1a1140h[3] = eax;
+
+			if((eax != 0)&&(eax != 0xaa)) break;
+		}
+
+		___59b3ch();
+		___5994ch();
+		strcpy(___1866b8h+0xb22, "Steer Right   \xfa\xfa\xfa\xfa\xfa\xfa");
+		strcat(___1866b8h+0xb22, ___19ce70h+0xf*___1a1140h[3]);
 		if(ebp != 0xffffffff) goto ___205a3h;
 		return;
 ___2095eh:
-		edx = 0;
-		eax = 0;
-		___13710h(eax, edx);
-		eax = 0x3;
-		edx = 0;
-		ecx = 0x30;
-		___13710h(eax, edx);
-		eax = 0x6;
-		edx = 0;
-		ebx = 0x143;
-		___13710h(eax, edx);
-		edx = D(esp+8);
-		eax = 0x127;
-		___13248h_cdecl(eax, edx, ebx, ecx, 1);
-		ecx = D(esp+0x18);
-		ebx = ___181a4ch;
-		edx = ___185c0bh;
-		eax = D(___1a1108h);
-		___12e78h_cdecl(eax, edx, ebx, ecx);
+		___13710h(0, 0);
+		___13710h(0x3, 0);
+		___13710h(0x6, 0);
+		___13248h_cdecl(0x127, D(esp+8), 0x143, 0x30, 1);
+		___12e78h_cdecl(D(___1a1108h), ___185c0bh, "Press a key for turbo boost...", D(esp+0x18));
 		___12cb8h__VESA101_PRESENTSCREEN();
-___209b6h:
-		eax = ___5994ch();
-		eax &= 0xff;
-		D(___1a1140h) = eax;
-		if(eax == 0) goto ___209b6h;
-		if(eax == 0xaa) goto ___209b6h;
-		eax = ___59b3ch();
-		ecx = 0x6;
-		edi = ___1866b8h+0xb54;
-		esi = ___181924h;
-		eax = ___5994ch();
-		ebx = D(___1a1140h);
-		while(ecx--||++ecx){ D(edi) = D(esi); edi += 4; esi += 4; }
-		W(edi) = W(esi); edi += 2; esi += 2;
-		esi = 0xf*ebx;
-		edi = ___1866b8h+0xb54;
-		esi = esi+___19ce70h;
-		strcat(edi, esi);
+
+		while(1){
+
+			eax = ___5994ch();
+			eax &= 0xff;
+			___1a1140h[0] = eax;
+		
+			if((eax != 0)&&(eax != 0xaa)) break;
+		}
+
+		___59b3ch();
+		___5994ch();
+		strcpy(___1866b8h+0xb54, "Turbo Boost  \xfa\xfa\xfa\xfa\xfa\xfa\xfa\xfa\xfa\xfa\xfa\xfa");
+		strcat(___1866b8h+0xb54, ___19ce70h+0xf*___1a1140h[0]);
 		if(ebp != 0xffffffff) goto ___205a3h;
 		return;
 ___20a34h:
-		edx = 0;
-		eax = 0;
-		___13710h(eax, edx);
-		eax = 0x3;
-		edx = 0;
-		ecx = 0x30;
-		___13710h(eax, edx);
-		eax = 0x6;
-		edx = 0;
-		ebx = 0x143;
-		___13710h(eax, edx);
-		edx = D(esp+0x2c);
-		eax = 0x127;
-		___13248h_cdecl(eax, edx, ebx, ecx, 1);
-		ecx = D(esp+0xc);
-		ebx = ___181a6ch;
-		edx = ___185c0bh;
-		eax = D(___1a1108h);
-		___12e78h_cdecl(eax, edx, ebx, ecx);
+		___13710h(0, 0);
+		___13710h(0x3, 0);
+		___13710h(0x6, 0);
+		___13248h_cdecl(0x127, D(esp+0x2c), 0x143, 0x30, 1);
+		___12e78h_cdecl(D(___1a1108h), ___185c0bh, "Press a key for machine gun...", D(esp+0xc));
 		___12cb8h__VESA101_PRESENTSCREEN();
-___20a8ch:
-		eax = ___5994ch();
-		eax &= 0xff;
-		D(___1a115ch) = eax;
-		if(eax == 0) goto ___20a8ch;
-		if(eax == 0xaa) goto ___20a8ch;
-		ecx = 0x6;
-		edi = ___1866b8h+0xb86;
-		esi = ___181940h;
-		eax = ___59b3ch();
-		eax = ___5994ch();
-		while(ecx--||++ecx){ D(edi) = D(esi); edi += 4; esi += 4; }
-		W(edi) = W(esi); edi += 2; esi += 2;
-		esi = 0xf*D(___1a115ch);
-		edi = ___1866b8h+0xb86;
-		esi = esi+___19ce70h;
-		strcat(edi, esi);
+
+		while(1){
+
+			eax = ___5994ch();
+			eax &= 0xff;
+			___1a1140h[7] = eax;
+			
+			if((eax != 0)&&(eax != 0xaa)) break;
+		}
+
+		___59b3ch();
+		___5994ch();
+		strcpy(___1866b8h+0xb86, "Machine Gun  \xfa\xfa\xfa\xfa\xfa\xfa\xfa\xfa\xfa\xfa\xfa\xfa");
+		strcat(___1866b8h+0xb86, ___19ce70h+0xf*___1a1140h[7]);
 		if(ebp != 0xffffffff) goto ___205a3h;
 		return;
 ___20b08h:
-		edx = 0;
-		eax = 0;
-		___13710h(eax, edx);
-		eax = 0x3;
-		edx = 0;
-		ecx = 0x30;
-		___13710h(eax, edx);
-		eax = 0x6;
-		edx = 0;
-		ebx = 0x143;
-		___13710h(eax, edx);
-		edx = D(esp+0x34);
-		eax = 0x127;
-		___13248h_cdecl(eax, edx, ebx, ecx, 1);
-		ecx = D(esp+0x20);
-		ebx = ___181a8ch;
-		edx = ___185c0bh;
-		eax = D(___1a1108h);
-		___12e78h_cdecl(eax, edx, ebx, ecx);
+		___13710h(0, 0);
+		___13710h(0x3, 0);
+		___13710h(0x6, 0);
+		___13248h_cdecl(0x127, D(esp+0x34), 0x143, 0x30, 1);
+		___12e78h_cdecl(D(___1a1108h), ___185c0bh, "Press a key for drop mine...", D(esp+0x20));
 		___12cb8h__VESA101_PRESENTSCREEN();
-___20b60h:
-		eax = ___5994ch();
-		eax &= 0xff;
-		D(___1a1154h) = eax;
-		if(eax == 0) goto ___20b60h;
-		if(eax == 0xaa) goto ___20b60h;
-		eax = ___59b3ch();
-		ecx = 0x6;
-		edi = ___1866b8h+0xbb8;
-		esi = ___18195ch;
-		eax = ___5994ch();
-		ebx = D(___1a1154h);
-		while(ecx--||++ecx){ D(edi) = D(esi); edi += 4; esi += 4; }
-		B(edi++) = B(esi++);
-		esi = 0xf*ebx;
-		edi = ___1866b8h+0xbb8;
-		esi = esi+___19ce70h;
-		strcat(edi, esi);
+
+		while(1){
+
+			eax = ___5994ch();
+			eax &= 0xff;
+			___1a1140h[5] = eax;
+
+			if((eax != 0)&&(eax != 0xaa)) break;
+		}
+
+		___59b3ch();
+		___5994ch();
+		strcpy(___1866b8h+0xbb8, "Drop Mine    \xfa\xfa\xfa\xfa\xfa\xfa\xfa\xfa\xfa\xfa\xfa");
+		strcat(___1866b8h+0xbb8, ___19ce70h+0xf*___1a1140h[5]);
 		if(ebp != 0xffffffff) goto ___205a3h;
 		return;
 ___20bddh:
-		edx = 0;
-		eax = 0;
-		___13710h(eax, edx);
-		eax = 0x3;
-		edx = 0;
-		ecx = 0x30;
-		___13710h(eax, edx);
-		eax = 0x6;
-		edx = 0;
-		ebx = 0x143;
-		___13710h(eax, edx);
-		edx = D(esp);
-		eax = 0x127;
-		___13248h_cdecl(eax, edx, ebx, ecx, 1);
-		ecx = D(esp+0x30);
-		ebx = ___181aach;
-		edx = ___185c0bh;
-		eax = D(___1a1108h);
-		___12e78h_cdecl(eax, edx, ebx, ecx);
+		___13710h(0, 0);
+		___13710h(0x3, 0);
+		___13710h(0x6, 0);
+		___13248h_cdecl(0x127, D(esp), 0x143, 0x30, 1);
+		___12e78h_cdecl(D(___1a1108h), ___185c0bh, "Press a key for horn...", D(esp+0x30));
 		___12cb8h__VESA101_PRESENTSCREEN();
-___20c35h:
-		eax = ___5994ch();
-		eax &= 0xff;
-		D(___1a1144h) = eax;
-		if(eax == 0) goto ___20c35h;
-		if(eax == 0xaa) goto ___20c35h;
-		ecx = 0x8;
-		edi = ___1866b8h+0xbea;
-		esi = ___181ac4h;
-		eax = ___59b3ch();
-		eax = ___5994ch();
-		while(ecx--||++ecx){ D(edi) = D(esi); edi += 4; esi += 4; }
-		esi = 0xf*D(___1a1144h);
-		edi = ___1866b8h+0xbea;
-		esi = esi+___19ce70h;
-		strcat(edi, esi);
+
+		while(1){
+
+			eax = ___5994ch();
+			eax &= 0xff;
+			___1a1140h[1] = eax;
+
+			if((eax != 0)&&(eax != 0xaa)) break;
+		}
+
+		___59b3ch();
+		___5994ch();
+		strcpy(___1866b8h+0xbea, "Horn        \xfa\xfa\xfa\xfa\xfa\xfa\xfa\xfa\xfa\xfa\xfa\xfa\xfa\xfa\xfa\xfa\xfa\xfa\xfa");
+		strcat(___1866b8h+0xbea, ___19ce70h+0xf*___1a1140h[1]);
 		if(ebp != 0xffffffff) goto ___205a3h;
 		return;
+
+
 ___20cafh:
-		eax = 0;
 		eax = ___20220h();
-		if(eax != 1) goto ___20cd3h;
-		ebp = 0xfffffffe;
-		if(ebp != 0xffffffff) goto ___205a3h;
-		return;
-___20cd3h:
-		if(ebp != 8) goto ___206d8h;
-		ebx = 0;
-		ebp = 0xffffffff;
-		D(___185a5ch+0xc0) = ebx;
-___20ce9h:
-		eax = D(___185a5ch+0xc0);
-		if(B(eax+___185b58h+0x36) != 0) goto ___206d8h;
-		esi = D(___185a5ch+0xa8);
-		esi--;
-		if((int)eax >= (int)esi) goto ___20d0eh;
-		eax++;
-		D(___185a5ch+0xc0) = eax;
-		goto ___20ce9h;
-___20d0eh:
-		ecx = 0;
-		D(___185a5ch+0xc0) = ecx;
-		goto ___20ce9h;
+
+		if(eax != 1){
+
+			if(ebp == 8){
+				
+				ebx = 0;
+				ebp = 0xffffffff;
+				D(___185a5ch+0xc0) = ebx;
+
+				while(1){
+
+					eax = D(___185a5ch+0xc0);
+					if(B(eax+___185b58h+0x36) != 0) break;
+					esi = D(___185a5ch+0xa8);
+					esi--;
+
+					if((int)eax >= (int)esi){
+
+						ecx = 0;
+						D(___185a5ch+0xc0) = ecx;
+					}
+					else {
+					
+						eax++;
+						D(___185a5ch+0xc0) = eax;
+					}
+				}
+			}
+			goto ___206d8h;
+		}
+		goto ___205a3h;
 }

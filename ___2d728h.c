@@ -4,7 +4,6 @@
 	extern byte ___1a112ch__VESA101_ACTIVESCREEN_PTR[];
 	extern byte ___1a1e5ch[];
 	extern byte ___1a0170h_PriceMines[];
-	extern byte ___180728h[];
 
 dword ___25180h_cdecl(dword);
 void ___12f60h_cdecl(dword, dword);
@@ -48,7 +47,7 @@ ___2d765h:
 		eax = D(___1a0170h_PriceMines);
 		edi = esp+0x14;
 		eax = itoa_watcom106(eax, edx, ebx);
-		X(eax) = W(___180728h);
+		X(eax) = W("$");
 		esi = esp;
 		W(esp+0x14) = X(eax);
 		strcat(edi, esi);

@@ -4,7 +4,6 @@
 	extern byte ___185a2ch[];
 	extern byte ___1a1138h__VESA101h_DefaultScreenBufferB[];
 	extern byte ___1a112ch__VESA101_ACTIVESCREEN_PTR[];
-	extern byte ___1a1100h__VESA101h_DefaultScreenBuffer[];
 	extern byte ___1866b8h[];
 	extern byte ___185b58h[];
 	extern byte ___1a1ef8h[];
@@ -12,7 +11,7 @@
 	extern byte ___185a44h[];
 	extern byte ___185a40h[];
 	extern byte ___185a3ch[];
-	extern byte ___1a020ch[];
+	extern byte ___1a01e0h[];
 	extern byte ___243d44h[];
 	extern byte ___1866b8h[];
 	extern byte ___185c0bh[];
@@ -79,9 +78,9 @@ void menu___194a8h(void){
 					D(___185a44h) = 1;
 					D(___185a40h) = 1;
 					D(___185a3ch) = 1;
-					edx = D(0x6c*D(___1a1ef8h)+___1a020ch);
+					edx = D(0x6c*D(___1a1ef8h)+___1a01e0h+0x2c);
 					___2415ch();
-					D(0x6c*D(___1a1ef8h)+___1a020ch) = edx;
+					D(0x6c*D(___1a1ef8h)+___1a01e0h+0x2c) = edx;
 					___2b5f0h();
 					D(___243d44h) = 1;
 					B(___185b58h+0xa) = 1;  

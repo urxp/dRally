@@ -1,18 +1,14 @@
 #include "drally.h"
 
 	extern byte ___2432e4h[];
-	extern byte ___243e94h[];
+	extern byte ___243e74h[];
 	extern byte ___2432e8h[];
 	extern byte ___2432d0h[];
-	extern byte ___243e74h[];
 	extern byte ___243d70h[];
 	extern byte ___2432cch[];
 	extern byte ___196d98h[];
 	extern byte ___2432e0h[];
 	extern byte ___1a30a0h[];
-	extern byte ___243e78h[];
-	extern byte ___243e7ch[];
-	extern byte ___243e80h[];
 	extern byte ___24330ch[];
 	extern byte ___2432d8h[];
 
@@ -27,7 +23,7 @@ void ___47304h(void){
 		edi ^= edi;
 		D(___2432e4h) = ebp;
 ___4731eh:
-		H(eax) = B(edi+___243e94h);
+		H(eax) = B(edi+___243e74h+0x20);
 		if(H(eax) != 0x64) goto ___47476h;
 		ecx = D(___2432e8h);
 		ebp++;
@@ -66,7 +62,7 @@ ___4731eh:
 		edx = D(4*edx+___1a30a0h);
 		edx <<= 0x10;
 		D(edi+___243e74h) = edx;
-		D(edi+___243e78h) = 0xc40000;
+		D(edi+___243e74h+4) = 0xc40000;
 		edx = eax;
 		ebx = D(edi+___243e74h);
 		edx <<= 0x10;
@@ -79,21 +75,21 @@ ___4731eh:
 		edx = (int)edx>>0x10;
 		___idiv32(&eax, &edx, ebx);
 		edx = esi;
-		ecx = D(edi+___243e78h);
+		ecx = D(edi+___243e74h+4);
 		edx <<= 0x10;
 		ebx = 0x460000;
 		edx -= ecx;
-		D(edi+___243e7ch) = eax;
+		D(edi+___243e74h+8) = eax;
 		eax ^= eax;
 		eax = (eax >> 0x10)|(edx << 0x10);
 		edx = (int)edx>>0x10;
 		___idiv32(&eax, &edx, ebx);
 		esi = D(___2432e8h);
 		H(edx) = 0;
-		D(edi+___243e80h) = eax;
+		D(edi+___243e74h+0xc) = eax;
 		eax = D(___2432d0h);
 		esi += 0x4;
-		B(edi+___243e94h) = H(edx);
+		B(edi+___243e74h+0x20) = H(edx);
 		eax += 0x4;
 		D(___2432e8h) = esi;
 		D(___2432d0h) = eax;
@@ -121,13 +117,13 @@ ___47476h:
 		L(edx) = L(ebx);
 		L(edx) += L(eax);
 		ebx = D(___24330ch);
-		B(edi+___243e94h) = L(edx);
+		B(edi+___243e74h+0x20) = L(edx);
 		edx ^= edx;
 		if((int)ebx <= 0) goto ___474c6h;
 		esi = D(___24330ch);
 		eax = edi;
 ___474adh:
-		ebx = D(eax+___243e7ch);
+		ebx = D(eax+___243e74h+8);
 		ecx = D(eax+___243e74h);
 		ecx += ebx;
 		edx++;
@@ -140,13 +136,13 @@ ___474c6h:
 		if((int)ebx <= 0) goto ___474f1h;
 		esi = D(___24330ch);
 ___474dah:
-		ecx = D(eax+___243e78h);
-		ecx += D(eax+___243e80h);
+		ecx = D(eax+___243e74h+4);
+		ecx += D(eax+___243e74h+0xc);
 		edx++;
-		D(eax+___243e78h) = ecx;
+		D(eax+___243e74h+4) = ecx;
 		if((int)edx < (int)esi) goto ___474dah;
 ___474f1h:
-		edx = D(eax+___243e78h);
+		edx = D(eax+___243e74h+4);
 		ebx = D(eax+___243e74h);
 		edx += 0x8000;
 		eax = ___243e74h+eax;
@@ -181,26 +177,26 @@ ___4754fh:
 		if((int)ebx >= 0x46) goto ___47570h;
 ___47558h:
 		ecx = D(eax+___243e74h);
-		ecx += D(eax+___243e7ch);
+		ecx += D(eax+___243e74h+8);
 		edx++;
 		D(eax+___243e74h) = ecx;
 		if((int)edx < 0x46) goto ___47558h;
 ___47570h:
 		edx ^= edx;
-		L(edx) = B(eax+___243e94h);
+		L(edx) = B(eax+___243e74h+0x20);
 		eax = edi;
 		if((int)edx >= 0x46) goto ___47597h;
 ___4757fh:
-		esi = D(eax+___243e78h);
-		esi += D(eax+___243e80h);
+		esi = D(eax+___243e74h+4);
+		esi += D(eax+___243e74h+0xc);
 		edx++;
-		D(eax+___243e78h) = esi;
+		D(eax+___243e74h+4) = esi;
 		if((int)edx < 0x46) goto ___4757fh;
 ___47597h:
-		B(eax+___243e94h) = 0x46;
+		B(eax+___243e74h+0x20) = 0x46;
 ___4759eh:
-		if(B(edi+___243e94h) < 0x46) goto ___4760ah;
-		eax = D(edi+___243e78h);
+		if(B(edi+___243e74h+0x20) < 0x46) goto ___4760ah;
+		eax = D(edi+___243e74h+4);
 		eax += 0x8000;
 		eax = (int)eax>>0x10;
 		eax = 0x140*eax;
