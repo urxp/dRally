@@ -282,9 +282,9 @@ void dRally_Sound_release(void){
 }
 
 // 00064864h
-void dRally_Sound_load(dword msx_t, const char * msx_f, dword sfx_t, const char * sfx_f, dword num_ch){
+void dRally_Sound_load(__DWORD__ msx_t, const char * msx_f, __DWORD__ sfx_t, const char * sfx_f, __DWORD__ num_ch){
 
-    dword   n;
+    int	n;
 
 	printf("[dRally.SOUND] MSX: %s, SFX: %s\n", msx_f, sfx_f);
 

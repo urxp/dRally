@@ -25,7 +25,6 @@ typedef rgb24_t pal256_t[0x100];
 	extern dword ___1a1f04h;
 	extern dword LOC_RESET;
 	extern dword LOC_END;
-	extern dword ___1a1f30h;
 	extern dword ___1a1f08h;
 	extern byte ___1a2042h[];
 	extern byte * ___1a1f28h;
@@ -41,7 +40,7 @@ void bpk_decode2(void *, void *);
 
 void ___606dfh(void);
 void __VGA13_SETMODE(void);
-void ___60466h(dword A, dword B);
+void ___60466h(int, int);
 void DISPLAY_CLEAR_PALETTE(void);
 void __VGA13_PRESENTSCREEN__(void);
 void __DISPLAY_SET_PALETTE_COLOR(dword b, dword g, dword r, dword n);
@@ -52,7 +51,7 @@ void dRally_Sound_freeEffectChannel(byte ch_num);
 void dRally_Sound_pushEffect(byte channel, byte n, dword unk, dword a0, dword a1, dword a2);
 void dRally_Sound_setSampleRate(dword freq);
 void dRally_Sound_play(void);
-void dRally_Sound_load(dword msx_t, dword msx_f, dword sfx_t, dword sfx_f, dword num_ch);
+void dRally_Sound_load(__DWORD__ msx_t, const char * msx_f, __DWORD__ sfx_t, const char * sfx_f, __DWORD__ num_ch);
 
 
 static dword ___1859c8h = 0;
@@ -121,9 +120,9 @@ static void ___108e8h(void){
 	}
 
 	df_bits = EncodedFrame[read_p++];
-	___1a1f18h = ___3f71ch__allocateMemory(0x1001);
-	___1a1f14h = ___3f71ch__allocateMemory(0x1001);
-	___1a1f24h = ___3f71ch__allocateMemory(0x4004);
+	___1a1f18h = ___3f71ch__allocateMemory(0x1001*sizeof(__BYTE__));
+	___1a1f14h = ___3f71ch__allocateMemory(0x1001*sizeof(__BYTE__));
+	___1a1f24h = ___3f71ch__allocateMemory(0x1001*sizeof(__DWORD__));
 	___1a1f2ch = df_bits+1;
 	___1a1f04h = 2<<df_bits;
 	___1a1f08h = (1<<df_bits)+2;
@@ -220,7 +219,7 @@ void ___10b80h_cdecl(
 
 	___606dfh();
 	__VGA13_SETMODE();
-	___60466h(0x46, 1);
+	___60466h(70, 1);
 
 	if(a_msx_fmt){
 	

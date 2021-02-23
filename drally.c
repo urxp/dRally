@@ -1,19 +1,18 @@
 #include "drally.h"
 
+#if defined(DR_MULTIPLAYER)
 extern dword ___19bd60h;
-extern byte * B800; 
+void ___623d4h(void);
+#endif
+
 extern void_cb ___2432c8h;
 
 void dRally_Keyboard_init(void);
-void ___60466h(dword, dword);
+void ___60466h(int, int);
 void ___3e720h(void);
-void ___623d4h(void);
-void bpa_read(char *, void *, char *);
-void VGA3_PRESENTSCREEN(dword);
 void __VGA3_SETMODE(void);
 void dRally_System_init(void);
 void dRally_Display_init(void);
-int dRally_main(int, char *[]);
 void dRally_Sound_quit(void);
 void dRally_Display_clean(void);
 void dRally_System_clean(void);
@@ -35,13 +34,13 @@ int main(int argc, char * argv[]){
 	dRally_System_init();
 	dRally_Display_init();
 	___10060h();
-	___60466h(0x46, 1);
-	___2432c8h = ___100dch;
+	___60466h(70, 1);
+	___2432c8h = &___100dch;
 	dRally_Keyboard_init();
 	___3e720h();
 
 #if defined(DR_MULTIPLAYER)
-	if(___19bd60h) ___623d4h();
+	if(___19bd60h != 0) ___623d4h();
 #endif
 
 	dRally_Sound_quit();

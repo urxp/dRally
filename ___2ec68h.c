@@ -7,7 +7,8 @@
 
 void ___2ec68h_cdecl(void){
 
-	dword 	eax, ebx, ecx, edx, esi, edi, ebp;
+	dword 	ebx, ecx;
+	int 	n;
 
 
 	ecx = 4;
@@ -22,22 +23,13 @@ void ___2ec68h_cdecl(void){
 	}
 #endif // DR_MULTIPLAYER
 
-	edx = 0;
-	eax = 0;
 	ebx = 0;
+	n = -1;
+	while(++n < 0x14){
 
-	while(1){
-
-		ecx = D(eax+___1a01e0h+0x44);
+		ecx = D(___1a01e0h+0x6c*n+0x44);
 		
-		if((int)ebx < (int)ecx){
-		
-			if(edx != D(___1a1ef8h)) ebx = ecx;
-		}
-
-		edx++;
-		eax += 0x6c;
-		if((int)edx >= 0x14) break;
+		if(((int)ebx < (int)ecx)&&(n != D(___1a1ef8h))) ebx = ecx;
 	}
 
 #if defined(DR_MULTIPLAYER)

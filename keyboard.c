@@ -1,7 +1,7 @@
 #include "drally.h"
 #include "drally_keyboard.h"
 
-extern void (*___2432c8h)(void);
+extern void_cb ___2432c8h;
 
 byte LAST_KEY;
 byte LAST_CHAR;

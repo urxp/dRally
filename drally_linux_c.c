@@ -21,7 +21,6 @@ extern unsigned char VESA101_ACTIVESCREEN[];
 unsigned int Ticks = 0;
 unsigned int VRetraceTicks = 0;
 
-int dRally_main(int, char *[]);
 void IO_Loop(void);
 void __VGA13_PRESENTSCREEN__(void);
 void __VESA101_PRESENTSCREEN__(void);

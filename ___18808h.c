@@ -1,31 +1,27 @@
 #include "drally.h"
-
-	extern void * ___1a0f9ch;
+#include "drally_structs.h"
 
 void * ___3f71ch__allocateMemory(dword);
+void dRally_Memory_free(void *);
+void dR_decodeSavedGame(saved_game_t *);
 
-static byte ROL_BYTE(byte b, int n){
-
-    return (b<<n)|(b>>(8-n));
-}
-
-void ___18808h_cdecl(dword A1, dword A2){
+void ___18808h_cdecl(char * A1, const char * A2){
 
 	FILE * 	fd;
 	int 	n;
-	byte 	key;
+	saved_game_t * sg;
 
 
-	___1a0f9ch = ___3f71ch__allocateMemory(0x883);
-	memset(___1a0f9ch, 0, 0x883);
+	sg = ___3f71ch__allocateMemory(sizeof(saved_game_t));
+	memset(sg, 0, sizeof(saved_game_t));
 	fd = strupr_fopen(A2, "rb");
-	fread(___1a0f9ch, 0x883, 1, fd);
+	fread(sg, sizeof(saved_game_t), 1, fd);
 	fclose(fd);
-	key = B(___1a0f9ch);
-
-	n = 0;
-	while(++n < 0x883) B(___1a0f9ch+n) = ROL_BYTE(B(___1a0f9ch+n), n%6)+key-0x11*n;
+	
+	dR_decodeSavedGame(sg);
 
 	n = -1;
-	while(++n < 0xf) B(A1+n) = B(___1a0f9ch+n+4);
+	while(++n < 0xf) A1[n] = sg->name[n];
+
+	dRally_Memory_free(sg);
 }

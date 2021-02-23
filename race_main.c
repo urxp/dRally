@@ -44,7 +44,7 @@
 	extern byte ___243318h[];
 	extern byte ___243cd8h[];
 	extern byte ___243878h[];
-	extern byte ___2432c8h[];
+	extern void_cb ___2432c8h;
 	extern char ___19bd64h[16];
 	extern byte ___24cc58h[];
 	extern byte ___24cc54h[];
@@ -318,7 +318,7 @@ void race_main(dword A1, dword A2){
 	D(___243d68h) = ___3f71ch__allocateMemory(0x800);
 	D(___243d64h) = ___3f71ch__allocateMemory(0xc0);
 	race___4539ch();
-	D(___2432c8h) = &race___492f4h;
+	___2432c8h = &race___492f4h;
 	race___42824h();
 	race___4a25ch();
 	race___405bch();

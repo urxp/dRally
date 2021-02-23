@@ -4,7 +4,7 @@
 	extern byte ___199fa0h[];
 	extern byte ___1a2148h[];
 	extern byte ___1a1f3ch[];
-	extern byte ___2432c8h[];
+	extern void_cb ___2432c8h;
 	extern byte ___1a1ef8h[];
 	extern byte ___1a01e0h[];
 	extern byte ___1a1f4eh[];
@@ -12,6 +12,10 @@
 	extern byte ___19bd60h[];
 	extern byte ___1866b8h[];
 	extern byte CONNECTION_TYPE[];
+	extern byte CONFIG_SOUND_TYPE[];
+	extern byte CONFIG_SOUND_IRQ[];
+	extern byte CONFIG_SOUND_DMA[];
+	extern byte CONFIG_SOUND_ADDR[];
 
 void ___3aaf8h(void);
 void ___24ec0h(void);
@@ -33,6 +37,7 @@ void dRally_Sound_release(void);
 void ___23488h_cdecl(dword, dword, dword);
 #endif // DR_MULTIPLAYER
 void menu_main();
+void dRally_Sound_init(byte);
 
 void ___3e720h(void){
 
@@ -49,7 +54,8 @@ void ___3e720h(void){
 	B(___1a2148h) = 0;
 	___2415ch();
 	CONFIG_READ();
-	D(___2432c8h) = ___3aaf8h;
+    dRally_Sound_init(B(CONFIG_SOUND_TYPE)||!(B(CONFIG_SOUND_IRQ)||B(CONFIG_SOUND_DMA)||D(CONFIG_SOUND_ADDR))); 
+	___2432c8h = &___3aaf8h;
 	D(___1a1f3ch)++;
 	CONFIG_WRITE();
 	printf("\nLoading music & effects, please wait...\n");

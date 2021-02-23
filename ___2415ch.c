@@ -4,13 +4,13 @@
 typedef struct racer_s {
 	char 	name[0xc];			//	+0
 	dword 	damage;				// 	+0xc
-	dword 	engine;				// 	+0x10
+	int 	engine;				// 	+0x10
 	dword 	tires;				// 	+0x14
 	dword 	armor;				//	+0x18
 	dword 	car;				//	+0x1c
 	char 	unk0[0xc];			// 	+0x20
 	dword 	color;				// 	+0x2c
-	dword 	money;				//	+0x30
+	int 	money;				//	+0x30
 	char 	unk2[0x8];			// 	+0x34
 	dword 	refund;				// 	+0x3c
 	dword 	face;				// 	+0x40
@@ -25,6 +25,7 @@ typedef struct racer_s {
 	dword 	rocket_fuel;		// 	+0x64
 	dword 	sabotage;			//	+0x68
 } racer_t;
+
 typedef char char40[40];
 typedef char char12[12];
 typedef struct cardata_s {

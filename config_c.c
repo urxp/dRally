@@ -41,7 +41,6 @@ void CONFIG_DEFAULT(void);
 unsigned GET_FILE_SIZE(const char *);
 void dRally_System_clean(void);
 void * dRally_Memory_alloc(dword, dword);
-void dRally_Sound_init(byte);
 int rand_watcom106(void);
 
 #define CONFIG_FILE_NAME "dr.cfg"
@@ -207,8 +206,6 @@ void CONFIG_READ(void){
             break;
         }
     }
-    
-    dRally_Sound_init(B(CONFIG_SOUND_TYPE)||!(B(CONFIG_SOUND_IRQ)||B(CONFIG_SOUND_DMA)||D(CONFIG_SOUND_ADDR))); 
 }
 
 void CONFIG_WRITE(void){

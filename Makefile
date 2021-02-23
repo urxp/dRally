@@ -22,7 +22,7 @@ RACE_OBJS := race_main.o race_settings.o race___3f970h.o race___400ech.o race___
 
 DFR_OBJS := __dfr_1c374h.o __dfr_2fe64h.o __dfr_198a0h.o __dfr_1bc20h.o __dfr_2fca4h.o __dfr_197d0h.o __dfr_1b140h.o __dfr_1ad30h.o __dfr_10754h.o __dfr_1c178h.o __dfr_1c6bch.o __dfr_3986ch.o __dfr_25138h.o __dfr_1aa28h.o __dfr_1e4f8h.o __dfr_16e6ch.o __dfr_39634h.o     __dfr_1f124h.o __dfr_1d2a8h.o __dfr_1d9f8h.o __dfr_1e09ch.o __dfr_18394h.o __dfr_1f0dch.o __dfr_1ca00h.o __dfr_1d4e8h.o __dfr_1d688h.o __dfr_1d83ch.o __dfr_menu___1e888h.o __dfr_1d00ch.o __dfr_1e62ch.o __dfr_1caf4h.o __dfr_210b4h.o __dfr_20d18h.o __dfr_20f78h.o __dfr_217b0h.o __dfr_233c0h.o __dfr_23594h.o __dfr_59720h.o __dfr_race___44304h.o __dfr_race___44a78h.o __dfr_race___47ed8h.o __dfr_47e90h.o __dfr_47d8ch.o __dfr_44730h.o __dfr_446ach.o __dfr_44194h.o __dfr_44130h.o __dfr_4495ch.o  __dfr_menu___3e4a0h.o __dfr_23758h.o  __dfr_232f8h.o __dfr_23488h.o __dfr_38878h.o  __dfr_3881ch.o __dfr_40564h.o 
 
-UNI_OBJS := drally.o
+UNI_OBJS := drally.o dr_enc.o
 
 all: drally_linux
 

@@ -86,7 +86,7 @@ void race___50ef4h(void){
 
 					if((int)ecx < 0xc8){
 
-						if(((int)D(0x35e*D(___243c60h)+D(esp+0xc)+___1e6ed0h+0x21e) > 0)&&((int)D(0x35e*D(___243c60h)+D(esp+0xc)+___1e6ed0h+0x21e) >= 4)) ebx = 0;
+						if(((int)D(0x35e*D(___243c60h)+D(esp+0xc)+___1e6ed0h+0x21e) > 0)&&((int)D(0x35e*D(___243c60h)+D(esp+0xc)+___1e6ed0h+0x21e) <= 4)) ebx = 0;
 						if(((int)D(0x35e*D(___243c60h)+D(esp+0xc)+___1e6ed0h+0x21e) > 4)&&((int)D(0x35e*D(___243c60h)+D(esp+0xc)+___1e6ed0h+0x21e) <= 8)) ebx = 0x40;
 						if(((int)D(0x35e*D(___243c60h)+D(esp+0xc)+___1e6ed0h+0x21e) > 8)&&((int)D(0x35e*D(___243c60h)+D(esp+0xc)+___1e6ed0h+0x21e) <= 0xc)) ebx = 0x80;
 						D(esp+0x1c) = 0;

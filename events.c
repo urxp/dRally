@@ -1,6 +1,6 @@
 #include "drally.h"
 
-extern void (*___2432c8h)(void);
+extern void_cb ___2432c8h;
 
 void dRally_Keyboard_make(SDL_Scancode);
 void dRally_Keyboard_break(SDL_Scancode);
