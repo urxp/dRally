@@ -21,22 +21,22 @@ typedef struct cardata_s {
 
 #define COOXY(x,y) (0x280*(y)+(x))
 
-	extern byte ___1a112ch__VESA101_ACTIVESCREEN_PTR[];
-	extern byte ___1a1e6ch[];
+	extern void * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
+	extern void * ___1a1e6ch;
 	extern byte ___1a1ee4h[];
-	extern byte ___1a1ea8h[];
+	extern void * ___1a1ea8h;
 #define CARENCS ___185cbch
 	extern __DWORD__ ___185cbch[][0x40];
 	extern byte ___1a1ed0h[];
 	extern void * ___1a01b8h[6];
 	extern byte ___185a14h_UseWeapons[];
 	extern cardata_t ___18e298h[6];
-	extern byte ___1a1e78h[];
+	extern void * ___1a1e78h;
 
-void ___259e0h_cdecl(dword, dword, dword, dword, dword);
+void ___259e0h_cdecl(int dx, int dy, int aFrameIdx, void * aEncoded, int * aOffsets);
 void ___13094h_cdecl(const char *, dword);
-dword ___25180h_cdecl(dword);
-void ___12f60h_cdecl(dword, dword);
+int ___25180h_cdecl(const char * A1);
+void ___12f60h_cdecl(const char * A1, dword A2);
 void ___13248h_cdecl(dword, dword ,dword, dword, dword);
 char * itoa_watcom106(int value, char * buffer, int radix);
 
@@ -51,14 +51,14 @@ void ___25a74h(void){
 	while(++j < 0x60){
 
 		i = -1;
-		while(++i < 0x60) B(D(___1a112ch__VESA101_ACTIVESCREEN_PTR)+0x13890+0x280*j+i) = B(D(___1a1e6ch)+0x60*j+i);
+		while(++i < 0x60) write_b(___1a112ch__VESA101_ACTIVESCREEN_PTR+0x13890+0x280*j+i, read_b(___1a1e6ch+0x60*j+i));
 	}
 
 	j = -1;
 	while(++j < 0x10){
 
 		i = -1;
-		while(++i < 0x60) B(D(___1a112ch__VESA101_ACTIVESCREEN_PTR)+0x13890+0x280*j+i) = B(D(___1a1ea8h)+0x600*D(___1a1ee4h)+0x60*j+i);
+		while(++i < 0x60) write_b(___1a112ch__VESA101_ACTIVESCREEN_PTR+0x13890+0x280*j+i, read_b(___1a1ea8h+0x600*D(___1a1ee4h)+0x60*j+i));
 	}
 
 	___259e0h_cdecl(0x10, 0x8d, D(___1a1ed0h), ___1a01b8h[D(___1a1ee4h)], CARENCS[D(___1a1ee4h)]);
@@ -88,13 +88,13 @@ void ___25a74h(void){
 	while(++j < 0x40){
 
 		i = -1;
-		while(++i < 0x10) if((px = B(D(___1a1e78h)+0x10*j+i))) B(D(___1a112ch__VESA101_ACTIVESCREEN_PTR)+0x16080+0x280*j+i) = px;
+		while(++i < 0x10) if((px = read_b(___1a1e78h+0x10*j+i))) write_b(___1a112ch__VESA101_ACTIVESCREEN_PTR+0x16080+0x280*j+i, px);
 	}
 
 	j = -1;
 	while(++j < 0x40){
 
 		i = -1;
-		while(++i < 0x10) if((px = B(D(___1a1e78h)+0x400+0x10*j+i))) B(D(___1a112ch__VESA101_ACTIVESCREEN_PTR)+0x160f0+0x280*j+i) = px;
+		while(++i < 0x10) if((px = read_b(___1a1e78h+0x400+0x10*j+i))) write_b(___1a112ch__VESA101_ACTIVESCREEN_PTR+0x160f0+0x280*j+i, px);
 	}
 }

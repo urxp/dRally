@@ -1,7 +1,8 @@
 #include "drally.h"
 #include "assets.h"
+#include "drmemory.h"
 
-	extern void * ___1a1e68h;
+	extern __DWORD__ ___1a1e68h;
 	extern void * ___1a10d8h;
 	extern void * ___1a10f0h;
 	extern void * ___1a0fb8h;
@@ -32,7 +33,7 @@
 	extern void * ___1a0fa8h;
 	extern void * ___1a0fc0h;
 	extern void * ___1a0fa4h;
-	extern byte ___19de70h[];
+	extern void * ___19de70h[20];
 	extern void * ___1a0fb4h;
 	extern void * ___1a1128h;
 	extern void * ___1a10f8h;
@@ -95,7 +96,6 @@
 	extern void * ___1a1100h__VESA101h_DefaultScreenBuffer;
 
 void * ___3f71ch__allocateMemory(dword);
-void dRally_Memory_free(void *);
 
 void ___117d4h(void){
 
@@ -132,26 +132,26 @@ void ___117f4h(void){
     ___1a0fc0h = dRally_Assets_loadDecode("MENU.BPA", "placing.bpk", 0x3a64);
     ___1a0fa4h = dRally_Assets_loadDecode("MENU.BPA", "carres.bpk", 0x1e780);
 	
-    D(___19de70h+0x00) = dRally_Assets_loadDecode("MENU.BPA", "face01.bpk", 0x1000);
-    D(___19de70h+0x04) = dRally_Assets_loadDecode("MENU.BPA", "face02.bpk", 0x1000);
-    D(___19de70h+0x08) = dRally_Assets_loadDecode("MENU.BPA", "face03.bpk", 0x1000);
-    D(___19de70h+0x0c) = dRally_Assets_loadDecode("MENU.BPA", "face04.bpk", 0x1000);
-    D(___19de70h+0x10) = dRally_Assets_loadDecode("MENU.BPA", "face05.bpk", 0x1000);
-    D(___19de70h+0x14) = dRally_Assets_loadDecode("MENU.BPA", "face06.bpk", 0x1000);
-    D(___19de70h+0x18) = dRally_Assets_loadDecode("MENU.BPA", "face07.bpk", 0x1000);
-    D(___19de70h+0x1c) = dRally_Assets_loadDecode("MENU.BPA", "face08.bpk", 0x1000);
-    D(___19de70h+0x20) = dRally_Assets_loadDecode("MENU.BPA", "face09.bpk", 0x1000);
-    D(___19de70h+0x24) = dRally_Assets_loadDecode("MENU.BPA", "face10.bpk", 0x1000);
-    D(___19de70h+0x28) = dRally_Assets_loadDecode("MENU.BPA", "face11.bpk", 0x1000);
-    D(___19de70h+0x2c) = dRally_Assets_loadDecode("MENU.BPA", "face12.bpk", 0x1000);
-    D(___19de70h+0x30) = dRally_Assets_loadDecode("MENU.BPA", "face13.bpk", 0x1000);
-    D(___19de70h+0x34) = dRally_Assets_loadDecode("MENU.BPA", "face14.bpk", 0x1000);
-    D(___19de70h+0x38) = dRally_Assets_loadDecode("MENU.BPA", "face15.bpk", 0x1000);
-    D(___19de70h+0x3c) = dRally_Assets_loadDecode("MENU.BPA", "face16.bpk", 0x1000);
-    D(___19de70h+0x40) = dRally_Assets_loadDecode("MENU.BPA", "face17.bpk", 0x1000);
-    D(___19de70h+0x44) = dRally_Assets_loadDecode("MENU.BPA", "face18.bpk", 0x1000);
-    D(___19de70h+0x48) = dRally_Assets_loadDecode("MENU.BPA", "face19.bpk", 0x1000);
-    D(___19de70h+0x4c) = dRally_Assets_loadDecode("MENU.BPA", "face20.bpk", 0x1000);
+    ___19de70h[0] = dRally_Assets_loadDecode("MENU.BPA", "face01.bpk", 0x1000);
+    ___19de70h[1] = dRally_Assets_loadDecode("MENU.BPA", "face02.bpk", 0x1000);
+    ___19de70h[2] = dRally_Assets_loadDecode("MENU.BPA", "face03.bpk", 0x1000);
+    ___19de70h[3] = dRally_Assets_loadDecode("MENU.BPA", "face04.bpk", 0x1000);
+    ___19de70h[4] = dRally_Assets_loadDecode("MENU.BPA", "face05.bpk", 0x1000);
+    ___19de70h[5] = dRally_Assets_loadDecode("MENU.BPA", "face06.bpk", 0x1000);
+    ___19de70h[6] = dRally_Assets_loadDecode("MENU.BPA", "face07.bpk", 0x1000);
+    ___19de70h[7] = dRally_Assets_loadDecode("MENU.BPA", "face08.bpk", 0x1000);
+    ___19de70h[8] = dRally_Assets_loadDecode("MENU.BPA", "face09.bpk", 0x1000);
+    ___19de70h[9] = dRally_Assets_loadDecode("MENU.BPA", "face10.bpk", 0x1000);
+    ___19de70h[10] = dRally_Assets_loadDecode("MENU.BPA", "face11.bpk", 0x1000);
+    ___19de70h[11] = dRally_Assets_loadDecode("MENU.BPA", "face12.bpk", 0x1000);
+    ___19de70h[12] = dRally_Assets_loadDecode("MENU.BPA", "face13.bpk", 0x1000);
+    ___19de70h[13] = dRally_Assets_loadDecode("MENU.BPA", "face14.bpk", 0x1000);
+    ___19de70h[14] = dRally_Assets_loadDecode("MENU.BPA", "face15.bpk", 0x1000);
+    ___19de70h[15] = dRally_Assets_loadDecode("MENU.BPA", "face16.bpk", 0x1000);
+    ___19de70h[16] = dRally_Assets_loadDecode("MENU.BPA", "face17.bpk", 0x1000);
+    ___19de70h[17] = dRally_Assets_loadDecode("MENU.BPA", "face18.bpk", 0x1000);
+    ___19de70h[18] = dRally_Assets_loadDecode("MENU.BPA", "face19.bpk", 0x1000);
+    ___19de70h[19] = dRally_Assets_loadDecode("MENU.BPA", "face20.bpk", 0x1000);
 
     ___1a0fb4h = dRally_Assets_loadDecode("MENU.BPA", "facexx.bpk", 0x1000);
     ___1a10f0h = dRally_Assets_loadDecode("MENU.BPA", "corn3a.bpk", 0xa00);
@@ -209,57 +209,57 @@ void ___12200h(void){
 
 	printf("[dRally.Clean] ___12200h\n");
 
-	dRally_Memory_free(___1a10d8h);
-	dRally_Memory_free(___1a10f0h);
-	dRally_Memory_free(___1a0fb8h);
-	dRally_Memory_free(___1a0fe0h);
-	dRally_Memory_free(___1a10c8h);
-	dRally_Memory_free(___1a112ch__VESA101_ACTIVESCREEN_PTR);
-	dRally_Memory_free(___1a10c4h);
-	dRally_Memory_free(___1a1138h__VESA101h_DefaultScreenBufferB);
-	dRally_Memory_free(___1a10cch);
-	dRally_Memory_free(___1a10fch);
-	dRally_Memory_free(___1a110ch);
-	dRally_Memory_free(___1a1108h);
-	dRally_Memory_free(___1a10b8h);
-	dRally_Memory_free(___1a0fe8h);
-	dRally_Memory_free(___1a0fbch);
-	dRally_Memory_free(___1a0fd8h);
-	dRally_Memory_free(___1a0fcch);
-	dRally_Memory_free(___1a0fd0h);
-	dRally_Memory_free(___1a0fd4h);
-	dRally_Memory_free(___1a0fech);
-	dRally_Memory_free(___1a0fc4h);
-	dRally_Memory_free(___1a0fe4h);
-	dRally_Memory_free(___1a0fdch);
-	dRally_Memory_free(___1a0fach);
-	dRally_Memory_free(___1a0fc8h);
-	dRally_Memory_free(___1a0fb0h);
-	dRally_Memory_free(___1a0ff0h);
-	dRally_Memory_free(___1a0fa8h);
-	dRally_Memory_free(___1a0fc0h);
-	dRally_Memory_free(___1a0fa4h);
-	dRally_Memory_free(D(___19de70h+0x00));
-	dRally_Memory_free(D(___19de70h+0x04));
-	dRally_Memory_free(D(___19de70h+0x08));
-	dRally_Memory_free(D(___19de70h+0x0c));
-	dRally_Memory_free(D(___19de70h+0x10));
-	dRally_Memory_free(D(___19de70h+0x14));
-	dRally_Memory_free(D(___19de70h+0x18));
-	dRally_Memory_free(D(___19de70h+0x1c));
-	dRally_Memory_free(D(___19de70h+0x20));
-	dRally_Memory_free(D(___19de70h+0x24));
-	dRally_Memory_free(D(___19de70h+0x28));
-	dRally_Memory_free(D(___19de70h+0x2c));
-	dRally_Memory_free(D(___19de70h+0x30));
-	dRally_Memory_free(D(___19de70h+0x34));
-	dRally_Memory_free(D(___19de70h+0x38));
-	dRally_Memory_free(D(___19de70h+0x3c));
-	dRally_Memory_free(D(___19de70h+0x40));
-	dRally_Memory_free(D(___19de70h+0x44));
-	dRally_Memory_free(D(___19de70h+0x48));
-	dRally_Memory_free(D(___19de70h+0x4c));
-	dRally_Memory_free(___1a0fb4h);
+	dRMemory_free(___1a10d8h);
+	dRMemory_free(___1a10f0h);
+	dRMemory_free(___1a0fb8h);
+	dRMemory_free(___1a0fe0h);
+	dRMemory_free(___1a10c8h);
+	dRMemory_free(___1a112ch__VESA101_ACTIVESCREEN_PTR);
+	dRMemory_free(___1a10c4h);
+	dRMemory_free(___1a1138h__VESA101h_DefaultScreenBufferB);
+	dRMemory_free(___1a10cch);
+	dRMemory_free(___1a10fch);
+	dRMemory_free(___1a110ch);
+	dRMemory_free(___1a1108h);
+	dRMemory_free(___1a10b8h);
+	dRMemory_free(___1a0fe8h);
+	dRMemory_free(___1a0fbch);
+	dRMemory_free(___1a0fd8h);
+	dRMemory_free(___1a0fcch);
+	dRMemory_free(___1a0fd0h);
+	dRMemory_free(___1a0fd4h);
+	dRMemory_free(___1a0fech);
+	dRMemory_free(___1a0fc4h);
+	dRMemory_free(___1a0fe4h);
+	dRMemory_free(___1a0fdch);
+	dRMemory_free(___1a0fach);
+	dRMemory_free(___1a0fc8h);
+	dRMemory_free(___1a0fb0h);
+	dRMemory_free(___1a0ff0h);
+	dRMemory_free(___1a0fa8h);
+	dRMemory_free(___1a0fc0h);
+	dRMemory_free(___1a0fa4h);
+	dRMemory_free(___19de70h[0]);
+	dRMemory_free(___19de70h[1]);
+	dRMemory_free(___19de70h[2]);
+	dRMemory_free(___19de70h[3]);
+	dRMemory_free(___19de70h[4]);
+	dRMemory_free(___19de70h[5]);
+	dRMemory_free(___19de70h[6]);
+	dRMemory_free(___19de70h[7]);
+	dRMemory_free(___19de70h[8]);
+	dRMemory_free(___19de70h[9]);
+	dRMemory_free(___19de70h[10]);
+	dRMemory_free(___19de70h[11]);
+	dRMemory_free(___19de70h[12]);
+	dRMemory_free(___19de70h[13]);
+	dRMemory_free(___19de70h[14]);
+	dRMemory_free(___19de70h[15]);
+	dRMemory_free(___19de70h[16]);
+	dRMemory_free(___19de70h[17]);
+	dRMemory_free(___19de70h[18]);
+	dRMemory_free(___19de70h[19]);
+	dRMemory_free(___1a0fb4h);
 }
 
 void ___12a54h(void){
@@ -268,85 +268,85 @@ void ___12a54h(void){
 
 	printf("[dRally.Clean] ___12a54h\n");
 
-	dRally_Memory_free(___1a1128h);
-	dRally_Memory_free(___1a10f8h);
-	dRally_Memory_free(___1a1104h);
-	dRally_Memory_free(___1a10d4h);
-	dRally_Memory_free(___1a10bch);
-	dRally_Memory_free(___1a10e8h);
-	dRally_Memory_free(___1a10dch);
-	dRally_Memory_free(___1a10ach);
-	dRally_Memory_free(___1a10c0h);
-	dRally_Memory_free(___1a10ech);
-	dRally_Memory_free(___1a10b4h);
-	dRally_Memory_free(___1a10f4h);
-	dRally_Memory_free(___1a10d0h);
-	dRally_Memory_free(___1a10e0h);
-	dRally_Memory_free(___1a0ff8h);
-	dRally_Memory_free(___1a10a4h);
+	dRMemory_free(___1a1128h);
+	dRMemory_free(___1a10f8h);
+	dRMemory_free(___1a1104h);
+	dRMemory_free(___1a10d4h);
+	dRMemory_free(___1a10bch);
+	dRMemory_free(___1a10e8h);
+	dRMemory_free(___1a10dch);
+	dRMemory_free(___1a10ach);
+	dRMemory_free(___1a10c0h);
+	dRMemory_free(___1a10ech);
+	dRMemory_free(___1a10b4h);
+	dRMemory_free(___1a10f4h);
+	dRMemory_free(___1a10d0h);
+	dRMemory_free(___1a10e0h);
+	dRMemory_free(___1a0ff8h);
+	dRMemory_free(___1a10a4h);
 
-	dRally_Memory_free(all_3800);
+	dRMemory_free(all_3800);
 }
 
 void ___24ec0h(void){
 
 	printf("[dRally.Clean] ___24ec0h\n");
 
-	dRally_Memory_free(___1a1124h__VESA101h_ScreenBufferA);
-	dRally_Memory_free(___1a1ed4h);
-	dRally_Memory_free(___1a1e90h);
-	dRally_Memory_free(___1a10b0h);
-	dRally_Memory_free(___1a1eb0h);
-	dRally_Memory_free(___1a1e78h);
-	dRally_Memory_free(___1a1eb8h);
-	dRally_Memory_free(___1a0180h);
-	dRally_Memory_free(___1a01b8h[0]);
-	dRally_Memory_free(___1a01b8h[1]);
-	dRally_Memory_free(___1a01b8h[2]);
-	dRally_Memory_free(___1a01b8h[3]);
-	dRally_Memory_free(___1a01b8h[4]);
-	dRally_Memory_free(___1a01b8h[5]);
-	dRally_Memory_free(___1a01a8h[0]);
-	dRally_Memory_free(___1a01a8h[1]);
-	dRally_Memory_free(___1a01a8h[2]);
-	dRally_Memory_free(___1a01a8h[3]);
-	dRally_Memory_free(___1a0198h[0]);
-	dRally_Memory_free(___1a0198h[1]);
-	dRally_Memory_free(___1a0198h[2]);
-	dRally_Memory_free(___1a0198h[3]);
-	dRally_Memory_free(___1a01d0h[0]);
-	dRally_Memory_free(___1a01d0h[1]);
-	dRally_Memory_free(___1a01d0h[2]);
-	dRally_Memory_free(___1a01d0h[3]);
-	dRally_Memory_free(___1a1e8ch);
-	dRally_Memory_free(___1a1ea0h);
-	dRally_Memory_free(___1a1e7ch);
-	dRally_Memory_free(___1a1e80h);
-	dRally_Memory_free(___1a1e74h);
-	dRally_Memory_free(___1a1e84h);
-	dRally_Memory_free(___1a1e60h);
-	dRally_Memory_free(___1a1ebch);
-	dRally_Memory_free(___1a1eb4h);
-	dRally_Memory_free(___1a1e88h);
-	dRally_Memory_free(___1a1ea4h);
-	dRally_Memory_free(___1a1ea8h);
-	dRally_Memory_free(___1a1e6ch);
-	dRally_Memory_free(___1a1e98h);
-	dRally_Memory_free(___1a1e5ch);
-	dRally_Memory_free(___1a1e58h);
-	dRally_Memory_free(___1a1e54h);
-	dRally_Memory_free(___1a1e64h);
+	dRMemory_free(___1a1124h__VESA101h_ScreenBufferA);
+	dRMemory_free(___1a1ed4h);
+	dRMemory_free(___1a1e90h);
+	dRMemory_free(___1a10b0h);
+	dRMemory_free(___1a1eb0h);
+	dRMemory_free(___1a1e78h);
+	dRMemory_free(___1a1eb8h);
+	dRMemory_free(___1a0180h);
+	dRMemory_free(___1a01b8h[0]);
+	dRMemory_free(___1a01b8h[1]);
+	dRMemory_free(___1a01b8h[2]);
+	dRMemory_free(___1a01b8h[3]);
+	dRMemory_free(___1a01b8h[4]);
+	dRMemory_free(___1a01b8h[5]);
+	dRMemory_free(___1a01a8h[0]);
+	dRMemory_free(___1a01a8h[1]);
+	dRMemory_free(___1a01a8h[2]);
+	dRMemory_free(___1a01a8h[3]);
+	dRMemory_free(___1a0198h[0]);
+	dRMemory_free(___1a0198h[1]);
+	dRMemory_free(___1a0198h[2]);
+	dRMemory_free(___1a0198h[3]);
+	dRMemory_free(___1a01d0h[0]);
+	dRMemory_free(___1a01d0h[1]);
+	dRMemory_free(___1a01d0h[2]);
+	dRMemory_free(___1a01d0h[3]);
+	dRMemory_free(___1a1e8ch);
+	dRMemory_free(___1a1ea0h);
+	dRMemory_free(___1a1e7ch);
+	dRMemory_free(___1a1e80h);
+	dRMemory_free(___1a1e74h);
+	dRMemory_free(___1a1e84h);
+	dRMemory_free(___1a1e60h);
+	dRMemory_free(___1a1ebch);
+	dRMemory_free(___1a1eb4h);
+	dRMemory_free(___1a1e88h);
+	dRMemory_free(___1a1ea4h);
+	dRMemory_free(___1a1ea8h);
+	dRMemory_free(___1a1e6ch);
+	dRMemory_free(___1a1e98h);
+	dRMemory_free(___1a1e5ch);
+	dRMemory_free(___1a1e58h);
+	dRMemory_free(___1a1e54h);
+	dRMemory_free(___1a1e64h);
 }
 
 void ___2fc50h(void){
 
 	printf("[dRally.Clean] ___2fc50h\n");
 
-	dRally_Memory_free(___1a0f90h);
-	dRally_Memory_free(___1a0f88h);
-	dRally_Memory_free(___1a0f84h);
-	dRally_Memory_free(___1a0f98h);
-	dRally_Memory_free(___1a0f8ch);
-	dRally_Memory_free(___1a1114h);
-	dRally_Memory_free(___1a0f94h);
+	dRMemory_free(___1a0f90h);
+	dRMemory_free(___1a0f88h);
+	dRMemory_free(___1a0f84h);
+	dRMemory_free(___1a0f98h);
+	dRMemory_free(___1a0f8ch);
+	dRMemory_free(___1a1114h);
+	dRMemory_free(___1a0f94h);
 }

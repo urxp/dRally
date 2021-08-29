@@ -15,9 +15,9 @@ cpu 386
 	extern	___1a10cch
 	extern	___12e78h_cdecl
 	extern	___58c60h
-	extern	___1a1e50h
-	extern	___199fa4h
-	extern	___199fa8h
+	extern	___1a1e50h_com_port_standard
+	extern	___199fa4h_com_port_addr
+	extern	___199fa8h_com_port_irq
 	extern	___59b3ch
 	extern	___5994ch
 	extern	___185c0bh
@@ -27,9 +27,9 @@ cpu 386
 	extern 	___17510h_cdecl
 	extern	sscanf
 	extern	___1858c8h
-	extern	___1a1ffch
+	extern	___1a1ffch_modem_init_string
 	extern	___18394h_cdecl
-	extern	___196a90h
+	extern	___196a90h_modem_dialing
 	extern	___1866b8h
 	extern	___185a5ch
 
@@ -188,9 +188,9 @@ ___1f20ch:
 		mov     ebp, 3f8h
 		xor     edi, edi
 		mov     eax, 4
-		mov     [___1a1e50h], edi
-		mov     [___199fa4h], ebp
-		mov     [___199fa8h], eax
+		mov     [___1a1e50h_com_port_standard], edi
+		mov     [___199fa4h_com_port_addr], ebp
+		mov     [___199fa8h_com_port_irq], eax
 
 	push 	edx
 	push 	ecx
@@ -274,9 +274,9 @@ ___1f2a1h:
 		mov     ecx, 2f8h
 		mov     esi, 3
 		mov     ebp, 0ffffffffh
-		mov     [___1a1e50h], ebx
-		mov     [___199fa4h], ecx
-		mov     [___199fa8h], esi
+		mov     [___1a1e50h_com_port_standard], ebx
+		mov     [___199fa4h_com_port_addr], ecx
+		mov     [___199fa8h_com_port_irq], esi
 
 	push 	edx
 	push 	ecx
@@ -358,9 +358,9 @@ ___1f33ah:
 		mov     ebp, 2
 		mov     eax, 3e8h
 		mov     edx, 4
-		mov     [___1a1e50h], ebp
-		mov     [___199fa4h], eax
-		mov     [___199fa8h], edx
+		mov     [___1a1e50h_com_port_standard], ebp
+		mov     [___199fa4h_com_port_addr], eax
+		mov     [___199fa8h_com_port_irq], edx
 
 	push 	edx
 	push 	ecx
@@ -443,9 +443,9 @@ ___1f3d2h:
 		mov     ecx, 3
 		mov     esi, 2e8h
 		mov     ebp, 0ffffffffh
-		mov     [___1a1e50h], ecx
-		mov     [___199fa4h], esi
-		mov     [___199fa8h], ecx
+		mov     [___1a1e50h_com_port_standard], ecx
+		mov     [___199fa4h_com_port_addr], esi
+		mov     [___199fa8h_com_port_irq], ecx
 
 	push 	edx
 	push 	ecx
@@ -508,7 +508,7 @@ ___1f40dh:
 
 		mov     ebx, 10h
 		mov     edx, esp
-		mov     eax, [___199fa4h]
+		mov     eax, [___199fa4h_com_port_addr]
 
 	push 	ecx
 	push 	ebx
@@ -555,7 +555,7 @@ ___1f40dh:
 		call    sscanf
 		add     esp, byte 0ch
 		mov     eax, [esp+50h]
-		mov     [___199fa4h], eax
+		mov     [___199fa4h_com_port_addr], eax
 
 	push 	edx
 	push 	ecx
@@ -570,7 +570,7 @@ ___1f40dh:
 	pop 	ecx
 	pop 	edx
 
-		mov     eax, [___199fa4h]
+		mov     eax, [___199fa4h_com_port_addr]
 		call    near ___1f0dch
 		test    eax, eax
 		je      near ___1f6c5h
@@ -610,7 +610,7 @@ ___1f40dh:
 
 		mov     ebx, 0ah
 		mov     edx, esp
-		mov     eax, [___199fa8h]
+		mov     eax, [___199fa8h_com_port_irq]
 
 	push 	ecx
 	push 	ebx
@@ -649,7 +649,7 @@ ___1f40dh:
 
 		test    eax, eax
 		je      near ___1f6c5h
-		push    ___199fa8h
+		push    ___199fa8h_com_port_irq
 		push    __dfr_18117ch
 		lea     eax, [esp+8]
 		push    eax
@@ -657,7 +657,7 @@ ___1f40dh:
 		call    sscanf
 		add     esp, byte 0ch
 		mov     ecx, 28f00h
-		mov     [___1a1e50h], ebx
+		mov     [___1a1e50h_com_port_standard], ebx
 
 	push 	edx
 	push 	ecx
@@ -824,7 +824,7 @@ ___1f625h:
 		mov     ebx, 116h
 		push    byte 14h
 		mov     edx, 42h
-		mov     eax, ___1a1ffch
+		mov     eax, ___1a1ffch_modem_init_string
 		
 		push 	ecx
 		push 	ebx
@@ -835,10 +835,10 @@ ___1f625h:
 
 		jmp     short ___1f6c5h
 ___1f690h:
-		cmp     dword [___196a90h], byte 0
+		cmp     dword [___196a90h_modem_dialing], byte 0
 		setz    al
 		and     eax, 0ffh
-		mov     [___196a90h], eax
+		mov     [___196a90h_modem_dialing], eax
 		je      short ___1f6b6h
 		mov     edi, ___1866b8h+0d7ah
 		mov     esi, __dfr_1811b8h
@@ -858,7 +858,7 @@ ___1f6c5h:
 		cmp     ebp, byte 0ffffffffh
 		jne     near ___1f140h
 ___1f6ceh:
-		mov     eax, [___1a1e50h]
+		mov     eax, [___1a1e50h_com_port_standard]
 		mov     [___185a5ch+0dch], eax
 		add     esp, byte 54h
 		pop     ebp

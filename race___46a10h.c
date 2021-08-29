@@ -1,4 +1,5 @@
 #include "drally.h"
+#include "drmath.h"
 
 	extern byte ___196d98h[];
 	extern byte ___1a51d0h[];
@@ -15,8 +16,8 @@
 	extern byte ___2432ech[];
 	extern byte ___2432f4h[];
 	extern byte ___2432f0h[];
-	extern byte ___243310h[];
-	extern byte ___243314h[];
+	extern void * ___243310h;
+	extern void * ___243314h;
 	extern byte ___243874h[];
 	extern byte ___243894h[];
 	extern byte ___243878h[];
@@ -28,9 +29,6 @@ void __DISPLAY_SET_PALETTE_COLOR(dword b, dword g, dword r, dword n);
 void dRally_Sound_setMasterVolume(dword vol);
 void __VGA13_PRESENTSCREEN__(void);
 void ___58c60h(void);
-
-double dR_Math_sin(double);
-double dR_Math_cos(double);
 
 // LEAVING RACE SCREEN ANIMATION
 void race___46a10h(void){
@@ -182,9 +180,9 @@ ___46bf8h:
 		ST(0) = ST(0)*create_double(0xea,0x2e,0x44,0x54,0xfb,0x21,0x09,0x40);
 		ST(0) = ST(0)/180.0;
 		FPUSH(ST(0));
-		ST(0) = dR_Math_sin(ST(0));
+		ST(0) = dRMath_sin(ST(0));
 		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
-		ST(0) = dR_Math_cos(ST(0));
+		ST(0) = dRMath_cos(ST(0));
 		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
 		ST(0) = ST(0)*200.0;
 		ST(0) = 51200.0/ST(0);
@@ -404,21 +402,21 @@ ___46fffh:
 		FPUSH((int)D(esp+0x5c));
 		ST(0) = ST(0)*ST(1);
 		FPUSH(ST(0));
-		ST(0) = dR_Math_cos(ST(0));
+		ST(0) = dRMath_cos(ST(0));
 		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
-		ST(0) = dR_Math_sin(ST(0));
-		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
-		ST(0) = ST(0)*ST(3);
+		ST(0) = dRMath_sin(ST(0));
 		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
 		ST(0) = ST(0)*ST(3);
-		ebx = D(___243310h);
+		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
+		ST(0) = ST(0)*ST(3);
+		ebx = ___243310h;
 		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
 		ST(0) = (int)ST(0);
 		D(esp+0x48) = (int)FPOP();
 		eax = D(esp+0x48);
 		ST(0) = (int)ST(0);
 		D(edx+ebx) = eax;
-		ebx = D(___243314h);
+		ebx = ___243314h;
 		D(esp+0x48) = (int)FPOP();
 		eax = D(esp+0x48);
 		D(edx+ebx) = eax;
@@ -487,11 +485,11 @@ ___47082h:
 		eax -= 0x8;
 		ebx -= eax;
 		eax = ebx;
-		ebx = D(___243310h);
+		ebx = ___243310h;
 		ebx = D(ebx+4*eax);
 		ebx += ebx;
 		D(esp+0x44) = ebx;
-		ebx = D(___243314h);
+		ebx = ___243314h;
 		eax = D(ebx+4*eax);
 		eax += eax;
 		D(esp+0x1c) = eax;

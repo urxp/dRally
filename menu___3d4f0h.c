@@ -8,7 +8,7 @@
 void ___2b318h(void);
 void ___58c60h(void);
 void ___13a98h_cdecl(dword);
-void bpa_read(const char *, void *, const char *);
+void old_bpa_read(const char *, void *, const char *);
 void bpk_decode2(void *, void *);
 void ___12cb8h__VESA101_PRESENTSCREEN(void);
 void ___3d1f0h(void);
@@ -99,7 +99,7 @@ ___3d55fh:
 		edx = ___1a54d0h;
 		___3d154h(eax);
 		eax = "MENU.BPA";
-		bpa_read(eax, edx, ebx);
+		old_bpa_read(eax, edx, ebx);
 		ecx = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
 		bpk_decode2(ecx, ___1a54d0h);
 		___12cb8h__VESA101_PRESENTSCREEN();
@@ -113,7 +113,7 @@ ___3d63dh:
 		edx = ___1a54d0h;
 		___3d154h(eax);
 		eax = "MENU.BPA";
-		bpa_read(eax, edx, ebx);
+		old_bpa_read(eax, edx, ebx);
 		edi = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
 		bpk_decode2(edi, ___1a54d0h);
 		___12cb8h__VESA101_PRESENTSCREEN();

@@ -21,7 +21,7 @@ cpu 386
 	extern 	___23594h
 	extern 	___5994ch
 	extern 	___59b3ch
-	extern 	___24cc54h
+	extern 	___24cc54h_sfx_volume
 	extern 	dRally_Sound_pushEffect
 	extern 	atoi
 	extern 	___185a54h
@@ -35,7 +35,7 @@ cpu 386
 	extern 	___1a1108h
 	extern 	___1ad30h
 	extern 	memset
-	extern 	dRally_Memory_free
+	extern 	dRMemory_free
 	extern 	___1a10fch
 	extern 	___61278h
 	extern 	___623d4h
@@ -807,7 +807,7 @@ ___1b861h:
 		mov     [esp+28h], ch
 		push    edx
 		mov     edx, 1ah
-		mov     ecx, [___24cc54h]
+		mov     ecx, [___24cc54h_sfx_volume]
 		jmp     near ___1bb0bh
 ___1b88ah:
 		mov     al, [esp+20h]
@@ -829,7 +829,7 @@ ___1b8a2h:
 		mov     [esp+28h], dh
 		push    ecx
 		mov     edx, 1ah
-		mov     ecx, [___24cc54h]
+		mov     ecx, [___24cc54h_sfx_volume]
 		jmp     near ___1bb0bh
 ___1b8cbh:
 		movzx   esi, byte [esp+20h]
@@ -849,7 +849,7 @@ ___1b8cbh:
 		mov     eax, 1
 		push    ecx
 		xor     ebx, ebx
-		mov     ecx, [___24cc54h]
+		mov     ecx, [___24cc54h_sfx_volume]
 	push 	ecx
 	push 	ebx
 	push 	edx
@@ -1050,7 +1050,7 @@ ___1baedh:
 		mov     ebx, 28000h
 		mov     eax, 1
 		push    ebx
-		mov     ecx, [___24cc54h]
+		mov     ecx, [___24cc54h_sfx_volume]
 		xor     ebx, ebx
 ___1bb0bh:
 	push 	ecx
@@ -1110,7 +1110,7 @@ ___1bb42h:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    dRally_Memory_free
+		call    dRMemory_free
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx

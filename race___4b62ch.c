@@ -1,27 +1,26 @@
 #include "drally.h"
+#include "drmath.h"
 
 	extern byte ___243c60h[];
 	extern byte ___1e6ed0h[];
 	extern byte ___243cf4h[];
 	extern byte ___243cfch[];
-	extern byte ___243d74h[];
+	extern void * ___243d74h;
 	extern byte ___2438d0h[];
 	extern byte ___1df520h[];
 	extern byte ___243d28h[];
 	extern byte ___243d2ch[];
 	extern byte ___243cf8h[];
-	extern byte ___243d54h[];
+	extern void * ___243d54h;
 	extern byte ___243ca8h[];
 	extern byte ___1de580h[];
-	extern byte ___243d78h[];
+	extern void * ___243d78h;
 	extern byte ___243d30h[];
 	extern byte ___242178h[];
 	extern byte ___242578h[];
 	extern byte ___241d78h[];
 
 int rand_watcom106(void);
-double dR_Math_sin(double);
-double dR_Math_cos(double);
 
 // RACE CARS AI
 void race___4b62ch(void){
@@ -29,6 +28,8 @@ void race___4b62ch(void){
 	double 	d_tmp;
 	dword 	eax, ebx, ecx, edx, edi, esi, ebp;
 	byte	esp[0x60];
+	void * 	edxp;
+	void * 	ebxp;
 
 
 		esi = 0x35e*D(___243c60h);
@@ -37,9 +38,9 @@ void race___4b62ch(void){
 		ST(0) = ST(0)*create_double(0xea,0x2e,0x44,0x54,0xfb,0x21,0x09,0x40);
 		ST(0) = ST(0)/180.0;
 		FPUSH(ST(0));
-		ST(0) = dR_Math_sin(ST(0));
+		ST(0) = dRMath_sin(ST(0));
 		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
-		ST(0) = dR_Math_cos(ST(0));
+		ST(0) = dRMath_cos(ST(0));
 		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
 		FPUSH(35.0);
 		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
@@ -64,48 +65,44 @@ void race___4b62ch(void){
 		if((int)edi <= 0) goto ___4b76ch;
 		eax ^= eax;
 ___4b6bbh:
-		if(ecx == D(___243c60h)) goto ___4b758h;
-		FPUSH(F32(eax+___1e6ed0h+0xb4));
-		FPUSH(F32(eax+___1e6ed0h+0xb8));
-		ebx = D(esp+0x50);
-		edx = D(esp+0x54);
-		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
-		ST(0) = (int)ST(0);
-		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
-		ST(0) = (int)ST(0);
-		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
-		D(esp+0x14) = (int)FPOP();
-		D(esp+0x10) = (int)FPOP();
-		edi = D(esp+0x14);
-		ebp = D(esp+0x10);
-		ebx -= edi;
-		edx -= ebp;
-		if((int)ebx >= 0) goto ___4b709h;
-		edi = ebx;
-		edi = 0-edi;
-		goto ___4b70bh;
-___4b709h:
-		edi = ebx;
-___4b70bh:
-		if((int)edi >= 0x14) goto ___4b758h;
-		if((int)edx >= 0) goto ___4b71ah;
-		edi = edx;
-		edi = 0-edi;
-		goto ___4b71ch;
-___4b71ah:
-		edi = edx;
-___4b71ch:
-		if((int)edi >= 0x14) goto ___4b758h;
-		edx += 0x14;
-		edx = 0x28*edx;
-		edi = D(___243d74h);
-		edi += D(eax+___1e6ed0h+0x10);
-		ebx += edi;
-		if(B(edx+ebx+0x14) <= 3) goto ___4b758h;
-		if(D(esi+___1e6ed0h+0x186) != 0) goto ___4b758h;
-		if(D(esi+___1e6ed0h+0x10a) != 0) goto ___4b758h;
-		D(esi+___1e6ed0h+0x186) = 0x64;
-___4b758h:
+		if(ecx != D(___243c60h)){
+
+			FPUSH(F32(eax+___1e6ed0h+0xb4));
+			FPUSH(F32(eax+___1e6ed0h+0xb8));
+			ebx = D(esp+0x50);
+			edx = D(esp+0x54);
+			d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
+			ST(0) = (int)ST(0);
+			d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
+			ST(0) = (int)ST(0);
+			d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
+			D(esp+0x14) = (int)FPOP();
+			D(esp+0x10) = (int)FPOP();
+
+			ebx = ebx-D(esp+0x14);
+			edx = edx-D(esp+0x10);
+
+			edi = ebx;
+			if((int)edi < 0) edi = 0-edi;
+			if((int)edi < 0x14){
+
+				edi = edx;
+				if((int)edi < 0) edi = 0-edi;
+				if((int)edi < 0x14){
+
+					ebxp = ___243d74h+D(eax+___1e6ed0h+0x10)+(int)ebx;
+
+					if(B(ebxp+0x28*((int)edx+0x14)+0x14) > 3){
+						
+						if(D(esi+___1e6ed0h+0x186) == 0){
+						
+							if(D(esi+___1e6ed0h+0x10a) == 0) D(esi+___1e6ed0h+0x186) = 0x64;
+						}
+					}
+				}
+			}
+		}
+
 		ebp = D(___243cf4h);
 		ecx++;
 		eax += 0x35e;
@@ -117,9 +114,9 @@ ___4b76ch:
 		ST(0) = ST(0)*create_double(0xea,0x2e,0x44,0x54,0xfb,0x21,0x09,0x40);
 		ST(0) = ST(0)/180.0;
 		FPUSH(ST(0));
-		ST(0) = dR_Math_sin(ST(0));
+		ST(0) = dRMath_sin(ST(0));
 		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
-		ST(0) = dR_Math_cos(ST(0));
+		ST(0) = dRMath_cos(ST(0));
 		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
 		FPUSH(25.0);
 		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
@@ -187,18 +184,18 @@ ___4b87eh:
 		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
 		ST(0) = ST(0)/ST(1);
 		FPUSH(ST(0));
-		ST(0) = dR_Math_sin(ST(0));
+		ST(0) = dRMath_sin(ST(0));
 		d_tmp = ST(0); ST(0) = ST(4); ST(4) = d_tmp;
 		ST(0) = -26.0+ST(0);
 		ST(3) = ST(3)*ST(0); FPOP();
 		d_tmp = ST(0); ST(0) = ST(2); ST(2) = d_tmp;
 		ST(1) = ST(0)/ST(1); FPOP();
 		FPUSH(ST(0));
-		ST(0) = dR_Math_sin(ST(0));
+		ST(0) = dRMath_sin(ST(0));
 		d_tmp = ST(0); ST(0) = ST(2); ST(2) = d_tmp;
-		ST(0) = dR_Math_cos(ST(0));
+		ST(0) = dRMath_cos(ST(0));
 		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
-		ST(0) = dR_Math_cos(ST(0));
+		ST(0) = dRMath_cos(ST(0));
 		d_tmp = ST(0); ST(0) = ST(3); ST(3) = d_tmp;
 		FPUSH(40.0);
 		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
@@ -277,19 +274,18 @@ ___4b9ach:
 		ebx = (int)ebx>>0x2;
 		ebx = ebx*ecx;
 		edx = D(esp+0x24);
-		eax = D(___243d54h);
 		edx = (int)edx>>0x2;
-		edx += eax;
-		L(edx) = B(edx+ebx);
+		edxp = ___243d54h+edx;
+		L(edx) = B(edxp+ebx);
 		B(esp+0x5c) = L(edx);
 		edx = D(esp+0x18);
 		edx = (int)edx>>0x2;
-		edx += eax;
+		edxp = ___243d54h+edx;
 		eax = D(esp+0x20);
 		eax = (int)eax>>0x2;
 		eax = eax*ecx;
 		ebx = 0x35e*D(___243c60h);
-		L(eax) = B(edx+eax);
+		L(eax) = B(edxp+eax);
 		ebp ^= ebp;
 		B(esp+0x58) = L(eax);
 		eax = D(___243ca8h);
@@ -347,7 +343,6 @@ ___4bad3h:
 		if((int)ebx >= 0x64) goto ___4bccch;
 		FPUSH(F32(edx+___1e6ed0h+0xb4));
 		FPUSH(F32(edx+___1e6ed0h+0xb8));
-		ebx = D(___243d78h);
 		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
 		ST(0) = (int)ST(0);
 		D(esp+0x10) = (int)FPOP();
@@ -355,12 +350,12 @@ ___4bad3h:
 		ST(0) = (int)ST(0);
 		eax = (int)eax>>0x2;
 		D(esp+0x10) = (int)FPOP();
-		ebx += eax;
+		ebxp = ___243d78h+eax;
 		eax = D(esp+0x10);
 		esi = D(___243d30h);
 		eax = (int)eax>>0x2;
 		eax = eax*esi;
-		L(ebx) = B(ebx+eax);
+		L(ebx) = B(ebxp+eax);
 		L(eax) = 0x10;
 		L(eax) -= B(esp+0x5c);
 		H(ecx) = B(esp+0x58);
@@ -502,9 +497,9 @@ ___4bdadh:
 		ST(0) = ST(0)*create_double(0xea,0x2e,0x44,0x54,0xfb,0x21,0x09,0x40);
 		ST(0) = ST(0)/180.0;
 		FPUSH(ST(0));
-		ST(0) = dR_Math_sin(ST(0));
+		ST(0) = dRMath_sin(ST(0));
 		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
-		ST(0) = dR_Math_cos(ST(0));
+		ST(0) = dRMath_cos(ST(0));
 		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
 		FPUSH(55.0);
 		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
@@ -577,9 +572,9 @@ ___4bed4h:
 		ST(0) = ST(0)*create_double(0xea,0x2e,0x44,0x54,0xfb,0x21,0x09,0x40);
 		ST(0) = ST(0)/180.0;
 		FPUSH(ST(0));
-		ST(0) = dR_Math_sin(ST(0));
+		ST(0) = dRMath_sin(ST(0));
 		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
-		ST(0) = dR_Math_cos(ST(0));
+		ST(0) = dRMath_cos(ST(0));
 		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
 		FPUSH(20.0);
 		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
@@ -642,9 +637,9 @@ ___4bfc0h:
 		ST(0) = ST(0)*create_double(0xea,0x2e,0x44,0x54,0xfb,0x21,0x09,0x40);
 		ST(0) = ST(0)/180.0;
 		FPUSH(ST(0));
-		ST(0) = dR_Math_sin(ST(0));
+		ST(0) = dRMath_sin(ST(0));
 		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
-		ST(0) = dR_Math_cos(ST(0));
+		ST(0) = dRMath_cos(ST(0));
 		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
 		FPUSH(50.0);
 		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
@@ -707,9 +702,9 @@ ___4c0abh:
 		ST(0) = ST(0)*create_double(0xea,0x2e,0x44,0x54,0xfb,0x21,0x09,0x40);
 		ST(0) = ST(0)/180.0;
 		FPUSH(ST(0));
-		ST(0) = dR_Math_sin(ST(0));
+		ST(0) = dRMath_sin(ST(0));
 		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
-		ST(0) = dR_Math_cos(ST(0));
+		ST(0) = dRMath_cos(ST(0));
 		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
 		FPUSH(80.0);
 		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;

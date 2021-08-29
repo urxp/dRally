@@ -4,7 +4,7 @@
 
 	extern byte ___19bd60h[];
 	extern byte * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
-	extern byte ___1a10bch[];
+	extern void * ___1a10bch;
 	extern byte ___1a10e8h[];
 	extern byte ___185a3ch[];
 	extern byte ___196a98h[];
@@ -31,7 +31,7 @@ void shop___2b6a4h(void){
 	byte 	px;
 	byte * 	head_img;
 
-	head_img = D(___1a10bch);
+	head_img = ___1a10bch;
 
 #if defined(DR_MULTIPLAYER)
 	if(D(___19bd60h) != 0) head_img = D(___1a10e8h);

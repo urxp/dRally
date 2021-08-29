@@ -1,16 +1,14 @@
 #include "drally.h"
+#include "drmath.h"
 
 	extern byte ___243c60h[];
 	extern byte ___1de580h[];
 	extern byte ___1e6ed0h[];
 	extern byte ___196efch[];
-	extern byte ___243290h[];
-	extern byte ___243d80h[];
+	extern void * ___243290h[2];
+	extern void * ___243d80h;
 
 dword __GET_FRAME_COUNTER(void);
-
-double dR_Math_sin(double);
-double dR_Math_cos(double);
 
 static double local_op(double dval){
 
@@ -38,8 +36,8 @@ void race___51204h(void){
 		d_val = -2.3*(double)F32(___1de580h+0x10+0x94*D(___243c60h));
 		d_angle = ((double)F32(___1e6ed0h+0xac+0x35e*D(___243c60h))+180.0)*L_PI/180.0;
 
-		x = D(0x35e*D(___243c60h)+___1e6ed0h+4)-8+local_round(d_val*dR_Math_sin(d_angle));
-		y = D(0x35e*D(___243c60h)+___1e6ed0h+8)-8+local_round(L_5o6*d_val*dR_Math_cos(d_angle));
+		x = D(0x35e*D(___243c60h)+___1e6ed0h+4)-8+local_round(d_val*dRMath_sin(d_angle));
+		y = D(0x35e*D(___243c60h)+___1e6ed0h+8)-8+local_round(L_5o6*d_val*dRMath_cos(d_angle));
 
 		if((x >= 0)&&((x+0x10) < 0x140)){
 
@@ -53,7 +51,7 @@ void race___51204h(void){
 					i = -1;
 					while(++i < 0x10){
 
-						if((px = B(D(D(___196efch)*4+___243290h)+0x100*val+0x10*j+i))) B(D(___243d80h)+0x200*(y+j)+x+i+0x60) = px;
+						if((px = B(___243290h[D(___196efch)]+0x100*val+0x10*j+i))) B(___243d80h+0x200*(y+j)+x+i+0x60) = px;
 					}
 				}
 

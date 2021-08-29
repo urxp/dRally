@@ -3,7 +3,7 @@
 	extern byte ___243cf4h[];
 	extern byte ___243c60h[];
 	extern byte ___1e6ed0h[];
-	extern byte ___243d74h[];
+	extern void * ___243d74h;
 	extern byte ___1de580h[];
 	extern byte ___2438cch[];
 
@@ -15,6 +15,8 @@ void race___4dcach(void){
 	double 	d_tmp;
 	dword 	eax, ebx, ecx, edx, edi, esi, ebp, cf;
 	byte 	esp[0xd4];
+	void * 	edip;
+	void * 	esip;
 
 
 		edx ^= edx;
@@ -160,29 +162,27 @@ ___4decch:
 		D(esp+0xb4) = eax;
 		eax = ebx-0x14;
 ___4df1eh:
-		edx = D(___243d74h);
-		edi = D(esp+0x8c);
+		edx = ___243d74h;
 		D(esp+0xbc) = edx;
-		edx += D(edi+___1e6ed0h+0x10);
-		edi = D(esp+0xb4);
-		edx += ebx;
-		edi += edx;
-		if(B(edi) <= 3) goto ___4dfa1h;
-		edi = D(esp+0x90);
-		edx = D(esp+0xbc);
-		edx += D(edi+___1e6ed0h+0x10);
-		edi = D(esp+0xac);
-		edx += ecx;
-		edi += edx;
-		if(B(edi) <= 3) goto ___4dfa1h;
-		D(esp+0x94) = 0x1;
-		edx = D(esp+0xb0);
-		D(esp+0x98) = eax;
-		D(esp+0xa4) = edx;
-		edx = D(esp+0xa8);
-		D(esp+0xa0) = esi;
-		D(esp+0x9c) = edx;
-___4dfa1h:
+		edip = ___243d74h+D(esp+0xb4)+D(D(esp+0x8c)+___1e6ed0h+0x10)+ebx;;
+
+		if(B(edip) > 3){
+
+			edx = D(esp+0xbc);
+			edip = ___243d74h+D(D(esp+0x90)+___1e6ed0h+0x10)+ecx+D(esp+0xac);
+
+			if(B(edip) > 3){
+
+				D(esp+0x94) = 0x1;
+				edx = D(esp+0xb0);
+				D(esp+0x98) = eax;
+				D(esp+0xa4) = edx;
+				edx = D(esp+0xa8);
+				D(esp+0xa0) = esi;
+				D(esp+0x9c) = edx;
+			}
+		}
+
 		edx = D(esp+0xb8);
 		eax++;
 		ebx++;
@@ -702,15 +702,15 @@ ___4e7a5h:
 ___4e7b4h:
 		esi = edx;
 ___4e7b6h:
-		if((int)esi >= 0x14) goto ___4e7e2h;
-		esi = D(___243d74h);
-		edi = D(esp+0x18);
-		esi += D(edi+___1e6ed0h+0x10);
-		edx += 0x14;
-		esi += eax;
-		eax = 0x28*edx;
-		if(B(esi+eax+0x14) <= 3) goto ___4e7e2h;
-		D(esp+0x4c) = 0x1;
+		if((int)esi < 0x14){
+
+			edi = D(esp+0x18);
+			edx += 0x14;
+			esi = ___243d74h+D(edi+___1e6ed0h+0x10)+eax;
+			esip = ___243d74h+D(edi+___1e6ed0h+0x10)+(int)eax;
+			eax = 0x28*edx;
+			if(B(esip+eax+0x14) > 3) D(esp+0x4c) = 0x1;
+		}
 ___4e7e2h:
 		edx = 0x35e*D(___243c60h);
 		eax = D(esp+0x18);
@@ -754,15 +754,14 @@ ___4e864h:
 ___4e873h:
 		esi = edx;
 ___4e875h:
-		if((int)esi >= 0x14) goto ___4e8a1h;
-		esi = D(___243d74h);
-		edi = D(esp+0x18);
-		esi += D(edi+___1e6ed0h+0x10);
-		esi += eax;
-		eax = edx+0x14;
-		eax = 0x28*eax;
-		if(B(esi+eax+0x14) <= 3) goto ___4e8a1h;
-		D(esp+0x4c) = 0x1;
+		if((int)esi < 0x14){
+
+			edi = D(esp+0x18);
+			esi = ___243d74h+D(edi+___1e6ed0h+0x10)+(int)eax;
+			esip = ___243d74h+D(edi+___1e6ed0h+0x10)+(int)eax;
+			eax = 0x28*(edx+0x14);
+			if(B(esip+(int)eax+0x14) > 3) D(esp+0x4c) = 0x1;
+		}
 ___4e8a1h:
 		if(D(esp+0x4c) != 1) goto ___4e939h;
 		eax = D(esp+0x18);

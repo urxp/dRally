@@ -48,12 +48,12 @@ typedef struct pcx_header_s {
 	__BYTE__ 	rsrvd1[0x36];	// +4A	The second reserved field, intended for future extensions, and usually set to zero bytes.
 } pcx_header_t;
 
-	extern byte ___1a0ef4h[];
+	extern FILE * ___1a0ef4h;
 	extern byte ___243d08h[];
 	extern byte VGA13_ACTIVESCREEN[];
 
 void __DISPLAY_GET_PALETTE_COLOR(unsigned char * dst, unsigned char n);
-dword ___3a214h_cdecl(dword, dword);
+dword ___3a214h_cdecl(void *, dword);
 dword GET_FILE_SIZE(const char *);
 void pcx_newHeader(pcx_header_t * pcx_h);
 
@@ -94,20 +94,20 @@ void race___49390h(void){
 		fname[7] = '0'+(n%0xa);
 	}
 
-	D(___1a0ef4h) = fopen(fname, "wb");
-	fwrite(&pcx_h, 1, sizeof(pcx_h), D(___1a0ef4h));
+	___1a0ef4h = fopen(fname, "wb");
+	fwrite(&pcx_h, 1, sizeof(pcx_h), ___1a0ef4h);
 
 	n = -1;
 	while(++n < 0xc8) ___3a214h_cdecl(VGA13_ACTIVESCREEN+0x140*n, 0x140);
 
-	fputc(0xc, D(___1a0ef4h));
+	fputc(0xc, ___1a0ef4h);
 
 	D(___243d08h) = -1;
 	while(++D(___243d08h) < 0x100){
 
 		PCX_GET_PALETTE_COLOR(&col, D(___243d08h));
-		fwrite(&col, sizeof(col), 1, D(___1a0ef4h));
+		fwrite(&col, sizeof(col), 1, ___1a0ef4h);
 	}
 
-	fclose(D(___1a0ef4h));
+	fclose(___1a0ef4h);
 }

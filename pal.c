@@ -18,14 +18,14 @@ typedef struct x655_s {
 	extern x655_t ___19eb50h[];
 	extern x655_t ___19df50h[];
 
-void bpa_read(const char *, void *, const char *);
+void old_bpa_read(const char *, void *, const char *);
 
 void ___12940h(void){
 
 	int 		n;
 	pal256_t	pal;
 
-	bpa_read("MENU.BPA", &pal, "menu.pal");
+	old_bpa_read("MENU.BPA", &pal, "menu.pal");
 
 	n = -1;
 	while(++n < 0x100){
@@ -41,7 +41,7 @@ void ___3d154h(const char * pal_name){
 	int 		n;
 	pal256_t	pal;
 
-	bpa_read("MENU.BPA", &pal, pal_name);
+	old_bpa_read("MENU.BPA", &pal, pal_name);
 
 	n = -1;
 	while(++n < 0x100){

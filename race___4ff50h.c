@@ -1,4 +1,5 @@
 #include "drally.h"
+#include "drmath.h"
 
 	extern byte ___243c60h[];
 	extern byte ___1de580h[];
@@ -11,22 +12,18 @@
 	extern byte ___243ce8h[];
 	extern byte ___2432b4h[];
 	extern byte ___243cf4h[];
-	extern byte ___243d74h[];
+	extern void * ___243d74h;
 	extern byte ___24389ch[];
 	extern byte ___2432c0h[];
 	extern byte ___2432c4h[];
 	extern byte ___243d2ch[];
 	extern byte ___243d28h[];
-	extern byte ___243d60h[];
+	extern void * ___243d60h;
 	extern byte ___19bd60h[];
 	extern byte ___1df720h[];
 
 int rand_watcom106(void);
 void dRally_Sound_pushEffect(byte channel, byte n, dword unk, dword a0, dword a1, dword a2);
-
-double dR_Math_sin(double);
-double dR_Math_cos(double);
-double dR_Math_sqrt(double);
 
 // MACHINE GUNS
 void race___4ff50h(void){
@@ -34,6 +31,7 @@ void race___4ff50h(void){
 	double 	d_tmp;
 	dword 	eax, ebx, ecx, edx, edi, esi, ebp, p5, p6;
 	byte 	esp[0x144];
+	void * 	ebxp;
 
 
 		edx = D(___243c60h);
@@ -58,7 +56,7 @@ void race___4ff50h(void){
 		ST(0) = ST(0)+180.0;
 		ST(0) = ST(0)*create_double(0xea,0x2e,0x44,0x54,0xfb,0x21,0x09,0x40);
 		ST(0) = ST(0)/180.0;
-		ST(0) = dR_Math_sin(ST(0));
+		ST(0) = dRMath_sin(ST(0));
 		FPUSH((int)D(ebx+___1de580h+0x74));
 		F64(esp+0x12c) = FPOP();
 		ST(0) = ST(0)*F64(esp+0x12c);
@@ -97,7 +95,7 @@ ___5007fh:
 		ST(0) = ST(0)+180.0;
 		ST(0) = ST(0)*create_double(0xea,0x2e,0x44,0x54,0xfb,0x21,0x09,0x40);
 		ST(0) = ST(0)/180.0;
-		ST(0) = dR_Math_cos(ST(0));
+		ST(0) = dRMath_cos(ST(0));
 		ST(0) = ST(0)*create_double(0xa3,0xae,0xb5,0xf7,0xa9,0xaa,0xea,0x3f);
 		FPUSH((int)D(edx+___1de580h+0x74));
 		F64(esp+0x114) = FPOP();
@@ -183,7 +181,7 @@ ___50213h:
 		edx += eax;
 		D(esp+0xb8) = edx;
 		FPUSH((int)D(esp+0xb8));
-		ST(0) = dR_Math_sqrt(ST(0));
+		ST(0) = dRMath_sqrt(ST(0));
 		ST(0) = (int)ST(0);
 		D(esp+0xb8) = (int)FPOP();
 		edx = D(esp+0xb8);
@@ -214,7 +212,7 @@ ___502d5h:
 		ST(0) = ST(0)+180.0;
 		ST(0) = ST(0)*create_double(0xea,0x2e,0x44,0x54,0xfb,0x21,0x09,0x40);
 		ST(0) = ST(0)/180.0;
-		ST(0) = dR_Math_sin(ST(0));
+		ST(0) = dRMath_sin(ST(0));
 		ST(0) = ST(0)*256.0;
 		F64(esp+0x124) = ST(0);
 		ST(0) = (int)ST(0);
@@ -239,7 +237,7 @@ ___50350h:
 		ST(0) = ST(0)+180.0;
 		ST(0) = ST(0)*create_double(0xea,0x2e,0x44,0x54,0xfb,0x21,0x09,0x40);
 		ST(0) = ST(0)/180.0;
-		ST(0) = dR_Math_cos(ST(0));
+		ST(0) = dRMath_cos(ST(0));
 		ST(0) = ST(0)*create_double(0xa3,0xae,0xb5,0xf7,0xa9,0xaa,0xea,0x3f);
 		ST(0) = ST(0)*256.0;
 		F64(esp+0x11c) = ST(0);
@@ -361,10 +359,10 @@ ___505c1h:
 		if((int)D(esp+0xf8) >= 0x14) goto ___506a1h;
 		esi += 0x14;
 		esi = 0x28*esi;
-		edi = D(___243d74h);
-		edi += D(eax+___1e6ed0h+0x10);
-		ebx += edi;
-		if(B(esi+ebx+0x14) <= 3) goto ___506a1h;
+		edi = ___243d74h+D(eax+___1e6ed0h+0x10);
+		ebxp = ___243d74h+D(eax+___1e6ed0h+0x10)+(int)ebx;
+		ebx = edi+ebx;
+		if(B(ebxp+esi+0x14) <= 3) goto ___506a1h;
 		ebx = 0x82;
 		esi = D(eax+___1e6ed0h+0x10a);
 		D(esp+0xe0) = ebx;
@@ -430,29 +428,31 @@ ___506bbh:
 		edi = D(___243d28h);
 		if((int)edx >= (int)edi) goto ___507b3h;
 		eax = eax*edi;
-		ebx = D(___243d60h);
-		edx += ebx;
-		L(eax) = B(edx+eax);
+		ebx = ___243d60h;
+		L(eax) = B(___243d60h+edx+eax);
 		L(eax) &= 0xf;
-		if(L(eax) >= 4) goto ___507b3h;
-		esi = D(esp+0xf0);
-		eax = D(___2432b0h);
-		eax += esi;
-		edi = D(esp+0xf4);
-		D(___2432c0h) = eax;
-		eax = D(___2432b4h);
-		eax += edi;
-		edx = D(___243c60h);
-		D(___2432c4h) = eax;
-		eax = 0x94*edx;
-		edx = D(eax+___1de580h+0x60);
-		eax = D(eax+edx*4+___1de580h+0x84);
-		ecx = 0x82;
-		eax = eax+eax*2;
-		edx = D(esp+0xbc);
-		eax++;
-		D(esp+0xe0) = ecx;
-		D(edx+___1e6ed0h+0x1aa) = eax;
+
+		if(L(eax) < 4){
+
+			esi = D(esp+0xf0);
+			eax = D(___2432b0h);
+			eax += esi;
+			edi = D(esp+0xf4);
+			D(___2432c0h) = eax;
+			eax = D(___2432b4h);
+			eax += edi;
+			edx = D(___243c60h);
+			D(___2432c4h) = eax;
+			eax = 0x94*edx;
+			edx = D(eax+___1de580h+0x60);
+			eax = D(eax+edx*4+___1de580h+0x84);
+			ecx = 0x82;
+			eax = eax+eax*2;
+			edx = D(esp+0xbc);
+			eax++;
+			D(esp+0xe0) = ecx;
+			D(edx+___1e6ed0h+0x1aa) = eax;
+		}
 ___507b3h:
 		if(D(___19bd60h) != 0) goto ___509b4h;
 		eax = rand_watcom106();
@@ -537,7 +537,7 @@ ___508d7h:
 		eax += edx;
 		D(esp+0xb8) = eax;
 		FPUSH((int)D(esp+0xb8));
-		ST(0) = dR_Math_sqrt(ST(0));
+		ST(0) = dRMath_sqrt(ST(0));
 		ST(0) = (int)ST(0);
 		D(esp+0xb8) = (int)FPOP();
 		ecx = 0x4b*D(esp+0xb8);

@@ -1,9 +1,16 @@
 #include "drally.h"
 
+#pragma pack(1)
+typedef struct font_props_s {
+	byte 	w;
+	byte 	h;
+	byte 	props[];
+} font_props_t;
+
 	extern byte ___185a24h[];
 	extern byte ___185a2ch[];
-	extern byte ___1a1138h__VESA101h_DefaultScreenBufferB[];
-	extern byte ___1a112ch__VESA101_ACTIVESCREEN_PTR[];
+	extern void * ___1a1138h__VESA101h_DefaultScreenBufferB;
+	extern void * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
 	extern byte ___1866b8h[];
 	extern byte ___185b58h[];
 	extern byte ___1a1ef8h[];
@@ -15,7 +22,7 @@
 	extern byte ___243d44h[];
 	extern byte ___1866b8h[];
 	extern byte ___185c0bh[];
-	extern byte ___1a1108h[];
+	extern void * ___1a1108h;
 	extern byte ___185a5ch[];
 
 void ___13710h(dword, dword);
@@ -23,8 +30,8 @@ void ___12cb8h__VESA101_PRESENTSCREEN(void);
 void ___3a6a4h(void);
 void ___2415ch(void);
 void shop_main(void);
-void ___12e78h_cdecl(dword, dword, dword, dword);
-byte ___148cch_cdecl(dword, dword, dword, dword);
+void ___12e78h_cdecl(byte * A1, font_props_t * A2, const char * A3, dword dst_off);
+int ___148cch_cdecl(int x, int y, dword A3, int * A4);
 void restoreDefaultScreenBuffer(void);
 dword ___146c4h_cdecl(dword);
 dword ___3ab5ch_cdecl(dword);
@@ -47,7 +54,7 @@ void menu___194a8h(void){
 	while(1){
 
 		if(D(___185a2ch)) return;
-		memcpy(D(___1a112ch__VESA101_ACTIVESCREEN_PTR)+0xe600, D(___1a1138h__VESA101h_DefaultScreenBufferB)+0xe600, 0x2af80);
+		memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR+0xe600, ___1a1138h__VESA101h_DefaultScreenBufferB+0xe600, 0x2af80);
 		___13710h(0, 0);
 		___13710h(1, 1);
 
@@ -70,10 +77,10 @@ void menu___194a8h(void){
 
 				if(___3ab5ch_cdecl(1)){
 					
-					B(___185b58h+1) = 0;
-					B(___185b58h+0xa) = 1;
-					B(___185b58h+0xb) = 1;
-					B(___185b58h+0xd) = 1;
+					write_b(___185b58h+1, 0);
+					write_b(___185b58h+0xa, 1);
+					write_b(___185b58h+0xb, 1);
+					write_b(___185b58h+0xd, 1);
 					D(___185a48h) = 1;
 					D(___185a44h) = 1;
 					D(___185a40h) = 1;
@@ -99,7 +106,7 @@ void menu___194a8h(void){
 		case 1: // END CURRENT GAME
 			___13710h(1, 0);
 			___13248h_cdecl(0xaa, 0xdc, 0x12c, 0x50, 1);
-			___12e78h_cdecl(D(___1a1108h), ___185c0bh, "End current game?", 0x23ae8);
+			___12e78h_cdecl(___1a1108h, ___185c0bh, "End current game?", 0x23ae8);
 			D(esp) = 1;
 			eax = ___148cch_cdecl(0xb4, 0x102, 1, esp)&0xff;
 

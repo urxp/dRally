@@ -2,12 +2,12 @@
 
 typedef char char40[40];
 
-	extern byte ___1a112ch__VESA101_ACTIVESCREEN_PTR[];
+	extern void * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
 	extern void * ___1a1e98h;
 	extern byte ___1a1ef8h[];
 	extern byte ___18e298h[];
 	extern byte ___1a01e0h[];
-	extern byte ___1a1eb8h[];
+	extern void * ___1a1eb8h;
 	extern __DWORD__ ___1864fch[][0x10];
 	extern void * ___1a01d0h[4];
 	extern byte ___1a1eech[];
@@ -59,29 +59,37 @@ void ___27a10h(void){
 
 	dword 	eax, ebx, ecx, edx, edi, esi, ebp;
 	byte 	esp[0x28];
-
+	void * 	ebxp;
+	void * 	esip;
 
 		ecx = 0x60;
-		ebx = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
-		esi = ___1a1e98h+0x4800;
-		ebx += 0x27960;
+		esip = ___1a1e98h+0x4800;
+		ebxp = ___1a112ch__VESA101_ACTIVESCREEN_PTR+0x27960;
 		edx = ecx;
 		L(edx) >>= 0x2;
-___27a3eh:
-		H(ecx) = L(edx);
-___27a40h:
-		eax = D(esi);
-		D(ebx) = eax;
-		ebx += 0x4;
-		esi += 0x4;
-		H(ecx)--;
-		if(H(ecx)) goto ___27a40h;
-		ebx += 0x280;
-		L(edx) <<= 0x2;
-		ebx -= edx;
-		L(edx) >>= 0x2;
-		L(ecx)--;
-		if(L(ecx)) goto ___27a3eh;
+
+		while(1){
+
+			H(ecx) = L(edx);
+
+			while(1){
+
+				eax = D(esip);
+				D(ebxp) = eax;
+				ebxp += 0x4;
+				esip += 0x4;
+				H(ecx)--;
+				if(H(ecx) == 0) break;
+			}
+
+			ebxp += 0x280;
+			L(edx) <<= 0x2;
+			ebxp -= edx;
+			L(edx) >>= 0x2;
+			L(ecx)--;
+			if(L(ecx) == 0) break;
+		}
+
 		edx = D(___1a1ef8h);
 		eax = 8*edx;
 		eax -= edx;
@@ -99,32 +107,37 @@ ___27a40h:
 		eax--;
 		if(eax != ebx) goto ___27afbh;
 		ecx = 0x40;
-		ebx = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
-		esi = D(___1a1eb8h);
 		edx = eax;
 		eax <<= 0x2;
-		ebx += 0x2a160;
+		ebxp = ___1a112ch__VESA101_ACTIVESCREEN_PTR+0x2a160;
 		eax -= edx;
-		esi += 0xc000;
 		eax <<= 0xb;
 		edx = 0x60;
-		esi += eax;
+		esip = ___1a1eb8h+0xc000+eax;
 		L(edx) >>= 0x2;
-___27ad4h:
-		H(ecx) = L(edx);
-___27ad6h:
-		eax = D(esi);
-		D(ebx) = eax;
-		ebx += 0x4;
-		esi += 0x4;
-		H(ecx)--;
-		if(H(ecx)) goto ___27ad6h;
-		ebx += 0x280;
-		L(edx) <<= 0x2;
-		ebx -= edx;
-		L(edx) >>= 0x2;
-		L(ecx)--;
-		if(L(ecx)) goto ___27ad4h;
+
+		while(1){
+
+			H(ecx) = L(edx);
+
+			while(1){
+
+				eax = D(esip);
+				D(ebxp) = eax;
+				ebxp += 0x4;
+				esip += 0x4;
+				H(ecx)--;
+				if(H(ecx) == 0) break;
+			}
+
+			ebxp += 0x280;
+			L(edx) <<= 0x2;
+			ebxp -= edx;
+			L(edx) >>= 0x2;
+			L(ecx)--;
+			if(L(ecx) == 0) break;
+		}
+
 		goto ___27bb4h;
 ___27afbh:
 		___259e0h_cdecl(0xe0, 0x10d, D(___1a1eech), ___1a01d0h[ebx], ___1864fch[ebx]);
@@ -156,11 +169,7 @@ ___27afbh:
 		eax = esp+0x14;
 		___12f60h_cdecl(eax, edx);
 ___27bb4h:
-		ecx = 0x77;
-		ebx = 0x180;
-		edx = 0x72;
-		eax = 0x90;
-		___13248h_cdecl(eax, edx, ebx, ecx, 1);
+		___13248h_cdecl(0x90, 0x72, 0x180, 0x77, 1);
 		___13094h_cdecl(___192000h[D(___1a01e0h+0x18+0x6c*D(___1a1ef8h))][0], 0x136aa);
 		___13094h_cdecl(___192000h[D(___1a01e0h+0x18+0x6c*D(___1a1ef8h))][1], 0x15eaa);
 		___13094h_cdecl(___192000h[D(___1a01e0h+0x18+0x6c*D(___1a1ef8h))][2], 0x186aa);

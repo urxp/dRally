@@ -18,7 +18,7 @@ typedef struct x655_s {
 	extern byte ___1a1ef8h[];
 	extern byte ___1a01e0h[];
 	extern rgb24_t * ___1a0fb8h;
-	extern byte ___196ad8h[];
+	extern __DWORD__ ___196ad8h;
 	extern rgb24_t * ___1a10c8h;
 	extern byte ___1a1edch[];
 
@@ -48,9 +48,9 @@ void ___2b318h(void){
 	n = -1;
 	while(++n < 0x20){
 
-		___19eb50h[0xc0+n].r = ((0x400*n*p_pal[D(___196ad8h)].r)&~0xffff)/0x64;
-		___19eb50h[0xc0+n].g = ((0x400*n*p_pal[D(___196ad8h)].g)&~0xffff)/0x64;
-		___19eb50h[0xc0+n].b = ((0x400*n*p_pal[D(___196ad8h)].b)&~0xffff)/0x64;
+		___19eb50h[0xc0+n].r = ((0x400*n*p_pal[___196ad8h].r)&~0xffff)/0x64;
+		___19eb50h[0xc0+n].g = ((0x400*n*p_pal[___196ad8h].g)&~0xffff)/0x64;
+		___19eb50h[0xc0+n].b = ((0x400*n*p_pal[___196ad8h].b)&~0xffff)/0x64;
 	}
 
 	n = -1;

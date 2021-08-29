@@ -1,9 +1,10 @@
 #include "drally.h"
 #include "drally_keyboard.h"
+#include "drally_structs_free.h"
 
 	extern byte ___243ddeh[];
 	extern byte ___243ce8h[];
-	extern byte ___1e6ed0h[];
+	extern struct_35e_t ___1e6ed0h[4];
 	extern byte ___1de580h[];
 	extern byte ___199f54h[];
 	extern byte ___196dbch[];
@@ -18,7 +19,6 @@ void race___56594h(void){
 	byte 	scan;
 	int 	n;
 
-
 	if((scan = ___5994ch()) != 0){
 
 		n = -1;
@@ -31,7 +31,7 @@ void race___56594h(void){
 		&&(B(___243ddeh+0xd) == DR_SCAN_U)
 		&&(B(___243ddeh+0xe) == DR_SCAN_G)){
 		
-			D(___1e6ed0h+0x34e +0x35e*D(___243ce8h)) = 0xf423f;
+			___1e6ed0h[D(___243ce8h)].DrugTimeToGo = 0xf423f;	// 999999
 		}
 
 		if((B(___243ddeh+0xa) == DR_SCAN_D)

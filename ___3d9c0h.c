@@ -1,7 +1,8 @@
 #include "drally.h"
+#include "drally_keyboard.h"
 
-	extern byte ___1a54d0h[];
-	extern byte ___1a112ch__VESA101_ACTIVESCREEN_PTR[];
+	extern __BYTE__ ___1a54d0h[];
+	extern void * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
 
 void bpk_decode2(void *, void *);
 void ___12cb8h__VESA101_PRESENTSCREEN(void);
@@ -9,51 +10,37 @@ void ___3d1f0h(void);
 void __VRETRACE_WAIT_FOR_START(void);
 byte ___5994ch(void);
 void ___3d2bch(void);
-void bpa_read(const char *, void *, const char *);
+void old_bpa_read(const char *, void *, const char *);
 void ___3d154h(const char * pal_name);
 
 // LOAD SLIDE PALETTE
-dword ___3d9c0h_cdecl(dword A1, dword A2, dword A3){
+int ___3d9c0h_cdecl(const char * A1, const char * A2, int A3){
 
-	dword 	eax, ebx, ecx, edx, edi, esi, ebp;
+	__BYTE__ 	scan;
+	int 		n;
 
 
-	eax = A1;
-	edx = A2;
-	ebx = A3;
+	___3d154h(A1);
+	old_bpa_read("MENU.BPA", ___1a54d0h, A2);
+	bpk_decode2(___1a112ch__VESA101_ACTIVESCREEN_PTR, ___1a54d0h);
+	___12cb8h__VESA101_PRESENTSCREEN();
+	___3d1f0h();
+	n = 0x3c*A3;
 
-		esi = ebx;
-		___3d154h(eax);
-		eax = "MENU.BPA";
-		ebx = edx;
-		edx = ___1a54d0h;
-		bpa_read(eax, edx, ebx);
-		edx = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
-		bpk_decode2(edx, ___1a54d0h);
-		___12cb8h__VESA101_PRESENTSCREEN();
-		___3d1f0h();
-		eax = esi;
-		esi <<= 0x4;
-		esi -= eax;
-		L(edx) = 0;
-		esi <<= 0x2;
-___3da0bh:
-		if((int)esi <= 0) goto ___3da20h;
+	scan = 0;
+	while(1){
+
+		if(n <= 0) break;
 		__VRETRACE_WAIT_FOR_START();
-		L(eax) = ___5994ch();
-		esi--;
-		L(edx) = L(eax);
-		if(L(eax) == 0) goto ___3da0bh;
-___3da20h:
-		___3d2bch();
-		if(L(edx) == 0x1c) goto ___3da38h;
-		if(L(edx) == 0x39) goto ___3da38h;
-		if(L(edx) == 0x9c) goto ___3da38h;
-		if(L(edx)) goto ___3da3dh;
-___3da38h:
-		eax ^= eax;
-		return eax;
-___3da3dh:
-		eax = 0x1;
-		return eax;
+		scan = ___5994ch();
+		n--;
+		if(scan != 0) break;
+	}
+
+	___3d2bch();
+
+	if((scan == DR_SCAN_ENTER)||(scan == DR_SCAN_SPACE)||(scan == DR_SCAN_KP_ENTER)) return 0;
+	if(scan != DR_SCAN_ERROR) return 1;
+
+	return 0;
 }

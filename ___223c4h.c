@@ -6,7 +6,7 @@
 	extern byte ___1a1ef8h[];
 	extern byte ___1a0e28h[];
 	extern byte ___1a01e0h[];
-	extern byte ___196a94h[];
+	extern __DWORD__ ___196a94h_difficulty;
 	extern byte ___185c7ah[];
 	extern byte ___1a10b8h[];
 	extern char ___18768ah[][0x18];
@@ -95,7 +95,7 @@ void ___223c4h(void){
 		strcpy(___1a0e28h+0x14*D(esp+0x2c), ___1a01e0h+0x6c*D(___1a1ef8h));
 		strupr_watcom106(___1a0e28h+0x14*D(esp+0x2c));
 		D(0x14*D(esp+0x2c)+___1a0e28h+0xc) = D(___1a01e0h+0x6c*D(___1a1ef8h)+0x50);
-		D(0x14*D(esp+0x2c)+___1a0e28h+0x10) = D(___196a94h);
+		D(0x14*D(esp+0x2c)+___1a0e28h+0x10) = ___196a94h_difficulty;
 		___27d24h_cdecl(0x11, 0x16*D(esp+0x2c)+0x8a, 0x25b, 0x18);
 		CONFIG_WRITE();
 	}

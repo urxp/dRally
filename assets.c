@@ -7,7 +7,7 @@
     extern byte ___1a54d0h[];
 
 void * ___3f71ch__allocateMemory(int);
-void bpa_read(const char *, void *, const char *);
+void old_bpa_read(const char *, void *, const char *);
 void bpk_decode2(void *, void *);
 
 void * dRally_Assets_loadRaw(const char * bpa, const char * name, int size){
@@ -15,7 +15,7 @@ void * dRally_Assets_loadRaw(const char * bpa, const char * name, int size){
 	void * 	rslt;
 
 	rslt = ___3f71ch__allocateMemory(size);
-	bpa_read(bpa, rslt, name);
+	old_bpa_read(bpa, rslt, name);
 
 	return rslt;
 }
@@ -24,7 +24,7 @@ void * dRally_Assets_loadDecode(const char * bpa, const char * name, int size){
 
 	void * 	rslt;
 
-    bpa_read(bpa, ___1a54d0h, name);
+    old_bpa_read(bpa, ___1a54d0h, name);
 	rslt = ___3f71ch__allocateMemory(size);
 	bpk_decode2(rslt, ___1a54d0h);
 

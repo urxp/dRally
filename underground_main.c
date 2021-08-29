@@ -5,15 +5,15 @@
 	extern byte ___19bd60h[];
 	extern byte ___1a0a50h[];
 	extern __DWORD__ ___1865fch[];
-	extern byte ___1a1ea0h[];
+	extern void * ___1a1ea0h;
 	extern byte ___1a1ee8h[];
-	extern byte ___1a112ch__VESA101_ACTIVESCREEN_PTR[];
+	extern void * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
 	extern byte ___19eb50h[];
 	extern byte ___1a1ef4h[];
 	extern byte ___1a1ef0h[];
 	extern byte ___185a40h[];
 	extern byte ___185a20h[];
-	extern byte ___185a38h[];
+	extern byte ___185a38h_delay[];
 	extern byte ___185a28h[];
 	extern byte ___1a1138h__VESA101h_DefaultScreenBufferB[];
 	extern byte ___185c0bh[];
@@ -56,7 +56,7 @@ void __DISPLAY_SET_PALETTE_COLOR(dword b, dword g, dword r, dword n);
 dword dRally_Sound_getPosition(void);
 byte dRally_Sound_setPosition(dword pos_n);
 void ___1398ch__VESA101_PRESENTRECTANGLE(dword offset, void * src, dword w, dword h);
-void ___259e0h_cdecl(dword, dword, dword, dword, dword);
+void ___259e0h_cdecl(int dx, int dy, int aFrameIdx, void * aEncoded, int * aOffsets);
 void ___2b318h(void);
 void ___58c60h(void);
 void dRally_Sound_setMasterVolume(dword vol);
@@ -121,25 +121,28 @@ ___2ef02h:
 		eax = ebp;
 		edx = (int)edx>>0x1f;
 		edx = (long long)(int)eax%(int)ebx;
-		if(edx == 0) goto ___2ef7ah;
-		edx = 0x10d;
-		eax = 0x1b0;
-		ecx = D(___1a1ea0h);
-		ebx = D(___1a1ee8h);
-		___259e0h_cdecl(eax, edx, ebx, ecx, ___1865fch);
-		ecx = 0x40;
-		ebx = 0x60;
-		edx = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
-		eax = 0x2a230;
-		edx += 0x2a230;
-		___1398ch__VESA101_PRESENTRECTANGLE(eax, edx, ebx, ecx);
-		eax = D(___1a1ee8h);
-		eax++;
-		D(___1a1ee8h) = eax;
-		if((int)eax <= 0x16) goto ___2ef7ah;
-		ebx = 0;
-		D(___1a1ee8h) = ebx;
-___2ef7ah:
+
+		if(edx != 0){
+
+			edx = 0x10d;
+			eax = 0x1b0;
+			ebx = D(___1a1ee8h);
+			___259e0h_cdecl(eax, edx, ebx, ___1a1ea0h, ___1865fch);
+			ecx = 0x40;
+			ebx = 0x60;
+			eax = 0x2a230;
+			___1398ch__VESA101_PRESENTRECTANGLE(eax, ___1a112ch__VESA101_ACTIVESCREEN_PTR+0x2a230, ebx, ecx);
+			eax = D(___1a1ee8h);
+			eax++;
+			D(___1a1ee8h) = eax;
+			
+			if((int)eax > 0x16){
+			
+				ebx = 0;
+				D(___1a1ee8h) = ebx;
+			}
+		}
+
 		esi = D(esp+0x14);
 		ecx = 0;
 		edi = 0;
@@ -272,15 +275,13 @@ ___2f13fh:
 		if(D(___185a40h) != 0) goto ___2f1c2h;
 		edx = 0x10d;
 		eax = 0x1b0;
-		ecx = D(___1a1ea0h);
 		ebx = D(___1a1ee8h);
-		___259e0h_cdecl(eax, edx, ebx, ecx, ___1865fch);
+		___259e0h_cdecl(eax, edx, ebx, ___1a1ea0h, ___1865fch);
 		ecx = 0x40;
 		ebx = 0x60;
-		edx = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
+		edx = ___1a112ch__VESA101_ACTIVESCREEN_PTR+0x2a230;
 		eax = 0x2a230;
-		edx += 0x2a230;
-		___1398ch__VESA101_PRESENTRECTANGLE(eax, edx, ebx, ecx);
+		___1398ch__VESA101_PRESENTRECTANGLE(eax, ___1a112ch__VESA101_ACTIVESCREEN_PTR+0x2a230, ebx, ecx);
 		ecx = D(___1a1ee8h);
 		ecx++;
 		D(___1a1ee8h) = ecx;
@@ -413,10 +414,10 @@ ___2f381h:
 		if(D(___185a20h) != 0) goto ___2f8ach;
 		___2ab50h();
 		___2ab50h();
-		eax = D(___185a38h);
+		eax = D(___185a38h_delay);
 		if((int)eax <= 0) goto ___2f3aah;
 		edx = eax-1;
-		D(___185a38h) = edx;
+		D(___185a38h_delay) = edx;
 ___2f3aah:
 		eax = D(___1a1ef0h);
 
@@ -433,43 +434,41 @@ ___2f3aah:
 
 
 ___2f3c0h:
-		if(D(___185a38h) != 1) goto ___2f49ch;
+		if(D(___185a38h_delay) != 1) goto ___2f49ch;
 		___2d294h();
 		___12cb8h__VESA101_PRESENTSCREEN();
 		goto ___2f49ch;
-		if(D(___185a38h) != 1) goto ___2f49ch;
+		if(D(___185a38h_delay) != 1) goto ___2f49ch;
 ___2f3dch:
-		if(D(___185a38h) != 1) goto ___2f49ch;
+		if(D(___185a38h_delay) != 1) goto ___2f49ch;
 		___2d728h();
 		___12cb8h__VESA101_PRESENTSCREEN();
 		goto ___2f49ch;
 ___2f3f8h:
-		if(D(___185a38h) != 1) goto ___2f49ch;
+		if(D(___185a38h_delay) != 1) goto ___2f49ch;
 		___2d898h();
 		___12cb8h__VESA101_PRESENTSCREEN();
 		goto ___2f49ch;
 ___2f414h:
-		if(D(___185a38h) != 1) goto ___2f49ch;
+		if(D(___185a38h_delay) != 1) goto ___2f49ch;
 		___2da10h();
 		___12cb8h__VESA101_PRESENTSCREEN();
 		goto ___2f49ch;
 ___2f42dh:
-		if(D(___185a38h) != 1) goto ___2f49ch;
+		if(D(___185a38h_delay) != 1) goto ___2f49ch;
 		___2db88h();
 		___12cb8h__VESA101_PRESENTSCREEN();
 		goto ___2f49ch;
 ___2f442h:
 		edx = 0x10d;
 		eax = 0x1b0;
-		ecx = D(___1a1ea0h);
 		ebx = D(___1a1ee8h);
-		___259e0h_cdecl(eax, edx, ebx, ecx, ___1865fch);
+		___259e0h_cdecl(eax, edx, ebx, ___1a1ea0h, ___1865fch);
 		ecx = 0x40;
 		ebx = 0x60;
-		edx = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
+		edx = ___1a112ch__VESA101_ACTIVESCREEN_PTR+0x2a230;
 		eax = 0x2a230;
-		edx += 0x2a230;
-		___1398ch__VESA101_PRESENTRECTANGLE(eax, edx, ebx, ecx);
+		___1398ch__VESA101_PRESENTRECTANGLE(eax, ___1a112ch__VESA101_ACTIVESCREEN_PTR+0x2a230, ebx, ecx);
 		ebx = D(___1a1ee8h);
 		ebx++;
 		D(___1a1ee8h) = ebx;
@@ -538,7 +537,7 @@ ___2f559h:
 		if((int)eax <= 0) goto ___2f887h;
 		ecx = 0x29b80;
 		esi = D(___1a1138h__VESA101h_DefaultScreenBufferB);
-		edi = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
+		edi = ___1a112ch__VESA101_ACTIVESCREEN_PTR;
 		esi += 0xf000;
 		edi += 0xf000;
 		memcpy(edi, esi, ecx);
@@ -686,7 +685,7 @@ ___2f809h:
 		___23230h();
 		___12cb8h__VESA101_PRESENTSCREEN();
 		ecx = 0x4b000;
-		esi = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
+		esi = ___1a112ch__VESA101_ACTIVESCREEN_PTR;
 		edi = D(___1a1124h__VESA101h_ScreenBufferA);
 		memcpy(edi, esi, ecx);
 		if(ebp != 1) goto ___2f843h;
@@ -703,7 +702,7 @@ ___2f852h:
 ___2f861h:
 		ecx = 0x4b000;
 		esi = D(___1a1124h__VESA101h_ScreenBufferA);
-		edi = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
+		edi = ___1a112ch__VESA101_ACTIVESCREEN_PTR;
 		memcpy(edi, esi, ecx);
 		___12cb8h__VESA101_PRESENTSCREEN();
 ___2f887h:
@@ -739,12 +738,12 @@ ___2f8fdh:
 		if(D(esp+4) != 0xffffffff) goto ___2f97dh;
 		edx = 0x10d;
 		eax = 0x1b0;
-		ecx = D(___1a1ea0h);
+		ecx = ___1a1ea0h;
 		ebx = D(___1a1ee8h);
 		___259e0h_cdecl(eax, edx, ebx, ecx, ___1865fch);
 		ecx = 0x40;
 		ebx = 0x60;
-		edx = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
+		edx = ___1a112ch__VESA101_ACTIVESCREEN_PTR;
 		eax = 0x2a230;
 		edx += 0x2a230;
 		___1398ch__VESA101_PRESENTRECTANGLE(eax, edx, ebx, ecx);

@@ -19,20 +19,20 @@ typedef struct cardata_s {
     __SIGNED_DWORD__   	price_repair;                   // +6DC
 } cardata_t;
 
-	extern byte ___1a112ch__VESA101_ACTIVESCREEN_PTR[];
+	extern void * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
 	extern void * ___1a1e98h;
 	extern byte ___1a1ef8h[];
 	extern cardata_t ___18e298h[6];
 	extern byte ___1a01e0h[];
-	extern byte ___1a1eb8h[];
+	extern void * ___1a1eb8h;
 	extern __DWORD__ ___1862bch[][0x18];
 	extern void * ___1a01a8h[4];
 	extern byte ___1a1ec8h[];
 
-void ___259e0h_cdecl(dword, dword, dword, dword, dword);
+void ___259e0h_cdecl(int dx, int dy, int aFrameIdx, void * aEncoded, int * aOffsets);
 void ___13094h_cdecl(const char *, dword);
-dword ___25180h_cdecl(dword);
-void ___12f60h_cdecl(dword, dword);
+int ___25180h_cdecl(const char * A1);
+void ___12f60h_cdecl(const char * A1, dword A2);
 void ___13248h_cdecl(dword, dword ,dword, dword, dword);
 char * itoa_watcom106(int value, char * buffer, int radix);
 	
@@ -76,10 +76,12 @@ void ___273d8h(void){
 
 	dword 	eax, ebx, ecx, edx, edi, esi, ebp, p5;
 	byte 	esp[0x28];
+	void * 	ebxp;
+	void * 	esip;
 
 
-	ebx = D(___1a112ch__VESA101_ACTIVESCREEN_PTR)+0x27890;
-	esi = ___1a1e98h;
+	ebxp = ___1a112ch__VESA101_ACTIVESCREEN_PTR+0x27890;
+	esip = ___1a1e98h;
 
 	ecx = 0x60;
 	while(1){
@@ -87,13 +89,13 @@ void ___273d8h(void){
 		H(ecx) = 0x60;
 		while(1){
 
-			B(ebx++) = B(esi++);
+			B(ebxp++) = B(esip++);
 			H(ecx)--;
 			if(H(ecx) == 0) break;
 		}
 
-		ebx += 0x280;
-		ebx -= 0x60;
+		ebxp += 0x280;
+		ebxp -= 0x60;
 		L(ecx)--;
 		if(L(ecx) == 0) break;
 	}
@@ -112,8 +114,8 @@ void ___273d8h(void){
 	}
 	else {
 
-		ebx = D(___1a112ch__VESA101_ACTIVESCREEN_PTR)+0x2a090;
-		esi = D(___1a1eb8h)+0x1800*eax;
+		ebxp = ___1a112ch__VESA101_ACTIVESCREEN_PTR+0x2a090;
+		esip = ___1a1eb8h+0x1800*eax;
 
 		ecx = 0x40;
 		while(1){
@@ -121,13 +123,13 @@ void ___273d8h(void){
 			H(ecx) = 0x60;
 			while(1){
 
-				B(ebx++) = B(esi++);
+				B(ebxp++) = B(esip++);
 				H(ecx)--;
 				if(H(ecx) == 0) break;
 			}
 
-			ebx += 0x280;
-			ebx -= 0x60;
+			ebxp += 0x280;
+			ebxp -= 0x60;
 			L(ecx)--;
 			if(L(ecx) == 0) break;
 		}

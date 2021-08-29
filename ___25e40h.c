@@ -22,21 +22,21 @@ typedef struct cardata_s {
 
 #define COOXY(x,y) (0x280*(y)+(x))
 
-	extern byte * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
-	extern byte * ___1a1e98h;
+	extern void * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
+	extern void * ___1a1e98h;
 	extern byte ___1a1ef8h[];
 	extern byte ___1a01e0h[];
 	extern __DWORD__ ___1862bch[][0x18];
 	extern void * ___1a01a8h[4];
 	extern byte ___1a1ec8h[];
 	extern cardata_t ___18e298h[6];
-	extern byte * ___1a1eb8h;
+	extern void * ___1a1eb8h;
 
 void ___13094h_cdecl(const char *, dword);
-dword ___25180h_cdecl(dword);
-void ___12f60h_cdecl(dword, dword);
+int ___25180h_cdecl(const char * A1);
+void ___12f60h_cdecl(const char * A1, dword A2);
 void ___13248h_cdecl(dword, dword ,dword, dword, dword);
-void ___259e0h_cdecl(dword, dword, dword, dword, dword);
+void ___259e0h_cdecl(int dx, int dy, int aFrameIdx, void * aEncoded, int * aOffsets);
 char * itoa_watcom106(int value, char * buffer, int radix);
 
 // SHOP, ENGINE

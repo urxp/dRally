@@ -1,5 +1,5 @@
 #include "drally.h"
-#include "drally_structs.h"
+#include "drally_structs_fixed.h"
 
 #pragma pack(push,1)
 

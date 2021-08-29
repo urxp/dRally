@@ -1,4 +1,5 @@
 #include "drally.h"
+#include "drmemory.h"
 
 #pragma pack(1)
 typedef struct rgb24_s {
@@ -32,9 +33,8 @@ typedef rgb24_t pal256_t[0x100];
 
 
 void * ___3f71ch__allocateMemory(dword);
-void dRally_Memory_free(void *);
 
-void bpa_read(const char *, void *, const char *);
+void old_bpa_read(const char *, void *, const char *);
 void bpk_decode4(dword, dword, void *, void *);
 void bpk_decode2(void *, void *);
 
@@ -184,9 +184,9 @@ static void ___108e8h(void){
 		}
 	}
 
-	dRally_Memory_free(___1a1f18h);
-	dRally_Memory_free(___1a1f14h);
-	dRally_Memory_free(___1a1f24h);
+	dRMemory_free(___1a1f18h);
+	dRMemory_free(___1a1f14h);
+	dRMemory_free(___1a1f24h);
 }
 
 void ___10b80h_cdecl(
@@ -245,7 +245,7 @@ void ___10b80h_cdecl(
 
 
 	DISPLAY_CLEAR_PALETTE();
-	bpa_read("MENU.BPA", EncodedFrame, "FRAMES.BPK");
+	old_bpa_read("MENU.BPA", EncodedFrame, "FRAMES.BPK");
 	bpk_decode4(0x300, 0, &pal, EncodedFrame);
 	bpk_decode4(0xfa00, 0x300, VGA13_ACTIVESCREEN, EncodedFrame);
 	__VGA13_PRESENTSCREEN__();
@@ -298,8 +298,8 @@ void ___10b80h_cdecl(
 	n = 0;
 	while(n < 6) dRally_Sound_freeEffectChannel(++n);
 
-	dRally_Memory_free(DecodedFrame);
-	dRally_Memory_free(EncodedFrame);
-	dRally_Memory_free(___1a1f10h);
-	dRally_Memory_free(___1a1f1ch);
+	dRMemory_free(DecodedFrame);
+	dRMemory_free(EncodedFrame);
+	dRMemory_free(___1a1f10h);
+	dRMemory_free(___1a1f1ch);
 }

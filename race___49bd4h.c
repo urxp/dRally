@@ -55,7 +55,7 @@ typedef struct spectator_s {
 	extern byte ___243cf8h[];
 	extern byte ___243d10h[];
 
-void bpa_read(const char *, void *, const char *);
+void old_bpa_read(const char *, void *, const char *);
 
 void race___49bd4h(void){
 
@@ -67,7 +67,7 @@ void race___49bd4h(void){
 	strcat(___243dd0h, ".BPA");
 	strcpy(___243d90h, ___19bd64h);
 	strcat(___243d90h, "-INF.BIN");
-	bpa_read(___243dd0h, TrxInf, ___243d90h);
+	old_bpa_read(___243dd0h, TrxInf, ___243d90h);
 
 	D(___243d28h) = TrxInf->w;
 	D(___243d2ch) = TrxInf->h;

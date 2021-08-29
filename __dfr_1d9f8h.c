@@ -8,7 +8,7 @@ cpu 386
 	extern	___19bd60h
 	extern	___1d4e8h
 	extern	___1d83ch
-	extern	___199fa4h
+	extern	___199fa4h_com_port_addr
 	extern	___61b88h
 	extern	___1ca00h
 	extern	___13710h
@@ -20,7 +20,7 @@ cpu 386
 	extern	___1a1108h
 	extern	___12e78h_cdecl
 	extern	___12cb8h__VESA101_PRESENTSCREEN
-	extern	___1a201ah
+	extern	___1a201ah_modem_dial_number
 	extern 	___17510h_cdecl
 	extern	___1a1ef8h
 	extern	CONNECTION_TYPE
@@ -32,7 +32,7 @@ cpu 386
 	extern	___1123ch
 	extern	___1d688h
 	extern	___13bd4h_cdecl
-	extern	___196a90h
+	extern	___196a90h_modem_dialing
 	extern	___631d4h
 	extern	___63228h
 	extern	kmap
@@ -73,7 +73,7 @@ __GDECL(___1d9f8h)
 		jmp     near ___1e08fh
 ___1da2dh:
 		call    near ___1d83ch
-		mov     eax, [___199fa4h]
+		mov     eax, [___199fa4h_com_port_addr]
 	
 	push 	edx
 	push 	ecx
@@ -185,7 +185,7 @@ ___1da4fh:
 		mov     ebx, 116h
 		push    byte 14h
 		mov     edx, 64h
-		mov     eax, ___1a201ah
+		mov     eax, ___1a201ah_modem_dial_number
 
 	push 	ecx
 	push 	ebx
@@ -287,7 +287,7 @@ ___1db77h:
 		movsd   
 		movsw   
 		mov     edx, [esp+50h]
-		mov     esi, ___1a201ah
+		mov     esi, ___1a201ah_modem_dial_number
 		mov     edi, esp
 		add     edx, byte 0dh
 		call 	__STRCAT
@@ -370,7 +370,7 @@ ___1db77h:
 		movsd   
 		movsw   
 		xor     ah, ah
-		mov     edi, [___196a90h]
+		mov     edi, [___196a90h_modem_dialing]
 		mov     [esp+6dh], ah
 		mov     [esp+6ch], dl
 		test    edi, edi
@@ -382,7 +382,7 @@ ___1dcd0h:
 ___1dcd5h:
 		lea     edi, [esp+28h]
 		call 	__STRCAT
-		mov     esi, ___1a201ah
+		mov     esi, ___1a201ah_modem_dial_number
 		lea     edi, [esp+28h]
 		call 	__STRCAT
 		lea     esi, [esp+6ch]

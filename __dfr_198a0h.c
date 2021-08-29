@@ -45,7 +45,7 @@ cpu 386
 	extern 	___197d0h_cdecl
 	extern 	___1398ch__VESA101_PRESENTRECTANGLE
 	extern 	___1a10fch
-	extern 	dRally_Memory_free
+	extern 	dRMemory_free
 	extern 	___61278h
 	extern 	___623d4h
 	extern 	___199f9ch
@@ -653,7 +653,7 @@ ___19e7dh:
 		mov     ecx, 40h
 		mov     esi, [eax*4+___1a01e0h+40h]
 		mov     edx, ecx
-		mov     esi, [esi*4+___19de70h]
+		mov     esi, [esi*4+___19de70h]		;; mov     esi, [esi*sizeof(void *)+___19de70h]
 		shr     dl, 2
 ___19f2ah:
 		mov     ch, dl
@@ -1402,7 +1402,7 @@ ___1a6b1h:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    dRally_Memory_free
+		call    dRMemory_free
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -1412,7 +1412,7 @@ ___1a6b1h:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    dRally_Memory_free
+		call    dRMemory_free
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -1581,7 +1581,7 @@ ___1a8e5h:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    dRally_Memory_free
+		call    dRMemory_free
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -1591,7 +1591,7 @@ ___1a8e5h:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    dRally_Memory_free
+		call    dRMemory_free
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx

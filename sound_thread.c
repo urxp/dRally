@@ -125,8 +125,8 @@ void * PACKED_PATTERN;
 	extern what_t pack_what;
 
 
-extern word ___688d0h[32];
-extern dword ___68910h[32];
+extern word ___688d0h_sample_id[32];
+extern dword ___68910h_offset[32];
 extern byte * ___68b30h[32];
 
 word ___19a542h[16] = {0};
@@ -255,8 +255,8 @@ void ___6ef2ch(void){
 						while(++tmp_chn <= hi_channel_id){
 
 							reset_something(tmp_chn);
-							___688d0h[tmp_chn] = 0xffff;
-							___68910h[tmp_chn] = 0;
+							___688d0h_sample_id[tmp_chn] = 0xffff;
+							___68910h_offset[tmp_chn] = 0;
 							___68990h[tmp_chn] = 0;
 							___68a10h[tmp_chn] = 0;
 							___68b30h[tmp_chn] = 0;
@@ -326,7 +326,7 @@ void ___6ef2ch(void){
 					
 					Unpacked.note = B(PACKED_PATTERN++);
 
-					if(Unpacked.note == 0xfe) ___688d0h[tmp_chn] = 0xffff;
+					if(Unpacked.note == 0xfe) ___688d0h_sample_id[tmp_chn] = 0xffff;
 
 					Unpacked.instrument = B(PACKED_PATTERN++);
 
@@ -409,7 +409,7 @@ void ___6ef2ch(void){
 					if((Unpacked.note != 0xff)&&(Unpacked.note != 0)){
 
 						___19a562h[tmp_chn] = (0x10*st3_periods[Unpacked.note_note])>>Unpacked.note_octave;
-						___688d0h[tmp_chn] = Unpacked.instrument;
+						___688d0h_sample_id[tmp_chn] = Unpacked.instrument;
 					}
 				}
 

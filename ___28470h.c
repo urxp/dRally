@@ -7,7 +7,7 @@
 	extern byte ___1a1ed0h[];
 
 void ___2ab50h(void);
-void ___259e0h_cdecl(dword, dword, dword, dword, dword);
+void ___259e0h_cdecl(int dx, int dy, int aFrameIdx, void * aEncoded, int * aOffsets);
 
 // SHOP PREV/NEXT CAR FRAME ARROW ANIMATION
 void ___28470h(void){

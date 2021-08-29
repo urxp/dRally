@@ -16,7 +16,7 @@ typedef struct spectator_s {
 	extern spectator_t ___1df720h[];
 	extern byte ___243c60h[];
 	extern byte ___1e6ed0h[];
-	extern byte ___243d74h[];
+	extern void * ___243d74h;
 	extern byte ___1de580h[];
 	extern byte ___243ce8h[];
 
@@ -36,7 +36,7 @@ void race___52ac4h(void){
 			c = (int)F32(0x35e*D(___243c60h)+___1e6ed0h+0xb4)-(SPECTATORS[n].x+8);
 			d = (int)F32(0x35e*D(___243c60h)+___1e6ed0h+0xb8)-(SPECTATORS[n].y+8);
 
-			if((abs(c) < 0x14)&&(abs(d) < 0x14)&&(B(c+0x14+0x28*(d+0x14)+D(___243d74h)+D(0x35e*D(___243c60h)+___1e6ed0h+0x10)) > 3)){
+			if((abs(c) < 0x14)&&(abs(d) < 0x14)&&(B(c+0x14+0x28*(d+0x14)+___243d74h+D(0x35e*D(___243c60h)+___1e6ed0h+0x10)) > 3)){
 
 				SPECTATORS[n].frame = 0;
 				SPECTATORS[n].dead = 1;

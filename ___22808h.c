@@ -13,7 +13,7 @@ typedef struct x655_s {
 	extern byte ___1a1ef8h[];
 	extern byte ___1a01e0h[];
 	extern byte ___1a0fb8h[];
-	extern byte ___24cc58h[];
+	extern __DWORD__ ___24cc58h_msx_volume;
 
 void ___10b80h_cdecl(const char *, dword, const char *, dword, const char *, dword, dword);
 void ___606dfh(void);
@@ -88,7 +88,7 @@ void ___22808h(void){
 
 	dRally_Sound_release();
 	dRally_Sound_load(1, "MEN-MUS.CMF", 2, "MEN-SAM.CMF", 5);
-	dRally_Sound_setMusicVolume(D(___24cc58h));
+	dRally_Sound_setMusicVolume(___24cc58h_msx_volume);
 	dRally_Sound_setSampleRate(0x5622);
 	dRally_Sound_play();
 }

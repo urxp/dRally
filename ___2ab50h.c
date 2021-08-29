@@ -1,4 +1,5 @@
 #include "drally.h"
+#include "drmemory.h"
 
 	extern byte ___19bd60h[];
 	extern byte ___1a116ch[];
@@ -13,7 +14,6 @@
 void ___12cb8h__VESA101_PRESENTSCREEN(void);
 void ___12d6ch__VESA101_PRESENTBOTTOMSCREEN(void);
 void * ___3f71ch__allocateMemory(dword);
-void dRally_Memory_free(void *);
 void ___6168ch(void);
 #if defined(DR_MULTIPLAYER)
 void ___23230h(void);
@@ -126,7 +126,7 @@ void ___2ab50h(void){
 			strcat(___1a0f9ch, ___1a01e0h+0x6c*D(___1a1ef8h));
 			strcat(___1a0f9ch, " is currently on Death Rally.");
 			___23488h_cdecl(___1a0f9ch, 0x64, 8);
-			dRally_Memory_free(___1a0f9ch);
+			dRMemory_free(___1a0f9ch);
 		}
 
 		eax = ___23594h_cdecl(esp, 0x14);

@@ -10,7 +10,7 @@ cpu 386
 	extern	___24cc6ch
 	extern	___199f50h
 	extern	___199f54h
-	extern	___19bd58h
+	extern	___19bd58h_gamepad
 	extern	___59db8h
 	extern	___199f64h
 	extern	___199f68h
@@ -98,7 +98,7 @@ ___597ceh:
 		mov     al, bl
 		mov     cl, dl
 		shl     eax, 8
-		mov     edx, [___19bd58h]
+		mov     edx, [___19bd58h_gamepad]
 		add     ecx, eax
 		test    edx, edx
 		jle     short ___597eah
@@ -112,7 +112,7 @@ ___597ceh:
 	pop 	edx
 
 ___597eah:
-		cmp     dword [___19bd58h], byte 0
+		cmp     dword [___19bd58h_gamepad], byte 0
 		jle     near ___59942h
 		mov     esi, [___199f64h]
 

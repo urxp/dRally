@@ -1,8 +1,8 @@
 #include "drally.h"
 
-	extern byte * ___1a1138h__VESA101h_DefaultScreenBufferB;	// 640*480
-	extern byte * ___1a112ch__VESA101_ACTIVESCREEN_PTR;			// 640*480
-	extern byte * ___1a10b4h;									// 640x10
+	extern __BYTE__ * ___1a1138h__VESA101h_DefaultScreenBufferB;	// 640*480
+	extern __BYTE__ * ___1a112ch__VESA101_ACTIVESCREEN_PTR;			// 640*480
+	extern __BYTE__ * ___1a10b4h;									// 640x10
 
 #define COOXY(x,y) (0x280*(y)+(x))	
 

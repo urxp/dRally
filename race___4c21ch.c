@@ -38,21 +38,10 @@ void race___4c21ch(void){
 
 
 		ebx = D(___243cech);
-		ecx = 0x6;
-		edi = esp+0x18;
-		esi = ___3f6ech;
-		while(ecx--||++ecx){ D(edi) = D(esi); edi += 4; esi += 4; }
-		ecx = 0x6;
-		edi = esp;
-		esi = ___3f704h;
+		memcpy(esp+0x18, ___3f6ech, 0x18);
 		edx = D(___243ce8h);
-		while(ecx--||++ecx){ D(edi) = D(esi); edi += 4; esi += 4; }
-		if(edx != 0) goto ___4c26ah;
-		esi = D(___1de7d0h+0x54+0x44);
-		goto ___4c270h;
-___4c26ah:
-		esi = D(___1de7d0h+0x44);
-___4c270h:
+		memcpy(esp, ___3f704h, 0x18);
+		esi = edx?D(___1de7d0h+0x44):D(___1de7d0h+0x54+0x44);
 		ecx = 0;
 		edi = D(___243cf4h);
 		D(___243c60h) = ecx;

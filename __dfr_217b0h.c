@@ -4,7 +4,7 @@ cpu 386
 
 	extern	__CHK
 	extern 	__MOVS
-	extern	___24cc54h
+	extern	___24cc54h_sfx_volume
 	extern	dRally_Sound_pushEffect
 	extern	___1a1138h__VESA101h_DefaultScreenBufferB
 	extern	___1a112ch__VESA101_ACTIVESCREEN_PTR
@@ -30,7 +30,7 @@ __GDECL(___217b0h)
 		push    8000h
 		mov     eax, 1
 		mov     edx, 28000h
-		mov     ecx, [___24cc54h]
+		mov     ecx, [___24cc54h_sfx_volume]
 		push    edx
 		xor     ebx, ebx
 		mov     edx, 1dh

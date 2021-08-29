@@ -1,5 +1,6 @@
 /*
 #include "drally.h"
+#include "drmemory.h"
 
 	extern byte ___185c0bh[];
 	extern byte ___1a1108h[];
@@ -14,7 +15,6 @@ void ___12cb8h__VESA101_PRESENTSCREEN(void);
 byte ___5994ch(void);
 dword __GET_TIMER_TICKS(void);
 void * ___3f71ch__allocateMemory(dword);
-void dRally_Memory_free(void *);
 void ___23488h_cdecl(dword, dword, dword);
 void ___2ab50h(void);
 void ___13bd4h_cdecl(dword, dword);
@@ -165,9 +165,9 @@ ___1abfbh:
 		eax += 4;
 		memset(eax, edx, ebx);
 		eax = esi;
-		dRally_Memory_free(eax);
+		dRMemory_free(eax);
 		eax = D(esp+8);
-		dRally_Memory_free(eax);
+		dRMemory_free(eax);
 		eax = 2;
 		return eax;   
 ___1ac37h:
@@ -211,9 +211,9 @@ ___1aca5h:
 		eax += 4;
 		memset(eax, edx, ebx);
 		eax = esi;
-		dRally_Memory_free(eax);
+		dRMemory_free(eax);
 		eax = D(esp+8);
-		dRally_Memory_free(eax);
+		dRMemory_free(eax);
 		eax = 1;
 		return eax;
 ___1ace1h:
@@ -231,9 +231,9 @@ ___1ace1h:
 		X(edx) = W(eax);
 		W(eax+2) = X(edx);
 		eax = esi;
-		dRally_Memory_free(eax);
+		dRMemory_free(eax);
 		eax = D(esp+8);
-		dRally_Memory_free(eax);
+		dRMemory_free(eax);
 		eax = 0;  
 		return eax;
 }

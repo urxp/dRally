@@ -1,16 +1,30 @@
 #include "drally.h"
+#include "sfx.h"
 
-	extern byte ___24cc58h[];
-	extern byte ___24cc54h[];
+#pragma pack(1)
+typedef struct rgb24_s {
+	__BYTE__ 	r;
+	__BYTE__ 	g;
+	__BYTE__ 	b;
+} rgb24_t;
+
+typedef struct font_props_s {
+	byte 	w;
+	byte 	h;
+	byte 	props[];
+} font_props_t;
+
+	extern __DWORD__ ___24cc58h_msx_volume;
+	extern __DWORD__ ___24cc54h_sfx_volume;
 	extern byte ___196abch[];
 	extern byte ___1a2010h[];
-	extern byte ___19bd58h[];
+	extern __DWORD__ ___19bd58h_gamepad;
 	extern byte ___196ab8h[];
-	extern byte ___196a90h[];
+	extern __DWORD__ ___196a90h_modem_dialing;
 	extern byte ___1a1ef8h[];
-	extern byte ___1a0fb8h[];
-	extern byte ___1a1138h__VESA101h_DefaultScreenBufferB[];
-	extern byte ___1a112ch__VESA101_ACTIVESCREEN_PTR[];
+	extern rgb24_t * ___1a0fb8h;
+	extern void * ___1a1138h__VESA101h_DefaultScreenBufferB;
+	extern void * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
 	extern byte ___1a01e0h[];
 	extern byte ___196d84h[];
 	extern byte ___185a2ch[];
@@ -19,7 +33,7 @@
 	extern byte ___1a1124h__VESA101h_ScreenBufferA[];
 	extern byte ___1a1ef4h[];
 	extern byte ___185c0bh[];
-	extern byte ___1a1108h[];
+	extern void * ___1a1108h;
 	extern byte ___185ba9h[];
 	extern byte ___1a10cch[];
 	extern byte ___1866b8h[];
@@ -38,7 +52,7 @@ void ___12940h(void);
 void restoreDefaultScreenBuffer();
 void restoreDefaultScreenBufferA();
 
-void dRally_Sound_load(dword msx_t, dword msx_f, dword sfx_t, dword sfx_f, dword num_ch);
+void dRally_Sound_load(dword msx_t, const char * msx_f, dword sfx_t, const char * sfx_f, dword num_ch);
 void dRally_Sound_setMusicVolume(dword vol);
 void dRally_Sound_setEffectsVolume(dword vol);
 void dRally_Sound_setMasterVolume(dword vol);
@@ -71,6 +85,7 @@ dword menu___3e4a0h(void);
 #endif // DR_CDCHECK
 void ___13248h_cdecl(dword, dword ,dword, dword, dword);
 void ___12e78h_cdecl(dword, dword, dword, dword);
+void ___12e78h_v2(void * font, font_props_t * font_props, const char * str, int x, int y);
 void ___13bd4h_cdecl(dword, dword);
 byte ___5994ch(void);
 byte ___59b3ch(void);
@@ -81,7 +96,7 @@ void menu___218b4h(void);
 void menu___22a80h(void);
 void menu___3d4f0h(void);
 void menu___3da48h(void);
-byte ___148cch_cdecl(dword, dword, dword, dword);
+byte ___148cch_cdecl(dword, dword, dword, void *);
 
 void dRally_Console_clear(void);
 void dRally_Console_newLine(const char *, int);
@@ -90,7 +105,8 @@ void setIntensity___19eb50h(dword);
 void menu_main(void){
 
     dword   n;
-    dword   eax, ebx, ecx, edx, esi, edi, ebp;
+    dword   eax, ebx, ecx, esi, edi, ebp;
+	void * 	edx;
     byte    esp[0x2c];
 
 
@@ -100,8 +116,8 @@ void menu_main(void){
 	D(esp+0x20) = 0xaf;
 
 	dRally_Sound_load(1, "MEN-MUS.CMF", 2, "MEN-SAM.CMF", 5);
-	dRally_Sound_setMusicVolume(D(___24cc58h));
-	dRally_Sound_setEffectsVolume(D(___24cc54h));
+	dRally_Sound_setMusicVolume(___24cc58h_msx_volume);
+	dRally_Sound_setEffectsVolume(___24cc54h_sfx_volume);
 	dRally_Sound_setPosition(0x2d00);
 	dRally_Sound_setSampleRate(0x5622);
 	dRally_Sound_play();
@@ -111,7 +127,7 @@ void menu_main(void){
 	D(___196ab8h) = 4;
 	B(___1a2010h+4) = B(___196abch+3);
 
-	if((D(___19bd58h) == 1)||(D(___19bd58h) == 2)){
+	if((___19bd58h_gamepad == 1)||(___19bd58h_gamepad == 2)){
 
 		___596f0h();
 		strcpy(___1866b8h+0x60e, "Gamepad/Joystick Enabled");
@@ -123,7 +139,7 @@ void menu_main(void){
 		B(___185b58h+3*9+3) = 0;
 	}
 
-	if(D(___196a90h) == 0) strcpy(___1866b8h+0xd7a, "Pulse Dialing");  
+	if(___196a90h_modem_dialing == 0) strcpy(___1866b8h+0xd7a, "Pulse Dialing");  
 
 	srand_watcom106(__GET_TIMER_TICKS());
 	___606dfh();
@@ -152,9 +168,9 @@ void menu_main(void){
 	___3d2bch();
 	___12940h();
 
-	edx = 3*D(___1a01e0h+0x2c+0x6c*D(___1a1ef8h))+D(___1a0fb8h);
+	edx = &___1a0fb8h[D(___1a01e0h+0x2c+0x6c*D(___1a1ef8h))];
 	___11564h_cdecl(B(edx), B(edx+1), B(edx+2));
-	memcpy(D(___1a112ch__VESA101_ACTIVESCREEN_PTR), D(___1a1138h__VESA101h_DefaultScreenBufferB), 0x4b000);
+	memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR, ___1a1138h__VESA101h_DefaultScreenBufferB, 0x4b000);
 	D(0x6c*D(___1a1ef8h)+___1a01e0h+0x40) = 0;
 	B(0x6c*D(___1a1ef8h)+___1a01e0h) = 0;
 
@@ -178,7 +194,7 @@ void menu_main(void){
 
 		while(1){
 
-			memcpy(D(___1a112ch__VESA101_ACTIVESCREEN_PTR)+0xd200, D(___1a1138h__VESA101h_DefaultScreenBufferB)+0xd200, 0x2c380);
+			memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR+0xd200, ___1a1138h__VESA101h_DefaultScreenBufferB+0xd200, 0x2c380);
 			___13710h(0, 1);
 
 			if(D(___196d84h)||D(___185a2ch)){
@@ -243,14 +259,14 @@ void menu_main(void){
 						
 					___13710h(0, 0);
 					___13248h_cdecl(D(esp+0x18), D(esp+0x20), 0x1e4, 0x61, 1);
-					___12e78h_cdecl(D(___1a1108h), ___185c0bh, "Please insert Death Rally to CD-ROM drive!", D(esp+0x10));
+					___12e78h_cdecl(___1a1108h, ___185c0bh, "Please insert Death Rally to CD-ROM drive!", D(esp+0x10));
 					___12e78h_cdecl(D(___1a10cch), ___185ba9h, "CONTINUE", D(esp+0x14));
 					___13bd4h_cdecl(ebp, D(esp+4));
 					___12cb8h__VESA101_PRESENTSCREEN();
 
 					while(1){
 
-						dRally_Sound_pushEffect(1, 0x1d, 0, D(___24cc54h), 0x28000, 0x8000);
+						dRally_Sound_pushEffect(1, SFX_BUMMER, 0, ___24cc54h_sfx_volume, 0x28000, 0x8000);
 						___5994ch();
 						___59b3ch();
 						H(ebx) = 0;
@@ -293,9 +309,10 @@ void menu_main(void){
 				break;
 			case 7: // EXIT TO DOS
 				___13710h(0, 0);
-				___13248h_cdecl(0xaa, 0xc8, 0x12c, 0x50, 1);
-				___12e78h_cdecl(D(___1a1108h), ___185c0bh, "Are you sure?", 0x208fd);
-				___148cch_cdecl(0xb4, 0xee, 1, esp+0xc);
+				___13248h_cdecl(170, 200, 300, 80, 1);
+				//___12e78h_cdecl(___1a1108h, ___185c0bh, "Are you sure?", 0x208fd);
+				___12e78h_v2(___1a1108h, ___185c0bh, "Are you sure?", 253, 208);
+				___148cch_cdecl(180, 238, 1, esp+0xc);
 				break;
 			default:
 				break;

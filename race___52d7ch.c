@@ -20,9 +20,9 @@ typedef struct spectator_s {
 	extern byte ___196dc8h[];
 	extern byte ___196dcch[];
 	extern byte ___196d98h[];
-	extern byte ___243d40h[];
-	extern byte ___243d80h[];
-	extern byte ___243288h[];
+	extern void * ___243d40h;
+	extern void * ___243d80h;
+	extern void * ___243288h[2];
 
 dword __GET_FRAME_COUNTER(void);
 
@@ -31,6 +31,8 @@ void race___52d7ch(void){
 	dword 	eax, ebx, ecx, edx, edi, esi, ebp;
 	byte 	esp[4];
 	dword 	n, i, j;
+	void * 	ebxp;
+	void * 	edip;
 
 	n = -1;
 	while(++n < 0x14){
@@ -79,31 +81,32 @@ void race___52d7ch(void){
 					}
 
 					if(SPECTATORS[n].dead != 0){
-						ebx = D(4*(SPECTATORS[n].x%2)+___243288h)+0x100*SPECTATORS[n].frame;
+						ebxp = ___243288h[SPECTATORS[n].x%2]+0x100*SPECTATORS[n].frame;
 					}
 					else {
-						ebx = D(___243d40h)+0xc00*SPECTATORS[n].type+0x300*SPECTATORS[n].rot+0x100*SPECTATORS[n].frame;
+						ebxp = ___243d40h+0xc00*SPECTATORS[n].type+0x300*SPECTATORS[n].rot+0x100*SPECTATORS[n].frame;
 					}
 
 					if((int)eax <= 0xb7){
 						ecx = 0x10-edx;
-						ebx += 0x10*edx;
+						ebxp = ebxp+0x10*edx;
 					}
 					else {
 						ecx = 0xc8-eax;
 					}
 
-					edi = D(___243d80h)+0x60+0x200*eax+SPECTATORS[n].x-D(___196dc8h)+D(___196d98h);
+					edip = ___243d80h+0x60+0x200*eax+SPECTATORS[n].x-D(___196dc8h)+D(___196d98h);
 
 					j = -1;
 					while(++j < L(ecx)){
 						i = -1;
 						while(++i < 0x10){
-							if(B(ebx) != 0) B(edi) = B(ebx);
-							ebx++;
-							edi++;
+
+							if(B(ebxp) != 0) B(edip) = B(ebxp);
+							ebxp++;
+							edip++;
 						}
-						edi += 0x1f0;
+						edip += 0x1f0;
 					}
 				}
 			}

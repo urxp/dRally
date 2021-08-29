@@ -1,41 +1,42 @@
 #include "drally.h"
 #include "drally_keyboard.h"
 #include "drally_race.h"
+#include "drmemory.h"
 
 	extern byte ___243ce8h[];
 	extern byte ___243cf4h[];
 	extern byte ___19bd60h[];
 	extern byte ___243d28h[];
 	extern byte ___243d2ch[];
-	extern byte ___243d58h[];
+	extern void * ___243d58h;
 	extern byte ___243d04h[];
-	extern byte ___243d60h[];
+	extern void * ___243d60h;
 	extern byte ___243d30h[];
 	extern byte ___243d10h[];
-	extern byte ___243d78h[];
+	extern void * ___243d78h;
 	extern byte ___243cf8h[];
-	extern byte ___243d54h[];
-	extern byte ___243d5ch[];
-	extern byte ___243d80h[];
-	extern byte ___243d74h[];
-	extern byte ___243d50h[];
-	extern byte ___243d6ch[];
-	extern byte ___243d48h[];
-	extern byte ___243d4ch[];
-	extern byte ___243d70h[];
-	extern byte ___243d84h[];
-	extern byte ___243d3ch[];
-	extern byte ___243298h[];
-	extern byte ___243d8ch[];
-	extern byte ___243d7ch[];
-	extern byte ___243d34h[];
-	extern byte ___243d88h[];
-	extern byte ___243d38h[];
-	extern byte ___243d40h[];
-	extern byte ___243288h[];
-	extern byte ___243290h[];
-	extern byte ___243d68h[];
-	extern byte ___243d64h[];
+	extern void * ___243d54h;
+	extern void * ___243d5ch;
+	extern void * ___243d80h;
+	extern void * ___243d74h;
+	extern void * ___243d50h;
+	extern void * ___243d6ch;
+	extern void * ___243d48h;
+	extern void * ___243d4ch;
+	extern void * ___243d70h;
+	extern void * ___243d84h;
+	extern void * ___243d3ch;
+	extern void * ___243298h[6];
+	extern void * ___243d8ch;
+	extern void * ___243d7ch;
+	extern void * ___243d34h;
+	extern void * ___243d88h;
+	extern void * ___243d38h;
+	extern void * ___243d40h;
+	extern void * ___243288h[2];
+	extern void * ___243290h[2];
+	extern void * ___243d68h;
+	extern void * ___243d64h;
 	extern byte ___243d08h[];
 	extern byte ___243d0ch[];
 	extern byte ___1de580h[];
@@ -46,8 +47,8 @@
 	extern byte ___243878h[];
 	extern void_cb ___2432c8h;
 	extern char ___19bd64h[16];
-	extern byte ___24cc58h[];
-	extern byte ___24cc54h[];
+	extern __DWORD__ ___24cc58h_msx_volume;
+	extern __DWORD__ ___24cc54h_sfx_volume;
 	extern byte ___196dach[];
 	extern byte ___243ca4h[];
 	extern byte ___243ca0h[];
@@ -85,8 +86,8 @@
 	extern byte ___1de7d0h[];
 	extern byte ___196dd8h[];
 	extern byte ___243d44h[];
-	extern byte ___243314h[];
-	extern byte ___243310h[];
+	extern void * ___243314h;
+	extern void * ___243310h;
 
 void race___400ech(void);
 void race___46a10h(void);
@@ -116,7 +117,7 @@ void race___4f030h(void);
 void race___4ee9ch(void);
 void race___46738h__VGA13_PRESENTCLEARSCREEN(void);
 void race___478c8h(dword);
-void race___47808h(dword, dword, dword);
+void race___47808h(dword, dword, const char *);
 void race___477d4h(void);
 void race___48458h(void);
 void race___49390h(void);
@@ -143,7 +144,6 @@ void race___496b0h(void);
 void race___4af3ch(void);
 void race___45a24h(void);
 void * ___3f71ch__allocateMemory(dword);
-void dRally_Memory_free(void *);
 void race___3f970h(void);
 void race___49a34h(void);
 void race___40164h(void);
@@ -154,7 +154,7 @@ void dRally_Sound_stop(void);
 void dRally_Sound_release(void);
 void ___606dfh(void);
 void ___605deh_cdecl(dword, dword);
-void dRally_Sound_load(dword msx_t, dword msx_f, dword sfx_t, dword sfx_f, dword num_ch);
+void dRally_Sound_load(dword msx_t, const char * msx_f, dword sfx_t, const char * sfx_f, dword num_ch);
 void dRally_Sound_setMasterVolume(dword vol);
 void dRally_Sound_setMusicVolume(dword vol);
 void dRally_Sound_setEffectsVolume(dword vol);
@@ -285,38 +285,38 @@ void race_main(dword A1, dword A2){
 
 	___60705h(&race___40164h);
 	race___49bd4h();
-	D(___243d58h) = ___3f71ch__allocateMemory(D(___243d28h)*D(___243d2ch));
-	D(___243d60h) = ___3f71ch__allocateMemory(D(___243d28h)*D(___243d2ch));
-	D(___243d78h) = ___3f71ch__allocateMemory(D(___243d30h)*D(___243d04h));
-	D(___243d54h) = ___3f71ch__allocateMemory(D(___243cf8h)*D(___243d10h));
-	D(___243d5ch) = ___3f71ch__allocateMemory(0x5f370);
-	D(___243d80h) = ___3f71ch__allocateMemory(0x19400)+0x200;
-	D(___243d74h) = ___3f71ch__allocateMemory(0x96000);
-	D(___243d50h) = ___3f71ch__allocateMemory(0x4b000);
-	D(___243d6ch) = ___3f71ch__allocateMemory(0x3840);
-	D(___243d34h) = ___3f71ch__allocateMemory(0x30);
-	D(___243d48h) = ___3f71ch__allocateMemory(0x240);
-	D(___243d4ch) = ___3f71ch__allocateMemory(0x3c90);
-	D(___243d70h) = ___3f71ch__allocateMemory(0x3c90);
-	D(___243d84h) = ___3f71ch__allocateMemory(0x800);
-	D(___243d3ch) = ___3f71ch__allocateMemory(0x268);
-	D(___243298h) = ___3f71ch__allocateMemory(0xc00);
-	D(___243298h+4) = ___3f71ch__allocateMemory(0xc00);
-	D(___243298h+8) = ___3f71ch__allocateMemory(0xc00);
-	D(___243298h+0xc) = ___3f71ch__allocateMemory(0xc00);
-	D(___243298h+0x10) = ___3f71ch__allocateMemory(0xc00);
-	D(___243298h+0x14) = ___3f71ch__allocateMemory(0xc00);
-	D(___243d8ch) = ___3f71ch__allocateMemory(0x140);
-	D(___243d7ch) = ___3f71ch__allocateMemory(0x600);
-	D(___243d88h) = ___3f71ch__allocateMemory(0x480);
-	D(___243d38h) = ___3f71ch__allocateMemory(0x800);
-	D(___243d40h) = ___3f71ch__allocateMemory(0x2400);
-	D(___243288h) = ___3f71ch__allocateMemory(0x800);
-	D(___243288h+4) = ___3f71ch__allocateMemory(0x800);
-	D(___243290h) = ___3f71ch__allocateMemory(0x1800);
-	D(___243290h+4) = ___3f71ch__allocateMemory(0x1800);
-	D(___243d68h) = ___3f71ch__allocateMemory(0x800);
-	D(___243d64h) = ___3f71ch__allocateMemory(0xc0);
+	___243d58h = ___3f71ch__allocateMemory(D(___243d28h)*D(___243d2ch));
+	___243d60h = ___3f71ch__allocateMemory(D(___243d28h)*D(___243d2ch));
+	___243d78h = ___3f71ch__allocateMemory(D(___243d30h)*D(___243d04h));
+	___243d54h = ___3f71ch__allocateMemory(D(___243cf8h)*D(___243d10h));
+	___243d5ch = ___3f71ch__allocateMemory(0x5f370);
+	___243d80h = ___3f71ch__allocateMemory(0x19400)+0x200;
+	___243d74h = ___3f71ch__allocateMemory(0x96000);
+	___243d50h = ___3f71ch__allocateMemory(0x4b000);
+	___243d6ch = ___3f71ch__allocateMemory(0x3840);
+	___243d34h = ___3f71ch__allocateMemory(0x30);
+	___243d48h = ___3f71ch__allocateMemory(0x240);
+	___243d4ch = ___3f71ch__allocateMemory(0x3c90);
+	___243d70h = ___3f71ch__allocateMemory(0x3c90);
+	___243d84h = ___3f71ch__allocateMemory(0x800);
+	___243d3ch = ___3f71ch__allocateMemory(0x268);
+	___243298h[0] = ___3f71ch__allocateMemory(0xc00);
+	___243298h[1] = ___3f71ch__allocateMemory(0xc00);
+	___243298h[2] = ___3f71ch__allocateMemory(0xc00);
+	___243298h[3] = ___3f71ch__allocateMemory(0xc00);
+	___243298h[4] = ___3f71ch__allocateMemory(0xc00);
+	___243298h[5] = ___3f71ch__allocateMemory(0xc00);
+	___243d8ch = ___3f71ch__allocateMemory(0x140);
+	___243d7ch = ___3f71ch__allocateMemory(0x600);
+	___243d88h = ___3f71ch__allocateMemory(0x480);
+	___243d38h = ___3f71ch__allocateMemory(0x800);
+	___243d40h = ___3f71ch__allocateMemory(0x2400);
+	___243288h[0] = ___3f71ch__allocateMemory(0x800);
+	___243288h[1] = ___3f71ch__allocateMemory(0x800);
+	___243290h[0] = ___3f71ch__allocateMemory(0x1800);
+	___243290h[1] = ___3f71ch__allocateMemory(0x1800);
+	___243d68h = ___3f71ch__allocateMemory(0x800);
+	___243d64h = ___3f71ch__allocateMemory(0xc0);
 	race___4539ch();
 	___2432c8h = &race___492f4h;
 	race___42824h();
@@ -345,8 +345,8 @@ void race_main(dword A1, dword A2){
 
 	dRally_Sound_load(1, strcat(strcpy(esp, ___19bd64h), "-MUS.CMF"), 2, "GEN-EFE.CMF", 0xe);
 	dRally_Sound_setMasterVolume(0);
-	dRally_Sound_setMusicVolume(D(___24cc58h));
-	dRally_Sound_setEffectsVolume(D(___24cc54h));
+	dRally_Sound_setMusicVolume(___24cc58h_msx_volume);
+	dRally_Sound_setEffectsVolume(___24cc54h_sfx_volume);
 	dRally_Sound_setSampleRate(0x5622);
 	dRally_Sound_play();
 	dRally_Sound_setMasterVolume(0);
@@ -385,11 +385,9 @@ void race_main(dword A1, dword A2){
 
 	while(1){
 
-		edx = 0;
-		D(___243ca8h) = edx;
-		eax = D(___243898h);
-		D(___243874h) = eax;
-		D(___243898h) = edx;
+		D(___243ca8h) = 0;
+		D(___243874h) = D(___243898h);
+		D(___243898h) = 0;
 		eax = 0x35e*D(___243ce8h);
 		edx = D(eax+___1e6ed0h+0xa0);
 		esi = D(___196df0h);
@@ -398,17 +396,15 @@ void race_main(dword A1, dword A2){
 		if((int)esi > 0){
 
 			eax = D(___243334h);
-			edi = esi;
-			edi -= eax;
+			edi = esi-eax;
 			D(___196df0h) = edi;
 
 			if((int)edi <= 0){
 
 				ecx = 0x10000;
-				edx = 4;
 				eax = ebp;
 				ebx = 0;
-				dRally_Sound_pushEffect(eax, edx, ebx, ecx, 0x50000, 0x8000);
+				dRally_Sound_pushEffect(eax, 4, ebx, ecx, 0x50000, 0x8000);
 				edx = 0;
 				D(___196df0h) = edx;
 			}
@@ -1034,11 +1030,14 @@ void race_main(dword A1, dword A2){
 				dRally_Sound_adjustEffect(eax, edx, ebx, ecx);
 				race___54668h();
 				race___55ae0h();
-				eax = D(___19bd60h);
-
-				if((eax == 0)||(D(___243318h) == 0)) race___56170h();
 
 #if defined(DR_MULTIPLAYER)
+				if((D(___19bd60h) == 0)||(D(___243318h) == 0)){
+#endif // DR_MULTIPLAYER
+					race___56170h();
+#if defined(DR_MULTIPLAYER)
+				}
+
 				if(D(___19bd60h) == 0){
 #endif // DR_MULTIPLAYER			
 					edi = D(___243ce8h);
@@ -1168,14 +1167,14 @@ void race_main(dword A1, dword A2){
 
 		if(kmap[DR_SCAN_F2] != 0){	// MSX
 
-			dRally_Sound_setMusicVolume(dRally_Race_getSettings(RACE_MSX) ? 0 : D(___24cc58h));
+			dRally_Sound_setMusicVolume(dRally_Race_getSettings(RACE_MSX) ? 0 : ___24cc58h_msx_volume);
 			dRally_Race_toggleSettings(RACE_MSX);
 			kmap[DR_SCAN_F2] = 0;
 		}
 
 		if(kmap[DR_SCAN_F3] != 0){	// SFX
 
-			dRally_Sound_setEffectsVolume(dRally_Race_getSettings(RACE_SFX) ? 0 : D(___24cc54h));
+			dRally_Sound_setEffectsVolume(dRally_Race_getSettings(RACE_SFX) ? 0 : ___24cc54h_sfx_volume);
 			dRally_Race_toggleSettings(RACE_SFX);
 			kmap[DR_SCAN_F3] = 0;
 		}
@@ -1245,33 +1244,14 @@ void race_main(dword A1, dword A2){
 
 		while(1){
 
-			eax = D(___243d58h);
-			edx = D(___196dc8h);
-			edi = D(___243d28h);
-			edx += eax;
-			eax = D(___196dcch);
-			eax = eax*edi;
 			ecx = D(___196d88h);
-			esi = D(___243d0ch);
-			eax += edx;
-			edx = D(___196d98h);
-			esi += eax;
-			eax = D(___243d80h);
 			ecx = (int)ecx>>2;
-			eax += edx;
-			edi = D(___243d08h);
-			eax += 0x60;
-			ecx++;
-			edi += eax;
-			while(ecx--||++ecx){ D(edi) = D(esi); edi += 4; esi += 4; }
-			ebx = D(___243d08h);
-			eax = D(___243d28h);
-			ecx = D(___243d0ch);
-			ebx += 0x200;
-			ecx += eax;
-			D(___243d08h) = ebx;
-			D(___243d0ch) = ecx;
-			if((int)ebx >= 0x19000) break;
+
+			memcpy(___243d80h+D(___243d08h)+D(___196d98h)+0x60, ___243d58h+D(___196dc8h)+D(___243d0ch)+D(___196dcch)*D(___243d28h), 4*(ecx+1));
+			D(___243d08h) += 0x200;
+			D(___243d0ch) += D(___243d28h);
+
+			if((int)D(___243d08h) >= 0x19000) break;
 		}
 
 #if defined(DR_MULTIPLAYER)
@@ -1360,14 +1340,7 @@ void race_main(dword A1, dword A2){
 
 				while(1){
 
-					eax = D(___243d80h);
-					esi = D(___243d0ch);
-					edi = D(___243d08h);
-					ecx = edx;
-					eax += 0x60;
-					edi = edi+VGA13_ACTIVESCREEN;
-					esi += eax;
-					while(ecx--||++ecx){ D(edi) = D(esi); edi += 4; esi += 4; }
+					memcpy(VGA13_ACTIVESCREEN+D(___243d08h), ___243d80h+D(___243d0ch)+0x60, 4*edx);
 					ebx = D(___243d08h);
 					ecx = D(___243d0ch);
 					ebx += 0x140;
@@ -1627,39 +1600,39 @@ void race_main(dword A1, dword A2){
 	dRally_Sound_stop();
 	dRally_Sound_release();
 	race___400ech();
-	dRally_Memory_free(D(___243d58h));
-	dRally_Memory_free(D(___243d60h));
-	dRally_Memory_free(D(___243d78h));
-	dRally_Memory_free(D(___243d54h));
-	dRally_Memory_free(D(___243d5ch));
-	dRally_Memory_free(D(___243d80h)-0x200);
-	dRally_Memory_free(D(___243d74h));
-	dRally_Memory_free(D(___243d50h));
-	dRally_Memory_free(D(___243d34h));
-	dRally_Memory_free(D(___243d6ch));
-	dRally_Memory_free(D(___243d48h));
-	dRally_Memory_free(D(___243d4ch));
-	dRally_Memory_free(D(___243d70h));
-	dRally_Memory_free(D(___243d84h));
-	dRally_Memory_free(D(___243d3ch));
-	dRally_Memory_free(D(___243298h));
-	dRally_Memory_free(D(___243298h+4));
-	dRally_Memory_free(D(___243298h+8));
-	dRally_Memory_free(D(___243298h+0xc));
-	dRally_Memory_free(D(___243298h+0x10));
-	dRally_Memory_free(D(___243298h+0x14));
-	dRally_Memory_free(D(___243d8ch));
-	dRally_Memory_free(D(___243d7ch));
-	dRally_Memory_free(D(___243d88h));
-	dRally_Memory_free(D(___243d38h));
-	dRally_Memory_free(D(___243d40h));
-	dRally_Memory_free(D(___243288h));
-	dRally_Memory_free(D(___243288h+4));
-	dRally_Memory_free(D(___243290h));
-	dRally_Memory_free(D(___243290h+4));
-	dRally_Memory_free(D(___243d68h));
-	dRally_Memory_free(D(___243d64h));
-	dRally_Memory_free(D(___243314h));
-	dRally_Memory_free(D(___243310h));
+	dRMemory_free(___243d58h);
+	dRMemory_free(___243d60h);
+	dRMemory_free(___243d78h);
+	dRMemory_free(___243d54h);
+	dRMemory_free(___243d5ch);
+	dRMemory_free(___243d80h-0x200);
+	dRMemory_free(___243d74h);
+	dRMemory_free(___243d50h);
+	dRMemory_free(___243d34h);
+	dRMemory_free(___243d6ch);
+	dRMemory_free(___243d48h);
+	dRMemory_free(___243d4ch);
+	dRMemory_free(___243d70h);
+	dRMemory_free(___243d84h);
+	dRMemory_free(___243d3ch);
+	dRMemory_free(___243298h[0]);
+	dRMemory_free(___243298h[1]);
+	dRMemory_free(___243298h[2]);
+	dRMemory_free(___243298h[3]);
+	dRMemory_free(___243298h[4]);
+	dRMemory_free(___243298h[5]);
+	dRMemory_free(___243d8ch);
+	dRMemory_free(___243d7ch);
+	dRMemory_free(___243d88h);
+	dRMemory_free(___243d38h);
+	dRMemory_free(___243d40h);
+	dRMemory_free(___243288h[0]);
+	dRMemory_free(___243288h[1]);
+	dRMemory_free(___243290h[0]);
+	dRMemory_free(___243290h[1]);
+	dRMemory_free(___243d68h);
+	dRMemory_free(___243d64h);
+	dRMemory_free(___243314h);
+	dRMemory_free(___243310h);
 	kmap[DR_SCAN_ESCAPE] = 0;
 }

@@ -1,10 +1,17 @@
 #include "drally.h"
 
+#pragma pack(1)
+typedef struct font_props_s {
+	byte 	w;
+	byte 	h;
+	byte 	props[];
+} font_props_t;
+
 	extern byte ___185ba9h[];
-	extern byte ___1a10cch[];
+	extern void * ___1a10cch;
 
 void ___13248h_cdecl(dword, dword ,dword, dword, dword);
-void ___12e78h_cdecl(dword, dword, dword, dword);
+void ___12e78h_cdecl(byte * A1, font_props_t * A2, const char * A3, dword dst_off);
 void ___13094h_cdecl(const char *, dword);
 
 void ___164d0h(void){
@@ -20,5 +27,5 @@ void ___164d0h(void){
 	___13094h_cdecl("stride to strive, evolve, improve, better,", 0x278bc);
 	___13094h_cdecl("best. [Buy & be one shining perfection.{", 0x2a0bc);
 	___13094h_cdecl("", 0x2c8bc);
-	___12e78h_cdecl(D(___1a10cch), ___185ba9h, "CONTINUE", 0x316c0);
+	___12e78h_cdecl(___1a10cch, ___185ba9h, "CONTINUE", 0x316c0);
 }

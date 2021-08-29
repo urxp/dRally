@@ -12,3 +12,4 @@ z_regex*
 *.obj
 *_ok.c
 *.zip
+*_32b.c

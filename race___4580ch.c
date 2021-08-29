@@ -1,83 +1,43 @@
 #include "drally.h"
 
-	extern byte ___1a4ec0h[];
+#pragma pack(1)
+typedef struct rgb24_s {
+	byte 	r;
+	byte 	g;
+	byte 	b;
+} rgb24_t;
+
+typedef rgb24_t pal256_t[0x100];
+
+	extern pal256_t ___1a4ec0h;
 
 
 void dRally_Sound_setMasterVolume(dword vol);
 void __DISPLAY_SET_PALETTE_COLOR(dword b, dword g, dword r, dword n);
-void DISPLAY_GET_PALETTE(unsigned char * dst);
+void DISPLAY_GET_PALETTE(pal256_t *);
 void ___58c60h(void);
 
 void race___4580ch(void){
 
-	dword 	eax, ebx, ecx, edx, edi, esi, ebp, P1, P2, P3, P4;
-	byte 	esp[0x20];
-	double 	d_tmp;
+	int 	m, n;
 
+	DISPLAY_GET_PALETTE(&___1a4ec0h);
 
-		edx = 0;
-		D(esp+0x8) = edx;
-		DISPLAY_GET_PALETTE(___1a4ec0h);
-		D(esp+0x1c) = 0x28;
-___45874h:
-		ebx = 0;
-		esi = 0;
-		D(esp+0x8) = ebx;
-___4587ch:
-		eax = 0;
-		L(eax) = B(esp+8);
-		P1 = eax;
-		eax = 0;
-		L(eax) = B(esi+___1a4ec0h);
-		D(esp+0x10) = eax;
-		FPUSH((short)W(esp+0x10));
-		FPUSH((int)D(esp+0x1c));
-		F64(esp+0x14) = ST(0);
-		ST(0) = ST(0)/40.0;
-		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
-		ST(0) = ST(0)*ST(1);
-		ST(0) = (int)ST(0);
-		D(esp+0xc) = (int)FPOP();
-		L(eax) = B(esp+0xc);
-		eax &= 0xff;
-		P2 = eax;
-		eax = 0;
-		L(eax) = B(esi+___1a4ec0h+1);
-		D(esp+0x10) = eax;
-		FPUSH((short)W(esp+0x10));
-		ST(0) = ST(0)*ST(1);
-		ST(0) = (int)ST(0);
-		D(esp+0xc) = (int)FPOP();
-		L(eax) = B(esp+0xc);
-		eax &= 0xff;
-		P3 = eax;
-		eax = 0;
-		L(eax) = B(esi+___1a4ec0h+2);
-		D(esp+0x10) = eax;
-		FPUSH((short)W(esp+0x10));
-		ST(1) = ST(1)*ST(0); FPOP();
-		ST(0) = (int)ST(0);
-		D(esp+0xc) = (int)FPOP();
-		L(eax) = B(esp+0xc);
-		eax &= 0xff;
-		P4 = eax;
-		__DISPLAY_SET_PALETTE_COLOR(P4, P3, P2, P1);
-		ecx = D(esp+0x8);
-		ecx++;
-		esi += 3;
-		D(esp+0x8) = ecx;
-		if((int)ecx < 0x100) goto ___4587ch;
+	m = 40;
+	while(m >= 0){
+
+		n = -1;
+		while(++n < 0x100){
+
+			__DISPLAY_SET_PALETTE_COLOR(
+				(int)(((double)m/40.0)*(double)___1a4ec0h[n].b),
+				(int)(((double)m/40.0)*(double)___1a4ec0h[n].g),
+				(int)(((double)m/40.0)*(double)___1a4ec0h[n].r),
+				n);
+		}
+
 		___58c60h();
-		FPUSH(F64(esp+0x14));
-		ST(0) = ST(0)*1638.4;
-		ST(0) = (int)ST(0);
-		D(esp+0xc) = (int)FPOP();
-		eax = D(esp+0xc);
-		dRally_Sound_setMasterVolume(eax);
-		eax = D(esp+0x1c);
-		eax--;
-		D(esp+0x1c) = eax;
-		if((int)eax >= 0) goto ___45874h;
-
-		return;
+		dRally_Sound_setMasterVolume((int)(1638.4*(double)m));
+		m--;
+	}
 }

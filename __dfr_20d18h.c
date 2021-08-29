@@ -4,14 +4,14 @@ cpu 386
 
 	extern	__CHK
 	extern 	__MOVS
-	extern	___1a1164h
+	extern	___1a1164h_gp_accelerate
 	extern	___199f3dh
-	extern	___1a113ch
-	extern	___1a1110h
-	extern	___1a1130h
-	extern	___1a1120h
-	extern	___1a1118h
-	extern	___1a111ch
+	extern	___1a113ch_gp_brake
+	extern	___1a1110h_gp_steer_left
+	extern	___1a1130h_gp_steer_right
+	extern	___1a1120h_gp_turbo_boost
+	extern	___1a1118h_gp_machine_gun
+	extern	___1a111ch_gp_drop_mine
 	extern	___1a112ch__VESA101_ACTIVESCREEN_PTR
 	extern	___1a1124h__VESA101h_ScreenBufferA
 	extern	___13248h_cdecl
@@ -20,7 +20,7 @@ cpu 386
 	extern	___1a10cch
 	extern	___12e78h_cdecl
 	extern	___12cb8h__VESA101_PRESENTSCREEN
-	extern	___24cc54h
+	extern	___24cc54h_sfx_volume
 	extern	dRally_Sound_pushEffect
 	extern	___5994ch
 	extern	___59b3ch
@@ -37,99 +37,99 @@ __GDECL(___20d18h)
 		push    edi
 		push    ebp
 		sub     esp, byte 28h
-		mov     ebp, [___1a1164h]
+		mov     ebp, [___1a1164h_gp_accelerate]
 		xor     ebx, ebx
 		mov     bl, [___199f3dh]
 		xor     al, al
 		cmp     ebp, ebx
 		je      short ___20d71h
-		cmp     ebp, [___1a113ch]
+		cmp     ebp, [___1a113ch_gp_brake]
 		je      short ___20d6fh
-		cmp     ebp, [___1a1110h]
+		cmp     ebp, [___1a1110h_gp_steer_left]
 		je      short ___20d6fh
-		cmp     ebp, [___1a1130h]
+		cmp     ebp, [___1a1130h_gp_steer_right]
 		je      short ___20d6fh
-		cmp     ebp, [___1a1120h]
+		cmp     ebp, [___1a1120h_gp_turbo_boost]
 		je      short ___20d6fh
-		cmp     ebp, [___1a1118h]
+		cmp     ebp, [___1a1118h_gp_machine_gun]
 		je      short ___20d6fh
-		cmp     ebp, [___1a111ch]
+		cmp     ebp, [___1a111ch_gp_drop_mine]
 		jne     short ___20d71h
 ___20d6fh:
 		mov     al, 1
 ___20d71h:
 		xor     ebx, ebx
-		mov     esi, [___1a113ch]
+		mov     esi, [___1a113ch_gp_brake]
 		mov     bl, [___199f3dh]
 		cmp     ebx, esi
 		je      short ___20dafh
-		cmp     esi, [___1a1110h]
+		cmp     esi, [___1a1110h_gp_steer_left]
 		je      short ___20dadh
-		cmp     esi, [___1a1130h]
+		cmp     esi, [___1a1130h_gp_steer_right]
 		je      short ___20dadh
-		cmp     esi, [___1a1120h]
+		cmp     esi, [___1a1120h_gp_turbo_boost]
 		je      short ___20dadh
 		mov     ebx, esi
-		cmp     ebx, [___1a1118h]
+		cmp     ebx, [___1a1118h_gp_machine_gun]
 		je      short ___20dadh
-		cmp     ebx, [___1a111ch]
+		cmp     ebx, [___1a111ch_gp_drop_mine]
 		jne     short ___20dafh
 ___20dadh:
 		mov     al, 1
 ___20dafh:
 		xor     ebx, ebx
-		mov     edx, [___1a1110h]
+		mov     edx, [___1a1110h_gp_steer_left]
 		mov     bl, [___199f3dh]
 		cmp     ebx, edx
 		je      short ___20de5h
-		cmp     edx, [___1a1130h]
+		cmp     edx, [___1a1130h_gp_steer_right]
 		je      short ___20de3h
-		cmp     edx, [___1a1120h]
+		cmp     edx, [___1a1120h_gp_turbo_boost]
 		je      short ___20de3h
-		cmp     edx, [___1a1118h]
+		cmp     edx, [___1a1118h_gp_machine_gun]
 		je      short ___20de3h
 		mov     ebx, edx
-		cmp     ebx, [___1a111ch]
+		cmp     ebx, [___1a111ch_gp_drop_mine]
 		jne     short ___20de5h
 ___20de3h:
 		mov     al, 1
 ___20de5h:
 		xor     ebx, ebx
-		mov     ecx, [___1a1130h]
+		mov     ecx, [___1a1130h_gp_steer_right]
 		mov     bl, [___199f3dh]
 		cmp     ebx, ecx
 		je      short ___20e11h
-		cmp     ecx, [___1a1120h]
+		cmp     ecx, [___1a1120h_gp_turbo_boost]
 		je      short ___20e0fh
-		cmp     ecx, [___1a1118h]
+		cmp     ecx, [___1a1118h_gp_machine_gun]
 		je      short ___20e0fh
-		cmp     ecx, [___1a111ch]
+		cmp     ecx, [___1a111ch_gp_drop_mine]
 		jne     short ___20e11h
 ___20e0fh:
 		mov     al, 1
 ___20e11h:
 		xor     ebx, ebx
-		mov     ecx, [___1a1120h]
+		mov     ecx, [___1a1120h_gp_turbo_boost]
 		mov     bl, [___199f3dh]
 		cmp     ebx, ecx
 		je      short ___20e35h
-		cmp     ecx, [___1a1118h]
+		cmp     ecx, [___1a1118h_gp_machine_gun]
 		je      short ___20e33h
-		cmp     ecx, [___1a111ch]
+		cmp     ecx, [___1a111ch_gp_drop_mine]
 		jne     short ___20e35h
 ___20e33h:
 		mov     al, 1
 ___20e35h:
 		xor     ebx, ebx
-		mov     edx, [___1a1118h]
+		mov     edx, [___1a1118h_gp_machine_gun]
 		mov     bl, [___199f3dh]
 		cmp     ebx, edx
 		je      short ___20e51h
-		cmp     edx, [___1a111ch]
+		cmp     edx, [___1a111ch_gp_drop_mine]
 		jne     short ___20e51h
 		mov     al, 1
 ___20e51h:
-		mov     [___1a1164h], ebp
+		mov     [___1a1164h_gp_accelerate], ebp
 		cmp     al, 1
 		jne     near ___20f66h
 		mov     ecx, 4b000h
@@ -204,7 +204,7 @@ ___20e51h:
 		mov     esi, 28000h
 		mov     eax, 1
 		push    esi
-		mov     ecx, [___24cc54h]
+		mov     ecx, [___24cc54h_sfx_volume]
 		xor     ebx, ebx
 	push 	ecx
 	push 	ebx
@@ -262,7 +262,7 @@ ___20f18h:
 	pop		edx
 
 		mov     eax, 1
-		mov     ebp, [___1a1164h]
+		mov     ebp, [___1a1164h_gp_accelerate]
 		add     esp, byte 28h
 		pop     ebp
 		pop     edi
@@ -273,7 +273,7 @@ ___20f18h:
 		retn    
 ___20f66h:
 		xor     eax, eax
-		mov     ebp, [___1a1164h]
+		mov     ebp, [___1a1164h_gp_accelerate]
 		add     esp, byte 28h
 		pop     ebp
 		pop     edi

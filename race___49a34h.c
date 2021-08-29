@@ -20,7 +20,7 @@
 	extern byte ___2438d0h[];
 	extern byte ___243cf0h[];
 	extern byte ___1df520h[];
-	extern byte ___243178h[];
+	extern int ___243178h[4];
 	extern byte ___243ce4h[];
 	extern byte ___243d08h[];
 	extern byte ___196df4h[];
@@ -77,7 +77,10 @@ void race___49a34h(void){
 
 	D(___243ce4h) = 0;
 	D(___243d08h) = 0x20;
-	memset(___243178h, 0xff, 0x10);
+	___243178h[0] = -1;
+	___243178h[1] = -1;
+	___243178h[2] = -1;
+	___243178h[3] = -1;
 	D(___196df4h) = 0;
 	D(___196dbch) = 0;
 	D(___196dc0h) = 0;

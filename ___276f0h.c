@@ -2,20 +2,20 @@
 
 typedef char char40[40];
 
-	extern byte ___1a112ch__VESA101_ACTIVESCREEN_PTR[];
+	extern void * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
 	extern void * ___1a1e98h;
 	extern byte ___1a1ef8h[];
 	extern byte ___18e298h[];
 	extern byte ___1a01e0h[];
-	extern byte ___1a1eb8h[];
+	extern void * ___1a1eb8h;
 	extern __DWORD__ ___18643ch[][0xc];
 	extern void * ___1a0198h[4];
 	extern byte ___1a1ec0h[];
 
-void ___259e0h_cdecl(dword, dword, dword, dword, dword);
+void ___259e0h_cdecl(int dx, int dy, int aFrameIdx, void * aEncoded, int * aOffsets);
 void ___13094h_cdecl(const char *, dword);
-dword ___25180h_cdecl(dword);
-void ___12f60h_cdecl(dword, dword);
+int ___25180h_cdecl(const char * A1);
+void ___12f60h_cdecl(const char * A1, dword A2);
 void ___13248h_cdecl(dword, dword ,dword, dword, dword);
 char * itoa_watcom106(int value, char * buffer, int radix);
 
@@ -59,29 +59,38 @@ void ___276f0h(void){
 
 	dword 	eax, ebx, ecx, edx, edi, esi, ebp;
 	byte 	esp[0x28];
+	void * 	ebxp;
+	void * 	esip;
 
 
 		ecx = 0x60;
-		ebx = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
-		esi = ___1a1e98h+0x2400;
-		ebx += 0x278f8;
+		ebxp = ___1a112ch__VESA101_ACTIVESCREEN_PTR+0x278f8;
+		esip = ___1a1e98h+0x2400;
 		edx = ecx;
 		L(edx) >>= 0x2;
-___2771eh:
-		H(ecx) = L(edx);
-___27720h:
-		eax = D(esi);
-		D(ebx) = eax;
-		ebx += 0x4;
-		esi += 0x4;
-		H(ecx)--;
-		if(H(ecx)) goto ___27720h;
-		ebx += 0x280;
-		L(edx) <<= 0x2;
-		ebx -= edx;
-		L(edx) >>= 0x2;
-		L(ecx)--;
-		if(L(ecx)) goto ___2771eh;
+
+		while(1){
+
+			H(ecx) = L(edx);
+
+			while(1){
+
+				eax = D(esip);
+				D(ebxp) = eax;
+				ebxp += 0x4;
+				esip += 0x4;
+				H(ecx)--;
+				if(H(ecx) == 0) break;
+			}
+
+			ebxp += 0x280;
+			L(edx) <<= 0x2;
+			ebxp -= edx;
+			L(edx) >>= 0x2;
+			L(ecx)--;
+			if(L(ecx) == 0) break;
+		}
+
 		edx = D(___1a1ef8h);
 		eax = 8*edx;
 		eax -= edx;
@@ -99,32 +108,37 @@ ___27720h:
 		eax--;
 		if(eax != ebx) goto ___277ddh;
 		ecx = 0x40;
-		ebx = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
 		edx = eax;
-		eax = D(___1a1eb8h);
 		esi = 4*edx;
-		ebx += 0x2a0f8;
-		esi -= edx;
-		eax += 0x6000;
+		ebxp = ___1a112ch__VESA101_ACTIVESCREEN_PTR+0x2a0f8;
+		esi = esi-edx;
 		esi <<= 0xb;
 		edx = 0x60;
-		esi += eax;
+		esip = ___1a1eb8h+esi+0x6000;
 		L(edx) >>= 0x2;
-___277b6h:
-		H(ecx) = L(edx);
-___277b8h:
-		eax = D(esi);
-		D(ebx) = eax;
-		ebx += 0x4;
-		esi += 0x4;
-		H(ecx)--;
-		if(H(ecx)) goto ___277b8h;
-		ebx += 0x280;
-		L(edx) <<= 0x2;
-		ebx -= edx;
-		L(edx) >>= 0x2;
-		L(ecx)--;
-		if(L(ecx)) goto ___277b6h;
+
+		while(1){
+
+			H(ecx) = L(edx);
+
+			while(1){
+
+				eax = D(esip);
+				D(ebxp) = eax;
+				ebxp += 0x4;
+				esip += 0x4;
+				H(ecx)--;
+				if(H(ecx) == 0) break;
+			}
+
+			ebxp += 0x280;
+			L(edx) <<= 0x2;
+			ebxp -= edx;
+			L(edx) >>= 0x2;
+			L(ecx)--;
+			if(L(ecx) == 0) break;
+		}
+
 		goto ___2789fh;
 ___277ddh:
 		___259e0h_cdecl(0x78, 0x10d, D(___1a1ec0h), ___1a0198h[ebx], ___18643ch[ebx]);
@@ -148,8 +162,7 @@ ___277ddh:
 		strcpy(esp+0x14, "$");
 		strcat(esp+0x14, esp);
 		edx = ___25180h_cdecl(esp+0x14)+0x345f8;
-		eax = esp+0x14;
-		___12f60h_cdecl(eax, edx);
+		___12f60h_cdecl(esp+0x14, edx);
 ___2789fh:
 		ecx = 0x77;
 		ebx = 0x180;

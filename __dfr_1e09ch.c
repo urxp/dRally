@@ -8,7 +8,7 @@ cpu 386
 	extern	___19bd60h
 	extern	___1d4e8h
 	extern	___1d83ch
-	extern	___199fa4h
+	extern	___199fa4h_com_port_addr
 	extern	___61b88h
 	extern	___1ca00h
 	extern	___13710h
@@ -83,7 +83,7 @@ __GDECL(___1e09ch)
 		jmp     near ___1e4eeh
 ___1e110h:
 		call    near ___1d83ch
-		mov     eax, [___199fa4h]
+		mov     eax, [___199fa4h_com_port_addr]
 	
 	push 	edx
 	push 	ecx

@@ -39,7 +39,7 @@ cpu 386
 	extern	___1240ch
 	extern	___24548h
 	extern	___2faf0h
-	extern	___24cc54h
+	extern	___24cc54h_sfx_volume
 	extern	dRally_Sound_pushEffect
 	extern	___196a84h
 	extern	___1e4f8h
@@ -684,7 +684,7 @@ ___39f52h:
 		mov     esi, 28000h
 		mov     eax, 1
 		push    esi
-		mov     ecx, [___24cc54h]
+		mov     ecx, [___24cc54h_sfx_volume]
 		xor     ebx, ebx
 	push 	ecx
 	push 	ebx

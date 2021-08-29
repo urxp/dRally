@@ -1,8 +1,7 @@
 #include "drally.h"
+#include "drmemory.h"
 
-void * dRally_Memory_alloc(dword, dword);
-void dRally_Memory_free(void *);
-void * dRally_Memory_resize(void *, dword);
+
 void ___58b20h(int, ...);
 
 struct alloc {
@@ -47,11 +46,11 @@ void ptr_align_d(void ** src_p, dword a){
     *src_p = ptr_align(*src_p, a);
 }
 
-void * ___5f248h_cdecl(dword size, dword lock){
+void * ___5f248h_cdecl(dword size){
 
     void * rslt;
 
-    rslt = dRally_Memory_alloc(size, lock);
+    rslt = dRMemory_alloc(size);
     alloc.next = rslt;
     alloc.start = rslt;
     alloc.end = rslt+size;
@@ -75,10 +74,10 @@ void ___5f2b4h_cdecl(void){
 
     if(alloc.next == alloc.start){
     
-        dRally_Memory_free(alloc.start);
+        dRMemory_free(alloc.start);
     }
     else {
             
-        dRally_Memory_resize(alloc.start, alloc.next - alloc.start);
+        dRMemory_resize(alloc.start, alloc.next - alloc.start);
     }
 }

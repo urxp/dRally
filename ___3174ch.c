@@ -1,10 +1,11 @@
 #include "drally.h"
+#include "sfx.h"
 
 	extern byte ___1a112ch__VESA101_ACTIVESCREEN_PTR[];
 	extern byte ___1a1124h__VESA101h_ScreenBufferA[];
 	extern byte ___185c0bh[];
 	extern byte ___1a1108h[];
-	extern byte ___24cc54h[];
+	extern __DWORD__ ___24cc54h_sfx_volume;
 
 void dRally_Sound_pushEffect(byte channel, byte n, dword unk, dword a0, dword a1, dword a2);
 void ___2ab50h(void);
@@ -44,7 +45,7 @@ void ___3174ch_cdecl(dword A1){
 
 	___12e78h_cdecl(D(___1a1108h), ___185c0bh, "Press any key to continue.", 0x2e250);
 	___12cb8h__VESA101_PRESENTSCREEN();
-	dRally_Sound_pushEffect(0x1, 0x17, 0, D(___24cc54h), 0x25500-0x1000, 0x8000);
+	dRally_Sound_pushEffect(0x1, SFX_LAUGHTER, 0, ___24cc54h_sfx_volume, 0x25500-0x1000, 0x8000);
 
 	while(1){
 

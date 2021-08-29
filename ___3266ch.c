@@ -1,28 +1,36 @@
 #include "drally.h"
+#include "sfx.h"
+
+#pragma pack(1)
+typedef struct font_props_s {
+	byte 	w;
+	byte 	h;
+	byte 	props[];
+} font_props_t;
 
 	extern byte ___1a1028h[];
 	extern byte ___19eb50h[];
-	extern byte ___1a1138h__VESA101h_DefaultScreenBufferB[];
-	extern byte ___1a10e4h__VESA101h_DefaultScreenBufferA[];
-	extern byte ___1a112ch__VESA101_ACTIVESCREEN_PTR[];
+	extern void * ___1a1138h__VESA101h_DefaultScreenBufferB;
+	extern void * ___1a10e4h__VESA101h_DefaultScreenBufferA;
+	extern void * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
 	extern byte ___185a3ch[];
 	extern byte ___185a50h[];
-	extern byte ___24cc54h[];
+	extern __DWORD__ ___24cc54h_sfx_volume;
 	extern byte ___185a44h[];
 	extern byte ___1a1ef8h[];
 	extern byte ___185a48h[];
 	extern byte ___1a1f64h[];
-	extern byte ___1a0f98h[];
+	extern void * ___1a0f98h;
 	extern byte ___1a01e0h[];
 	extern byte ___185c7ah[];
-	extern byte ___1a10b8h[];
+	extern void * ___1a10b8h;
 	extern byte ___1a0ef8h[];
 	extern byte ___1a103ch[];
 	extern byte ___185a20h[];
 	extern byte ___185ba9h[];
-	extern byte ___1a10cch[];
+	extern void * ___1a10cch;
 	extern byte ___185c0bh[];
-	extern byte ___1a1108h[];
+	extern void * ___1a1108h;
 	extern byte ___185a14h_UseWeapons[];
 	extern byte ___185a4ch[];
 	extern byte ___1a1ef4h[];
@@ -40,7 +48,7 @@ void ___13248h_cdecl(dword, dword ,dword, dword, dword);
 dword ___32230h(void);
 dword ___31868h(void);
 void ___33010h_cdecl(dword A1);
-void ___12e78h_cdecl(dword, dword, dword, dword);
+void ___12e78h_cdecl(byte * A1, font_props_t * A2, const char * A3, dword dst_off);
 char * strupr_watcom106(char * s);
 char * itoa_watcom106(int value, char * buffer, int radix);
 void ___3174ch_cdecl(dword);
@@ -64,6 +72,8 @@ void ___3266ch(void){
 	dword 	rr, gg, bb, nn;
 	dword 	eax, ebx, ecx, edx, edi, esi, ebp, cf;
 	byte 	esp[0x64];
+	void * 	ebxp;
+	void * 	esip;
 
 
 		edx = 0xffffffff;
@@ -113,17 +123,9 @@ ___326a2h:
 		esi += 0xc;
 		D(esp+0x5c) = ecx;
 		if((int)ecx < 0xb7) goto ___326a2h;
-		ecx = 0x4b000;
-		esi = D(___1a1138h__VESA101h_DefaultScreenBufferB);
-		edi = D(___1a10e4h__VESA101h_DefaultScreenBufferA);
-		memcpy(edi, esi, ecx);
-		ecx = 0x28a00;
-		eax = D(___1a10e4h__VESA101h_DefaultScreenBufferA);
-		esi = D(___1a1138h__VESA101h_DefaultScreenBufferB);
-		D(___1a112ch__VESA101_ACTIVESCREEN_PTR) = eax;
-		esi += 0x10180;
-		edi = eax+0x10180;
-		memcpy(edi, esi, ecx);
+		memcpy(___1a10e4h__VESA101h_DefaultScreenBufferA, ___1a1138h__VESA101h_DefaultScreenBufferB, 0x4b000);
+		___1a112ch__VESA101_ACTIVESCREEN_PTR = ___1a10e4h__VESA101h_DefaultScreenBufferA;
+		memcpy(___1a10e4h__VESA101h_DefaultScreenBufferA+0x280*103, ___1a1138h__VESA101h_DefaultScreenBufferB+0x280*103, 0x28a00);
 		___30df8h();
 		if(D(___185a3ch) != 0) goto ___327bbh;
 		edx = D(___185a50h);
@@ -145,11 +147,8 @@ ___327c9h:
 		if(D(___185a3ch) == 0) goto ___3284bh;
 		___17324h();
 		ecx = 0x28a00;
-		esi = D(___1a1138h__VESA101h_DefaultScreenBufferB);
-		edi = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
-		esi += 0x10180;
-		edi += 0x10180;
-		memcpy(edi, esi, ecx);
+		edi = ___1a112ch__VESA101_ACTIVESCREEN_PTR+0x10180;
+		memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR+0x10180, ___1a1138h__VESA101h_DefaultScreenBufferB+0x10180, ecx);
 		___30df8h();
 		edx = D(___185a50h);
 		eax = 4*edx;
@@ -188,11 +187,7 @@ ___328a3h:
 		goto ___32dddh;
 ___328b0h:
 		if((int)D(___185a50h) <= 0) goto ___32dddh;
-		edx = 0x19;
-		eax = 1;
-		ebx = 0;
-		ecx = D(___24cc54h);
-		dRally_Sound_pushEffect(eax, edx, ebx, ecx, 0x28000, 0x8000);
+		dRally_Sound_pushEffect(1, SFX_CLICK_2, 0, ___24cc54h_sfx_volume, 0x28000, 0x8000);
 		eax = 0xa0*D(___185a50h);
 		ecx = 0x84;
 		ebx = 0x94;
@@ -212,12 +207,8 @@ ___328b0h:
 		goto ___32dddh;
 ___32935h:
 		if((int)D(___185a50h) >= 2) goto ___32dddh;
-		edx = 0x19;
 		edi = 0x28000;
-		eax = 1;
-		ecx = D(___24cc54h);
-		ebx = 0;
-		dRally_Sound_pushEffect(eax, edx, ebx, ecx, edi, 0x8000);
+		dRally_Sound_pushEffect(1, SFX_CLICK_2, 0, ___24cc54h_sfx_volume, edi, 0x8000);
 		eax = 0xa0*D(___185a50h);
 		ecx = 0x84;
 		ebx = 0x94;
@@ -260,12 +251,8 @@ ___329efh:
 ___32a27h:
 		eax = D(___185a50h);
 		if(B(eax+___1a1f64h+3) >= 4) goto ___32d90h;
-		edx = 0x15;
 		ebp = 0x28000;
-		eax = 1;
-		ecx = D(___24cc54h);
-		ebx = 0;
-		dRally_Sound_pushEffect(eax, edx, ebx, ecx, ebp, 0x8000);
+		dRally_Sound_pushEffect(1, SFX_SIGNUP_BRAKES, 0, ___24cc54h_sfx_volume, ebp, 0x8000);
 		eax = D(___185a50h);
 		edx = 0;
 		L(edx) = B(eax+___1a1f64h+3);
@@ -274,70 +261,56 @@ ___32a27h:
 		edx = 0x12*edx;
 		edx += 0x106;
 		edx = 0x280*edx;
-		ebx = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
-		edx += ebx;
 		ecx = 0x2;
-		ebx = edx+eax;
-		esi = D(___1a0f98h);
+		esip = ___1a0f98h;
+		ebxp = ___1a112ch__VESA101_ACTIVESCREEN_PTR+edx+eax+0x1b;
 		edx = 0x88;
-		ebx += 0x1b;
-___32a9dh:
-		edi = edx;
-___32a9fh:
-		L(eax) = B(esi);
-		if(L(eax) == 0) goto ___32aa7h;
-		B(ebx) = L(eax);
-___32aa7h:
-		ebx++;
-		esi++;
-		edi--;
-		if(edi) goto ___32a9fh;
-		ebx += 0x280;
-		ebx -= edx;
-		ecx--;
-		if(ecx) goto ___32a9dh;
+
+		while(1){
+
+			edi = edx;
+
+			while(1){
+
+				L(eax) = B(esip);
+				if(L(eax) != 0) B(ebxp) = L(eax);
+				ebxp++;
+				esip++;
+				edi--;
+				if(edi == 0) break;
+			}
+
+			ebxp += 0x280;
+			ebxp -= edx;
+			ecx--;
+			if(ecx == 0) break;
+		}
+
 		eax = 0x6c*D(___1a1ef8h);
 		ebx = 0xa;
 		edx = esp+0x3c;
-		eax = D(eax+___1a01e0h+0x48);
-		eax = itoa_watcom106(eax, edx, ebx);
+		itoa_watcom106(D(eax+___1a01e0h+0x48), esp+0x3c, ebx);
 		L(eax) = 0;
-		edi = esp+0x3c;
 		B(esp) = L(eax);
-		ecx = strlen(edi);
-		if(ecx >= 2) goto ___32b16h;
-		esi = " ";
-		edi = esp;
-		strcat(edi, esi);
-___32b16h:
-		esi = esp+0x3c;
-		edi = esp;
-		strcat(edi, esi);
-		esi = ".";
-		edi = esp;
-		strcat(edi, esi);
-		esi = 0x6c*D(___1a1ef8h);
-		edi = esp+0x50;
-		esi = esi+___1a01e0h;
-		strcpy(edi, esi);
-		eax = esp+0x50;
+		ecx = strlen(esp+0x3c);
+		if(ecx < 2) strcat(esp, " ");
+		strcat(esp, esp+0x3c);
+		strcat(esp, ".");
+		strcpy(esp+0x50, ___1a01e0h+0x6c*D(___1a1ef8h));
 		esi = esp+0x50;
 		edi = esp;
-		eax = strupr_watcom106(eax);
-		strcat(edi, esi);
+		strupr_watcom106(esp+0x50);
+		strcat(esp, esp+0x50);
 		eax = D(___185a50h);
-		edx = 0;
-		L(edx) = B(eax+___1a1f64h+3);
+		edx = B(eax+___1a1f64h+3);
 		eax = 0xa0*eax;
 		edx++;
 		edx = 0x12*edx;
 		edx += 0x100;
 		edx = 0x280*edx;
 		eax += edx;
-		ebx = esp;
 		ecx = eax+0x22;
-		eax = D(___1a10b8h);
-		___12e78h_cdecl(eax, ___185c7ah, ebx, ecx);
+		___12e78h_cdecl(___1a10b8h, ___185c7ah, esp, ecx);
 		eax = D(___185a50h);
 		ebx = 0;
 		edx = eax;
@@ -366,15 +339,15 @@ ___32c66h:
 		ebx = 0x14;
 		eax = esp+0x3c;
 		edx = ebp;
-		memset(eax, edx, ebx);
-		L(eax) = B(ecx+___1a0ef8h);
+		memset(esp+0x3c, edx, ebx);
+		L(eax) = B(___1a0ef8h+ecx);
 		B(esp+0x50) = L(eax);
-		L(eax) = B(ecx+___1a0ef8h+1);
+		L(eax) = B(___1a0ef8h+ecx+1);
 		B(esp+0x51) = L(eax);
-		L(eax) = B(ecx+___1a0ef8h+2);
+		L(eax) = B(___1a0ef8h+ecx+2);
 		esi = ebp;
 		B(esp+0x52) = L(eax);
-		L(eax) = B(ecx+___1a0ef8h+3);
+		L(eax) = B(___1a0ef8h+ecx+3);
 		edi = ecx;
 		B(esp+0x53) = L(eax);
 ___32ca2h:
@@ -446,10 +419,8 @@ ___32d79h:
 ___32d90h:
 		edx = 0x1d;
 		edi = 0x28000;
-		eax = 1;
-		ecx = D(___24cc54h);
-		ebx = 0;
-		dRally_Sound_pushEffect(eax, edx, ebx, ecx, edi, 0x8000);
+		ecx = ___24cc54h_sfx_volume;
+		dRally_Sound_pushEffect(1, SFX_BUMMER, 0, ecx, edi, 0x8000);
 ___32db5h:
 		L(edx) = 4;
 		ebx = 0x1;
@@ -471,22 +442,14 @@ ___32dddh:
 		edx = 0xc8;
 		eax = 0x21;
 		___13248h_cdecl(eax, edx, ebx, ecx, 1);
-		ecx = 0x232b0;
-		ebx = "You did not sign up in any race.";
-		edx = ___185ba9h;
-		eax = D(___1a10cch);
-		___12e78h_cdecl(eax, edx, ebx, ecx);
-		ecx = 0x28d50;
-		ebx = "Press any key to continue.";
-		edx = ___185c0bh;
-		eax = D(___1a1108h);
-		___12e78h_cdecl(eax, edx, ebx, ecx);
+		___12e78h_cdecl(___1a10cch, ___185ba9h, "You did not sign up in any race.", 0x232b0);
+		eax = ___1a1108h;
+		___12e78h_cdecl(___1a1108h, ___185c0bh, "Press any key to continue.", 0x28d50);
 		___12cb8h__VESA101_PRESENTSCREEN();
 		edx = 0x17;
-		ecx = D(___24cc54h);
+		ecx = ___24cc54h_sfx_volume;
 		ebx = 0;
-		eax = 1;
-		dRally_Sound_pushEffect(eax, edx, ebx, ecx, 0x25500-0x1000, 0x8000);
+		dRally_Sound_pushEffect(1, SFX_LAUGHTER, ebx, ecx, 0x25500-0x1000, 0x8000);
 ___32e85h:
 		___2ab50h();
 		eax = ___5994ch();

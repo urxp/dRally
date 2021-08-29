@@ -1,4 +1,5 @@
 #include "drally.h"
+#include "drally_structs_free.h"
 
 	extern byte ___199f3dh[];
 	extern byte ___1a1f6ah[];
@@ -12,14 +13,14 @@
 	extern byte ___199f45h[];
 	extern byte ___19ce70h[];
 	extern byte ___1866b8h[];
-	extern __DWORD__ ___1a1140h[8];
-	extern byte ___1a1164h[];
-	extern byte ___1a113ch[];
-	extern byte ___1a1110h[];
-	extern byte ___1a1130h[];
-	extern byte ___1a1120h[];
-	extern byte ___1a1118h[];
-	extern byte ___1a111ch[];
+	extern kb_control_t ___1a1140h;
+	extern __DWORD__ ___1a1164h_gp_accelerate;
+	extern __DWORD__ ___1a113ch_gp_brake;
+	extern __DWORD__ ___1a1110h_gp_steer_left;
+	extern __DWORD__ ___1a1130h_gp_steer_right;
+	extern __DWORD__ ___1a1120h_gp_turbo_boost;
+	extern __DWORD__ ___1a1118h_gp_machine_gun;
+	extern __DWORD__ ___1a111ch_gp_drop_mine;
 	
 void ___1f6e4h(void){
 
@@ -150,14 +151,14 @@ void ___1f6e4h(void){
 	strcpy(___1866b8h+0xbb8, "Drop Mine    \xfa\xfa\xfa\xfa\xfa\xfa\xfa\xfa\xfa\xfa\xfa");
 	strcpy(___1866b8h+0xbea, "Horn        \xfa\xfa\xfa\xfa\xfa\xfa\xfa\xfa\xfa\xfa\xfa\xfa\xfa\xfa\xfa\xfa\xfa\xfa\xfa");
 
-	strcat(___1866b8h+0xa8c, ___19ce70h+0xf*___1a1140h[6]);
-	strcat(___1866b8h+0xabe, ___19ce70h+0xf*___1a1140h[4]);
-	strcat(___1866b8h+0xaf0, ___19ce70h+0xf*___1a1140h[2]);
-	strcat(___1866b8h+0xb22, ___19ce70h+0xf*___1a1140h[3]);
-	strcat(___1866b8h+0xb54, ___19ce70h+0xf*___1a1140h[0]);
-	strcat(___1866b8h+0xb86, ___19ce70h+0xf*___1a1140h[7]);
-	strcat(___1866b8h+0xbb8, ___19ce70h+0xf*___1a1140h[5]);
-	strcat(___1866b8h+0xbea, ___19ce70h+0xf*___1a1140h[1]);
+	strcat(___1866b8h+0xa8c, ___19ce70h+0xf*___1a1140h.accelerate);
+	strcat(___1866b8h+0xabe, ___19ce70h+0xf*___1a1140h.brake);
+	strcat(___1866b8h+0xaf0, ___19ce70h+0xf*___1a1140h.steer_left);
+	strcat(___1866b8h+0xb22, ___19ce70h+0xf*___1a1140h.steer_right);
+	strcat(___1866b8h+0xb54, ___19ce70h+0xf*___1a1140h.turbo_boost);
+	strcat(___1866b8h+0xb86, ___19ce70h+0xf*___1a1140h.machine_gun);
+	strcat(___1866b8h+0xbb8, ___19ce70h+0xf*___1a1140h.drop_mine);
+	strcat(___1866b8h+0xbea, ___19ce70h+0xf*___1a1140h.horn);
 
 	strcpy(___1866b8h+0xe10, "Accelerate    ");
 	strcpy(___1866b8h+0xe42, "Brake        ");
@@ -166,11 +167,12 @@ void ___1f6e4h(void){
 	strcpy(___1866b8h+0xed8, "Turbo Boost  \xfa\xfa\xfa\xfa\xfa\xfa\xfa\xfa\xfa\xfa\xfa\xfa");
 	strcpy(___1866b8h+0xf0a, "Machine Gun  \xfa\xfa\xfa\xfa\xfa\xfa\xfa\xfa\xfa\xfa\xfa\xfa");
 	strcpy(___1866b8h+0xf3c, "Drop Mine    \xfa\xfa\xfa\xfa\xfa\xfa\xfa\xfa\xfa\xfa\xfa");
-	strcat(___1866b8h+0xe10, ___1a1f6ah+0xf*D(___1a1164h));
-	strcat(___1866b8h+0xe42, ___1a1f6ah+0xf*D(___1a113ch));
-	strcat(___1866b8h+0xe74, ___1a1f6ah+0xf*D(___1a1110h));
-	strcat(___1866b8h+0xea6, ___1a1f6ah+0xf*D(___1a1130h));
-	strcat(___1866b8h+0xed8, ___1a1f6ah+0xf*D(___1a1120h));
-	strcat(___1866b8h+0xf0a, ___1a1f6ah+0xf*D(___1a1118h));
-	strcat(___1866b8h+0xf3c, ___1a1f6ah+0xf*D(___1a111ch));
+	
+	strcat(___1866b8h+0xe10, ___1a1f6ah+0xf*___1a1164h_gp_accelerate);
+	strcat(___1866b8h+0xe42, ___1a1f6ah+0xf*___1a113ch_gp_brake);
+	strcat(___1866b8h+0xe74, ___1a1f6ah+0xf*___1a1110h_gp_steer_left);
+	strcat(___1866b8h+0xea6, ___1a1f6ah+0xf*___1a1130h_gp_steer_right);
+	strcat(___1866b8h+0xed8, ___1a1f6ah+0xf*___1a1120h_gp_turbo_boost);
+	strcat(___1866b8h+0xf0a, ___1a1f6ah+0xf*___1a1118h_gp_machine_gun);
+	strcat(___1866b8h+0xf3c, ___1a1f6ah+0xf*___1a111ch_gp_drop_mine);
 }

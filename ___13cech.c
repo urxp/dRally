@@ -1,6 +1,12 @@
 #include "drally.h"
 
 #pragma pack(1)
+typedef struct font_props_s {
+	byte 	w;
+	byte 	h;
+	byte 	props[];
+} font_props_t;
+
 typedef struct menubox_s {
 	__DWORD__ 	row_n;			// +00
 	__DWORD__ 	x;				// +04
@@ -19,13 +25,13 @@ typedef struct menubox_s {
 	extern byte * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
 	extern byte ___1866b8h[];
 	extern byte ___185ba9h[];
-	extern byte ___1a10e0h[];
-	extern byte ___1a10cch[];
+	extern void * ___1a10e0h;
+	extern void * ___1a10cch;
 	extern byte ___1a1e68h[];
 	extern byte * ___1a10f4h;
 
 void ___1398ch__VESA101_PRESENTRECTANGLE(dword offset, void * src, dword w, dword h);
-void ___12e78h_cdecl(dword, dword, dword, dword);
+void ___12e78h_cdecl(byte * A1, font_props_t * A2, const char * A3, dword dst_off);
 
 void ___13cech(dword A1){
 
@@ -37,7 +43,7 @@ void ___13cech(dword A1){
 		memset(&___1a112ch__VESA101_ACTIVESCREEN_PTR[COOXY(box[A1].x+9,n+box[A1].y+box[A1].row_h*box[A1].row_i+10)], 0xc4, box[A1].w-0x14);
 	}
 
-	___12e78h_cdecl(D(___1a10e0h), ___185ba9h, ___1866b8h+450*A1+50*box[A1].row_i, COOXY(box[A1].x+32,box[A1].y+box[A1].row_h*box[A1].row_i+5));
+	___12e78h_cdecl(___1a10e0h, ___185ba9h, ___1866b8h+450*A1+50*box[A1].row_i, COOXY(box[A1].x+32,box[A1].y+box[A1].row_h*box[A1].row_i+5));
 	___1398ch__VESA101_PRESENTRECTANGLE(COOXY(box[A1].x+7,box[A1].y+box[A1].row_h*box[A1].row_i+6), &___1a112ch__VESA101_ACTIVESCREEN_PTR[COOXY(box[A1].x+7,box[A1].y+box[A1].row_h*box[A1].row_i+6)], box[A1].w-0xa, 0x20);
 
 	box[A1].row_i = box[A1].row_n-1;
@@ -48,7 +54,7 @@ void ___13cech(dword A1){
 		memset(&___1a112ch__VESA101_ACTIVESCREEN_PTR[COOXY(box[A1].x+9,n+box[A1].y+box[A1].row_h*box[A1].row_i+10)], 0xc4, box[A1].w-0x14);
 	}
 
-	___12e78h_cdecl(D(___1a10cch), ___185ba9h, ___1866b8h+450*A1+50*box[A1].row_i, COOXY(box[A1].x+32,box[A1].y+box[A1].row_i*box[A1].row_h+5));
+	___12e78h_cdecl(___1a10cch, ___185ba9h, ___1866b8h+450*A1+50*box[A1].row_i, COOXY(box[A1].x+32,box[A1].y+box[A1].row_i*box[A1].row_h+5));
 
 	i = -1;
 	while(++i < 0x14){

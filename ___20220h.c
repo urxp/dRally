@@ -1,17 +1,26 @@
 #include "drally.h"
 #include "drally_keyboard.h"
+#include "drally_structs_free.h"
+#include "sfx.h"
+
+#pragma pack(1)
+typedef struct font_props_s {
+	byte 	w;
+	byte 	h;
+	byte 	props[];
+} font_props_t;
 
 	extern byte ___185ba9h[];
-	extern byte ___1a10cch[];
-	extern __DWORD__ ___1a1140h[8];
+	extern void * ___1a10cch;
+	extern kb_control_t ___1a1140h;
 	extern void * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
 	extern void * ___1a1124h__VESA101h_ScreenBufferA;
-	extern byte ___24cc54h[];
+	extern __DWORD__ ___24cc54h_sfx_volume;
 
 void ___12cb8h__VESA101_PRESENTSCREEN(void);
-void ___12e78h_cdecl(dword, dword, dword, dword);
+void ___12e78h_cdecl(byte * A1, font_props_t * A2, const char * A3, dword dst_off);
 void ___13248h_cdecl(dword, dword ,dword, dword, dword);
-dword ___252e0h_cdecl(dword);
+int ___252e0h_cdecl(const char *);
 void dRally_Sound_pushEffect(byte, byte, dword, dword, dword, dword);
 byte ___5994ch(void);
 byte ___59b3ch(void);
@@ -40,10 +49,10 @@ static dword InvalidConfiguration(void){
 
 	memcpy(___1a1124h__VESA101h_ScreenBufferA, ___1a112ch__VESA101_ACTIVESCREEN_PTR, 0x4b000);
 	___13248h_cdecl(0x1a, 0xc2 , 0x253, 0x56, 1);
-	___12e78h_cdecl(D(___1a10cch), ___185ba9h, msg, 0x1fcc2-___252e0h_cdecl(msg));
-	___12e78h_cdecl(D(___1a10cch), ___185ba9h, "Press any key to re-enter.", 0x24bdf);
+	___12e78h_cdecl(___1a10cch, ___185ba9h, msg, 0x1fcc2-___252e0h_cdecl(msg));
+	___12e78h_cdecl(___1a10cch, ___185ba9h, "Press any key to re-enter.", 0x24bdf);
 	___12cb8h__VESA101_PRESENTSCREEN();
-	dRally_Sound_pushEffect(1, 0x1d, 0, D(___24cc54h), 0x28000, 0x8000);
+	dRally_Sound_pushEffect(1, SFX_BUMMER, 0, ___24cc54h_sfx_volume, 0x28000, 0x8000);
 	___5994ch();
 	___59b3ch();
 	while(___5994ch() == 0);
@@ -61,41 +70,44 @@ dword ___20220h(void){
 	n = -1;
 	while(++n < 0xf){
 
-		k = -1;
-		while(++k < 8){
-
-			if(___1a1140h[k] == ReservedKeys[n]) return InvalidConfiguration();
-		}
+		if(___1a1140h.turbo_boost == ReservedKeys[n]) return InvalidConfiguration();
+		if(___1a1140h.horn == ReservedKeys[n]) return InvalidConfiguration();
+		if(___1a1140h.steer_left == ReservedKeys[n]) return InvalidConfiguration();
+		if(___1a1140h.steer_right == ReservedKeys[n]) return InvalidConfiguration();
+		if(___1a1140h.brake == ReservedKeys[n]) return InvalidConfiguration();
+		if(___1a1140h.drop_mine == ReservedKeys[n]) return InvalidConfiguration();
+		if(___1a1140h.accelerate == ReservedKeys[n]) return InvalidConfiguration();
+		if(___1a1140h.machine_gun == ReservedKeys[n]) return InvalidConfiguration();
 	}
 
-	if(___1a1140h[7] == ___1a1140h[6]) return InvalidConfiguration();
-	if(___1a1140h[7] == ___1a1140h[5]) return InvalidConfiguration();
-	if(___1a1140h[7] == ___1a1140h[4]) return InvalidConfiguration();
-	if(___1a1140h[7] == ___1a1140h[3]) return InvalidConfiguration();
-	if(___1a1140h[7] == ___1a1140h[2]) return InvalidConfiguration();
-	if(___1a1140h[7] == ___1a1140h[1]) return InvalidConfiguration();
-	if(___1a1140h[7] == ___1a1140h[0]) return InvalidConfiguration();
-	if(___1a1140h[6] == ___1a1140h[5]) return InvalidConfiguration();
-	if(___1a1140h[6] == ___1a1140h[4]) return InvalidConfiguration();
-	if(___1a1140h[6] == ___1a1140h[3]) return InvalidConfiguration();
-	if(___1a1140h[6] == ___1a1140h[2]) return InvalidConfiguration();
-	if(___1a1140h[6] == ___1a1140h[1]) return InvalidConfiguration();
-	if(___1a1140h[6] == ___1a1140h[0]) return InvalidConfiguration();
-	if(___1a1140h[5] == ___1a1140h[4]) return InvalidConfiguration();
-	if(___1a1140h[5] == ___1a1140h[3]) return InvalidConfiguration();
-	if(___1a1140h[5] == ___1a1140h[2]) return InvalidConfiguration();
-	if(___1a1140h[5] == ___1a1140h[1]) return InvalidConfiguration();
-	if(___1a1140h[5] == ___1a1140h[0]) return InvalidConfiguration();
-	if(___1a1140h[4] == ___1a1140h[3]) return InvalidConfiguration();
-	if(___1a1140h[4] == ___1a1140h[2]) return InvalidConfiguration();
-	if(___1a1140h[4] == ___1a1140h[1]) return InvalidConfiguration();
-	if(___1a1140h[4] == ___1a1140h[0]) return InvalidConfiguration();
-	if(___1a1140h[3] == ___1a1140h[2]) return InvalidConfiguration();
-	if(___1a1140h[3] == ___1a1140h[1]) return InvalidConfiguration();
-	if(___1a1140h[3] == ___1a1140h[0]) return InvalidConfiguration();
-	if(___1a1140h[2] == ___1a1140h[1]) return InvalidConfiguration();
-	if(___1a1140h[2] == ___1a1140h[0]) return InvalidConfiguration();
-	if(___1a1140h[1] == ___1a1140h[0]) return InvalidConfiguration();
+	if(___1a1140h.machine_gun == ___1a1140h.accelerate) return InvalidConfiguration();
+	if(___1a1140h.machine_gun == ___1a1140h.drop_mine) return InvalidConfiguration();
+	if(___1a1140h.machine_gun == ___1a1140h.brake) return InvalidConfiguration();
+	if(___1a1140h.machine_gun == ___1a1140h.steer_right) return InvalidConfiguration();
+	if(___1a1140h.machine_gun == ___1a1140h.steer_left) return InvalidConfiguration();
+	if(___1a1140h.machine_gun == ___1a1140h.horn) return InvalidConfiguration();
+	if(___1a1140h.machine_gun == ___1a1140h.turbo_boost) return InvalidConfiguration();
+	if(___1a1140h.accelerate == ___1a1140h.drop_mine) return InvalidConfiguration();
+	if(___1a1140h.accelerate == ___1a1140h.brake) return InvalidConfiguration();
+	if(___1a1140h.accelerate == ___1a1140h.steer_right) return InvalidConfiguration();
+	if(___1a1140h.accelerate == ___1a1140h.steer_left) return InvalidConfiguration();
+	if(___1a1140h.accelerate == ___1a1140h.horn) return InvalidConfiguration();
+	if(___1a1140h.accelerate == ___1a1140h.turbo_boost) return InvalidConfiguration();
+	if(___1a1140h.drop_mine == ___1a1140h.brake) return InvalidConfiguration();
+	if(___1a1140h.drop_mine == ___1a1140h.steer_right) return InvalidConfiguration();
+	if(___1a1140h.drop_mine == ___1a1140h.steer_left) return InvalidConfiguration();
+	if(___1a1140h.drop_mine == ___1a1140h.horn) return InvalidConfiguration();
+	if(___1a1140h.drop_mine == ___1a1140h.turbo_boost) return InvalidConfiguration();
+	if(___1a1140h.brake == ___1a1140h.steer_right) return InvalidConfiguration();
+	if(___1a1140h.brake == ___1a1140h.steer_left) return InvalidConfiguration();
+	if(___1a1140h.brake == ___1a1140h.horn) return InvalidConfiguration();
+	if(___1a1140h.brake == ___1a1140h.turbo_boost) return InvalidConfiguration();
+	if(___1a1140h.steer_right == ___1a1140h.steer_left) return InvalidConfiguration();
+	if(___1a1140h.steer_right == ___1a1140h.horn) return InvalidConfiguration();
+	if(___1a1140h.steer_right == ___1a1140h.turbo_boost) return InvalidConfiguration();
+	if(___1a1140h.steer_left == ___1a1140h.horn) return InvalidConfiguration();
+	if(___1a1140h.steer_left == ___1a1140h.turbo_boost) return InvalidConfiguration();
+	if(___1a1140h.horn == ___1a1140h.turbo_boost) return InvalidConfiguration();
 
 	return 0;
 }

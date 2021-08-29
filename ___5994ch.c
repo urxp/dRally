@@ -8,7 +8,7 @@
 	extern byte ___199f60h[];
 	extern byte ___199f70h[];
 	extern byte ___199f54h[];
-	extern byte ___19bd58h[];
+	extern __DWORD__ ___19bd58h_gamepad;
 	extern byte ___199f3ch[];
 	extern byte ___243888h[];
 	extern byte ___243890h[];
@@ -47,8 +47,8 @@ byte ___5994ch(void){
 
 
 	// Gamepad/Joystick
-	if((int)D(___19bd58h) > 0) ___59db8h();		// may modifiy D(___19bd58h)
-	if((int)D(___19bd58h) > 0){
+	if((int)___19bd58h_gamepad > 0) ___59db8h();		// may modifiy ___19bd58h_gamepad
+	if((int)___19bd58h_gamepad > 0){
 
 		edx =  __GET_TIMER_TICKS();
 

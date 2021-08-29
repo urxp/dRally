@@ -39,7 +39,8 @@ typedef struct x2c_s {
     __DWORD__   _28;        // +28
 } x2c_t;
 
-	extern xc50_t ___1f3b08h[];		// <0x1f3b08 - 0x1f4758)
+
+	extern xc50_t ___1f3b08h[100];		// <0x1f3b08 - 0x1f4758)
 	extern x2c_t ___240b48h[];		// <0x240b48 - 0x240b74)
 
 	extern byte ___243c9ch[];
@@ -47,7 +48,7 @@ typedef struct x2c_s {
 	extern byte ___243c88h[];
 	extern byte ___243c98h[];
 	extern byte ___243c94h[];
-	extern byte ___1e8848h[];
+	extern int ___1e8848h[100][100];
 
 // SOMETHING WITH TEXTURES
 void race___4adach(void){
@@ -60,20 +61,20 @@ void race___4adach(void){
 		j = -1;
 		while(++j < (int)___1f3b08h[i].___4){
 
-			D(0x190*i+4*j+___1e8848h) = 0xffffffff;
+			___1e8848h[i][j] = -1;
 
 			k = -1;
 			while(++k < (int)D(___243c94h)){
 
 				if((i == ___240b48h[k]._24)&&(j == ___240b48h[k]._28)){
 
-					if(D(0x190*i+4*j+___1e8848h) == 0xffffffff){
+					if(___1e8848h[i][j] == -1){
 
-						D(0x190*i+4*j+___1e8848h) = k;
+						___1e8848h[i][j] = k;
 					}
 					else {
 
-						D(0x190*i+4*j+___1e8848h-4) = k;
+						___1e8848h[i][j-1] = k;
 					}
 				}
 			}

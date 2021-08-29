@@ -1,10 +1,12 @@
 #include "drally.h"
+#include "drmemory.h"
+#include "sfx.h"
 
 	extern byte ___1866b8h[];
 	extern byte ___1866b8h[];
-	extern byte ___1a1138h__VESA101h_DefaultScreenBufferB[];
-	extern byte ___1a112ch__VESA101_ACTIVESCREEN_PTR[];
-	extern byte ___24cc54h[];
+	extern void * ___1a1138h__VESA101h_DefaultScreenBufferB;
+	extern void * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
+	extern __DWORD__ ___24cc54h_sfx_volume;
 	extern byte ___1866b8h[];
 	extern byte ___185b58h[];
 	extern byte ___1866b8h[];
@@ -18,20 +20,19 @@
 	extern byte ___1a1ef8h[];
 	extern byte ___185a14h_UseWeapons[];
 	extern byte ___1a01e0h[];
-	extern byte ___196a94h[];
+	extern __DWORD__ ___196a94h_difficulty;
 	extern byte ___1a0a50h[];
 
 
 dword ___146c4h_cdecl(dword);
 char * itoa_watcom106(int value, char * buffer, int radix);
 dword GET_FILE_SIZE(const char *);
-void ___18808h_cdecl(dword, dword);
+void ___18808h_cdecl(char * A1, const char * A2);
 void ___13710h(dword, dword);
 void ___12cb8h__VESA101_PRESENTSCREEN(void);
 void dRally_Sound_pushEffect(byte channel, byte n, dword unk, dword a0, dword a1, dword a2);
-void ___2a608h_cdecl(dword);
+void ___2a608h_cdecl(const char *);
 void * ___3f71ch__allocateMemory(dword);
-void dRally_Memory_free(void *);
 
 static byte ROL_BYTE(byte b, int n){
 
@@ -45,6 +46,7 @@ dword ___18924h(void){
 	byte 	esp[0x28];
 	byte 	key;
 	int 	n;
+	FILE *	fd;
 
 
 	n = -1;
@@ -68,14 +70,14 @@ dword ___18924h(void){
 
 	while(1){
 
-		memcpy(D(___1a112ch__VESA101_ACTIVESCREEN_PTR)+0x10680, D(___1a1138h__VESA101h_DefaultScreenBufferB)+0x10680, 0x28f00);
+		memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR+0x10680, ___1a1138h__VESA101h_DefaultScreenBufferB+0x10680, 0x28f00);
 		___13710h(0, 0);
 		___13710h(1, 0);
 		___13710h(5, 1);
 		___12cb8h__VESA101_PRESENTSCREEN();
 		n = ___146c4h_cdecl(5);
 
-		if((B(esp+n+0x10) == 0)&&(n != -1)) dRally_Sound_pushEffect(1, 0x1d, 0, D(___24cc54h), 0x28000, 0x8000);
+		if((B(esp+n+0x10) == 0)&&(n != -1)) dRally_Sound_pushEffect(1, SFX_BUMMER, 0, ___24cc54h_sfx_volume, 0x28000, 0x8000);
 
 		if((n >= 0)&&(n <= 7)&&(B(esp+n+0x10) == 1)) break;
 		if(n == -1) break;
@@ -103,9 +105,9 @@ dword ___18924h(void){
 		memset(___1a0f9ch, 0, 0x883);
 		strcpy(esp, "DR.SG");
 		itoa_watcom106(n, esp+0x20, 0xa);
-		eax = strupr_fopen(strcat(esp, esp+0x20), "rb");
-		fread(___1a0f9ch, 0x883, 1, eax);
-		fclose(eax);
+		fd = strupr_fopen(strcat(esp, esp+0x20), "rb");
+		fread(___1a0f9ch, 0x883, 1, fd);
+		fclose(fd);
 
 		key = B(___1a0f9ch);
 
@@ -114,9 +116,9 @@ dword ___18924h(void){
 
 		D(___1a1ef8h) = B(___1a0f9ch+1);
 		D(___185a14h_UseWeapons) = B(___1a0f9ch+2);
-		D(___196a94h) = B(___1a0f9ch+3);
+		___196a94h_difficulty = B(___1a0f9ch+3);
 		memcpy(___1a01e0h, ___1a0f9ch+0x13, 0x870);
-		dRally_Memory_free(___1a0f9ch);
+		dRMemory_free(___1a0f9ch);
 		D(___1a0a50h) = !!(D(0x6c*D(___1a1ef8h)+___1a01e0h+0x5c) != 8);
 		D(___1a0a50h+4) = !!(D(0x6c*D(___1a1ef8h)+___1a01e0h+0x60) != 1);
 		D(___1a0a50h+8) = !!(D(0x6c*D(___1a1ef8h)+___1a01e0h+0x64) != 1);

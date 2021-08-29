@@ -1,6 +1,6 @@
 #include "drally.h"
 
-	extern byte ___19bd58h();
+	extern __DWORD__ ___19bd58h_gamepad;
 	extern byte ___243888h();
 	extern byte ___243890h();
 	extern byte kmap();
@@ -15,7 +15,7 @@ void ___59cd8h(void){
     dword   eax, ebx, ecx, edx, edi, esi, ebp;
 
 
-    if((int)D(___19bd58h) <= 0) goto ___59db0h;
+    if((int)___19bd58h_gamepad <= 0) goto ___59db0h;
     ___59db8h();
     eax = D(___243888h);
     ebx = D(___243890h);

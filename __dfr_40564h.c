@@ -5,7 +5,7 @@ cpu 386
 	extern	__CHK
 	extern	___243890h
 	extern	___24388ch
-	extern	___19bd58h
+	extern	___19bd58h_gamepad
 
 section .text
 
@@ -46,7 +46,7 @@ ___405aah:
 		sti     
 		test    ecx, ecx
 		jne     short ___405b5h
-		mov     [___19bd58h], ecx
+		mov     [___19bd58h_gamepad], ecx
 ___405b5h:
 		pop     edi
 		pop     esi

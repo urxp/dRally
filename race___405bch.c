@@ -1,4 +1,5 @@
 #include "drally.h"
+#include "drmath.h"
 
 	extern byte ___243ce8h[];
 	extern byte ___2435c4h[];
@@ -12,9 +13,6 @@
 	extern byte ___1c9f00h[];
 	extern byte ___243894h[];
 	extern byte ___243330h[];
-
-double dR_Math_sin(double);
-double dR_Math_cos(double);
 
 static int ___405bch_round(double dval){
 // death rally correct
@@ -36,8 +34,8 @@ void race___405bch(void){
 	while(++n < 162){
 
 		dval = (double)(n+11)/rad;
-		dcos = dR_Math_cos(dval);
-		dsin = dR_Math_sin(dval);
+		dcos = dRMath_cos(dval);
+		dsin = dRMath_sin(dval);
 
 		D(4*n+___243338h) = ___405bch_round(-25.0*dsin)+27;
 		D(4*n+___2435c4h) = ___405bch_round(-26.0*dcos-dsin)+30;

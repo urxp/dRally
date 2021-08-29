@@ -1,12 +1,12 @@
 #include "drally.h"
 
 	extern byte ___1a0a50h[];
-	extern byte ___1a112ch__VESA101_ACTIVESCREEN_PTR[];
-	extern byte ___1a1e5ch[];
+	extern void * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
+	extern void * ___1a1e5ch;
 	extern byte ___1a0174h_PriceSpikedBumpers[];
 
-dword ___25180h_cdecl(dword);
-void ___12f60h_cdecl(dword, dword);
+int ___25180h_cdecl(const char * A1);
+void ___12f60h_cdecl(const char * A1, dword A2);
 void ___2d184h(void);
 void ___2d20ch(void);
 char * itoa_watcom106(int value, char * buffer, int radix);
@@ -17,97 +17,112 @@ void ___2d898h(void){
 
 	dword 	eax, ebx, ecx, edx, edi, esi, ebp;
 	byte 	esp[0x28];
+	void * 	ebxp;
+	void * 	esip;
 
 
-		if(D(___1a0a50h+4) != 1) goto ___2d961h;
+	if(D(___1a0a50h+4) == 1){
+
 		ecx = 0x60;
-		ebx = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
-		esi = D(___1a1e5ch);
-		ebx += 0x278f8;
-		esi += 0x2400;
+		ebxp = ___1a112ch__VESA101_ACTIVESCREEN_PTR+0x278f8;
+		esip = ___1a1e5ch+0x2400;
 		edx = ecx;
 		L(edx) >>= 2;
-___2d8d9h:
-		H(ecx) = L(edx);
-___2d8dbh:
-		eax = D(esi);
-		D(ebx) = eax;
-		ebx += 0x4;
-		esi += 0x4;
-		H(ecx)--;
-		if(H(ecx)) goto ___2d8dbh;
-		ebx += 0x280;
-		L(edx) <<= 2;
-		ebx -= edx;
-		L(edx) >>= 2;
-		L(ecx)--;
-		if(L(ecx)) goto ___2d8d9h;
-		eax = 0x1;
-		ebx = 0xa;
-		edx = esp;
-		___2d054h_cdecl(eax);
-		eax = D(___1a0174h_PriceSpikedBumpers);
-		edi = esp+0x14;
-		eax = itoa_watcom106(eax, edx, ebx);
-		X(eax) = W("$");
-		esi = esp;
-		W(esp+0x14) = X(eax);
-		strcat(edi, esi);
-		eax = esp+0x14;
-		eax = ___25180h_cdecl(eax);
-		edx = eax+0x345f8;
-		eax = esp+0x14;
-		___12f60h_cdecl(eax, edx);
-___2d961h:
-		if(D(___1a0a50h+4) != 0) goto ___2d9b3h;
+
+		while(1){
+
+			H(ecx) = L(edx);
+
+			while(1){
+
+				eax = D(esip);
+				D(ebxp) = eax;
+				ebxp += 0x4;
+				esip += 0x4;
+				H(ecx)--;
+				if(H(ecx) == 0) break;
+			}
+
+			ebxp += 0x280;
+			L(edx) <<= 2;
+			ebxp -= edx;
+			L(edx) >>= 2;
+			L(ecx)--;
+			if(L(ecx) == 0) break;
+		}
+
+		___2d054h_cdecl(0x1);
+		itoa_watcom106(D(___1a0174h_PriceSpikedBumpers), esp, 0xa);
+		strcpy(esp+0x14, "$");
+		strcat(esp+0x14, esp);
+		___12f60h_cdecl(esp+0x14, ___25180h_cdecl(esp+0x14)+0x345f8);
+	}
+
+	if(D(___1a0a50h+4) == 0){
+
 		ecx = 0x60;
-		ebx = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
-		esi = D(___1a1e5ch);
-		ebx += 0x278f8;
-		esi += 0x14400;
+		ebxp = ___1a112ch__VESA101_ACTIVESCREEN_PTR+0x278f8;
+		esip = ___1a1e5ch+0x14400;
 		edx = ecx;
 		L(edx) >>= 2;
-___2d98ch:
-		H(ecx) = L(edx);
-___2d98eh:
-		eax = D(esi);
-		D(ebx) = eax;
-		ebx += 0x4;
-		esi += 0x4;
-		H(ecx)--;
-		if(H(ecx)) goto ___2d98eh;
-		ebx += 0x280;
-		L(edx) <<= 2;
-		ebx -= edx;
-		L(edx) >>= 2;
-		L(ecx)--;
-		if(L(ecx)) goto ___2d98ch;
+
+		while(1){
+
+			H(ecx) = L(edx);
+
+			while(1){
+
+				eax = D(esip);
+				D(ebxp) = eax;
+				ebxp += 0x4;
+				esip += 0x4;
+				H(ecx)--;
+				if(H(ecx) == 0) break;
+			}
+
+			ebxp += 0x280;
+			L(edx) <<= 2;
+			ebxp -= edx;
+			L(edx) >>= 2;
+			L(ecx)--;
+			if(L(ecx) == 0) break;
+		}
+
 		___2d184h();
-___2d9b3h:
-		if(D(___1a0a50h+4) != 0xffffffff) goto ___2da05h;
+	}
+
+	if(D(___1a0a50h+4) == 0xffffffff){
+
 		ecx = 0x60;
-		ebx = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
-		esi = D(___1a1e5ch);
-		ebx += 0x278f8;
-		esi += 0xb400;
+		ebxp = ___1a112ch__VESA101_ACTIVESCREEN_PTR+0x278f8;
+		esip = ___1a1e5ch+0xb400;
 		edx = ecx;
 		L(edx) >>= 2;
-___2d9deh:
-		H(ecx) = L(edx);
-___2d9e0h:
-		eax = D(esi);
-		D(ebx) = eax;
-		ebx += 0x4;
-		esi += 0x4;
-		H(ecx)--;
-		if(H(ecx)) goto ___2d9e0h;
-		ebx += 0x280;
-		L(edx) <<= 2;
-		ebx -= edx;
-		L(edx) >>= 2;
-		L(ecx)--;
-		if(L(ecx)) goto ___2d9deh;
+
+		while(1){
+
+			H(ecx) = L(edx);
+
+			while(1){
+
+				eax = D(esip);
+				D(ebxp) = eax;
+				ebxp += 0x4;
+				esip += 0x4;
+				H(ecx)--;
+				if(H(ecx) == 0) break;
+			}
+
+			ebxp += 0x280;
+			L(edx) <<= 2;
+			ebxp -= edx;
+			L(edx) >>= 2;
+			L(ecx)--;
+			if(L(ecx) == 0) break;
+		}
+
 		___2d20ch();
-___2da05h:
-		return;
+	}
+
+	return;
 }

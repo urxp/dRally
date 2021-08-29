@@ -5,7 +5,7 @@ cpu 386
 	extern	__CHK
 	extern	___199f3ch
 	extern	___2ab50h
-	extern	___19bd58h
+	extern	___19bd58h_gamepad
 	extern	___59db8h
 	extern	___243888h
 	extern	___243890h
@@ -49,7 +49,7 @@ ___20f99h:
 	pop 	ecx
 	pop 	edx
 	
-		cmp     dword [___19bd58h], byte 0
+		cmp     dword [___19bd58h_gamepad], byte 0
 		jle     near ___2105dh
 	
 	push 	edx

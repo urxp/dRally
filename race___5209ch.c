@@ -1,6 +1,6 @@
 #include "drally.h"
 
-	extern byte ___243d38h[];
+	extern void * ___243d38h;
 	extern byte ___196dd0h[];
 	extern byte ___243334h[];
 	extern byte ___196dd4h[];
@@ -8,7 +8,7 @@
 	extern byte ___243ce8h[];
 	extern byte ___1de580h[];
 	extern byte ___243d28h[];
-	extern byte ___243d58h[];
+	extern void * ___243d58h;
 
 int rand_watcom106(void);
 
@@ -16,353 +16,364 @@ void race___5209ch(void){
 
 	dword 	eax, ebx, ecx, edx, edi, esi, ebp;
 	byte 	esp[0x44];
+	void * 	ebxp;
+	void * 	ebpp;
+	void * 	esp0x14;
+	void * 	edxp;
 
 
-		ebp = D(___243d38h);
-		edx = D(___196dd0h);
-		if((int)edx <= 0) goto ___520d0h;
+	ebpp = ___243d38h;
+	edx = D(___196dd0h);
+
+	if((int)edx <= 0){
+
+		ebx ^= ebx;
+		D(___196dd0h) = ebx;
+	}
+	else {
+
 		eax = D(___243334h);
 		ecx = edx;
 		ecx -= eax;
 		D(___196dd0h) = ecx;
-		goto ___520d8h;
-___520d0h:
-		ebx ^= ebx;
-		D(___196dd0h) = ebx;
-___520d8h:
-		edx = D(___243334h);
-		eax ^= eax;
-___520e0h:
+	}
+
+	edx = D(___243334h);
+	eax ^= eax;
+
+	while(1){
+
 		esi = D(eax+___1f2488h+0x10);
-		if((int)esi >= 0x7d0) goto ___52100h;
-		if(D(eax+___1f2488h+8) == 0) goto ___52100h;
-		ebx = esi+edx;
-		D(eax+___1f2488h+0x10) = ebx;
-___52100h:
+		
+		if(((int)esi < 0x7d0)&&(D(eax+___1f2488h+8) != 0)){
+		
+			ebx = esi+edx;
+			D(eax+___1f2488h+0x10) = ebx;
+		}
+
 		eax += 0x120;
-		if(eax != 0xd80) goto ___520e0h;
-		ecx = D(___196dd0h);
-		D(___243d38h) = ebp;
-		if(ecx) goto ___52429h;
-		if(D(___196dd4h) != 0) goto ___52429h;
-		D(esp+0x18) = ecx;
-		eax ^= eax;
-___52133h:
-		edx = D(eax+___1f2488h+8);
-		ebp = D(___243d38h);
-		if((int)edx <= 0) goto ___52147h;
-		D(esp+0x18)++;
-___52147h:
-		eax += 0x120;
-		D(___243d38h) = ebp;
-		if(eax != 0xd80) goto ___52133h;
-		ecx = 0xc;
-		eax = esp;
-		edx ^= edx;
-		memset(eax, edx, ecx);
-		ecx ^= ecx;
-		D(esp+0x10) = ecx;
-___5216dh:
-		eax = rand_watcom106();
-		edx = eax;
-		ebx = 0xc;
-		edx = (int)edx>>0x1f;
-		___idiv32(&eax, &edx, ebx);
-		D(esp+0x30) = edx;
-		if(B(esp+edx) == 1) goto ___5216dh;
-		eax = D(esp+0x30);
-		B(esp+eax) = 1;
-		eax = 0x120*eax;
-		edi = D(eax+___1f2488h+0xc);
-		ebp = D(___243d38h);
-		if((int)edi <= 0) goto ___521b8h;
-		edx = D(___243334h);
-		ebx = edi;
-		ebx -= edx;
-		D(eax+___1f2488h+0xc) = ebx;
-		goto ___521c0h;
-___521b8h:
-		edx ^= edx;
-		D(eax+___1f2488h+0xc) = edx;
-___521c0h:
-		ebx = 0x120*D(esp+0x30);
-		esi = D(ebx+___1f2488h+8);
-		D(___243d38h) = ebp;
-		if(esi) goto ___52417h;
-		if((int)D(ebx+___1f2488h) <= 0) goto ___52417h;
-		if(D(ebx+___1f2488h+0xc) != 0) goto ___52417h;
-		if((int)D(esp+0x18) >= 4) goto ___52417h;
-		eax = rand_watcom106();
-		edx = eax;
-		ecx = 0x64;
-		edx = (int)edx>>0x1f;
-		___idiv32(&eax, &edx, ecx);
-		eax = 0x94*D(___243ce8h);
-		if(D(eax+___1de580h+0x2c) == 0) goto ___522aah;
-		ebp = D(___243d38h);
-		if((int)edx < 0) goto ___52242h;
-		if((int)edx >= 0x1e) goto ___52242h;
-		D(ebx+___1f2488h+8) = 0x1;
-___52242h:
-		if((int)edx < 0x1e) goto ___5225eh;
-		if((int)edx >= 0x41) goto ___5225eh;
-		eax = 0x120*D(esp+0x30);
-		D(eax+___1f2488h+8) = 0x2;
-___5225eh:
-		if((int)edx < 0x41) goto ___5227ah;
-		if((int)edx >= 0x50) goto ___5227ah;
-		eax = 0x120*D(esp+0x30);
-		D(eax+___1f2488h+8) = 0x3;
-___5227ah:
-		if((int)edx < 0x50) goto ___52296h;
-		if((int)edx >= 0x55) goto ___52296h;
-		eax = 0x120*D(esp+0x30);
-		D(eax+___1f2488h+8) = 0x4;
-___52296h:
-		if((int)edx < 0x55) goto ___52317h;
-		if((int)edx >= 0x64) goto ___52317h;
-		goto ___52305h;
-___522aah:
-		ebp = D(___243d38h);
-		if((int)edx < 0) goto ___522c3h;
-		if((int)edx >= 0x2d) goto ___522c3h;
-		D(ebx+___1f2488h+8) = 0x2;
-___522c3h:
-		if((int)edx < 0x2d) goto ___522dfh;
-		if((int)edx >= 0x50) goto ___522dfh;
-		eax = 0x120*D(esp+0x30);
-		D(eax+___1f2488h+8) = 0x3;
-___522dfh:
-		if((int)edx < 0x50) goto ___522fbh;
-		if((int)edx >= 0x5a) goto ___522fbh;
-		eax = 0x120*D(esp+0x30);
-		D(eax+___1f2488h+8) = 0x4;
-___522fbh:
-		if((int)edx < 0x5a) goto ___52317h;
-		if((int)edx >= 0x64) goto ___52317h;
-___52305h:
-		eax = 0x120*D(esp+0x30);
-		D(eax+___1f2488h+8) = 0x5;
-___52317h:
-		eax = 0x120*D(esp+0x30);
-		edi = D(esp+0x18);
-		D(___243d38h) = ebp;
-		esi ^= esi;
-		edx ^= edx;
-		edi++;
-		D(esp+0x28) = eax;
-		D(eax+___1f2488h+0x10) = esi;
-		eax = ___1f2488h+eax;
-		D(esp+0x18) = edi;
-		ebx = eax+0x20;
-___52344h:
-		eax = D(esp+0x28);
-		eax = D(eax+___1f2488h+4);
-		eax += edx;
-		ecx = D(___243d28h);
-		eax -= 0x8;
-		eax = eax*ecx;
-		ecx = D(esp+0x28);
-		esi = D(___243d58h);
-		esi += D(ecx+___1f2488h);
-		ecx = 0x10;
-		esi -= 0x8;
-		edi = ebx;
-		esi += eax;
-		edx++;
-		memcpy(edi, esi, ecx);
-		ebx += 0x10;
-		if((int)edx < 0x10) goto ___52344h;
-		edi ^= edi;
-		eax = D(esp+0x30);
-		D(esp+0x34) = edi;
-		edx = 0x120*eax;
-___523a1h:
-		ebx = D(esp+0x34);
-		ebp = D(___243d38h);
-		eax ^= eax;
-		D(esp+0x40) = ebx;
-___523b1h:
-		ecx = D(edx+___1f2488h+8);
-		ecx <<= 0x8;
-		ebx = ecx+ebp;
-		ecx = D(esp+0x40);
-		ebx += eax;
-		ebx += ecx;
-		if(B(ebx+0xffffff00) == 0) goto ___523fah;
-		ecx = D(edx+___1f2488h+4);
-		ecx += edi;
-		esi = D(___243d28h);
-		ecx -= 0x8;
-		esi = esi*ecx;
-		ecx = D(___243d58h);
-		ecx += eax;
-		ecx += D(edx+___1f2488h);
-		L(ebx) = B(ebx+0xffffff00);
-		B(ecx+esi-8) = L(ebx);
-___523fah:
-		eax++;
-		if((int)eax < 0x10) goto ___523b1h;
-		esi = D(esp+0x34);
-		edi++;
-		esi += 0x10;
-		D(___243d38h) = ebp;
-		D(esp+0x34) = esi;
-		if((int)edi < 0x10) goto ___523a1h;
-___52417h:
-		edi = D(esp+0x10);
-		edi++;
-		D(esp+0x10) = edi;
-		if((int)edi < 0xc) goto ___5216dh;
-___52429h:
-		eax = ___1f2488h;
-		ebp = D(___243d38h);
-		edx ^= edx;
-		eax += 0x20;
-		D(esp+0x1c) = edx;
-		D(esp+0x14) = eax;
-___52441h:
+		if(eax == 0xd80) break;
+	}
+
+	ecx = D(___196dd0h);
+	___243d38h = ebpp;
+
+	if(ecx == 0){
+
+		if(D(___196dd4h) == 0){
+			
+			D(esp+0x18) = ecx;
+			eax ^= eax;
+
+			while(1){
+
+				edx = D(eax+___1f2488h+8);
+				ebpp = ___243d38h;
+				if((int)edx > 0) D(esp+0x18)++;
+				eax += 0x120;
+				___243d38h = ebpp;
+				if(eax == 0xd80) break;
+			}
+
+			edx = 0;
+			memset(esp, edx, 0xc);
+			ecx = 0;
+			D(esp+0x10) = ecx;
+
+			while(1){
+
+				while(1){
+					eax = rand_watcom106();
+					edx = eax;
+					ebx = 0xc;
+					edx = (int)edx>>0x1f;
+					___idiv32(&eax, &edx, ebx);
+					D(esp+0x30) = edx;
+					if(B(esp+edx) != 1) break;
+				}
+
+				eax = D(esp+0x30);
+				B(esp+eax) = 1;
+				eax = 0x120*eax;
+				edi = D(eax+___1f2488h+0xc);
+				ebpp = ___243d38h;
+
+				if((int)edi <= 0){
+
+					edx ^= edx;
+					D(eax+___1f2488h+0xc) = edx;
+				}
+				else {
+
+					edx = D(___243334h);
+					ebx = edi;
+					ebx -= edx;
+					D(eax+___1f2488h+0xc) = ebx;
+				}
+
+				ebx = 0x120*D(esp+0x30);
+				esi = D(ebx+___1f2488h+8);
+				___243d38h = ebpp;
+
+				if(esi == 0){
+
+					if((int)D(ebx+___1f2488h) > 0){
+
+						if(D(ebx+___1f2488h+0xc) == 0){
+
+							if((int)D(esp+0x18) < 4){
+
+								eax = rand_watcom106();
+								edx = eax;
+								ecx = 0x64;
+								edx = (int)edx>>0x1f;
+								___idiv32(&eax, &edx, ecx);
+								eax = 0x94*D(___243ce8h);
+
+								if(D(eax+___1de580h+0x2c) == 0){
+
+									ebpp = ___243d38h;
+									if(((int)edx >= 0)&&((int)edx < 0x2d)){
+									
+										D(ebx+___1f2488h+8) = 0x2;
+									}
+
+									if(((int)edx >= 0x2d)&&((int)edx < 0x50)){
+									
+										eax = 0x120*D(esp+0x30);
+										D(eax+___1f2488h+8) = 0x3;
+									}
+
+									if(((int)edx >= 0x50)&&((int)edx < 0x5a)){
+									
+										eax = 0x120*D(esp+0x30);
+										D(eax+___1f2488h+8) = 0x4;
+									}
+
+									if(((int)edx >= 0x5a)&&((int)edx < 0x64)){
+
+										eax = 0x120*D(esp+0x30);
+										D(eax+___1f2488h+8) = 0x5;
+									}
+								}
+								else {
+
+									ebpp = ___243d38h;
+									if(((int)edx >= 0)&&((int)edx < 0x1e)){
+									
+										D(ebx+___1f2488h+8) = 0x1;
+									}
+
+									if(((int)edx >= 0x1e)&&((int)edx < 0x41)){
+									
+										eax = 0x120*D(esp+0x30);
+										D(eax+___1f2488h+8) = 0x2;
+									}
+
+									if(((int)edx >= 0x41)&&((int)edx < 0x50)){
+									
+										eax = 0x120*D(esp+0x30);
+										D(eax+___1f2488h+8) = 0x3;
+									}
+
+									if(((int)edx >= 0x50)&&((int)edx < 0x55)){
+									
+										eax = 0x120*D(esp+0x30);
+										D(eax+___1f2488h+8) = 0x4;
+									}
+
+									if(((int)edx >= 0x55)&&((int)edx < 0x64)){
+										
+										eax = 0x120*D(esp+0x30);
+										D(eax+___1f2488h+8) = 0x5;
+									}
+								}
+
+								eax = 0x120*D(esp+0x30);
+								edi = D(esp+0x18);
+								___243d38h = ebpp;
+								esi ^= esi;
+								edx ^= edx;
+								edi++;
+								D(esp+0x28) = eax;
+								D(eax+___1f2488h+0x10) = esi;
+								D(esp+0x18) = edi;
+								ebxp = ___1f2488h+eax+0x20;
+
+								while(1){
+
+									eax = D(esp+0x28);
+									eax = D(eax+___1f2488h+4);
+									eax = eax+edx;
+									ecx = D(___243d28h);
+									eax = eax-0x8;
+									eax = eax*ecx;
+									memcpy(ebxp, ___243d58h+D(D(esp+0x28)+___1f2488h)-0x8+eax, 0x10);
+									ebxp += 0x10;
+									edx++;
+									if((int)edx >= 0x10) break;
+								}
+
+								edi ^= edi;
+								eax = D(esp+0x30);
+								D(esp+0x34) = edi;
+								edx = 0x120*eax;
+
+								while(1){
+
+									ebx = D(esp+0x34);
+									ebpp = ___243d38h;
+									eax = 0;
+									D(esp+0x40) = ebx;
+
+									while(1){
+
+										ebxp = ebpp+0x100*D(___1f2488h+edx+8)+eax+D(esp+0x40);
+
+										if(B(ebxp+(int)0xffffff00) != 0){
+
+											ecx = D(___1f2488h+edx+4)+edi;
+											esi = D(___243d28h);
+											ecx -= 0x8;
+											esi = esi*ecx;
+											B(___243d58h+eax+D(___1f2488h+edx)+esi-8) = B(ebxp+(int)0xffffff00);
+										}
+
+										eax++;
+										if((int)eax >= 0x10) break;
+									}
+
+									esi = D(esp+0x34);
+									edi++;
+									esi += 0x10;
+									___243d38h = ebpp;
+									D(esp+0x34) = esi;
+									if((int)edi >= 0x10) break;
+								}
+							}
+						}
+					}
+				}
+
+				edi = D(esp+0x10);
+				edi++;
+				D(esp+0x10) = edi;
+				if((int)edi >= 0xc) break;
+			}
+		}
+	}
+
+	ebpp = ___243d38h;
+	edx = 0;
+	D(esp+0x1c) = edx;
+	esp0x14 = ___1f2488h+0x20;
+
+	while(1){
+
 		edx = 0x7d0;
 		ebx = D(esp+0x1c);
 		eax = 0x7c6;
 		ecx ^= ecx;
-___52451h:
-		esi = D(ebx+___1f2488h+0x10);
-		if((int)eax >= (int)esi) goto ___52464h;
-		if((int)edx <= (int)esi) goto ___52464h;
-		ecx = 0x1;
-___52464h:
-		edx -= 0x14;
-		eax -= 0x14;
-		if((int)edx >= 0x604) goto ___52451h;
-		if(ecx == 0) goto ___524ffh;
-		ebx ^= ebx;
-		edx = D(esp+0x1c);
-		D(esp+0x38) = ebx;
-		D(esp+0xc) = ebx;
-		edi = 0x10;
-___5248dh:
-		ebx = D(esp+0x38);
-		eax ^= eax;
-		D(esp+0x3c) = ebx;
-___52497h:
-		ecx = D(edx+___1f2488h+8);
-		ecx <<= 0x8;
-		ebx = ecx+ebp;
-		ecx = D(esp+0x3c);
-		ebx += eax;
-		ebx += ecx;
-		if(B(ebx+0xffffff00) == 0) goto ___524e2h;
-		ecx = D(esp+0xc);
-		ecx += D(edx+___1f2488h+4);
-		esi = D(___243d28h);
-		ecx -= 0x8;
-		esi = esi*ecx;
-		ecx = D(___243d58h);
-		ecx += eax;
-		ecx += D(edx+___1f2488h);
-		L(ebx) = B(ebx+0xffffff00);
-		B(ecx+esi-8) = L(ebx);
-___524e2h:
-		eax++;
-		if((int)eax < 0x10) goto ___52497h;
-		ebx = D(esp+0xc);
-		eax = D(esp+0x38);
-		ebx++;
-		eax += edi;
-		D(esp+0xc) = ebx;
-		D(esp+0x38) = eax;
-		if((int)edi > (int)ebx) goto ___5248dh;
-___524ffh:
+
+		while(1){
+
+			esi = D(ebx+___1f2488h+0x10);
+			if(((int)eax < (int)esi)&&((int)edx > (int)esi)) ecx = 0x1;
+			edx -= 0x14;
+			eax -= 0x14;
+			if((int)edx < 0x604) break;
+		}
+
+		if(ecx != 0){
+
+			D(esp+0x38) = 0;
+			D(esp+0xc) = 0;
+
+			while(1){
+
+				D(esp+0x3c) = D(esp+0x38);
+
+				eax = 0;
+				while(1){
+
+					ebxp = ebpp+0x100*D(___1f2488h+D(esp+0x1c)+8)+eax+D(esp+0x3c);
+
+					if(B(ebxp+(int)0xffffff00) != 0){
+
+						B(___243d58h+eax+D(___1f2488h+D(esp+0x1c))+D(___243d28h)*(D(esp+0xc)+D(___1f2488h+D(esp+0x1c)+4)-8)-8) = B(ebxp+(int)0xffffff00);
+					}
+
+					eax++;
+					if((int)eax >= 0x10) break;
+				}
+
+				D(esp+0xc)++;
+				D(esp+0x38) += 0x10;
+				if(0x10 <= (int)D(esp+0xc)) break;
+			}
+		}
+
 		edx = 0x7c6;
 		eax = D(esp+0x1c);
 		ebx = 0x7bc;
-		ecx ^= ecx;
-___5250fh:
-		esi = D(eax+___1f2488h+0x10);
-		if((int)ebx >= (int)esi) goto ___52522h;
-		if((int)edx <= (int)esi) goto ___52522h;
-		ecx = 0x1;
-___52522h:
-		edx -= 0x14;
-		ebx -= 0x14;
-		if((int)edx >= 0x5fa) goto ___5250fh;
-		D(___243d38h) = ebp;
-		if(ecx == 0) goto ___52596h;
-		eax = D(esp+0x1c);
-		edx = D(esp+0x14);
-		ebx ^= ebx;
-		D(esp+0x24) = eax;
-___52548h:
-		eax = D(esp+0x24);
-		eax = D(eax+___1f2488h+4);
-		eax += ebx;
-		edi = D(___243d28h);
-		eax -= 0x8;
-		edi = edi*eax;
-		ecx = D(esp+0x24);
-		esi = D(ecx+___1f2488h);
-		eax = D(___243d58h);
-		eax += esi;
-		ecx = 0x10;
-		eax -= 0x8;
-		esi = edx;
-		edi += eax;
-		ebx++;
-		memcpy(edi, esi, ecx);
-		edx += 0x10;
-		if((int)ebx < 0x10) goto ___52548h;
-___52596h:
-		eax = D(esp+0x1c);
-		if((int)D(eax+___1f2488h+0x10) < 0x7d0) goto ___52651h;
-		ecx = D(esp+0x1c);
-		D(esp+0x2c) = eax;
-		eax = ___1f2488h;
-		eax += ecx;
-		ebx ^= ebx;
-		eax += 0x20;
-		edx ^= edx;
-		D(esp+0x20) = eax;
-___525c4h:
-		eax = D(esp+0x2c);
-		eax = D(eax+___1f2488h+4);
-		eax += edx;
-		edi = D(___243d28h);
-		eax -= 0x8;
-		edi = edi*eax;
-		esi = D(esp+0x20);
-		ecx = D(esp+0x2c);
-		eax = D(___243d58h);
-		esi += ebx;
-		eax += D(ecx+___1f2488h);
-		ebx += 0x10;
-		eax -= 0x8;
-		ecx = 0x10;
-		edi += eax;
-		edx++;
-		memcpy(edi, esi, ecx);
-		if((int)edx < 0x10) goto ___525c4h;
-		eax = D(esp+0x2c);
-		esi ^= esi;
-		D(eax+___1f2488h+0x10) = esi;
-		D(eax+___1f2488h+8) = esi;
-		D(___196dd0h) = 0x118;
-		eax = rand_watcom106();
-		edx = eax;
-		ebx = 0xc8;
-		edx = (int)edx>>0x1f;
-		___idiv32(&eax, &edx, ebx);
-		eax = D(esp+0x2c);
-		edx += 0x12c;
-		D(eax+___1f2488h+0xc) = edx;
-___52651h:
-		ebx = D(esp+0x1c);
-		edx = D(esp+0x14);
-		ebp = D(___243d38h);
-		ebx += 0x120;
-		edx += 0x120;
-		D(esp+0x1c) = ebx;
-		D(esp+0x14) = edx;
-		if(ebx != 0xd80) goto ___52441h;
-		return;
+		ecx = 0;
+
+		while(1){
+
+			esi = D(eax+___1f2488h+0x10);
+			if(((int)ebx < (int)esi)&&((int)edx > (int)esi)) ecx = 0x1;
+			edx -= 0x14;
+			ebx -= 0x14;
+			if((int)edx < 0x5fa) break;
+		}
+
+		___243d38h = ebpp;
+
+		if(ecx != 0){
+
+			edxp = esp0x14;
+			D(esp+0x24) = D(esp+0x1c);
+
+			ebx = 0;
+			while(1){
+
+				memcpy(___243d58h+D(___243d28h)*(D(___1f2488h+D(esp+0x24)+4)+ebx-0x8)+D(___1f2488h+D(esp+0x24))-0x8, edxp, 0x10);
+				edxp += 0x10;
+				ebx++;
+				if((int)ebx >= 0x10) break;
+			}
+		}
+
+		if((int)D(___1f2488h+D(esp+0x1c)+0x10) >= 0x7d0){
+
+			D(esp+0x2c) = D(esp+0x1c);
+
+			edx = 0;
+			ebx = 0;
+			while(1){
+
+				memcpy(
+					___243d58h+D(___1f2488h+D(esp+0x2c))+D(___243d28h)*(D(___1f2488h+D(esp+0x2c)+4)+edx-0x8)-0x8,
+					___1f2488h+D(esp+0x1c)+0x20+ebx,
+					0x10);
+
+				ebx += 0x10;
+				edx++;
+				if((int)edx >= 0x10) break;
+			}
+
+			D(___1f2488h+D(esp+0x2c)+0x10) = 0;
+			D(___1f2488h+D(esp+0x2c)+8) = 0;
+			D(___196dd0h) = 0x118;
+			eax = rand_watcom106();
+			edx = (int)eax>>0x1f;
+			___idiv32(&eax, &edx, 0xc8);
+			D(___1f2488h+D(esp+0x2c)+0xc) = edx+0x12c;
+		}
+
+		ebpp = ___243d38h;
+		D(esp+0x1c) += 0x120;
+		esp0x14 += 0x120;
+		if(D(esp+0x1c) == 0xd80) break;
+	}
 }

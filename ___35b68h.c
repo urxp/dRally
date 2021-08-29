@@ -1,203 +1,31 @@
 #include "drally.h"
 
-	extern byte ___19eb50h[];
+#pragma pack(1)
+typedef struct x655_s {
+	__DWORD__ 	r;
+	__DWORD__ 	g;
+	__DWORD__ 	b;
+} x655_t;
+
+	extern x655_t ___19eb50h[];
+
+static int helper0(double n, double c){ return ((int)(c*(0.1125*n+0.1))<<0x10)/100; }
+static int helper1(double n, double c){ return ((int)(c*(1.0-0.125*n)+7.875*n)<<0x10)/100; }
 
 // SOMETHING WITH RACE RESULTS CAR COLORS
-void ___35b68h_cdecl(dword A0, dword A1, dword A2, dword A3){
+void ___35b68h_cdecl(dword A0, float A1, float A2, float A3){
 
-	double 	d_tmp;
-	dword 	eax, ebx, ecx, edx, edi, esi, ebp;
-	byte 	__esp[0x44+0x18+0x4+0xc];
-	byte * 	esp = __esp+0x44;
+	int 	n;
 
-	eax = A0;
-	D(esp+0x1c) = A1;
-	D(esp+0x20) = A2;
-	D(esp+0x24) = A3;
+	n = -1;
+	while(++n < 8){
 
+		___19eb50h[A0+n].r = helper0((double)n, (double)A1);
+		___19eb50h[A0+n].g = helper0((double)n, (double)A2);
+		___19eb50h[A0+n].b = helper0((double)n, (double)A3);
 
-		ebp = esp;
-		esp = esp-0x44;
-		esi = eax;
-		eax = D(ebp+0x1c);
-		D(esp+0x40) = eax;
-		eax = D(ebp+0x20);
-		D(esp+0x3c) = eax;
-		eax = D(ebp+0x24);
-		D(esp+0x38) = eax;
-		FPUSH(F32(esp+0x40));
-		FPUSH(ST(0));
-		FPUSH(10.0);
-		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
-		ST(0) = ST(0)/ST(1);
-		FPUSH(F32(esp+0x3c));
-		FPUSH(ST(0));
-		ST(0) = ST(0)/ST(3);
-		FPUSH(F32(esp+0x38));
-		ST(4) = ST(0)/ST(4);
-		d_tmp = ST(0); ST(0) = ST(3); ST(3) = d_tmp;
-		ST(5) = ST(5)-ST(0); FPOP();
-		d_tmp = ST(0); ST(0) = ST(4); ST(4) = d_tmp;
-		FPUSH(0.125);
-		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
-		ST(0) = ST(0)*ST(1);
-		d_tmp = ST(0); ST(0) = ST(5); ST(5) = d_tmp;
-		ST(2) = ST(2)-ST(0); FPOP();
-		edx ^= edx;
-		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
-		ST(0) = ST(0)*ST(1);
-		D(esp+0x34) = edx;
-		edx = esi;
-		d_tmp = ST(0); ST(0) = ST(3); ST(3) = d_tmp;
-		ST(2) = ST(2)-ST(0); FPOP();
-		ecx = 4*edx;
-		ST(1) = ST(1)*ST(0); FPOP();
-		ecx -= edx;
-		edi = 0x640000;
-		ecx <<= 0x2;
-		d_tmp = ST(0); ST(0) = ST(2); ST(2) = d_tmp;
-		F32(esp+0x24) = (float)FPOP();
-		F32(esp+0x20) = (float)FPOP();
-		F32(esp+0x1c) = (float)FPOP();
-___35bfah:
-		FPUSH((int)D(esp+0x34));
-		FPUSH(ST(0));
-		ST(0) = ST(0)*(double)F32(esp+0x24);
-		FPUSH(F32(esp+0x40));
-		ST(0) = ST(0)/10.0;
-		FPUSH(ST(2));
-		ST(0) = ST(0)*(double)F32(esp+0x20);
-		FPUSH(F32(esp+0x3c));
-		ST(0) = ST(0)/10.0;
-		d_tmp = ST(0); ST(0) = ST(4); ST(4) = d_tmp;
-		ST(0) = ST(0)*(double)F32(esp+0x1c);
-		FPUSH(F32(esp+0x38));
-		ST(0) = ST(0)/10.0;
-		ebx = edi;
-		d_tmp = ST(0); ST(0) = ST(3); ST(3) = d_tmp;
-		ST(4) = ST(4)+ST(0); FPOP();
-		d_tmp = ST(0); ST(0) = ST(4); ST(4) = d_tmp;
-		ST(1) = ST(1)+ST(0); FPOP();
-		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
-		ST(3) = ST(3)+ST(0); FPOP();
-		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
-		ST(0) = (int)ST(0);
-		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
-		ST(0) = (int)ST(0);
-		d_tmp = ST(0); ST(0) = ST(2); ST(2) = d_tmp;
-		ST(0) = (int)ST(0);
-		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
-		D(esp+0x10) = (int)FPOP();
-		edx = D(esp+0x10);
-		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
-		D(esp+0x8) = (int)FPOP();
-		edx <<= 0x10;
-		D(esp+0xc) = (int)FPOP();
-		eax ^= eax;
-		eax = (eax>>0x10)|(edx<<0x10);
-		edx = (int)edx>>0x10;
-		___idiv32(&eax, &edx, ebx);
-		edx = D(esp+0x8);
-		ebx = edi;
-		edx <<= 0x10;
-		D(ecx+___19eb50h) = eax;
-		eax ^= eax;
-		eax = (eax>>0x10)|(edx<<0x10);
-		edx = (int)edx>>0x10;
-		___idiv32(&eax, &edx, ebx);
-		edx = D(esp+0xc);
-		ebx = edi;
-		edx <<= 0x10;
-		D(ecx+___19eb50h+4) = eax;
-		eax ^= eax;
-		eax = (eax>>0x10)|(edx<<0x10);
-		edx = (int)edx>>0x10;
-		___idiv32(&eax, &edx, ebx);
-		ebx = D(esp+0x34);
-		esi++;
-		ebx++;
-		D(ecx+___19eb50h+8) = eax;
-		ecx += 0xc;
-		D(esp+0x34) = ebx;
-		if((int)ebx < 8) goto ___35bfah;
-		FPUSH(63.0f);
-		FPUSH(ST(0));
-		ST(0) = ST(0)-(double)F32(esp+0x40);
-		FPUSH(0.125f);
-		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
-		ST(0) = ST(0)*ST(1);
-		FPUSH(ST(2));
-		ST(0) = ST(0)-(double)F32(esp+0x3c);
-		d_tmp = ST(0); ST(0) = ST(3); ST(3) = d_tmp;
-		ST(0) = ST(0)-(double)F32(esp+0x38);
-		d_tmp = ST(0); ST(0) = ST(3); ST(3) = d_tmp;
-		ST(0) = ST(0)*ST(2);
-		d_tmp = ST(0); ST(0) = ST(3); ST(3) = d_tmp;
-		ST(2) = ST(2)*ST(0); FPOP();
-		edi = 0x640000;
-		ecx = 4*esi;
-		edx ^= edx;
-		ecx -= esi;
-		D(esp+0x18) = edx;
-		ecx <<= 0x2;
-		d_tmp = ST(0); ST(0) = ST(2); ST(2) = d_tmp;
-		F32(esp+0x2c) = (float)FPOP();
-		F32(esp+0x30) = (float)FPOP();
-		F32(esp+0x28) = (float)FPOP();
-___35d12h:
-		FPUSH((int)D(esp+0x18));
-		FPUSH(ST(0));
-		ST(0) = ST(0)*(double)F32(esp+0x28);
-		FPUSH(ST(1));
-		ST(0) = ST(0)*(double)F32(esp+0x2c);
-		d_tmp = ST(0); ST(0) = ST(2); ST(2) = d_tmp;
-		ST(0) = ST(0)*(double)F32(esp+0x30);
-		ebx = edi;
-		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
-		ST(0) = ST(0)+(double)F32(esp+0x40);
-		d_tmp = ST(0); ST(0) = ST(2); ST(2) = d_tmp;
-		ST(0) = ST(0)+(double)F32(esp+0x3c);
-		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
-		ST(0) = ST(0)+(double)F32(esp+0x38);
-		d_tmp = ST(0); ST(0) = ST(2); ST(2) = d_tmp;
-		ST(0) = (int)ST(0);
-		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
-		ST(0) = (int)ST(0);
-		d_tmp = ST(0); ST(0) = ST(2); ST(2) = d_tmp;
-		ST(0) = (int)ST(0);
-		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
-		D(esp+0x10) = (int)FPOP();
-		edx = D(esp+0x10);
-		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
-		D(esp+0x8) = (int)FPOP();
-		edx <<= 0x10;
-		D(esp+0xc) = (int)FPOP();
-		eax ^= eax;
-		eax = (eax>>0x10)|(edx<<0x10);
-		edx = (int)edx>>0x10;
-		___idiv32(&eax, &edx, ebx);
-		edx = D(esp+0x8);
-		ebx = edi;
-		edx <<= 0x10;
-		D(ecx+___19eb50h) = eax;
-		eax ^= eax;
-		eax = (eax>>0x10)|(edx<<0x10);
-		edx = (int)edx>>0x10;
-		___idiv32(&eax, &edx, ebx);
-		edx = D(esp+0xc);
-		ebx = edi;
-		edx <<= 0x10;
-		D(ecx+___19eb50h+4) = eax;
-		eax ^= eax;
-		eax = (eax>>0x10)|(edx<<0x10);
-		edx = (int)edx>>0x10;
-		___idiv32(&eax, &edx, ebx);
-		ebx = D(esp+0x18);
-		esi++;
-		ebx++;
-		D(ecx+___19eb50h+8) = eax;
-		ecx += 0xc;
-		D(esp+0x18) = ebx;
-		if((int)ebx < 8) goto ___35d12h;
-		return;
+		___19eb50h[A0+8+n].r = helper1((double)n, (double)A1);
+		___19eb50h[A0+8+n].g = helper1((double)n, (double)A2);
+		___19eb50h[A0+8+n].b = helper1((double)n, (double)A3);
+	}
 }

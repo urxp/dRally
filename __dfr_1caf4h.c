@@ -1,4 +1,5 @@
 #include "drally.h"
+#include "drmemory.h"
 
 	extern byte CONNECTION_TYPE[];
 	extern byte ___1a1138h__VESA101h_DefaultScreenBufferB[];
@@ -32,7 +33,6 @@ dword NovellNetWare_IPX_InstallationCheck(void);
 dword ___61cd0h(void);
 void ___1123ch(void);
 void * ___3f71ch__allocateMemory(dword);
-void dRally_Memory_free(void *);
 void ___12d6ch__VESA101_PRESENTBOTTOMSCREEN(void);
 dword ___23594h_cdecl(dword, dword);
 void ___58c60h(void);
@@ -144,7 +144,7 @@ dword ___1caf4h(void){
 			if((int)ebp >= 0x1e) break;
 		}
 
-		dRally_Memory_free(___1a0f9ch);
+		dRMemory_free(___1a0f9ch);
 
 		ecx = ___1a116ch;
 		edx = 0;

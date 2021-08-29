@@ -65,8 +65,8 @@ typedef struct xc50_s {
 	extern byte ___196dcch[];
 	extern byte ___196d88h[];
 	extern byte ___196d90h[];
-	extern byte ___243d80h[];
-	extern byte ___243d5ch[];
+	extern void * ___243d80h;
+	extern void * ___243d5ch;
 
 
 void race___5326ch(void);
@@ -83,6 +83,10 @@ void race___53464h(void){
 	byte 		px;
 	xc50_t *	p;
 	x2c_t * 	q;
+	void *	 	eaxp;
+	void * 		ebxp;
+	void *		esip;
+
 
 	D(___243d0ch) = D(___243c88h)-1;
 
@@ -248,25 +252,25 @@ void race___53464h(void){
 
 									if(((int)eax < (int)q->_1C)&&((int)q->_18 < (int)D(___196d88h))&&((int)q->_1C < (int)D(___196d90h))){
 
-										ebx = 0x200*q->_1C+q->_18+D(___196d98h)+0x60+D(___243d80h);
-										esi = D(___243d5ch)+q->__8;
+										ebxp = ___243d80h+0x200*(int)q->_1C+(int)q->_18+D(___196d98h)+0x60;
+										esip = ___243d5ch+q->__8;
 
 										j = -1;
 										while(++j < q->__4){
 
-											if((int)ebx > (int)D(___243d80h)){
+											if(ebxp > ___243d80h){
 
 												i = -1;
 												while(++i < q->__0){
-													
-													if((px = B(esi+i))) B(ebx+i) = px;
+
+													if((px = B(esip+i))) B(ebxp+i) = px;
 												}
 											}
 
-											esi += q->__0;
-											ebx += 0x200;
-											eax = D(___243d80h)+0x19000;
-											if((int)ebx >= (int)eax) break;
+											esip += q->__0;
+											ebxp += 0x200;
+											eaxp = ___243d80h+0x19000;
+											if(ebxp >= eaxp) break;
 										}
 									}
 								}

@@ -1,26 +1,33 @@
 #include "drally.h"
 
+#pragma pack(1)
+typedef struct font_props_s {
+	byte 	w;
+	byte 	h;
+	byte 	props[];
+} font_props_t;
+
 typedef char char40[40];
 
-	extern byte ___1a112ch__VESA101_ACTIVESCREEN_PTR[];
+	extern void * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
 	extern void * ___1a1e98h;
 	extern __DWORD__ ___186658h[];
-	extern byte ___1a1e8ch[];
+	extern void * ___1a1e8ch;
 	extern byte ___1a1ed8h[];
 	extern byte ___1a1ef8h[];
 	extern byte ___1a01e0h[];
 	extern byte ___185c7ah[];
-	extern byte ___1a10b8h[];
+	extern void * ___1a10b8h;
 	extern byte ___185a14h_UseWeapons[];
 	extern byte ___18e298h[];
 
 
-void ___259e0h_cdecl(dword, dword, dword, dword, dword);
+void ___259e0h_cdecl(int dx, int dy, int aFrameIdx, void * aEncoded, int * aOffsets);
 char * itoa_watcom106(int value, char * buffer, int radix);
 dword ___251e8h_cdecl(const char *);
-void ___12e78h_cdecl(dword, dword, dword, dword);
-dword ___25180h_cdecl(dword);
-void ___12f60h_cdecl(dword, dword);
+void ___12e78h_cdecl(byte * A1, font_props_t * A2, const char * A3, dword dst_off);
+int ___25180h_cdecl(const char * A1);
+void ___12f60h_cdecl(const char * A1, dword A2);
 void ___13248h_cdecl(dword, dword ,dword, dword, dword);
 void ___13094h_cdecl(const char *, dword);
 
@@ -126,257 +133,85 @@ static const char40 ___194170h[12][6] = {
 // SHOP REPAIR
 void ___269e4h(void){
 
+	int 	i, j;
+
 	dword 	eax, ebx, ecx, edx, edi, esi, ebp;
 	byte 	esp[0x28];
 
 
-		ecx = 0x60;
-		ebx = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
-		esi = ___1a1e98h+0x6c00;
-		ebx += 0x279c8;
-		edx = ecx;
-		L(edx) >>= 0x2;
-___26a13h:
-		H(ecx) = L(edx);
-___26a15h:
-		eax = D(esi);
-		D(ebx) = eax;
-		ebx += 0x4;
-		esi += 0x4;
-		H(ecx)--;
-		if(H(ecx)) goto ___26a15h;
-		ebx += 0x280;
-		L(edx) <<= 0x2;
-		ebx -= edx;
-		L(edx) >>= 0x2;
-		L(ecx)--;
-		if(L(ecx)) goto ___26a13h;
-		edx = 0x10d;
-		eax = 0x148;
-		ecx = D(___1a1e8ch);
-		ebx = D(___1a1ed8h);
-		___259e0h_cdecl(eax, edx, ebx, ecx, ___186658h);
-		edx = D(___1a1ef8h);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 0x2;
-		eax -= edx;
-		eax <<= 0x2;
-		edx = D(eax+___1a01e0h+0xc);
-		if((int)edx >= 0xa) goto ___26b3fh;
-		ebx = 0xa;
-		eax = edx;
-		edx = esp;
-		ecx = 0x27f1a;
-		eax = itoa_watcom106(eax, edx, ebx);
-		eax = esp;
-		ebx = esp;
-		eax = ___251e8h_cdecl(eax);
-		ecx -= eax;
-		eax = D(___1a10b8h);
-		___12e78h_cdecl(eax, ___185c7ah, ebx, ecx);
-		edx = D(___1a1ef8h);
-		ebx = 8*edx;
-		ebx -= edx;
-		ebx <<= 0x2;
-		ebx -= edx;
-		ecx = D(___185a14h_UseWeapons);
-		ebx <<= 0x2;
-		if(ecx == 0) goto ___26affh;
-		edx = D(ebx+___1a01e0h+0x1c);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 0x3;
-		eax -= edx;
-		edx = eax;
-		edx <<= 0x5;
-		eax = D(edx+___18e298h+0x6dc);
-		edx = eax;
-		ecx = 0xa;
-		edx = (int)edx>>0x1f;
-		___idiv32(&eax, &edx, ecx);
-		edx = eax;
-		edx = (int)edx>>0x1f;
-		eax -= edx;
-		eax = (int)eax>>1;
-		goto ___26b2ah;
-___26affh:
-		edx = D(ebx+___1a01e0h+0x1c);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 0x3;
-		eax -= edx;
-		edx = eax;
-		edx <<= 0x5;
-		eax = D(edx+___18e298h+0x6dc);
-		edx = eax;
-		ecx = 0xa;
-		edx = (int)edx>>0x1f;
-		___idiv32(&eax, &edx, ecx);
-___26b2ah:
-		eax = eax*D(ebx+___1a01e0h+0xc);
-		ebx = ecx;
-		edx = esp;
-		eax = itoa_watcom106(eax, edx, ebx);
-		goto ___26bdfh;
-___26b3fh:
-		eax = "10";
-		ecx = 0x27f1a;
-		ebx = "10";
-		eax = ___251e8h_cdecl(eax);
-		ecx -= eax;
-		eax = D(___1a10b8h);
-		___12e78h_cdecl(eax, ___185c7ah, ebx, ecx);
-		edx = D(___1a1ef8h);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 0x2;
-		eax -= edx;
-		ebx = D(___185a14h_UseWeapons);
-		eax <<= 0x2;
-		if(ebx == 0) goto ___26bb6h;
-		edx = D(eax+___1a01e0h+0x1c);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 0x3;
-		eax -= edx;
-		edx = eax;
-		edx <<= 0x5;
-		eax = D(edx+___18e298h+0x6dc);
-		edx = eax;
-		edx = (int)edx>>0x1f;
-		eax -= edx;
-		eax = (int)eax>>1;
-		ebx = 0xa;
-		edx = esp;
-		goto ___26bdah;
-___26bb6h:
-		eax = D(eax+___1a01e0h+0x1c);
-		esi = 8*eax;
-		esi -= eax;
-		esi <<= 0x3;
-		esi -= eax;
-		ebx = 0xa;
-		esi <<= 0x5;
-		edx = esp;
-		eax = D(esi+___18e298h+0x6dc);
-___26bdah:
-		eax = itoa_watcom106(eax, edx, ebx);
-___26bdfh:
-		esi = esp;
-		X(eax) = W("$");
-		edi = esp+0x14;
-		W(esp+0x14) = X(eax);
-		strcat(edi, esi);
-		eax = esp+0x14;
-		eax = ___25180h_cdecl(eax);
-		edx = eax+0x346c8;
-		eax = esp+0x14;
-		___12f60h_cdecl(eax, edx);
-		edx = D(___1a1ef8h);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 0x2;
-		eax -= edx;
-		ebp = D(eax*4+___1a01e0h+0xc);
-		esi = 0;
-		edx = D(___1a1ef8h);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 0x2;
-		eax -= edx;
-		if((int)D(eax*4+___1a01e0h+0xc) >= 0x64) goto ___26c6dh;
-		esi = 0x1;
-___26c6dh:
-		edx = D(___1a1ef8h);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 0x2;
-		eax -= edx;
-		if((int)D(eax*4+___1a01e0h+0xc) >= 0x5a) goto ___26c90h;
-		esi = 0x2;
-___26c90h:
-		edx = D(___1a1ef8h);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 0x2;
-		eax -= edx;
-		if((int)D(eax*4+___1a01e0h+0xc) >= 0x50) goto ___26cb3h;
-		esi = 0x3;
-___26cb3h:
-		edx = D(___1a1ef8h);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 0x2;
-		eax -= edx;
-		if((int)D(eax*4+___1a01e0h+0xc) >= 0x46) goto ___26cd6h;
-		esi = 0x4;
-___26cd6h:
-		edx = D(___1a1ef8h);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 0x2;
-		eax -= edx;
-		if((int)D(eax*4+___1a01e0h+0xc) >= 0x3c) goto ___26cf9h;
-		esi = 0x5;
-___26cf9h:
-		edx = D(___1a1ef8h);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 0x2;
-		eax -= edx;
-		if((int)D(eax*4+___1a01e0h+0xc) >= 0x32) goto ___26d1ch;
-		esi = 0x6;
-___26d1ch:
-		edx = D(___1a1ef8h);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 0x2;
-		eax -= edx;
-		if((int)D(eax*4+___1a01e0h+0xc) >= 0x28) goto ___26d3fh;
-		esi = 0x7;
-___26d3fh:
-		edx = D(___1a1ef8h);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 0x2;
-		eax -= edx;
-		if((int)D(eax*4+___1a01e0h+0xc) >= 0x1e) goto ___26d62h;
-		esi = 0x8;
-___26d62h:
-		edx = D(___1a1ef8h);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 0x2;
-		eax -= edx;
-		if((int)D(eax*4+___1a01e0h+0xc) >= 0x14) goto ___26d85h;
-		esi = 0x9;
-___26d85h:
-		edx = D(___1a1ef8h);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 0x2;
-		eax -= edx;
-		if((int)D(eax*4+___1a01e0h+0xc) >= 0xa) goto ___26da8h;
-		esi = 0xa;
-___26da8h:
-		edx = D(___1a1ef8h);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 0x2;
-		eax -= edx;
-		if(D(eax*4+___1a01e0h+0xc) != 0) goto ___26dcbh;
-		esi = 0xb;
-___26dcbh:
-		ecx = 0x77;
-		ebx = 0x180;
-		edx = 0x72;
-		eax = 0x90;
-		___13248h_cdecl(eax, edx, ebx, ecx, 1);
-		___13094h_cdecl(___194170h[esi][0], 0x136aa);
-		___13094h_cdecl(___194170h[esi][1], 0x15eaa);
-		___13094h_cdecl(___194170h[esi][2], 0x186aa);
-		___13094h_cdecl(___194170h[esi][3], 0x1aeaa);
-		___13094h_cdecl(___194170h[esi][4], 0x1d6aa);
-		___13094h_cdecl(___194170h[esi][5], 0x1feaa);
+	j = -1;
+	while(++j < 0x60){
+
+		i = -1;
+		while(++i < 0x60) write_b(___1a112ch__VESA101_ACTIVESCREEN_PTR+0x279c8+0x280*j+i, read_b(___1a1e98h+0x6c00+0x60*j+i));
+	}
+
+	___259e0h_cdecl(0x148, 0x10d, D(___1a1ed8h), ___1a1e8ch, ___186658h);
+
+	if((int)D(___1a01e0h+0x6c*D(___1a1ef8h)+0xc) >= 0xa){
+
+		___12e78h_cdecl(___1a10b8h, ___185c7ah, "10", 0x27f1a-___251e8h_cdecl("10"));
+
+		if(D(___185a14h_UseWeapons) == 0){
+
+			eax = D(0x6e0*D(0x6c*D(___1a1ef8h)+___1a01e0h+0x1c)+___18e298h+0x6dc);
+		}
+		else {
+
+			eax = D(0x6e0*D(0x6c*D(___1a1ef8h)+___1a01e0h+0x1c)+___18e298h+0x6dc);
+			edx = eax;
+			edx = (int)edx>>0x1f;
+			eax = eax-edx;
+			eax = (int)eax>>1;
+		}
+	}
+	else {
+
+		itoa_watcom106(D(___1a01e0h+0x6c*D(___1a1ef8h)+0xc), esp, 0xa);
+		___12e78h_cdecl(___1a10b8h, ___185c7ah, esp, 0x27f1a-___251e8h_cdecl(esp));
+
+		if(D(___185a14h_UseWeapons) == 0){
+
+			eax = D(0x6e0*D(0x6c*D(___1a1ef8h)+___1a01e0h+0x1c)+___18e298h+0x6dc);
+			edx = (int)eax>>0x1f;
+			___idiv32(&eax, &edx, 0xa);
+		}
+		else {
+
+			eax = D(0x6e0*D(0x6c*D(___1a1ef8h)+___1a01e0h+0x1c)+___18e298h+0x6dc);
+			edx = (int)eax>>0x1f;
+			___idiv32(&eax, &edx, 0xa);
+			edx = eax;
+			edx = (int)edx>>0x1f;
+			eax = eax-edx;
+			eax = (int)eax>>1;
+		}
+
+		eax = eax*D(0x6c*D(___1a1ef8h)+___1a01e0h+0xc);
+	}
+
+	itoa_watcom106(eax, esp, 0xa);
+	strcat(strcpy(esp+0x14, "$"), esp);
+	___12f60h_cdecl(esp+0x14, ___25180h_cdecl(esp+0x14)+0x346c8);
+	
+	esi = 0;
+	if((int)D(___1a01e0h+0x6c*D(___1a1ef8h)+0xc) < 100) esi = 0x1;
+	if((int)D(___1a01e0h+0x6c*D(___1a1ef8h)+0xc) < 90) esi = 0x2;
+	if((int)D(___1a01e0h+0x6c*D(___1a1ef8h)+0xc) < 80) esi = 0x3;
+	if((int)D(___1a01e0h+0x6c*D(___1a1ef8h)+0xc) < 70) esi = 0x4;
+	if((int)D(___1a01e0h+0x6c*D(___1a1ef8h)+0xc) < 60) esi = 0x5;
+	if((int)D(___1a01e0h+0x6c*D(___1a1ef8h)+0xc) < 50) esi = 0x6;
+	if((int)D(___1a01e0h+0x6c*D(___1a1ef8h)+0xc) < 40) esi = 0x7;
+	if((int)D(___1a01e0h+0x6c*D(___1a1ef8h)+0xc) < 30) esi = 0x8;
+	if((int)D(___1a01e0h+0x6c*D(___1a1ef8h)+0xc) < 20) esi = 0x9;
+	if((int)D(___1a01e0h+0x6c*D(___1a1ef8h)+0xc) < 10) esi = 0xa;
+	if((int)D(___1a01e0h+0x6c*D(___1a1ef8h)+0xc) == 0) esi = 0xb;
+
+	___13248h_cdecl(0x90, 0x72, 0x180, 0x77, 1);
+	___13094h_cdecl(___194170h[esi][0], 0x136aa);
+	___13094h_cdecl(___194170h[esi][1], 0x15eaa);
+	___13094h_cdecl(___194170h[esi][2], 0x186aa);
+	___13094h_cdecl(___194170h[esi][3], 0x1aeaa);
+	___13094h_cdecl(___194170h[esi][4], 0x1d6aa);
+	___13094h_cdecl(___194170h[esi][5], 0x1feaa);
 }

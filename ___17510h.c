@@ -1,19 +1,27 @@
 #include "drally.h"
 #include "drally_keyboard.h"
+#include "sfx.h"
+
+#pragma pack(1)
+typedef struct font_props_s {
+	byte 	w;
+	byte 	h;
+	byte 	props[];
+} font_props_t;
 
 	extern byte ___19dd70h[256];
 	extern byte ___185ba9h[];
-	extern byte ___1a10e0h[];
-	extern byte ___1a112ch__VESA101_ACTIVESCREEN_PTR[];
+	extern void * ___1a10e0h;
+	extern void * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
 	extern byte ___19bd60h[];
-	extern byte ___24cc54h[];
-	extern byte ___19de70h[];
-	extern byte ___1a1104h[];
+	extern __DWORD__ ___24cc54h_sfx_volume;
+	extern void * ___19de70h[20];
+	extern void * ___1a1104h;
 	extern byte ___1a1ef8h[];
 	extern byte ___1a01e0h[];
-	extern byte ___1a0fb8h[];
-	extern byte ___1a1e88h[];
-	extern byte ___1a1eb4h[];
+	extern void * ___1a0fb8h;
+	extern void * ___1a1e88h;
+	extern void * ___1a1eb4h;
 
 void ___1398ch__VESA101_PRESENTRECTANGLE(dword offset, void * src, dword w, dword h);
 void ___17384h_cdecl(dword, dword, dword, dword, dword, dword);
@@ -23,15 +31,18 @@ void dRally_Sound_pushEffect(byte channel, byte n, dword unk, dword a0, dword a1
 void ___23758h(void);
 #endif // DR_MULTIPLAYER
 byte ___5994ch(void);
-void ___12e78h_cdecl(dword, dword, dword, dword);
+void ___12e78h_cdecl(byte * A1, font_props_t * A2, const char * A3, dword dst_off);
 
-dword ___17510h_cdecl(dword A1, dword A2, dword A3, dword A4, dword A5, dword A6, dword A7, dword A8, dword A9){
+dword ___17510h_cdecl(void * A1, dword A2, dword A3, void * A4, dword A5, dword A6, dword A7, dword A8, dword A9){
 
 	int 	n;
 	long long 	ll_tmp;
 	dword 	eax, eax1, eax2, ebx, ecx, edx, edi, esi, ebp;
 	byte 	esp[0x9c+0xc+4+0x14];
 	int 	i, j;
+	void * 	ebxp;
+	void * 	esip;
+
 
 
 	D(esp+0x40) = A1;
@@ -90,7 +101,7 @@ dword ___17510h_cdecl(dword A1, dword A2, dword A3, dword A4, dword A5, dword A6
 	___19dd70h[0x39] = ' ';
 	___19dd70h[0x35] = '/';
 	B(esp+0x95) = 0;
-	___12e78h_cdecl(D(___1a10e0h), ___185ba9h, strcpy(esp, D(esp+0x40)), D(esp+0x3c)+0x280*D(esp+0x8c));
+	___12e78h_cdecl(___1a10e0h, ___185ba9h, strcpy(esp, A1), D(esp+0x3c)+0x280*D(esp+0x8c));
 	ebp = 0;
 	ebx = 0;
 
@@ -105,7 +116,7 @@ dword ___17510h_cdecl(dword A1, dword A2, dword A3, dword A4, dword A5, dword A6
 		}
 	}
 
-	___1398ch__VESA101_PRESENTRECTANGLE(0x280*D(esp+0x8c)+D(esp+0x3c), D(esp+0x3c)+D(___1a112ch__VESA101_ACTIVESCREEN_PTR)+0x280*D(esp+0x8c), ebp, 0x20);
+	___1398ch__VESA101_PRESENTRECTANGLE(0x280*D(esp+0x8c)+D(esp+0x3c), D(esp+0x3c)+___1a112ch__VESA101_ACTIVESCREEN_PTR+0x280*D(esp+0x8c), ebp, 0x20);
 	D(esp+0x80) = 0x80;
 	D(esp+0x74) = 0x280*(D(esp+0x38)+0x3c);
 	D(esp+0x68) = 0x280*(D(esp+0x38)+0x3c)+D(esp+0x90)+0x19;
@@ -132,14 +143,12 @@ dword ___17510h_cdecl(dword A1, dword A2, dword A3, dword A4, dword A5, dword A6
 			if(D(esp+0xb8) != 0) return 0;
 			break;
 		case DR_SCAN_BACKSPACE:
-			edi = esp;
-			ecx = strlen(edi);
+			ecx = strlen(esp);
 
 			if(ecx > 0){
 
-				edi = esp;
-				ecx = strlen(edi);
-				eax ^= eax;
+				ecx = strlen(esp);
+				eax = 0;
 				L(eax) = B(esp+ecx-1);
 				L(eax) = B(eax+___185ba9h-0x1e);
 				eax &= 0xff;
@@ -152,52 +161,32 @@ dword ___17510h_cdecl(dword A1, dword A2, dword A3, dword A4, dword A5, dword A6
 
 				while(1){
 
-					edi = esp;
-					ecx = strlen(edi);
-					eax ^= eax;
-					L(eax) = B(esp+ecx-1);
-					ebx ^= ebx;
-					L(ebx) = B(eax+___185ba9h-0x1e);
-					eax = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
+					ecx = strlen(esp);
+					eax = B(esp+ecx-1);
+					ebx = B(eax+___185ba9h-0x1e);
 					edi = D(esp+0x3c);
-					eax += esi;
-					edx = 0x0c4;
-					eax += edi;
-					ebx += 0x14;
-					eax += ebp;
-					esi += 0x280;
-					memset(eax, edx, ebx);
+					memset(___1a112ch__VESA101_ACTIVESCREEN_PTR+esi+edi+ebp, 0x0c4, ebx+0x14);
 
+					esi += 0x280;
 					if(esi == D(esp+0x84)) break;
 				}
 
-				edi = esp;
 				esi = D(esp+0x3c);
-				ecx = strlen(edi);
-				eax ^= eax;
-				ebx ^= ebx;
-				L(eax) = B(esp+ecx-1);
-				edx = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
+				ecx = strlen(esp);
+				eax = B(esp+ecx-1);
 				ecx = D(esp+0x54);
-				L(ebx) = B(eax+___185ba9h-0x1e);
+				ebx = B(eax+___185ba9h-0x1e);
 				eax = D(esp+0x50);
-				ebx += 0x14;
-				edx += ecx;
-				ecx = 0x20;
-				edx += esi;
-				eax += ebp;
-				edx += ebp;
-				edi = esp;
-				___1398ch__VESA101_PRESENTRECTANGLE(eax, edx, ebx, ecx);
-				ecx = strlen(edi);
-				L(eax) = 0;
-				B(esp+ecx-1) = L(eax);
+				ebx = ebx+0x14;
+				eax = eax+ebp;
+				___1398ch__VESA101_PRESENTRECTANGLE(eax, ___1a112ch__VESA101_ACTIVESCREEN_PTR+ecx+esi+ebp, ebx, 0x20);
+				ecx = strlen(esp);
+				B(esp+ecx-1) = 0;
 			}
 			break;
 		case DR_SCAN_ENTER:
 		case DR_SCAN_KP_ENTER:
-			edi = esp;
-			ecx = strlen(edi);
+			ecx = strlen(esp);
 
 			if(ecx > 0) D(esp+0x58) = 0xffffffff;
 
@@ -224,7 +213,7 @@ dword ___17510h_cdecl(dword A1, dword A2, dword A3, dword A4, dword A5, dword A6
 		case DR_SCAN_KP_8:
 			if(D(esp+0xbc) != 0){
 
-				dRally_Sound_pushEffect(1, 0x19, 0, D(___24cc54h), 0x28000, 0x8000);
+				dRally_Sound_pushEffect(1, SFX_CLICK_2, 0, ___24cc54h_sfx_volume, 0x28000, 0x8000);
 
 				if((int)D(esp+0x7c) <= 0){
 				
@@ -235,16 +224,16 @@ dword ___17510h_cdecl(dword A1, dword A2, dword A3, dword A4, dword A5, dword A6
 					D(esp+0x7c)--;
 				}
 
-				ebx = D(___1a112ch__VESA101_ACTIVESCREEN_PTR)+D(esp+0x70)+D(esp+0x90)+0x1b;
+				ebxp = ___1a112ch__VESA101_ACTIVESCREEN_PTR+D(esp+0x70)+D(esp+0x90)+0x1b;
 
 				j = -1;
 				while(++j < 0x40){
 
 					i = -1;
-					while(++i < 0x40) B(ebx+0x280*j+i) = B(D(___19de70h+4*D(esp+0x7c))+0x40*j+i);
+					while(++i < 0x40) B(ebxp+0x280*j+i) = B(___19de70h[D(esp+0x7c)]+0x40*j+i);
 				}
 
-				___1398ch__VESA101_PRESENTRECTANGLE(D(esp+0x60), D(___1a112ch__VESA101_ACTIVESCREEN_PTR)+D(esp+0x70)+D(esp+0x90)+0x1b, 0x40, 0x40);
+				___1398ch__VESA101_PRESENTRECTANGLE(D(esp+0x60), ___1a112ch__VESA101_ACTIVESCREEN_PTR+D(esp+0x70)+D(esp+0x90)+0x1b, 0x40, 0x40);
 
 				esi = 0;
 				while(1){
@@ -255,16 +244,16 @@ dword ___17510h_cdecl(dword A1, dword A2, dword A3, dword A4, dword A5, dword A6
 					if((int)esi >= 5) break;
 				}
 
-				ebx = D(___1a112ch__VESA101_ACTIVESCREEN_PTR)+D(esp+0x74)+D(esp+0x90)+0x19;
+				ebxp = ___1a112ch__VESA101_ACTIVESCREEN_PTR+D(esp+0x74)+D(esp+0x90)+0x19;
 
 				j = -1;
 				while(++j < 0x10){
 
 					i = -1;
-					while(++i < 0x44) B(ebx+0x280*j+i) = B(D(___1a1104h)+0x880+0x44*j+i);
+					while(++i < 0x44) B(ebxp+0x280*j+i) = B(___1a1104h+0x880+0x44*j+i);
 				}
 
-				___1398ch__VESA101_PRESENTRECTANGLE(D(esp+0x68), D(___1a112ch__VESA101_ACTIVESCREEN_PTR)+D(esp+0x74)+D(esp+0x90)+0x19, 0x44, 0x10);
+				___1398ch__VESA101_PRESENTRECTANGLE(D(esp+0x68), ___1a112ch__VESA101_ACTIVESCREEN_PTR+D(esp+0x74)+D(esp+0x90)+0x19, 0x44, 0x10);
 
 				esi = 0;
 				while(1){
@@ -285,13 +274,10 @@ dword ___17510h_cdecl(dword A1, dword A2, dword A3, dword A4, dword A5, dword A6
 
 				esi = D(esp+0x74);
 				edi = D(esp+0x90);
-				eax = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
 				ecx = 0x10;
-				eax += esi;
 				edx = 0x44;
-				eax += edi;
-				esi = D(___1a1104h);
-				ebx = eax+0x19;
+				esip = ___1a1104h;
+				ebxp = ___1a112ch__VESA101_ACTIVESCREEN_PTR+esi+edi+0x19;
 				L(edx) >>= 2;
 
 				while(1){
@@ -300,18 +286,18 @@ dword ___17510h_cdecl(dword A1, dword A2, dword A3, dword A4, dword A5, dword A6
 
 					while(1){
 
-						eax = D(esi);
-						D(ebx) = eax;
-						ebx += 0x4;
-						esi += 0x4;
+						eax = D(esip);
+						D(ebxp) = eax;
+						ebxp += 0x4;
+						esip += 0x4;
 						H(ecx)--;
 						
 						if(H(ecx) == 0) break;
 					}
 
-					ebx += 0x280;
+					ebxp += 0x280;
 					L(edx) <<= 2;
-					ebx -= edx;
+					ebxp -= edx;
 					L(edx) >>= 2;
 					L(ecx)--;
 
@@ -319,16 +305,11 @@ dword ___17510h_cdecl(dword A1, dword A2, dword A3, dword A4, dword A5, dword A6
 				}
 
 				edx = D(esp+0x74);
-				eax = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
-				eax += edx;
-				eax += edi;
 				ecx = 0x10;
-				edx = eax+0x19;
 				ebx = 0x44;
-				eax = D(esp+0x68);
-				___1398ch__VESA101_PRESENTRECTANGLE(eax, edx, ebx, ecx);
+				___1398ch__VESA101_PRESENTRECTANGLE(D(esp+0x68), ___1a112ch__VESA101_ACTIVESCREEN_PTR+edx+edi+0x19, ebx, ecx);
 				eax = 0x6c*D(___1a1ef8h);
-				esi ^= esi;
+				esi = 0;
 				edx = D(esp+0x7c);
 				D(esp+0x88) = esi;
 				D(eax+___1a01e0h+0x40) = edx;
@@ -347,39 +328,28 @@ dword ___17510h_cdecl(dword A1, dword A2, dword A3, dword A4, dword A5, dword A6
 				}
 
 				ebx = D(esp+0x80);
-				eax = D(___1a0fb8h);
 				ebx = 3*ebx;
-				ebx += eax;
+				ebxp = ___1a0fb8h+ebx;
 				esi = 0x280*D(esp+0x6c);
 				edi = 0x0c4;
-				___11378h_cdecl_float((float)B(ebx), (float)B(ebx+1), (float)B(ebx+2));
+				___11378h_cdecl_float((float)B(ebxp), (float)B(ebxp+1), (float)B(ebxp+2));
 				ecx = esi;
 				esi += 0x3c00;
 
 				while(1){
 
-					eax = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
-					edx = D(esp+0x90);
-					eax += ecx;
-					eax += edx;
-					ebx = 0x126;
-					eax += 0x65;
-					edx = edi;
-					ecx += 0x280;
-					memset(eax, edx, ebx);
+					memset(___1a112ch__VESA101_ACTIVESCREEN_PTR+ecx+D(esp+0x90)+0x65, edi, 0x126);
 
+					ecx += 0x280;
 					if(ecx == esi) break;
 				}
 
 				ebx = D(esp+0x64);
 				ecx = D(esp+0x90);
-				eax = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
 				edx = 0x126;
-				eax += ebx;
-				esi = D(___1a1e88h);
-				eax += ecx;
+				esip = ___1a1e88h;
+				ebxp = ___1a112ch__VESA101_ACTIVESCREEN_PTR+ebx+ecx+0x6b;
 				ecx = 0x10;
-				ebx = eax+0x6b;
 
 				while(1){
 
@@ -387,17 +357,17 @@ dword ___17510h_cdecl(dword A1, dword A2, dword A3, dword A4, dword A5, dword A6
 
 					while(1){
 
-						L(eax) = B(esi);
-						if(L(eax) != 0) B(ebx) = L(eax);
-						ebx++;
-						esi++;
+						L(eax) = B(esip);
+						if(L(eax) != 0) B(ebxp) = L(eax);
+						ebxp++;
+						esip++;
 						edi--;
 
 						if(edi == 0) break;
 					}
 
-					ebx += 0x280;
-					ebx -= edx;
+					ebxp += 0x280;
+					ebxp -= edx;
 					ecx--;
 
 					if(ecx == 0) break;
@@ -408,15 +378,11 @@ dword ___17510h_cdecl(dword A1, dword A2, dword A3, dword A4, dword A5, dword A6
 				D(esp+0x34) = eax;
 				edx = D(esp+0x90);
 				edi = D(esp+0x34);
-				eax = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
 				ebx = D(esp+0x80);
-				eax += edi;
 				ecx = 0x18;
-				eax += edx;
-				esi = D(___1a1eb4h);
-				eax += 0x79;
+				esip = ___1a1eb4h;
+				ebxp = ___1a112ch__VESA101_ACTIVESCREEN_PTR+edi+edx+ebx+0x79;
 				edx = 0x0a;
-				ebx += eax;
 
 				while(1){
 
@@ -424,37 +390,27 @@ dword ___17510h_cdecl(dword A1, dword A2, dword A3, dword A4, dword A5, dword A6
 
 					while(1){
 
-						L(eax) = B(esi);
-						if(L(eax) != 0) B(ebx) = L(eax);
-						ebx++;
-						esi++;
+						L(eax) = B(esip);
+						if(L(eax) != 0) B(ebxp) = L(eax);
+						ebxp++;
+						esip++;
 						edi--;
 
 						if(edi == 0) break;
 					}
 
-					ebx += 0x280;
-					ebx -= edx;
+					ebxp += 0x280;
+					ebxp -= edx;
 					ecx--;
 
 					if(ecx == 0) break;
 				}
 
 				ebx = D(esp+0x34);
-				eax = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
 				ecx = D(esp+0x90);
-				eax += ebx;
-				eax += ecx;
 				edx = D(esp+0x80);
-				eax += 0x77;
 				edi = D(esp+0x80);
-				edx += eax;
-				eax = ebx+ecx;
-				ecx = 0x18;
-				eax += 0x77;
-				ebx = 0x0e;
-				eax += edi;
-				___1398ch__VESA101_PRESENTRECTANGLE(eax, edx, ebx, ecx);
+				___1398ch__VESA101_PRESENTRECTANGLE(ebx+ecx+0x77+edi, ___1a112ch__VESA101_ACTIVESCREEN_PTR+ebx+ecx+edx+0x77, 0x0e, 0x18);
 				D(esp+0x88) = 0;
 			}
 			break;
@@ -471,39 +427,26 @@ dword ___17510h_cdecl(dword A1, dword A2, dword A3, dword A4, dword A5, dword A6
 				}
 
 				ebx = D(esp+0x80);
-				eax = D(___1a0fb8h);
 				ebx = 3*ebx;
-				ebx += eax;
-				___11378h_cdecl_float((float)B(ebx), (float)B(ebx+1), (float)B(ebx+2));
+				ebxp = ___1a0fb8h+ebx;
+				___11378h_cdecl_float((float)B(ebxp), (float)B(ebxp+1), (float)B(ebxp+2));
 				esi = 0x280*D(esp+0x6c);
-				edi = 0x0c4;
 				ecx = esi;
 				esi += 0x3c00;
 
 				while(1){
 
-					eax = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
-					edx = D(esp+0x90);
-					eax += ecx;
-					eax += edx;
-					ebx = 0x126;
-					eax += 0x65;
-					edx = edi;
-					ecx += 0x280;
-					memset(eax, edx, ebx);
+					memset(___1a112ch__VESA101_ACTIVESCREEN_PTR+ecx+D(esp+0x90)+0x65, 0x0c4, 0x126);
 
+					ecx += 0x280;
 					if(ecx == esi) break;
 				}
 
 				ebx = D(esp+0x64);
-				eax = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
 				ecx = 0x10;
-				eax += ebx;
-				ebx = D(esp+0x90);
 				edx = 0x126;
-				ebx += eax;
-				esi = D(___1a1e88h);
-				ebx += 0x6b;
+				esip = ___1a1e88h;
+				ebxp = ___1a112ch__VESA101_ACTIVESCREEN_PTR+ebx+D(esp+0x90)+0x6b;
 
 				while(1){
 
@@ -511,17 +454,17 @@ dword ___17510h_cdecl(dword A1, dword A2, dword A3, dword A4, dword A5, dword A6
 
 					while(1){
 
-						L(eax) = B(esi);
-						if(L(eax) != 0) B(ebx) = L(eax);
-						ebx++;
-						esi++;
+						L(eax) = B(esip);
+						if(L(eax) != 0) B(ebxp) = L(eax);
+						ebxp++;
+						esip++;
 						edi--;
 
 						if(edi == 0) break;
 					}
 
-					ebx += 0x280;
-					ebx -= edx;
+					ebxp += 0x280;
+					ebxp -= edx;
 					ecx--;
 
 					if(ecx == 0) break;
@@ -532,15 +475,11 @@ dword ___17510h_cdecl(dword A1, dword A2, dword A3, dword A4, dword A5, dword A6
 				D(esp+0x34) = eax;
 				edi = D(esp+0x90);
 				esi = D(esp+0x34);
-				eax = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
 				ebx = D(esp+0x80);
-				eax += esi;
 				edx = 0x0a;
-				eax += edi;
 				ecx = 0x18;
-				eax += 0x79;
-				esi = D(___1a1eb4h);
-				ebx += eax;
+				esip = ___1a1eb4h;
+				ebxp = ___1a112ch__VESA101_ACTIVESCREEN_PTR+esi+edi+0x79+ebx;
 
 				while(1){
 
@@ -548,53 +487,35 @@ dword ___17510h_cdecl(dword A1, dword A2, dword A3, dword A4, dword A5, dword A6
 
 					while(1){
 
-						L(eax) = B(esi);
-						if(L(eax) != 0) B(ebx) = L(eax);
-						ebx++;
-						esi++;
+						L(eax) = B(esip);
+						if(L(eax) != 0) B(ebxp) = L(eax);
+						ebxp++;
+						esip++;
 						edi--;
 
 						if(edi == 0) break;
 					}
 
-					ebx += 0x280;
-					ebx -= edx;
+					ebxp += 0x280;
+					ebxp -= edx;
 					ecx--;
 
 					if(ecx == 0) break;
 				}
 
-				edx = D(esp+0x34);
-				eax = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
 				ebx = D(esp+0x90);
-				eax += edx;
-				eax += ebx;
-				edx = D(esp+0x80);
-				eax += 0x77;
 				esi = D(esp+0x80);
-				edx += eax;
-				eax = D(esp+0x34);
-				ecx = 0x18;
-				eax += ebx;
-				edi ^= edi;
-				eax += 0x77;
-				ebx = 0x0e;
-				eax += esi;
+				eax = D(esp+0x34)+ebx;
+				edi = 0;
 				D(esp+0x88) = edi;
-				___1398ch__VESA101_PRESENTRECTANGLE(eax, edx, ebx, ecx);
+				___1398ch__VESA101_PRESENTRECTANGLE(eax+0x77+esi, ___1a112ch__VESA101_ACTIVESCREEN_PTR+D(esp+0x34)+ebx+D(esp+0x80)+0x77, 0x0e, 0x18);
 			}
 			break;
 		case DR_SCAN_DOWN:
 		case DR_SCAN_KP_2:
 			if(D(esp+0xbc) != 0){
 
-				eax = 0x1;
-				edx = 0x28000;
-				ecx = D(___24cc54h);
-				eax1 = edx;
-				ebx ^= ebx;
-				edx = 0x19;
-				dRally_Sound_pushEffect(eax, edx, ebx, ecx, eax1, 0x8000);
+				dRally_Sound_pushEffect(1, SFX_CLICK_2, 0, ___24cc54h_sfx_volume, 0x28000, 0x8000);
 				ebx = D(esp+0x7c);
 
 				if((int)ebx >= 0x13){
@@ -608,13 +529,10 @@ dword ___17510h_cdecl(dword A1, dword A2, dword A3, dword A4, dword A5, dword A6
 
 				edi = D(esp+0x70);
 				edx = D(esp+0x90);
-				eax = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
 				esi = D(esp+0x7c);
-				eax += edi;
 				ecx = 0x40;
-				eax += edx;
-				esi = D(4*esi+___19de70h);
-				ebx = eax+0x1b;
+				esip = ___19de70h[esi];
+				ebxp = ___1a112ch__VESA101_ACTIVESCREEN_PTR+edi+edx+0x1b;
 				edx = ecx;
 				L(edx) >>= 2;
 
@@ -624,35 +542,27 @@ dword ___17510h_cdecl(dword A1, dword A2, dword A3, dword A4, dword A5, dword A6
 
 					while(1){
 
-						eax = D(esi);
-						D(ebx) = eax;
-						ebx += 0x4;
-						esi += 0x4;
+						eax = D(esip);
+						D(ebxp) = eax;
+						ebxp += 0x4;
+						esip += 0x4;
 						H(ecx)--;
 
 						if(H(ecx) == 0) break;
 					}
 
-					ebx += 0x280;
+					ebxp += 0x280;
 					L(edx) <<= 2;
-					ebx -= edx;
+					ebxp -= edx;
 					L(edx) >>= 2;
 					L(ecx)--;
 
 					if(L(ecx) == 0) break;
 				}
 
-				edx = D(esp+0x90);
-				eax = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
-				ecx = 0x40;
-				eax += edi;
-				ebx = ecx;
-				edx += eax;
-				eax = D(esp+0x60);
-				edx += 0x1b;
-				edi ^= edi;
-				___1398ch__VESA101_PRESENTRECTANGLE(eax, edx, ebx, ecx);
+				___1398ch__VESA101_PRESENTRECTANGLE(D(esp+0x60), ___1a112ch__VESA101_ACTIVESCREEN_PTR+D(esp+0x90)+edi+0x1b, 0x40, 0x40);
 
+				edi = 0;
 				while(1){
 
 					edx = D(esp+0x38);
@@ -671,14 +581,10 @@ dword ___17510h_cdecl(dword A1, dword A2, dword A3, dword A4, dword A5, dword A6
 
 				ecx = D(esp+0x78);
 				esi = D(esp+0x90);
-				eax = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
 				edx = 0x44;
-				eax += ecx;
+				ebxp = ___1a112ch__VESA101_ACTIVESCREEN_PTR+ecx+esi+0x19;
 				ecx = 0x10;
-				eax += esi;
-				esi = D(___1a1104h);
-				ebx = eax+0x19;
-				esi += 0x0cc0;
+				esip = ___1a1104h+0x0cc0;
 				edi = D(esp+0x78);
 				L(edx) >>= 2;
 
@@ -688,33 +594,25 @@ dword ___17510h_cdecl(dword A1, dword A2, dword A3, dword A4, dword A5, dword A6
 
 					while(1){
 
-						eax = D(esi);
-						D(ebx) = eax;
-						ebx += 0x4;
-						esi += 0x4;
+						eax = D(esip);
+						D(ebxp) = eax;
+						ebxp += 0x4;
+						esip += 0x4;
 						H(ecx)--;
 						if(H(ecx) == 0) break;
 					}
 
-					ebx += 0x280;
+					ebxp += 0x280;
 					L(edx) <<= 2;
-					ebx -= edx;
+					ebxp -= edx;
 					L(edx) >>= 2;
 					L(ecx)--;
 
 					if(L(ecx) == 0) break;
 				}
 
-				eax = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
-				edx = D(esp+0x90);
-				eax += edi;
-				eax += edx;
-				ecx = 0x10;
-				edx = eax+0x19;
-				ebx = 0x44;
-				eax = D(esp+0x5c);
-				esi ^= esi;
-				___1398ch__VESA101_PRESENTRECTANGLE(eax, edx, ebx, ecx);
+				esi = 0;
+				___1398ch__VESA101_PRESENTRECTANGLE(D(esp+0x5c), ___1a112ch__VESA101_ACTIVESCREEN_PTR+edi+D(esp+0x90)+0x19, 0x44, 0x10);
 
 				while(1){
 
@@ -734,14 +632,10 @@ dword ___17510h_cdecl(dword A1, dword A2, dword A3, dword A4, dword A5, dword A6
 
 				esi = D(esp+0x78);
 				edi = D(esp+0x90);
-				eax = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
 				ecx = 0x10;
-				eax += esi;
 				edx = 0x44;
-				eax += edi;
-				esi = D(___1a1104h);
-				ebx = eax+0x19;
-				esi += 0x440;
+				ebxp = ___1a112ch__VESA101_ACTIVESCREEN_PTR+esi+edi+0x19;
+				esip = ___1a1104h+0x440;
 				L(edx) >>= 2;
 
 				while(1){
@@ -750,17 +644,17 @@ dword ___17510h_cdecl(dword A1, dword A2, dword A3, dword A4, dword A5, dword A6
 
 					while(1){
 
-						eax = D(esi);
-						D(ebx) = eax;
-						ebx += 0x4;
-						esi += 0x4;
+						eax = D(esip);
+						D(ebxp) = eax;
+						ebxp += 0x4;
+						esip += 0x4;
 						H(ecx)--;
 						if(H(ecx) == 0) break;
 					}
 
-					ebx += 0x280;
+					ebxp += 0x280;
 					L(edx) <<= 2;
-					ebx -= edx;
+					ebxp -= edx;
 					L(edx) >>= 2;
 					L(ecx)--;
 
@@ -768,23 +662,19 @@ dword ___17510h_cdecl(dword A1, dword A2, dword A3, dword A4, dword A5, dword A6
 				}
 
 				edx = D(esp+0x78);
-				eax = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
-				eax += edx;
-				eax += edi;
 				ecx = 0x10;
-				edx = eax+0x19;
 				ebx = 0x44;
-				eax = D(esp+0x5c);
-				___1398ch__VESA101_PRESENTRECTANGLE(eax, edx, ebx, ecx);
+				___1398ch__VESA101_PRESENTRECTANGLE(D(esp+0x5c), ___1a112ch__VESA101_ACTIVESCREEN_PTR+edx+edi+0x19, ebx, ecx);
 				eax = 0x6c*D(___1a1ef8h);
-				esi ^= esi;
+				esi = 0;
 				edx = D(esp+0x7c);
 				D(esp+0x88) = esi;
 				D(eax+___1a01e0h+0x40) = edx;
 			}
 			break;
 		default:
-			if(B(D(esp+0x4c)+___19dd70h[D(esp+0x88)]) == 1){
+			//if(B(D(esp+0x4c)+___19dd70h[D(esp+0x88)]) == 1){
+			if(B(A4+___19dd70h[D(esp+0x88)]) == 1){
 
 				if((strlen(esp) < D(esp+0x0ac))&&((int)ebp < (int)D(esp+0xb0))){
 						
@@ -795,13 +685,13 @@ dword ___17510h_cdecl(dword A1, dword A2, dword A3, dword A4, dword A5, dword A6
 					strcat(esp, esp+0x94);
 
 					n = -1;
-					while(++n < 0x20) memset(D(___1a112ch__VESA101_ACTIVESCREEN_PTR)+0x280*(n+D(esp+0x8c))+D(esp+0x3c)+ebp, 0x0c4, 0x20);
+					while(++n < 0x20) memset(___1a112ch__VESA101_ACTIVESCREEN_PTR+0x280*(n+D(esp+0x8c))+D(esp+0x3c)+ebp, 0x0c4, 0x20);
 
-					___12e78h_cdecl(D(___1a10e0h), ___185ba9h, esp+0x94, D(esp+0x48)+ebp);
+					___12e78h_cdecl(___1a10e0h, ___185ba9h, esp+0x94, D(esp+0x48)+ebp);
 
 					___1398ch__VESA101_PRESENTRECTANGLE(
 						D(esp+0x48)+ebp,
-						D(___1a112ch__VESA101_ACTIVESCREEN_PTR)+D(esp+0x44)+D(esp+0x3c)+ebp,
+						___1a112ch__VESA101_ACTIVESCREEN_PTR+D(esp+0x44)+D(esp+0x3c)+ebp,
 						B(B(esp+0x94)+___185ba9h-0x1e),
 						0x20);
 
@@ -814,7 +704,7 @@ dword ___17510h_cdecl(dword A1, dword A2, dword A3, dword A4, dword A5, dword A6
 		if(D(esp+0x58) != 0) break;
 	}
 	
-	if(D(esp+0x88) != 1) strcpy(D(esp+0x40), esp);
+	if(D(esp+0x88) != 1) strcpy(A1, esp);
 
 	return 1;
 }

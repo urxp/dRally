@@ -1,14 +1,15 @@
 #include "drally.h"
+#include "sfx.h"
 
 	extern byte ___199f54h[];
 	extern byte ___196b24h[];
 	extern byte ___185a14h_UseWeapons[];
 	extern byte ___1a1ef8h[];
-	extern byte ___1a112ch__VESA101_ACTIVESCREEN_PTR[];
-	extern byte ___1a1e80h[];
-	extern byte ___24cc54h[];
+	extern void * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
+	extern void * ___1a1e80h;
+	extern __DWORD__ ___24cc54h_sfx_volume;
 	extern byte ___196aa4h[];
-	extern byte ___1a1e84h[];
+	extern void * ___1a1e84h;
 	extern byte ___1a1028h[];
 	extern byte ___1a0ef8h[];
 	extern byte ___1a01e0h[];
@@ -20,7 +21,7 @@ void ___12cb8h__VESA101_PRESENTSCREEN(void);
 void ___2ab50h(void);
 void dRally_Sound_pushEffect(byte channel, byte n, dword unk, dword a0, dword a1, dword a2);
 void dRally_Sound_freeEffectChannel(byte ch_num);
-byte ___148cch_cdecl(dword, dword, dword, dword);
+int ___148cch_cdecl(int x, int y, dword A3, int * A4);
 int rand_watcom106(void);
 void ___13248h_cdecl(dword, dword ,dword, dword, dword);
 void ___13094h_cdecl(const char *, dword);
@@ -29,556 +30,259 @@ dword ___31868h(void){
 
 	dword 	eax, ebx, ecx, edx, edi, esi, ebp;
 	byte 	esp[0x54];
+	void * 	ebxp;
+	void * 	esip;
+	int 	rslt;
 
 
-		ebx = 0x83;
-		edx = 0x21;
-		ecx = D(___199f54h);
-		D(esp+0x4c) = ebx;
-		D(esp+0x50) = edx;
-		if(ecx == 0) goto ___3189eh;
-		eax ^= eax;
-		goto ___32224h;
-___3189eh:
+	rslt = 0;
+
+	if(D(___199f54h) == 0){
+
 		eax = rand_watcom106();
-		edx = eax;
-		ebx = 0x64;
-		edx = (int)edx>>0x1f;
-		___idiv32(&eax, &edx, ebx);
-		esi = 0x1;
-		edi = D(___196b24h);
-		D(esp+0x44) = esi;
-		if((int)edx >= (int)edi) goto ___32207h;
-		if(D(___185a14h_UseWeapons) == 0) goto ___32207h;
-		ecx = 0x5;
-		D(___196b24h) = ecx;
-		eax = rand_watcom106();
-		edx = eax;
-		edx = (int)edx>>0x1f;
-		___idiv32(&eax, &edx, ebx);
-		ebx = edx;
-		edx = D(___1a1ef8h);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 0x2;
-		eax -= edx;
-		eax <<= 0x2;
-		if((int)ebx >= 0x32) goto ___31d05h;
-		if(ecx != D(eax+___1a01e0h+0x1c)) goto ___31929h;
-		ebx = 0x1;
-		edi = esp+0x34;
-		esi = "12000";
-		D(esp+0x48) = ebx;
-		D(edi) = D(esi); edi += 4; esi += 4;
-		W(edi) = W(esi); edi += 2; esi += 2;
-___31929h:
-		edx = D(___1a1ef8h);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 0x2;
-		eax -= edx;
-		if(D(eax*4+___1a01e0h+0x1c) != 4) goto ___3195ah;
-		edi = esp+0x34;
-		esi = "8000";
-		D(edi) = D(esi); edi += 4; esi += 4;
-		B(edi++) = B(esi++);
-		D(esp+0x48) = 0x2;
-___3195ah:
-		edx = D(___1a1ef8h);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 0x2;
-		eax -= edx;
-		if(D(eax*4+___1a01e0h+0x1c) != 3) goto ___3198ch;
-		ebp = 0x3;
-		edi = esp+0x34;
-		esi = "6000";
-		D(esp+0x48) = ebp;
-		D(edi) = D(esi); edi += 4; esi += 4;
-		B(edi++) = B(esi++);
-___3198ch:
-		edx = D(___1a1ef8h);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 0x2;
-		eax -= edx;
-		if(D(eax*4+___1a01e0h+0x1c) != 2) goto ___319beh;
-		ebx = 0x4;
-		edi = esp+0x34;
-		esi = "4000";
-		D(esp+0x48) = ebx;
-		D(edi) = D(esi); edi += 4; esi += 4;
-		B(edi++) = B(esi++);
-___319beh:
-		edx = D(___1a1ef8h);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 0x2;
-		eax -= edx;
-		if(D(eax*4+___1a01e0h+0x1c) != 1) goto ___319efh;
-		edi = esp+0x34;
-		esi = "2000";
-		D(edi) = D(esi); edi += 4; esi += 4;
-		B(edi++) = B(esi++);
-		D(esp+0x48) = 0x5;
-___319efh:
-		edx = D(___1a1ef8h);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 0x2;
-		eax -= edx;
-		if(D(eax*4+___1a01e0h+0x1c) != 0) goto ___31a21h;
-		ebp = 0x6;
-		edi = esp+0x34;
-		esi = "1000";
-		D(esp+0x48) = ebp;
-		D(edi) = D(esi); edi += 4; esi += 4;
-		B(edi++) = B(esi++);
-___31a21h:
-		ecx = 0xe6;
-		ebx = 0x1e2;
-		edx = D(esp+0x4c);
-		eax = D(esp+0x50);
-		___13248h_cdecl(eax, edx, ebx, ecx, 1);
-		edx = D(esp+0x4c);
-		edx += 0x25;
-		ebp = 4*edx;
-		ebx = D(esp+0x50);
-		ebp += edx;
-		eax = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
-		ebp <<= 0x7;
-		ecx = 0x80;
-		eax += ebp;
-		esi = D(___1a1e80h);
-		ebx += eax;
-		edx = 0x68;
-		ebx += 0xc;
-___31a6dh:
-		edi = edx;
-___31a6fh:
-		L(eax) = B(esi);
-		if(L(eax) == 0) goto ___31a77h;
-		B(ebx) = L(eax);
-___31a77h:
-		ebx++;
-		esi++;
-		edi--;
-		if(edi) goto ___31a6fh;
-		ebx += 0x280;
-		ebx -= edx;
-		ecx--;
-		if(ecx) goto ___31a6dh;
-		edx = D(esp+0x50);
-		edx += ebp;
-		edx += 0x80;
-		___13094h_cdecl("[A slick steroid run, anyone?", edx);
-		edx = D(esp+0x4c);
-		edx += 0x35;
-		eax = 4*edx;
-		eax += edx;
-		edx = D(esp+0x50);
-		eax <<= 0x7;
-		esi = "[Extra $";
-		edx += eax;
-		edx += 0x80;
-		edi = esp;
-		___13094h_cdecl("", edx);
-		strcpy(edi, esi);
-		esi = esp+0x34;
-		edi = esp;
-		edx = D(esp+0x4c);
-		strcat(edi, esi);
-		esi = "{, anyone? You? This is";
-		edi = esp;
-		edx += 0x45;
-		strcat(edi, esi);
-		eax = 4*edx;
-		eax += edx;
-		edx = D(esp+0x50);
-		eax <<= 0x7;
-		eax += edx;
-		edx = eax+0x80;
-		eax = esp;
-		___13094h_cdecl(eax, edx);
-		edx = D(esp+0x4c);
-		edx += 0x55;
-		eax = 4*edx;
-		eax += edx;
-		ebx = D(esp+0x50);
-		eax <<= 0x7;
-		eax += ebx;
-		edx = eax+0x80;
-		___13094h_cdecl("easy as shifting gears 1-2-3.", edx);
-		edx = D(esp+0x4c);
-		edx += 0x65;
-		eax = 4*edx;
-		eax += edx;
-		eax <<= 0x7;
-		edx = ebx+eax;
-		edx += 0x80;
-		___13094h_cdecl("[Just pick up some pills along the", edx);
-		edx = D(esp+0x4c);
-		edx += 0x75;
-		eax = 4*edx;
-		eax += edx;
-		eax <<= 0x7;
-		eax += ebx;
-		edx = eax+0x80;
-		___13094h_cdecl("[way, and get them to the finish", edx);
-		edx = D(esp+0x4c);
-		edx += 0x85;
-		eax = 4*edx;
-		eax += edx;
-		eax <<= 0x7;
-		edx = ebx+eax;
-		edx += 0x80;
-		___13094h_cdecl("[line before things get crowded{, be", edx);
-		edx = D(esp+0x4c);
-		edx += 0x95;
-		eax = 4*edx;
-		eax += edx;
-		eax <<= 0x7;
-		edx = ebx+eax;
-		edx += 0x80;
-		___13094h_cdecl("first, like, floor it, like.", edx);
-		edx = D(esp+0x4c);
-		edx += 0xa5;
-		eax = 4*edx;
-		eax += edx;
-		eax <<= 0x7;
-		edx = ebx+eax;
-		edx += 0x80;
-		___13094h_cdecl("", edx);
-		edx = D(esp+0x4c);
-		edx += 0xb5;
-		eax = 4*edx;
-		eax += edx;
-		eax <<= 0x7;
-		edx = ebx+eax;
-		edx += 0x80;
-		___13094h_cdecl("", edx);
-		___12cb8h__VESA101_PRESENTSCREEN();
-		edx ^= edx;
-___31c7dh:
-		edx++;
-		___2ab50h();
-		if((int)edx < 0x32) goto ___31c7dh;
-		edx = 0x5;
-		ecx = D(___24cc54h);
-		ebx ^= ebx;
-		eax = edx;
-		dRally_Sound_pushEffect(eax, edx, ebx, ecx, 0x24000, 0x8000);
-		edx ^= edx;
-___31ca8h:
-		edx++;
-		___2ab50h();
-		if((int)edx < 0x14) goto ___31ca8h;
-		edi = 0x1;
-		edx = D(esp+0x4c);
-		eax = D(esp+0x50);
-		ecx = esp+0x40;
-		ebx ^= ebx;
-		edx += 0xbe;
-		eax += 0x80;
-		D(esp+0x40) = edi;
-		L(eax) = ___148cch_cdecl(eax, edx, ebx, ecx);
-		if(edi != D(esp+0x40)) goto ___321efh;
-		eax = D(esp+0x48);
-		D(___196aa4h) = eax;
-		eax = 0x5;
-		dRally_Sound_freeEffectChannel(eax);
-		eax = D(esp+0x44);
-		return eax;
-___31d05h:
-		if(ecx != D(eax+___1a01e0h+0x1c)) goto ___31d20h;
-		edi = esp+0x34;
-		esi = "6000";
-		D(edi) = D(esi); edi += 4; esi += 4;
-		B(edi++) = B(esi++);
-		D(esp+0x48) = 0x1;
-___31d20h:
-		edx = D(___1a1ef8h);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 0x2;
-		eax -= edx;
-		if(D(eax*4+___1a01e0h+0x1c) != 4) goto ___31d52h;
-		eax = 0x2;
-		edi = esp+0x34;
-		esi = "4000";
-		D(esp+0x48) = eax;
-		D(edi) = D(esi); edi += 4; esi += 4;
-		B(edi++) = B(esi++);
-___31d52h:
-		edx = D(___1a1ef8h);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 0x2;
-		eax -= edx;
-		edx = D(eax*4+___1a01e0h+0x1c);
-		if(edx != 3) goto ___31d81h;
-		edi = esp+0x34;
-		esi = "3000";
-		D(esp+0x48) = edx;
-		D(edi) = D(esi); edi += 4; esi += 4;
-		B(edi++) = B(esi++);
-___31d81h:
-		edx = D(___1a1ef8h);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 0x2;
-		eax -= edx;
-		if(D(eax*4+___1a01e0h+0x1c) != 2) goto ___31db2h;
-		edi = esp+0x34;
-		esi = "2000";
-		D(edi) = D(esi); edi += 4; esi += 4;
-		B(edi++) = B(esi++);
-		D(esp+0x48) = 0x4;
-___31db2h:
-		edx = D(___1a1ef8h);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 0x2;
-		eax -= edx;
-		if(D(eax*4+___1a01e0h+0x1c) != 1) goto ___31de4h;
-		ebp = 0x5;
-		edi = esp+0x34;
-		esi = "1000";
-		D(esp+0x48) = ebp;
-		D(edi) = D(esi); edi += 4; esi += 4;
-		B(edi++) = B(esi++);
-___31de4h:
-		edx = D(___1a1ef8h);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 0x2;
-		eax -= edx;
-		if(D(eax*4+___1a01e0h+0x1c) != 0) goto ___31e14h;
-		ebx = 0x6;
-		eax = D("500");
-		D(esp+0x48) = ebx;
-		D(esp+0x34) = eax;
-___31e14h:
-		ecx = 0xe6;
-		ebx = 0x1e2;
-		edx = D(esp+0x4c);
-		eax = D(esp+0x50);
-		___13248h_cdecl(eax, edx, ebx, ecx, 1);
-		eax = D(esp+0x4c);
-		eax += 0x25;
-		ebp = 4*eax;
-		ecx = D(esp+0x50);
-		ebp += eax;
-		eax = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
-		ebp <<= 0x7;
-		edx = 0x68;
-		eax += ebp;
-		esi = D(___1a1e84h);
-		eax += ecx;
-		ecx = 0x80;
-		ebx = eax+0xc;
-___31e60h:
-		edi = edx;
-___31e62h:
-		L(eax) = B(esi);
-		if(L(eax) == 0) goto ___31e6ah;
-		B(ebx) = L(eax);
-___31e6ah:
-		ebx++;
-		esi++;
-		edi--;
-		if(edi) goto ___31e62h;
-		ebx += 0x280;
-		ebx -= edx;
-		ecx--;
-		if(ecx) goto ___31e60h;
-		edx = D(esp+0x50);
-		edx += ebp;
-		eax = "[Wanna be my hitman, driver?";
-		edx += 0x80;
-		___13094h_cdecl(eax, edx);
-		edx = D(esp+0x4c);
-		edx += 0x35;
-		eax = 4*edx;
-		eax += edx;
-		esi = D(esp+0x50);
-		eax <<= 0x7;
-		eax += esi;
-		edx = eax+0x80;
-		eax = "";
-		___13094h_cdecl(eax, edx);
-		edx = D(esp+0x4c);
-		edx += 0x45;
-		eax = 4*edx;
-		eax += edx;
-		eax <<= 0x7;
-		eax += esi;
-		edx = eax+0x80;
-		eax = "Wanna get rich, tough guy? OK.";
-		___13094h_cdecl(eax, edx);
-		edx = D(esp+0x4c);
-		edx += 0x55;
-		eax = 4*edx;
-		eax += edx;
-		eax <<= 0x7;
-		eax += esi;
-		edx = eax+0x80;
-		eax = "[Here's the deal{. I have put some";
-		___13094h_cdecl(eax, edx);
-		edx = D(esp+0x4c);
-		edx += 0x65;
-		eax = 4*edx;
-		eax += edx;
-		eax <<= 0x7;
-		edx = esi+eax;
-		eax = "major funds on this race, betting";
-		edx += 0x80;
-		ebx = 0x4;
-		___13094h_cdecl(eax, edx);
-___31f2eh:
-		eax = rand_watcom106();
-		edx = eax;
-		edx = (int)edx>>0x1f;
-		___idiv32(&eax, &edx, ebx);
-		eax = D(___1a1028h);
-		ebp = edx;
-		L(eax) = B(ebp+eax*4+___1a0ef8h);
-		esi = D(___1a1ef8h);
-		eax &= 0xff;
-		if(eax == esi) goto ___31f2eh;
-		esi = "that [";
-		edi = esp;
-		strcpy(edi, esi);
-		eax = D(___1a1028h);
-		edx ^= edx;
-		L(edx) = B(ebp+eax*4+___1a0ef8h);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 0x2;
-		eax -= edx;
-		esi = ___1a01e0h;
-		eax <<= 0x2;
-		edi = esp;
-		esi += eax;
-		edx = D(esp+0x4c);
-		strcat(edi, esi);
-		esi = " won't reach the";
-		edi = esp;
-		edx += 0x75;
-		strcat(edi, esi);
-		eax = 4*edx;
-		eax += edx;
-		edx = D(esp+0x50);
-		eax <<= 0x7;
-		edx += eax;
-		eax = esp;
-		edx += 0x80;
-		___13094h_cdecl(eax, edx);
-		edx = D(esp+0x4c);
-		edx += 0x85;
-		eax = 4*edx;
-		eax += edx;
-		edi = D(esp+0x50);
-		eax <<= 0x7;
-		eax += edi;
-		edx = eax+0x80;
-		esi = "[it'll pay you $";
-		eax = "[finish line{. Make me right, and";
-		edi = esp;
-		___13094h_cdecl(eax, edx);
-		strcpy(edi, esi);
-		esi = esp+0x34;
-		edi = esp;
-		edx = D(esp+0x4c);
-		strcat(edi, esi);
-		esi = ".";
-		edi = esp;
-		edx += 0x95;
-		strcat(edi, esi);
-		eax = 4*edx;
-		eax += edx;
-		edx = D(esp+0x50);
-		eax <<= 0x7;
-		eax += edx;
-		edx = eax+0x80;
-		eax = esp;
-		___13094h_cdecl(eax, edx);
-		edx = D(esp+0x4c);
-		edx += 0xa5;
-		eax = 4*edx;
-		eax += edx;
-		edx = D(esp+0x50);
-		eax <<= 0x7;
-		edx += eax;
-		eax = "";
-		edx += 0x80;
-		___13094h_cdecl(eax, edx);
-		edx = D(esp+0x4c);
-		edx += 0xb5;
-		eax = 4*edx;
-		eax += edx;
-		ebx = D(esp+0x50);
-		eax <<= 0x7;
-		eax += ebx;
-		edx = eax+0x80;
-		eax = "";
-		___13094h_cdecl(eax, edx);
-		___12cb8h__VESA101_PRESENTSCREEN();
-		edx ^= edx;
-___32137h:
-		edx++;
-		___2ab50h();
-		if((int)edx < 0x32) goto ___32137h;
-		edx = 0x5;
-		ecx = D(___24cc54h);
-		ebx ^= ebx;
-		eax = edx;
-		dRally_Sound_pushEffect(eax, edx, ebx, ecx, 0x24000, 0x8000);
-		edx ^= edx;
-___32162h:
-		edx++;
-		___2ab50h();
-		if((int)edx < 0x14) goto ___32162h;
-		ecx = 0x1;
-		edx = D(esp+0x4c);
-		eax = D(esp+0x50);
-		ebx ^= ebx;
-		D(esp+0x40) = ecx;
-		edx += 0xbe;
-		eax += 0x80;
-		ecx = esp+0x40;
-		L(eax) = ___148cch_cdecl(eax, edx, ebx, ecx);
-		if(D(esp+0x40) != 1) goto ___321efh;
-		eax = D(esp+0x48);
-		D(___196aa8h) = eax;
-		eax = D(___1a1028h);
-		L(eax) = B(ebp+eax*4+___1a0ef8h);
-		eax &= 0xff;
-		D(___196aach) = eax;
-		edx = eax;
-		eax <<= 0x3;
-		eax -= edx;
-		eax <<= 0x2;
-		eax -= edx;
-		esi = ___1a01e0h;
-		eax <<= 0x2;
-		edi = ___1a1ff1h;
-		esi += eax;
-		strcpy(edi, esi);
-___321efh:
-		eax = 0x5;
-		dRally_Sound_freeEffectChannel(eax);
-		eax = D(esp+0x44);
-		return eax;
-___32207h:
-		eax = D(___196b24h);
-		if((int)eax >= 0x61) goto ___3221ah;
-		edx = eax+0x2;
-		D(___196b24h) = edx;
-___3221ah:
-		ebx ^= ebx;
-		D(esp+0x44) = ebx;
-		eax = D(esp+0x44);
-___32224h:
-		return eax;
+		edx = (int)eax>>0x1f;
+		___idiv32(&eax, &edx, 0x64);
+		rslt = 1;
+
+		if(((int)edx >= (int)D(___196b24h))||(D(___185a14h_UseWeapons) == 0)){
+
+			if((int)D(___196b24h) < 0x61) D(___196b24h) += 2;
+		}
+		else {
+
+			D(___196b24h) = 5;
+			eax = rand_watcom106();
+			edx = (int)eax>>0x1f;
+			___idiv32(&eax, &edx, 0x64);
+		
+			if((int)edx >= 0x32){
+
+				if(D(___1a01e0h+0x6c*D(___1a1ef8h)+0x1c) == 5){
+
+					D(esp+0x48) = 1;
+					strcpy(esp+0x34, "6000");
+				}
+
+				if(D(___1a01e0h+0x6c*D(___1a1ef8h)+0x1c) == 4){
+
+					D(esp+0x48) = 2;
+					strcpy(esp+0x34, "4000");
+				}
+
+				if(D(___1a01e0h+0x6c*D(___1a1ef8h)+0x1c) == 3){
+						
+					D(esp+0x48) = 3;
+					strcpy(esp+0x34, "3000");
+				}
+
+				if(D(___1a01e0h+0x6c*D(___1a1ef8h)+0x1c) == 2){
+
+					D(esp+0x48) = 4;
+					strcpy(esp+0x34, "2000");
+				}
+
+				if(D(___1a01e0h+0x6c*D(___1a1ef8h)+0x1c) == 1){
+
+					D(esp+0x48) = 5;
+					strcpy(esp+0x34, "1000");
+				}
+
+				if(D(___1a01e0h+0x6c*D(___1a1ef8h)+0x1c) == 0){
+
+					D(esp+0x48) = 6;
+					strcpy(esp+0x34, "500");
+				}
+
+				___13248h_cdecl(0x21, 0x83, 0x1e2, 0xe6, 1);
+				esip = ___1a1e84h;
+				ebxp = ___1a112ch__VESA101_ACTIVESCREEN_PTR+0x280*(0x83+0x25)+0x21+0xc;
+
+				ecx = 0x80;
+				while(1){
+
+					edi = 0x68;
+
+					while(1){
+
+						L(eax) = B(esip);
+						if(L(eax) != 0) B(ebxp) = L(eax);
+						ebxp++;
+						esip++;
+						edi--;
+						if(edi == 0) break;
+					}
+
+					ebxp += 0x280;
+					ebxp -= 0x68;
+					ecx--;
+					if(ecx == 0) break;
+				}
+
+				___13094h_cdecl("[Wanna be my hitman, driver?", 0x280*(0x83+0x25)+0x21+0x80);
+				___13094h_cdecl("", 0x280*(0x83+0x35)+0x21+0x80);
+				___13094h_cdecl("Wanna get rich, tough guy? OK.", 0x280*(0x83+0x45)+0x21+0x80);
+				___13094h_cdecl("[Here's the deal{. I have put some", 0x280*(0x83+0x55)+0x21+0x80);
+				___13094h_cdecl("major funds on this race, betting", 0x280*(0x83+0x65)+0x21+0x80);
+
+				edx = 0;
+				while(1){
+
+					eax = rand_watcom106();
+					edx = (int)eax>>0x1f;
+					___idiv32(&eax, &edx, 4);
+					eax = B(___1a0ef8h+4*D(___1a1028h)+edx);
+					if(eax != D(___1a1ef8h)) break;
+				}
+
+				ebp = edx;
+
+				strcpy(esp, "that [");
+				strcat(esp, ___1a01e0h+0x6c*B(___1a0ef8h+4*D(___1a1028h)+edx));
+				strcat(esp, " won't reach the");
+				___13094h_cdecl(esp, 0x280*(0x83+0x75)+0x21+0x80);
+				___13094h_cdecl("[finish line{. Make me right, and", 0x280*(0x83+0x85)+0x21+0x80);
+				strcpy(esp, "[it'll pay you $");
+				strcat(esp, esp+0x34);
+				strcat(esp, ".");
+				___13094h_cdecl(esp, 0x280*(0x83+0x95)+0x21+0x80);
+				___13094h_cdecl("", 0x280*(0x83+0xa5)+0x21+0x80);
+				___13094h_cdecl("", 0x280*(0x83+0xb5)+0x21+0x80);
+				___12cb8h__VESA101_PRESENTSCREEN();
+
+				edx = 0;
+				while(1){
+
+					edx++;
+					___2ab50h();
+					if((int)edx >= 0x32) break;
+				}
+
+				dRally_Sound_pushEffect(5, SFX_SPECIAL_OFFER, 0, ___24cc54h_sfx_volume, 0x24000, 0x8000);
+
+				edx = 0;
+				while(1){
+
+					edx++;
+					___2ab50h();
+					if((int)edx >= 0x14) break;
+				}
+
+				D(esp+0x40) = 1;
+				___148cch_cdecl(0x21+0x80, 0x83+0xbe, 0, esp+0x40);
+			
+				if(D(esp+0x40) == 1){
+
+					D(___196aa8h) = D(esp+0x48);
+					D(___196aach) = B(___1a0ef8h+ebp+4*D(___1a1028h));
+					strcpy(___1a1ff1h, ___1a01e0h+0x6c*D(___196aach));
+				}
+			}
+			else {
+					
+				if(D(___1a01e0h+0x6c*D(___1a1ef8h)+0x1c) == 5){
+
+					D(esp+0x48) = 1;
+					strcpy(esp+0x34, "12000");
+				}
+
+				if(D(___1a01e0h+0x6c*D(___1a1ef8h)+0x1c) == 4){
+
+					D(esp+0x48) = 2;
+					strcpy(esp+0x34, "8000");
+				}
+
+				if(D(___1a01e0h+0x6c*D(___1a1ef8h)+0x1c) == 3){
+
+					D(esp+0x48) = 3;
+					strcpy(esp+0x34, "6000");
+				}
+
+				if(D(___1a01e0h+0x6c*D(___1a1ef8h)+0x1c) == 2){
+
+					D(esp+0x48) = 4;
+					strcpy(esp+0x34, "4000");
+				}
+
+				if(D(___1a01e0h+0x6c*D(___1a1ef8h)+0x1c) == 1){
+
+					D(esp+0x48) = 5;
+					strcpy(esp+0x34, "2000");
+				}
+
+				if(D(___1a01e0h+0x6c*D(___1a1ef8h)+0x1c) == 0){
+
+					D(esp+0x48) = 6;
+					strcpy(esp+0x34, "1000");
+				}
+
+				___13248h_cdecl(0x21, 0x83, 0x1e2, 0xe6, 1);
+				esip = ___1a1e80h;
+				ebxp = ___1a112ch__VESA101_ACTIVESCREEN_PTR+0x280*(0x83+0x25)+0x21+0xc;
+
+				ecx = 0x80;
+				while(1){
+
+					edi = 0x68;
+
+					while(1){
+
+						L(eax) = B(esip);
+						if(L(eax) != 0) B(ebxp) = L(eax);
+						ebxp++;
+						esip++;
+						edi--;
+						if(edi == 0) break;
+					}
+
+					ebxp += 0x280;
+					ebxp -= 0x68;
+					ecx--;
+					if(ecx == 0) break;
+				}
+
+				___13094h_cdecl("[A slick steroid run, anyone?", 0x280*(0x83+0x25)+0x21+0x80);
+				___13094h_cdecl("", 0x280*(0x83+0x35)+0x21+0x80);
+				strcpy(esp, "[Extra $");
+				strcat(esp, esp+0x34);
+				strcat(esp, "{, anyone? You? This is");
+				___13094h_cdecl(esp, 0x280*(0x83+0x45)+0x21+0x80);
+				___13094h_cdecl("easy as shifting gears 1-2-3.", 0x280*(0x83+0x55)+0x21+0x80);
+				___13094h_cdecl("[Just pick up some pills along the", 0x280*(0x83+0x65)+0x21+0x80);
+				___13094h_cdecl("[way, and get them to the finish", 0x280*(0x83+0x75)+0x21+0x80);
+				___13094h_cdecl("[line before things get crowded{, be", 0x280*(0x83+0x85)+0x21+0x80);
+				___13094h_cdecl("first, like, floor it, like.", 0x280*(0x83+0x95)+0x21+0x80);
+				___13094h_cdecl("", 0x280*(0x83+0xa5)+0x21+0x80);
+				___13094h_cdecl("", 0x280*(0x83+0xb5)+0x21+0x80);
+				___12cb8h__VESA101_PRESENTSCREEN();
+			
+				edx = 0;
+				while(1){
+
+					edx++;
+					___2ab50h();
+					if((int)edx >= 0x32) break;
+				}
+
+				dRally_Sound_pushEffect(5, SFX_SPECIAL_OFFER, 0, ___24cc54h_sfx_volume, 0x24000, 0x8000);
+
+				edx = 0;
+				while(1){
+
+					edx++;
+					___2ab50h();
+					if((int)edx >= 0x14) break;
+				}
+
+				D(esp+0x40) = 1;
+				___148cch_cdecl(0x21+0x80, 0x83+0xbe, 0, esp+0x40);
+
+				if(D(esp+0x40) == 1) D(___196aa4h) = D(esp+0x48);
+			}
+		
+			dRally_Sound_freeEffectChannel(5);
+			rslt = 1;
+		}
+	}
+	
+	return rslt;
 }

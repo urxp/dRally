@@ -5,7 +5,7 @@
 	extern byte ___24cc6ch[];
 	extern byte ___199f50h[];
 	extern byte ___199f54h[];
-	extern byte ___19bd58h[];
+	extern __DWORD__ ___19bd58h_gamepad;
 	extern byte ___199f74h[];
 	extern byte ___199f78h[];
 	extern byte ___199f3ch[];
@@ -50,10 +50,10 @@ ___59bbch:
 		if(D(___199f54h) == 0) goto ___59bc7h;
 		H(ebx) = 0xd;
 ___59bc7h:
-		if((int)D(___19bd58h) <= 0) goto ___59bd5h;
+		if((int)___19bd58h_gamepad <= 0) goto ___59bd5h;
 		___59db8h();
 ___59bd5h:
-		if((int)D(___19bd58h) <= 0) goto ___59ccch;
+		if((int)___19bd58h_gamepad <= 0) goto ___59ccch;
 		ecx = D(___199f74h);
 		eax = __GET_TIMER_TICKS();
 		edx = eax;

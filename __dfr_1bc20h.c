@@ -36,7 +36,7 @@ cpu 386
 	extern 	___13bd4h_cdecl
 	extern 	___23594h
 	extern 	___13c9ch_cdecl
-	extern 	dRally_Memory_free
+	extern 	dRMemory_free
 	extern 	___196adch
 	extern 	___19bd60h
 	extern 	___1c6bch
@@ -403,7 +403,7 @@ ___1bec2h:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    dRally_Memory_free
+		call    dRMemory_free
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -414,7 +414,7 @@ ___1bec2h:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    dRally_Memory_free
+		call    dRMemory_free
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -536,7 +536,7 @@ ___1c065h:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    dRally_Memory_free
+		call    dRMemory_free
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx
@@ -546,7 +546,7 @@ ___1c065h:
 	push 	edx
 	push 	ecx
 	push 	eax
-		call    dRally_Memory_free
+		call    dRMemory_free
 	add 	esp, 4
 	pop 	ecx
 	pop 	edx

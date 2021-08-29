@@ -1,10 +1,11 @@
 #include "drally.h"
+#include "sfx.h"
 
 	extern byte ___1a1ef8h[];
 	extern byte ___1a1ef0h[];
 	extern byte ___1a01e0h[];
-	extern byte ___24cc54h[];
-	extern byte ___185a38h[];
+	extern __DWORD__ ___24cc54h_sfx_volume;
+	extern byte ___185a38h_delay[];
 	extern byte ___1a0a50h[];
 	extern byte ___1a0170h_PriceMines[];
 	extern byte ___1a0174h_PriceSpikedBumpers[];
@@ -72,11 +73,8 @@ ___2e3abh:
 		eax <<= 2;
 		if(D(eax+___1a01e0h+0x38) != 0xffffffff) goto ___2e4f7h;
 		if(D(eax+___1a01e0h+0x1c) == 0) goto ___2e4f7h;
-		eax = 1;
-		ecx = D(___24cc54h);
-		ebx = ebx^ebx;
-		edx = 0x1d;
-		dRally_Sound_pushEffect(eax, edx, ebx, ecx, 0x28000, 0x8000);
+		ecx = ___24cc54h_sfx_volume;
+		dRally_Sound_pushEffect(1, SFX_BUMMER, 0, ecx, 0x28000, 0x8000);
 		edx = D(___1a1ef8h);
 		eax = 8*edx;
 		eax -= edx;
@@ -125,7 +123,7 @@ ___2e4adh:
 ___2e4d3h:
 		ebx = 0x136;
 		___26fach();
-		D(___185a38h) = ebx;
+		D(___185a38h_delay) = ebx;
 		___25330h();
 		___12cb8h__VESA101_PRESENTSCREEN();
 		return;
@@ -141,11 +139,11 @@ ___2e4f7h:
 		edx = 0x17;
 		eax = 2;
 		esi = 0x25500;
-		ecx = D(___24cc54h);
-		ebx = ebx^ebx;
+		ecx = ___24cc54h_sfx_volume;
+		ebx = 0;
 		edi = 0x136;
-		dRally_Sound_pushEffect(eax, edx, ebx, ecx, esi, 0x8000);
-		D(___185a38h) = edi;
+		dRally_Sound_pushEffect(eax, SFX_LAUGHTER, ebx, ecx, esi, 0x8000);
+		D(___185a38h_delay) = edi;
 		___2d618h();
 		___12cb8h__VESA101_PRESENTSCREEN();
 ___2e558h:
@@ -248,11 +246,7 @@ ___2e6d1h:
 		L(ebx) = 1;
 ___2e6f4h:
 		if(L(ebx)) goto ___2e780h;
-		edx = 0x1d;
-		eax = 1;
-		ebx = ebx^ebx;
-		ecx = D(___24cc54h);
-		dRally_Sound_pushEffect(eax, edx, ebx, ecx, 0x28000, 0x8000);
+		dRally_Sound_pushEffect(1, SFX_BUMMER, 0, ___24cc54h_sfx_volume, 0x28000, 0x8000);
 		edx = D(___1a1ef8h);
 		eax = 8*edx;
 		eax -= edx;
@@ -267,17 +261,13 @@ ___2e6f4h:
 		esi -= eax;
 		eax = 0x136;
 		D(edx+___1a01e0h+0x30) = esi;
-		D(___185a38h) = eax;
+		D(___185a38h_delay) = eax;
 		___2d6a0h();
 		___25330h();
 		___12cb8h__VESA101_PRESENTSCREEN();
 		return;
 ___2e780h:
-		edx = 0x17;
-		eax = 2;
-		ecx = D(___24cc54h);
-		ebx = ebx^ebx;
-		dRally_Sound_pushEffect(eax, edx, ebx, ecx, 0x25500, 0x8000);
+		dRally_Sound_pushEffect(2, SFX_LAUGHTER, 0, ___24cc54h_sfx_volume, 0x25500, 0x8000);
 		return;
 ___2e7adh:
 		ebp = D(___1a0a50h);
@@ -286,20 +276,11 @@ ___2e7adh:
 		eax = ___28ab4h_cdecl(eax);
 		if(eax == 0) goto ___2e7f3h;
 ___2e7c6h:
-		edx = 0x17;
-		edi = 0x25500;
-		eax = 2;
-		ecx = D(___24cc54h);
-		ebx = ebx^ebx;
-		dRally_Sound_pushEffect(eax, edx, ebx, ecx, edi, 0x8000);
+		dRally_Sound_pushEffect(2, SFX_LAUGHTER, 0, ___24cc54h_sfx_volume, 0x25500, 0x8000);
 		return;
 ___2e7f3h:
-		edx = 0x1c;
-		ecx = D(___24cc54h);
-		ebx = ebx^ebx;
-		eax = ebp;
-		dRally_Sound_pushEffect(eax, edx, ebx, ecx, 0x28000, 0x8000);
-		edx = edx^edx;
+		dRally_Sound_pushEffect(ebp, SFX_CLICK_4, 0, ___24cc54h_sfx_volume, 0x28000, 0x8000);
+		edx = 0;
 		D(___1a0a50h) = edx;
 		edx = D(___1a1ef8h);
 		eax = 8*edx;
@@ -318,7 +299,7 @@ ___2e7f3h:
 		eax = eax^eax;
 		esi = 0x136;
 		___2d0ech_cdecl(eax);
-		D(___185a38h) = esi;
+		D(___185a38h_delay) = esi;
 		___25330h();
 		___12cb8h__VESA101_PRESENTSCREEN();
 		return;
@@ -329,20 +310,11 @@ ___2e885h:
 		eax = ___28ab4h_cdecl(eax);
 		if(eax == 0) goto ___2e8cbh;
 ___2e89eh:
-		edx = 0x17;
-		edi = 0x25500;
-		eax = 2;
-		ecx = D(___24cc54h);
-		ebx = ebx^ebx;
-		dRally_Sound_pushEffect(eax, edx, ebx, ecx, edi, 0x8000);
+		dRally_Sound_pushEffect(2, SFX_LAUGHTER, 0, ___24cc54h_sfx_volume, 0x25500, 0x8000);
 		return;
 ___2e8cbh:
-		edx = 0x1c;
-		ecx = D(___24cc54h);
-		ebx = ebx^ebx;
-		eax = ebp;
-		dRally_Sound_pushEffect(eax, edx, ebx, ecx, 0x28000, 0x8000);
-		edx = edx^edx;
+		dRally_Sound_pushEffect(ebp, SFX_CLICK_4, 0, ___24cc54h_sfx_volume, 0x28000, 0x8000);
+		edx = 0;
 		D(___1a0a50h+4) = edx;
 		edx = D(___1a1ef8h);
 		eax = 8*edx;
@@ -361,7 +333,7 @@ ___2e8cbh:
 		eax = ebp;
 		esi = 0x136;
 		___2d0ech_cdecl(eax);
-		D(___185a38h) = esi;
+		D(___185a38h_delay) = esi;
 		___25330h();
 		___12cb8h__VESA101_PRESENTSCREEN();
 		return;
@@ -372,20 +344,11 @@ ___2e959h:
 		eax = ___28ab4h_cdecl(eax);
 		if(eax == 0) goto ___2e99fh;
 ___2e972h:
-		edx = 0x17;
-		edi = 0x25500;
-		eax = 2;
-		ecx = D(___24cc54h);
-		ebx = ebx^ebx;
-		dRally_Sound_pushEffect(eax, edx, ebx, ecx, edi, 0x8000);
+		dRally_Sound_pushEffect(2, SFX_LAUGHTER, 0, ___24cc54h_sfx_volume, 0x25500, 0x8000);
 		return;
 ___2e99fh:
-		edx = 0x1c;
-		ecx = D(___24cc54h);
-		ebx = ebx^ebx;
-		eax = ebp;
-		dRally_Sound_pushEffect(eax, edx, ebx, ecx, 0x28000, 0x8000);
-		edx = edx^edx;
+		dRally_Sound_pushEffect(ebp, SFX_CLICK_4, 0, ___24cc54h_sfx_volume, 0x28000, 0x8000);
+		edx = 0;
 		D(___1a0a50h+8) = edx;
 		edx = D(___1a1ef8h);
 		eax = 8*edx;
@@ -404,7 +367,7 @@ ___2e99fh:
 		eax = 2;
 		esi = 0x136;
 		___2d0ech_cdecl(eax);
-		D(___185a38h) = esi;
+		D(___185a38h_delay) = esi;
 		___25330h();
 		___12cb8h__VESA101_PRESENTSCREEN();
 		return;
@@ -415,19 +378,10 @@ ___2ea30h:
 		eax = ___28ab4h_cdecl(eax);
 		if(eax == 0) goto ___2ea76h;
 ___2ea49h:
-		edx = 0x17;
-		edi = 0x25500;
-		eax = 2;
-		ecx = D(___24cc54h);
-		ebx = ebx^ebx;
-		dRally_Sound_pushEffect(eax, edx, ebx, ecx, edi, 0x8000);
+		dRally_Sound_pushEffect(2, SFX_LAUGHTER, 0, ___24cc54h_sfx_volume, 0x25500, 0x8000);
 		return;
 ___2ea76h:
-		edx = 0x1c;
-		ecx = D(___24cc54h);
-		ebx = ebx^ebx;
-		eax = ebp;
-		dRally_Sound_pushEffect(eax, edx, ebx, ecx, 0x28000, 0x8000);
+		dRally_Sound_pushEffect(ebp, SFX_CLICK_4, 0, ___24cc54h_sfx_volume, 0x28000, 0x8000);
 		edx = edx^edx;
 		D(___1a0a50h+0xc) = edx;
 		edx = D(___1a1ef8h);
@@ -447,7 +401,7 @@ ___2ea76h:
 		eax = 3;
 		esi = 0x136;
 		___2d0ech_cdecl(eax);
-		D(___185a38h) = esi;
+		D(___185a38h_delay) = esi;
 		___25330h();
 		___12cb8h__VESA101_PRESENTSCREEN();
 		return;
@@ -477,21 +431,16 @@ ___2eb07h:
 		___13094h_cdecl(eax, edx);
 		edx = 0x1d6aa;
 		eax = "this to you: R-E-P-A-I-R.";
-		ebx = ebx^ebx;
 		___13094h_cdecl(eax, edx);
 		___12cb8h__VESA101_PRESENTSCREEN();
-		edi = 0x25500;
-		edx = 0x17;
-		eax = 2;
-		ecx = D(___24cc54h);
-		dRally_Sound_pushEffect(eax, edx, ebx, ecx, edi, 0x8000);
+		dRally_Sound_pushEffect(2, SFX_LAUGHTER, 0, ___24cc54h_sfx_volume, 0x25500, 0x8000);
 		return;
 ___2ebc1h:
 		edx = 0x18;
 		eax = 1;
-		ebx = ebx^ebx;
-		ecx = D(___24cc54h);
-		dRally_Sound_pushEffect(eax, edx, ebx, ecx, 0x28000, 0x8000);
+		ebx = 0;
+		ecx = ___24cc54h_sfx_volume;
+		dRally_Sound_pushEffect(eax, SFX_SIGNUP_ENGINE_ON, ebx, ecx, 0x28000, 0x8000);
 		if(D(___19bd60h) == 0) goto ___2ebf9h;
 		eax = D(___196adch);
 		___33010h_cdecl(eax);

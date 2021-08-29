@@ -2,28 +2,16 @@
 
 	extern byte ___185ba9h[];
 
-dword ___1f094h_cdecl(dword A1){
+int ___1f094h_cdecl(const char * A1){
 	
-	dword 	eax, ebx, ecx, edx, edi, esi, ebp;
+	int 	n, l, rslt;
 
-	edx = A1;
-	ebx = 0;
-	esi = 0;
-	ecx = strlen(A1);
 
-	if(ebx < ecx){
-		
-		while(1){
+	rslt = 0;
+	l = strlen(A1);
 
-			ecx = B(___185ba9h+B(edx)-0x1e);
-			edx++;
-			ebx++;
-			esi += ecx;
-			ecx = strlen(A1);
+	n = -1;
+	while(++n < l) rslt += read_b(___185ba9h+A1[n]-0x1e);
 
-			if(ebx >= ecx) break;
-		}
-	}
-
-	return esi;
+	return rslt;
 }

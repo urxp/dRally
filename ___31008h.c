@@ -1,4 +1,5 @@
 #include "drally.h"
+#include "sfx.h"
 
 	extern byte ___19eb50h[];
 	extern byte ___1a112ch__VESA101_ACTIVESCREEN_PTR[];
@@ -22,7 +23,7 @@
 	extern byte ___243d44h[];
 	extern byte ___185a5ch[];
 	extern byte ___185a2ch[];
-	extern byte ___24cc54h[];
+	extern __DWORD__ ___24cc54h_sfx_volume;
 	extern byte ___185a14h_UseWeapons[];
 	extern byte ___185a4ch[];
 	extern byte ___1a1ef4h[];
@@ -263,11 +264,10 @@ ___31320h:
 		eax = 0x25500;
 		edx = 0x17;
 		eax -= 0x1000;
-		ecx = D(___24cc54h);
+		ecx = ___24cc54h_sfx_volume;
 		p5 = eax;
-		ebx ^= ebx;
-		eax = 0x1;
-		dRally_Sound_pushEffect(eax, edx, ebx, ecx, p5, 0x8000);
+		ebx = 0;
+		dRally_Sound_pushEffect(0x1, SFX_LAUGHTER, ebx, ecx, p5, 0x8000);
 		___2b318h();
 		eax = 0xffdc;
 		ebp = 0x640000;

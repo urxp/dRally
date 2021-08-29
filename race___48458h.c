@@ -1,4 +1,5 @@
 #include "drally.h"
+#include "drally_structs_free.h"
 
 	extern byte ___199f3dh[];
 	extern byte ___199f3eh[];
@@ -15,14 +16,14 @@
 	extern byte ___1a4ec0h[];
 	extern byte ___196e70h[];
 	extern byte ___1a54d0h[];
-	extern __DWORD__ ___1a1140h[8];
-	extern byte ___1a1164h[];
-	extern byte ___1a113ch[];
-	extern byte ___1a1110h[];
-	extern byte ___1a1130h[];
-	extern byte ___1a1120h[];
-	extern byte ___1a1118h[];
-	extern byte ___1a111ch[];
+	extern kb_control_t ___1a1140h;
+	extern __DWORD__ ___1a1164h_gp_accelerate;
+	extern __DWORD__ ___1a113ch_gp_brake;
+	extern __DWORD__ ___1a1110h_gp_steer_left;
+	extern __DWORD__ ___1a1130h_gp_steer_right;
+	extern __DWORD__ ___1a1120h_gp_turbo_boost;
+	extern __DWORD__ ___1a1118h_gp_machine_gun;
+	extern __DWORD__ ___1a111ch_gp_drop_mine;
 	extern byte kmap[];
 	extern byte ___196d9ch[];
 	extern byte VGA13_ACTIVESCREEN[];
@@ -34,8 +35,8 @@ void race___45ad4h(void);
 void ___58c60h(void);
 void ___45b60h(void);
 dword __GET_FRAME_COUNTER(void);
-void ___483d4h_cdecl(dword, dword);
-void bpa_read(const char *, void *, const char *);
+void ___483d4h_cdecl(void *, const char *);
+void old_bpa_read(const char *, void *, const char *);
 void bpk_decode2(void *, void *);
 
 // INFO SCREEN
@@ -171,9 +172,9 @@ void race___48458h(void){
 		if((int)edx >= 0x3f) break;
 	}
 
-	bpa_read("ENGINE.BPA", ___1a54d0h, "KEYCOM3.BPK");
+	old_bpa_read("ENGINE.BPA", ___1a54d0h, "KEYCOM3.BPK");
 	bpk_decode2(VGA13_ACTIVESCREEN, ___1a54d0h);
-	bpa_read("ENGINE.BPA", ___1a4ec0h, "KEYCOM3.PAL");
+	old_bpa_read("ENGINE.BPA", ___1a4ec0h, "KEYCOM3.PAL");
 	___483d4h_cdecl(VGA13_ACTIVESCREEN+0x0a3c, "     GLOBAL KEY-DEFINITIONS");
 	___483d4h_cdecl(VGA13_ACTIVESCREEN+0x193c, "   TAB.............STATUS BAR");
 	___483d4h_cdecl(VGA13_ACTIVESCREEN+0x20bc, "   F1.............INFO SCREEN");
@@ -183,120 +184,54 @@ void race___48458h(void){
 	___483d4h_cdecl(VGA13_ACTIVESCREEN+0x3ebc, "   F5.................SHADOWS");
 	___483d4h_cdecl(VGA13_ACTIVESCREEN+0x463c, "   P....................PAUSE");
 	___483d4h_cdecl(VGA13_ACTIVESCREEN+0x5a3c, "      KEYBOARD DEFINITIONS");
-	strcpy(esp, "   ACCELERATE...");
-	strcat(esp, ___1a21a0h+0xf*___1a1140h[6]);
-	___483d4h_cdecl(VGA13_ACTIVESCREEN+0x693c, esp);
-	strcpy(esp, "   BRAKE........");
-	strcat(esp, ___1a21a0h+0xf*___1a1140h[4]);
-	___483d4h_cdecl(VGA13_ACTIVESCREEN+0x70bc, esp);
-	strcpy(esp, "   STEER LEFT...");
-	strcat(esp, ___1a21a0h+0xf*___1a1140h[2]);
-	___483d4h_cdecl(VGA13_ACTIVESCREEN+0x783c, esp);
-	strcpy(esp, "   STEER RIGHT..");
-	strcat(esp, ___1a21a0h+0xf*___1a1140h[3]);
-	___483d4h_cdecl(VGA13_ACTIVESCREEN+0x7fbc, esp);
-	strcpy(esp, "   TURBO BOOST..");
-	strcat(esp, ___1a21a0h+0xf*___1a1140h[0]);
-	___483d4h_cdecl(VGA13_ACTIVESCREEN+0x873c, esp);
-	strcpy(esp, "   MACHINE GUN..");
-	strcat(esp, ___1a21a0h+0xf*___1a1140h[7]);
-	___483d4h_cdecl(VGA13_ACTIVESCREEN+0x8ebc, esp);
-	strcpy(esp, "   DROP MINE....");
-	strcat(esp, ___1a21a0h+0xf*___1a1140h[5]);
-	___483d4h_cdecl(VGA13_ACTIVESCREEN+0x963c, esp);
-	strcpy(esp, "   HORN.........");
-	strcat(esp, ___1a21a0h+0xf*___1a1140h[1]);
-	___483d4h_cdecl(VGA13_ACTIVESCREEN+0x9dbc, esp);
+	___483d4h_cdecl(VGA13_ACTIVESCREEN+0x693c, strcat(strcpy(esp, "   ACCELERATE..."), ___1a21a0h+0xf*___1a1140h.accelerate));
+	___483d4h_cdecl(VGA13_ACTIVESCREEN+0x70bc, strcat(strcpy(esp, "   BRAKE........"), ___1a21a0h+0xf*___1a1140h.brake));
+	___483d4h_cdecl(VGA13_ACTIVESCREEN+0x783c, strcat(strcpy(esp, "   STEER LEFT..."), ___1a21a0h+0xf*___1a1140h.steer_left));
+	___483d4h_cdecl(VGA13_ACTIVESCREEN+0x7fbc, strcat(strcpy(esp, "   STEER RIGHT.."), ___1a21a0h+0xf*___1a1140h.steer_right));
+	___483d4h_cdecl(VGA13_ACTIVESCREEN+0x873c, strcat(strcpy(esp, "   TURBO BOOST.."), ___1a21a0h+0xf*___1a1140h.turbo_boost));
+	___483d4h_cdecl(VGA13_ACTIVESCREEN+0x8ebc, strcat(strcpy(esp, "   MACHINE GUN.."), ___1a21a0h+0xf*___1a1140h.machine_gun));
+	___483d4h_cdecl(VGA13_ACTIVESCREEN+0x963c, strcat(strcpy(esp, "   DROP MINE...."), ___1a21a0h+0xf*___1a1140h.drop_mine));
+	___483d4h_cdecl(VGA13_ACTIVESCREEN+0x9dbc, strcat(strcpy(esp, "   HORN........."), ___1a21a0h+0xf*___1a1140h.horn));
 	___483d4h_cdecl(VGA13_ACTIVESCREEN+0xb1bc, "      GAMEPAD DEFINITIONS");
-	strcpy(esp, "   ACCELERATE...");
-	strcat(esp, ___243dedh+0xf*D(___1a1164h));
-	___483d4h_cdecl(VGA13_ACTIVESCREEN+0xc0bc, esp);
-	strcpy(esp, "   BRAKE........");
-	strcat(esp, ___243dedh+0xf*D(___1a113ch));
-	___483d4h_cdecl(VGA13_ACTIVESCREEN+0xc83c, esp);
-	strcpy(esp, "   STEER LEFT...");
-	strcat(esp, ___243dedh+0xf*D(___1a1110h));
-	eax = VGA13_ACTIVESCREEN+0xcfbc;
-	edi = esp;
-	___483d4h_cdecl(eax, esp);
-	edx = D(___1a1130h);
-	esi = "   STEER RIGHT..";
-	eax = edx;
-	strcpy(edi, esi);
-	eax <<= 4;
-	esi = ___243dedh;
-	eax -= edx;
-	edi = esp;
-	esi += eax;
-	edx = esp;
-	strcat(edi, esi);
-	eax = VGA13_ACTIVESCREEN-0xa0000+0xad73c;
-	edi = esp;
-	___483d4h_cdecl(eax, edx);
-	edx = D(___1a1120h);
-	esi = "   TURBO BOOST..";
-	eax = edx;
-	strcpy(edi, esi);
-	eax <<= 4;
-	esi = ___243dedh;
-	eax -= edx;
-	edi = esp;
-	esi += eax;
-	edx = esp;
-	strcat(edi, esi);
-	eax = VGA13_ACTIVESCREEN-0xa0000+0xadebc;
-	edi = esp;
-	___483d4h_cdecl(eax, edx);
-	edx = D(___1a1118h);
-	esi = "   MACHINE GUN..";
-	eax = edx;
-	strcpy(edi, esi);
-	eax <<= 4;
-	esi = ___243dedh;
-	eax -= edx;
-	edi = esp;
-	esi += eax;
-	edx = esp;
-	strcat(edi, esi);
-	eax = VGA13_ACTIVESCREEN-0xa0000+0xae63c;
-	edi = esp;
-	___483d4h_cdecl(eax, edx);
-	edx = D(___1a111ch);
-	esi = "   DROP MINE....";
-	eax = edx;
-	strcpy(edi, esi);
-	eax <<= 4;
-	esi = ___243dedh;
-	eax -= edx;
-	edi = esp;
-	esi += eax;
-	edx = esp;
-	strcat(edi, esi);
-	eax = VGA13_ACTIVESCREEN-0xa0000+0xaedbc;
-	ebx ^= ebx;
-	___483d4h_cdecl(eax, edx);
-	D(___196e70h) = ebx;
+	___483d4h_cdecl(VGA13_ACTIVESCREEN+0xc0bc, strcat(strcpy(esp, "   ACCELERATE..."), ___243dedh+0xf*___1a1164h_gp_accelerate));
+	___483d4h_cdecl(VGA13_ACTIVESCREEN+0xc83c, strcat(strcpy(esp, "   BRAKE........"), ___243dedh+0xf*___1a113ch_gp_brake));
+	___483d4h_cdecl(VGA13_ACTIVESCREEN+0xcfbc, strcat(strcpy(esp, "   STEER LEFT..."), ___243dedh+0xf*___1a1110h_gp_steer_left));
+	___483d4h_cdecl(VGA13_ACTIVESCREEN+0xd73c, strcat(strcpy(esp, "   STEER RIGHT.."), ___243dedh+0xf*___1a1130h_gp_steer_right));
+	___483d4h_cdecl(VGA13_ACTIVESCREEN+0xdebc, strcat(strcpy(esp, "   TURBO BOOST.."), ___243dedh+0xf*___1a1120h_gp_turbo_boost));
+	___483d4h_cdecl(VGA13_ACTIVESCREEN+0xe63c, strcat(strcpy(esp, "   MACHINE GUN.."), ___243dedh+0xf*___1a1118h_gp_machine_gun));
+	___483d4h_cdecl(VGA13_ACTIVESCREEN+0xedbc, strcat(strcpy(esp, "   DROP MINE...."), ___243dedh+0xf*___1a111ch_gp_drop_mine));
+	D(___196e70h) = 0;
 	race___45ad4h();
-	edx ^= edx;
-___49163h:
-	___58c60h();
-	edx++;
-	___45c6ch();
-	if((int)edx < 0x3f) goto ___49163h;
+
+	edx = 0;
+	while(1){
+	
+		___58c60h();
+		___45c6ch();
+		edx++;
+		if((int)edx >= 0x3f) break;
+	}
 
 	memset(kmap, 0, 0x100);
 	edi = 0;
 	edx = 0;
-___49188h:
-	___59cd8h();
-	eax = __GET_FRAME_COUNTER();
-	eax = edi;
-___4918fh:
-	ebx = B(eax+kmap);
-	eax++;
-	edx += ebx;
-	if((int)eax < 0x100) goto ___4918fh;
-	if(edx == 0) goto ___49188h;
+
+	while(1){
+
+		___59cd8h();
+		eax = __GET_FRAME_COUNTER();
+		eax = edi;
+
+		while(1){
+
+			ebx = B(eax+kmap);
+			eax++;
+			edx += ebx;
+			if((int)eax >= 0x100) break;
+		}
+
+		if(edx != 0) break;
+	}
 
 	D(___196e70h) = 0;
 	race___45ad4h();
@@ -311,9 +246,9 @@ ___4918fh:
 		if((int)edx >= 0x3f) break;
 	}
 
-	bpa_read("ENGINE.BPA", ___1a54d0h, "INFO2.BPK");
+	old_bpa_read("ENGINE.BPA", ___1a54d0h, "INFO2.BPK");
 	bpk_decode2(VGA13_ACTIVESCREEN, ___1a54d0h);
-	bpa_read("ENGINE.BPA", ___1a4ec0h, "INFO2.PAL");
+	old_bpa_read("ENGINE.BPA", ___1a4ec0h, "INFO2.PAL");
 	D(___196e70h) = 0;
 	race___45ad4h();
 		

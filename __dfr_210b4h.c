@@ -17,22 +17,22 @@ cpu 386
 	extern	___12e78h_cdecl
 	extern	___20f78h
 	extern	___1866b8h
-	extern	___1a1164h
+	extern	___1a1164h_gp_accelerate
 	extern	___59b3ch
 	extern	___5994ch
 	extern	___1a1f6ah
 	extern	___1866b8h
-	extern	___1a113ch
+	extern	___1a113ch_gp_brake
 	extern	___1866b8h
-	extern	___1a1110h
+	extern	___1a1110h_gp_steer_left
 	extern	___1866b8h
-	extern	___1a1130h
+	extern	___1a1130h_gp_steer_right
 	extern	___1866b8h
-	extern	___1a1120h
+	extern	___1a1120h_gp_turbo_boost
 	extern	___1866b8h
-	extern	___1a1118h
+	extern	___1a1118h_gp_machine_gun
 	extern	___1866b8h
-	extern	___1a111ch
+	extern	___1a111ch_gp_drop_mine
 	extern	___20d18h
 	extern	___185a5ch
 	extern	___185b58h
@@ -226,7 +226,7 @@ ___211bdh:
 		mov     edi, ___1866b8h+0e10h
 		and     eax, 0ffh
 		mov     esi, __dfr_1818d8h
-		mov     [___1a1164h], eax
+		mov     [___1a1164h_gp_accelerate], eax
 
 	push 	edx
 	push 	ecx
@@ -241,7 +241,7 @@ ___211bdh:
 	pop 	ecx
 	pop 	edx
 
-		mov     edx, [___1a1164h]
+		mov     edx, [___1a1164h_gp_accelerate]
 		movsd   
 		movsd   
 		movsd   
@@ -332,7 +332,7 @@ ___21288h:
 		mov     edi, ___1866b8h+0e42h
 		and     eax, 0ffh
 		mov     esi, __dfr_1818e8h
-		mov     [___1a113ch], eax
+		mov     [___1a113ch_gp_brake], eax
 
 	push 	edx
 	push 	ecx
@@ -347,7 +347,7 @@ ___21288h:
 	pop 	ecx
 	pop 	edx
 
-		mov     eax, [___1a113ch]
+		mov     eax, [___1a113ch_gp_brake]
 		movsd   
 		movsd   
 		movsd   
@@ -435,7 +435,7 @@ ___21350h:
 		mov     edi, ___1866b8h+0e74h
 		and     eax, 0ffh
 		mov     esi, __dfr_1818f8h
-		mov     [___1a1110h], eax
+		mov     [___1a1110h_gp_steer_left], eax
 
 	push 	edx
 	push 	ecx
@@ -455,7 +455,7 @@ ___21350h:
 		movsd   
 		movsd   
 		movsb   
-		imul    esi, [___1a1110h], byte 0fh
+		imul    esi, [___1a1110h_gp_steer_left], byte 0fh
 		mov     edi, ___1866b8h+0e74h
 		add     esi, ___1a1f6ah
 		call 	__STRCAT
@@ -538,7 +538,7 @@ ___21417h:
 		mov     edi, ___1866b8h+0ea6h
 		and     eax, 0ffh
 		mov     esi, __dfr_18190ch
-		mov     [___1a1130h], eax
+		mov     [___1a1130h_gp_steer_right], eax
 
 	push 	edx
 	push 	ecx
@@ -553,7 +553,7 @@ ___21417h:
 	pop 	ecx
 	pop 	edx
 
-		mov     ecx, [___1a1130h]
+		mov     ecx, [___1a1130h_gp_steer_right]
 		movsd   
 		movsd   
 		movsd   
@@ -644,7 +644,7 @@ ___214e1h:
 		mov     edi, ___1866b8h+0ed8h
 		and     eax, 0ffh
 		mov     esi, __dfr_181924h
-		mov     [___1a1120h], eax
+		mov     [___1a1120h_gp_turbo_boost], eax
 
 	push 	edx
 	push 	ecx
@@ -659,7 +659,7 @@ ___214e1h:
 	pop 	ecx
 	pop 	edx
 
-		mov     ebx, [___1a1120h]
+		mov     ebx, [___1a1120h_gp_turbo_boost]
 		rep movsd   
 		movsw   
 		imul    esi, ebx, byte 0fh
@@ -746,7 +746,7 @@ ___215aeh:
 		mov     edi, ___1866b8h+0f0ah
 		and     eax, 0ffh
 		mov     esi, __dfr_181940h
-		mov     [___1a1118h], eax
+		mov     [___1a1118h_gp_machine_gun], eax
 
 	push 	edx
 	push 	ecx
@@ -761,7 +761,7 @@ ___215aeh:
 	pop 	ecx
 	pop 	edx
 
-		mov     edx, [___1a1118h]
+		mov     edx, [___1a1118h_gp_machine_gun]
 		rep movsd   
 		movsw   
 		imul    esi, edx, byte 0fh
@@ -848,7 +848,7 @@ ___2167bh:
 		mov     edi, ___1866b8h+0f3ch
 		and     eax, 0ffh
 		mov     esi, __dfr_18195ch
-		mov     [___1a111ch], eax
+		mov     [___1a111ch_gp_drop_mine], eax
 
 	push 	edx
 	push 	ecx
@@ -863,7 +863,7 @@ ___2167bh:
 	pop 	ecx
 	pop 	edx
 
-		mov     eax, [___1a111ch]
+		mov     eax, [___1a111ch_gp_drop_mine]
 		rep movsd   
 		movsb   
 		imul    esi, eax, byte 0fh

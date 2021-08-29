@@ -28,12 +28,13 @@ typedef struct cardata_s {
 	extern cardata_t ___18e298h[6];
 	extern __DWORD__ ___18643ch[][0xc];
 	extern byte ___1a1ec0h[];
+	extern void * ___1a0198h[4];
 
 void ___13094h_cdecl(const char *, dword);
-dword ___25180h_cdecl(dword);
-void ___12f60h_cdecl(dword, dword);
+int ___25180h_cdecl(const char * A1);
+void ___12f60h_cdecl(const char * A1, dword A2);
 void ___13248h_cdecl(dword, dword ,dword, dword, dword);
-void ___259e0h_cdecl(dword, dword, dword, dword, dword);
+void ___259e0h_cdecl(int dx, int dy, int aFrameIdx, void * aEncoded, int * aOffsets);
 char * itoa_watcom106(int value, char * buffer, int radix);
 
 static const char40 ___1914c0h[4][6] = {
@@ -80,7 +81,6 @@ void ___262b4h(void){
 
 	byte *	bases4 = getAssets(MENU_BASES4);
 	byte * 	maxi1f = getAssets(MENU_MAXI1F);
-	void * 	tires[4] = { getAssets(MENU_TIRE1), getAssets(MENU_TIRE2), getAssets(MENU_TIRE3), getAssets(MENU_TIRE4) };
 
 	j = -1;
 	while(++j < 0x60){
@@ -94,7 +94,7 @@ void ___262b4h(void){
 
 	if((int)ebx < (int)ecx){
 
-		___259e0h_cdecl(0x78, 0x10d, D(___1a1ec0h), tires[ebx], ___18643ch[ebx]);
+		___259e0h_cdecl(0x78, 0x10d, D(___1a1ec0h), ___1a0198h[ebx], ___18643ch[ebx]);
 		itoa_watcom106(___18e298h[D(___1a01e0h+0x1c+0x6c*D(___1a1ef8h))].price_tire_upgrades[ebx], esp, 0xa);
 		strcpy(esp+0x14, "$");
 		strcat(esp+0x14, esp);

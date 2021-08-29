@@ -2,7 +2,7 @@
 
 	extern byte ___185ba9h[];
 
-dword ___252e0h_cdecl(const char * A1){
+int ___252e0h_cdecl(const char * A1){
 
 	dword 	eax, ebx, ecx, edx, edi, esi, ebp;
 	int 	n, rslt;

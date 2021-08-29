@@ -6,7 +6,7 @@ cpu 386
 	extern 	__MOVS
 	extern 	__STRCAT
 	extern 	__STRCPY
-	extern	___1a1ffch
+	extern	___1a1ffch_modem_init_string
 	extern	___1a1138h__VESA101h_DefaultScreenBufferB
 	extern	___1a112ch__VESA101_ACTIVESCREEN_PTR
 	extern	___13710h
@@ -38,7 +38,7 @@ __GDECL(___1d688h)
 		push    ebp
 		sub     esp, byte 20h
 		mov     edx, 0c5h
-		mov     esi, ___1a1ffch
+		mov     esi, ___1a1ffch_modem_init_string
 		mov     edi, esp
 		xor     ah, ah
 		mov     [esp+18h], edx

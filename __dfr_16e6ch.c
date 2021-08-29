@@ -5,7 +5,7 @@ cpu 386
 	extern 	__CHK
 	extern 	__STRCAT
 	extern 	___1a1114h
-	extern 	bpa_read
+	extern 	old_bpa_read
 	extern 	___1a54d0h
 	extern 	bpk_decode2
 	extern 	___1a112ch__VESA101_ACTIVESCREEN_PTR
@@ -35,7 +35,7 @@ __GDECL(___16e6ch)
 	push 	ebx
 	push 	edx
 	push 	eax
-		call    bpa_read					;;
+		call    old_bpa_read					;;
 	add 	esp, 0ch
 	pop 	ecx
 

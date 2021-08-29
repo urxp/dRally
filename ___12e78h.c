@@ -12,6 +12,7 @@ typedef struct font_props_s {
 
 	extern byte * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
 
+
 void ___12e78h_cdecl(byte * A1, font_props_t * A2, const char * A3, dword dst_off){
 
 	dword 	n, src_n, x, y;
@@ -45,4 +46,10 @@ void ___12e78h_cdecl(byte * A1, font_props_t * A2, const char * A3, dword dst_of
 			dst++;
 		}
 	}
+}
+
+
+void ___12e78h_v2(void * font, font_props_t * font_props, const char * str, int x, int y){
+
+	___12e78h_cdecl(font, font_props, str, 0x280*y+x);
 }

@@ -11,7 +11,7 @@
 
 void dRally_Sound_pushEffect(byte channel, byte n, dword unk, dword a0, dword a1, dword a2);
 void dRally_Sound_freeEffectChannel(byte ch_num);
-double dR_Math_sqrt(double);
+double dRMath_sqrt(double);
 
 void race___563ach(void){
 
@@ -88,7 +88,7 @@ ___564c2h:
 		edx += eax;
 		D(esp+8) = edx;
 		FPUSH((int)D(esp+8));
-		ST(0) = dR_Math_sqrt(ST(0));
+		ST(0) = dRMath_sqrt(ST(0));
 		ST(0) = (int)ST(0);
 		D(esp+8) = (int)FPOP();
 		ecx = 0x58*D(esp+8);

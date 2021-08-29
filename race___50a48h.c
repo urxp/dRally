@@ -6,13 +6,15 @@
 	extern byte ___196dcch[];
 	extern byte ___196d98h[];
 	extern byte ___1de580h[];
-	extern byte ___243298h[];
-	extern byte ___243d80h[];
+	extern void * ___243298h[6];
+	extern void * ___243d80h;
 
 void race___50a48h(void){
 
 	dword 	eax, ebx, ecx, edx, edi, esi, ebp;
 	byte 	esp[0xc];
+	void * 	esip;
+
 
 		ecx = D(___243c60h);
 		eax = 0x35e*ecx;
@@ -40,31 +42,29 @@ ___50ad6h:
 		edi = D(esp+0x4);
 		ebp = D(esp+0x8);
 		ebx = 0;
-___50ae0h:
-		eax = 0x94*ecx;
-		edx = D(eax+___1de580h+0x60);
-		eax = D(eax+4*edx+___1de580h+0x84);
-		edx = 0x35e*ecx;
-		eax = D(4*eax+___243298h);
-		eax += ebx;
-		esi = eax+ebp;
-		eax = D(edx+___1e6ed0h+0xc);
-		edx = eax;
-		edx = (int)edx>>0x1f;
-		eax -= edx;
-		eax = (int)eax>>1;
-		eax <<= 6;
-		eax += esi;
-		if(B(eax) == 0) goto ___50b31h;
-		esi = D(esp);
-		edx = D(___243d80h);
-		edx += esi;
-		edx += ebx;
-		L(eax) = B(eax);
-		B(edx+edi+0x60) = L(eax);
-___50b31h:
-		ebx++;
-		if((int)ebx < 8) goto ___50ae0h;
+
+		while(1){
+
+			eax = 0x94*ecx;
+			edx = D(eax+___1de580h+0x60);
+			eax = D(eax+4*edx+___1de580h+0x84);
+			edx = 0x35e*ecx;
+			esip = ___243298h[eax]+ebx+ebp;
+			eax = D(edx+___1e6ed0h+0xc);
+			edx = eax;
+			edx = (int)edx>>0x1f;
+			eax -= edx;
+			eax = (int)eax>>1;
+
+			if(B(esip+0x40*eax) != 0){
+
+				B(___243d80h+D(esp)+ebx+edi+0x60) = B(esip+0x40*eax);
+			}
+
+			ebx++;
+			if((int)ebx >= 8) break;
+		}
+
 		ebp = D(esp+0x4);
 		edi = D(esp+0x8);
 		ebp += 0x200;

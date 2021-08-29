@@ -2,7 +2,7 @@
 
 	extern byte ___243890h[];
 	extern byte ___24388ch[];
-	extern byte ___19bd58h[];
+	extern __DWORD__ ___19bd58h_gamepad;
 
 void outp_(dword port, dword val);
 byte inp_(dword port);
@@ -21,7 +21,7 @@ void ___59db8h(void){
 
 		if(--n == 0){
 
-			D(___19bd58h) = 0;
+			___19bd58h_gamepad = 0;
 			return;
 		}
 

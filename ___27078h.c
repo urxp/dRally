@@ -19,10 +19,10 @@ typedef struct cardata_s {
     __SIGNED_DWORD__   	price_repair;                   // +6DC
 } cardata_t;
 
-	extern byte * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
-	extern byte ___1a1e6ch[];
+	extern void * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
+	extern void * ___1a1e6ch;
 	extern byte ___1a1ee4h[];
-	extern byte ___1a1ea8h[];
+	extern void * ___1a1ea8h;
 #define CARENCS ___185cbch
 	extern __DWORD__ ___185cbch[][0x40];
 	extern byte ___1a1ed0h[];
@@ -30,13 +30,13 @@ typedef struct cardata_s {
 	extern byte ___1a1ef8h[];
 	extern byte ___1a01e0h[];
 	extern cardata_t ___18e298h[6];
-	extern byte ___1a1e78h[];
+	extern void * ___1a1e78h;
 
 void ___13094h_cdecl(const char *, dword);
-dword ___25180h_cdecl(dword);
-void ___12f60h_cdecl(dword, dword);
+int ___25180h_cdecl(const char * A1);
+void ___12f60h_cdecl(const char * A1, dword A2);
 void ___13248h_cdecl(dword, dword ,dword, dword, dword);
-void ___259e0h_cdecl(dword, dword, dword, dword, dword);
+void ___259e0h_cdecl(int dx, int dy, int aFrameIdx, void * aEncoded, int * aOffsets);
 char * itoa_watcom106(int value, char * buffer, int radix);
 
 
@@ -51,10 +51,10 @@ void ___27078h(void){
 	pxlSet(&dst, ___1a112ch__VESA101_ACTIVESCREEN_PTR, 640, 480);
 	pxlSetPosition(&dst, 16, 125);
 
-	pxlSet(&src, D(___1a1e6ch), 96, 96);
+	pxlSet(&src, ___1a1e6ch, 96, 96);
 	pxlCopy(&dst, &src, PXL_ENTIRE);
 
-	pxlSet(&src, D(___1a1ea8h)+0x600*D(___1a1ee4h), 96, 16);
+	pxlSet(&src, ___1a1ea8h+0x600*D(___1a1ee4h), 96, 16);
 	pxlCopy(&dst, &src, PXL_ENTIRE);
 
 	___259e0h_cdecl(0x10, 0x8d, D(___1a1ed0h), ___1a01b8h[D(___1a1ee4h)], CARENCS[D(___1a1ee4h)]);
@@ -67,7 +67,7 @@ void ___27078h(void){
 	___13094h_cdecl(___18e298h[D(0x6c*D(___1a1ef8h)+___1a01e0h+0x1c)].txt_bought[4], 0x1d6aa);
 	___13094h_cdecl(___18e298h[D(0x6c*D(___1a1ef8h)+___1a01e0h+0x1c)].txt_bought[5], 0x1feaa);
 
-	pxlSet(&src, D(___1a1e78h), 16, 256);
+	pxlSet(&src, ___1a1e78h, 16, 256);
 	pxlSetChroma(&src, 0);
 	
 	pxlSetRectangle(&src, 16, 64);

@@ -48,7 +48,7 @@ typedef struct x2c_s {
     extern x2c_t ___240b48h[];		// <0x240b48 - 0x240b74)
     extern void * ___243d5ch;
 
-void bpa_read(const char *, void *, const char *);
+void old_bpa_read(const char *, void *, const char *);
 void bpk_decode2(void *, void *);
 void bpk_decode4(dword, dword, void *, void *);
 
@@ -56,7 +56,7 @@ void race___43488h(void){
 
 	char    fname[0x10];
 
-    bpa_read(___243dd0h, ___1a54d0h, strcat(strcpy(fname, ___19bd64h), "-SCE.BPK"));
+    old_bpa_read(___243dd0h, ___1a54d0h, strcat(strcpy(fname, ___19bd64h), "-SCE.BPK"));
 
     bpk_decode4(1, 0, &___243c88h, ___1a54d0h);
     bpk_decode4(sizeof(xc50_t)*___243c88h, 1, &___1f3b08h, ___1a54d0h);

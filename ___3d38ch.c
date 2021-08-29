@@ -6,7 +6,7 @@
 void ___3d154h(const char * pal_name);
 void ___12cb8h__VESA101_PRESENTSCREEN(void);
 void ___3d1f0h(void);
-void bpa_read(const char *, void *, const char *);
+void old_bpa_read(const char *, void *, const char *);
 void bpk_decode2(void *, void *);
 void __DISPLAY_SET_PALETTE_COLOR(dword b, dword g, dword r, dword n);
 void ___58c60h(void);
@@ -21,7 +21,7 @@ void ___3d38ch(void){
 	while(++n < 0x100) __DISPLAY_SET_PALETTE_COLOR(0, 0, 0, n);
 
 	___3d154h("apogee.pal");
-	bpa_read("MENU.BPA", ___1a54d0h, "apogee.bpk");
+	old_bpa_read("MENU.BPA", ___1a54d0h, "apogee.bpk");
 	bpk_decode2(D(___1a112ch__VESA101_ACTIVESCREEN_PTR), ___1a54d0h);
 	___12cb8h__VESA101_PRESENTSCREEN();
 	___3d1f0h();
@@ -30,7 +30,7 @@ void ___3d38ch(void){
 	___3d2bch();
 
 	___3d154h("gtlogo4.pal");
-	bpa_read("MENU.BPA", ___1a54d0h, "gtlogo4.bpk");
+	old_bpa_read("MENU.BPA", ___1a54d0h, "gtlogo4.bpk");
 	bpk_decode2(D(___1a112ch__VESA101_ACTIVESCREEN_PTR), ___1a54d0h);
 	___12cb8h__VESA101_PRESENTSCREEN();
 	___3d1f0h();
@@ -39,7 +39,7 @@ void ___3d38ch(void){
 	___3d2bch();
 
 	___3d154h("remedy.pal");
-	bpa_read("MENU.BPA", ___1a54d0h, "remedy.bpk");
+	old_bpa_read("MENU.BPA", ___1a54d0h, "remedy.bpk");
 	bpk_decode2(D(___1a112ch__VESA101_ACTIVESCREEN_PTR), ___1a54d0h);
 	___12cb8h__VESA101_PRESENTSCREEN();
 	___3d1f0h();

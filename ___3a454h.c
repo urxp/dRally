@@ -44,12 +44,12 @@ typedef struct pcx_header_s {
 } pcx_header_t;
 
 
-	extern byte ___1a0ef4h[];
+	extern FILE * ___1a0ef4h;
 	extern byte ___1a112ch__VESA101_ACTIVESCREEN_PTR[];
 
 void PCX_GET_PALETTE_COLOR(unsigned char * dst, unsigned char n);
 dword GET_FILE_SIZE(const char *);
-dword ___3a214h_cdecl(dword, dword);
+dword ___3a214h_cdecl(void *, dword);
 
 
 void pcx_newHeader(pcx_header_t * pcx_h){
@@ -83,20 +83,20 @@ void ___3a454h(void){
 		fname[7] = '0'+(n%0xa);
 	}
 
-	D(___1a0ef4h) = fopen(fname, "wb");
-	fwrite(&pcx_h, 1, sizeof(pcx_h), D(___1a0ef4h));
+	___1a0ef4h = fopen(fname, "wb");
+	fwrite(&pcx_h, 1, sizeof(pcx_h), ___1a0ef4h);
 
 	n = -1;
 	while(++n < 0x1e0) ___3a214h_cdecl(D(___1a112ch__VESA101_ACTIVESCREEN_PTR)+0x280*n, 0x280);
 
-	fputc(0xc, D(___1a0ef4h));
+	fputc(0xc, ___1a0ef4h);
 
 	n = -1;
 	while(++n < 0x100){
 
         PCX_GET_PALETTE_COLOR(&col, n);
-		fwrite(&col, sizeof(col), 1, D(___1a0ef4h));
+		fwrite(&col, sizeof(col), 1, ___1a0ef4h);
 	}
 
-	fclose(D(___1a0ef4h));
+	fclose(___1a0ef4h);
 }

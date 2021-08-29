@@ -1,4 +1,5 @@
 #include "drally.h"
+#include "drmath.h"
 
 	extern byte ___2432f0h[];
 	extern byte ___243d08h[];
@@ -10,9 +11,6 @@
 	extern byte ___2432f8h[];
 	extern byte ___2432ech[];
 	extern byte ___2432f4h[];
-
-double dR_Math_sin(double);
-double dR_Math_cos(double);
 
 void race___46814h(void){
 
@@ -45,9 +43,9 @@ ___4683ah:
 		ST(0) = ST(0)*create_double(0xea,0x2e,0x44,0x54,0xfb,0x21,0x09,0x40);
 		ST(0) = ST(0)/180.0;
 		FPUSH(ST(0));
-		ST(0) = dR_Math_sin(ST(0));
+		ST(0) = dRMath_sin(ST(0));
 		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
-		ST(0) = dR_Math_cos(ST(0));
+		ST(0) = dRMath_cos(ST(0));
 		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
 		ST(0) = ST(0)*200.0;
 		ST(0) = 51200.0/ST(0);

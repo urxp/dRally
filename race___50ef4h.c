@@ -1,7 +1,7 @@
 #include "drally.h"
 
-	extern byte ___243d80h[];
-	extern byte ___243d64h[];
+	extern void * ___243d80h;
+	extern void * ___243d64h;
 	extern byte ___243c60h[];
 	extern byte ___1e6ed0h[];
 	extern byte ___196dc8h[];
@@ -9,14 +9,18 @@
 	extern byte ___196dcch[];
 	extern byte ___243334h[];
 
+// TIRE DUSTING
 void race___50ef4h(void){
 
 	dword 	eax, ebx, ecx, edx, edi, esi, ebp;
 	byte 	esp[0x2c];
+	void * 	edxp;
+	void * 	edip;
+	void * 	esip;
 
 
-	esi = D(___243d80h);
-	edi = D(___243d64h);
+	esip = ___243d80h;
+	edip = ___243d64h;
 	D(esp+0xc) = 0;
 
 	while(1){
@@ -51,8 +55,8 @@ void race___50ef4h(void){
 							eax = 0;
 							while(1){
 
-								edx = edi+ebx+eax+D(esp+0x8);
-								if(B(edx) != 0)B(esi+D(esp+0x20)+eax+D(esp+0x24)+0x5c) = B(edx);
+								edxp = edip+ebx+eax+D(esp+0x8);
+								if(B(edxp) != 0) B(esip+D(esp+0x20)+eax+D(esp+0x24)+0x5c) = B(edxp);
 
 								eax++;
 								if((int)eax >= 8) break;
@@ -100,8 +104,8 @@ void race___50ef4h(void){
 							eax = 0;
 							while(1){
 
-								edx = edi+ebx+eax+D(esp+0x4);
-								if(B(edx) != 0) B(esi+D(esp)+eax+D(esp+0x28)+0x5c) = B(edx);
+								edxp = edip+ebx+eax+D(esp+0x4);
+								if(B(edxp) != 0) B(esip+D(esp)+eax+D(esp+0x28)+0x5c) = B(edxp);
 
 								eax++;
 								if((int)eax >= 8) break;
@@ -123,6 +127,6 @@ void race___50ef4h(void){
 		if(D(esp+0xc) == 0x3c) break;
 	}
 
-	D(___243d64h) = edi;
-	D(___243d80h) = esi;
+	___243d64h = edip;
+	___243d80h = esip;
 }

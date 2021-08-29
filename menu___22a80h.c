@@ -1,5 +1,6 @@
 #include "drally.h"
 #include "drally_keyboard.h"
+#include "sfx.h"
 
 	extern byte ___1a112ch__VESA101_ACTIVESCREEN_PTR[];
 	extern byte ___1a10e4h__VESA101h_DefaultScreenBufferA[];
@@ -15,7 +16,7 @@
 	extern byte ___196abch[];
 	extern byte ___1a1040h[];
 	extern byte ___1a10a4h[];
-	extern byte ___24cc54h[];
+	extern __DWORD__ ___24cc54h_sfx_volume;
 
 char * itoa_watcom106(int value, char * buffer, int radix);
 char * strupr_watcom106(char * s);
@@ -379,7 +380,7 @@ ___22f9ah:
 			ebp--;
 		}
 
-		dRally_Sound_pushEffect(1, 0x1a, 0, D(___24cc54h), 0x28000, 0x8000);
+		dRally_Sound_pushEffect(1, SFX_CLICK_3, 0, ___24cc54h_sfx_volume, 0x28000, 0x8000);
 		ecx = 0x54;
 		edx = 0x10;
 		ebx = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
@@ -493,7 +494,7 @@ ___230c3h:
 			ebp++;
 		}
 
-		dRally_Sound_pushEffect(1, 0x1a, 0, D(___24cc54h), 0x28000, 0x8000);
+		dRally_Sound_pushEffect(1, SFX_CLICK_3, 0, ___24cc54h_sfx_volume, 0x28000, 0x8000);
 		ecx = 0x54;
 		edx = 0x10;
 		ebx = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);

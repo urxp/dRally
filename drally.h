@@ -27,7 +27,6 @@ typedef void (*void_cb)(void);
 
 FILE * strupr_fopen(const char * file_name, const char * mode);
 
-
 #define sES 0
 #define sCS 2
 #define sSS 4
@@ -91,43 +90,9 @@ double fpu_pop(void);
 
 double create_double(int LSB, int, int, int, int, int, int, int MSB);
 
-#define __SIZEOF_BYTE__    1
-#define __SIZEOF_WORD__    2
-#define __SIZEOF_DWORD__   4
-#define __SIZEOF_QWORD__   8
+#include "types.h"
 
-typedef unsigned char           __BYTE__;
-typedef signed char             __SIGNED_BYTE__;
-#if defined(__SIZEOF_SHORT__)&&(__SIZEOF_SHORT__ == __SIZEOF_WORD__)
-    typedef unsigned short      __WORD__;
-    typedef signed short        __SIGNED_WORD__;
-#elif defined(__SIZEOF_INT__)&&(__SIZEOF_INT__ == __SIZEOF_WORD__)
-    typedef unsigned int        __WORD__;
-    typedef signed int          __SIGNED_WORD__;
-#endif
-#if defined(__SIZEOF_INT__)&&(__SIZEOF_INT__ == __SIZEOF_DWORD__)
-    typedef unsigned int        __DWORD__;
-    typedef signed int          __SIGNED_DWORD__;
-#elif defined(__SIZEOF_LONG__)&&(__SIZEOF_LONG__ == __SIZEOF_DWORD__)
-    typedef unsigned long       __DWORD__;
-    typedef signed long         __SIGNED_DWORD__;
-#endif
-#if defined(__SIZEOF_LONG__)&&(__SIZEOF_LONG__ == __SIZEOF_QWORD__)
-    typedef unsigned long       __QWORD__;
-    typedef signed long         __SIGNED_QWORD__;
-#elif defined(__SIZEOF_LONG_LONG__)&&(__SIZEOF_LONG_LONG__ == __SIZEOF_QWORD__)
-    typedef unsigned long long  __QWORD__;
-    typedef signed long long    __SIGNED_QWORD__;
-#endif
-
-#if defined(__SIZEOF_POINTER__)
-    #if (__SIZEOF_POINTER__ == __SIZEOF_QWORD__)
-        typedef __QWORD__        __UNSIGNED__;
-        typedef __SIGNED_QWORD__ __SIGNED__;
-    #elif (__SIZEOF_POINTER__ == __SIZEOF_DWORD__)
-        typedef __DWORD__        __UNSIGNED__;
-        typedef __SIGNED_DWORD__ __SIGNED__;
-    #endif
-#endif
+#define read_b(p)       (*(__BYTE__*)(p))
+#define write_b(p,b)    (*(__BYTE__*)(p) = (b))   
 
 #endif // __DRALLY_H

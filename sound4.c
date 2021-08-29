@@ -1,4 +1,5 @@
 #include "drally.h"
+#include "drmemory.h"
 
 #define SAMPLELIB_NEW		0
 #define SAMPLELIB_RESAMPLE		1
@@ -26,17 +27,10 @@ typedef struct samplelib_s {
 } samplelib_t;
 
 
-#define SAMPLE 		(SampleLib_getSample(0))
-sampledata_t * SampleLib_getSample(int smpl_id);
-
 extern samplelib_t SampleLib;
 
-void * dRally_Memory_alloc(dword, dword);
-void * dRally_Memory_resize(void * mem, dword size);
-void dRally_Memory_free(void *);
 void SampleLib_init(dword, dword, byte);
 void SampleLib_addSample(void *, void *, void *, void *, dword);
-
 
 // Samples 16-bit > 8-bit 
 void ___67bbch(void){
@@ -48,14 +42,14 @@ void ___67bbch(void){
     int     isd_length, old_n_samples, new_offset;
 
 	size = SampleLib.write_p-SampleLib.data_alloc;
-	bp = dRally_Memory_alloc(size, 1);
+	bp = dRMemory_alloc(size);
 	memcpy(bp, SampleLib.data_alloc, size);
 	new_offset = bp-SampleLib.data_alloc;
 	old_n_samples = SampleLib.n_samples;
 
 	if(SampleLib.data_alloc != 0){
 			
-		dRally_Memory_free(SampleLib.data_alloc);
+		dRMemory_free(SampleLib.data_alloc);
 		SampleLib.data_alloc = 0;
 	}
 
@@ -64,11 +58,11 @@ void ___67bbch(void){
 	n = -1;
     while(++n < old_n_samples){
 
-        isd_p           = SAMPLE[n].start_p+new_offset;
-        isd_end_p       = SAMPLE[n].end_p+new_offset;
-        isd_loop_p      = SAMPLE[n].loopstart_p+new_offset;
-        isd_loopend_p   = SAMPLE[n].loopend_p+new_offset;
-        flags           = SAMPLE[n].flags;
+        isd_p           = SampleLib.samples[n].start_p+new_offset;
+        isd_end_p       = SampleLib.samples[n].end_p+new_offset;
+        isd_loop_p      = SampleLib.samples[n].loopstart_p+new_offset;
+        isd_loopend_p   = SampleLib.samples[n].loopend_p+new_offset;
+        flags           = SampleLib.samples[n].flags;
 
         if(flags&4){
                 
@@ -86,6 +80,6 @@ void ___67bbch(void){
         SampleLib_addSample(isd_p, isd_end_p, isd_loop_p, isd_loopend_p, flags);
 	}
 
-	dRally_Memory_free(bp);
-	dRally_Memory_resize(SampleLib.data_alloc, SampleLib.write_p-SampleLib.data_alloc); 
+	dRMemory_free(bp);
+	SampleLib.data_alloc = dRMemory_resize(SampleLib.data_alloc, SampleLib.write_p-SampleLib.data_alloc); 
 }

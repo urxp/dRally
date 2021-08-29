@@ -1,5 +1,6 @@
 /*
 #include "drally.h"
+#include "drmemory.h"
 
 	extern byte ___1a1138h__VESA101h_DefaultScreenBufferB[];
 	extern byte ___1a112ch__VESA101_ACTIVESCREEN_PTR[];
@@ -27,7 +28,6 @@ void ___13bd4h_cdecl(dword, dword);
 dword ___23594h_cdecl(dword, dword);
 void ___13c9ch_cdecl(dword, dword);
 void ___23488h_cdecl(dword, dword, dword);
-void dRally_Memory_free(void *);
 void ___1c6bch_cdecl(dword);
 void shop_main(void);
 
@@ -124,10 +124,10 @@ ___1c2c3h:
 	eax = D(esp+8);
 	___23488h_cdecl(eax, edx, ebx);
 	eax = D(esp+8);
-	dRally_Memory_free(eax);
+	dRMemory_free(eax);
 	eax = ebp;
 	ebx = 0x1000;
-	dRally_Memory_free(eax);
+	dRMemory_free(eax);
 	eax = D(___24e4ach);
 	edx = 0;
 	eax += 4;

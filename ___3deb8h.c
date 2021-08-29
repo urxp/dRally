@@ -4,8 +4,8 @@ typedef char char70[70];
 
 	extern byte ___1a116ch[];
 	extern byte ___1a1f4eh[];
-	extern byte ___1a202fh[];
-	extern byte ___1a2148h[];
+	extern __BYTE__ ___1a202fh[0x13];
+	extern __BYTE__ ___1a2148h;
 
 static const char70 ___195494h[19][4] = {
 	[0] = {
@@ -171,11 +171,11 @@ void ___3deb8h(void){
 	B(___1a1f4eh+0x13) = 1;
 	strcpy(___1a116ch+0xbb8, ___195494h[edx][3]);
 	B(___1a1f4eh+0x14) = 1;
-	B(___1a2148h) += 1;
+	___1a2148h++;
 
-	if(B(___1a2148h) > 0x12){
+	if(___1a2148h > 0x12){
 
 		memset(___1a202fh, 0, 0x13);
-		B(___1a2148h) = 0;
+		___1a2148h = 0;
 	}
 }

@@ -1,158 +1,29 @@
 #include "drally.h"
 
-	extern byte ___1a51d0h[];
+#pragma pack(1)
+typedef struct rgb24_s {
+	byte 	r;
+	byte 	g;
+	byte 	b;
+} rgb24_t;
 
-void ___4a064h_cdecl(dword A0, dword A1, dword A2, dword A3){
+typedef rgb24_t pal256_t[0x100];
 
-	double 	d_tmp;
-	dword 	eax, ebx, ecx, edx, edi, esi, ebp;
-	byte 	esp[0x38];
+	extern pal256_t ___1a51d0h;
 
-		eax = A0;
-		edx = eax;
-		eax = A1;
-		D(esp+0x34) = eax;
-		eax = A2;
-		D(esp+0x2c) = eax;
-		eax = A3;
-		D(esp+0x30) = eax;
-		FPUSH(F32(esp+0x34));
-		FPUSH(ST(0));
-		FPUSH(10.0);
-		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
-		ST(0) = ST(0)/ST(1);
-		FPUSH(F32(esp+0x2c));
-		FPUSH(ST(0));
-		ST(0) = ST(0)/ST(3);
-		FPUSH(F32(esp+0x30));
-		ST(4) = ST(0)/ST(4);
-		d_tmp = ST(0); ST(0) = ST(3); ST(3) = d_tmp;
-		ST(5) = ST(5)-ST(0); FPOP();
-		d_tmp = ST(0); ST(0) = ST(4); ST(4) = d_tmp;
-		FPUSH(5.0);
-		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
-		ST(0) = ST(0)/ST(1);
-		d_tmp = ST(0); ST(0) = ST(5); ST(5) = d_tmp;
-		ST(2) = ST(2)-ST(0); FPOP();
-		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
-		ST(0) = ST(0)/ST(1);
-		d_tmp = ST(0); ST(0) = ST(3); ST(3) = d_tmp;
-		ST(2) = ST(2)-ST(0); FPOP();
-		ST(1) = ST(1)/ST(0); FPOP();
-		ebx = 0;
-		D(esp+0x20) = ebx;
-		ebx = edx;
-		eax = 4*ebx;
-		eax -= ebx;
-		d_tmp = ST(0); ST(0) = ST(2); ST(2) = d_tmp;
-		F32(esp+0x10) = (float)FPOP();
-		F32(esp+0xc) = (float)FPOP();
-		F32(esp+0x14) = (float)FPOP();
-___4a0edh:
-		FPUSH(D(esp+0x20));
-		FPUSH(ST(0));
-		ST(0) = ST(0)*(double)F32(esp+0x10);
-		FPUSH(F32(esp+0x34));
-		ST(0) = ST(0)/10.0;
-		FPUSH(ST(2));
-		ST(0) = ST(0)*(double)F32(esp+0xc);
-		FPUSH(F32(esp+0x2c));
-		ST(0) = ST(0)/10.0;
-		d_tmp = ST(0); ST(0) = ST(4); ST(4) = d_tmp;
-		ST(0) = ST(0)*(double)F32(esp+0x14);
-		FPUSH(F32(esp+0x30));
-		ST(0) = ST(0)/10.0;
-		ecx = D(esp+0x20);
-		edx++;
-		ecx++;
-		d_tmp = ST(0); ST(0) = ST(3); ST(3) = d_tmp;
-		ST(4) = ST(4)+ST(0); FPOP();
-		d_tmp = ST(0); ST(0) = ST(4); ST(4) = d_tmp;
-		ST(1) = ST(1)+ST(0); FPOP();
-		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
-		ST(3) = ST(3)+ST(0); FPOP();
-		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
-		ST(0) = (int)ST(0);
-		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
-		ST(0) = (int)ST(0);
-		d_tmp = ST(0); ST(0) = ST(2); ST(2) = d_tmp;
-		ST(0) = (int)ST(0);
-		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
-		D(esp+0x28) = (int)FPOP();
-		L(ebx) = B(esp+0x28);
-		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
-		D(esp+0x28) = (int)FPOP();
-		B(eax+___1a51d0h) = L(ebx);
-		L(ebx) = B(esp+0x28);
-		D(esp+0x28) = (int)FPOP();
-		B(eax+___1a51d0h+1) = L(ebx);
-		L(ebx) = B(esp+0x28);
-		D(esp+0x20) = ecx;
-		B(eax+___1a51d0h+2) = L(ebx);
-		eax += 3;
-		if((int)ecx < 5) goto ___4a0edh;
-		FPUSH(63.0);
-		FPUSH(ST(0));
-		ST(0) = ST(0)-(double)F32(esp+0x2c);
-		FPUSH(5.0);
-		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
-		ST(0) = ST(0)/ST(1);
-		FPUSH(ST(2));
-		ST(0) = ST(0)-(double)F32(esp+0x30);
-		ST(0) = ST(0)/ST(2);
-		d_tmp = ST(0); ST(0) = ST(3); ST(3) = d_tmp;
-		ST(0) = ST(0)-(double)F32(esp+0x34);
-		ST(2) = ST(0)/ST(2); FPOP();
-		edi = 0;
-		eax = 4*edx;
-		D(esp+0x24) = edi;
-		eax -= edx;
-		F32(esp+0x18) = (float)FPOP();
-		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
-		F32(esp+0x1c) = (float)FPOP();
-		F32(esp+0x8) = (float)FPOP();
-		FPUSH(F32(esp+0x2c));
-		FPUSH(F32(esp+0x18));
-		FPUSH(F32(esp+0x34));
-___4a1d5h:
-		FPUSH(D(esp+0x24));
-		FPUSH(ST(0));
-		ST(0) = ST(0)*(double)F32(esp+0x8);
-		FPUSH(ST(1));
-		ST(0) = ST(0)*ST(4);
-		d_tmp = ST(0); ST(0) = ST(2); ST(2) = d_tmp;
-		ST(0) = ST(0)*(double)F32(esp+0x1c);
-		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
-		ST(0) = ST(0)+ST(3);
-		d_tmp = ST(0); ST(0) = ST(2); ST(2) = d_tmp;
-		ST(0) = ST(0)+ST(5);
-		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
-		ST(0) = ST(0)+(double)F32(esp+0x30);
-		d_tmp = ST(0); ST(0) = ST(2); ST(2) = d_tmp;
-		ST(0) = (int)ST(0);
-		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
-		ST(0) = (int)ST(0);
-		d_tmp = ST(0); ST(0) = ST(2); ST(2) = d_tmp;
-		ST(0) = (int)ST(0);
-		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
-		D(esp+0x28) = (int)FPOP();
-		L(ebx) = B(esp+0x28);
-		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
-		D(esp+0x28) = (int)FPOP();
-		B(eax+___1a51d0h) = L(ebx);
-		L(ebx) = B(esp+0x28);
-		D(esp+0x28) = (int)FPOP();
-		B(eax+___1a51d0h+1) = L(ebx);
-		L(ebx) = B(esp+0x28);
-		B(eax+___1a51d0h+2) = L(ebx);
-		ebx = D(esp+0x24);
-		eax += 3;
-		ebx++;
-		edx++;
-		D(esp+0x24) = ebx;
-		if((int)ebx < 5) goto ___4a1d5h;
-		FPOP();
-		FPOP();
-		FPOP();
-		return;
+void ___4a064h_cdecl(int A0, float r, float g, float b){
+
+	int 	n;
+
+	n = -1;
+	while(++n < 5){
+
+		___1a51d0h[A0+n].r = (int)((0.18*(double)n+0.1)*(double)r);
+		___1a51d0h[A0+n].g = (int)((0.18*(double)n+0.1)*(double)g);
+		___1a51d0h[A0+n].b = (int)((0.18*(double)n+0.1)*(double)b);
+
+		___1a51d0h[A0+n+5].r = (int)(12.6*(double)n+(1.0-0.2*(double)n)*(double)r);
+		___1a51d0h[A0+n+5].g = (int)(12.6*(double)n+(1.0-0.2*(double)n)*(double)g);
+		___1a51d0h[A0+n+5].b = (int)(12.6*(double)n+(1.0-0.2*(double)n)*(double)b);
+	}
 }

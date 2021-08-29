@@ -32,7 +32,7 @@ dword GET_FILE_SIZE(const char * file_name){
 dword MULSHIFT(dword d0, dword d1){
 
 	dword 	rslt, q_rslt;
-	
+
 	q_rslt = ((qword)d0*(qword)d1)>>0x10; 
 	rslt = (d0>>0x10)*d1 + (d0&0xffff)*(d1>>0x10) + (((d0&0xffff)*(d1&0xffff))>>0x10);
 

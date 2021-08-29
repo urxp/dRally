@@ -1,14 +1,21 @@
 #include "drally.h"
 
-	extern byte ___1a1138h__VESA101h_DefaultScreenBufferB[];
-	extern byte ___1a112ch__VESA101_ACTIVESCREEN_PTR[];
-	extern byte ___1a0fbch[];
-	extern byte ___1a0fd8h[];
+#pragma pack(1)
+typedef struct font_props_s {
+	byte 	w;
+	byte 	h;
+	byte 	props[];
+} font_props_t;
+
+	extern void * ___1a1138h__VESA101h_DefaultScreenBufferB;
+	extern void * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
+	extern void * ___1a0fbch;
+	extern void * ___1a0fd8h;
 	extern byte ___19bd60h[];
 	extern byte ___1a1ef8h[];
 	extern byte ___1a01e0h[];
 	extern byte ___185c0bh[];
-	extern byte ___1a1108h[];
+	extern void * ___1a1108h;
 	extern byte ___196ab8h[];
 	extern byte ___196ae8h[];
 	extern byte ___1a1028h[];
@@ -28,7 +35,7 @@
 	extern byte ___1a0ff4h[];
 	extern byte ___19f750h[];
 
-void ___12e78h_cdecl(dword, dword, dword, dword);
+void ___12e78h_cdecl(byte * A1, font_props_t * A2, const char * A3, dword dst_off);
 char * itoa_watcom106(int value, char * buffer, int radix);
 char * strupr_watcom106(char * s);
 
@@ -37,485 +44,214 @@ void ___36adch(void){
 
 	dword 	eax, ebx, ecx, edx, edi, esi, ebp;
 	byte 	esp[0xa4];
+	void * 	ebxp;
+	void * 	esip;
 
 
-		ecx = 0x4b000;
-		esi = D(___1a1138h__VESA101h_DefaultScreenBufferB);
-		edi = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
 		edx = 0x36;
-		memcpy(edi, esi, ecx);
+		memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR, ___1a1138h__VESA101h_DefaultScreenBufferB, 0x4b000);
 		ecx = 0x182;
-		ebx = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
-		esi = D(___1a0fbch);
-		ebx += 0xd32c;
-___36b2fh:
-		edi = edx;
-___36b31h:
-		L(eax) = B(esi);
-		if(L(eax) == 0) goto ___36b39h;
-		B(ebx) = L(eax);
-___36b39h:
-		ebx++;
-		esi++;
-		edi--;
-		if(edi) goto ___36b31h;
-		ebx += 0x280;
-		ebx -= edx;
-		ecx--;
-		if(ecx) goto ___36b2fh;
+		esip = ___1a0fbch;
+		ebxp = ___1a112ch__VESA101_ACTIVESCREEN_PTR+0xd32c;
+
+		while(1){
+
+			edi = edx;
+
+			while(1){
+
+				L(eax) = B(esip);
+				if(L(eax) != 0) B(ebxp) = L(eax);
+				ebxp++;
+				esip++;
+				edi--;
+				if(edi == 0) break;
+			}
+
+			ebxp += 0x280;
+			ebxp -= edx;
+			ecx--;
+			if(ecx == 0) break;
+		}
+
 		ecx = 0x182;
 		edx = 0x110;
-		ebx = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
-		esi = D(___1a0fd8h);
-		ebx += 0xd362;
-___36b65h:
-		edi = edx;
-___36b67h:
-		L(eax) = B(esi);
-		if(L(eax) == 0) goto ___36b6fh;
-		B(ebx) = L(eax);
-___36b6fh:
-		ebx++;
-		esi++;
-		edi--;
-		if(edi) goto ___36b67h;
-		ebx += 0x280;
-		ebx -= edx;
-		ecx--;
-		if(ecx) goto ___36b65h;
-		edx = D(___19bd60h);
+		esip = ___1a0fd8h;
+		ebxp = ___1a112ch__VESA101_ACTIVESCREEN_PTR+0xd362;
+
+		while(1){
+
+			edi = edx;
+
+			while(1){
+
+				L(eax) = B(esip);
+				if(L(eax) != 0) B(ebxp) = L(eax);
+				ebxp++;
+				esip++;
+				edi--;
+				if(edi == 0) break;
+			}
+
+			ebxp += 0x280;
+			ebxp -= edx;
+			ecx--;
+			if(ecx == 0) break;
+		}
+
 		ebp = 0x20e;
-		if(edx == 0) goto ___36c64h;
+
+#if defined(DR_MULTIPLAYER)
+	if(D(___19bd60h) != 0){
+
 		ecx = 0x182;
 		edx = 0x110;
-		ebx = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
-		esi = D(___1a0fd8h);
-		ebx += 0xd20a;
-___36baeh:
-		edi = edx;
-___36bb0h:
-		L(eax) = B(esi);
-		if(L(eax) == 0) goto ___36bb8h;
-		B(ebx) = L(eax);
-___36bb8h:
-		ebx++;
-		esi++;
-		edi--;
-		if(edi) goto ___36bb0h;
-		ebx += 0x280;
-		ebx -= edx;
-		ecx--;
-		if(ecx) goto ___36baeh;
-		edx = D(___1a1ef8h);
-		edi = esp;
-		eax = 8*edx;
-		ebx = 0xa;
-		eax -= edx;
-		esi = "Status after ";
-		eax <<= 0x2;
-		D(edi) = D(esi); edi += 4; esi += 4;
-		D(edi) = D(esi); edi += 4; esi += 4;
-		D(edi) = D(esi); edi += 4; esi += 4;
-		W(edi) = W(esi); edi += 2; esi += 2;
-		eax -= edx;
-		esi = esp+0x64;
-		edx = esp+0x64;
-		eax = D(eax*4+___1a01e0h+0x50);
-		edi = esp;
-		eax = itoa_watcom106(eax, edx, ebx);
-		strcat(edi, esi);
-		esi = " race(s)";
-		edi = esp;
-		ebx = esp;
-		edx = ___185c0bh;
-		strcat(edi, esi);
-		ecx = 0x46a2e;
-		eax = D(___1a1108h);
-		___12e78h_cdecl(eax, edx, ebx, ecx);
-___36c64h:
-		if(D(___19bd60h) == 0) goto ___36c86h;
-		ecx = 0xd738;
-		ebx = "Multiplayer Ranking";
-		edx = ___185c0bh;
-		eax = D(___1a1108h);
-		___12e78h_cdecl(eax, edx, ebx, ecx);
-___36c86h:
-		ecx = 0xd8a0;
-		ebx = "Your Statistics:";
-		edx = ___185c0bh;
-		eax = D(___1a1108h);
-		___12e78h_cdecl(eax, edx, ebx, ecx);
-		edx = D(___1a1ef8h);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 0x2;
-		esi = ".";
-		eax -= edx;
-		ebx = 0xa;
-		edx = esp+0x64;
-		eax = D(eax*4+___1a01e0h+0x48);
-		edi = esp+0x64;
-		eax = itoa_watcom106(eax, edx, ebx);
-		strcat(edi, esi);
-		edi = esp;
-		ecx = 0x120e8;
-		esi = "Position";
-		ebx = esp;
-		edx = ___185c0bh;
-		D(edi) = D(esi); edi += 4; esi += 4;
-		D(edi) = D(esi); edi += 4; esi += 4;
-		B(edi++) = B(esi++);
-		eax = D(___1a1108h);
-		edi = esp;
-		esi = ": ";
-		___12e78h_cdecl(eax, edx, ebx, ecx);
-		W(edi) = W(esi); edi += 2; esi += 2;
-		B(edi++) = B(esi++);
-		ebx = esp;
-		esi = esp+0x64;
-		edi = esp;
-		edx = ___185c0bh;
-		strcat(edi, esi);
-		eax = D(___1a1108h);
-		ecx = ebp+0x11f80;
-		___12e78h_cdecl(eax, edx, ebx, ecx);
-		edx = D(___1a1ef8h);
-		eax = 8*edx;
-		eax -= edx;
-		edi = esp;
-		eax <<= 0x2;
-		esi = "Races won";
-		eax -= edx;
-		ebx = 0xa;
-		edx = esp+0x64;
-		eax = D(eax*4+___1a01e0h+0x4c);
-		ecx = 0x15a68;
-		eax = itoa_watcom106(eax, edx, ebx);
-		ebx = esp;
-		edx = ___185c0bh;
-		D(edi) = D(esi); edi += 4; esi += 4;
-		D(edi) = D(esi); edi += 4; esi += 4;
-		W(edi) = W(esi); edi += 2; esi += 2;
-		eax = D(___1a1108h);
-		edi = esp;
-		esi = ": ";
-		___12e78h_cdecl(eax, edx, ebx, ecx);
-		W(edi) = W(esi); edi += 2; esi += 2;
-		B(edi++) = B(esi++);
-		ebx = esp;
-		esi = esp+0x64;
-		edi = esp;
-		edx = ___185c0bh;
-		strcat(edi, esi);
-		eax = D(___1a1108h);
-		ecx = ebp+0x15900;
-		___12e78h_cdecl(eax, edx, ebx, ecx);
-		edx = D(___1a1ef8h);
-		eax = 8*edx;
-		eax -= edx;
-		edi = esp;
-		eax <<= 0x2;
-		esi = "Total races";
-		eax -= edx;
-		ebx = 0xa;
-		edx = esp+0x64;
-		eax = D(eax*4+___1a01e0h+0x50);
-		ecx = 0x193e8;
-		eax = itoa_watcom106(eax, edx, ebx);
-		ebx = esp;
-		edx = ___185c0bh;
-		D(edi) = D(esi); edi += 4; esi += 4;
-		D(edi) = D(esi); edi += 4; esi += 4;
-		D(edi) = D(esi); edi += 4; esi += 4;
-		eax = D(___1a1108h);
-		edi = esp;
-		esi = ": ";
-		___12e78h_cdecl(eax, edx, ebx, ecx);
-		W(edi) = W(esi); edi += 2; esi += 2;
-		B(edi++) = B(esi++);
-		esi = esp+0x64;
-		edi = esp;
-		strcat(edi, esi);
-		if(D(___19bd60h) == 0) goto ___36ed7h;
-		esi = " / ";
-		edi = esp;
-		ebx = 0xa;
-		edx = esp+0x64;
-		strcat(edi, esi);
-		esi = esp+0x64;
-		eax = D(___196ab8h);
-		edi = esp;
-		eax = itoa_watcom106(eax, edx, ebx);
-		strcat(edi, esi);
-___36ed7h:
-		ebx = esp;
-		edx = ___185c0bh;
-		eax = D(___1a1108h);
-		ecx = ebp+0x19280;
-		___12e78h_cdecl(eax, edx, ebx, ecx);
-		edx = D(___1a1ef8h);
-		eax = 8*edx;
-		eax -= edx;
-		edi = esp;
-		eax <<= 0x2;
-		esi = "Total income";
-		eax -= edx;
-		ebx = 0xa;
-		edx = esp+0x64;
-		eax = D(eax*4+___1a01e0h+0x58);
-		ecx = 0x1cd68;
-		eax = itoa_watcom106(eax, edx, ebx);
-		ebx = esp;
-		edx = ___185c0bh;
-		eax = D(___1a1108h);
-		D(edi) = D(esi); edi += 4; esi += 4;
-		D(edi) = D(esi); edi += 4; esi += 4;
-		D(edi) = D(esi); edi += 4; esi += 4;
-		B(edi++) = B(esi++);
-		___12e78h_cdecl(eax, edx, ebx, ecx);
-		esi = esp+0x64;
-		edi = esp;
-		ebx = esp;
-		eax = D(": $");
-		edx = ___185c0bh;
-		D(esp) = eax;
-		strcat(edi, esi);
-		eax = D(___1a1108h);
-		ecx = ebp+0x1cc00;
-		___12e78h_cdecl(eax, edx, ebx, ecx);
-		edx = D(___1a1ef8h);
-		eax = 8*edx;
-		eax -= edx;
-		edi = esp;
-		eax <<= 0x2;
-		esi = "Total money";
-		eax -= edx;
-		ebx = 0xa;
-		edx = esp+0x64;
-		eax = D(eax*4+___1a01e0h+0x30);
-		ecx = 0x206e8;
-		eax = itoa_watcom106(eax, edx, ebx);
-		ebx = esp;
-		edx = ___185c0bh;
-		eax = D(___1a1108h);
-		D(edi) = D(esi); edi += 4; esi += 4;
-		D(edi) = D(esi); edi += 4; esi += 4;
-		D(edi) = D(esi); edi += 4; esi += 4;
-		___12e78h_cdecl(eax, edx, ebx, ecx);
-		esi = esp+0x64;
-		edi = esp;
-		ebx = esp;
-		eax = D(": $");
-		edx = ___185c0bh;
-		D(esp) = eax;
-		strcat(edi, esi);
-		eax = D(___1a1108h);
-		ecx = ebp+0x20580;
-		___12e78h_cdecl(eax, edx, ebx, ecx);
+		ebx = ___1a112ch__VESA101_ACTIVESCREEN_PTR;
+		esip = ___1a0fd8h;
+		ebxp = ebx+0xd20a;
+
+		while(1){
+
+			edi = edx;
+
+			while(1){
+
+				L(eax) = B(esip);
+				if(L(eax) != 0) B(ebxp) = L(eax);
+				ebxp++;
+				esip++;
+				edi--;
+				if(edi == 0) break;
+			}
+
+			ebxp += 0x280;
+			ebxp -= edx;
+			ecx--;
+			if(ecx == 0) break;
+		}
+
+		strcpy(esp, "Status after ");
+		eax = D(___1a01e0h+0x6c*D(___1a1ef8h)+0x50);
+		itoa_watcom106(eax, esp+0x64, 0xa);
+		strcat(esp, esp+0x64);
+		strcat(esp, " race(s)");
+		___12e78h_cdecl(___1a1108h, ___185c0bh, esp, 0x46a2e);
+	}
+
+	if(D(___19bd60h) != 0){
+
+		___12e78h_cdecl(___1a1108h, ___185c0bh, "Multiplayer Ranking", 0xd738);
+	}
+#endif // DR_MULTIPLAYER
+
+		___12e78h_cdecl(___1a1108h, ___185c0bh, "Your Statistics:", 0xd8a0);
+		itoa_watcom106(D(___1a01e0h+0x6c*D(___1a1ef8h)+0x48), esp+0x64, 0xa);
+		strcat(esp+0x64, ".");
+		strcpy(esp, "Position");
+		___12e78h_cdecl(___1a1108h, ___185c0bh, esp, 0x120e8);
+		strcpy(esp, ": ");
+		strcat(esp, esp+0x64);
+		___12e78h_cdecl(___1a1108h, ___185c0bh, esp, ebp+0x11f80);
+		itoa_watcom106(D(___1a01e0h+0x6c*D(___1a1ef8h)+0x4c), esp+0x64, 0xa);
+		strcpy(esp, "Races won");
+		___12e78h_cdecl(___1a1108h, ___185c0bh, esp, 0x15a68);
+		strcpy(esp, ": ");
+		strcat(esp, esp+0x64);
+		___12e78h_cdecl(___1a1108h, ___185c0bh, esp, ebp+0x15900);
+		itoa_watcom106(D(___1a01e0h+0x6c*D(___1a1ef8h)+0x50), esp+0x64, 0xa);
+		strcpy(esp, "Total races");
+		___12e78h_cdecl(___1a1108h, ___185c0bh, esp, 0x193e8);
+		strcpy(esp, ": ");
+		strcat(esp, esp+0x64);
+
+#if defined(DR_MULTIPLAYER)
+		if(D(___19bd60h) != 0){
+
+			strcat(esp, " / ");
+			itoa_watcom106(D(___196ab8h), esp+0x64, 0xa);
+			strcat(esp, esp+0x64);
+		}
+#endif // DR_MULTIPLAYER
+
+		___12e78h_cdecl(___1a1108h, ___185c0bh, esp, ebp+0x19280);
+		itoa_watcom106(D(___1a01e0h+0x6c*D(___1a1ef8h)+0x58), esp+0x64, 0xa);
+		strcpy(esp, "Total income");
+		___12e78h_cdecl(___1a1108h, ___185c0bh, esp, 0x1cd68);
+		strcpy(esp, ": $");
+		strcat(esp, esp+0x64);
+		___12e78h_cdecl(___1a1108h, ___185c0bh, esp, ebp+0x1cc00);
+		itoa_watcom106(D(___1a01e0h+0x6c*D(___1a1ef8h)+0x30), esp+0x64, 0xa);
+		strcpy(esp, "Total money");
+		___12e78h_cdecl(___1a1108h, ___185c0bh, esp, 0x206e8);
+		strcpy(esp, ": $");
+		strcat(esp, esp+0x64);
+		___12e78h_cdecl(___1a1108h, ___185c0bh, esp, ebp+0x20580);
 		if((int)D(___196ae8h) <= 0) goto ___37ebch;
 		eax = D(___1a1028h);
-		edx ^= edx;
-		L(edx) = B(eax+___1a1f64h);
+		edx = B(eax+___1a1f64h);
 		strcpy(esp, ___18d492h[edx]);
-		if(D(___19bd60h) == 0) goto ___37098h;
-		edx = D(___196ad4h);
-		L(edx) = B(edx+___1a2010h);
-		edx &= 0xff;
-		strcpy(esp, ___18d492h[edx]);
-___37098h:
-		if(D(___19bd60h) != 0) goto ___370d3h;
-		if(D(___1a1028h) != 0) goto ___370d3h;
-		esi = " easy race:";
-		edi = esp;
-		strcat(edi, esi);
-___370d3h:
-		if(D(___19bd60h) != 0) goto ___3710eh;
-		if(D(___1a1028h) != 1) goto ___3710eh;
-		esi = " medium race:";
-		edi = esp;
-		strcat(edi, esi);
-___3710eh:
-		if(D(___19bd60h) != 0) goto ___37149h;
-		if(D(___1a1028h) != 2) goto ___37149h;
-		esi = " hard race:";
-		edi = esp;
-		strcat(edi, esi);
-___37149h:
-		if(D(___19bd60h) != 0) goto ___37167h;
-		if(D(___1a1028h) != 3) goto ___37167h;
-		edi = esp;
-		esi = "The Arena:";
-		D(edi) = D(esi); edi += 4; esi += 4;
-		D(edi) = D(esi); edi += 4; esi += 4;
-		W(edi) = W(esi); edi += 2; esi += 2;
-		B(edi++) = B(esi++);
-___37167h:
-		if(D(___19bd60h) == 0) goto ___37201h;
-		ebx = 0xa;
-		edx = esp+0x64;
-		esi = " ";
-		eax = D(___196adch);
-		edi = esp;
-		eax = itoa_watcom106(eax, edx, ebx);
-		strcat(edi, esi);
-		esi = esp+0x64;
-		edi = esp;
-		strcat(edi, esi);
-		esi = "-player race:";
-		edi = esp;
-		strcat(edi, esi);
-___37201h:
-		ecx = 0x26ae8;
-		ebx = esp;
-		edx = ___185c0bh;
-		eax = D(___1a1108h);
-		esi = ".";
-		___12e78h_cdecl(eax, edx, ebx, ecx);
-		ebx = 0xa;
-		edx = esp+0x64;
-		eax = D(___196ae8h);
-		edi = esp+0x64;
-		eax = itoa_watcom106(eax, edx, ebx);
-		strcat(edi, esi);
-		edi = esp;
-		ecx = 0x2a468;
-		esi = "Placing";
-		ebx = esp;
-		edx = ___185c0bh;
-		D(edi) = D(esi); edi += 4; esi += 4;
-		D(edi) = D(esi); edi += 4; esi += 4;
-		eax = D(___1a1108h);
-		edi = esp;
-		esi = ": ";
-		___12e78h_cdecl(eax, edx, ebx, ecx);
-		W(edi) = W(esi); edi += 2; esi += 2;
-		B(edi++) = B(esi++);
-		ebx = esp;
-		esi = esp+0x64;
-		edi = esp;
-		edx = ___185c0bh;
-		strcat(edi, esi);
-		edi = esp;
-		eax = D(___1a1108h);
-		ecx = ebp+0x2a300;
-		esi = "Race income";
-		___12e78h_cdecl(eax, edx, ebx, ecx);
-		ebx = 0xa;
-		edx = esp+0x64;
-		eax = D(___196aech);
-		ecx = 0x2dde8;
-		eax = itoa_watcom106(eax, edx, ebx);
-		ebx = esp;
-		edx = ___185c0bh;
-		eax = D(___1a1108h);
-		D(edi) = D(esi); edi += 4; esi += 4;
-		D(edi) = D(esi); edi += 4; esi += 4;
-		D(edi) = D(esi); edi += 4; esi += 4;
-		___12e78h_cdecl(eax, edx, ebx, ecx);
-		esi = esp+0x64;
-		edi = esp;
-		ebx = esp;
-		eax = D(": $");
-		edx = ___185c0bh;
-		D(esp) = eax;
-		strcat(edi, esi);
-		edi = esp;
-		eax = D(___1a1108h);
-		ecx = ebp+0x2dc80;
-		esi = "Bonus income";
-		___12e78h_cdecl(eax, edx, ebx, ecx);
-		ebx = 0xa;
-		edx = esp+0x64;
-		eax = D(___196af0h);
-		ecx = 0x31768;
-		eax = itoa_watcom106(eax, edx, ebx);
-		ebx = esp;
-		edx = ___185c0bh;
-		eax = D(___1a1108h);
-		D(edi) = D(esi); edi += 4; esi += 4;
-		D(edi) = D(esi); edi += 4; esi += 4;
-		D(edi) = D(esi); edi += 4; esi += 4;
-		B(edi++) = B(esi++);
-		___12e78h_cdecl(eax, edx, ebx, ecx);
-		esi = esp+0x64;
-		edi = esp;
-		ebx = esp;
-		eax = D(": $");
-		edx = ___185c0bh;
-		D(esp) = eax;
-		strcat(edi, esi);
-		eax = D(___1a1108h);
-		ecx = ebp+0x31600;
-		edi = esp;
-		___12e78h_cdecl(eax, edx, ebx, ecx);
-		ebx = 0xa;
-		eax = D(___196aech);
-		ecx = D(___196af0h);
-		edx = esp+0x64;
-		eax += ecx;
-		esi = "Total race income";
-		eax = itoa_watcom106(eax, edx, ebx);
-		ecx = 0x350e8;
-		ebx = esp;
-		edx = ___185c0bh;
-		eax = D(___1a1108h);
-		D(edi) = D(esi); edi += 4; esi += 4;
-		D(edi) = D(esi); edi += 4; esi += 4;
-		D(edi) = D(esi); edi += 4; esi += 4;
-		D(edi) = D(esi); edi += 4; esi += 4;
-		W(edi) = W(esi); edi += 2; esi += 2;
-		___12e78h_cdecl(eax, edx, ebx, ecx);
-		esi = esp+0x64;
-		edi = esp;
-		ebx = esp;
-		eax = D(": $");
-		edx = ___185c0bh;
-		D(esp) = eax;
-		strcat(edi, esi);
-		edi = esp;
-		eax = D(___1a1108h);
-		ecx = ebp+0x34f80;
-		esi = "Number of laps";
-		___12e78h_cdecl(eax, edx, ebx, ecx);
-		ebx = 0xa;
-		edx = esp+0x64;
-		eax = D(___1a1134h);
-		ecx = 0x38a68;
-		eax = itoa_watcom106(eax, edx, ebx);
-		ebx = esp;
-		edx = ___185c0bh;
-		D(edi) = D(esi); edi += 4; esi += 4;
-		D(edi) = D(esi); edi += 4; esi += 4;
-		D(edi) = D(esi); edi += 4; esi += 4;
-		W(edi) = W(esi); edi += 2; esi += 2;
-		B(edi++) = B(esi++);
-		eax = D(___1a1108h);
-		edi = esp;
-		esi = ": ";
-		___12e78h_cdecl(eax, edx, ebx, ecx);
-		W(edi) = W(esi); edi += 2; esi += 2;
-		B(edi++) = B(esi++);
-		ebx = esp;
-		esi = esp+0x64;
-		edi = esp;
-		edx = ___185c0bh;
-		strcat(edi, esi);
-		eax = D(___1a1108h);
-		ecx = ebp+0x38900;
-		___12e78h_cdecl(eax, edx, ebx, ecx);
-		ebx = 0xa;
-		edx = esp+0x78;
-		eax = D(___1a10a0h);
-		eax = itoa_watcom106(eax, edx, ebx);
-		ebx = 0xa;
-		edx = esp+0x50;
-		eax = D(___1a10a8h);
-		eax = itoa_watcom106(eax, edx, ebx);
-		ebx = 0xa;
-		edx = esp+0x8c;
-		eax = D(___1a1090h);
+
+#if defined(DR_MULTIPLAYER)		
+		if(D(___19bd60h) != 0){
+		
+			edx = B(___1a2010h+D(___196ad4h));
+			strcpy(esp, ___18d492h[edx]);
+		}
+
+		if(D(___19bd60h) == 0){
+#endif // DR_MULTIPLAYER
+			if(D(___1a1028h) == 0) strcat(esp, " easy race:");
+			if(D(___1a1028h) == 1) strcat(esp, " medium race:");
+			if(D(___1a1028h) == 2) strcat(esp, " hard race:");
+			if(D(___1a1028h) == 3) strcpy(esp, "The Arena:");
+#if defined(DR_MULTIPLAYER)	
+		}
+
+		if(D(___19bd60h) != 0){
+
+			itoa_watcom106(D(___196adch), esp+0x64, 0xa);
+			strcat(esp, " ");
+			strcat(esp, esp+0x64);
+			strcat(esp, "-player race:");
+		}
+#endif // DR_MULTIPLAYER
+
+		___12e78h_cdecl(___1a1108h, ___185c0bh, esp, 0x26ae8);
+		itoa_watcom106(D(___196ae8h), esp+0x64, 0xa);
+		strcat(esp+0x64, ".");
+		strcpy(esp, "Placing");
+		___12e78h_cdecl(___1a1108h, ___185c0bh, esp, 0x2a468);
+		strcpy(esp, ": ");
+		strcat(esp, esp+0x64);
+		___12e78h_cdecl(___1a1108h, ___185c0bh, esp, ebp+0x2a300);
+		itoa_watcom106(D(___196aech), esp+0x64, 0xa);
+		strcpy(esp, "Race income");
+		___12e78h_cdecl(___1a1108h, ___185c0bh, esp, 0x2dde8);
+		strcpy(esp, ": $");
+		strcat(esp, esp+0x64);
+		___12e78h_cdecl(___1a1108h, ___185c0bh, esp, ebp+0x2dc80);
+		itoa_watcom106(D(___196af0h), esp+0x64, 0xa);
+		strcpy(esp, "Bonus income");
+		___12e78h_cdecl(___1a1108h, ___185c0bh, esp, 0x31768);
+		strcpy(esp, ": $");
+		strcat(esp, esp+0x64);
+		___12e78h_cdecl(___1a1108h, ___185c0bh, esp, ebp+0x31600);
+		itoa_watcom106(D(___196aech)+D(___196af0h), esp+0x64, 0xa);
+		strcpy(esp, "Total race income");
+		___12e78h_cdecl(___1a1108h, ___185c0bh, esp, 0x350e8);
+		strcpy(esp, ": $");
+		strcat(esp, esp+0x64);
+		___12e78h_cdecl(___1a1108h, ___185c0bh, esp, ebp+0x34f80);
+		itoa_watcom106(D(___1a1134h), esp+0x64, 0xa);
+		strcpy(esp, "Number of laps");
+		___12e78h_cdecl(___1a1108h, ___185c0bh, esp, 0x38a68);
+		strcpy(esp, ": ");
+		strcat(esp, esp+0x64);
+		___12e78h_cdecl(___1a1108h, ___185c0bh, esp, ebp+0x38900);
+		itoa_watcom106(D(___1a10a0h), esp+0x78, 0xa);
+		itoa_watcom106(D(___1a10a8h), esp+0x50, 0xa);
+		itoa_watcom106(D(___1a1090h), esp+0x8c, 0xa);
 		edi = esp+0x78;
-		eax = itoa_watcom106(eax, edx, ebx);
 		ecx = strlen(edi);
 		if(ecx != 1) goto ___37519h;
 		L(eax) = B(esp+0x78);
@@ -551,10 +287,10 @@ ___37576h:
 		strcat(esp+0x64, ".");
 		strcat(esp+0x64, esp+0x8c);
 		strcpy(esp, "Race time");
-		___12e78h_cdecl(D(___1a1108h), ___185c0bh, esp, 0x3c3e8);
+		___12e78h_cdecl(___1a1108h, ___185c0bh, esp, 0x3c3e8);
 		strcpy(esp, ": ");
 		strcat(esp, esp+0x64);
-		___12e78h_cdecl(D(___1a1108h), ___185c0bh, esp, ebp+0x3c280);
+		___12e78h_cdecl(___1a1108h, ___185c0bh, esp, ebp+0x3c280);
 		edx = D(___1a1ef8h);
 		edi = 8*edx;
 		edi -= edx;
@@ -785,7 +521,7 @@ ___37abeh:
 		D(edi) = D(esi); edi += 4; esi += 4;
 		D(edi) = D(esi); edi += 4; esi += 4;
 		B(edi++) = B(esi++);
-		eax = D(___1a1108h);
+		eax = ___1a1108h;
 		edi = esp;
 		esi = ": ";
 		___12e78h_cdecl(eax, edx, ebx, ecx);
@@ -796,7 +532,7 @@ ___37abeh:
 		edi = esp;
 		edx = ___185c0bh;
 		strcat(edi, esi);
-		eax = D(___1a1108h);
+		eax = ___1a1108h;
 		ecx = ebp+0x3fc00;
 		___12e78h_cdecl(eax, edx, ebx, ecx);
 		edx = D(___1a1ef8h);
@@ -874,10 +610,10 @@ ___37abeh:
 		strcat(esp+0x64, ".");
 		strcat(esp+0x64, esp+0x8c);
 		strcpy(esp, "Best lap ever");
-		___12e78h_cdecl(D(___1a1108h), ___185c0bh, esp, 0x436e8);
+		___12e78h_cdecl(___1a1108h, ___185c0bh, esp, 0x436e8);
 		strcpy(esp, ": ");
 		strcat(esp, esp+0x64);
-		___12e78h_cdecl(D(___1a1108h), ___185c0bh, esp, ebp+0x43580);
+		___12e78h_cdecl(___1a1108h, ___185c0bh, esp, ebp+0x43580);
 ___37ebch:
 		D(___196ae8h) = 0;
 		return;

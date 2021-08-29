@@ -1,13 +1,14 @@
 #include "drally.h"
+#include "sfx.h"
 
 #define COOXY(x,y) (0x280*(y)+(x))
 #define COO10UV(u,v) (0x10*(v)+(u))
 
-	extern byte ___24cc54h[];
+	extern __DWORD__ ___24cc54h_sfx_volume;
 	extern byte ___1a1ec4h[];
 	extern byte ___1a1ee4h[];
-	extern byte ___1a112ch__VESA101_ACTIVESCREEN_PTR[];
-	extern byte ___1a1e78h[];
+	extern void * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
+	extern void * ___1a1e78h;
 
 void dRally_Sound_pushEffect(byte channel, byte n, dword unk, dword a0, dword a1, dword a2);
 void ___25a74h(void);
@@ -25,7 +26,7 @@ void shop___285f8h(void){
 	int 	i, j;
 	byte 	px;
 
-	dRally_Sound_pushEffect(1, 0x1a, 0, D(___24cc54h), 0x28000, 0x8000);
+	dRally_Sound_pushEffect(1, SFX_CLICK_3, 0, ___24cc54h_sfx_volume, 0x28000, 0x8000);
 
 	switch(D(___1a1ec4h)){
 	case 0:
@@ -38,8 +39,8 @@ void shop___285f8h(void){
 			i = -1;
 			while(++i < 0x10){
 
-				px = B(D(___1a1e78h)+COO10UV(i, j+0x80));
-				if(px != 0) B(D(___1a112ch__VESA101_ACTIVESCREEN_PTR)+COOXY(i, j+0x8d)) = px;
+				px = B(___1a1e78h+COO10UV(i, j+0x80));
+				if(px != 0) B(___1a112ch__VESA101_ACTIVESCREEN_PTR+COOXY(i, j+0x8d)) = px;
 			}
 		}
 
@@ -53,8 +54,8 @@ void shop___285f8h(void){
 			i = -1;
 			while(++i < 0x10){
 
-				px = B(D(___1a1e78h)+COO10UV(i, j));
-				if(px != 0) B(D(___1a112ch__VESA101_ACTIVESCREEN_PTR)+COOXY(i, j+0x8d)) = px;
+				px = B(___1a1e78h+COO10UV(i, j));
+				if(px != 0) B(___1a112ch__VESA101_ACTIVESCREEN_PTR+COOXY(i, j+0x8d)) = px;
 			}
 		}
 

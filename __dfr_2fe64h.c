@@ -30,7 +30,7 @@ cpu 386
 	extern	___2ab50h
 	extern	___5994ch
 	extern	___23758h
-	extern	___24cc54h
+	extern	___24cc54h_sfx_volume
 	extern	dRally_Sound_pushEffect
 	extern	___1a1030h
 	extern	___1a1038h
@@ -346,7 +346,7 @@ ___3018dh:
 		mov     edi, 28000h
 		mov     eax, 1
 		push    edi
-		mov     ecx, [___24cc54h]
+		mov     ecx, [___24cc54h_sfx_volume]
 		xor     ebx, ebx
 	push 	ecx
 	push 	ebx
@@ -522,7 +522,7 @@ ___30363h:
 		mov     edi, 28000h
 		mov     eax, 1
 		push    edi
-		mov     ecx, [___24cc54h]
+		mov     ecx, [___24cc54h_sfx_volume]
 		xor     ebx, ebx
 	push 	ecx
 	push 	ebx
@@ -689,7 +689,7 @@ ___3051dh:
 		mov     eax, 1
 		push    ecx
 		xor     ebx, ebx
-		mov     ecx, [___24cc54h]
+		mov     ecx, [___24cc54h_sfx_volume]
 	push 	ecx
 	push 	ebx
 	push 	edx
@@ -762,7 +762,7 @@ ___30618h:
 		mov     ebp, 28000h
 		mov     eax, 1
 		push    ebp
-		mov     ecx, [___24cc54h]
+		mov     ecx, [___24cc54h_sfx_volume]
 		xor     ebx, ebx
 	push 	ecx
 	push 	ebx

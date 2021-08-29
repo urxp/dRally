@@ -2,8 +2,8 @@
 
 __DWORD__ ___199f9ch = 0;
 __DWORD__ ___199fa0h = 0;
-__DWORD__ ___199fa4h = 0;
-__DWORD__ ___199fa8h = 0;
+__DWORD__ ___199fa4h_com_port_addr = 0;
+__DWORD__ ___199fa8h_com_port_irq = 0;
 __DWORD__ ___199fach = 0;
 
 __BYTE__ ___199fb6h = 1;

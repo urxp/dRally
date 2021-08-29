@@ -1,7 +1,7 @@
 #include "drally.h"
 
-#define W_WIDTH 	800//1024//640
-#define W_HEIGHT 	600//768//480
+#define W_WIDTH 	1024//800//1024//640
+#define W_HEIGHT 	768//600//768//480
 
 
 #pragma pack(1)
@@ -60,7 +60,7 @@ unsigned int __GET_FRAME_COUNTER(void){
 
 	unsigned int NewTicks;
 	unsigned int FrameMs = 1000/___60458h;// - 1;
-	//int n;
+
 
 	NewTicks = SDL_GetTicks()-Ticks;	
 	
@@ -72,17 +72,13 @@ unsigned int __GET_FRAME_COUNTER(void){
 		skip = NewTicks/FrameMs - 1;
 
 		INT8_FRAME_COUNTER += skip;
-		//n = skip + 1;
-		//while(n--){
-
-			IRQ0_TimerISR();
-		//}
+		IRQ0_TimerISR();
 
 		if(!skip) __PRESENTSCREEN__();
 	}
-    
-	IO_Loop();
 
+	IO_Loop();
+	
 	return INT8_FRAME_COUNTER;
 }
 
@@ -262,10 +258,11 @@ void __VESA101_SETMODE(void){
 
 void DISPLAY_GET_PALETTE(unsigned char * dst){
 
-	unsigned int n = -1;
+	int n;
 
 	if(GX.ActiveMode){
 
+		n = -1;
 		while(++n < 0x100){
 	
 			dst[3*n] = GX.Surface->format->palette->colors[n].r >> 2;
@@ -320,26 +317,4 @@ void save_xm(void * src, unsigned int size, const char * name){
 	fwrite(src, size, 1, fd);
 
 	fclose(fd);
-}
-
-char * strupr(char * s){
-
-	char * 	ecx;
-	char * 	edx;
-	char 	eax, ebx;
-
-		edx = s;
-L1:
-		eax = *edx;
-		if(eax == 0) goto L3;
-		eax -= 0x61;
-		ebx = eax;
-		if(ebx > 0x19) goto L2;
-		eax += 0x41;
-		*edx = eax;
-L2:
-		edx++;
-		goto L1;
-L3:
-	return s;
 }

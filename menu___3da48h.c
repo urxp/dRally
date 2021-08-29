@@ -1,11 +1,11 @@
 #include "drally.h"
 
 	extern byte ___1a0d60h[];
-	extern byte ___1a112ch__VESA101_ACTIVESCREEN_PTR[];
-	extern byte ___1a1124h__VESA101h_ScreenBufferA[];
+	extern void * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
+	extern void * ___1a1124h__VESA101h_ScreenBufferA;
 	extern byte ___19eb50h[];
-	extern byte ___24cc58h[];
-	extern byte ___24cc54h[];
+	extern __DWORD__ ___24cc58h_msx_volume;
+	extern __DWORD__ ___24cc54h_sfx_volume;
 	extern byte kmap[];
 
 
@@ -14,7 +14,7 @@ void ___2b318h(void);
 void ___58c60h(void);
 void ___13a98h_cdecl(dword);
 void __DISPLAY_SET_PALETTE_COLOR(dword b, dword g, dword r, dword n);
-dword ___3d9c0h_cdecl(dword, dword, dword);
+int ___3d9c0h_cdecl(const char *, const char *, int);
 void ___12cb8h__VESA101_PRESENTSCREEN(void);
 void __VESA101_SETMODE();
 void dRally_Sound_setEffectsVolume(dword vol);
@@ -22,7 +22,7 @@ byte dRally_Sound_setPosition(dword pos_n);
 void dRally_Sound_setSampleRate(dword freq);
 void dRally_Sound_play(void);
 void dRally_Sound_setMusicVolume(dword vol);
-void dRally_Sound_load(dword msx_t, dword msx_f, dword sfx_t, dword sfx_f, dword num_ch);
+void dRally_Sound_load(dword msx_t, const char * msx_f, dword sfx_t, const char * sfx_f, dword num_ch);
 void ___606dfh(void);
 void ___605deh_cdecl(dword, dword);
 void ___10b80h_cdecl(const char *, dword, const char *, dword, const char *, dword, dword);
@@ -43,7 +43,7 @@ void menu___3da48h(void){
 		D(esp+0x6c) = !!GET_FILE_SIZE(esp);
 		ebp = 0x32;
 		edx = 0x640000;
-		memcpy(D(___1a1124h__VESA101h_ScreenBufferA), D(___1a112ch__VESA101_ACTIVESCREEN_PTR), 0x4b000);
+		memcpy(___1a1124h__VESA101h_ScreenBufferA, ___1a112ch__VESA101_ACTIVESCREEN_PTR, 0x4b000);
 		___2b318h();
 		D(esp+0x70) = edx;
 
@@ -133,8 +133,8 @@ void menu___3da48h(void){
 				___10b80h_cdecl("sanim.haf", 1, "tr0-mus.cmf", 2, "sanim-e.cmf", 1, 0x78);
 				dRally_Sound_release();
 				dRally_Sound_load(1, "MEN-MUS.CMF", 2, "MEN-SAM.CMF", 5);
-				dRally_Sound_setMusicVolume(D(___24cc58h));
-				dRally_Sound_setEffectsVolume(D(___24cc54h));
+				dRally_Sound_setMusicVolume(___24cc58h_msx_volume);
+				dRally_Sound_setEffectsVolume(___24cc54h_sfx_volume);
 				dRally_Sound_setPosition(0x2d00);
 				dRally_Sound_setSampleRate(0x5622);
 				dRally_Sound_play();
@@ -147,7 +147,7 @@ void menu___3da48h(void){
 		}
 
 		___2b318h();
-		memcpy(D(___1a112ch__VESA101_ACTIVESCREEN_PTR), D(___1a1124h__VESA101h_ScreenBufferA), 0x4b000);
+		memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR, ___1a1124h__VESA101h_ScreenBufferA, 0x4b000);
 		ebp = 0;
 		___12cb8h__VESA101_PRESENTSCREEN();
 		D(esp+0x68) = ebp;

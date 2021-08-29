@@ -1,6 +1,12 @@
 #include "drally.h"
 
 #pragma pack(1)
+typedef struct font_props_s {
+	byte 	w;
+	byte 	h;
+	byte 	props[];
+} font_props_t;
+
 typedef struct menubox_s {
 	__DWORD__ 	row_n;			// +00
 	__DWORD__ 	x;				// +04
@@ -16,16 +22,16 @@ typedef struct menubox_s {
 	extern char ___1866b8h[9][9][50];
 	extern byte * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
 	extern byte ___1a1e68h[];
-	extern byte ___1a10f4h[];
+	extern void * ___1a10f4h;
 	extern byte ___185ba9h[];
-	extern byte ___1a10cch[];
-	extern byte ___1a10d0h[];
-	extern byte ___1a10e0h[];
+	extern void * ___1a10cch;
+	extern void * ___1a10d0h;
+	extern void * ___1a10e0h;
 
 #define COOXY(x,y) (0x280*(y)+(x))	
 
 void ___13248h_cdecl(dword, dword ,dword, dword, dword);
-void ___12e78h_cdecl(dword, dword, dword, dword);
+void ___12e78h_cdecl(byte * A1, font_props_t * A2, const char * A3, dword dst_off);
 
 void ___13710h(dword A1, dword A2){
 
@@ -48,18 +54,18 @@ void ___13710h(dword A1, dword A2){
 
 			if((mSwitch[n] != 1)||(A2 == 0)){
 
-				___12e78h_cdecl(D(___1a10d0h), ___185ba9h, mList[n], COOXY(mBox->x+32,mBox->y+n*mBox->row_h+5));
+				___12e78h_cdecl(___1a10d0h, ___185ba9h, mList[n], COOXY(mBox->x+32,mBox->y+n*mBox->row_h+5));
 			}
 			else {
 
-				___12e78h_cdecl(D(___1a10e0h), ___185ba9h, mList[n], COOXY(mBox->x+32,mBox->y+n*mBox->row_h+5));
+				___12e78h_cdecl(___1a10e0h, ___185ba9h, mList[n], COOXY(mBox->x+32,mBox->y+n*mBox->row_h+5));
 			}
 		}
 		else {
 
 			if(A2 == 0){
 
-				___12e78h_cdecl(D(___1a10d0h), ___185ba9h, mList[n], COOXY(mBox->x+32,mBox->y+n*mBox->row_h+5));
+				___12e78h_cdecl(___1a10d0h, ___185ba9h, mList[n], COOXY(mBox->x+32,mBox->y+n*mBox->row_h+5));
 			}
 			else {
 
@@ -69,12 +75,12 @@ void ___13710h(dword A1, dword A2){
 					j = -1;
 					while(++j < 0x14){
 
-						px = B(D(___1a10f4h)+(int)D(___1a1e68h)*0x190+0x14*i+j);
+						px = B(___1a10f4h+(int)D(___1a1e68h)*0x190+0x14*i+j);
 						if(px) ___1a112ch__VESA101_ACTIVESCREEN_PTR[COOXY(mBox->x+j+9,mBox->y+n*mBox->row_h+i+11)] = px;
 					}
 				}
 
-				___12e78h_cdecl(D(___1a10cch), ___185ba9h, mList[n], COOXY(mBox->x+32,mBox->y+n*mBox->row_h+5));
+				___12e78h_cdecl(___1a10cch, ___185ba9h, mList[n], COOXY(mBox->x+32,mBox->y+n*mBox->row_h+5));
 			}
 		}
 	}
