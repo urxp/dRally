@@ -1,6 +1,7 @@
 #include "drally.h"
 #include "drally_keyboard.h"
 #include "drmemory.h"
+#include "sfx.h"
 
 	extern byte ___2432cch[];
 	extern byte ___2432d0h[];
@@ -75,7 +76,7 @@ void race___478c8h(dword A1){
 	memcpy(VGA13_ACTIVESCREEN, ___2432d8h, 0xfa00);
     __VGA13_PRESENTSCREEN__();
     dRally_Sound_freeEffectChannel(0x5);
-    dRally_Sound_pushEffect(0x5, 0x11, 0, 0x10000, 0x28000, 0x8000);
+    dRally_Sound_pushEffect(0x5, SFX_MONSTER, 0, 0x10000, 0x28000, 0x8000);
     memset(kmap, 0, 0x100);
     D(___2432e4h) = 0;
 
@@ -133,7 +134,7 @@ void race___478c8h(dword A1){
 		}
 	}
 
-	dRally_Sound_pushEffect(0x5, 0x15, 0, 0x10000, 0x28000, 0x8000);
+	dRally_Sound_pushEffect(0x5, SFX_EXPLOSION, 0, 0x10000, 0x28000, 0x8000);
 
 	while(1){
 

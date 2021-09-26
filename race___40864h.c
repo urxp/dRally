@@ -1,4 +1,5 @@
 #include "drally.h"
+#include "sfx.h"
 
 	extern void * ___243d80h;
 	extern byte ___1d8110h[];
@@ -151,14 +152,14 @@ void race___40864h(void){
 
 	if((int)D(___1de580h+0x94*D(___243ce8h)+0x18) < 0x5000){
 
-		if(D(___196de8h) == 0) dRally_Sound_pushEffect(2, 1, 0, 0x10000, 0x50000, 0x8000);
+		if(D(___196de8h) == 0) dRally_Sound_pushEffect(2, SFX_LOOK_OUT, 0, 0x10000, 0x50000, 0x8000);
 
 		D(___196de8h) = 1;
 	}
 
 	if((int)D(___1de580h+0x94*D(___243ce8h)+0x18) < 0x2800){
 
-		if(D(___196dech) == 0) dRally_Sound_pushEffect(2, 1, 0, 0x10000, 0x50000, 0x8000);
+		if(D(___196dech) == 0) dRally_Sound_pushEffect(2, SFX_LOOK_OUT, 0, 0x10000, 0x50000, 0x8000);
 
 		D(___196dech) = 1;
 	}
@@ -167,7 +168,7 @@ void race___40864h(void){
 
 		if(strcmp(___1de7d0h+0x54*D(___243ce8h), "DUKE NUKEM") == 0){
 
-			if(D(___196df4h) == 0) dRally_Sound_pushEffect(2, 0x20, 0, 0x10000, 0x50000, 0x8000);
+			if(D(___196df4h) == 0) dRally_Sound_pushEffect(2, SFX_THIS_SUCKS, 0, 0x10000, 0x50000, 0x8000);
 
 			D(___196df4h) = 1;
 		}

@@ -1,3 +1,7 @@
+#include "drally.h"
+
+void race___44304h(void){
+
 /*
 #include "drally.h"
 
@@ -295,5 +299,6 @@ ___446a2h:
 		pop     ecx
 		pop     ebx
 		retn    
+}
 */
 }

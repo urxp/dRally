@@ -1,3 +1,7 @@
+#include "drally.h"
+
+void ___16e6ch(void){
+
 /*
 cpu 386
 %include "macros.inc"
@@ -269,3 +273,4 @@ loc_dot:
 dollar_s:
 	db 	24h,0,0,0
 */
+}

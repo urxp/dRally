@@ -128,48 +128,33 @@ int rand_watcom106(void);
 
 void ___3deb8h(void){
 
-	dword 	eax, ebx, ecx, edx, edi, esi, ebp;
-	byte 	esp[4];
+	int 	i, j, n;
 
+	j = -1;
+	while(++j < 6){
 
-	ebp = 0;
-	while(1){
+		i = -1;
+		while(++i < 0x15){
 
-		ecx = ___1a116ch;
-		ebx = ___1a116ch+0x96;
-		edx = 0;
-
-		while(1){
-
-			strcpy(ecx, ebx);
-			B(edx+___1a1f4eh) = B(edx+___1a1f4eh+1);
-			ecx += 0x96;
-			ebx += 0x96;
-			edx++;
-			if((int)edx >= 0x15) break;
+			strcpy(___1a116ch+0x96*i, ___1a116ch+0x96*(i+1));
+			B(___1a1f4eh+i) = B(___1a1f4eh+(i+1));
 		}
-
-		ebp++;
-		if((int)ebp >= 6) break;
 	}
 
 	while(1){
 
-		eax = rand_watcom106();
-		edx = eax;
-		edx = (int)edx>>0x1f;
-		___idiv32(&eax, &edx, 0x13);
-		if(B(edx+___1a202fh) != 1) break;
+		n = rand_watcom106()%0x13;
+		if(B(___1a202fh+n) != 1) break;
 	}
 
-	B(edx+___1a202fh) = 1;
-	strcpy(___1a116ch+0x9f6, ___195494h[edx][0]);
+	B(___1a202fh+n) = 1;
+	strcpy(___1a116ch+0x9f6, ___195494h[n][0]);
 	B(___1a1f4eh+0x11) = 1;
-	strcpy(___1a116ch+0xa8c, ___195494h[edx][1]);
+	strcpy(___1a116ch+0xa8c, ___195494h[n][1]);
 	B(___1a1f4eh+0x12) = 1;
-	strcpy(___1a116ch+0xb22, ___195494h[edx][2]);
+	strcpy(___1a116ch+0xb22, ___195494h[n][2]);
 	B(___1a1f4eh+0x13) = 1;
-	strcpy(___1a116ch+0xbb8, ___195494h[edx][3]);
+	strcpy(___1a116ch+0xbb8, ___195494h[n][3]);
 	B(___1a1f4eh+0x14) = 1;
 	___1a2148h++;
 

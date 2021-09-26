@@ -15,62 +15,29 @@ typedef struct struct_54_s {
 	extern struct_94_t ___1de580h[4];
 	extern struct_54_t ___1de7d0h[4];
 
+
 void ___4a064h_cdecl(int, float, float, float);
 
 void race___4a25ch(void){
 
 	int 	i, n;
 
-
-	F32(___1e6ed0h+0x14e) = (float)(double)F32(___1e6ed0h+0xb4);
-	F32(___1e6ed0h+0x152) = (float)(double)F32(___1e6ed0h+0xb8);
-	F32(___1e6ed0h+0xac) = (float)(3.75*(double)(int)D(___1e6ed0h+0xc));
-	F32(___1e6ed0h+0x156) = (float)(double)F32(___1e6ed0h+0xac);
-	D(___1e6ed0h+0x10) = 0x640*D(___1e6ed0h+0xc);
-	D(___1e6ed0h+0x34a) = 0;
-	B(___1e6ed0h+0x108) = 1;
-	B(___1e6ed0h+0x109) = 1;
-
-	if(D(___1de580h[0].raw) != 6){
-
-		___4a064h_cdecl(0xf, (float)(int)D(___1de580h[0].raw+0x38), (float)(int)D(___1de580h[0].raw+0x3c), (float)(int)D(___1de580h[0].raw+0x40));
-	}
-
-	F32(___1e6ed0h+0x14e +0x35e) = (float)(double)(double)F32(___1e6ed0h+0xb4+0x35e);
-	F32(___1e6ed0h+0x152+0x35e) = (float)(double)F32(___1e6ed0h+0xb8+0x35e);
-	B(___1e6ed0h+0x109+0x35e) = 2;
-	D(___1e6ed0h+0x34a+0x35e) = 0;
-	F32(___1e6ed0h+0xac+0x35e) = (float)(3.75*(double)(int)D(___1e6ed0h+0xc+0x35e));
-	F32(___1e6ed0h+0x156+0x35e) = (float)(double)F32(___1e6ed0h+0xac+0x35e);
-	B(___1e6ed0h+0x108+0x35e) = 1;
-	D(___1e6ed0h+0x10+0x35e) = 0x640*D(___1e6ed0h+0xc+0x35e)+0x25800;
-
-	___4a064h_cdecl(0x19, (float)(int)D(___1de580h[1].raw+0x38), (float)(int)D(___1de580h[1].raw+0x3c), (float)(int)D(___1de580h[1].raw+0x40));
-
-	F32(___1e6ed0h+0x14e +2*0x35e) = (float)(double)F32(___1e6ed0h+0xb4+2*0x35e);
-	F32(___1e6ed0h+0x152+2*0x35e) = (float)(double)F32(___1e6ed0h+0xb8+2*0x35e);
-	B(___1e6ed0h+0x108+2*0x35e) = 1;
-	D(___1e6ed0h+0x34a+0x35e) = 0;
-	F32(___1e6ed0h+0xac+2*0x35e) = (float)(3.75*(double)(int)D(___1e6ed0h+0xc+2*0x35e));
-	D(___1e6ed0h+0x10+2*0x35e) = 0x640*D(___1e6ed0h+0xc+2*0x35e)+0x4b000;
-	F32(___1e6ed0h+0x156+2*0x35e) = (float)(double)F32(___1e6ed0h+0xac+2*0x35e);
-	B(___1e6ed0h+0x109+2*0x35e) = 3;
-
-	___4a064h_cdecl(0x23, (float)(int)D(___1de580h[2].raw+0x38), (float)(int)D(___1de580h[2].raw+0x3c), (float)(int)D(___1de580h[2].raw+0x40));
-	
-	F32(___1e6ed0h+0x14e +3*0x35e) = (float)(double)F32(___1e6ed0h+0xb4+3*0x35e);
-	F32(___1e6ed0h+0x152+3*0x35e) = (float)(double)F32(___1e6ed0h+0xb8+3*0x35e);
-	B(___1e6ed0h+0x108+3*0x35e) = 1;
-	D(___1e6ed0h+0x34a+3*0x35e) = 0;
-	F32(___1e6ed0h+0xac+3*0x35e) = (float)(3.75*(double)(int)D(___1e6ed0h+0xc+3*0x35e));
-	F32(___1e6ed0h+0x156+3*0x35e) = (float)(double)F32(___1e6ed0h+0xac+3*0x35e);
-	B(___1e6ed0h+0x109+3*0x35e) = 4;
-	D(___1e6ed0h+0x10+3*0x35e) = 0x640*D(___1e6ed0h+0xc+3*0x35e)+0x70800;
-
-	___4a064h_cdecl(0x2d, (float)(int)D(___1de580h[3].raw+0x38), (float)(int)D(___1de580h[3].raw+0x3c), (float)(int)D(___1de580h[3].raw+0x40));
-
 	n = -1;
 	while(++n < 4){
+
+		F32(___1e6ed0h+0x35e*n+0x14e) = (float)(double)F32(___1e6ed0h+0x35e*n+0xb4);
+		F32(___1e6ed0h+0x35e*n+0x152) = (float)(double)F32(___1e6ed0h+0x35e*n+0xb8);
+		F32(___1e6ed0h+0x35e*n+0xac) = (float)(3.75*(double)(int)D(___1e6ed0h+0x35e*n+0xc));
+		F32(___1e6ed0h+0x35e*n+0x156) = (float)(double)F32(___1e6ed0h+0x35e*n+0xac);
+		D(___1e6ed0h+0x35e*n+0x10) = 0x640*D(___1e6ed0h+0x35e*n+0xc)+0x25800*n;
+		B(___1e6ed0h+0x35e*n+0x108) = 1;
+		B(___1e6ed0h+0x35e*n+0x109) = n+1;
+		D(___1e6ed0h+0x35e*n+0x34a) = 0;
+
+		if((n > 0)||(D(___1de580h[0].raw)+0x00 != 6)){
+
+			___4a064h_cdecl(10*n+15, (float)(int)D(___1de580h[n].raw+0x38), (float)(int)D(___1de580h[n].raw+0x3c), (float)(int)D(___1de580h[n].raw+0x40));
+		}
 
 		D(___1e6ed0h+0x35e*n+0x19a) = 0;
 		D(___1e6ed0h+0x35e*n) = 0;

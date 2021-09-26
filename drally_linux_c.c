@@ -95,7 +95,7 @@ void __VRETRACE_WAIT_FOR_START(void){
 }
 
 void __VRETRACE_WAIT_IF_INACTIVE(void){
-/*
+
 	unsigned int FrameMs = 1000/___60458h;//1000/70;
 
 	IO_Loop();
@@ -107,7 +107,6 @@ void __VRETRACE_WAIT_IF_INACTIVE(void){
 		SDL_Delay(FrameMs - VRetraceTicks);
 		//if(GX.ActiveMode == VGA13) __VGA13_PRESENTSCREEN__();
 	}
-*/
 }
 
 void __TIMER_SET_TIMER(void){

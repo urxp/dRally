@@ -1,3 +1,7 @@
+#include "drally.h"
+
+void ___23758h(void){
+
 /*
 cpu 386
 %include "macros.inc"
@@ -692,3 +696,4 @@ __dfr_181cf8h:
 __dfr_181cfch:
 	db	3eh,20h,0
 */
+}

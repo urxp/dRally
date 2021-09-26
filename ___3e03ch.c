@@ -5,31 +5,18 @@
 
 void ___3e03ch(void){
 
-	dword	eax, ebx, ecx, edx, edi, esi, ebp;
-	byte 	esp[4];
+	int 	j, i;
 
 
-	D(esp) = ___1a116ch+0x96;
-	ebp = 0;
-	while(1){
+	j = -1;
+	while(++j < 6){
 
-		ebx = ___1a116ch;
-		ecx = D(esp);
-		edx = 0;
+		i = -1;
+		while(++i < 0x15){
 
-		while(1){
-
-			strcpy(ebx, ecx);
-			B(edx+___1a1f4eh) = B(edx+___1a1f4eh+1);
-		
-			ebx += 0x96;
-			ecx += 0x96;
-			edx++;
-			if((int)edx >= 0x15) break;
+			strcpy(___1a116ch+0x96*i, ___1a116ch+0x96*(i+1));
+			B(___1a1f4eh+i) = B(___1a1f4eh+(i+1));
 		}
-
-		ebp++;
-		if((int)ebp >= 6) break;
 	}
 
 	strcpy(___1a116ch+0x9f6, "Ah, fortune and glory! You are special, True Tom tells no lies.");

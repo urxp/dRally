@@ -1,4 +1,5 @@
 #include "drally.h"
+#include "drally_structs_free.h"
 
 #pragma pack(1)
 typedef struct tr_startup_s {
@@ -46,7 +47,7 @@ typedef struct spectator_s {
 	extern byte ___243d28h[];
 	extern byte ___243d2ch[];
 	extern byte ___243cech[];
-	extern byte ___1e6ed0h[];
+	extern struct_35e_t ___1e6ed0h[4];
 	extern byte ___1f2488h[];
 #define SPECTATORS ___1df720h
 	extern spectator_t ___1df720h[];
@@ -59,41 +60,29 @@ void old_bpa_read(const char *, void *, const char *);
 
 void race___49bd4h(void){
 
-	dword 	n;
+	int 	n;
 	tr_inf_t * TrxInf;
 
 	TrxInf = (tr_inf_t *)___1a54d0h;
-	strcpy(___243dd0h, ___19bd64h);
-	strcat(___243dd0h, ".BPA");
-	strcpy(___243d90h, ___19bd64h);
-	strcat(___243d90h, "-INF.BIN");
-	old_bpa_read(___243dd0h, TrxInf, ___243d90h);
+	old_bpa_read(strcat(strcpy(___243dd0h, ___19bd64h), ".BPA"), TrxInf, strcat(strcpy(___243d90h, ___19bd64h), "-INF.BIN"));
 
 	D(___243d28h) = TrxInf->w;
 	D(___243d2ch) = TrxInf->h;
 	D(___243cech) = TrxInf->unk0;
 
-	F32(___1e6ed0h+0xb4) = (float)TrxInf->startups[0].x;
-	F32(___1e6ed0h+0xb8) = (float)TrxInf->startups[0].y;
-	D(___1e6ed0h+0xc) = TrxInf->startups[0].rot;
+	n = -1;
+	while(++n < 4){
 
-	F32(___1e6ed0h+0xb4+0x35e) = (float)TrxInf->startups[1].x;
-	F32(___1e6ed0h+0xb8+0x35e) = (float)TrxInf->startups[1].y;
-	D(___1e6ed0h+0xc+0x35e) = TrxInf->startups[1].rot;
-
-	F32(___1e6ed0h+0xb4+2*0x35e) = (float)TrxInf->startups[2].x;
-	F32(___1e6ed0h+0xb8+2*0x35e) = (float)TrxInf->startups[2].y;
-	D(___1e6ed0h+0xc+2*0x35e) = TrxInf->startups[2].rot;
-
-	F32(___1e6ed0h+0xb4+3*0x35e) = (float)TrxInf->startups[3].x;
-	F32(___1e6ed0h+0xb8+3*0x35e) = (float)TrxInf->startups[3].y;
-	D(___1e6ed0h+0xc+3*0x35e) = TrxInf->startups[3].rot;
+		___1e6ed0h[n].Rotation = TrxInf->startups[n].rot;
+		___1e6ed0h[n].XLocation = (float)TrxInf->startups[n].x;
+		___1e6ed0h[n].YLocation = (float)TrxInf->startups[n].y;
+	}
 
 	n = -1;
 	while(++n < 0x10){
 
-		D(0x120*n+___1f2488h) = TrxInf->powerups[n].x;
-		D(0x120*n+___1f2488h+4) = TrxInf->powerups[n].y;
+		D(___1f2488h+0x120*n) = TrxInf->powerups[n].x;
+		D(___1f2488h+0x120*n+4) = TrxInf->powerups[n].y;
 	}
 
 	n = -1;

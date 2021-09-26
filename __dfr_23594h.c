@@ -1,3 +1,7 @@
+#include "drally.h"
+
+dword ___23594h_cdecl(dword A0, dword A1){
+
 /*
 cpu 386
 %include "macros.inc"
@@ -174,3 +178,6 @@ ___2374bh:
 		pop     ebx
 		retn    
 */
+
+	return 0;
+}

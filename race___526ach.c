@@ -1,4 +1,5 @@
 #include "drally.h"
+#include "sfx.h"
 
 	extern byte ___1f2488h[];
 	extern byte ___243c60h[];
@@ -99,13 +100,13 @@ void race___526ach(void){
 								edx = 0x12;
 								eax = 0xa;
 								ebx = 0;
-								dRally_Sound_pushEffect(eax, edx, ebx, ecx, 0x21000, 0x8000);
+								dRally_Sound_pushEffect(eax, SFX_MINE, ebx, ecx, 0x21000, 0x8000);
 							}
 						}
 						else {
 
 							ecx = 0x9000;
-							dRally_Sound_pushEffect(4, 0x12, 0, ecx, 0x21000, 0x8000);
+							dRally_Sound_pushEffect(4, SFX_MINE, 0, ecx, 0x21000, 0x8000);
 						}
 
 						ebp = D(esp);
@@ -155,7 +156,7 @@ void race___526ach(void){
 								edx = 6;
 								eax = 2;
 								ebx = 0;
-								dRally_Sound_pushEffect(eax, edx, ebx, ecx, 0x50000, 0x8000);
+								dRally_Sound_pushEffect(eax, SFX_SIENI, ebx, ecx, 0x50000, 0x8000);
 							}
 							break;
 						case 4:

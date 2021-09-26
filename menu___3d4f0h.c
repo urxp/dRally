@@ -1,7 +1,7 @@
 #include "drally.h"
 
-	extern byte ___1a112ch__VESA101_ACTIVESCREEN_PTR[];
-	extern byte ___1a1124h__VESA101h_ScreenBufferA[];
+	extern void * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
+	extern void * ___1a1124h__VESA101h_ScreenBufferA;
 	extern byte ___19eb50h[];
 	extern byte ___1a54d0h[];
 
@@ -17,178 +17,83 @@ void ___3d2bch(void);
 void ___3d154h(const char * pal_name);
 void __DISPLAY_SET_PALETTE_COLOR(dword b, dword g, dword r, dword n);
 
+
+static __DWORD__ helper_color(__DWORD__ A0, __DWORD__ A1){
+
+	long long 	ll_tmp;
+	__DWORD__ 	eax, edx;
+
+	eax = A0;
+	edx = A1;
+	ll_tmp = (long long)(int)eax*(int)edx; edx = ll_tmp>>0x20; eax = ll_tmp;
+	eax += 0x8000;
+	edx += !!(eax < 0x8000);
+	eax = (eax >> 0x10)|(edx << 0x10);
+	eax += 0x8000;
+	eax = (int)eax>>0x10;
+	eax &= 0xff;
+
+	return eax;
+}
+
 void menu___3d4f0h(void){
 
-	long long ll_tmp;
 	dword 	rr, gg, bb, nn;
-	dword 	eax, ebx, ecx, edx, edi, esi, ebp;
-	byte 	__esp[0x10+0xc];
-	byte * 	esp = __esp+0x10;
+	int 	i, n;
 
 
-		ecx = 0x4b000;
-		ebp = 0x32;
-		esi = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
-		edi = D(___1a1124h__VESA101h_ScreenBufferA);
-		edx = 0x640000;
-		memcpy(edi, esi, ecx);
-		___2b318h();
-		D(esp) = edx;
-___3d536h:
+	memcpy(___1a1124h__VESA101h_ScreenBufferA, ___1a112ch__VESA101_ACTIVESCREEN_PTR, 0x4b000);
+	___2b318h();
+
+	i = -1;
+	while(++i <= 0x32){
+
 		___58c60h();
-		esi = 2;
-		edx = ebp;
-		eax = ebp;
-		edx = (int)edx>>0x1f;
-		edx = (long long)(int)eax%(int)esi;
-		if(edx == 0) goto ___3d554h;
-		eax = 0;
-		___13a98h_cdecl(eax);
-___3d554h:
-		esi = 0;
-		edi = 0;
-		D(esp+8) = esi;
-		esi = D(esp);
-___3d55fh:
-		eax = 0;
-		L(eax) = B(esp+8);
-		nn = eax;
-		edx = esi;
-		eax = D(edi+___19eb50h);
-		ll_tmp = (long long)(int)eax*(int)edx; edx = ll_tmp>>0x20; eax = ll_tmp;
-		eax += 0x8000;
-		edx += !!(eax < 0x8000);
-		eax = (eax >> 0x10)|(edx << 0x10);
-		eax += 0x8000;
-		eax = (int)eax>>0x10;
-		eax &= 0xff;
-		rr = eax;
-		edx = esi;
-		eax = D(edi+___19eb50h+4);
-		ll_tmp = (long long)(int)eax*(int)edx; edx = ll_tmp>>0x20; eax = ll_tmp;
-		eax += 0x8000;
-		edx += !!(eax < 0x8000);
-		eax = (eax >> 0x10)|(edx << 0x10);
-		eax += 0x8000;
-		eax = (int)eax>>0x10;
-		eax &= 0xff;
-		gg = eax;
-		edx = esi;
-		eax = D(edi+___19eb50h+8);
-		ll_tmp = (long long)(int)eax*(int)edx; edx = ll_tmp>>0x20; eax = ll_tmp;
-		eax += 0x8000;
-		edx += !!(eax < 0x8000);
-		eax = (eax >> 0x10)|(edx << 0x10);
-		eax += 0x8000;
-		eax = (int)eax>>0x10;
-		eax &= 0xff;
-		bb = eax;
-		__DISPLAY_SET_PALETTE_COLOR(bb, gg, rr, nn);
-		edx = D(esp+8);
-		edx++;
-		edi += 0xc;
-		D(esp+8) = edx;
-		if((int)edx < 0x100) goto ___3d55fh;
-		ebx = D(esp);
-		ebx -= 0x20000;
-		ebp--;
-		D(esp) = ebx;
-		if((int)ebp >= 0) goto ___3d536h;
-		eax = "credit1.pal";
-		ebx = "credit1.bpk";
-		edx = ___1a54d0h;
-		___3d154h(eax);
-		eax = "MENU.BPA";
-		old_bpa_read(eax, edx, ebx);
-		ecx = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
-		bpk_decode2(ecx, ___1a54d0h);
-		___12cb8h__VESA101_PRESENTSCREEN();
-		___3d1f0h();
-___3d63dh:
-		L(eax) = ___5994ch();
-		if(L(eax) == 0) goto ___3d63dh;
-		___3d2bch();
-		eax = "credit2.pal";
-		ebx = "credit2.bpk";
-		edx = ___1a54d0h;
-		___3d154h(eax);
-		eax = "MENU.BPA";
-		old_bpa_read(eax, edx, ebx);
-		edi = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
-		bpk_decode2(edi, ___1a54d0h);
-		___12cb8h__VESA101_PRESENTSCREEN();
-		___3d1f0h();
-___3d684h:
-		L(eax) = ___5994ch();
-		if(L(eax) == 0) goto ___3d684h;
-		___3d2bch();
-		___2b318h();
-		ecx = 0x4b000;
-		esi = D(___1a1124h__VESA101h_ScreenBufferA);
-		edi = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
-		memcpy(edi, esi, ecx);
-		ebp = 0;
-		___12cb8h__VESA101_PRESENTSCREEN();
-		D(esp+4) = ebp;
-___3d6c3h:
+		if((0x32-i)%2) ___13a98h_cdecl(0);
+
+		n = -1;
+		while(++n < 0x100){
+
+			rr = helper_color(D(___19eb50h+0xc*n+0), 0x20000*(0x32-i));
+			gg = helper_color(D(___19eb50h+0xc*n+4), 0x20000*(0x32-i));
+			bb = helper_color(D(___19eb50h+0xc*n+8), 0x20000*(0x32-i));
+
+			__DISPLAY_SET_PALETTE_COLOR(bb, gg, rr, n);
+		}
+	}
+
+	___3d154h("credit1.pal");
+	old_bpa_read("MENU.BPA", ___1a54d0h, "credit1.bpk");
+	bpk_decode2(___1a112ch__VESA101_ACTIVESCREEN_PTR, ___1a54d0h);
+	___12cb8h__VESA101_PRESENTSCREEN();
+	___3d1f0h();
+	while(!___5994ch());
+	___3d2bch();
+	___3d154h("credit2.pal");
+	old_bpa_read("MENU.BPA", ___1a54d0h, "credit2.bpk");
+	bpk_decode2(___1a112ch__VESA101_ACTIVESCREEN_PTR, ___1a54d0h);
+	___12cb8h__VESA101_PRESENTSCREEN();
+	___3d1f0h();
+	while(!___5994ch());
+	___3d2bch();
+	___2b318h();
+	memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR, ___1a1124h__VESA101h_ScreenBufferA, 0x4b000);
+	___12cb8h__VESA101_PRESENTSCREEN();
+
+	i = -1;
+	while(++i <= 0x32){
+
 		___58c60h();
-		esi = 2;
-		edx = ebp;
-		eax = ebp;
-		edx = (int)edx>>0x1f;
-		edx = (long long)(int)eax%(int)esi;
-		if(edx == 0) goto ___3d6e1h;
-		eax = 0;
-		___13a98h_cdecl(eax);
-___3d6e1h:
-		esi = D(esp+4);
-		ecx = 0;
-		edi = 0;
-		D(esp+8) = ecx;
-___3d6edh:
-		eax = 0;
-		L(eax) = B(esp+8);
-		nn = eax;
-		edx = esi;
-		eax = D(edi+___19eb50h);
-		ll_tmp = (long long)(int)eax*(int)edx; edx = ll_tmp>>0x20; eax = ll_tmp;
-		eax += 0x8000;
-		edx += !!(eax < 0x8000);
-		eax = (eax >> 0x10)|(edx << 0x10);
-		eax += 0x8000;
-		eax = (int)eax>>0x10;
-		eax &= 0xff;
-		rr = eax;
-		edx = esi;
-		eax = D(edi+___19eb50h+4);
-		ll_tmp = (long long)(int)eax*(int)edx; edx = ll_tmp>>0x20; eax = ll_tmp;
-		eax += 0x8000;
-		edx += !!(eax < 0x8000);
-		eax = (eax >> 0x10)|(edx << 0x10);
-		eax += 0x8000;
-		eax = (int)eax>>0x10;
-		eax &= 0xff;
-		gg = eax;
-		edx = esi;
-		eax = D(edi+___19eb50h+8);
-		ll_tmp = (long long)(int)eax*(int)edx; edx = ll_tmp>>0x20; eax = ll_tmp;
-		eax += 0x8000;
-		edx += !!(eax < 0x8000);
-		eax = (eax >> 0x10)|(edx << 0x10);
-		eax += 0x8000;
-		eax = (int)eax>>0x10;
-		eax &= 0xff;
-		bb = eax;
-		__DISPLAY_SET_PALETTE_COLOR(bb, gg, rr, nn);
-		eax = D(esp+8);
-		eax++;
-		edi += 0xc;
-		D(esp+8) = eax;
-		if((int)eax < 0x100) goto ___3d6edh;
-		edx = D(esp+6);
-		edx += 2;
-		ebp++;
-		W(esp+6) = X(edx);
-		if((int)ebp < 0x32) goto ___3d6c3h;
-		return;
+		if(i%2) ___13a98h_cdecl(0);
+
+		n = -1;
+		while(++n < 0x100){
+
+			rr = helper_color(D(___19eb50h+0xc*n+0), 0x20000*i);
+			gg = helper_color(D(___19eb50h+0xc*n+4), 0x20000*i);
+			bb = helper_color(D(___19eb50h+0xc*n+8), 0x20000*i);
+
+			__DISPLAY_SET_PALETTE_COLOR(bb, gg, rr, n);
+		}
+	}
 }

@@ -1,5 +1,6 @@
 #include "drally.h"
 #include "drmath.h"
+#include "sfx.h"
 
 	extern byte ___243c60h[];
 	extern byte ___1e6ed0h[];
@@ -203,7 +204,7 @@ ___517a5h:
 ___51830h:
 		edx = 0x12;
 		eax = 0x4;
-		dRally_Sound_pushEffect(eax, edx, ebx, ecx, 0x21000, p6);	// DROPPING MINE
+		dRally_Sound_pushEffect(eax, SFX_MINE, ebx, ecx, 0x21000, p6);	// DROPPING MINE
 ___51844h:
 		edx = D(___2438d0h);
 		eax = D(esp+0x88);
@@ -456,7 +457,7 @@ ___51ca5h:
 		edx = 0x17;
 		eax = 0x4;
 		ebx ^= ebx;
-		dRally_Sound_pushEffect(eax, edx, ebx, ecx, 0x21000, p6);	// MINE EXPLOSION
+		dRally_Sound_pushEffect(eax, SFX_MINE_EXPLOSION, ebx, ecx, 0x21000, p6);	// MINE EXPLOSION
 ___51cbbh:
 		eax = D(esp+0x7c);
 		edx = D(___2438d0h);

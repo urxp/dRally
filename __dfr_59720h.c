@@ -1,3 +1,7 @@
+#include "drally.h"
+
+dword ___59720h(void){
+
 /*
 cpu 386
 %include "macros.inc"
@@ -278,3 +282,6 @@ ___59942h:
 		pop     ebx
 		retn    
 */
+
+	return 0;
+}

@@ -1,13 +1,14 @@
 #include "drally.h"
+#include "drally_keyboard.h"
 #include "sfx.h"
 
 	extern byte ___19eb50h[];
-	extern byte ___1a112ch__VESA101_ACTIVESCREEN_PTR[];
-	extern byte ___1a10e4h__VESA101h_DefaultScreenBufferA[];
-	extern byte ___1a1138h__VESA101h_DefaultScreenBufferB[];
-	extern byte ___1a0f90h[];
-	extern byte ___1a0f88h[];
-	extern byte ___1a0f84h[];
+	extern void * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
+	extern void * ___1a10e4h__VESA101h_DefaultScreenBufferA;
+	extern void * ___1a1138h__VESA101h_DefaultScreenBufferB;
+	extern void * ___1a0f90h;
+	extern void * ___1a0f88h;
+	extern void * ___1a0f84h;
 	extern byte ___1a1028h[];
 	extern byte ___1a103ch[];
 	extern byte ___196af0h[];
@@ -64,13 +65,17 @@ void ___31008h(void){
 
 	dword 	eax, ebx, ecx, edx, edi, esi, ebp, rr, gg, bb, nn, p5;
 	byte 	esp[0x30];
+	__BYTE__ 	px;
+	int 		i, j, n;
 
 
-		edx = 0xb0;
-		esi = 0x840;
-		D(esp+0x28) = edx;
-		edi = 0x640000;
-___3102eh:
+	edx = 0xb0;
+	esi = 0x840;
+	D(esp+0x28) = edx;
+	edi = 0x640000;
+	
+	while(1){
+
 		eax ^= eax;
 		L(eax) = B(esp+0x28);
 		nn = eax;
@@ -109,311 +114,217 @@ ___3102eh:
 		ebx++;
 		esi += 0xc;
 		D(esp+0x28) = ebx;
-		if((int)ebx < 0xb7) goto ___3102eh;
-		ecx = 0x4b000;
-		esi = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
-		edi = D(___1a10e4h__VESA101h_DefaultScreenBufferA);
-		memcpy(edi, esi, ecx);
-		ecx = 0x2aa80;
-		eax = D(___1a10e4h__VESA101h_DefaultScreenBufferA);
-		esi = D(___1a1138h__VESA101h_DefaultScreenBufferB);
-		D(___1a112ch__VESA101_ACTIVESCREEN_PTR) = eax;
-		esi += 0xe100;
-		edi = eax+0xe100;
-		ebx = 0x27f;
-		memcpy(edi, esi, ecx);
-		ecx = 0x2800;
-		esi = D(___1a1138h__VESA101h_DefaultScreenBufferB);
-		edi = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
-		esi += 0x39580;
-		edi += 0x39580;
-		edx = 0x173;
-		memcpy(edi, esi, ecx);
-		ecx = 0x6d;
-		eax ^= eax;
-		___135fch(eax, edx, ebx, ecx);
-		___23230h();
-		___25330h();
-		ecx = 0x10;
-		edx = 0x1b8;
-		ebx = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
-		esi = D(___1a0f90h);
-		ebx += 0xe628;
-___31179h:
-		edi = edx;
-___3117bh:
-		L(eax) = B(esi);
-		if(L(eax) == 0) goto ___31183h;
-		B(ebx) = L(eax);
-___31183h:
-		ebx++;
-		esi++;
-		edi--;
-		if(edi) goto ___3117bh;
-		ebx += 0x280;
-		ebx -= edx;
-		ecx--;
-		if(ecx) goto ___31179h;
-		ecx = 0xe4;
-		edx = 0x100;
-		ebx = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
-		esi = D(___1a0f88h);
-		ebx += 0x140b0;
-___311afh:
-		edi = edx;
-___311b1h:
-		L(eax) = B(esi);
-		if(L(eax) == 0) goto ___311b9h;
-		B(ebx) = L(eax);
-___311b9h:
-		ebx++;
-		esi++;
-		edi--;
-		if(edi) goto ___311b1h;
-		ebx += 0x280;
-		ebx -= edx;
-		ecx--;
-		if(ecx) goto ___311afh;
-		ecx = 0x68;
-		edx = 0x73;
-		ebx = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
-		esi = D(___1a0f84h);
-		ebx += 0x25d1c;
-___311e5h:
-		edi = edx;
-___311e7h:
-		L(eax) = B(esi);
-		if(L(eax) == 0) goto ___311efh;
-		B(ebx) = L(eax);
-___311efh:
-		ebx++;
-		esi++;
-		edi--;
-		if(edi) goto ___311e7h;
-		ebx += 0x280;
-		ebx -= edx;
-		ecx--;
-		if(ecx) goto ___311e5h;
-		ecx = 0xf4;
-		ebx = 0x10c;
-		edx = 0x78;
-		eax = 0xaa;
-		___27f80h_cdecl(eax, edx, ebx, ecx);
-		esi ^= esi;
-		D(esp+0x28) = esi;
-		restoreDefaultScreenBuffer();
-		___3a6a4h();
-		___12cb8h__VESA101_PRESENTSCREEN();
-		L(eax) = 0;
-___31234h:
-		if(L(eax) == 0x1c) goto ___3125bh;
-		if(L(eax) == 0x9c) goto ___3125bh;
-		if(L(eax) == 1) goto ___3125bh;
-		edi = D(esp+0x28);
+		if((int)ebx >= 0xb7) break;
+	}
+
+	memcpy(___1a10e4h__VESA101h_DefaultScreenBufferA, ___1a112ch__VESA101_ACTIVESCREEN_PTR, 0x4b000);
+	___1a112ch__VESA101_ACTIVESCREEN_PTR = ___1a10e4h__VESA101h_DefaultScreenBufferA;
+	memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR+0xe100, ___1a1138h__VESA101h_DefaultScreenBufferB+0xe100, 0x2aa80);
+	memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR+0x39580, ___1a1138h__VESA101h_DefaultScreenBufferB+0x39580, 0x2800);
+	___135fch(0, 0x173, 0x27f, 0x6d);
+	___23230h();
+	___25330h();
+
+	j = -1;
+	while(++j < 0x10){
+
+		i = -1;
+		while(++i < 0x1b8){
+
+			if((px = B(___1a0f90h+0x1b8*j+i)) != 0) B(___1a112ch__VESA101_ACTIVESCREEN_PTR+0xe628+0x280*j+i) = px;
+		}
+	}
+
+	j = -1;
+	while(++j < 0xe4){
+
+		i = -1;
+		while(++i < 0x100){
+
+			if((px = B(___1a0f88h+0x100*j+i)) != 0) B(___1a112ch__VESA101_ACTIVESCREEN_PTR+0x140b0+0x280*j+i) = px;
+		}
+	}
+
+	j = -1;
+	while(++j < 0x68){
+
+		i = -1;
+		while(++i < 0x73){
+
+			if((px = B(___1a0f84h+0x73*j+i)) != 0) B(___1a112ch__VESA101_ACTIVESCREEN_PTR+0x25d1c+0x280*j+i) = px;
+		}
+	}
+
+	ecx = 0xf4;
+	ebx = 0x10c;
+	edx = 0x78;
+	___27f80h_cdecl(0xaa, edx, ebx, ecx);
+	restoreDefaultScreenBuffer();
+	___3a6a4h();
+	___12cb8h__VESA101_PRESENTSCREEN();
+
+	L(eax) = 0;
+	n = -1;
+	while(++n < 0x1e0){
+
+		if((L(eax) == DR_SCAN_ENTER)||(L(eax) == DR_SCAN_KP_ENTER)||(L(eax) == DR_SCAN_ESCAPE)) break;
 		___2ab50h();
-		edi++;
 		L(eax) = ___5994ch();
-		D(esp+0x28) = edi;
-		if((int)edi < 0x1e0) goto ___31234h;
-___3125bh:
-		if(L(eax) == 1) goto ___31320h;
-		edx = 0x3;
-		ebx = 0x1;
-		eax = 0x2;
-		ecx ^= ecx;
-		D(___1a1028h) = edx;
-		D(___1a103ch) = ebx;
-		D(___196af0h) = ecx;
-		D(___196aech) = ecx;
-		___33010h_cdecl(eax);
-		if(ebx != D(___196ae8h)) goto ___3157eh;
-		H(eax) = 1;
-		edi = ___1866b8h+0x1c2;
-		esi = "Start A New Game";
-		D(___185a48h) = ecx;
-		D(___185a44h) = ecx;
-		D(___185a40h) = ecx;
-		D(___185a3ch) = ecx;
-		L(edx) = 0;
-		L(ebx) = 0;
-		ebp ^= ebp;
-		ecx = 0x1;
-		B(___185b58h+0x1) = H(eax);
-		D(edi) = D(esi); edi += 4; esi += 4;
-		D(edi) = D(esi); edi += 4; esi += 4;
-		D(edi) = D(esi); edi += 4; esi += 4;
-		D(edi) = D(esi); edi += 4; esi += 4;
-		B(edi++) = B(esi++);
-		B(___185b58h+0xa) = L(edx);
-		edi = ___1866b8h;
-		esi = "Start Racing";
-		H(edx) = 0;
-		B(___185b58h+0xd) = L(ebx);
-		B(___185b58h+0xb) = H(edx);
-		D(edi) = D(esi); edi += 4; esi += 4;
-		D(edi) = D(esi); edi += 4; esi += 4;
-		D(edi) = D(esi); edi += 4; esi += 4;
-		B(edi++) = B(esi++);
-		___2415ch();
-		D(___243d44h) = ecx;
-		D(___185a5ch+0x34) = ebp;
-		D(___185a2ch) = ecx;
-		D(___196ae8h) = ebp;
-		return;
-___31320h:
-		eax = 0x25500;
-		edx = 0x17;
-		eax -= 0x1000;
-		ecx = ___24cc54h_sfx_volume;
-		p5 = eax;
-		ebx = 0;
-		dRally_Sound_pushEffect(0x1, SFX_LAUGHTER, ebx, ecx, p5, 0x8000);
+	}
+
+	if(L(eax) == DR_SCAN_ESCAPE){ // CHICKEN OUT
+
+		dRally_Sound_pushEffect(0x1, SFX_LAUGHTER, 0, ___24cc54h_sfx_volume, 0x25500-0x1000, 0x8000);
 		___2b318h();
-		eax = 0xffdc;
 		ebp = 0x640000;
-		D(esp+0x2c) = eax;
-___3135ah:
-		if(D(___185a14h_UseWeapons) == 0) goto ___31375h;
-		if(D(___185a4ch) == 0) goto ___31375h;
-		eax = D(esp+0x2c);
-		dRally_Sound_setMasterVolume(eax);
-___31375h:
-		___58c60h();
-		esi = ebp;
-		ebx ^= ebx;
-		edi ^= edi;
-		D(esp+0x28) = ebx;
-___31384h:
-		eax ^= eax;
-		L(eax) = B(esp+0x28);
-		nn = eax;
-		edx = esi;
-		eax = D(edi+___19eb50h);
-		___imul32(&eax, &edx, edx);
-		eax += 0x8000;
-		edx += !!(eax < 0x8000);
-		eax = (eax >> 0x10)|(edx << 0x10);
-		eax += 0x8000;
-		eax= (int)eax>>0x10;
-		eax &= 0xff;
-		rr = eax;
-		edx = esi;
-		eax = D(edi+___19eb50h+4);
-		___imul32(&eax, &edx, edx);
-		eax += 0x8000;
-		edx += !!(eax < 0x8000);
-		eax = (eax >> 0x10)|(edx << 0x10);
-		eax += 0x8000;
-		eax= (int)eax>>0x10;
-		eax &= 0xff;
-		gg = eax;
-		edx = esi;
-		eax = D(edi+___19eb50h+8);
-		___imul32(&eax, &edx, edx);
-		eax += 0x8000;
-		edx += !!(eax < 0x8000);
-		eax = (eax >> 0x10)|(edx << 0x10);
-		eax += 0x8000;
-		eax= (int)eax>>0x10;
-		eax &= 0xff;
-		bb = eax;
-		__DISPLAY_SET_PALETTE_COLOR(bb, gg, rr, nn);
-		ecx = D(esp+0x28);
-		ecx++;
-		edi += 0xc;
-		D(esp+0x28) = ecx;
-		if((int)ecx < 0x100) goto ___31384h;
-		edx = D(esp+0x2c);
-		edx -= 0x51e;
-		ebp -= 0x20000;
-		D(esp+0x2c) = edx;
-		if(ebp != 0xfffe0000) goto ___3135ah;
-		if(D(___185a14h_UseWeapons) == 0) goto ___31462h;
-		if(D(___185a4ch) == 0) goto ___31462h;
-		eax = D(___1a1ef4h);
-		esi = 0x1;
-		dRally_Sound_setPosition(eax);
-		eax = esi;
-		D(___185a28h) = esi;
-		dRally_Sound_freeEffectChannel(eax);
-___31462h:
-		edi ^= edi;
+		D(esp+0x2c) = 0xffdc;
+
+		while(1){
+
+			if((D(___185a14h_UseWeapons) != 0)&&(D(___185a4ch) != 0)) dRally_Sound_setMasterVolume(D(esp+0x2c));
+
+			___58c60h();
+			esi = ebp;
+			edi = 0;
+			D(esp+0x28) = 0;
+
+			while(1){
+
+				eax ^= eax;
+				L(eax) = B(esp+0x28);
+				nn = eax;
+				edx = esi;
+				eax = D(edi+___19eb50h);
+				___imul32(&eax, &edx, edx);
+				eax += 0x8000;
+				edx += !!(eax < 0x8000);
+				eax = (eax >> 0x10)|(edx << 0x10);
+				eax += 0x8000;
+				eax= (int)eax>>0x10;
+				eax &= 0xff;
+				rr = eax;
+				edx = esi;
+				eax = D(edi+___19eb50h+4);
+				___imul32(&eax, &edx, edx);
+				eax += 0x8000;
+				edx += !!(eax < 0x8000);
+				eax = (eax >> 0x10)|(edx << 0x10);
+				eax += 0x8000;
+				eax= (int)eax>>0x10;
+				eax &= 0xff;
+				gg = eax;
+				edx = esi;
+				eax = D(edi+___19eb50h+8);
+				___imul32(&eax, &edx, edx);
+				eax += 0x8000;
+				edx += !!(eax < 0x8000);
+				eax = (eax >> 0x10)|(edx << 0x10);
+				eax += 0x8000;
+				eax= (int)eax>>0x10;
+				eax &= 0xff;
+				bb = eax;
+				__DISPLAY_SET_PALETTE_COLOR(bb, gg, rr, nn);
+				ecx = D(esp+0x28);
+				ecx++;
+				edi += 0xc;
+				D(esp+0x28) = ecx;
+				if((int)ecx >= 0x100) break;
+			}
+
+			edx = D(esp+0x2c);
+			edx -= 0x51e;
+			ebp -= 0x20000;
+			D(esp+0x2c) = edx;
+			if(ebp == 0xfffe0000) break;
+		}
+
+		if((D(___185a14h_UseWeapons) != 0)&&(D(___185a4ch) != 0)){
+
+			dRally_Sound_setPosition(D(___1a1ef4h));
+			D(___185a28h) = 1;
+			dRally_Sound_freeEffectChannel(1);
+		}
+
 		___12940h();
-		D(esp+0x28) = edi;
-		esi ^= esi;
-___3146fh:
-		eax ^= eax;
-		L(eax) = B(esp+0x28);
-		nn = eax;
-		rr = esi;
-		ebp = D(esp+0x28);
-		gg = esi;
-		ebp++;
-		bb = esi;
-		D(esp+0x28) = ebp;
-		__DISPLAY_SET_PALETTE_COLOR(bb, gg, rr, nn);
-		if((int)ebp < 0x100) goto ___3146fh;
-		L(edx) = 4;
-		ebx = 0x1;
-___31496h:
-		eax = ebx;
-		___3079ch_cdecl(eax);
-		if(L(edx) > B(___1a1f64h+3)) goto ___31496h;
-		if(L(edx) > B(___1a1f64h+4)) goto ___31496h;
-		if(L(edx) > B(___1a1f64h+5)) goto ___31496h;
-		ecx = 0x4;
-		eax = esp;
-		edx ^= edx;
-		ebx = 0x4;
-		memset(eax, edx, ecx);
-		esi ^= esi;
-___314cah:
-		eax = rand_watcom106();
-		edx = eax;
-		edx= (int)edx>>0x1f;
-		___idiv32(&eax, &edx, ebx);
-		edx++;
-		eax = edx;
-		D(esi+___1de7d0h+0x40) = edx;
-		if(B(esp+edx-1) != 0) goto ___314cah;
-		H(edx) = 1;
-		esi += 0x54;
-		B(esp+eax-1) = H(edx);
-		if(esi != 0x150) goto ___314cah;
-		eax = 0x1;
-		___3892ch_cdecl(eax);
-		edx = ebx;
-		D(esp+0x28) = ebx;
-		esi = D(___1a1ef8h);
-		edx ^= ebx;
-		ebx ^= ebx;
-		eax ^= eax;
-		D(esp+0x28) = ebx;
-___31517h:
-		ecx = D(eax+___1a01e0h+0x44);
-		if((int)edx >= (int)ecx) goto ___31529h;
-		if(esi == D(esp+0x28)) goto ___31529h;
-		edx = ecx;
-___31529h:
-		edi = D(esp+0x28);
-		edi++;
-		eax += 0x6c;
-		D(esp+0x28) = edi;
-		if((int)edi < 0x14) goto ___31517h;
-		if(D(___19bd60h) != 0) goto ___3156ah;
-		esi = D(___1a1ef8h);
-		eax = 8*esi;
-		eax -= esi;
-		eax <<= 0x2;
-		eax -= esi;
-		if((int)edx >= (int)D(eax*4+___1a01e0h+0x44)) goto ___3156ah;
-		esi ^= esi;
-		D(___1a0a50h+0xc) = esi;
-		goto ___31574h;
-___3156ah:
-		D(___1a0a50h+0xc) = 1;
-___31574h:
+
+		D(esp+0x28) = 0;
+		while(1){
+
+			__DISPLAY_SET_PALETTE_COLOR(0, 0, 0, B(esp+0x28));
+			D(esp+0x28)++;
+			if((int)D(esp+0x28) >= 0x100) break;
+		}
+
+		while(1){
+
+			___3079ch_cdecl(1);
+			if((B(___1a1f64h+3) >= 4)&&(B(___1a1f64h+4) >= 4)&&(B(___1a1f64h+5) >= 4)) break;
+		}
+
+		memset(esp, 0, 4);
+
+		n = -1;
+		while(++n < 4){
+
+			while(1){
+
+				eax = 1+rand_watcom106()%4;
+				D(___1de7d0h+0x54*n+0x40) = eax;
+				if(B(esp+eax-1) == 0) break;
+			}
+			
+			B(esp+eax-1) = 1;
+		}
+
+		___3892ch_cdecl(1);
+		edx  = 0;
+
+		n = -1;
+		while(++n < 0x14){
+
+			ecx = D(___1a01e0h+0x6c*n+0x44);
+			if(((int)edx < (int)ecx)&&(n != D(___1a1ef8h))) edx = ecx;
+		}
+
+#if defined(DR_MULTIPLAYER)
+		if(D(___19bd60h) != 0){
+
+			D(___1a0a50h+0xc) = 1;
+		}
+		else {
+#endif // DR_MULTIPLAYER
+			D(___1a0a50h+0xc) = !((int)edx < (int)D(___1a01e0h+0x6c*D(___1a1ef8h)+0x44));
+#if defined(DR_MULTIPLAYER)
+		}
+#endif // DR_MULTIPLAYER
+
 		D(___185a20h) = 1;
-___3157eh:
-		return;
+	}
+	else {
+
+		D(___1a1028h) = 3;
+		D(___1a103ch) = 1;
+		D(___196af0h) = 0;
+		D(___196aech) = 0;
+		___33010h_cdecl(2);
+
+		if(D(___196ae8h) == 1){
+			
+			D(___185a48h) = 0;
+			D(___185a44h) = 0;
+			D(___185a40h) = 0;
+			D(___185a3ch) = 0;
+			B(___185b58h+0x1) = 1;
+			strcpy(___1866b8h+0x1c2, "Start A New Game");
+			B(___185b58h+0xa) = 0;
+			B(___185b58h+0xd) = 0;
+			B(___185b58h+0xb) = 0;
+			strcpy(___1866b8h, "Start Racing");
+			___2415ch();
+			D(___243d44h) = 1;
+			D(___185a5ch+0x34) = 0;
+			D(___185a2ch) = 1;
+			D(___196ae8h) = 0;
+		}
+	}
 }

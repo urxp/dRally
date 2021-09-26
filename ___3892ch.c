@@ -59,7 +59,7 @@ void dRally_Sound_setSampleRate(dword freq);
 void dRally_Sound_play(void);
 void ___606dfh(void);
 void ___605deh_cdecl(dword, dword);
-void dRally_Sound_load(dword msx_t, dword msx_f, dword sfx_t, dword sfx_f, dword num_ch);
+void dRally_Sound_load(dword msx_t, const char * msx_f, dword sfx_t, const char * sfx_f, dword num_ch);
 void ___10b80h_cdecl(const char *, dword, const char *, dword, const char *, dword, dword);
 dword GET_FILE_SIZE(const char *);
 
@@ -473,13 +473,10 @@ ___38ec1h:
 		eax -= edi;
 		L(eax) = !!((int)esi < (int)D(eax*4+___1a01e0h+0x44));
 		ecx = 0x46b6e;
-		ebx = "Please wait while loading...";
 		eax &= 0xff;
-		edx = ___185c0bh;
 		D(___196ab4h) = eax;
 		___38708h();
-		eax = ___1a1108h;
-		___12e78h_cdecl(eax, edx, ebx, ecx);
+		___12e78h_cdecl(___1a1108h, ___185c0bh, "Please wait while loading...", ecx);
 		___12cb8h__VESA101_PRESENTSCREEN();
 		___1240ch();
 		___24548h();
@@ -487,10 +484,7 @@ ___38ec1h:
 		___38708h();
 		dRally_Sound_pushEffect(1, SFX_CLICK_4, 0, ___24cc54h_sfx_volume, 0x28000, 0x8000);
 		ecx = 0x46b6e;
-		ebx = "Press any key to continue...";
-		edx = ___185c0bh;
-		eax = ___1a1108h;
-		___12e78h_cdecl(eax, edx, ebx, ecx);
+		___12e78h_cdecl(___1a1108h, ___185c0bh, "Press any key to continue...", ecx);
 		___12cb8h__VESA101_PRESENTSCREEN();
 ___38f61h:
 		if(D(esp+0x64) == 1){
@@ -794,95 +788,74 @@ ___393a9h:
 ___39439h:
 		ebp -= 0x20000;
 		if(ebp != 0xfffe0000) goto ___3938dh;
-		if(B(___1a2147h) != 1) goto ___39617h;
-		dRally_Sound_release();
-		L(eax) = 0;
-		B(esp) = L(eax);
-		esi = ___1a0d60h;
-		edi = esp;
-		strcat(edi, esi);
-		esi = "endani0.haf";
-		edi = esp;
-		strcat(edi, esi);
-		eax = esp;
-		eax = GET_FILE_SIZE(eax);
-		if((int)eax <= 0) goto ___394feh;
-		ecx = 0x2;
-		ebx = "tr0-mus.cmf";
-		edx = 0x1;
-		eax = "endani0.haf";
-		___10b80h_cdecl(eax, edx, ebx, ecx, "endani0e.cmf", 1, 0x78);
-		dRally_Sound_release();
-___394feh:
-		ecx = "MEN-SAM.CMF";
-		ebx = 0x2;
-		edx = "MEN-MUS.CMF";
-		eax = 0x1;
-		dRally_Sound_load(eax, edx, ebx, ecx, 5);
-		eax = ___24cc58h_msx_volume;
-		esi = 0x480;
-		dRally_Sound_setMusicVolume(eax);
-		eax = 0x5622;
-		edi = 0x640000;
-		dRally_Sound_setSampleRate(eax);
-		dRally_Sound_play();
-		H(ebx) = 0;
-		B(___1a2147h) = H(ebx);
-		___606dfh();
-		__VESA101_SETMODE();
-		___2b318h();
-		eax = 0x46;
-		edx ^= edx;
-		ecx = 0x60;
-		___605deh_cdecl(eax, edx);
-		eax ^= eax;
-		D(esp+0x68) = ecx;
-		D(___196aa0h) = eax;
-		D(___196a9ch) = eax;
-		D(___196a98h) = eax;
-___39588h:
-		eax ^= eax;
-		L(eax) = B(esp+0x68);
-		nn = eax;
-		edx = edi;
-		eax = D(esi+___19eb50h);
-		___imul32(&eax, &edx, edx);
-		eax += 0x8000;
-		edx += !!(eax < 0x8000);
-		eax = (eax>>0x10)|(edx<<0x10);
-		eax += 0x8000;
-		eax = (int)eax>>0x10;
-		eax &= 0xff;
-		rr = eax;
-		edx = edi;
-		eax = D(esi+___19eb50h+4);
-		___imul32(&eax, &edx, edx);
-		eax += 0x8000;
-		edx += !!(eax < 0x8000);
-		eax = (eax>>0x10)|(edx<<0x10);
-		eax += 0x8000;
-		eax = (int)eax>>0x10;
-		eax &= 0xff;
-		gg = eax;
-		edx = edi;
-		eax = D(esi+___19eb50h+8);
-		___imul32(&eax, &edx, edx);
-		eax += 0x8000;
-		edx += !!(eax < 0x8000);
-		eax = (eax>>0x10)|(edx<<0x10);
-		eax += 0x8000;
-		eax = (int)eax>>0x10;
-		eax &= 0xff;
-		bb = eax;
-		__DISPLAY_SET_PALETTE_COLOR(bb, gg , rr, nn);
-		eax = D(esp+0x68);
-		eax++;
-		esi += 0xc;
-		D(esp+0x68) = eax;
-		if((int)eax < 0x80) goto ___39588h;
+
+		if(B(___1a2147h) == 1){
+
+			dRally_Sound_release();
+
+			eax = GET_FILE_SIZE(strcat(strcpy(esp, ___1a0d60h), "endani0.haf"));
+			if((int)eax > 0){
+
+				___10b80h_cdecl("endani0.haf", 1, "tr0-mus.cmf", 2, "endani0e.cmf", 1, 0x78);
+				dRally_Sound_release();
+			}
+
+			dRally_Sound_load(1, "MEN-MUS.CMF", 2, "MEN-SAM.CMF", 5);
+			dRally_Sound_setMusicVolume(___24cc58h_msx_volume);
+			dRally_Sound_setSampleRate(0x5622);
+			dRally_Sound_play();
+			B(___1a2147h) = 0;
+			___606dfh();
+			__VESA101_SETMODE();
+			___2b318h();
+			___605deh_cdecl(0x46, 0);
+			D(esp+0x68) = 0x60;
+			D(___196aa0h) = 0;
+			D(___196a9ch) = 0;
+			D(___196a98h) = 0;
+			esi = 0x480;
+
+			while(1){
+
+				nn = B(esp+0x68);
+
+				eax = D(___19eb50h+esi);
+				___imul32(&eax, &edx, 0x640000);
+				eax += 0x8000;
+				edx += !!(eax < 0x8000);
+				eax = (eax>>0x10)|(edx<<0x10);
+				eax += 0x8000;
+				eax = (int)eax>>0x10;
+				eax &= 0xff;
+				rr = eax;
+
+				eax = D(___19eb50h+esi+4);
+				___imul32(&eax, &edx, 0x640000);
+				eax += 0x8000;
+				edx += !!(eax < 0x8000);
+				eax = (eax>>0x10)|(edx<<0x10);
+				eax += 0x8000;
+				eax = (int)eax>>0x10;
+				eax &= 0xff;
+				gg = eax;
+
+				eax = D(___19eb50h+esi+8);
+				___imul32(&eax, &edx, 0x640000);
+				eax += 0x8000;
+				edx += !!(eax < 0x8000);
+				eax = (eax>>0x10)|(edx<<0x10);
+				eax += 0x8000;
+				eax = (int)eax>>0x10;
+				eax &= 0xff;
+				bb = eax;
+				__DISPLAY_SET_PALETTE_COLOR(bb, gg , rr, nn);
+				esi += 0xc;
+				D(esp+0x68)++;
+				if((int)D(esp+0x68) >= 0x80) break;
+			}
+		}
 ___39617h:
-		ebx = 0x1;
 		___5994ch();
-		D(___196a74h) = ebx;
+		D(___196a74h) = 1;
 		return;
 }

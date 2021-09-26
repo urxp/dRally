@@ -12,7 +12,7 @@ typedef struct x655_s {
 	extern byte ___1a0d60h[];
 	extern byte ___1a1ef8h[];
 	extern byte ___1a01e0h[];
-	extern byte ___1a0fb8h[];
+	extern void * ___1a0fb8h;
 	extern __DWORD__ ___24cc58h_msx_volume;
 
 void ___10b80h_cdecl(const char *, dword, const char *, dword, const char *, dword, dword);
@@ -31,7 +31,7 @@ void ___58c60h(void);
 void dRally_Sound_setMasterVolume(dword vol);
 void __DISPLAY_SET_PALETTE_COLOR(dword b, dword g, dword r, dword n);
 void dRally_Sound_release(void);
-void dRally_Sound_load(dword msx_t, dword msx_f, dword sfx_t, dword sfx_f, dword num_ch);
+void dRally_Sound_load(dword msx_t, const char * msx_f, dword sfx_t, const char * sfx_f, dword num_ch);
 void dRally_Sound_setMusicVolume(dword vol);
 void dRally_Sound_setSampleRate(dword freq);
 void dRally_Sound_play(void);
@@ -42,9 +42,10 @@ dword GET_FILE_SIZE(const char *);
 void ___22808h(void){
 
 	dword 	rr, gg, bb;
-	dword 	eax, ebx, ecx, edx, edi, esi, ebp;
+	dword 	eax, ebx, ecx, edx, edi, ebp;
+	void * 	esi;
 	byte 	esp[0x70];
-	int 	n;
+	int 	i, k, n;
 
 
 	strcat(strcpy(esp, ___1a0d60h), "endani.haf");
@@ -59,31 +60,26 @@ void ___22808h(void){
 	___2faf0h();
 	___3d2bch();
 	___12940h();
-	esi = D(___1a0fb8h)+3*D(0x6c*D(___1a1ef8h)+___1a01e0h+0x2c);
+	esi = ___1a0fb8h+3*D(___1a01e0h+0x6c*D(___1a1ef8h)+0x2c);
 	___11564h_cdecl(B(esi), B(esi+1), B(esi+2));
 	___223c4h();
 	___2b318h();
 
-	D(esp+0x68) = 0xffdc;
-	ebp = 0x64;
-	while(1){
+	k = -1;
+	while(++k < 51){
 
-		___58c60h();
-		dRally_Sound_setMasterVolume(D(esp+0x68));
+		___58c60h();	// wait 1 frame
+		i = 100-2*k;
+		dRally_Sound_setMasterVolume(655*i);
 
 		n = -1;
 		while(++n < 0x100){
 
-			rr = ((ebp*___19eb50h[n].r+0x8000)>>0x10)&0xff;
-			gg = ((ebp*___19eb50h[n].g+0x8000)>>0x10)&0xff;
-			bb = ((ebp*___19eb50h[n].b+0x8000)>>0x10)&0xff;
+			rr = ((i*___19eb50h[n].r+0x8000)>>0x10)&0xff;
+			gg = ((i*___19eb50h[n].g+0x8000)>>0x10)&0xff;
+			bb = ((i*___19eb50h[n].b+0x8000)>>0x10)&0xff;
 			__DISPLAY_SET_PALETTE_COLOR(bb, gg, rr, n);
 		}
-
-		ebp -= 0x2;
-		D(esp+0x68) -= 0x51e;
-
-		if(ebp == 0xfffffffe) break;
 	}
 
 	dRally_Sound_release();

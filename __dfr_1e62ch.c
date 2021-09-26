@@ -1,3 +1,7 @@
+#include "drally.h"
+
+void ___1e62ch_cdecl(dword A0){
+
 /*
 cpu 386
 %include "macros.inc"
@@ -234,3 +238,4 @@ __dfr_18105ch:
 __dfr_181068h:
 	db	41h,6eh,73h,77h,65h,72h,20h,4dh,6fh,64h,65h,6dh,0,0,0,0
 */
+}

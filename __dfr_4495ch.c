@@ -1,3 +1,7 @@
+#include "drally.h"
+
+void ___4495ch(void){
+
 /*
 cpu 386
 %include "macros.inc"
@@ -126,3 +130,4 @@ __GDECL(___4495ch)
 		pop     ebx
 		retn    
 */
+}

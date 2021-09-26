@@ -123,7 +123,7 @@ void ___23488h_cdecl(dword, dword, dword);
 #endif // DR_MULTIPLAYER
 void ___2ec68h_cdecl(void);
 void ___11378h_cdecl(dword A1, dword A2, dword A3);
-void dRally_Sound_load(dword msx_t, dword msx_f, dword sfx_t, dword sfx_f, dword num_ch);
+void dRally_Sound_load(dword msx_t, const char * msx_f, dword sfx_t, const char * sfx_f, dword num_ch);
 void dRally_Sound_setMusicVolume(dword vol);
 void dRally_Sound_setSampleRate(dword freq);
 void dRally_Sound_play(void);
@@ -477,7 +477,7 @@ void ___33010h_cdecl(dword A1){
 /* ******************************************************************************** ROSTER FACES */
 
 	___1a112ch__VESA101_ACTIVESCREEN_PTR = ___1a1100h__VESA101h_DefaultScreenBuffer;
-	___3a968h_cdecl(0xffffffff);
+	___3a968h_cdecl(-1);
 	
 #if defined(DR_MULTIPLAYER)
 	if(D(___19bd60h) != 0){
@@ -651,35 +651,30 @@ void ___33010h_cdecl(dword A1){
 #endif // DR_MULTIPLAYER
 			}
 
-			edx = D(esp+0xd0);
 			edi = D(___1a1ef8h);
-			eax = B(esp+edx+0xcc);
-		
+			eax = B(esp+D(esp+0xd0)+0xcc);
+
 			if(eax == edi){
 
-				edx = D(0x6c*B(esp+D(esp+0xd0)+0xcc)+___1a01e0h+0x2c);
 				eaxp = ___1a0fb8h;
 			}
 			else {
 #if defined(DR_MULTIPLAYER)
 				if(D(___19bd60h) != 0){
 
-					edx = D(0x6c*B(esp+D(esp+0xd0)+0xcc)+___1a01e0h+0x2c);
 					eaxp = ___1a0fb8h;
 				}
 				else {
 #endif // DR_MULTIPLAYER
-					edx = D(0x6c*eax+___1a01e0h+0x2c);
 					eaxp = ___1a0fe0h;
 #if defined(DR_MULTIPLAYER)
 				}
 #endif // DR_MULTIPLAYER
 			}
 
-			eaxp = eaxp+edx*3;
-			D(___1de7d0h+ebx+0x34) = B(eaxp);
-			D(___1de7d0h+ebx+0x38) = B(eaxp+1);
-			D(___1de7d0h+ebx+0x3c) = B(eaxp+2);
+			D(___1de7d0h+ebx+0x34) = B(eaxp+3*D(0x6c*B(esp+D(esp+0xd0)+0xcc)+___1a01e0h+0x2c));
+			D(___1de7d0h+ebx+0x38) = B(eaxp+3*D(0x6c*B(esp+D(esp+0xd0)+0xcc)+___1a01e0h+0x2c)+1);
+			D(___1de7d0h+ebx+0x3c) = B(eaxp+3*D(0x6c*B(esp+D(esp+0xd0)+0xcc)+___1a01e0h+0x2c)+2);
 
 #if defined(DR_MULTIPLAYER)
 			if(D(___19bd60h) != 0){
@@ -856,7 +851,7 @@ void ___33010h_cdecl(dword A1){
 	race_main(D(___1a103ch), D(esp+0xc8));
 
 #if defined(DR_MULTIPLAYER)	
-	if((D(___19bd60h) != 0)&&(D(CONNECTION_TYPE) == 2)) ___60705h(___10754h);
+	if((D(___19bd60h) != 0)&&(D(CONNECTION_TYPE) == 2)) ___60705h(&___10754h);
 #endif // DR_MULTIPLAYER
 
 	D(___185a18h) = D(___196ae8h) = D(___1de7d0h+0x40+0x54*D(___1a103ch));
@@ -1017,7 +1012,7 @@ void ___33010h_cdecl(dword A1){
 	eax <<= 2;
 	eax -= edx;
 	eax <<= 2;
-	if(D(eax+___1a01e0h+0x34) != 0xffffffff) D(eax+___1a01e0h+0x38)++;
+	if(D(eax+___1a01e0h+0x34) != -1) D(eax+___1a01e0h+0x38)++;
 	edi = 0;
 	eax = 0;
 	edx = 0;
@@ -1872,16 +1867,13 @@ void ___33010h_cdecl(dword A1){
 		if((int)edi >= 0x14) break;
 	}
 
-	ebx = D(___1a1ef8h);
-	eax = 8*ebx;
-	eax -= ebx;
-	eax <<= 2;
-	eax -= ebx;
+	if(((int)edx >= (int)D(___1a01e0h+0x6c*D(___1a1ef8h)+0x44))||((D(___196ae8h) != 1)||(D(___19bd60h) != 0))){
 
-	if(((int)edx >= (int)D(eax*4+___1a01e0h+0x44))||((D(___196ae8h) != 1)||(D(___19bd60h) != 0))){
+		___11378h_cdecl(
+			B(___1a0fb8h+3*D(___1a01e0h+0x6c*D(___1a1ef8h)+0x2c)),
+			B(___1a0fb8h+3*D(___1a01e0h+0x6c*D(___1a1ef8h)+0x2c)+1),
+			B(___1a0fb8h+3*D(___1a01e0h+0x6c*D(___1a1ef8h)+0x2c)+2));
 
-		edx = ___1a0fb8h+3*D(0x6c*D(___1a1ef8h)+___1a01e0h+0x2c);
-		___11378h_cdecl(B(edx), B(edx+1), B(edx+2));
 		dRally_Sound_load(1, "MEN-MUS.CMF", 2, "MEN-SAM.CMF", 5);
 		dRally_Sound_setMusicVolume(___24cc58h_msx_volume);
 		dRally_Sound_setSampleRate(0x5622);

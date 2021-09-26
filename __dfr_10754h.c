@@ -1,4 +1,3 @@
-/*
 #include "drally.h"
 
 	extern dword ___19bd60h;
@@ -11,4 +10,3 @@ void ___10754h(void){
 
 	if((___19bd60h != 0)&&(CONNECTION_TYPE == 2)) ___63b20h(1, ___199f9ch);   
 }
-*/

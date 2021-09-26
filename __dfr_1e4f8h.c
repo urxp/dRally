@@ -1,3 +1,7 @@
+#include "drally.h"
+
+void ___1e4f8h(void){
+
 /*
 cpu 386
 %include "macros.inc"
@@ -173,3 +177,4 @@ __dfr_180cc0h:
 __dfr_180cd8h:
 	db	4ah,6fh,69h,6eh,20h,41h,6eh,20h,45h,78h,69h,73h,74h,69h,6eh,67h,20h,47h,61h,6dh,65h,0,0,0
 */
+}

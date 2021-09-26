@@ -1,3 +1,7 @@
+#include "drally.h"
+
+void race___47ed8h(dword A0){
+
 /*
 cpu 386
 %include "macros.inc"
@@ -536,3 +540,4 @@ ___48353h:
 		pop     ebx
 		retn    
 */
+}

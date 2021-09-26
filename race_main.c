@@ -2,10 +2,14 @@
 #include "drally_keyboard.h"
 #include "drally_race.h"
 #include "drmemory.h"
+#include "sfx.h"
+
+#if defined(DR_MULTIPLAYER)
+	extern byte ___19bd60h[];
+#endif // DR_MULTIPLAYER
 
 	extern byte ___243ce8h[];
 	extern byte ___243cf4h[];
-	extern byte ___19bd60h[];
 	extern byte ___243d28h[];
 	extern byte ___243d2ch[];
 	extern void * ___243d58h;
@@ -89,6 +93,12 @@
 	extern void * ___243314h;
 	extern void * ___243310h;
 
+#if defined(DR_MULTIPLAYER)
+void race___44304h(void);
+void race___44a78h(void);
+void race___47ed8h(dword);
+#endif // DR_MULTIPLAYER
+
 void race___400ech(void);
 void race___46a10h(void);
 void race___45d3ch(void);
@@ -121,11 +131,6 @@ void race___47808h(dword, dword, const char *);
 void race___477d4h(void);
 void race___48458h(void);
 void race___49390h(void);
-#if defined(DR_MULTIPLAYER)
-void race___44304h(void);
-void race___44a78h(void);
-void race___47ed8h(dword);
-#endif // DR_MULTIPLAYER
 void race___4c21ch(void);
 void race___56170h(void);
 void race___55ae0h(void);
@@ -178,113 +183,142 @@ void race___4adach(void);
 void race___4580ch(void);
 void __VGA13_SETMODE(void);
 
+static const char * MSG_GAME_PAUSED[9] = {
+	[0] = "                                ",
+	[1] = "                                ",
+	[2] = "                                ",
+	[3] = "     G A M E   P A U S E D !    ",
+	[4] = "                                ",
+	[5] = "                                ",
+	[6] = "                                ",
+	[7] = "                                ",
+	[8] = "    PRESS ENTER TO CONTINUE     "
+};
 
-// ___56774h
-void race_main(dword A1, dword A2){
+static const char * MSG_RACE_OVER[9] = {
+	[0] = "                                ",
+	[1] = "                                ",
+	[2] = "                                ",
+	[3] = "      R A C E    O V E R !      ",
+	[4] = "                                ",
+	[5] = "                                ",
+	[6] = "                                ",
+	[7] = "                                ",
+	[8] = "    PRESS ENTER TO CONTINUE     "
+};
 
-	long long 	ll_tmp;
-	dword 	tmp_freq;
-	double 	tmp_xch;
-	dword 	eax, ebx, ecx, edx, edi, esi, ebp;
-	byte 	esp[0x1c];
+static const char * MSG_ABOUT_TO_ABORT[9] = {
+	[0] = "                                ",
+	[1] = "                                ",
+	[2] = " S O M E O N E   I S   A B O U T",
+	[3] = "   T O   A B O R T   R A C E !  ",
+	[4] = "                                ",
+	[5] = "                                ",
+	[6] = "                                ",
+	[7] = "  WAITING FOR SIGNAL FROM HOST  ",
+	[8] = "                                "
+};
 
+static const char * MSG_ABORT_RACE[9] = {
+	[0] = "                                ",
+	[1] = "                                ",
+	[2] = "                                ",
+	[3] = "      A B O R T   R A C E !     ",
+	[4] = "                                ",
+	[5] = "             Y / N              ",
+	[6] = "                                ",
+	[7] = "                                ",
+	[8] = "                                "
+};
 
-	D(___243ce8h) = A1;
-	D(___243cf4h) = A2;
-	race___3f970h();
-	race___49a34h();
+static const char * MSG_ABORT_DEMO[9] = {
+	[0] = "                                ",
+	[1] = "                                ",
+	[2] = "                                ",
+	[3] = "      A B O R T   D E M O !     ",
+	[4] = "                                ",
+	[5] = "             Y / N              ",
+	[6] = "                                ",
+	[7] = "                                ",
+	[8] = "                                "
+};
 
-#if defined(DR_MULTIPLAYER)
-	if(D(___19bd60h) != 0){
-			
-		ebx = 0;
-		esi = D(___243cf4h);
-		D(___243d08h) = ebx;
-		D(___243d0ch) = ebx;
+static const char * MSG_CONNECTION_LOST[9] = {
+	[0] = "                                ",
+	[1] = "                                ",
+	[2] = "     M U L T I P L A Y E R      ",
+	[3] = "      C O N N E C T I O N       ",
+	[4] = "           L O S T !            ",
+	[5] = "                                ",
+	[6] = "                                ",
+	[7] = "                                ",
+	[8] = "      PRESS ENTER TO ABORT      "
+};
 
-		if((int)esi > 0){
+static const char * MSG_WELCOME[9] = {
+	[0] = "     WELCOME TO DEATH RALLY!    ",
+	[1] = "                                ",
+	[2] = " PRESS                          ",
+	[3] = "    F1-INFO SCREEN              ",
+	[4] = "     P-PAUSE                    ",
+	[5] = "   TAB-TOGGLE STATUS BAR        ",
+	[6] = "   ESC-ABORT RACE               ",
+	[7] = "                                ",
+	[8] = "    PRESS ENTER TO CONTINUE     "
+};
 
-			ebx = 0x94*esi;
-			eax = 0;
+static void printmsg(const char * msg[]){
 
-			while(1){
+	int 	n;
 
-				edi = D(___243d0ch);
-				ebp = D(___243d08h);
-				edx = D(eax+___1de580h+0x38);
-				eax += 0x94;
-				edi += edx;
-				ebp++;
-				D(___243d0ch) = edi;
-				D(___243d08h) = ebp;
-			
-				if((int)eax >= (int)ebx) break;
-			}
-		}
+	n = -1;
+	while(++n < 9) race___47808h(0, n, msg[n]);
+}
 
-		eax = 0;
-		edx = D(___243cf4h);
-		D(___243d08h) = eax;
+static void helper00(int i){
 
-		if((int)edx > 0){
+	int 	n;
 
-			ebx = 0x94*edx;
+	n = -1;
+	while(++n < D(___243cf4h)) D(___1e6ed0h+0x35e*n+i) = 0;
+}
 
-			while(1){
+static void helper01(void (*cb)(int)){
 
-				ecx = D(___243d0ch);
-				esi = D(___243d08h);
-				edx = D(eax+___1de580h+0x3c);
-				eax += 0x94;
-				ecx += edx;
-				esi++;
-				D(___243d0ch) = ecx;
-				D(___243d08h) = esi;
-			
-				if((int)eax >= (int)ebx) break;
-			}
-		}
+	int 	n;
 
-		edi = 0;
-		ebp = D(___243cf4h);
-		D(___243d08h) = edi;
+	n = -1;
+	while(++n < (int)D(___243cf4h)) cb(n);
+}
 
-		if((int)ebp > 0){
+static void race___4b62ch_helper(int n){
 
-			ebx = 8*ebp;
-			ebx += ebp;
-			ebx <<= 2;
-			ebx += ebp;
-			eax = 0;
-			ebx <<= 2;
+	D(___243c60h) = n;
 
-			while(1){
+	if(D(___243ce0h) != 0){
 
-				ecx = D(___243d0ch);
-				esi = D(___243d08h);
-				edx = D(eax+___1de580h+0x40);
-				eax += 0x94;
-				ecx += edx;
-				esi++;
-				D(___243d0ch) = ecx;
-				D(___243d08h) = esi;
-				if((int)eax >= (int)ebx) break;
-			}
-		}
-
-		eax = D(___243d0ch);
-		edi = 0;
-		srand_watcom106(eax);
-		D(___24387ch) = edi;
-		D(___243880h) = 1;
-		D(___243318h) = edi;
-		D(___243cd8h) = edi;
-		D(___243878h) = edi;
+		race___4b62ch();
 	}
+	else {
+#if defined(DR_MULTIPLAYER)
+		if(D(___19bd60h) == 0){
 #endif // DR_MULTIPLAYER
+			if(D(___243ce8h) != n) race___4b62ch();
+#if defined(DR_MULTIPLAYER)
+		}
+#endif // DR_MULTIPLAYER
+	}
+}
 
-	___60705h(&race___40164h);
-	race___49bd4h();
+static void race___4c434h_helper(int n){ D(___243c60h) = n; race___4c434h(); }
+static void race___514d8h_helper(int n){ D(___243c60h) = n; race___514d8h(); }
+static void race___52ac4h_helper(int n){ D(___243c60h) = n; race___52ac4h(); }
+static void race___526ach_helper(int n){ D(___243c60h) = n; race___526ach(); }
+static void race___4ff50h_helper(int n){ D(___243c60h) = n; race___4ff50h(); }
+
+
+static void race_alloc(void){
+
 	___243d58h = ___3f71ch__allocateMemory(D(___243d28h)*D(___243d2ch));
 	___243d60h = ___3f71ch__allocateMemory(D(___243d28h)*D(___243d2ch));
 	___243d78h = ___3f71ch__allocateMemory(D(___243d30h)*D(___243d04h));
@@ -317,6 +351,86 @@ void race_main(dword A1, dword A2){
 	___243290h[1] = ___3f71ch__allocateMemory(0x1800);
 	___243d68h = ___3f71ch__allocateMemory(0x800);
 	___243d64h = ___3f71ch__allocateMemory(0xc0);
+}
+
+static void race_free(void){
+
+	dRMemory_free(___243d58h);
+	dRMemory_free(___243d60h);
+	dRMemory_free(___243d78h);
+	dRMemory_free(___243d54h);
+	dRMemory_free(___243d5ch);
+	dRMemory_free(___243d80h-0x200);
+	dRMemory_free(___243d74h);
+	dRMemory_free(___243d50h);
+	dRMemory_free(___243d34h);
+	dRMemory_free(___243d6ch);
+	dRMemory_free(___243d48h);
+	dRMemory_free(___243d4ch);
+	dRMemory_free(___243d70h);
+	dRMemory_free(___243d84h);
+	dRMemory_free(___243d3ch);
+	dRMemory_free(___243298h[0]);
+	dRMemory_free(___243298h[1]);
+	dRMemory_free(___243298h[2]);
+	dRMemory_free(___243298h[3]);
+	dRMemory_free(___243298h[4]);
+	dRMemory_free(___243298h[5]);
+	dRMemory_free(___243d8ch);
+	dRMemory_free(___243d7ch);
+	dRMemory_free(___243d88h);
+	dRMemory_free(___243d38h);
+	dRMemory_free(___243d40h);
+	dRMemory_free(___243288h[0]);
+	dRMemory_free(___243288h[1]);
+	dRMemory_free(___243290h[0]);
+	dRMemory_free(___243290h[1]);
+	dRMemory_free(___243d68h);
+	dRMemory_free(___243d64h);
+	dRMemory_free(___243314h);
+	dRMemory_free(___243310h);
+}
+
+// ___56774h
+void race_main(dword A1, dword A2){
+
+	dword 	eax, ebx, ecx, edx;
+	byte 	esp[0x1c];
+	int 	i, j, n;
+
+
+	D(___243ce8h) = A1;
+	D(___243cf4h) = A2;
+	race___3f970h();
+	race___49a34h();
+
+#if defined(DR_MULTIPLAYER)
+	if(D(___19bd60h) != 0){
+			
+		D(___243d08h) = 0;
+		D(___243d0ch) = 0;
+
+		n = -1;
+		while(++n < (int)D(___243cf4h)){
+
+			D(___243d0ch) += D(___1de580h+0x94*n+0x38);
+			D(___243d0ch) += D(___1de580h+0x94*n+0x3c);
+			D(___243d0ch) += D(___1de580h+0x94*n+0x40);
+			D(___243d08h) += 1;
+		}
+
+		srand_watcom106(D(___243d0ch));
+		D(___24387ch) = 0;
+		D(___243880h) = 1;
+		D(___243318h) = 0;
+		D(___243cd8h) = 0;
+		D(___243878h) = 0;
+	}
+#endif // DR_MULTIPLAYER
+
+	___60705h(&race___40164h);
+	race___49bd4h();
+	race_alloc();
 	race___4539ch();
 	___2432c8h = &race___492f4h;
 	race___42824h();
@@ -332,15 +446,9 @@ void race_main(dword A1, dword A2){
 	__VGA13_SETMODE();
 
 #if defined(DR_MULTIPLAYER)
-	if(D(___19bd60h) == 0){
-#endif // DR_MULTIPLAYER
-		___605deh_cdecl(0x46, 1);
-#if defined(DR_MULTIPLAYER)
-	}
-	else {
-
-		___605deh_cdecl(0x46, 0);
-	}
+	___605deh_cdecl(0x46, !D(___19bd60h));
+#else
+	___605deh_cdecl(0x46, 1);
 #endif // DR_MULTIPLAYER
 
 	dRally_Sound_load(1, strcat(strcpy(esp, ___19bd64h), "-MUS.CMF"), 2, "GEN-EFE.CMF", 0xe);
@@ -357,96 +465,50 @@ void race_main(dword A1, dword A2){
 	race___496b0h();
 	race___405bch();
 	race___49a34h();
-	edx = D(___243ce8h);
-	eax = edx*8;
-	eax += edx;
-	eax <<= 2;
-	eax += edx;
-	ecx = 0x10000;
-	ebx = 0;
-	L(eax) = B(4*eax+___1de580h);
-	edx = 0;
-	L(eax) += 0x19;
-	L(edx) = L(eax);
-	eax = 1;
-	ebp = 0;
-	dRally_Sound_pushEffect(eax, edx, ebx, ecx, 0x28000, 0x8000);
-	D(___243ca4h) = ebp;
-	D(___243ca0h) = ebp;
-	D(___243cdch) = ebp;
-	D(___243cb8h) = ebp;
-	D(___243cd4h) = ebp;
-	D(___243874h) = ebp;
-	eax = D(___243874h);
-	D(___243898h) = eax;
-	D(___243cd0h) = ebp;
+	dRally_Sound_pushEffect(1, B(___1de580h+0x94*D(___243ce8h))+0x19, 0, 0x10000, 0x28000, 0x8000);
+	D(___243ca4h) = 0;
+	D(___243ca0h) = 0;
+	D(___243cdch) = 0;
+	D(___243cb8h) = 0;
+	D(___243cd4h) = 0;
+	D(___243874h) = 0;
+	D(___243898h) = D(___243874h);
+	D(___243cd0h) = 0;
 	if(D(___199f54h) != 0) D(___243ce0h) = 1;
-	ebp = 2;
 
 	while(1){
 
 		D(___243ca8h) = 0;
 		D(___243874h) = D(___243898h);
 		D(___243898h) = 0;
-		eax = 0x35e*D(___243ce8h);
-		edx = D(eax+___1e6ed0h+0xa0);
-		esi = D(___196df0h);
-		D(eax+___1e6ed0h+0xa4) = edx;
+		D(___1e6ed0h+0x35e*D(___243ce8h)+0xa4) = D(___1e6ed0h+0x35e*D(___243ce8h)+0xa0);
 
-		if((int)esi > 0){
+		if((int)D(___196df0h) > 0){
 
-			eax = D(___243334h);
-			edi = esi-eax;
-			D(___196df0h) = edi;
+			D(___196df0h) -= D(___243334h);
 
-			if((int)edi <= 0){
+			if((int)D(___196df0h) <= 0){
 
-				ecx = 0x10000;
-				eax = ebp;
-				ebx = 0;
-				dRally_Sound_pushEffect(eax, 4, ebx, ecx, 0x50000, 0x8000);
-				edx = 0;
-				D(___196df0h) = edx;
+				dRally_Sound_pushEffect(2, SFX_LAP_RECORD, 0, 0x10000, 0x50000, 0x8000);
+				D(___196df0h) = 0;
 			}
 		}
 
 #if defined(DR_MULTIPLAYER)
-		if(D(___19bd60h) != 0){
-
-			if(D(___24387ch) != 0){
-			
-				race___44a78h();
-			}
-		}
+		if((D(___19bd60h) != 0)&&(D(___24387ch) != 0)) race___44a78h();
 #endif // DR_MULTIPLAYER
-		esi = 0;
-		D(___243d08h) = esi;
+
+		D(___243d08h) = 0;
 
 		if((int)D(___243874h) > 0){
 
-			edx = D(___243ce8h);
-			esi = 0xf;
-			eax = 0x35e*edx;
-
 			while(1){
 
-				ebx = D(eax+___1e6ed0h+0xa4);
-				ebx--;
-				D(eax+___1e6ed0h+0xa4) = ebx;
-				if((int)ebx < 0) D(eax+___1e6ed0h+0xa4) = esi;
-				edx = D(eax+___1e6ed0h+0xa4);
-				edx <<= 2;
-				ecx = eax+edx;
-				edx = D(___243874h);
-				edi = D(___243d08h);
-				edx -= edi;
-				edx <<= 2;
-				ebx = eax+edx;
-				edx = D(ecx+___1e6ed0h+0x60);
-				D(ebx+___1e6ed0h+0x1c) = edx;
-				edx = edi+1;
-				D(___243d08h) = edx;
-				if((int)edx >= (int)D(___243874h)) break;
+				D(___1e6ed0h+0x35e*D(___243ce8h)+0xa4)--;
+				if((int)D(___1e6ed0h+0x35e*D(___243ce8h)+0xa4) < 0) D(___1e6ed0h+0x35e*D(___243ce8h)+0xa4) = 0xf;
+				D(___1e6ed0h+0x35e*D(___243ce8h)+4*(D(___243874h)-D(___243d08h))+0x1c) = D(___1e6ed0h+0x35e*D(___243ce8h)+4*D(___1e6ed0h+0x35e*D(___243ce8h)+0xa4)+0x60);
+				D(___243d08h)++;
+				if((int)D(___243d08h) >= (int)D(___243874h)) break;
 			}
 		}
 
@@ -455,476 +517,164 @@ void race_main(dword A1, dword A2){
 	
 		if((int)D(___243874h) > 0){
 
-			esi = 1;
-
 			while(1){
 
-				edi = D(___243ca4h);
-				edi++;
-				D(___243ca4h) = edi;
+				D(___243ca4h)++;
 
-				if((int)edi > 0xbe){
+				if((int)D(___243ca4h) > 0xbe){
 
-					edx = 0;
-					ebx = D(___243cf4h);
-					D(___243c60h) = edx;
-
-					if((int)ebx > 0){
-
-						while(1){
-
-							ecx = D(___243ce0h);
-
-							if(edx != ecx){
-
-								race___4b62ch();
-							}
-							else {
-							
-								edi = D(___243ce8h);
-								if((edi != D(___243c60h))&&(ecx == D(___19bd60h))) race___4b62ch();
-							}
-
-							ebx = D(___243c60h);
-							ebx++;
-							ecx = D(___243cf4h);
-							D(___243c60h) = ebx;
-							if((int)ebx >= (int)ecx) break;
-						}
-					}
-
-					edi = 0;
-					eax = D(___243cf4h);
-					D(___243c60h) = edi;
-
-					if((int)eax > 0){
-						
-						ebx = D(___243cf4h);
-						eax = 0;
-						edx = 0x35e*ebx;
-
-						while(1){
-
-							edi = D(___243c60h);
-							ecx = 0;
-							edi++;
-							D(eax+___1e6ed0h+0x14) = ecx;
-							eax += 0x35e;
-							D(___243c60h) = edi;
-							if((int)eax >= (int)edx) break;
-						}
-					}
-
-					eax = 0;
-					edx = D(___243cf4h);
-					D(___243c60h) = eax;
-
-					if((int)edx > 0){
-
-						while(1){
-
-							race___4c434h();
-							ebx = D(___243c60h);
-							ebx++;
-							ecx = D(___243cf4h);
-							D(___243c60h) = ebx;
-							if((int)ebx >= (int)ecx) break;
-						}
-					}
-
-					edi = 0;
-					eax = D(___243cf4h);
-					D(___243c60h) = edi;
-
-					if((int)eax > 0){
-
-						ebx = D(___243cf4h);
-						eax = 0;
-						edx = 0x35e*ebx;
-
-						while(1){
-
-							edi = D(___243c60h);
-							ecx = 0;
-							edi++;
-							D(eax+___1e6ed0h+0x18) = ecx;
-							eax += 0x35e;
-							D(___243c60h) = edi;
-							if((int)eax >= (int)edx) break;
-						}
-					}
-
-					eax = 0;
-					edx = D(___243cf4h);
-					D(___243c60h) = eax;
-
-					if((int)edx > 0){
-
-						edx = 0x35e*edx;
-
-						while(1){
-
-							edi = D(___243c60h);
-							ecx = 0;
-							edi++;
-							D(eax+___1e6ed0h+0x1c) = ecx;
-							eax += 0x35e;
-							D(___243c60h) = edi;
-							if((int)eax >= (int)edx) break;
-						}
-					}
-
+					helper01(&race___4b62ch_helper);
+					helper00(0x14);
+					helper01(&race___4c434h_helper);
+					helper00(0x18);
+					helper00(0x1c);
 					race___4dcach();
-					eax = 0;
-					edx = D(___243cf4h);
-					D(___243c60h) = eax;
+					helper01(&race___514d8h_helper);
 
-					if((int)edx > 0){
-
-						while(1){
-
-							race___514d8h();
-							ebx = D(___243c60h);
-							ebx++;
-							ecx = D(___243cf4h);
-							D(___243c60h) = ebx;
-							if((int)ebx >= (int)ecx) break;
-						}
+#if defined(DR_MULTIPLAYER)
+					if(D(___19bd60h) == 0){
+#endif // DR_MULTIPLAYER
+						helper01(&race___52ac4h_helper);
+#if defined(DR_MULTIPLAYER)
 					}
+#endif // DR_MULTIPLAYER
 
-					edi = D(___19bd60h);
-
-					if(edi == 0){
-
-						edx = D(___243cf4h);
-						D(___243c60h) = edi;
-
-						if((int)edx > 0){
-
-							while(1){
-
-								race___52ac4h();
-								ebx = D(___243c60h);
-								ebx++;
-								ecx = D(___243cf4h);
-								D(___243c60h) = ebx;
-								if((int)ebx >= (int)ecx) break;
-							}
-						}
-					}
-
-					edi = 0;
-					eax = D(___243cf4h);
-					D(___243c60h) = edi;
-
-					if((int)eax > 0){
-
-						while(1){
-
-							race___526ach();
-							edx = D(___243c60h);
-							edx++;
-							ebx = D(___243cf4h);
-							D(___243c60h) = edx;
-							if((int)edx >= (int)ebx) break;
-						}
-					}
-
-					ecx = 0;
-					edi = D(___243cf4h);
-					D(___243c60h) = ecx;
-
-					if((int)edi > 0){
-
-						while(1){
-
-							race___4ff50h();
-							eax = D(___243c60h);
-							eax++;
-							edx = D(___243cf4h);
-							D(___243c60h) = eax;
-							if((int)eax >= (int)edx) break;
-						}
-					}
+					helper01(&race___526ach_helper);
+					helper01(&race___4ff50h_helper);
 				}
 
-				ebx = 0;
-				ecx = D(___243cf4h);
-				D(___243c60h) = ebx;
+				D(___243c60h) = 0;
 
-				if((int)ecx > 0){
+				if((int)D(___243cf4h) > 0){
 
-					edx = 0x35e*ecx;
+					edx = 0x35e*D(___243cf4h);
 					eax = 0;
-					ebx = ebp;
-					ecx = 0;
-
 					while(1){
 
-						edi = D(eax+___1e6ed0h+0x192);
+						if((int)0 < (int)D(___1e6ed0h+eax+0x192)) D(___1e6ed0h+eax+0x192)--;
+						if((int)0 < (int)D(___1e6ed0h+eax+0x196)) D(___1e6ed0h+eax+0x196)--;
+						if((int)0 < (int)D(___1e6ed0h+eax+0x17a)) D(___1e6ed0h+eax+0x17a)--;
 
-						if((int)ecx < (int)edi){
-						
-							edi--;
-							D(eax+___1e6ed0h+0x192) = edi;
+						if(1 == D(___1e6ed0h+eax+0x14)) D(___1e6ed0h+eax+0x192) += 2;
+
+						if(1 == D(___1e6ed0h+eax+0x18)){
+
+							F32(___1e6ed0h+eax+0xb4) = (float)(double)F32(___1e6ed0h+eax+0x14e);
+							D(___1e6ed0h+eax+0x196) += 2;
 						}
 
-						edi = D(eax+___1e6ed0h+0x196);
+						if(1 == D(___1e6ed0h+eax+0x1c)){
 
-						if((int)ecx < (int)edi){
-						
-							edi--;
-							D(eax+___1e6ed0h+0x196) = edi;
+							F32(___1e6ed0h+eax+0xb8) = (float)(double)F32(___1e6ed0h+eax+0x152);
+							D(___1e6ed0h+eax+0x196) += 2;
 						}
 
-						edi = D(eax+___1e6ed0h+0x17a);
-
-						if((int)ecx < (int)edi){
-
-							edi--;
-							D(eax+___1e6ed0h+0x17a) = edi;
-						}
-
-						if(esi == D(eax+___1e6ed0h+0x14)) D(eax+___1e6ed0h+0x192) += ebx;
-
-						if(esi == D(eax+___1e6ed0h+0x18)){
-
-							edi = D(eax+___1e6ed0h+0x196);
-							FPUSH(F32(eax+___1e6ed0h+0x14e));
-							edi += ebx;
-							F32(eax+___1e6ed0h+0xb4) = (float)FPOP();
-							D(eax+___1e6ed0h+0x196) = edi;
-						}
-
-						if(esi == D(eax+___1e6ed0h+0x1c)){
-
-							edi = D(eax+___1e6ed0h+0x196);
-							FPUSH(F32(eax+___1e6ed0h+0x152));
-							edi += ebx;
-							F32(eax+___1e6ed0h+0xb8) = (float)FPOP();
-							D(eax+___1e6ed0h+0x196) = edi;
-						}
-
-						edi = D(___243c60h);
-						edi++;
 						eax += 0x35e;
-						D(___243c60h) = edi;
+						D(___243c60h)++;
 						if((int)eax >= (int)edx) break;
 					}
 				}
 
 				eax = 0;
-				edx = D(___243cf4h);
-				D(___243c60h) = eax;
+				D(___243c60h) = 0;
 
-				if((int)edx > 0){
+				if((int)D(___243cf4h) > 0){
 
-					edx = 0x35e*edx;
+					edx = 0x35e*D(___243cf4h);
 
 					while(1){
 
-						FPUSH(F32(eax+___1e6ed0h+0xb4));
-						FPUSH(F32(eax+___1e6ed0h+0xb8));
-						FPUSH(F32(eax+___1e6ed0h+0xac));
-						ecx = D(___243c60h);
-						tmp_xch = ST(0);
-						ST(0) = ST(1);
-						ST(1) = tmp_xch;
-						F32(eax+___1e6ed0h+0x152) = (float)FPOP();
-						F32(eax+___1e6ed0h+0x156) = (float)FPOP();
-						F32(eax+___1e6ed0h+0x14e) = (float)FPOP();
+						F32(___1e6ed0h+eax+0x152) = (float)(double)F32(___1e6ed0h+eax+0xb8);
+						F32(___1e6ed0h+eax+0x156) = (float)(double)F32(___1e6ed0h+eax+0xac);
+						F32(___1e6ed0h+eax+0x14e) = (float)(double)F32(___1e6ed0h+eax+0xb4);
+
+						D(___243c60h)++;
 						eax += 0x35e;
-						ecx++;
-						D(___243c60h) = ecx;
 						if((int)eax >= (int)edx) break;
 					}
 				}
 
-				edi = 0;
-				eax = D(___243cf4h);
-				D(___243c60h) = edi;
+				D(___243c60h) = 0;
 
-				if((int)eax > 0){
+				if((int)D(___243cf4h) > 0){
 
-					ebx = D(___243cf4h);
 					edx = 0;
 					eax = 0;
-					ecx = 0x94*ebx;
+					ecx = 0x94*D(___243cf4h);
 
 					while(1){
 
-						if((ebp == D(eax+___1e6ed0h+0x192))||(ebp == D(eax+___1e6ed0h+0x196))){
+						if((D(___1e6ed0h+eax+0x192) == 2)||(D(___1e6ed0h+eax+0x196) == 2)){
 
-							if(edi == D(eax+___1e6ed0h+0x10a)){
+							if(0 == D(___1e6ed0h+eax+0x10a)){
 
-								FPUSH(F32(eax+___1e6ed0h+0xfc));
-								ST(0) = ST(0)*ST(0);
-								ebx = 0x400;
-								FPUSH(F32(eax+___1e6ed0h+0x100));
-								ST(0) = ST(0)*ST(0);
-								ebx -= D(edx+___1de580h+0x1c);
-								ST(1) = ST(1)+ST(0);
-								FPOP();
-								D(esp+0x18) = ebx;
-								FPUSH(D(esp+0x18));
-								ST(1) = ST(1)*ST(0);
-								FPOP();
-								D(___2438cch) = (int)FPOP();
+								D(esp+0x18) = 0x400-D(___1de580h+edx+0x1c);
+								D(___2438cch) = (int)((double)D(esp+0x18)*((double)F32(___1e6ed0h+eax+0xfc)*(double)F32(___1e6ed0h+eax+0xfc)+(double)F32(___1e6ed0h+eax+0x100)*(double)F32(___1e6ed0h+eax+0x100)));
 								if((int)D(___2438cch) > 0x2710) D(___2438cch) = 0x2710;
-								ebx = D(___2438cch);
-								D(edx+___1de580h+0x18) -= ebx;
-								if((int)edi > (int)D(edx+___1de580h+0x18)) D(edx+___1de580h+0x18) = edi;
+								D(___1de580h+edx+0x18) -= D(___2438cch);
+								if((int)0 > (int)D(___1de580h+edx+0x18)) D(___1de580h+edx+0x18) = 0;
 							}
 						}
 
-						ebx = D(___243c60h);
 						edx += 0x94;
-						ebx++;
 						eax += 0x35e;
-						D(___243c60h) = ebx;
+						D(___243c60h)++;
 						if((int)edx >= (int)ecx) break;
 					}
 				}
 
-				eax = 0x35e*D(___243ce8h);
-				if(D(eax+___1e6ed0h+0x14)||D(eax+___1e6ed0h+0x18)||D(eax+___1e6ed0h+0x1c)){
+				if(D(___1e6ed0h+0x35e*D(___243ce8h)+0x14)||D(___1e6ed0h+0x35e*D(___243ce8h)+0x18)||D(___1e6ed0h+0x35e*D(___243ce8h)+0x1c)){
 
-					eax = 0x35e*D(___243ce8h);
-					FPUSH(F32(eax+___1e6ed0h+0xfc));
-					ST(0) = ST(0)*ST(0);
-					FPUSH(F32(eax+___1e6ed0h+0x100));
-					ST(0) = ST(0)*ST(0);
-					ST(1) = ST(1)+ST(0);
-					FPOP(); 
-					ST(0) = sqrt(ST(0));
-					ST(0) = ST(0)*25000.0; 
-					D(___2438cch) = (int)FPOP();
+					D(___2438cch) = (int)(25000.0*sqrt((double)F32(___1e6ed0h+0x35e*D(___243ce8h)+0xfc)*(double)F32(___1e6ed0h+0x35e*D(___243ce8h)+0xfc)+(double)F32(___1e6ed0h+0x35e*D(___243ce8h)+0x100)*(double)F32(___1e6ed0h+0x35e*D(___243ce8h)+0x100)));
+
 					if((int)D(___2438cch) > 0x10000) D(___2438cch) = 0x10000;
-					eax = 0x35e*D(___243ce8h);
 
-					if((D(eax+___1e6ed0h+0x18) != 0)||(D(eax+___1e6ed0h+0x1c) != 0)){
+					if((D(___1e6ed0h+0x35e*D(___243ce8h)+0x18) != 0)||(D(___1e6ed0h+0x35e*D(___243ce8h)+0x1c) != 0)){
 
-						eax = D(___243894h);
-						edx = D(___243894h);
-						ll_tmp = (int)eax;
-						ebx = 3;
-						eax = ll_tmp/(int)ebx;
-						edx = ll_tmp%(int)ebx;
-						eax = edx;
-
-						switch(edx){
+						switch((int)D(___243894h)%3){
 						case 0:
-							edx = 0xb;
-							eax = 5;
-							tmp_freq = 0x21000;
-							ecx = D(___2438cch);
-							ebx = 0;
-							dRally_Sound_pushEffect(eax, edx, ebx, ecx, tmp_freq, 0x8000);
+							dRally_Sound_pushEffect(5, SFX_CAR_HIT_1, 0, D(___2438cch), 0x21000, 0x8000);
 							break;
 						case 1:
-							edx = 0xd;
-							eax = 5;
-							tmp_freq = 0x23000;
-							ecx = D(___2438cch);
-							ebx = 0;
-							dRally_Sound_pushEffect(eax, edx, ebx, ecx, tmp_freq, 0x8000);
+							dRally_Sound_pushEffect(5, SFX_METAL, 0, D(___2438cch), 0x23000, 0x8000);
 							break;
 						case 2:
-							edx = 0x10;
-							eax = 5;
-							tmp_freq = 0x23000;
-							ecx = D(___2438cch);
-							ebx = 0;
-							dRally_Sound_pushEffect(eax, edx, ebx, ecx, tmp_freq, 0x8000);
+							dRally_Sound_pushEffect(5, SFX_CAR_HIT_3, 0, D(___2438cch), 0x23000, 0x8000);
 							break;
 						default:
 							break;
 						}
 					}
 
-					eax = rand_watcom106();
-					edx = eax;
-					ll_tmp = (int)eax;
-					ebx = 0x6000;
-					eax = ll_tmp/(int)ebx;
-					edx = ll_tmp%(int)ebx;
-					eax = 0x35e*D(___243ce8h);
-					eax = D(eax+___1e6ed0h+0x18e);
-					D(___243d08h) = edx;
+					D(___243d08h) = rand_watcom106()%0x6000;
 
-					if(eax <= 3){
-
-						switch(eax){
+					switch(D(___1e6ed0h+0x35e*D(___243ce8h)+0x18e)){
+					case 0:
+						switch((int)D(___243894h)%3){
 						case 0:
-							eax = D(___243894h);
-							edx = D(___243894h);
-							ll_tmp = (int)eax;
-							ebx = 3;
-							eax = ll_tmp/(int)ebx;
-							edx = ll_tmp%(int)ebx;
-							eax = edx;
-							edx = D(___243d08h);
-							edx += 0x22000;
-
-							switch(eax){
-							case 0:
-								eax = 5;
-								ecx = D(___2438cch);
-								tmp_freq = edx;
-								ebx = 0;
-								edx = 0xa;
-								dRally_Sound_pushEffect(eax, edx, ebx, ecx, tmp_freq, 0x8000);
-								break;
-							case 1:
-								eax = 5;
-								ecx = D(___2438cch);
-								tmp_freq = edx;
-								ebx = 0;
-								edx = 0xf;
-								dRally_Sound_pushEffect(eax, edx, ebx, ecx, tmp_freq, 0x8000);
-								break;
-							case 2:
-								eax = 5;
-								ecx = D(___2438cch);
-								tmp_freq = edx;
-								ebx = 0;
-								edx = 0x10;
-								dRally_Sound_pushEffect(eax, edx, ebx, ecx, tmp_freq, 0x8000);
-								break;
-							default:
-								break;
-							}
+							dRally_Sound_pushEffect(5, SFX_METAL_HIT, 0, D(___2438cch), D(___243d08h)+0x22000, 0x8000);
 							break;
 						case 1:
-							ecx = D(___2438cch);
-							eax = edx+0x22000;
-							ebx = 0;
-							tmp_freq = eax;
-							edx = 0xb;
-							eax = 5;
-							dRally_Sound_pushEffect(eax, edx, ebx, ecx, tmp_freq, 0x8000);
+							dRally_Sound_pushEffect(5, SFX_CAR_HIT_2, 0, D(___2438cch), D(___243d08h)+0x22000, 0x8000);
 							break;
 						case 2:
-							ecx = D(___2438cch);
-							eax = edx+0x22000;
-							ebx = 0;
-							tmp_freq = eax;
-							edx = 0xf;
-							eax = 5;
-							dRally_Sound_pushEffect(eax, edx, ebx, ecx, tmp_freq, 0x8000);
-							break;
-						case 3:
-							ecx = D(___2438cch);
-							eax = edx+0x22000;
-							ebx = 0;
-							tmp_freq = eax;
-							edx = 0x10;
-							eax = 5;
-							dRally_Sound_pushEffect(eax, edx, ebx, ecx, tmp_freq, 0x8000);
+							dRally_Sound_pushEffect(5, SFX_CAR_HIT_3, 0, D(___2438cch), D(___243d08h)+0x22000, 0x8000);
 							break;
 						default:
 							break;
 						}
+						break;
+					case 1:
+						dRally_Sound_pushEffect(5, SFX_CAR_HIT_1, 0, D(___2438cch), D(___243d08h)+0x22000, 0x8000);
+						break;
+					case 2:
+						dRally_Sound_pushEffect(5, SFX_CAR_HIT_2, 0, D(___2438cch), D(___243d08h)+0x22000, 0x8000);
+						break;
+					case 3:
+						dRally_Sound_pushEffect(5, SFX_CAR_HIT_3, 0, D(___2438cch), D(___243d08h)+0x22000, 0x8000);
+						break;
+					default:
+						break;
 					}
 				}
 
@@ -932,102 +682,58 @@ void race_main(dword A1, dword A2){
 
 					if(D(___196ddch) == 0){
 
-						ebx = D(___243ce8h);
-						eax = 0x94*ebx;
-						
-						if((int)D(eax+___1de580h+0x18) > 0){
+						if((int)D(___1de580h+0x94*D(___243ce8h)+0x18) > 0){
 
-							eax = 0x35e*ebx;
-
-							if(D(eax+___1e6ed0h+0x10a) == 0){
+							if(D(___1e6ed0h+0x35e*D(___243ce8h)+0x10a) == 0){
 							
-								if(ebp == D(___196de0h)){
+								if(D(___196de0h) == 2){
 
-									edx = 0x25;
-									eax = 6;
-									ecx = D(___2438d4h);
-									ebx = 0;
-									dRally_Sound_pushEffect(eax, edx, ebx, ecx, 0x28000, 0x8000);
-									D(___196ddch) = esi;
+									dRally_Sound_pushEffect(6, SFX_BRAKES, 0, D(___2438d4h), 0x28000, 0x8000);
+									D(___196ddch) = 1;
 								}
 							}
 						}
 					}
 				}
 
-				ecx = D(___2438d4h);
-				if(ecx == 0){
+				if(D(___2438d4h) == 0){
 
-					if(esi == D(___196ddch)){
+					if(1 == D(___196ddch)){
 					
-						eax = 6;
-						dRally_Sound_freeEffectChannel(eax);
-						D(___196ddch) = ecx;
+						dRally_Sound_freeEffectChannel(6);
+						D(___196ddch) = 0;
 					}
 				}
 
-				ebx = D(___243ce8h);
-				eax = 0x94*ebx;
-				edx = 0;
-				ecx = D(eax+___1de580h+0x18);
-				D(___2438d4h) = edx;
+				D(___2438d4h) = 0;
 
-				if((int)ecx <= 0){
+				if((int)D(___1de580h+0x94*D(___243ce8h)+0x18) <= 0){
 
-					dRally_Sound_freeEffectChannel(esi);
-					eax = 6;
-					dRally_Sound_freeEffectChannel(eax);
+					dRally_Sound_freeEffectChannel(1);
+					dRally_Sound_freeEffectChannel(6);
 				}
 				else {
 
-					eax = 0x35e*ebx;
+					if(D(___1e6ed0h+0x35e*D(___243ce8h)+0x10a) != 0){
 
-					if(D(eax+___1e6ed0h+0x10a) != 0){
-
-						dRally_Sound_freeEffectChannel(esi);
-						eax = 6;
-						dRally_Sound_freeEffectChannel(eax);
+						dRally_Sound_freeEffectChannel(1);
+						dRally_Sound_freeEffectChannel(6);
 					}
 				}
 
-				ebx = D(___243ce8h);
-				eax = 0x35e*ebx;
-				edx = 0x94*ebx;
-				FPUSH(F32(eax+___1e6ed0h+0xb0));
-				ST(0) = ST(0)/(double)F32(edx+___1de580h+4);
-				FPUSH(0.0);
-				tmp_xch = ST(0); ST(0) = ST(1); ST(1) = tmp_xch;
-				F32(esp+0x10) = (float)FPOP();
+				F32(esp+0x10) = (float)((double)F32(___1e6ed0h+0x35e*D(___243ce8h)+0xb0)/(double)F32(___1de580h+0x94*D(___243ce8h)+4));
 
-				if(FPOP() <= (double)F32(esp+0x10)){
+				if(0.0 <= (double)F32(esp+0x10)){
 
-					eax = D(esp+0x10);
-					D(esp+0x14) = eax;
+					D(esp+0x14) = D(esp+0x10);
 				}
 				else {
 
-					FPUSH(F32(esp+0x10));
-					ST(0) = -1.0*ST(0);
-					F32(esp+0x14) = (float)FPOP();
+					F32(esp+0x14) = (float)(-1.0*(double)F32(esp+0x10));
 				}
 
-				edx = 0x35e*D(___243ce8h);
-				eax = D(edx+___1e6ed0h+0x19e);
-				eax = 5*eax;
-				D(esp+0x18) = eax;
-				FPUSH(D(esp+0x18));
-				eax = D(edx+___1e6ed0h+0x19a);
-				ST(0) = ST(0)*(double)F32(esp+0x14);
-				eax += 0x28000;
-				ecx = 0x8000;
-				D(esp+0x18) = eax;
-				edx = 0x10000;
-				FPUSH(D(esp+0x18));
-				ST(1) = ST(1)+ST(0); FPOP();
-				eax = esi;
-				D(___196df8h) = (int)FPOP();
-				ebx = D(___196df8h);
-				dRally_Sound_adjustEffect(eax, edx, ebx, ecx);
+				D(___196df8h) = (int)((double)(5*D(___1e6ed0h+0x35e*D(___243ce8h)+0x19e))*(double)F32(esp+0x14)+(double)(D(___1e6ed0h+0x35e*D(___243ce8h)+0x19a)+0x28000));
+				dRally_Sound_adjustEffect(1, 0x10000, D(___196df8h), 0x8000);
 				race___54668h();
 				race___55ae0h();
 
@@ -1040,60 +746,43 @@ void race_main(dword A1, dword A2){
 
 				if(D(___19bd60h) == 0){
 #endif // DR_MULTIPLAYER			
-					edi = D(___243ce8h);
-					eax = 0x35e*edi;
-
-					if(D(eax+___1e6ed0h+0x10a) != 0){
+					if(D(___1e6ed0h+0x35e*D(___243ce8h)+0x10a) != 0){
 
 						D(___2438c8h)++;
 					}
 					else {
 
-						eax = 0x94*edi;
-						if((int)D(eax+___1de580h+0x18) <= 0){
-
-							D(___2438c8h)++;
-						}
+						if((int)D(___1de580h+0x94*D(___243ce8h)+0x18) <= 0) D(___2438c8h)++;
 					}
 #if defined(DR_MULTIPLAYER)
 				}
 #endif // DR_MULTIPLAYER		
 		
-				eax = 0;
-				ebx = D(___243cf4h);
-				D(___243c60h) = eax;
-				D(___243d0ch) = eax;
+				D(___243c60h) = 0;
+				D(___243d0ch) = 0;
 
-				if((int)ebx > 0){
+				if((int)D(___243cf4h) > 0){
 
 					ecx = 0x94*D(___243cf4h);
 					edx = 0;
 					ebx = 0;
-					edi = 0;
 
 					while(1){
 
-						if((int)D(edx+___1e6ed0h+0xb0) <= 0x3f000000){
+						if((int)D(___1e6ed0h+edx+0xb0) <= 0x3f000000){
 
-							if((edi != D(edx+___1e6ed0h+0x10a))||((int)edi >= (int)D(ebx+___1de580h+0x18))){
-
-								D(___243d0ch)++;
-							}
+							if((D(___1e6ed0h+edx+0x10a) != 0)||((int)D(___1de580h+ebx+0x18) <= 0)) D(___243d0ch)++;
 						}
 
-						eax = D(___243c60h);
 						ebx += 0x94;
-						eax++;
 						edx += 0x35e;
-						D(___243c60h) = eax;
+						D(___243c60h)++;
 						if((int)ebx >= (int)ecx) break;
 					}
 				}
 
-				eax = D(___243cf4h);
-				edx = D(___243d0ch);
-				eax--;
-				if((int)eax <= (int)edx) D(___2438c8h)++;
+				eax = D(___243cf4h)-1;
+				if((int)eax <= (int)D(___243d0ch)) D(___2438c8h)++;
 				D(___243ca8h)++;
 				D(___243874h)--;
 				if((int)D(___243874h) <= 0) break;
@@ -1103,27 +792,19 @@ void race_main(dword A1, dword A2){
 #if defined(DR_MULTIPLAYER)
 		if(D(___19bd60h) == 0){
 #endif // DR_MULTIPLAYER		
-			if(D(___1de580h) != 6){
-		
-				race___4c21ch();
-			}
+			if(D(___1de580h) != 6) race___4c21ch();
 #if defined(DR_MULTIPLAYER)
 		}
 
-		if(D(___19bd60h) != 0){
-		
-			if(D(___24387ch) != 0){
-		
-				race___44304h();
-			}
-		}
+		if((D(___19bd60h) != 0)&&(D(___24387ch) != 0)) race___44304h();
+
 #endif // DR_MULTIPLAYER
 		if(kmap[DR_SCAN_F12] != 0) race___49390h();
 		if(kmap[DR_SCAN_F1] != 0){
 
-			edi = D(___19bd60h);
-			if(edi == 0){
-
+#if defined(DR_MULTIPLAYER)
+			if(D(___19bd60h) == 0){
+#endif // DR_MULTIPLAYER
 				D(___243d08h) = 0;
 				while(1){
 
@@ -1147,12 +828,10 @@ void race_main(dword A1, dword A2){
 				race___48458h();
 				dRally_Sound_setPosition(ebx);
 				dRally_Sound_setMasterVolume(0x10000);
-				ebx = 0;
-				ecx = 0x10000;
-				edx = B(___1de580h+0x94*D(___243ce8h))+0x19;
-				eax = 1;
-				dRally_Sound_pushEffect(eax, edx, ebx, ecx, 0x28000, 0x8000);
+				dRally_Sound_pushEffect(1, B(___1de580h+0x94*D(___243ce8h))+0x19, 0, 0x10000, 0x28000, 0x8000);
+#if defined(DR_MULTIPLAYER)
 			}
+#endif // DR_MULTIPLAYER
 		}
 
 		if(!D(___243d00h)&&kmap[DR_SCAN_TAB]){
@@ -1216,41 +895,30 @@ void race_main(dword A1, dword A2){
 				if(!strcmp(___19bd64h, "TR9")) dRally_Sound_setPosition(0x3200);
 				dRally_Sound_setMasterVolume(0x8000);
 				race___477d4h();
-				race___47808h(0, 0, "                                ");
-				race___47808h(0, 1, "                                ");
-				race___47808h(0, ebp, "                                ");
-				race___47808h(0, 3, "     G A M E   P A U S E D !    ");
-				race___47808h(0, 4, "                                ");
-				race___47808h(0, 5, "                                ");
-				race___47808h(0, 6, "                                ");
-				race___47808h(0, 7, "                                ");
-				race___47808h(0, 8, "    PRESS ENTER TO CONTINUE     ");
+				printmsg(MSG_GAME_PAUSED);
 				race___478c8h(0);
 				if(D(___196d9ch) == 1) race___46738h__VGA13_PRESENTCLEARSCREEN();
 				dRally_Sound_setPosition(ecx);
 				dRally_Sound_setMasterVolume(0x10000);
-				edx = B(___1de580h+0x94*D(___243ce8h))+0x19;
-				dRally_Sound_pushEffect(1, L(edx), 0, 0x10000, 0x28000, 0x8000);
+				dRally_Sound_pushEffect(1, B(___1de580h+0x94*D(___243ce8h))+0x19, 0, 0x10000, 0x28000, 0x8000);
 #if defined(DR_MULTIPLAYER)
 			}
 #endif // DR_MULTIPLAYER
 		}
 
 		race___4ee9ch();
-		ecx = 0;
 		race___4f030h();
-		D(___243d0ch) = ecx;
-		D(___243d08h) = ecx;
+		D(___243d0ch) = 0;
 
+		D(___243d08h) = 0;
 		while(1){
 
-			ecx = D(___196d88h);
-			ecx = (int)ecx>>2;
+			ecx = (int)D(___196d88h)>>2;
 
 			memcpy(___243d80h+D(___243d08h)+D(___196d98h)+0x60, ___243d58h+D(___196dc8h)+D(___243d0ch)+D(___196dcch)*D(___243d28h), 4*(ecx+1));
-			D(___243d08h) += 0x200;
 			D(___243d0ch) += D(___243d28h);
 
+			D(___243d08h) += 0x200;
 			if((int)D(___243d08h) >= 0x19000) break;
 		}
 
@@ -1293,87 +961,52 @@ void race_main(dword A1, dword A2){
 
 		if((int)D(___2438c8h) > 0x12c){
 #if defined(DR_MULTIPLAYER)
-			if(D(___19bd60h) != 0){
-				
-				edi = 0;
-				D(___24387ch) = edi;
-			}
+			if(D(___19bd60h) != 0) D(___24387ch) = 0;
 #endif // DR_MULTIPLAYER
 			D(___243d08h) = -1;
 			while(++D(___243d08h) < 0xe) dRally_Sound_freeEffectChannel(D(___243d08h)+1);
-			ecx = 0x10000;
-			edx = 5;
-			ebx = 0;
-			dRally_Sound_pushEffect(ebp, edx, ebx, ecx, 0x50000, 0x8000);
+			dRally_Sound_pushEffect(2, SFX_RACE_OVER, 0, 0x10000, 0x50000, 0x8000);
 			race___477d4h();
-			race___47808h(0, 0, "                                ");
-			race___47808h(0, 1, "                                ");
-			race___47808h(0, ebp, "                                ");
-			race___47808h(0, 3, "      R A C E    O V E R !      ");
-			race___47808h(0, 4, "                                ");
-			race___47808h(0, 5, "                                ");
-			race___47808h(0, 6, "                                ");
-			race___47808h(0, 7, "                                ");
-			race___47808h(0, 8, "    PRESS ENTER TO CONTINUE     ");
+			printmsg(MSG_RACE_OVER);
 			race___478c8h(!!D(___199f54h));
 			D(___243d14h) = 1;
 		}
 
 		D(___243d08h) = __GET_FRAME_COUNTER();
 		while(D(___243d08h) == __GET_FRAME_COUNTER());
-		eax = 0x35e*D(___243ce8h);
 
-		if((int)D(eax+___1e6ed0h+0x34e) > 0){
+		if((int)D(___1e6ed0h+0x35e*D(___243ce8h)+0x34e) > 0){	// drug countdown
 
 			if(D(___196d9ch) != 0) race___46814h();
 			if(D(___196d9ch) == 0) race___454ach();
 		}
 		else {
 
-			edi = D(___196d9ch);
+			if(D(___196d9ch) == 0){
 
-			if(edi == 0){
-
-				D(___243d08h) = edi;
-				D(___243d0ch) = edi;
-				edx = 0x50;
+				D(___243d08h) = 0;
+				D(___243d0ch) = 0;
 
 				while(1){
 
-					memcpy(VGA13_ACTIVESCREEN+D(___243d08h), ___243d80h+D(___243d0ch)+0x60, 4*edx);
-					ebx = D(___243d08h);
-					ecx = D(___243d0ch);
-					ebx += 0x140;
-					ecx += 0x200;
-					D(___243d08h) = ebx;
-					D(___243d0ch) = ecx;
-					if((int)ebx >= 0xfa00) break;
+					memcpy(VGA13_ACTIVESCREEN+D(___243d08h), ___243d80h+D(___243d0ch)+0x60, 0x140);
+					D(___243d08h) += 0x140;
+					D(___243d0ch) += 0x200;
+					if((int)D(___243d08h) >= 0xfa00) break;
 				}
 
 				__VGA13_PRESENTSCREEN__();
 			}
 
 			if(D(___196d9ch) == 1) race___46814h();
-			eax = 0x35e*D(___243ce8h);
-			ebx = 0;
-			D(eax+___1e6ed0h+0x34e) = ebx;
+			D(___1e6ed0h+0x35e*D(___243ce8h)+0x34e) = 0;
 		}
 
-		edx = D(___243334h);
-		ecx = 0;
+		D(___243c60h) = 0;
 		eax = 0;
-		D(___243c60h) = ecx;
-
 		while(1){
 
-			esi = D(eax+___1e6ed0h+0x34e);
-
-			if((int)esi > 0){
-
-				edi = esi;
-				edi -= edx;
-				D(eax+___1e6ed0h+0x34e) = edi;
-			}
+			if((int)D(___1e6ed0h+eax+0x34e) > 0) D(___1e6ed0h+eax+0x34e) -= D(___243334h);
 
 			eax += 0x35e;
 			if(eax == 0xd78) break;
@@ -1393,165 +1026,101 @@ void race_main(dword A1, dword A2){
 		}
 
 		D(___196d8ch) = (int)D(___196d88h)>>1;
-		edx = 0x140-D(___196d88h);
-		eax = D(___19bd60h);
-		D(___196d98h) = edx;
+		D(___196d98h) = 0x140-D(___196d88h);
 
-		if((!eax&&kmap[DR_SCAN_ESCAPE])||(!(!D(___19bd60h)||(!kmap[DR_SCAN_ESCAPE]&&!D(___243cd8h)))&&!((int)D(___243ca4h) <= 0xc8))){
+#if defined(DR_MULTIPLAYER)
+		if(	(!D(___19bd60h)&&kmap[DR_SCAN_ESCAPE])
+		||	(D(___19bd60h)&&kmap[DR_SCAN_ESCAPE]&&((int)D(___243ca4h) > 0xc8))
+		||	(D(___19bd60h)&&D(___243cd8h)&&((int)D(___243ca4h) > 0xc8))
+		){
+#else
+		if(kmap[DR_SCAN_ESCAPE]){
+#endif // DR_MULTPLAYER
 
 #if defined(DR_MULTIPLAYER)
 			if(D(___19bd60h) != 0){
-			
-				edi = 0;
-				D(___24387ch) = edi;
-			}
 
-			if(D(___19bd60h) != 0){
-			
-				if(D(___243cd8h) == 0){
-				
-					eax = 0xfd;
-					___61418h(eax);
-				}
+				D(___24387ch) = 0;
+				if(D(___243cd8h) == 0) ___61418h(0xfd);
 			}
 #endif // DR_MULTIPLAYER
 
-			ebx = 0xffffffff;
-			ecx = 0;
-			D(___243d14h) = ebx;
+			D(___243d14h) = -1;
 			race___477d4h();
-			D(___243d08h) = ecx;
+			D(___243d08h) = 0;
 
 			while(1){
 
-				L(eax) = B(___243d08h);
-				L(eax)++;
-				eax &= 0xff;
-				dRally_Sound_freeEffectChannel(eax);
-				esi = D(___243d08h);
-				esi++;
-				D(___243d08h) = esi;
-				if((int)esi >= 0xe) break;
+				D(___243d08h)++;
+				dRally_Sound_freeEffectChannel(B(___243d08h));
+				if((int)D(___243d08h) >= 0xe) break;
 			}
 
 #if defined(DR_MULTIPLAYER)
 			if((D(___19bd60h) != 0)&&(D(___243cd8h) != 0)){
 
-				race___47808h(0, 0, "                                ");
-				race___47808h(0, 1, "                                ");
-				race___47808h(0, ebp, " S O M E O N E   I S   A B O U T");
-				race___47808h(0, 3, "   T O   A B O R T   R A C E !  ");
-				race___47808h(0, 4, "                                ");
-				race___47808h(0, 5, "                                ");
-				race___47808h(0, 6, "                                ");
-				race___47808h(0, 7, "  WAITING FOR SIGNAL FROM HOST  ");
-				race___47808h(0, 8, "                                ");
-				eax = 1;
-				race___47ed8h(eax);
+				printmsg(MSG_ABOUT_TO_ABORT);
+				race___47ed8h(1);
 			}
 			else {
 #endif // DR_MULTIPLAYER
-				race___47808h(0, 0, "                                ");
-				race___47808h(0, 1, "                                ");
-				race___47808h(0, ebp, "                                ");
-				if(D(___199f54h) == 0){
-
-					race___47808h(0, 3, "      A B O R T   R A C E !     ");
-				}
-				else {
-				
-					race___47808h(0, 3, "      A B O R T   D E M O !     ");
-				}
-				race___47808h(0, 4, "                                ");
-				race___47808h(0, 5, "             Y / N              ");
-				race___47808h(0, 6, "                                ");
-				race___47808h(0, 7, "                                ");
-				race___47808h(0, 8, "                                ");
+				printmsg((D(___199f54h) == 0)?MSG_ABORT_RACE:MSG_ABORT_DEMO);
 #if defined(DR_MULTIPLAYER)
 			}
 
-			if(D(___19bd60h) != 0){
-
-				if(D(___243cd8h) == 0){
-				
-					eax = 0;
-					race___47ed8h(eax);
-				}
-			}
-
+			if((D(___19bd60h) != 0)&&(D(___243cd8h) == 0)) race___47ed8h(0);
 			if(D(___19bd60h) == 0){
 #endif // DR_MULTIPLAYER
-				eax = 0;
-				race___478c8h(eax);
+				race___478c8h(0);
 #if defined(DR_MULTIPLAYER)
 			}
 #endif // DR_MULTIPLAYER
 
 			if(D(___243d14h) != 1){
 
-				eax = 0x94*D(___243ce8h);
-				ecx = 0x10000;
-				edx = 0;
-				D(___243d14h) = edx;
-				L(eax) = B(eax+___1de580h);
-				ebx = 0;
-				L(edx) = L(eax);
-				eax = 1;
-				L(edx) += 0x19;
-				dRally_Sound_pushEffect(eax, edx, ebx, ecx, 0x28000, 0x8000);
+				D(___243d14h) = 0;
+				dRally_Sound_pushEffect(1, B(___1de580h+0x94*D(___243ce8h))+0x19, 0, 0x10000, 0x28000, 0x8000);
 				if(D(___196d9ch) == 1) race___46738h__VGA13_PRESENTCLEARSCREEN();
 			}
 			else {
-
-				esi = D(___19bd60h);
-
-				if(esi == 0){
-				
+#if defined(DR_MULTIPLAYER)
+				if(D(___19bd60h) == 0){
+#endif // DR_MULTIPLAYER		
 					race___560d8h();
 					D(___199f54h) = 0;
+#if defined(DR_MULTIPLAYER)
 				}
+#endif // DR_MULTIPLAYER
 			}
 
 #if defined(DR_MULTIPLAYER)
-			if(D(___19bd60h) != 0){
+			if((D(___19bd60h) != 0)&&(D(___243d14h) == 0)){
 				
-				edx = D(___243d14h);
-			
-				if(edx == 0){
-				
-					D(___24387ch) = 1;
-					D(___243cd8h) = edx;
-				}
+				D(___24387ch) = 1;
+				D(___243cd8h) = 0;
 			}
 #endif // DR_MULTIPLAYER
 		}
 
+
+
+
+
+
+
+
+
 #if defined(DR_MULTIPLAYER)
-		if(D(___19bd60h) != 0){
+		if((D(___19bd60h) != 0)&&(D(___243318h) == 1)){
 
-			edi = D(___243318h);
-
-			if(edi == 1){
-
-				D(___24387ch) = 0;
-				___61418h(0xfc);
-				D(___243d14h) = 0xffffffff;
-				race___477d4h();
-				race___47808h(0, 0, "                                ");
-				race___47808h(0, edi, "                                ");
-				race___47808h(0, ebp, "     M U L T I P L A Y E R      ");
-				race___47808h(0, 3, "      C O N N E C T I O N       ");
-				race___47808h(0, 4, "           L O S T !            ");
-				race___47808h(0, 5, "                                ");
-				race___47808h(0, 6, "                                ");
-				race___47808h(0, 7, "                                ");
-				race___47808h(0, 8, "      PRESS ENTER TO ABORT      ");
-				eax = 0;
-				ecx = 0xffffffff;
-				race___47ed8h(eax);
-				D(___243d14h) = edi;
-				D(___1de7d0h+0x44) = ecx;
-			}
+			D(___24387ch) = 0;
+			___61418h(0xfc);
+			D(___243d14h) = -1;
+			race___477d4h();
+			printmsg(MSG_CONNECTION_LOST);
+			race___47ed8h(0);
+			D(___243d14h) = 1;
+			D(___1de7d0h+0x44) = -1;
 		}
 #endif // DR_MULTIPLAYER
 
@@ -1567,15 +1136,7 @@ void race_main(dword A1, dword A2){
 				if(D(___243d44h) != 0){
 
 					race___477d4h();
-					race___47808h(0, 0, "     WELCOME TO DEATH RALLY!    ");
-					race___47808h(0, 1, "                                ");
-					race___47808h(0, ebp, " PRESS                          ");
-					race___47808h(0, 3, "    F1-INFO SCREEN              ");
-					race___47808h(0, 4, "     P-PAUSE                    ");
-					race___47808h(0, 5, "   TAB-TOGGLE STATUS BAR        ");
-					race___47808h(0, 6, "   ESC-ABORT RACE               ");
-					race___47808h(0, 7, "                                ");
-					race___47808h(0, 8, "    PRESS ENTER TO CONTINUE     ");
+					printmsg(MSG_WELCOME);
 					race___478c8h(!!D(___199f54h));
 				}
 #if defined(DR_MULTIPLAYER)
@@ -1592,7 +1153,7 @@ void race_main(dword A1, dword A2){
 	D(___243c60h) = 0;
 	while((int)D(___243c60h) < (int)D(___243cf4h)){
 
-		D(0x94*D(___243c60h)+___1de580h+0x54) = B(0x35e*D(___243c60h)+___1e6ed0h+0x109);
+		D(___1de580h+0x94*D(___243c60h)+0x54) = B(___1e6ed0h+0x35e*D(___243c60h)+0x109);
 		D(___243c60h)++;
 	}
 
@@ -1600,39 +1161,6 @@ void race_main(dword A1, dword A2){
 	dRally_Sound_stop();
 	dRally_Sound_release();
 	race___400ech();
-	dRMemory_free(___243d58h);
-	dRMemory_free(___243d60h);
-	dRMemory_free(___243d78h);
-	dRMemory_free(___243d54h);
-	dRMemory_free(___243d5ch);
-	dRMemory_free(___243d80h-0x200);
-	dRMemory_free(___243d74h);
-	dRMemory_free(___243d50h);
-	dRMemory_free(___243d34h);
-	dRMemory_free(___243d6ch);
-	dRMemory_free(___243d48h);
-	dRMemory_free(___243d4ch);
-	dRMemory_free(___243d70h);
-	dRMemory_free(___243d84h);
-	dRMemory_free(___243d3ch);
-	dRMemory_free(___243298h[0]);
-	dRMemory_free(___243298h[1]);
-	dRMemory_free(___243298h[2]);
-	dRMemory_free(___243298h[3]);
-	dRMemory_free(___243298h[4]);
-	dRMemory_free(___243298h[5]);
-	dRMemory_free(___243d8ch);
-	dRMemory_free(___243d7ch);
-	dRMemory_free(___243d88h);
-	dRMemory_free(___243d38h);
-	dRMemory_free(___243d40h);
-	dRMemory_free(___243288h[0]);
-	dRMemory_free(___243288h[1]);
-	dRMemory_free(___243290h[0]);
-	dRMemory_free(___243290h[1]);
-	dRMemory_free(___243d68h);
-	dRMemory_free(___243d64h);
-	dRMemory_free(___243314h);
-	dRMemory_free(___243310h);
+	race_free();
 	kmap[DR_SCAN_ESCAPE] = 0;
 }

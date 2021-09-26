@@ -728,36 +728,27 @@ ___2f8c7h:
 		D(esp+0x1c) = edx;
 ___2f8fdh:
 		___58c60h();
-		ebx = 2;
-		edx = ebp;
 		eax = ebp;
-		edx = (int)edx>>0x1f;
-		edx = (long long)(int)eax%(int)ebx;
-		if(edx == 0) goto ___2f97dh;
-		if(D(___1a1ef0h) != 5) goto ___2f97dh;
-		if(D(esp+4) != 0xffffffff) goto ___2f97dh;
-		edx = 0x10d;
-		eax = 0x1b0;
-		ecx = ___1a1ea0h;
-		ebx = D(___1a1ee8h);
-		___259e0h_cdecl(eax, edx, ebx, ecx, ___1865fch);
-		ecx = 0x40;
-		ebx = 0x60;
-		edx = ___1a112ch__VESA101_ACTIVESCREEN_PTR;
-		eax = 0x2a230;
-		edx += 0x2a230;
-		___1398ch__VESA101_PRESENTRECTANGLE(eax, edx, ebx, ecx);
-		esi = D(___1a1ee8h);
-		esi++;
-		D(___1a1ee8h) = esi;
-		if((int)esi <= 0x16) goto ___2f97dh;
-		eax = 0;
-		D(___1a1ee8h) = eax;
-___2f97dh:
-		if(D(esp+4) != 0xffffffff) goto ___2f98dh;
-		eax = D(esp+0xc);
-		dRally_Sound_setMasterVolume(eax);
-___2f98dh:
+		edx = (int)eax>>0x1f;
+		edx = (long long)(int)eax%2;
+
+		if(edx != 0){
+
+			if(D(___1a1ef0h) == 5){
+
+				if(D(esp+4) == -1){
+
+					___259e0h_cdecl(0x1b0, 0x10d, D(___1a1ee8h), ___1a1ea0h, ___1865fch);
+					___1398ch__VESA101_PRESENTRECTANGLE(0x2a230, ___1a112ch__VESA101_ACTIVESCREEN_PTR+0x2a230, 0x60, 0x40);
+					D(___1a1ee8h)++;
+					
+					if((int)D(___1a1ee8h) > 0x16) D(___1a1ee8h) = 0;
+				}
+			}
+		}
+
+		if(D(esp+4) == -1) dRally_Sound_setMasterVolume(D(esp+0xc));
+
 		esi = D(esp+0x1c);
 		ebx = 0;
 		edi = 0;

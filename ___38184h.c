@@ -19,7 +19,7 @@ typedef struct font_props_s {
 	extern void * ___1a0fe0h;
 	extern byte ___196adch[];
 
-void ___35b68h_cdecl(dword A0, dword A1, dword A2, dword A3);
+void ___35b68h_cdecl(dword A0, float A1, float A2, float A3);
 void ___2b318h(void);
 char * strupr_watcom106(char * s);
 char * itoa_watcom106(int value, char * buffer, int radix);
@@ -217,197 +217,36 @@ void ___38184h_cdecl(dword A1, void * A2){
 	}
 
 	___2b318h();
-	edx ^= edx;
-	ebp = D(___1a1ef8h);
-	L(edx) = B(esp+0x14);
 
-	if((edx == ebp)||(D(___19bd60h) != 0)){
+	edxp = ((B(esp+0x14) == D(___1a1ef8h))||(D(___19bd60h) != 0)) ? ___1a0fb8h : ___1a0fe0h;
 
-		edx ^= edx;
-		L(edx) = B(esp+0x14);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 0x2;
-		eax -= edx;
-		edx = D(eax*4+___1a01e0h+0x2c);
-		eax = 4*edx;
-		eax -= edx;
-		edxp = ___1a0fb8h;
-	}
-	else {
+	___35b68h_cdecl(
+		0x40,
+		(float)(double)B(edxp+3*D(___1a01e0h+0x6c*B(esp+0x14)+0x2c)),
+		(float)(double)B(edxp+3*D(___1a01e0h+0x6c*B(esp+0x14)+0x2c)+0x1),
+		(float)(double)B(edxp+3*D(___1a01e0h+0x6c*B(esp+0x14)+0x2c)+0x2));
 
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 0x2;
-		eax -= edx;
-		edx = D(eax*4+___1a01e0h+0x2c);
-		eax = 4*edx;
-		eax -= edx;
-		edxp = ___1a0fe0h;
-	}
+	edxp = ((B(esp+0x15) == D(___1a1ef8h))||(D(___19bd60h) != 0)) ? ___1a0fb8h : ___1a0fe0h;
 
-	edxp += eax;
-	eax ^= eax;
-	L(eax) = B(edxp+0x2);
-	D(esp+0x44) = eax;
-	FPUSH((short)W(esp+0x44));
-	esp -= 4;
-	eax ^= eax;
-	F32(esp) = (float)FPOP();
-	L(eax) = B(edxp+0x1);
-	D(esp+0x48) = eax;
-	FPUSH((short)W(esp+0x48));
-	esp -= 4;
-	eax ^= eax;
-	F32(esp) = (float)FPOP();
-	L(eax) = B(edxp);
-	D(esp+0x4c) = eax;
-	FPUSH((short)W(esp+0x4c));
-	esp -= 4;
-	eax = 0x40;
-	F32(esp) = (float)FPOP();
-	___35b68h_cdecl(eax, D(esp), D(esp+4), D(esp+8));
-	esp += 0xc;
-	edx ^= edx;
-	ebx = D(___1a1ef8h);
-	L(edx) = B(esp+0x15);
+	___35b68h_cdecl(
+		0x50,
+		(float)(double)B(edxp+3*D(___1a01e0h+0x6c*B(esp+0x15)+0x2c)),
+		(float)(double)B(edxp+3*D(___1a01e0h+0x6c*B(esp+0x15)+0x2c)+0x1),
+		(float)(double)B(edxp+3*D(___1a01e0h+0x6c*B(esp+0x15)+0x2c)+0x2));
 
-	if((edx == ebx)||(D(___19bd60h) != 0)){
+	edxp = ((B(esp+0x16) == D(___1a1ef8h))||((D(___19bd60h) != 0)&&((int)D(___196adch) > 2))) ? ___1a0fb8h : ___1a0fe0h;
 
-		edx ^= edx;
-		L(edx) = B(esp+0x15);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 0x2;
-		eax -= edx;
-		edx = D(eax*4+___1a01e0h+0x2c);
-		eax = 4*edx;
-		eax -= edx;
-		edxp = ___1a0fb8h;
-	}
-	else {
+	___35b68h_cdecl(
+		0xe0,
+		(float)(double)B(edxp+3*D(___1a01e0h+0x6c*B(esp+0x16)+0x2c)),
+		(float)(double)B(edxp+3*D(___1a01e0h+0x6c*B(esp+0x16)+0x2c)+0x1),
+		(float)(double)B(edxp+3*D(___1a01e0h+0x6c*B(esp+0x16)+0x2c)+0x2));
 
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 0x2;
-		eax -= edx;
-		edx = D(eax*4+___1a01e0h+0x2c);
-		eax = 4*edx;
-		eax -= edx;
-		edxp = ___1a0fe0h;
-	}
+	edxp = ((B(esp+0x17) == D(___1a1ef8h))||((D(___19bd60h) != 0)&&((int)D(___196adch) > 3))) ? ___1a0fb8h : ___1a0fe0h;
 
-	edxp += eax;
-	eax ^= eax;
-	L(eax) = B(edxp+0x2);
-	D(esp+0x44) = eax;
-	FPUSH((short)W(esp+0x44));
-	esp -= 4;
-	eax ^= eax;
-	F32(esp) = (float)FPOP();
-	L(eax) = B(edxp+0x1);
-	D(esp+0x48) = eax;
-	FPUSH((short)W(esp+0x48));
-	esp -= 4;
-	eax ^= eax;
-	F32(esp) = (float)FPOP();
-	L(eax) = B(edxp);
-	D(esp+0x4c) = eax;
-	FPUSH((short)W(esp+0x4c));
-	esp -= 4;
-	eax = 0x50;
-	F32(esp) = (float)FPOP();
-	___35b68h_cdecl(eax, D(esp), D(esp+4), D(esp+8));
-	esp += 0xc;
-	eax ^= eax;
-	esi = D(___1a1ef8h);
-	L(eax) = B(esp+0x16);
-
-	if((eax == esi)||((D(___19bd60h) != 0)&&((int)D(___196adch) > 2))){
-
-		edx ^= edx;
-		L(edx) = B(esp+0x16);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 0x2;
-		eax -= edx;
-		edx = D(eax*4+___1a01e0h+0x2c);
-		eax = 4*edx;
-		eax -= edx;
-		edxp = ___1a0fb8h;
-	}
-	else {
-
-		edx ^= edx;
-		L(edx) = B(esp+0x16);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 0x2;
-		eax -= edx;
-		edx = D(eax*4+___1a01e0h+0x2c);
-		eax = 4*edx;
-		eax -= edx;
-		edxp = ___1a0fe0h;
-	}
-
-	edxp += eax;
-	eax ^= eax;
-	L(eax) = B(edxp+0x2);
-	D(esp+0x44) = eax;
-	FPUSH((short)W(esp+0x44));
-	esp -= 4;
-	eax ^= eax;
-	F32(esp) = (float)FPOP();
-	L(eax) = B(edxp+0x1);
-	D(esp+0x48) = eax;
-	FPUSH((short)W(esp+0x48));
-	esp -= 4;
-	eax ^= eax;
-	F32(esp) = (float)FPOP();
-	L(eax) = B(edxp);
-	D(esp+0x4c) = eax;
-	FPUSH((short)W(esp+0x4c));
-	esp -= 4;
-	eax = 0xe0;
-	F32(esp) = (float)FPOP();
-	___35b68h_cdecl(eax, D(esp), D(esp+4), D(esp+8));
-	esp += 0xc;
-	eax ^= eax;
-	edx = D(___1a1ef8h);
-	L(eax) = B(esp+0x17);
-
-	if((eax == edx)||((D(___19bd60h) != 0)&&((int)D(___196adch) > 3))){
-
-		edx ^= edx;
-		L(edx) = B(esp+0x17);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 0x2;
-		eax -= edx;
-		edx = D(eax*4+___1a01e0h+0x2c);
-		eax = 4*edx;
-		eax -= edx;
-		edxp = ___1a0fb8h;
-	}
-	else {
-
-		edx ^= edx;
-		L(edx) = B(esp+0x17);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 0x2;
-		eax -= edx;
-		edx = D(eax*4+___1a01e0h+0x2c);
-		eax = 4*edx;
-		eax -= edx;
-		edxp = ___1a0fe0h;
-	}
-
-	esp -= 4;
-	F32(esp) = (float)(double)B(edxp+eax+0x2);
-	esp -= 4;
-	F32(esp) = (float)(double)B(edxp+eax+0x1);
-	esp -= 4;
-	F32(esp) = (float)(double)B(edxp+eax);
-	___35b68h_cdecl(0xf0, D(esp), D(esp+4), D(esp+8));
+	___35b68h_cdecl(
+		0xf0,
+		(float)(double)B(edxp+3*D(___1a01e0h+0x6c*B(esp+0x17)+0x2c)),
+		(float)(double)B(edxp+3*D(___1a01e0h+0x6c*B(esp+0x17)+0x2c)+0x1),
+		(float)(double)B(edxp+3*D(___1a01e0h+0x6c*B(esp+0x17)+0x2c)+0x2));
 }

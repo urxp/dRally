@@ -1,3 +1,7 @@
+#include "drally.h"
+
+void ___38878h_cdecl(void){
+
 /*
 cpu 386
 %include "macros.inc"
@@ -116,3 +120,4 @@ section .data
 __dfr_180998h:
 	db 	"Waiting for other players...",0,0,0,0
 */
+}

@@ -1,3 +1,7 @@
+#include "drally.h"
+
+void ___1b140h(void){
+
 /*
 cpu 386
 %include "macros.inc"
@@ -1230,3 +1234,4 @@ loc_wait:
 __dfr_180a78h:
 	db	4ch,6fh,6fh,6bh,69h,6eh,67h,20h,66h,6fh,72h,20h,6eh,65h,74h,67h,61h,6dh,65h,73h,2ch,20h,70h,72h,65h,73h,73h,20h,65h,6eh,74h,65h,72h,20h,74h,6fh,20h,6ah,6fh,69h,6eh,2eh,2eh,2eh,0,0,0,0
 */
+}

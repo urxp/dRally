@@ -1,3 +1,7 @@
+#include "drally.h"
+
+void ___1c178h(void){
+
 /*
 #include "drally.h"
 #include "drmemory.h"
@@ -147,3 +151,4 @@ ___1c354h:
 	return;
 }
 */
+}

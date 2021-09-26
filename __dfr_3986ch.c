@@ -1,3 +1,7 @@
+#include "drally.h"
+
+void ___3986ch(void){
+
 /*
 cpu 386
 %include "macros.inc"
@@ -924,3 +928,4 @@ __dfr_182628h:
 __dfr_1826a8h:
 	db 	"Please wait while loading...",0,0,0,0
 */
+}

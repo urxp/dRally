@@ -1,3 +1,7 @@
+#include "drally.h"
+
+void ___23488h_cdecl(dword A0, dword A1, dword A2){
+
 /*
 cpu 386
 %include "macros.inc"
@@ -122,3 +126,4 @@ ___23587h:
 		pop     ecx
 		retn    
 */
+}

@@ -3,10 +3,10 @@
 	extern byte ___19bd60h[];
 	extern byte ___196a78h[];
 	extern byte ___196a84h[];
-	extern byte ___1a112ch__VESA101_ACTIVESCREEN_PTR[];
+	extern void * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
 	extern byte ___185a34h[];
 	extern byte ___19eb50h[];
-	extern byte ___1a1138h__VESA101h_DefaultScreenBufferB[];
+	extern void * ___1a1138h__VESA101h_DefaultScreenBufferB;
 	extern byte ___196a7ch[];
 	extern byte ___185c0bh[];
 	extern byte ___1a10fch[];
@@ -64,6 +64,8 @@ void ___1e4f8h(void);
 	
 void menu___1e888h(dword A1){
 
+#if defined(DR_MULTIPLAYER)
+
 	long long ll_tmp;
 	dword 	bb, gg, rr, nn;
 	dword 	eax, ebx, ecx, edx, edi, esi, ebp;
@@ -81,7 +83,7 @@ void menu___1e888h(dword A1){
 			if((D(___19bd60h) == 0)||(D(___196a84h) == 0)){
 #endif // DR_MULTIPLAYER
 
-				memcpy(D(___1a112ch__VESA101_ACTIVESCREEN_PTR)+0xd200, D(___1a1138h__VESA101h_DefaultScreenBufferB)+0xd200, 0x2c380);
+				memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR+0xd200, ___1a1138h__VESA101h_DefaultScreenBufferB+0xd200, 0x2c380);
 
 #if defined(DR_MULTIPLAYER)
 			}
@@ -207,7 +209,7 @@ void menu___1e888h(dword A1){
 					if(edi == 0xfffe0000) break;
 				}
 
-				memcpy(D(___1a112ch__VESA101_ACTIVESCREEN_PTR), D(___1a1138h__VESA101h_DefaultScreenBufferB), 0x4b000);
+				memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR, ___1a1138h__VESA101h_DefaultScreenBufferB, 0x4b000);
 				___135fch(0, 0x173, 0x27f, 0x6d);
 
 				if(D(___196a7ch) == 0){
@@ -385,7 +387,7 @@ void menu___1e888h(dword A1){
 					___59b3ch();
 					D(___196a80h) = 0;
 					D(___196ad4h) = 0;
-					memcpy(D(___1a112ch__VESA101_ACTIVESCREEN_PTR)+0xd200, D(___1a1138h__VESA101h_DefaultScreenBufferB)+0xd200, 0x2c380);
+					memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR+0xd200, ___1a1138h__VESA101h_DefaultScreenBufferB+0xd200, 0x2c380);
 					___13710h(0, 0);
 					___13710h(2, 1);
 					___12cb8h__VESA101_PRESENTSCREEN();
@@ -523,4 +525,7 @@ void menu___1e888h(dword A1){
 	}
 	
 	D(___196a78h) = 0;
+#else
+	printf("[dRally.MP] Multiplayer not supported!\n");
+#endif // DR_MULTIPLAYER
 }

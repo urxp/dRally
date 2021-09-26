@@ -29,8 +29,8 @@ typedef struct font_props_s {
 	extern byte ___196d84h[];
 	extern byte ___185a2ch[];
 	extern byte ___196a84h[];
-	extern byte ___1a1100h__VESA101h_DefaultScreenBuffer[];
-	extern byte ___1a1124h__VESA101h_ScreenBufferA[];
+	extern void * ___1a1100h__VESA101h_DefaultScreenBuffer;
+	extern void * ___1a1124h__VESA101h_ScreenBufferA;
 	extern byte ___1a1ef4h[];
 	extern byte ___185c0bh[];
 	extern void * ___1a1108h;
@@ -78,7 +78,7 @@ void ___12cb8h__VESA101_PRESENTSCREEN(void);
 void ___2b318h(void);
 void ___58c60h(void);
 void ___13a98h_cdecl(dword);
-void ___3a7e0h_cdecl(dword);
+void ___3a7e0h_cdecl(int);
 dword ___146c4h_cdecl(dword);
 #if defined(DR_CDCHECK)
 dword menu___3e4a0h(void);
@@ -91,7 +91,7 @@ byte ___5994ch(void);
 byte ___59b3ch(void);
 void ___2ab50h(void);
 void menu___194a8h(void);
-//void menu___1e888h(dword);
+void menu___1e888h(dword);
 void menu___218b4h(void);
 void menu___22a80h(void);
 void menu___3d4f0h(void);
@@ -219,7 +219,7 @@ void menu_main(void){
 					if(D(___185a2ch)){
 
 						D(___185a2ch) = 0;
-						memcpy(D(___1a1100h__VESA101h_DefaultScreenBuffer), D(___1a1124h__VESA101h_ScreenBufferA), 0x4b000);
+						memcpy(___1a1100h__VESA101h_DefaultScreenBuffer, ___1a1124h__VESA101h_ScreenBufferA, 0x4b000);
 						restoreDefaultScreenBuffer();
 						restoreDefaultScreenBufferA();
 					}
@@ -231,7 +231,7 @@ void menu_main(void){
 				if(D(___196a84h) == 0){
 
 					restoreDefaultScreenBuffer();
-					___3a7e0h_cdecl(0xffffffff);
+					___3a7e0h_cdecl(-1);
 					dRally_Sound_stop();
 					dRally_Sound_play();
 					dRally_Sound_setPosition(D(___1a1ef4h));
@@ -246,7 +246,7 @@ void menu_main(void){
 
 			switch(eax){
 			case 0:
-				//menu___1e888h(0);
+				menu___1e888h(0);
 				break;
 			case 1: // START RACING
 #if defined(DR_CDCHECK)
@@ -291,8 +291,8 @@ void menu_main(void){
 				}
 #endif // DR_CDCHECK
 				break;
-			case 2:
-				//menu___1e888h(2);
+			case 2:	// MULTIPLAYER
+				menu___1e888h(2);
 				break;
 			case 3:	// CONFIGURE
 				menu___218b4h();

@@ -39,19 +39,22 @@ typedef struct eventtext_s {
 	char80 	l8;
 	char80 	l9;
 } eventtext_t;
-#pragma pack(pop)
 
-	extern byte ___1a1ef8h[];
+typedef struct font_props_s {
+	byte 	w;
+	byte 	h;
+	byte 	props[];
+} font_props_t;
+#pragma pack(pop)
 
 #define Racers ___1a01e0h
 	extern racer_t ___1a01e0h[];
 
-
-	extern byte ___1a112ch__VESA101_ACTIVESCREEN_PTR[];
-	extern byte ___1a1e74h[];
+	extern void * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
+	extern void * ___1a1e74h;
 	extern byte ___1a1ef8h[];
 	extern byte ___185ba9h[];
-	extern byte ___1a10cch[];
+	extern void * ___1a10cch;
 
 static const eventtext_t l_data[6] = {
 	{
@@ -132,7 +135,7 @@ static const eventtext_t l_data[6] = {
 
 
 void ___13248h_cdecl(dword, dword ,dword, dword, dword);
-void ___12e78h_cdecl(dword, dword, dword, dword);
+void ___12e78h_cdecl(byte * A1, font_props_t * A2, const char * A3, dword dst_off);
 void ___13094h_cdecl(const char *, dword);
 
 // WINNING STREAK
@@ -150,8 +153,7 @@ void ___14dc4h(void){
 		m = -1;
 		while(++m < 0x68){
 
-			px = B(D(___1a1e74h)+0x68*n+m);
-			if(px != 0) B(D(___1a112ch__VESA101_ACTIVESCREEN_PTR)+0x1a42d+0x280*n+m) = px;
+			if((px = read_b(___1a1e74h+0x68*n+m)) != 0) write_b(___1a112ch__VESA101_ACTIVESCREEN_PTR+0x1a42d+0x280*n+m, px);
 		}
 	}
 
@@ -203,5 +205,5 @@ void ___14dc4h(void){
 	___13094h_cdecl(l_data[n].l7, 0x26ca1);
 	___13094h_cdecl(l_data[n].l8, 0x294a1);
 	___13094h_cdecl(l_data[n].l9, 0x2bca1);
-	___12e78h_cdecl(D(___1a10cch), ___185ba9h, "CONTINUE", 0x316c0);
+	___12e78h_cdecl(___1a10cch, ___185ba9h, "CONTINUE", 0x316c0);
 }
