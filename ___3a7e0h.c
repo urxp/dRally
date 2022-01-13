@@ -1,14 +1,14 @@
 #include "drally.h"
 
-	extern void * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
-	extern void * ___1a1124h__VESA101h_ScreenBufferA;
-	extern void * ___1a10c4h;
+	extern __POINTER__ ___1a112ch__VESA101_ACTIVESCREEN_PTR;
+	extern __POINTER__ ___1a1124h__VESA101h_ScreenBufferA;
+	extern __POINTER__ ___1a10c4h;
 
 void ___2aa08h(void);
-void dRally_Sound_setMasterVolume(dword vol);
-byte ___5994ch(void);
-byte ___59b3ch(void);
-void ___1398ch__VESA101_PRESENTRECTANGLE(dword offset, void * src, dword w, dword h);
+void dRally_Sound_setMasterVolume(__DWORD__ vol);
+__BYTE__ ___5994ch(void);
+__BYTE__ ___59b3ch(void);
+void ___1398ch__VESA101_PRESENTRECTANGLE(__DWORD__ offset, __POINTER__ src, __DWORD__ w, __DWORD__ h);
 
 void ___3a7e0h_cdecl(int A1){
 

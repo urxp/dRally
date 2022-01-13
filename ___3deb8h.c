@@ -2,8 +2,6 @@
 
 typedef char char70[70];
 
-	extern byte ___1a116ch[];
-	extern byte ___1a1f4eh[];
 	extern __BYTE__ ___1a202fh[0x13];
 	extern __BYTE__ ___1a2148h;
 
@@ -125,21 +123,11 @@ static const char70 ___195494h[19][4] = {
 };
 
 int rand_watcom106(void);
+void dRChatbox_push(const char *, int);
 
 void ___3deb8h(void){
 
-	int 	i, j, n;
-
-	j = -1;
-	while(++j < 6){
-
-		i = -1;
-		while(++i < 0x15){
-
-			strcpy(___1a116ch+0x96*i, ___1a116ch+0x96*(i+1));
-			B(___1a1f4eh+i) = B(___1a1f4eh+(i+1));
-		}
-	}
+	int 	n;
 
 	while(1){
 
@@ -148,14 +136,14 @@ void ___3deb8h(void){
 	}
 
 	B(___1a202fh+n) = 1;
-	strcpy(___1a116ch+0x9f6, ___195494h[n][0]);
-	B(___1a1f4eh+0x11) = 1;
-	strcpy(___1a116ch+0xa8c, ___195494h[n][1]);
-	B(___1a1f4eh+0x12) = 1;
-	strcpy(___1a116ch+0xb22, ___195494h[n][2]);
-	B(___1a1f4eh+0x13) = 1;
-	strcpy(___1a116ch+0xbb8, ___195494h[n][3]);
-	B(___1a1f4eh+0x14) = 1;
+
+	dRChatbox_push("", 0);
+	dRChatbox_push(___195494h[n][0], 1);
+	dRChatbox_push(___195494h[n][1], 1);
+	dRChatbox_push(___195494h[n][2], 1);
+	dRChatbox_push(___195494h[n][3], 1);
+	dRChatbox_push("", 0);
+
 	___1a2148h++;
 
 	if(___1a2148h > 0x12){

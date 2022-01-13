@@ -12,26 +12,28 @@
 #define CTRL_DROP_MINE		0x40
 #define CTRL_HORN			0x42
 
-	extern byte ___19bd60h[];
-	extern byte CONNECTION_TYPE[];
-	extern byte ___199f9ch[];
-	extern byte ___243cd0h[];
-	extern byte kmap[];
+#if defined(DR_MULTIPLAYER)
+	extern __DWORD__ ___19bd60h;
+#endif // DR_MULTIPLAYER
+	extern __DWORD__ CONNECTION_TYPE;
+	extern __BYTE__ ___199f9ch[];
+	extern __BYTE__ SUPERGLOBAL___243cd0h[];
+	extern __BYTE__ kmap[];
 	extern kb_control_t ___1a1140h;
 	extern __DWORD__ ___19bd58h_gamepad;
-	extern byte ___199f3fh[];
-	extern byte ___24cc64h[];
-	extern byte ___199f3eh[];
-	extern byte ___199f41h[];
-	extern byte ___199f40h[];
-	extern byte ___199f45h[];
-	extern byte ___199f44h[];
-	extern byte ___199f43h[];
-	extern byte ___199f42h[];
-	extern byte ___243888h[];
-	extern byte ___243890h[];
-	extern byte ___243884h[];
-	extern byte ___24388ch[];
+	extern __BYTE__ ___199f3fh[];
+	extern __BYTE__ ___24cc64h[];
+	extern __BYTE__ ___199f3eh[];
+	extern __BYTE__ ___199f41h[];
+	extern __BYTE__ ___199f40h[];
+	extern __BYTE__ ___199f45h[];
+	extern __BYTE__ ___199f44h[];
+	extern __BYTE__ ___199f43h[];
+	extern __BYTE__ ___199f42h[];
+	extern __BYTE__ ___243888h[];
+	extern __BYTE__ ___243890h[];
+	extern __BYTE__ ___243884h[];
+	extern __BYTE__ ___24388ch[];
 	extern __DWORD__ ___1a1164h_gp_accelerate;
 	extern __DWORD__ ___1a113ch_gp_brake;
 	extern __DWORD__ ___1a1110h_gp_steer_left;
@@ -39,21 +41,19 @@
 	extern __DWORD__ ___1a1120h_gp_turbo_boost;
 	extern __DWORD__ ___1a1118h_gp_machine_gun;
 	extern __DWORD__ ___1a111ch_gp_drop_mine;
-	extern byte ___243ce8h[];
-	extern struct_35e_t ___1e6ed0h[4];
-	extern byte ___24387ch[];
-	extern byte ___243880h[];
-	extern byte ___243898h[];
-	extern byte ___243894h[];
-	extern byte ___243cach[];
+	extern __DWORD__ MY_CAR_IDX;
+	extern __BYTE__ ___1e6ed0h[];
+	extern __BYTE__ ___24387ch[];
+	extern __BYTE__ ___243880h[];
+	extern __BYTE__ SUPERGLOBAL___243cach[];
 
 
-void ___63b20h(dword, dword);
+void ___63b20h(__DWORD__, __DWORD__);
 void ___61518h(void);
-void ___61418h(dword);
+void ___61418h(__DWORD__);
 void ___40564h(void);
 
-static byte todo_in(word w){
+static __BYTE__ todo_in(__WORD__ w){
 
 	printf("[TODO] IN instruction for Joystick/Gamepad\n");
 	return 0;
@@ -61,14 +61,17 @@ static byte todo_in(word w){
 
 void race___40164h(void){
 
-	dword 	aFlags;
+	__DWORD__ 		aFlags;
+	struct_35e_t *	s_35e;
 
 #if defined(DR_MULTIPLAYER)
-	if((D(___19bd60h) != 0)&&(D(CONNECTION_TYPE) == 2)) ___63b20h(1, D(___199f9ch));
+	if((___19bd60h != 0)&&(CONNECTION_TYPE == 2)) ___63b20h(1, D(___199f9ch));
 #endif // DR_MULTIPLAYER
 
 	aFlags = CTRL_NULL;
-	if(D(___243cd0h) == 0){
+	if(D(SUPERGLOBAL___243cd0h) == 0){
+
+		s_35e = (struct_35e_t *)___1e6ed0h;
 		
 		if((___1a1140h.accelerate == DR_SCAN_UP)&&kmap[DR_SCAN_KP_8]) aFlags |= CTRL_ACCELERATE;		// UP
 		if((___1a1140h.brake == DR_SCAN_DOWN)&&kmap[DR_SCAN_KP_2]) aFlags |= CTRL_BRAKE;				// DOWN
@@ -127,21 +130,21 @@ void race___40164h(void){
 #endif // DR_GAMEPAD
 
 		if(aFlags&CTRL_TURBO_BOOST) aFlags |= CTRL_ACCELERATE;
-		___1e6ed0h[D(___243ce8h)].ActionFlags[___1e6ed0h[D(___243ce8h)].ActionFlags_i++] = aFlags;
-		___1e6ed0h[D(___243ce8h)].ActionFlags_i &= 0xf;
+		s_35e[MY_CAR_IDX].ActionFlags[s_35e[MY_CAR_IDX].ActionFlags_i++] = aFlags;
+		s_35e[MY_CAR_IDX].ActionFlags_i &= 0xf;
 
 #if defined(DR_MULTIPLAYER)
-		if((D(___19bd60h) != 0)&&(D(___24387ch) != 0)){
+		if((___19bd60h != 0)&&(D(___24387ch) != 0)){
 
 			___61418h(aFlags);
 			if(D(___243880h) != 0) ___61518h();
 		}
 #endif // DR_MULTIPLAYER
 
-		D(___243898h)++;
-		if((int)D(___243898h) >= 0xf) D(___243898h) = 0;
-		D(___243894h)++;
+		incCounter(2);
+		if((int)getCounter(2) >= 0xf) resetCounter(2);
+		incCounter(3);
 	}
 
-	D(___243cach)++;
+	D(SUPERGLOBAL___243cach)++;
 }

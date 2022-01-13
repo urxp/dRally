@@ -57,6 +57,6 @@ typedef struct xm_pattern_s {
 xm_instrument_t * XM_getInstrument(xm_t * xm, int n);
 xm_pattern_t * XM_getPattern(xm_t * xm, int n);
 xm_sample_t * XM_getInstrumentSamples(xm_instrument_t * xm_ins_p);
-void * XM_getInstrumentSamplesData(xm_instrument_t * xm_ins_p);
+__POINTER__ XM_getInstrumentSamplesData(xm_instrument_t * xm_ins_p);
 
 #endif // __MOD_XM_H

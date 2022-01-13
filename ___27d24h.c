@@ -1,7 +1,7 @@
 #include "drally.h"
 
-	extern void * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
-	extern void * ___1a1eb0h;
+	extern __POINTER__ ___1a112ch__VESA101_ACTIVESCREEN_PTR;
+	extern __POINTER__ ___1a1eb0h;
 
 // GAME OVER, MY HALL OF FAME POSITON BORDER
 void ___27d24h_cdecl(int A1, int A2, int A3, int A4){

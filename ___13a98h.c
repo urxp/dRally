@@ -13,14 +13,14 @@ typedef struct menubox_s {
 
 	extern menubox_t ___185a5ch[];
 #define box ___185a5ch
-	extern void * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
+	extern __POINTER__ ___1a112ch__VESA101_ACTIVESCREEN_PTR;
 	extern __DWORD__ ___1a1e68h;
-	extern void * ___1a10f4h;
+	extern __POINTER__ ___1a10f4h;
 
 
-void ___1398ch__VESA101_PRESENTRECTANGLE(dword offset, void * src, dword w, dword h);
+void ___1398ch__VESA101_PRESENTRECTANGLE(__DWORD__ offset, __POINTER__ src, __DWORD__ w, __DWORD__ h);
 
-void ___13a98h_cdecl(dword A1){
+void ___13a98h_cdecl(__DWORD__ A1){
 
 	int 		i, j, n, offset;
 	__BYTE__ 	px;

@@ -1,13 +1,13 @@
 #include "drally.h"
 
-	extern void * ___1a1138h__VESA101h_DefaultScreenBufferB;
-	extern void * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
+	extern __POINTER__ ___1a1138h__VESA101h_DefaultScreenBufferB;
+	extern __POINTER__ ___1a112ch__VESA101_ACTIVESCREEN_PTR;
 
 // SHOP, MARKET, RACE SIGNUP REMOVE COPPER FRAME
-void ___281d0h_cdecl(dword A1, dword A2, dword A3, dword A4){
+void ___281d0h_cdecl(__DWORD__ A1, __DWORD__ A2, __DWORD__ A3, __DWORD__ A4){
 
-	dword 	eax, ebx, ecx, edx, edi, esi, ebp;
-	byte 	esp[0x18];
+	__DWORD__ 	eax, ebx, ecx, edx, edi, esi, ebp;
+	__BYTE__ 	esp[0x18];
 
 	eax = A1;
 	edx = A2;

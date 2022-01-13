@@ -1,26 +1,20 @@
 #include "drally.h"
+#include "drally_fonts.h"
 
-#pragma pack(1)
-typedef struct font_props_s {
-	byte 	w;
-	byte 	h;
-	byte 	props[];
-} font_props_t;
+	extern __BYTE__ ___1a01e0h[];
+	extern __BYTE__ ___1a1ef8h[];
+	extern __POINTER__ ___1a112ch__VESA101_ACTIVESCREEN_PTR;
+	extern __POINTER__ ___1a0fcch;
+	extern __POINTER__ ___1a0fd0h;
+	extern __POINTER__ ___1a0fd4h;
+	extern __POINTER__ ___1a0fc8h;
+	extern __POINTER__ ___1a0fdch;
+	extern __POINTER__ ___1a0fach;
+	extern __BYTE__ ___185c7ah[];
+	extern __POINTER__ ___1a10b8h;
 
-	extern byte ___1a01e0h[];
-	extern byte ___1a1ef8h[];
-	extern void * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
-	extern void * ___1a0fcch;
-	extern void * ___1a0fd0h;
-	extern void * ___1a0fd4h;
-	extern void * ___1a0fc8h;
-	extern void * ___1a0fdch;
-	extern void * ___1a0fach;
-	extern byte ___185c7ah[];
-	extern void * ___1a10b8h;
-
-void ___12e78h_cdecl(byte * A1, font_props_t * A2, const char * A3, dword dst_off);
-dword ___251e8h_cdecl(const char *);
+void ___12e78h_cdecl(__BYTE__ * A1, font_props_t * A2, const char * A3, __DWORD__ dst_off);
+__DWORD__ ___251e8h_cdecl(const char *);
 char * strupr_watcom106(char * s);
 char * itoa_watcom106(int value, char * buffer, int radix);
 
@@ -86,11 +80,11 @@ void ___37ed4h_cdecl(int A1){
 
 		itoa_watcom106(D(___1a01e0h+0x6c*n+0x48), buff, 0xa);
 		strcat(buff, ".");
-		___12e78h_cdecl(___1a10b8h, ___185c7ah, buff, 0xe13e +0x2f80*n-___251e8h_cdecl(buff));
+		___12e78h_cdecl(___1a10b8h, (font_props_t *)___185c7ah, buff, 0xe13e +0x2f80*n-___251e8h_cdecl(buff));
 		strcpy(buff, ___1a01e0h+0x6c*n);
 		strupr_watcom106(buff);
-		___12e78h_cdecl(___1a10b8h, ___185c7ah, buff, 0xdec2+0x2f80*n);
+		___12e78h_cdecl(___1a10b8h, (font_props_t *)___185c7ah, buff, 0xdec2+0x2f80*n);
 		itoa_watcom106(D(___1a01e0h+0x6c*n+0x44), buff, 0xa);
-		___12e78h_cdecl(___1a10b8h, ___185c7ah, buff, 0xdf48+0x2f80*n-___251e8h_cdecl(buff));
+		___12e78h_cdecl(___1a10b8h, (font_props_t *)___185c7ah, buff, 0xdf48+0x2f80*n-___251e8h_cdecl(buff));
 	}
 }

@@ -1,48 +1,42 @@
 #include "drally.h"
+#include "drally_fonts.h"
 
-#pragma pack(1)
-typedef struct font_props_s {
-	byte 	w;
-	byte 	h;
-	byte 	props[];
-} font_props_t;
+	extern __BYTE__ ___1a01e0h[];
+	extern __BYTE__ ___185c7ah[];
+	extern __POINTER__ ___1a10b8h;
+	extern __POINTER__ ___1a112ch__VESA101_ACTIVESCREEN_PTR;
+	extern __POINTER__ ___19de70h[20];
+	extern __POINTER__ ___1a0fa4h;
+	extern __BYTE__ ___1a1ef8h[];
+#if defined(DR_MULTIPLAYER)
+	extern __DWORD__ ___19bd60h;
+#endif // DR_MULTIPLAYER
+	extern __POINTER__ ___1a0fb8h;
+	extern __POINTER__ ___1a0fe0h;
+	extern __BYTE__ ___196adch[];
 
-	extern byte ___1a01e0h[];
-	extern byte ___185c7ah[];
-	extern void * ___1a10b8h;
-	extern void * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
-	extern void * ___19de70h[20];
-	extern void * ___1a0fa4h;
-	extern byte ___1a1ef8h[];
-	extern byte ___19bd60h[];
-	extern void * ___1a0fb8h;
-	extern void * ___1a0fe0h;
-	extern byte ___196adch[];
-
-void ___35b68h_cdecl(dword A0, float A1, float A2, float A3);
+void ___35b68h_cdecl(__DWORD__ A0, float A1, float A2, float A3);
 void ___2b318h(void);
 char * strupr_watcom106(char * s);
 char * itoa_watcom106(int value, char * buffer, int radix);
-dword ___251e8h_cdecl(const char *);
-void ___12e78h_cdecl(byte * A1, font_props_t * A2, const char * A3, dword dst_off);
+__DWORD__ ___251e8h_cdecl(const char *);
+void ___12e78h_cdecl(__BYTE__ * A1, font_props_t * A2, const char * A3, __DWORD__ dst_off);
 
 // RACE RESULTS, FACES, CARS, COLORS
-void ___38184h_cdecl(dword A1, void * A2){
+void ___38184h_cdecl(__DWORD__ A1, __POINTER__ A2){
 
-	dword 	eax, ebx, ecx, edx, edi, esi, ebp;
-	byte 	__esp[0xc+0x48];
-	byte * 	esp = __esp+0xc;
-	void * 	ebxp;
-	void * 	esip;
-	void * 	edxp;
+	__DWORD__ 	eax, ebx, ecx, edx, edi, esi, ebp;
+	__BYTE__ 	__esp[0xc+0x48];
+	__BYTE__ * 	esp = __esp+0xc;
+	int 	bool_tmp;
+	__POINTER__ 	ebxp;
+	__POINTER__ 	esip;
+	__POINTER__ 	edxp;
 
 
 	eax = A1;
-	edx = A2;
 	D(esp+0x30) = eax;
 	ecx = 0x4;
-	edi = esp+0x14;
-	esi = edx;
 	memcpy(esp+0x14, A2, ecx);
 	eax = D(esp+0x30);
 	ebp = 4*eax;
@@ -54,7 +48,7 @@ void ___38184h_cdecl(dword A1, void * A2){
 	edx -= ebp;
 	eax = edx;
 	edx = (int)edx>>0x1f;
-	___idiv32(&eax, &edx, ebx);
+	___idiv32((__POINTER__)&eax, (__POINTER__)&edx, ebx);
 	ebp ^= ebp;
 	D(esp+0x34) = eax;
 	ebx = D(esp+0x30);
@@ -103,30 +97,23 @@ void ___38184h_cdecl(dword A1, void * A2){
 			L(eax) = B(esp+ebp+0x14);
 			eax = 0x6c*eax;
 			ebx = 0xa;
-			edx = esp;
-			esi = ".";
 			eax = D(eax+___1a01e0h+0x48);
-			edi = esp;
 			itoa_watcom106(eax, esp, ebx);
 			strcat(esp, ".");
 			eax = D(esp+0x34);
 			eax = eax*ebp;
 			ecx = D(esp+0x1c);
-			ebx = esp;
 			D(esp+0x38) = eax;
 			eax = ___251e8h_cdecl(esp);
 			ecx -= eax;
-			___12e78h_cdecl(___1a10b8h, ___185c7ah, esp, ecx);
+			___12e78h_cdecl(___1a10b8h, (font_props_t *)___185c7ah, esp, ecx);
 			eax ^= eax;
 			L(eax) = B(esp+ebp+0x14);
 			eax = 0x6c*eax;
-			edi = esp;
 			ecx = D(esp+0x40);
-			esi = ___1a01e0h+eax;
-			ebx = esp;
 			strcpy(esp, ___1a01e0h+eax);
 			strupr_watcom106(esp);
-			___12e78h_cdecl(___1a10b8h, ___185c7ah, esp, ecx);
+			___12e78h_cdecl(___1a10b8h, (font_props_t *)___185c7ah, esp, ecx);
 			eax ^= eax;
 			L(eax) = B(esp+ebp+0x14);
 			eax = 0x6c*eax;
@@ -218,7 +205,12 @@ void ___38184h_cdecl(dword A1, void * A2){
 
 	___2b318h();
 
-	edxp = ((B(esp+0x14) == D(___1a1ef8h))||(D(___19bd60h) != 0)) ? ___1a0fb8h : ___1a0fe0h;
+	bool_tmp = 0;
+#if defined(DR_MULTIPLAYER)
+	if(___19bd60h != 0) bool_tmp = 1;
+#endif // DR_MULTIPLAYER
+
+	edxp = ((B(esp+0x14) == D(___1a1ef8h))||bool_tmp) ? ___1a0fb8h : ___1a0fe0h;
 
 	___35b68h_cdecl(
 		0x40,
@@ -226,7 +218,12 @@ void ___38184h_cdecl(dword A1, void * A2){
 		(float)(double)B(edxp+3*D(___1a01e0h+0x6c*B(esp+0x14)+0x2c)+0x1),
 		(float)(double)B(edxp+3*D(___1a01e0h+0x6c*B(esp+0x14)+0x2c)+0x2));
 
-	edxp = ((B(esp+0x15) == D(___1a1ef8h))||(D(___19bd60h) != 0)) ? ___1a0fb8h : ___1a0fe0h;
+	bool_tmp = 0;
+#if defined(DR_MULTIPLAYER)
+	if(___19bd60h != 0) bool_tmp = 1;
+#endif // DR_MULTIPLAYER
+
+	edxp = ((B(esp+0x15) == D(___1a1ef8h))||bool_tmp) ? ___1a0fb8h : ___1a0fe0h;
 
 	___35b68h_cdecl(
 		0x50,
@@ -234,7 +231,12 @@ void ___38184h_cdecl(dword A1, void * A2){
 		(float)(double)B(edxp+3*D(___1a01e0h+0x6c*B(esp+0x15)+0x2c)+0x1),
 		(float)(double)B(edxp+3*D(___1a01e0h+0x6c*B(esp+0x15)+0x2c)+0x2));
 
-	edxp = ((B(esp+0x16) == D(___1a1ef8h))||((D(___19bd60h) != 0)&&((int)D(___196adch) > 2))) ? ___1a0fb8h : ___1a0fe0h;
+	bool_tmp = 0;
+#if defined(DR_MULTIPLAYER)
+	if(___19bd60h != 0) bool_tmp = 1;
+#endif // DR_MULTIPLAYER
+
+	edxp = ((B(esp+0x16) == D(___1a1ef8h))||(bool_tmp&&((int)D(___196adch) > 2))) ? ___1a0fb8h : ___1a0fe0h;
 
 	___35b68h_cdecl(
 		0xe0,
@@ -242,7 +244,12 @@ void ___38184h_cdecl(dword A1, void * A2){
 		(float)(double)B(edxp+3*D(___1a01e0h+0x6c*B(esp+0x16)+0x2c)+0x1),
 		(float)(double)B(edxp+3*D(___1a01e0h+0x6c*B(esp+0x16)+0x2c)+0x2));
 
-	edxp = ((B(esp+0x17) == D(___1a1ef8h))||((D(___19bd60h) != 0)&&((int)D(___196adch) > 3))) ? ___1a0fb8h : ___1a0fe0h;
+	bool_tmp = 0;
+#if defined(DR_MULTIPLAYER)
+	if(___19bd60h != 0) bool_tmp = 1;
+#endif // DR_MULTIPLAYER
+
+	edxp = ((B(esp+0x17) == D(___1a1ef8h))||(bool_tmp&&((int)D(___196adch) > 3))) ? ___1a0fb8h : ___1a0fe0h;
 
 	___35b68h_cdecl(
 		0xf0,

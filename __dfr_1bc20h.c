@@ -1,3 +1,12 @@
+#include "drally.h"
+
+__DWORD__ ___1bc20h(void){
+
+	printf("TODO ___1bc20h\n");
+	exit(1);
+	return 0;
+}
+
 /*
 cpu 386
 %include "macros.inc"
@@ -565,15 +574,15 @@ section .data
 ddash:
 	db 	"-- ",0
 __dfr_180974h:
-	db	20h,74h,72h,61h,63h,6bh,28h,73h,29h,2eh,0,0
+	db 	" track(s).",0,0
 __dfr_180980h:
-	db	20h,63h,6ch,6fh,73h,65h,64h,20h,74h,68h,65h,20h,6eh,65h,74h,67h,61h,6dh,65h,2eh,0,0,0,0
+	db 	" closed the netgame.",0,0,0,0
 __dfr_180aa8h:
 	db 	"Waiting for remote player...",0,0,0,0
 __dfr_180ac8h:
 	db 	"Press ESC to abort",0,0
 __dfr_180adch:
-	db	20h,68h,61h,73h,20h,69h,6eh,69h,74h,69h,61h,6ch,69h,7ah,65h,64h,20h,61h,20h,6eh,65h,77h,20h,6eh,65h,74h,67h,61h,6dh,65h,2eh,0
+	db 	" has initialized a new netgame.",0
 __dfr_180afch:
-	db	27h,73h,20h,67h,61h,6dh,65h,20h,73h,74h,61h,72h,74h,65h,64h,20h,77h,69h,74h,68h,20h,32h,20h,70h,6ch,61h,79h,65h,72h,73h,20h,61h,6eh,64h,20h,0
+	db	"'s game started with 2 players and ",0
 */

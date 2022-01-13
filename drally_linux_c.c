@@ -25,7 +25,7 @@ void IO_Loop(void);
 void __VGA13_PRESENTSCREEN__(void);
 void __VESA101_PRESENTSCREEN__(void);
 void __PRESENTSCREEN__(void);
-byte dRally_Keyboard_popLastKey();
+__BYTE__ dRally_Keyboard_popLastKey();
 
 static struct GX {
 	enum { VGA3, VGA13, VESA101 } ActiveMode;
@@ -42,9 +42,9 @@ static struct GX {
 } GX = {0};
 
 
-extern dword ___60441h;
-extern dword ___6045ch;
-extern byte ___60446h;
+extern __DWORD__ ___60441h;
+extern __DWORD__ ___6045ch;
+extern __BYTE__ ___60446h;
 extern void (*___6044ch)(void);
 void __VRETRACE_WAIT_IF_INACTIVE(void);
 
@@ -199,7 +199,7 @@ void dRally_Display_init(void){
 	if(!GX.Window){
 
 		GX.Window = SDL_CreateWindow(
-			"dRally / Open Source Shadows of Death Rally [1996]",                  		// window title
+			"dRally / Open Source Engine / Death Rally [1996]",                  		// window title
 			SDL_WINDOWPOS_CENTERED,      	// initial x position
 			SDL_WINDOWPOS_CENTERED,       	// initial y position
 			W_WIDTH,                  			// width, in pixels
@@ -281,7 +281,7 @@ void __DISPLAY_GET_PALETTE_COLOR(unsigned char * dst, unsigned char n){
 	}
 }
 
-void save_s3m(void * src, unsigned int size, const char * name){
+void save_s3m(__POINTER__ src, unsigned int size, const char * name){
 
 	char buffer[20] = {0};
 	int n = -1;
@@ -300,7 +300,7 @@ void save_s3m(void * src, unsigned int size, const char * name){
 	fclose(fd);
 }
 
-void save_xm(void * src, unsigned int size, const char * name){
+void save_xm(__POINTER__ src, unsigned int size, const char * name){
 
 	char buffer[20] = {0};
 	int n = -1;
@@ -316,4 +316,73 @@ void save_xm(void * src, unsigned int size, const char * name){
 	fwrite(src, size, 1, fd);
 
 	fclose(fd);
+}
+
+void switch_b(__POINTER__ b1, __POINTER__ b2){
+
+	__BYTE__ 	b_tmp;
+
+	b_tmp = B(b1);
+	B(b1) = B(b2);
+	B(b2) = b_tmp;
+}
+
+
+	extern __BYTE__ ___243ca4h[];
+	extern __BYTE__ SUPERGLOBAL___243898h[];
+	extern __BYTE__ SUPERGLOBAL___243894h[];
+	extern __BYTE__ ___243ca8h[];
+	extern __BYTE__ ___243874h[];
+	extern __BYTE__ ___2438d0h[];
+
+void incCounter(int n){
+
+	if(n == 1) D(___243ca4h)++;
+	if(n == 2) D(SUPERGLOBAL___243898h)++;
+	if(n == 3) D(SUPERGLOBAL___243894h)++;
+	if(n == 4) D(___243ca8h)++;
+	if(n == 5) D(___243874h)++;
+	if(n == 6) D(___2438d0h)++;
+}
+
+void decCounter(int n){
+
+	if(n == 1) D(___243ca4h)--;
+	if(n == 2) D(SUPERGLOBAL___243898h)--;
+	if(n == 3) D(SUPERGLOBAL___243894h)--;
+	if(n == 4) D(___243ca8h)--;
+	if(n == 5) D(___243874h)--;
+	if(n == 6) D(___2438d0h)--;
+}
+
+__DWORD__ getCounter(int n){
+
+	if(n == 1) return D(___243ca4h);
+	if(n == 2) return D(SUPERGLOBAL___243898h);
+	if(n == 3) return D(SUPERGLOBAL___243894h);
+	if(n == 4) return D(___243ca8h);
+	if(n == 5) return D(___243874h);
+	if(n == 6) return D(___2438d0h);
+
+	return 0;
+}
+
+void resetCounter(int n){
+
+	if(n == 1) D(___243ca4h) = 0;
+	if(n == 2) D(SUPERGLOBAL___243898h) = 0;
+	if(n == 3) D(SUPERGLOBAL___243894h) = 0;
+	if(n == 4) D(___243ca8h) = 0;
+	if(n == 5) D(___243874h) = 0;
+	if(n == 6) D(___2438d0h) = 0;
+}
+
+void setCounter(int n, __DWORD__ val){
+
+	if(n == 1) D(___243ca4h) = val;
+	if(n == 2) D(SUPERGLOBAL___243898h) = val;
+	if(n == 3) D(SUPERGLOBAL___243894h) = val;
+	if(n == 4) D(___243ca8h) = val;
+	if(n == 5) D(___243874h) = val;
+	if(n == 6) D(___2438d0h) = val;
 }

@@ -62,6 +62,6 @@ __BYTE__ * S3M_getHeaderDefaultPanning(s3m_t * s3m);
 
 s3m_instrument_t * S3M_getInstrument(s3m_t * s3m, int n);
 s3m_pattern_t * S3M_getPattern(s3m_t * s3m, int n);
-void * S3M_getInstrumentSampleData(s3m_t * s3m, int n);
+__POINTER__ S3M_getInstrumentSampleData(s3m_t * s3m, int n);
 
 #endif // __MOD_S3M_H

@@ -1,259 +1,90 @@
 #include "drally.h"
 #include "drmemory.h"
 
-	extern byte ___19bd60h[];
-	extern byte ___1a116ch[];
-	extern byte ___1a1f4eh[];
-	extern byte ___185a1ch[];
-	extern byte ___196a74h[];
-	extern void * ___1a0f9ch;
-	extern byte ___1a1ef8h[];
-	extern byte ___1a01e0h[];
+#if defined(DR_MULTIPLAYER)
+	extern __DWORD__ ___19bd60h;
+#endif // DR_MULTIPLAYER
+	extern __DWORD__ ChatMaximized;
+	extern __BYTE__ ___196a74h[];
+	extern __POINTER__ ___1a0f9ch;
+	extern __BYTE__ ___1a1ef8h[];
+	extern __BYTE__ ___1a01e0h[];
 
 
 void ___12cb8h__VESA101_PRESENTSCREEN(void);
 void ___12d6ch__VESA101_PRESENTBOTTOMSCREEN(void);
-void * ___3f71ch__allocateMemory(dword);
+__POINTER__ ___3f71ch__allocateMemory(__DWORD__);
 void ___6168ch(void);
 #if defined(DR_MULTIPLAYER)
 void ___23230h(void);
 void ___233c0h(void);
 void ___1e4f8h(void);
-void ___1e62ch_cdecl(dword);
-dword ___23594h_cdecl(dword, dword);
-void ___23488h_cdecl(dword, dword, dword);
+void ___1e62ch_cdecl(__DWORD__);
+int ___23594h_cdecl(__POINTER__, int);
+void ___23488h_cdecl(__POINTER__, __DWORD__, __DWORD__);
 #endif // DR_MULTIPLAYER
 void ___2aa08h(void);
 
+void dRChatbox_push(const char * line, int col);
+
+#if defined(DR_MULTIPLAYER)
+static void mp_helper(__POINTER__ vp, int i){
+
+	dRChatbox_push(vp, i);
+	
+	if(D(___196a74h) == 1){
+
+		if(ChatMaximized){
+					
+			___233c0h();
+			___12cb8h__VESA101_PRESENTSCREEN();
+		}
+		else {
+
+			___23230h();
+			___12d6ch__VESA101_PRESENTBOTTOMSCREEN();
+		}
+	}
+}
+#endif // DR_MULTIPLAYER
+
 void ___2ab50h(void){
 
-	dword 	eax, ebx, ecx, edx, edi, esi;
-	byte 	__esp[0x10+0x428];
-	byte * 	esp = __esp+0x10; 
+	int 	n;
+	__BYTE__ 	esp[0x428];
+	char 	buffer[0x64];
 
 	___2aa08h();
 
 #if defined(DR_MULTIPLAYER)
-	if(D(___19bd60h) != 0){
+	if(___19bd60h != 0){
 
 		___6168ch();
-		eax = ___23594h_cdecl(esp, 1);
 
-		if(eax != 0){
+		if(___23594h_cdecl(esp, 1)) mp_helper(esp, 1);
+		if(___23594h_cdecl(esp, 6)) mp_helper(esp, 0);
 
-			D(esp+0x418) = 0;
-			ebx = ___1a116ch;
-			edx = ebx+0x96;
-			
-			while(1){
+		if(___23594h_cdecl(esp, 7)){
 
-				strcpy(ebx, edx);
-				B(D(esp+0x418)+___1a1f4eh) = B(D(esp+0x418)+___1a1f4eh+1);
-				edx += 0x96;
-				ebx += 0x96;
-				D(esp+0x418)++;
-
-				if((int)D(esp+0x418) >= 0x15) break;
-			}
-
-			strcpy(___1a116ch+0xc4e, esp);
-			B(___1a1f4eh+0x15) = 1;
-
-			if(D(___185a1ch)){
-		
-				if(D(___196a74h) == 1){
-						
-					___233c0h();
-					___12cb8h__VESA101_PRESENTSCREEN();
-				}
-			}
-			else {
-
-				if(D(___196a74h) == 1){
-					
-					___23230h();
-					___12d6ch__VESA101_PRESENTBOTTOMSCREEN();
-				}
-			}
+			___23488h_cdecl(strcat(strcat(strcpy(buffer, "-- "), ___1a01e0h+0x6c*D(___1a1ef8h)), " is currently on Death Rally."), 0x64, 8);
 		}
 
-		eax = ___23594h_cdecl(esp, 6);
-
-		if(eax != 0){
-
-			D(esp+0x418) = 0;
-			edx = ___1a116ch;
-			ebx = edx+0x96;
+		if(___23594h_cdecl(esp, 20)){
 		
-			while(1){
-
-				strcpy(edx, ebx);
-				B(D(esp+0x418)+___1a1f4eh) = B(D(esp+0x418)+___1a1f4eh+1);
-				ebx += 0x96;
-				edx += 0x96;
-				D(esp+0x418)++;
-			
-				if((int)D(esp+0x418) >= 0x15) break;
-			}
-
-			strcpy(___1a116ch+0xc4e, esp);
-			B(___1a1f4eh+0x15) = 0;
-
-			if(D(___185a1ch)){
-
-				if(D(___196a74h) == 1){
-
-					___233c0h();
-					___12cb8h__VESA101_PRESENTSCREEN();
-				}
-			}
-			else {
-
-				if(D(___196a74h) == 1){
-				
-					___23230h();
-					___12d6ch__VESA101_PRESENTBOTTOMSCREEN();
-				}
-			}
-		}
-
-		eax = ___23594h_cdecl(esp, 7);
-
-		if(eax != 0){
-
-			___1a0f9ch = ___3f71ch__allocateMemory(0x64);
-			strcpy(___1a0f9ch, "-- ");
-			strcat(___1a0f9ch, ___1a01e0h+0x6c*D(___1a1ef8h));
-			strcat(___1a0f9ch, " is currently on Death Rally.");
-			___23488h_cdecl(___1a0f9ch, 0x64, 8);
-			dRMemory_free(___1a0f9ch);
-		}
-
-		eax = ___23594h_cdecl(esp, 0x14);
-
-		if(eax != 0){
-
-			D(esp+0x418) = 0;
-			edx = ___1a116ch;
-			ebx = edx+0x96;
-		
-			while(1){
-		
-				strcpy(edx, ebx);
-				B(D(esp+0x418)+___1a1f4eh) = B(D(esp+0x418)+___1a1f4eh+1);
-				ebx += 0x96;
-				edx += 0x96;
-				D(esp+0x418)++;
-							
-				if((int)D(esp+0x418) >= 0x15) break;
-			}
-
-			strcpy(___1a116ch+0xc4e, esp);
-			B(___1a1f4eh+0x15) = 0;
-
-			if(D(___185a1ch)){
-
-				if(D(___196a74h) == 1){
-				
-					___233c0h();
-					___12cb8h__VESA101_PRESENTSCREEN();
-				}
-			}
-			else {
-
-				if(D(___196a74h) == 1){
-						
-					___23230h();
-					___12d6ch__VESA101_PRESENTBOTTOMSCREEN();
-				}
-			}
-
+			mp_helper(esp, 0);
 			___1e4f8h();
 			D(___1a1ef8h) = 0x13;
 		}
 
-		eax = ___23594h_cdecl(esp, 9);
+		if(___23594h_cdecl(esp, 9)){
 
-		if(eax != 0){
-
-			edx = ___1a116ch;
-			D(esp+0x418) = 0;
-			ebx = edx+0x96;
-
-			while(1){
-
-				strcpy(edx, ebx);
-				B(D(esp+0x418)+___1a1f4eh) = B(D(esp+0x418)+___1a1f4eh+1);
-				ebx += 0x96;
-				edx += 0x96;
-				D(esp+0x418)++;
-			
-				if((int)D(esp+0x418) >= 0x15) break;
-			}
-
-			strcpy(___1a116ch+0xc4e, esp);
-			B(___1a1f4eh+0x15) = 0;
-
-			if(D(___185a1ch)){
-		
-				if(D(___196a74h) == 1){
-				
-					___233c0h();
-					___12cb8h__VESA101_PRESENTSCREEN();
-				}
-			}
-			else {
-
-				if(D(___196a74h) == 1){
-				
-					___23230h();
-					___12d6ch__VESA101_PRESENTBOTTOMSCREEN();
-				}
-			}
-
+			mp_helper(esp, 0);
 			___1e62ch_cdecl(1);
 		}
 
-		eax = ___23594h_cdecl(esp+0x400, 0x13);
-
-		if(eax != 0){
-
-			D(esp+0x418) = 0;
-			edx = ___1a116ch;
-			ebx = edx+0x96;
+		if(___23594h_cdecl(esp+0x400, 19)){
 		
-			while(1){
-
-				strcpy(edx, ebx);
-				B(D(esp+0x418)+___1a1f4eh) = B(D(esp+0x418)+___1a1f4eh+1);
-				ebx += 0x96;
-				edx += 0x96;
-				D(esp+0x418)++;
-			
-				if((int)D(esp+0x418) >= 0x15) break;
-			}
-
-			strcpy(___1a116ch+0xc4e, "-- ");
-			strcat(___1a116ch+0xc4e, ___1a01e0h+0x6c*B(esp+0x400));
-			strcat(___1a116ch+0xc4e, " is waiting for you to join the next race.");
-			B(___1a1f4eh+0x15) = 0;
-
-			if(D(___185a1ch)){
-
-				if(D(___196a74h) == 1){
-				
-					___233c0h();
-					___12cb8h__VESA101_PRESENTSCREEN();
-				}
-			}
-			else {
-			
-				if(D(___196a74h) == 1){
-				
-					___23230h();
-					___12d6ch__VESA101_PRESENTBOTTOMSCREEN();
-				}
-			}
+			mp_helper(strcat(strcat(strcpy(buffer, "-- "), ___1a01e0h+0x6c*B(esp+0x400)), " is waiting for you to join the next race."), 0);
 		}
 	}
 #endif // DR_MULTIPLAYER

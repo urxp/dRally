@@ -34,7 +34,7 @@ static void BPA_encodeEntryName(char * s){
     }
 }
 
-void old_bpa_read(const char * bpa_fname, void * dst, const char * bpa_entry){
+void old_bpa_read(const char * bpa_fname, __POINTER__ dst, const char * bpa_entry){
 
     char    err[0x50];
     char    u_bpa_fname[32];

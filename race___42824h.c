@@ -1,80 +1,82 @@
 #include "drally.h"
+#include "drally_structs_free.h"
 
 #pragma pack(1)
 typedef struct rgb24_s {
-	byte 	r;
-	byte 	g;
-	byte 	b;
+	__BYTE__ 	r;
+	__BYTE__ 	g;
+	__BYTE__ 	b;
 } rgb24_t;
 
 typedef rgb24_t pal256_t[0x100];
 
 	extern char ___19bd64h[16];
-	extern byte ___243dd0h[];
-	extern void * ___243d60h;
+	extern __BYTE__ ___243dd0h[];
+	extern __POINTER__ ___243d60h;
 	extern pal256_t ___1a51d0h;
-	extern byte ___243d28h[];
-	extern byte ___243d2ch[];
-	extern void * ___243d58h;
-	extern byte ___243d08h[];
-	extern byte ___196dach[];
-	extern byte ___1a54d0h[];
-	extern byte ___243d30h[];
-	extern byte ___243d04h[];
-	extern void * ___243d78h;
-	extern byte ___243cf8h[];
-	extern byte ___243d10h[];
-	extern void * ___243d54h;
-	extern void * ___243d74h;
-	extern byte ___243cf4h[];
-	extern byte ___1de580h[];
-	extern void * ___243d8ch;
-	extern void * ___243d7ch;
-	extern void * ___243298h[6];
-	extern void * ___243d88h;
-	extern void * ___243d38h;
-	extern void * ___243d40h;
-	extern void * ___243288h[2];
-	extern void * ___243290h[2];
-	extern void * ___243d68h;
-	extern void * ___243d64h;
-	extern byte ___243c5ch[];
-	extern byte ___2438c4h[];
-	extern byte ___1de920h[];
-	extern byte ___1ded20h[];
-	extern byte ___1df120h[];
-	extern byte ___1e8448h[];
-	extern byte ___1e8048h[];
-	extern byte ___1e7c48h[];
-	extern byte ___243078h[];
-	extern byte ___242d78h[];
-	extern byte ___241c78h[];
-	extern byte ___240a48h[];
-	extern byte ___242578h[];
-	extern byte ___242978h[];
-	extern byte ___241d78h[];
-	extern byte ___242178h[];
-	extern void * ___243d50h;
-	extern void * ___243d6ch;
-	extern void * ___243d4ch;
-	extern void * ___243d48h;
-	extern byte ___243ce8h[];
-	extern byte ___1c9f10h[];
-	extern void * ___243d84h;
-	extern byte ___1d5890h[];
-	extern byte ___1de210h[];
-	extern byte ___1d7810h[];
-	extern byte ___1d8910h[];
-	extern byte ___1d8a10h[];
-	extern byte ___1d2710h[];
-	extern void * ___243d3ch;
-	extern void * ___243d34h;
-	extern byte ___1d8110h[];
-	extern byte ___1de7d0h[];
+	extern __BYTE__ ___243d28h[];
+	extern __BYTE__ ___243d2ch[];
+	extern __POINTER__ ___243d58h;
+	extern __BYTE__ ___243d08h[];
+	extern __BYTE__ ___196dach[];
+	extern __BYTE__ ___1a54d0h[];
+	extern __BYTE__ ___243d30h[];
+	extern __BYTE__ ___243d04h[];
+	extern __POINTER__ ___243d78h;
+	extern __BYTE__ ___243cf8h[];
+	extern __BYTE__ ___243d10h[];
+	extern __POINTER__ ___243d54h;
+	extern car_spins_t * ___243d74h;
+	extern __BYTE__ NUM_OF_CARS[];
+	extern __BYTE__ ___1de580h[];
+	extern __POINTER__ ___243d8ch;
+	extern __POINTER__ ___243d7ch;
+	extern __POINTER__ ___243298h[6];
+	extern __POINTER__ ___243d88h;
+	extern __POINTER__ ___243d38h;
+	extern __POINTER__ ___243d40h;
+	extern __POINTER__ ___243288h[2];
+	extern __POINTER__ ___243290h[2];
+	extern __POINTER__ ___243d68h;
+	extern __POINTER__ ___243d64h;
+	extern __BYTE__ ___243c5ch[];
+	extern __BYTE__ ___2438c4h[];
+	extern __BYTE__ ___1de920h[];
+	extern __BYTE__ ___1ded20h[];
+	extern __BYTE__ ___1df120h[];
+	extern __BYTE__ ___1e8448h[];
+	extern __BYTE__ ___1e8048h[];
+	extern __BYTE__ ___1e7c48h[];
+	extern __BYTE__ ___242578h[];
+	extern __BYTE__ ___241d78h[];
+	extern __BYTE__ ___242178h[];
+	extern __POINTER__ ___243d50h;
+	extern __POINTER__ ___243d6ch;
+	extern __POINTER__ ___243d4ch;
+	extern __POINTER__ ___243d48h;
+	extern __BYTE__ MY_CAR_IDX[];
+	extern __BYTE__ ___1c9f10h[];
+	extern __POINTER__ ___243d84h;
+	extern __BYTE__ ___1d5890h[0x1f80];
+	extern __BYTE__ ___1de210h[];
+	extern __BYTE__ ___1d7810h[];
+	extern __BYTE__ ___1d8910h[];
+	extern __BYTE__ ___1d8a10h[];
+	extern __BYTE__ ___1d2710h[];
+	extern __POINTER__ ___243d3ch;
+	extern __POINTER__ ___243d34h;
+	extern __BYTE__ ___1d8110h[];
+	extern __BYTE__ ___1de7d0h[];
 	
-void old_bpa_read(const char *, void *, const char *);
-void bpk_decode2(void *, void *);
-void bpk_decode4(dword, dword, void *, void *);
+	
+__BYTE__ ___240a48h[0x100];
+__BYTE__ ___241c78h[0x100];
+__BYTE__ ___242d78h[0x100];
+__BYTE__ ___243078h[0x100];
+
+void old_bpa_read(const char *, __POINTER__, const char *);
+void bpk_decode2(__POINTER__, __POINTER__);
+void bpk_decode4(__DWORD__, __DWORD__, __POINTER__, __POINTER__);
 void race___43488h(void);
 
 static void race___42f04h(void){
@@ -86,7 +88,7 @@ static void race___42f04h(void){
 
 	strcat(strcpy(fname, ___19bd64h), "-IMA.BPK");
 	old_bpa_read(___243dd0h, ___243d60h, fname);
-	bpk_decode4(0x300, 0xa, &pal, ___243d60h);
+	bpk_decode4(0x300, 0xa, (__POINTER__)&pal, ___243d60h);
 
 	n = -1;
 	while(++n < 0x100) ___1a51d0h[n] = pal[n];
@@ -96,7 +98,7 @@ static void race___42f04h(void){
 	if(D(___196dach) != 0){
 
 		strcat(strcpy(fname, ___19bd64h), "-FLIP.PAL");
-		old_bpa_read(___243dd0h, &pal, fname);
+		old_bpa_read(___243dd0h, (__POINTER__)&pal, fname);
 		strcat(strcpy(fname, ___19bd64h), "-FLIP.SCX");
 		
 		if((fd = fopen(fname, "rb")) != 0){
@@ -143,23 +145,30 @@ static const char14 ___196dfch[7] = {
 };
 
 static void race___432d8h(void){
+// LOAD CAR IMAGES 
 
-	char * 	suffix;
-	char 	fname[0x10];
-	int 	i, n;
+	char * 			suffix;
+	char 			fname[0x10];
+	int 			i, n;
+	__BYTE__ * 		CarSpinsStripe;
+	struct_54_t *	s_54;
+
+
+	s_54 = (struct_54_t *)___1de7d0h;
 
 	n = -1;
-	while(++n < D(___243cf4h)){
+	while(++n < D(NUM_OF_CARS)){
 
-		suffix = ((D(0x54*n+___1de7d0h+0x24) == 1)&&((int)D(0x94*n+___1de580h) < 6)) ? "-S.BPK" : ".BPK";
-		strcat(strcpy(fname, ___196dfch[D(0x94*n+___1de580h)]), suffix);
+		suffix = ((s_54[n].__24 == 1)&&((int)D(___1de580h+0x94*n) < 6)) ? "-S.BPK" : ".BPK";
+		strcat(strcpy(fname, ___196dfch[D(___1de580h+0x94*n)]), suffix);
 		old_bpa_read("ENGINE.BPA", ___1a54d0h, fname);
-		bpk_decode2(___243d74h+0x25800*n, ___1a54d0h);
+		CarSpinsStripe = (__BYTE__ *)___243d74h[n];
+		bpk_decode2(CarSpinsStripe, ___1a54d0h);	// 40*40*96
 
 		i = -1;
-		while(++i < 0x25800){
+		while(++i < sizeof(car_spins_t)){
 
-			if((B(0x25800*n+i+___243d74h) >= 0xf)&&(B(0x25800*n+i+___243d74h) <= 0x18)) B(0x25800*n+i+___243d74h) += 0xa*n;
+			if((CarSpinsStripe[i] >= 0xf)&&(CarSpinsStripe[i] <= 0x18)) CarSpinsStripe[i] += 0xa*n;
 		}
 	}
 }
@@ -235,7 +244,7 @@ static void race___43884h(void){
 	old_bpa_read(___243dd0h, ___242578h, strcat(strcpy(fname, ___19bd64h), "-DRV.DAT"));
 	
 	n = -1;
-	while(++n < 0x100) D(4*n+___241d78h) = D(4*n+___242978h);
+	while(++n < 0x100) D(4*n+___241d78h) = D(___242578h+4*(n+0x100));
 
 	old_bpa_read(___243dd0h, ___242178h, strcat(strcpy(fname, ___19bd64h), "-OHI.DAT"));
 }
@@ -266,28 +275,28 @@ static void race___42be4h(void){
 
 	old_bpa_read("IBFILES.BPA", ___1a54d0h, "BOARDS.BPK");
 
-	if(D(0x94*D(___243ce8h)+___1de580h+0x2c) == 0){
+	if(D(0x94*D(MY_CAR_IDX)+___1de580h+0x2c) == 0){
 
-		bpk_decode4(0x1a00, 0x1a00*D(___243ce8h)+0x8800, ___1c9f10h, ___1a54d0h);
+		bpk_decode4(0x1a00, 0x1a00*D(MY_CAR_IDX)+0x8800, ___1c9f10h, ___1a54d0h);
 	}
 	else {
 
-		bpk_decode4(0x1a00, 0x2200*D(___243ce8h), ___1c9f10h, ___1a54d0h);
+		bpk_decode4(0x1a00, 0x2200*D(MY_CAR_IDX), ___1c9f10h, ___1a54d0h);
 	}
 
 	n = -1;
-	if(++n == D(___243ce8h)) n++;
+	if(++n == D(MY_CAR_IDX)) n++;
 	bpk_decode4(0x800, 0x2200*n+0x1a00, ___1c9f10h+0x1a00, ___1a54d0h);
-	if(++n == D(___243ce8h)) n++;
+	if(++n == D(MY_CAR_IDX)) n++;
 	bpk_decode4(0x800, 0x2200*n+0x1a00, ___1c9f10h+0x2200, ___1a54d0h);
-	if(++n == D(___243ce8h)) n++;
+	if(++n == D(MY_CAR_IDX)) n++;
 	bpk_decode4(0x800, 0x2200*n+0x1a00, ___1c9f10h+0x2a00, ___1a54d0h);
 
 
 	old_bpa_read("IBFILES.BPA", ___1a54d0h, "RASTI1.BPK");
 	bpk_decode2(___243d84h, ___1a54d0h);
 
-	switch(D(0x94*D(___243ce8h)+___1de580h)){
+	switch(D(0x94*D(MY_CAR_IDX)+___1de580h)){
 	case 0:
 		old_bpa_read("IBFILES.BPA", ___1a54d0h, "DAM-KUP.BPK");
 		break;
@@ -310,7 +319,7 @@ static void race___42be4h(void){
 		break;
 	}
 
-	bpk_decode4(0x1f80, 0x1f80*D(___243ce8h), ___1d5890h, ___1a54d0h);
+	bpk_decode4(0x1f80, 0x1f80*D(MY_CAR_IDX), ___1d5890h, ___1a54d0h);
 	old_bpa_read("IBFILES.BPA", ___1a54d0h, "BIGNUM6.BPK");
 	bpk_decode2(___1de210h, ___1a54d0h);
 	old_bpa_read("IBFILES.BPA", ___1a54d0h, "SMALFO4A.BPK");
@@ -327,13 +336,13 @@ static void race___42be4h(void){
 	bpk_decode2(___243d34h, ___1a54d0h);
 	old_bpa_read("IBFILES.BPA", ___1a54d0h, "SMALLBAR.BPK");
 
-	if(D(0x94*D(___243ce8h)+___1de580h+0x2c) == 0){
+	if(D(0x94*D(MY_CAR_IDX)+___1de580h+0x2c) == 0){
 
-		bpk_decode4(0x800, 0x800*D(___243ce8h)+0x2000, ___1d8110h, ___1a54d0h);
+		bpk_decode4(0x800, 0x800*D(MY_CAR_IDX)+0x2000, ___1d8110h, ___1a54d0h);
 	}
 	else {
 
-		bpk_decode4(0x800, 0x800*D(___243ce8h), ___1d8110h, ___1a54d0h);
+		bpk_decode4(0x800, 0x800*D(MY_CAR_IDX), ___1d8110h, ___1a54d0h);
 	}
 }
 

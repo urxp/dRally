@@ -3,99 +3,99 @@
 #include "drmemory.h"
 
 	extern __DWORD__ ___1a1e68h;
-	extern void * ___1a10d8h;
-	extern void * ___1a10f0h;
-	extern void * ___1a0fb8h;
-	extern void * ___1a0fe0h;
-	extern void * ___1a10c8h;
-	extern void * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
-	extern void * ___1a10c4h;
-	extern void * ___1a1138h__VESA101h_DefaultScreenBufferB;
-	extern void * ___1a10cch;
-	extern void * ___1a10fch;
-	extern void * ___1a110ch;
-	extern void * ___1a1108h;
-	extern void * ___1a10b8h;
-	extern void * ___1a0fe8h;
-	extern void * ___1a0fbch;
-	extern void * ___1a0fd8h;
-	extern void * ___1a0fcch;
-	extern void * ___1a0fd0h;
-	extern void * ___1a0fd4h;
-	extern void * ___1a0fech;
-	extern void * ___1a0fc4h;
-	extern void * ___1a0fe4h;
-	extern void * ___1a0fdch;
-	extern void * ___1a0fach;
-	extern void * ___1a0fc8h;
-	extern void * ___1a0fb0h;
-	extern void * ___1a0ff0h;
-	extern void * ___1a0fa8h;
-	extern void * ___1a0fc0h;
-	extern void * ___1a0fa4h;
-	extern void * ___19de70h[20];
-	extern void * ___1a0fb4h;
-	extern void * ___1a1128h;
-	extern void * ___1a10f8h;
-	extern void * ___1a1104h;
-	extern void * ___1a10d4h;
-	extern void * ___1a10bch;
-	extern void * ___1a10e8h;
-	extern void * ___1a10dch;
-	extern void * ___1a10ach;
-	extern void * ___1a10c0h;
-	extern void * ___1a10ech;
-	extern void * ___1a10b4h;
-	extern void * ___1a10f4h;
-	extern void * ___1a10d0h;
-	extern void * ___1a10e0h;
-	extern void * ___1a0ff8h;
-	extern void * ___1a10a4h;
+	extern __POINTER__ ___1a10d8h;
+	extern __POINTER__ ___1a10f0h;
+	extern __POINTER__ ___1a0fb8h;
+	extern __POINTER__ ___1a0fe0h;
+	extern __POINTER__ ___1a10c8h;
+	extern __POINTER__ ___1a112ch__VESA101_ACTIVESCREEN_PTR;
+	extern __POINTER__ ___1a10c4h;
+	extern __POINTER__ ___1a1138h__VESA101h_DefaultScreenBufferB;
+	extern __POINTER__ ___1a10cch;
+	extern __POINTER__ ___1a10fch;
+	extern __POINTER__ ___1a110ch;
+	extern __POINTER__ ___1a1108h;
+	extern __POINTER__ ___1a10b8h;
+	extern __POINTER__ ___1a0fe8h;
+	extern __POINTER__ ___1a0fbch;
+	extern __POINTER__ ___1a0fd8h;
+	extern __POINTER__ ___1a0fcch;
+	extern __POINTER__ ___1a0fd0h;
+	extern __POINTER__ ___1a0fd4h;
+	extern __POINTER__ ___1a0fech;
+	extern __POINTER__ ___1a0fc4h;
+	extern __POINTER__ ___1a0fe4h;
+	extern __POINTER__ ___1a0fdch;
+	extern __POINTER__ ___1a0fach;
+	extern __POINTER__ ___1a0fc8h;
+	extern __POINTER__ ___1a0fb0h;
+	extern __POINTER__ ___1a0ff0h;
+	extern __POINTER__ ___1a0fa8h;
+	extern __POINTER__ ___1a0fc0h;
+	extern __POINTER__ ___1a0fa4h;
+	extern __POINTER__ ___19de70h[20];
+	extern __POINTER__ ___1a0fb4h;
+	extern __POINTER__ ___1a1128h;
+	extern __POINTER__ ___1a10f8h;
+	extern __POINTER__ ___1a1104h;
+	extern __POINTER__ ___1a10d4h;
+	extern __POINTER__ ___1a10bch;
+	extern __POINTER__ ___1a10e8h;
+	extern __POINTER__ ___1a10dch;
+	extern __POINTER__ ___1a10ach;
+	extern __POINTER__ ___1a10c0h;
+	extern __POINTER__ ___1a10ech;
+	extern __POINTER__ ___1a10b4h;
+	extern __POINTER__ ___1a10f4h;
+	extern __POINTER__ ___1a10d0h;
+	extern __POINTER__ ___1a10e0h;
+	extern __POINTER__ ___1a0ff8h;
+	extern __POINTER__ ___1a10a4h;
 
-	extern void * ___1a1040h[];
+	extern __POINTER__ ___1a1040h[];
 
-	extern void * ___1a1030h;
-	extern void * ___1a1038h;
-	extern void * ___1a1124h__VESA101h_ScreenBufferA;
-	extern void * ___1a1ed4h;
-	extern void * ___1a1e90h;
-	extern void * ___1a10b0h;
-	extern void * ___1a1eb0h;
-	extern void * ___1a1e78h;
-	extern void * ___1a1eb8h;
-	extern void * ___1a0180h;
-	extern void * ___1a01b8h[6];
-	extern void * ___1a01a8h[4];
-	extern void * ___1a0198h[4];
-	extern void * ___1a01d0h[4];
-	extern void * ___1a1e8ch;
-	extern void * ___1a1ea0h;
-	extern void * ___1a1e7ch;
-	extern void * ___1a1e80h;
-	extern void * ___1a1e74h;
-	extern void * ___1a1e84h;
-	extern void * ___1a1e60h;
-	extern void * ___1a1ebch;
-	extern void * ___1a1eb4h;
-	extern void * ___1a1e88h;
-	extern void * ___1a1ea4h;
-	extern void * ___1a1ea8h;
-	extern void * ___1a1e6ch;
-	extern void * ___1a1e98h;
-	extern void * ___1a1e5ch;
-	extern void * ___1a1e58h;
-	extern void * ___1a1e54h;
-	extern void * ___1a1e64h;
-	extern void * ___1a0f90h;
-	extern void * ___1a0f88h;
-	extern void * ___1a0f84h;
-	extern void * ___1a0f98h;
-	extern void * ___1a0f8ch;
-	extern void * ___1a1114h;
-	extern void * ___1a0f94h;
-	extern void * ___1a1100h__VESA101h_DefaultScreenBuffer;
+	extern __POINTER__ ___1a1030h;
+	extern __POINTER__ ___1a1038h;
+	extern __POINTER__ ___1a1124h__VESA101h_ScreenBufferA;
+	extern __POINTER__ ___1a1ed4h;
+	extern __POINTER__ ___1a1e90h;
+	extern __POINTER__ ___1a10b0h;
+	extern __POINTER__ ___1a1eb0h;
+	extern __POINTER__ ___1a1e78h;
+	extern __POINTER__ ___1a1eb8h;
+	extern __POINTER__ ___1a0180h;
+	extern __POINTER__ ___1a01b8h[6];
+	extern __POINTER__ ___1a01a8h[4];
+	extern __POINTER__ ___1a0198h[4];
+	extern __POINTER__ ___1a01d0h[4];
+	extern __POINTER__ ___1a1e8ch;
+	extern __POINTER__ ___1a1ea0h;
+	extern __POINTER__ ___1a1e7ch;
+	extern __POINTER__ ___1a1e80h;
+	extern __POINTER__ ___1a1e74h;
+	extern __POINTER__ ___1a1e84h;
+	extern __POINTER__ ___1a1e60h;
+	extern __POINTER__ ___1a1ebch;
+	extern __POINTER__ ___1a1eb4h;
+	extern __POINTER__ ___1a1e88h;
+	extern __POINTER__ ___1a1ea4h;
+	extern __POINTER__ ___1a1ea8h;
+	extern __POINTER__ ___1a1e6ch;
+	extern __POINTER__ ___1a1e98h;
+	extern __POINTER__ ___1a1e5ch;
+	extern __POINTER__ ___1a1e58h;
+	extern __POINTER__ ___1a1e54h;
+	extern __POINTER__ ___1a1e64h;
+	extern __POINTER__ ___1a0f90h;
+	extern __POINTER__ ___1a0f88h;
+	extern __POINTER__ ___1a0f84h;
+	extern __POINTER__ ___1a0f98h;
+	extern __POINTER__ ___1a0f8ch;
+	extern __POINTER__ ___1a1114h;
+	extern __POINTER__ ___1a0f94h;
+	extern __POINTER__ ___1a1100h__VESA101h_DefaultScreenBuffer;
 
-void * ___3f71ch__allocateMemory(dword);
+__POINTER__ ___3f71ch__allocateMemory(__DWORD__);
 
 void ___117d4h(void){
 
@@ -159,11 +159,11 @@ void ___117f4h(void){
     ___1a1138h__VESA101h_DefaultScreenBufferB = dRally_Assets_loadDecode("MENU.BPA", "menubg5.bpk", 0x4b000);
 }
 
-void * all_3800;
+__POINTER__ all_3800;
 
 void ___1240ch(void){
 
-	dword 	n;
+	__DWORD__ 	n;
 
 	___1a1e68h = 0;
 
@@ -264,7 +264,7 @@ void ___12200h(void){
 
 void ___12a54h(void){
 
-	dword 	n;
+	__DWORD__ 	n;
 
 	printf("[dRally.Clean] ___12a54h\n");
 

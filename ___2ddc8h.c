@@ -1,21 +1,21 @@
 #include "drally.h"
+#include "drally_fonts.h"
 
-	extern void * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
-	extern void * ___1a1e98h;
+	extern __POINTER__ ___1a112ch__VESA101_ACTIVESCREEN_PTR;
+	extern __POINTER__ ___1a1e98h;
 	extern __DWORD__ ___1865fch[];
-	extern void * ___1a1ea0h;
-	extern byte ___1a1ee8h[];
+	extern __POINTER__ ___1a1ea0h;
+	extern __BYTE__ ___1a1ee8h[];
 
-void ___259e0h_cdecl(int dx, int dy, int aFrameIdx, void * aEncoded, int * aOffsets);
-void ___13094h_cdecl(const char *, dword);
-void ___13248h_cdecl(dword, dword ,dword, dword, dword);
+void ___259e0h_cdecl(int dx, int dy, int aFrameIdx, __POINTER__ aEncoded, int * aOffsets);
+void ___13248h_cdecl(__DWORD__, __DWORD__ ,__DWORD__, __DWORD__, __DWORD__);
 
 // MARKET CONTINUE INFO BOX MESSAGE
 void ___2ddc8h(void){
 
-	dword 	eax, ebx, ecx, edx, edi, esi, ebp;
-	void * 	ebxp;
-	void *	esip;
+	__DWORD__ 	eax, ebx, ecx, edx, edi, esi, ebp;
+	__POINTER__ 	ebxp;
+	__POINTER__	esip;
 
 	ecx = 0x60;
 	ebxp = ___1a112ch__VESA101_ACTIVESCREEN_PTR+0x27a30;
@@ -46,11 +46,13 @@ void ___2ddc8h(void){
 	}
 
 	___13248h_cdecl(0x90, 0x72, 0x180, 0x77, 1);
-	___13094h_cdecl("[CONTINUE", 0x136aa);
-	___13094h_cdecl("", 0x15eaa);
-	___13094h_cdecl("Exit the Underground Market and", 0x186aa);
-	___13094h_cdecl("enter the Race Sign-Up.", 0x1aeaa);
-	___13094h_cdecl("", 0x1d6aa);
-	___13094h_cdecl("Press [Esc{ for previous menu", 0x1feaa);
+
+	VESA101_16X16_FORMAT_PRINT("[CONTINUE", 170, 124);
+	VESA101_16X16_FORMAT_PRINT("", 170, 140);
+	VESA101_16X16_FORMAT_PRINT("Exit the Underground Market and", 170, 156);
+	VESA101_16X16_FORMAT_PRINT("enter the Race Sign-Up.", 170, 172);
+	VESA101_16X16_FORMAT_PRINT("", 170, 188);
+	VESA101_16X16_FORMAT_PRINT("Press [Esc{ for previous menu", 170, 204);
+
 	___259e0h_cdecl(0x1b0, 0x10d, D(___1a1ee8h), ___1a1ea0h, ___1865fch);
 }

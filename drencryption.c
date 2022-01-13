@@ -24,7 +24,7 @@ void dREncryption_decodeSavedGame(saved_game_t * sg){
     while(++n < sizeof(saved_game_t)) *((__BYTE__ *)sg+n) = rolb(*((__BYTE__ *)sg+n), n%6)-0x11*n+sg->key;
 }
 
-void dREncryption_decodeCMF(void * p, size_t size){
+void dREncryption_decodeCMF(__POINTER__ p, size_t size){
 
 	size_t	n;
 

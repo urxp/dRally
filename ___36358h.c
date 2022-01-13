@@ -1,41 +1,55 @@
 #include "drally.h"
+#include "drally_fonts.h"
 
 #pragma pack(1)
-typedef struct font_props_s {
-	byte 	w;
-	byte 	h;
-	byte 	props[];
-} font_props_t;
+typedef struct x655_s {
+	__DWORD__ 	r;
+	__DWORD__ 	g;
+	__DWORD__ 	b;
+} x655_t;
 
-	extern byte ___1a1028h[];
-	extern byte ___1de7d0h[];
-	extern byte ___1a0ef8h[];
-	extern void * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
-	extern void * ___1a0fc4h;
-	extern byte ___185c0bh[];
-	extern void * ___1a1108h;
-	extern byte ___1a01e0h[];
-	extern byte ___1a1ef8h[];
-	extern byte ___196ab0h[];
-	extern void * ___1a0ff0h;
-	extern void * ___1a10b8h;
-	extern byte ___185c7ah[];
-	extern byte ___19eb50h[];
+	extern x655_t ___19eb50h[0x100];
 
-void __DISPLAY_SET_PALETTE_COLOR(dword b, dword g, dword r, dword n);
+	extern __BYTE__ ___1a1028h[];
+	extern __BYTE__ ___1de7d0h[];
+	extern __BYTE__ ___1a0ef8h[];
+	extern __POINTER__ ___1a112ch__VESA101_ACTIVESCREEN_PTR;
+	extern __POINTER__ ___1a0fc4h;
+	extern __BYTE__ ___185c0bh[];
+	extern __POINTER__ ___1a1108h;
+	extern __BYTE__ ___1a01e0h[];
+	extern __BYTE__ ___1a1ef8h[];
+	extern __BYTE__ ___196ab0h[];
+	extern __POINTER__ ___1a0ff0h;
+	extern __POINTER__ ___1a10b8h;
+	extern __BYTE__ ___185c7ah[];
+
+void __DISPLAY_SET_PALETTE_COLOR(__DWORD__ b, __DWORD__ g, __DWORD__ r, __DWORD__ n);
 void ___12cb8h__VESA101_PRESENTSCREEN(void);
-void ___12e78h_cdecl(byte * A1, font_props_t * A2, const char * A3, dword dst_off);
-void ___38184h_cdecl(dword, void *);
+void ___12e78h_cdecl(__BYTE__ * A1, font_props_t * A2, const char * A3, __DWORD__ dst_off);
+void ___38184h_cdecl(__DWORD__, __POINTER__);
 void ___35dd0h(void);
-void ___35f34h_cdecl(dword, dword, dword);
+void ___35f34h_cdecl(__DWORD__, __DWORD__, __DWORD__);
+
+static __BYTE__ helper_color(__DWORD__ eax, __DWORD__ edx){
+
+	___imul32((__POINTER__)&eax, (__POINTER__)&edx, edx);
+	eax += 0x8000;
+	edx += !!(eax < 0x8000);
+	eax = (eax>>0x10)|(edx<<0x10);
+	eax += 0x8000;
+	eax = (int)eax>>0x10;
+
+	return eax&0xff;
+}
 
 // SOMETHING WITH MEDIUM RACE RESULTS
-void ___36358h_cdecl(dword A1){
+void ___36358h_cdecl(__DWORD__ A1){
 
-	dword 	eax, ebx, ecx, edx, edi, esi, ebp, rr, gg, bb, nn;
-	byte 	esp[8];
-	void * 	esip;
-	void * 	ebxp;
+	__DWORD__ 	eax, ebx, ecx, edx, edi, esi, ebp, rr, gg, bb, nn;
+	__BYTE__ 	esp[8];
+	__POINTER__ 	esip;
+	__POINTER__ 	ebxp;
 
 	eax = A1;
 
@@ -131,8 +145,7 @@ void ___36358h_cdecl(dword A1){
 			if(ecx == 0) break;
 		}
 
-		___12e78h_cdecl(___1a1108h, ___185c0bh, "Medium Race Results", 0xd890);
-		edx = esp;
+		___12e78h_cdecl(___1a1108h, (font_props_t *)___185c0bh, "Medium Race Results", 0xd890);
 		eax = 0x4;
 		___38184h_cdecl(eax, esp);
 	}
@@ -207,7 +220,7 @@ void ___36358h_cdecl(dword A1){
 					edi += 0x5;
 					D(eax+___1a01e0h+0x44) = edi;
 					ecx = edx+0xe6;
-					___12e78h_cdecl(___1a10b8h, ___185c7ah, "+5", ecx);
+					___12e78h_cdecl(___1a10b8h, (font_props_t *)___185c7ah, "+5", ecx);
 				}
 			}
 			break;
@@ -230,7 +243,7 @@ void ___36358h_cdecl(dword A1){
 					edi += 0x3;
 					D(eax+___1a01e0h+0x44) = edi;
 					ecx += 0xe6;
-					___12e78h_cdecl(___1a10b8h, ___185c7ah, "+3", ecx);
+					___12e78h_cdecl(___1a10b8h, (font_props_t *)___185c7ah, "+3", ecx);
 				}
 			}
 			break;
@@ -253,7 +266,7 @@ void ___36358h_cdecl(dword A1){
 					edi++;
 					D(eax+___1a01e0h+0x44) = edi;
 					ecx += 0xe6;
-					___12e78h_cdecl(___1a10b8h, ___185c7ah, "+1", ecx);
+					___12e78h_cdecl(___1a10b8h, (font_props_t *)___185c7ah, "+1", ecx);
 				}
 			}
 			break;
@@ -269,51 +282,17 @@ void ___36358h_cdecl(dword A1){
 
 	if(ebp == 0){
 
-		D(esp+0x4) = ebp;
-		esi = 0;
-		ebp = 0x640000;
+		D(esp+0x4) = 0;
 
 		while(1){
 
-			eax ^= eax;
-			L(eax) = B(esp+4);
-			nn = eax;
-			edx = ebp;
-			eax = D(esi+___19eb50h);
-			___imul32(&eax, &edx, edx);
-			eax += 0x8000;
-			edx += !!(eax < 0x8000);
-			eax = (eax>>0x10)|(edx<<0x10);
-			eax += 0x8000;
-			eax = (int)eax>>0x10;
-			eax &= 0xff;
-			rr = eax;
-			edx = ebp;
-			eax = D(esi+___19eb50h+4);
-			___imul32(&eax, &edx, edx);
-			eax += 0x8000;
-			edx += !!(eax < 0x8000);
-			eax = (eax>>0x10)|(edx<<0x10);
-			eax += 0x8000;
-			eax = (int)eax>>0x10;
-			eax &= 0xff;
-			gg = eax;
-			edx = ebp;
-			eax = D(esi+___19eb50h+8);
-			___imul32(&eax, &edx, edx);
-			eax += 0x8000;
-			edx += !!(eax < 0x8000);
-			eax = (eax>>0x10)|(edx<<0x10);
-			eax += 0x8000;
-			eax = (int)eax>>0x10;
-			eax &= 0xff;
-			bb = eax;
+			nn = B(esp+4);
+			rr = helper_color(___19eb50h[D(esp+0x4)].r, 0x640000);
+			gg = helper_color(___19eb50h[D(esp+0x4)].g, 0x640000);
+			bb = helper_color(___19eb50h[D(esp+0x4)].b, 0x640000);
 			__DISPLAY_SET_PALETTE_COLOR(bb, gg, rr, nn);
-			ecx = D(esp+0x4);
-			ecx++;
-			esi += 0xc;
-			D(esp+0x4) = ecx;
-			if((int)ecx >= 0x100) break;
+			D(esp+0x4)++;
+			if((int)D(esp+0x4) >= 0x100) break;
 		}
 
 		___12cb8h__VESA101_PRESENTSCREEN();

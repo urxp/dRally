@@ -1,10 +1,10 @@
 #include "drally.h"
 
-	extern void * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
-	extern void * ___1a1eb0h;
+	extern __POINTER__ ___1a112ch__VESA101_ACTIVESCREEN_PTR;
+	extern __POINTER__ ___1a1eb0h;
 
 // SHOP, UNDERGROUND, RACE SIGNUP COPPER FRAME
-void ___27f80h_cdecl(dword A1, dword A2, dword A3, dword A4){
+void ___27f80h_cdecl(__DWORD__ A1, __DWORD__ A2, __DWORD__ A3, __DWORD__ A4){
 
 	int 		i, j, n;
 	__BYTE__ 	px;

@@ -1,9 +1,9 @@
 #include "drally.h"
+#include "drally_fonts.h"
 
 typedef char char40[40];
 
-void ___13094h_cdecl(const char *, dword);
-void ___13248h_cdecl(dword, dword ,dword, dword, dword);
+void ___13248h_cdecl(__DWORD__, __DWORD__ ,__DWORD__, __DWORD__, __DWORD__);
 
 static const char40 ___193720h[4][6] = {
 	[0] = {
@@ -41,13 +41,17 @@ static const char40 ___193720h[4][6] = {
 };
 
 // MARKET STUFF INFO BOX DESCRIPTION
-void ___2d054h_cdecl(dword A1){
+void ___2d054h_cdecl(int n){
+
+	char40 * lines;
 
 	___13248h_cdecl(0x90, 0x72, 0x180, 0x77, 1);
-	___13094h_cdecl(___193720h[A1][0], 0x136aa);
-	___13094h_cdecl(___193720h[A1][1], 0x15eaa);
-	___13094h_cdecl(___193720h[A1][2], 0x186aa);
-	___13094h_cdecl(___193720h[A1][3], 0x1aeaa);
-	___13094h_cdecl(___193720h[A1][4], 0x1d6aa);
-	___13094h_cdecl(___193720h[A1][5], 0x1feaa);
+
+	lines = (char40 *)___193720h[n];
+	VESA101_16X16_FORMAT_PRINT(lines[0], 170, 124);
+	VESA101_16X16_FORMAT_PRINT(lines[1], 170, 140);
+	VESA101_16X16_FORMAT_PRINT(lines[2], 170, 156);
+	VESA101_16X16_FORMAT_PRINT(lines[3], 170, 172);
+	VESA101_16X16_FORMAT_PRINT(lines[4], 170, 188);
+	VESA101_16X16_FORMAT_PRINT(lines[5], 170, 204);
 }

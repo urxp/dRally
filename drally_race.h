@@ -12,4 +12,8 @@ void dRally_Race_setSettings(int);
 void dRally_Race_unsetSettings(int);
 void dRally_Race_toggleSettings(int);
 
+void race_msg(int msg_no);
+void race_alloc(void);
+void race_free(void);
+
 #endif // __DRALLY_RACE_H

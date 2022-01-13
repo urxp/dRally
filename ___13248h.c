@@ -1,24 +1,24 @@
 #include "drally.h"
 
-	extern void * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
-	extern void * ___1a10d8h;
-	extern void * ___1a10f0h;
+	extern __POINTER__ ___1a112ch__VESA101_ACTIVESCREEN_PTR;
+	extern __POINTER__ ___1a10d8h;
+	extern __POINTER__ ___1a10f0h;
 
 
 typedef struct view_s {
-	void * 	data;
+	__POINTER__ 	data;
 	int 	w;
 	int 	h;
 } view_t;
 
-static void createView(void * p, int w, int h, view_t * v){
+static void createView(__POINTER__ p, int w, int h, view_t * v){
 
 	v->data = p;
 	v->w = w;
 	v->h = h;
 }
 
-static void cmncpy(view_t * sv, int x, int y, void * src){
+static void cmncpy(view_t * sv, int x, int y, __POINTER__ src){
 
 	int 		i, j;
 	int 		w, h;
@@ -40,11 +40,11 @@ static void cmncpy(view_t * sv, int x, int y, void * src){
 
 
 // frame borders
-void ___13248h_cdecl(dword x, dword y, dword dx, dword dy, dword active){
+void ___13248h_cdecl(__DWORD__ x, __DWORD__ y, __DWORD__ dx, __DWORD__ dy, __DWORD__ active){
 
 	int 	i, n;
 	__BYTE__ 	col;
-	void * 	D0;
+	__POINTER__ 	D0;
 	view_t 	screen_view;
 
 

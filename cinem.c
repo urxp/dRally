@@ -3,67 +3,68 @@
 
 #pragma pack(1)
 typedef struct rgb24_s {
-	byte 	r;
-	byte 	g;
-	byte 	b;
+	__BYTE__ 	r;
+	__BYTE__ 	g;
+	__BYTE__ 	b;
 } rgb24_t;
 
 typedef rgb24_t pal256_t[0x100];
 
 	extern char ___1a0d60h[];
-	extern byte VGA13_ACTIVESCREEN[];
+	extern __BYTE__ VGA13_ACTIVESCREEN[];
 
-	extern byte * DecodedFrame;
-	extern byte * EncodedFrame;
-	extern dword ___1a1f00h;
-	extern byte * ___1a1f10h;
-	extern byte * ___1a1f1ch;
-	extern pal256_t ___1a0a60h;
-	extern byte * ___1a1f18h;
-	extern byte * ___1a1f14h;
-	extern dword * ___1a1f24h;
-	extern dword ___1a1f2ch;
-	extern dword ___1a1f04h;
-	extern dword LOC_RESET;
-	extern dword LOC_END;
-	extern dword ___1a1f08h;
-	extern byte ___1a2042h[];
-	extern byte * ___1a1f28h;
-	extern byte ___1a2149h;
+	static __BYTE__ ___1a2042h[0x101];
+	static __BYTE__ ___1a2149h;
+	static pal256_t ___1a0a60h;
+
+	static __BYTE__ * DecodedFrame;
+	static __BYTE__ * EncodedFrame;
+	static __DWORD__ ___1a1f00h;
+	static __BYTE__ * ___1a1f10h;
+	static __BYTE__ * ___1a1f1ch;
+	static __BYTE__ * ___1a1f18h;
+	static __BYTE__ * ___1a1f14h;
+	static __DWORD__ * ___1a1f24h;
+	static __DWORD__ ___1a1f2ch;
+	static __DWORD__ ___1a1f04h;
+	static __DWORD__ LOC_RESET;
+	static __DWORD__ LOC_END;
+	static __DWORD__ ___1a1f08h;
+	static __BYTE__ * ___1a1f28h;
 
 
-void * ___3f71ch__allocateMemory(dword);
+__POINTER__ ___3f71ch__allocateMemory(__DWORD__);
 
-void old_bpa_read(const char *, void *, const char *);
-void bpk_decode4(dword, dword, void *, void *);
-void bpk_decode2(void *, void *);
+void old_bpa_read(const char *, __POINTER__, const char *);
+void bpk_decode4(__DWORD__, __DWORD__, __POINTER__, __POINTER__);
+void bpk_decode2(__POINTER__, __POINTER__);
 
 void ___606dfh(void);
 void __VGA13_SETMODE(void);
 void ___60466h(int, int);
 void DISPLAY_CLEAR_PALETTE(void);
 void __VGA13_PRESENTSCREEN__(void);
-void __DISPLAY_SET_PALETTE_COLOR(dword b, dword g, dword r, dword n);
-byte ___5994ch(void);
-dword __GET_FRAME_COUNTER(void);
+void __DISPLAY_SET_PALETTE_COLOR(__DWORD__ b, __DWORD__ g, __DWORD__ r, __DWORD__ n);
+__BYTE__ ___5994ch(void);
+__DWORD__ __GET_FRAME_COUNTER(void);
 
-void dRally_Sound_freeEffectChannel(byte ch_num);
-void dRally_Sound_pushEffect(byte channel, byte n, dword unk, dword a0, dword a1, dword a2);
-void dRally_Sound_setSampleRate(dword freq);
+void dRally_Sound_freeEffectChannel(__BYTE__ ch_num);
+void dRally_Sound_pushEffect(__BYTE__ channel, __BYTE__ n, __DWORD__ unk, __DWORD__ a0, __DWORD__ a1, __DWORD__ a2);
+void dRally_Sound_setSampleRate(__DWORD__ freq);
 void dRally_Sound_play(void);
 void dRally_Sound_load(__DWORD__ msx_t, const char * msx_f, __DWORD__ sfx_t, const char * sfx_f, __DWORD__ num_ch);
 
 
-static dword ___1859c8h = 0;
-static dword ___1859cch = 0;
-static dword read_p = 0;
-static dword write_p = 0;
-static dword ___185a0ch = 0;
+static __DWORD__ ___1859c8h = 0;
+static __DWORD__ ___1859cch = 0;
+static __DWORD__ read_p = 0;
+static __DWORD__ write_p = 0;
+static __DWORD__ ___185a0ch = 0;
 
 
-static dword ___10784h(void){
+static __DWORD__ ___10784h(void){
 
-	dword 	n, rslt;
+	__DWORD__ 	n, rslt;
 
 	if(___1859cch == 0){
 
@@ -107,7 +108,7 @@ static dword ___10784h(void){
 
 static void ___108e8h(void){
 
-	dword 	r, n, df_bits, next, val, ecx, edi;
+	__DWORD__ 	r, n, df_bits, next, val, ecx, edi;
 
 	read_p = write_p = val = ___1859c8h = ___1859cch = 0;
 
@@ -122,7 +123,7 @@ static void ___108e8h(void){
 	df_bits = EncodedFrame[read_p++];
 	___1a1f18h = ___3f71ch__allocateMemory(0x1001*sizeof(__BYTE__));
 	___1a1f14h = ___3f71ch__allocateMemory(0x1001*sizeof(__BYTE__));
-	___1a1f24h = ___3f71ch__allocateMemory(0x1001*sizeof(__DWORD__));
+	___1a1f24h = (__DWORD__ *)___3f71ch__allocateMemory(0x1001*sizeof(__DWORD__));
 	___1a1f2ch = df_bits+1;
 	___1a1f04h = 2<<df_bits;
 	___1a1f08h = (1<<df_bits)+2;
@@ -186,7 +187,7 @@ static void ___108e8h(void){
 
 	dRMemory_free(___1a1f18h);
 	dRMemory_free(___1a1f14h);
-	dRMemory_free(___1a1f24h);
+	dRMemory_free((__POINTER__)___1a1f24h);
 }
 
 void ___10b80h_cdecl(
@@ -200,13 +201,13 @@ void ___10b80h_cdecl(
 
 	// in dr implementation video frame is cropped beginning from the top if a_height is less than 120
 
-	dword 	ch_n, n, skipped;
-	dword 	eax, ebx, ecx, edx, edi, esi;
+	__DWORD__ 	ch_n, n, skipped;
+	__DWORD__ 	eax, ebx, ecx, edx, edi, esi;
 	pal256_t 	pal;
 	char 	buffer[0x100];
 	FILE *	fd;
 
-    dword   time;
+    __DWORD__   time;
     double  seconds;
 	int 	total_length;
 
@@ -246,7 +247,7 @@ void ___10b80h_cdecl(
 
 	DISPLAY_CLEAR_PALETTE();
 	old_bpa_read("MENU.BPA", EncodedFrame, "FRAMES.BPK");
-	bpk_decode4(0x300, 0, &pal, EncodedFrame);
+	bpk_decode4(0x300, 0, (__POINTER__)&pal, EncodedFrame);
 	bpk_decode4(0xfa00, 0x300, VGA13_ACTIVESCREEN, EncodedFrame);
 	__VGA13_PRESENTSCREEN__();
 

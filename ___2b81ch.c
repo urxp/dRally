@@ -19,12 +19,12 @@ typedef struct cardata_s {
     __SIGNED_DWORD__   	price_repair;                   // +6DC
 } cardata_t;
 
-	extern byte ___1a1ef8h[];
-	extern byte ___185a14h_UseWeapons[];
-	extern byte ___1a01e0h[];
+	extern __BYTE__ ___1a1ef8h[];
+	extern __BYTE__ ___185a14h_UseWeapons[];
+	extern __BYTE__ ___1a01e0h[];
 	extern cardata_t ___18e298h[6];
 
-dword ___2b81ch(void){
+__DWORD__ ___2b81ch(void){
 
 	return ___18e298h[D(0x6c*D(___1a1ef8h)+___1a01e0h+0x1c)].price_repair/(1+!!D(___185a14h_UseWeapons));
 }

@@ -4,20 +4,20 @@
 
 #pragma pack(1)
 typedef struct sampledata_s {
-	void *	start_p;
-	void * 	end_p;
-	void * 	loopstart_p;
-	void * 	loopend_p;
-	byte 	flags;
+	__POINTER__	start_p;
+	__POINTER__ 	end_p;
+	__POINTER__ 	loopstart_p;
+	__POINTER__ 	loopend_p;
+	__BYTE__ 	flags;
 } sampledata_t;
 
 typedef struct samplelib_s {
 	int 			n_samples;
 	int 			n_msx_samples;
 	int 			n_sfx_samples;
-	void * 			header_alloc;
-	void *			data_alloc;
-	void * 			write_p;
+	__POINTER__ 			header_alloc;
+	__POINTER__			data_alloc;
+	__POINTER__ 			write_p;
 	sampledata_t * 	samples;
 	int *			samples_volume;
 	int * 			samples_frequency;
@@ -27,40 +27,40 @@ typedef struct sound_mod_s {
 	int 	type;
 	int 	channels;
 	int 	samples;
-	void * 	data;
-	dword 	size;
+	__POINTER__ 	data;
+	__DWORD__ 	size;
 } sound_mod_t;
 
 typedef struct music_s {
-    byte        ch_map[32];
-    dword *     c2spd;
-    void **     patterns;
-    byte *      ch_settings;
-    byte *	    orders;
-    byte *      panning;
-    byte *      volume;
-    void *      s3m_p;
-    word        n_patterns;
-    byte        n_orders;
-    byte        tempo;
-    byte        global_volume;
-    byte        speed;
+    __BYTE__        ch_map[32];
+    __DWORD__ *     c2spd;
+    __POINTER__*     patterns;
+    __BYTE__ *      ch_settings;
+    __BYTE__ *	    orders;
+    __BYTE__ *      panning;
+    __BYTE__ *      volume;
+    __POINTER__      s3m_p;
+    __WORD__        n_patterns;
+    __BYTE__        n_orders;
+    __BYTE__        tempo;
+    __BYTE__        global_volume;
+    __BYTE__        speed;
 } music_t;
 
 
-void * ___5f248h_cdecl(dword);
-void * ___5f26ch_cdecl(dword); 
+__POINTER__ ___5f248h_cdecl(__DWORD__);
+__POINTER__ ___5f26ch_cdecl(__DWORD__); 
 void ___5f2b4h_cdecl(void);
 
 extern music_t Music;
 extern samplelib_t SampleLib;
-byte * ___19a464h;
+__BYTE__ * ___19a464h;
 
-void SampleLib_addSample(void *, void *, void *, void *, dword);
+void SampleLib_addSample(__POINTER__, __POINTER__, __POINTER__, __POINTER__, __DWORD__);
 
-static void ___71608h_cdecl(s3m_t * s3m, dword ins_n){
+static void ___71608h_cdecl(s3m_t * s3m, __DWORD__ ins_n){
 
-	void 	* isd_p, * isd_end_p, * isd_loop_p, * isd_loopend_p;
+	__POINTER__ 	isd_p, isd_end_p, isd_loop_p, isd_loopend_p;
     s3m_instrument_t * ins_p;
 
     ins_p           = S3M_getInstrument(s3m, ins_n);
@@ -81,25 +81,25 @@ static void ___71608h_cdecl(s3m_t * s3m, dword ins_n){
 
 void ___716fch(sound_mod_t * smod){
 
-    dword   n;
-    void *  hi_p;
-    void *  tmp_p;
-    void *  lo_p;
+    __DWORD__   n;
+    __POINTER__  hi_p;
+    __POINTER__  tmp_p;
+    __POINTER__  lo_p;
     s3m_t * s3m;
 
     s3m     = (s3m_t *)smod->data;
-    hi_p = ((void *)s3m+smod->size)-1;
+    hi_p = ((__POINTER__)s3m+smod->size)-1;
     printf("============= S3M resize: %6d >>>> ", smod->size);
-    lo_p = s3m;
+    lo_p = (__POINTER__)s3m;
     ___19a464h = ___5f248h_cdecl(0x8000);
     Music.n_orders = s3m->orderCount;
     Music.n_patterns = s3m->patternPtrCount;
     Music.ch_settings = s3m->channelSettings;
-    Music.panning = (s3m->defaultPan == 0xfc) ? S3M_getHeaderDefaultPanning(s3m) : (void *)0;
+    Music.panning = (s3m->defaultPan == 0xfc) ? S3M_getHeaderDefaultPanning(s3m) : (__POINTER__)0;
     Music.volume = ___5f26ch_cdecl(sizeof(__BYTE__)*(s3m->instrumentCount+1));
-    Music.c2spd = ___5f26ch_cdecl(sizeof(__DWORD__)*(s3m->instrumentCount+1));
+    Music.c2spd = (__DWORD__ *)___5f26ch_cdecl(sizeof(__DWORD__)*(s3m->instrumentCount+1));
     Music.orders = S3M_getHeaderOrderList(s3m);
-    Music.patterns = (void **)___5f26ch_cdecl(sizeof(void *)*s3m->patternPtrCount);
+    Music.patterns = (__POINTER__*)___5f26ch_cdecl(sizeof(__POINTER__)*s3m->patternPtrCount);
     
     // patterns
     n = -1;
@@ -119,7 +119,7 @@ void ___716fch(sound_mod_t * smod){
         ___71608h_cdecl(s3m, n);
     }
 
-    printf("%6d\n", hi_p-(void *)s3m);
-    dRMemory_resize(s3m, hi_p-(void *)s3m);
+    printf("%6lld\n", hi_p-(__POINTER__)s3m);
+    dRMemory_resize((__POINTER__)s3m, hi_p-(__POINTER__)s3m);
     ___5f2b4h_cdecl();
 }

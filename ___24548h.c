@@ -1,53 +1,53 @@
 #include "drally.h"
 #include "assets.h"
 
-	extern byte ___1a1edch[];
-	extern byte ___1a1ecch[];
-	extern byte ___1a1ee8h[];
-	extern byte ___1a1ef8h[];
-	extern byte ___1a1ee0h[];
-	extern byte ___1a1eech[];
-	extern byte ___1a1ec0h[];
-	extern byte ___1a1ec8h[];
-	extern byte ___1a1ed0h[];
-	extern byte ___1a01e0h[];
-	extern byte ___1a1ec4h[];
-	extern byte ___1a1ee4h[];
-	extern void * ___1a1124h__VESA101h_ScreenBufferA;
-	extern void * ___1a10e4h__VESA101h_DefaultScreenBufferA;
-	extern void * ___1a1e80h;
-	extern void * ___1a1e74h;
-	extern void * ___1a1e84h;
-	extern void * ___1a1e60h;
-	extern void * ___1a1ed4h;
-	extern void * ___1a1e90h;
-	extern void * ___1a10b0h;
-	extern void * ___1a1eb0h;
-	extern void * ___1a1e78h;
-	extern void * ___1a1eb8h;
-	extern void * ___1a01b8h[6];
-	extern void * ___1a0180h;
-	extern void * ___1a01a8h[4];
-	extern void * ___1a0198h[4];
-	extern void * ___1a01d0h[4];
-	extern void * ___1a1e8ch;
-	extern void * ___1a1ea0h;
-	extern void * ___1a1e7ch;
-	extern void * ___1a1ebch;
-	extern void * ___1a1eb4h;
-	extern void * ___1a1e88h;
-	extern void * ___1a1ea4h;
-	extern void * ___1a1ea8h;
-	extern void * ___1a1e6ch;
-	extern void * ___1a1e98h;
-	extern void * ___1a1e5ch;
-	extern void * ___1a1e58h;
-	extern void * ___1a1e54h;
-	extern void * ___1a1e64h;
+	extern __BYTE__ ___1a1edch[];
+	extern __BYTE__ ___1a1ecch[];
+	extern __BYTE__ ___1a1ee8h[];
+	extern __BYTE__ ___1a1ef8h[];
+	extern __BYTE__ ___1a1ee0h[];
+	extern __BYTE__ ___1a1eech[];
+	extern __BYTE__ ___1a1ec0h[];
+	extern __BYTE__ ___1a1ec8h[];
+	extern __BYTE__ ___1a1ed0h[];
+	extern __BYTE__ ___1a01e0h[];
+	extern __BYTE__ ___1a1ec4h[];
+	extern __BYTE__ ___1a1ee4h[];
+	extern __POINTER__ ___1a1124h__VESA101h_ScreenBufferA;
+	extern __POINTER__ ___1a10e4h__VESA101h_DefaultScreenBufferA;
+	extern __POINTER__ ___1a1e80h;
+	extern __POINTER__ ___1a1e74h;
+	extern __POINTER__ ___1a1e84h;
+	extern __POINTER__ ___1a1e60h;
+	extern __POINTER__ ___1a1ed4h;
+	extern __POINTER__ ___1a1e90h;
+	extern __POINTER__ ___1a10b0h;
+	extern __POINTER__ ___1a1eb0h;
+	extern __POINTER__ ___1a1e78h;
+	extern __POINTER__ ___1a1eb8h;
+	extern __POINTER__ ___1a01b8h[6];
+	extern __POINTER__ ___1a0180h;
+	extern __POINTER__ ___1a01a8h[4];
+	extern __POINTER__ ___1a0198h[4];
+	extern __POINTER__ ___1a01d0h[4];
+	extern __POINTER__ ___1a1e8ch;
+	extern __POINTER__ ___1a1ea0h;
+	extern __POINTER__ ___1a1e7ch;
+	extern __POINTER__ ___1a1ebch;
+	extern __POINTER__ ___1a1eb4h;
+	extern __POINTER__ ___1a1e88h;
+	extern __POINTER__ ___1a1ea4h;
+	extern __POINTER__ ___1a1ea8h;
+	extern __POINTER__ ___1a1e6ch;
+	extern __POINTER__ ___1a1e98h;
+	extern __POINTER__ ___1a1e5ch;
+	extern __POINTER__ ___1a1e58h;
+	extern __POINTER__ ___1a1e54h;
+	extern __POINTER__ ___1a1e64h;
 
-void * ___3f71ch__allocateMemory(dword);
+__POINTER__ ___3f71ch__allocateMemory(__DWORD__);
 
-static dword max_5(dword val){ return (val < 5) ? val : 5; }
+static __DWORD__ max_5(__DWORD__ val){ return (val < 5) ? val : 5; }
 
 void ___24548h(void){
 

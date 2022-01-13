@@ -2,21 +2,23 @@
 
 #define COOXY(x,y) (0x280*(y)+(x))
 
-	extern byte ___19bd60h[];
-	extern byte * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
-	extern void * ___1a10bch;
-	extern byte ___1a10e8h[];
-	extern byte ___185a3ch[];
-	extern byte ___196a98h[];
-	extern byte ___196a9ch[];
-	extern byte ___196aa0h[];
-	extern byte ___196aa4h[];
-	extern byte ___196aa8h[];
-	extern byte ___1a1ef8h[];
-	extern byte ___1a01e0h[];
+#if defined(DR_MULTIPLAYER)
+	extern __DWORD__ ___19bd60h;
+#endif // DR_MULTIPLAYER
+	extern __BYTE__ * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
+	extern __POINTER__ ___1a10bch;
+	extern __POINTER__ ___1a10e8h;
+	extern __BYTE__ ___185a3ch[];
+	extern __BYTE__ ___196a98h[];
+	extern __BYTE__ ___196a9ch[];
+	extern __BYTE__ ___196aa0h[];
+	extern __BYTE__ ___196aa4h[];
+	extern __BYTE__ ___196aa8h[];
+	extern __BYTE__ ___1a1ef8h[];
+	extern __BYTE__ ___1a01e0h[];
 
 
-void ___27f80h_cdecl(dword, dword, dword, dword);
+void ___27f80h_cdecl(__DWORD__, __DWORD__, __DWORD__, __DWORD__);
 void ___25a74h(void);
 void ___25e40h(void);
 void ___262b4h(void);
@@ -28,13 +30,13 @@ void ___25330h(void);
 void shop___2b6a4h(void){
 
 	int 	i, j;
-	byte 	px;
-	byte * 	head_img;
+	__BYTE__ 	px;
+	__BYTE__ * 	head_img;
 
 	head_img = ___1a10bch;
 
 #if defined(DR_MULTIPLAYER)
-	if(D(___19bd60h) != 0) head_img = D(___1a10e8h);
+	if(___19bd60h != 0) head_img = ___1a10e8h;
 #endif // DR_MULTIPLAYER
 
 	j = -1;

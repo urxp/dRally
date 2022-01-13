@@ -1,3 +1,11 @@
+#include "drally.h"
+
+__DWORD__ ___47d8ch(__DWORD__ A0){
+
+	printf("[TODO] ___47d8ch\n");
+	exit(0x70);
+}
+
 /*
 cpu 386
 %include "macros.inc"
@@ -5,7 +13,7 @@ cpu 386
 	extern	__CHK
 	extern	___19bd60h
 	extern	___61518h
-	extern	___243cf4h
+	extern	NUM_OF_CARS
 	extern	___24cee0h
 
 section .text
@@ -33,7 +41,7 @@ __GDECL(___47d8ch)
 	push 	edx
 
 		xor     ebx, ebx
-		mov     esi, [___243cf4h]
+		mov     esi, [NUM_OF_CARS]
 		mov     [esp+4], ebx
 		test    esi, esi
 		jle     near ___47e84h

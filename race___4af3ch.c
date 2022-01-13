@@ -1,4 +1,5 @@
 #include "drally.h"
+#include "drally_structs_free.h"
 
 typedef struct xc50_s {
 	__DWORD__ 	___0;			// +000
@@ -42,462 +43,205 @@ typedef struct x2c_s {
 	extern xc50_t ___1f3b08h[];		// <0x1f3b08 - 0x1f4758)
 	extern x2c_t ___240b48h[];		// <0x240b48 - 0x240b74)
 
-	extern void * ___243d58h;
-	extern byte ___243d2ch[];
-	extern byte ___243d28h[];
-	extern void * ___243d60h;
-	extern void * ___243d78h;
-	extern byte ___243d04h[];
-	extern byte ___243d30h[];
-	extern void * ___243d54h;
-	extern byte ___243d10h[];
-	extern byte ___243cf8h[];
-	extern void * ___243d74h;
-	extern void * ___243d40h;
-	extern byte ___1e6ed0h[];
-	extern byte ___1f2488h[];
-	extern byte ___1df720h[];
-	extern byte ___243c5ch[];
-	extern byte ___1de920h[];
-	extern byte ___1ded20h[];
-	extern byte ___243c88h[];
-	extern byte ___243c94h[];
-	extern void * ___243d5ch;
+	extern __POINTER__ ___243d58h;
+	extern __BYTE__ ___243d2ch[];
+	extern __BYTE__ ___243d28h[];
+	extern __POINTER__ ___243d60h;
+	extern __POINTER__ ___243d78h;
+	extern __BYTE__ ___243d04h[];
+	extern __BYTE__ ___243d30h[];
+	extern __POINTER__ ___243d54h;
+	extern __BYTE__ ___243d10h[];
+	extern __BYTE__ ___243cf8h[];
+	extern __POINTER__ ___243d74h;
+	extern __POINTER__ ___243d40h;
+	extern __BYTE__ ___1e6ed0h[];
+	extern __BYTE__ ___1f2488h[];
+	extern __BYTE__ ___1df720h[];
+	extern __BYTE__ ___243c5ch[];
+	extern __BYTE__ ___1de920h[];
+	extern __BYTE__ ___1ded20h[];
+	extern __BYTE__ ___243c88h[];
+	extern __BYTE__ ___243c94h[];
+	extern __POINTER__ ___243d5ch;
+
+static void helper00(__POINTER__ ptr, __DWORD__ dim){
+
+	int		n;
+
+	n = -1;
+	while(++n < dim/2) switch_b(ptr+n, ptr+dim-n-1);
+}
+
 
 // REVERSE TRACK
 void race___4af3ch(void){
 
 	double 		d_tmp;
-	dword 		eax, ebx, ecx, edx, edi, esi, ebp;
-	byte 		esp[0x3c];
-	int 		i, j, dim;
+	__DWORD__ 		eax, ebx, ecx, edx, edi, esi, ebp;
+	__BYTE__ 		esp[0x3c];
+	int 		i, j, dim, m, n;
 	x2c_t * 	p;
-	byte 		b_tmp;
+	__BYTE__ 		b_tmp;
 	double 		d1, d2, d3;
-	void * 		esip;
+	__POINTER__ 		esip;
+	struct_35e_t * 	s_35e;
 
 
-	ecx ^= ecx;
-	edx = D(___243d2ch);
-	ebx = D(___243d28h);
-	ebx = ebx*edx;
-	edx = ebx;
-	eax = ebx;
-	edx = (int)edx>>0x1f;
-	eax -= edx;
-	eax = (int)eax>>1;
-	dim = eax;
+	s_35e = (struct_35e_t *)___1e6ed0h;
 
-	if((int)ecx < dim){
+	helper00(___243d58h, D(___243d28h)*D(___243d2ch));
+	helper00(___243d60h, D(___243d28h)*D(___243d2ch));
+	helper00(___243d78h, D(___243d30h)*D(___243d04h));
+	helper00(___243d54h, D(___243cf8h)*D(___243d10h));
 
-		while(1){
-
-			D(esp+0x38) = B(___243d58h+ecx);
-			B(___243d58h+ecx) = B(___243d58h+ebx-1-ecx);
-			B(___243d58h+ebx-1-ecx) = B(esp+0x38);
-			dim = D(___243d28h)*D(___243d2ch);
-			dim = dim/2;
-			ecx++;
-			if((int)ecx >= dim) break;
-		}
-	}
-
-	ecx = 0;
-	esi = D(___243d2ch);
-	ebx = D(___243d28h);
-	ebx = ebx*esi;
-	edx = ebx;
-	eax = ebx;
-	edx = (int)edx>>0x1f;
-	eax -= edx;
-	eax = (int)eax>>1;
-	dim = eax;
-
-	if((int)ecx < dim){
-
-		while(1){
-
-			D(esp+0x38) = B(___243d60h+ecx);
-			B(___243d60h+ecx) = B(___243d60h+ebx-1-ecx);
-			B(___243d60h+ebx-1-ecx) = B(esp+0x38);
-			dim = D(___243d28h)*D(___243d2ch);
-			dim = dim/2;
-			ecx++;
-			if((int)ecx >= dim) break;
-		}
-	}
-
-	ecx = 0;
-	edi = D(___243d04h);
-	ebx = D(___243d30h);
-	ebx = ebx*edi;
-	edx = ebx;
-	eax = ebx;
-	edx = (int)edx>>0x1f;
-	eax -= edx;
-	eax = (int)eax>>1;
-	dim = eax;
-
-	if((int)ecx < dim){
-
-		while(1){
-
-			D(esp+0x38) = B(___243d78h+ecx);
-			B(___243d78h+ecx) = B(___243d78h+ebx-1-ecx);
-			B(___243d78h+ebx-1-ecx) = B(esp+0x38);
-			dim = D(___243d30h)*D(___243d04h);
-			dim = dim/2;
-			ecx++;
-			if((int)ecx >= dim) break;
-		}
-	}
-
-	ecx = 0;
-	ebp = D(___243d10h);
-	ebx = D(___243cf8h);
-	ebx = ebx*ebp;
-	edx = ebx;
-	eax = ebx;
-	edx = (int)edx>>0x1f;
-	eax -= edx;
-	eax = (int)eax>>1;
-	dim = eax;
-
-	if((int)ecx < dim){
-
-		while(1){
-
-			D(esp+0x38) = B(___243d54h+ecx);
-			B(___243d54h+ecx) = B(___243d54h+ebx-1-ecx);
-			B(___243d54h+ebx-1-ecx) = B(esp+0x38);
-			dim = D(___243cf8h)*D(___243d10h);
-			dim = dim/2;
-			ecx++;
-			if((int)ecx >= dim) break;
-		}
-	}
-
-	eax ^= eax;
-	D(esp+0x1c) = eax;
-
+	D(esp+0x1c) = 0;
 	while(1){
 
-		esi = D(esp+0x1c);
 		edx = 0;
 
 		while(1){
 
-			D(esp+0x38) =  B(___243d74h+esi+edx);
-			B(___243d74h+esi+edx) = B(___243d74h+esi+0x257ff-edx);
-			B(___243d74h+esi+0x257ff-edx) = B(esp+0x38);
+			b_tmp =  B(___243d74h+D(esp+0x1c)+edx);
+			B(___243d74h+D(esp+0x1c)+edx) = B(___243d74h+D(esp+0x1c)+0x257ff-edx);
+			B(___243d74h+D(esp+0x1c)+0x257ff-edx) = b_tmp;
 			edx++;
 			if((int)edx >= 0x12c00) break;
 		}
 
-		edx = 0x125c0;
-		ebp = D(esp+0x1c);
-		ebx ^= ebx;
-		D(esp+0x20) = edx;
-		D(esp+0x28) = ebx;
+		D(esp+0x20) = 0x125c0;
+		D(esp+0x28) = 0;
 
 		while(1){
 
-			esi = D(esp+0x28);
-			edi = D(esp+0x20);
-			edx ^= edx;
-
+			edx = 0;
 			while(1){
 
-				D(esp+0x38) = B(___243d74h+edx+ebp+esi);
-				B(___243d74h+edx+ebp+esi) = B(___243d74h+ebp+edi+edx);
-				B(___243d74h+ebp+edi+edx) = B(esp+0x38);
+				b_tmp = B(___243d74h+edx+D(esp+0x1c)+D(esp+0x28));
+				B(___243d74h+edx+D(esp+0x1c)+D(esp+0x28)) = B(___243d74h+D(esp+0x1c)+D(esp+0x20)+edx);
+				B(___243d74h+D(esp+0x1c)+D(esp+0x20)+edx) = b_tmp;
 				edx++;
 				if((int)edx >= 0x640) break;
 			}
 
-			esi = D(esp+0x28);
-			ecx = D(esp+0x20);
-			esi += 0x640;
-			ecx -= 0x640;
-			D(esp+0x28) = esi;
-			D(esp+0x20) = ecx;
-			if(esi == 0x9600) break;
+			D(esp+0x28) += 0x640;
+			D(esp+0x20) -= 0x640;
+			if(D(esp+0x28) == 0x9600) break;
 		}
 
-		eax = D(esp+0x1c);
-		ebp = 0x251c0;
-		D(esp+0x30) = eax;
-		eax = 0x12c00;
-		D(esp+0x24) = ebp;
-		D(esp+0x2c) = eax;
+		D(esp+0x24) = 0x251c0;
+		D(esp+0x2c) = 0x12c00;
 
 		while(1){
 
-			eax = D(esp+0x2c);
-			ebp = D(esp+0x24);
-			edx ^= edx;
-			D(esp+0x34) = eax;
-			esi = eax;
-			ecx = ebp;
+			esi = D(esp+0x2c);
+			ecx = D(esp+0x24);
 
+			edx = 0;
 			while(1){
 
-				D(esp+0x38) = B(___243d74h+edx+D(esp+0x34)+D(esp+0x30));
-				B(___243d74h+esi+D(esp+0x30)) = B(___243d74h+ecx+D(esp+0x30));
-				B(___243d74h+edx+D(esp+0x30)+ebp) = B(esp+0x38);
+				b_tmp = B(___243d74h+edx+D(esp+0x2c)+D(esp+0x1c));
+				B(___243d74h+esi+D(esp+0x1c)) = B(___243d74h+ecx+D(esp+0x1c));
+				B(___243d74h+edx+D(esp+0x1c)+D(esp+0x24)) = b_tmp;
 				edx++;
 				ecx++;
 				esi++;
 				if((int)edx >= 0x640) break;
 			}
 
-			eax = D(esp+0x2c);
-			ebp = D(esp+0x24);
-			eax += 0x640;
-			ebp -= 0x640;
-			D(esp+0x2c) = eax;
-			D(esp+0x24) = ebp;
-			if(eax == 0x1c200) break;
+			D(esp+0x2c) += 0x640;
+			D(esp+0x24) -= 0x640;
+			if(D(esp+0x2c) == 0x1c200) break;
 		}
 
-		ebx = D(esp+0x1c);
-		ebx += 0x25800;
-		D(esp+0x1c) = ebx;
-		if(ebx == 0x96000) break;
+		D(esp+0x1c) += 0x25800;
+		if(D(esp+0x1c) == 0x96000) break;
 	}
 
-	edi = 0;
+	j = -1;
+	while(++j < 0x24){
 
-	while(1){
+		i = -1;
+		while(++i < 0x80){
 
-		esi = edi;
-		edx = 0;
-
-		while(1){
-
-			D(esp+0x38) = B(___243d40h+esi+edx);
-			B(___243d40h+esi+edx) = B(___243d40h+esi+0xff-edx);
-			B(___243d40h+esi+0xff-edx) = B(esp+0x38);
-			edx++;
-			if((int)edx >= 0x80) break;
+			b_tmp = B(___243d40h+0x100*j+i);
+			B(___243d40h+0x100*j+i) = B(___243d40h+0x100*j+0xff-i);
+			B(___243d40h+0x100*j+0xff-i) = b_tmp;
 		}
-
-		edi += 0x100;
-		if(edi == 0x2400) break;
 	}
 
-		esi = D(___243d2ch);
-		ecx = D(___243d28h);
-		ebx ^= ebx;
-		edx ^= edx;
-		esi--;
-		ecx--;
-		edi ^= edi;
-___4b1fah:
-		FPUSH(F32(edx+___1e6ed0h+0xb8));
-		FPUSH(F32(edx+___1e6ed0h+0xb4));
-		ST(0) = (int)ST(0);
-		eax = ecx;
-		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
-		ST(0) = (int)ST(0);
-		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
-		D(esp+0x38) = (int)FPOP();
-		ebp = D(esp+0x38);
-		D(esp+0x38) = (int)FPOP();
-		eax -= ebp;
-		ebp = D(esp+0x38);
-		D(esp+0x4) = eax;
-		eax = esi;
-		FPUSH((int)D(esp+0x4));
-		eax -= ebp;
-		F32(edx+___1e6ed0h+0xb4) = (float)FPOP();
-		D(esp+0x4) = eax;
-		eax = D(edx+___1e6ed0h+0xc);
-		FPUSH((int)D(esp+0x4));
-		eax -= 0x30;
-		F32(edx+___1e6ed0h+0xb8) = (float)FPOP();
-		D(esp+0x38) = eax;
-		D(edx+___1e6ed0h+0xc) = eax;
-		if((int)edi <= (int)eax) goto ___4b270h;
-		if((int)edi <= (int)eax) goto ___4b263h;
-		eax = 0-eax;
-___4b263h:
-		ebp = 0x5f;
-		ebp -= eax;
-		D(edx+___1e6ed0h+0xc) = ebp;
-___4b270h:
-		eax = 0x640*D(edx+___1e6ed0h+0xc);
-		FPUSH(3.75);
-		FPUSH((int)D(edx+___1e6ed0h+0xc));
-		ST(0) = ST(0)*ST(1);
-		FPUSH((int)D(edx+___1e6ed0h+0xc));
-		ST(2) = ST(2)*ST(0); FPOP();
-		F32(edx+___1e6ed0h+0x156) = (float)FPOP();
-		F32(edx+___1e6ed0h+0xac) = (float)FPOP();
-		eax += ebx;
-		ebx += 0x25800;
-		D(edx+___1e6ed0h+0x10) = eax;
-		edx += 0x35e;
-		if(edx != 0xd78) goto ___4b1fah;
-		ebx = D(___243d28h);
-		ecx = D(___243d2ch);
-		edx ^= edx;
-		ebx--;
-		ecx--;
-		esi ^= esi;
-___4b2ceh:
-		eax = D(edx+___1f2488h);
-		D(esp+0x38) = eax;
-		if((int)esi >= (int)eax) goto ___4b2eah;
-		edi = D(esp+0x38);
-		eax = ebx;
-		eax -= edi;
-		D(edx+___1f2488h) = eax;
-___4b2eah:
-		eax = D(edx+___1f2488h+4);
-		D(esp+0x38) = eax;
-		if((int)esi >= (int)eax) goto ___4b306h;
-		edi = D(esp+0x38);
-		eax = ecx;
-		eax -= edi;
-		D(edx+___1f2488h+4) = eax;
-___4b306h:
-		edx += 0x120;
-		if(edx != 0x1200) goto ___4b2ceh;
-		ebx = D(___243d28h);
-		ecx = D(___243d2ch);
-		edx ^= edx;
-		ebx--;
-		ecx--;
-		edi = 0xfffffff0;
-		esi ^= esi;
-___4b32bh:
-		eax = D(edx+___1df720h);
-		D(esp+0x38) = eax;
-		if((int)esi >= (int)eax) goto ___4b349h;
-		ebp = D(esp+0x38);
-		eax = ebx;
-		eax -= ebp;
-		eax += edi;
-		D(edx+___1df720h) = eax;
-___4b349h:
-		eax = D(edx+___1df720h+4);
-		D(esp+0x38) = eax;
-		if((int)esi >= (int)eax) goto ___4b367h;
-		ebp = D(esp+0x38);
-		eax = ecx;
-		eax -= ebp;
-		eax += edi;
-		D(edx+___1df720h+4) = eax;
-___4b367h:
-		edx += 0x20;
-		if(edx != 0x280) goto ___4b32bh;
-		if((int)D(___243c5ch) <= 0) goto ___4b3b9h;
-		ecx = D(___243d2ch);
-		ebx = D(___243c5ch);
-		esi = D(___243d28h);
-		eax ^= eax;
-		ecx--;
-		ebx <<= 0x2;
-		esi--;
-___4b394h:
-		edx = esi;
-		edx -= D(eax+___1de920h);
-		ebp = D(eax+___1ded20h);
-		D(eax+___1de920h) = edx;
-		edx = ecx;
-		edx -= ebp;
-		D(eax+___1ded20h) = edx;
-		eax += 0x4;
-		if((int)eax < (int)ebx) goto ___4b394h;
-___4b3b9h:
+	n = -1;
+	while(++n < 4){
 
-		if((int)D(___243c88h) > 0){
+		s_35e[n].XLocation = (float)(int)(D(___243d28h)-1-(int)(double)s_35e[n].XLocation);
+		s_35e[n].YLocation = (float)(int)(D(___243d2ch)-1-(int)(double)s_35e[n].YLocation);
+		s_35e[n].ImgIndex = (s_35e[n].ImgIndex+48)%96;
+		s_35e[n].__156 = (float)(3.75*(double)(int)s_35e[n].ImgIndex);
+		s_35e[n].Direction = (float)(3.75*(double)(int)s_35e[n].ImgIndex);
+		s_35e[n].ImgOffset = s_35e[n].ImgIndex*sizeof(img40x40)+n*sizeof(car_spins_t);
+	}
 
-			eax = D(___243d2ch);
-			ebp = D(___243d28h);
-			eax--;
-			esi ^= esi;
-			D(esp+0xc) = eax;
-			eax = D(___243c88h);
-			ebp--;
-			edi = 0xc50*eax;
+	n = -1;
+	while(++n < 0x10){
 
-			while(1){
-
-				ecx = esi;
-				eax = esi;
-				ebx = D(esi+(void *)&___1f3b08h->___0);
-				edx ^= edx;
-
-				if((int)ebx > 0){
-			
-					while(1){
-
-						ebx = D(eax+(void *)&___1f3b08h->___8);
-						ebx = 0-ebx;
-						D(eax+(void *)&___1f3b08h->___8) = ebx;
-						edx++;
-						ebx = D(ecx+(void *)&___1f3b08h->___0);
-						eax += 0x4;
-					
-						if((int)edx >= (int)ebx) break;
-					}
-				}
-
-				ecx = esi;
-				eax = esi;
-				ebx = D(esi+(void *)&___1f3b08h->___0);
-				edx ^= edx;
-
-				if((int)ebx > 0){
-
-					while(1){
-
-						ebx = D(eax+(void *)&___1f3b08h->_134);
-						ebx = 0-ebx;
-						D(eax+(void *)&___1f3b08h->_134) = ebx;
-						edx++;
-						ebx = D(ecx+(void *)&___1f3b08h->___0);
-						eax += 0x4;
-					
-						if((int)edx >= (int)ebx) break;
-					}
-				}
-
-				eax = D(ecx+(void *)&___1f3b08h->_390);
-				FPUSH((int)D(ecx+(void *)&___1f3b08h->_38C));
-				eax = 0-eax;
-				FPUSH(ST(0));
-				D(ecx+(void *)&___1f3b08h->_38C) = eax;
-				ST(0) = -1.0*ST(0);
-				ST(0) = (int)ST(0);
-				D(esp+0x4) = (int)FPOP();
-				eax = D(esp+0x4);
-				D(ecx+(void *)&___1f3b08h->_390) = eax;
-				eax = D(ecx+(void *)&___1f3b08h->_398);
-				FPUSH((int)D(ecx+(void *)&___1f3b08h->_394));
-				eax = 0-eax;
-				ST(1) = ST(0); FPOP();
-				D(ecx+(void *)&___1f3b08h->_394) = eax;
-				ST(0) = -1.0*ST(0);
-				ST(0) = (int)ST(0);
-				D(esp+0x4) = (int)FPOP();
-				eax = D(esp+0x4);
-				edx = D(ecx+(void *)&___1f3b08h->_9DC);
-				D(ecx+(void *)&___1f3b08h->_398) = eax;
-				eax = ebp;
-				eax -= edx;
-				ebx = D(ecx+(void *)&___1f3b08h->_9E0);
-				D(ecx+(void *)&___1f3b08h->_9DC) = eax;
-				eax = D(esp+0xc);
-				eax -= ebx;
-				esi += 0xc50;
-				D(ecx+(void *)&___1f3b08h->_9E0) = eax;
-			
-				if((int)esi >= (int)edi) break;
-			}
+		if((int)D(___1f2488h+0x120*n) > 0){
+		
+			D(___1f2488h+0x120*n) = D(___243d28h)-1-D(___1f2488h+0x120*n);
 		}
+				
+		if((int)D(___1f2488h+0x120*n+4) > 0){
+		
+			D(___1f2488h+0x120*n+4) = D(___243d2ch)-1-D(___1f2488h+0x120*n+4);
+		}
+	}
+
+	n = -1;
+	while(++n < 0x14){
+
+		if((int)D(___1df720h+0x20*n) > 0){
+		
+			D(___1df720h+0x20*n) = D(___243d28h)-1-D(___1df720h+0x20*n)-0x10;
+		}
+
+		if((int)D(___1df720h+0x20*n+4) > 0){
+		
+			D(___1df720h+0x20*n+4) = D(___243d2ch)-1-D(___1df720h+0x20*n+4)-0x10;
+		}
+	}
+
+	n = -1;
+	while(++n < (int)D(___243c5ch)){
+
+		D(___1de920h+4*n) = D(___243d28h)-1-D(___1de920h+4*n);
+		D(___1ded20h+4*n) = D(___243d2ch)-1-D(___1ded20h+4*n);
+	}
+
+	m = -1;
+	while(++m < (int)D(___243c88h)){
+
+		n = -1;
+		while(++n < (int)D(0xc50*m+(__POINTER__)&___1f3b08h->___0)){
+
+			D(0xc50*m+4*n+(__POINTER__)&___1f3b08h->___8) = 0-D(0xc50*m+4*n+(__POINTER__)&___1f3b08h->___8);
+		}
+
+		n = -1;
+		while(++n < (int)D(0xc50*m+(__POINTER__)&___1f3b08h->___0)){
+
+			D(0xc50*m+4*n+(__POINTER__)&___1f3b08h->_134) = 0-D(0xc50*m+4*n+(__POINTER__)&___1f3b08h->_134);
+		}
+
+		eax = 0-D(0xc50*m+(__POINTER__)&___1f3b08h->_390);
+		D(0xc50*m+(__POINTER__)&___1f3b08h->_390) = (int)(-1.0*(double)(int)D(0xc50*m+(__POINTER__)&___1f3b08h->_38C));
+		D(0xc50*m+(__POINTER__)&___1f3b08h->_38C) = eax;
+
+		eax = 0-D(0xc50*m+(__POINTER__)&___1f3b08h->_398);
+		D(0xc50*m+(__POINTER__)&___1f3b08h->_398) = (int)(-1.0*(double)(int)D(0xc50*m+(__POINTER__)&___1f3b08h->_394));
+		D(0xc50*m+(__POINTER__)&___1f3b08h->_394) = eax;
+
+		D(0xc50*m+(__POINTER__)&___1f3b08h->_9DC) = D(___243d28h)-1-D(0xc50*m+(__POINTER__)&___1f3b08h->_9DC);
+		D(0xc50*m+(__POINTER__)&___1f3b08h->_9E0) = D(___243d2ch)-1-D(0xc50*m+(__POINTER__)&___1f3b08h->_9E0);
+	} // w
 
 	i = -1;
 	while(++i < (int)D(___243c94h)){

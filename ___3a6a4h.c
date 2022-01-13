@@ -3,18 +3,18 @@
 #define COOXY(x,y) (0x280*(y)+(x))
 #define COOUV(u,v) (0xf*(v)+(u))
 
-	extern byte * ___1a1124h__VESA101h_ScreenBufferA;
-	extern byte * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
-	extern byte * ___1a10c4h;
+	extern __BYTE__ * ___1a1124h__VESA101h_ScreenBufferA;
+	extern __BYTE__ * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
+	extern __BYTE__ * ___1a10c4h;
 
 void ___2aa08h(void);
-byte ___5994ch(void);
-byte ___59b3ch(void);
-void ___1398ch__VESA101_PRESENTRECTANGLE(dword offset, void * src, dword w, dword h);
+__BYTE__ ___5994ch(void);
+__BYTE__ ___59b3ch(void);
+void ___1398ch__VESA101_PRESENTRECTANGLE(__DWORD__ offset, __POINTER__ src, __DWORD__ w, __DWORD__ h);
 
 void ___3a6a4h(void){
 
-	dword 	i, j, k, l, m, coords;
+	__DWORD__ 	i, j, k, l, m, coords;
 
 	m = -1;
 	while(++m < 0x2b){

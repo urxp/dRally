@@ -7,20 +7,20 @@
 #pragma pack(1)
 
 typedef struct sampledata_s{
-	void *	start_p;            //  +0
-	void * 	end_p;              //  +4
-	void *	loopstart_p;        //  +8
-	void * 	loopend_p;          //  +0ch
-	byte 	flags;              //  +10h
+	__POINTER__	start_p;            //  +0
+	__POINTER__ 	end_p;              //  +4
+	__POINTER__	loopstart_p;        //  +8
+	__POINTER__ 	loopend_p;          //  +0ch
+	__BYTE__ 	flags;              //  +10h
 } sampledata_t;
 
 typedef struct samplelib_s {
 	int 			n_samples;
 	int 			n_msx_samples;
 	int 			n_sfx_samples;
-	void * 			header_alloc;
-	void *			data_alloc;
-	void * 			write_p;
+	__POINTER__ 			header_alloc;
+	__POINTER__			data_alloc;
+	__POINTER__ 			write_p;
 	sampledata_t * 	samples;
 	int *			samples_volume;
 	int * 			samples_frequency;
@@ -29,16 +29,16 @@ typedef struct samplelib_s {
 
 extern samplelib_t SampleLib;
 
-void SampleLib_init(dword, dword, byte);
-void SampleLib_addSample(void *, void *, void *, void *, dword);
+void SampleLib_init(__DWORD__, __DWORD__, __BYTE__);
+void SampleLib_addSample(__POINTER__, __POINTER__, __POINTER__, __POINTER__, __DWORD__);
 
 // Samples 16-bit > 8-bit 
 void ___67bbch(void){
 
-	dword 	size, m, n;
-    void    * isd_p, * isd_end_p, * isd_loop_p, * isd_loopend_p;
-    byte    flags;
-    void *  bp;
+	__DWORD__ 	size, m, n;
+    __POINTER__ isd_p, isd_end_p, isd_loop_p, isd_loopend_p;
+    __BYTE__    flags;
+    __POINTER__  bp;
     int     isd_length, old_n_samples, new_offset;
 
 	size = SampleLib.write_p-SampleLib.data_alloc;
@@ -69,7 +69,7 @@ void ___67bbch(void){
             isd_length = (isd_end_p-isd_p+2)/2;
 
             m = -1;
-            while(++m < isd_length) ((byte *)isd_p)[m] = (((word *)isd_p)[m]>>8)^0x80;
+            while(++m < isd_length) ((__BYTE__ *)isd_p)[m] = (((__WORD__ *)isd_p)[m]>>8)^0x80;
 
             isd_end_p = isd_p+(isd_end_p-isd_p)/2;
             isd_loop_p = isd_p+(isd_loop_p-isd_p)/2;

@@ -1,5 +1,6 @@
 #include "drally.h"
 #include "drmemory.h"
+#include "drally_structs_fixed.h"
 
 #define COOXY(x,y) (0x280*(y)+(x))
 
@@ -8,137 +9,137 @@
 		"TR1","TR2","TR3","TR4","TR5","TR6","TR7","TR8","TR9",
 		"TR0" };
 
-	dword ___10718h[4] = { COOXY( 51, 177), COOXY(163, 216), COOXY( 51, 274), COOXY(163, 313) };
-	dword ___10728h[4] = { COOXY( 24, 201), COOXY(136, 240), COOXY( 24, 298), COOXY(136, 337) };
-	dword ___10738h[4] = { COOXY( 53, 129), COOXY(165, 168), COOXY( 53, 226), COOXY(165, 265) };
+	__DWORD__ ___10718h[4] = { COOXY( 51, 177), COOXY(163, 216), COOXY( 51, 274), COOXY(163, 313) };
+	__DWORD__ ___10728h[4] = { COOXY( 24, 201), COOXY(136, 240), COOXY( 24, 298), COOXY(136, 337) };
+	__DWORD__ ___10738h[4] = { COOXY( 53, 129), COOXY(165, 168), COOXY( 53, 226), COOXY(165, 265) };
 
-	extern byte ___196a74h[];
-	extern void * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
-	extern void * ___1a10e4h__VESA101h_DefaultScreenBufferA;
-	extern void * ___1a1138h__VESA101h_DefaultScreenBufferB;
-	extern void * ___1a0f8ch;
-	extern void * ___1a0f94h;
-	extern byte ___1a1ef8h[];
-	extern void * ___1a0f9ch;
-	extern byte ___1a2010h[];
-	extern byte ___1a54d0h[];
-	extern void * ___1a1114h;
-	extern byte ___1a1134h[];
-	extern byte ___1de7d0h[];
-	extern byte ___1a1028h[];
-	extern byte ___1a1f64h[];
+	extern __BYTE__ ___196a74h[];
+	extern __POINTER__ ___1a112ch__VESA101_ACTIVESCREEN_PTR;
+	extern __POINTER__ ___1a10e4h__VESA101h_DefaultScreenBufferA;
+	extern __POINTER__ ___1a1138h__VESA101h_DefaultScreenBufferB;
+	extern __POINTER__ ___1a0f8ch;
+	extern __POINTER__ ___1a0f94h;
+	extern __BYTE__ ___1a1ef8h[];
+	extern __POINTER__ ___1a0f9ch;
+	extern __BYTE__ ___1a2010h[];
+	extern __BYTE__ ___1a54d0h[];
+	extern __POINTER__ ___1a1114h;
+	extern __DWORD__ ___1a1134h;
+	extern __BYTE__ ___1de7d0h[];
+	extern __BYTE__ ___1a1028h[];
+	extern __BYTE__ ___1a1f64h[];
 	extern char ___19bd64h[16];
-	extern byte ___1a1134h[];
-	extern byte ___1a1028h[];
-	extern byte ___1a0ef8h[];
-	extern byte ___185c7ah[];
-	extern void * ___1a10b8h;
-	extern byte ___19bd60h[];
-	extern byte ___185a54h[];
-	extern void * ___1a0fb4h;
-	extern byte ___1a01e0h[];
-	extern void * ___19de70h[20];
-	extern void * ___1a1100h__VESA101h_DefaultScreenBuffer;
-	extern byte ___196a84h[];
-	extern byte ___185a34h[];
-	extern byte ___1a1168h[];
-	extern byte ___196adch[];
-	extern byte ___1a108ch[];
-	extern byte ___1a1034h[];
-	extern byte ___1a102ch[];
-	extern byte ___1a109ch[];
-	extern byte ___1a1094h[];
-	extern byte ___1a1090h[];
-	extern byte ___1a10a8h[];
-	extern byte ___1a10a0h[];
-	extern byte ___196ab0h[];
-	extern byte ___1a0ff4h[];
-	extern byte ___196aa4h[];
-	extern byte ___1a1ef8h[];
+	extern __BYTE__ ___1a1028h[];
+	extern __BYTE__ ___1a0ef8h[];
+	extern __BYTE__ ___185c7ah[];
+	extern __POINTER__ ___1a10b8h;
+#if defined(DR_MULTIPLAYER)
+	extern __DWORD__ ___19bd60h;
+#endif // DR_MULTIPLAYER
+	extern __BYTE__ ___185a54h[];
+	extern __POINTER__ ___1a0fb4h;
+	extern __BYTE__ ___1a01e0h[];
+	extern __POINTER__ ___19de70h[20];
+	extern __POINTER__ ___1a1100h__VESA101h_DefaultScreenBuffer;
+	extern __BYTE__ ___196a84h[];
+	extern __BYTE__ ___185a34h[];
+	extern __BYTE__ ___1a1168h[];
+	extern __BYTE__ ___196adch[];
+	extern __BYTE__ ___1a108ch[];
+	extern __BYTE__ ___1a1034h[];
+	extern __BYTE__ ___1a102ch[];
+	extern __BYTE__ ___1a109ch[];
+	extern __BYTE__ ___1a1094h[];
+	extern __BYTE__ ___1a1090h[];
+	extern __BYTE__ ___1a10a8h[];
+	extern __BYTE__ ___1a10a0h[];
+	extern __BYTE__ ___196ab0h[];
+	extern __BYTE__ ___1a0ff4h[];
+	extern __BYTE__ ___196aa4h[];
+	extern __BYTE__ ___1a1ef8h[];
 	extern __DWORD__ ___196a94h_difficulty;
-	extern byte ___185a14h_UseWeapons[];
-	extern void * ___1a0fb8h;
-	extern void * ___1a0fe0h;
-	extern byte ___19f750h[];
-	extern byte ___2438bch[];
-	extern byte ___2438b8h[];
-	extern byte ___1a01e0h[];
-	extern byte ___2438c0h[];
-	extern byte ___1a103ch[];
-	extern byte CONNECTION_TYPE[];
-	extern byte ___1a1ef8h[];
-	extern byte ___185a18h[];
-	extern byte ___196ae8h[];
-	extern byte ___196aa0h[];
-	extern byte ___196a9ch[];
-	extern byte ___196a98h[];
-	extern byte ___196aa8h[];
-	extern byte ___1a1028h[];
-	extern byte ___196aach[];
-	extern byte ___243d44h[];
-	extern byte ___196af0h[];
-	extern byte ___196aech[];
-	extern byte ___196ab8h[];
-	extern byte ___1a116ch[];
-	extern byte ___196ad4h[];
-	extern byte ___196a80h[];
-	extern byte ___1a1f4eh[];
-	extern byte ___1a1ef8h[];
-	extern byte ___1a2010h[];
-	extern byte ___18d492h[];
+	extern __BYTE__ ___185a14h_UseWeapons[];
+	extern __POINTER__ ___1a0fb8h;
+	extern __POINTER__ ___1a0fe0h;
+	extern record_t ___19f750h[6][18];
+	extern __BYTE__ ___2438bch[];
+	extern __BYTE__ ___2438b8h[];
+	extern __BYTE__ ___1a01e0h[];
+	extern __BYTE__ ___2438c0h[];
+	extern __BYTE__ ___1a103ch[];
+	extern __DWORD__ CONNECTION_TYPE;
+	extern __BYTE__ ___1a1ef8h[];
+	extern __BYTE__ ___185a18h[];
+	extern __BYTE__ ___196ae8h[];
+	extern __BYTE__ ___196aa0h[];
+	extern __BYTE__ ___196a9ch[];
+	extern __BYTE__ ___196a98h[];
+	extern __BYTE__ ___196aa8h[];
+	extern __BYTE__ ___1a1028h[];
+	extern __BYTE__ ___196aach[];
+	extern __DWORD__ ___243d44h;
+	extern __BYTE__ ___196af0h[];
+	extern __BYTE__ ___196aech[];
+	extern __BYTE__ ___196ab8h[];
+	extern __BYTE__ ___196ad4h[];
+	extern __BYTE__ ___196a80h[];
+	extern __BYTE__ ___1a1ef8h[];
+	extern __BYTE__ ___1a2010h[];
+	extern __BYTE__ ___18d492h[][0xf];
 	extern __DWORD__ ___24cc58h_msx_volume;
-	extern byte ___185a20h[];
+	extern __BYTE__ ___185a20h[];
 
-void * ___3f71ch__allocateMemory(dword size);
-void old_bpa_read(const char *, void *, const char *);
-void bpk_decode2(void *, void *);
-void ___12e78h_cdecl(byte *, byte *, const char *, dword);
+void dRChatbox_push(const char * line, int col);
+__POINTER__ ___3f71ch__allocateMemory(__DWORD__ size);
+void old_bpa_read(const char *, __POINTER__, const char *);
+void bpk_decode2(__POINTER__, __POINTER__);
+void ___12e78h_cdecl(__BYTE__ *, __BYTE__ *, const char *, __DWORD__);
 char * itoa_watcom106(int value, char * buffer, int radix);
 char * strupr_watcom106(char * s);
 int rand_watcom106(void);
-dword ___251e8h_cdecl(const char *);
-void ___3a968h_cdecl(dword);
-byte dRally_Sound_setPosition(dword pos_n);
-void dRally_Sound_setMasterVolume(dword vol);
+__DWORD__ ___251e8h_cdecl(const char *);
+void ___3a968h_cdecl(__DWORD__);
+__BYTE__ dRally_Sound_setPosition(__DWORD__ pos_n);
+void dRally_Sound_setMasterVolume(__DWORD__ vol);
 void ___12cb8h__VESA101_PRESENTSCREEN(void);
 void __WAIT_5(void);
 void ___60a84h(void);
-dword ___60b60h(dword, dword, dword, dword);
+__DWORD__ ___60b60h(__DWORD__, __DWORD__, __POINTER__, __DWORD__);
 void ___2ab50h(void);
-dword ___611c0h(dword A1, dword A2);
+__DWORD__ ___611c0h(__DWORD__ A1, __POINTER__ * A2);
 void ___3881ch(void);
 void ___24ec0h(void);
 void ___2fc50h(void);
 void ___12200h(void);
 void ___12a54h(void);
 void ___60719h(void);
-void race_main(dword, dword);
+void race_main(__DWORD__, __DWORD__);
 void ___60705h(void (*A)(void));
 #if defined(DR_MULTIPLAYER)
 void ___38878h_cdecl(void);
 void ___10754h(void);
 void ___3986ch(void);
 void ___1e4f8h(void);
-void ___23488h_cdecl(dword, dword, dword);
+void ___23488h_cdecl(__POINTER__, __BYTE__, __BYTE__);
 #endif // DR_MULTIPLAYER
 void ___2ec68h_cdecl(void);
-void ___11378h_cdecl(dword A1, dword A2, dword A3);
-void dRally_Sound_load(dword msx_t, const char * msx_f, dword sfx_t, const char * sfx_f, dword num_ch);
-void dRally_Sound_setMusicVolume(dword vol);
-void dRally_Sound_setSampleRate(dword freq);
+void ___11378h_cdecl(__DWORD__ A1, __DWORD__ A2, __DWORD__ A3);
+void dRally_Sound_load(__DWORD__ msx_t, const char * msx_f, __DWORD__ sfx_t, const char * sfx_f, __DWORD__ num_ch);
+void dRally_Sound_setMusicVolume(__DWORD__ vol);
+void dRally_Sound_setSampleRate(__DWORD__ freq);
 void dRally_Sound_play(void);
 void ___606dfh(void);
 void __VESA101_SETMODE(void);
-void ___605deh_cdecl(dword, dword);
+void ___605deh_cdecl(__DWORD__, __DWORD__);
 void ___12940h(void);
-void __DISPLAY_SET_PALETTE_COLOR(dword b, dword g, dword r, dword n);
+void __DISPLAY_SET_PALETTE_COLOR(__DWORD__ b, __DWORD__ g, __DWORD__ r, __DWORD__ n);
 void ___31588h(void);
-void ___3892ch_cdecl(dword);
+void ___3892ch_cdecl(__DWORD__);
 void ___22808h(void);
 void ___3deb8h(void);
 void ___117d4h(void);
 void ___117f4h(void);
-void ___3079ch_cdecl(dword);
+void ___3079ch_cdecl(__DWORD__);
 
 typedef char char9[9];
 
@@ -165,16 +166,18 @@ static const char9 ___196b2ch[19] = {
 };
 
 // PREPARE TO RACE
-void ___33010h_cdecl(dword A1){
+void ___33010h_cdecl(__DWORD__ A1){
 
-	dword 	eax, ebx, ecx, edx, edi, esi, ebp;
-	byte 	esp[0xfc];
-	int 	i, j, m, n;
-	byte 	px;
-	void * 	ebxp;
-	void *	esip;
-	void * 	ecxp;
-	void * 	eaxp;
+	__DWORD__ 	eax, ebx, ecx, edx, edi, esi, ebp;
+	__BYTE__ 	esp[0xfc];
+	int 	i, j, m, n, bool_tmp;
+	__BYTE__ 	px;
+	__POINTER__ 	ebxp;
+	__POINTER__	esip;
+	__POINTER__ 	ecxp;
+	__POINTER__ 	eaxp;
+	char 	buffer[0x96];
+	__POINTER__ esp0x98[4];
 
 
 	D(esp+0xc8) = A1;
@@ -239,7 +242,7 @@ void ___33010h_cdecl(dword A1){
 	}
 
 #if defined(DR_MULTIPLAYER)
-	if(D(___19bd60h) == 0){
+	if(___19bd60h == 0){
 #endif // DR_MULTIPLAYER
 
 		D(___1de7d0h+0x48) = !!(B(___1a1f64h+D(___1a1028h)) > 8);
@@ -260,7 +263,7 @@ void ___33010h_cdecl(dword A1){
 			}
 
 			strcpy(___19bd64h, esp+4*B(___1a1f64h));
-			D(___1a1134h) = 4;
+			___1a1134h = 4;
 			break;
 		case 1:
 			old_bpa_read("MENU.BPA", ___1a54d0h, strcat(strcpy(esp+0x4c, ___196b2ch[B(___1a1f64h+1)]), ".bpk"));
@@ -277,7 +280,7 @@ void ___33010h_cdecl(dword A1){
 			}
 
 			strcpy(___19bd64h, esp+4*B(___1a1f64h+1));
-			D(___1a1134h) = 5;
+			___1a1134h = 5;
 			break;
 		case 2:
 			old_bpa_read("MENU.BPA", ___1a54d0h, strcat(strcpy(esp+0x4c, ___196b2ch[B(___1a1f64h+2)]), ".bpk"));
@@ -294,7 +297,7 @@ void ___33010h_cdecl(dword A1){
 			}
 
 			strcpy(___19bd64h, esp+4*B(___1a1f64h+2));
-			D(___1a1134h) = 6;
+			___1a1134h = 6;
 			break;
 		case 3:
 			old_bpa_read("MENU.BPA", ___1a54d0h, "TSHAPE19.BPK");
@@ -311,7 +314,7 @@ void ___33010h_cdecl(dword A1){
 			}
 
 			strcpy(___19bd64h, "TR0");
-			D(___1a1134h) = 9;
+			___1a1134h = 9;
 			D(___1de7d0h+0x48) = 0;
 			break;
 		default:
@@ -360,7 +363,7 @@ void ___33010h_cdecl(dword A1){
 		eax = B(D(___196ad4h)+___1a2010h+1);
 		strcpy(___19bd64h, esp+4*eax);
 		L(edx) = B(D(___196ad4h)+___1a2010h+1);
-		D(___1a1134h) = 5;
+		___1a1134h = 5;
 
 		if(L(edx) <= 8){
 
@@ -374,13 +377,13 @@ void ___33010h_cdecl(dword A1){
 #endif // DR_MULTIPLAYER
 
 	strcpy(esp+0x4c, "NUMBER OF LAPS: ");
-	itoa_watcom106(D(___1a1134h), esp+0x74, 0xa);
+	itoa_watcom106(___1a1134h, esp+0x74, 0xa);
 	strcat(esp+0x4c, esp+0x74);
 	___12e78h_cdecl(___1a10b8h, ___185c7ah, esp+0x4c, 0x3800d);
 	strcpy(esp+0x4c, "PRIZE MONEY: ");
 
 #if defined(DR_MULTIPLAYER)
-	if(D(___19bd60h) == 0){
+	if(___19bd60h == 0){
 #endif // DR_MULTIPLAYER
 
 		if(D(___1a1028h) == 0) strcat(esp+0x4c, "$750");
@@ -480,7 +483,7 @@ void ___33010h_cdecl(dword A1){
 	___3a968h_cdecl(-1);
 	
 #if defined(DR_MULTIPLAYER)
-	if(D(___19bd60h) != 0){
+	if(___19bd60h != 0){
 		
 		dRally_Sound_setPosition(0x1e00);
 	}
@@ -496,7 +499,7 @@ void ___33010h_cdecl(dword A1){
 	__WAIT_5();
 
 #if defined(DR_MULTIPLAYER)
-	if(D(___19bd60h) != 0){
+	if(___19bd60h != 0){
 	
 		if(D(___196a84h) != 0) D(___185a34h) = 1;
 
@@ -505,13 +508,13 @@ void ___33010h_cdecl(dword A1){
 		if(edx == 0){
 			
 			edx = B(___1a1168h);
-			D(esp+0x98) = ___1a01e0h+0x6c*edx;
+			esp0x98[0] = ___1a01e0h+0x6c*edx;
 			edx = B(___1a1168h+1);
-			D(esp+0x9c) = ___1a01e0h+0x6c*edx;
+			esp0x98[1] = ___1a01e0h+0x6c*edx;
 			edx = B(___1a1168h+2);
-			D(esp+0xa0) = ___1a01e0h+0x6c*edx;
+			esp0x98[2] = ___1a01e0h+0x6c*edx;
 			edx = B(___1a1168h+3);
-			D(esp+0xa4) = ___1a01e0h+0x6c*edx;
+			esp0x98[3] = ___1a01e0h+0x6c*edx;
 			esi = 0;
 			D(esp+0xd0) = 0;
 			___1a0f9ch = ___3f71ch__allocateMemory(4);
@@ -530,7 +533,7 @@ void ___33010h_cdecl(dword A1){
 				edx = (int)edx>>0x1f;
 				edx = eax%0xa;
 
-				if(edx == 1) D(esp+0xd0) = ___60b60h(edi, D(___196adch), 0x6c*D(___1a1ef8h)+___1a01e0h, 0x6c);
+				if(edx == 1) D(esp+0xd0) = ___60b60h(edi, D(___196adch), ___1a01e0h+0x6c*D(___1a1ef8h), 0x6c);
 
 				edx = esi;
 				eax = esi;
@@ -544,9 +547,8 @@ void ___33010h_cdecl(dword A1){
 				if(D(esp+0xd0) == 0xff) break;
 			}
 
-			edx = esp+0x98;
 			ebx = D(esp+0xd0);
-			eax = ___611c0h(0x6c, edx);
+			eax = ___611c0h(0x6c, (__POINTER__ *)esp0x98);
 			if(ebx == 0xff) ___3881ch();
 			___12cb8h__VESA101_PRESENTSCREEN();
 			dRMemory_free(___1a0f9ch);
@@ -580,13 +582,16 @@ void ___33010h_cdecl(dword A1){
 		if(((int)edx < (int)edi)&&(ecx != n)) edx = edi;
 	}
 
-	if((D(___19bd60h) != 0)||((int)D(___196aa4h) <= 0)){
+	D(___1de7d0h+0x4c) = 0;
 
-		D(___1de7d0h+0x4c) = 0;
-	}
-	else {
-	
-		D(___1de7d0h+0x4c) = 1;
+	if((int)D(___196aa4h) > 0){
+#if defined(DR_MULTIPLAYER)
+		if(___19bd60h == 0){
+#endif
+			D(___1de7d0h+0x4c) = 1;
+#if defined(DR_MULTIPLAYER)
+		}
+#endif // DR_MULTIPLAYER
 	}
 
 	esi = 0;
@@ -626,7 +631,7 @@ void ___33010h_cdecl(dword A1){
 
 			if(edx != D(___1a1ef8h)){
 #if defined(DR_MULTIPLAYER)			
-				if(D(___19bd60h) == 0){
+				if(___19bd60h == 0){
 #endif // DR_MULTIPLAYER
 					D(ebx+___1de7d0h+0x28) = 0;
 					D(ebx+___1de7d0h+0x24) = 0;
@@ -660,7 +665,7 @@ void ___33010h_cdecl(dword A1){
 			}
 			else {
 #if defined(DR_MULTIPLAYER)
-				if(D(___19bd60h) != 0){
+				if(___19bd60h != 0){
 
 					eaxp = ___1a0fb8h;
 				}
@@ -677,7 +682,7 @@ void ___33010h_cdecl(dword A1){
 			D(___1de7d0h+ebx+0x3c) = B(eaxp+3*D(0x6c*B(esp+D(esp+0xd0)+0xcc)+___1a01e0h+0x2c)+2);
 
 #if defined(DR_MULTIPLAYER)
-			if(D(___19bd60h) != 0){
+			if(___19bd60h != 0){
 
 				eax = D(___196adch);
 				edi = D(esp+0xd0);
@@ -685,15 +690,11 @@ void ___33010h_cdecl(dword A1){
 
 				if((int)eax < (int)edi){
 
-					eax = ___1a0fe0h;
-					edx = 0;
-					L(edx) = B(eax+0x1e);
+					edx = B(___1a0fe0h+0x1e);
 					D(ebx+___1de7d0h+0x34) = edx;
-					edx = 0;
-					L(edx) = B(eax+0x1f);
+					edx = B(___1a0fe0h+0x1f);
 					D(ebx+___1de7d0h+0x38) = edx;
-					L(eax) = B(eax+0x20);
-					eax &= 0xff;
+					eax = B(___1a0fe0h+0x20);
 					D(ebx+___1de7d0h+0x3c) = eax;
 				}
 			}
@@ -710,7 +711,7 @@ void ___33010h_cdecl(dword A1){
 	}
 
 #if defined(DR_MULTIPLAYER)
-	if(D(___19bd60h) != 0){
+	if(___19bd60h != 0){
 
 		eax = D(esp+0xc8);
 		D(esp+0xd0) = eax;
@@ -754,7 +755,7 @@ void ___33010h_cdecl(dword A1){
 
 	if((int)edx < (int)D(___1a01e0h+0x6c*D(___1a1ef8h)+0x44)){
 #if defined(DR_MULTIPLAYR)
-		if(D(___19bd60h) == 0){
+		if(___19bd60h == 0){
 #endif // DR_MULTIPLAYER
 			strcpy(___1de7d0h, "ADVERSARY"); 
 			D(___1de7d0h+0x44) = ___196a94h_difficulty;
@@ -777,15 +778,15 @@ void ___33010h_cdecl(dword A1){
 
 	ecx = 0x6c*D(___1a1ef8h);
 	esi = D(___1a1028h);
-	D(___2438bch) = D(___19f750h+0x1b0*D(___1a01e0h+ecx+0x1c)+0x18*B(___1a1f64h+esi)+0xc);
-	D(___2438b8h) = D(___19f750h+0x1b0*D(___1a01e0h+ecx+0x1c)+0x18*B(___1a1f64h+esi)+0x10);
-	D(___2438c0h) = D(___19f750h+0x1b0*D(___1a01e0h+ecx+0x1c)+0x18*B(___1a1f64h+esi)+0x14);
+	D(___2438bch) = ___19f750h[D(___1a01e0h+ecx+0x1c)][B(___1a1f64h+esi)].min;
+	D(___2438b8h) = ___19f750h[D(___1a01e0h+ecx+0x1c)][B(___1a1f64h+esi)].sec;
+	D(___2438c0h) = ___19f750h[D(___1a01e0h+ecx+0x1c)][B(___1a1f64h+esi)].sec100;
 	eax = 0;
-	ebx = D(___19bd60h);
 	D(___1de7d0h+0x50) = eax;
 
-	if(ebx == 0){
-
+#if defined(DR_MULTIPLAYER)	
+	if(___19bd60h == 0){
+#endif // DR_MULTIPLAYER
 		if((int)edx >= (int)D(ecx+___1a01e0h+0x44)){
 
 			if(esi == 0) D(___1de7d0h+0x50) = 0x32;
@@ -821,12 +822,12 @@ void ___33010h_cdecl(dword A1){
 				if(D(___1a1028h) == 2) D(___1de7d0h+0x50) = 0x50;
 			}
 		}
+#if defined(DR_MULTIPLAYER)	
 	}
 
-#if defined(DR_MULTIPLAYER)	
-	if(D(___19bd60h) != 0) D(___1de7d0h+0x50) = D(___185a54h)/0x32;
+	if(___19bd60h != 0) D(___1de7d0h+0x50) = D(___185a54h)/0x32;
 
-	if(D(___19bd60h) == 0){
+	if(___19bd60h == 0){
 #endif // DR_MULTIPLAYER
 
 		if((int)edx < (int)D(___1a01e0h+0x6c*D(___1a1ef8h)+0x44)) D(___1de7d0h+0x50) = 0x190;
@@ -840,18 +841,18 @@ void ___33010h_cdecl(dword A1){
 	___2fc50h();
 
 #if defined(DR_MULTIPLAYER)	
-	if(D(___19bd60h) != 0){
+	if(___19bd60h != 0){
 	
 		D(___1a103ch) = D(___1a1ef8h);
 
-		if(D(CONNECTION_TYPE) == 2) ___60719h();
+		if(CONNECTION_TYPE == 2) ___60719h();
 	}
 #endif // DR_MULTIPLAYER
 
 	race_main(D(___1a103ch), D(esp+0xc8));
 
 #if defined(DR_MULTIPLAYER)	
-	if((D(___19bd60h) != 0)&&(D(CONNECTION_TYPE) == 2)) ___60705h(&___10754h);
+	if((___19bd60h != 0)&&(CONNECTION_TYPE == 2)) ___60705h(&___10754h);
 #endif // DR_MULTIPLAYER
 
 	D(___185a18h) = D(___196ae8h) = D(___1de7d0h+0x40+0x54*D(___1a103ch));
@@ -877,7 +878,12 @@ void ___33010h_cdecl(dword A1){
 	ebx = D(___1a1ef8h);
 	eax = 27*ebx;
 
-	if(((int)edx >= (int)D(eax*4+___1a01e0h+0x44))||(D(___19bd60h) != 0)){
+	bool_tmp = 0;
+#if defined(DR_MULTIPLAYER)
+	if(___19bd60h != 0) bool_tmp = 1;
+#endif // DR_MULTIPLAYER
+
+	if(((int)edx >= (int)D(eax*4+___1a01e0h+0x44))||bool_tmp){
 
 		eax = 0;
 		edi = D(esp+0xc8);
@@ -900,38 +906,29 @@ void ___33010h_cdecl(dword A1){
 			}
 		}
 
-		edx = D(esp+0xc8);
-		edx--;
+		edx = D(esp+0xc8)-1;
 
 		if(eax == edx){
 
-			ebx = D(___1a103ch);
-			edx = ebx*4;
-			edx += ebx;
-			edx <<= 2;
-			edx += ebx;
-			if((int)D(edx*4+___1de7d0h+0x10) < 0x64) D(___196aa0h) = 1;
+			if((int)D(___1de7d0h+0x54*D(___1a103ch)+0x10) < 0x64) D(___196aa0h) = 1;
 		}
 
 		ebx = D(___1a103ch);
-		edx = ebx*4;
-		edx += ebx;
-		edx <<= 2;
-		edx += ebx;
-		ebx = D(___19bd60h);
-		edx <<= 2;
+		edx = 0x54*ebx;
 
-		if(ebx == 0){
-
-			if((D(___196ae8h) != 4)&&((int)D(edx+___1de7d0h+0x10) < 3)){
+#if defined(DR_MULTIPLAYER)
+		if(___19bd60h == 0){
+#endif // DR_MULTIPLAYER
+			if((D(___196ae8h) != 4)&&((int)D(___1de7d0h+edx+0x10) < 3)){
 			
 				edi = D(___185a14h_UseWeapons);
 				if(edi == 1) D(___196a9ch) = edi;
 			}
+#if defined(DR_MULTIPLAYER)
 		}
 		else {
 
-			if((int)D(edx+___1de7d0h+0x10) < 3){
+			if((int)D(___1de7d0h+edx+0x10) < 3){
 				
 				ecx = D(___185a14h_UseWeapons);
 				if(ecx == 1){
@@ -940,6 +937,7 @@ void ___33010h_cdecl(dword A1){
 				}
 			}
 		}
+#endif // DR_MULTIPLAYER
 
 		edi = D(___196ae8h);
 
@@ -952,58 +950,65 @@ void ___33010h_cdecl(dword A1){
 
 			D(___196a98h) += edi;
 		}
+#if defined(DR_MULTIPLAYER)
+		if(___19bd60h == 0){
+#endif // DR_MULTIPLAYER
+			if((int)D(___196aa4h) > 0){
 
-		if((D(___19bd60h) == 0)&&((int)D(___196aa4h) > 0)){
+				edi = D(___1de7d0h+0x4c);
 
-			edi = D(___1de7d0h+0x4c);
-
-			if((edi != 1)||(edi != D(___196ae8h))){
-
-				D(___196aa4h) = 0-D(___196aa4h);
-			}
-			else {
-
-				ebx = D(___1a103ch);
-				edx = ebx*4;
-				edx += ebx;
-				edx <<= 2;
-				edx += ebx;
-
-				if((int)D(edx*4+___1de7d0h+0x10) >= 0x64){
+				if((edi != 1)||(edi != D(___196ae8h))){
 
 					D(___196aa4h) = 0-D(___196aa4h);
 				}
+				else {
+
+					ebx = D(___1a103ch);
+					edx = ebx*4;
+					edx += ebx;
+					edx <<= 2;
+					edx += ebx;
+
+					if((int)D(edx*4+___1de7d0h+0x10) >= 0x64){
+
+						D(___196aa4h) = 0-D(___196aa4h);
+					}
+				}
 			}
+#if defined(DR_MULTIPLAYER)
 		}
 			
-		esi = D(___19bd60h);
+		if(___19bd60h == 0){
+#endif // DR_MULTIPLAYER
+			if((int)D(___196aa8h) > 0){
 
-		if((esi == 0)&&((int)D(___196aa8h) > 0)){
+				edx = D(___1a1028h);
+				ecx = D(___196aach);
+				D(esp+0xd0) = 0;
+				edx <<= 2;
 
-			edx = D(___1a1028h);
-			ecx = D(___196aach);
-			D(esp+0xd0) = esi;
-			edx <<= 2;
+				while(1){
 
-			while(1){
+					ebx = 0;
+					L(ebx) = B(edx+___1a0ef8h);
+					if(ebx == ecx) eax = D(esp+0xd0);
+					esi = D(esp+0xd0);
+					esi++;
+					edx++;
+					D(esp+0xd0) = esi;
+					if((int)esi >= 4) break;
+				}
 
-				ebx = 0;
-				L(ebx) = B(edx+___1a0ef8h);
-				if(ebx == ecx) eax = D(esp+0xd0);
-				esi = D(esp+0xd0);
-				esi++;
-				edx++;
-				D(esp+0xd0) = esi;
-				if((int)esi >= 4) break;
+				edx = eax;
+				eax <<= 2;
+				eax += edx;
+				eax <<= 2;
+				eax += edx;
+				if(D(eax*4+___1de7d0h+0x10) != 0x64) D(___196aa8h) = 0-D(___196aa8h);
 			}
-
-			edx = eax;
-			eax <<= 2;
-			eax += edx;
-			eax <<= 2;
-			eax += edx;
-			if(D(eax*4+___1de7d0h+0x10) != 0x64) D(___196aa8h) = 0-D(___196aa8h);
+#if defined(DR_MULTIPLAYER)
 		}
+#endif // DR_MULTIPLAYER
 	}
 
 	edx = D(___1a1ef8h);
@@ -1016,7 +1021,7 @@ void ___33010h_cdecl(dword A1){
 	edi = 0;
 	eax = 0;
 	edx = 0;
-	D(___243d44h) = edi;
+	___243d44h = 0;
 
 	while(1){
 
@@ -1064,9 +1069,9 @@ void ___33010h_cdecl(dword A1){
 		if((int)edi >= 0x14) break;
 	}
 
-	ecx = D(___19bd60h);
-
-	if(ecx == 0){
+#if defined(DR_MULTIPLAYER)
+	if(___19bd60h == 0){
+#endif // DR_MULTIPLAYER
 
 		edx = D(___1a1ef8h);
 		eax = 8*edx;
@@ -1077,7 +1082,7 @@ void ___33010h_cdecl(dword A1){
 
 		if(((int)ebx >= (int)D(eax+___1a01e0h+0x44))&&(D(___196ab0h) == 0)){
 
-			D(esp+0xd0) = ecx;
+			D(esp+0xd0) = 0;
 			esi = eax;
 			D(esp+0xec) = eax;
 			D(esp+0xf0) = eax;
@@ -1448,10 +1453,10 @@ void ___33010h_cdecl(dword A1){
 				if((int)edx >= 4) break;
 			}
 		}
+#if defined(DR_MULTIPLAYER)
 	}
 
-#if defined(DR_MULTIPLAYER)
-	if(D(___19bd60h) == 0){
+	if(___19bd60h == 0){
 #endif // DR_MULTIPLAYER
 
 		edx = D(___1a1ef8h);
@@ -1490,140 +1495,39 @@ void ___33010h_cdecl(dword A1){
 #endif // DR_MULTIPLAYER
 
 #if defined(DR_MULTIPLAYER)
-	if(D(___19bd60h) != 0){
+	if(___19bd60h != 0){
 
-		ecx = D(___196ad4h);
-		ecx++;
-		esi = D(___196ab8h);
-		D(___196ad4h) = ecx;
-		ecx = ___1a116ch;
-		eax = D(___196ad4h);
-		ecx += 0x96;
+		D(___196ad4h)++;
 
-		if((int)eax < (int)esi){
-
-			edi = 0;
-			edx = ___1a116ch;
-			D(esp+0xd0) = edi;
-
-			while(1){
-
-				esi = ecx;
-				edi = edx;
-				ebx = D(esp+0xd0);
-				strcpy(edi, esi);
-				eax = D(esp+0xd0);
-				edx += 0x96;
-				ecx += 0x96;
-				L(eax) = B(eax+___1a1f4eh+1);
-				B(ebx+___1a1f4eh) = L(eax);
-				ebx++;
-				D(esp+0xd0) = ebx;
-				if((int)ebx >= 0x15) break;
-			}
+		if((int)D(___196ad4h) < (int)D(___196ab8h)){
 
 			if(D(___1de7d0h+0x44) != 0xffffffff){
 
-				eax = D("-- ");
-				D(___1a116ch+0xc4e) = eax;
-				eax = D(___196ad4h);
-				edx = 0;
-				L(edx) = B(eax+___1a2010h);
-				edi = ___1a116ch+0xc4e;
-				strcat(edi, ___18d492h[edx]);
-				esi = " race completed. Next race ";
-				strcat(edi, esi);
-				eax = D(___196ad4h);
-				edx = 0;
-				L(edx) = B(eax+___1a2010h+1);
-				strcat(edi, ___18d492h[edx]);
-				esi = ".";
-				strcat(edi, esi);
+				strcpy(buffer, "-- ");
+				strcat(buffer, ___18d492h[B(___1a2010h+D(___196ad4h))]);
+				strcat(buffer, " race completed. Next race ");
+				strcat(buffer, ___18d492h[B(___1a2010h+D(___196ad4h)+1)]);
+				strcat(buffer, ".");
 			}
 			else {
 
-				ecx = 8;
-				edi = ___1a116ch+0xc4e;
-				esi = "-- Multiplayer connection lost!";
-				while(ecx--||++ecx){
-
-					D(edi) = D(esi);
-					edi += 4;
-					esi += 4;
-				}
+				strcpy(buffer, "-- Multiplayer connection lost!");
 			}
-
-			ebx = ___1a116ch;
-			eax = 0;
-			B(___1a1f4eh+0x15) = 0;
-			D(esp+0xd0) = eax;
-			edx = ebx+0x96;
-
-			while(1){
-
-				esi = edx;
-				edi = ebx;
-				ecx = D(esp+0xd0);
-				strcpy(edi, esi);
-				eax = D(esp+0xd0);
-				ebx += 0x96;
-				edx += 0x96;
-				L(eax) = B(eax+___1a1f4eh+1);
-				B(ecx+___1a1f4eh) = L(eax);
-				ecx++;
-				D(esp+0xd0) = ecx;
-				if((int)ecx >= 0x15) break;
-			}
-
-			L(eax) = 0;
-			B(___1a116ch+0xc4e) = L(eax);
-			B(___1a1f4eh+0x15) = 0;
 		}
 		else {
 		
-			D(esp+0xd0) = 0;
 			D(___196a80h) = 1;
-			edx = ___1a116ch;
-
-			while(1){
-
-				strcpy(edx, ecx);
-				B(D(esp+0xd0)+___1a1f4eh) = B(D(esp+0xd0)+___1a1f4eh+1);
-				D(esp+0xd0)++;
-				edx += 0x96;
-				ecx += 0x96;
-				if((int)D(esp+0xd0) >= 0x15) break;
-			}
-
-			strcpy(___1a116ch+0xc4e, "-- ");
-			strcat(___1a116ch+0xc4e, ___1a01e0h+0x6c*D(___1a1ef8h));
-			strcat(___1a116ch+0xc4e, " completed the netgame.");
-			B(___1a1f4eh+0x15) = 0;
-			edx = ___1a116ch;
-			ebx = ___1a116ch+0x96;
-
-			D(esp+0xd0) = 0;
-			while(1){
-
-				strcpy(edx, ebx);
-				B(D(esp+0xd0)+___1a1f4eh) = B(D(esp+0xd0)+___1a1f4eh+1);
-				edx += 0x96;
-				ebx += 0x96;
-				D(esp+0xd0)++;
-				if((int)D(esp+0xd0) >= 0x15) break;
-			}
-
-			B(___1a116ch+0xc4e) = 0;
-			B(___1a1f4eh+0x15) = 0;
+			strcat(strcat(strcpy(buffer, "-- "), ___1a01e0h+0x6c*D(___1a1ef8h)), " completed the netgame.");
 		}
 
-		edi = 0;
-		ebx = D(___196adch);
-		D(___196aech) = edi;
-		D(esp+0xd0) = edi;
-		D(___196af0h) = edi;
+		dRChatbox_push(buffer, 0);
+		dRChatbox_push("", 0);
 
-		if((int)ebx > 0){
+		D(___196aech) = 0;
+		D(esp+0xd0) = 0;
+		D(___196af0h) = 0;
+
+		if((int)D(___196adch) > 0){
 
 			edx = 0;
 			esi = 1;
@@ -1774,7 +1678,7 @@ void ___33010h_cdecl(dword A1){
 	}
 
 #if defined(DR_MULTIPLAYER)
-	if(D(___19bd60h) == 0){
+	if(___19bd60h == 0){
 #endif // DR_MULTIPLAYER
 		ebx = D(___1a1ef8h);
 		eax = 0x6c*ebx;
@@ -1842,7 +1746,7 @@ void ___33010h_cdecl(dword A1){
 		}
 	}
 		
-	if(D(___19bd60h) == 0){
+	if(___19bd60h == 0){
 #endif // DR_MULTIPLAYER
 		___3deb8h();
 #if defined(DR_MULTIPLAYER)
@@ -1867,7 +1771,12 @@ void ___33010h_cdecl(dword A1){
 		if((int)edi >= 0x14) break;
 	}
 
-	if(((int)edx >= (int)D(___1a01e0h+0x6c*D(___1a1ef8h)+0x44))||((D(___196ae8h) != 1)||(D(___19bd60h) != 0))){
+	bool_tmp = 0;
+#if defined(DR_MULTIPLAYER)
+	if(___19bd60h != 0) bool_tmp = 1;
+#endif // DR_MULTIPLAYER
+
+	if(((int)edx >= (int)D(___1a01e0h+0x6c*D(___1a1ef8h)+0x44))||((D(___196ae8h) != 1)||bool_tmp)){
 
 		___11378h_cdecl(
 			B(___1a0fb8h+3*D(___1a01e0h+0x6c*D(___1a1ef8h)+0x2c)),
@@ -1895,7 +1804,7 @@ void ___33010h_cdecl(dword A1){
 	}
 
 #if defined(DR_MULTIPLAYER)
-	if(D(___19bd60h) == 0){
+	if(___19bd60h == 0){
 #endif // DR_MULTIPLAYER
 
 		D(esp+0xd0) = 0;

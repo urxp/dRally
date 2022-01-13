@@ -1,9 +1,9 @@
 #include "drally.h"
 
-void dRally_Sound_setMasterVolume(dword);
+void dRally_Sound_setMasterVolume(__DWORD__);
 void ___2b318h(void);
 void ___58c60h(void);
-void setIntensity___19eb50h(dword);
+void setIntensity___19eb50h(__DWORD__);
 
 
 void ___3d1f0h(void){

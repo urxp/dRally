@@ -25,9 +25,9 @@ void dRally_System_doExitCallbacks(void){
 
         if(exit_cb_array[n]){
 
-            printf("[dRally.System] Calling cleaning function @%08X\n", exit_cb_array[n]);
+            printf("[dRally.System] Calling cleaning function @%p\n", exit_cb_array[n]);
             exit_cb_array[n]();
-            exit_cb_array[n] = (void *)0;
+            exit_cb_array[n] = (void_cb)0;
         }
     }
 }
@@ -43,7 +43,7 @@ void ___5ffbdh(void){
         if(exit_cb_array[m]) exit_cb_array[++n] = exit_cb_array[m];
     }
 
-    while(++n != NUM_ATEXIT_CALLBACKS) exit_cb_array[n] = (void *)0;
+    while(++n != NUM_ATEXIT_CALLBACKS) exit_cb_array[n] = (void_cb)0;
 }
 
 void dRally_System_addExitCallback(void_cb fp){
@@ -53,7 +53,7 @@ void dRally_System_addExitCallback(void_cb fp){
     n = 0;
     while(1){
 
-        if(exit_cb_array[n] == (void *)0){
+        if(exit_cb_array[n] == (void_cb)0){
 
             exit_cb_array[n] = fp;
             //___5ffbdh();   
@@ -76,14 +76,14 @@ void dRally_System_removeExitCallback(void_cb fp){
     n = 0;
     while(1){
 
-        if(exit_cb_array[n] == (void *)0){
+        if(exit_cb_array[n] == (void_cb)0){
 
             //___5ffbdh(); 
             return;
         }
         else if(exit_cb_array[n] == fp){
 
-            exit_cb_array[n] = (void *)0;
+            exit_cb_array[n] = (void_cb)0;
             ___5ffbdh(); 
             return;
         }
@@ -111,7 +111,9 @@ void _dos_gettime(struct dostime_t * __time){
 }
 
 unsigned int __GET_TIMER_TICKS(void){
-
+#if defined(_WIN32)
+    return SDL_GetTicks();
+#else
 	time_t 		tmt;
 	struct tm 	ltm;
 
@@ -119,6 +121,7 @@ unsigned int __GET_TIMER_TICKS(void){
 	localtime_r(&tmt, &ltm);
 
 	return 1640625ULL*(3600*ltm.tm_hour+60*ltm.tm_min+ltm.tm_sec)/90112;
+#endif
 }
 
 void dRally_System_init(void){
@@ -130,8 +133,10 @@ void dRally_System_init(void){
 		SDL_Log("Failed to init video subsystem: %s", SDL_GetError());
 	}
 
+#if !defined(_WIN32)
     time(&tmt);
     localtime_r(&tmt, &TimeInit);
+#endif
 
     dRally_Memory_init();
 }

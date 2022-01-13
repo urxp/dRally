@@ -39,18 +39,18 @@ typedef struct x2c_s {
     __DWORD__   _28;        // +28
 } x2c_t;
 
-    extern dword ___243c88h;
-    extern dword ___243c94h;
+    extern __DWORD__ ___243c88h;
+    extern __DWORD__ ___243c94h;
     extern char ___243dd0h[];
-    extern byte ___1a54d0h[];
+    extern __BYTE__ ___1a54d0h[];
     extern char ___19bd64h[16];
     extern xc50_t ___1f3b08h[];
     extern x2c_t ___240b48h[];		// <0x240b48 - 0x240b74)
-    extern void * ___243d5ch;
+    extern __POINTER__ ___243d5ch;
 
-void old_bpa_read(const char *, void *, const char *);
-void bpk_decode2(void *, void *);
-void bpk_decode4(dword, dword, void *, void *);
+void old_bpa_read(const char *, __POINTER__, const char *);
+void bpk_decode2(__POINTER__, __POINTER__);
+void bpk_decode4(__DWORD__, __DWORD__, __POINTER__, __POINTER__);
 
 void race___43488h(void){
 
@@ -58,11 +58,11 @@ void race___43488h(void){
 
     old_bpa_read(___243dd0h, ___1a54d0h, strcat(strcpy(fname, ___19bd64h), "-SCE.BPK"));
 
-    bpk_decode4(1, 0, &___243c88h, ___1a54d0h);
-    bpk_decode4(sizeof(xc50_t)*___243c88h, 1, &___1f3b08h, ___1a54d0h);
-    bpk_decode4(1, sizeof(xc50_t)*___243c88h+1, &___243c94h, ___1a54d0h);
+    bpk_decode4(1, 0, (__POINTER__)&___243c88h, ___1a54d0h);
+    bpk_decode4(sizeof(xc50_t)*___243c88h, 1, (__POINTER__)&___1f3b08h, ___1a54d0h);
+    bpk_decode4(1, sizeof(xc50_t)*___243c88h+1, (__POINTER__)&___243c94h, ___1a54d0h);
 
-    if(___243c94h > 0) bpk_decode4(sizeof(x2c_t)*___243c94h, sizeof(xc50_t)*___243c88h+2, &___240b48h, ___1a54d0h);
+    if(___243c94h > 0) bpk_decode4(sizeof(x2c_t)*___243c94h, sizeof(xc50_t)*___243c88h+2, (__POINTER__)&___240b48h, ___1a54d0h);
 
     switch(___19bd64h[2]){
     case '0':

@@ -4,12 +4,14 @@ dRally
 drally_linux
 ipxnet/*.o
 ipxnet/ipxnet
+x64
 *.le
 *.exe
 *.err
 z_regex*
 *.o
 *.obj
+*_asm.c
 *_ok.c
 *.zip
 *_32b.c

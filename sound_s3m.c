@@ -2,17 +2,17 @@
 
 #pragma pack(1)
 typedef struct s3m_position_s {
-    byte    Order;
-    byte    Row;
+    __BYTE__    Order;
+    __BYTE__    Row;
 } s3m_position_t;
 
 s3m_position_t S3M_Position = {0, 0};
 s3m_position_t S3M_NewPosition = {0, 0};
 int S3M_UpdatePosition = 0;
 
-dword ___71a44h_cdecl(void){    // getPosition
+__DWORD__ ___71a44h_cdecl(void){    // getPosition
 
-	dword 	rslt;
+	__DWORD__ 	rslt;
 
 	if(S3M_Position.Order){
 
@@ -26,7 +26,7 @@ dword ___71a44h_cdecl(void){    // getPosition
 	return 0xffffffff;
 }
 
-byte ___71a88h_cdecl(dword eax){    // setPosition
+__BYTE__ ___71a88h_cdecl(__DWORD__ eax){    // setPosition
 
     if((S3M_UpdatePosition = !(eax == 0xffffffff))){
 

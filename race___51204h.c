@@ -1,14 +1,15 @@
 #include "drally.h"
 #include "drmath.h"
+#include "drally_structs_free.h"
 
-	extern byte ___243c60h[];
-	extern byte ___1de580h[];
-	extern byte ___1e6ed0h[];
-	extern byte ___196efch[];
-	extern void * ___243290h[2];
-	extern void * ___243d80h;
+	extern __BYTE__ ___243c60h[];
+	extern __BYTE__ ___1de580h[];
+	extern __BYTE__ ___1e6ed0h[];
+	extern __BYTE__ ___196efch[];
+	extern __POINTER__ ___243290h[2];
+	extern __POINTER__ ___243d80h;
 
-dword __GET_FRAME_COUNTER(void);
+__DWORD__ __GET_FRAME_COUNTER(void);
 
 static double local_op(double dval){
 
@@ -28,22 +29,26 @@ void race___51204h(void){
 
 	double 	d_val, d_angle;
 	int 	i, j, y, x, val;
-	byte 	px;
+	__BYTE__ 	px;
+	struct_35e_t * 	s_35e;
+
+
+	s_35e = (struct_35e_t *)___1e6ed0h;
 
 
 	if((D(0x94*D(___243c60h)+___1de580h+0x58) == 1)&&((int)D(0x94*D(___243c60h)+___1de580h+0x34) > 0)&&(D(0x94*D(___243c60h)+___1de580h+0x20) != 0)){
 
 		d_val = -2.3*(double)F32(___1de580h+0x10+0x94*D(___243c60h));
-		d_angle = ((double)F32(___1e6ed0h+0xac+0x35e*D(___243c60h))+180.0)*L_PI/180.0;
+		d_angle = ((double)s_35e[D(___243c60h)].Direction+180.0)*L_PI/180.0;
 
-		x = D(0x35e*D(___243c60h)+___1e6ed0h+4)-8+local_round(d_val*dRMath_sin(d_angle));
-		y = D(0x35e*D(___243c60h)+___1e6ed0h+8)-8+local_round(L_5o6*d_val*dRMath_cos(d_angle));
+		x = s_35e[D(___243c60h)].__4-8+local_round(d_val*dRMath_sin(d_angle));
+		y = s_35e[D(___243c60h)].__8-8+local_round(L_5o6*d_val*dRMath_cos(d_angle));
 
 		if((x >= 0)&&((x+0x10) < 0x140)){
 
 			if((y >= 0)&&((y+0x10) < 0xc8)){
 
-				val = (int)D(0x35e*D(___243c60h)+___1e6ed0h+0xc)/4;
+				val = (int)s_35e[D(___243c60h)].ImgIndex/4;
 
 				j = -1;
 				while(++j < 0x10){
@@ -55,10 +60,10 @@ void race___51204h(void){
 					}
 				}
 
-				if((__GET_FRAME_COUNTER()-D(___1e6ed0h+0x1de +0x35e*D(___243c60h))) > 3){
+				if((__GET_FRAME_COUNTER()-s_35e[D(___243c60h)].__1de) > 3){
 					
 					D(___196efch) = !D(___196efch);
-					D(___1e6ed0h+0x1de +0x35e*D(___243c60h)) = __GET_FRAME_COUNTER();
+					s_35e[D(___243c60h)].__1de = __GET_FRAME_COUNTER();
 				}
 			}
 		}

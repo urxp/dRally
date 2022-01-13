@@ -1,19 +1,5 @@
 #include "drally.h"
-
-#pragma pack(1)
-#define pg(v)	((v)&0xfff)
-
-typedef struct NetPage {
-	union {
-	word 	pos;
-	word 	write_p;
-	};
-	union {
-	word	__2;
-	word 	read_p;
-	};
-	byte 	data[0x1000];
-} NetPage;
+#include "netpage.h"
 
 	extern NetPage * ___24e4ach;
 	extern char ___24e328h[];
@@ -21,31 +7,21 @@ typedef struct NetPage {
 	void ___6168ch(void);
 	char * strupr_watcom106(char * s);
 
-static void npg_writeb(NetPage * npg, byte b){
-
-	npg->data[pg(npg->write_p++)] = b;
-}
-
-static void npg_readb(NetPage * npg, void * b){
-
-	B(b) = npg->data[pg(npg->read_p++)];
-}
-
 void ___63228h(void){
 
 	strcpy(___24e328h, "");
 }
 
-dword ___63244h(char * A1){
+__DWORD__ ___63244h(char * A1){
 
 	char buff[2];
 
 	buff[1] = 0;
 	___6168ch();
 
-	while(___24e4ach->write_p != ___24e4ach->read_p){
+	while(!npg_done(___24e4ach)){
 
-		npg_readb(___24e4ach, buff);
+		buff[0] = npg_readb(___24e4ach);
 		strcat(___24e328h, buff);
 	}
 

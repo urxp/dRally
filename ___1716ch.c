@@ -1,24 +1,24 @@
 #include "drally.h"
+#include "drally_fonts.h"
 
-	extern byte ___185ba9h[];
-	extern byte ___1a10cch[];
+	extern __BYTE__ ___185ba9h[];
+	extern __POINTER__ ___1a10cch;
 
-void ___12e78h_cdecl(dword, dword, dword, dword);
-void ___13248h_cdecl(dword, dword ,dword, dword, dword);
-void ___13094h_cdecl(const char *, dword);
+void ___12e78h_cdecl(__BYTE__ * A1, const font_props_t * A2, const char * A3, __DWORD__ dst_off);
+void ___13248h_cdecl(__DWORD__, __DWORD__ ,__DWORD__, __DWORD__, __DWORD__);
 
 void ___1716ch(void){
 
 	___13248h_cdecl(0x2d, 0x83, 0x1ca, 0xe6, 1);
-	___13094h_cdecl("", 0x160bc);
-	___13094h_cdecl("[Psst...Yeah you, driver.", 0x188bc);
-	___13094h_cdecl("", 0x1b0bc);
-	___13094h_cdecl("Jealousy burns you like a dragon inside, you", 0x1d8bc);
-	___13094h_cdecl("[want that road all to yourself?{ So jinx", 0x200bc);
-	___13094h_cdecl("those rival suckers, let them go out in a", 0x228bc);
-	___13094h_cdecl("blaze; you take the glory. [Welcome to the", 0x250bc);
-	___13094h_cdecl("[Underground Market.{ What you want, we got.", 0x278bc);
-	___13094h_cdecl("Dig out the dough, this gonna cost you.", 0x2a0bc);
-	___13094h_cdecl("", 0x2c8bc);
-	___12e78h_cdecl(D(___1a10cch), ___185ba9h, "CONTINUE", 0x316c0);
+	VESA101_16X16_FORMAT_PRINT("", 60, 141);
+	VESA101_16X16_FORMAT_PRINT("[Psst...Yeah you, driver.", 60, 157);
+	VESA101_16X16_FORMAT_PRINT("", 60, 173);
+	VESA101_16X16_FORMAT_PRINT("Jealousy burns you like a dragon inside, you", 60, 189);
+	VESA101_16X16_FORMAT_PRINT("[want that road all to yourself?{ So jinx", 60, 205);
+	VESA101_16X16_FORMAT_PRINT("those rival suckers, let them go out in a", 60, 221);
+	VESA101_16X16_FORMAT_PRINT("blaze; you take the glory. [Welcome to the", 60, 237);
+	VESA101_16X16_FORMAT_PRINT("[Underground Market.{ What you want, we got.", 60, 253);
+	VESA101_16X16_FORMAT_PRINT("Dig out the dough, this gonna cost you.", 60, 269);
+	VESA101_16X16_FORMAT_PRINT("", 60, 285);
+	___12e78h_cdecl(___1a10cch, (font_props_t *)___185ba9h, "CONTINUE", 0x316c0);
 }

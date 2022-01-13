@@ -1,11 +1,11 @@
 #include "drally.h"
 #include "drally_race.h"
 
-    extern byte ___196db0h[];
-    extern byte ___196db4h[];
-    extern byte ___196da0h[];
-    extern byte ___196da4h[];
-    extern byte ___196da8h[];
+    extern __BYTE__ ___196db0h[];
+    extern __BYTE__ ___196db4h[];
+    extern __BYTE__ ___196da0h[];
+    extern __BYTE__ ___196da4h[];
+    extern __BYTE__ ___196da8h[];
 
 static void __setSettings(int v, int b){
 

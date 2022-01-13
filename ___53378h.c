@@ -29,7 +29,7 @@ typedef struct xc50_s {
 
 void ___53378h_cdecl(int A1, int A2){
 
-	dword 	tmp;
+	__DWORD__ 	tmp;
 	int 	val1, val2, val1_saved, n;
 
 

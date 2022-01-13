@@ -40,52 +40,52 @@ typedef struct xc50_s {
 	__DWORD__	_C4C;			// +c4c
 } xc50_t;
 
-	extern byte ___243c88h[];
-	extern byte ___243d0ch[];
-	extern byte ___243c98h[];
+	extern __BYTE__ ___243c88h[];
+	extern __BYTE__ ___243d0ch[];
+	extern __BYTE__ ___243c98h[];
 	extern xc50_t ___1f3b08h[];		// <0x1f3b08 - 0x1f4758)
 	extern x2c_t ___240b48h[];		// <0x240b48 - 0x240b74)
-	extern byte ___243d08h[];
-	extern byte ___243c6ch[];
-	extern byte ___243c64h[];
-	extern byte ___243c78h[];
-	extern byte ___243c74h[];
-	extern byte ___243c70h[];
-	extern byte ___243c68h[];
-	extern byte ___196d8ch[];
-	extern byte ___196d94h[];
-	extern byte ___196d98h[];
-	extern byte ___1df9a0h[];
-	extern byte ___243188h[];
-	extern byte ___242f78h[];
-	extern byte ___242e78h[];
-	extern byte ___1e8848h[];
-	extern byte ___243c9ch[];
-	extern byte ___196dc8h[];
-	extern byte ___196dcch[];
-	extern byte ___196d88h[];
-	extern byte ___196d90h[];
-	extern void * ___243d80h;
-	extern void * ___243d5ch;
+	extern __BYTE__ ___243d08h[];
+	extern __BYTE__ ___243c6ch[];
+	extern __BYTE__ ___243c64h[];
+	extern __BYTE__ ___243c78h[];
+	extern __BYTE__ ___243c74h[];
+	extern __BYTE__ ___243c70h[];
+	extern __BYTE__ ___243c68h[];
+	extern __BYTE__ ___196d8ch[];
+	extern __BYTE__ ___196d94h[];
+	extern __BYTE__ ___196d98h[];
+	extern __DWORD__ ___1df9a0h[100][75];
+	extern int ___1e8848h[100][100];
+	extern __BYTE__ ___243c9ch[];
+	extern __BYTE__ ___196dc8h[];
+	extern __BYTE__ ___196dcch[];
+	extern __BYTE__ ___196d88h[];
+	extern __BYTE__ ___196d90h[];
+	extern __POINTER__ ___243d80h;
+	extern __POINTER__ ___243d5ch;
 
+	static __BYTE__ ___242e78h[0x100];
+	static __BYTE__ ___242f78h[0x100];
+	static __BYTE__ ___243188h[0x100];
 
 void race___5326ch(void);
-void ___5e137h(dword A1, int A2, int A3, int A4, int A5, int A6, int A7);
+void ___5e137h(__DWORD__ A1, int A2, int A3, int A4, int A5, int A6, int A7);
 void ___5e3e8h(int A1, int A2, int A3, int A4, int A5, int A6, int A7, int A8, int A9);
-void ___5e769h(byte * A1, int A2, int A3, int A4, int A5, int A6, int A7);
+void ___5e769h(__BYTE__ * A1, int A2, int A3, int A4, int A5, int A6, int A7);
 
 void race___53464h(void){
 
-	dword 		eax, ebx, ecx, edx, edi, esi;
-	dword 		A1, A2, A3, A4, A5, A6, A7, A8, A9;
+	__DWORD__ 		eax, ebx, ecx, edx, edi, esi;
+	__DWORD__ 		A1, A2, A3, A4, A5, A6, A7, A8, A9;
 	int 		skip;
 	int 		a, b, c, i, j;
-	byte 		px;
+	__BYTE__ 		px;
 	xc50_t *	p;
 	x2c_t * 	q;
-	void *	 	eaxp;
-	void * 		ebxp;
-	void *		esip;
+	__POINTER__	 	eaxp;
+	__POINTER__ 		ebxp;
+	__POINTER__		esip;
 
 
 	D(___243d0ch) = D(___243c88h)-1;
@@ -200,13 +200,13 @@ void race___53464h(void){
 									case 10:
 										A9 = D(___243c6ch)+D(___196d98h);
 										A8 = D(___243c78h);
-										A7 = D(0x12c*D(___243c98h)+4*p->_39C[D(___243d08h)]+___1df9a0h)+0x6c;
+										A7 = ___1df9a0h[D(___243c98h)][p->_39C[D(___243d08h)]]+0x6c;
 										A6 = D(___243c68h)+D(___196d98h);
 										A5 = D(___243c74h);
-										A4 = D(0x12c*D(___243c98h)+4*p->_52C[D(___243d08h)]+___1df9a0h)+0x6c;
+										A4 = ___1df9a0h[D(___243c98h)][p->_52C[D(___243d08h)]]+0x6c;
 										A3 = D(___243c64h)+D(___196d98h);
 										A2 = D(___243c70h);
-										A1 = D(0x12c*D(___243c98h)+4*p->_6BC[D(___243d08h)]+___1df9a0h)+0x6c;
+										A1 = ___1df9a0h[D(___243c98h)][p->_6BC[D(___243d08h)]]+0x6c;
 										___5e3e8h(A1,A2,A3,A4,A5,A6,A7,A8,A9);
 										break;
 									default:
@@ -226,7 +226,7 @@ void race___53464h(void){
 
 						if(dRally_Race_getSettings(RACE_TEXTURES)){
 						
-							D(___243c9ch) = D(0x190*D(___243c98h)+4*D(___243d08h)+___1e8848h);
+							D(___243c9ch) = ___1e8848h[D(___243c98h)][D(___243d08h)];
 
 							if(D(___243c9ch) != 0xffffffff){
 

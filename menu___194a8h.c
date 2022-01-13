@@ -1,52 +1,43 @@
 #include "drally.h"
+#include "drally_fonts.h"
 
-#pragma pack(1)
-typedef struct font_props_s {
-	byte 	w;
-	byte 	h;
-	byte 	props[];
-} font_props_t;
+	extern __BYTE__ ___185a24h[];
+	extern __BYTE__ ___185a2ch[];
+	extern __POINTER__ ___1a1138h__VESA101h_DefaultScreenBufferB;
+	extern __POINTER__ ___1a112ch__VESA101_ACTIVESCREEN_PTR;
+	extern __BYTE__ ___1866b8h[];
+	extern __BYTE__ ___185b58h[];
+	extern __BYTE__ ___1a1ef8h[];
+	extern __BYTE__ ___185a48h[];
+	extern __BYTE__ ___185a44h[];
+	extern __BYTE__ ___185a40h[];
+	extern __BYTE__ ___185a3ch[];
+	extern __BYTE__ ___1a01e0h[];
+	extern __DWORD__ ___243d44h;
+	extern __BYTE__ ___1866b8h[];
+	extern __BYTE__ ___185a5ch[];
 
-	extern byte ___185a24h[];
-	extern byte ___185a2ch[];
-	extern void * ___1a1138h__VESA101h_DefaultScreenBufferB;
-	extern void * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
-	extern byte ___1866b8h[];
-	extern byte ___185b58h[];
-	extern byte ___1a1ef8h[];
-	extern byte ___185a48h[];
-	extern byte ___185a44h[];
-	extern byte ___185a40h[];
-	extern byte ___185a3ch[];
-	extern byte ___1a01e0h[];
-	extern byte ___243d44h[];
-	extern byte ___1866b8h[];
-	extern byte ___185c0bh[];
-	extern void * ___1a1108h;
-	extern byte ___185a5ch[];
-
-void ___13710h(dword, dword);
+void ___13710h(__DWORD__, __DWORD__);
 void ___12cb8h__VESA101_PRESENTSCREEN(void);
 void ___3a6a4h(void);
 void ___2415ch(void);
 void shop_main(void);
-void ___12e78h_cdecl(byte * A1, font_props_t * A2, const char * A3, dword dst_off);
-int ___148cch_cdecl(int x, int y, dword A3, int * A4);
+int ___148cch_cdecl(int x, int y, __DWORD__ A3, int * A4);
 void restoreDefaultScreenBuffer(void);
-dword ___146c4h_cdecl(dword);
-dword ___3ab5ch_cdecl(dword);
+__DWORD__ ___146c4h_cdecl(__DWORD__);
+__DWORD__ ___3ab5ch_cdecl(__DWORD__);
 void ___190c4h(void);
-dword ___18924h(void);
+__DWORD__ ___18924h(void);
 void ___18cf0h(void);
-void ___13248h_cdecl(dword, dword ,dword, dword, dword);
+void ___13248h_cdecl(__DWORD__, __DWORD__ ,__DWORD__, __DWORD__, __DWORD__);
 void ___2b5f0h(void);
 
 
 // START RACING
 void menu___194a8h(void){
 
-	dword 	eax, ebx, ecx, edx, edi, esi, ebp;
-	byte 	esp[4];
+	__DWORD__ 	eax, ebx, ecx, edx, edi, esi, ebp;
+	__BYTE__ 	esp[4];
 		
 		
 	D(___185a24h) = 0;
@@ -89,7 +80,7 @@ void menu___194a8h(void){
 					___2415ch();
 					D(0x6c*D(___1a1ef8h)+___1a01e0h+0x2c) = edx;
 					___2b5f0h();
-					D(___243d44h) = 1;
+					___243d44h = 1;
 					B(___185b58h+0xa) = 1;  
 					strcpy(___1866b8h, "Continue Racing");
 					strcpy(___1866b8h+0x1c2, "Enter The Shop");
@@ -106,9 +97,9 @@ void menu___194a8h(void){
 		case 1: // END CURRENT GAME
 			___13710h(1, 0);
 			___13248h_cdecl(0xaa, 0xdc, 0x12c, 0x50, 1);
-			___12e78h_cdecl(___1a1108h, ___185c0bh, "End current game?", 0x23ae8);
+			___12e78h_v3(___1a1108h___185c0bh, "End current game?", 232, 228);
 			D(esp) = 1;
-			eax = ___148cch_cdecl(0xb4, 0x102, 1, esp)&0xff;
+			eax = ___148cch_cdecl(0xb4, 0x102, 1, (int *)esp)&0xff;
 
 			if(D(esp)&&eax){
 				
@@ -124,7 +115,7 @@ void menu___194a8h(void){
 				strcpy(___1866b8h, "Start Racing");
 				___2415ch();
 				___2b5f0h();
-				D(___243d44h) = 1;
+				___243d44h = 1;
 				D(___185a5ch+0x34) = 0;
 			}
 			break;

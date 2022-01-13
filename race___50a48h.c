@@ -1,95 +1,52 @@
 #include "drally.h"
+#include "drally_structs_free.h"
 
-	extern byte ___243c60h[];
-	extern byte ___1e6ed0h[];
-	extern byte ___196dc8h[];
-	extern byte ___196dcch[];
-	extern byte ___196d98h[];
-	extern byte ___1de580h[];
-	extern void * ___243298h[6];
-	extern void * ___243d80h;
+	extern __BYTE__ ___243c60h[];
+	extern __BYTE__ ___1e6ed0h[];
+	extern __BYTE__ ___196dc8h[];
+	extern __BYTE__ ___196dcch[];
+	extern __BYTE__ ___196d98h[];
+	extern __BYTE__ ___1de580h[];
+	extern __POINTER__ ___243298h[6];
+	extern __POINTER__ ___243d80h;
 
+// MACHINE GUNS FIRE
 void race___50a48h(void){
 
-	dword 	eax, ebx, ecx, edx, edi, esi, ebp;
-	byte 	esp[0xc];
-	void * 	esip;
+	int 			i, j, i0, j0;
+	__BYTE__ 		px;
+	__POINTER__ 	img;
+	struct_35e_t *	s_35e;
+	struct_94_t * 	s_94;
 
 
-		ecx = D(___243c60h);
-		eax = 0x35e*ecx;
-		if(D(eax+___1e6ed0h+0x1b6) == 0) goto ___50b63h;
-		ebx = D(___196dc8h);
-		edx = D(eax+___1e6ed0h+0x1d2);
-		esi = D(___196dcch);
-		edx -= ebx;
-		ebx = D(___196d98h);
-		eax = D(eax+___1e6ed0h+0x1d6);
-		ebx += edx;
-		eax -= esi;
-		D(esp) = ebx;
-		if((int)ebx < 0) goto ___50b55h;
-		edx = ebx+8;
-		if((int)edx >= 0x140) goto ___50b55h;
-		if((int)eax < 0) goto ___50b55h;
-		edx = eax+8;
-		if((int)edx >= 0xc8) goto ___50b55h;
-		eax <<= 9;
-		ebp = 0;
-		D(esp+0x4) = eax;
-		D(esp+0x8) = ebp;
-___50ad6h:
-		edi = D(esp+0x4);
-		ebp = D(esp+0x8);
-		ebx = 0;
+	s_35e = (struct_35e_t *)___1e6ed0h;
+	s_94 = (struct_94_t *)___1de580h;
 
-		while(1){
+	if(s_35e[D(___243c60h)].__1b6 != 0){
 
-			eax = 0x94*ecx;
-			edx = D(eax+___1de580h+0x60);
-			eax = D(eax+4*edx+___1de580h+0x84);
-			edx = 0x35e*ecx;
-			esip = ___243298h[eax]+ebx+ebp;
-			eax = D(edx+___1e6ed0h+0xc);
-			edx = eax;
-			edx = (int)edx>>0x1f;
-			eax -= edx;
-			eax = (int)eax>>1;
+		i0 = s_35e[D(___243c60h)].__1d2+D(___196d98h)-D(___196dc8h);
+		j0 = s_35e[D(___243c60h)].__1d6-D(___196dcch);
 
-			if(B(esip+0x40*eax) != 0){
+		if((i0 >= 0)&&((i0+8) < 0x140)&&(j0 >= 0)&&((j0+8) < 0xc8)){
 
-				B(___243d80h+D(esp)+ebx+edi+0x60) = B(esip+0x40*eax);
+			img = ___243298h[s_94[D(___243c60h)].__84[s_94[D(___243c60h)].__60]]+0x40*(s_35e[D(___243c60h)].ImgIndex/2);
+
+			j = -1;
+			while(++j < 8){
+
+				i = -1;
+				while(++i < 8){
+
+					if((px = read_b(img+8*j+i)) != 0) write_b(___243d80h+0x200*(j+j0)+i+i0+0x60, px);
+				}
 			}
-
-			ebx++;
-			if((int)ebx >= 8) break;
 		}
 
-		ebp = D(esp+0x4);
-		edi = D(esp+0x8);
-		ebp += 0x200;
-		edi += 0x8;
-		D(esp+0x4) = ebp;
-		D(esp+0x8) = edi;
-		if(edi != 0x40) goto ___50ad6h;
-___50b55h:
-		eax = 0x35e*ecx;
-		edx = 0;
-		D(eax+___1e6ed0h+0x1b6) = edx;
-___50b63h:
-		eax = 8*ecx;
-		eax += ecx;
-		eax <<= 2;
-		eax += ecx;
-		eax <<= 2;
-		ebx = D(eax+___1de580h+0x60);
-		edx = D(eax+___1de580h+0x5c);
-		ebx++;
-		edx--;
-		D(eax+___1de580h+0x60) = ebx;
-		if((int)edx >= (int)ebx) goto ___50b94h;
-		edi = 0;
-		D(eax+___1de580h+0x60) = edi;
-___50b94h:
-		D(___243c60h) = ecx;
+		s_35e[D(___243c60h)].__1b6 = 0;
+	}
+
+	s_94[D(___243c60h)].__60++;
+
+	if((s_94[D(___243c60h)].__5c-1) < (int)s_94[D(___243c60h)].__60) s_94[D(___243c60h)].__60 = 0;
 }

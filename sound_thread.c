@@ -2,25 +2,25 @@
 
 #pragma pack(1)
 typedef struct s3m_position_s {
-    byte    Order;
-    byte    Row;
+    __BYTE__    Order;
+    __BYTE__    Row;
 } s3m_position_t;
 
 typedef struct sampledata_s {
-	void *	start_p;
-	void * 	end_p;
-	void * 	loopstart_p;
-	void * 	loopend_p;
-	byte 	flags;
+	__POINTER__	start_p;
+	__POINTER__ 	end_p;
+	__POINTER__ 	loopstart_p;
+	__POINTER__ 	loopend_p;
+	__BYTE__ 	flags;
 } sampledata_t;
 
 typedef struct samplelib_s {
 	int 			n_samples;
 	int 			n_msx_samples;
 	int 			n_sfx_samples;
-	void * 			header_alloc;
-	void *			data_alloc;
-	void * 			write_p;
+	__POINTER__ 			header_alloc;
+	__POINTER__			data_alloc;
+	__POINTER__ 			write_p;
 	sampledata_t * 	samples;
 	int *			samples_volume;
 	int * 			samples_frequency;
@@ -30,8 +30,8 @@ typedef struct sound_mod_s {
 	int 	type;
 	int 	channels;
 	int 	samples;
-	void * 	data;
-	dword 	size;
+	__POINTER__ 	data;
+	__DWORD__ 	size;
 } sound_mod_t;
 
 typedef struct sound_s {
@@ -41,46 +41,46 @@ typedef struct sound_s {
 } sound_t;
 
 typedef struct music_s {
-    byte        ch_map[32];
-    dword *     c2spd;
-    void **     patterns;
-    byte *      ch_settings;
-    byte *	    orders;
-    byte *      panning;
-    byte *      volume;
-    void *      s3m_p;
-    word        n_patterns;
-    byte        n_orders;
-    byte        tempo;
-    byte        global_volume;
-    byte        speed;
+    __BYTE__        ch_map[32];
+    __DWORD__ *     c2spd;
+    __POINTER__*     patterns;
+    __BYTE__ *      ch_settings;
+    __BYTE__ *	    orders;
+    __BYTE__ *      panning;
+    __BYTE__ *      volume;
+    __POINTER__      s3m_p;
+    __WORD__        n_patterns;
+    __BYTE__        n_orders;
+    __BYTE__        tempo;
+    __BYTE__        global_volume;
+    __BYTE__        speed;
 } music_t;
 
 typedef union what_u {
     struct {
-        byte    channel:5;
-        byte    note_inst:1;
-        byte    volume:1;
-        byte    cmd:1;
+        __BYTE__    channel:5;
+        __BYTE__    note_inst:1;
+        __BYTE__    volume:1;
+        __BYTE__    cmd:1;
     };
-    byte    val;
+    __BYTE__    val;
 } what_t;
 
 typedef struct unpacked_s {
 	union {
 		struct {
-			byte 	note_note:4;
-			byte 	note_octave:4;
+			__BYTE__ 	note_note:4;
+			__BYTE__ 	note_octave:4;
 		};
-		byte note;
+		__BYTE__ note;
 	};
-	byte 	instrument;
-	byte 	volume;
+	__BYTE__ 	instrument;
+	__BYTE__ 	volume;
     union {
-        word    cmd;
+        __WORD__    cmd;
         struct {
-	        byte 	cmd_cmd;
-	        byte 	cmd_info;
+	        __BYTE__ 	cmd_cmd;
+	        __BYTE__ 	cmd_info;
         };
     };
 } unpacked_t;
@@ -99,7 +99,7 @@ typedef struct unpacked_s {
 #define NOTE_ASHARP		0xa
 #define NOTE_B			0xb
 
-const word st3_periods[12] = { 1712, 1616, 1524, 1440, 1356, 1280, 1208, 1140, 1076, 1016, 960, 907 };
+const __WORD__ st3_periods[12] = { 1712, 1616, 1524, 1440, 1356, 1280, 1208, 1140, 1076, 1016, 960, 907 };
 
 	unpacked_t 	Unpacked;
 	extern music_t 	Music;
@@ -109,59 +109,59 @@ const word st3_periods[12] = { 1712, 1616, 1524, 1440, 1356, 1280, 1208, 1140, 1
 	extern s3m_position_t S3M_Position;
 	extern s3m_position_t S3M_NewPosition;
 	extern int S3M_UpdatePosition;
-byte ___19a53dh = 0;
-byte ___19a53ch = 1;
-byte ___19a53eh = 0;
-byte ___19a540h = 1;
-byte ___19a53fh = 0;
-byte ___19a684h = 0;
-byte ___19a685h = 0;
-byte ___19a686h = 0;
-	extern dword ___68990h[32];
-	extern dword ___68a10h[32];
-void * PACKED_PATTERN;
+__BYTE__ ___19a53dh = 0;
+__BYTE__ ___19a53ch = 1;
+__BYTE__ ___19a53eh = 0;
+__BYTE__ ___19a540h = 1;
+__BYTE__ ___19a53fh = 0;
+__BYTE__ ___19a684h = 0;
+__BYTE__ ___19a685h = 0;
+__BYTE__ ___19a686h = 0;
+	extern __DWORD__ ___68990h[32];
+	extern __DWORD__ ___68a10h[32];
+__POINTER__ PACKED_PATTERN;
 	extern int	tmp_chn;
 #define PACKED_WHAT	pack_what.val
 	extern what_t pack_what;
 
 
-extern word ___688d0h_sample_id[32];
-extern dword ___68910h_offset[32];
-extern byte * ___68b30h[32];
+extern __WORD__  ___688d0h_sample_id[32];
+extern __DWORD__ ___68910h_offset[32];
+extern __BYTE__ * ___68b30h[32];
 
-word ___19a542h[16] = {0};
-word ___19a562h[16] = {0};
-byte ___19a582h[16] = {0};
-byte cmd_cmd_mem[16] = {0};
-byte cmd_info_mem[16] = {0};
-byte ___19a5b2h[16] = {0};
-byte ___19a5c2h[16] = {0};
-byte ___19a5d2h[16] = {0};
-word ___19a5e2h = 0;
-byte ___19a5e4h[16] = {0};
-byte ___19a5f4h[16] = {0};
-word ___19a604h[16] = {0};
-word ___19a624h[16] = {0};
-word ___19a644h[16] = {0};
-byte ___19a664h[16] = {0};
-byte ___19a674h[16] = {0};
-word ___24e880h[16] = {0};
+__WORD__ ___19a542h[16] = {0};
+__WORD__ ___19a562h[16] = {0};
+__BYTE__ ___19a582h[16] = {0};
+__BYTE__ cmd_cmd_mem[16] = {0};
+__BYTE__ cmd_info_mem[16] = {0};
+__BYTE__ ___19a5b2h[16] = {0};
+__BYTE__ ___19a5c2h[16] = {0};
+__BYTE__ ___19a5d2h[16] = {0};
+__WORD__ ___19a5e2h = 0;
+__BYTE__ ___19a5e4h[16] = {0};
+__BYTE__ ___19a5f4h[16] = {0};
+__WORD__ ___19a604h[16] = {0};
+__WORD__ ___19a624h[16] = {0};
+__WORD__ ___19a644h[16] = {0};
+__BYTE__ ___19a664h[16] = {0};
+__BYTE__ ___19a674h[16] = {0};
+__WORD__ ___24e880h[16] = {0};
 
 
 void ___68c42h_cdecl(void);
 
-void switch_YY(byte);
-void switch_ZZ(byte);
+void switch_YY(__BYTE__);
+void switch_ZZ(__BYTE__);
 
 
-static dword static_CX(word A1, int Finetune){
+static __DWORD__ static_CX(__WORD__ A1, int Finetune){
 
-	dword 		eax;
-	qword 		ll_tmp;
+	__DWORD__ 		eax;
+	__QWORD__ 		ll_tmp;
 
-//	dword 		period_oct;
-//	dword 		note_st3period;
-//	dword 		note_herz;
+//	__DWORD__ 		period_oct;
+//	__DWORD__ 		note_st3period;
+//	__DWORD__ 		note_herz;
 
 	eax = 0;
 	if(A1 != 0){
@@ -179,12 +179,12 @@ static dword static_CX(word A1, int Finetune){
 	return eax;
 }
 
-dword static_BX(word A1){
+__DWORD__ static_BX(__WORD__ A1){
 
 	return static_CX(A1, Music.c2spd[___19a542h[tmp_chn]]);
 }
 
-static void reset_something(byte n){
+static void reset_something(__BYTE__ n){
 
 	___19a542h[n] = 0;
 	___19a562h[n] = 0;
@@ -226,7 +226,7 @@ void ___6ef2ch_init(void){
 
 void ___6ef2ch(void){
 
-    dword   eax, ebx, ecx, edx, esi, edi, ebp;
+    __DWORD__   eax, ebx, ecx, edx, esi, edi, ebp;
 	int 	hi_channel_id;
     long long   ll_tmp;
 

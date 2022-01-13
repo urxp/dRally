@@ -3,7 +3,7 @@
 void pxlCopy(pxl_2D * dst, pxl_2D * src, pxl_Flags flags){
 
 	int 	i, j;
-	byte 	px;
+	__BYTE__ 	px;
 
 	switch(flags){
 	case PXL_ENTIRE:
@@ -61,15 +61,19 @@ pxl_2D * pxlSetPosition(pxl_2D * dst, int x, int y){
 
 	dst->position.x = x;
 	dst->position.y = y;
+
+	return dst;
 }
 
 pxl_2D * pxlSetRectangle(pxl_2D * dst, int width, int height){
 
 	dst->view.width = width;
 	dst->view.height = height;
+
+	return dst;
 }
 
-void pxlSet(pxl_2D * dst, void * data, int width, int height){
+void pxlSet(pxl_2D * dst, __POINTER__ data, int width, int height){
 
 	dst->data = data;
 	dst->dimension.width = width;

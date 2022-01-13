@@ -1,32 +1,23 @@
 #include "drally.h"
-
-#pragma pack(1)
-typedef struct font_props_s {
-	byte 	w;
-	byte 	h;
-	byte 	props[];
-} font_props_t;
+#include "drally_fonts.h"
 
 #define COOXY(x,y) (0x280*(y)+(x))
 #define COO80UV(u,v) (0x80*(v)+(u))
 
-	extern byte * ___1a1138h__VESA101h_DefaultScreenBufferB;
-	extern byte * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
-	extern byte ___1a1f64h[];
-	extern byte * ___1a1040h[];
-	extern byte ___185c0bh[];
-	extern void * ___1a1108h;
-	extern byte * ___1a10d4h;
+	extern __BYTE__ * ___1a1138h__VESA101h_DefaultScreenBufferB;
+	extern __BYTE__ * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
+	extern __BYTE__ ___1a1f64h[];
+	extern __BYTE__ * ___1a1040h[];
+	extern __BYTE__ * ___1a10d4h;
 
-void ___135fch(dword, dword, dword, dword);
+void ___135fch(__DWORD__, __DWORD__, __DWORD__, __DWORD__);
 void ___23230h(void);
 void ___25330h(void);
-void ___13248h_cdecl(dword, dword ,dword, dword, dword);
-void ___12e78h_cdecl(byte * A1, font_props_t * A2, const char * A3, dword dst_off);
+void ___13248h_cdecl(__DWORD__, __DWORD__ ,__DWORD__, __DWORD__, __DWORD__);
 
 void ___30df8h(void){
 
-	dword 	i, j;
+	__DWORD__ 	i, j;
 
 	memcpy(&___1a112ch__VESA101_ACTIVESCREEN_PTR[COOXY(0, 0x16f)], &___1a1138h__VESA101h_DefaultScreenBufferB[COOXY(0, 0x16f)], 0x10*0x280);
 	___135fch(0, 0x173, 0x27f, 0x6d);
@@ -44,9 +35,9 @@ void ___30df8h(void){
 		}
 	}
 
-	___12e78h_cdecl(___1a1108h, ___185c0bh, "$750", COOXY(0x49, 0xe0));
-	___12e78h_cdecl(___1a1108h, ___185c0bh, "$3000", COOXY(0xe2, 0xe0));
-	___12e78h_cdecl(___1a1108h, ___185c0bh, "$12000", COOXY(0x17f, 0xe0));
+	___12e78h_v3(___1a1108h___185c0bh, "$750", 0x49, 0xe0);
+	___12e78h_v3(___1a1108h___185c0bh, "$3000", 0xe2, 0xe0);
+	___12e78h_v3(___1a1108h___185c0bh, "$12000", 0x17f, 0xe0);
 	___13248h_cdecl(0x16, 0x100, 0x94, 0x69, 1);
 	___13248h_cdecl(0xb6, 0x100, 0x94, 0x69, 1);
 	___13248h_cdecl(0x156, 0x100, 0x94, 0x69, 1);

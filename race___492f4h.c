@@ -1,7 +1,7 @@
 #include "drally.h"
 
 #if defined(DR_MULTIPLAYER)
-	extern byte ___19bd60h[];
+	extern __DWORD__ ___19bd60h;
 	void ___623d4h(void);
 #endif
 
@@ -14,7 +14,7 @@ void race___492f4h(void){
 	__VGA3_SETMODE();
 	printf("DEATH RALLY Exit: CTRL+ALT+DEL pressed!\n");
 #if defined(DR_MULTIPLAYER)
-	if(D(___19bd60h) != 0) ___623d4h();
+	if(___19bd60h != 0) ___623d4h();
 #endif
 	exit(0x70);
 }

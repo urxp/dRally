@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <ProjectGuid>{D139A586-092D-4107-B497-ACBB6A3B6B36}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>C:\include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>C:\include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <CompileAs>CompileAsC</CompileAs>
+      <PreprocessorDefinitions>DR_MULTIPLAYER;IPXNET;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Optimization>Disabled</Optimization>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>C:\lib\SDL2_net-2.0.1\lib\x64;C:\lib\SDL2-2.0.18\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2_net.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <CompileAs>CompileAsC</CompileAs>
+      <PreprocessorDefinitions>DR_MULTIPLAYER;IPXNET;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>C:\lib\SDL2_net-2.0.1\lib\x64;C:\lib\SDL2-2.0.18\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2_net.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="data.c" />
+    <ClCompile Include="bss.c" />
+    <ClCompile Include="__mp_60a28h.c" />
+    <ClCompile Include="__mp_60a84h.c" />
+    <ClCompile Include="__mp_60b48h.c" />
+    <ClCompile Include="__mp_60b60h.c" />
+    <ClCompile Include="__mp_611c0h.c" />
+    <ClCompile Include="__mp_61278h.c" />
+    <ClCompile Include="__mp_61418h.c" />
+    <ClCompile Include="__mp_61518h.c" />
+    <ClCompile Include="__mp_6168ch.c" />
+    <ClCompile Include="__mp_61b88h.c" />
+    <ClCompile Include="__mp_631d4h.c" />
+    <ClCompile Include="__mp_63244h.c" />
+    <ClCompile Include="__mp_632c4h.c" />
+    <ClCompile Include="__mp_63b20h.c" />
+    <ClCompile Include="__mp_data.c" />
+    <ClCompile Include="__mp_623d4h.c" />
+    <ClCompile Include="__mp_61cd0h.c" />
+    <ClCompile Include="__mp_638ech.c" />
+    <ClCompile Include="drally_linux_c.c" />
+    <ClCompile Include="drmemory.c" />
+    <ClCompile Include="draudio.c" />
+    <ClCompile Include="mod_s3m.c" />
+    <ClCompile Include="mod_xm.c" />
+    <ClCompile Include="sound_api.c" />
+    <ClCompile Include="sound_cb.c" />
+    <ClCompile Include="sound.c" />
+    <ClCompile Include="sound_s3m.c" />
+    <ClCompile Include="sound_xm.c" />
+    <ClCompile Include="sound2.c" />
+    <ClCompile Include="sound_thread.c" />
+    <ClCompile Include="sound_memory.c" />
+    <ClCompile Include="system_linux_c.c" />
+    <ClCompile Include="events.c" />
+    <ClCompile Include="___13710h.c" />
+    <ClCompile Include="___24548h.c" />
+    <ClCompile Include="___3e164h.c" />
+    <ClCompile Include="___3e1c4h.c" />
+    <ClCompile Include="___3e3cch.c" />
+    <ClCompile Include="___3e720h.c" />
+    <ClCompile Include="___3f71ch.c" />
+    <ClCompile Include="___3a2ach.c" />
+    <ClCompile Include="___3aaf8h.c" />
+    <ClCompile Include="___3d908h.c" />
+    <ClCompile Include="___58b20h.c" />
+    <ClCompile Include="functions_c.c" />
+    <ClCompile Include="config_c.c" />
+    <ClCompile Include="display_c.c" />
+    <ClCompile Include="bpa.c" />
+    <ClCompile Include="bpa_old.c" />
+    <ClCompile Include="bpk.c" />
+    <ClCompile Include="fpu.c" />
+    <ClCompile Include="___2ec68h.c" />
+    <ClCompile Include="___2415ch.c" />
+    <ClCompile Include="___2b318h.c" />
+    <ClCompile Include="___60420h.c" />
+    <ClCompile Include=" pal.c" />
+    <ClCompile Include="___3d890h.c" />
+    <ClCompile Include="___58c60h.c" />
+    <ClCompile Include="___3d38ch.c" />
+    <ClCompile Include="___135fch.c" />
+    <ClCompile Include="___23230h.c" />
+    <ClCompile Include="chatbox.c" />
+    <ClCompile Include="palx.c" />
+    <ClCompile Include="watcom106.c" />
+    <ClCompile Include="___12200h.c" />
+    <ClCompile Include="cinem.c" />
+    <ClCompile Include="keyboard.c" />
+    <ClCompile Include="network.c" />
+    <ClCompile Include="db_ipx.c" />
+    <ClCompile Include="___13cech.c" />
+    <ClCompile Include="gfx.c" />
+    <ClCompile Include="___20220h.c" />
+    <ClCompile Include="___5994ch.c" />
+    <ClCompile Include="___11378h.c" />
+    <ClCompile Include="___3a6a4h.c" />
+    <ClCompile Include="___2a394h.c" />
+    <ClCompile Include="___2aa08h.c" />
+    <ClCompile Include="___31588h.c" />
+    <ClCompile Include="___30df8h.c" />
+    <ClCompile Include="___12e78h.c" />
+    <ClCompile Include="___17248h.c" />
+    <ClCompile Include="___13094h.c" />
+    <ClCompile Include="___33010h.c" />
+    <ClCompile Include="sound3.c" />
+    <ClCompile Include="sound4.c" />
+    <ClCompile Include="sound_thread_switches.c" />
+    <ClCompile Include="___13c9ch.c" />
+    <ClCompile Include="___13bd4h.c" />
+    <ClCompile Include="___2ab50h.c" />
+    <ClCompile Include="___3a454h.c" />
+    <ClCompile Include="___3a214h.c" />
+    <ClCompile Include="drmath.c" />
+    <ClCompile Include="___1123ch.c" />
+    <ClCompile Include="dos.c" />
+    <ClCompile Include="___148cch.c" />
+    <ClCompile Include="___3a7e0h.c" />
+    <ClCompile Include="___18924h.c" />
+    <ClCompile Include="___18808h.c" />
+    <ClCompile Include="___596f0h.c" />
+    <ClCompile Include="___44a4ch.c" />
+    <ClCompile Include="___146c4h.c" />
+    <ClCompile Include="___13a98h.c" />
+    <ClCompile Include="___59db8h.c" />
+    <ClCompile Include="___1f6e4h.c" />
+    <ClCompile Include="___3266ch.c" />
+    <ClCompile Include="___424c8h.c" />
+    <ClCompile Include="___22808h.c" />
+    <ClCompile Include="___223c4h.c" />
+    <ClCompile Include="___3ab5ch.c" />
+    <ClCompile Include="___12f60h.c" />
+    <ClCompile Include="___259e0h.c" />
+    <ClCompile Include="___17510h.c" />
+    <ClCompile Include="___13248h.c" />
+    <ClCompile Include="___14c50h.c" />
+    <ClCompile Include="___14cach.c" />
+    <ClCompile Include="___14dc4h.c" />
+    <ClCompile Include="___15130h.c" />
+    <ClCompile Include="___1549ch.c" />
+    <ClCompile Include="___164d0h.c" />
+    <ClCompile Include="___15808h.c" />
+    <ClCompile Include="___15e3ch.c" />
+    <ClCompile Include="___165ach.c" />
+    <ClCompile Include="___1678ch.c" />
+    <ClCompile Include="___17324h.c" />
+    <ClCompile Include="___168b4h.c" />
+    <ClCompile Include="___1716ch.c" />
+    <ClCompile Include="___17384h.c" />
+    <ClCompile Include="___18cf0h.c" />
+    <ClCompile Include="___190c4h.c" />
+    <ClCompile Include="___1f094h.c" />
+    <ClCompile Include="___21fd4h.c" />
+    <ClCompile Include="___4256ch.c" />
+    <ClCompile Include="___53378h.c" />
+    <ClCompile Include="___4a064h.c" />
+    <ClCompile Include="___250e0h.c" />
+    <ClCompile Include="___25230h.c" />
+    <ClCompile Include="___59cd8h.c" />
+    <ClCompile Include="___251e8h.c" />
+    <ClCompile Include="___252e0h.c" />
+    <ClCompile Include="___25a74h.c" />
+    <ClCompile Include="___2a608h.c" />
+    <ClCompile Include="___25330h.c" />
+    <ClCompile Include="___25e40h.c" />
+    <ClCompile Include="___262b4h.c" />
+    <ClCompile Include="___26650h.c" />
+    <ClCompile Include="___269e4h.c" />
+    <ClCompile Include="___26e54h.c" />
+    <ClCompile Include="___26fach.c" />
+    <ClCompile Include="___27078h.c" />
+    <ClCompile Include="___273d8h.c" />
+    <ClCompile Include="___276f0h.c" />
+    <ClCompile Include="___27a10h.c" />
+    <ClCompile Include="___27d24h.c" />
+    <ClCompile Include="___27f80h.c" />
+    <ClCompile Include="___281d0h.c" />
+    <ClCompile Include="___28470h.c" />
+    <ClCompile Include="___28ab4h.c" />
+    <ClCompile Include="___2a6a8h.c" />
+    <ClCompile Include="___2b5f0h.c" />
+    <ClCompile Include="___2b7a0h.c" />
+    <ClCompile Include="___2b81ch.c" />
+    <ClCompile Include="___2d054h.c" />
+    <ClCompile Include="___2d0ech.c" />
+    <ClCompile Include="___2d184h.c" />
+    <ClCompile Include="___2d20ch.c" />
+    <ClCompile Include="___2d294h.c" />
+    <ClCompile Include="___2d618h.c" />
+    <ClCompile Include="___2d6a0h.c" />
+    <ClCompile Include="___2d728h.c" />
+    <ClCompile Include="___2d898h.c" />
+    <ClCompile Include="___2da10h.c" />
+    <ClCompile Include="___2db88h.c" />
+    <ClCompile Include="___2ddc8h.c" />
+    <ClCompile Include="___2deb0h.c" />
+    <ClCompile Include="___2df34h.c" />
+    <ClCompile Include="___2dfd0h.c" />
+    <ClCompile Include="___2e1b0h.c" />
+    <ClCompile Include="___2ed2ch.c" />
+    <ClCompile Include="___3079ch.c" />
+    <ClCompile Include="___30a84h.c" />
+    <ClCompile Include="___30c60h.c" />
+    <ClCompile Include="___31008h.c" />
+    <ClCompile Include="___3174ch.c" />
+    <ClCompile Include="___31868h.c" />
+    <ClCompile Include="___32230h.c" />
+    <ClCompile Include="___35b68h.c" />
+    <ClCompile Include="___35dd0h.c" />
+    <ClCompile Include="___35f34h.c" />
+    <ClCompile Include="___36068h.c" />
+    <ClCompile Include="___36358h.c" />
+    <ClCompile Include="___36718h.c" />
+    <ClCompile Include="___36adch.c" />
+    <ClCompile Include="___37ed4h.c" />
+    <ClCompile Include="___3d9c0h.c" />
+    <ClCompile Include="___38184h.c" />
+    <ClCompile Include="___38708h.c" />
+    <ClCompile Include="___38768h.c" />
+    <ClCompile Include="___3a968h.c" />
+    <ClCompile Include="___3deb8h.c" />
+    <ClCompile Include="___3e03ch.c" />
+    <ClCompile Include="___3892ch.c" />
+    <ClCompile Include="___59b3ch.c" />
+    <ClCompile Include="pxl.c" />
+    <ClCompile Include="assets.c" />
+    <ClCompile Include="car_data.c" />
+    <ClCompile Include="fonts.c" />
+    <ClCompile Include="___10754h.c" />
+    <ClCompile Include="___198a0h.c" />
+    <ClCompile Include="___1c374h.c" />
+    <ClCompile Include="___1d00ch.c" />
+    <ClCompile Include="___23488h.c" />
+    <ClCompile Include="___23594h.c" />
+    <ClCompile Include="___23758h.c" />
+    <ClCompile Include="___2fca4h.c" />
+    <ClCompile Include="___2fe64h.c" />
+    <ClCompile Include="netpage.c" />
+    <ClCompile Include="___1e4f8h.c" />
+    <ClCompile Include="___233c0h.c" />
+    <ClCompile Include="___1b140h.c" />
+    <ClCompile Include="___1ad30h.c" />
+    <ClCompile Include="___1c6bch.c" />
+    <ClCompile Include="___38878h.c" />
+    <ClCompile Include="___44194h.c" />
+    <ClCompile Include="___44130h.c" />
+    <ClCompile Include="___4495ch.c" />
+    <ClCompile Include="___44730h.c" />
+    <ClCompile Include="___446ach.c" />
+    <ClCompile Include="___1caf4h.c" />
+    <ClCompile Include="menu_main.c" />
+    <ClCompile Include="menu_data.c" />
+    <ClCompile Include="menu___14010h.c" />
+    <ClCompile Include="menu___14368h.c" />
+    <ClCompile Include="menu___194a8h.c" />
+    <ClCompile Include="menu___1e888h.c" />
+    <ClCompile Include="menu___218b4h.c" />
+    <ClCompile Include="menu___22a80h.c" />
+    <ClCompile Include="menu___3d4f0h.c" />
+    <ClCompile Include="menu___3da48h.c" />
+    <ClCompile Include="menu___204fch.c" />
+    <ClCompile Include="shop_main.c" />
+    <ClCompile Include="shop___28e40h.c" />
+    <ClCompile Include="shop___2836ch.c" />
+    <ClCompile Include="shop___283ech.c" />
+    <ClCompile Include="shop___285f8h.c" />
+    <ClCompile Include="shop___28880h.c" />
+    <ClCompile Include="shop___2b6a4h.c" />
+    <ClCompile Include="underground_main.c" />
+    <ClCompile Include="underground___28c1ch.c" />
+    <ClCompile Include="underground___2e350h.c" />
+    <ClCompile Include="race_main.c" />
+    <ClCompile Include="race_settings.c" />
+    <ClCompile Include="race___3f970h.c" />
+    <ClCompile Include="race___400ech.c" />
+    <ClCompile Include="race___40164h.c" />
+    <ClCompile Include="race___4083ch.c" />
+    <ClCompile Include="race___40864h.c" />
+    <ClCompile Include="race___42218h.c" />
+    <ClCompile Include="race___42824h.c" />
+    <ClCompile Include="race___43488h.c" />
+    <ClCompile Include="race___4539ch.c" />
+    <ClCompile Include="race___4580ch.c" />
+    <ClCompile Include="race___45a24h.c" />
+    <ClCompile Include="race___46738h.c" />
+    <ClCompile Include="race___46a10h.c" />
+    <ClCompile Include="race___478c8h_p.c" />
+    <ClCompile Include="race___483d4h.c" />
+    <ClCompile Include="race___48458h.c" />
+    <ClCompile Include="race___492f4h.c" />
+    <ClCompile Include="race___49390h.c" />
+    <ClCompile Include="race___496b0h.c" />
+    <ClCompile Include="race___49a34h.c" />
+    <ClCompile Include="race___49bd4h.c" />
+    <ClCompile Include="race___4a25ch.c" />
+    <ClCompile Include="race___4a6b4h.c" />
+    <ClCompile Include="race___4af3ch.c" />
+    <ClCompile Include="race___4b62ch.c" />
+    <ClCompile Include="race___4c21ch.c" />
+    <ClCompile Include="race___4dcach.c" />
+    <ClCompile Include="race___4ee9ch.c" />
+    <ClCompile Include="race___4f030h.c" />
+    <ClCompile Include="race___4f170h.c" />
+    <ClCompile Include="race___4f300h.c" />
+    <ClCompile Include="race___4ff50h.c" />
+    <ClCompile Include="race___50a48h.c" />
+    <ClCompile Include="race___50ba4h.c" />
+    <ClCompile Include="race___50ef4h.c" />
+    <ClCompile Include="race___51204h.c" />
+    <ClCompile Include="race___514d8h.c" />
+    <ClCompile Include="race___51ce0h.c" />
+    <ClCompile Include="race___5209ch.c" />
+    <ClCompile Include="race___526ach.c" />
+    <ClCompile Include="race___52ac4h.c" />
+    <ClCompile Include="race___52d7ch.c" />
+    <ClCompile Include="race___53310h.c" />
+    <ClCompile Include="race___53464h.c" />
+    <ClCompile Include="race___54668h.c" />
+    <ClCompile Include="race___55ae0h.c" />
+    <ClCompile Include="race___560d8h.c" />
+    <ClCompile Include="race___56170h.c" />
+    <ClCompile Include="race___563ach.c" />
+    <ClCompile Include="race___56594h.c" />
+    <ClCompile Include="race___5326ch.c" />
+    <ClCompile Include="race___51eb4h.c" />
+    <ClCompile Include="race___4adach.c" />
+    <ClCompile Include="race___4c434h.c" />
+    <ClCompile Include="race___405bch.c" />
+    <ClCompile Include="race___40db4h.c" />
+    <ClCompile Include="race___4207ch.c" />
+    <ClCompile Include="race___454ach.c" />
+    <ClCompile Include="race___40f48h.c" />
+    <ClCompile Include="race___45d3ch.c" />
+    <ClCompile Include="___race___44a78h.c" />
+    <ClCompile Include="___race___44304h.c" />
+    <ClCompile Include="race_msg.c" />
+    <ClCompile Include="race_memory.c" />
+    <ClCompile Include="__dfr_1bc20h.c" />
+    <ClCompile Include="__dfr_197d0h.c" />
+    <ClCompile Include="__dfr_1c178h.c" />
+    <ClCompile Include="__dfr_3986ch.c" />
+    <ClCompile Include="__dfr_25138h.c" />
+    <ClCompile Include="__dfr_1aa28h.c" />
+    <ClCompile Include="__dfr_16e6ch.c" />
+    <ClCompile Include="__dfr_39634h.c" />
+    <ClCompile Include="    __dfr_1f124h.c" />
+    <ClCompile Include="__dfr_1d2a8h.c" />
+    <ClCompile Include="__dfr_1d9f8h.c" />
+    <ClCompile Include="__dfr_1e09ch.c" />
+    <ClCompile Include="__dfr_18394h.c" />
+    <ClCompile Include="__dfr_1f0dch.c" />
+    <ClCompile Include="__dfr_1ca00h.c" />
+    <ClCompile Include="__dfr_1d4e8h.c" />
+    <ClCompile Include="__dfr_1d688h.c" />
+    <ClCompile Include="__dfr_1d83ch.c" />
+    <ClCompile Include="__dfr_1e62ch.c" />
+    <ClCompile Include="__dfr_210b4h.c" />
+    <ClCompile Include="__dfr_20d18h.c" />
+    <ClCompile Include="__dfr_20f78h.c" />
+    <ClCompile Include="__dfr_217b0h.c" />
+    <ClCompile Include="__dfr_59720h.c" />
+    <ClCompile Include="___47e90h.c" />
+    <ClCompile Include="__dfr_47d8ch.c" />
+    <ClCompile Include="__dfr_menu___3e4a0h.c" />
+    <ClCompile Include="__dfr_232f8h.c" />
+    <ClCompile Include="__dfr_3881ch.c" />
+    <ClCompile Include="__dfr_40564h.c" />
+    <ClCompile Include="drally.c" />
+    <ClCompile Include="drencryption.c" />
+  </ItemGroup>
+  <ItemGroup>
+  	<ClInclude Include="assets.h" />
+    <ClInclude Include="bpa.h" />
+    <ClInclude Include="dos.h" />
+    <ClInclude Include="drally_fonts.h" />
+    <ClInclude Include="drally.h" />
+    <ClInclude Include="drally_ipx.h" />
+    <ClInclude Include="drally_keyboard.h" />
+    <ClInclude Include="drally_race.h" />
+    <ClInclude Include="drally_structs_fixed.h" />
+    <ClInclude Include="drally_structs_free.h" />
+    <ClInclude Include="draudio.h" />
+    <ClInclude Include="drencryption.h" />
+    <ClInclude Include="drenums.h" />
+    <ClInclude Include="drmath.h" />
+    <ClInclude Include="drmemory.h" />
+    <ClInclude Include="mod_s3m.h" />
+    <ClInclude Include="mod_xm.h" />
+    <ClInclude Include="netpage.h" />
+    <ClInclude Include="pxl.h" />
+    <ClInclude Include="sfx.h" />
+    <ClInclude Include="types.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

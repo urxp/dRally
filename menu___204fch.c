@@ -1,45 +1,39 @@
 #include "drally.h"
 #include "drally_structs_free.h"
+#include "drally_fonts.h"
 
-#pragma pack(1)
-typedef struct font_props_s {
-	byte 	w;
-	byte 	h;
-	byte 	props[];
-} font_props_t;
-
-	extern void * ___1a1138h__VESA101h_DefaultScreenBufferB;
-	extern void * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
-	extern byte ___185c0bh[];
-	extern void * ___1a1108h;
-	extern byte ___1866b8h[];
-	extern byte ___19ce70h[];
-	extern byte ___1866b8h[];
-	extern byte ___1866b8h[];
-	extern byte ___1866b8h[];
+	extern __POINTER__ ___1a1138h__VESA101h_DefaultScreenBufferB;
+	extern __POINTER__ ___1a112ch__VESA101_ACTIVESCREEN_PTR;
+	extern __BYTE__ ___185c0bh[];
+	extern __POINTER__ ___1a1108h;
+	extern __BYTE__ ___1866b8h[];
+	extern char ___19ce70h[0xf00];
+	extern __BYTE__ ___1866b8h[];
+	extern __BYTE__ ___1866b8h[];
+	extern __BYTE__ ___1866b8h[];
 	extern kb_control_t ___1a1140h;
-	extern byte ___1866b8h[];
-	extern byte ___1866b8h[];
-	extern byte ___1866b8h[];
-	extern byte ___1866b8h[];
-	extern byte ___185a5ch[];
-	extern byte ___185b58h[];
+	extern __BYTE__ ___1866b8h[];
+	extern __BYTE__ ___1866b8h[];
+	extern __BYTE__ ___1866b8h[];
+	extern __BYTE__ ___1866b8h[];
+	extern __BYTE__ ___185a5ch[];
+	extern __BYTE__ ___185b58h[];
 
-dword ___20220h(void);
-byte ___59b3ch(void);
-void ___12e78h_cdecl(byte * A1, font_props_t * A2, const char * A3, dword dst_off);
-byte ___5994ch(void);
-void ___13710h(dword, dword);
+__DWORD__ ___20220h(void);
+__BYTE__ ___59b3ch(void);
+void ___12e78h_cdecl(__BYTE__ * A1, font_props_t * A2, const char * A3, __DWORD__ dst_off);
+__BYTE__ ___5994ch(void);
+void ___13710h(__DWORD__, __DWORD__);
 void ___12cb8h__VESA101_PRESENTSCREEN(void);
-int ___146c4h_cdecl(dword);
-void ___13248h_cdecl(dword, dword ,dword, dword, dword);
+int ___146c4h_cdecl(__DWORD__);
+void ___13248h_cdecl(__DWORD__, __DWORD__ ,__DWORD__, __DWORD__, __DWORD__);
 void ___1f6e4h(void);
 
 
 void menu___204fch(void){
 
-	dword 	eax, ebx, ecx, edx, edi, esi, ebp;
-	byte 	esp[0x3c];
+	__DWORD__ 	eax, ebx, ecx, edx, edi, esi, ebp;
+	__BYTE__ 	esp[0x3c];
 
 
 	___1f6e4h();
@@ -77,7 +71,7 @@ void menu___204fch(void){
 			___13710h(3, 0);
 			___13710h(6, 0);
 			___13248h_cdecl(0x127, 0x79, 0x143, 0x30, 1);
-			___12e78h_cdecl(___1a1108h, ___185c0bh, "Press a key for accelerate...", D(esp+0x28));
+			___12e78h_cdecl(___1a1108h, (font_props_t *)___185c0bh, "Press a key for accelerate...", D(esp+0x28));
 			___12cb8h__VESA101_PRESENTSCREEN();
 
 			while(1){
@@ -97,7 +91,7 @@ void menu___204fch(void){
 			___13710h(3, 0);
 			___13710h(6, 0);
 			___13248h_cdecl(0x127, D(esp+0x10), 0x143, 0x30, 1);
-			___12e78h_cdecl(___1a1108h, ___185c0bh, "Press a key for brake...", D(esp+0x24));
+			___12e78h_cdecl(___1a1108h, (font_props_t *)___185c0bh, "Press a key for brake...", D(esp+0x24));
 			___12cb8h__VESA101_PRESENTSCREEN();
 
 			while(1){
@@ -117,7 +111,7 @@ void menu___204fch(void){
 			___13710h(3, 0);
 			___13710h(6, 0);
 			___13248h_cdecl(0x127, D(esp+0x14), 0x143, 0x30, 1);
-			___12e78h_cdecl(___1a1108h, ___185c0bh, "Press a key for left steer...", D(esp+0x38));
+			___12e78h_cdecl(___1a1108h, (font_props_t *)___185c0bh, "Press a key for left steer...", D(esp+0x38));
 			___12cb8h__VESA101_PRESENTSCREEN();
 
 			while(1){
@@ -137,7 +131,7 @@ void menu___204fch(void){
 			___13710h(3, 0);
 			___13710h(6, 0);
 			___13248h_cdecl(0x127, D(esp+4), 0x143, 0x30, 1);
-			___12e78h_cdecl(___1a1108h, ___185c0bh, "Press a key for right steer...", D(esp+0x1c));
+			___12e78h_cdecl(___1a1108h, (font_props_t *)___185c0bh, "Press a key for right steer...", D(esp+0x1c));
 			___12cb8h__VESA101_PRESENTSCREEN();
 
 			while(1){
@@ -157,7 +151,7 @@ void menu___204fch(void){
 			___13710h(3, 0);
 			___13710h(6, 0);
 			___13248h_cdecl(0x127, D(esp+8), 0x143, 0x30, 1);
-			___12e78h_cdecl(___1a1108h, ___185c0bh, "Press a key for turbo boost...", D(esp+0x18));
+			___12e78h_cdecl(___1a1108h, (font_props_t *)___185c0bh, "Press a key for turbo boost...", D(esp+0x18));
 			___12cb8h__VESA101_PRESENTSCREEN();
 
 			while(1){
@@ -177,7 +171,7 @@ void menu___204fch(void){
 			___13710h(3, 0);
 			___13710h(6, 0);
 			___13248h_cdecl(0x127, D(esp+0x2c), 0x143, 0x30, 1);
-			___12e78h_cdecl(___1a1108h, ___185c0bh, "Press a key for machine gun...", D(esp+0xc));
+			___12e78h_cdecl(___1a1108h, (font_props_t *)___185c0bh, "Press a key for machine gun...", D(esp+0xc));
 			___12cb8h__VESA101_PRESENTSCREEN();
 
 			while(1){
@@ -197,7 +191,7 @@ void menu___204fch(void){
 			___13710h(3, 0);
 			___13710h(6, 0);
 			___13248h_cdecl(0x127, D(esp+0x34), 0x143, 0x30, 1);
-			___12e78h_cdecl(___1a1108h, ___185c0bh, "Press a key for drop mine...", D(esp+0x20));
+			___12e78h_cdecl(___1a1108h, (font_props_t *)___185c0bh, "Press a key for drop mine...", D(esp+0x20));
 			___12cb8h__VESA101_PRESENTSCREEN();
 
 			while(1){
@@ -217,7 +211,7 @@ void menu___204fch(void){
 			___13710h(3, 0);
 			___13710h(6, 0);
 			___13248h_cdecl(0x127, D(esp), 0x143, 0x30, 1);
-			___12e78h_cdecl(___1a1108h, ___185c0bh, "Press a key for horn...", D(esp+0x30));
+			___12e78h_cdecl(___1a1108h, (font_props_t *)___185c0bh, "Press a key for horn...", D(esp+0x30));
 			___12cb8h__VESA101_PRESENTSCREEN();
 
 			while(1){

@@ -1,7 +1,9 @@
 #include "drally.h"
 
-dword ___59720h(void){
+__DWORD__ ___59720h(void){
 
+	printf("TODO ___59720h\n");
+	exit(1);
 /*
 cpu 386
 %include "macros.inc"
@@ -11,7 +13,7 @@ cpu 386
 	extern	dRally_Keyboard_popLastChar
 	extern	___199f4ch
 	extern	___199f48h
-	extern	___24cc6ch
+	extern	___24cc64h
 	extern	___199f50h
 	extern	___199f54h
 	extern	___19bd58h_gamepad
@@ -59,7 +61,7 @@ __GDECL(___59720h)
 		test    ecx, ecx
 		je      short ___5976eh
 		mov     ecx, [___199f48h]
-		mov     esi, [___24cc6ch]
+		mov     esi, [___24cc64h+8]
 		lea     edi, [ecx+1]
 		mov     [ecx+esi*1], bh
 		mov     ecx, edi
@@ -71,7 +73,7 @@ ___5976eh:
 		cmp     dword [___199f50h], byte 0
 		je      short ___597c1h
 		mov     edi, [___199f48h]
-		mov     ebx, [___24cc6ch]
+		mov     ebx, [___24cc64h+8]
 		add     ebx, edi
 		cmp     byte [ebx], 45h
 		jne     short ___5979eh
@@ -83,7 +85,7 @@ ___5976eh:
 		mov     [___199f50h], ebp
 ___5979eh:
 		mov     eax, [___199f48h]
-		mov     ebx, [___24cc6ch]
+		mov     ebx, [___24cc64h+8]
 		lea     ecx, [eax+1]
 		mov     dl, [ebx+eax*1]
 		mov     eax, ecx

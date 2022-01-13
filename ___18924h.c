@@ -2,49 +2,49 @@
 #include "drmemory.h"
 #include "sfx.h"
 
-	extern byte ___1866b8h[];
-	extern byte ___1866b8h[];
-	extern void * ___1a1138h__VESA101h_DefaultScreenBufferB;
-	extern void * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
+	extern __BYTE__ ___1866b8h[];
+	extern __BYTE__ ___1866b8h[];
+	extern __POINTER__ ___1a1138h__VESA101h_DefaultScreenBufferB;
+	extern __POINTER__ ___1a112ch__VESA101_ACTIVESCREEN_PTR;
 	extern __DWORD__ ___24cc54h_sfx_volume;
-	extern byte ___1866b8h[];
-	extern byte ___185b58h[];
-	extern byte ___1866b8h[];
-	extern byte ___185a48h[];
-	extern byte ___185a44h[];
-	extern byte ___185a40h[];
-	extern byte ___185a3ch[];
-	extern byte ___243d44h[];
-	extern byte ___196ab4h[];
-	extern void * ___1a0f9ch;
-	extern byte ___1a1ef8h[];
-	extern byte ___185a14h_UseWeapons[];
-	extern byte ___1a01e0h[];
+	extern __BYTE__ ___1866b8h[];
+	extern __BYTE__ ___185b58h[];
+	extern __BYTE__ ___1866b8h[];
+	extern __BYTE__ ___185a48h[];
+	extern __BYTE__ ___185a44h[];
+	extern __BYTE__ ___185a40h[];
+	extern __BYTE__ ___185a3ch[];
+	extern __DWORD__ ___243d44h;
+	extern __BYTE__ ___196ab4h[];
+	extern __POINTER__ ___1a0f9ch;
+	extern __BYTE__ ___1a1ef8h[];
+	extern __BYTE__ ___185a14h_UseWeapons[];
+	extern __BYTE__ ___1a01e0h[];
 	extern __DWORD__ ___196a94h_difficulty;
-	extern byte ___1a0a50h[];
+	extern __BYTE__ ___1a0a50h[];
 
 
-dword ___146c4h_cdecl(dword);
+__DWORD__ ___146c4h_cdecl(__DWORD__);
 char * itoa_watcom106(int value, char * buffer, int radix);
-dword GET_FILE_SIZE(const char *);
+__DWORD__ GET_FILE_SIZE(const char *);
 void ___18808h_cdecl(char * A1, const char * A2);
-void ___13710h(dword, dword);
+void ___13710h(__DWORD__, __DWORD__);
 void ___12cb8h__VESA101_PRESENTSCREEN(void);
-void dRally_Sound_pushEffect(byte channel, byte n, dword unk, dword a0, dword a1, dword a2);
+void dRally_Sound_pushEffect(__BYTE__ channel, __BYTE__ n, __DWORD__ unk, __DWORD__ a0, __DWORD__ a1, __DWORD__ a2);
 void ___2a608h_cdecl(const char *);
-void * ___3f71ch__allocateMemory(dword);
+__POINTER__ ___3f71ch__allocateMemory(__DWORD__);
 
-static byte ROL_BYTE(byte b, int n){
+static __BYTE__ ROL_BYTE(__BYTE__ b, int n){
 
     return (b<<n)|(b>>(8-n));
 }
 
 // LOAD GAME
-dword ___18924h(void){
+__DWORD__ ___18924h(void){
 
-	dword 	eax, ebx, ecx, edx, edi, esi, ebp;
-	byte 	esp[0x28];
-	byte 	key;
+	__DWORD__ 	eax, ebx, ecx, edx, edi, esi, ebp;
+	__BYTE__ 	esp[0x28];
+	__BYTE__ 	key;
 	int 	n;
 	FILE *	fd;
 
@@ -98,7 +98,7 @@ dword ___18924h(void){
 		D(___185a44h) = 0;
 		D(___185a40h) = 0;
 		D(___185a3ch) = 0;
-		D(___243d44h) = 0;
+		___243d44h = 0;
 		D(___196ab4h) = 0;
 		strcpy(___1866b8h, "Continue Racing"); 
 		___1a0f9ch = ___3f71ch__allocateMemory(0x883);

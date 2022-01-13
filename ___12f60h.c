@@ -2,19 +2,19 @@
 
 #pragma pack(1)
 typedef struct font_props_s {
-	byte 	w;
-	byte 	h;
-	byte 	props[];
+	__BYTE__ 	w;
+	__BYTE__ 	h;
+	__BYTE__ 	props[];
 } font_props_t;
 
 	extern font_props_t ___185c6dh;
-	extern byte * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
-	extern byte * ___1a10b0h;
+	extern __BYTE__ * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
+	extern __BYTE__ * ___1a10b0h;
 
 static int c_index(int c){ return ((c &= 0xff) == '$') ? 0 : c-0x2f; }
-static byte c_width(int c){ return ___185c6dh.props[c_index(c)]; }
+static __BYTE__ c_width(int c){ return ___185c6dh.props[c_index(c)]; }
 
-void ___12f60h_cdecl(const char * A1, dword A2){
+void ___12f60h_cdecl(const char * A1, __DWORD__ A2){
 
 	int 	i, j, w, h, n, dst_off, src_off;
 

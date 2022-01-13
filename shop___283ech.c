@@ -1,14 +1,14 @@
 #include "drally.h"
 #include "sfx.h"
 
-	extern byte ___1a1ec4h[];
+	extern __BYTE__ ___1a1ec4h[];
 	extern __DWORD__ ___24cc54h_sfx_volume;
 
 
-void dRally_Sound_pushEffect(byte channel, byte n, dword unk, dword a0, dword a1, dword a2);
+void dRally_Sound_pushEffect(__BYTE__ channel, __BYTE__ n, __DWORD__ unk, __DWORD__ a0, __DWORD__ a1, __DWORD__ a2);
 void ___25e40h(void);
-void ___281d0h_cdecl(dword, dword, dword, dword);
-void ___27f80h_cdecl(dword, dword, dword, dword);
+void ___281d0h_cdecl(__DWORD__, __DWORD__, __DWORD__, __DWORD__);
+void ___27f80h_cdecl(__DWORD__, __DWORD__, __DWORD__, __DWORD__);
 void ___12cb8h__VESA101_PRESENTSCREEN(void);
 
 void shop___283ech(void){

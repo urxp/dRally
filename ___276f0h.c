@@ -1,22 +1,22 @@
 #include "drally.h"
+#include "drally_fonts.h"
 
 typedef char char40[40];
 
-	extern void * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
-	extern void * ___1a1e98h;
-	extern byte ___1a1ef8h[];
-	extern byte ___18e298h[];
-	extern byte ___1a01e0h[];
-	extern void * ___1a1eb8h;
+	extern __POINTER__ ___1a112ch__VESA101_ACTIVESCREEN_PTR;
+	extern __POINTER__ ___1a1e98h;
+	extern __BYTE__ ___1a1ef8h[];
+	extern __BYTE__ ___18e298h[];
+	extern __BYTE__ ___1a01e0h[];
+	extern __POINTER__ ___1a1eb8h;
 	extern __DWORD__ ___18643ch[][0xc];
-	extern void * ___1a0198h[4];
-	extern byte ___1a1ec0h[];
+	extern __POINTER__ ___1a0198h[4];
+	extern __BYTE__ ___1a1ec0h[];
 
-void ___259e0h_cdecl(int dx, int dy, int aFrameIdx, void * aEncoded, int * aOffsets);
-void ___13094h_cdecl(const char *, dword);
+void ___259e0h_cdecl(int dx, int dy, int aFrameIdx, __POINTER__ aEncoded, int * aOffsets);
 int ___25180h_cdecl(const char * A1);
-void ___12f60h_cdecl(const char * A1, dword A2);
-void ___13248h_cdecl(dword, dword ,dword, dword, dword);
+void ___12f60h_cdecl(const char * A1, __DWORD__ A2);
+void ___13248h_cdecl(__DWORD__, __DWORD__ ,__DWORD__, __DWORD__, __DWORD__);
 char * itoa_watcom106(int value, char * buffer, int radix);
 
 static const char40 ___191880h[4][6] = {
@@ -57,10 +57,10 @@ static const char40 ___191880h[4][6] = {
 // SHOP TIRES MAX UPGRADE UPDATE
 void ___276f0h(void){
 
-	dword 	eax, ebx, ecx, edx, edi, esi, ebp;
-	byte 	esp[0x28];
-	void * 	ebxp;
-	void * 	esip;
+	__DWORD__ 	eax, ebx, ecx, edx, edi, esi, ebp;
+	__BYTE__ 	esp[0x28];
+	__POINTER__ 	ebxp;
+	__POINTER__ 	esip;
 
 
 		ecx = 0x60;
@@ -169,11 +169,11 @@ ___2789fh:
 		edx = 0x72;
 		eax = 0x90;
 		___13248h_cdecl(eax, edx, ebx, ecx, 1);
-		___13094h_cdecl(___191880h[D(___1a01e0h+0x14+0x6c*D(___1a1ef8h))][0], 0x136aa);
-		___13094h_cdecl(___191880h[D(___1a01e0h+0x14+0x6c*D(___1a1ef8h))][1], 0x15eaa);
-		___13094h_cdecl(___191880h[D(___1a01e0h+0x14+0x6c*D(___1a1ef8h))][2], 0x186aa);
-		___13094h_cdecl(___191880h[D(___1a01e0h+0x14+0x6c*D(___1a1ef8h))][3], 0x1aeaa);
-		___13094h_cdecl(___191880h[D(___1a01e0h+0x14+0x6c*D(___1a1ef8h))][4], 0x1d6aa);
-		___13094h_cdecl(___191880h[D(___1a01e0h+0x14+0x6c*D(___1a1ef8h))][5], 0x1feaa);
+		VESA101_16X16_FORMAT_PRINT(___191880h[D(___1a01e0h+0x14+0x6c*D(___1a1ef8h))][0], 170, 124);
+		VESA101_16X16_FORMAT_PRINT(___191880h[D(___1a01e0h+0x14+0x6c*D(___1a1ef8h))][1], 170, 140);
+		VESA101_16X16_FORMAT_PRINT(___191880h[D(___1a01e0h+0x14+0x6c*D(___1a1ef8h))][2], 170, 156);
+		VESA101_16X16_FORMAT_PRINT(___191880h[D(___1a01e0h+0x14+0x6c*D(___1a1ef8h))][3], 170, 172);
+		VESA101_16X16_FORMAT_PRINT(___191880h[D(___1a01e0h+0x14+0x6c*D(___1a1ef8h))][4], 170, 188);
+		VESA101_16X16_FORMAT_PRINT(___191880h[D(___1a01e0h+0x14+0x6c*D(___1a1ef8h))][5], 170, 204);
 		return;
 }

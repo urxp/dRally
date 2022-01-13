@@ -1,15 +1,15 @@
 #include "drally.h"
 
-	extern byte ___196e68h[];
+	extern __BYTE__ ___196e68h[];
 	extern int * ___243314h;	// [3601]
-	extern byte ___196d98h[];
-	extern void * ___243d80h;
-	extern byte VGA13_ACTIVESCREEN[];
+	extern __BYTE__ ___196d98h[];
+	extern __POINTER__ ___243d80h;
+	extern __BYTE__ VGA13_ACTIVESCREEN[];
 
 // DRUGGED
 void race___454ach(void){
 
-	dword 	eax, ebx, ecx, edi, esi;
+	__DWORD__ 	eax, ebx, ecx, edi, esi;
 	int 	i, j, k, l, m, n;
 
 

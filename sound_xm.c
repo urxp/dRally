@@ -1,10 +1,10 @@
 #include "drally.h"
 
-static dword XM_LFT_Frequency(dword period){
+static __DWORD__ XM_LFT_Frequency(__DWORD__ period){
 
 	int r_period, k, pos;
 
-	static const word PowTab[] = {
+	static const __WORD__ PowTab[] = {
 		// 2*8363*2^(i/768) table
 		16726,16741,16756,16771,16786,16801,16816,16832,16847,16862,16877,16892,16908,16923,16938,16953,
 		16969,16984,16999,17015,17030,17046,17061,17076,17092,17107,17123,17138,17154,17169,17185,17200,
@@ -63,12 +63,12 @@ static dword XM_LFT_Frequency(dword period){
 	return (0x20*PowTab[pos])>>k;
 }
 
-dword ___71b70h_cdecl(dword period){
+__DWORD__ ___71b70h_cdecl(__DWORD__ period){
 
 	return 0x2d8*XM_LFT_Frequency(period)/0x105;
 }
 
-dword XM_getPeriod(int Note, int FineTune){
+__DWORD__ XM_getPeriod(int Note, int FineTune){
 
 	return 10*12*16*4 - Note*16*4 - FineTune/2;
 }

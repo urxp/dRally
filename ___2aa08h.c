@@ -2,24 +2,24 @@
 
 #pragma pack(1)
 typedef struct rgb24_s {
-	byte 	r;
-	byte 	g;
-	byte 	b;
+	__BYTE__ 	r;
+	__BYTE__ 	g;
+	__BYTE__ 	b;
 } rgb24_t;
 
-	extern byte kmap[];
-	extern dword ___196a88h;
-	extern dword ___196ad8h;
+	extern __BYTE__ kmap[];
+	extern __DWORD__ ___196a88h;
+	extern __DWORD__ ___196ad8h;
 	extern rgb24_t * ___1a10c8h;
 
-void __DISPLAY_SET_PALETTE_COLOR(dword b, dword g, dword r, dword n);
+void __DISPLAY_SET_PALETTE_COLOR(__DWORD__ b, __DWORD__ g, __DWORD__ r, __DWORD__ n);
 void ___58c60h(void);
 void ___3a454h(void);
 void ___2a394h(void);
 
 void ___2aa08h(void){
 
-	dword 	r, g, b, n;
+	__DWORD__ 	r, g, b, n;
 
 	if(kmap[0x58] != 0) ___3a454h();
 

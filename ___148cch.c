@@ -1,42 +1,40 @@
 #include "drally.h"
 #include "drally_keyboard.h"
+#include "drally_fonts.h"
 #include "sfx.h"
 
-#pragma pack(1)
 
-typedef struct font_props_s {
-	byte 	w;
-	byte 	h;
-	byte 	props[];
-} font_props_t;
-
-	extern byte ___185ba9h[];
-	extern void * ___1a10cch;
-	extern void * ___1a10e0h;
-	extern void * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
+	extern __BYTE__ ___185ba9h[];
+	extern __POINTER__ ___1a10cch;
+	extern __POINTER__ ___1a10e0h;
+	extern __POINTER__ ___1a112ch__VESA101_ACTIVESCREEN_PTR;
 	extern int ___1a1e68h;
-	extern void * ___1a10f4h;
-	extern byte ___19bd60h[];
+	extern __POINTER__ ___1a10f4h;
+#if defined(DR_MULTIPLAYER)
+	extern __DWORD__ ___19bd60h;
+#endif // DR_MULTIPLAYER
 	extern __DWORD__ ___24cc54h_sfx_volume;
 
 void ___12cb8h__VESA101_PRESENTSCREEN(void);
-void ___1398ch__VESA101_PRESENTRECTANGLE(dword offset, void * src, dword w, dword h);
+void ___1398ch__VESA101_PRESENTRECTANGLE(__DWORD__ offset, __POINTER__ src, __DWORD__ w, __DWORD__ h);
 void ___2ab50h(void);
-byte ___5994ch(void);
+__BYTE__ ___5994ch(void);
 #if defined(DR_MULTIPLAYER)
 void ___23758h(void);
 #endif // DR_MULTIPLAYER
-void dRally_Sound_pushEffect(byte channel, byte n, dword unk, dword a0, dword a1, dword a2);
-void ___12e78h_v2(void * font_data, font_props_t * font_props, const char * str, int x, int y);
+void dRally_Sound_pushEffect(__BYTE__ channel, __BYTE__ n, __DWORD__ unk, __DWORD__ a0, __DWORD__ a1, __DWORD__ a2);
+void ___12e78h_v2(__POINTER__ font_data, font_props_t * font_props, const char * str, int x, int y);
 
-int ___148cch_cdecl(int x, int y, dword A3, int * A4){
+int ___148cch_cdecl(int x, int y, __DWORD__ A3, int * A4){
 
 	int 	n, i, j, status;
-	byte 	tmp;
+	__BYTE__ 	tmp;
 
 
-	___12e78h_v2((*A4 == 1)?___1a10cch:___1a10e0h, ___185ba9h, "yes", x+30, y-7);
-	___12e78h_v2((*A4 == 1)?___1a10e0h:___1a10cch, ___185ba9h, "no", x+200, y-7);
+	//___12e78h_v2((*A4 == 1)?___1a10cch:___1a10e0h, ___185ba9h, "yes", x+30, y-7);
+	___12e78h_v3((*A4 == 1)?___1a10cch___185ba9h:___1a10e0h___185ba9h, "yes", x+30, y-7);
+	//___12e78h_v2((*A4 == 1)?___1a10e0h:___1a10cch, ___185ba9h, "no", x+200, y-7);
+	___12e78h_v3((*A4 == 1)?___1a10e0h___185ba9h:___1a10cch___185ba9h, "no", x+200, y-7);
 	
 
 	___12cb8h__VESA101_PRESENTSCREEN();
@@ -82,8 +80,10 @@ int ___148cch_cdecl(int x, int y, dword A3, int * A4){
 			n = -1;
 			while(++n < 0x19) memset(___1a112ch__VESA101_ACTIVESCREEN_PTR+0x280*(y+n)+x+2, 0xc4, 0xf0);
 
-			___12e78h_v2(___1a10cch, ___185ba9h, "yes", x+30, y-7);
-			___12e78h_v2(___1a10e0h, ___185ba9h, "no", x+200, y-7);
+			//___12e78h_v2(___1a10cch, ___185ba9h, "yes", x+30, y-7);
+			___12e78h_v3(___1a10cch___185ba9h, "yes", x+30, y-7);
+			//___12e78h_v2(___1a10e0h, ___185ba9h, "no", x+200, y-7);
+			___12e78h_v3(___1a10e0h___185ba9h, "no", x+200, y-7);
 			*A4 = 1;
 			break;
 		case DR_SCAN_N:
@@ -94,19 +94,21 @@ int ___148cch_cdecl(int x, int y, dword A3, int * A4){
 			n = -1;
 			while(++n < 0x19) memset(___1a112ch__VESA101_ACTIVESCREEN_PTR+0x280*(y+n)+x+2, 0xc4, 0xf0);
 
-			___12e78h_v2(___1a10e0h, ___185ba9h, "yes", x+30, y-7);
-			___12e78h_v2(___1a10cch, ___185ba9h, "no", x+200, y-7);
+			//___12e78h_v2(___1a10e0h, ___185ba9h, "yes", x+30, y-7);
+			___12e78h_v3(___1a10e0h___185ba9h, "yes", x+30, y-7);
+			//___12e78h_v2(___1a10cch, ___185ba9h, "no", x+200, y-7);
+			___12e78h_v3(___1a10cch___185ba9h, "no", x+200, y-7);
 			*A4 = 0;
 			break;
 		case DR_SCAN_ENTER:
 		case DR_SCAN_KP_ENTER:
 			status = -1;
 			break;
-#if defined(DR_MULTIPLAYER)
 		case DR_SCAN_F1:
-			if(D(___19bd60h) != 0) ___23758h();
-			break;
+#if defined(DR_MULTIPLAYER)
+			if(___19bd60h != 0) ___23758h();
 #endif
+			break;
 		default:
 			break;
 		}

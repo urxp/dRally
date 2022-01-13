@@ -1,35 +1,30 @@
 #include "drally.h"
+#include "drally_fonts.h"
 
 #pragma pack(push,1)
-typedef struct font_props_s {
-	byte 	w;
-	byte 	h;
-	byte 	props[];
-} font_props_t;
-
 typedef struct racer_s {
 	char 	name[0xc];			//	+0
-	dword 	damage;				// 	+0xc
+	__DWORD__ 	damage;				// 	+0xc
 	int 	engine;				// 	+0x10
-	dword 	tires;				// 	+0x14
-	dword 	armor;				//	+0x18
-	dword 	car;				//	+0x1c
+	__DWORD__ 	tires;				// 	+0x14
+	__DWORD__ 	armor;				//	+0x18
+	__DWORD__ 	car;				//	+0x1c
 	char 	unk0[0xc];			// 	+0x20
-	dword 	color;				// 	+0x2c
+	__DWORD__ 	color;				// 	+0x2c
 	int 	money;				//	+0x30
 	char 	unk2[0x8];			// 	+0x34
-	dword 	refund;				// 	+0x3c
-	dword 	face;				// 	+0x40
-	dword 	points;				// 	+0x44
-	dword 	rank;				// 	+0x48
-	dword 	wins;				// 	+0x4c
-	dword 	races;				// 	+0x50
+	__DWORD__ 	refund;				// 	+0x3c
+	__DWORD__ 	face;				// 	+0x40
+	__DWORD__ 	points;				// 	+0x44
+	__DWORD__ 	rank;				// 	+0x48
+	__DWORD__ 	wins;				// 	+0x4c
+	__DWORD__ 	races;				// 	+0x50
 	char 	unk3[4];			// 	+0x54
-	dword 	income;				// 	+0x58
-	dword 	mines;				// 	+0x5c
-	dword 	spikes;				// 	+0x60
-	dword 	rocket_fuel;		// 	+0x64
-	dword 	sabotage;			//	+0x68
+	__DWORD__ 	income;				// 	+0x58
+	__DWORD__ 	mines;				// 	+0x5c
+	__DWORD__ 	spikes;				// 	+0x60
+	__DWORD__ 	rocket_fuel;		// 	+0x64
+	__DWORD__ 	sabotage;			//	+0x68
 } racer_t;
 
 typedef char char80[80];
@@ -50,11 +45,11 @@ typedef struct eventtext_s {
 #define Racers ___1a01e0h
 	extern racer_t ___1a01e0h[];
 
-	extern void * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
-	extern void * ___1a1e60h;
-	extern byte ___1a1ef8h[];
-	extern byte ___185ba9h[];
-	extern void * ___1a10cch;
+	extern __POINTER__ ___1a112ch__VESA101_ACTIVESCREEN_PTR;
+	extern __POINTER__ ___1a1e60h;
+	extern __BYTE__ ___1a1ef8h[];
+	extern __BYTE__ ___185ba9h[];
+	extern __POINTER__ ___1a10cch;
 
 static const eventtext_t l_data[6] = {
 	{
@@ -131,15 +126,14 @@ static const eventtext_t l_data[6] = {
 	}
 };
 
-void ___13248h_cdecl(dword, dword ,dword, dword, dword);
-void ___12e78h_cdecl(byte * A1, font_props_t * A2, const char * A3, dword dst_off);
-void ___13094h_cdecl(const char *, dword);
+void ___13248h_cdecl(__DWORD__, __DWORD__ ,__DWORD__, __DWORD__, __DWORD__);
+void ___12e78h_cdecl(__BYTE__ * A1, font_props_t * A2, const char * A3, __DWORD__ dst_off);
 
 // REAPER
 void ___1549ch(void){
 
 	int 	i, j, n;
-	byte 	px;
+	__BYTE__ 	px;
 
 
 	___13248h_cdecl(0x21, 0x83, 0x1e2, 0xe6, 1);
@@ -192,15 +186,15 @@ void ___1549ch(void){
 		Racers[D(___1a1ef8h)].money += 0x258;
 	}
 
-	___13094h_cdecl(l_data[n].l0, 0x154a1);
-	___13094h_cdecl(l_data[n].l1, 0x17ca1);
-	___13094h_cdecl(l_data[n].l2, 0x1a4a1);
-	___13094h_cdecl(l_data[n].l3, 0x1cca1);
-	___13094h_cdecl(l_data[n].l4, 0x1f4a1);
-	___13094h_cdecl(l_data[n].l5, 0x21ca1);
-	___13094h_cdecl(l_data[n].l6, 0x244a1);
-	___13094h_cdecl(l_data[n].l7, 0x26ca1);
-	___13094h_cdecl(l_data[n].l8, 0x294a1);
-	___13094h_cdecl(l_data[n].l9, 0x2bca1);
-	___12e78h_cdecl(___1a10cch, ___185ba9h, "CONTINUE", 0x316c0);
+	VESA101_16X16_FORMAT_PRINT(l_data[n].l0, 161, 136);
+	VESA101_16X16_FORMAT_PRINT(l_data[n].l1, 161, 152);
+	VESA101_16X16_FORMAT_PRINT(l_data[n].l2, 161, 168);
+	VESA101_16X16_FORMAT_PRINT(l_data[n].l3, 161, 184);
+	VESA101_16X16_FORMAT_PRINT(l_data[n].l4, 161, 200);
+	VESA101_16X16_FORMAT_PRINT(l_data[n].l5, 161, 216);
+	VESA101_16X16_FORMAT_PRINT(l_data[n].l6, 161, 232);
+	VESA101_16X16_FORMAT_PRINT(l_data[n].l7, 161, 248);
+	VESA101_16X16_FORMAT_PRINT(l_data[n].l8, 161, 264);
+	VESA101_16X16_FORMAT_PRINT(l_data[n].l9, 161, 280);
+	___12e78h_cdecl(___1a10cch, (font_props_t *)___185ba9h, "CONTINUE", 0x316c0);
 }

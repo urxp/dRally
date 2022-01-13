@@ -1,57 +1,56 @@
 #include "drally.h"
 #include "sfx.h"
+#include "drally_structs_free.h"
 
-	extern byte ___243894h[];
-	extern byte ___243330h[];
-	extern byte ___243334h[];
-	extern byte ___243ca4h[];
-	extern byte ___24332ch[];
-	extern byte ___243ce8h[];
-	extern byte ___1e6ed0h[];
-	extern byte ___243cd4h[];
-	extern byte ___243ca0h[];
-	extern byte ___1a10a0h[];
-	extern byte ___1a10a8h[];
-	extern byte ___1a1094h[];
-	extern byte ___1a109ch[];
-	extern byte ___1a1090h[];
-	extern byte ___1a102ch[];
-	extern byte ___196d98h[];
-	extern byte ___1c9f10h[];
-	extern void * ___243d80h;
-	extern byte ___243cf4h[];
-	extern byte ___243854h[];
-	extern void * ___243d3ch;
-	extern byte ___1de210h[];
-	extern byte ___1a1134h[];
-	extern byte ___1de580h[];
-	extern void * ___243d48h;
-	extern byte ___1c9ec0h[];
-	extern byte ___1c9ee0h[];
-	extern byte ___1c9ef0h[];
-	extern byte ___1c9ed0h[];
-	extern byte ___1c9f00h[];
-	extern byte ___1d8a10h[];
-	extern byte ___1d2710h[];
-	extern byte ___243338h[];
-	extern byte ___2435c4h[];
-	extern void * ___243d34h;
-	extern byte ___243cdch[];
-	extern byte ___243cb8h[];
-	extern byte ___1d7810h[];
-	extern byte ___1de530h[];
-	extern byte ___196de8h[];
-	extern byte ___196dech[];
-	extern byte ___1de7d0h[];
-	extern byte ___196df4h[];
-	extern byte ___1d5890h[];
-	extern void * ___243d84h;
+	extern __BYTE__ ___243330h[];
+	extern __BYTE__ ___243334h[];
+	extern __BYTE__ ___24332ch[];
+	extern __BYTE__ MY_CAR_IDX[];
+	extern __BYTE__ ___1e6ed0h[];
+	extern __BYTE__ ___243cd4h[];
+	extern __BYTE__ ___243ca0h[];
+	extern __BYTE__ ___1a10a0h[];
+	extern __BYTE__ ___1a10a8h[];
+	extern __BYTE__ ___1a1094h[];
+	extern __BYTE__ ___1a109ch[];
+	extern __BYTE__ ___1a1090h[];
+	extern __BYTE__ ___1a102ch[];
+	extern __BYTE__ ___196d98h[];
+	extern __BYTE__ ___1c9f10h[];
+	extern __POINTER__ ___243d80h;
+	extern __BYTE__ NUM_OF_CARS[];
+	extern __BYTE__ ___243854h[];
+	extern __POINTER__ ___243d3ch;
+	extern __BYTE__ ___1de210h[];
+	extern __DWORD__ ___1a1134h;
+	extern __BYTE__ ___1de580h[];
+	extern __POINTER__ ___243d48h;
+	extern __BYTE__ ___1c9ec0h[];
+	extern __BYTE__ ___1c9ee0h[];
+	extern __BYTE__ ___1c9ef0h[];
+	extern __BYTE__ ___1c9ed0h[];
+	extern __BYTE__ ___1c9f00h[];
+	extern __BYTE__ ___1d8a10h[];
+	extern __BYTE__ ___1d2710h[];
+	extern __BYTE__ ___243338h[];
+	extern __BYTE__ ___2435c4h[];
+	extern __POINTER__ ___243d34h;
+	extern __BYTE__ ___243cdch[];
+	extern __BYTE__ ___243cb8h[];
+	extern __BYTE__ ___1d7810h[];
+	extern __BYTE__ ___1de530h[];
+	extern __BYTE__ ___196de8h[];
+	extern __BYTE__ ___196dech[];
+	extern __BYTE__ ___1de7d0h[];
+	extern __BYTE__ ___196df4h[];
+	extern __BYTE__ ___1d5890h[0x1f80];
+	extern __POINTER__ ___243d84h;
 
 
 void race___40864h(void);
-dword ___4256ch_cdecl(void * A1, dword A2, dword A3, dword A4, dword A5, dword A6, dword A7, dword A8);
-void dRally_Sound_pushEffect(byte channel, byte n, dword unk, dword a0, dword a1, dword a2);
-void ___424c8h_cdecl(dword A1, const char * A2);
+__DWORD__ ___4256ch_cdecl(__POINTER__ A1, __DWORD__ A2, __DWORD__ A3, __DWORD__ A4, __DWORD__ A5, __DWORD__ A6, __DWORD__ A7, __DWORD__ A8);
+void dRally_Sound_pushEffect(__BYTE__ channel, __BYTE__ n, __DWORD__ unk, __DWORD__ a0, __DWORD__ a1, __DWORD__ a2);
+void ___424c8h_cdecl(__DWORD__ A1, const char * A2);
 double dRMath_ceil(double);
 
 static void helper00(int A0){
@@ -60,21 +59,21 @@ static void helper00(int A0){
 
     eax = A0;
     edx = (int)eax>>0x1f;
-    ___idiv32(&eax, &edx, 0x46);
+    ___idiv32((__POINTER__)&eax, (__POINTER__)&edx, 0x46);
     edx = (int)eax>>0x1f;
-    ___idiv32(&eax, &edx, 0x3c);
+    ___idiv32((__POINTER__)&eax, (__POINTER__)&edx, 0x3c);
     ___4256ch_cdecl(___1d7810h, 6, 6, eax, 16, 0x587b-0x40+D(___196d98h), -6, 0);
 
     eax = A0;
     edx = (int)eax>>0x1f;
-    ___idiv32(&eax, &edx, 0x46);
+    ___idiv32((__POINTER__)&eax, (__POINTER__)&edx, 0x46);
     edx = (int)eax>>0x1f;
-    ___idiv32(&eax, &edx, 0x3c);
+    ___idiv32((__POINTER__)&eax, (__POINTER__)&edx, 0x3c);
     ___4256ch_cdecl(___1d7810h, 6, 6, edx, 16, 0x5889-0x40+D(___196d98h), 6, 0);
 
     eax = A0;
     edx = (int)eax>>0x1f;
-    ___idiv32(&eax, &edx, 0x46);
+    ___idiv32((__POINTER__)&eax, (__POINTER__)&edx, 0x46);
 
     ___4256ch_cdecl(___1d7810h, 6, 6, (int)(1.42*(double)(int)edx), 16, 0x5897-0x40+D(___196d98h), 6, 0);
 }
@@ -86,7 +85,7 @@ static int helper01(int A0){
     edx = 0x10000*A0;
     eax = 0x10000*edx;
     edx = (int)edx>>0x10;
-    ___idiv32(&eax, &edx, 0x20000);
+    ___idiv32((__POINTER__)&eax, (__POINTER__)&edx, 0x20000);
 
     return eax;
 }
@@ -94,20 +93,25 @@ static int helper01(int A0){
 // LEFT SIDE PANEL
 void race___40f48h(void){
 
-	dword 	eax, ebx, ecx, edx, edi, esi, ebp, P1, P2, P3, P4;
-	byte 	esp[0x38];
+	__DWORD__ 	eax, ebx, ecx, edx, edi, esi, ebp, P1, P2, P3, P4;
+	__BYTE__ 	esp[0x38];
 	int 	i, j, k, n;
     __BYTE__    px;
-    void *  edip;
+    __POINTER__  edip;
+    struct_54_t *   s_54;
+    struct_35e_t *  s_35e;
 
 
-    D(___243334h) = D(___243894h)-D(___243330h);
-    D(___243330h) = D(___243894h);
+    s_35e = (struct_35e_t *)___1e6ed0h;
+    s_54 = (struct_54_t *)___1de7d0h;
+
+    D(___243334h) = getCounter(3)-D(___243330h);
+    D(___243330h) = getCounter(3);
     D(___24332ch) = helper01(D(___243334h));
 
-	if((int)D(___243ca4h) > 0xbe){
+	if((int)getCounter(1) > 0xbe){
 
-		if(D(___1e6ed0h+0x35e*D(___243ce8h)+0x10a) == 0){
+		if(s_35e[D(MY_CAR_IDX)].__10a == 0){
 
             D(___243cd4h) += D(___243334h);
             D(___243ca0h) += D(___243334h);
@@ -129,9 +133,9 @@ void race___40f48h(void){
 
 
     n = -1;
-    while(++n < (int)D(___243cf4h)){
+    while(++n < (int)D(NUM_OF_CARS)){
 
-        if(D(___1e6ed0h+0x35e*D(___243854h+4*n)+0x10a) != 0){
+        if(s_35e[D(___243854h+4*n)].__10a != 0){
 
             j = -1;
             while(++j < 0x1c){
@@ -145,7 +149,7 @@ void race___40f48h(void){
         }
     }
 
-    n = D(___243cf4h)-1;
+    n = D(NUM_OF_CARS)-1;
 
     if(n < 3){
 
@@ -160,7 +164,7 @@ void race___40f48h(void){
 
                 eax = i;
                 edx = (int)eax>>0x1f;
-                ___idiv32(&eax, &edx, 2);
+                ___idiv32((__POINTER__)&eax, (__POINTER__)&edx, 2);
 
                 if((int)edx < 0x40){
 
@@ -183,7 +187,7 @@ void race___40f48h(void){
 
 // RACE NUMBER OF LAPS
     n = -1;
-    while(++n < (int)D(___243cf4h)){
+    while(++n < (int)D(NUM_OF_CARS)){
 
         j = -1;
         while(++j < 0xa){
@@ -191,7 +195,7 @@ void race___40f48h(void){
             i = -1;
             while(++i < 8){
 
-                if((px = B(___1de210h+0x50*D(___1a1134h)+8*j+i)) != 0) B(___243d80h+0xb43a+D(___196d98h)-5*!n+0x4000*n+0x200*j+i) = px;
+                if((px = B(___1de210h+0x50*___1a1134h+8*j+i)) != 0) B(___243d80h+0xb43a+D(___196d98h)-5*!n+0x4000*n+0x200*j+i) = px;
             }
         }
     }
@@ -203,12 +207,12 @@ void race___40f48h(void){
         i = -1;
         while(++i < 8){
 
-            if((px = B(___1de210h+0x50*B(___1e6ed0h+0x108+0x35e*D(___243854h))+8*j+i)) != 0) B(___243d80h+0xb462-0x40+D(___196d98h)+0x200*j+i) = px;
+            if((px = B(___1de210h+0x50*s_35e[D(___243854h)].__108+8*j+i)) != 0) B(___243d80h+0xb462-0x40+D(___196d98h)+0x200*j+i) = px;
         }
     }
 
 // 2ND, 3RD, 4TH CAR NUMBER OF LAPS
-    if((int)D(___243cf4h) > 1){
+    if((int)D(NUM_OF_CARS) > 1){
 
         n = 1;
         while(1){
@@ -219,17 +223,17 @@ void race___40f48h(void){
                 i = -1;
                 while(++i < 8){
 
-                    if((px = B(___1de210h+0x50*B(0x35e*D(___243854h+4*n)+___1e6ed0h+0x108)+8*j+i)) != 0) B(___243d80h+0xb400+0x4000*n+0x24+D(___196d98h)+0x200*j+i) = px;
+                    if((px = B(___1de210h+0x50*s_35e[D(___243854h+4*n)].__108+8*j+i)) != 0) B(___243d80h+0xb400+0x4000*n+0x24+D(___196d98h)+0x200*j+i) = px;
                 }
             }
 
             n++;
-            if(n >= (int)D(___243cf4h)) break;
+            if(n >= (int)D(NUM_OF_CARS)) break;
         }
     }
 
 // 2ND CAR DAMAGE BAR
-    if((int)D(___243cf4h) > 1){
+    if((int)D(NUM_OF_CARS) > 1){
 
         k = (int)(64.0-(dRMath_ceil(create_double(0,0,0,0,0,0,0x50,0x3f)*(double)(int)D(___1de580h+0x94*D(___243854h+4)+0x18))/1.57));
 
@@ -241,7 +245,7 @@ void race___40f48h(void){
     }
 
 // 3RD CAR DAMAGE BAR
-    if((int)D(___243cf4h) > 2){
+    if((int)D(NUM_OF_CARS) > 2){
 
         k = (int)(64.0-(dRMath_ceil(create_double(0,0,0,0,0,0,0x50,0x3f)*(double)(int)D(___1de580h+0x94*D(___243854h+8)+0x18))/1.57));
 
@@ -253,7 +257,7 @@ void race___40f48h(void){
     }
 
 // 4TH CAR DAMAGE BAR
-    if((int)D(___243cf4h) > 3){
+    if((int)D(NUM_OF_CARS) > 3){
 
         k = (int)(64.0-(dRMath_ceil(create_double(0,0,0,0,0,0,0x50,0x3f)*(double)(int)D(___1de580h+0x94*D(___243854h+0xc)+0x18))/1.57));
 
@@ -267,7 +271,7 @@ void race___40f48h(void){
     ___424c8h_cdecl(0x463-0x40+D(___196d98h), ___1de580h+0x94*D(___243854h)+0x44);
 
 // 2ND, 3RD, 4TH DRIVER'S NAMES
-    if((int)D(___243cf4h) > 1){
+    if((int)D(NUM_OF_CARS) > 1){
 
         n = 1;
         while(1){
@@ -275,16 +279,16 @@ void race___40f48h(void){
             ___424c8h_cdecl(0x9463+0x4000*n+D(___196d98h)-0x40, ___1de580h+0x94*D(___243854h+4*n)+0x44);
             
             n++;
-            if(n >= (int)D(___243cf4h)) break;
+            if(n >= (int)D(NUM_OF_CARS)) break;
         }
     }
 
 
 // POSITIONS
-    D(___1c9ec0h+0) = B(___1e6ed0h+0x109+0x35e*D(___243854h));
-    D(___1c9ec0h+4) = B(___1e6ed0h+0x109+0x35e*D(___243854h+4));
-    D(___1c9ec0h+8) = B(___1e6ed0h+0x109+0x35e*D(___243854h+8));
-    D(___1c9ec0h+0xc) =  B(___1e6ed0h+0x109+0x35e*D(___243854h+0xc));
+    D(___1c9ec0h+0) = s_35e[D(___243854h)].Position;
+    D(___1c9ec0h+4) = s_35e[D(___243854h+4)].Position;
+    D(___1c9ec0h+8) = s_35e[D(___243854h+8)].Position;
+    D(___1c9ec0h+0xc) =  s_35e[D(___243854h+0xc)].Position;
 
     ebx = 0;
     while(1){
@@ -309,7 +313,7 @@ void race___40f48h(void){
         if((int)eax <= 0){
 
             eax = D(4*ebx+___1c9f00h);
-            ___imul32(&eax, &edx, D(___24332ch));
+            ___imul32((__POINTER__)&eax, (__POINTER__)&edx, D(___24332ch));
             eax += 0x8000;
             edx += !!(eax < 0x8000);
             eax = (eax >> 0x10)|(edx << 0x10);
@@ -322,7 +326,7 @@ void race___40f48h(void){
         else {
 
             eax = D(4*ebx+___1c9f00h);
-            ___imul32(&eax, &edx, D(___24332ch));
+            ___imul32((__POINTER__)&eax, (__POINTER__)&edx, D(___24332ch));
             eax += 0x8000;
             edx += !!(eax < 0x8000);
             eax = (eax >> 0x10)|(edx << 0x10);
@@ -348,7 +352,7 @@ void race___40f48h(void){
     }
 
     ebp = 0x1;
-    if((int)ebp < (int)D(___243cf4h)){
+    if((int)ebp < (int)D(NUM_OF_CARS)){
 
         edi = 0x4;
         D(esp+0x18) = 0xe000;
@@ -368,18 +372,18 @@ void race___40f48h(void){
             D(esp+0x18) += 0x4000;
             edi += 4;
             ebp++;
-            if((int)ebp >= (int)D(___243cf4h)) break;
+            if((int)ebp >= (int)D(NUM_OF_CARS)) break;
         }
     }
 
 // POSITIONS
-    D(___1c9ee0h) = B(___1e6ed0h+0x35e*D(___243854h)+0x109);
-    D(___1c9ee0h+4) = B(___1e6ed0h+0x35e*D(___243854h+4)+0x109);
-    D(___1c9ee0h+8) = B(___1e6ed0h+0x35e*D(___243854h+8)+0x109);
-    D(___1c9ee0h+0xc) = B(___1e6ed0h+0x35e*D(___243854h+0xc)+0x109);
+    D(___1c9ee0h) = s_35e[D(___243854h)].Position;
+    D(___1c9ee0h+4) = s_35e[D(___243854h+4)].Position;
+    D(___1c9ee0h+8) = s_35e[D(___243854h+8)].Position;
+    D(___1c9ee0h+0xc) = s_35e[D(___243854h+0xc)].Position;
 
 // SPEEDMETER
-    eax = (int)(162.0*((double)F32(___1e6ed0h+0x35e*D(___243ce8h)+0xb0)/(double)F32(___1de580h+0x94*D(___243ce8h)+4)));
+    eax = (int)(162.0*((double)s_35e[D(MY_CAR_IDX)].__b0/(double)F32(___1de580h+0x94*D(MY_CAR_IDX)+4)));
     eax++;
     if((int)eax < 1) eax = 1;
     ebp = 4*eax;
@@ -397,7 +401,7 @@ void race___40f48h(void){
         L(eax) -= L(edx);
         X(eax) <<= 8;
         X(edx) = (short)X(eax)>>0xf;
-        ___idiv16(&eax, &edx, X(ebx));
+        ___idiv16((__POINTER__)&eax, (__POINTER__)&edx, X(ebx));
         X(esi) = X(eax);
 
         eax = 0;
@@ -419,7 +423,7 @@ void race___40f48h(void){
         ebp = ebp+0x4;
     }
 
-    if((int)D(___1de580h+0x94*D(___243ce8h)+0x2c) == 0){
+    if((int)D(___1de580h+0x94*D(MY_CAR_IDX)+0x2c) == 0){
 
 // NO WEAPONS - TIME
         if((int)D(___243cdch) <= 0){
@@ -437,7 +441,7 @@ void race___40f48h(void){
     else {
 
 // AMMO BAR
-        n = (int)(create_double(0x9a,0x99,0x99,0x99,0x99,0x99,0x41,0x3f)*(double)(int)D(___1de580h+0x94*D(___243ce8h)+0x30));
+        n = (int)(create_double(0x9a,0x99,0x99,0x99,0x99,0x99,0x41,0x3f)*(double)(int)D(___1de580h+0x94*D(MY_CAR_IDX)+0x30));
         n = (n < 0) ? 0x37 : 0x37-n;
 
         if(n != 0){
@@ -452,7 +456,7 @@ void race___40f48h(void){
 
 // MINES BAR
         n = -1;
-        while(++n < (int)D(___1de580h+0x94*D(___243ce8h)+0x28)){
+        while(++n < (int)D(___1de580h+0x94*D(MY_CAR_IDX)+0x28)){
 
             j = -1;
             while(++j < 6){
@@ -467,7 +471,7 @@ void race___40f48h(void){
     }
 
 // TURBO BAR SOMETHING
-    n = (int)(create_double(0x3d,0x0a,0xd7,0xa3,0x70,0x3d,0x42,0x3f)*(double)(int)D(___1de580h+0x94*D(___243ce8h)+0x34));
+    n = (int)(create_double(0x3d,0x0a,0xd7,0xa3,0x70,0x3d,0x42,0x3f)*(double)(int)D(___1de580h+0x94*D(MY_CAR_IDX)+0x34));
     n = (n < 0) ? 0x3a : 0x3a-n;
 
     if(n != 0){
@@ -484,7 +488,7 @@ void race___40f48h(void){
     }
 
 // DAMAGE PERCENTAGE SYMBOL
-    n = (int)(100.0-dRMath_ceil((double)(int)D(___1de580h+0x94*D(___243ce8h)+0x18)*create_double(0,0,0,0,0,0,0x50,0x3f)));
+    n = (int)(100.0-dRMath_ceil((double)(int)D(___1de580h+0x94*D(MY_CAR_IDX)+0x18)*create_double(0,0,0,0,0,0,0x50,0x3f)));
     k = ___4256ch_cdecl(___1de210h, 8, 0xa, n, 0, D(___196d98h)-0x40+0x8e6e, -8, -16);
 
     j = -1;
@@ -498,14 +502,14 @@ void race___40f48h(void){
     }
 
 // LOOK OUT
-    if((int)D(___1de580h+0x94*D(___243ce8h)+0x18) < 0x5000){
+    if((int)D(___1de580h+0x94*D(MY_CAR_IDX)+0x18) < 0x5000){
 
         if(D(___196de8h) == 0) dRally_Sound_pushEffect(2, SFX_LOOK_OUT, 0, 0x10000, 0x50000, 0x8000);
 
         D(___196de8h) = 1;
     }
 
-    if((int)D(___1de580h+0x94*D(___243ce8h)+0x18) < 0x2800){
+    if((int)D(___1de580h+0x94*D(MY_CAR_IDX)+0x18) < 0x2800){
 
         if(D(___196dech) == 0) dRally_Sound_pushEffect(2, SFX_LOOK_OUT, 0, 0x10000, 0x50000, 0x8000);
 
@@ -513,9 +517,9 @@ void race___40f48h(void){
     }
 
 // THIS SUCKS - KILLED AS DUKE NUKEM
-    if(D(___1de580h+0x94*D(___243ce8h)+0x18) == 0){
+    if(D(___1de580h+0x94*D(MY_CAR_IDX)+0x18) == 0){
 
-        if(strcmp(___1de7d0h+0x54*D(___243ce8h), "DUKE NUKEM") == 0){
+        if(strcmp(s_54[D(MY_CAR_IDX)].__0, "DUKE NUKEM") == 0){
 
             if(D(___196df4h) == 0) dRally_Sound_pushEffect(2, SFX_THIS_SUCKS, 0, 0x10000, 0x50000, 0x8000);
 
@@ -524,18 +528,18 @@ void race___40f48h(void){
     }
 
 // MY CAR DAMAGE PREVIEW
-    if((n = (int)dRMath_ceil((double)(int)D(___1de580h+0x94*D(___243ce8h)+0x18)/20480.0)) < 0) n = 0;
+    if((n = (int)dRMath_ceil((double)(int)D(___1de580h+0x94*D(MY_CAR_IDX)+0x18)/20480.0)) < 0) n = 0;
     
     j = -1;
     while(++j < 0x15){
 
         i = -1;
-        while(++i < 0x40) B(___243d80h+0x6420+D(___196d98h)+0x200*j+i) = B(___1d5890h+0x1a40-0x540*n+0x40*j+i);
+        while(++i < 0x40) B(___243d80h+0x6420+D(___196d98h)+0x200*j+i) = B(___1d5890h+0x540*(5-n)+0x40*j+i);
     }
 
 // DEATH CROSS
     n = -1;
-    while(++n < (int)D(___243cf4h)){
+    while(++n < (int)D(NUM_OF_CARS)){
 
         if((int)D(___1de580h+0x94*D(___243854h+4*n)+0x18) <= 0){
 

@@ -1,3 +1,11 @@
+#include "drally.h"
+
+void ___1ad30h(__DWORD__ A1, __DWORD__ A2, __DWORD__ A3){
+
+	printf("TODO ___1ad30h\n");
+	exit(1);
+}
+
 /*
 cpu 386
 %include "macros.inc"
@@ -161,7 +169,7 @@ ___1ae81h:
 		mov     esi, s_game
 		mov     edi, esp
 		call 	__STRCAT
-		cmp     dword [ebx+___19ded0h+1ch], byte 0
+		cmp     __DWORD__ [ebx+___19ded0h+1ch], byte 0
 		je      short ___1af0ah
 		mov     esi, __dfr_180a38h
 		jmp     short ___1af0fh

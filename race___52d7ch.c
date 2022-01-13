@@ -1,38 +1,43 @@
 #include "drally.h"
+#include "drally_structs_free.h"
 
 #pragma pack(1)
 typedef struct spectator_s {
 	int			x;
 	int			y;
-	dword		type;
-	dword		z_mov;
-	dword		rot;
-	dword		frame;
-	dword		dead;
-	dword		timestamp;
+	__DWORD__		type;
+	__DWORD__		z_mov;
+	__DWORD__		rot;
+	__DWORD__		frame;
+	__DWORD__		dead;
+	__DWORD__		timestamp;
 } spectator_t;
 
 #define SPECTATORS ___1df720h
 	extern spectator_t ___1df720h[];
-	extern byte ___243ce8h[];
-	extern byte ___196dach[];
-	extern byte ___1e6ed0h[];
-	extern byte ___196dc8h[];
-	extern byte ___196dcch[];
-	extern byte ___196d98h[];
-	extern void * ___243d40h;
-	extern void * ___243d80h;
-	extern void * ___243288h[2];
+	extern __BYTE__ MY_CAR_IDX[];
+	extern __BYTE__ ___196dach[];
+	extern __BYTE__ ___1e6ed0h[];
+	extern __BYTE__ ___196dc8h[];
+	extern __BYTE__ ___196dcch[];
+	extern __BYTE__ ___196d98h[];
+	extern __POINTER__ ___243d40h;
+	extern __POINTER__ ___243d80h;
+	extern __POINTER__ ___243288h[2];
 
-dword __GET_FRAME_COUNTER(void);
+__DWORD__ __GET_FRAME_COUNTER(void);
 
 void race___52d7ch(void){
 
-	dword 	eax, ebx, ecx, edx, edi, esi, ebp;
-	byte 	esp[4];
-	dword 	n, i, j;
-	void * 	ebxp;
-	void * 	edip;
+	__DWORD__ 	eax, ebx, ecx, edx, edi, esi, ebp;
+	__BYTE__ 	esp[4];
+	__DWORD__ 	n, i, j;
+	__POINTER__ 	ebxp;
+	__POINTER__ 	edip;
+	struct_35e_t * 	s_35e;
+
+
+	s_35e = (struct_35e_t *) ___1e6ed0h;
 
 	n = -1;
 	while(++n < 0x14){
@@ -57,13 +62,13 @@ void race___52d7ch(void){
 				SPECTATORS[n].timestamp = __GET_FRAME_COUNTER();
 			}
 
-			if(SPECTATORS[n].x > (int)F32(0x35e*D(___243ce8h)+___1e6ed0h+0xb4)){
-				if(SPECTATORS[n].y > (int)F32(0x35e*D(___243ce8h)+___1e6ed0h+0xb8)) SPECTATORS[n].rot = 2*!D(___196dach);
-				else if(SPECTATORS[n].y < (int)F32(0x35e*D(___243ce8h)+___1e6ed0h+0xb8)) SPECTATORS[n].rot = 1+2*!!D(___196dach);
+			if(SPECTATORS[n].x > (int)s_35e[D(MY_CAR_IDX)].XLocation){
+				if(SPECTATORS[n].y > (int)s_35e[D(MY_CAR_IDX)].YLocation) SPECTATORS[n].rot = 2*!D(___196dach);
+				else if(SPECTATORS[n].y < (int)s_35e[D(MY_CAR_IDX)].YLocation) SPECTATORS[n].rot = 1+2*!!D(___196dach);
 			}
-			else if(SPECTATORS[n].x < (int)F32(0x35e*D(___243ce8h)+___1e6ed0h+0xb4)){
-				if(SPECTATORS[n].y > (int)F32(0x35e*D(___243ce8h)+___1e6ed0h+0xb8)) SPECTATORS[n].rot = 1+2*!D(___196dach);
-				else if(SPECTATORS[n].y < (int)F32(0x35e*D(___243ce8h)+___1e6ed0h+0xb8)) SPECTATORS[n].rot = 2*!!D(___196dach);
+			else if(SPECTATORS[n].x < (int)s_35e[D(MY_CAR_IDX)].XLocation){
+				if(SPECTATORS[n].y > (int)s_35e[D(MY_CAR_IDX)].YLocation) SPECTATORS[n].rot = 1+2*!D(___196dach);
+				else if(SPECTATORS[n].y < (int)s_35e[D(MY_CAR_IDX)].YLocation) SPECTATORS[n].rot = 2*!!D(___196dach);
 			}
 		}
 	}

@@ -1,11 +1,11 @@
 #include "drally.h"
 
-dword ___3a2ach_cdecl(dword, dword);
+__DWORD__ ___3a2ach_cdecl(__DWORD__, __DWORD__);
 
-void void___3a214h_cdecl(byte * row_p, int row_size){
+void void___3a214h_cdecl(__BYTE__ * row_p, int row_size){
 
 	int 	n;
-	byte 	previous, counter;
+	__BYTE__ 	previous, counter;
 
 	previous = row_p[0];
 	counter = 1;
@@ -35,16 +35,16 @@ void void___3a214h_cdecl(byte * row_p, int row_size){
 }
 
 
-dword ___3a214h_cdecl(byte * row_p, int row_size){
+__DWORD__ ___3a214h_cdecl(__BYTE__ * row_p, int row_size){
 
 	void___3a214h_cdecl(row_p, row_size);
 
 	return 0; // whatever
 
 /*
-	dword 	eax, ebx;
+	__DWORD__ 	eax, ebx;
 	int 	n;
-	byte 	previous;
+	__BYTE__ 	previous;
 
 	previous = row_p[0];
 	L(eax) = 1;

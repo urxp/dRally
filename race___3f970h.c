@@ -253,16 +253,15 @@ enum e_car { VAGABOND, DERVISH, SENTINEL, SHRIEKER, WRAITH, DELIVERATOR, DELIVER
 
 
 
-	extern byte ___243898h[];
-	extern byte ___243cf4h[];
-	extern byte ___196dach[];
+	extern __BYTE__ NUM_OF_CARS[];
+	extern __BYTE__ ___196dach[];
 	extern struct_94_t ___1de580h[4];
 	extern struct_54_t ___1de7d0h[4];
-	extern byte ___243ce8h[];
-	extern byte ___24389ch[];
+	extern __BYTE__ MY_CAR_IDX[];
+	extern __BYTE__ ___24389ch[];
 
 #if defined(DR_MULTIPLAYER)
-	extern byte ___19bd60h[];
+	extern __DWORD__ ___19bd60h;
 #endif // DR_MULTIPLAYER
 
 void race___3f970h(void){
@@ -276,7 +275,7 @@ void race___3f970h(void){
 	F32(___24389ch+0x18) = F32(___24389ch+0x14);
 
 	n = -1;
-	while(++n < (int)D(___243cf4h)){
+	while(++n < (int)D(NUM_OF_CARS)){
 
 		___1de580h[n].car = ___1de7d0h[n].car;
 		F32(___1de580h[n].raw+4) = ___3f1f0h_floats[___1de7d0h[n].dfclty][___1de580h[n].car][D(___1de7d0h[n].raw+0x14)];
@@ -286,7 +285,7 @@ void race___3f970h(void){
 		F32(___1de580h[n].raw+0x14) = (float)(3.75/((double)___3f5b0h_floats[___1de7d0h[n].dfclty][___1de580h[n].car]-0.05*(double)D(___1de7d0h[n].raw+0x14)));
 		D(___1de580h[n].raw+0x1c) = ___3f610h_ints[___1de7d0h[n].dfclty][___1de580h[n].car]+___3f670h_ints[___1de7d0h[n].dfclty][D(___1de7d0h[n].raw+0x1c)];
 
-		if(D(___243ce8h) == n) D(___1de580h[n].raw+0x1c) += 0x64;
+		if(D(MY_CAR_IDX) == n) D(___1de580h[n].raw+0x1c) += 0x64;
 
 		if(strcmp(___1de7d0h[n].raw, "DUKE NUKEM") == 0) D(___1de580h[n].raw+0x1c) = (int)(2.2*(double)D(___1de580h[n].raw+0x1c));
 
@@ -356,9 +355,9 @@ void race___3f970h(void){
 
 	if(D(___1de580h[0].raw) == DELIVERATOR_ADVERSARY){
 #if defined(DR_MULTIPLAYER)
-		if(D(___19bd60h) == 0){
+		if(___19bd60h == 0){
 #endif // DR_MULTIPLAYER
-			if(D(___1de580h[D(___243ce8h)].raw+0x2c) == 0){
+			if(D(___1de580h[D(MY_CAR_IDX)].raw+0x2c) == 0){
 
 				if(___1de7d0h[0].dfclty == SPEED_MAKES_ME_DIZZY)	F32(___1de580h[0].raw+4) = 4.3f;
 				if(___1de7d0h[0].dfclty == I_LIVE_TO_RIDE)			F32(___1de580h[0].raw+4) = 4.4f;

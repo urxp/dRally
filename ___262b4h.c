@@ -1,4 +1,5 @@
 #include "drally.h"
+#include "drally_fonts.h"
 #include "assets.h"
 
 #pragma pack(1)
@@ -22,19 +23,18 @@ typedef struct cardata_s {
 
 #define COOXY(x,y) (0x280*(y)+(x))
 
-	extern byte * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
-	extern byte ___1a1ef8h[];
-	extern byte ___1a01e0h[];
+	extern __BYTE__ * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
+	extern __BYTE__ ___1a1ef8h[];
+	extern __BYTE__ ___1a01e0h[];
 	extern cardata_t ___18e298h[6];
 	extern __DWORD__ ___18643ch[][0xc];
-	extern byte ___1a1ec0h[];
-	extern void * ___1a0198h[4];
+	extern __BYTE__ ___1a1ec0h[];
+	extern __POINTER__ ___1a0198h[4];
 
-void ___13094h_cdecl(const char *, dword);
 int ___25180h_cdecl(const char * A1);
-void ___12f60h_cdecl(const char * A1, dword A2);
-void ___13248h_cdecl(dword, dword ,dword, dword, dword);
-void ___259e0h_cdecl(int dx, int dy, int aFrameIdx, void * aEncoded, int * aOffsets);
+void ___12f60h_cdecl(const char * A1, __DWORD__ A2);
+void ___13248h_cdecl(__DWORD__, __DWORD__ ,__DWORD__, __DWORD__, __DWORD__);
+void ___259e0h_cdecl(int dx, int dy, int aFrameIdx, __POINTER__ aEncoded, int * aOffsets);
 char * itoa_watcom106(int value, char * buffer, int radix);
 
 static const char40 ___1914c0h[4][6] = {
@@ -75,12 +75,12 @@ static const char40 ___1914c0h[4][6] = {
 // SHOP TIRES
 void ___262b4h(void){
 
-	dword 	eax, ebx, ecx, edx, edi, esi, ebp, p5;
-	byte 	esp[0x28];
+	__DWORD__ 	eax, ebx, ecx, edx, edi, esi, ebp, p5;
+	__BYTE__ 	esp[0x28];
 	int 	i, j;
 
-	byte *	bases4 = getAssets(MENU_BASES4);
-	byte * 	maxi1f = getAssets(MENU_MAXI1F);
+	__BYTE__ *	bases4 = getAssets(MENU_BASES4);
+	__BYTE__ * 	maxi1f = getAssets(MENU_MAXI1F);
 
 	j = -1;
 	while(++j < 0x60){
@@ -89,7 +89,7 @@ void ___262b4h(void){
 		while(++i < 0x60) ___1a112ch__VESA101_ACTIVESCREEN_PTR[COOXY(120+i, 253+j)] = bases4[0x2400+0x60*j+i];
 	}
 
-	ebx = D(___1a01e0h+0x14+0x6c*D(___1a1ef8h));		// 0...4
+	ebx = D(___1a01e0h+0x6c*D(___1a1ef8h)+0x14);		// 0...4
 	ecx = ___18e298h[D(___1a01e0h+0x1c+0x6c*D(___1a1ef8h))].n_tire_upgrades;
 
 	if((int)ebx < (int)ecx){
@@ -100,12 +100,12 @@ void ___262b4h(void){
 		strcat(esp+0x14, esp);
 		___12f60h_cdecl(esp+0x14, ___25180h_cdecl(esp+0x14)+0x345f8);
 		___13248h_cdecl(0x90, 0x72, 0x180, 0x77, 1);
-		___13094h_cdecl(___1914c0h[D(0x6c*D(___1a1ef8h)+___1a01e0h+0x14)][0], 0x136aa);
-		___13094h_cdecl(___1914c0h[D(0x6c*D(___1a1ef8h)+___1a01e0h+0x14)][1], 0x15eaa);
-		___13094h_cdecl(___1914c0h[D(0x6c*D(___1a1ef8h)+___1a01e0h+0x14)][2], 0x186aa);
-		___13094h_cdecl(___1914c0h[D(0x6c*D(___1a1ef8h)+___1a01e0h+0x14)][3], 0x1aeaa);
-		___13094h_cdecl(___1914c0h[D(0x6c*D(___1a1ef8h)+___1a01e0h+0x14)][4], 0x1d6aa);
-		___13094h_cdecl(___1914c0h[D(0x6c*D(___1a1ef8h)+___1a01e0h+0x14)][5], 0x1feaa);
+		VESA101_16X16_FORMAT_PRINT(___1914c0h[D(___1a01e0h+0x6c*D(___1a1ef8h)+0x14)][0], 170, 124);
+		VESA101_16X16_FORMAT_PRINT(___1914c0h[D(___1a01e0h+0x6c*D(___1a1ef8h)+0x14)][1], 170, 140);
+		VESA101_16X16_FORMAT_PRINT(___1914c0h[D(___1a01e0h+0x6c*D(___1a1ef8h)+0x14)][2], 170, 156);
+		VESA101_16X16_FORMAT_PRINT(___1914c0h[D(___1a01e0h+0x6c*D(___1a1ef8h)+0x14)][3], 170, 172);
+		VESA101_16X16_FORMAT_PRINT(___1914c0h[D(___1a01e0h+0x6c*D(___1a1ef8h)+0x14)][4], 170, 188);
+		VESA101_16X16_FORMAT_PRINT(___1914c0h[D(___1a01e0h+0x6c*D(___1a1ef8h)+0x14)][5], 170, 204);
 	}
 	else {
 
@@ -117,11 +117,11 @@ void ___262b4h(void){
 		}
 
 		___13248h_cdecl(0x90, 0x72, 0x180, 0x77, 1);
-		___13094h_cdecl("[NO MORE TIRE UPGRADES", 0x136aa);
-		___13094h_cdecl("", 0x15eaa);
-		___13094h_cdecl("You've got the best fat, sticky", 0x186aa);
-		___13094h_cdecl("tires this vehicle can boast. You", 0x1aeaa);
-		___13094h_cdecl("are in close touch with the road.", 0x1d6aa);
-		___13094h_cdecl("", 0x1feaa);
+		VESA101_16X16_FORMAT_PRINT("[NO MORE TIRE UPGRADES", 170, 124);
+		VESA101_16X16_FORMAT_PRINT("", 170, 140);
+		VESA101_16X16_FORMAT_PRINT("You've got the best fat, sticky", 170, 156);
+		VESA101_16X16_FORMAT_PRINT("tires this vehicle can boast. You", 170, 172);
+		VESA101_16X16_FORMAT_PRINT("are in close touch with the road.", 170, 188);
+		VESA101_16X16_FORMAT_PRINT("", 170, 204);
 	}
 }

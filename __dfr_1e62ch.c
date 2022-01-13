@@ -1,7 +1,9 @@
 #include "drally.h"
 
-void ___1e62ch_cdecl(dword A0){
+void ___1e62ch_cdecl(__DWORD__ A0){
 
+	printf("TODO ___1e62ch_cdecl\n");
+	exit(1);
 /*
 cpu 386
 %include "macros.inc"

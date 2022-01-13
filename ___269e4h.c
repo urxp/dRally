@@ -1,35 +1,28 @@
 #include "drally.h"
-
-#pragma pack(1)
-typedef struct font_props_s {
-	byte 	w;
-	byte 	h;
-	byte 	props[];
-} font_props_t;
+#include "drally_fonts.h"
 
 typedef char char40[40];
 
-	extern void * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
-	extern void * ___1a1e98h;
+	extern __POINTER__ ___1a112ch__VESA101_ACTIVESCREEN_PTR;
+	extern __POINTER__ ___1a1e98h;
 	extern __DWORD__ ___186658h[];
-	extern void * ___1a1e8ch;
-	extern byte ___1a1ed8h[];
-	extern byte ___1a1ef8h[];
-	extern byte ___1a01e0h[];
-	extern byte ___185c7ah[];
-	extern void * ___1a10b8h;
-	extern byte ___185a14h_UseWeapons[];
-	extern byte ___18e298h[];
+	extern __POINTER__ ___1a1e8ch;
+	extern __BYTE__ ___1a1ed8h[];
+	extern __BYTE__ ___1a1ef8h[];
+	extern __BYTE__ ___1a01e0h[];
+	extern __BYTE__ ___185c7ah[];
+	extern __POINTER__ ___1a10b8h;
+	extern __BYTE__ ___185a14h_UseWeapons[];
+	extern __BYTE__ ___18e298h[];
 
 
-void ___259e0h_cdecl(int dx, int dy, int aFrameIdx, void * aEncoded, int * aOffsets);
+void ___259e0h_cdecl(int dx, int dy, int aFrameIdx, __POINTER__ aEncoded, int * aOffsets);
 char * itoa_watcom106(int value, char * buffer, int radix);
-dword ___251e8h_cdecl(const char *);
-void ___12e78h_cdecl(byte * A1, font_props_t * A2, const char * A3, dword dst_off);
+__DWORD__ ___251e8h_cdecl(const char *);
+void ___12e78h_cdecl(__BYTE__ * A1, font_props_t * A2, const char * A3, __DWORD__ dst_off);
 int ___25180h_cdecl(const char * A1);
-void ___12f60h_cdecl(const char * A1, dword A2);
-void ___13248h_cdecl(dword, dword ,dword, dword, dword);
-void ___13094h_cdecl(const char *, dword);
+void ___12f60h_cdecl(const char * A1, __DWORD__ A2);
+void ___13248h_cdecl(__DWORD__, __DWORD__ ,__DWORD__, __DWORD__, __DWORD__);
 
 static const char40 ___194170h[12][6] = {
 	[0] = {
@@ -135,8 +128,8 @@ void ___269e4h(void){
 
 	int 	i, j;
 
-	dword 	eax, ebx, ecx, edx, edi, esi, ebp;
-	byte 	esp[0x28];
+	__DWORD__ 	eax, ebx, ecx, edx, edi, esi, ebp;
+	__BYTE__ 	esp[0x28];
 
 
 	j = -1;
@@ -150,7 +143,7 @@ void ___269e4h(void){
 
 	if((int)D(___1a01e0h+0x6c*D(___1a1ef8h)+0xc) >= 0xa){
 
-		___12e78h_cdecl(___1a10b8h, ___185c7ah, "10", 0x27f1a-___251e8h_cdecl("10"));
+		___12e78h_cdecl(___1a10b8h, (font_props_t *)___185c7ah, "10", 0x27f1a-___251e8h_cdecl("10"));
 
 		if(D(___185a14h_UseWeapons) == 0){
 
@@ -168,19 +161,19 @@ void ___269e4h(void){
 	else {
 
 		itoa_watcom106(D(___1a01e0h+0x6c*D(___1a1ef8h)+0xc), esp, 0xa);
-		___12e78h_cdecl(___1a10b8h, ___185c7ah, esp, 0x27f1a-___251e8h_cdecl(esp));
+		___12e78h_cdecl(___1a10b8h, (font_props_t *)___185c7ah, esp, 0x27f1a-___251e8h_cdecl(esp));
 
 		if(D(___185a14h_UseWeapons) == 0){
 
 			eax = D(0x6e0*D(0x6c*D(___1a1ef8h)+___1a01e0h+0x1c)+___18e298h+0x6dc);
 			edx = (int)eax>>0x1f;
-			___idiv32(&eax, &edx, 0xa);
+			___idiv32((__POINTER__)&eax, (__POINTER__)&edx, 0xa);
 		}
 		else {
 
 			eax = D(0x6e0*D(0x6c*D(___1a1ef8h)+___1a01e0h+0x1c)+___18e298h+0x6dc);
 			edx = (int)eax>>0x1f;
-			___idiv32(&eax, &edx, 0xa);
+			___idiv32((__POINTER__)&eax, (__POINTER__)&edx, 0xa);
 			edx = eax;
 			edx = (int)edx>>0x1f;
 			eax = eax-edx;
@@ -208,10 +201,10 @@ void ___269e4h(void){
 	if((int)D(___1a01e0h+0x6c*D(___1a1ef8h)+0xc) == 0) esi = 0xb;
 
 	___13248h_cdecl(0x90, 0x72, 0x180, 0x77, 1);
-	___13094h_cdecl(___194170h[esi][0], 0x136aa);
-	___13094h_cdecl(___194170h[esi][1], 0x15eaa);
-	___13094h_cdecl(___194170h[esi][2], 0x186aa);
-	___13094h_cdecl(___194170h[esi][3], 0x1aeaa);
-	___13094h_cdecl(___194170h[esi][4], 0x1d6aa);
-	___13094h_cdecl(___194170h[esi][5], 0x1feaa);
+	VESA101_16X16_FORMAT_PRINT(___194170h[esi][0], 170, 124);
+	VESA101_16X16_FORMAT_PRINT(___194170h[esi][1], 170, 140);
+	VESA101_16X16_FORMAT_PRINT(___194170h[esi][2], 170, 156);
+	VESA101_16X16_FORMAT_PRINT(___194170h[esi][3], 170, 172);
+	VESA101_16X16_FORMAT_PRINT(___194170h[esi][4], 170, 188);
+	VESA101_16X16_FORMAT_PRINT(___194170h[esi][5], 170, 204);
 }

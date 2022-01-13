@@ -26,14 +26,14 @@ typedef struct xc50_s {
 } xc50_t;
 
 	extern xc50_t ___1f3b08h[];		// <0x1f3b08 - 0x1f4758)
-	extern byte ___196d94h[];
-	extern byte ___196d8ch[];
-	extern byte ___243c98h[];
-	extern byte ___243d08h[];
+	extern __BYTE__ ___196d94h[];
+	extern __BYTE__ ___196d8ch[];
+	extern __BYTE__ ___243c98h[];
+	extern __BYTE__ ___243d08h[];
 
 void race___5326ch(void){
 
-	dword 	eax, edx;
+	__DWORD__ 	eax, edx;
 	int 	n;
 
 

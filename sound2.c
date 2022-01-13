@@ -7,44 +7,44 @@ typedef struct sound_mod_s {
 	int 	type;
 	int 	channels;
 	int 	samples;
-	void * 	data;
-	dword 	size;
+	__POINTER__ 	data;
+	__DWORD__ 	size;
 } sound_mod_t;
 
 typedef struct sampledata_s {
-	void *	start_p;
-	void * 	end_p;
-	void * 	loopstart_p;
-	void * 	loopend_p;
-	byte 	flags;
+	__POINTER__	start_p;
+	__POINTER__ 	end_p;
+	__POINTER__ 	loopstart_p;
+	__POINTER__ 	loopend_p;
+	__BYTE__ 	flags;
 } sampledata_t;
 
 typedef struct samplelib_s {
 	int 			n_samples;
 	int 			n_msx_samples;
 	int 			n_sfx_samples;
-	void * 			header_alloc;
-	void *			data_alloc;
-	void * 			write_p;
+	__POINTER__ 			header_alloc;
+	__POINTER__			data_alloc;
+	__POINTER__ 			write_p;
 	sampledata_t * 	samples;
 	int *			samples_volume;
 	int * 			samples_frequency;
 } samplelib_t;
 
-void SampleLib_addSample(void *, void *, void *, void *, dword);
-dword ___71b70h_cdecl(dword);
-dword XM_getPeriod(int Note, int FineTune);
+void SampleLib_addSample(__POINTER__, __POINTER__, __POINTER__, __POINTER__, __DWORD__);
+__DWORD__ ___71b70h_cdecl(__DWORD__);
+__DWORD__ XM_getPeriod(int Note, int FineTune);
 
 
 extern samplelib_t SampleLib;
-byte ___19ae04h[4] = {0};
+__BYTE__ ___19ae04h[4] = {0};
 
 
-static void ___7569ch_cdecl(void * smpl_d, xm_sample_t * smpl_h, dword ins_idx, dword ins_smpls){
+static void ___7569ch_cdecl(__POINTER__ smpl_d, xm_sample_t * smpl_h, __DWORD__ ins_idx, __DWORD__ ins_smpls){
 
-	dword 	n, smpl_bytes;
+	__DWORD__ 	n, smpl_bytes;
 	void 	* isd_p, * isd_end_p, * isd_loop_p, * isd_loopend_p;
-	byte 	flags;
+	__BYTE__ 	flags;
 	int 	old;
 
 
@@ -70,15 +70,15 @@ static void ___7569ch_cdecl(void * smpl_d, xm_sample_t * smpl_h, dword ins_idx, 
 
 			while(++n < (smpl_h->size/2)){
 
-				old += ((word *)smpl_d)[n];
-				((word *)smpl_d)[n] = old;
+				old += ((__WORD__ *)smpl_d)[n];
+				((__WORD__ *)smpl_d)[n] = old;
 			}
 		}
 		else {				//	8-bit samples
 
 			while(++n < smpl_h->size){
-				old += ((byte *)smpl_d)[n];
-				((byte *)smpl_d)[n] = old^0x80;
+				old += ((__BYTE__ *)smpl_d)[n];
+				((__BYTE__ *)smpl_d)[n] = old^0x80;
 			}
 		}
 
@@ -92,15 +92,15 @@ static void ___7569ch_cdecl(void * smpl_d, xm_sample_t * smpl_h, dword ins_idx, 
 
 void ___75840h(sound_mod_t * smod){
 
-	dword 				n;
-	void *				hi_p;
-	void * 				xm_smpl_data_p;
+	__DWORD__ 				n;
+	__POINTER__				hi_p;
+	__POINTER__ 				xm_smpl_data_p;
 	xm_instrument_t * 	xm_ins_p;
 	xm_sample_t * 		xm_smpl_p;
 	xm_t *				sfx_p;
 
 	sfx_p = (xm_t *)smod->data;
-	hi_p = (void *)sfx_p+smod->size-1;
+	hi_p = (__POINTER__)sfx_p+smod->size-1;
 	printf("=============  XM resize: %6d >>>> ", smod->size);
 
 	n = -1;
@@ -114,6 +114,6 @@ void ___75840h(sound_mod_t * smod){
 		if(hi_p > xm_smpl_data_p) hi_p = xm_smpl_data_p;
 	}
 
-	printf("%6d\n", hi_p-(void *)sfx_p);
-	dRMemory_resize(sfx_p, hi_p-(void *)sfx_p);
+	printf("%6lld\n", hi_p-(__POINTER__)sfx_p);
+	dRMemory_resize((__POINTER__)sfx_p, hi_p-(__POINTER__)sfx_p);
 }

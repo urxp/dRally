@@ -1,7 +1,7 @@
 #include "drally.h"
 
 void dRally_System_clean(void);
-dword DPMI_GET_FREE_MEMORY_INFORMATION(void);
+__DWORD__ DPMI_GET_FREE_MEMORY_INFORMATION(void);
 
 void ___3e164h(void){
 

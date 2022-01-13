@@ -10,9 +10,9 @@ enum {
     MENU_TIRE4
 };
 
-void * dRally_Assets_loadRaw(const char *, const char *, int);
-void * dRally_Assets_loadDecode(const char *, const char *, int);
-void dRally_Assets_loadDecodeX(void *, const char *, const char *);
-void * getAssets(int);
+__POINTER__ dRally_Assets_loadRaw(const char *, const char *, int);
+__POINTER__ dRally_Assets_loadDecode(const char *, const char *, int);
+void dRally_Assets_loadDecodeX(__POINTER__, const char *, const char *);
+__POINTER__ getAssets(int);
 
 #endif // __ASSETS_H

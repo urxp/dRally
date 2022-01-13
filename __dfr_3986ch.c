@@ -2,6 +2,8 @@
 
 void ___3986ch(void){
 
+	printf("TODO ___3986ch\n");
+	exit(1);
 /*
 cpu 386
 %include "macros.inc"

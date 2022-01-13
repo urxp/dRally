@@ -27,20 +27,20 @@ typedef enum { NO_TRACKER, SCREAM_TRACKER_3, FAST_TRACKER_2 } TrackerType;
 
 #pragma pack(1)
 typedef struct sampledata_s {
-	void *	start_p;
-	void * 	end_p;
-	void * 	loopstart_p;
-	void * 	loopend_p;
-	byte 	flags;
+	__POINTER__	start_p;
+	__POINTER__ 	end_p;
+	__POINTER__ 	loopstart_p;
+	__POINTER__ 	loopend_p;
+	__BYTE__ 	flags;
 } sampledata_t;
 
 typedef struct samplelib_s {
 	int 			n_samples;
 	int 			n_msx_samples;
 	int 			n_sfx_samples;
-	void * 			header_alloc;
-	void *			data_alloc;
-	void * 			write_p;
+	__POINTER__ 			header_alloc;
+	__POINTER__			data_alloc;
+	__POINTER__ 			write_p;
 	sampledata_t * 	samples;
 	int *			samples_volume;
 	int * 			samples_frequency;
@@ -50,8 +50,8 @@ typedef struct sound_mod_s {
 	int 	type;
 	int 	channels;
 	int 	samples;
-	void * 	data;
-	dword 	size;
+	__POINTER__ 	data;
+	__DWORD__ 	size;
 } sound_mod_t;
 
 typedef struct sound_s {
@@ -61,58 +61,58 @@ typedef struct sound_s {
 } sound_t;
 
 typedef struct music_s {
-    byte        ch_map[32];
-    dword *     c2spd;
-    void **     patterns;
-    byte *      ch_settings;
-    byte *	    orders;
-    byte *      panning;
-    byte *      volume;
-    void *      s3m_p;
-    word        n_patterns;
-    byte        n_orders;
-    byte        tempo;
-    byte        global_volume;
-    byte        speed;
+    __BYTE__        ch_map[32];
+    __DWORD__ *     c2spd;
+    __POINTER__*     patterns;
+    __BYTE__ *      ch_settings;
+    __BYTE__ *	    orders;
+    __BYTE__ *      panning;
+    __BYTE__ *      volume;
+    __POINTER__      s3m_p;
+    __WORD__        n_patterns;
+    __BYTE__        n_orders;
+    __BYTE__        tempo;
+    __BYTE__        global_volume;
+    __BYTE__        speed;
 } music_t;
 
 extern music_t Music;
 extern sound_t Sound;
 extern samplelib_t SampleLib;
 
-extern dword SOUND_SAMPLES;
-extern byte SOUND_LOADED;
-extern byte SOUND_PLANES;
-byte SOUND_PLAYING = 0;
-extern byte SOUND;
-extern word SOUND_SAMPLERATE;
-extern dword MASTER_VOLUME;
-extern dword MSX_VOLUME;
-extern dword SFX_VOLUME;
-extern dword ___68910h_offset[32];
-extern word ___688d0h_sample_id[32];
-extern dword ___68990h[32];
-extern dword ___68a10h[32];
-word ___24e750h[32];
-extern dword ___68a90h[32];
+extern __DWORD__ SOUND_SAMPLES;
+extern __BYTE__ SOUND_LOADED;
+extern __BYTE__ SOUND_PLANES;
+__BYTE__ SOUND_PLAYING = 0;
+extern __BYTE__ SOUND;
+extern __WORD__  SOUND_SAMPLERATE;
+extern __DWORD__ MASTER_VOLUME;
+extern __DWORD__ MSX_VOLUME;
+extern __DWORD__ SFX_VOLUME;
+extern __DWORD__ ___68910h_offset[32];
+extern __WORD__  ___688d0h_sample_id[32];
+extern __DWORD__ ___68990h[32];
+extern __DWORD__ ___68a10h[32];
+__WORD__ ___24e750h[32];
+extern __DWORD__ ___68a90h[32];
 extern __BYTE__ (*___68d48h)[0x20];
 extern int (*___68d40h)[0x100];
 extern double s3m_TickDuration_s;
-extern byte * ___19a464h;
+extern __BYTE__ * ___19a464h;
 
 extern int * ___68d34h_R_BFR;
 extern int * ___68d38h_L_BFR;
 
 
-void audio_s16_stereo_cb(void *, unsigned char *, unsigned int);
+void audio_s16_stereo_cb(__POINTER__, unsigned char *, unsigned int);
 void SET_AUDIO_DATA_CB(void_cb);
 void DO_NOTHING(void);
 void ___65788h_updateVolume_cdecl(void);
 void dRally_System_addExitCallback(void_cb);
-void dRally_System_removeExitCallback(dword);
-dword ___71a44h_cdecl(void);
-byte ___71a88h_cdecl(dword);
-dword MULSHIFT(dword, dword);
+void dRally_System_removeExitCallback(void_cb);
+__DWORD__ ___71a44h_cdecl(void);
+__BYTE__ ___71a88h_cdecl(__DWORD__);
+__DWORD__ MULSHIFT(__DWORD__, __DWORD__);
 void ___68c42h_cdecl(void);
 void ___685a4h_createPlanes_cdecl(void);
 void ___6ef2ch_init(void);
@@ -121,7 +121,7 @@ void ___6ef2ch(void);
 SDL_AudioDeviceID audio_dev = 0;
 
 
-void dRally_Sound_init(byte sound){
+void dRally_Sound_init(__BYTE__ sound){
 
 	SDL_AudioSpec a;
 	SDL_AudioSpec b;
@@ -170,7 +170,7 @@ void dRally_Sound_quit(void){
 }
 
 // 00065710h
-void dRally_Sound_setMasterVolume(dword vol){
+void dRally_Sound_setMasterVolume(__DWORD__ vol){
 
 	if(SOUND&&SOUND_LOADED){
 	
@@ -180,7 +180,7 @@ void dRally_Sound_setMasterVolume(dword vol){
 }
 
 // 0006572ch
-void dRally_Sound_setMusicVolume(dword vol){
+void dRally_Sound_setMusicVolume(__DWORD__ vol){
 
 	if(SOUND&&SOUND_LOADED){
 	
@@ -190,7 +190,7 @@ void dRally_Sound_setMusicVolume(dword vol){
 }
 
 // 00065770h
-void dRally_Sound_setEffectsVolume(dword vol){
+void dRally_Sound_setEffectsVolume(__DWORD__ vol){
 
 	if(SOUND&&SOUND_LOADED){
 
@@ -208,10 +208,10 @@ void dRally_Sound_stop(void){
 
 		if(SOUND_PLANES){
 
-			dRMemory_free(___68d40h);
-			dRMemory_free(___68d34h_R_BFR);
-			dRMemory_free(___68d38h_L_BFR);
-			dRMemory_free(___68d48h);
+			dRMemory_free((__POINTER__)___68d40h);
+			dRMemory_free((__POINTER__)___68d34h_R_BFR);
+			dRMemory_free((__POINTER__)___68d38h_L_BFR);
+			dRMemory_free((__POINTER__)___68d48h);
 			SOUND_PLANES = 0;
 		}
 
@@ -281,10 +281,10 @@ void dRally_Sound_load(__DWORD__ msx_t, const char * msx_f, __DWORD__ sfx_t, con
 		bpa_close(bpa);
         ___42944h(err);
     }
-	else if((musics_s3m = dRMemory_alloc(size_s3m)) != (void *)0){
+	else if((musics_s3m = (s3m_t *)dRMemory_alloc(size_s3m)) != (s3m_t *)0){
 	
-		bpa_read(bpa, musics_s3m);
-		dREncryption_decodeCMF(musics_s3m, size_s3m);
+		bpa_read(bpa, (__POINTER__)musics_s3m);
+		dREncryption_decodeCMF((__POINTER__)musics_s3m, size_s3m);
 		if(strncmp(musics_s3m->sig2, "SCRM", 4)) ___58b20h(0x28, msx_f);
     	if(S3M_getHeaderOrderList(musics_s3m)[0] == 0xff) ___58b20h(0x29, msx_f);
 	}
@@ -300,10 +300,10 @@ void dRally_Sound_load(__DWORD__ msx_t, const char * msx_f, __DWORD__ sfx_t, con
 		bpa_close(bpa);
         ___42944h(err);
     }
-	else if((effects_xm = dRMemory_alloc(size_xm)) != (void *)0){
+	else if((effects_xm = (xm_t *)dRMemory_alloc(size_xm)) != (xm_t *)0){
 
-		bpa_read(bpa, effects_xm);
-		dREncryption_decodeCMF(effects_xm, size_xm);
+		bpa_read(bpa, (__POINTER__)effects_xm);
+		dREncryption_decodeCMF((__POINTER__)effects_xm, size_xm);
 		if(strncmp(effects_xm->id, "Extended Module: ", 0x11)) ___58b20h(0x28, sfx_f);
 		if(effects_xm->sig1 != 0x1a) ___58b20h(0x28, sfx_f);
 		if(effects_xm->version < 0x104) ___58b20h(0x28, sfx_f);
@@ -321,7 +321,7 @@ void dRally_Sound_load(__DWORD__ msx_t, const char * msx_f, __DWORD__ sfx_t, con
 // 000648d8h
 void dRally_Sound_play(void){
 
-	dword 	i, n;
+	__DWORD__ 	i, n;
 
 	if(SOUND&&SOUND_LOADED){
 		
@@ -375,7 +375,7 @@ void dRally_Sound_play(void){
 }
 
 // 000655b0h
-void dRally_Sound_adjustEffect(byte channel, dword vol, dword freq, dword balance){
+void dRally_Sound_adjustEffect(__BYTE__ channel, __DWORD__ vol, __DWORD__ freq, __DWORD__ balance){
 
 	if(SOUND&&SOUND_LOADED&&Sound.sfx.data&&channel){
 
@@ -391,9 +391,9 @@ void dRally_Sound_adjustEffect(byte channel, dword vol, dword freq, dword balanc
 }
 
 // 000654d4h
-void dRally_Sound_pushEffect(byte sfx_channel, byte n, dword offset, dword vol, dword freq, dword balance){
+void dRally_Sound_pushEffect(__BYTE__ sfx_channel, __BYTE__ n, __DWORD__ offset, __DWORD__ vol, __DWORD__ freq, __DWORD__ balance){
 
-	byte 	l_channel;
+	__BYTE__ 	l_channel;
 
 	if(SOUND&&SOUND_LOADED&&Sound.sfx.data&&sfx_channel){
 		
@@ -410,13 +410,13 @@ void dRally_Sound_pushEffect(byte sfx_channel, byte n, dword offset, dword vol, 
 }
 
 // 00065990h
-void dRally_Sound_setSampleRate(dword freq){
+void dRally_Sound_setSampleRate(__DWORD__ freq){
 
 	SOUND_SAMPLERATE = __BOUNDS(freq, 0x1f40, 0xac44);
 }
 
 // 0006563ch
-void dRally_Sound_freeEffectChannel(byte ch_num){
+void dRally_Sound_freeEffectChannel(__BYTE__ ch_num){
 
 	if(SOUND&&SOUND_LOADED&&Sound.sfx.data&&ch_num){
 
@@ -429,13 +429,13 @@ void dRally_Sound_freeEffectChannel(byte ch_num){
 }
 
 // 000658b0h
-dword dRally_Sound_getPosition(void){
+__DWORD__ dRally_Sound_getPosition(void){
 
 	return (SOUND&&SOUND_LOADED&&Sound.msx.type) ? ___71a44h_cdecl() : 0xffffffff;
 }
 
 // 000658b8h
-byte dRally_Sound_setPosition(dword pos_n){
+__BYTE__ dRally_Sound_setPosition(__DWORD__ pos_n){
 
 	return (SOUND&&SOUND_LOADED&&Sound.msx.type) ? ___71a88h_cdecl(pos_n) : 0;
 }

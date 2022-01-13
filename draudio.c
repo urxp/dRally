@@ -13,7 +13,7 @@ typedef struct sound_mod_s {
 	int 	type;
 	int 	channels;
 	int 	samples;
-	void * 	data;
+	__POINTER__ 	data;
 	__DWORD__ 	size;
 } sound_mod_t;
 
@@ -24,10 +24,10 @@ typedef struct sound_s {
 } sound_t;
 
 typedef struct sampledata_s {
-	void *	start_p;
-	void * 	end_p;
-	void * 	loopstart_p;
-	void * 	loopend_p;
+	__POINTER__	start_p;
+	__POINTER__ 	end_p;
+	__POINTER__ 	loopstart_p;
+	__POINTER__ 	loopend_p;
 	__BYTE__ 	flags;
 } sampledata_t;
 
@@ -35,9 +35,9 @@ typedef struct samplelib_s {
 	int 			n_samples;
 	int 			n_msx_samples;
 	int 			n_sfx_samples;
-	void * 			header_alloc;
-	void *			data_alloc;
-	void * 			write_p;
+	__POINTER__ 			header_alloc;
+	__POINTER__			data_alloc;
+	__POINTER__ 			write_p;
 	sampledata_t * 	samples;
 	int *			samples_volume;
 	int * 			samples_frequency;
@@ -46,12 +46,12 @@ typedef struct samplelib_s {
 typedef struct music_s {
     __BYTE__        ch_map[32];
     __DWORD__ *     c2spd;
-    void **     patterns;
+    __POINTER__*     patterns;
     __BYTE__ *      ch_settings;
     __BYTE__ *	    orders;
     __BYTE__ *      panning;
     __BYTE__ *      volume;
-    void *      s3m_p;
+    __POINTER__      s3m_p;
     __WORD__        n_patterns;
     __BYTE__        n_orders;
     __BYTE__        tempo;
@@ -87,7 +87,7 @@ void dRAudio_open(dRAudio ** ctx){
 
 void dRAudio_close(dRAudio * ctx){
 
-	*(ctx->this) = (void *)0;
+	*(ctx->this) = (dRAudio *)0;
 }
 
 void dRAudio_load(s3m_t * musics_s3m, __DWORD__ size_s3m, xm_t * effects_xm, __DWORD__ size_xm, int sfx_channels){
@@ -98,23 +98,23 @@ void dRAudio_load(s3m_t * musics_s3m, __DWORD__ size_s3m, xm_t * effects_xm, __D
     msx_t = SCREAM_TRACKER_3;
     sfx_t = FAST_TRACKER_2;
 
-    if(musics_s3m == (void *)0) msx_t = NO_TRACKER;
-	if(effects_xm == (void *)0){
+    if(musics_s3m == (s3m_t *)0) msx_t = NO_TRACKER;
+	if(effects_xm == (xm_t *)0){
 		
 		sfx_t = NO_TRACKER;
 		sfx_channels = 0;
 	}
 	else if(sfx_channels < 1) sfx_channels = 1;
 
-	if((musics_s3m == (void *)0)&&(effects_xm == (void *)0)) return;
+	if((musics_s3m == (s3m_t *)0)&&(effects_xm == (xm_t *)0)) return;
 
 	Sound.msx.channels = 0;
 	if((Sound.msx.type = msx_t) == SCREAM_TRACKER_3){
         
-        Music.s3m_p         = musics_s3m;
+        Music.s3m_p         = (__POINTER__)musics_s3m;
         Sound.msx.size      = size_s3m;
         Sound.msx.samples 	= musics_s3m->instrumentCount;
-        Sound.msx.data 		= musics_s3m;
+        Sound.msx.data 		= (__POINTER__)musics_s3m;
         Sound.msx.channels 	= 0;
 
         n = -1;
@@ -128,7 +128,7 @@ void dRAudio_load(s3m_t * musics_s3m, __DWORD__ size_s3m, xm_t * effects_xm, __D
         
         Sound.sfx.size      = size_xm;
         Sound.sfx.samples   = effects_xm->instrumentCount;
-        Sound.sfx.data      = effects_xm;
+        Sound.sfx.data      = (__POINTER__)effects_xm;
         Sound.sfx.channels  = effects_xm->channels;
     }
 

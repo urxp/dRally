@@ -1,6 +1,6 @@
 #include "drally.h"
 
-	extern byte VGA13_ACTIVESCREEN[];
+	extern __BYTE__ VGA13_ACTIVESCREEN[];
 
 void __VGA13_PRESENTSCREEN__(void);
 

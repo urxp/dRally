@@ -28,19 +28,19 @@ typedef struct sample_s16_stereo_s {
 } sample_s16_stereo_t;
 
 typedef struct sampledata_s{
-	void *	start_p;
-	void * 	end_p;
-	void *	loopstart_p;
-	void * 	loopend_p;
-	byte 	flags;
+	__POINTER__	start_p;
+	__POINTER__ 	end_p;
+	__POINTER__	loopstart_p;
+	__POINTER__ 	loopend_p;
+	__BYTE__ 	flags;
 } sampledata_t;
 
 typedef struct sound_mod_s {
 	int 	type;
 	int 	channels;
 	int 	samples;
-	void * 	data;
-	dword 	size;
+	__POINTER__ 	data;
+	__DWORD__ 	size;
 } sound_mod_t;
 
 typedef struct sound_s {
@@ -51,39 +51,39 @@ typedef struct sound_s {
 
 
 	extern sound_t Sound;
-	extern byte ___68d78h[];
-	extern word SOUND_SAMPLERATE;
-	extern word ___688d0h_sample_id[32];
-	extern dword ___68910h_offset[32];
-	extern dword ___68a10h[32];
-	extern dword ___68bb0h[32];
-	extern dword ___68990h[32];
+	extern __BYTE__ ___68d78h[];
+	extern __WORD__  SOUND_SAMPLERATE;
+	extern __WORD__  ___688d0h_sample_id[32];
+	extern __DWORD__ ___68910h_offset[32];
+	extern __DWORD__ ___68a10h[32];
+	extern __DWORD__ ___68bb0h[32];
+	extern __DWORD__ ___68990h[32];
 	extern int SampleRateMultiplier;
 	extern void (*AUDIO_DATA_CB)(void);
 
 
 sampledata_t * SampleLib_getSample(int smpl_id);
 
-dword MULSHIFT(dword, dword);
+__DWORD__ MULSHIFT(__DWORD__, __DWORD__);
 
 double s3m_TickDuration_s;
 extern double s3m_TickSamples;
-dword ___68d90h;
-dword ___68d8ch;
-byte ___68d80h;
-byte ___68d7ch;
+__DWORD__ ___68d90h;
+__DWORD__ ___68d8ch;
+__BYTE__ ___68d80h;
+__BYTE__ ___68d7ch;
 __BYTE__ (*___68d48h)[0x20];
 int (*___68d40h)[0x100];
 int * ___68d34h_R_BFR;
 int * ___68d38h_L_BFR;
-byte * 	___68b30h[32];
-void * 	___68d94h_sample_position[32];
+__POINTER__ 	___68b30h[32];
+__POINTER__ 	___68d94h_sample_position[32];
 int 	___68e14h[32];
-byte 	___68e94h[32];
-dword ___68a90h[32] = {0};
+__BYTE__ 	___68e94h[32];
+__DWORD__ ___68a90h[32] = {0};
 
 
-const byte ___68eb4h[16] = { 0xff /*0*/, 0xf3, 0xe6, 0xd8, 0xc9, 0xb9, 0xa8, 0x96, 0x96 /*8*/, 0x84, 0x71, 0x5d, 0x48, 0x32, 0x1b, 0 };
+const __BYTE__ ___68eb4h[16] = { 0xff /*0*/, 0xf3, 0xe6, 0xd8, 0xc9, 0xb9, 0xa8, 0x96, 0x96 /*8*/, 0x84, 0x71, 0x5d, 0x48, 0x32, 0x1b, 0 };
 
 static int PCM_getStatus(int channel_n){
 
@@ -96,8 +96,8 @@ static int PCM_getStatus(int channel_n){
 static void PCM_resetData(int channel_n){
 
 	___68e94h[channel_n] = PP_FORWARD;
-	___68d94h_sample_position[channel_n] = (void *)0;
-	___68b30h[channel_n] = (void *)0;
+	___68d94h_sample_position[channel_n] = (__POINTER__)0;
+	___68b30h[channel_n] = (__POINTER__)0;
 	___68e14h[channel_n] = 0;
 	___688d0h_sample_id[channel_n] = 0;
 	___68910h_offset[channel_n] = 0;
@@ -110,20 +110,20 @@ static void PCM_initData(int channel_n){
 
 	___68e94h[channel_n] = PP_FORWARD;
 	unk = SampleLib_getSample(___688d0h_sample_id[channel_n]-1);
-	___68b30h[channel_n] = unk;
+	___68b30h[channel_n] = (__POINTER__)unk;
 	___68d94h_sample_position[channel_n] = unk->start_p+___68910h_offset[channel_n];
 
 	if(___68d94h_sample_position[channel_n] >= unk->end_p){
 
 		switch(unk->flags&3){
 		case 0:		// LOOP_OFF
-			___68d94h_sample_position[channel_n] = (void *)0;
-			___68b30h[channel_n] = (void *)0;
+			___68d94h_sample_position[channel_n] = (__POINTER__)0;
+			___68b30h[channel_n] = (__POINTER__)0;
 			break;
 		case 1:		// LOOP_ON
 			if(___68d94h_sample_position[channel_n] > unk->loopstart_p){
 
-				ueax = (void *)___68d94h_sample_position[channel_n]-unk->loopstart_p;
+				ueax = (__POINTER__)___68d94h_sample_position[channel_n]-unk->loopstart_p;
 				uebp = unk->end_p-unk->loopstart_p;
 				___68d94h_sample_position[channel_n] = unk->loopstart_p+(ueax%uebp);
 			}
@@ -131,7 +131,7 @@ static void PCM_initData(int channel_n){
 		default:	// PING-PONG
 			if(___68d94h_sample_position[channel_n] > unk->loopstart_p){
 
-				ueax = (void *)___68d94h_sample_position[channel_n]-unk->loopstart_p;
+				ueax = (__POINTER__)___68d94h_sample_position[channel_n]-unk->loopstart_p;
 				looplen = unk->end_p-unk->loopstart_p;
 
 				uedx = ueax%looplen;
@@ -159,19 +159,19 @@ static void PCM_initData(int channel_n){
 
 static void PCM_processData(int channel_n, int samples_done, int samples_todo){
 
-	dword 			eax, ecx, edx, edi;
+	__DWORD__ 			eax, ecx, edx, edi;
 	sampledata_t *	unk;
 	int 			balance_id, n;
-	qword 			ll_tmp;
-	byte * 			___68d94h_chn;
-	byte 			b_tmp;
-	void * 			eaxp;
+	__QWORD__ 			ll_tmp;
+	__BYTE__ * 			___68d94h_chn;
+	__BYTE__ 			b_tmp;
+	__POINTER__ 			eaxp;
 	__UNSIGNED__ 	looplen;
-	word 			w_eax;
+	__WORD__ 			w_eax;
 	int 			pp_togo;
 
 
-	unk = ___68b30h[channel_n];
+	unk = (sampledata_t *)___68b30h[channel_n];
 
 	if(unk){
 
@@ -309,7 +309,7 @@ static void PCM_processData(int channel_n, int samples_done, int samples_todo){
 	}
 }
 
-void audio_s16_stereo_cb(void * udata, unsigned char * stream, unsigned int size){
+void audio_s16_stereo_cb(__POINTER__ udata, unsigned char * stream, unsigned int size){
 
 	int		n, channel_n, samples, samples_done, samples_todo;
 

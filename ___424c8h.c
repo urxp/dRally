@@ -1,12 +1,12 @@
 #include "drally.h"
 
-	extern byte * ___243d80h;
-	extern byte ___1d7810h[];
+	extern __BYTE__ * ___243d80h;
+	extern __BYTE__ ___1d7810h[];
 
-void ___424c8h_cdecl(dword A1, const char * A2){
+void ___424c8h_cdecl(__DWORD__ A1, const char * A2){
 
 	int 	n, x, y;
-	byte 	px;
+	__BYTE__ 	px;
 	int 	b;
 
 	n = -1;

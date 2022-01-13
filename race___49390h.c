@@ -2,15 +2,15 @@
 
 #pragma pack(1)
 typedef struct rgb666_s {
-	byte 	r;
-	byte 	g;
-	byte 	b;
+	__BYTE__ 	r;
+	__BYTE__ 	g;
+	__BYTE__ 	b;
 } rgb666_t;
 
 typedef struct rgb888_s {
-	byte 	r;
-	byte 	g;
-	byte 	b;
+	__BYTE__ 	r;
+	__BYTE__ 	g;
+	__BYTE__ 	b;
 } rgb888_t;
 
 typedef struct pcx_header_s {
@@ -49,19 +49,19 @@ typedef struct pcx_header_s {
 } pcx_header_t;
 
 	extern FILE * ___1a0ef4h;
-	extern byte ___243d08h[];
-	extern byte VGA13_ACTIVESCREEN[];
+	extern __BYTE__ ___243d08h[];
+	extern __BYTE__ VGA13_ACTIVESCREEN[];
 
 void __DISPLAY_GET_PALETTE_COLOR(unsigned char * dst, unsigned char n);
-dword ___3a214h_cdecl(void *, dword);
-dword GET_FILE_SIZE(const char *);
+__DWORD__ ___3a214h_cdecl(__POINTER__, __DWORD__);
+__DWORD__ GET_FILE_SIZE(const char *);
 void pcx_newHeader(pcx_header_t * pcx_h);
 
 void PCX_GET_PALETTE_COLOR(rgb888_t * dst, unsigned char n){
 
 	rgb666_t col;
 
-    __DISPLAY_GET_PALETTE_COLOR(&col, n);
+    __DISPLAY_GET_PALETTE_COLOR((__POINTER__)&col, n);
 
     dst->r = (col.r>>4)|(col.r<<2);
     dst->g = (col.g>>4)|(col.g<<2);

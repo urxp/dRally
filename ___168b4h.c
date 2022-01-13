@@ -1,21 +1,18 @@
 #include "drally.h"
+#include "drally_fonts.h"
 
-	extern byte ___1a1ef8h[];
-	extern byte ___1a01e0h[];
-	extern byte ___1a112ch__VESA101_ACTIVESCREEN_PTR[];
-	extern byte ___1a1e58h[];
-	extern byte ___185ba9h[];
-	extern byte ___1a10cch[];
+	extern __BYTE__ ___1a1ef8h[];
+	extern __BYTE__ ___1a01e0h[];
+	extern __POINTER__ ___1a112ch__VESA101_ACTIVESCREEN_PTR;
+	extern __POINTER__ ___1a1e58h;
 
-dword ___14c50h(void);
-void ___12e78h_cdecl(dword, dword, dword, dword);
-void ___13094h_cdecl(const char *, dword);
-void ___13248h_cdecl(dword, dword ,dword, dword, dword);
+__DWORD__ ___14c50h(void);
+void ___13248h_cdecl(__DWORD__, __DWORD__ ,__DWORD__, __DWORD__, __DWORD__);
 
-dword ___168b4h(void){
+__DWORD__ ___168b4h(void){
 
-	dword 	ebp;
-	byte 	esp[0x54];
+	__DWORD__ 	ebp;
+	__BYTE__ 	esp[0x54];
 	int 	i, j;
 
 
@@ -31,21 +28,21 @@ dword ___168b4h(void){
 	while(++j < 0x60){
 
 		i = -1;
-		while(++i < 0x60) B(D(___1a112ch__VESA101_ACTIVESCREEN_PTR)+0x280*(0x83+0x35)+0x21+0xc+0x280*j+i) = B(D(___1a1e58h)+0x60*j+i);
+		while(++i < 0x60) B(___1a112ch__VESA101_ACTIVESCREEN_PTR+0x280*(0x83+0x35)+0x21+0xc+0x280*j+i) = B(___1a1e58h+0x60*j+i);
 	}
 
 	if(D(esp+0x50)){
 
-		___13094h_cdecl("", 0x280*(0x83+0x5)+0x80);
-		___13094h_cdecl("     [It's pay-back time, driver.", 0x280*(0x83+0x15)+0x80);
-		___13094h_cdecl("", 0x280*(0x83+0x25)+0x80);
-		___13094h_cdecl("     Tut tut, hotshot, [I can't see my", 0x280*(0x83+0x35)+0x80);
-		___13094h_cdecl("     [money anywhere.{ I ain't amused,", 0x280*(0x83+0x45)+0x80);
-		___13094h_cdecl("     joker. A deal is a deal. I got a", 0x280*(0x83+0x55)+0x80);
-		___13094h_cdecl("     reputation to look after. Too bad.", 0x280*(0x83+0x65)+0x80);
-		___13094h_cdecl("     Nothing personal, but [I got to hurt", 0x280*(0x83+0x75)+0x80);
-		___13094h_cdecl("     [you some now.{ Hurt 'im, boyz.", 0x280*(0x83+0x85)+0x80);
-		___13094h_cdecl("", 0x280*(0x83+0x95)+0x80);
+		VESA101_16X16_FORMAT_PRINT("", 128, 136);
+		VESA101_16X16_FORMAT_PRINT("     [It's pay-back time, driver.", 128, 152);
+		VESA101_16X16_FORMAT_PRINT("", 128, 168);
+		VESA101_16X16_FORMAT_PRINT("     Tut tut, hotshot, [I can't see my", 128, 184);
+		VESA101_16X16_FORMAT_PRINT("     [money anywhere.{ I ain't amused,", 128, 200);
+		VESA101_16X16_FORMAT_PRINT("     joker. A deal is a deal. I got a", 128, 216);
+		VESA101_16X16_FORMAT_PRINT("     reputation to look after. Too bad.", 128, 232);
+		VESA101_16X16_FORMAT_PRINT("     Nothing personal, but [I got to hurt", 128, 248);
+		VESA101_16X16_FORMAT_PRINT("     [you some now.{ Hurt 'im, boyz.", 128, 264);
+		VESA101_16X16_FORMAT_PRINT("", 128, 280);
 
 		if(D(___1a01e0h+0x34+0x6c*D(___1a1ef8h)) == 0) ebp = 0x4650;
 		if(D(___1a01e0h+0x34+0x6c*D(___1a1ef8h)) == 1) ebp = 0x34bc;
@@ -57,16 +54,16 @@ dword ___168b4h(void){
 	}
 	else {
 
-		___13094h_cdecl("", 0x280*(0x83+0x5)+0x80);
-		___13094h_cdecl("     [It's pay-back time, driver.", 0x280*(0x83+0x15)+0x80);
-		___13094h_cdecl("", 0x280*(0x83+0x25)+0x80);
-		___13094h_cdecl("     This is what I like to see, a guy", 0x280*(0x83+0x35)+0x80);
-		___13094h_cdecl("     who keeps his part of the bargain.", 0x280*(0x83+0x45)+0x80);
-		___13094h_cdecl("     Ah, the sweet smell of money. Come", 0x280*(0x83+0x55)+0x80);
-		___13094h_cdecl("     to papa, my babies. [Real nice doing", 0x280*(0x83+0x65)+0x80);
-		___13094h_cdecl("     [business with you{, thunderboy.{", 0x280*(0x83+0x75)+0x80);
-		___13094h_cdecl("     Thanks, and good racing riddance.", 0x280*(0x83+0x85)+0x80);
-		___13094h_cdecl("", 0x280*(0x83+0x95)+0x80);
+		VESA101_16X16_FORMAT_PRINT("", 128, 136);
+		VESA101_16X16_FORMAT_PRINT("     [It's pay-back time, driver.", 128, 152);
+		VESA101_16X16_FORMAT_PRINT("", 128, 168);
+		VESA101_16X16_FORMAT_PRINT("     This is what I like to see, a guy", 128, 184);
+		VESA101_16X16_FORMAT_PRINT("     who keeps his part of the bargain.", 128, 200);
+		VESA101_16X16_FORMAT_PRINT("     Ah, the sweet smell of money. Come", 128, 216);
+		VESA101_16X16_FORMAT_PRINT("     to papa, my babies. [Real nice doing", 128, 232);
+		VESA101_16X16_FORMAT_PRINT("     [business with you{, thunderboy.{", 128, 248);
+		VESA101_16X16_FORMAT_PRINT("     Thanks, and good racing riddance.", 128, 264);
+		VESA101_16X16_FORMAT_PRINT("", 128, 280);
 
 		if(D(___1a01e0h+0x34+0x6c*D(___1a1ef8h)) == 0) D(___1a01e0h+0x30+0x6c*D(___1a1ef8h)) -= 0x4650;
 		if(D(___1a01e0h+0x34+0x6c*D(___1a1ef8h)) == 1) D(___1a01e0h+0x30+0x6c*D(___1a1ef8h)) -= 0x34bc;
@@ -75,7 +72,7 @@ dword ___168b4h(void){
 		if(D(___1a01e0h+0x34+0x6c*D(___1a1ef8h)) == 4) D(___1a01e0h+0x30+0x6c*D(___1a1ef8h)) -= 0x8ca;
 	}
 
-	___12e78h_cdecl(D(___1a10cch), ___185ba9h, "CONTINUE", 0x280*(0x83+0xb9)+0xc0);
+	___12e78h_v3(___1a10cch___185ba9h, "CONTINUE", 192, 316);
 
 	return 0;
 }

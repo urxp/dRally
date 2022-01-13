@@ -1,23 +1,23 @@
 #include "drally.h"
+#include "drally_fonts.h"
 
 typedef char char40[40];
 
-	extern void * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
-	extern void * ___1a1e98h;
-	extern byte ___1a1ef8h[];
-	extern byte ___1a01e0h[];
-	extern byte ___18e298h[];
+	extern __POINTER__ ___1a112ch__VESA101_ACTIVESCREEN_PTR;
+	extern __POINTER__ ___1a1e98h;
+	extern __BYTE__ ___1a1ef8h[];
+	extern __BYTE__ ___1a01e0h[];
+	extern __BYTE__ ___18e298h[];
 	extern __DWORD__ ___1864fch[][0x10];
-	extern void * ___1a01d0h[4];
-	extern byte ___1a1eech[];
-	extern void * ___1a1eb8h;
+	extern __POINTER__ ___1a01d0h[4];
+	extern __BYTE__ ___1a1eech[];
+	extern __POINTER__ ___1a1eb8h;
 
-void ___13094h_cdecl(const char *, dword);
 int ___25180h_cdecl(const char * A1);
-void ___12f60h_cdecl(const char * A1, dword A2);
-void ___13248h_cdecl(dword, dword ,dword, dword, dword);
+void ___12f60h_cdecl(const char * A1, __DWORD__ A2);
+void ___13248h_cdecl(__DWORD__, __DWORD__ ,__DWORD__, __DWORD__, __DWORD__);
 char * itoa_watcom106(int value, char * buffer, int radix);
-void ___259e0h_cdecl(int dx, int dy, int aFrameIdx, void * aEncoded, int * aOffsets);
+void ___259e0h_cdecl(int dx, int dy, int aFrameIdx, __POINTER__ aEncoded, int * aOffsets);
 
 static const char40 ___191c40h[4][6] = {
 	[0] = {
@@ -78,12 +78,12 @@ void ___26650h(void){
 		strcat(strcpy(esp+0x14, "$"), esp);
 		___12f60h_cdecl(esp+0x14, ___25180h_cdecl(esp+0x14)+0x34660);
 		___13248h_cdecl(0x90, 0x72, 0x180, 0x77, 1);
-		___13094h_cdecl(___191c40h[D(___1a01e0h+0x18+0x6c*D(___1a1ef8h))][0], 0x136aa);
-		___13094h_cdecl(___191c40h[D(___1a01e0h+0x18+0x6c*D(___1a1ef8h))][1], 0x15eaa);
-		___13094h_cdecl(___191c40h[D(___1a01e0h+0x18+0x6c*D(___1a1ef8h))][2], 0x186aa);
-		___13094h_cdecl(___191c40h[D(___1a01e0h+0x18+0x6c*D(___1a1ef8h))][3], 0x1aeaa);
-		___13094h_cdecl(___191c40h[D(___1a01e0h+0x18+0x6c*D(___1a1ef8h))][4], 0x1d6aa);
-		___13094h_cdecl(___191c40h[D(___1a01e0h+0x18+0x6c*D(___1a1ef8h))][5], 0x1feaa);
+		VESA101_16X16_FORMAT_PRINT(___191c40h[D(___1a01e0h+0x18+0x6c*D(___1a1ef8h))][0], 170, 124);
+		VESA101_16X16_FORMAT_PRINT(___191c40h[D(___1a01e0h+0x18+0x6c*D(___1a1ef8h))][1], 170, 140);
+		VESA101_16X16_FORMAT_PRINT(___191c40h[D(___1a01e0h+0x18+0x6c*D(___1a1ef8h))][2], 170, 156);
+		VESA101_16X16_FORMAT_PRINT(___191c40h[D(___1a01e0h+0x18+0x6c*D(___1a1ef8h))][3], 170, 172);
+		VESA101_16X16_FORMAT_PRINT(___191c40h[D(___1a01e0h+0x18+0x6c*D(___1a1ef8h))][4], 170, 188);
+		VESA101_16X16_FORMAT_PRINT(___191c40h[D(___1a01e0h+0x18+0x6c*D(___1a1ef8h))][5], 170, 204);
 	}
 	else {
 
@@ -95,11 +95,11 @@ void ___26650h(void){
 		}
 
 		___13248h_cdecl(0x90, 0x72, 0x180, 0x77, 1);
-		___13094h_cdecl("[NO MORE ARMOR UPGRADES", 0x136aa);
-		___13094h_cdecl("", 0x15eaa);
-		___13094h_cdecl("You got the best shining knight's", 0x186aa);
-		___13094h_cdecl("armor this warhorsepower chariot", 0x1aeaa);
-		___13094h_cdecl("can carry to any road battle.", 0x1d6aa);
-		___13094h_cdecl("", 0x1feaa);
+		VESA101_16X16_FORMAT_PRINT("[NO MORE ARMOR UPGRADES", 170, 124);
+		VESA101_16X16_FORMAT_PRINT("", 170, 140);
+		VESA101_16X16_FORMAT_PRINT("You got the best shining knight's", 170, 156);
+		VESA101_16X16_FORMAT_PRINT("armor this warhorsepower chariot", 170, 172);
+		VESA101_16X16_FORMAT_PRINT("can carry to any road battle.", 170, 188);
+		VESA101_16X16_FORMAT_PRINT("", 170, 204);
 	}
 }

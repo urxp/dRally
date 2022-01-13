@@ -1,59 +1,58 @@
 #include "drally.h"
 
-	extern byte ___19dec0h[];
-	extern byte ___1a0ffch[];
+	extern __DWORD__ ___19dec0h[4];
+	extern __BYTE__ ___1a0ffch[];
 
-void ___197d0h_cdecl(dword A0, dword A1){
+void ___197d0h_cdecl(__DWORD__ A0, __DWORD__ A1){
 
-	dword 	eax, ebx, ecx, edx, edi, esi, ebp;
-	byte 	esp[0xc];
+	__DWORD__ 	eax, ebx, ecx, edx, edi, esi, ebp;
+	__BYTE__ 	esp[0xc];
 
 
 	D(esp+4) = A0;
-	D(esp+8) = A1;
 
 	while(1){
 
-		esi = D(esp+8);
+		esi = A1;
 		ebx = D(esp+4);
 
 		eax = (int)(ebx+esi)/2;
 
 
-		edi = D(eax*4+___19dec0h);
+		edi = ___19dec0h[eax];
 
 		while(1){
 
 			while(1){
 			
-				if((int)edi <= (int)D(ebx*4+___19dec0h)) break;
+				if((int)edi <= (int)___19dec0h[ebx]) break;
 				ebx++;
 			}
 
-			eax = 4*esi;
+			eax = esi;
 
 			while(1){
 
-				edx = D(eax+___19dec0h);
+				edx = ___19dec0h[eax];
 				if((int)edi >= (int)edx) break;
-				eax -= 4;
+				eax--;
 				esi--;
 			}
 
 			if((int)ebx <= (int)esi){
 
-				D(esp) = D(___19dec0h+4*ebx);
-				D(___19dec0h+4*ebx) = edx;
-				D(___19dec0h+eax) = D(esp);
+				D(esp) = ___19dec0h[ebx];
+				___19dec0h[ebx] = edx;
+				___19dec0h[eax] = D(esp);
 				edx = 0xb*esi;
 				eax = 0xb*ebx;
 				ebp = 0xb*(ebx+1);
 
 				while(1){
 
-					B(esp) = B(eax+___1a0ffch);
-					B(eax+___1a0ffch) = B(edx+___1a0ffch);
-					B(edx+___1a0ffch) = B(esp);
+					B(esp) = B(___1a0ffch+eax);
+					B(___1a0ffch+eax) = B(___1a0ffch+edx);
+					B(___1a0ffch+edx) = B(esp);
 				
 					edx++;
 					eax++;
@@ -69,7 +68,7 @@ void ___197d0h_cdecl(dword A0, dword A1){
 
 		if((int)esi > (int)D(esp+4)) ___197d0h_cdecl(D(esp+4), esi);
 
-		if((int)ebx >= (int)D(esp+8)) break;
+		if((int)ebx >= (int)A1) break;
 		D(esp+4) = ebx;
 	}
 }

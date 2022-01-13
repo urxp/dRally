@@ -1,10 +1,10 @@
 #include "drally.h"
 
-	extern byte ___1a0d60h[];
+	extern char ___1a0d60h[0xc8];
 
 void dRally_Sound_release(void);
-dword GET_FILE_SIZE(const char *);
-void ___10b80h_cdecl(const char *, dword, const char *, dword, const char *, dword, dword);
+__DWORD__ GET_FILE_SIZE(const char *);
+void ___10b80h_cdecl(const char *, __DWORD__, const char *, __DWORD__, const char *, __DWORD__, __DWORD__);
 
 void ___3d908h(void){
 

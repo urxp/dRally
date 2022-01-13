@@ -1,27 +1,26 @@
 #include "drally.h"
 
-	extern byte ___2438d0h[];
-	extern byte ___1df520h[];
-	extern byte ___196dc8h[];
-	extern byte ___196d98h[];
-	extern byte ___196dcch[];
-	extern void * ___243d7ch;
-	extern void * ___243d80h;
+	extern __BYTE__ ___1df520h[];
+	extern __BYTE__ ___196dc8h[];
+	extern __BYTE__ ___196d98h[];
+	extern __BYTE__ ___196dcch[];
+	extern __POINTER__ ___243d7ch;
+	extern __POINTER__ ___243d80h;
 
-dword __GET_FRAME_COUNTER(void);
+__DWORD__ __GET_FRAME_COUNTER(void);
 
 // SOMETHING WITH MINES ???
 void race___51ce0h(void){
 
-	dword 	eax, ebx, ecx, edx, edi, esi, ebp;
-	byte 	esp[0xc];
+	__DWORD__ 	eax, ebx, ecx, edx, edi, esi, ebp;
+	__BYTE__ 	esp[0xc];
 	__BYTE__ 	px;
 	int 	i, j, n;
 
 
 	D(esp) = 0;
 
-	if((int)D(___2438d0h) > 0){
+	if((int)getCounter(6) > 0){
 
 		while(1){
 
@@ -63,7 +62,7 @@ void race___51ce0h(void){
 
 				if((int)D(___1df520h+0x10*D(esp)+8) > 5){
 
-					ebx = D(___2438d0h)-1;
+					ebx = getCounter(6)-1;
 					eax = D(esp);
 					D(___1df520h+0x10*D(esp)+8) = -1;
 
@@ -75,13 +74,13 @@ void race___51ce0h(void){
 						eax++;
 					}
 
-					D(___2438d0h)--;
+					decCounter(6);
 					D(esp)--;
 				}
 			}
 
 			D(esp)++;
-			if((int)D(esp) >= (int)D(___2438d0h)) break;
+			if((int)D(esp) >= (int)getCounter(6)) break;
 		}
 	}
 }

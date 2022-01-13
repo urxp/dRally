@@ -1,40 +1,62 @@
 #include "drally.h"
 
-	extern byte ___1a0d60h[];
-	extern void * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
-	extern void * ___1a1124h__VESA101h_ScreenBufferA;
-	extern byte ___19eb50h[];
+#pragma pack(1)
+typedef struct x655_s {
+	__DWORD__ 	r;
+	__DWORD__ 	g;
+	__DWORD__ 	b;
+} x655_t;
+
+	extern x655_t ___19eb50h[0x100];
+
+	extern __BYTE__ ___1a0d60h[];
+	extern __POINTER__ ___1a112ch__VESA101_ACTIVESCREEN_PTR;
+	extern __POINTER__ ___1a1124h__VESA101h_ScreenBufferA;
 	extern __DWORD__ ___24cc58h_msx_volume;
 	extern __DWORD__ ___24cc54h_sfx_volume;
-	extern byte kmap[];
+	extern __BYTE__ kmap[];
 
 
-dword GET_FILE_SIZE(const char *);
+__DWORD__ GET_FILE_SIZE(const char *);
 void ___2b318h(void);
 void ___58c60h(void);
-void ___13a98h_cdecl(dword);
-void __DISPLAY_SET_PALETTE_COLOR(dword b, dword g, dword r, dword n);
+void ___13a98h_cdecl(__DWORD__);
+void __DISPLAY_SET_PALETTE_COLOR(__DWORD__ b, __DWORD__ g, __DWORD__ r, __DWORD__ n);
 int ___3d9c0h_cdecl(const char *, const char *, int);
 void ___12cb8h__VESA101_PRESENTSCREEN(void);
 void __VESA101_SETMODE();
-void dRally_Sound_setEffectsVolume(dword vol);
-byte dRally_Sound_setPosition(dword pos_n);
-void dRally_Sound_setSampleRate(dword freq);
+void dRally_Sound_setEffectsVolume(__DWORD__ vol);
+__BYTE__ dRally_Sound_setPosition(__DWORD__ pos_n);
+void dRally_Sound_setSampleRate(__DWORD__ freq);
 void dRally_Sound_play(void);
-void dRally_Sound_setMusicVolume(dword vol);
-void dRally_Sound_load(dword msx_t, const char * msx_f, dword sfx_t, const char * sfx_f, dword num_ch);
+void dRally_Sound_setMusicVolume(__DWORD__ vol);
+void dRally_Sound_load(__DWORD__ msx_t, const char * msx_f, __DWORD__ sfx_t, const char * sfx_f, __DWORD__ num_ch);
 void ___606dfh(void);
-void ___605deh_cdecl(dword, dword);
-void ___10b80h_cdecl(const char *, dword, const char *, dword, const char *, dword, dword);
+void ___605deh_cdecl(__DWORD__, __DWORD__);
+void ___10b80h_cdecl(const char *, __DWORD__, const char *, __DWORD__, const char *, __DWORD__, __DWORD__);
 void dRally_Sound_release(void);
+
+static __BYTE__ helper_color(__DWORD__ eax, __DWORD__ edx){
+
+	long long 	ll_tmp;
+
+	ll_tmp = (long long)(int)eax*(int)edx; edx = ll_tmp>>0x20; eax = ll_tmp;
+	eax += 0x8000;
+	edx += !!(eax < 0x8000);
+	eax = (eax >> 0x10)|(edx << 0x10);
+	eax += 0x8000;
+	eax = (int)eax>>0x10;
+
+	return eax&0xff;
+}
 
 void menu___3da48h(void){
 
 	long long 	ll_tmp;
-	dword 	rr, gg, bb, nn, cf;
-	dword 	eax, ebx, ecx, edx, edi, esi, ebp;
-	byte 	__esp[0x10+0x74];
-	byte * 	esp = __esp+0x10;
+	__DWORD__ 	rr, gg, bb, nn, cf;
+	__DWORD__ 	eax, ebx, ecx, edx, edi, esi, ebp;
+	__BYTE__ 	__esp[0x10+0x74];
+	__BYTE__ * 	esp = __esp+0x10;
 
 
 		strcpy(esp, "");
@@ -58,51 +80,18 @@ void menu___3da48h(void){
 			if(edx != 0) ___13a98h_cdecl(0);
 			esi = D(esp+0x70);
 			ecx = 0;
-			edi = 0;
-			D(esp+0x64) = ecx;
+			D(esp+0x64) = 0;
 
 			while(1){
 
-				eax = 0;
-				L(eax) = B(esp+0x64);
-				nn = eax;
-				edx = esi;
-				eax = D(edi+___19eb50h);
-				ll_tmp = (long long)(int)eax*(int)edx; edx = ll_tmp>>0x20; eax = ll_tmp;
-				eax += 0x8000;
-				edx += !!(eax < 0x8000);
-				eax = (eax >> 0x10)|(edx << 0x10);
-				eax += 0x8000;
-				eax = (int)eax>>0x10;
-				eax &= 0xff;
-				rr = eax;
-				edx = esi;
-				eax = D(edi+___19eb50h+4);
-				ll_tmp = (long long)(int)eax*(int)edx; edx = ll_tmp>>0x20; eax = ll_tmp;
-				eax += 0x8000;
-				edx += !!(eax < 0x8000);
-				eax = (eax >> 0x10)|(edx << 0x10);
-				eax += 0x8000;
-				eax = (int)eax>>0x10;
-				eax &= 0xff;
-				gg = eax;
-				edx = esi;
-				eax = D(edi+___19eb50h+8);
-				ll_tmp = (long long)(int)eax*(int)edx; edx = ll_tmp>>0x20; eax = ll_tmp;
-				eax += 0x8000;
-				edx += !!(eax < 0x8000);
-				eax = (eax >> 0x10)|(edx << 0x10);
-				eax += 0x8000;
-				eax = (int)eax>>0x10;
-				eax &= 0xff;
-				bb = eax;
+				nn = B(esp+0x64);
+				rr = helper_color(___19eb50h[D(esp+0x64)].r, esi);
+				gg = helper_color(___19eb50h[D(esp+0x64)].g, esi);
+				bb = helper_color(___19eb50h[D(esp+0x64)].b, esi);
+
 				__DISPLAY_SET_PALETTE_COLOR(bb, gg, rr, nn);
-				ebx = D(esp+0x64);
-				ebx++;
-				edi += 0xc;
-				D(esp+0x64) = ebx;
-			
-				if((int)ebx >= 0x100) break;
+				D(esp+0x64)++;
+				if((int)D(esp+0x64) >= 0x100) break;
 			}
 
 			ebx = D(esp+0x70);
@@ -162,52 +151,18 @@ void menu___3da48h(void){
 			edx = (long long)(int)eax%(int)esi;
 			if(edx != 0) ___13a98h_cdecl(0);
 			esi = 0;
-			edi = 0;
-			D(esp+0x64) = esi;
+			D(esp+0x64) = 0;
 			esi = D(esp+0x68);
 
 			while(1){
 
-				eax = 0;
-				L(eax) = B(esp+0x64);
-				nn = eax;
-				edx = esi;
-				eax = D(edi+___19eb50h);
-				ll_tmp = (long long)(int)eax*(int)edx; edx = ll_tmp>>0x20; eax = ll_tmp;
-				eax += 0x8000;
-				edx += !!(eax < 0x8000);
-				eax = (eax >> 0x10)|(edx << 0x10);
-				eax += 0x8000;
-				eax = (int)eax>>0x10;
-				eax &= 0xff;
-				rr = eax;
-				edx = esi;
-				eax = D(edi+___19eb50h+4);
-				ll_tmp = (long long)(int)eax*(int)edx; edx = ll_tmp>>0x20; eax = ll_tmp;
-				eax += 0x8000;
-				edx += !!(eax < 0x8000);
-				eax = (eax >> 0x10)|(edx << 0x10);
-				eax += 0x8000;
-				eax = (int)eax>>0x10;
-				eax &= 0xff;
-				gg = eax;
-				edx = esi;
-				eax = D(edi+___19eb50h+8);
-				ll_tmp = (long long)(int)eax*(int)edx; edx = ll_tmp>>0x20; eax = ll_tmp;
-				eax += 0x8000;
-				edx += !!(eax < 0x8000);
-				eax = (eax >> 0x10)|(edx << 0x10);
-				eax += 0x8000;
-				eax = (int)eax>>0x10;
-				eax &= 0xff;
-				bb = eax;
+				nn = B(esp+0x64);
+				rr = helper_color(___19eb50h[D(esp+0x64)].r, esi);
+				gg = helper_color(___19eb50h[D(esp+0x64)].g, esi);
+				bb = helper_color(___19eb50h[D(esp+0x64)].b, esi);
 				__DISPLAY_SET_PALETTE_COLOR(bb, gg, rr, nn);
-				eax = D(esp+0x64);
-				eax++;
-				edi += 0xc;
-				D(esp+0x64) = eax;
-			
-				if((int)eax >= 0x100) break;
+				D(esp+0x64)++;
+				if((int)D(esp+0x64) >= 0x100) break;
 			}
 
 			edx = D(esp+0x6a);

@@ -1,32 +1,26 @@
 #include "drally.h"
+#include "drally_fonts.h"
 
-#pragma pack(1)
-typedef struct font_props_s {
-	byte 	w;
-	byte 	h;
-	byte 	props[];
-} font_props_t;
-
-	extern byte ___185a5ch[];
-	extern void * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
-	extern byte ___1866b8h[];
-	extern byte ___185ba9h[];
-	extern void * ___1a10e0h;
-	extern byte ___185b58h[];
-	extern void * ___1a10cch;
+	extern __BYTE__ ___185a5ch[];
+	extern __POINTER__ ___1a112ch__VESA101_ACTIVESCREEN_PTR;
+	extern __BYTE__ ___1866b8h[];
+	extern __BYTE__ ___185ba9h[];
+	extern __POINTER__ ___1a10e0h;
+	extern __BYTE__ ___185b58h[];
+	extern __POINTER__ ___1a10cch;
 	extern __DWORD__ ___1a1e68h;
-	extern void * ___1a10f4h;
+	extern __POINTER__ ___1a10f4h;
 
-void ___12e78h_cdecl(byte * A1, font_props_t * A2, const char * A3, dword dst_off);
-void ___1398ch__VESA101_PRESENTRECTANGLE(dword offset, void * src, dword w, dword h);
+void ___12e78h_cdecl(__POINTER__ A1, font_props_t * A2, const char * A3, __DWORD__ dst_off);
+void ___1398ch__VESA101_PRESENTRECTANGLE(__DWORD__ offset, __POINTER__ src, __DWORD__ w, __DWORD__ h);
 	
-void ___14368h_cdecl(dword A1){
+void ___14368h_cdecl(__DWORD__ A1){
 
 	int 		i, j, n;
 	__BYTE__ 	px;
 
-	dword 	eax, ebx, ecx, edx, edi, esi, ebp;
-	byte 	esp[0x18];
+	__DWORD__ 	eax, ebx, ecx, edx, edi, esi, ebp;
+	__BYTE__ 	esp[0x18];
 
 	eax = A1;
 
@@ -66,7 +60,7 @@ void ___14368h_cdecl(dword A1){
 		}
 	}
 
-	___12e78h_cdecl(___1a10e0h, ___185ba9h, 
+	___12e78h_cdecl(___1a10e0h, (font_props_t *)___185ba9h, 
 		___1866b8h+50*D(0x1c*D(esp+4)+___185a5ch+0x18)+450*D(esp+4),
 		0x280*D(0x1c*D(esp+4)+___185a5ch+0xc)*D(0x1c*D(esp+4)+___185a5ch+0x18)+0xca0+0x280*D(0x1c*D(esp+4)+___185a5ch+8)+D(0x1c*D(esp+4)+___185a5ch+4));
 
@@ -91,7 +85,7 @@ void ___14368h_cdecl(dword A1){
 
 	while(++i < n) memset(___1a112ch__VESA101_ACTIVESCREEN_PTR+0x280*D(esp+0xc)+0xa00+0x280*i+ebp+9, 0xc4, D(esp+0x14)-0xa);
 
-	___12e78h_cdecl(___1a10cch, ___185ba9h, 
+	___12e78h_cdecl(___1a10cch, (font_props_t *)___185ba9h, 
 		___1866b8h+50*D(0x1c*D(esp+4)+___185a5ch+0x18)+450*D(esp+4),
 		D(0x1c*D(esp+4)+___185a5ch+4)+0x280*D(0x1c*D(esp+4)+___185a5ch+8)+D(0x1c*D(esp+4)+___185a5ch+0x18)*0x280*D(0x1c*D(esp+4)+___185a5ch+0xc)+0xca0);
 

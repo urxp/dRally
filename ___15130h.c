@@ -1,13 +1,8 @@
 #include "drally.h"
 #include "drally_structs_fixed.h"
+#include "drally_fonts.h"
 
 #pragma pack(push,1)
-typedef struct font_props_s {
-	byte 	w;
-	byte 	h;
-	byte 	props[];
-} font_props_t;
-
 typedef char char80[80];
 typedef struct eventtext_s {
 	char80 	l0;
@@ -26,11 +21,9 @@ typedef struct eventtext_s {
 #define Racers ___1a01e0h
 	extern racer_t ___1a01e0h[];
 
-	extern void * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
-	extern void * ___1a1e84h;
-	extern byte ___1a1ef8h[];
-	extern byte ___185ba9h[];
-	extern void * ___1a10cch;
+	extern __POINTER__ ___1a112ch__VESA101_ACTIVESCREEN_PTR;
+	extern __POINTER__ ___1a1e84h;
+	extern __BYTE__ ___1a1ef8h[];
 
 static const eventtext_t l_data[6] = {
 	{
@@ -107,14 +100,12 @@ static const eventtext_t l_data[6] = {
 	}
 };
 
-void ___13248h_cdecl(dword, dword ,dword, dword, dword);
-void ___12e78h_cdecl(byte * A1, font_props_t * A2, const char * A3, dword dst_off);
-void ___13094h_cdecl(const char *, dword);
+void ___13248h_cdecl(__DWORD__, __DWORD__ ,__DWORD__, __DWORD__, __DWORD__);
 	
 // INCONCEIVABLE
 void ___15130h(void){
 
-	byte 	px;
+	__BYTE__ 	px;
 	int 	i, j, n;
 
 
@@ -168,15 +159,15 @@ void ___15130h(void){
 		Racers[D(___1a1ef8h)].money += 0x15e;
 	}
 
-	___13094h_cdecl(l_data[n].l0, 0x154a1);
-	___13094h_cdecl(l_data[n].l1, 0x17ca1);
-	___13094h_cdecl(l_data[n].l2, 0x1a4a1);
-	___13094h_cdecl(l_data[n].l3, 0x1cca1);
-	___13094h_cdecl(l_data[n].l4, 0x1f4a1);
-	___13094h_cdecl(l_data[n].l5, 0x21ca1);
-	___13094h_cdecl(l_data[n].l6, 0x244a1);
-	___13094h_cdecl(l_data[n].l7, 0x26ca1);
-	___13094h_cdecl(l_data[n].l8, 0x294a1);
-	___13094h_cdecl(l_data[n].l9, 0x2bca1);
-	___12e78h_cdecl(___1a10cch, ___185ba9h, "CONTINUE", 0x316c0);
+	VESA101_16X16_FORMAT_PRINT(l_data[n].l0, 161, 136);
+	VESA101_16X16_FORMAT_PRINT(l_data[n].l1, 161, 152);
+	VESA101_16X16_FORMAT_PRINT(l_data[n].l2, 161, 168);
+	VESA101_16X16_FORMAT_PRINT(l_data[n].l3, 161, 184);
+	VESA101_16X16_FORMAT_PRINT(l_data[n].l4, 161, 200);
+	VESA101_16X16_FORMAT_PRINT(l_data[n].l5, 161, 216);
+	VESA101_16X16_FORMAT_PRINT(l_data[n].l6, 161, 232);
+	VESA101_16X16_FORMAT_PRINT(l_data[n].l7, 161, 248);
+	VESA101_16X16_FORMAT_PRINT(l_data[n].l8, 161, 264);
+	VESA101_16X16_FORMAT_PRINT(l_data[n].l9, 161, 280);
+	___12e78h_v3(___1a10cch___185ba9h, "CONTINUE", 192, 316);
 }

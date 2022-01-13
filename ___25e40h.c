@@ -1,4 +1,5 @@
 #include "drally.h"
+#include "drally_fonts.h"
 #include "pxl.h"
 
 #pragma pack(1)
@@ -22,28 +23,27 @@ typedef struct cardata_s {
 
 #define COOXY(x,y) (0x280*(y)+(x))
 
-	extern void * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
-	extern void * ___1a1e98h;
-	extern byte ___1a1ef8h[];
-	extern byte ___1a01e0h[];
+	extern __POINTER__ ___1a112ch__VESA101_ACTIVESCREEN_PTR;
+	extern __POINTER__ ___1a1e98h;
+	extern __BYTE__ ___1a1ef8h[];
+	extern __BYTE__ ___1a01e0h[];
 	extern __DWORD__ ___1862bch[][0x18];
-	extern void * ___1a01a8h[4];
-	extern byte ___1a1ec8h[];
+	extern __POINTER__ ___1a01a8h[4];
+	extern __BYTE__ ___1a1ec8h[];
 	extern cardata_t ___18e298h[6];
-	extern void * ___1a1eb8h;
+	extern __POINTER__ ___1a1eb8h;
 
-void ___13094h_cdecl(const char *, dword);
 int ___25180h_cdecl(const char * A1);
-void ___12f60h_cdecl(const char * A1, dword A2);
-void ___13248h_cdecl(dword, dword ,dword, dword, dword);
-void ___259e0h_cdecl(int dx, int dy, int aFrameIdx, void * aEncoded, int * aOffsets);
+void ___12f60h_cdecl(const char * A1, __DWORD__ A2);
+void ___13248h_cdecl(__DWORD__, __DWORD__ ,__DWORD__, __DWORD__, __DWORD__);
+void ___259e0h_cdecl(int dx, int dy, int aFrameIdx, __POINTER__ aEncoded, int * aOffsets);
 char * itoa_watcom106(int value, char * buffer, int radix);
 
 // SHOP, ENGINE
 void ___25e40h(void){
 
-	dword 	ebx, ecx;
-	byte 	esp[0x28];
+	__DWORD__ 	ebx, ecx;
+	__BYTE__ 	esp[0x28];
 	int 	i, j;
 
 	pxl_2D	dst;
@@ -66,12 +66,12 @@ void ___25e40h(void){
 		strcat(esp+0x14, esp);
 		___12f60h_cdecl(esp+0x14, ___25180h_cdecl(esp+0x14)+0x34590);
 		___13248h_cdecl(0x90, 0x72, 0x180, 0x77, 1);
-		___13094h_cdecl(___18e298h[D(0x6c*D(___1a1ef8h)+___1a01e0h+0x1c)].txt_engine_upgrades[ebx][0], 0x136aa);
-		___13094h_cdecl(___18e298h[D(0x6c*D(___1a1ef8h)+___1a01e0h+0x1c)].txt_engine_upgrades[ebx][1], 0x15eaa);
-		___13094h_cdecl(___18e298h[D(0x6c*D(___1a1ef8h)+___1a01e0h+0x1c)].txt_engine_upgrades[ebx][2], 0x186aa);
-		___13094h_cdecl(___18e298h[D(0x6c*D(___1a1ef8h)+___1a01e0h+0x1c)].txt_engine_upgrades[ebx][3], 0x1aeaa);
-		___13094h_cdecl(___18e298h[D(0x6c*D(___1a1ef8h)+___1a01e0h+0x1c)].txt_engine_upgrades[ebx][4], 0x1d6aa);
-		___13094h_cdecl(___18e298h[D(0x6c*D(___1a1ef8h)+___1a01e0h+0x1c)].txt_engine_upgrades[ebx][5], 0x1feaa);
+		VESA101_16X16_FORMAT_PRINT(___18e298h[D(0x6c*D(___1a1ef8h)+___1a01e0h+0x1c)].txt_engine_upgrades[ebx][0], 170, 124);
+		VESA101_16X16_FORMAT_PRINT(___18e298h[D(0x6c*D(___1a1ef8h)+___1a01e0h+0x1c)].txt_engine_upgrades[ebx][1], 170, 140);
+		VESA101_16X16_FORMAT_PRINT(___18e298h[D(0x6c*D(___1a1ef8h)+___1a01e0h+0x1c)].txt_engine_upgrades[ebx][2], 170, 156);
+		VESA101_16X16_FORMAT_PRINT(___18e298h[D(0x6c*D(___1a1ef8h)+___1a01e0h+0x1c)].txt_engine_upgrades[ebx][3], 170, 172);
+		VESA101_16X16_FORMAT_PRINT(___18e298h[D(0x6c*D(___1a1ef8h)+___1a01e0h+0x1c)].txt_engine_upgrades[ebx][4], 170, 188);
+		VESA101_16X16_FORMAT_PRINT(___18e298h[D(0x6c*D(___1a1ef8h)+___1a01e0h+0x1c)].txt_engine_upgrades[ebx][5], 170, 204);
 	}
 	else {
 
@@ -82,11 +82,11 @@ void ___25e40h(void){
 		pxlCopy(&dst, &src, PXL_RECTANGLE);
 
 		___13248h_cdecl(0x90, 0x72, 0x180, 0x77, 1);
-		___13094h_cdecl("[NO MORE ENGINE UPGRADES", 0x136aa);
-		___13094h_cdecl("", 0x15eaa);
-		___13094h_cdecl("You've got the most beastly motor", 0x186aa);
-		___13094h_cdecl("monster this vehicle can carry.", 0x1aeaa);
-		___13094h_cdecl("Hear its powerful & sublime sound.", 0x1d6aa);
-		___13094h_cdecl("", 0x1feaa);
+		VESA101_16X16_FORMAT_PRINT("[NO MORE ENGINE UPGRADES", 170, 124);
+		VESA101_16X16_FORMAT_PRINT("", 170, 140);
+		VESA101_16X16_FORMAT_PRINT("You've got the most beastly motor", 170, 156);
+		VESA101_16X16_FORMAT_PRINT("monster this vehicle can carry.", 170, 172);
+		VESA101_16X16_FORMAT_PRINT("Hear its powerful & sublime sound.", 170, 188);
+		VESA101_16X16_FORMAT_PRINT("", 170, 204);
 	}
 }

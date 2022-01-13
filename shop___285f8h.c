@@ -5,17 +5,17 @@
 #define COO10UV(u,v) (0x10*(v)+(u))
 
 	extern __DWORD__ ___24cc54h_sfx_volume;
-	extern byte ___1a1ec4h[];
-	extern byte ___1a1ee4h[];
-	extern void * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
-	extern void * ___1a1e78h;
+	extern __BYTE__ ___1a1ec4h[];
+	extern __BYTE__ ___1a1ee4h[];
+	extern __POINTER__ ___1a112ch__VESA101_ACTIVESCREEN_PTR;
+	extern __POINTER__ ___1a1e78h;
 
-void dRally_Sound_pushEffect(byte channel, byte n, dword unk, dword a0, dword a1, dword a2);
+void dRally_Sound_pushEffect(__BYTE__ channel, __BYTE__ n, __DWORD__ unk, __DWORD__ a0, __DWORD__ a1, __DWORD__ a2);
 void ___25a74h(void);
 void ___12cb8h__VESA101_PRESENTSCREEN(void);
 void ___28470h(void);
-void ___281d0h_cdecl(dword, dword, dword, dword);
-void ___27f80h_cdecl(dword, dword, dword, dword);
+void ___281d0h_cdecl(__DWORD__, __DWORD__, __DWORD__, __DWORD__);
+void ___27f80h_cdecl(__DWORD__, __DWORD__, __DWORD__, __DWORD__);
 void ___25e40h(void);
 void ___262b4h(void);
 void ___26650h(void);
@@ -24,7 +24,7 @@ void ___269e4h(void);
 void shop___285f8h(void){
 
 	int 	i, j;
-	byte 	px;
+	__BYTE__ 	px;
 
 	dRally_Sound_pushEffect(1, SFX_CLICK_3, 0, ___24cc54h_sfx_volume, 0x28000, 0x8000);
 

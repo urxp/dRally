@@ -2,43 +2,45 @@
 
 void ___1c178h(void){
 
+	printf("TODO ___1c178h\n");
+	exit(1);
 /*
 #include "drally.h"
 #include "drmemory.h"
 
-	extern byte ___1a1138h__VESA101h_DefaultScreenBufferB[];
-	extern byte ___1a112ch__VESA101_ACTIVESCREEN_PTR[];
-	extern byte ___185c0bh[];
-	extern byte ___1a1108h[];
-	extern byte ___24e4ach[];
-	extern byte ___196a84h[];
-	extern byte ___196ab8h[];
-	extern byte ___1a2010h[];
-	extern byte ___185a14h_UseWeapons[];
-	extern byte ___185a54h[];
-	extern byte ___19bd60h[];
-	extern byte ___1a1098h[];
-	extern byte ___196adch[];
-	extern byte ___185a24h[];
+	extern __BYTE__ ___1a1138h__VESA101h_DefaultScreenBufferB[];
+	extern __BYTE__ ___1a112ch__VESA101_ACTIVESCREEN_PTR[];
+	extern __BYTE__ ___185c0bh[];
+	extern __BYTE__ ___1a1108h[];
+	extern __BYTE__ ___24e4ach[];
+	extern __BYTE__ ___196a84h[];
+	extern __BYTE__ ___196ab8h[];
+	extern __BYTE__ ___1a2010h[];
+	extern __BYTE__ ___185a14h_UseWeapons[];
+	extern __BYTE__ ___185a54h[];
+	extern __DWORD__ ___19bd60h;
+	extern __BYTE__ ___1a1098h[];
+	extern __BYTE__ ___196adch[];
+	extern __BYTE__ ___185a24h[];
 
-void * ___3f71ch__allocateMemory(dword);
-void ___13710h(dword, dword);
-void ___13248h_cdecl(dword, dword ,dword, dword, dword);
-void ___12e78h_cdecl(dword, dword, dword, dword);
+__POINTER__ ___3f71ch__allocateMemory(__DWORD__);
+void ___13710h(__DWORD__, __DWORD__);
+void ___13248h_cdecl(__DWORD__, __DWORD__ ,__DWORD__, __DWORD__, __DWORD__);
+void ___12e78h_cdecl(__DWORD__, __DWORD__, __DWORD__, __DWORD__);
 void ___12cb8h__VESA101_PRESENTSCREEN(void);
-byte ___5994ch(void);
+__BYTE__ ___5994ch(void);
 void ___2ab50h(void);
-void ___13bd4h_cdecl(dword, dword);
-dword ___23594h_cdecl(dword, dword);
-void ___13c9ch_cdecl(dword, dword);
-void ___23488h_cdecl(dword, dword, dword);
-void ___1c6bch_cdecl(dword);
+void ___13bd4h_cdecl(__DWORD__, __DWORD__);
+__DWORD__ ___23594h_cdecl(__DWORD__, __DWORD__);
+void ___13c9ch_cdecl(__DWORD__, __DWORD__);
+void ___23488h_cdecl(__DWORD__, __DWORD__, __DWORD__);
+void ___1c6bch_cdecl(__DWORD__);
 void shop_main(void);
 
 void ___1c178h(void){
 
-	dword 	eax, ebx, ecx, edx, edi, esi, ebp;
-	byte 	esp[0xc];
+	__DWORD__ 	eax, ebx, ecx, edx, edi, esi, ebp;
+	__BYTE__ 	esp[0xc];
 
 
 	eax = 0x12;
@@ -138,7 +140,7 @@ ___1c2c3h:
 	memset(eax, edx, ebx);
 	ebx = 2;
 	eax = D(___185a54h);
-	D(___19bd60h) = ecx;
+	___19bd60h = ecx;
 	D(___1a1098h) = ebx;
 	D(___196adch) = ebx;
 	___1c6bch_cdecl(eax);

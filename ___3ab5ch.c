@@ -1,43 +1,37 @@
 #include "drally.h"
+#include "drally_fonts.h"
 #include "sfx.h"
 
-#pragma pack(1)
-typedef struct font_props_s {
-	byte 	w;
-	byte 	h;
-	byte 	props[];
-} font_props_t;
-
-	extern void * ___1a1114h;
-	extern byte ___1a54d0h[];
-	extern byte ___1a1ef8h[];
-	extern byte ___1a1ed0h[];
-	extern void * ___1a0fb8h;
-	extern void * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
-	extern void * ___1a10f8h;
-	extern void * ___19de70h[20];
-	extern byte ___185ba9h[];
-	extern void * ___1a10e0h;
-	extern void * ___1a1e6ch;
-	extern void * ___1a1ea8h;
-	extern byte ___18e298h[];
+	extern __POINTER__ ___1a1114h;
+	extern __BYTE__ ___1a54d0h[];
+	extern __BYTE__ ___1a1ef8h[];
+	extern __BYTE__ ___1a1ed0h[];
+	extern __POINTER__ ___1a0fb8h;
+	extern __POINTER__ ___1a112ch__VESA101_ACTIVESCREEN_PTR;
+	extern __POINTER__ ___1a10f8h;
+	extern __POINTER__ ___19de70h[20];
+	extern __POINTER__ ___1a1e6ch;
+	extern __POINTER__ ___1a1ea8h;
+	extern __BYTE__ ___18e298h[];
 #define CARENCS ___185cbch
 	extern __DWORD__ ___185cbch[][0x40];
-	extern void * ___1a01b8h[6];
-	extern void * ___1a1e88h;
-	extern void * ___1a1eb4h;
-	extern byte ___1a01e0h[];
-	extern byte ___1858c8h[];
+	extern __POINTER__ ___1a01b8h[6];
+	extern __POINTER__ ___1a1e88h;
+	extern __POINTER__ ___1a1eb4h;
+	extern __BYTE__ ___1a01e0h[];
+	extern __BYTE__ ___1858c8h[];
 	extern __DWORD__ ___24cc54h_sfx_volume;
-	extern void * ___1a10cch;
-	extern byte ___185a14h_UseWeapons[];
-	extern void * ___1a1138h__VESA101h_DefaultScreenBufferB;
+	extern __POINTER__ ___1a10cch;
+	extern __BYTE__ ___185a14h_UseWeapons[];
+	extern __POINTER__ ___1a1138h__VESA101h_DefaultScreenBufferB;
 	extern __DWORD__ ___196a94h_difficulty;
-	extern byte ___1a1efch[];
-	extern byte ___19bd60h[];
-	extern byte ___185c0bh[];
-	extern byte ___1a10fch[];
-	extern byte ___1a1108h[];
+	extern __BYTE__ ___1a1efch[];
+#if defined(DR_MULTIPLAYER)
+	extern __DWORD__ ___19bd60h;
+#endif // DR_MULTIPLAYER
+	extern __BYTE__ ___185c0bh[];
+	extern __BYTE__ ___1a10fch[];
+	extern __BYTE__ ___1a1108h[];
 
 enum e_difficulty {
     SPEED_MAKES_ME_DIZZY,
@@ -45,37 +39,37 @@ enum e_difficulty {
     PETROL_IN_MY_VEINS
 };
 
-void old_bpa_read(const char *, void *, const char *);
-void bpk_decode2(void *, void *);
-void ___135fch(dword, dword, dword, dword);
+void old_bpa_read(const char *, __POINTER__, const char *);
+void bpk_decode2(__POINTER__, __POINTER__);
+void ___135fch(__DWORD__, __DWORD__, __DWORD__, __DWORD__);
 void ___23230h(void);
-void ___12e78h_cdecl(byte * A1, font_props_t * A2, const char * A3, dword dst_off);
 char * itoa_watcom106(int value, char * buffer, int radix);
 int ___25180h_cdecl(const char * A1);
-void ___12f60h_cdecl(const char * A1, dword A2);
-void ___259e0h_cdecl(int dx, int dy, int aFrameIdx, void * aEncoded, int * aOffsets);
-void ___1398ch__VESA101_PRESENTRECTANGLE(dword offset, void * src, dword w, dword h);
+void ___12f60h_cdecl(const char * A1, __DWORD__ A2);
+void ___259e0h_cdecl(int dx, int dy, int aFrameIdx, __POINTER__ aEncoded, int * aOffsets);
+void ___1398ch__VESA101_PRESENTRECTANGLE(__DWORD__ offset, __POINTER__ src, __DWORD__ w, __DWORD__ h);
 void ___12cb8h__VESA101_PRESENTSCREEN(void);
-byte ___5994ch(void);
-byte ___59b3ch(void);
-dword ___17510h_cdecl(void *, dword, dword, void *, dword, dword, dword, dword, dword);
-void dRally_Sound_pushEffect(byte channel, byte n, dword unk, dword a0, dword a1, dword a2);
-int ___148cch_cdecl(int x, int y, dword A3, int * A4);
-void ___13710h(dword, dword);
-void ___13248h_cdecl(dword, dword ,dword, dword, dword);
-void ___13bd4h_cdecl(dword, dword);
+__BYTE__ ___5994ch(void);
+__BYTE__ ___59b3ch(void);
+__DWORD__ ___17510h_cdecl(__POINTER__, __DWORD__, __DWORD__, __POINTER__, __DWORD__, __DWORD__, __DWORD__, __DWORD__, __DWORD__);
+void dRally_Sound_pushEffect(__BYTE__ channel, __BYTE__ n, __DWORD__ unk, __DWORD__ a0, __DWORD__ a1, __DWORD__ a2);
+int ___148cch_cdecl(int x, int y, __DWORD__ A3, int * A4);
+void ___13710h(__DWORD__, __DWORD__);
+void ___13248h_cdecl(__DWORD__, __DWORD__ ,__DWORD__, __DWORD__, __DWORD__);
+void ___13bd4h_cdecl(__DWORD__, __DWORD__);
 void ___2ab50h(void);
 char * strlwr_watcom106(char * s);
 void ___11378h_cdecl_float(float A1, float A2, float A3);
 
-dword ___3ab5ch_cdecl(dword A1){
+__DWORD__ ___3ab5ch_cdecl(__DWORD__ A1){
 
 	long long 	ll_tmp;
-	dword 	eax1, eax2;
-	dword 	eax, ebx, ecx, edx, edi, esi, ebp;
-	byte 	esp[0x5c];
-	void * 	ebxp;
-	void * 	esip;
+	__DWORD__ 	eax1, eax2;
+	__DWORD__ 	eax, ebx, ecx, edx, edi, esi, ebp;
+	__BYTE__ 	esp[0x5c];
+	__POINTER__ 	ebxp;
+	__POINTER__ 	esip;
+	int 	x, y;
 
 
 	D(esp+0x2c) = A1;
@@ -205,8 +199,17 @@ dword ___3ab5ch_cdecl(dword A1){
 	eax += edx;
 	eax <<= 7;
 	esi = eax+ebp;
-	___12e78h_cdecl(___1a10e0h, ___185ba9h, "yes", esi+0x0a0);
-	___12e78h_cdecl(___1a10e0h, ___185ba9h, "no", esi+0x14a);
+
+	x = esi+0x0a0;
+	y = x/0x280;
+	x = x%0x280;
+	___12e78h_v3(___1a10e0h___185ba9h, "yes", x, y);
+
+	x = esi+0x14a;
+	y = x/0x280;
+	x = x%0x280;
+	___12e78h_v3(___1a10e0h___185ba9h, "no", x, y);
+
 	edx = D(esp+0x44);
 	eax = 4*edx;
 	eax += edx;
@@ -277,7 +280,6 @@ ___3ade2h:
 	edx = 0x60;
 	esip = ___1a1ea8h;
 	ebxp = ___1a112ch__VESA101_ACTIVESCREEN_PTR+edi+ebp+0x1a0;
-	edi = esp+0x0c;
 	L(edx) >>= 2;
 
 	while(1){
@@ -304,7 +306,7 @@ ___3ade2h:
 
 	ebx = 0x0a;
 	eax = D(___18e298h+0xc);
-	eax = itoa_watcom106(eax, esp+0x18, ebx);
+	itoa_watcom106(eax, esp+0x18, ebx);
 	edx = D(esp+0x44);
 	strcpy(esp+0xc, "$");
 	edx += 0x92;
@@ -399,11 +401,8 @@ ___3af66h:
 	eax <<= 2;
 	eax -= edx;
 	eax <<= 2;
-	edi = esp;
-	esi = ___1a01e0h+eax;
 	ebx = D(esp+0x44);
 	strcpy(esp, ___1a01e0h+eax);
-	ecx = ___1858c8h;
 	edx = D(___1a1ef8h);
 	eax = 8*edx;
 	ebx += 0x60;
@@ -475,7 +474,7 @@ ___3af66h:
 	eax -= edx;
 	ecx += 0x6e;
 	eax <<= 2;
-	___12e78h_cdecl(___1a10cch, ___185ba9h, ___1a01e0h+eax, ecx);
+	___12e78h_v3(___1a10cch___185ba9h, ___1a01e0h+eax, ecx%0x280, ecx/0x280);
 	edx = D(esp+0x44);
 	edx += 0x3c;
 	eax = 4*edx;
@@ -576,7 +575,6 @@ ___3af66h:
 	edx = 0x60;
 	esip = ___1a1ea8h;
 	ebxp = ___1a112ch__VESA101_ACTIVESCREEN_PTR+edi+ebp+0x1a0;
-	edi = esp+0x0c;
 	L(edx) >>= 2;
 
 	while(1){
@@ -603,8 +601,7 @@ ___3af66h:
 
 	ebx = 0x0a;
 	eax = D(___18e298h+0xc);
-	esi = esp+0x18;
-	eax = itoa_watcom106(eax, esp+0x18, ebx);
+	itoa_watcom106(eax, esp+0x18, ebx);
 	edx = D(esp+0x44);
 	strcpy(esp+0xc, "$");
 	edx += 0x92;
@@ -731,7 +728,7 @@ ___3b4e1h:
 	edx += 0x0d3;
 	ebx = esi;
 	D(___185a14h_UseWeapons) = esi;
-	eax = ___148cch_cdecl(eax, edx, ebx, ___185a14h_UseWeapons);
+	eax = ___148cch_cdecl(eax, edx, ebx, (int *)___185a14h_UseWeapons);
 	if(L(eax) != 0) goto ___3b54eh;
 	ecx = ___24cc54h_sfx_volume;
 	eax = esi;
@@ -746,14 +743,29 @@ ___3b54eh:
 	memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR+0x0d200, ___1a1138h__VESA101h_DefaultScreenBufferB+0x0d200, 0x2c380);
 	___13710h(0, 0);
 	___13248h_cdecl(ebp, D(esp+0x44), 0x1b8, 0x0ba, 1);
-	___12e78h_cdecl(___1a10cch, ___185ba9h, "Select difficulty:", 0x280*(D(esp+0x44)+0x12)+ebp+0x50);
+
+	x = 0x280*(D(esp+0x44)+0x12)+ebp+0x50;
+	y = x/0x280;
+	x = x%0x280;
+	___12e78h_v3(___1a10cch___185ba9h, "Select difficulty:", x, y);
 	___13bd4h_cdecl(ebp+0x16, D(esp+0x44)+0x4f+0x1c*___196a94h_difficulty);
 
 	edi = ___196a94h_difficulty;
 
-	___12e78h_cdecl((edi != 0)?___1a10e0h:___1a10cch, ___185ba9h, "speed makes me dizzy", 0x280*(D(esp+0x44)+0x4a)+ebp+0x2e);
-	___12e78h_cdecl((edi != 1)?___1a10e0h:___1a10cch, ___185ba9h, "i live to ride", 0x280*(D(esp+0x44)+0x66)+ebp+0x2e);
-	___12e78h_cdecl((edi != 2)?___1a10e0h:___1a10cch, ___185ba9h, "petrol in my veins", 0x280*(D(esp+0x44)+0x82)+ebp+0x2e);
+	x = 0x280*(D(esp+0x44)+0x4a)+ebp+0x2e;
+	y = x/0x280;
+	x = x%0x280;
+	___12e78h_v3((edi != 0)?___1a10e0h___185ba9h:___1a10cch___185ba9h, "speed makes me dizzy", x, y);
+
+	x = 0x280*(D(esp+0x44)+0x66)+ebp+0x2e;
+	y = x/0x280;
+	x = x%0x280;
+	___12e78h_v3((edi != 1)?___1a10e0h___185ba9h:___1a10cch___185ba9h, "i live to ride", x, y);
+
+	x = 0x280*(D(esp+0x44)+0x82)+ebp+0x2e;
+	y = x/0x280;
+	x = x%0x280;
+	___12e78h_v3((edi != 2)?___1a10e0h___185ba9h:___1a10cch___185ba9h, "petrol in my veins", x, y);
 
 	___12cb8h__VESA101_PRESENTSCREEN();
 	D(esp+0x28) = D(esp+0x44)+0x4a;
@@ -808,9 +820,20 @@ ___3b717h:
 		if(ecx == esi) break;
 	}
 
-	___12e78h_cdecl((edi != 0)?___1a10e0h:___1a10cch, ___185ba9h, "speed makes me dizzy", 0x280*D(esp+0x28)+ebp+0x2e);
-	___12e78h_cdecl((edi != 1)?___1a10e0h:___1a10cch, ___185ba9h, "i live to ride", 0x280*D(esp+0x38)+ebp+0x2e);
-	___12e78h_cdecl((edi != 2)?___1a10e0h:___1a10cch, ___185ba9h, "petrol in my veins", 0x280*D(esp+0x30)+ebp+0x2e);
+	x = 0x280*D(esp+0x28)+ebp+0x2e;
+	y = x/0x280;
+	x = x%0x280;
+	___12e78h_v3((edi != 0)?___1a10e0h___185ba9h:___1a10cch___185ba9h, "speed makes me dizzy", x, y);
+
+	x = 0x280*D(esp+0x38)+ebp+0x2e;
+	y = x/0x280;
+	x = x%0x280;
+	___12e78h_v3((edi != 1)?___1a10e0h___185ba9h:___1a10cch___185ba9h, "i live to ride", x, y);
+
+	x = 0x280*D(esp+0x30)+ebp+0x2e;
+	y = x/0x280;
+	x = x%0x280;
+	___12e78h_v3((edi != 2)?___1a10e0h___185ba9h:___1a10cch___185ba9h, "petrol in my veins", x, y);
 
 	___1398ch__VESA101_PRESENTRECTANGLE(D(esp+0x34), ___1a112ch__VESA101_ACTIVESCREEN_PTR+D(esp+0x24)+ebp+0x16, 0x190, 0x54);
 	eax = 1;
@@ -869,7 +892,7 @@ ___3b97bh:
 	eax1 = strlen(0x6c*D(___1a1ef8h)+___1a01e0h);
 
 	edx = -1;
-	while(++edx < eax1) D(___1a1efch) += B(B(edx+0x6c*D(___1a1ef8h)+___1a01e0h)-0x20+___185c0bh+2);
+	while(++edx < eax1) D(___1a1efch) += B(___185c0bh+B(edx+0x6c*D(___1a1ef8h)+___1a01e0h)-0x1e);
 
 	___11378h_cdecl_float(
 		(float)B(3*D(0x6c*D(___1a1ef8h)+___1a01e0h+0x2c)+___1a0fb8h+0),
@@ -887,10 +910,10 @@ ___3ba76h:
 ___3bad9h:
 
 #if defined(DR_MULTIPLAYER)
-	if(D(___19bd60h) != 0){
+	if(___19bd60h != 0){
 
-		___12e78h_cdecl(D(___1a10fch), ___185c0bh, "press   to enter chat mode", 0x390a3);
-		___12e78h_cdecl(D(___1a1108h), ___185c0bh, "F1", 0x390d9);
+		___12e78h_v3(___1a10fch___185c0bh, "press   to enter chat mode", 35, 365);
+		___12e78h_v3(___1a1108h___185c0bh, "F1", 89, 365);
 	}
 #endif // DR_MULTIPLAYER
 

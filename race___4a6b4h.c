@@ -1,5 +1,6 @@
 #include "drally.h"
 
+#pragma pack(1)
 typedef struct xc50_s {
 	__DWORD__ 	___0;			// +000
 	__DWORD__ 	___4;			// +004
@@ -27,12 +28,12 @@ typedef struct xc50_s {
 
 	extern xc50_t ___1f3b08h[100];		// <0x1f3b08 - 0x1f4758)
 
-	extern byte ___243c88h[];
-	extern byte ___243c98h[];
-	extern byte ___1df9a0h[];
-	extern byte ___243b30h[];
-	extern byte ___2438d8h[];
-	extern byte ___243a04h[];
+	extern __BYTE__ ___243c88h[];
+	extern __BYTE__ ___243c98h[];
+	extern __DWORD__ ___1df9a0h[100][75];
+	extern float ___243b30h[75];
+	extern float ___2438d8h[75];
+	extern float ___243a04h[75];
 
 double dRMath_sqrt(double);
 
@@ -41,64 +42,67 @@ double dRMath_sqrt(double);
 void race___4a6b4h(void){
 
 	double 	d_tmp, d_st0, d_st1;
-	dword 	eax, ebx, ecx, edx, edi, esi, ebp;
-	byte 	esp[0x110];
-	int 	i, j, k;
+	__DWORD__ 	eax, ebx, ecx, edx, edi, esi, ebp;
+	__BYTE__ 	esp[0x110];
+	int 	i, j, k, n;
+	xc50_t *	trees;
 
 
 	D(___243c98h) = 0;
 
 	if((int)D(___243c88h) > 0){
 
+		trees = (xc50_t *)___1f3b08h;
+
 		F64(esp+0x58) = dRMath_sqrt(425.0);
 		F64(esp+0x60) = dRMath_sqrt(350.0);
 
-		D(esp+0x40) = 0;
+		n = 0;
 		while(1){
 
 			i = -1;
-			while(++i < (int)D(D(esp+0x40)+(void *)&___1f3b08h->___0)) D(___1df9a0h+0x12c*D(___243c98h)+4*i) = 0;
+			while(++i < (int)trees[n].___0) ___1df9a0h[D(___243c98h)][i] = 0;
 
 			i = -1;
-			while(++i < (int)D(D(esp+0x40)+(void *)&___1f3b08h->___4)){
+			while(++i < (int)trees[n].___4){
 
-				D(0x12c*D(___243c98h)+4*D(D(esp+0x40)+4*i+(void *)&___1f3b08h->_39C)+___1df9a0h)++;
-				D(0x12c*D(___243c98h)+4*D(D(esp+0x40)+4*i+(void *)&___1f3b08h->_52C)+___1df9a0h)++;
-				D(0x12c*D(___243c98h)+4*D(D(esp+0x40)+4*i+(void *)&___1f3b08h->_6BC)+___1df9a0h)++;
+				___1df9a0h[D(___243c98h)][trees[n]._39C[i]]++;
+				___1df9a0h[D(___243c98h)][trees[n]._52C[i]]++;
+				___1df9a0h[D(___243c98h)][trees[n]._6BC[i]]++;
 			}
 
 			i = -1;
-			while(++i < (int)D(D(esp+0x40)+(void *)&___1f3b08h->___0)){
+			while(++i < (int)trees[n].___0){
 
-				D(___243b30h+4*i) = 0;
-				D(___2438d8h+4*i) = 0;
-				D(___243a04h+4*i) = 0;
+				___243b30h[i] = 0.0f;
+				___2438d8h[i] = 0.0f;
+				___243a04h[i] = 0.0f;
 			}
 
-			edx = D(esp+0x40);
+			edx = 0;
 			D(esp+0x50) = 0;
 
-			if((int)D(D(esp+0x40)+(void *)&___1f3b08h->___4) > 0){
+			if((int)trees[n].___4 > 0){
 
 				while(1){
 
-					ecx = D(edx+(void *)&___1f3b08h->_39C);
-					ebx = D(edx+(void *)&___1f3b08h->_52C);
-					FPUSH((int)D(D(esp+0x40)+ecx*4+(void *)&___1f3b08h->___8));
+					ecx = trees[n]._39C[edx];
+					ebx = trees[n]._52C[edx];
+					FPUSH((int)trees[n].___8[ecx]);
 					ST(0) = ST(0)*create_double(0,0,0,0,0,0,0x70,0x3f);
-					FPUSH((int)D(D(esp+0x40)+ebx*4+(void *)&___1f3b08h->___8));
+					FPUSH((int)trees[n].___8[ebx]);
 					ST(0) = ST(0)*create_double(0,0,0,0,0,0,0x70,0x3f);
-					FPUSH((int)D(D(esp+0x40)+ecx*4+(void *)&___1f3b08h->_134));
+					FPUSH((int)trees[n]._134[ecx]);
 					ST(0) = ST(0)*create_double(0,0,0,0,0,0,0x70,0x3f);
-					eax = D(edx+(void *)&___1f3b08h->_6BC);
-					FPUSH((int)D(D(esp+0x40)+ebx*4+(void *)&___1f3b08h->_134));
+					eax = trees[n]._6BC[edx];
+					FPUSH((int)trees[n]._134[ebx]);
 					ST(0) = ST(0)*create_double(0,0,0,0,0,0,0x70,0x3f);
-					FPUSH((int)D(D(esp+0x40)+eax*4+(void *)&___1f3b08h->_134));
+					FPUSH((int)trees[n]._134[eax]);
 					ST(0) = ST(0)*create_double(0,0,0,0,0,0,0x70,0x3f);
-					FPUSH((int)D(D(esp+0x40)+eax*4+(void *)&___1f3b08h->___8));
-					ecx = D(D(esp+0x40)+ecx*4+(void *)&___1f3b08h->_260);
-					ebx = D(D(esp+0x40)+ebx*4+(void *)&___1f3b08h->_260);
-					eax = D(D(esp+0x40)+eax*4+(void *)&___1f3b08h->_260);
+					FPUSH((int)trees[n].___8[eax]);
+					ecx = trees[n]._260[ecx];
+					ebx = trees[n]._260[ebx];
+					eax = trees[n]._260[eax];
 					d_tmp = ST(0); ST(0) = ST(3); ST(3) = d_tmp;
 					F64(esp+0xc8) = FPOP();
 					d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
@@ -203,12 +207,12 @@ void race___4a6b4h(void){
 						F64(esp+0xe8) = FPOP();
 					}
 
-					eax = D(edx+(void *)&___1f3b08h->_39C);
-					ebx = D(edx+(void *)&___1f3b08h->_52C);
-					ecx = D(edx+(void *)&___1f3b08h->_6BC);
-					FPUSH(F32(eax*4+___243a04h));
-					FPUSH(F32(eax*4+___243b30h));
-					FPUSH(F32(eax*4+___2438d8h));
+					eax = trees[n]._39C[edx];
+					ebx = trees[n]._52C[edx];
+					ecx = trees[n]._6BC[edx];
+					FPUSH(___243a04h[eax]);
+					FPUSH(___243b30h[eax]);
+					FPUSH(___2438d8h[eax]);
 					FPUSH(ST(2));
 					FPUSH(ST(2));
 					FPUSH(ST(2));
@@ -226,13 +230,13 @@ void race___4a6b4h(void){
 					ST(4) = ST(0); FPOP();
 					ST(2) = ST(0); FPOP();
 					d_tmp = ST(0); ST(0) = ST(3); ST(3) = d_tmp;
-					F32(eax*4+___243a04h) = (float)FPOP();
+					___243a04h[eax] = (float)FPOP();
 					d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
-					F32(eax*4+___243b30h) = (float)FPOP();
-					F32(eax*4+___2438d8h) = (float)FPOP();
-					FPUSH(F32(ebx*4+___243a04h));
-					FPUSH(F32(ebx*4+___243b30h));
-					FPUSH(F32(ebx*4+___2438d8h));
+					___243b30h[eax] = (float)FPOP();
+					___2438d8h[eax] = (float)FPOP();
+					FPUSH(___243a04h[ebx]);
+					FPUSH(___243b30h[ebx]);
+					FPUSH(___2438d8h[ebx]);
 					FPUSH(ST(2));
 					FPUSH(ST(2));
 					FPUSH(ST(2));
@@ -248,12 +252,12 @@ void race___4a6b4h(void){
 					ST(3) = ST(0); FPOP();
 					ST(1) = ST(0); FPOP();
 					d_tmp = ST(0); ST(0) = ST(2); ST(2) = d_tmp;
-					F32(ebx*4+___243a04h) = (float)FPOP();
-					F32(ebx*4+___243b30h) = (float)FPOP();
-					F32(ebx*4+___2438d8h) = (float)FPOP();
-					FPUSH(F32(ecx*4+___243a04h));
-					FPUSH(F32(ecx*4+___243b30h));
-					FPUSH(F32(ecx*4+___2438d8h));
+					___243a04h[ebx] = (float)FPOP();
+					___243b30h[ebx] = (float)FPOP();
+					___2438d8h[ebx] = (float)FPOP();
+					FPUSH(___243a04h[ecx]);
+					FPUSH(___243b30h[ecx]);
+					FPUSH(___2438d8h[ecx]);
 					FPUSH(ST(2));
 					FPUSH(ST(2));
 					FPUSH(ST(2));
@@ -268,44 +272,44 @@ void race___4a6b4h(void){
 					d_tmp = ST(0); ST(0) = ST(3); ST(3) = d_tmp;
 					ST(3) = ST(0); FPOP();
 					d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
-					F32(ecx*4+___243a04h) = (float)FPOP();
-					F32(ecx*4+___243b30h) = (float)FPOP();
-					F32(ecx*4+___2438d8h) = (float)FPOP();
-					edx += 4;
+					___243a04h[ecx] = (float)FPOP();
+					___243b30h[ecx] = (float)FPOP();
+					___2438d8h[ecx] = (float)FPOP();
+					edx++;
 					D(esp+0x50)++;
-					if((int)D(esp+0x50) >= (int)D(D(esp+0x40)+(void *)&___1f3b08h->___4)) break;
+					if((int)D(esp+0x50) >= (int)trees[n].___4) break;
 				}
 			}
 
-			ebx = 0x12c*D(___243c98h);
+			ebx = 0;
 			ecx = 0;
 
-			if((int)D(D(esp+0x40)+(void *)&___1f3b08h->___0) > 0){
+			if((int)trees[n].___0 > 0){
 
 				edx = 0;
 				while(1){
 
-					if((int)D(ebx+___1df9a0h) >= 1){
+					if((int)___1df9a0h[D(___243c98h)][ebx] >= 1){
 
-						FPUSH((int)D(ebx+___1df9a0h));
-						FPUSH(F32(edx+___243a04h));
+						FPUSH((int)___1df9a0h[D(___243c98h)][ebx]);
+						FPUSH(___243a04h[edx/4]);
 						ST(0) = ST(0)/ST(1);
-						FPUSH(F32(edx+___243b30h));
+						FPUSH(___243b30h[edx/4]);
 						ST(0) = ST(0)/ST(2);
-						FPUSH(F32(edx+___2438d8h));
+						FPUSH(___2438d8h[edx/4]);
 						ST(3) = ST(0)/ST(3); FPOP();
 						d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
-						F32(edx+___243a04h) = (float)FPOP();
-						F32(edx+___243b30h) = (float)FPOP();
-						F32(edx+___2438d8h) = (float)FPOP();
+						___243a04h[edx/4] = (float)FPOP();
+						___243b30h[edx/4] = (float)FPOP();
+						___2438d8h[edx/4] = (float)FPOP();
 					}
 
-					FPUSH(F32(edx+___243a04h));
+					FPUSH(___243a04h[edx/4]);
 					ST(0) = ST(0)*ST(0);
-					FPUSH(F32(edx+___243b30h));
+					FPUSH(___243b30h[edx/4]);
 					ST(0) = ST(0)*ST(0);
 					ST(1) = ST(1)+ST(0); FPOP();
-					FPUSH(F32(edx+___2438d8h));
+					FPUSH(___2438d8h[edx/4]);
 					ST(0) = ST(0)*ST(0);
 					ST(1) = ST(1)+ST(0); FPOP();
 					FPUSH(1.0);
@@ -321,30 +325,30 @@ void race___4a6b4h(void){
 					FPUSH(10000.0);
 					ST(0) = ST(0)/F64(esp+0xb8);
 					ST(0) = dRMath_sqrt(ST(0));
-					FPUSH(F32(edx+___243a04h));
+					FPUSH(___243a04h[edx/4]);
 					FPUSH(ST(0));
 					ST(0) = ST(0)*ST(2);
-					FPUSH(F32(edx+___243b30h));
+					FPUSH(___243b30h[edx/4]);
 					FPUSH(ST(0));
 					ST(0) = ST(0)*ST(4);
-					FPUSH(F32(edx+___2438d8h));
+					FPUSH(___2438d8h[edx/4]);
 					ST(5) = ST(5)*ST(0);
 					d_tmp = ST(0); ST(0) = ST(3); ST(3) = d_tmp;
 					ST(4) = ST(0); FPOP();
 					d_tmp = ST(0); ST(0) = ST(3); ST(3) = d_tmp;
-					F32(edx+___243a04h) = (float)ST(0);
-					ST(0) = ST(0)*(double)F32(edx+___243a04h);
+					___243a04h[edx/4] = (float)ST(0);
+					ST(0) = ST(0)*(double)___243a04h[edx/4];
 					d_tmp = ST(0); ST(0) = ST(3); ST(3) = d_tmp;
 					ST(1) = ST(0); FPOP();
-					F32(edx+___243b30h) = (float)ST(0);
-					ST(0) = ST(0)*(double)F32(edx+___243b30h);
+					___243b30h[edx/4] = (float)ST(0);
+					ST(0) = ST(0)*(double)___243b30h[edx/4];
 					d_tmp = ST(0); ST(0) = ST(3); ST(3) = d_tmp;
 					ST(1) = ST(0); FPOP();
 					d_tmp = ST(0); ST(0) = ST(2); ST(2) = d_tmp;
 					ST(1) = ST(1)+ST(0); FPOP();
 					d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
-					F32(edx+___2438d8h) = (float)ST(0);
-					ST(0) = ST(0)*(double)F32(edx+___2438d8h);
+					___2438d8h[edx/4] = (float)ST(0);
+					ST(0) = ST(0)*(double)___2438d8h[edx/4];
 					ST(1) = ST(1)+ST(0); FPOP();
 					FPUSH(1.0);
 					d_st0 = FPOP();
@@ -353,15 +357,15 @@ void race___4a6b4h(void){
 					if(d_st0 > d_st1){
 
 						FPUSH(1.0);
-						ST(0) = ST(0)+(double)F32(edx+___243a04h);
-						F32(edx+___243a04h) = (float)FPOP();
+						ST(0) = ST(0)+(double)___243a04h[edx/4];
+						___243a04h[edx/4] = (float)FPOP();
 					}
 
-					FPUSH(F32(edx+___243a04h));
+					FPUSH(___243a04h[edx/4]);
 					ST(0) = ST(0)*ST(0);
-					FPUSH(F32(edx+___243b30h));
+					FPUSH(___243b30h[edx/4]);
 					ST(0) = ST(0)*ST(0);
-					FPUSH(F32(edx+___2438d8h));
+					FPUSH(___2438d8h[edx/4]);
 					ST(0) = ST(0)*ST(0);
 					d_tmp = ST(0); ST(0) = ST(2); ST(2) = d_tmp;
 					F32(esp+0x4c) = (float)FPOP();
@@ -372,11 +376,11 @@ void race___4a6b4h(void){
 					ST(0) = ST(0)+(double)F32(esp+0x48);
 					ST(0) = dRMath_sqrt(ST(0));
 					FPUSH(-10.0);
-					FPUSH(F32(edx+___243a04h));
+					FPUSH(___243a04h[edx/4]);
 					ST(0) = ST(0)*ST(1);
-					FPUSH(F32(edx+___243b30h));
+					FPUSH(___243b30h[edx/4]);
 					ST(2) = ST(2)*ST(0); FPOP();
-					FPUSH(F32(edx+___2438d8h));
+					FPUSH(___2438d8h[edx/4]);
 					ST(0) = ST(0)*-15.0;
 					d_tmp = ST(0); ST(0) = ST(3); ST(3) = d_tmp;
 					F64(esp+0x100) = ST(0);
@@ -416,16 +420,16 @@ void race___4a6b4h(void){
 
 					ST(0) = (int)ST(0);
 					D(esp+0x3c) = (int)FPOP();
-					D(ebx+___1df9a0h) = D(esp+0x3c);
-					ebx += 4;
+					___1df9a0h[D(___243c98h)][ebx] = D(esp+0x3c);
+					ebx++;
 					ecx++;
-					edi = D(D(esp+0x40)+(void *)&___1f3b08h->___0);
+					edi = trees[n].___0;
 					edx += 4;
 					if((int)ecx >= (int)edi) break;
 				}
 			}
 
-			D(esp+0x40) += 0xc50;
+			n++;
 			D(___243c98h)++;
 
 			if((int)D(___243c98h) >= (int)D(___243c88h)) break;

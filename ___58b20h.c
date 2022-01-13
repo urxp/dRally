@@ -1,8 +1,9 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include "drally.h"
 #include <stdarg.h>
 
-extern unsigned int ___19bd60h;
+#if defined(DR_MULTIPLAYER)
+	extern __DWORD__ ___19bd60h;
+#endif // DR_MULTIPLAYER
 
 void ___623d4h(void);
 void __VGA3_SETMODE(void);
@@ -48,7 +49,9 @@ void ___58b20h(int err_n, ...){
 
 	dRally_System_clean();
 	
-	if(___19bd60h) ___623d4h();
+#if defined(DR_MULTIPLAYER)
+	if(___19bd60h != 0) ___623d4h();
+#endif // DR_MULTIPLAYER
 
 	__VGA3_SETMODE();
 

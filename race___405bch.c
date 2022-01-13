@@ -1,18 +1,18 @@
 #include "drally.h"
 #include "drmath.h"
+#include "drally_structs_free.h"
 
-	extern byte ___243ce8h[];
-	extern byte ___2435c4h[];
-	extern byte ___243334h[];
-	extern byte ___243338h[];
-	extern byte ___243854h[];
-	extern byte ___1e6ed0h[];
-	extern byte ___1c9ee0h[];
-	extern byte ___1c9ed0h[];
-	extern byte ___1c9ef0h[];
-	extern byte ___1c9f00h[];
-	extern byte ___243894h[];
-	extern byte ___243330h[];
+	extern __BYTE__ MY_CAR_IDX[];
+	extern __BYTE__ ___2435c4h[];
+	extern __BYTE__ ___243334h[];
+	extern __BYTE__ ___243338h[];
+	extern __BYTE__ ___243854h[];
+	extern __BYTE__ ___1e6ed0h[];
+	extern __BYTE__ ___1c9ee0h[];
+	extern __BYTE__ ___1c9ed0h[];
+	extern __BYTE__ ___1c9ef0h[];
+	extern __BYTE__ ___1c9f00h[];
+	extern __BYTE__ ___243330h[];
 
 static int ___405bch_round(double dval){
 // death rally correct
@@ -24,9 +24,12 @@ void race___405bch(void){
 
 	double 	dval, rad, dsin, dcos;
 	int 	n;
+	struct_35e_t * 	s_35e;
 
 
-	D(___243330h) = D(___243894h);
+	s_35e = (struct_35e_t *)___1e6ed0h;
+
+	D(___243330h) = getCounter(3);
 	D(___243334h) = 0;
 
 	n = -1;
@@ -41,19 +44,19 @@ void race___405bch(void){
 		D(4*n+___2435c4h) = ___405bch_round(-26.0*dcos-dsin)+30;
 	}
 
-	D(___243854h) = D(___243ce8h);
+	D(___243854h) = D(MY_CAR_IDX);
 	n = -1;
-	if(D(___243ce8h) == ++n) n++;
+	if(D(MY_CAR_IDX) == ++n) n++;
 	D(___243854h+4) = n;
-	if(D(___243ce8h) == ++n) n++;
+	if(D(MY_CAR_IDX) == ++n) n++;
 	D(___243854h+8) = n;
-	if(D(___243ce8h) == ++n) n++;
+	if(D(MY_CAR_IDX) == ++n) n++;
 	D(___243854h+0xc) = n;
 
-	D(___1c9ee0h) = B(0x35e*D(___243854h)+___1e6ed0h+0x109);
-	D(___1c9ee0h+4) = B(0x35e*D(___243854h+4)+___1e6ed0h+0x109);
-	D(___1c9ee0h+8) = B(0x35e*D(___243854h+8)+___1e6ed0h+0x109);
-	D(___1c9ee0h+0xc) = B(0x35e*D(___243854h+0xc)+___1e6ed0h+0x109);
+	D(___1c9ee0h) = s_35e[D(___243854h)].Position;
+	D(___1c9ee0h+4) = s_35e[D(___243854h+4)].Position;
+	D(___1c9ee0h+8) = s_35e[D(___243854h+8)].Position;
+	D(___1c9ee0h+0xc) = s_35e[D(___243854h+0xc)].Position;
 	D(___1c9ed0h) = 7*(D(___1c9ee0h)-1);
 	D(___1c9ed0h+4) = 7*(D(___1c9ee0h+4)-1);
 	D(___1c9ed0h+8) = 7*(D(___1c9ee0h+8)-1);

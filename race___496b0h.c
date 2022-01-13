@@ -1,4 +1,5 @@
 #include "drally.h"
+#include "drally_structs_free.h"
 
 #pragma pack(1)
 typedef union struct_120_s {
@@ -16,14 +17,14 @@ typedef union struct_120_s {
 	};
 } struct_120_t;
 
-	extern void * ___243d38h;
+	extern __POINTER__ ___243d38h;
 	extern struct_120_t ___1f2488h[20];
-	extern byte ___196dd0h[];
-	extern byte ___243d28h[];
-	extern void * ___243d58h;
-	extern byte ___1de7d0h[];
+	extern __BYTE__ ___196dd0h[];
+	extern __BYTE__ ___243d28h[];
+	extern __POINTER__ ___243d58h;
+	extern __BYTE__ ___1de7d0h[];
 #if defined(DR_MULTIPLAYER)
-	extern byte ___19bd60h[];
+	extern __DWORD__ ___19bd60h;
 #endif // DR_MULTIPLAYER
 
 int rand_watcom106(void);
@@ -62,7 +63,11 @@ static void helper00(struct_120_t * p120, int t){
 // POWER UPS / PICK UPS
 void race___496b0h(void){
 
-	int		n;
+	int				n;
+	struct_54_t * 	s_54;
+
+
+	s_54 = (struct_54_t *)___1de7d0h;
 
 	n = -1;
 	while(++n < 0x14){
@@ -81,12 +86,12 @@ void race___496b0h(void){
 	if((rand_watcom106()%4) == 0) helper00(&___1f2488h[0xc+rand_watcom106()%2], 7+rand_watcom106()%2);
 
 	// STEROIDS DEAL
-	if(D(___1de7d0h+0x4c) == 1){
+	if(s_54[0].__4c == 1){
 #if defined(DR_MULTIPLAYER)
-		if(D(___19bd60h) == 0){
+		if(___19bd60h == 0){
 #endif // DR_MULTIPLAYER
 			helper00(&___1f2488h[14+rand_watcom106()%2], 6);
-			D(___1de7d0h+0x4c) = 0;
+			s_54[0].__4c = 0;
 #if defined(DR_MULTIPLAYER)
 		}
 #endif // DR_MULTIPLAYER

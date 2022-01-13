@@ -1,10 +1,10 @@
 #include "drally.h"
 
-void __DISPLAY_SET_PALETTE_COLOR(dword b, dword g, dword r, dword n);
+void __DISPLAY_SET_PALETTE_COLOR(__DWORD__ b, __DWORD__ g, __DWORD__ r, __DWORD__ n);
 
-void ___11378h_cdecl(dword A1, dword A2, dword A3){
+void ___11378h_cdecl(__DWORD__ A1, __DWORD__ A2, __DWORD__ A3){
 
-	dword 	n;
+	__DWORD__ 	n;
 
 	n = -1;
 	while(++n < 0x10){

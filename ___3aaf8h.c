@@ -1,6 +1,8 @@
 #include "drally.h"
 
-	extern byte ___19bd60h[];
+#if defined(DR_MULTIPLAYER)
+	extern __DWORD__ ___19bd60h;
+#endif // DR_MULTIPLAYER
 
 void CONFIG_WRITE(void);
 void ___24ec0h(void);
@@ -21,12 +23,12 @@ void ___3aaf8h(void){
 	___24ec0h();
 	___2fc50h();
 	dRally_Sound_release();
-    dRally_System_clean();
 
 #if defined(DR_MULTIPLAYER)
-    if(D(___19bd60h)) ___623d4h();
+    if(___19bd60h != 0) ___623d4h();
 #endif // DR_MULTIPLAYER
 
+    dRally_System_clean();
 	__VGA3_SETMODE();
     printf("DEATH RALLY Exit: CTRL+ALT+DEL pressed.\n");
 	exit(0x70); 

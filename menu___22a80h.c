@@ -1,42 +1,38 @@
 #include "drally.h"
 #include "drally_keyboard.h"
 #include "sfx.h"
+#include "drally_fonts.h"
 
-#pragma pack(1)
-typedef struct font_props_s {
-	byte 	w;
-	byte 	h;
-	byte 	props[];
-} font_props_t;
-
-	extern void * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
-	extern void * ___1a10e4h__VESA101h_DefaultScreenBufferA;
-	extern void * ___1a1138h__VESA101h_DefaultScreenBufferB;
-	extern void * ___1a10dch;
-	extern byte ___1a0e28h[];
-	extern byte ___185c7ah[];
-	extern void * ___1a10b8h;
+	extern __POINTER__ ___1a112ch__VESA101_ACTIVESCREEN_PTR;
+	extern __POINTER__ ___1a10e4h__VESA101h_DefaultScreenBufferA;
+	extern __POINTER__ ___1a1138h__VESA101h_DefaultScreenBufferB;
+	extern __POINTER__ ___1a10dch;
+	extern __BYTE__ ___1a0e28h[];
+	extern __BYTE__ ___185c7ah[];
+	extern __POINTER__ ___1a10b8h;
 	extern char ___18768ah[][0x18];
-	extern byte ___1a1ef4h[];
-	extern byte ___19bd60h[];
-	extern void * ___1a10ach;
-	extern byte ___196abch[];
-	extern void * ___1a1040h[0x13];
-	extern void * ___1a10a4h;
+	extern __BYTE__ ___1a1ef4h[];
+#if defined(DR_MULTIPLAYER)
+	extern __DWORD__ ___19bd60h;
+#endif // DR_MULTIPLAYER
+	extern __POINTER__ ___1a10ach;
+	extern __BYTE__ ___196abch[];
+	extern __POINTER__ ___1a1040h[0x13];
+	extern __POINTER__ ___1a10a4h;
 	extern __DWORD__ ___24cc54h_sfx_volume;
 
 char * itoa_watcom106(int value, char * buffer, int radix);
 char * strupr_watcom106(char * s);
-void ___12e78h_cdecl(byte * A1, font_props_t * A2, const char * A3, dword dst_off);
+void ___12e78h_cdecl(__BYTE__ * A1, font_props_t * A2, const char * A3, __DWORD__ dst_off);
 void ___3a7e0h_cdecl(int);
-void ___21fd4h_cdecl(dword);
-void ___27f80h_cdecl(dword, dword, dword, dword);
-dword dRally_Sound_getPosition(void);
-byte dRally_Sound_setPosition(dword pos_n);
-void dRally_Sound_setMasterVolume(dword vol);
-void dRally_Sound_pushEffect(byte channel, byte n, dword unk, dword a0, dword a1, dword a2);
-byte ___5994ch(void);
-byte ___59b3ch(void);
+void ___21fd4h_cdecl(__DWORD__);
+void ___27f80h_cdecl(__DWORD__, __DWORD__, __DWORD__, __DWORD__);
+__DWORD__ dRally_Sound_getPosition(void);
+__BYTE__ dRally_Sound_setPosition(__DWORD__ pos_n);
+void dRally_Sound_setMasterVolume(__DWORD__ vol);
+void dRally_Sound_pushEffect(__BYTE__ channel, __BYTE__ n, __DWORD__ unk, __DWORD__ a0, __DWORD__ a1, __DWORD__ a2);
+__BYTE__ ___5994ch(void);
+__BYTE__ ___59b3ch(void);
 void ___2ab50h(void);
 #if defined(DR_MULTIPLAYER)
 void ___23758h(void);
@@ -48,8 +44,8 @@ void restoreDefaultScreenBuffer(void);
 // HALL OF FAME
 void menu___22a80h(void){
 
-	dword 	eax, ebx, ecx, edx, edi, esi, ebp;
-	byte 	esp[0x40];
+	__DWORD__ 	eax, ebx, ecx, edx, edi, esi, ebp;
+	__BYTE__ 	esp[0x40];
 	__BYTE__ 	px;
 	int 		i, j, n;
 
@@ -76,29 +72,29 @@ void menu___22a80h(void){
 		strcat(esp, ".");
 		ecx = 0x280*(0x16*n+0x90);
 		ecx += (n != 9) ? 0x24 : 0x1c;
-		___12e78h_cdecl(___1a10b8h, ___185c7ah, esp, ecx);
+		___12e78h_cdecl(___1a10b8h, (font_props_t *)___185c7ah, esp, ecx);
 		strcpy(esp, ___1a0e28h+0x14*n);
 		strupr_watcom106(esp);
-		___12e78h_cdecl(___1a10b8h, ___185c7ah, esp, 0x16889+0x3700*n);
+		___12e78h_cdecl(___1a10b8h, (font_props_t *)___185c7ah, esp, 0x16889+0x3700*n);
 		itoa_watcom106(D(___1a0e28h+0x14*n+0xc), esp, 0xa);
 
 		if(((int)D(___1a0e28h+0x14*n+0xc) >= 0)&&((int)D(___1a0e28h+0x14*n+0xc) < 0xa)){
 		
-			___12e78h_cdecl(___1a10b8h, ___185c7ah, esp, 0x280*(0x16*n+0x90)+0x158);
+			___12e78h_cdecl(___1a10b8h, (font_props_t *)___185c7ah, esp, 0x280*(0x16*n+0x90)+0x158);
 		}
 
 		if(((int)D(___1a0e28h+0x14*n+0xc) >= 0xa)&&((int)D(___1a0e28h+0x14*n+0xc) < 0x64)){
 		
-			___12e78h_cdecl(___1a10b8h, ___185c7ah, esp, 0x16950+0x3700*n);
+			___12e78h_cdecl(___1a10b8h, (font_props_t *)___185c7ah, esp, 0x16950+0x3700*n);
 		}
 
 		if((int)D(___1a0e28h+0x14*n+0xc) >= 0x64){
 				
-			___12e78h_cdecl(___1a10b8h, ___185c7ah, esp, 0x16948+0x3700*n);
+			___12e78h_cdecl(___1a10b8h, (font_props_t *)___185c7ah, esp, 0x16948+0x3700*n);
 		}
 
 		strcpy(esp, ___18768ah[D(___1a0e28h+0x14*n+0x10)]);
-		___12e78h_cdecl(___1a10b8h, ___185c7ah, strupr_watcom106(esp), 0x169ad+0x3700*n);
+		___12e78h_cdecl(___1a10b8h, (font_props_t *)___185c7ah, strupr_watcom106(esp), 0x169ad+0x3700*n);
 	}
 
 	restoreDefaultScreenBuffer();
@@ -115,7 +111,7 @@ void menu___22a80h(void){
 		H(eax) = ___5994ch();
 		
 #if defined(DR_MULTIPLAYER)
-		if(D(___19bd60h) != 0){
+		if(___19bd60h != 0){
 
 			if(L(eax) == 0x3b){
 
@@ -195,7 +191,7 @@ void menu___22a80h(void){
 			break;
 		case DR_SCAN_F1:
 #if defined(DR_MULTIPLAYER)
-					if(D(___19bd60h) != 0) ___23758h();
+					if(___19bd60h != 0) ___23758h();
 #endif // DR_MULTIPLAYER
 			break;		
 		case DR_SCAN_KP_4:

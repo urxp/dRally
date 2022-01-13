@@ -1,35 +1,38 @@
 #include "drally.h"
 #include "drally_structs_free.h"
 
-	extern byte ___243cf4h[];
-	extern struct_35e_t ___1e6ed0h[4];
-	extern byte ___1de580h[];
-	extern byte ___243ce4h[];
+	extern __BYTE__ NUM_OF_CARS[];
+	extern __BYTE__ ___1e6ed0h[];
+	extern __BYTE__ ___1de580h[];
+	extern __BYTE__ ___243ce4h[];
 	extern int ___243178h[4];
-	extern byte ___243c60h[];
+	extern __BYTE__ ___243c60h[];
 
 // UPDATE POSITION AFTER KILL
 void race___56170h(void){
 
-	byte 	tmp_b;
-	int 	i, m, n;
+	__BYTE__ 	tmp_b;
+	int 		i, m, n;
+	struct_35e_t *	s_35e;
 
+
+	s_35e = (struct_35e_t *)___1e6ed0h;
 
 	n = -1;
-	while(++n < (int)D(___243cf4h)){
+	while(++n < (int)D(NUM_OF_CARS)){
 
 		m = -1;
-		while(++m < (int)D(___243cf4h)){
+		while(++m < (int)D(NUM_OF_CARS)){
 
 			if(m != n){
 				
-				if(___1e6ed0h[n].Position > ___1e6ed0h[m].Position){
+				if(s_35e[n].Position > s_35e[m].Position){
 
 					if(((int)D(___1de580h+0x94*n+0x18) > 0)&&((int)D(___1de580h+0x94*m+0x18) <= 0)){
 
-						tmp_b = ___1e6ed0h[n].Position;
-						___1e6ed0h[n].Position = ___1e6ed0h[m].Position;
-						___1e6ed0h[m].Position = tmp_b;
+						tmp_b = s_35e[n].Position;
+						s_35e[n].Position = s_35e[m].Position;
+						s_35e[m].Position = tmp_b;
 
 					}
 				}
@@ -38,7 +41,7 @@ void race___56170h(void){
 	}
 
 	n = -1;
-	while(++n < (int)D(___243cf4h)){
+	while(++n < (int)D(NUM_OF_CARS)){
 
 		if(D(___1de580h+0x94*n+0x18) == 0){
 
@@ -84,7 +87,7 @@ void race___56170h(void){
 	m = -1;
 	while(++m < (int)D(___243ce4h)){
 
-		___1e6ed0h[___243178h[m]].Position = B(___243cf4h)-m;
+		s_35e[___243178h[m]].Position = B(NUM_OF_CARS)-m;
 	}
 
 	D(___243c60h) = n;

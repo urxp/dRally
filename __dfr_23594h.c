@@ -1,6 +1,9 @@
 #include "drally.h"
 
-dword ___23594h_cdecl(dword A0, dword A1){
+__DWORD__ ___23594h_cdecl(__DWORD__ A0, __DWORD__ A1){
+
+	printf("TODO ___23594h_cdecl\n");
+	exit(1);
 
 /*
 cpu 386

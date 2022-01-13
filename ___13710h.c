@@ -1,11 +1,7 @@
 #include "drally.h"
+#include "drally_fonts.h"
 
 #pragma pack(1)
-typedef struct font_props_s {
-	byte 	w;
-	byte 	h;
-	byte 	props[];
-} font_props_t;
 
 typedef struct menubox_s {
 	__DWORD__ 	row_n;			// +00
@@ -18,27 +14,23 @@ typedef struct menubox_s {
 } menubox_t;
 
 	extern menubox_t ___185a5ch[9];
-	extern byte ___185b58h[9][9];
+	extern __BYTE__ ___185b58h[9][9];
 	extern char ___1866b8h[9][9][50];
-	extern byte * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
-	extern byte ___1a1e68h[];
-	extern void * ___1a10f4h;
-	extern byte ___185ba9h[];
-	extern void * ___1a10cch;
-	extern void * ___1a10d0h;
-	extern void * ___1a10e0h;
+	extern __BYTE__ * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
+	extern __BYTE__ ___1a1e68h[];
+	extern __POINTER__ ___1a10f4h;
 
 #define COOXY(x,y) (0x280*(y)+(x))	
 
-void ___13248h_cdecl(dword, dword ,dword, dword, dword);
-void ___12e78h_cdecl(byte * A1, font_props_t * A2, const char * A3, dword dst_off);
+void ___13248h_cdecl(__DWORD__, __DWORD__ ,__DWORD__, __DWORD__, __DWORD__);
 
-void ___13710h(dword A1, dword A2){
+
+void ___13710h(__DWORD__ A1, __DWORD__ A2){
 
 	int 			n, i, j;
-	byte 			px;
+	__BYTE__ 			px;
 	menubox_t * 	mBox;
-	byte *			mSwitch;
+	__BYTE__ *			mSwitch;
 	char(*mList)[50];
 
 	mBox = &___185a5ch[A1];
@@ -54,18 +46,18 @@ void ___13710h(dword A1, dword A2){
 
 			if((mSwitch[n] != 1)||(A2 == 0)){
 
-				___12e78h_cdecl(___1a10d0h, ___185ba9h, mList[n], COOXY(mBox->x+32,mBox->y+n*mBox->row_h+5));
+				___12e78h_v3(___1a10d0h___185ba9h, mList[n], mBox->x+32, mBox->y+n*mBox->row_h+5);
 			}
 			else {
 
-				___12e78h_cdecl(___1a10e0h, ___185ba9h, mList[n], COOXY(mBox->x+32,mBox->y+n*mBox->row_h+5));
+				___12e78h_v3(___1a10e0h___185ba9h, mList[n], mBox->x+32, mBox->y+n*mBox->row_h+5);
 			}
 		}
 		else {
 
 			if(A2 == 0){
 
-				___12e78h_cdecl(___1a10d0h, ___185ba9h, mList[n], COOXY(mBox->x+32,mBox->y+n*mBox->row_h+5));
+				___12e78h_v3(___1a10d0h___185ba9h, mList[n], mBox->x+32, mBox->y+n*mBox->row_h+5);
 			}
 			else {
 
@@ -80,7 +72,7 @@ void ___13710h(dword A1, dword A2){
 					}
 				}
 
-				___12e78h_cdecl(___1a10cch, ___185ba9h, mList[n], COOXY(mBox->x+32,mBox->y+n*mBox->row_h+5));
+				___12e78h_v3(___1a10cch___185ba9h, mList[n], mBox->x+32, mBox->y+n*mBox->row_h+5);
 			}
 		}
 	}

@@ -6,7 +6,7 @@
 
 #define COOXY(x,y) (0x280*(y)+(x))	
 
-void ___135fch(dword A1, dword A2, dword A3, dword A4){
+void ___135fch(__DWORD__ A1, __DWORD__ A2, __DWORD__ A3, __DWORD__ A4){
 
 	int 	m, n;
 

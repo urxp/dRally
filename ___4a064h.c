@@ -2,9 +2,9 @@
 
 #pragma pack(1)
 typedef struct rgb24_s {
-	byte 	r;
-	byte 	g;
-	byte 	b;
+	__BYTE__ 	r;
+	__BYTE__ 	g;
+	__BYTE__ 	b;
 } rgb24_t;
 
 typedef rgb24_t pal256_t[0x100];

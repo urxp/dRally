@@ -1,51 +1,41 @@
 #include "drally.h"
+#include "drally_fonts.h"
 #include "drally_keyboard.h"
 #include "sfx.h"
 
-#pragma pack(1)
-typedef struct font_props_s {
-	byte 	w;
-	byte 	h;
-	byte 	props[];
-} font_props_t;
-
-	extern byte ___1a1ef8h[];
-	extern byte ___1a01e0h[];
-	extern byte ___185a14h_UseWeapons[];
-	extern byte ___1a1ec4h[];
-	extern byte ___1a1ee4h[];
+	extern __BYTE__ ___1a1ef8h[];
+	extern __BYTE__ ___1a01e0h[];
+	extern __BYTE__ ___185a14h_UseWeapons[];
+	extern __BYTE__ ___1a1ec4h[];
+	extern __BYTE__ ___1a1ee4h[];
 	extern __DWORD__ ___24cc54h_sfx_volume;
-	extern byte ___185c0bh[];
-	extern void * ___1a110ch;
-	extern byte ___18e298h[];
-	extern byte ___185ba9h[];
-	extern void * ___1a10cch;
-	extern void * ___1a10e0h;
+	extern __BYTE__ ___18e298h[];
 #define CARENCS ___185cbch
 	extern __DWORD__ ___185cbch[][0x40];
-	extern byte ___1a1ed0h[];
-	extern void * ___1a01b8h[6];
-	extern void * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
-	extern byte ___1a1e68h[];
-	extern void * ___1a10f4h;
-	extern byte ___19bd60h[];
-	extern void * ___1a1e88h;
-	extern byte ___196a84h[];
-	extern void * ___1a0fb8h;
-	extern void * ___1a1eb4h;
-	extern byte ___185a38h_delay[];
-	extern byte ___1a1028h[];
-	extern byte ___185a4ch[];
-	extern byte ___196adch[];
-	extern byte ___185a20h[];
+	extern __BYTE__ ___1a1ed0h[];
+	extern __POINTER__ ___1a01b8h[6];
+	extern __POINTER__ ___1a112ch__VESA101_ACTIVESCREEN_PTR;
+	extern __BYTE__ ___1a1e68h[];
+	extern __POINTER__ ___1a10f4h;
+#if defined(DR_MULTIPLAYER)
+	extern __DWORD__ ___19bd60h;
+#endif // DR_MULTIPLAYER
+	extern __POINTER__ ___1a1e88h;
+	extern __BYTE__ ___196a84h[];
+	extern __POINTER__ ___1a0fb8h;
+	extern __POINTER__ ___1a1eb4h;
+	extern __BYTE__ ___185a38h_delay[];
+	extern __BYTE__ ___1a1028h[];
+	extern __BYTE__ ___185a4ch[];
+	extern __BYTE__ ___196adch[];
+	extern __BYTE__ ___185a20h[];
 
 char * itoa_watcom106(int value, char * buffer, int radix);
 void ___31008h(void);
 void ___3266ch(void);
-void ___33010h_cdecl(dword A1);
+void ___33010h_cdecl(__DWORD__ A1);
 void underground_main(void);
-dword underground___28c1ch(void);
-void ___13094h_cdecl(dword, dword);
+__DWORD__ underground___28c1ch(void);
 void ___27a10h(void);
 void ___276f0h(void);
 void ___273d8h(void);
@@ -57,28 +47,27 @@ void ___26650h(void);
 void ___262b4h(void);
 void ___269e4h(void);
 void ___25a74h(void);
-byte ___5994ch(void);
+__BYTE__ ___5994ch(void);
 #if defined(DR_MULTIPLAYER)
 void ___23758h(void);
 #endif // DR_MULTIPLAYER
 void ___12cb8h__VESA101_PRESENTSCREEN(void);
 void ___2ab50h(void);
-void ___259e0h_cdecl(int dx, int dy, int aFrameIdx, void * aEncoded, int * aOffsets);
-void dRally_Sound_pushEffect(byte channel, byte n, dword unk, dword a0, dword a1, dword a2);
-void ___13248h_cdecl(dword, dword ,dword, dword, dword);
-void ___12e78h_cdecl(byte * A1, font_props_t * A2, const char * A3, dword dst_off);
-dword ___28ab4h_cdecl(dword);
-void ___1398ch__VESA101_PRESENTRECTANGLE(dword offset, void * src, dword w, dword h);
+void ___259e0h_cdecl(int dx, int dy, int aFrameIdx, __POINTER__ aEncoded, int * aOffsets);
+void dRally_Sound_pushEffect(__BYTE__ channel, __BYTE__ n, __DWORD__ unk, __DWORD__ a0, __DWORD__ a1, __DWORD__ a2);
+void ___13248h_cdecl(__DWORD__, __DWORD__ ,__DWORD__, __DWORD__, __DWORD__);
+__DWORD__ ___28ab4h_cdecl(__DWORD__);
+void ___1398ch__VESA101_PRESENTRECTANGLE(__DWORD__ offset, __POINTER__ src, __DWORD__ w, __DWORD__ h);
 
 
 void shop___28e40h(void){
 
-	dword 	eax, ebx, ecx, edx, edi, esi, ebp;
-	byte 	__esp[0xc+0x60];
-	byte * 	esp = __esp+0xc;
-	void * 	ebxp;
-	void * 	esip;
-	void * 	edxp;
+	__DWORD__ 	eax, ebx, ecx, edx, edi, esi, ebp;
+	__BYTE__ 	__esp[0xc+0x60];
+	__BYTE__ * 	esp = __esp+0xc;
+	__POINTER__ 	ebxp;
+	__POINTER__ 	esip;
+	__POINTER__ 	edxp;
 
 /*
 		FPUSH((int)D(0x6c*D(___1a1ef8h)+___1a01e0h+0x3c));
@@ -107,13 +96,10 @@ void shop___28e40h(void){
 		if((int)ebx < 0) D(esp+0x50) = 0;
 
 		ebx = 0xa;
-		edx = esp+0x3c;
 		eax = D(esp+0x50);
-		edi = esp+0x3c;
-		eax = itoa_watcom106(eax, esp+0x3c, ebx);
+		itoa_watcom106(eax, esp+0x3c, ebx);
 		ecx = strlen(esp+0x3c);
 		B(esp+ecx+0x3b) = 0x30;
-		eax = esp+0x3c;
 		eax = atoi(esp+0x3c);
 		ebp = eax;
 		D(esp+0x50) = eax;
@@ -151,16 +137,15 @@ ___28f77h:
 			itoa_watcom106(ebp, esp+0x3c, 0xa);
 			strcat(esp, esp+0x3c);
 			strcat(esp, " refund");
-			___12e78h_cdecl(___1a110ch, ___185c0bh, esp, 0x136aa);
+			___12e78h_v3(___1a110ch___185c0bh, esp, 170, 124);
 			strcpy(esp, "from your old car and upgrades.");
-			ecx = 0x15eaa;
-			___12e78h_cdecl(___1a110ch, ___185c0bh, esp, ecx);
+			___12e78h_v3(___1a110ch___185c0bh, esp, 170, 140);
 			strcpy(esp, ___18e298h+0x6e0*D(___1a1ee4h));
 			strcat(esp, " would cost ");
 			itoa_watcom106(D(___18e298h+0x6e0*D(___1a1ee4h)+0xc)-ebp, esp+0x3c, 0xa);
 			strcat(esp, "$");
 			strcat(esp, esp+0x3c);
-			___12e78h_cdecl(___1a110ch, ___185c0bh, esp, 0x186aa);
+			___12e78h_v3(___1a110ch___185c0bh, esp, 170, 156);
 			strcpy(esp, "Purchase it ?");
 		}
 		else {
@@ -174,12 +159,12 @@ ___28f77h:
 			eax = 0x90;
 			___13248h_cdecl(eax, edx, ebx, ecx, 1);
 			strcpy(esp, "You would get a $");
-			eax = itoa_watcom106(ebp, esp+0x3c, 0xa);
+			itoa_watcom106(ebp, esp+0x3c, 0xa);
 			strcat(esp, esp+0x3c);
 			strcat(esp, " refund");
-			___12e78h_cdecl(___1a110ch, ___185c0bh, esp, 0x136aa);
+			___12e78h_v3(___1a110ch___185c0bh, esp, 170, 124);
 			strcpy(esp, "from your old car and upgrades.");
-			___12e78h_cdecl(___1a110ch, ___185c0bh, esp, 0x15eaa);
+			___12e78h_v3(___1a110ch___185c0bh, esp, 170, 140);
 			edx = D(___1a1ee4h);
 			eax = 8*edx;
 			eax -= edx;
@@ -192,10 +177,10 @@ ___28f77h:
 			edx = (int)eax>>0x1f;
 			eax ^= edx;
 			eax -= edx;
-			eax = itoa_watcom106(eax, esp+0x3c, 0xa);
+			itoa_watcom106(eax, esp+0x3c, 0xa);
 			strcat(esp, "$");
 			strcat(esp, esp+0x3c);
-			___12e78h_cdecl(___1a110ch, ___185c0bh, esp, 0x186aa);
+			___12e78h_v3(___1a110ch___185c0bh, esp, 170, 156);
 			edx = D(___1a1ee4h);
 			eax = 8*edx;
 			eax -= edx;
@@ -206,9 +191,9 @@ ___28f77h:
 			strcat(esp, " ?");
 		}
 
-		___12e78h_cdecl(___1a110ch, ___185c0bh, esp, 0x1aeaa);
-		___12e78h_cdecl(___1a10cch, ___185ba9h, "yes", 0x1cf70);
-		___12e78h_cdecl(___1a10e0h, ___185ba9h, "no", 0x1d01a);
+		___12e78h_v3(___1a110ch___185c0bh, esp, 170, 172);
+		___12e78h_v3(___1a10cch___185ba9h, "yes", 240, 185);
+		___12e78h_v3(___1a10e0h___185ba9h, "no", 410, 185);
 		___12cb8h__VESA101_PRESENTSCREEN();
 		ebp = 0;
 		D(esp+0x54) = 0;
@@ -219,7 +204,6 @@ ___29410h:
 		___259e0h_cdecl(0x10, 0x8d, D(___1a1ed0h), ___1a01b8h[D(___1a1ee4h)], CARENCS[D(___1a1ee4h)]);
 		ecx = 0x40;
 		ebx = 0x60;
-		edx = ___1a112ch__VESA101_ACTIVESCREEN_PTR+0x16090;
 		eax = 0x16090;
 		___1398ch__VESA101_PRESENTRECTANGLE(eax, ___1a112ch__VESA101_ACTIVESCREEN_PTR+0x16090, ebx, ecx);
 		eax = D(___1a1ed0h);
@@ -264,7 +248,6 @@ ___29495h:
 
 		ecx = 0x1c;
 		ebx = 0x14f;
-		edx = ___1a112ch__VESA101_ACTIVESCREEN_PTR+0x1e0a5;
 		eax = 0x1e0a5;
 		___1398ch__VESA101_PRESENTRECTANGLE(eax, ___1a112ch__VESA101_ACTIVESCREEN_PTR+0x1e0a5, ebx, ecx);
 		esi = D(___1a1e68h);
@@ -285,11 +268,11 @@ ___2952dh:
 			dRally_Sound_pushEffect(1, SFX_CLICK_4, 0, ___24cc54h_sfx_volume, 0x28000, 0x8000);
 			D(esp+0x54) = 0xffffffff;
 			break;
-#if defined(DR_MULTIPLAYER)
 		case DR_SCAN_F1:
-			if(D(___19bd60h) != 0) ___23758h();
-			break;
+#if defined(DR_MULTIPLAYER)
+			if(___19bd60h != 0) ___23758h();
 #endif // DR_MULTIPLAYER
+			break;
 		case DR_SCAN_Y:
 		case DR_SCAN_LEFT:
 		case DR_SCAN_KP_4:
@@ -305,8 +288,8 @@ ___2952dh:
 				if(ecx == 0x21e80) break;
 			}
 
-			___12e78h_cdecl(___1a10cch, ___185ba9h, "yes", 0x1cf70);
-			___12e78h_cdecl(___1a10e0h, ___185ba9h, "no", 0x1d01a);
+			___12e78h_v3(___1a10cch___185ba9h, "yes", 240, 185);
+			___12e78h_v3(___1a10e0h___185ba9h, "no", 410, 185);
 			break;
 		case DR_SCAN_N:
 		case DR_SCAN_RIGHT:
@@ -323,8 +306,8 @@ ___2952dh:
 				if(ecx == 0x21e80) break;
 			}
 
-			___12e78h_cdecl(___1a10e0h, ___185ba9h, "yes", 0x1cf70);
-			___12e78h_cdecl(___1a10cch, ___185ba9h, "no", 0x1d01a);
+			___12e78h_v3(___1a10e0h___185ba9h, "yes", 240, 185);
+			___12e78h_v3(___1a10cch___185ba9h, "no", 410, 185);
 			break;
 		default:
 			break;
@@ -399,11 +382,11 @@ ___2952dh:
 		}
 
 		strcpy(esp, "Use arrows to change the color");
-		___12e78h_cdecl(___1a110ch, ___185c0bh, esp, 0x136aa);
+		___12e78h_v3(___1a110ch___185c0bh, esp, 170, 124);
 		strcpy(esp, "of your car and press Enter");
-		___12e78h_cdecl(___1a110ch, ___185c0bh, esp, 0x15eaa);
+		___12e78h_v3(___1a110ch___185c0bh, esp, 170, 140);
 		strcpy(esp, "when finished.");
-		___12e78h_cdecl(___1a110ch, ___185c0bh, esp, 0x186aa);
+		___12e78h_v3(___1a110ch___185c0bh, esp, 170, 156);
 		___12cb8h__VESA101_PRESENTSCREEN();
 
 		B(esp+0x5c) = 0;
@@ -415,7 +398,7 @@ ___2952dh:
 		B(esp+0x5c) = ___5994ch();
 
 #if defined(DR_MULTIPLAYER)
-		if((B(esp+0x5c) == DR_SCAN_F1)&&(D(___19bd60h) != 0)) ___23758h();
+		if((B(esp+0x5c) == DR_SCAN_F1)&&(___19bd60h != 0)) ___23758h();
 #endif // DR_MULTIPLAYER
 
 		if(B(esp+0x5c) == DR_SCAN_LEFT){
@@ -892,18 +875,18 @@ ___2a1afh:
 		if((D(0x6c*D(___1a1ef8h)+___1a01e0h+0xc) == 0x64)&&(D(___185a14h_UseWeapons) == 0)){
 
 			___13248h_cdecl(0x90, 0x72, 0x180, 0x77, 1);
-			___13094h_cdecl("[Repair your car first.", 0x136aa);
-			___13094h_cdecl("", 0x15eaa);
-			___13094h_cdecl("What'cha gonna do with that pile of", 0x186aa);
-			___13094h_cdecl("junk, carry it around? Let me spell", 0x1aeaa);
-			___13094h_cdecl("this out for you: R-E-P-A-I-R.", 0x1d6aa);
+			VESA101_16X16_FORMAT_PRINT("[Repair your car first.", 170, 124);
+			VESA101_16X16_FORMAT_PRINT("", 170, 140);
+			VESA101_16X16_FORMAT_PRINT("What'cha gonna do with that pile of", 170, 156);
+			VESA101_16X16_FORMAT_PRINT("junk, carry it around? Let me spell", 170, 172);
+			VESA101_16X16_FORMAT_PRINT("this out for you: R-E-P-A-I-R.", 170, 188);
 			___12cb8h__VESA101_PRESENTSCREEN();
 			dRally_Sound_pushEffect(2, SFX_LAUGHTER, 0, ___24cc54h_sfx_volume, 0x25500, 0x8000);
 		}
 		else {
 
 #if defined(DR_MULTIPLAYER)
-			if(D(___19bd60h) == 0){
+			if(___19bd60h == 0){
 #endif // DR_MULTIPLAYER
 
 				D(___185a4ch) = underground___28c1ch();

@@ -1,16 +1,16 @@
 #include "drally.h"
 
-	extern byte ___243890h[];
-	extern byte ___24388ch[];
+	extern __BYTE__ ___243890h[];
+	extern __BYTE__ ___24388ch[];
 	extern __DWORD__ ___19bd58h_gamepad;
 
-void outp_(dword port, dword val);
-byte inp_(dword port);
+void outp_(__DWORD__ port, __DWORD__ val);
+__BYTE__ inp_(__DWORD__ port);
 
 void ___59db8h(void){
 
 	int 	n, x_axis, y_axis;
-	byte 	in_b;
+	__BYTE__ 	in_b;
 
 	outp_(0x201, 0);
 	n = 0x1388;

@@ -1,21 +1,29 @@
 #include "drally.h"
 
-	extern void * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
-	extern void * ___1a1124h__VESA101h_ScreenBufferA;
-	extern byte ___19eb50h[];
-	extern byte ___1a54d0h[];
+#pragma pack(1)
+typedef struct x655_s {
+	__DWORD__ 	r;
+	__DWORD__ 	g;
+	__DWORD__ 	b;
+} x655_t;
+
+	extern x655_t ___19eb50h[0x100];
+
+	extern __POINTER__ ___1a112ch__VESA101_ACTIVESCREEN_PTR;
+	extern __POINTER__ ___1a1124h__VESA101h_ScreenBufferA;
+	extern __BYTE__ ___1a54d0h[];
 
 void ___2b318h(void);
 void ___58c60h(void);
-void ___13a98h_cdecl(dword);
-void old_bpa_read(const char *, void *, const char *);
-void bpk_decode2(void *, void *);
+void ___13a98h_cdecl(__DWORD__);
+void old_bpa_read(const char *, __POINTER__, const char *);
+void bpk_decode2(__POINTER__, __POINTER__);
 void ___12cb8h__VESA101_PRESENTSCREEN(void);
 void ___3d1f0h(void);
-byte ___5994ch(void);
+__BYTE__ ___5994ch(void);
 void ___3d2bch(void);
 void ___3d154h(const char * pal_name);
-void __DISPLAY_SET_PALETTE_COLOR(dword b, dword g, dword r, dword n);
+void __DISPLAY_SET_PALETTE_COLOR(__DWORD__ b, __DWORD__ g, __DWORD__ r, __DWORD__ n);
 
 
 static __DWORD__ helper_color(__DWORD__ A0, __DWORD__ A1){
@@ -38,7 +46,7 @@ static __DWORD__ helper_color(__DWORD__ A0, __DWORD__ A1){
 
 void menu___3d4f0h(void){
 
-	dword 	rr, gg, bb, nn;
+	__DWORD__ 	rr, gg, bb, nn;
 	int 	i, n;
 
 
@@ -54,9 +62,9 @@ void menu___3d4f0h(void){
 		n = -1;
 		while(++n < 0x100){
 
-			rr = helper_color(D(___19eb50h+0xc*n+0), 0x20000*(0x32-i));
-			gg = helper_color(D(___19eb50h+0xc*n+4), 0x20000*(0x32-i));
-			bb = helper_color(D(___19eb50h+0xc*n+8), 0x20000*(0x32-i));
+			rr = helper_color(___19eb50h[n].r, 0x20000*(0x32-i));
+			gg = helper_color(___19eb50h[n].g, 0x20000*(0x32-i));
+			bb = helper_color(___19eb50h[n].b, 0x20000*(0x32-i));
 
 			__DISPLAY_SET_PALETTE_COLOR(bb, gg, rr, n);
 		}
@@ -89,9 +97,9 @@ void menu___3d4f0h(void){
 		n = -1;
 		while(++n < 0x100){
 
-			rr = helper_color(D(___19eb50h+0xc*n+0), 0x20000*i);
-			gg = helper_color(D(___19eb50h+0xc*n+4), 0x20000*i);
-			bb = helper_color(D(___19eb50h+0xc*n+8), 0x20000*i);
+			rr = helper_color(___19eb50h[n].r, 0x20000*i);
+			gg = helper_color(___19eb50h[n].g, 0x20000*i);
+			bb = helper_color(___19eb50h[n].b, 0x20000*i);
 
 			__DISPLAY_SET_PALETTE_COLOR(bb, gg, rr, n);
 		}

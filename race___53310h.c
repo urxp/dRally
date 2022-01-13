@@ -1,4 +1,5 @@
 #include "drally.h"
+#include "drmath.h"
 
 typedef struct xc50_s {
 	__DWORD__ 	___0;			// +000
@@ -26,37 +27,23 @@ typedef struct xc50_s {
 } xc50_t;
 
 	extern xc50_t ___1f3b08h[];		// <0x1f3b08 - 0x1f4758)
-	extern byte ___243c88h[];
-	extern byte ___243c98h[];
+	extern __BYTE__ ___243c88h[];
+	extern __BYTE__ ___243c98h[];
 
-void ___53378h_cdecl(dword, dword);
+void ___53378h_cdecl(__DWORD__, __DWORD__);
 
 void race___53310h(void){
 
-	dword	eax, ebx, ecx, edx, edi, esi, ebp;
+	int 		n;
 
 
-		esi = D(___243c88h);
-		ebx = 0;
-		if((int)esi <= 0) goto ___53356h;
-		eax = 0;
-___5332ch:
-		ecx = D(eax+(void *)&___1f3b08h->_9E4);
-		ecx = ecx*ecx;
-		edx = D(eax+(void *)&___1f3b08h->_9E8);
-		edx = edx*edx;
-		D(eax+(void *)&___1f3b08h->_C4C) = ebx;
-		edx += ecx;
-		ebx++;
-		D(eax+(void *)&___1f3b08h->_C48) = edx;
-		eax += 0xc50;
-		if((int)ebx < (int)esi) goto ___5332ch;
-___53356h:
-		edx = esi-1;
-		D(___243c98h) = ebx;
-		eax = 0;
-		D(___243c88h) = esi;
-		___53378h_cdecl(eax, edx);
-		ebx = D(___243c98h);
-		return;
+	n = -1;
+	while(++n < (int)D(___243c88h)){
+
+		___1f3b08h[n]._C48 = dRMath_sum2squares_i(___1f3b08h[n]._9E4, ___1f3b08h[n]._9E8);
+		___1f3b08h[n]._C4C = n;
+	}
+
+	D(___243c98h) = n;
+	___53378h_cdecl(0, D(___243c88h)-1);
 }

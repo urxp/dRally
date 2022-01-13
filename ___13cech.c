@@ -1,12 +1,7 @@
 #include "drally.h"
+#include "drally_fonts.h"
 
 #pragma pack(1)
-typedef struct font_props_s {
-	byte 	w;
-	byte 	h;
-	byte 	props[];
-} font_props_t;
-
 typedef struct menubox_s {
 	__DWORD__ 	row_n;			// +00
 	__DWORD__ 	x;				// +04
@@ -22,18 +17,14 @@ typedef struct menubox_s {
 	extern menubox_t ___185a5ch[];
 #define box ___185a5ch
 	
-	extern byte * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
-	extern byte ___1866b8h[];
-	extern byte ___185ba9h[];
-	extern void * ___1a10e0h;
-	extern void * ___1a10cch;
-	extern byte ___1a1e68h[];
-	extern byte * ___1a10f4h;
+	extern __BYTE__ * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
+	extern __BYTE__ ___1866b8h[];
+	extern __BYTE__ ___1a1e68h[];
+	extern __BYTE__ * ___1a10f4h;
 
-void ___1398ch__VESA101_PRESENTRECTANGLE(dword offset, void * src, dword w, dword h);
-void ___12e78h_cdecl(byte * A1, font_props_t * A2, const char * A3, dword dst_off);
+void ___1398ch__VESA101_PRESENTRECTANGLE(__DWORD__ offset, __POINTER__ src, __DWORD__ w, __DWORD__ h);
 
-void ___13cech(dword A1){
+void ___13cech(__DWORD__ A1){
 
 	int 	n,i,j;
 
@@ -43,7 +34,7 @@ void ___13cech(dword A1){
 		memset(&___1a112ch__VESA101_ACTIVESCREEN_PTR[COOXY(box[A1].x+9,n+box[A1].y+box[A1].row_h*box[A1].row_i+10)], 0xc4, box[A1].w-0x14);
 	}
 
-	___12e78h_cdecl(___1a10e0h, ___185ba9h, ___1866b8h+450*A1+50*box[A1].row_i, COOXY(box[A1].x+32,box[A1].y+box[A1].row_h*box[A1].row_i+5));
+	___12e78h_v3(___1a10e0h___185ba9h, ___1866b8h+450*A1+50*box[A1].row_i, box[A1].x+32, box[A1].y+box[A1].row_h*box[A1].row_i+5);
 	___1398ch__VESA101_PRESENTRECTANGLE(COOXY(box[A1].x+7,box[A1].y+box[A1].row_h*box[A1].row_i+6), &___1a112ch__VESA101_ACTIVESCREEN_PTR[COOXY(box[A1].x+7,box[A1].y+box[A1].row_h*box[A1].row_i+6)], box[A1].w-0xa, 0x20);
 
 	box[A1].row_i = box[A1].row_n-1;
@@ -54,7 +45,7 @@ void ___13cech(dword A1){
 		memset(&___1a112ch__VESA101_ACTIVESCREEN_PTR[COOXY(box[A1].x+9,n+box[A1].y+box[A1].row_h*box[A1].row_i+10)], 0xc4, box[A1].w-0x14);
 	}
 
-	___12e78h_cdecl(___1a10cch, ___185ba9h, ___1866b8h+450*A1+50*box[A1].row_i, COOXY(box[A1].x+32,box[A1].y+box[A1].row_i*box[A1].row_h+5));
+	___12e78h_v3(___1a10cch___185ba9h, ___1866b8h+450*A1+50*box[A1].row_i, box[A1].x+32, box[A1].y+box[A1].row_i*box[A1].row_h+5);
 
 	i = -1;
 	while(++i < 0x14){

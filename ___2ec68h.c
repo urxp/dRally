@@ -1,13 +1,16 @@
 #include "drally.h"
 
-	extern byte ___1a1ef8h[];
-	extern byte ___1a0a50h[];
-	extern byte ___19bd60h[];
-	extern byte ___1a01e0h[];
+#if defined(DR_MULTIPLAYER)
+	extern __DWORD__ ___19bd60h;
+#endif // DR_MULTIPLAYER
+
+	extern __BYTE__ ___1a1ef8h[];
+	extern __BYTE__ ___1a0a50h[];
+	extern __BYTE__ ___1a01e0h[];
 
 void ___2ec68h_cdecl(void){
 
-	dword 	ebx, ecx;
+	__DWORD__ 	ebx, ecx;
 	int 	n;
 
 
@@ -15,7 +18,7 @@ void ___2ec68h_cdecl(void){
 	while(ecx&&ecx--) D(___1a0a50h+4*ecx) = 1;
 
 #if defined(DR_MULTIPLAYER)
-	if(D(___19bd60h) != 0){
+	if(___19bd60h != 0){
 
 		ecx = 4;
 		while(ecx&&ecx--) D(___1a0a50h+4*ecx) = 1;
@@ -33,7 +36,7 @@ void ___2ec68h_cdecl(void){
 	}
 
 #if defined(DR_MULTIPLAYER)
-	if(D(___19bd60h) != 0){
+	if(___19bd60h != 0){
 
 		D(___1a0a50h+0xc) = 1;
 	}
@@ -45,6 +48,6 @@ void ___2ec68h_cdecl(void){
 #if defined(DR_MULTIPLAYER)
 	}
 
-	if(D(___19bd60h) != 0) D(___1a0a50h+0xc) = 0;
+	if(___19bd60h != 0) D(___1a0a50h+0xc) = 0;
 #endif // DR_MULTIPLAYER
 }

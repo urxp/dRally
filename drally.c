@@ -1,7 +1,7 @@
 #include "drally.h"
 
 #if defined(DR_MULTIPLAYER)
-extern dword ___19bd60h;
+extern __DWORD__ ___19bd60h;
 void ___623d4h(void);
 #endif
 

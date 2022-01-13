@@ -1,6 +1,6 @@
 #include "drally.h"
 
-    extern byte * ___243d80h;
+    extern __BYTE__ * ___243d80h;
 
 // MEASURE: min=-240, max=437
 #define OFFSET 0x190                // 0x190 + 0x258
@@ -34,9 +34,9 @@ static void measure(int s, int e){
 	if(l) printf("MEASURE: min=%d, max=%d\n", m_min, m_max);
 }
 
-static void helper(int A0, int A1, int A2, int A3, int A4, dword * A5){
+static void helper(int A0, int A1, int A2, int A3, int A4, __DWORD__ * A5){
 
-	dword 	eax, edi, ebx, ecx;
+	__DWORD__ 	eax, edi, ebx, ecx;
 
 	ebx = A4-A3;
 
@@ -68,7 +68,7 @@ static int helper2(int * P1, int * P2){
 }
 
 // Objects
-void ___5e137h_order(dword A0, int A1, int A2, int A3, int A4, int A5, int A6){
+void ___5e137h_order(__DWORD__ A0, int A1, int A2, int A3, int A4, int A5, int A6){
 
     int     ecx, edi;
 
@@ -110,7 +110,7 @@ void ___5e137h_order(dword A0, int A1, int A2, int A3, int A4, int A5, int A6){
 static void ___5e3e8h_order(int A1, int A2, int A3, int A4, int A5, int A6, int A7, int A8, int A9){
 
 
-    dword   eax, edx;
+    __DWORD__   eax, edx;
     int     ecx, edi;
 
     helper(0, A7, A1, A2, A8, ___5a86ch);
@@ -153,7 +153,7 @@ static void ___5e3e8h_order(int A1, int A2, int A3, int A4, int A5, int A6, int 
 }
 
 // Shadows
-static void ___5e769h_order(byte * A0, int A1, int A2, int A3, int A4, int A5, int A6){
+static void ___5e769h_order(__BYTE__ * A0, int A1, int A2, int A3, int A4, int A5, int A6){
 
 	int 	ecx, edi;
 
@@ -195,7 +195,7 @@ static void ___5e769h_order(byte * A0, int A1, int A2, int A3, int A4, int A5, i
 }
 
 // Objects
-void ___5e137h(dword A1, int A2, int A3, int A4, int A5, int A6, int A7){
+void ___5e137h(__DWORD__ A1, int A2, int A3, int A4, int A5, int A6, int A7){
 
     int     i, j, args[6];
     int     a, b, c;
@@ -244,7 +244,7 @@ void ___5e3e8h(int A1, int A2, int A3, int A4, int A5, int A6, int A7, int A8, i
 }
 
 // Shadows
-void ___5e769h(byte * A1, int A2, int A3, int A4, int A5, int A6, int A7){
+void ___5e769h(__BYTE__ * A1, int A2, int A3, int A4, int A5, int A6, int A7){
 
 	int 	i, j, args[6];
     int     a, b, c;

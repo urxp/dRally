@@ -1,12 +1,12 @@
 #include "drally.h"
 
-	extern void * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
-	extern void * ___1a0fd8h;
+	extern __POINTER__ ___1a112ch__VESA101_ACTIVESCREEN_PTR;
+	extern __POINTER__ ___1a0fd8h;
 
 // RACE RESULTS, PRESS ANY KEY TO CONTINUE BG
 void ___38708h(void){
 
-	dword 	eax, ebx, ecx, edx, edi, esi, ebp;
+	__DWORD__ 	eax, ebx, ecx, edx, edi, esi, ebp;
 
 
 	edx = 0x18810;

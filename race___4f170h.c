@@ -1,26 +1,26 @@
 #include "drally.h"
 
-	extern byte ___2438c4h[];
-	extern byte ___243d08h[];
-	extern byte ___1e8448h[];
-	extern byte ___196dc8h[];
-	extern byte ___1de920h[];
-	extern byte ___243c6ch[];
-	extern byte ___1e8048h[];
-	extern byte ___1e7c48h[];
-	extern byte ___1ded20h[];
-	extern byte ___243c68h[];
-	extern byte ___196dcch[];
-	extern byte ___243c64h[];
-	extern byte ___243c78h[];
-	extern byte ___243c70h[];
-	extern byte ___196d8ch[];
-	extern byte ___243c74h[];
-	extern byte ___196d94h[];
-	extern byte ___196d98h[];
-	extern byte ___240a48h[];
+	extern __BYTE__ ___2438c4h[];
+	extern __BYTE__ ___243d08h[];
+	extern __BYTE__ ___1e8448h[];
+	extern __BYTE__ ___196dc8h[];
+	extern __BYTE__ ___1de920h[];
+	extern __BYTE__ ___243c6ch[];
+	extern __BYTE__ ___1e8048h[];
+	extern __BYTE__ ___1e7c48h[];
+	extern __BYTE__ ___1ded20h[];
+	extern __BYTE__ ___243c68h[];
+	extern __BYTE__ ___196dcch[];
+	extern __BYTE__ ___243c64h[];
+	extern __BYTE__ ___243c78h[];
+	extern __BYTE__ ___243c70h[];
+	extern __BYTE__ ___196d8ch[];
+	extern __BYTE__ ___243c74h[];
+	extern __BYTE__ ___196d94h[];
+	extern __BYTE__ ___196d98h[];
+	extern __BYTE__ ___240a48h[];
 
-void ___5e769h(byte * A1, int A2, int A3, int A4, int A5, int A6, int A7);
+void ___5e769h(__BYTE__ * A1, int A2, int A3, int A4, int A5, int A6, int A7);
 
 // SHADOWS
 void race___4f170h(void){

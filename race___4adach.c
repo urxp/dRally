@@ -43,11 +43,11 @@ typedef struct x2c_s {
 	extern xc50_t ___1f3b08h[100];		// <0x1f3b08 - 0x1f4758)
 	extern x2c_t ___240b48h[];		// <0x240b48 - 0x240b74)
 
-	extern byte ___243c9ch[];
-	extern byte ___243d08h[];
-	extern byte ___243c88h[];
-	extern byte ___243c98h[];
-	extern byte ___243c94h[];
+	extern __BYTE__ ___243c9ch[];
+	extern __BYTE__ ___243d08h[];
+	extern __BYTE__ ___243c88h[];
+	extern __BYTE__ ___243c98h[];
+	extern __BYTE__ ___243c94h[];
 	extern int ___1e8848h[100][100];
 
 // SOMETHING WITH TEXTURES

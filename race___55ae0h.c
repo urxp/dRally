@@ -1,47 +1,51 @@
 #include "drally.h"
 #include "sfx.h"
+#include "drally_structs_free.h"
 
-	extern byte ___243cf4h[];
-	extern byte ___1e6ed0h[];
-	extern void * ___243d78h;
-	extern byte ___243d30h[];
-	extern byte ___243cech[];
-	extern byte ___243c60h[];
-	extern byte ___196dd4h[];
-	extern byte ___1de580h[];
-	extern byte ___243ce8h[];
-	extern byte ___1a1134h[];
-	extern byte ___196df0h[];
-	extern byte ___1a1094h[];
-	extern byte ___1a109ch[];
-	extern byte ___1a1034h[];
-	extern byte ___1a102ch[];
-	extern byte ___1a108ch[];
-	extern byte ___1a0ff4h[];
-	extern byte ___2438bch[];
-	extern byte ___2438b8h[];
-	extern byte ___2438c0h[];
+	extern __BYTE__ NUM_OF_CARS[];
+	extern __BYTE__ ___1e6ed0h[];
+	extern __POINTER__ ___243d78h;
+	extern __BYTE__ ___243d30h[];
+	extern __BYTE__ ___243cech[];
+	extern __BYTE__ ___243c60h[];
+	extern __BYTE__ ___196dd4h[];
+	extern __BYTE__ ___1de580h[];
+	extern __BYTE__ MY_CAR_IDX[];
+	extern __DWORD__ ___1a1134h;
+	extern __BYTE__ ___196df0h[];
+	extern __BYTE__ ___1a1094h[];
+	extern __BYTE__ ___1a109ch[];
+	extern __BYTE__ ___1a1034h[];
+	extern __BYTE__ ___1a102ch[];
+	extern __BYTE__ ___1a108ch[];
+	extern __BYTE__ ___1a0ff4h[];
+	extern __BYTE__ ___2438bch[];
+	extern __BYTE__ ___2438b8h[];
+	extern __BYTE__ ___2438c0h[];
 	extern char ___19bd64h[16];
-	extern byte ___243ca0h[];
-	extern byte ___243cb8h[];
-	extern byte ___243cdch[];
-	extern byte ___1de7d0h[];
-	extern byte ___196ab0h[];
+	extern __BYTE__ ___243ca0h[];
+	extern __BYTE__ ___243cb8h[];
+	extern __BYTE__ ___243cdch[];
+	extern __BYTE__ ___1de7d0h[];
+	extern __BYTE__ ___196ab0h[];
 #if defined(DR_MULTIPLAYER)
-	extern byte ___19bd60h[];
+	extern __DWORD__ ___19bd60h;
 #endif // DR_MULTIPLAYER
 
-void dRally_Sound_pushEffect(byte channel, byte n, dword unk, dword a0, dword a1, dword a2);
+void dRally_Sound_pushEffect(__BYTE__ channel, __BYTE__ n, __DWORD__ unk, __DWORD__ a0, __DWORD__ a1, __DWORD__ a2);
 
 // POSITION, LAP COUNTER
 void race___55ae0h(void){
 
 	double 	d_tmp;
-	dword 	eax, ebx, ecx, edx, edi, esi, ebp, ebx0, ecx0, edx0;
-	byte 	esp[0xc];
+	__DWORD__ 	eax, ebx, ecx, edx, edi, esi, ebp, ebx0, ecx0, edx0;
+	__BYTE__ 	esp[0xc];
+    struct_54_t *   s_54;
 
 
-    edi = D(___243cf4h);
+    s_54 = (struct_54_t *)___1de7d0h;
+
+    edi = D(NUM_OF_CARS);
     esi ^= esi;
 
 	if((int)edi > 0){
@@ -185,7 +189,7 @@ void race___55ae0h(void){
 
             eax = 0x35e*esi;
             ebp = D(___243cech);
-            D(___243cf4h) = edi;
+            D(NUM_OF_CARS) = edi;
             edx = D(eax+___1e6ed0h);
             D(___243c60h) = esi;
 
@@ -204,16 +208,16 @@ void race___55ae0h(void){
                     eax = 0x35e*esi;
                     L(edx) = B(eax+___1e6ed0h+0x108);
                     L(edx)++;
-                    ebx = D(___243ce8h);
+                    ebx = D(MY_CAR_IDX);
                     B(eax+___1e6ed0h+0x108) = L(edx);
 
                     if(esi == ebx){
 
                         L(eax) = L(edx);
-                        ecx = D(___1a1134h);
+                        ecx = ___1a1134h;
                         eax &= 0xff;
                         D(___243c60h) = ebx;
-                        D(___243cf4h) = edi;
+                        D(NUM_OF_CARS) = edi;
                 
                         if(eax == ecx){
                         
@@ -232,7 +236,7 @@ void race___55ae0h(void){
                         eax = 0x64*ebp;
                         eax += edx;
                         edx = D(___1a0ff4h);
-                        edi = D(___243cf4h);
+                        edi = D(NUM_OF_CARS);
                         eax += edx;
                         esi = D(___243c60h);
 
@@ -275,7 +279,7 @@ void race___55ae0h(void){
 
                             H(edx) = ___19bd64h[2];
                             D(___243c60h) = esi;
-                            D(___243cf4h) = edi;
+                            D(NUM_OF_CARS) = edi;
                             
                             if((H(edx) != 0x30)&&(D(___196df0h) == 0)) dRally_Sound_pushEffect(0x2, SFX_LAP_RECORD, 0, 0x10000, 0x50000, 0x8000);
 
@@ -283,7 +287,7 @@ void race___55ae0h(void){
                             D(___2438b8h) = D(___1a109ch);
                             D(___2438c0h) = D(___1a102ch);
                             esi = D(___243c60h);
-                            edi = D(___243cf4h);
+                            edi = D(NUM_OF_CARS);
                         }
                         else {
 
@@ -303,7 +307,7 @@ void race___55ae0h(void){
 
                                         H(edx) = ___19bd64h[2];
                                         D(___243c60h) = esi;
-                                        D(___243cf4h) = edi;
+                                        D(NUM_OF_CARS) = edi;
                                         
                                         if((H(edx) != 0x30)&&(D(___196df0h) == 0)) dRally_Sound_pushEffect(2, SFX_LAP_RECORD, 0, 0x10000, 0x50000, 0x8000);
 
@@ -311,7 +315,7 @@ void race___55ae0h(void){
                                         D(___2438b8h) = D(___1a109ch);
                                         D(___2438c0h) = D(___1a102ch);
                                         esi = D(___243c60h);
-                                        edi = D(___243cf4h);
+                                        edi = D(NUM_OF_CARS);
                                     }
                                     else {
 
@@ -334,8 +338,8 @@ void race___55ae0h(void){
                 }
 
                 eax = 0x35e*esi;
-                ecx = D(___1a1134h);
-                D(___243cf4h) = edi;
+                ecx = ___1a1134h;
+                D(NUM_OF_CARS) = edi;
                 ebx ^= ebx;
                 edx ^= edx;
                 D(___243c60h) = esi;
@@ -345,8 +349,8 @@ void race___55ae0h(void){
 		        if((int)edx > (int)ecx){
 
                     esi = 0x1;
-                    L(edx) = B(___1a1134h);
-                    ebp = D(___243ce8h);
+                    L(edx) = ___1a1134h&0xff;
+                    ebp = D(MY_CAR_IDX);
                     D(eax+___1e6ed0h+0x10a) = esi;
                     esi = D(___243c60h);
                     B(eax+___1e6ed0h+0x108) = L(edx);
@@ -365,7 +369,7 @@ void race___55ae0h(void){
                     ebp = 0x1;
                     D(___196dd4h) = ebp;
                     D(___243c60h) = esi;
-                    eax = strcmp(___1de7d0h+eax, "DUKE NUKEM");
+                    eax = strcmp(s_54[esi].__0, "DUKE NUKEM");
                     esi = D(___243c60h);
 
                     if(eax == 0){
@@ -378,7 +382,7 @@ void race___55ae0h(void){
             }
 
             esi = D(___243c60h);
-            edi = D(___243cf4h);
+            edi = D(NUM_OF_CARS);
             esi++;
             if((int)esi >= (int)edi) break;
         }
@@ -398,14 +402,14 @@ void race___55ae0h(void){
             L(edx) = B(eax+___1e6ed0h+0x108);
             edx = edx*ebx;
             edx += D(eax+___1e6ed0h);
-            if(((int)edx > (int)ebp)&&(esi != D(___243ce8h))) ebp = edx;
+            if(((int)edx > (int)ebp)&&(esi != D(MY_CAR_IDX))) ebp = edx;
             esi++;
             eax += 0x35e;
             if((int)esi >= (int)edi) break;
         }
     }
 
-    eax = 0x35e*D(___243ce8h);
+    eax = 0x35e*D(MY_CAR_IDX);
     edx ^= edx;
     L(edx) = B(eax+___1e6ed0h+0x108);
     ebx = D(___243cech);
@@ -414,7 +418,7 @@ void race___55ae0h(void){
     eax = D(eax+___1e6ed0h);
     D(___243c60h) = esi;
     eax += edx;
-    D(___243cf4h) = edi;
+    D(NUM_OF_CARS) = edi;
 
     if((int)ebp > (int)eax){
 
@@ -422,7 +426,7 @@ void race___55ae0h(void){
 
             if(D(___1de580h) != 6){
 #if defined(DR_MULTIPLAYER)
-                if(D(___19bd60h) == 0){
+                if(___19bd60h == 0){
 #endif // DR_MULTIPLAYER
                     D(___196ab0h) = 1;
                     dRally_Sound_pushEffect(2, SFX_YOUVE_BEEN_LAPPED, 0, 0x10000, 0x50000, 0x8000);
@@ -433,14 +437,14 @@ void race___55ae0h(void){
         }
     }
 
-    eax = 0x35e*D(___243ce8h);
+    eax = 0x35e*D(MY_CAR_IDX);
     edx ^= edx;
     L(edx) = B(eax+___1e6ed0h+0x108);
     ebx = D(___243cech);
     edx++;
     edx = edx*ebx;
     eax = D(eax+___1e6ed0h);
-    edi = D(___243cf4h);
+    edi = D(NUM_OF_CARS);
     eax += edx;
 
     esi = D(___243c60h);
@@ -450,7 +454,7 @@ void race___55ae0h(void){
 
             if(D(___1de580h) != 6){
 #if defined(DR_MULTIPLAYER)
-                if(D(___19bd60h) == 0){
+                if(___19bd60h == 0){
 #endif // DR_MULTIPLAYER
                     D(___196ab0h) = 0;
 #if defined(DR_MULTIPLAYER)
@@ -460,6 +464,6 @@ void race___55ae0h(void){
         }
     }
 
-    D(___243cf4h) = edi;
+    D(NUM_OF_CARS) = edi;
     D(___243c60h) = esi;
 }

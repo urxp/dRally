@@ -2,30 +2,30 @@
 
 #pragma pack(1)
 typedef struct rgb24_s {
-	byte 	r;
-	byte 	g;
-	byte 	b;
+	__BYTE__ 	r;
+	__BYTE__ 	g;
+	__BYTE__ 	b;
 } rgb24_t;
 
 typedef rgb24_t pal256_t[0x100];
 
 typedef struct x655_s {
-	dword 	r;
-	dword 	g;
-	dword 	b;
+	__DWORD__ 	r;
+	__DWORD__ 	g;
+	__DWORD__ 	b;
 } x655_t;
 
-	extern x655_t ___19eb50h[];
+	extern x655_t ___19eb50h[0x100];
 	extern x655_t ___19df50h[];
 
-void old_bpa_read(const char *, void *, const char *);
+void old_bpa_read(const char *, __POINTER__, const char *);
 
 void ___12940h(void){
 
 	int 		n;
 	pal256_t	pal;
 
-	old_bpa_read("MENU.BPA", &pal, "menu.pal");
+	old_bpa_read("MENU.BPA", (__POINTER__)&pal, "menu.pal");
 
 	n = -1;
 	while(++n < 0x100){
@@ -41,7 +41,7 @@ void ___3d154h(const char * pal_name){
 	int 		n;
 	pal256_t	pal;
 
-	old_bpa_read("MENU.BPA", &pal, pal_name);
+	old_bpa_read("MENU.BPA", (__POINTER__)&pal, pal_name);
 
 	n = -1;
 	while(++n < 0x100){
@@ -53,7 +53,7 @@ void ___3d154h(const char * pal_name){
 }
 
 
-void ___11564h_cdecl(dword f1, dword f2, dword f3){
+void ___11564h_cdecl(__DWORD__ f1, __DWORD__ f2, __DWORD__ f3){
 
 	int 	n;
 
@@ -70,12 +70,12 @@ void ___11564h_cdecl(dword f1, dword f2, dword f3){
 	}
 }
 
-static dword max_0x3f(dword A0){
+static __DWORD__ max_0x3f(__DWORD__ A0){
 
 	return (A0 < 0x3f) ? A0 : 0x3f;
 }
 
-void ___24010h(dword f1, dword f2, dword f3){
+void ___24010h(__DWORD__ f1, __DWORD__ f2, __DWORD__ f3){
 
 	int 	n;
 
@@ -92,11 +92,11 @@ void ___24010h(dword f1, dword f2, dword f3){
 
 
 
-void __DISPLAY_SET_PALETTE_COLOR(dword b, dword g, dword r, dword n);
+void __DISPLAY_SET_PALETTE_COLOR(__DWORD__ b, __DWORD__ g, __DWORD__ r, __DWORD__ n);
 
-void setIntensity___19eb50h(dword i){
+void setIntensity___19eb50h(__DWORD__ i){
 
-	dword 	r, g, b, n;
+	__DWORD__ 	r, g, b, n;
 
 	n = -1;
 	while(++n < 0x100){

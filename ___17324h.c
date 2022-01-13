@@ -1,15 +1,15 @@
 #include "drally.h"
 #include "drally_keyboard.h"
 
-byte ___5994ch(void);
-byte ___59b3ch(void);
+__BYTE__ ___5994ch(void);
+__BYTE__ ___59b3ch(void);
 void ___2ab50h(void);
-void ___13bd4h_cdecl(dword, dword);
+void ___13bd4h_cdecl(__DWORD__, __DWORD__);
 
 void ___17324h(void){
 
 	int 	mWait;
-	byte 	mScan;
+	__BYTE__ 	mScan;
 
 	___5994ch();
 	___59b3ch();

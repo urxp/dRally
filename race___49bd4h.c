@@ -3,68 +3,71 @@
 
 #pragma pack(1)
 typedef struct tr_startup_s {
-	dword 		x;
-	dword 		y;
-	dword 		rot;
+	__DWORD__ 		x;
+	__DWORD__ 		y;
+	__DWORD__ 		rot;
 } tr_startup_t;
 
 typedef struct tr_powerup_s {
-	dword 		x;
-	dword 		y;
+	__DWORD__ 		x;
+	__DWORD__ 		y;
 } tr_powerup_t;
 
 typedef struct tr_spectator_s {
-	dword 		x;
-	dword 		y;
-	dword 		type;
-	dword 		rot;
+	__DWORD__ 		x;
+	__DWORD__ 		y;
+	__DWORD__ 		type;
+	__DWORD__ 		rot;
 } tr_spectator_t;
 
 typedef struct tr_inf_s {
-	dword			w;
-	dword			h;
-	dword			unk0;
+	__DWORD__			w;
+	__DWORD__			h;
+	__DWORD__			unk0;
 	tr_startup_t	startups[4];
 	tr_powerup_t	powerups[16];
 	tr_spectator_t	spectators[20];
 } tr_inf_t;
 
 typedef struct spectator_s {
-	dword		x;
-	dword		y;
-	dword		type;
-	dword		z_mov;
-	dword		rot;
-	dword		frame;
-	dword		dead;
-	dword		timestamp;
+	__DWORD__		x;
+	__DWORD__		y;
+	__DWORD__		type;
+	__DWORD__		z_mov;
+	__DWORD__		rot;
+	__DWORD__		frame;
+	__DWORD__		dead;
+	__DWORD__		timestamp;
 } spectator_t;
 
 	extern char ___19bd64h[16];
-	extern byte ___243dd0h[];
-	extern byte ___243d90h[];
-	extern byte ___1a54d0h[];
-	extern byte ___243d28h[];
-	extern byte ___243d2ch[];
-	extern byte ___243cech[];
-	extern struct_35e_t ___1e6ed0h[4];
-	extern byte ___1f2488h[];
+	extern __BYTE__ ___243dd0h[];
+	extern __BYTE__ ___243d90h[];
+	extern __BYTE__ ___1a54d0h[];
+	extern __BYTE__ ___243d28h[];
+	extern __BYTE__ ___243d2ch[];
+	extern __BYTE__ ___243cech[];
+	extern __BYTE__ ___1e6ed0h[];
+	extern __BYTE__ ___1f2488h[];
 #define SPECTATORS ___1df720h
 	extern spectator_t ___1df720h[];
-	extern byte ___243d30h[];
-	extern byte ___243d04h[];
-	extern byte ___243cf8h[];
-	extern byte ___243d10h[];
+	extern __BYTE__ ___243d30h[];
+	extern __BYTE__ ___243d04h[];
+	extern __BYTE__ ___243cf8h[];
+	extern __BYTE__ ___243d10h[];
 
-void old_bpa_read(const char *, void *, const char *);
+void old_bpa_read(const char *, __POINTER__, const char *);
 
 void race___49bd4h(void){
 
-	int 	n;
-	tr_inf_t * TrxInf;
+	int 			n;
+	tr_inf_t * 		TrxInf;
+	struct_35e_t * 	s_35e;
 
+
+	s_35e = (struct_35e_t *)___1e6ed0h;
 	TrxInf = (tr_inf_t *)___1a54d0h;
-	old_bpa_read(strcat(strcpy(___243dd0h, ___19bd64h), ".BPA"), TrxInf, strcat(strcpy(___243d90h, ___19bd64h), "-INF.BIN"));
+	old_bpa_read(strcat(strcpy(___243dd0h, ___19bd64h), ".BPA"), (__POINTER__)TrxInf, strcat(strcpy(___243d90h, ___19bd64h), "-INF.BIN"));
 
 	D(___243d28h) = TrxInf->w;
 	D(___243d2ch) = TrxInf->h;
@@ -73,9 +76,9 @@ void race___49bd4h(void){
 	n = -1;
 	while(++n < 4){
 
-		___1e6ed0h[n].Rotation = TrxInf->startups[n].rot;
-		___1e6ed0h[n].XLocation = (float)TrxInf->startups[n].x;
-		___1e6ed0h[n].YLocation = (float)TrxInf->startups[n].y;
+		s_35e[n].ImgIndex = TrxInf->startups[n].rot;
+		s_35e[n].XLocation = (float)TrxInf->startups[n].x;
+		s_35e[n].YLocation = (float)TrxInf->startups[n].y;
 	}
 
 	n = -1;

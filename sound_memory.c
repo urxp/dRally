@@ -5,22 +5,22 @@
 void ___58b20h(int, ...);
 
 struct alloc {
-    void *  next;
-    void *  end;
-    void *  start;
+    __POINTER__  next;
+    __POINTER__  end;
+    __POINTER__  start;
 } alloc;
 
-static dword is2pow(dword d){
+static __DWORD__ is2pow(__DWORD__ d){
 
-    dword r = -1;
+    __DWORD__ r = -1;
     while(d&=(d-++r));
     
     return !!(r == 1);
 }
 
-static dword next2pow(dword d){
+static __DWORD__ next2pow(__DWORD__ d){
 
-    dword r = 1;
+    __DWORD__ r = 1;
     while(d){
 
         d >>= 1;
@@ -30,7 +30,7 @@ static dword next2pow(dword d){
     return r;
 }
 
-void * ptr_align(void * src, dword a){
+__POINTER__ ptr_align(__POINTER__ src, __DWORD__ a){
 
     if(!is2pow(a)){
         
@@ -38,17 +38,17 @@ void * ptr_align(void * src, dword a){
         printf("Not power of 2, fallback to %d\n", a);
     }
 
-    return src+(((void *)a - src)&(a-1));
+    return src+(((__POINTER__)(__UNSIGNED__)a - src)&(a-1));
 }
 
-void ptr_align_d(void ** src_p, dword a){
+void ptr_align_d(__POINTER__* src_p, __DWORD__ a){
 
     *src_p = ptr_align(*src_p, a);
 }
 
-void * ___5f248h_cdecl(dword size){
+__POINTER__ ___5f248h_cdecl(__DWORD__ size){
 
-    void * rslt;
+    __POINTER__ rslt;
 
     rslt = dRMemory_alloc(size);
     alloc.next = rslt;
@@ -58,9 +58,9 @@ void * ___5f248h_cdecl(dword size){
     return rslt;
 }
 
-void * ___5f26ch_cdecl(dword size){
+__POINTER__ ___5f26ch_cdecl(__DWORD__ size){
 
-    void * rslt;
+    __POINTER__ rslt;
 
     rslt = alloc.next;
     if((size+alloc.next) > alloc.end) ___58b20h(0x17);

@@ -1,10 +1,10 @@
 #include "drally.h"
 
 	extern __DWORD__ ___19bd58h_gamepad;
-	extern byte ___243890h[];
-	extern byte ___243888h[];
-	extern byte ___24388ch[];
-	extern byte ___243884h[];
+	extern __BYTE__ ___243890h[];
+	extern __BYTE__ ___243888h[];
+	extern __BYTE__ ___24388ch[];
+	extern __BYTE__ ___243884h[];
 
 void ___59db8h(void);
 

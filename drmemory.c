@@ -3,9 +3,6 @@
 #include <string.h>
 #include "drmemory.h"
 
-typedef unsigned char   byte;
-typedef unsigned short 	word;
-typedef unsigned long   dword;
 
 typedef enum MEM_TYPE {
     NO_MEMORY, DOS4G_MEMORY
@@ -14,87 +11,33 @@ typedef enum MEM_TYPE {
 #pragma pack(1)
 
 typedef struct AllocBase {
-    void *  linear;     // +0
-    dword   nbytes;     // +4
+    __POINTER__     linear;     // +0
+    __DWORD__       nbytes;     // +4
 } AllocBase;
 
 typedef struct AllocEntry {
-	byte 	type;		// +0
-	void * 	linear;		// +1
-	dword 	nbytes;		// +5
-	dword 	handle;		// +9
-	word 	selector;	// +0dh
-	word 	segment;	// +0fh
-	byte 	lock;		// +11h
+	__BYTE__ 	    type;		// +0
+	__POINTER__     linear;		// +1
+	__DWORD__ 	    nbytes;		// +5
+	__DWORD__ 	    handle;		// +9
+	__WORD__ 	    selector;	// +0dh
+	__WORD__ 	    segment;	// +0fh
+	__BYTE__ 	    lock;		// +11h
 } AllocEntry;
 
-#define DOS_MEM_POOL        0x100
 #define MEM_REGISTRY_SIZE   0x10000
-
-struct {
-	void * 			ptr;
-	unsigned int 	size;
-} DOS_MEM[DOS_MEM_POOL];
-
 
 static AllocBase ___24ccb0h;
 
-unsigned int DPMI_ALLOCATE_DOS_MEMORY_BLOCK(dword size, dword * sel){
-	
-	unsigned int idx = 0;
-
-	while((DOS_MEM[idx].ptr) && ((++idx) < DOS_MEM_POOL));
-
-	if(idx == DOS_MEM_POOL) return 0;
-
-	DOS_MEM[idx].ptr = malloc((size + 0x1f)&0xfffffff0);
-	if(DOS_MEM[idx].ptr == 0){
-        
-        //printf("[dRally.Memory] Allocation of %d bytes of 'DOS' memory failed!\n", size);
-
-        return 0;
-    }
-	else {
-        
-        //printf("[dRally.Memory] Allocating %d bytes of 'DOS' memory @%08X\n", size, ((unsigned int)DOS_MEM[idx].ptr + 0xf)&0xfffffff0);
-
-        DOS_MEM[idx].size = size;
-    }
-
-	*sel = idx;
-
-	return ((unsigned int)DOS_MEM[idx].ptr + 0xf) >> 4;
-}
-
-unsigned int DPMI_FREE_DOS_MEMORY_BLOCK(unsigned int idx){
-
-	if(idx < DOS_MEM_POOL){
-
-        if(DOS_MEM[idx].ptr){
-
-            //printf("[dRally.Memory] Freeing 'DOS' memory @%08X\n", DOS_MEM[idx].ptr);
-		    
-            free(DOS_MEM[idx].ptr);
-        }
-
-		DOS_MEM[idx].ptr = (void *)0;
-		DOS_MEM[idx].size = 0;
-
-		return 1;
-	}
-
-	return 0;
-}
-
 void ___58b20h(unsigned int err_n, ...);
 
-void * dRMemory_alloc(size_t size){
+__POINTER__ dRMemory_alloc(size_t size){
 
-    void *          alloc;
-    dword           alloc_dos, n;
+    __POINTER__          alloc;
+    __DWORD__           alloc_dos, n;
     AllocEntry *    ptr;
 
-    ptr = ___24ccb0h.linear;
+    ptr = (AllocEntry *)___24ccb0h.linear;
 
     n = 0;
     while(ptr[n].type&&(n < (MEM_REGISTRY_SIZE/sizeof(AllocEntry)))) n++;
@@ -107,7 +50,7 @@ void * dRMemory_alloc(size_t size){
         size++;
     }
 
-    if((alloc = malloc(size)) != (void *)0){
+    if((alloc = malloc(size)) != (__POINTER__)0){
 
         ptr[n].linear = alloc;
         ptr[n].nbytes = size;
@@ -117,15 +60,15 @@ void * dRMemory_alloc(size_t size){
     return ptr[n].linear;
 }
 
-void dRMemory_free(void * mem){
+void dRMemory_free(__POINTER__ mem){
 
-    dword           n;
+    __DWORD__           n;
     AllocEntry *    ptr;
 
-    ptr = ___24ccb0h.linear;
+    ptr = (AllocEntry *)___24ccb0h.linear;
 
     n = 0;
-    while((mem != ptr[n].linear)&&(n < (MEM_REGISTRY_SIZE/sizeof(AllocEntry)))) n++;
+    while((n < (MEM_REGISTRY_SIZE/sizeof(AllocEntry)))&&(mem != ptr[n].linear)) n++;
 
     if(n == (MEM_REGISTRY_SIZE/sizeof(AllocEntry))) ___58b20h(0xe);
 
@@ -143,11 +86,11 @@ void dRMemory_free(void * mem){
     ptr[n].type = NO_MEMORY;
 }
 
-void * dRMemory_resize(void * mem, size_t size){
-
-    dword           n;
+__POINTER__ dRMemory_resize(__POINTER__ mem, size_t size){
+/*
+    __DWORD__           n;
     AllocEntry *    ptr;
-    void *          new_mem;
+    __POINTER__          new_mem;
 
     ptr = ___24ccb0h.linear;
 
@@ -172,11 +115,14 @@ void * dRMemory_resize(void * mem, size_t size){
     ptr[n].nbytes = size;
 
     return ptr[n].linear;
+*/
+
+    return mem;
 }
 
 void dRally_Memory_init(void){
 
-    void *  alloc;
+    __POINTER__  alloc;
     size_t  size = MEM_REGISTRY_SIZE;
 
     if(size >= 0x100000){
@@ -197,11 +143,11 @@ void dRally_Memory_init(void){
 
 void dRally_Memory_clean(void){
 
-    dword           n;
+    __DWORD__           n;
     AllocEntry *    ptr;
 
 
-    if((ptr = ___24ccb0h.linear) != (void *)0){    
+    if((ptr = (AllocEntry *)___24ccb0h.linear) != (AllocEntry *)0){    
 
         n = 0;
         while(n < (MEM_REGISTRY_SIZE/sizeof(AllocEntry))){

@@ -1,31 +1,25 @@
 #include "drally.h"
+#include "drally_fonts.h"
 
-#pragma pack(1)
-typedef struct font_props_s {
-	byte 	w;
-	byte 	h;
-	byte 	props[];
-} font_props_t;
-
-	extern byte ___1a1028h[];
-	extern byte ___1de7d0h[];
-	extern byte ___1a0ef8h[];
-	extern void * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
-	extern void * ___1a0fech;
-	extern byte ___185c0bh[];
-	extern void * ___1a1108h;
-	extern byte ___1a01e0h[];
-	extern byte ___1a1ef8h[];
-	extern byte ___196ab0h[];
-	extern void * ___1a0fb0h;
-	extern byte ___185c7ah[];
-	extern void * ___1a10b8h;
+	extern __BYTE__ ___1a1028h[];
+	extern __BYTE__ ___1de7d0h[];
+	extern __BYTE__ ___1a0ef8h[];
+	extern __POINTER__ ___1a112ch__VESA101_ACTIVESCREEN_PTR;
+	extern __POINTER__ ___1a0fech;
+	extern __BYTE__ ___185c0bh[];
+	extern __POINTER__ ___1a1108h;
+	extern __BYTE__ ___1a01e0h[];
+	extern __BYTE__ ___1a1ef8h[];
+	extern __BYTE__ ___196ab0h[];
+	extern __POINTER__ ___1a0fb0h;
+	extern __BYTE__ ___185c7ah[];
+	extern __POINTER__ ___1a10b8h;
 
 void ___12cb8h__VESA101_PRESENTSCREEN(void);
-void ___12e78h_cdecl(byte * A1, font_props_t * A2, const char * A3, dword dst_off);
-void ___38184h_cdecl(dword, void *);
+void ___12e78h_cdecl(__BYTE__ * A1, font_props_t * A2, const char * A3, __DWORD__ dst_off);
+void ___38184h_cdecl(__DWORD__, __POINTER__);
 void ___35dd0h(void);
-void ___35f34h_cdecl(dword, dword, dword);
+void ___35f34h_cdecl(__DWORD__, __DWORD__, __DWORD__);
 char * itoa_watcom106(int value, char * buffer, int radix);
 
 static const int EasyPoints[3] = {3, 2, 1};
@@ -37,12 +31,12 @@ static char * fmtPoints(int val){
 }
 
 // EASY RACE RESULTS
-void ___36068h_cdecl(dword A1){
+void ___36068h_cdecl(__DWORD__ A1){
 
-    dword   eax, ebx, ecx, edx, edi, esi, ebp;
-    byte    esp[8];
+    __DWORD__   eax, ebx, ecx, edx, edi, esi, ebp;
+    __BYTE__    esp[8];
 	int 	i, j, n;
-	byte 	px;
+	__BYTE__ 	px;
 
  
 	if(D(___1a1028h)){
@@ -79,7 +73,7 @@ void ___36068h_cdecl(dword A1){
 			}
 		}
 
-		___12e78h_cdecl(___1a1108h, ___185c0bh, "Easy Race Results", 0xd890);
+		___12e78h_cdecl(___1a1108h, (font_props_t *)___185c0bh, "Easy Race Results", 0xd890);
 		___38184h_cdecl(0x4, esp);
 	}
 
@@ -104,14 +98,14 @@ void ___36068h_cdecl(dword A1){
 		if((D(0x6c*B(esp+n)+___1a01e0h+0xc) != 0x64)&&((B(esp+n) != D(___1a1ef8h))||(D(___196ab0h) != 1))){
 
 			D(0x6c*B(esp+n)+___1a01e0h+0x44) += EasyPoints[n];
-			___12e78h_cdecl(___1a10b8h, ___185c7ah, fmtPoints(EasyPoints[n]), 0x280*(0x13*B(esp+n)+0x59)+0xe6);
+			___12e78h_cdecl(___1a10b8h, (font_props_t *)___185c7ah, fmtPoints(EasyPoints[n]), 0x280*(0x13*B(esp+n)+0x59)+0xe6);
 		}
 
 	}
 
 	if(A1 == 0){
 	
-		___12e78h_cdecl(___1a1108h, ___185c0bh, "Press any key to continue...", 0x46b6e);
+		___12e78h_cdecl(___1a1108h, (font_props_t *)___185c0bh, "Press any key to continue...", 0x46b6e);
 		___12cb8h__VESA101_PRESENTSCREEN();
 	}
 }

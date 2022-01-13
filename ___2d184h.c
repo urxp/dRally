@@ -1,16 +1,17 @@
 #include "drally.h"
+#include "drally_fonts.h"
 
-void ___13094h_cdecl(const char *, dword);
-void ___13248h_cdecl(dword, dword ,dword, dword, dword);
-	
+void ___13248h_cdecl(__DWORD__, __DWORD__ ,__DWORD__, __DWORD__, __DWORD__);
+
 // MARKET STUFF OUT OF STOCK INFO BOX MESSAGE
 void ___2d184h(void){
 
 	___13248h_cdecl(0x90, 0x72, 0x180, 0x77, 1);
-	___13094h_cdecl("[OUT OF STOCK", 0x136aa);
-	___13094h_cdecl("", 0x15eaa);
-	___13094h_cdecl("Sorry, no can do. That's out of", 0x186aa);
-	___13094h_cdecl("stock. Hold your horse(power)s", 0x1aeaa);
-	___13094h_cdecl("till after the next race.", 0x1d6aa);
-	___13094h_cdecl("", 0x1feaa);
+
+	VESA101_16X16_FORMAT_PRINT("[OUT OF STOCK", 170, 124);
+	VESA101_16X16_FORMAT_PRINT("", 170, 140);
+	VESA101_16X16_FORMAT_PRINT("Sorry, no can do. That's out of", 170, 156);
+	VESA101_16X16_FORMAT_PRINT("stock. Hold your horse(power)s", 170, 172);
+	VESA101_16X16_FORMAT_PRINT("till after the next race.", 170, 188);
+	VESA101_16X16_FORMAT_PRINT("", 170, 204);
 }

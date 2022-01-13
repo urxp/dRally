@@ -1,24 +1,24 @@
 #include "drally.h"
+#include "drally_fonts.h"
 
-	extern void * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
-	extern void * ___1a1e98h;
-	extern byte ___185a14h_UseWeapons[];
-	extern byte ___185a4ch[];
+	extern __POINTER__ ___1a112ch__VESA101_ACTIVESCREEN_PTR;
+	extern __POINTER__ ___1a1e98h;
+	extern __BYTE__ ___185a14h_UseWeapons[];
+	extern __BYTE__ ___185a4ch[];
 	extern __DWORD__ ___1865fch[];
-	extern void * ___1a1ea0h;
-	extern byte ___1a1ee8h[];
+	extern __POINTER__ ___1a1ea0h;
+	extern __BYTE__ ___1a1ee8h[];
 
-void ___13094h_cdecl(const char *, dword);
-void ___259e0h_cdecl(int dx, int dy, int aFrameIdx, void * aEncoded, int * aOffsets);
-dword underground___28c1ch(void);
-void ___13248h_cdecl(dword, dword ,dword, dword, dword);
+void ___259e0h_cdecl(int dx, int dy, int aFrameIdx, __POINTER__ aEncoded, int * aOffsets);
+__DWORD__ underground___28c1ch(void);
+void ___13248h_cdecl(__DWORD__, __DWORD__ ,__DWORD__, __DWORD__, __DWORD__);
 
 // SHOP CONTINUE
 void ___26e54h(void){
 
 	int 	i, j;
 
-	dword	eax, ebx, ecx, edx, edi, esi, ebp;
+	__DWORD__	eax, ebx, ecx, edx, edi, esi, ebp;
 
 
 	j = -1;
@@ -33,20 +33,20 @@ void ___26e54h(void){
 
 	if((D(___185a14h_UseWeapons) == 0)||(D(___185a4ch) == 0)){
 
-		___13094h_cdecl("[CONTINUE", 0x136aa);
-		___13094h_cdecl("", 0x15eaa);
-		___13094h_cdecl("Exit the Shop and enter the Race", 0x186aa);
-		___13094h_cdecl("Sign-Up.", 0x1aeaa);
+		VESA101_16X16_FORMAT_PRINT("[CONTINUE", 170, 124);
+		VESA101_16X16_FORMAT_PRINT("", 170, 140);
+		VESA101_16X16_FORMAT_PRINT("Exit the Shop and enter the Race", 170, 156);
+		VESA101_16X16_FORMAT_PRINT("Sign-Up.", 170, 172);
 	}
 	else {
 
-		___13094h_cdecl("[CONTINUE", 0x136aa);
-		___13094h_cdecl("", 0x15eaa);
-		___13094h_cdecl("Exit the Shop and enter the", 0x186aa);
-		___13094h_cdecl("Underground Market.", 0x1aeaa);
+		VESA101_16X16_FORMAT_PRINT("[CONTINUE", 170, 124);
+		VESA101_16X16_FORMAT_PRINT("", 170, 140);
+		VESA101_16X16_FORMAT_PRINT("Exit the Shop and enter the", 170, 156);
+		VESA101_16X16_FORMAT_PRINT("Underground Market.", 170, 172);
 	}
 
-	___13094h_cdecl("", 0x1d6aa);
-	___13094h_cdecl("Press [Esc{ for previous menu", 0x1feaa);
+	VESA101_16X16_FORMAT_PRINT("", 170, 188);
+	VESA101_16X16_FORMAT_PRINT("Press [Esc{ for previous menu", 170, 204);
 	___259e0h_cdecl(0x1b0, 0x10d, D(___1a1ee8h), ___1a1ea0h, ___1865fch);
 }

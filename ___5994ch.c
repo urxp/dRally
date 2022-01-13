@@ -1,50 +1,28 @@
 #include "drally.h"
 
-	extern byte ___199f48h[];
-	extern byte ___199f4ch[];
-	extern byte ___24cc6ch[];
-	extern byte ___199f6ch[];
-	extern byte ___199f50h[];
-	extern byte ___199f60h[];
-	extern byte ___199f70h[];
-	extern byte ___199f54h[];
+	extern __BYTE__ ___199f6ch[];
+	extern __BYTE__ ___199f60h[];
+	extern __BYTE__ ___199f70h[];
 	extern __DWORD__ ___19bd58h_gamepad;
-	extern byte ___199f3ch[];
-	extern byte ___243888h[];
-	extern byte ___243890h[];
-	extern byte ___243884h[];
-	extern byte ___24388ch[];
+	extern __BYTE__ ___199f3ch[];
+	extern __BYTE__ ___243888h[];
+	extern __BYTE__ ___243890h[];
+	extern __BYTE__ ___243884h[];
+	extern __BYTE__ ___24388ch[];
 
-dword __GET_TIMER_TICKS(void);
-dword __GET_FRAME_COUNTER(void);
-byte dRally_Keyboard_popLastKey(void);
+__DWORD__ __GET_TIMER_TICKS(void);
+__DWORD__ __GET_FRAME_COUNTER(void);
+__BYTE__ dRally_Keyboard_popLastKey(void);
 void ___59db8h(void);
-byte inp_(dword);
+__BYTE__ inp_(__DWORD__);
 
-byte ___5994ch(void){
+__BYTE__ ___5994ch(void){
 
-	dword 	eax, ebx, ecx, edx, edi, esi, ebp;
+	__DWORD__ 	eax, ebx, ecx, edx, edi, esi, ebp;
 
 
 	__GET_FRAME_COUNTER();
 	H(ebx) = dRally_Keyboard_popLastKey();
-
-	if(D(___199f4ch) != 0){
-
-		B(D(___24cc6ch)+D(___199f48h)) = H(ebx);
-		D(___199f48h)++;
-	}
-
-	if(D(___199f50h) != 0){
-
-		edx = D(___24cc6ch)+D(___199f48h);
-		if((B(edx) == 0x45)&&(B(edx+1) == 0x4e)&&(B(edx+2) == 0x44)) D(___199f50h) = 0;
-		H(ebx) = B(D(___24cc6ch)+D(___199f48h));
-		D(___199f48h)++;
-	}
-
-	if(D(___199f54h) != 0) H(ebx) = 0x1c;
-
 
 	// Gamepad/Joystick
 	if((int)___19bd58h_gamepad > 0) ___59db8h();		// may modifiy ___19bd58h_gamepad

@@ -1,14 +1,14 @@
 #include "drally.h"
 
-	extern byte ___1a0d60h[];
+	extern char ___1a0d60h[0xc8];
 
 void dRally_System_clean(void);
-dword GET_FILE_SIZE(const char *);
+__DWORD__ GET_FILE_SIZE(const char *);
 
 #pragma pack(push,1)
 typedef struct file_s {
     const char  name[0xd];
-    dword       size;
+    __DWORD__       size;
 } file_t;
 
 #pragma pack(pop)
@@ -40,7 +40,7 @@ static file_t cinems[3] = {
 
 void ___3e1c4h(void){
 
-    dword   n, fsize;
+    __DWORD__   n, fsize;
     char    fpath[0x100];
 
     n = -1;

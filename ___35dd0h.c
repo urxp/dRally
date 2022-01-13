@@ -1,37 +1,28 @@
 #include "drally.h"
-
-#pragma pack(1)
-typedef struct font_props_s {
-	byte 	w;
-	byte 	h;
-	byte 	props[];
-} font_props_t;
+#include "drally_fonts.h"
 
 #if defined(DR_MULTIPLAYER)
-	extern byte ___19bd60h[];
+	extern __DWORD__ ___19bd60h;
 #endif // DR_MULTIPLAYER
-	extern byte ___196adch[];
-	extern void * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
-	extern void * ___1a0fc0h;
-	extern byte ___185ba9h[];
-	extern void * ___1a10cch;
+	extern __BYTE__ ___196adch[];
+	extern __POINTER__ ___1a112ch__VESA101_ACTIVESCREEN_PTR;
+	extern __POINTER__ ___1a0fc0h;
 
 char * itoa_watcom106(int value, char * buffer, int radix);
-void ___12e78h_cdecl(byte * A1, font_props_t * A2, const char * A3, dword dst_off);
 
 // RACE RESULTS FRAMES
 void ___35dd0h(void){
 
 	int 		i, j, n, m, k;
 	__BYTE__ 	px;
-	dword 	eax, ebx, ecx, edx, edi, esi, ebp;
-	byte 	esp[0x18];
+	__DWORD__ 	eax, ebx, ecx, edx, edi, esi, ebp;
+	__BYTE__ 	esp[0x18];
 
 
 	m = 4;
 
 #if defined(DR_MULTIPLAYER)
-	if(D(___19bd60h) != 0) m = D(___196adch);
+	if(___19bd60h != 0) m = D(___196adch);
 #endif // DR_MULTIPLAYER
 
 	//k = 79+(350-79*m)/(m+1);
@@ -51,6 +42,6 @@ void ___35dd0h(void){
 		}
 
 		itoa_watcom106(n, esp+0x14, 0xa);
-		___12e78h_cdecl(___1a10cch, ___185ba9h, esp+0x14, 0x280*(k*n+36)+((n==1)?0x191:0x18c));
+		___12e78h_v3(___1a10cch___185ba9h, esp+0x14, (n==1)?0x191:0x18c, k*n+36);
 	}
 }

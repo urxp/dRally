@@ -4,51 +4,53 @@
 
 #pragma pack(1)
 typedef struct font_props_s {
-	byte 	w;
-	byte 	h;
-	byte 	props[];
+	__BYTE__ 	w;
+	__BYTE__ 	h;
+	__BYTE__ 	props[];
 } font_props_t;
 
-	extern byte ___19dd70h[256];
-	extern byte ___185ba9h[];
-	extern void * ___1a10e0h;
-	extern void * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
-	extern byte ___19bd60h[];
+	extern char ___19dd70h[0x100];
+	extern __BYTE__ ___185ba9h[];
+	extern __POINTER__ ___1a10e0h;
+	extern __POINTER__ ___1a112ch__VESA101_ACTIVESCREEN_PTR;
+#if defined(DR_MULTIPLAYER)
+	extern __DWORD__ ___19bd60h;
+#endif // DR_MULTIPLAYER
 	extern __DWORD__ ___24cc54h_sfx_volume;
-	extern void * ___19de70h[20];
-	extern void * ___1a1104h;
-	extern byte ___1a1ef8h[];
-	extern byte ___1a01e0h[];
-	extern void * ___1a0fb8h;
-	extern void * ___1a1e88h;
-	extern void * ___1a1eb4h;
+	extern __POINTER__ ___19de70h[20];
+	extern __POINTER__ ___1a1104h;
+	extern __BYTE__ ___1a1ef8h[];
+	extern __BYTE__ ___1a01e0h[];
+	extern __POINTER__ ___1a0fb8h;
+	extern __POINTER__ ___1a1e88h;
+	extern __POINTER__ ___1a1eb4h;
 
-void ___1398ch__VESA101_PRESENTRECTANGLE(dword offset, void * src, dword w, dword h);
-void ___17384h_cdecl(dword, dword, dword, dword, dword, dword);
+void ___1398ch__VESA101_PRESENTRECTANGLE(__DWORD__ offset, __POINTER__ src, __DWORD__ w, __DWORD__ h);
+void ___17384h_cdecl(__DWORD__, __DWORD__, __DWORD__, __DWORD__, __DWORD__, __DWORD__);
 void ___11378h_cdecl_float(float A1, float A2, float A3);
-void dRally_Sound_pushEffect(byte channel, byte n, dword unk, dword a0, dword a1, dword a2);
+void dRally_Sound_pushEffect(__BYTE__ channel, __BYTE__ n, __DWORD__ unk, __DWORD__ a0, __DWORD__ a1, __DWORD__ a2);
 #if defined(DR_MULTIPLAYER)
 void ___23758h(void);
 #endif // DR_MULTIPLAYER
-byte ___5994ch(void);
-void ___12e78h_cdecl(byte * A1, font_props_t * A2, const char * A3, dword dst_off);
+__BYTE__ ___5994ch(void);
+void ___12e78h_cdecl(__BYTE__ * A1, font_props_t * A2, const char * A3, __DWORD__ dst_off);
 
-dword ___17510h_cdecl(void * A1, dword A2, dword A3, void * A4, dword A5, dword A6, dword A7, dword A8, dword A9){
+__DWORD__ ___17510h_cdecl(__POINTER__ A1, __DWORD__ A2, __DWORD__ A3, __POINTER__ A4, __DWORD__ A5, __DWORD__ A6, __DWORD__ A7, __DWORD__ A8, __DWORD__ A9){
 
 	int 	n;
 	long long 	ll_tmp;
-	dword 	eax, eax1, eax2, ebx, ecx, edx, edi, esi, ebp;
-	byte 	esp[0x9c+0xc+4+0x14];
+	__DWORD__ 	eax, eax1, eax2, ebx, ecx, edx, edi, esi, ebp;
+	__BYTE__ 	esp[0x9c+0xc+4+0x14];
 	int 	i, j;
-	void * 	ebxp;
-	void * 	esip;
+	__POINTER__ 	ebxp;
+	__POINTER__ 	esip;
 
 
 
-	D(esp+0x40) = A1;
+	//D(esp+0x40) = A1;
 	D(esp+0x3c) = A2;
 	D(esp+0x8c) = A3;
-	D(esp+0x4c) = A4;
+	//D(esp+0x4c) = A4;
 	D(esp+0xac) = A5;
 	D(esp+0xb0) = A6;
 	D(esp+0xb4) = A7;
@@ -101,7 +103,7 @@ dword ___17510h_cdecl(void * A1, dword A2, dword A3, void * A4, dword A5, dword 
 	___19dd70h[0x39] = ' ';
 	___19dd70h[0x35] = '/';
 	B(esp+0x95) = 0;
-	___12e78h_cdecl(___1a10e0h, ___185ba9h, strcpy(esp, A1), D(esp+0x3c)+0x280*D(esp+0x8c));
+	___12e78h_cdecl(___1a10e0h, (font_props_t *)___185ba9h, strcpy(esp, A1), D(esp+0x3c)+0x280*D(esp+0x8c));
 	ebp = 0;
 	ebx = 0;
 
@@ -206,7 +208,7 @@ dword ___17510h_cdecl(void * A1, dword A2, dword A3, void * A4, dword A5, dword 
 			break;
 		case DR_SCAN_F1:
 #if defined(DR_MULTIPLAYER)
-			if((D(esp+0xb4) != 0)&&(D(___19bd60h) != 0)) ___23758h();
+			if((D(esp+0xb4) != 0)&&(___19bd60h != 0)) ___23758h();
 #endif // DR_MULTIPLAYER
 			break;
 		case DR_SCAN_UP:
@@ -673,7 +675,6 @@ dword ___17510h_cdecl(void * A1, dword A2, dword A3, void * A4, dword A5, dword 
 			}
 			break;
 		default:
-			//if(B(D(esp+0x4c)+___19dd70h[D(esp+0x88)]) == 1){
 			if(B(A4+___19dd70h[D(esp+0x88)]) == 1){
 
 				if((strlen(esp) < D(esp+0x0ac))&&((int)ebp < (int)D(esp+0xb0))){
@@ -687,7 +688,7 @@ dword ___17510h_cdecl(void * A1, dword A2, dword A3, void * A4, dword A5, dword 
 					n = -1;
 					while(++n < 0x20) memset(___1a112ch__VESA101_ACTIVESCREEN_PTR+0x280*(n+D(esp+0x8c))+D(esp+0x3c)+ebp, 0x0c4, 0x20);
 
-					___12e78h_cdecl(___1a10e0h, ___185ba9h, esp+0x94, D(esp+0x48)+ebp);
+					___12e78h_cdecl(___1a10e0h, (font_props_t *)___185ba9h, esp+0x94, D(esp+0x48)+ebp);
 
 					___1398ch__VESA101_PRESENTRECTANGLE(
 						D(esp+0x48)+ebp,

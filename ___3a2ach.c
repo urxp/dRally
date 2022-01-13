@@ -2,7 +2,7 @@
 
 	extern FILE * ___1a0ef4h;
 
-dword ___3a2ach_cdecl(dword BYTE1, dword BYTE2){
+__DWORD__ ___3a2ach_cdecl(__DWORD__ BYTE1, __DWORD__ BYTE2){
 
 	if(BYTE2 != 0){
 

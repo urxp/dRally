@@ -1,21 +1,19 @@
 #include "drally.h"
 #include "drally_structs_free.h"
 
-	extern byte ___199f3dh[];
-	extern byte ___199f3eh[];
-	extern byte ___243dedh[];
-	extern byte ___199f3fh[];
-	extern byte ___199f40h[];
-	extern byte ___199f41h[];
-	extern byte ___199f42h[];
-	extern byte ___199f43h[];
-	extern byte ___199f44h[];
-	extern byte ___199f45h[];
-	extern byte ___1a21a0h[];
-	extern byte ___1a51d0h[];
-	extern byte ___1a4ec0h[];
-	extern byte ___196e70h[];
-	extern byte ___1a54d0h[];
+	extern __BYTE__ ___199f3dh[];
+	extern __BYTE__ ___199f3eh[];
+	extern __BYTE__ ___199f3fh[];
+	extern __BYTE__ ___199f40h[];
+	extern __BYTE__ ___199f41h[];
+	extern __BYTE__ ___199f42h[];
+	extern __BYTE__ ___199f43h[];
+	extern __BYTE__ ___199f44h[];
+	extern __BYTE__ ___199f45h[];
+	extern __BYTE__ ___1a51d0h[];
+	extern __BYTE__ ___1a4ec0h[];
+	extern __BYTE__ ___196e70h[];
+	extern __BYTE__ ___1a54d0h[];
 	extern kb_control_t ___1a1140h;
 	extern __DWORD__ ___1a1164h_gp_accelerate;
 	extern __DWORD__ ___1a113ch_gp_brake;
@@ -24,9 +22,11 @@
 	extern __DWORD__ ___1a1120h_gp_turbo_boost;
 	extern __DWORD__ ___1a1118h_gp_machine_gun;
 	extern __DWORD__ ___1a111ch_gp_drop_mine;
-	extern byte kmap[];
-	extern byte ___196d9ch[];
-	extern byte VGA13_ACTIVESCREEN[];
+	extern __BYTE__ kmap[];
+	extern __BYTE__ VGA13_ACTIVESCREEN[];
+
+	static __BYTE__ ___243dedh[0x87];
+	static __BYTE__ ___1a21a0h[0xf00];
 
 void ___45c6ch(void);
 void ___59cd8h(void);
@@ -34,16 +34,16 @@ void race___46738h__VGA13_PRESENTCLEARSCREEN(void);
 void race___45ad4h(void);
 void ___58c60h(void);
 void ___45b60h(void);
-dword __GET_FRAME_COUNTER(void);
-void ___483d4h_cdecl(void *, const char *);
-void old_bpa_read(const char *, void *, const char *);
-void bpk_decode2(void *, void *);
+__DWORD__ __GET_FRAME_COUNTER(void);
+void ___483d4h_cdecl(__POINTER__, const char *);
+void old_bpa_read(const char *, __POINTER__, const char *);
+void bpk_decode2(__POINTER__, __POINTER__);
 
 // INFO SCREEN
 void race___48458h(void){
 
-	dword 	eax, ebx, ecx, edx, edi, esi, ebp;
-	byte 	esp[0x3c];
+	__DWORD__ 	eax, ebx, ecx, edx, edi, esi, ebp;
+	__BYTE__ 	esp[0x3c];
 
 
 	strcpy(___243dedh+0xf*B(___199f3dh), ".........NONE");
@@ -312,6 +312,4 @@ void race___48458h(void){
 	}
 
 	memset(kmap, 0, 0x100);
-
-	if(D(___196d9ch) == 1) race___46738h__VGA13_PRESENTCLEARSCREEN();
 }

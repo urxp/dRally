@@ -3,9 +3,9 @@
 #pragma pack(1)
 
 typedef struct rgb888_s {
-	byte 	r;
-	byte 	g;
-	byte 	b;
+	__BYTE__ 	r;
+	__BYTE__ 	g;
+	__BYTE__ 	b;
 } rgb888_t;
 
 typedef struct pcx_header_s {
@@ -45,11 +45,11 @@ typedef struct pcx_header_s {
 
 
 	extern FILE * ___1a0ef4h;
-	extern byte ___1a112ch__VESA101_ACTIVESCREEN_PTR[];
+	extern __POINTER__ ___1a112ch__VESA101_ACTIVESCREEN_PTR;
 
-void PCX_GET_PALETTE_COLOR(unsigned char * dst, unsigned char n);
-dword GET_FILE_SIZE(const char *);
-dword ___3a214h_cdecl(void *, dword);
+void PCX_GET_PALETTE_COLOR(rgb888_t * dst, unsigned char n);
+__DWORD__ GET_FILE_SIZE(const char *);
+__DWORD__ ___3a214h_cdecl(__POINTER__, __DWORD__);
 
 
 void pcx_newHeader(pcx_header_t * pcx_h){
@@ -87,7 +87,7 @@ void ___3a454h(void){
 	fwrite(&pcx_h, 1, sizeof(pcx_h), ___1a0ef4h);
 
 	n = -1;
-	while(++n < 0x1e0) ___3a214h_cdecl(D(___1a112ch__VESA101_ACTIVESCREEN_PTR)+0x280*n, 0x280);
+	while(++n < 0x1e0) ___3a214h_cdecl(___1a112ch__VESA101_ACTIVESCREEN_PTR+0x280*n, 0x280);
 
 	fputc(0xc, ___1a0ef4h);
 

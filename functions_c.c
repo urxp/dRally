@@ -9,31 +9,31 @@ FILE * strupr_fopen(const char * file_name, const char * mode){
 	if(strlen(file_name) > 255){
 
 		printf("[strupr_fopen] File name too long: (%s)\n", file_name);
-		return ((void *)0);
+		return (FILE *)0;
 	}
 
 	return fopen(strupr_watcom106(strcpy(buffer, file_name)), mode);
 }
 
-dword GET_FILE_SIZE(const char * file_name){
+__DWORD__ GET_FILE_SIZE(const char * file_name){
 
 	FILE * fd;
-	dword size;
+	__DWORD__ size;
 
 	if(!(fd = strupr_fopen(file_name, "rb"))) return 0;
 
 	fseek(fd, 0, SEEK_END);
-	size = (dword)ftell(fd);
+	size = (__DWORD__)ftell(fd);
 	fclose(fd);
 
 	return size;
 }
 
-dword MULSHIFT(dword d0, dword d1){
+__DWORD__ MULSHIFT(__DWORD__ d0, __DWORD__ d1){
 
-	dword 	rslt, q_rslt;
+	__DWORD__ 	rslt, q_rslt;
 
-	q_rslt = ((qword)d0*(qword)d1)>>0x10; 
+	q_rslt = ((__QWORD__)d0*(__QWORD__)d1)>>0x10; 
 	rslt = (d0>>0x10)*d1 + (d0&0xffff)*(d1>>0x10) + (((d0&0xffff)*(d1&0xffff))>>0x10);
 
 	if(q_rslt != rslt) printf("MULSHIFT doesn't match\n");
@@ -46,16 +46,16 @@ void my_ceil(double * dval){
 	*dval = ceil(*dval);
 }
 
-extern void * ___1a1100h__VESA101h_DefaultScreenBuffer;
-extern void * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
+extern __POINTER__ ___1a1100h__VESA101h_DefaultScreenBuffer;
+extern __POINTER__ ___1a112ch__VESA101_ACTIVESCREEN_PTR;
 
 void restoreDefaultScreenBuffer(void){
     
 	___1a112ch__VESA101_ACTIVESCREEN_PTR = ___1a1100h__VESA101h_DefaultScreenBuffer;
 }
 
-extern void * ___1a10e4h__VESA101h_DefaultScreenBufferA;
-extern void * ___1a1124h__VESA101h_ScreenBufferA;
+extern __POINTER__ ___1a10e4h__VESA101h_DefaultScreenBufferA;
+extern __POINTER__ ___1a1124h__VESA101h_ScreenBufferA;
 
 void restoreDefaultScreenBufferA(void){
 		
@@ -64,7 +64,7 @@ void restoreDefaultScreenBufferA(void){
 
 // ASM HELPERS
 
-void ___idiv32(void * eax, void * edx, int dv){
+void ___idiv32(__POINTER__ eax, __POINTER__ edx, int dv){
 
 	long long 	ll_tmp;
 
@@ -76,7 +76,7 @@ void ___idiv32(void * eax, void * edx, int dv){
 	D(edx) = ll_tmp%dv;
 }
 
-void ___idiv16(void * ax, void * dx, short dv){
+void ___idiv16(__POINTER__ ax, __POINTER__ dx, short dv){
 
 	int 	ll_tmp;
 
@@ -88,7 +88,7 @@ void ___idiv16(void * ax, void * dx, short dv){
 	W(dx) = ll_tmp%dv;
 }
 
-void ___imul32(void * eax, void * edx, int mp){
+void ___imul32(__POINTER__ eax, __POINTER__ edx, int mp){
 
 	long long 	ll_tmp;
 

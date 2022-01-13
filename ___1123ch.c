@@ -1,6 +1,6 @@
 #include "drally.h"
 
-	extern byte ___199fbch[];
+	extern __DWORD__ MP_ERROR;
 
 void ___24ec0h(void);
 void ___2fc50h(void);
@@ -12,7 +12,7 @@ void dRally_System_clean(void);
 
 void ___1123ch(void){
 
-	dword 	eax, ebx, ecx, edx, edi, esi, ebp;
+	__DWORD__ 	eax, ebx, ecx, edx, edi, esi, ebp;
 
 	___12200h();
 	___12a54h();
@@ -22,7 +22,7 @@ void ___1123ch(void){
 	dRally_System_clean();
 	__VGA3_SETMODE();
 
-	switch(D(___199fbch)){
+	switch(MP_ERROR){
 	case 0x64:
 		printf("DEATH RALLY MP-ERROR: Not enough low memory available. About 570k needed!\n");
 		break;

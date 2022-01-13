@@ -3,22 +3,24 @@
 #include "drally_structs_fixed.h"
 #include "drmemory.h"
 
-	extern byte ___19bd60h[];
-	extern byte kmap[];
-	extern byte ___1a1ef8h[];
-	extern byte ___185a14h_UseWeapons[];
+#if defined(DR_MULTIPLAYER)
+	extern __DWORD__ ___19bd60h;
+#endif // DR_MULTIPLAYER
+	extern __BYTE__ kmap[];
+	extern __BYTE__ ___1a1ef8h[];
+	extern __BYTE__ ___185a14h_UseWeapons[];
 	extern __DWORD__ ___196a94h_difficulty;
-	extern byte ___1a01e0h[];
-	extern byte ___243d44h[];
-	extern byte ___196ab4h[];
-	extern byte ___1a0a50h[];
+	extern __BYTE__ ___1a01e0h[];
+	extern __DWORD__ ___243d44h;
+	extern __BYTE__ ___196ab4h[];
+	extern __BYTE__ ___1a0a50h[];
 
-void * ___3f71ch__allocateMemory(dword);
+__POINTER__ ___3f71ch__allocateMemory(__DWORD__);
 void dREncryption_encodeSavedGame(saved_game_t *);
 void dREncryption_decodeSavedGame(saved_game_t *);
 
 // QUICK SAVE/LOAD
-dword ___2a6a8h(void){
+__DWORD__ ___2a6a8h(void){
 
 	FILE * 			fd;
 	int 			n, rslt;
@@ -27,7 +29,7 @@ dword ___2a6a8h(void){
 	rslt = 0;
 
 #if defined(DR_MULTIPLAYER)
-	if(D(___19bd60h) == 0){
+	if(___19bd60h == 0){
 #endif // DR_MULTIPLAYER
 
 		if(kmap[DR_SCAN_F2]){	// QUICK SAVE
@@ -43,13 +45,13 @@ dword ___2a6a8h(void){
 			fd = strupr_fopen("DR.SG7", "wb");
 			fwrite(sg, sizeof(saved_game_t), 1, fd);
 			fclose(fd);
-			dRMemory_free(sg);
+			dRMemory_free((__POINTER__)sg);
 			rslt = 1;
 		}
 
 		if(kmap[DR_SCAN_F3]){	// QUICK LOAD
 
-			D(___243d44h) = 0;
+			___243d44h = 0;
 			D(___196ab4h) = 0;
 		
 			if((fd = strupr_fopen("DR.SG7", "rb"))){
@@ -63,7 +65,7 @@ dword ___2a6a8h(void){
 				D(___185a14h_UseWeapons) = sg->weapons;
 				___196a94h_difficulty =  sg->difficulty;
 				memcpy(___1a01e0h, sg->racers, 20*sizeof(racer_t));
-				dRMemory_free(sg);
+				dRMemory_free((__POINTER__)sg);
 				D(___1a0a50h) = !(D(___1a01e0h+0x5c+0x6c*D(___1a1ef8h)) == 8);
 				D(___1a0a50h+4) = !(D(___1a01e0h+0x60+0x6c*D(___1a1ef8h)) == 1);
 				D(___1a0a50h+8) = !(D(___1a01e0h+0x64+0x6c*D(___1a1ef8h)) == 1);

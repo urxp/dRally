@@ -1,24 +1,14 @@
 #include "drally.h"
+#include "drally_fonts.h"
 
-#pragma pack(1)
-typedef struct font_props_s {
-	byte 	w;
-	byte 	h;
-	byte 	props[];
-} font_props_t;
+	extern __POINTER__ ___1a112ch__VESA101_ACTIVESCREEN_PTR;
+	extern __POINTER__ ___1a1e74h;
 
-	extern void * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
-	extern void * ___1a1e74h;
-	extern byte ___185ba9h[];
-	extern void * ___1a10cch;
-
-void ___12e78h_cdecl(byte * A1, font_props_t * A2, const char * A3, dword dst_off);
-void ___13248h_cdecl(dword, dword ,dword, dword, dword);
-void ___13094h_cdecl(const char *, dword);
+void ___13248h_cdecl(__DWORD__, __DWORD__ ,__DWORD__, __DWORD__, __DWORD__);
 
 void ___14cach(void){
 
-	dword 	eax, ebx, ecx, edx, edi, esi, ebp;
+	__DWORD__ 	eax, ebx, ecx, edx, edi, esi, ebp;
 	__BYTE__	px;
 	int 		i, j;
 
@@ -35,15 +25,15 @@ void ___14cach(void){
 		}
 	}
 
-	___13094h_cdecl("", 0x154a1);
-	___13094h_cdecl("", 0x17ca1);
-	___13094h_cdecl("[You were lapped, you loser!", 0x1a4a1);
-	___13094h_cdecl("", 0x1cca1);
-	___13094h_cdecl("The pain, the humiliation! Your stunt", 0x1f4a1);
-	___13094h_cdecl("made me the laughing stock of the", 0x21ca1);
-	___13094h_cdecl("races. What were you trying to do,", 0x244a1);
-	___13094h_cdecl("mimic slow-motion? No one is going", 0x26ca1);
-	___13094h_cdecl("to take me seriously after this.", 0x294a1);
-	___13094h_cdecl("[No money or points awarded.", 0x2bca1);
-	___12e78h_cdecl(___1a10cch, ___185ba9h, "CONTINUE", 0x316c0);
+	VESA101_16X16_FORMAT_PRINT("", 161, 136);
+	VESA101_16X16_FORMAT_PRINT("", 161, 152);
+	VESA101_16X16_FORMAT_PRINT("[You were lapped, you loser!", 161, 168);
+	VESA101_16X16_FORMAT_PRINT("", 161, 184);
+	VESA101_16X16_FORMAT_PRINT("The pain, the humiliation! Your stunt", 161, 200);
+	VESA101_16X16_FORMAT_PRINT("made me the laughing stock of the", 161, 216);
+	VESA101_16X16_FORMAT_PRINT("races. What were you trying to do,", 161, 232);
+	VESA101_16X16_FORMAT_PRINT("mimic slow-motion? No one is going", 161, 248);
+	VESA101_16X16_FORMAT_PRINT("to take me seriously after this.", 161, 264);
+	VESA101_16X16_FORMAT_PRINT("[No money or points awarded.", 161, 280);
+	___12e78h_v3(___1a10cch___185ba9h, "CONTINUE", 192, 316);
 }

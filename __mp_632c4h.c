@@ -1,6 +1,8 @@
 #include "drally.h"
 
-dword ___632c4h(dword A0){
+__WORD__ swap16(__WORD__ val){
 
-    return ((A0>>8)&0xff)+((A0&0xff)<<8);
+    return ((val>>8)&0xff)+((val&0xff)<<8);
 }
+
+//__WORD__ ___632c4h(__WORD__) __attribute((alias("swap16")));

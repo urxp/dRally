@@ -1,25 +1,25 @@
 #include "drally.h"
 
-	extern void * ___243d38h;
-	extern byte ___196dd0h[];
-	extern byte ___243334h[];
-	extern byte ___196dd4h[];
-	extern byte ___1f2488h[];
-	extern byte ___243ce8h[];
-	extern byte ___1de580h[];
-	extern byte ___243d28h[];
-	extern void * ___243d58h;
+	extern __POINTER__ ___243d38h;
+	extern __BYTE__ ___196dd0h[];
+	extern __BYTE__ ___243334h[];
+	extern __BYTE__ ___196dd4h[];
+	extern __BYTE__ ___1f2488h[];
+	extern __BYTE__ MY_CAR_IDX[];
+	extern __BYTE__ ___1de580h[];
+	extern __BYTE__ ___243d28h[];
+	extern __POINTER__ ___243d58h;
 
 int rand_watcom106(void);
 
 void race___5209ch(void){
 
-	dword 	eax, ebx, ecx, edx, edi, esi, ebp;
-	byte 	esp[0x44];
-	void * 	ebxp;
-	void * 	ebpp;
-	void * 	esp0x14;
-	void * 	edxp;
+	__DWORD__ 	eax, ebx, ecx, edx, edi, esi, ebp;
+	__BYTE__ 	esp[0x44];
+	__POINTER__ 	ebxp;
+	__POINTER__ 	ebpp;
+	__POINTER__ 	esp0x14;
+	__POINTER__ 	edxp;
 
 
 	ebpp = ___243d38h;
@@ -87,7 +87,7 @@ void race___5209ch(void){
 					edx = eax;
 					ebx = 0xc;
 					edx = (int)edx>>0x1f;
-					___idiv32(&eax, &edx, ebx);
+					___idiv32((__POINTER__)&eax, (__POINTER__)&edx, ebx);
 					D(esp+0x30) = edx;
 					if(B(esp+edx) != 1) break;
 				}
@@ -127,8 +127,8 @@ void race___5209ch(void){
 								edx = eax;
 								ecx = 0x64;
 								edx = (int)edx>>0x1f;
-								___idiv32(&eax, &edx, ecx);
-								eax = 0x94*D(___243ce8h);
+								___idiv32((__POINTER__)&eax, (__POINTER__)&edx, ecx);
+								eax = 0x94*D(MY_CAR_IDX);
 
 								if(D(eax+___1de580h+0x2c) == 0){
 
@@ -367,7 +367,7 @@ void race___5209ch(void){
 			D(___196dd0h) = 0x118;
 			eax = rand_watcom106();
 			edx = (int)eax>>0x1f;
-			___idiv32(&eax, &edx, 0xc8);
+			___idiv32((__POINTER__)&eax, (__POINTER__)&edx, 0xc8);
 			D(___1f2488h+D(esp+0x2c)+0xc) = edx+0x12c;
 		}
 

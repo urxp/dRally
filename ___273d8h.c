@@ -1,4 +1,5 @@
 #include "drally.h"
+#include "drally_fonts.h"
 
 #pragma pack(1)
 typedef char char40[40];
@@ -19,21 +20,20 @@ typedef struct cardata_s {
     __SIGNED_DWORD__   	price_repair;                   // +6DC
 } cardata_t;
 
-	extern void * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
-	extern void * ___1a1e98h;
-	extern byte ___1a1ef8h[];
+	extern __POINTER__ ___1a112ch__VESA101_ACTIVESCREEN_PTR;
+	extern __POINTER__ ___1a1e98h;
+	extern __BYTE__ ___1a1ef8h[];
 	extern cardata_t ___18e298h[6];
-	extern byte ___1a01e0h[];
-	extern void * ___1a1eb8h;
+	extern __BYTE__ ___1a01e0h[];
+	extern __POINTER__ ___1a1eb8h;
 	extern __DWORD__ ___1862bch[][0x18];
-	extern void * ___1a01a8h[4];
-	extern byte ___1a1ec8h[];
+	extern __POINTER__ ___1a01a8h[4];
+	extern __BYTE__ ___1a1ec8h[];
 
-void ___259e0h_cdecl(int dx, int dy, int aFrameIdx, void * aEncoded, int * aOffsets);
-void ___13094h_cdecl(const char *, dword);
+void ___259e0h_cdecl(int dx, int dy, int aFrameIdx, __POINTER__ aEncoded, int * aOffsets);
 int ___25180h_cdecl(const char * A1);
-void ___12f60h_cdecl(const char * A1, dword A2);
-void ___13248h_cdecl(dword, dword ,dword, dword, dword);
+void ___12f60h_cdecl(const char * A1, __DWORD__ A2);
+void ___13248h_cdecl(__DWORD__, __DWORD__ ,__DWORD__, __DWORD__, __DWORD__);
 char * itoa_watcom106(int value, char * buffer, int radix);
 	
 static const char40 ___191100h[4][6] = {
@@ -74,10 +74,10 @@ static const char40 ___191100h[4][6] = {
 // SHOP ENGINE MAX UPGRADE UPDATE
 void ___273d8h(void){
 
-	dword 	eax, ebx, ecx, edx, edi, esi, ebp, p5;
-	byte 	esp[0x28];
-	void * 	ebxp;
-	void * 	esip;
+	__DWORD__ 	eax, ebx, ecx, edx, edi, esi, ebp, p5;
+	__BYTE__ 	esp[0x28];
+	__POINTER__ 	ebxp;
+	__POINTER__ 	esip;
 
 
 	ebxp = ___1a112ch__VESA101_ACTIVESCREEN_PTR+0x27890;
@@ -136,10 +136,10 @@ void ___273d8h(void){
 	}
 
 	___13248h_cdecl(0x90, 0x72, 0x180, 0x77, 1);
-	___13094h_cdecl(___191100h[D(0x6c*D(___1a1ef8h)+___1a01e0h+0x10)][0], 0x136aa);
-	___13094h_cdecl(___191100h[D(0x6c*D(___1a1ef8h)+___1a01e0h+0x10)][1], 0x15eaa);
-	___13094h_cdecl(___191100h[D(0x6c*D(___1a1ef8h)+___1a01e0h+0x10)][2], 0x186aa);
-	___13094h_cdecl(___191100h[D(0x6c*D(___1a1ef8h)+___1a01e0h+0x10)][3], 0x1aeaa);
-	___13094h_cdecl(___191100h[D(0x6c*D(___1a1ef8h)+___1a01e0h+0x10)][4], 0x1d6aa);
-	___13094h_cdecl(___191100h[D(0x6c*D(___1a1ef8h)+___1a01e0h+0x10)][5], 0x1feaa);
+	VESA101_16X16_FORMAT_PRINT(___191100h[D(0x6c*D(___1a1ef8h)+___1a01e0h+0x10)][0], 170, 124);
+	VESA101_16X16_FORMAT_PRINT(___191100h[D(0x6c*D(___1a1ef8h)+___1a01e0h+0x10)][1], 170, 140);
+	VESA101_16X16_FORMAT_PRINT(___191100h[D(0x6c*D(___1a1ef8h)+___1a01e0h+0x10)][2], 170, 156);
+	VESA101_16X16_FORMAT_PRINT(___191100h[D(0x6c*D(___1a1ef8h)+___1a01e0h+0x10)][3], 170, 172);
+	VESA101_16X16_FORMAT_PRINT(___191100h[D(0x6c*D(___1a1ef8h)+___1a01e0h+0x10)][4], 170, 188);
+	VESA101_16X16_FORMAT_PRINT(___191100h[D(0x6c*D(___1a1ef8h)+___1a01e0h+0x10)][5], 170, 204);
 }

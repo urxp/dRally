@@ -3,27 +3,27 @@
 #pragma pack(push,1)
 typedef struct racer_s {
 	char 	name[0xc];			//	+0
-	dword 	damage;				// 	+0xc
+	__DWORD__ 	damage;				// 	+0xc
 	int 	engine;				// 	+0x10
-	dword 	tires;				// 	+0x14
-	dword 	armor;				//	+0x18
-	dword 	car;				//	+0x1c
+	__DWORD__ 	tires;				// 	+0x14
+	__DWORD__ 	armor;				//	+0x18
+	__DWORD__ 	car;				//	+0x1c
 	char 	unk0[0xc];			// 	+0x20
-	dword 	color;				// 	+0x2c
+	__DWORD__ 	color;				// 	+0x2c
 	int 	money;				//	+0x30
 	char 	unk2[0x8];			// 	+0x34
-	dword 	refund;				// 	+0x3c
-	dword 	face;				// 	+0x40
-	dword 	points;				// 	+0x44
-	dword 	rank;				// 	+0x48
-	dword 	wins;				// 	+0x4c
-	dword 	races;				// 	+0x50
+	__DWORD__ 	refund;				// 	+0x3c
+	__DWORD__ 	face;				// 	+0x40
+	__DWORD__ 	points;				// 	+0x44
+	__DWORD__ 	rank;				// 	+0x48
+	__DWORD__ 	wins;				// 	+0x4c
+	__DWORD__ 	races;				// 	+0x50
 	char 	unk3[4];			// 	+0x54
-	dword 	income;				// 	+0x58
-	dword 	mines;				// 	+0x5c
-	dword 	spikes;				// 	+0x60
-	dword 	rocket_fuel;		// 	+0x64
-	dword 	sabotage;			//	+0x68
+	__DWORD__ 	income;				// 	+0x58
+	__DWORD__ 	mines;				// 	+0x5c
+	__DWORD__ 	spikes;				// 	+0x60
+	__DWORD__ 	rocket_fuel;		// 	+0x64
+	__DWORD__ 	sabotage;			//	+0x68
 } racer_t;
 
 typedef char char40[40];
@@ -46,22 +46,21 @@ typedef struct cardata_s {
 #pragma pack(pop)
 
 
-	extern byte ___196a84h[];
-	extern byte ___196a98h[];
-	extern byte ___196a9ch[];
-	extern byte ___196aa0h[];
-	extern byte ___185a50h[];
-	extern byte ___1a1ef8h[];
-	extern byte ___199f54h[];
-	extern byte ___185a30h[];
+	extern __BYTE__ ___196a84h[];
+	extern __BYTE__ ___196a98h[];
+	extern __BYTE__ ___196a9ch[];
+	extern __BYTE__ ___196aa0h[];
+	extern __BYTE__ ___185a50h[];
+	extern __BYTE__ ___1a1ef8h[];
+	extern __BYTE__ ___185a30h[];
 	extern cardata_t ___18e298h[6];
-	extern byte ___1a1ee8h[];
-	extern byte ___1a1ec0h[];
-	extern byte ___1a1ee0h[];
-	extern byte ___1a1eech[];
-	extern byte ___1a1ec8h[];
-	extern byte ___1a1ed0h[];
-	extern byte ___1a1ee4h[];
+	extern __BYTE__ ___1a1ee8h[];
+	extern __BYTE__ ___1a1ec0h[];
+	extern __BYTE__ ___1a1ee0h[];
+	extern __BYTE__ ___1a1eech[];
+	extern __BYTE__ ___1a1ec8h[];
+	extern __BYTE__ ___1a1ed0h[];
+	extern __BYTE__ ___1a1ee4h[];
 
 #define Racers ___1a01e0h
 	extern racer_t ___1a01e0h[];
@@ -89,10 +88,10 @@ void ___2415ch(void){
 
 
 	long long 	ll_tmp;
-	dword 	eax, ebx, ecx, edx, edi, esi, ebp, n;
-	byte 	esp[0x100];
+	__DWORD__ 	eax, ebx, ecx, edx, edi, esi, ebp, n;
+	__BYTE__ 	esp[0x100];
 
-	const dword cars[20] = { 5,5,5,4,4,4,4,3,3,3,2,2,2,2,1,1,1,0,0,0 };
+	const __DWORD__ cars[20] = { 5,5,5,4,4,4,4,3,3,3,2,2,2,2,1,1,1,0,0,0 };
 
 	memcpy(esp, name_list, 0xdc);
 	memset(esp+0xdc, 0, 0x14);
@@ -106,7 +105,6 @@ void ___2415ch(void){
 
 	___2ec68h_cdecl();
 	
-	D(___199f54h) = 0;
 	D(___185a30h) = 0;
 
 	n = -1;

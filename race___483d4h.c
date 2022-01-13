@@ -1,9 +1,9 @@
 #include "drally.h"
 
-	extern byte ___1d7810h[];
+	extern __BYTE__ ___1d7810h[];
 
 // RACE, INFO SCREEN, SOMETHING
-void ___483d4h_cdecl(void * A1, const char * A2){
+void ___483d4h_cdecl(__POINTER__ A1, const char * A2){
 
 	__BYTE__ 	px;
 	int 	i, j, n;

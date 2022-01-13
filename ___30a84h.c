@@ -1,17 +1,19 @@
 #include "drally.h"
 
-	extern byte ___1a01e0h[];
-	extern byte ___1a1ef8h[];
-	extern byte ___1a0f18h[];
-	extern byte ___19bd60h[];
-	extern byte ___1a1168h[];
-	extern byte ___1de7d0h[];
+	extern __BYTE__ ___1a01e0h[];
+	extern __BYTE__ ___1a1ef8h[];
+	extern __BYTE__ ___1a0f18h[];
+#if defined(DR_MULTIPLAYER)
+	extern __DWORD__ ___19bd60h;
+#endif // DR_MULTIPLAYER
+	extern __BYTE__ ___1a1168h[];
+	extern __BYTE__ ___1de7d0h[];
 
 // SORT RANKINGS
-void ___30a84h_cdecl(dword A1, dword A2){
+void ___30a84h_cdecl(__DWORD__ A1, __DWORD__ A2){
 
-	dword 	eax, ebx, ecx, edx, edi, esi, ebp;
-	byte 	esp[0x10];
+	__DWORD__ 	eax, ebx, ecx, edx, edi, esi, ebp;
+	__BYTE__ 	esp[0x10];
 
 
 	D(esp+0x4) = A1;
@@ -57,7 +59,7 @@ void ___30a84h_cdecl(dword A1, dword A2){
 				memcpy(___1a01e0h+0x6c*D(esp+0xc), ___1a0f18h, 0x6c);
 
 #if defined(DR_MULTIPLAYER)
-				if(D(___19bd60h) != 0){
+				if(___19bd60h != 0){
 
 					eax = 0;
 					while(1){

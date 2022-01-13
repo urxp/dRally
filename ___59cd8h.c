@@ -1,18 +1,18 @@
 #include "drally.h"
 
 	extern __DWORD__ ___19bd58h_gamepad;
-	extern byte ___243888h();
-	extern byte ___243890h();
-	extern byte kmap();
-	extern byte ___243884h();
-	extern byte ___24388ch();
+	extern __BYTE__ ___243888h[];
+	extern __BYTE__ ___243890h[];
+	extern __BYTE__ kmap[];
+	extern __BYTE__ ___243884h[];
+	extern __BYTE__ ___24388ch[];
 
-byte inp_(dword port);
+__BYTE__ inp_(__DWORD__ port);
 void ___59db8h(void);
 
 void ___59cd8h(void){
 
-    dword   eax, ebx, ecx, edx, edi, esi, ebp;
+    __DWORD__   eax, ebx, ecx, edx, edi, esi, ebp;
 
 
     if((int)___19bd58h_gamepad <= 0) goto ___59db0h;

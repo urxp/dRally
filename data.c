@@ -15,7 +15,7 @@ const char80 ___18beb2h[10] = {
     [9] = "",
 };
 
-const byte ___196abch[] = {
+const __BYTE__ ___196abch[] = {
 // << Easy
     0,  // "Suburbia"
     7,  // "Holocaust"
@@ -49,7 +49,8 @@ const __DWORD__ ___196af4h[9] = {
 
 __DWORD__ ___185a14h_UseWeapons = 1;
 __DWORD__ ___185a18h = 0;
-__DWORD__ ___185a1ch = 0;
+__DWORD__ ChatMaximized = 0;
+//extern __DWORD__ __attribute((alias("ChatMaximized"))) ___185a1ch;
 __DWORD__ ___185a20h = 0;
 __DWORD__ ___185a24h = 0;
 __DWORD__ ___185a28h = 0;
@@ -108,7 +109,6 @@ __DWORD__ ___196d8ch = 0x64;
 __DWORD__ ___196d90h = 0xc8;
 __DWORD__ ___196d94h = 0x64;
 __DWORD__ ___196d98h = 0;
-__DWORD__ ___196d9ch = 0;
 __DWORD__ ___196da0h = 1;
 __DWORD__ ___196da4h = 1;
 __DWORD__ ___196da8h = 1;
@@ -144,6 +144,7 @@ __DWORD__ ___196e78h = 0x3f800000;
 __DWORD__ ___196efch = 0;
 
 __BYTE__ ___199f3ch = 0;
+
 __BYTE__ ___199f3dh = 0;
 __BYTE__ ___199f3eh = 1;
 __BYTE__ ___199f3fh = 2;
@@ -157,7 +158,6 @@ __BYTE__ ___199f45h = 8;
 __DWORD__ ___199f48h = 0;
 __DWORD__ ___199f4ch = 0;
 __DWORD__ ___199f50h = 0;
-__DWORD__ ___199f54h = 0;
 __DWORD__ ___199f60h = 0;
 __DWORD__ ___199f64h = 0;
 __DWORD__ ___199f68h = 0;
@@ -165,3 +165,6 @@ __DWORD__ ___199f6ch = 0;
 __DWORD__ ___199f70h = 0;
 __DWORD__ ___199f74h = 0;
 __DWORD__ ___199f78h = 0;
+
+__DWORD__ ___199fa4h = 0;
+__DWORD__ ___199fa8h = 0;

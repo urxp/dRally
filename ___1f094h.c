@@ -1,6 +1,6 @@
 #include "drally.h"
 
-	extern byte ___185ba9h[];
+	extern __BYTE__ ___185ba9h[];
 
 int ___1f094h_cdecl(const char * A1){
 	

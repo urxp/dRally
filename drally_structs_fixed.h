@@ -12,10 +12,10 @@ typedef struct hof_entry_s {
 } hof_entry_t;
 
 typedef struct record_s {
-    char    	name[12];
-    __DWORD__   min;
-    __DWORD__   sec;
-    __DWORD__   sec100;
+    char    	name[12];		// +00
+    __DWORD__   min;			// +0c
+    __DWORD__   sec;			// +10
+    __DWORD__   sec100;			// +14
 } record_t;
 
 typedef struct config_s {

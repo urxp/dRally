@@ -4,6 +4,6 @@
 #include <stdio.h>
 #include "types.h"
 
-void dREncryption_decodeCMF(void * mem, size_t size);
+void dREncryption_decodeCMF(__POINTER__ mem, size_t size);
 
 #endif // __DRENCRYPTION_H

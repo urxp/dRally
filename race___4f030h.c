@@ -26,87 +26,46 @@ typedef struct xc50_s {
 } xc50_t;
 
 	extern xc50_t ___1f3b08h[];		// <0x1f3b08 - 0x1f4758)
-	extern byte ___196d8ch[];
-	extern byte ___196d94h[];
-	extern byte ___243c88h[];
-	extern byte ___196dc8h[];
-	extern byte ___196dcch[];
+	extern __BYTE__ ___196d8ch[];
+	extern __BYTE__ ___196d94h[];
+	extern __BYTE__ ___243c88h[];
+	extern __BYTE__ ___196dc8h[];
+	extern __BYTE__ ___196dcch[];
 	extern char ___19bd64h[16];
-	extern byte ___243c98h[];
+	extern __BYTE__ ___243c98h[];
 
 // SOMETHING WITH 3D-LIKE OBJECTS
 void race___4f030h(void){
 
-	dword 	eax, ebx, ecx, edx, edi, esi, ebp;
-	byte 	esp[8];
+	int 		i, j, n;
 
 
-		esi = D(___196d8ch);
-		edi = D(___196d94h);
-		edx = D(___243c88h);
-		ecx = 0;
-		if((int)edx <= 0) goto ___4f154h;
-		ebp = 0xc50*edx;
-		eax = edi;
-		eax <<= 8;
-		D(esp+0x4) = eax;
-		eax = esi;
-		eax <<= 8;
-		D(esp) = eax;
-		eax = 0;
-___4f078h:
-		ebx = D(___196dc8h);
-		edx = D(eax+(void *)&___1f3b08h->_9DC);
-		edx -= ebx;
-		edx -= esi;
-		D(eax+(void *)&___1f3b08h->_9E4) = edx;
-		ebx = D(___196dcch);
-		edx = D(eax+(void *)&___1f3b08h->_9E0);
-		edx -= ebx;
-		edx -= edi;
-		D(eax+(void *)&___1f3b08h->_9E8) = edx;
-		edx = 0;
-		D(eax+(void *)&___1f3b08h->_C44) = edx;
-		if(___19bd64h[2] == 0x30) goto ___4f146h;
-		edx = D(esp);
-		edx += D(eax+(void *)&___1f3b08h->_390);
-		ebx = D(eax+(void *)&___1f3b08h->_9E4);
-		ebx <<= 8;
-		if((int)ebx <= (int)edx) goto ___4f0d9h;
-		D(eax+(void *)&___1f3b08h->_C44) = 1;
-___4f0d9h:
-		edx = esi;
-		edx = 0-edx;
-		ebx = D(eax+(void *)&___1f3b08h->_38C);
-		edx <<= 8;
-		edx += ebx;
-		ebx = D(eax+(void *)&___1f3b08h->_9E4);
-		ebx <<= 8;
-		if((int)ebx >= (int)edx) goto ___4f0ffh;
-		D(eax+(void *)&___1f3b08h->_C44) = 1;
-___4f0ffh:
-		ebx = D(esp+0x4);
-		ebx += D(eax+(void *)&___1f3b08h->_398);
-		edx = D(eax+(void *)&___1f3b08h->_9E8);
-		edx <<= 8;
-		if((int)edx <= (int)ebx) goto ___4f120h;
-		D(eax+(void *)&___1f3b08h->_C44) = 1;
-___4f120h:
-		edx = edi;
-		edx = 0-edx;
-		ebx = D(eax+(void *)&___1f3b08h->_394);
-		edx <<= 8;
-		edx += ebx;
-		ebx = D(eax+(void *)&___1f3b08h->_9E8);
-		ebx <<= 8;
-		if((int)ebx >= (int)edx) goto ___4f146h;
-		D(eax+(void *)&___1f3b08h->_C44) = 1;
-___4f146h:
-		eax += 0xc50;
-		ecx++;
-		if((int)eax < (int)ebp) goto ___4f078h;
-___4f154h:
-		D(___196d94h) = edi;
-		D(___196d8ch) = esi;
-		D(___243c98h) = ecx;
+	n = -1;
+	while(++n < (int)D(___243c88h)){
+
+		___1f3b08h[n]._9E4 = ___1f3b08h[n]._9DC-D(___196dc8h)-D(___196d8ch);
+		___1f3b08h[n]._9E8 = ___1f3b08h[n]._9E0-D(___196dcch)-D(___196d94h);
+		___1f3b08h[n]._C44 = 0;
+
+		if(___19bd64h[2] != 0x30){
+
+			j = ___1f3b08h[n]._390+0x100*D(___196d8ch);
+			i = 0x100*___1f3b08h[n]._9E4;
+			if(i > j) ___1f3b08h[n]._C44 = 1;
+
+			j = ___1f3b08h[n]._38C-0x100*D(___196d8ch);
+			i = 0x100*___1f3b08h[n]._9E4;
+			if(i < j) ___1f3b08h[n]._C44 = 1;
+
+			j = ___1f3b08h[n]._398+0x100*D(___196d94h);
+			i = 0x100*___1f3b08h[n]._9E8;
+			if(i > j) ___1f3b08h[n]._C44 = 1;
+
+			j = ___1f3b08h[n]._394-0x100*D(___196d94h);
+			i = 0x100*___1f3b08h[n]._9E8;
+			if(i < j) ___1f3b08h[n]._C44 = 1;
+		}
+	}
+		
+	D(___243c98h) = n;
 }

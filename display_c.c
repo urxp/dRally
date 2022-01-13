@@ -2,20 +2,20 @@
 
 #define BANK_SIZE 0x10000
 
-byte VGA3_ACTIVESCREEN[0x8000];
-byte VGA13_ACTIVESCREEN[0xfa00];
-byte VESA101_ACTIVESCREEN[0x4b000];
+__BYTE__ VGA3_ACTIVESCREEN[0x8000];
+__BYTE__ VGA13_ACTIVESCREEN[0xfa00];
+__BYTE__ VESA101_ACTIVESCREEN[0x4b000];
 
 
-void * A000 = VESA101_ACTIVESCREEN;
-void * B800 = VGA3_ACTIVESCREEN;
+__POINTER__ A000 = VESA101_ACTIVESCREEN;
+__POINTER__ B800 = VGA3_ACTIVESCREEN;
 
-void ___12bd4h__VESA101_SETBANK(dword bank_n){
+void ___12bd4h__VESA101_SETBANK(int bank_n){
 
     A000 = VESA101_ACTIVESCREEN + bank_n*BANK_SIZE;
 }
 
-extern void * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
+extern __POINTER__ ___1a112ch__VESA101_ACTIVESCREEN_PTR;
 
 void ___12cb8h__VESA101_PRESENTSCREEN(void){
 
@@ -39,9 +39,9 @@ void ___12d6ch__VESA101_PRESENTBOTTOMSCREEN(void){
     memcpy(A000, ___1a112ch__VESA101_ACTIVESCREEN_PTR+4*BANK_SIZE, 0xb000);
 }
 
-void ___1398ch__VESA101_PRESENTRECTANGLE(dword offset, void * src, dword w, dword h){
+void ___1398ch__VESA101_PRESENTRECTANGLE(__DWORD__ offset, __POINTER__ src, __DWORD__ w, __DWORD__ h){
 
-    dword   __h, __w, bank_n;
+    __DWORD__   __h, __w, bank_n;
 
     bank_n = offset>>0x10;
     ___12bd4h__VESA101_SETBANK(bank_n);
@@ -69,7 +69,7 @@ void ___1398ch__VESA101_PRESENTRECTANGLE(dword offset, void * src, dword w, dwor
     }
 }
 
-dword ___12c38h__VESA101_CHECKBANKS(void){
+__DWORD__ ___12c38h__VESA101_CHECKBANKS(void){
 
     //___12bd4h__VESA101_SETBANK(0);
     //B(A000) = 0;

@@ -34,7 +34,7 @@ static __WORD__ bitread_w(bitreader_t * br, int n_bits){
 
 
 #define STACKSIZE 0x400
-static dword StackTop = 0;
+static __DWORD__ StackTop = 0;
 static __BYTE__ Stack[STACKSIZE];
 
 static void __bpk_stack(__BYTE__ A){
@@ -124,7 +124,7 @@ static void __bpk_checkdictionary(void){
 	}
 }
 			
-static __UNSIGNED__ __bpk_decode4(__UNSIGNED__ size, __UNSIGNED__ offset, void * dst, void * src){
+static __UNSIGNED__ __bpk_decode4(__UNSIGNED__ size, __UNSIGNED__ offset, __POINTER__ dst, __POINTER__ src){
 
     __WORD__	code;
 
@@ -170,7 +170,7 @@ static __UNSIGNED__ __bpk_decode4(__UNSIGNED__ size, __UNSIGNED__ offset, void *
 	return bytes_out_cnt;
 }
 
-void bpk_decode2(void * dst, void * src){
+void bpk_decode2(__POINTER__ dst, __POINTER__ src){
 
     __bpk_decode4(0, 0, dst, src);
 }
@@ -181,7 +181,7 @@ void bpk_decode2(void * dst, void * src){
 	[dst]		- decoded destination pointer
 	[src]		- encoded source pointer
 */
-void bpk_decode4(dword size, dword offset, void * dst, void * src){
+void bpk_decode4(__DWORD__ size, __DWORD__ offset, __POINTER__ dst, __POINTER__ src){
 
 	__bpk_decode4(size, offset, dst, src);
 }

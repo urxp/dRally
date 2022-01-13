@@ -3,12 +3,12 @@
 
 extern void_cb ___2432c8h;
 
-byte LAST_KEY;
-byte LAST_CHAR;
-byte kmap[256];
-byte dR_Scancodes[SDL_NUM_SCANCODES];
+__BYTE__ LAST_KEY;
+__BYTE__ LAST_CHAR;
+__BYTE__ kmap[256];
+__BYTE__ dR_Scancodes[SDL_NUM_SCANCODES];
 
-static const byte lower[] = {
+static const __BYTE__ lower[] = {
     0x00,0x1b,'1','2','3','4','5','6','7','8','9','0','-','=',0x08,0x09,
     'q','w','e','r','t','y','u','i','o','p','[',']',0x0d,0x00,'a','s',
     'd','f','g','h','j','k','l',';',0x27,0x00,0x00,'\\','z','x','c','v',
@@ -25,7 +25,7 @@ static const byte lower[] = {
     0xcc,0xd0,0xd1,0xd2
 };
 
-static const byte upper[] = {
+static const __BYTE__ upper[] = {
     0x00,0x1b,'!','@','#','$','%','^','&','*','(',')','_','+',0x08,0x09,
     'Q','W','E','R','T','Y','U','I','O','P','{','}',0x0d,0x00,'A','S',
     'D','F','G','H','J','K','L',':','"',0x00,0x00,'|','Z','X','C','V',
@@ -171,9 +171,9 @@ void dRally_Keyboard_break(SDL_Scancode code){
     LAST_KEY = 0;
 }
 
-byte dRally_Keyboard_popLastChar(void){
+__BYTE__ dRally_Keyboard_popLastChar(void){
 
-    byte    rslt;
+    __BYTE__    rslt;
 
     rslt = LAST_CHAR;
     LAST_CHAR = 0;
@@ -181,9 +181,9 @@ byte dRally_Keyboard_popLastChar(void){
     return rslt;    
 }
 
-byte dRally_Keyboard_popLastKey(void){
+__BYTE__ dRally_Keyboard_popLastKey(void){
 
-    byte rslt;
+    __BYTE__ rslt;
 
     rslt = LAST_KEY;
     LAST_KEY = 0;

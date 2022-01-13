@@ -1,14 +1,14 @@
 #include "drally.h"
 
-	extern void * ___1a1138h__VESA101h_DefaultScreenBufferB;
-	extern void * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
+	extern __POINTER__ ___1a1138h__VESA101h_DefaultScreenBufferB;
+	extern __POINTER__ ___1a112ch__VESA101_ACTIVESCREEN_PTR;
 #if defined(DR_MULTIPLAYER)
-	extern byte ___19bd60h[];
+	extern __DWORD__ ___19bd60h;
 #endif // DR_MULTIPLAYER
-	extern void * ___1a1e54h;
-	extern void * ___1a1e64h;
-	extern void * ___1a1e58h;
-	extern void * ___1a1e98h;
+	extern __POINTER__ ___1a1e54h;
+	extern __POINTER__ ___1a1e64h;
+	extern __POINTER__ ___1a1e58h;
+	extern __POINTER__ ___1a1e98h;
 
 void ___25330h(void);
 void ___2d728h(void);
@@ -20,15 +20,15 @@ void ___2ddc8h(void);
 // MARKET BACKGROUND
 void ___2ed2ch(void){
 
-	dword 	eax, ebx, ecx, edx, edi, esi, ebp;
-	void *	ebxp;
-	void * 	esip;
+	__DWORD__ 	eax, ebx, ecx, edx, edi, esi, ebp;
+	__POINTER__	ebxp;
+	__POINTER__ 	esip;
 
 
 	memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR+0xe600, ___1a1138h__VESA101h_DefaultScreenBufferB+0xe600, 0x2a580);
 
 #if defined(DR_MULTIPLAYER)
-	if(D(___19bd60h) != 0){
+	if(___19bd60h != 0){
 
 		esip = ___1a1e64h;
 	}

@@ -3,9 +3,9 @@
 
 #pragma pack(1)
 typedef struct rgb24_s {
-	byte 	r;
-	byte 	g;
-	byte 	b;
+	__BYTE__ 	r;
+	__BYTE__ 	g;
+	__BYTE__ 	b;
 } rgb24_t;
 
 typedef struct rgbf_s {
@@ -14,53 +14,51 @@ typedef struct rgbf_s {
 	float 	b;
 } rgbf_t;
 
-	extern byte ___1a51d0h[];
+	extern __BYTE__ ___1a51d0h[];
 	extern rgb24_t ___1a3fc0h[0x100];
-	extern byte ___243ce8h[];
+	extern __BYTE__ MY_CAR_IDX[];
 	extern rgbf_t ___1a42c0h[0x100];
-	extern byte ___1a54d0h[];
-	extern void * ___243d80h;
-	extern byte ___196e74h[];
-	extern byte ___196e78h[];
-	extern byte ___243898h[];
-	extern void * ___243308h;
-	extern byte ___2432ech[];
-	extern byte ___2432f8h[];
-	extern byte ___243304h[];
-	extern byte ___2432f4h[];
-	extern byte ___2432f0h[];
-	extern byte ___196e70h[];
-	extern byte ___243874h[];
-	extern byte ___243894h[];
-	extern byte ___243878h[];
-	extern byte ___243330h[];
-	extern byte VGA13_ACTIVESCREEN[];
+	extern __BYTE__ ___1a54d0h[];
+	extern __POINTER__ ___243d80h;
+	extern __BYTE__ ___196e74h[];
+	extern __BYTE__ ___196e78h[];
+	extern __POINTER__ ___243308h;
+	extern __BYTE__ ___2432ech[];
+	extern __BYTE__ ___2432f8h[];
+	extern __BYTE__ ___243304h[];
+	extern __BYTE__ ___2432f4h[];
+	extern __BYTE__ ___2432f0h[];
+	extern __BYTE__ ___196e70h[];
+	extern __BYTE__ ___243878h[];
+	extern __BYTE__ ___243330h[];
+	extern __BYTE__ VGA13_ACTIVESCREEN[];
 
-void __DISPLAY_SET_PALETTE_COLOR(byte b, byte g, byte r, int n);
-void dRally_Sound_setMasterVolume(dword vol);
+void __DISPLAY_SET_PALETTE_COLOR(__BYTE__ b, __BYTE__ g, __BYTE__ r, int n);
+void dRally_Sound_setMasterVolume(__DWORD__ vol);
 void __VGA13_PRESENTSCREEN__(void);
 void race___46738h__VGA13_PRESENTCLEARSCREEN(void);
 void ___58c60h(void);
 
+// ENTERING RACE SCREEN ANIMATION
 void race___45d3ch(void){
 
 	double 	d_tmp;
-	dword 	eax, ebx, ecx, edx, edi, esi, ebp, rr, gg, bb, nn;
-	byte 	esp[0x50];
-	void * 	edxp;
-	void *	ebxp;
-	void * 	edip;
-	void * 	esp0x28;
-	void * 	esp0x2c;
+	__DWORD__ 	eax, ebx, ecx, edx, edi, esi, ebp, rr, gg, bb, nn;
+	__BYTE__ 	esp[0x50];
+	__POINTER__ 	edxp;
+	__POINTER__	ebxp;
+	__POINTER__ 	edip;
+	__POINTER__ 	esp0x28;
+	__POINTER__ 	esp0x2c;
 	double 	dbl;
 	int 	n, i, j;
 	int 	i_tmp, i_r, i_g, i_b;
 
 
 	memcpy(___1a3fc0h, ___1a51d0h, 0x300);
-	D(esp+0x1c) = 0xa*D(___243ce8h)+0x18;
-	D(esp+0x18) = 0xa*D(___243ce8h)+0xf;
-	D(esp+0x20) = 0xa*D(___243ce8h)+0xf;
+	D(esp+0x1c) = 0xa*D(MY_CAR_IDX)+0x18;
+	D(esp+0x18) = 0xa*D(MY_CAR_IDX)+0xf;
+	D(esp+0x20) = 0xa*D(MY_CAR_IDX)+0xf;
 
 	i = -1;
 	while(++i < 0x20){
@@ -122,7 +120,7 @@ void race___45d3ch(void){
 	memset(___1a54d0h+0xc800, 0, 0x100);
 	D(___196e74h) = 0x3f666666;
 	D(___196e78h) = 0x3f800000;
-	D(___243898h) = 0;
+	resetCounter(2);
 
 	while(1){
 
@@ -212,7 +210,7 @@ void race___45d3ch(void){
 		if(D(___196e78h) == 0x42b40000) break;
 
 		n = 0;
-		if(n <= (int)D(___243898h)){
+		if(n <= (int)getCounter(2)){
 
 			dbl = (double)F32(___196e74h);
 			
@@ -220,7 +218,7 @@ void race___45d3ch(void){
 
 				dbl = dbl*1.02;
 				n++;
-				if(n > (int)D(___243898h)) break;
+				if(n > (int)getCounter(2)) break;
 			}
 
 			F32(___196e74h) = (float)dbl;
@@ -229,7 +227,7 @@ void race___45d3ch(void){
 		F32(___196e78h) = (float)((double)F32(___196e74h)+(double)F32(___196e78h));
 
 		if((int)D(___196e78h) > (int)0x42b40000) D(___196e78h) = 0x42b40000;
-		D(___243898h) = 0;
+		resetCounter(2);
 		___58c60h();
 	}
 
@@ -245,7 +243,7 @@ void race___45d3ch(void){
 			if((i_r = (i*___1a3fc0h[n].r+(17*(0x100-i)*___1a3fc0h[n].r)/10+0x80)>>0x8) > 0x3f) i_r = 0x3f;
 			if((i_g = (i*___1a3fc0h[n].g+(17*(0x100-i)*___1a3fc0h[n].g)/10+0x80)>>0x8) > 0x3f) i_g = 0x3f;
 			if((i_b = (i*___1a3fc0h[n].b+(17*(0x100-i)*___1a3fc0h[n].b)/10+0x80)>>0x8) > 0x3f) i_b = 0x3f;
-			j = 0xa*D(___243ce8h)+0xf;
+			j = 0xa*D(MY_CAR_IDX)+0xf;
 
 			if((j <= n)&&((j+9) >= n)) __DISPLAY_SET_PALETTE_COLOR(i_b, i_g, i_r, n);
 		}
@@ -264,7 +262,7 @@ void race___45d3ch(void){
 			if((i_r = ((0x100-i)*___1a3fc0h[n].r+(17*i*___1a3fc0h[n].r)/10+0x80)>>0x8) > 0x3f) i_r = 0x3f;
 			if((i_g = ((0x100-i)*___1a3fc0h[n].g+(17*i*___1a3fc0h[n].g)/10+0x80)>>0x8) > 0x3f) i_g = 0x3f;
 			if((i_b = ((0x100-i)*___1a3fc0h[n].b+(17*i*___1a3fc0h[n].b)/10+0x80)>>0x8) > 0x3f) i_b = 0x3f;
-			j = 0xa*D(___243ce8h)+0xf;
+			j = 0xa*D(MY_CAR_IDX)+0xf;
 
 			if((j <= n)&&((j+9) >= n)) __DISPLAY_SET_PALETTE_COLOR(i_b, i_g, i_r, n);
 		}
@@ -283,7 +281,7 @@ void race___45d3ch(void){
 		n = -1;
 		while(++n < 0x100){
 
-			j = 0xa*D(___243ce8h)+0xf;
+			j = 0xa*D(MY_CAR_IDX)+0xf;
 
 			if((j > n)||((j+9) < n)){
 
@@ -301,11 +299,10 @@ void race___45d3ch(void){
 	}
 
 	D(___196e70h) = 0x3f;
-	D(___243898h) = 0;
-	D(___243874h) = D(___243898h);
-	D(___243894h) = 0;
-	D(___243894h) = D(___243878h);
-	D(___243330h) = D(___243894h);
+	resetCounter(2);
+	resetCounter(5);
+	setCounter(3, D(___243878h));
+	D(___243330h) = getCounter(3);
 
 	return;
 }

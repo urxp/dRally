@@ -1,12 +1,12 @@
 #include "drally.h"
 
-	extern byte ___1a0ef8h[];
-	extern byte ___1a01e0h[];
+	extern __BYTE__ ___1a0ef8h[];
+	extern __BYTE__ ___1a01e0h[];
 
-void ___35f34h_cdecl(dword A1, dword A2, dword A3){
+void ___35f34h_cdecl(__DWORD__ A1, __DWORD__ A2, __DWORD__ A3){
 
-	dword 	eax, ebx, ecx, edx, edi, esi, ebp;
-	byte 	esp[0x14];
+	__DWORD__ 	eax, ebx, ecx, edx, edi, esi, ebp;
+	__BYTE__ 	esp[0x14];
 
 	eax = A1;
 	edx = A2;

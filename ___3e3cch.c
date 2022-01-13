@@ -1,6 +1,6 @@
 #include "drally.h"
 
-	extern byte ___1a0d60h[];
+	extern char ___1a0d60h[0xc8];
 
 void dRally_System_clean(void);
 

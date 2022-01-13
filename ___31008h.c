@@ -2,49 +2,59 @@
 #include "drally_keyboard.h"
 #include "sfx.h"
 
-	extern byte ___19eb50h[];
-	extern void * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
-	extern void * ___1a10e4h__VESA101h_DefaultScreenBufferA;
-	extern void * ___1a1138h__VESA101h_DefaultScreenBufferB;
-	extern void * ___1a0f90h;
-	extern void * ___1a0f88h;
-	extern void * ___1a0f84h;
-	extern byte ___1a1028h[];
-	extern byte ___1a103ch[];
-	extern byte ___196af0h[];
-	extern byte ___196aech[];
-	extern byte ___196ae8h[];
-	extern byte ___1866b8h[];
-	extern byte ___185a48h[];
-	extern byte ___185a44h[];
-	extern byte ___185a40h[];
-	extern byte ___185a3ch[];
-	extern byte ___185b58h[];
-	extern byte ___1866b8h[];
-	extern byte ___243d44h[];
-	extern byte ___185a5ch[];
-	extern byte ___185a2ch[];
+#pragma pack(1)
+typedef struct x655_s {
+	__DWORD__ 	r;
+	__DWORD__ 	g;
+	__DWORD__ 	b;
+} x655_t;
+
+	extern x655_t ___19eb50h[0x100];
+
+	extern __POINTER__ ___1a112ch__VESA101_ACTIVESCREEN_PTR;
+	extern __POINTER__ ___1a10e4h__VESA101h_DefaultScreenBufferA;
+	extern __POINTER__ ___1a1138h__VESA101h_DefaultScreenBufferB;
+	extern __POINTER__ ___1a0f90h;
+	extern __POINTER__ ___1a0f88h;
+	extern __POINTER__ ___1a0f84h;
+	extern __BYTE__ ___1a1028h[];
+	extern __BYTE__ ___1a103ch[];
+	extern __BYTE__ ___196af0h[];
+	extern __BYTE__ ___196aech[];
+	extern __BYTE__ ___196ae8h[];
+	extern __BYTE__ ___1866b8h[];
+	extern __BYTE__ ___185a48h[];
+	extern __BYTE__ ___185a44h[];
+	extern __BYTE__ ___185a40h[];
+	extern __BYTE__ ___185a3ch[];
+	extern __BYTE__ ___185b58h[];
+	extern __BYTE__ ___1866b8h[];
+	extern __DWORD__ ___243d44h;
+	extern __BYTE__ ___185a5ch[];
+	extern __BYTE__ ___185a2ch[];
 	extern __DWORD__ ___24cc54h_sfx_volume;
-	extern byte ___185a14h_UseWeapons[];
-	extern byte ___185a4ch[];
-	extern byte ___1a1ef4h[];
-	extern byte ___185a28h[];
-	extern byte ___1a1f64h[];
-	extern byte ___1de7d0h[];
-	extern byte ___1a1ef8h[];
-	extern byte ___1a01e0h[];
-	extern byte ___19bd60h[];
-	extern byte ___1a0a50h[];
-	extern byte ___185a20h[];
+	extern __BYTE__ ___185a14h_UseWeapons[];
+	extern __BYTE__ ___185a4ch[];
+	extern __BYTE__ ___1a1ef4h[];
+	extern __BYTE__ ___185a28h[];
+	extern __BYTE__ ___1a1f64h[];
+	extern __BYTE__ ___1de7d0h[];
+	extern __BYTE__ ___1a1ef8h[];
+	extern __BYTE__ ___1a01e0h[];
+#if defined(DR_MULTIPLAYER)
+	extern __DWORD__ ___19bd60h;
+#endif // DR_MULTIPLAYER
+	extern __BYTE__ ___1a0a50h[];
+	extern __BYTE__ ___185a20h[];
 
 void restoreDefaultScreenBuffer(void);
-void ___3892ch_cdecl(dword);
+void ___3892ch_cdecl(__DWORD__);
 int rand_watcom106(void);
-void ___3079ch_cdecl(dword);
-byte dRally_Sound_setPosition(dword pos_n);
-void dRally_Sound_freeEffectChannel(byte ch_num);
-void dRally_Sound_setMasterVolume(dword vol);
-void dRally_Sound_pushEffect(byte channel, byte n, dword unk, dword a0, dword a1, dword a2);
+void ___3079ch_cdecl(__DWORD__);
+__BYTE__ dRally_Sound_setPosition(__DWORD__ pos_n);
+void dRally_Sound_freeEffectChannel(__BYTE__ ch_num);
+void dRally_Sound_setMasterVolume(__DWORD__ vol);
+void dRally_Sound_pushEffect(__BYTE__ channel, __BYTE__ n, __DWORD__ unk, __DWORD__ a0, __DWORD__ a1, __DWORD__ a2);
 void ___12940h(void);
 void ___58c60h(void);
 void ___2b318h(void);
@@ -52,69 +62,46 @@ void ___2415ch(void);
 void ___3a6a4h(void);
 void ___12cb8h__VESA101_PRESENTSCREEN(void);
 void ___2ab50h(void);
-byte ___5994ch(void);
-void ___33010h_cdecl(dword A1);
-void ___135fch(dword, dword, dword, dword);
+__BYTE__ ___5994ch(void);
+void ___33010h_cdecl(__DWORD__ A1);
+void ___135fch(__DWORD__, __DWORD__, __DWORD__, __DWORD__);
 void ___23230h(void);
 void ___25330h(void);
-void ___27f80h_cdecl(dword, dword, dword, dword);
-void __DISPLAY_SET_PALETTE_COLOR(dword b, dword g, dword r, dword n);
+void ___27f80h_cdecl(__DWORD__, __DWORD__, __DWORD__, __DWORD__);
+void __DISPLAY_SET_PALETTE_COLOR(__DWORD__ b, __DWORD__ g, __DWORD__ r, __DWORD__ n);
+
+static __BYTE__ helper_color(__DWORD__ eax, __DWORD__ edx){
+
+	___imul32((__POINTER__)&eax, (__POINTER__)&edx, edx);
+	eax += 0x8000;
+	edx += !!(eax < 0x8000);
+	eax = (eax >> 0x10)|(edx << 0x10);
+	eax += 0x8000;
+	eax= (int)eax>>0x10;
+
+	return eax&0xff;
+}
 
 // FINAL CHALLENGE SIGNUP
 void ___31008h(void){
 
-	dword 	eax, ebx, ecx, edx, edi, esi, ebp, rr, gg, bb, nn, p5;
-	byte 	esp[0x30];
+	__DWORD__ 	eax, ebx, ecx, edx, edi, esi, ebp, rr, gg, bb, nn, p5;
+	__BYTE__ 	esp[0x30];
 	__BYTE__ 	px;
 	int 		i, j, n;
 
 
-	edx = 0xb0;
-	esi = 0x840;
-	D(esp+0x28) = edx;
-	edi = 0x640000;
-	
+	D(esp+0x28) = 0;
+
 	while(1){
 
-		eax ^= eax;
-		L(eax) = B(esp+0x28);
-		nn = eax;
-		edx = edi;
-		eax = D(esi+___19eb50h);
-		___imul32(&eax, &edx, edx);
-		eax += 0x8000;
-		edx += !!(eax < 0x8000);
-		eax = (eax >> 0x10)|(edx << 0x10);
-		eax += 0x8000;
-		eax= (int)eax>>0x10;
-		eax &= 0xff;
-		rr = eax;
-		edx = edi;
-		eax = D(esi+___19eb50h+4);
-		___imul32(&eax, &edx, edx);
-		eax += 0x8000;
-		edx += !!(eax < 0x8000);
-		eax = (eax >> 0x10)|(edx << 0x10);
-		eax += 0x8000;
-		eax= (int)eax>>0x10;
-		eax &= 0xff;
-		gg = eax;
-		edx = edi;
-		eax = D(esi+___19eb50h+8);
-		___imul32(&eax, &edx, edx);
-		eax += 0x8000;
-		edx += !!(eax < 0x8000);
-		eax = (eax >> 0x10)|(edx << 0x10);
-		eax += 0x8000;
-		eax= (int)eax>>0x10;
-		eax &= 0xff;
-		bb = eax;
+		nn = D(esp+0x28)+0xb0;
+		rr = helper_color(___19eb50h[D(esp+0x28)+0xb0].r, 0x640000);
+		gg = helper_color(___19eb50h[D(esp+0x28)+0xb0].g, 0x640000);
+		bb = helper_color(___19eb50h[D(esp+0x28)+0xb0].b, 0x640000);
 		__DISPLAY_SET_PALETTE_COLOR(bb, gg, rr, nn);
-		ebx = D(esp+0x28);
-		ebx++;
-		esi += 0xc;
-		D(esp+0x28) = ebx;
-		if((int)ebx >= 0xb7) break;
+		D(esp+0x28)++;
+		if((int)D(esp+0x28) >= 7) break;
 	}
 
 	memcpy(___1a10e4h__VESA101h_DefaultScreenBufferA, ___1a112ch__VESA101_ACTIVESCREEN_PTR, 0x4b000);
@@ -185,50 +172,17 @@ void ___31008h(void){
 
 			___58c60h();
 			esi = ebp;
-			edi = 0;
 			D(esp+0x28) = 0;
 
 			while(1){
 
-				eax ^= eax;
-				L(eax) = B(esp+0x28);
-				nn = eax;
-				edx = esi;
-				eax = D(edi+___19eb50h);
-				___imul32(&eax, &edx, edx);
-				eax += 0x8000;
-				edx += !!(eax < 0x8000);
-				eax = (eax >> 0x10)|(edx << 0x10);
-				eax += 0x8000;
-				eax= (int)eax>>0x10;
-				eax &= 0xff;
-				rr = eax;
-				edx = esi;
-				eax = D(edi+___19eb50h+4);
-				___imul32(&eax, &edx, edx);
-				eax += 0x8000;
-				edx += !!(eax < 0x8000);
-				eax = (eax >> 0x10)|(edx << 0x10);
-				eax += 0x8000;
-				eax= (int)eax>>0x10;
-				eax &= 0xff;
-				gg = eax;
-				edx = esi;
-				eax = D(edi+___19eb50h+8);
-				___imul32(&eax, &edx, edx);
-				eax += 0x8000;
-				edx += !!(eax < 0x8000);
-				eax = (eax >> 0x10)|(edx << 0x10);
-				eax += 0x8000;
-				eax= (int)eax>>0x10;
-				eax &= 0xff;
-				bb = eax;
+				nn = B(esp+0x28);
+				rr = helper_color(___19eb50h[D(esp+0x28)].r, esi);
+				gg = helper_color(___19eb50h[D(esp+0x28)].g, esi);
+				bb = helper_color(___19eb50h[D(esp+0x28)].b, esi);
 				__DISPLAY_SET_PALETTE_COLOR(bb, gg, rr, nn);
-				ecx = D(esp+0x28);
-				ecx++;
-				edi += 0xc;
-				D(esp+0x28) = ecx;
-				if((int)ecx >= 0x100) break;
+				D(esp+0x28)++;
+				if((int)D(esp+0x28) >= 0x100) break;
 			}
 
 			edx = D(esp+0x2c);
@@ -287,7 +241,7 @@ void ___31008h(void){
 		}
 
 #if defined(DR_MULTIPLAYER)
-		if(D(___19bd60h) != 0){
+		if(___19bd60h != 0){
 
 			D(___1a0a50h+0xc) = 1;
 		}
@@ -321,7 +275,7 @@ void ___31008h(void){
 			B(___185b58h+0xb) = 0;
 			strcpy(___1866b8h, "Start Racing");
 			___2415ch();
-			D(___243d44h) = 1;
+			___243d44h = 1;
 			D(___185a5ch+0x34) = 0;
 			D(___185a2ch) = 1;
 			D(___196ae8h) = 0;

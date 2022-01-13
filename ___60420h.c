@@ -1,8 +1,8 @@
 #include "drally.h"
 
-    byte ___60441h = 0;
-    byte ___60446h = 0;
-    void_cb ___6044ch = (void *)0;
+    __BYTE__ ___60441h = 0;
+    __BYTE__ ___60446h = 0;
+    void_cb ___6044ch = (void_cb)0;
     int ___60458h = 0;
     int ___6045ch = 0;
 

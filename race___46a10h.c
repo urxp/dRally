@@ -1,52 +1,62 @@
 #include "drally.h"
 #include "drmath.h"
 
-	extern byte ___196d98h[];
-	extern byte ___1a51d0h[];
-	extern byte ___1a42c0h[];
-	extern byte ___1a54d0h[];
-	extern void * ___243d80h;
-	extern byte ___196e74h[];
-	extern byte ___196e78h[];
-	extern byte ___2432fch[];
-	extern byte ___243898h[];
-	extern byte ___243304h[];
-	extern void * ___243308h;
-	extern byte ___2432f8h[];
-	extern byte ___2432ech[];
-	extern byte ___2432f4h[];
-	extern byte ___2432f0h[];
-	extern void * ___243310h;
-	extern void * ___243314h;
-	extern byte ___243874h[];
-	extern byte ___243894h[];
-	extern byte ___243878h[];
-	extern byte ___243330h[];
-	extern byte VGA13_ACTIVESCREEN[];
+#pragma pack(1)
+typedef struct rgb24_s {
+	__BYTE__ 	r;
+	__BYTE__ 	g;
+	__BYTE__ 	b;
+} rgb24_t;
 
+typedef struct rgbf_s {
+	float 	r;
+	float 	g;
+	float 	b;
+} rgbf_t;
 
-void __DISPLAY_SET_PALETTE_COLOR(dword b, dword g, dword r, dword n);
-void dRally_Sound_setMasterVolume(dword vol);
+	extern __BYTE__ ___196d98h[];
+	extern __BYTE__ ___1a51d0h[];
+	extern rgbf_t ___1a42c0h[0x100];
+	extern __BYTE__ ___1a54d0h[];
+	extern __POINTER__ ___243d80h;
+	extern __BYTE__ ___196e74h[];
+	extern __BYTE__ ___196e78h[];
+	extern __BYTE__ ___243304h[];
+	extern __BYTE__ ___2432f8h[];
+	extern __BYTE__ ___2432ech[];
+	extern __BYTE__ ___2432f4h[];
+	extern __BYTE__ ___2432f0h[];
+	extern __POINTER__ ___243310h;
+	extern __POINTER__ ___243314h;
+	extern __BYTE__ ___243878h[];
+	extern __BYTE__ ___243330h[];
+	extern __BYTE__ VGA13_ACTIVESCREEN[];
+
+#define A_PI 	create_double(0xea,0x2e,0x44,0x54,0xfb,0x21,0x09,0x40)
+
+void __DISPLAY_SET_PALETTE_COLOR(__DWORD__ b, __DWORD__ g, __DWORD__ r, __DWORD__ n);
+void dRally_Sound_setMasterVolume(__DWORD__ vol);
 void __VGA13_PRESENTSCREEN__(void);
 void ___58c60h(void);
 
 // LEAVING RACE SCREEN ANIMATION
 void race___46a10h(void){
 
-	double 	d_tmp;
-	dword 	eax, ebx, ecx, edx, edi, esi, ebp, rr, gg, bb, nn;
-	byte 	esp[0x60];
-	int		i, j, n;
+	double 	d_tmp, double___243304h, double___2432f8h, double___2432f4h, double___2432f0h, d_tmp2;
+	__DWORD__ 	eax, ebx, ecx, edx, edi, esi, ebp, rr, gg, bb, nn;
+	__BYTE__ 	esp[0x60];
+	__BYTE__ 	blow, bhi;
+	int		i, j, m, n;
 
 
-	if(D(___196d98h) != 0x40){
+	if(D(___196d98h) != 0x40){ // WIDE
 
 		n = -1;
 		while(++n < 0x100){
 
-			F32(___1a42c0h+0xc*n) = (float)((double)B(___1a51d0h+3*n)/150.0);
-			F32(___1a42c0h+0xc*n+4) = (float)((double)B(___1a51d0h+3*n+1)/150.0);
-			F32(___1a42c0h+0xc*n+8) = (float)((double)B(___1a51d0h+3*n+2)/150.0);
+			___1a42c0h[n].r = (float)((double)B(___1a51d0h+3*n+0)/150.0);
+			___1a42c0h[n].g = (float)((double)B(___1a51d0h+3*n+1)/150.0);
+			___1a42c0h[n].b = (float)((double)B(___1a51d0h+3*n+2)/150.0);
 		}
 
 		n = -1;
@@ -63,8 +73,8 @@ void race___46a10h(void){
 
 		while(1){
 
-			D(___243898h) = 0;
-			D(___243874h) = D(___243898h);
+			resetCounter(2);
+			resetCounter(5);
 			___58c60h();
 
 			F64(esp+0x50) = 150.0-(double)F32(esp+0x58);
@@ -73,9 +83,9 @@ void race___46a10h(void){
 			while(++n < 0x100){
 
 				__DISPLAY_SET_PALETTE_COLOR(
-					(int)(F64(esp+0x50)*(double)F32(___1a42c0h+0xc*n+8)),
-					(int)(F64(esp+0x50)*(double)F32(___1a42c0h+0xc*n+4)),
-					(int)(F64(esp+0x50)*(double)F32(___1a42c0h+0xc*n)),
+					(int)(F64(esp+0x50)*(double)___1a42c0h[n].b),
+					(int)(F64(esp+0x50)*(double)___1a42c0h[n].g),
+					(int)(F64(esp+0x50)*(double)___1a42c0h[n].r),
 					n);
 			}
 
@@ -126,25 +136,23 @@ void race___46a10h(void){
 			__VGA13_PRESENTSCREEN__();
 
 			n = -1;
-			while(++n <= (int)D(___243898h)){
+			while(++n <= (int)getCounter(2)){
 
 				if((int)D(esp+0x58) < 0x43160000) F32(esp+0x58) = (float)(1.04*(double)F32(esp+0x58));
 			}
 
-			FPUSH(F32(esp+0x58));
-			if(FPOP() > 150.0) D(esp+0x58) = 0x43160000;
-			FPUSH(F32(esp+0x58));
-			if(FPOP() == 150.0) break;
+			if((double)F32(esp+0x58) > 150.0) D(esp+0x58) = 0x43160000;
+			if((double)F32(esp+0x58) == 150.0) break;
 		}
 	}
-	else {
+	else {	// NORNAL
 
 		n = -1;
 		while(++n < 0x100){
 
-			F32(___1a42c0h+0xc*n) = (float)((double)B(___1a51d0h+3*n)/90.0);
-			F32(___1a42c0h+0xc*n+4) = (float)((double)B(___1a51d0h+3*n+1)/90.0);
-			F32(___1a42c0h+0xc*n+8) = (float)((double)B(___1a51d0h+3*n+2)/90.0);
+			___1a42c0h[n].r = (float)((double)B(___1a51d0h+3*n+0)/90.0);
+			___1a42c0h[n].g = (float)((double)B(___1a51d0h+3*n+1)/90.0);
+			___1a42c0h[n].b = (float)((double)B(___1a51d0h+3*n+2)/90.0);
 		}
 
 		n = -1;
@@ -153,19 +161,9 @@ void race___46a10h(void){
 		n = -1;
 		while(++n < 0xc8) memcpy(___1a54d0h+0xc900+0x40*n, ___243d80h+0x200*n+0x60, 0x40);
 
-		n = -1;
-		while(++n < 0x64){
-
-			memcpy(___1a54d0h+0xc800, ___1a54d0h+0xc700-0x100*n, 0x100);
-			memcpy(___1a54d0h+0xc700-0x100*n, ___1a54d0h+0x100*n, 0x100);
-			memcpy(___1a54d0h+0x100*n, ___1a54d0h+0xc800, 0x100);
-		}
-
-		memset(___1a54d0h+0xc800, 0, 0x100);
-		D(___196e74h) = 0x3f666666;
-		D(___196e78h) = 0x42b40000;
-		D(___2432fch) = 0x40;
-		D(___243898h) = 0;
+		F32(___196e74h) = 0.9f;
+		F32(___196e78h) = 90.0f;
+		resetCounter(2);
 
 		while(1){
 
@@ -173,148 +171,75 @@ void race___46a10h(void){
 			while(++n < 0x100){
 
 				__DISPLAY_SET_PALETTE_COLOR(
-					(int)((double)F32(___1a42c0h+0xc*n+8)*(double)F32(___196e78h)),
-					(int)((double)F32(___1a42c0h+0xc*n+4)*(double)F32(___196e78h)),
-					(int)((double)F32(___1a42c0h+0xc*n)*(double)F32(___196e78h)),
+					(int)((double)___1a42c0h[n].b*(double)F32(___196e78h)),
+					(int)((double)___1a42c0h[n].g*(double)F32(___196e78h)),
+					(int)((double)___1a42c0h[n].r*(double)F32(___196e78h)),
 					n);
 			}
 
-			D(esp+0x48) = (int)(double)F32(___196e78h);
-			dRally_Sound_setMasterVolume(0x2d8*D(esp+0x48));
-			FPUSH(F32(___196e78h));
-			ST(0) = ST(0)*create_double(0xea,0x2e,0x44,0x54,0xfb,0x21,0x09,0x40);
-			ST(0) = ST(0)/180.0;
-			FPUSH(ST(0));
-			ST(0) = dRMath_sin(ST(0));
-			d_tmp = ST(0);
-			ST(0) = ST(1);
-			ST(1) = d_tmp;
-			ST(0) = dRMath_cos(ST(0));
-			d_tmp = ST(0);
-			ST(0) = ST(1);
-			ST(1) = d_tmp;
-			ST(0) = ST(0)*200.0;
-			ST(0) = 51200.0/ST(0);
-			d_tmp = ST(0);
-			ST(0) = ST(1);
-			ST(1) = d_tmp;
-			ST(0) = ST(0)*170.0;
-			d_tmp = ST(0);
-			ST(0) = ST(1);
-			ST(1) = d_tmp;
-			D(___243304h) = (int)FPOP();
-			D(___2432f8h) = (int)FPOP();
-			D(___2432ech) = 0xc8*D(___243304h);
+			dRally_Sound_setMasterVolume(0x2d8*(int)(double)F32(___196e78h));
 
-			___243308h = VGA13_ACTIVESCREEN+0x40;
+			double___243304h = dRMath_sin((double)F32(___196e78h)*A_PI/180.0);
+			double___2432f8h = dRMath_cos((double)F32(___196e78h)*A_PI/180.0)/3.0;
 
-			n = -1;
-			while(++n < 0xc8){
+			D(esp+0x48) = (int)((double)0x40*(double)F32(___196e78h)/90.0);
 
-				D(esp+0x48) = (int)((double)F32(___196e78h)/1.4);
-				memcpy(___243308h+0x140*n-0x40, ___1a54d0h+0xc940+0x40*n-D(esp+0x48), D(esp+0x48));
+			m = -1;
+			while(++m < 0xc8){
+
+				memset(VGA13_ACTIVESCREEN+0x140*m, 0, 0x140);
+				memcpy(VGA13_ACTIVESCREEN+0x140*m, ___1a54d0h+0xc940+0x40*m-D(esp+0x48), D(esp+0x48));
+
+				double___2432f4h = (double)(0xc8-m)/double___243304h;
+				
+				if(double___2432f4h < 200.0){
+
+					//edi = 0;
+					//bhi = 0;
+					d_tmp2 = double___2432f4h*double___2432f8h;
+					//blow = 255.0-2.0*d_tmp2;
+
+					n = -1;
+					while(++n < 0x100){
+
+						B(VGA13_ACTIVESCREEN+0x40+0x140*m+(int)d_tmp2/*+edi*/) = B(___1a54d0h+0x100*(int)(200.0-double___2432f4h)+n);
+						
+						//bhi += blow;
+						//if(bhi < blow) edi++;
+
+						d_tmp2 += 1.0-2.0*double___2432f4h*double___2432f8h/256.0;
+					}
+				}
 			}
 
-			__VGA13_PRESENTSCREEN__();
+			if(F32(___196e78h) == 1.0f) break;
 
-			n = -1;
-			while(++n < 0xc8){
+			n = 0;
 
-				D(esp+0x48) = (int)((double)F32(___196e78h)/1.4);
-				memset(___243308h-0x40+0x140*n+D(esp+0x48), 0, D(___2432fch)-D(esp+0x48));
-			}
+			if(0 <= (int)getCounter(2)){
 
-			D(esp+0x38) = 0;
-			D(___2432fch) = (int)((double)F32(___196e78h)/1.4);
-
-			while(1){
-
-				D(___2432f4h) = D(___2432ech)&~0xff;
-				if((int)D(___2432f4h) > 0xc800) D(___2432f4h) = 0xc800;
-				eax = D(___2432f4h);
-				edi = D(___2432f8h);
-				eax = eax*edi;
-				edx = eax;
-				edx = (int)edx>>0x10;
-				eax = (int)eax>>0x11;
-				D(___2432f0h) = edx;
-				edx = eax-0xa;
-
-				n = -1;
-				while(++n < 10){
-
-					if((short)X(edx) >= 0) B(___243308h+eax-0xa+n) = 0;
-					X(edx)++;
-				}
-
-				edx = 0xff;
-				eax = D(___2432f0h);
-				ebx = D(___2432f4h);
-				ebx--;
-				edi = eax;
-				edx -= eax;
-				edi = (int)edi>>0x1;
-
-				n = -1;
-				while(++n < 0x100){
-
-					H(edx) += L(edx);
-					B(___243308h+edi) = B(___1a54d0h+ebx+n);
-					edi += !!(H(edx) < L(edx));
-				}
-
-				edx = ((int)D(___2432f0h)>>0x1)+0xff-D(___2432f0h);
-			
-				n = -1;
-				while(++n < 10){
-
-					if((short)X(edx) > 0xff) break;
-					B(___243308h+((int)D(___2432f0h)>>0x1)+0xff-D(___2432f0h)+n) = 0;
-					X(edx)++;
-				}
-
-				___243308h += 0x140;
-				D(___2432ech) -= D(___243304h);
-				D(esp+0x38)++;
-				if((int)D(esp+0x38) >= 0xc8) break;
-			}
-
-			if(D(___196e78h) == 0x3f800000) break;
-
-			D(esp+0x5c) = 0;
-
-			if((int)D(___243898h) >= 0){
-
-				FPUSH(F32(___196e74h));
-				FPUSH(1.02);
+				d_tmp = (double)F32(___196e74h);
 
 				while(1){
 
-					FPUSH(ST(1));
-					FPUSH(ST(0));
-					ST(0) = ST(0)*ST(2);
-					ST(1) = ST(0);
-					FPOP();
-					ST(2) = ST(0);
-					FPOP();
-					D(esp+0x5c)++;
-					if((int)D(esp+0x5c) > (int)D(___243898h)) break;
+					d_tmp *= 1.02;
+					
+					n++;
+					if(n > (int)getCounter(2)) break;
 				}
 
-				FPOP();
-				F32(___196e74h) = (float)FPOP();
+				F32(___196e74h) = (float)d_tmp;
 			}
 
 			F32(___196e78h) = (float)((double)F32(___196e78h)-(double)F32(___196e74h));
-			if((int)D(___196e78h) < 0x3f800000) D(___196e78h) = 0x3f800000;
-			D(___243898h) = 0;
-			___58c60h();
+			if((int)D(___196e78h) < 0x3f800000) F32(___196e78h) = 1.0f;
+			resetCounter(2);
+			___58c60h();	// wait 1 frame
 		}
 	}
 
-	D(___243898h) = 0;
-	D(___243874h) = D(___243898h);
-	D(___243894h) = 0;
-	D(___243894h) = D(___243878h);
-	D(___243330h) = D(___243894h);
+	resetCounter(2);
+	resetCounter(5);
+	setCounter(3, D(___243878h));
+	D(___243330h) = getCounter(3);
 }

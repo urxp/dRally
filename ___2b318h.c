@@ -2,35 +2,35 @@
 
 #pragma pack(1)
 typedef struct rgb24_s {
-	byte 	r;
-	byte 	g;
-	byte 	b;
+	__BYTE__ 	r;
+	__BYTE__ 	g;
+	__BYTE__ 	b;
 } rgb24_t;
 
 typedef struct x655_s {
-	dword 	r;
-	dword 	g;
-	dword 	b;
+	__DWORD__ 	r;
+	__DWORD__ 	g;
+	__DWORD__ 	b;
 } x655_t;
 
-	extern x655_t ___19eb50h[];
+	extern x655_t ___19eb50h[0x100];
 	extern x655_t ___19df50h[];
-	extern byte ___1a1ef8h[];
-	extern byte ___1a01e0h[];
+	extern __BYTE__ ___1a1ef8h[];
+	extern __BYTE__ ___1a01e0h[];
 	extern rgb24_t * ___1a0fb8h;
 	extern __DWORD__ ___196ad8h;
 	extern rgb24_t * ___1a10c8h;
-	extern byte ___1a1edch[];
+	extern __BYTE__ ___1a1edch[];
 
 void ___12940h(void);
-void ___11564h_cdecl(dword, dword, dword);
-void ___24010h(dword, dword, dword);
+void ___11564h_cdecl(__DWORD__, __DWORD__, __DWORD__);
+void ___24010h(__DWORD__, __DWORD__, __DWORD__);
 
 rgb24_t dummy_pal[0x200];
 
 void ___2b318h(void){
 	
-	dword 	n;
+	__DWORD__ 	n;
 	rgb24_t * p_pal;
 
 	___12940h();

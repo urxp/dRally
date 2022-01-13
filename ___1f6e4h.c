@@ -1,18 +1,18 @@
 #include "drally.h"
 #include "drally_structs_free.h"
 
-	extern byte ___199f3dh[];
-	extern byte ___1a1f6ah[];
-	extern byte ___199f3eh[];
-	extern byte ___199f3fh[];
-	extern byte ___199f40h[];
-	extern byte ___199f41h[];
-	extern byte ___199f42h[];
-	extern byte ___199f43h[];
-	extern byte ___199f44h[];
-	extern byte ___199f45h[];
-	extern byte ___19ce70h[];
-	extern byte ___1866b8h[];
+	extern __BYTE__ ___199f3dh[];
+	extern __BYTE__ ___1a1f6ah[];
+	extern __BYTE__ ___199f3eh[];
+	extern __BYTE__ ___199f3fh[];
+	extern __BYTE__ ___199f40h[];
+	extern __BYTE__ ___199f41h[];
+	extern __BYTE__ ___199f42h[];
+	extern __BYTE__ ___199f43h[];
+	extern __BYTE__ ___199f44h[];
+	extern __BYTE__ ___199f45h[];
+	extern char ___19ce70h[0xf00];
+	extern __BYTE__ ___1866b8h[];
 	extern kb_control_t ___1a1140h;
 	extern __DWORD__ ___1a1164h_gp_accelerate;
 	extern __DWORD__ ___1a113ch_gp_brake;

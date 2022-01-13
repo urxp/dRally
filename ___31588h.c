@@ -1,21 +1,22 @@
 #include "drally.h"
 
-	extern byte ___1a1ef8h[];
-	extern byte ___196b20h[];
-	extern byte ___1a1f40h[];
-	extern byte ___1a0f04h[];
-	extern byte ___1a1f64h[];
-	extern byte ___1a0ef8h[];
-	extern byte ___196abch[];
-	extern byte ___196b18h[];
-	extern byte ___196b1ch[];
+	extern __BYTE__ ___1a1ef8h[];
+	extern __BYTE__ ___196b20h[];
+	extern __BYTE__ ___1a1f40h[];	//  [0...13]
+	extern __BYTE__ ___1a0f04h[];
+	extern __BYTE__ ___1a1f64h[];
+	extern __BYTE__ ___1a0ef8h[];
+	extern __BYTE__ ___196abch[];
+	extern __BYTE__ ___196b18h[];
+	extern __BYTE__ ___196b1ch[];
 
 int rand_watcom106(void);
 
 void ___31588h(void){
 
-	dword 	eax, ebx, ecx, edx, edi, esi, ebp;
-	byte 	esp[4];
+	__DWORD__ 	eax, ebx, ecx, edx, edi, esi, ebp;
+	__BYTE__ 	esp[4];
+	int 		n;
 
 	D(esp) = D(___1a1ef8h)-7;
 	
@@ -23,12 +24,12 @@ void ___31588h(void){
 	if((int)D(esp) > 5) D(esp) = 5;
 
 	eax = 0;
-	edx = -1;
-	while(++edx < 0xe){
+	n = -1;
+	while(++n < 0xe){
 
-		if((D(esp)+edx) == D(___1a1ef8h)) eax++;
+		if((D(esp)+n) == D(___1a1ef8h)) eax++;
 
-		B(edx+___1a1f40h) = D(esp)+eax;
+		B(___1a1f40h+n) = D(esp)+eax;
 		eax++;
 	}
 

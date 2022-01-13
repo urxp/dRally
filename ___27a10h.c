@@ -1,23 +1,23 @@
 #include "drally.h"
+#include "drally_fonts.h"
 
 typedef char char40[40];
 
-	extern void * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
-	extern void * ___1a1e98h;
-	extern byte ___1a1ef8h[];
-	extern byte ___18e298h[];
-	extern byte ___1a01e0h[];
-	extern void * ___1a1eb8h;
+	extern __POINTER__ ___1a112ch__VESA101_ACTIVESCREEN_PTR;
+	extern __POINTER__ ___1a1e98h;
+	extern __BYTE__ ___1a1ef8h[];
+	extern __BYTE__ ___18e298h[];
+	extern __BYTE__ ___1a01e0h[];
+	extern __POINTER__ ___1a1eb8h;
 	extern __DWORD__ ___1864fch[][0x10];
-	extern void * ___1a01d0h[4];
-	extern byte ___1a1eech[];
+	extern __POINTER__ ___1a01d0h[4];
+	extern __BYTE__ ___1a1eech[];
 
 int ___25180h_cdecl(const char * A1);
-void ___12f60h_cdecl(const char * A1, dword A2);
-void ___13248h_cdecl(dword, dword ,dword, dword, dword);
-void ___13094h_cdecl(const char *, dword);
+void ___12f60h_cdecl(const char * A1, __DWORD__ A2);
+void ___13248h_cdecl(__DWORD__, __DWORD__ ,__DWORD__, __DWORD__, __DWORD__);
 char * itoa_watcom106(int value, char * buffer, int radix);
-void ___259e0h_cdecl(int dx, int dy, int aFrameIdx, void * aEncoded, int * aOffsets);
+void ___259e0h_cdecl(int dx, int dy, int aFrameIdx, __POINTER__ aEncoded, int * aOffsets);
 
 static const char40 ___192000h[4][6] = {
 	[0] = {
@@ -57,7 +57,7 @@ static const char40 ___192000h[4][6] = {
 // SHOP ARMOR MAX UPGRADE UPDATE
 void ___27a10h(void){
 
-	byte 	esp[0x28];
+	__BYTE__ 	esp[0x28];
 	int 	i, j, n;
 
 
@@ -90,10 +90,10 @@ void ___27a10h(void){
 	}
 
 	___13248h_cdecl(0x90, 0x72, 0x180, 0x77, 1);
-	___13094h_cdecl(___192000h[D(___1a01e0h+0x18+0x6c*D(___1a1ef8h))][0], 0x136aa);
-	___13094h_cdecl(___192000h[D(___1a01e0h+0x18+0x6c*D(___1a1ef8h))][1], 0x15eaa);
-	___13094h_cdecl(___192000h[D(___1a01e0h+0x18+0x6c*D(___1a1ef8h))][2], 0x186aa);
-	___13094h_cdecl(___192000h[D(___1a01e0h+0x18+0x6c*D(___1a1ef8h))][3], 0x1aeaa);
-	___13094h_cdecl(___192000h[D(___1a01e0h+0x18+0x6c*D(___1a1ef8h))][4], 0x1d6aa);
-	___13094h_cdecl(___192000h[D(___1a01e0h+0x18+0x6c*D(___1a1ef8h))][5], 0x1feaa);
+	VESA101_16X16_FORMAT_PRINT(___192000h[D(___1a01e0h+0x18+0x6c*D(___1a1ef8h))][0], 170, 124);
+	VESA101_16X16_FORMAT_PRINT(___192000h[D(___1a01e0h+0x18+0x6c*D(___1a1ef8h))][1], 170, 140);
+	VESA101_16X16_FORMAT_PRINT(___192000h[D(___1a01e0h+0x18+0x6c*D(___1a1ef8h))][2], 170, 156);
+	VESA101_16X16_FORMAT_PRINT(___192000h[D(___1a01e0h+0x18+0x6c*D(___1a1ef8h))][3], 170, 172);
+	VESA101_16X16_FORMAT_PRINT(___192000h[D(___1a01e0h+0x18+0x6c*D(___1a1ef8h))][4], 170, 188);
+	VESA101_16X16_FORMAT_PRINT(___192000h[D(___1a01e0h+0x18+0x6c*D(___1a1ef8h))][5], 170, 204);
 }

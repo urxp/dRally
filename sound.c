@@ -17,20 +17,20 @@ enum pingpong_e {
 
 #pragma pack(1)
 typedef struct sampledata_s {
-	void *	start_p;
-	void * 	end_p;
-	void * 	loopstart_p;
-	void * 	loopend_p;
-	byte 	flags;
+	__POINTER__	start_p;
+	__POINTER__ 	end_p;
+	__POINTER__ 	loopstart_p;
+	__POINTER__ 	loopend_p;
+	__BYTE__ 	flags;
 } sampledata_t;
 
 typedef struct samplelib_s {
 	int 			n_samples;
 	int 			n_msx_samples;
 	int 			n_sfx_samples;
-	void * 			header_alloc;
-	void *			data_alloc;
-	void * 			write_p;
+	__POINTER__ 			header_alloc;
+	__POINTER__			data_alloc;
+	__POINTER__ 			write_p;
 	sampledata_t * 	samples;
 	int *			samples_volume;
 	int * 			samples_frequency;
@@ -40,8 +40,8 @@ typedef struct sound_mod_s {
 	int 	type;
 	int 	channels;
 	int 	samples;
-	void * 	data;
-	dword 	size;
+	__POINTER__ 	data;
+	__DWORD__ 	size;
 } sound_mod_t;
 
 typedef struct sound_s {
@@ -51,74 +51,74 @@ typedef struct sound_s {
 } sound_t;
 
 typedef struct music_s {
-    byte        ch_map[32];
-    dword *     c2spd;
-    void **     patterns;
-    byte *      ch_settings;
-    byte *	    orders;
-    byte *      panning;
-    byte *      volume;
-    void *      s3m_p;
-    word        n_patterns;
-    byte        n_orders;
-    byte        tempo;
-    byte        global_volume;
-    byte        speed;
+    __BYTE__        ch_map[32];
+    __DWORD__ *     c2spd;
+    __POINTER__*     patterns;
+    __BYTE__ *      ch_settings;
+    __BYTE__ *	    orders;
+    __BYTE__ *      panning;
+    __BYTE__ *      volume;
+    __POINTER__      s3m_p;
+    __WORD__        n_patterns;
+    __BYTE__        n_orders;
+    __BYTE__        tempo;
+    __BYTE__        global_volume;
+    __BYTE__        speed;
 } music_t;
 
-extern byte * ___68b30h[32];
-byte SOUND = 0;
-byte SOUND_LOADED = 0;
-byte SOUND_PLANES = 0;
-dword MASTER_VOLUME = 0x10000;
-dword MSX_VOLUME = 0x10000;
-dword SFX_VOLUME = 0x10000;
+extern __BYTE__ * ___68b30h[32];
+__BYTE__ SOUND = 0;
+__BYTE__ SOUND_LOADED = 0;
+__BYTE__ SOUND_PLANES = 0;
+__DWORD__ MASTER_VOLUME = 0x10000;
+__DWORD__ MSX_VOLUME = 0x10000;
+__DWORD__ SFX_VOLUME = 0x10000;
 int SampleRateMultiplier;
 extern int * ___68d34h_R_BFR;
 extern int * ___68d38h_L_BFR;
 extern __BYTE__ (*___68d48h)[0x20];
 extern int (*___68d40h)[0x100];
-extern void * ___68d94h_sample_position[];
+extern __POINTER__ ___68d94h_sample_position[];
 extern int ___68e14h[];
-extern byte ___68e94h[];
+extern __BYTE__ ___68e94h[];
 
 
 void ___58b20h(int n, ...);
 void ___65788h_updateVolume_cdecl(void);
-void SampleLib_init(dword, dword, byte);
+void SampleLib_init(__DWORD__, __DWORD__, __BYTE__);
 void ___716fch(sound_mod_t *);
 void ___75840h(sound_mod_t *);
 void ___67bbch(void);
-void ptr_align_d(void **, dword);
+void ptr_align_d(__POINTER__*, __DWORD__);
 void DO_NOTHING(void);
-dword MULSHIFT(dword, dword);
+__DWORD__ MULSHIFT(__DWORD__, __DWORD__);
 
 
 double s3m_TickSamples;
-dword SOUND_SAMPLES = SAMPLES;
+__DWORD__ SOUND_SAMPLES = SAMPLES;
 void_cb AUDIO_DATA_CB = &DO_NOTHING;
 samplelib_t SampleLib;
 sound_t Sound;
 music_t	Music;
-word SOUND_SAMPLERATE = 0x5622;
+__WORD__ SOUND_SAMPLERATE = 0x5622;
 
-word ___688d0h_sample_id[32] = {
+__WORD__ ___688d0h_sample_id[32] = {
 	0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff,
 	0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff,
 	0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff,
 	0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff
 };
 
-dword ___68bb0h[32] = {
+__DWORD__ ___68bb0h[32] = {
 	0x10000, 0x10000, 0x10000, 0x10000, 0x10000, 0x10000, 0x10000, 0x10000,
 	0x10000, 0x10000, 0x10000, 0x10000, 0x10000, 0x10000, 0x10000, 0x10000,
 	0x10000, 0x10000, 0x10000, 0x10000, 0x10000, 0x10000, 0x10000, 0x10000,
 	0x10000, 0x10000, 0x10000, 0x10000, 0x10000, 0x10000, 0x10000, 0x10000
 };
 
-dword ___68910h_offset[32] = {0};
-dword ___68990h[32] = {0};
-dword ___68a10h[32] = {0};
+__DWORD__ ___68910h_offset[32] = {0};
+__DWORD__ ___68990h[32] = {0};
+__DWORD__ ___68a10h[32] = {0};
 
 
 void DO_NOTHING(void){
@@ -161,13 +161,13 @@ void ___685a4h_createPlanes_cdecl(void){
 
 		s3m_TickSamples = 0.0;
 
-		___68d34h_R_BFR = dRMemory_alloc(SOUND_SAMPLES*sizeof(int));
+		___68d34h_R_BFR = (int *)dRMemory_alloc(SOUND_SAMPLES*sizeof(int));
 		memset(___68d34h_R_BFR, 0, SOUND_SAMPLES*sizeof(int));
 
-		___68d38h_L_BFR = dRMemory_alloc(SOUND_SAMPLES*sizeof(int));
+		___68d38h_L_BFR = (int *)dRMemory_alloc(SOUND_SAMPLES*sizeof(int));
 		memset(___68d38h_L_BFR, 0, SOUND_SAMPLES*sizeof(int));
 
-		___68d40h = dRMemory_alloc(0x8000*sizeof(int));
+		___68d40h = (int (*)[256])dRMemory_alloc(0x8000*sizeof(int));
 
 		// 4*128*256 = 4*32768 (0x20000)
 		// [-128...127]x[1...128]
@@ -181,7 +181,7 @@ void ___685a4h_createPlanes_cdecl(void){
 			}
 		}
 
-		___68d48h = dRMemory_alloc(0x3fe0*sizeof(__BYTE__));
+		___68d48h = (__BYTE__ (*)[32])dRMemory_alloc(0x3fe0*sizeof(__BYTE__));
 
 		// 1*511*32 = 16352 (0x3fe0)
 		v = -1;
@@ -203,7 +203,7 @@ void ___685a4h_createPlanes_cdecl(void){
 
 void ___65788h_updateVolume_cdecl(void){
 
-	dword 	n, msx_v, sfx_v;
+	__DWORD__ 	n, msx_v, sfx_v;
 
 	msx_v = MULSHIFT(MASTER_VOLUME, MSX_VOLUME);
 	sfx_v = MULSHIFT(MASTER_VOLUME, SFX_VOLUME);
@@ -226,9 +226,9 @@ sampledata_t * SampleLib_getSample(int smpl_id){
 }
 
 // ___677cch
-void SampleLib_init(dword size, dword instruments, byte flags){
+void SampleLib_init(__DWORD__ size, __DWORD__ instruments, __BYTE__ flags){
 
-	dword 	n;
+	__DWORD__ 	n;
 
 
 	SampleLib.data_alloc = dRMemory_alloc(6*instruments+size+2);
@@ -245,9 +245,9 @@ void SampleLib_init(dword size, dword instruments, byte flags){
 		}
 
 		SampleLib.header_alloc		= dRMemory_alloc(2*sizeof(int)*(instruments+1)+sizeof(sampledata_t)*instruments);
-		SampleLib.samples_frequency	= SampleLib.header_alloc;
-		SampleLib.samples_volume	= SampleLib.header_alloc+sizeof(int)*(instruments+1);
-		SampleLib.samples			= SampleLib.header_alloc+2*sizeof(int)*(instruments+1);
+		SampleLib.samples_frequency	= (int *)SampleLib.header_alloc;
+		SampleLib.samples_volume	= (int *)(SampleLib.header_alloc+sizeof(int)*(instruments+1));
+		SampleLib.samples			= (sampledata_t *)(SampleLib.header_alloc+2*sizeof(int)*(instruments+1));
 
 		n = -1;
 		while(++n < instruments){
@@ -262,9 +262,9 @@ void SampleLib_init(dword size, dword instruments, byte flags){
 }
 
 // ___67994h
-void SampleLib_addSample(void * isd_p, void * isd_end_p, void * isd_loop_p, void * isd_loopend_p, dword flags){
+void SampleLib_addSample(__POINTER__ isd_p, __POINTER__ isd_end_p, __POINTER__ isd_loop_p, __POINTER__ isd_loopend_p, __DWORD__ flags){
 
-	dword 	n_cpy, smpl_id;
+	__DWORD__ 	n_cpy, smpl_id;
 
 	smpl_id = SampleLib.n_samples;
 	n_cpy = 1+!!(flags&4);
@@ -298,7 +298,7 @@ void SampleLib_addSample(void * isd_p, void * isd_end_p, void * isd_loop_p, void
 
 void ___68c42h_cdecl(void){
 
-	dword 	n;
+	__DWORD__ 	n;
 
 	n = -1;
 	while(++n < 0x20){

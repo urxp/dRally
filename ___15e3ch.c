@@ -1,24 +1,21 @@
 #include "drally.h"
+#include "drally_fonts.h"
 
-	extern byte ___1a112ch__VESA101_ACTIVESCREEN_PTR[];
-	extern byte ___1a1e84h[];
-	extern byte ___196aa8h[];
-	extern byte ___1a1ef8h[];
-	extern byte ___1a01e0h[];
-	extern byte ___1a1ff1h[];
-	extern byte ___185ba9h[];
-	extern byte ___1a10cch[];
+	extern __POINTER__ ___1a112ch__VESA101_ACTIVESCREEN_PTR;
+	extern __POINTER__ ___1a1e84h;
+	extern __BYTE__ ___196aa8h[];
+	extern __BYTE__ ___1a1ef8h[];
+	extern __BYTE__ ___1a01e0h[];
+	extern __BYTE__ ___1a1ff1h[];
 
-dword ___14c50h(void);
-void ___12e78h_cdecl(dword, dword, dword, dword);
-void ___13094h_cdecl(const char *, dword);
-void ___13248h_cdecl(dword, dword ,dword, dword, dword);
+__DWORD__ ___14c50h(void);
+void ___13248h_cdecl(__DWORD__, __DWORD__ ,__DWORD__, __DWORD__, __DWORD__);
 
 // HITMAN RESULT
-dword ___15e3ch(void){
+__DWORD__ ___15e3ch(void){
 
-	byte 	esp[0x4c];
-	byte 	px;
+	__BYTE__ 	esp[0x4c];
+	__BYTE__ 	px;
 	int 	i, j;
 
 
@@ -30,7 +27,7 @@ dword ___15e3ch(void){
 		i = -1;
 		while(++i < 0x68){
 
-			if((px = B(D(___1a1e84h)+0x68*j+i))) B(D(___1a112ch__VESA101_ACTIVESCREEN_PTR)+0x1a42d+0x280*j+i) = px;
+			if((px = B(___1a1e84h+0x68*j+i))) B(___1a112ch__VESA101_ACTIVESCREEN_PTR+0x1a42d+0x280*j+i) = px;
 		}
 	}
 
@@ -38,50 +35,50 @@ dword ___15e3ch(void){
 
 		if(D(___196aa8h) == 0xffffffff){
 		
-			D(esp+0x44) = 0xbb8;
+			D(esp+0x44) = 3000;
 			strcpy(esp+0x34, "3000");
 		}
 
 		if(D(___196aa8h) == 0xfffffffe){
 
-			D(esp+0x44) = 0x7d0;
+			D(esp+0x44) = 2000;
 			strcpy(esp+0x34, "2000");
 		}
 
 		if(D(___196aa8h) == 0xfffffffd){
 		
-			D(esp+0x44) = 0x3e8;
+			D(esp+0x44) = 1000;
 			strcpy(esp+0x34, "1000");
 		}
 
 		if(D(___196aa8h) == 0xfffffffc){
 		
-			D(esp+0x44) = 0x2ee;
+			D(esp+0x44) = 750;
 			strcpy(esp+0x34, "750");
 		}
 
 		if(D(___196aa8h) == 0xfffffffb){
 		
-			D(esp+0x44) = 0x1f4;
+			D(esp+0x44) = 500;
 			strcpy(esp+0x34, "500");
 		}
 
 		if(D(___196aa8h) == 0xfffffffa){
 
-			D(esp+0x44) = 0xfa;
+			D(esp+0x44) = 250;
 			strcpy(esp+0x34, "250");
 		}
 
-		___13094h_cdecl("[Your hit missed!", 0x1a4a1);
-		___13094h_cdecl("", 0x1cca1);
-		___13094h_cdecl("You sissy Sunday driver. [The", 0x1f4a1);
-		___13094h_cdecl("[simplest job, and you screw it up!", 0x21ca1);
-		___13094h_cdecl("I bet you are afraid of the dark as", 0x244a1);
-		___13094h_cdecl("well. I'll show you what happens", 0x26ca1);
-		___13094h_cdecl("when you break your promises to me.", 0x294a1);
-		___13094h_cdecl("[I'm gonna make you pay!", 0x2bca1);
-		___13094h_cdecl("", 0x2e4a1);
-		___13094h_cdecl("", 0x30ca1);
+		VESA101_16X16_FORMAT_PRINT("[Your hit missed!", 161, 168);
+		VESA101_16X16_FORMAT_PRINT("", 161, 184);
+		VESA101_16X16_FORMAT_PRINT("You sissy Sunday driver. [The", 161, 200);
+		VESA101_16X16_FORMAT_PRINT("[simplest job, and you screw it up!", 161, 216);
+		VESA101_16X16_FORMAT_PRINT("I bet you are afraid of the dark as", 161, 232);
+		VESA101_16X16_FORMAT_PRINT("well. I'll show you what happens", 161, 248);
+		VESA101_16X16_FORMAT_PRINT("when you break your promises to me.", 161, 264);
+		VESA101_16X16_FORMAT_PRINT("[I'm gonna make you pay!", 161, 280);
+		VESA101_16X16_FORMAT_PRINT("", 161, 296);
+		VESA101_16X16_FORMAT_PRINT("", 161, 312);
 
 		if((int)D(0x6c*D(___1a1ef8h)+___1a01e0h+0x30) < (int)D(esp+0x44)){
 
@@ -130,19 +127,19 @@ dword ___15e3ch(void){
 			D(___1a01e0h+0x30+0x6c*D(___1a1ef8h)) += 0x1f4;
 		}
 
-		___13094h_cdecl("[You totally slew that car.", 0x1a4a1);
-		___13094h_cdecl("", 0x1cca1);
-		___13094h_cdecl("A killer race! The bullets took the", 0x1f4a1);
-		___13094h_cdecl("sky like clouds of locusts, and", 0x21ca1);
-		___13094h_cdecl("the screams of motors were a", 0x244a1);
-		___13094h_cdecl("banshee wail. [Death!{ You were", 0x26ca1);
-		___13094h_cdecl(strcat(strcat(strcpy(esp, "beautiful, ["), ___1a1ff1h), " is in a car-"), 0x294a1);
-		___13094h_cdecl(strcat(strcat(strcpy(esp, "[coffin grave. $"), esp+0x34), ", your money."), 0x2bca1);
-		___13094h_cdecl("", 0x2e4a1);
-		___13094h_cdecl("", 0x30ca1);
+		VESA101_16X16_FORMAT_PRINT("[You totally slew that car.", 161, 168);
+		VESA101_16X16_FORMAT_PRINT("", 161, 184);
+		VESA101_16X16_FORMAT_PRINT("A killer race! The bullets took the", 161, 200);
+		VESA101_16X16_FORMAT_PRINT("sky like clouds of locusts, and", 161, 216);
+		VESA101_16X16_FORMAT_PRINT("the screams of motors were a", 161, 232);
+		VESA101_16X16_FORMAT_PRINT("banshee wail. [Death!{ You were", 161, 248);
+		VESA101_16X16_FORMAT_PRINT(strcat(strcat(strcpy(esp, "beautiful, ["), ___1a1ff1h), " is in a car-"), 161, 264);
+		VESA101_16X16_FORMAT_PRINT(strcat(strcat(strcpy(esp, "[coffin grave. $"), esp+0x34), ", your money."), 161, 280);
+		VESA101_16X16_FORMAT_PRINT("", 161, 296);
+		VESA101_16X16_FORMAT_PRINT("", 161, 312);
 	}
 
-	___12e78h_cdecl(D(___1a10cch), ___185ba9h, "CONTINUE", 0x316c0);
+	___12e78h_v3(___1a10cch___185ba9h, "CONTINUE", 192, 316);
 
 	return 0;
 }

@@ -19,29 +19,29 @@ typedef struct cardata_s {
     __SIGNED_DWORD__   	price_repair;                   // +6DC
 } cardata_t;
 typedef struct font_props_s {
-	byte 	w;
-	byte 	h;
-	byte 	props[];
+	__BYTE__ 	w;
+	__BYTE__ 	h;
+	__BYTE__ 	props[];
 } font_props_t;
 
-	extern void * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
-	extern void * ___1a1ed4h;
-	extern byte ___1a1ef8h[];
-	extern void *___1a0180h;
-	extern byte ___1a01e0h[];
-	extern byte ___185c7ah[];
-	extern void * ___1a10b8h;
+	extern __POINTER__ ___1a112ch__VESA101_ACTIVESCREEN_PTR;
+	extern __POINTER__ ___1a1ed4h;
+	extern __BYTE__ ___1a1ef8h[];
+	extern __POINTER__ ___1a0180h;
+	extern __BYTE__ ___1a01e0h[];
+	extern __BYTE__ ___185c7ah[];
+	extern __POINTER__ ___1a10b8h;
 	extern font_props_t ___185c0bh;
-	extern void * ___1a1108h;
-	extern void * ___1a1e90h;
+	extern __POINTER__ ___1a1108h;
+	extern __POINTER__ ___1a1e90h;
 	extern cardata_t ___18e298h[6];
 
 
-dword ___250e0h(const char *);
+__DWORD__ ___250e0h(const char *);
 char * strupr_watcom106(char * s);
 char * itoa_watcom106(int value, char * buffer, int radix);
-void ___12e78h_cdecl(byte * A1, font_props_t * A2, const char * A3, dword dst_off);
-dword ___25230h(const char *);
+void ___12e78h_cdecl(__BYTE__ * A1, font_props_t * A2, const char * A3, __DWORD__ dst_off);
+__DWORD__ ___25230h(const char *);
 
 static const __DWORD__ ___18e220h[6][5] = {
 	[0] = {  55,  60,   0,   0,   0 },
@@ -71,12 +71,12 @@ void ___25330h(void){
 	while(++j < 0x40){
 
 		i = -1;
-		while(++i < 0x60) B(___1a112ch__VESA101_ACTIVESCREEN_PTR+0x162a0+0x280*j+i) = B(___1a0180h+0x1800*D(___1a01e0h+0x1c+0x6c*D(___1a1ef8h))+0x60*j+i);
+		while(++i < 0x60) B(___1a112ch__VESA101_ACTIVESCREEN_PTR+0x280*(j+141)+(i+544)) = B(___1a0180h+0x1800*D(___1a01e0h+0x6c*D(___1a1ef8h)+0x1c)+0x60*j+i);
 	}
 
 	strcpy(buff, ___1a01e0h+0x6c*D(___1a1ef8h));
 	strupr_watcom106(buff);
-	___12e78h_cdecl(___1a10b8h, ___185c7ah, buff, ___25230h(buff)+0x13d20);
+	___12e78h_cdecl(___1a10b8h, (font_props_t *)___185c7ah, buff, ___25230h(buff)+0x13d20);
 
 	if((int)D(___1a01e0h+0x30+0x6c*D(___1a1ef8h)) > 0x98967f) D(___1a01e0h+0x30+0x6c*D(___1a1ef8h)) = 0x98967f;
 	
@@ -88,12 +88,12 @@ void ___25330h(void){
 	itoa_watcom106(___18e220h[D(___1a01e0h+0x1c+0x6c*D(___1a1ef8h))][D(___1a01e0h+0x10+0x6c*D(___1a1ef8h))], buff_tmp, 0xa);
 	strcpy(buff, (strlen(buff_tmp) == 2) ? " " : "");
 	strcat(buff, buff_tmp);
-	___12e78h_cdecl(___1a10b8h, ___185c7ah, buff, 0x31fe0);
+	___12e78h_cdecl(___1a10b8h, (font_props_t *)___185c7ah, buff, 0x31fe0);
 
 	itoa_watcom106(D(___1a01e0h+0x48+0x6c*D(___1a1ef8h)), buff_tmp, 0xa);
 	strcpy(buff, (strlen(buff_tmp) == 1) ? " #" : "#");
 	strcat(buff, buff_tmp);
-	___12e78h_cdecl(___1a10b8h, ___185c7ah, buff, 0x34560);
+	___12e78h_cdecl(___1a10b8h, (font_props_t *)___185c7ah, buff, 0x34560);
 		
 	n = -1;
 	while(++n < 5) memset(___1a112ch__VESA101_ACTIVESCREEN_PTR+0x2fd00+0x280*n+0x224, 0x3f, (44*D(___1a01e0h+0xc+0x6c*D(___1a1ef8h))+99)/100);

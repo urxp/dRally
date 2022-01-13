@@ -3,20 +3,20 @@
 #pragma pack(1)
 
 typedef struct x655_s {
-	dword 	r;
-	dword 	g;
-	dword 	b;
+	__DWORD__ 	r;
+	__DWORD__ 	g;
+	__DWORD__ 	b;
 } x655_t;
 
 	extern x655_t ___19df50h[];
-	extern dword ___1a1edch;
-	extern dword ___1a1ecch;
+	extern __DWORD__ ___1a1edch;
+	extern __DWORD__ ___1a1ecch;
 
-void __DISPLAY_SET_PALETTE_COLOR(dword b, dword g, dword r, dword n);
+void __DISPLAY_SET_PALETTE_COLOR(__DWORD__ b, __DWORD__ g, __DWORD__ r, __DWORD__ n);
 
 void ___2a394h(void){
 
-	dword 	r, g, b, n;
+	__DWORD__ 	r, g, b, n;
 
 	n = -1;
 	while(++n < 0x10){

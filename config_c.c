@@ -35,7 +35,7 @@ extern __DWORD__ ___1a1130h_gp_steer_right;
 extern __DWORD__ ___1a1118h_gp_machine_gun;
 extern __DWORD__ ___1a111ch_gp_drop_mine;
 extern __DWORD__ ___1a1f3ch_counter;
-extern byte ___185a5ch[];
+extern __BYTE__ ___185a5ch[];
 extern __DWORD__ ___199fa4h_com_port_addr;
 extern __DWORD__ ___199fa8h_com_port_irq;
 extern __DWORD__ ___1a1e50h_com_port_standard;
@@ -43,26 +43,26 @@ extern __DWORD__ ___1a1120h_gp_turbo_boost;
 extern __DWORD__ ___1a1110h_gp_steer_left;
 extern __DWORD__ ___1a1164h_gp_accelerate;
 extern hof_entry_t ___1a0e28h[10];
-extern record_t ___19f750h[6][0x12];
+extern record_t ___19f750h[6][18];
 extern __DWORD__ ___196a90h_modem_dialing;
 extern char ___1a1ffch_modem_init_string[0x15];
 extern char ___1a201ah_modem_dial_number[0x15];
 extern __DWORD__ ___19bd58h_gamepad;
 extern __DWORD__ ___196a94h_difficulty;
-extern byte ___199f42h[];
-extern byte ___199f41h[];
-extern byte ___199f3eh[];
-extern byte ___199f3fh[];
-extern byte ___199f43h[];
-extern byte ___199f44h[];
-extern byte ___199f45h[];
+extern __BYTE__ ___199f42h[];
+extern __BYTE__ ___199f41h[];
+extern __BYTE__ ___199f3eh[];
+extern __BYTE__ ___199f3fh[];
+extern __BYTE__ ___199f43h[];
+extern __BYTE__ ___199f44h[];
+extern __BYTE__ ___199f45h[];
 
-static byte ROL_BYTE(byte b, int n){
+static __BYTE__ ROL_BYTE(__BYTE__ b, int n){
 
     return (b<<n)|(b>>(8-n));
 }
 
-static byte ROR_BYTE(byte b, int n){
+static __BYTE__ ROR_BYTE(__BYTE__ b, int n){
 
     return (b>>n)|(b<<(8-n));
 }
@@ -97,13 +97,13 @@ static void CONFIG_ENCODE(config_t * p){
     }
 }
 
-static const byte CONFIG_INIT[7] = { 0,0,0,0,0,0,0 };
+static const __BYTE__ CONFIG_INIT[7] = { 0,0,0,0,0,0,0 };
 
 void CONFIG_READ(void){
 
     FILE *	    fd;
-	dword 	    file_size;
-    byte        key;
+	__DWORD__ 	    file_size;
+    __BYTE__        key;
     config_t *  cfg;
 
     file_size = GET_FILE_SIZE(CONFIG_FILE_NAME);
@@ -194,7 +194,7 @@ void CONFIG_READ(void){
             break;
         }
 
-        dRMemory_free(cfg);
+        dRMemory_free((__POINTER__)cfg);
     }
 }
 
@@ -248,10 +248,10 @@ void CONFIG_WRITE(void){
     fwrite(cfg, sizeof(config_t), 1, fd);
     fclose(fd);
 
-    dRMemory_free(cfg);
+    dRMemory_free((__POINTER__)cfg);
 }
 
-static const byte default_records[18][6][2] = {
+static const __BYTE__ default_records[18][6][2] = {
 /*
 ** TRACK         ** VAGABO  DERVIS  SENTIN  SHRIEK  WRAITH  DELIVE **
 ** **************** ******  ******  ******  ******  ******  ****** **
@@ -285,8 +285,8 @@ static const char hof_default_names[10][12] = {
 
 static void CONFIG_DEFAULT(void){
 
-    dword       eax, ebx, ecx, edx, esi, edi, ebp;
-    dword       track, car, n;
+    __DWORD__       eax, ebx, ecx, edx, esi, edi, ebp;
+    __DWORD__       track, car, n;
 
     ___24cc54h_sfx_volume = 0xc000;
     ___24cc58h_msx_volume = 0x8000;

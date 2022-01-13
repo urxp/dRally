@@ -2,95 +2,95 @@
 
 #pragma pack(1)
 typedef struct s3m_position_s {
-    byte    Order;
-    byte    Row;
+    __BYTE__    Order;
+    __BYTE__    Row;
 } s3m_position_t;
 
 typedef struct music_s {
-    byte        ch_map[32];
-    dword *     c2spd;
-    void **     patterns;
-    byte *      ch_settings;
-    byte *	    orders;
-    byte *      panning;
-    byte *      volume;
-    void *      s3m_p;
-    word        n_patterns;
-    byte        n_orders;
-    byte        tempo;
-    byte        global_volume;
-    byte        speed;
+    __BYTE__        ch_map[32];
+    __DWORD__ *     c2spd;
+    __POINTER__*     patterns;
+    __BYTE__ *      ch_settings;
+    __BYTE__ *	    orders;
+    __BYTE__ *      panning;
+    __BYTE__ *      volume;
+    __POINTER__      s3m_p;
+    __WORD__        n_patterns;
+    __BYTE__        n_orders;
+    __BYTE__        tempo;
+    __BYTE__        global_volume;
+    __BYTE__        speed;
 } music_t;
 
 typedef union what_u {
     struct {
-        byte    channel:5;
-        byte    note_inst:1;
-        byte    volume:1;
-        byte    cmd:1;
+        __BYTE__    channel:5;
+        __BYTE__    note_inst:1;
+        __BYTE__    volume:1;
+        __BYTE__    cmd:1;
     };
-    byte    val;
+    __BYTE__    val;
 } what_t;
 
 typedef struct unpacked_s {
 	union {
 		struct {
-			byte 	note_note:4;
-			byte 	note_octave:4;
+			__BYTE__ 	note_note:4;
+			__BYTE__ 	note_octave:4;
 		};
-		byte note;
+		__BYTE__ note;
 	};
-	byte 	instrument;
-	byte 	volume;
+	__BYTE__ 	instrument;
+	__BYTE__ 	volume;
     union {
-        word    cmd;
+        __WORD__    cmd;
         struct {
-	        byte 	cmd_cmd;
-	        byte 	cmd_info;
+	        __BYTE__ 	cmd_cmd;
+	        __BYTE__ 	cmd_info;
         };
     };
 } unpacked_t;
 
-    extern const word st3_periods[12];
+    extern const __WORD__ st3_periods[12];
 	extern unpacked_t 	Unpacked;
 	extern music_t 	Music;
     extern s3m_position_t S3M_Position;
-    extern byte ___19a686h;
-    extern byte ___19a685h;
-    extern byte ___19a53fh;
-    extern byte ___19a684h;
-    extern byte ___19a53ch;
-    extern byte ___19a53dh;
-    extern byte ___19a540h;
-	extern byte ___19a53eh;
+    extern __BYTE__ ___19a686h;
+    extern __BYTE__ ___19a685h;
+    extern __BYTE__ ___19a53fh;
+    extern __BYTE__ ___19a684h;
+    extern __BYTE__ ___19a53ch;
+    extern __BYTE__ ___19a53dh;
+    extern __BYTE__ ___19a540h;
+	extern __BYTE__ ___19a53eh;
 
 
 
 extern double s3m_TickDuration_s;
-extern dword ___68a90h[32];
-extern dword ___68a10h[32];
-extern dword ___68990h[32];
-extern dword ___68910h_offset[32];
-extern word ___688d0h_sample_id[32];
-extern word ___19a542h[16];
-extern word ___19a562h[16];
-extern byte ___19a582h[16];
-extern byte cmd_cmd_mem[16];
-extern byte cmd_info_mem[16];
-extern byte ___19a5b2h[16];
-extern byte ___19a5c2h[16];
-extern byte ___19a5d2h[16];
-extern word ___19a5e2h;
-extern byte ___19a5e4h[16];
-extern byte ___19a5f4h[16];
-extern word ___19a604h[16];
-extern word ___19a624h[16];
-extern word ___19a644h[16];
-extern byte ___19a664h[16];
-extern byte ___19a674h[16];
-extern word ___24e880h[16];
+extern __DWORD__ ___68a90h[32];
+extern __DWORD__ ___68a10h[32];
+extern __DWORD__ ___68990h[32];
+extern __DWORD__ ___68910h_offset[32];
+extern __WORD__  ___688d0h_sample_id[32];
+extern __WORD__  ___19a542h[16];
+extern __WORD__  ___19a562h[16];
+extern __BYTE__ ___19a582h[16];
+extern __BYTE__ cmd_cmd_mem[16];
+extern __BYTE__ cmd_info_mem[16];
+extern __BYTE__ ___19a5b2h[16];
+extern __BYTE__ ___19a5c2h[16];
+extern __BYTE__ ___19a5d2h[16];
+extern __WORD__  ___19a5e2h;
+extern __BYTE__ ___19a5e4h[16];
+extern __BYTE__ ___19a5f4h[16];
+extern __WORD__  ___19a604h[16];
+extern __WORD__  ___19a624h[16];
+extern __WORD__  ___19a644h[16];
+extern __BYTE__ ___19a664h[16];
+extern __BYTE__ ___19a674h[16];
+extern __WORD__  ___24e880h[16];
 
-const word ___19a49ch[16] = {
+const __WORD__ ___19a49ch[16] = {
     0x1ed7, 0x1f05, 0x1f31, 0x1f6e, 0x1fab, 0x1fe9, 0x2028, 0x2058,
     0x20ab, 0x20dd, 0x210f, 0x2151, 0x2185, 0x21cb, 0x2213, 0x2235
 };
@@ -107,14 +107,14 @@ const short ___19a4bch[64] = {
 };
 
 int rand_watcom106(void);
-dword static_BX(word);
+__DWORD__ static_BX(__WORD__);
 
 int     tmp_vol;
 int     tmp_chn;
 #define PACKED_WHAT	pack_what.val
 what_t    pack_what;
 
-static void misc_effects(byte A1){
+static void misc_effects(__BYTE__ A1){
 
     switch(A1){
     case 2: /* S2x
@@ -192,7 +192,7 @@ static void misc_effects(byte A1){
 
 #define GETSIGN_W(v) (!!((v)&0x8000))
 
-void switch_KK(byte A1){
+void switch_KK(__BYTE__ A1){
     
 
     tmp_vol = 4*(___19a5c2h[tmp_chn]&0xf);
@@ -219,7 +219,7 @@ void switch_KK(byte A1){
     }
 }
 
-void switch_QQ(byte A1){
+void switch_QQ(__BYTE__ A1){
 
     tmp_vol = ___19a5c2h[tmp_chn]&0xf;
 
@@ -245,7 +245,7 @@ void switch_QQ(byte A1){
 }
 
 // Qxy Retrig (+volumeslide) note 
-void switch_TT(byte A1){
+void switch_TT(__BYTE__ A1){
 
     switch(A1){
     case 0:
@@ -328,7 +328,7 @@ void switch_TT(byte A1){
     }
 }
 
-void switch_YY(byte A1){
+void switch_YY(__BYTE__ A1){
 
     /*
         Effects marked with a % use the latest nonzero effect parameter to show up.
@@ -525,7 +525,7 @@ void switch_YY(byte A1){
     }
 }
 
-void switch_ZZ(byte A1){
+void switch_ZZ(__BYTE__ A1){
 
     switch(A1){
     case 0:

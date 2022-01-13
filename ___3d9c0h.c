@@ -2,15 +2,15 @@
 #include "drally_keyboard.h"
 
 	extern __BYTE__ ___1a54d0h[];
-	extern void * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
+	extern __POINTER__ ___1a112ch__VESA101_ACTIVESCREEN_PTR;
 
-void bpk_decode2(void *, void *);
+void bpk_decode2(__POINTER__, __POINTER__);
 void ___12cb8h__VESA101_PRESENTSCREEN(void);
 void ___3d1f0h(void);
 void __VRETRACE_WAIT_FOR_START(void);
-byte ___5994ch(void);
+__BYTE__ ___5994ch(void);
 void ___3d2bch(void);
-void old_bpa_read(const char *, void *, const char *);
+void old_bpa_read(const char *, __POINTER__, const char *);
 void ___3d154h(const char * pal_name);
 
 // LOAD SLIDE PALETTE

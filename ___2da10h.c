@@ -1,24 +1,24 @@
 #include "drally.h"
 
-	extern byte ___1a0a50h[];
-	extern void * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
-	extern void * ___1a1e5ch;
-	extern byte ___1a0178h_PriceRocketFuel[];
+	extern __BYTE__ ___1a0a50h[];
+	extern __POINTER__ ___1a112ch__VESA101_ACTIVESCREEN_PTR;
+	extern __POINTER__ ___1a1e5ch;
+	extern __DWORD__ ___1a0178h_PriceRocketFuel;
 
 int ___25180h_cdecl(const char * A1);
-void ___12f60h_cdecl(const char * A1, dword A2);
+void ___12f60h_cdecl(const char * A1, __DWORD__ A2);
 void ___2d184h(void);
 void ___2d20ch(void);
 char * itoa_watcom106(int value, char * buffer, int radix);
-void ___2d054h_cdecl(dword);
+void ___2d054h_cdecl(__DWORD__);
 
 // MARKET ROCKET FUEL
 void ___2da10h(void){
 
-	dword 	eax, ebx, ecx, edx, edi, esi, ebp;
-	byte 	esp[0x28];
-	void * 	esip;
-	void * 	ebxp;
+	__DWORD__ 	eax, ebx, ecx, edx, edi, esi, ebp;
+	__BYTE__ 	esp[0x28];
+	__POINTER__ 	esip;
+	__POINTER__ 	ebxp;
 
 
 	if(D(___1a0a50h+8) == 1){
@@ -52,7 +52,7 @@ void ___2da10h(void){
 		}
 
 		___2d054h_cdecl(0x2);
-		itoa_watcom106(D(___1a0178h_PriceRocketFuel), esp, 0xa);
+		itoa_watcom106(___1a0178h_PriceRocketFuel, esp, 0xa);
 		strcpy(esp+0x14, "$");
 		strcat(esp+0x14, esp);
 		___12f60h_cdecl(esp+0x14, ___25180h_cdecl(esp+0x14)+0x34660);

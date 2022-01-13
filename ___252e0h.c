@@ -1,10 +1,10 @@
 #include "drally.h"
 
-	extern byte ___185ba9h[];
+	extern __BYTE__ ___185ba9h[];
 
 int ___252e0h_cdecl(const char * A1){
 
-	dword 	eax, ebx, ecx, edx, edi, esi, ebp;
+	__DWORD__ 	eax, ebx, ecx, edx, edi, esi, ebp;
 	int 	n, rslt;
 
 

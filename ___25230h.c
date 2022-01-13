@@ -2,14 +2,14 @@
 
 #pragma pack(1)
 typedef struct font_props_s {
-	byte 	w;
-	byte 	h;
-	byte 	props[];
+	__BYTE__ 	w;
+	__BYTE__ 	h;
+	__BYTE__ 	props[];
 } font_props_t;
 
 	extern font_props_t ___185c7ah;
 	
-dword ___25230h(const char * A1){
+__DWORD__ ___25230h(const char * A1){
 
 	int 	n, offset;
 

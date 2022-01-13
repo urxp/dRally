@@ -2,27 +2,29 @@
 #include "drally_keyboard.h"
 #include "sfx.h"
 
-	extern byte ___196a84h[];
-	extern byte ___185a5ch[];
+	extern __BYTE__ ___196a84h[];
+	extern __BYTE__ ___185a5ch[];
 	extern __DWORD__ ___24cc54h_sfx_volume;
-	extern byte ___19bd60h[];
+#if defined(DR_MULTIPLAYER)
+	extern __DWORD__ ___19bd60h;
+#endif // DR_MULTIPLAYER
 
 #if defined(DR_MULTIPLAYER)
 void ___23758h(void);
 #endif // DR_MULTIPLAYER
-void menu___14010h(dword);
-void ___14368h_cdecl(dword);
-void dRally_Sound_pushEffect(byte channel, byte n, dword unk, dword a0, dword a1, dword a2);
+void menu___14010h(__DWORD__);
+void ___14368h_cdecl(__DWORD__);
+void dRally_Sound_pushEffect(__BYTE__ channel, __BYTE__ n, __DWORD__ unk, __DWORD__ a0, __DWORD__ a1, __DWORD__ a2);
 void ___2ab50h(void);
-void ___13a98h_cdecl(dword);
-byte ___5994ch(void);
+void ___13a98h_cdecl(__DWORD__);
+__BYTE__ ___5994ch(void);
 void menu___3da48h(void);
-void ___13cech(dword);
+void ___13cech(__DWORD__);
 
-int ___146c4h_cdecl(dword A1){
+int ___146c4h_cdecl(__DWORD__ A1){
 
 	int 	rslt, n;
-	byte 	LastScan;
+	__BYTE__ 	LastScan;
 
 
 	rslt = -2;
@@ -64,11 +66,11 @@ int ___146c4h_cdecl(dword A1){
 			rslt = (int)D(0x1c*A1+___185a5ch+0x18);
 			dRally_Sound_pushEffect(1, SFX_CLICK_4, 0, ___24cc54h_sfx_volume, 0x28000, 0x8000);
 			break;
-#if defined(DR_MULTIPLAYER)
 		case DR_SCAN_F1:
-			if(D(___19bd60h) != 0) ___23758h();
-			break;
+#if defined(DR_MULTIPLAYER)
+			if(___19bd60h != 0) ___23758h();
 #endif // DR_MULTIPLAYER
+			break;
 		case DR_SCAN_UP:
 		case DR_SCAN_KP_8:
 			menu___14010h(A1);

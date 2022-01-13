@@ -1,32 +1,36 @@
 #include "drally.h"
+#include "drally_structs_free.h"
 
-	extern void * ___243d80h;
-	extern void * ___243d88h;
-	extern byte ___243c60h[];
-	extern byte ___1e6ed0h[];
-	extern byte ___196dc8h[];
-	extern byte ___196d98h[];
-	extern byte ___196dcch[];
+	extern __POINTER__ ___243d80h;
+	extern __POINTER__ ___243d88h;
+	extern __BYTE__ ___243c60h[];
+	extern __BYTE__ ___1e6ed0h[];
+	extern __BYTE__ ___196dc8h[];
+	extern __BYTE__ ___196d98h[];
+	extern __BYTE__ ___196dcch[];
 
 // MACHINE GUNS EFFECTS 
 void race___50ba4h(void){
 
-	dword 	eax, ebx, ecx, edx, edi, esi, ebp;
-	byte 	esp[0x3c];
-	void * 	esip;
-	void * 	edxp;
-	void * 	ebxp;
-	int 	i, j, n, m;
-	__BYTE__ 	px;
+	__DWORD__ 		eax, ebx, ecx, edx, edi, esi, ebp;
+	__BYTE__ 		esp[0x3c];
+	__POINTER__ 	esip;
+	__POINTER__ 	edxp;
+	__POINTER__ 	ebxp;
+	int 			i, j, n, m;
+	__BYTE__ 		px;
+	struct_35e_t * 	s_35e;
 
 
+
+	s_35e = (struct_35e_t *)___1e6ed0h;
 	ebxp = ___243d80h;
 	esip = ___243d88h;
 
-	if((int)D(___1e6ed0h+0x35e*D(___243c60h)+0x1b2) > 0){
+	if((int)s_35e[D(___243c60h)].__1b2 > 0){
 
-		n = D(___196d98h)+D(___1e6ed0h+0x35e*D(___243c60h)+0x1ca)-D(___196dc8h);
-		m = D(___1e6ed0h+0x35e*D(___243c60h)+0x1ce)-D(___196dcch);
+		n = D(___196d98h)+s_35e[D(___243c60h)].__1ca-D(___196dc8h);
+		m = s_35e[D(___243c60h)].__1ce-D(___196dcch);
 
 		if(n >= 0){
 
@@ -40,22 +44,22 @@ void race___50ba4h(void){
 						i = -1;
 						while(++i < 8){
 
-							if((px = B(esip+0x40*(D(___1e6ed0h+0x35e*D(___243c60h)+0x1b2)-1)+i+8*j)) != 0) B(ebxp+n+i+0x200*(j+m)+0x60) = px;
+							if((px = B(esip+0x40*(s_35e[D(___243c60h)].__1b2-1)+i+8*j)) != 0) B(ebxp+n+i+0x200*(j+m)+0x60) = px;
 						}
 					}
 				}
 			}
 		}
 
-		D(___1e6ed0h+0x35e*D(___243c60h)+0x1b2) = 0;
+		s_35e[D(___243c60h)].__1b2 = 0;
 	}
 
-	if((int)D(___1e6ed0h+0x35e*D(___243c60h)+0x1ae) > 0){
+	if((int)s_35e[D(___243c60h)].__1ae > 0){
 
-		n = D(___196d98h)+D(___1e6ed0h+0x35e*D(___243c60h)+0x1c2)-D(___196dc8h);
-		D(___1e6ed0h+0x35e*D(___243c60h)+0x1ca) = D(___1e6ed0h+0x35e*D(___243c60h)+0x1c2);
-		m = D(___1e6ed0h+0x35e*D(___243c60h)+0x1c6)-D(___196dcch);
-		D(___1e6ed0h+0x35e*D(___243c60h)+0x1ce) = D(___1e6ed0h+0x35e*D(___243c60h)+0x1c6);
+		n = D(___196d98h)+s_35e[D(___243c60h)].__1c2-D(___196dc8h);
+		s_35e[D(___243c60h)].__1ca = s_35e[D(___243c60h)].__1c2;
+		m = s_35e[D(___243c60h)].__1c6-D(___196dcch);
+		s_35e[D(___243c60h)].__1ce = s_35e[D(___243c60h)].__1c6;
 
 		if(n >= 0){
 
@@ -69,23 +73,23 @@ void race___50ba4h(void){
 						i = -1;
 						while(++i < 8){
 
-							if((px = B(esip+0x40*(D(___1e6ed0h+0x35e*D(___243c60h)+0x1ae)-1)+i+8*j)) != 0) B(ebxp+n+i+0x200*(j+m)+0x60) = px;
+							if((px = B(esip+0x40*(s_35e[D(___243c60h)].__1ae-1)+i+8*j)) != 0) B(ebxp+n+i+0x200*(j+m)+0x60) = px;
 						}
 					}
 				}
 			}
 		}
 
-		D(___1e6ed0h+0x35e*D(___243c60h)+0x1b2) = 1+D(___1e6ed0h+0x35e*D(___243c60h)+0x1ae);
-		D(___1e6ed0h+0x35e*D(___243c60h)+0x1ae) = 0;
+		s_35e[D(___243c60h)].__1b2 = 1+s_35e[D(___243c60h)].__1ae;
+		s_35e[D(___243c60h)].__1ae = 0;
 	}
 
-	if((int)D(___1e6ed0h+0x35e*D(___243c60h)+0x1aa) > 0){
+	if((int)s_35e[D(___243c60h)].__1aa > 0){
 
-		n = D(___196d98h)+D(___1e6ed0h+0x35e*D(___243c60h)+0x1ba)-D(___196dc8h);
-		D(___1e6ed0h+0x35e*D(___243c60h)+0x1c2) = D(___1e6ed0h+0x35e*D(___243c60h)+0x1ba);
-		m = D(___1e6ed0h+0x35e*D(___243c60h)+0x1be)-D(___196dcch);
-		D(___1e6ed0h+0x35e*D(___243c60h)+0x1c6) = D(___1e6ed0h+0x35e*D(___243c60h)+0x1be);
+		n = D(___196d98h)+s_35e[D(___243c60h)].__1ba-D(___196dc8h);
+		s_35e[D(___243c60h)].__1c2 = s_35e[D(___243c60h)].__1ba;
+		m = s_35e[D(___243c60h)].__1be-D(___196dcch);
+		s_35e[D(___243c60h)].__1c6 = s_35e[D(___243c60h)].__1be;
 
 		if(n >= 0){
 
@@ -99,15 +103,15 @@ void race___50ba4h(void){
 						i = -1;
 						while(++i < 8){
 
-							if((px = B(esip+0x40*(D(___1e6ed0h+0x35e*D(___243c60h)+0x1aa)-1)+i+8*j)) != 0) B(ebxp+n+i+0x200*(j+m)+0x60) = px;
+							if((px = B(esip+0x40*(s_35e[D(___243c60h)].__1aa-1)+i+8*j)) != 0) B(ebxp+n+i+0x200*(j+m)+0x60) = px;
 						}
 					}
 				}
 			}
 		}
 
-		D(___1e6ed0h+0x35e*D(___243c60h)+0x1ae) = 1+D(___1e6ed0h+0x35e*D(___243c60h)+0x1aa);
-		D(___1e6ed0h+0x35e*D(___243c60h)+0x1aa) = 0;
+		s_35e[D(___243c60h)].__1ae = 1+s_35e[D(___243c60h)].__1aa;
+		s_35e[D(___243c60h)].__1aa = 0;
 	}
 
 	___243d88h = esip;

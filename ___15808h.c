@@ -1,24 +1,14 @@
 #include "drally.h"
+#include "drally_fonts.h"
 
-#pragma pack(1)
-typedef struct font_props_s {
-	byte 	w;
-	byte 	h;
-	byte 	props[];
-} font_props_t;
+	extern __POINTER__ ___1a112ch__VESA101_ACTIVESCREEN_PTR;
+	extern __POINTER__ ___1a1e80h;
+	extern __BYTE__ ___196aa4h[];
+	extern __BYTE__ ___1a1ef8h[];
+	extern __BYTE__ ___1a01e0h[];
 
-	extern void * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
-	extern void * ___1a1e80h;
-	extern byte ___196aa4h[];
-	extern byte ___1a1ef8h[];
-	extern byte ___1a01e0h[];
-	extern byte ___185ba9h[];
-	extern void * ___1a10cch;
-
-dword ___14c50h(void);
-void ___12e78h_cdecl(byte * A1, font_props_t * A2, const char * A3, dword dst_off);
-void ___13094h_cdecl(const char *, dword);
-void ___13248h_cdecl(dword, dword ,dword, dword, dword);
+__DWORD__ ___14c50h(void);
+void ___13248h_cdecl(__DWORD__, __DWORD__ ,__DWORD__, __DWORD__, __DWORD__);
 
 static const char rewards[6][6] = { "12000", "8000", "6000", "4000", "2000", "1000" };
 
@@ -52,16 +42,16 @@ int ___15808h(void){
 		if(D(___196aa4h) == -5) penalty = 1000;
 		if(D(___196aa4h) == -6) penalty = 500;
 
-		___13094h_cdecl("[Where're my steroids?", 0x1a4a1);
-		___13094h_cdecl("", 0x1cca1);
-		___13094h_cdecl("[The whole deal went sour{ because", 0x1f4a1);
-		___13094h_cdecl("of your incompetence. A few slick", 0x21ca1);
-		___13094h_cdecl("turns of the wheel, but no, nope!", 0x244a1);
-		___13094h_cdecl("I'm not happy, and when I'm not", 0x26ca1);
-		___13094h_cdecl("happy I am mad, and when I am", 0x294a1);
-		___13094h_cdecl("mad [bad things happen - to you!", 0x2bca1);
-		___13094h_cdecl("", 0x2e4a1);
-		___13094h_cdecl("", 0x30ca1);
+		VESA101_16X16_FORMAT_PRINT("[Where're my steroids?", 161, 168);
+		VESA101_16X16_FORMAT_PRINT("", 161, 184);
+		VESA101_16X16_FORMAT_PRINT("[The whole deal went sour{ because", 161, 200);
+		VESA101_16X16_FORMAT_PRINT("of your incompetence. A few slick", 161, 216);
+		VESA101_16X16_FORMAT_PRINT("turns of the wheel, but no, nope!", 161, 232);
+		VESA101_16X16_FORMAT_PRINT("I'm not happy, and when I'm not", 161, 248);
+		VESA101_16X16_FORMAT_PRINT("happy I am mad, and when I am", 161, 264);
+		VESA101_16X16_FORMAT_PRINT("mad [bad things happen - to you!", 161, 280);
+		VESA101_16X16_FORMAT_PRINT("", 161, 296);
+		VESA101_16X16_FORMAT_PRINT("", 161, 312);
 
 		if((int)D(___1a01e0h+0x6c*D(___1a1ef8h)+0x30) < penalty){
 
@@ -81,19 +71,19 @@ int ___15808h(void){
 		if(D(___196aa4h) == 5) D(___1a01e0h+0x6c*D(___1a1ef8h)+0x30) += 2000;
 		if(D(___196aa4h) == 6) D(___1a01e0h+0x6c*D(___1a1ef8h)+0x30) += 1000;
 
-		___13094h_cdecl("[What motorized steroid peddling!", 0x1a4a1);
-		___13094h_cdecl("", 0x1cca1);
-		___13094h_cdecl("Wow, my main man. I didn't know", 0x1f4a1);
-		___13094h_cdecl("there was that much smoke in the", 0x21ca1);
-		___13094h_cdecl("whole burning hell, and through", 0x244a1);
-		___13094h_cdecl("it all, bearing gifts like some", 0x26ca1);
-		___13094h_cdecl("blessed beast, you came. And [this", 0x294a1);
-		___13094h_cdecl(strcat(strcat(strcpy(buff, "[here is prime stuff! $"), rewards[D(___196aa4h)-1]), ", to you."), 0x2bca1);
-		___13094h_cdecl("", 0x2e4a1);
-		___13094h_cdecl("", 0x30ca1);
+		VESA101_16X16_FORMAT_PRINT("[What motorized steroid peddling!", 161, 168);
+		VESA101_16X16_FORMAT_PRINT("", 161, 184);
+		VESA101_16X16_FORMAT_PRINT("Wow, my main man. I didn't know", 161, 200);
+		VESA101_16X16_FORMAT_PRINT("there was that much smoke in the", 161, 216);
+		VESA101_16X16_FORMAT_PRINT("whole burning hell, and through", 161, 232);
+		VESA101_16X16_FORMAT_PRINT("it all, bearing gifts like some", 161, 248);
+		VESA101_16X16_FORMAT_PRINT("blessed beast, you came. And [this", 161, 264);
+		VESA101_16X16_FORMAT_PRINT(strcat(strcat(strcpy(buff, "[here is prime stuff! $"), rewards[D(___196aa4h)-1]), ", to you."), 161, 280);
+		VESA101_16X16_FORMAT_PRINT("", 161, 296);
+		VESA101_16X16_FORMAT_PRINT("", 161, 312);
 	}
 
-	___12e78h_cdecl(___1a10cch, ___185ba9h, "CONTINUE", 0x316c0);
+	___12e78h_v3(___1a10cch___185ba9h, "CONTINUE", 192, 316);
 
 	return rslt;
 }

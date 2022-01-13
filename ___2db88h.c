@@ -1,31 +1,31 @@
 #include "drally.h"
+#include "drally_fonts.h"
 
-	extern byte ___1a1ef8h[];
-	extern byte ___1a01e0h[];
-	extern byte ___1a0a50h[];
-	extern void * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
-	extern void * ___1a1e5ch;
-	extern byte ___1a017ch_PriceSabotage[];
+	extern __BYTE__ ___1a1ef8h[];
+	extern __BYTE__ ___1a01e0h[];
+	extern __BYTE__ ___1a0a50h[];
+	extern __POINTER__ ___1a112ch__VESA101_ACTIVESCREEN_PTR;
+	extern __POINTER__ ___1a1e5ch;
+	extern __DWORD__ ___1a017ch_PriceSabotage;
 #if defined(DR_MULTIPLAYER)
-	extern byte ___19bd60h[];
+	extern __DWORD__ ___19bd60h;
 #endif // DR_MULTIPLAYER
 
 void ___2d184h(void);
 void ___2d20ch(void);
-void ___13094h_cdecl(const char *, dword);
-void ___13248h_cdecl(dword, dword ,dword, dword, dword);
+void ___13248h_cdecl(__DWORD__, __DWORD__ ,__DWORD__, __DWORD__, __DWORD__);
 int ___25180h_cdecl(const char * A1);
-void ___12f60h_cdecl(const char * A1, dword A2);
+void ___12f60h_cdecl(const char * A1, __DWORD__ A2);
 char * itoa_watcom106(int value, char * buffer, int radix);
-void ___2d054h_cdecl(dword);
+void ___2d054h_cdecl(__DWORD__);
 
 // MARKET SABOTAGE
 void ___2db88h(void){
 
-	dword 	eax, ebx, ecx, edx, edi, esi, ebp;
-	byte 	esp[0x28];
-	void * 	ebxp;
-	void * 	esip;
+	__DWORD__ 	eax, ebx, ecx, edx, edi, esi, ebp;
+	__BYTE__ 	esp[0x28];
+	__POINTER__ 	ebxp;
+	__POINTER__ 	esip;
 
 
 	ecx = D(___1a1ef8h);
@@ -73,7 +73,7 @@ void ___2db88h(void){
 		}
 
 		___2d054h_cdecl(0x3);
-		itoa_watcom106(D(___1a017ch_PriceSabotage), esp+0x14, 0xa);
+		itoa_watcom106(___1a017ch_PriceSabotage, esp+0x14, 0xa);
 		strcpy(esp, "$");
 		strcat(esp, esp+0x14);
 		___12f60h_cdecl(esp, ___25180h_cdecl(esp)+0x346c8);
@@ -110,7 +110,7 @@ void ___2db88h(void){
 		}
 
 #if defined(DR_MULTIPLAYER)
-		if(D(___19bd60h) != 0){
+		if(___19bd60h != 0){
 
 			___2d184h();
 		}
@@ -123,12 +123,13 @@ void ___2db88h(void){
 			else {
 
 				___13248h_cdecl(0x90, 0x72, 0x180, 0x77, 1);
-				___13094h_cdecl("[No sabotage. No way.", 0x136aa);
-				___13094h_cdecl("", 0x15eaa);
-				___13094h_cdecl("What? You crazy, man? Nobody", 0x186aa);
-				___13094h_cdecl("touches the Adversary's auto-", 0x1aeaa);
-				___13094h_cdecl("mobile and lives, nobody.", 0x1d6aa);
-				___13094h_cdecl("", 0x1feaa);
+
+				VESA101_16X16_FORMAT_PRINT("[No sabotage. No way.", 170, 124);
+				VESA101_16X16_FORMAT_PRINT("", 170, 140);
+				VESA101_16X16_FORMAT_PRINT("What? You crazy, man? Nobody", 170, 156);
+				VESA101_16X16_FORMAT_PRINT("touches the Adversary's auto-", 170, 172);
+				VESA101_16X16_FORMAT_PRINT("mobile and lives, nobody.", 170, 188);
+				VESA101_16X16_FORMAT_PRINT("", 170, 204);
 			}
 #if defined(DR_MULTIPLAYER)
 		}

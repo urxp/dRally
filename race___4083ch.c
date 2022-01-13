@@ -1,8 +1,8 @@
 #include "drally.h"
 
-	extern byte ___243328h[];
-	extern byte ___243320h[];
-	extern byte ___243324h[];
+	extern __BYTE__ ___243328h[];
+	extern __BYTE__ ___243320h[];
+	extern __BYTE__ ___243324h[];
 
 void race___4083ch(void){
 

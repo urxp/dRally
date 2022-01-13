@@ -2,49 +2,49 @@
 
 #pragma pack(1)
 typedef struct x655_s {
-	dword 	r;
-	dword 	g;
-	dword 	b;
+	__DWORD__ 	r;
+	__DWORD__ 	g;
+	__DWORD__ 	b;
 } x655_t;
 
-	extern x655_t ___19eb50h[];
+	extern x655_t ___19eb50h[0x100];
 
-	extern byte ___1a0d60h[];
-	extern byte ___1a1ef8h[];
-	extern byte ___1a01e0h[];
-	extern void * ___1a0fb8h;
+	extern __BYTE__ ___1a0d60h[];
+	extern __BYTE__ ___1a1ef8h[];
+	extern __BYTE__ ___1a01e0h[];
+	extern __POINTER__ ___1a0fb8h;
 	extern __DWORD__ ___24cc58h_msx_volume;
 
-void ___10b80h_cdecl(const char *, dword, const char *, dword, const char *, dword, dword);
+void ___10b80h_cdecl(const char *, __DWORD__, const char *, __DWORD__, const char *, __DWORD__, __DWORD__);
 void ___606dfh(void);
-void ___605deh_cdecl(dword, dword);
+void ___605deh_cdecl(__DWORD__, __DWORD__);
 void ___3d890h(void);
 void ___1240ch(void);
 void ___24548h(void);
 void ___2faf0h(void);
 void ___3d2bch(void);
 void ___12940h(void);
-void ___11564h_cdecl(dword, dword, dword);
+void ___11564h_cdecl(__DWORD__, __DWORD__, __DWORD__);
 void ___223c4h(void);
 void ___2b318h(void);
 void ___58c60h(void);
-void dRally_Sound_setMasterVolume(dword vol);
-void __DISPLAY_SET_PALETTE_COLOR(dword b, dword g, dword r, dword n);
+void dRally_Sound_setMasterVolume(__DWORD__ vol);
+void __DISPLAY_SET_PALETTE_COLOR(__DWORD__ b, __DWORD__ g, __DWORD__ r, __DWORD__ n);
 void dRally_Sound_release(void);
-void dRally_Sound_load(dword msx_t, const char * msx_f, dword sfx_t, const char * sfx_f, dword num_ch);
-void dRally_Sound_setMusicVolume(dword vol);
-void dRally_Sound_setSampleRate(dword freq);
+void dRally_Sound_load(__DWORD__ msx_t, const char * msx_f, __DWORD__ sfx_t, const char * sfx_f, __DWORD__ num_ch);
+void dRally_Sound_setMusicVolume(__DWORD__ vol);
+void dRally_Sound_setSampleRate(__DWORD__ freq);
 void dRally_Sound_play(void);
 
 void __VESA101_SETMODE(void);
-dword GET_FILE_SIZE(const char *);
+__DWORD__ GET_FILE_SIZE(const char *);
 
 void ___22808h(void){
 
-	dword 	rr, gg, bb;
-	dword 	eax, ebx, ecx, edx, edi, ebp;
-	void * 	esi;
-	byte 	esp[0x70];
+	__DWORD__ 	rr, gg, bb;
+	__DWORD__ 	eax, ebx, ecx, edx, edi, ebp;
+	__POINTER__ 	esi;
+	__BYTE__ 	esp[0x70];
 	int 	i, k, n;
 
 

@@ -1,51 +1,46 @@
 #include "drally.h"
+#include "drally_fonts.h"
+#include "drally_structs_fixed.h"
 
-#pragma pack(1)
-typedef struct font_props_s {
-	byte 	w;
-	byte 	h;
-	byte 	props[];
-} font_props_t;
-
-	extern void * ___1a1138h__VESA101h_DefaultScreenBufferB;
-	extern void * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
-	extern void * ___1a0fbch;
-	extern void * ___1a0fd8h;
-	extern byte ___19bd60h[];
-	extern byte ___1a1ef8h[];
-	extern byte ___1a01e0h[];
-	extern byte ___185c0bh[];
-	extern void * ___1a1108h;
-	extern byte ___196ab8h[];
-	extern byte ___196ae8h[];
-	extern byte ___1a1028h[];
-	extern byte ___1a1f64h[];
+	extern __POINTER__ ___1a1138h__VESA101h_DefaultScreenBufferB;
+	extern __POINTER__ ___1a112ch__VESA101_ACTIVESCREEN_PTR;
+	extern __POINTER__ ___1a0fbch;
+	extern __POINTER__ ___1a0fd8h;
+#if defined(DR_MULTIPLAYER)
+	extern __DWORD__ ___19bd60h;
+#endif // DR_MULTIPLAYER
+	extern __BYTE__ ___1a1ef8h[];
+	extern __BYTE__ ___1a01e0h[];
+	extern __BYTE__ ___196ab8h[];
+	extern __BYTE__ ___196ae8h[];
+	extern __BYTE__ ___1a1028h[];
+	extern __BYTE__ ___1a1f64h[];
 	extern char ___18d492h[][0xf];
-	extern byte ___196ad4h[];
-	extern byte ___1a2010h[];
-	extern byte ___196adch[];
-	extern byte ___196aech[];
-	extern byte ___196af0h[];
-	extern byte ___1a1134h[];
-	extern byte ___1a10a0h[];
-	extern byte ___1a10a8h[];
-	extern byte ___1a1090h[];
-	extern byte ___1a1034h[];
-	extern byte ___1a108ch[];
-	extern byte ___1a0ff4h[];
-	extern byte ___19f750h[];
+	extern __BYTE__ ___196ad4h[];
+	extern __BYTE__ ___1a2010h[];
+	extern __BYTE__ ___196adch[];
+	extern __BYTE__ ___196aech[];
+	extern __BYTE__ ___196af0h[];
+	extern __DWORD__ ___1a1134h;
+	extern __BYTE__ ___1a10a0h[];
+	extern __BYTE__ ___1a10a8h[];
+	extern __BYTE__ ___1a1090h[];
+	extern __BYTE__ ___1a1034h[];
+	extern __BYTE__ ___1a108ch[];
+	extern __BYTE__ ___1a0ff4h[];
+	extern record_t ___19f750h[6][18];
 
-void ___12e78h_cdecl(byte * A1, font_props_t * A2, const char * A3, dword dst_off);
 char * itoa_watcom106(int value, char * buffer, int radix);
 char * strupr_watcom106(char * s);
 
 // RESULTS AFTER POINTS ASSIGNED
 void ___36adch(void){
 
-	dword 	eax, ebx, ecx, edx, edi, esi, ebp;
-	byte 	esp[0xa4];
-	void * 	ebxp;
-	void * 	esip;
+	__DWORD__ 	eax, ebx, ecx, edx, edi, esi, ebp;
+	__BYTE__ 	esp[0xa4];
+	__POINTER__ 	ebxp;
+	__POINTER__ 	esip;
+	int 	x, y;
 
 
 		edx = 0x36;
@@ -102,13 +97,12 @@ void ___36adch(void){
 		ebp = 0x20e;
 
 #if defined(DR_MULTIPLAYER)
-	if(D(___19bd60h) != 0){
+	if(___19bd60h != 0){
 
 		ecx = 0x182;
 		edx = 0x110;
-		ebx = ___1a112ch__VESA101_ACTIVESCREEN_PTR;
 		esip = ___1a0fd8h;
-		ebxp = ebx+0xd20a;
+		ebxp = ___1a112ch__VESA101_ACTIVESCREEN_PTR+0xd20a;
 
 		while(1){
 
@@ -135,37 +129,43 @@ void ___36adch(void){
 		itoa_watcom106(eax, esp+0x64, 0xa);
 		strcat(esp, esp+0x64);
 		strcat(esp, " race(s)");
-		___12e78h_cdecl(___1a1108h, ___185c0bh, esp, 0x46a2e);
+		___12e78h_v3(___1a1108h___185c0bh, esp, 46, 452);
 	}
 
-	if(D(___19bd60h) != 0){
+	if(___19bd60h != 0){
 
-		___12e78h_cdecl(___1a1108h, ___185c0bh, "Multiplayer Ranking", 0xd738);
+		___12e78h_v3(___1a1108h___185c0bh, "Multiplayer Ranking", 56, 86);
 	}
 #endif // DR_MULTIPLAYER
 
-		___12e78h_cdecl(___1a1108h, ___185c0bh, "Your Statistics:", 0xd8a0);
+		___12e78h_v3(___1a1108h___185c0bh, "Your Statistics:", 416, 86);
 		itoa_watcom106(D(___1a01e0h+0x6c*D(___1a1ef8h)+0x48), esp+0x64, 0xa);
 		strcat(esp+0x64, ".");
 		strcpy(esp, "Position");
-		___12e78h_cdecl(___1a1108h, ___185c0bh, esp, 0x120e8);
+		___12e78h_v3(___1a1108h___185c0bh, esp, 360, 115);
 		strcpy(esp, ": ");
 		strcat(esp, esp+0x64);
-		___12e78h_cdecl(___1a1108h, ___185c0bh, esp, ebp+0x11f80);
+		x = ebp+0x11f80;
+		y = x/0x280;
+		x = x%0x280;
+		___12e78h_v3(___1a1108h___185c0bh, esp, x, y);
 		itoa_watcom106(D(___1a01e0h+0x6c*D(___1a1ef8h)+0x4c), esp+0x64, 0xa);
 		strcpy(esp, "Races won");
-		___12e78h_cdecl(___1a1108h, ___185c0bh, esp, 0x15a68);
+		___12e78h_v3(___1a1108h___185c0bh, esp, 360, 138);
 		strcpy(esp, ": ");
 		strcat(esp, esp+0x64);
-		___12e78h_cdecl(___1a1108h, ___185c0bh, esp, ebp+0x15900);
+		x = ebp+0x15900;
+		y = x/0x280;
+		x = x%0x280;
+		___12e78h_v3(___1a1108h___185c0bh, esp, x, y);
 		itoa_watcom106(D(___1a01e0h+0x6c*D(___1a1ef8h)+0x50), esp+0x64, 0xa);
 		strcpy(esp, "Total races");
-		___12e78h_cdecl(___1a1108h, ___185c0bh, esp, 0x193e8);
+		___12e78h_v3(___1a1108h___185c0bh, esp, 360, 161);
 		strcpy(esp, ": ");
 		strcat(esp, esp+0x64);
 
 #if defined(DR_MULTIPLAYER)
-		if(D(___19bd60h) != 0){
+		if(___19bd60h != 0){
 
 			strcat(esp, " / ");
 			itoa_watcom106(D(___196ab8h), esp+0x64, 0xa);
@@ -173,32 +173,41 @@ void ___36adch(void){
 		}
 #endif // DR_MULTIPLAYER
 
-		___12e78h_cdecl(___1a1108h, ___185c0bh, esp, ebp+0x19280);
+		x = ebp+0x19280;
+		y = x/0x280;
+		x = x%0x280;
+		___12e78h_v3(___1a1108h___185c0bh, esp, x, y);
 		itoa_watcom106(D(___1a01e0h+0x6c*D(___1a1ef8h)+0x58), esp+0x64, 0xa);
 		strcpy(esp, "Total income");
-		___12e78h_cdecl(___1a1108h, ___185c0bh, esp, 0x1cd68);
+		___12e78h_v3(___1a1108h___185c0bh, esp, 360, 184);
 		strcpy(esp, ": $");
 		strcat(esp, esp+0x64);
-		___12e78h_cdecl(___1a1108h, ___185c0bh, esp, ebp+0x1cc00);
+		x = ebp+0x1cc00;
+		y = x/0x280;
+		x = x%0x280;
+		___12e78h_v3(___1a1108h___185c0bh, esp, x, y);
 		itoa_watcom106(D(___1a01e0h+0x6c*D(___1a1ef8h)+0x30), esp+0x64, 0xa);
 		strcpy(esp, "Total money");
-		___12e78h_cdecl(___1a1108h, ___185c0bh, esp, 0x206e8);
+		___12e78h_v3(___1a1108h___185c0bh, esp, 360, 207);
 		strcpy(esp, ": $");
 		strcat(esp, esp+0x64);
-		___12e78h_cdecl(___1a1108h, ___185c0bh, esp, ebp+0x20580);
+		x = ebp+0x20580;
+		y = x/0x280;
+		x = x%0x280;
+		___12e78h_v3(___1a1108h___185c0bh, esp, x, y);
 		if((int)D(___196ae8h) <= 0) goto ___37ebch;
 		eax = D(___1a1028h);
 		edx = B(eax+___1a1f64h);
 		strcpy(esp, ___18d492h[edx]);
 
 #if defined(DR_MULTIPLAYER)		
-		if(D(___19bd60h) != 0){
+		if(___19bd60h != 0){
 		
 			edx = B(___1a2010h+D(___196ad4h));
 			strcpy(esp, ___18d492h[edx]);
 		}
 
-		if(D(___19bd60h) == 0){
+		if(___19bd60h == 0){
 #endif // DR_MULTIPLAYER
 			if(D(___1a1028h) == 0) strcat(esp, " easy race:");
 			if(D(___1a1028h) == 1) strcat(esp, " medium race:");
@@ -207,7 +216,7 @@ void ___36adch(void){
 #if defined(DR_MULTIPLAYER)	
 		}
 
-		if(D(___19bd60h) != 0){
+		if(___19bd60h != 0){
 
 			itoa_watcom106(D(___196adch), esp+0x64, 0xa);
 			strcat(esp, " ");
@@ -216,38 +225,53 @@ void ___36adch(void){
 		}
 #endif // DR_MULTIPLAYER
 
-		___12e78h_cdecl(___1a1108h, ___185c0bh, esp, 0x26ae8);
+		___12e78h_v3(___1a1108h___185c0bh, esp, 360, 247);
 		itoa_watcom106(D(___196ae8h), esp+0x64, 0xa);
 		strcat(esp+0x64, ".");
 		strcpy(esp, "Placing");
-		___12e78h_cdecl(___1a1108h, ___185c0bh, esp, 0x2a468);
+		___12e78h_v3(___1a1108h___185c0bh, esp, 360, 270);
 		strcpy(esp, ": ");
 		strcat(esp, esp+0x64);
-		___12e78h_cdecl(___1a1108h, ___185c0bh, esp, ebp+0x2a300);
+		x = ebp+0x2a300;
+		y = x/0x280;
+		x = x%0x280;
+		___12e78h_v3(___1a1108h___185c0bh, esp, x, y);
 		itoa_watcom106(D(___196aech), esp+0x64, 0xa);
 		strcpy(esp, "Race income");
-		___12e78h_cdecl(___1a1108h, ___185c0bh, esp, 0x2dde8);
+		___12e78h_v3(___1a1108h___185c0bh, esp, 360, 293);
 		strcpy(esp, ": $");
 		strcat(esp, esp+0x64);
-		___12e78h_cdecl(___1a1108h, ___185c0bh, esp, ebp+0x2dc80);
+		x = ebp+0x2dc80;
+		y = x/0x280;
+		x = x%0x280;
+		___12e78h_v3(___1a1108h___185c0bh, esp, x, y);
 		itoa_watcom106(D(___196af0h), esp+0x64, 0xa);
 		strcpy(esp, "Bonus income");
-		___12e78h_cdecl(___1a1108h, ___185c0bh, esp, 0x31768);
+		___12e78h_v3(___1a1108h___185c0bh, esp, 360, 316);
 		strcpy(esp, ": $");
 		strcat(esp, esp+0x64);
-		___12e78h_cdecl(___1a1108h, ___185c0bh, esp, ebp+0x31600);
+		x = ebp+0x31600;
+		y = x/0x280;
+		x = x%0x280;
+		___12e78h_v3(___1a1108h___185c0bh, esp, x, y);
 		itoa_watcom106(D(___196aech)+D(___196af0h), esp+0x64, 0xa);
 		strcpy(esp, "Total race income");
-		___12e78h_cdecl(___1a1108h, ___185c0bh, esp, 0x350e8);
+		___12e78h_v3(___1a1108h___185c0bh, esp, 360, 339);
 		strcpy(esp, ": $");
 		strcat(esp, esp+0x64);
-		___12e78h_cdecl(___1a1108h, ___185c0bh, esp, ebp+0x34f80);
-		itoa_watcom106(D(___1a1134h), esp+0x64, 0xa);
+		x = ebp+0x34f80;
+		y = x/0x280;
+		x = x%0x280;
+		___12e78h_v3(___1a1108h___185c0bh, esp, x, y);
+		itoa_watcom106(___1a1134h, esp+0x64, 0xa);
 		strcpy(esp, "Number of laps");
-		___12e78h_cdecl(___1a1108h, ___185c0bh, esp, 0x38a68);
+		___12e78h_v3(___1a1108h___185c0bh, esp, 360, 362);
 		strcpy(esp, ": ");
 		strcat(esp, esp+0x64);
-		___12e78h_cdecl(___1a1108h, ___185c0bh, esp, ebp+0x38900);
+		x = ebp+0x38900;
+		y = x/0x280;
+		x = x%0x280;
+		___12e78h_v3(___1a1108h___185c0bh, esp, x, y);
 		itoa_watcom106(D(___1a10a0h), esp+0x78, 0xa);
 		itoa_watcom106(D(___1a10a8h), esp+0x50, 0xa);
 		itoa_watcom106(D(___1a1090h), esp+0x8c, 0xa);
@@ -279,14 +303,17 @@ void ___36adch(void){
 		strcat(esp+0x64, ".");
 		strcat(esp+0x64, esp+0x8c);
 		strcpy(esp, "Race time");
-		___12e78h_cdecl(___1a1108h, ___185c0bh, esp, 0x3c3e8);
+		___12e78h_v3(___1a1108h___185c0bh, esp, 360, 385);
 		strcpy(esp, ": ");
 		strcat(esp, esp+0x64);
-		___12e78h_cdecl(___1a1108h, ___185c0bh, esp, ebp+0x3c280);
+		x = ebp+0x3c280;
+		y = x/0x280;
+		x = x%0x280;
+		___12e78h_v3(___1a1108h___185c0bh, esp, x, y);
 		
-		ebx = D(___19f750h+0x1b0*D(___1a01e0h+0x6c*D(___1a1ef8h)+0x1c)+0x18*B(___1a1f64h+D(___1a1028h))+0x14);
-		ebx += 0x64*D(0x1b0*D(___1a01e0h+0x6c*D(___1a1ef8h)+0x1c)+0x18*B(___1a1f64h+D(___1a1028h))+___19f750h+0x10);
-		ebx += 0x1770*D(___19f750h+0x1b0*D(___1a01e0h+0x6c*D(___1a1ef8h)+0x1c)+0x18*B(___1a1f64h+D(___1a1028h))+0xc);
+		ebx = ___19f750h[D(___1a01e0h+0x6c*D(___1a1ef8h)+0x1c)][B(___1a1f64h+D(___1a1028h))].sec100;
+		ebx += 100*___19f750h[D(___1a01e0h+0x6c*D(___1a1ef8h)+0x1c)][B(___1a1f64h+D(___1a1028h))].sec;
+		ebx += 6000*___19f750h[D(___1a01e0h+0x6c*D(___1a1ef8h)+0x1c)][B(___1a1f64h+D(___1a1028h))].min;
 
 		eax = 0x64*D(___1a108ch)+0x1770*D(___1a1034h)+D(___1a0ff4h);
 
@@ -296,17 +323,17 @@ void ___36adch(void){
 
 			if(eax != 0){
 
-				strcpy(___19f750h+0x1b0*D(___1a01e0h+0x6c*D(___1a1ef8h)+0x1c)+0x18*B(___1a1f64h+D(___1a1028h)), ___1a01e0h+0x6c*D(___1a1ef8h));
-				strupr_watcom106(___19f750h+0x1b0*D(___1a01e0h+0x6c*D(___1a1ef8h)+0x1c)+0x18*B(___1a1f64h+D(___1a1028h)));
-				D(___19f750h+0x1b0*D(___1a01e0h+0x6c*D(___1a1ef8h)+0x1c)+0x18*B(___1a1f64h+D(___1a1028h))+0xc) = D(___1a1034h);
-				D(___19f750h+0x1b0*D(___1a01e0h+0x6c*D(___1a1ef8h)+0x1c)+0x18*B(___1a1f64h+D(___1a1028h))+0x10) = D(___1a108ch);
-				D(___19f750h+0x1b0*D(___1a01e0h+0x6c*D(___1a1ef8h)+0x1c)+0x18*B(___1a1f64h+D(___1a1028h))+0x14) = D(___1a0ff4h);
+				strcpy(___19f750h[D(___1a01e0h+0x6c*D(___1a1ef8h)+0x1c)][B(___1a1f64h+D(___1a1028h))].name, ___1a01e0h+0x6c*D(___1a1ef8h));
+				strupr_watcom106(___19f750h[D(___1a01e0h+0x6c*D(___1a1ef8h)+0x1c)][B(___1a1f64h+D(___1a1028h))].name);
+				___19f750h[D(___1a01e0h+0x6c*D(___1a1ef8h)+0x1c)][B(___1a1f64h+D(___1a1028h))].min = D(___1a1034h);
+				___19f750h[D(___1a01e0h+0x6c*D(___1a1ef8h)+0x1c)][B(___1a1f64h+D(___1a1028h))].sec = D(___1a108ch);
+				___19f750h[D(___1a01e0h+0x6c*D(___1a1ef8h)+0x1c)][B(___1a1f64h+D(___1a1028h))].sec100 = D(___1a0ff4h);
 			}
 		}
 
-		eax = D(___19f750h+0x18*B(___1a1f64h+D(___1a1028h))+0x1b0*D(___1a01e0h+0x6c*D(___1a1ef8h)+0x1c)*1+0xc);
-		eax += D(___19f750h+0x18*B(___1a1f64h+D(___1a1028h))+0x1b0*D(___1a01e0h+0x6c*D(___1a1ef8h)+0x1c)*1+0x10);
-		eax += D(___19f750h+0x18*B(___1a1f64h+D(___1a1028h))+0x1b0*D(___1a01e0h+0x6c*D(___1a1ef8h)+0x1c)*1+0x14);
+		eax = ___19f750h[D(___1a01e0h+0x6c*D(___1a1ef8h)+0x1c)][B(___1a1f64h+D(___1a1028h))].min;
+		eax += ___19f750h[D(___1a01e0h+0x6c*D(___1a1ef8h)+0x1c)][B(___1a1f64h+D(___1a1028h))].sec;
+		eax += ___19f750h[D(___1a01e0h+0x6c*D(___1a1ef8h)+0x1c)][B(___1a1f64h+D(___1a1028h))].sec100;
 
 		if(eax == 0){
 
@@ -314,11 +341,11 @@ void ___36adch(void){
 
 			if((int)eax > 0){
 
-				strcpy(___19f750h+0x1b0*D(___1a01e0h+0x6c*D(___1a1ef8h)+0x1c)+0x18*B(___1a1f64h+D(___1a1028h)), ___1a01e0h+0x6c*D(___1a1ef8h));
-				strupr_watcom106(___19f750h+0x1b0*D(___1a01e0h+0x6c*D(___1a1ef8h)+0x1c)+0x18*B(___1a1f64h+D(___1a1028h)));
-				D(___19f750h+0x1b0*D(___1a01e0h+0x6c*D(___1a1ef8h)+0x1c)+0x18*B(___1a1f64h+D(___1a1028h))+0xc) = D(___1a1034h);
-				D(___19f750h+0x1b0*D(___1a01e0h+0x6c*D(___1a1ef8h)+0x1c)+0x18*B(___1a1f64h+D(___1a1028h))+0x10) = D(___1a108ch);
-				D(___19f750h+0x1b0*D(___1a01e0h+0x6c*D(___1a1ef8h)+0x1c)+0x18*B(___1a1f64h+D(___1a1028h))+0x14) = D(___1a0ff4h);
+				strcpy(___19f750h[D(___1a01e0h+0x6c*D(___1a1ef8h)+0x1c)][B(___1a1f64h+D(___1a1028h))].name, ___1a01e0h+0x6c*D(___1a1ef8h));
+				strupr_watcom106(___19f750h[D(___1a01e0h+0x6c*D(___1a1ef8h)+0x1c)][B(___1a1f64h+D(___1a1028h))].name);
+				___19f750h[D(___1a01e0h+0x6c*D(___1a1ef8h)+0x1c)][B(___1a1f64h+D(___1a1028h))].min = D(___1a1034h);
+				___19f750h[D(___1a01e0h+0x6c*D(___1a1ef8h)+0x1c)][B(___1a1f64h+D(___1a1028h))].sec = D(___1a108ch);
+				___19f750h[D(___1a01e0h+0x6c*D(___1a1ef8h)+0x1c)][B(___1a1f64h+D(___1a1028h))].sec100 = D(___1a0ff4h);
 			}
 		}
 
@@ -353,13 +380,16 @@ void ___36adch(void){
 		strcat(esp+0x64, ".");
 		strcat(esp+0x64, esp+0x8c);
 		strcpy(esp, "Best lap");
-		___12e78h_cdecl(___1a1108h, ___185c0bh, esp, 0x3fd68);
+		___12e78h_v3(___1a1108h___185c0bh, esp, 360, 408);
 		strcpy(esp, ": ");
 		strcat(esp, esp+0x64);
-		___12e78h_cdecl(___1a1108h, ___185c0bh, esp, ebp+0x3fc00);
-		itoa_watcom106(D(___19f750h+0x1b0*D(___1a01e0h+0x6c*D(___1a1ef8h)+0x1c)+0x18*B(___1a1f64h+D(___1a1028h))+0xc), esp+0x78, 0xa);
-		itoa_watcom106(D(___19f750h+0x1b0*D(___1a01e0h+0x6c*D(___1a1ef8h)+0x1c)+0x18*B(___1a1f64h+D(___1a1028h))+0x10), esp+0x50, 0xa);
-		itoa_watcom106(D(___19f750h+0x1b0*D(___1a01e0h+0x6c*D(___1a1ef8h)+0x1c)+0x18*B(___1a1f64h+D(___1a1028h))+0x14), esp+0x8c, 0xa);
+		x = ebp+0x3fc00;
+		y = x/0x280;
+		x = x%0x280;
+		___12e78h_v3(___1a1108h___185c0bh, esp, x, y);
+		itoa_watcom106(___19f750h[D(___1a01e0h+0x6c*D(___1a1ef8h)+0x1c)][B(___1a1f64h+D(___1a1028h))].min, esp+0x78, 0xa);
+		itoa_watcom106(___19f750h[D(___1a01e0h+0x6c*D(___1a1ef8h)+0x1c)][B(___1a1f64h+D(___1a1028h))].sec, esp+0x50, 0xa);
+		itoa_watcom106(___19f750h[D(___1a01e0h+0x6c*D(___1a1ef8h)+0x1c)][B(___1a1f64h+D(___1a1028h))].sec100, esp+0x8c, 0xa);
 
 		if(strlen(esp+0x78) == 1){
 
@@ -388,10 +418,13 @@ void ___36adch(void){
 		strcat(esp+0x64, ".");
 		strcat(esp+0x64, esp+0x8c);
 		strcpy(esp, "Best lap ever");
-		___12e78h_cdecl(___1a1108h, ___185c0bh, esp, 0x436e8);
+		___12e78h_v3(___1a1108h___185c0bh, esp, 360, 431);
 		strcpy(esp, ": ");
 		strcat(esp, esp+0x64);
-		___12e78h_cdecl(___1a1108h, ___185c0bh, esp, ebp+0x43580);
+		x = ebp+0x43580;
+		y = x/0x280;
+		x = x%0x280;
+		___12e78h_v3(___1a1108h___185c0bh, esp, x, y);
 ___37ebch:
 		D(___196ae8h) = 0;
 		return;

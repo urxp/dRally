@@ -1,9 +1,10 @@
 #include "drally.h"
+#include "drally_fonts.h"
 
 typedef char char40[40];
 
-	extern byte ___1a1ef8h[];
-	extern byte ___1a01e0h[];
+	extern __BYTE__ ___1a1ef8h[];
+	extern __BYTE__ ___1a01e0h[];
 
 static const char40 ___192870h[5][6] = {
 	[0] = {
@@ -48,14 +49,13 @@ static const char40 ___192870h[5][6] = {
 	}
 };
 
-void ___13248h_cdecl(dword, dword ,dword, dword, dword);
-void ___13094h_cdecl(const char *, dword);
+void ___13248h_cdecl(__DWORD__, __DWORD__ ,__DWORD__, __DWORD__, __DWORD__);
 
 // UNDERGROUND LOANSHARK INFO BOX UPDATE
 void ___26fach(void){
 
-	dword 	eax, ebx, ecx, edx, edi, esi, ebp;
-	byte 	esp[4];
+	__DWORD__ 	eax, ebx, ecx, edx, edi, esi, ebp;
+	__BYTE__ 	esp[4];
 
 		ebx = D(___1a1ef8h);
 		eax = 8*ebx;
@@ -74,11 +74,11 @@ ___26febh:
 		edx = 0x72;
 		eax = 0x90;
 		___13248h_cdecl(eax, edx, ebx, ecx, 1);
-		___13094h_cdecl(___192870h[B(esp)][0], 0x136aa);
-		___13094h_cdecl(___192870h[B(esp)][1], 0x15eaa);
-		___13094h_cdecl(___192870h[B(esp)][2], 0x186aa);
-		___13094h_cdecl(___192870h[B(esp)][3], 0x1aeaa);
-		___13094h_cdecl(___192870h[B(esp)][4], 0x1d6aa);
-		___13094h_cdecl(___192870h[B(esp)][5], 0x1feaa);
+		VESA101_16X16_FORMAT_PRINT(___192870h[B(esp)][0], 170, 124);
+		VESA101_16X16_FORMAT_PRINT(___192870h[B(esp)][1], 170, 140);
+		VESA101_16X16_FORMAT_PRINT(___192870h[B(esp)][2], 170, 156);
+		VESA101_16X16_FORMAT_PRINT(___192870h[B(esp)][3], 170, 172);
+		VESA101_16X16_FORMAT_PRINT(___192870h[B(esp)][4], 170, 188);
+		VESA101_16X16_FORMAT_PRINT(___192870h[B(esp)][5], 170, 204);
 		return;
 }

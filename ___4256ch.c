@@ -1,9 +1,9 @@
 #include "drally.h"
 
-	extern void * ___243d80h;
+	extern __POINTER__ ___243d80h;
 
 
-static void helper00(void * A1, dword A2, dword A3, dword A5, dword B0, dword B1){
+static void helper00(__POINTER__ A1, __DWORD__ A2, __DWORD__ A3, __DWORD__ A5, __DWORD__ B0, __DWORD__ B1){
 
 	int 		i, j;
 	__BYTE__ 	px;
@@ -20,7 +20,7 @@ static void helper00(void * A1, dword A2, dword A3, dword A5, dword B0, dword B1
 }
 
 // DAMAGE %
-dword ___4256ch_cdecl(void * A1, dword A2, dword A3, int A4, dword A5, dword A6, int A7, dword A8){
+__DWORD__ ___4256ch_cdecl(__POINTER__ A1, __DWORD__ A2, __DWORD__ A3, int A4, __DWORD__ A5, __DWORD__ A6, int A7, __DWORD__ A8){
 
 	if(A4 < 0) A4 = 0;
 

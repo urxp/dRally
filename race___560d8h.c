@@ -1,27 +1,30 @@
 #include "drally.h"
+#include "drally_structs_free.h"
 
-	extern byte ___243ce8h[];
-	extern byte ___243cf4h[];
-	extern byte ___1e6ed0h[];
-	extern byte ___243c60h[];
+	extern __DWORD__ MY_CAR_IDX;
+	extern __DWORD__ NUM_OF_CARS;
+	extern __BYTE__ ___1e6ed0h[];
+	extern __BYTE__ ___243c60h[];
 
 void race___560d8h(void){
 
-	byte 	b_tmp;
-	dword 	n;
+	__BYTE__ 		b_tmp;
+	int 			n;
+	struct_35e_t *	s_35e;
 
+	s_35e = (struct_35e_t *)___1e6ed0h;
 	n = -1;
-	while(++n < (int)D(___243cf4h)){
+	while(++n < (int)NUM_OF_CARS){
 
-		if(n != D(___243ce8h)){
+		if(n != MY_CAR_IDX){
 
-			if((D(0x35e*n+___1e6ed0h+0x10a) == 0)&&(D(0x35e*D(___243ce8h)+___1e6ed0h+0x10a) == 0)){
+			if((s_35e[n].__10a == 0)&&(s_35e[MY_CAR_IDX].__10a == 0)){
 
-				if(B(0x35e*D(___243ce8h)+___1e6ed0h+0x109) < B(0x35e*n+___1e6ed0h+0x109)){
+				if(s_35e[MY_CAR_IDX].Position < s_35e[n].Position){
 
-					b_tmp = B(0x35e*n+___1e6ed0h+0x109);
-					B(0x35e*n+___1e6ed0h+0x109) = B(0x35e*D(___243ce8h)+___1e6ed0h+0x109);
-					B(0x35e*D(___243ce8h)+___1e6ed0h+0x109) = b_tmp;
+					b_tmp = s_35e[n].Position;
+					s_35e[n].Position = s_35e[MY_CAR_IDX].Position;
+					s_35e[MY_CAR_IDX].Position = b_tmp;
 				}
 			}
 		}

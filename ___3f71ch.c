@@ -1,7 +1,9 @@
 #include "drally.h"
 #include "drmemory.h"
 
-	extern byte ___19bd60h[];
+#if defined(DR_MULTIPLAYER)
+	extern __DWORD__ ___19bd60h;
+#endif // DR_MULTIPLAYER
 
 void dRally_System_clean(void);
 void __VGA3_SETMODE(void);
@@ -9,9 +11,9 @@ void __VGA3_SETMODE(void);
 void ___623d4h(void);
 #endif // DR_MULTIPLAYER
 
-void * ___3f71ch__allocateMemory(dword size){
+__POINTER__ ___3f71ch__allocateMemory(__DWORD__ size){
 
-    void *  p;
+    __POINTER__  p;
  
     if(!(p = dRMemory_alloc(size))){
 
@@ -21,7 +23,7 @@ void * ___3f71ch__allocateMemory(dword size){
         printf("Please consult DRHELP.EXE for more information on how to resolve this problem.\n");
 
 #if defined(DR_MULTIPLAYER)
-        if(D(___19bd60h) != 0) ___623d4h();
+        if(___19bd60h != 0) ___623d4h();
 #endif // DR_MULTIPLAYER
 
         exit(0x70);

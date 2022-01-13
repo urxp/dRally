@@ -1,18 +1,18 @@
 #include "drally.h"
 #include "assets.h"
 
-    extern void * ___1a1e98h;
-    extern byte * ___1a1eb8h;
-    extern void * ___1a0198h[4];
-    extern byte ___1a54d0h[];
+    extern __POINTER__ ___1a1e98h;
+    extern __BYTE__ * ___1a1eb8h;
+    extern __POINTER__ ___1a0198h[4];
+    extern __BYTE__ ___1a54d0h[];
 
-void * ___3f71ch__allocateMemory(int);
-void old_bpa_read(const char *, void *, const char *);
-void bpk_decode2(void *, void *);
+__POINTER__ ___3f71ch__allocateMemory(int);
+void old_bpa_read(const char *, __POINTER__, const char *);
+void bpk_decode2(__POINTER__, __POINTER__);
 
-void * dRally_Assets_loadRaw(const char * bpa, const char * name, int size){
+__POINTER__ dRally_Assets_loadRaw(const char * bpa, const char * name, int size){
 
-	void * 	rslt;
+	__POINTER__ 	rslt;
 
 	rslt = ___3f71ch__allocateMemory(size);
 	old_bpa_read(bpa, rslt, name);
@@ -20,9 +20,9 @@ void * dRally_Assets_loadRaw(const char * bpa, const char * name, int size){
 	return rslt;
 }
 
-void * dRally_Assets_loadDecode(const char * bpa, const char * name, int size){
+__POINTER__ dRally_Assets_loadDecode(const char * bpa, const char * name, int size){
 
-	void * 	rslt;
+	__POINTER__ 	rslt;
 
     old_bpa_read(bpa, ___1a54d0h, name);
 	rslt = ___3f71ch__allocateMemory(size);
@@ -31,7 +31,7 @@ void * dRally_Assets_loadDecode(const char * bpa, const char * name, int size){
 	return rslt;
 }
 
-void * getAssets(int a){
+__POINTER__ getAssets(int a){
 
     switch(a){
     case MENU_BASES4:
@@ -50,5 +50,5 @@ void * getAssets(int a){
         break;
     }
 
-    return (void *)0;
+    return (__POINTER__)0;
 }

@@ -1,34 +1,24 @@
 #include "drally.h"
+#include "drally_fonts.h"
+#include "drally_structs_fixed.h"
 
-#pragma pack(1)
-typedef struct font_props_s {
-	byte 	w;
-	byte 	h;
-	byte 	props[];
-} font_props_t;
-
-	extern void * ___1a1138h__VESA101h_DefaultScreenBufferB;
-	extern void * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
-	extern void * ___1a10c0h;
+	extern __POINTER__ ___1a1138h__VESA101h_DefaultScreenBufferB;
+	extern __POINTER__ ___1a112ch__VESA101_ACTIVESCREEN_PTR;
+	extern __POINTER__ ___1a10c0h;
 	extern char ___18d492h[][0xf];
-	extern byte ___185ba9h[];
-	extern void * ___1a10cch;
-	extern byte ___19f750h[];
-	extern byte ___18e298h[];
-	extern byte ___185c7ah[];
-	extern void * ___1a10b8h;
+	extern record_t ___19f750h[6][18];
+	extern __BYTE__ ___18e298h[];
 
 int ___1f094h_cdecl(const char *);
 char * itoa_watcom106(int value, char * buffer, int radix);
 char * strupr_watcom106(char * s);
-void ___12e78h_cdecl(byte * A1, font_props_t * A2, const char * A3, dword dst_off);
 
-void ___21fd4h_cdecl(dword A1){
+void ___21fd4h_cdecl(__DWORD__ A1){
 
-	dword 	eax, ebx, ecx, edx, edi, esi, ebp;
-	byte 	esp[0x6c];
+	__DWORD__ 	eax, ebx, ecx, edx, edi, esi, ebp;
+	__BYTE__ 	esp[0x6c];
 	__BYTE__ 	px;
-	int 		i, j, n;
+	int 		i, j, n, x, y;
 
 
 	D(esp+0x5c) = A1;
@@ -64,20 +54,29 @@ void ___21fd4h_cdecl(dword A1){
 	strcpy(esp+0x14, ___18d492h[D(esp+0x5c)]);
 	eax = ___1f094h_cdecl(esp+0x14);
 	eax = (int)eax>>1;
-	___12e78h_cdecl(___1a10cch, ___185ba9h, esp+0x14, 0x1559d-eax);
+	x = 0x1559d-eax;
+	y = x/0x280;
+	x = x%0x280;
+	___12e78h_v3(___1a10cch___185ba9h, esp+0x14, x, y);
 
 	n = -1;
 	while(++n < 6){
 
 		strcpy(esp+0x14, ___18e298h+0x6e0*(5-n));
 		strupr_watcom106(esp+0x14);
-		___12e78h_cdecl(___1a10b8h, ___185c7ah, esp+0x14, 0x208e4+0x3700*n);
-		strcpy(esp+0x14, ___19f750h+0x18*D(esp+0x5c)+0x1b0*(5-n));
+		x = 0x208e4+0x3700*n;
+		y = x/0x280;
+		x = x%0x280;
+		___12e78h_v3(___1a10b8h___185c7ah, esp+0x14, x, y);
+		strcpy(esp+0x14, ___19f750h[5-n][D(esp+0x5c)].name);
 		strupr_watcom106(esp+0x14);
-		___12e78h_cdecl(___1a10b8h, ___185c7ah, esp+0x14, 0x20968+0x3700*n);
-		itoa_watcom106(D(___19f750h+0x18*D(esp+0x5c)+0x1b0*(5-n)+0xc), esp, 0xa);
-		itoa_watcom106(D(___19f750h+0x18*D(esp+0x5c)+0x1b0*(5-n)+0x10), esp+0x3c, 0xa);
-		itoa_watcom106(D(___19f750h+0x18*D(esp+0x5c)+0x1b0*(5-n)+0x14), esp+0x28, 0xa);
+		x = 0x20968+0x3700*n;
+		y = x/0x280;
+		x = x%0x280;
+		___12e78h_v3(___1a10b8h___185c7ah, esp+0x14, x, y);
+		itoa_watcom106(___19f750h[5-n][D(esp+0x5c)].min, esp, 0xa);
+		itoa_watcom106(___19f750h[5-n][D(esp+0x5c)].sec, esp+0x3c, 0xa);
+		itoa_watcom106(___19f750h[5-n][D(esp+0x5c)].sec100, esp+0x28, 0xa);
 
 		if(strlen(esp) == 1){
 
@@ -105,6 +104,9 @@ void ___21fd4h_cdecl(dword A1){
 		strcat(esp+0x14, esp+0x3c);
 		strcat(esp+0x14, ".");
 		strcat(esp+0x14, esp+0x28);
-		___12e78h_cdecl(___1a10b8h, ___185c7ah, esp+0x14, 0x20a02+0x3700*n);
+		x = 0x20a02+0x3700*n;
+		y = x/0x280;
+		x = x%0x280;
+		___12e78h_v3(___1a10b8h___185c7ah, esp+0x14, x, y);
 	}
 }

@@ -61,7 +61,7 @@ static int bpa_sanity(BPA * bpa){
     size_t  size;
     size_t  save_position;
 
-    ok = (bpa == (void *)0) ? BPA_FAILED : BPA_OK;
+    ok = (bpa == (BPA *)0) ? BPA_FAILED : BPA_OK;
 
     if(ok == BPA_OK){
 
@@ -155,7 +155,7 @@ BPA * bpa_open(const char * bpa_fname){
     strcpy(bpa->file, bpa_fname);
     bpa->entry = 0;
     
-    if((bpa->fd = fopen(bpa_fname, "rb")) != (void *)0){
+    if((bpa->fd = fopen(bpa_fname, "rb")) != (FILE *)0){
     
         fread(&bpa->header, 1, sizeof(bpa_header_t), bpa->fd);
     }
@@ -163,7 +163,7 @@ BPA * bpa_open(const char * bpa_fname){
     if(bpa_sanity(bpa) == BPA_FAILED){
 
         bpa_close(bpa);
-        return (void *)0;
+        return (BPA *)0;
     }
 
     n = -1;
@@ -172,9 +172,9 @@ BPA * bpa_open(const char * bpa_fname){
     return bpa;
 }
 
-void bpa_read(BPA * bpa, void * dst){
+void bpa_read(BPA * bpa, __POINTER__ dst){
 
-    if(bpa != (void *)0){
+    if(bpa != (BPA *)0){
 
         if(bpa->entry == bpa->header.n){
 
@@ -186,6 +186,11 @@ void bpa_read(BPA * bpa, void * dst){
             
             //printf("[%s] Extracting ... %12s [%d]\n", bpa->file, bpa_entry_name(bpa), bpa_entry_size(bpa));
             fread(dst, 1, bpa_entry_size(bpa), bpa->fd);
+/*
+            FILE * fd = fopen(bpa_entry_name(bpa), "wb");
+            fwrite(dst, 1, bpa_entry_size(bpa), fd);
+            fclose(fd);
+*/
         }
         else {
 
@@ -201,7 +206,7 @@ void bpa_search(BPA * bpa, const char * bpa_entry){
     int     n, offset;
     char    entry_name[0xd];
 
-    if(bpa != (void *)0){
+    if(bpa != (BPA *)0){
 
         strupr_watcom106(strcpy(entry_name, bpa_entry));
 
@@ -221,7 +226,7 @@ void bpa_search(BPA * bpa, const char * bpa_entry){
 
 size_t bpa_entry_size(BPA * bpa){
 
-    if(bpa == (void *)0) return 0;
+    if(bpa == (BPA *)0) return 0;
     if(bpa->entry == bpa->header.n) return 0;
 
     return bpa->header.fat[bpa->entry].size;
@@ -229,15 +234,15 @@ size_t bpa_entry_size(BPA * bpa){
 
 const char * bpa_entry_name(BPA * bpa){
 
-    if(bpa == (void *)0) return (void *)0;
-    if(bpa->entry == bpa->header.n) return (void *)0;
+    if(bpa == (BPA *)0) return (__POINTER__)0;
+    if(bpa->entry == bpa->header.n) return (__POINTER__)0;
 
     return bpa->header.fat[bpa->entry].name;
 }
 
 void bpa_close(BPA * bpa){
 
-    if(bpa != (void *)0){
+    if(bpa != (BPA *)0){
 
         if(bpa->fd) fclose(bpa->fd);
 

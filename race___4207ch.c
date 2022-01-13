@@ -1,16 +1,16 @@
 #include "drally.h"
 
-	extern byte ___243334h[];
-	extern byte ___243328h[];
-	extern byte ___243324h[];
-	extern void * ___243d80h;
-	extern void * ___243d50h;
-	extern byte ___24332ch[];
+	extern __BYTE__ ___243334h[];
+	extern __BYTE__ ___243328h[];
+	extern __BYTE__ ___243324h[];
+	extern __POINTER__ ___243d80h;
+	extern __POINTER__ ___243d50h;
+	extern __BYTE__ ___24332ch[];
 
 // FINISH LINE FLAG
 void race___4207ch(void){
 
-	dword 	eax, ebx, ecx, edx, edi, esi, ebp;
+	__DWORD__ 	eax, ebx, ecx, edx, edi, esi, ebp;
 	int 	i, j;
 	
 

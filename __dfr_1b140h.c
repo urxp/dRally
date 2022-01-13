@@ -2,6 +2,9 @@
 
 void ___1b140h(void){
 
+	printf("TODO ___1b140h\n");
+	exit(1);
+
 /*
 cpu 386
 %include "macros.inc"
