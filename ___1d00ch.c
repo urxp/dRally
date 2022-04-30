@@ -1,4 +1,5 @@
 #include "drally.h"
+#include "drally_structs_fixed.h"
 
 #if defined(DR_MULTIPLAYER)
 	extern __DWORD__ ___19bd60h;
@@ -29,16 +30,19 @@ void dRChatbox_push(const char * line, int col);
 void ___1d00ch(void){
 
 	__DWORD__ 	eax, ebx, ecx, edx, edi, esi, ebp;
-	int 	n;
-	char 	buffer[0x96];
+	int 		n;
+	char 		LastLine[0x96];
+	racer_t *	s_6c;
+
+	s_6c = (racer_t *)___1a01e0h;
 
 #if defined(DR_MULTIPLAYER)
 	if(___19bd60h != 0){
 
 		D(___185a58h) = 0;
 
-		dRChatbox_push(strcat(strcat(strcpy(buffer, "-- "), ___1a01e0h+0x6c*D(___1a1ef8h)), " has left from Death Rally."), 0);
-		___23488h_cdecl(buffer, 0x64, 6);
+		dRChatbox_push(strcat(strcat(strcpy(LastLine, "-- "), s_6c[D(___1a1ef8h)].name), " has left from Death Rally."), 0);
+		___23488h_cdecl(LastLine, 0x64, 6);
 		dRChatbox_push("", 0);
 
 		___135fch(0, 0x173, 0x27f, 0x6d);
@@ -71,9 +75,9 @@ void ___1d00ch(void){
 
 			CONNECTION_TYPE = 2;
 			D(___199f9ch) = 0;
-			ecx = D(___1a01e0h+0x6c*D(___1a1ef8h)+0x2c);
+			ecx = s_6c[D(___1a1ef8h)].color;
 			___2415ch();
-			D(___1a01e0h+0x6c*D(___1a1ef8h)+0x2c) = ecx;
+			s_6c[D(___1a1ef8h)].color = ecx;
 			___2b5f0h();
 
 			if(___1caf4h() != 0) strcpy(___1866b8h+0x3e8, "Disconnect Network");

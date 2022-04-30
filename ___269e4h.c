@@ -1,5 +1,6 @@
 #include "drally.h"
 #include "drally_fonts.h"
+#include "drally_structs_fixed.h"
 
 typedef char char40[40];
 
@@ -130,7 +131,10 @@ void ___269e4h(void){
 
 	__DWORD__ 	eax, ebx, ecx, edx, edi, esi, ebp;
 	__BYTE__ 	esp[0x28];
+	racer_t * 	s_6c;
 
+
+	s_6c = (racer_t *)___1a01e0h;
 
 	j = -1;
 	while(++j < 0x60){
@@ -141,17 +145,17 @@ void ___269e4h(void){
 
 	___259e0h_cdecl(0x148, 0x10d, D(___1a1ed8h), ___1a1e8ch, ___186658h);
 
-	if((int)D(___1a01e0h+0x6c*D(___1a1ef8h)+0xc) >= 0xa){
+	if((int)s_6c[D(___1a1ef8h)].damage >= 0xa){
 
 		___12e78h_cdecl(___1a10b8h, (font_props_t *)___185c7ah, "10", 0x27f1a-___251e8h_cdecl("10"));
 
 		if(D(___185a14h_UseWeapons) == 0){
 
-			eax = D(0x6e0*D(0x6c*D(___1a1ef8h)+___1a01e0h+0x1c)+___18e298h+0x6dc);
+			eax = D(0x6e0*s_6c[D(___1a1ef8h)].car+___18e298h+0x6dc);
 		}
 		else {
 
-			eax = D(0x6e0*D(0x6c*D(___1a1ef8h)+___1a01e0h+0x1c)+___18e298h+0x6dc);
+			eax = D(0x6e0*s_6c[D(___1a1ef8h)].car+___18e298h+0x6dc);
 			edx = eax;
 			edx = (int)edx>>0x1f;
 			eax = eax-edx;
@@ -160,18 +164,18 @@ void ___269e4h(void){
 	}
 	else {
 
-		itoa_watcom106(D(___1a01e0h+0x6c*D(___1a1ef8h)+0xc), esp, 0xa);
+		itoa_watcom106(s_6c[D(___1a1ef8h)].damage, esp, 0xa);
 		___12e78h_cdecl(___1a10b8h, (font_props_t *)___185c7ah, esp, 0x27f1a-___251e8h_cdecl(esp));
 
 		if(D(___185a14h_UseWeapons) == 0){
 
-			eax = D(0x6e0*D(0x6c*D(___1a1ef8h)+___1a01e0h+0x1c)+___18e298h+0x6dc);
+			eax = D(0x6e0*s_6c[D(___1a1ef8h)].car+___18e298h+0x6dc);
 			edx = (int)eax>>0x1f;
 			___idiv32((__POINTER__)&eax, (__POINTER__)&edx, 0xa);
 		}
 		else {
 
-			eax = D(0x6e0*D(0x6c*D(___1a1ef8h)+___1a01e0h+0x1c)+___18e298h+0x6dc);
+			eax = D(0x6e0*s_6c[D(___1a1ef8h)].car+___18e298h+0x6dc);
 			edx = (int)eax>>0x1f;
 			___idiv32((__POINTER__)&eax, (__POINTER__)&edx, 0xa);
 			edx = eax;
@@ -180,7 +184,7 @@ void ___269e4h(void){
 			eax = (int)eax>>1;
 		}
 
-		eax = eax*D(0x6c*D(___1a1ef8h)+___1a01e0h+0xc);
+		eax = eax*s_6c[D(___1a1ef8h)].damage;
 	}
 
 	itoa_watcom106(eax, esp, 0xa);
@@ -188,17 +192,17 @@ void ___269e4h(void){
 	___12f60h_cdecl(esp+0x14, ___25180h_cdecl(esp+0x14)+0x346c8);
 	
 	esi = 0;
-	if((int)D(___1a01e0h+0x6c*D(___1a1ef8h)+0xc) < 100) esi = 0x1;
-	if((int)D(___1a01e0h+0x6c*D(___1a1ef8h)+0xc) < 90) esi = 0x2;
-	if((int)D(___1a01e0h+0x6c*D(___1a1ef8h)+0xc) < 80) esi = 0x3;
-	if((int)D(___1a01e0h+0x6c*D(___1a1ef8h)+0xc) < 70) esi = 0x4;
-	if((int)D(___1a01e0h+0x6c*D(___1a1ef8h)+0xc) < 60) esi = 0x5;
-	if((int)D(___1a01e0h+0x6c*D(___1a1ef8h)+0xc) < 50) esi = 0x6;
-	if((int)D(___1a01e0h+0x6c*D(___1a1ef8h)+0xc) < 40) esi = 0x7;
-	if((int)D(___1a01e0h+0x6c*D(___1a1ef8h)+0xc) < 30) esi = 0x8;
-	if((int)D(___1a01e0h+0x6c*D(___1a1ef8h)+0xc) < 20) esi = 0x9;
-	if((int)D(___1a01e0h+0x6c*D(___1a1ef8h)+0xc) < 10) esi = 0xa;
-	if((int)D(___1a01e0h+0x6c*D(___1a1ef8h)+0xc) == 0) esi = 0xb;
+	if((int)s_6c[D(___1a1ef8h)].damage < 100) esi = 0x1;
+	if((int)s_6c[D(___1a1ef8h)].damage < 90) esi = 0x2;
+	if((int)s_6c[D(___1a1ef8h)].damage < 80) esi = 0x3;
+	if((int)s_6c[D(___1a1ef8h)].damage < 70) esi = 0x4;
+	if((int)s_6c[D(___1a1ef8h)].damage < 60) esi = 0x5;
+	if((int)s_6c[D(___1a1ef8h)].damage < 50) esi = 0x6;
+	if((int)s_6c[D(___1a1ef8h)].damage < 40) esi = 0x7;
+	if((int)s_6c[D(___1a1ef8h)].damage < 30) esi = 0x8;
+	if((int)s_6c[D(___1a1ef8h)].damage < 20) esi = 0x9;
+	if((int)s_6c[D(___1a1ef8h)].damage < 10) esi = 0xa;
+	if((int)s_6c[D(___1a1ef8h)].damage == 0) esi = 0xb;
 
 	___13248h_cdecl(0x90, 0x72, 0x180, 0x77, 1);
 	VESA101_16X16_FORMAT_PRINT(___194170h[esi][0], 170, 124);

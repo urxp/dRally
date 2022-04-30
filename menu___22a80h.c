@@ -5,7 +5,7 @@
 
 	extern __POINTER__ ___1a112ch__VESA101_ACTIVESCREEN_PTR;
 	extern __POINTER__ ___1a10e4h__VESA101h_DefaultScreenBufferA;
-	extern __POINTER__ ___1a1138h__VESA101h_DefaultScreenBufferB;
+	extern __POINTER__ ___1a1138h__VESA101_BACKGROUND;
 	extern __POINTER__ ___1a10dch;
 	extern __BYTE__ ___1a0e28h[];
 	extern __BYTE__ ___185c7ah[];
@@ -20,6 +20,7 @@
 	extern __POINTER__ ___1a1040h[0x13];
 	extern __POINTER__ ___1a10a4h;
 	extern __DWORD__ ___24cc54h_sfx_volume;
+	extern __POINTER__ ___1a1100h__VESA101h_DefaultScreenBuffer;
 
 char * itoa_watcom106(int value, char * buffer, int radix);
 char * strupr_watcom106(char * s);
@@ -37,9 +38,8 @@ void ___2ab50h(void);
 #if defined(DR_MULTIPLAYER)
 void ___23758h(void);
 #endif // DR_MULTIPLAYER
-void ___3a6a4h(void);
+void ___3a6a4h_v2(int);
 void ___12cb8h__VESA101_PRESENTSCREEN(void);
-void restoreDefaultScreenBuffer(void);
 
 // HALL OF FAME
 void menu___22a80h(void){
@@ -52,7 +52,7 @@ void menu___22a80h(void){
 
 	memcpy(___1a10e4h__VESA101h_DefaultScreenBufferA, ___1a112ch__VESA101_ACTIVESCREEN_PTR, 0x4b000);
 	___1a112ch__VESA101_ACTIVESCREEN_PTR = ___1a10e4h__VESA101h_DefaultScreenBufferA;
-	memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR+0x10680, ___1a1138h__VESA101h_DefaultScreenBufferB+0x10680, 0x28f00);
+	memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR+0x10680, ___1a1138h__VESA101_BACKGROUND+0x10680, 0x28f00);
 
 	j = -1;
 	while(++j < 0x36){
@@ -97,7 +97,7 @@ void menu___22a80h(void){
 		___12e78h_cdecl(___1a10b8h, (font_props_t *)___185c7ah, strupr_watcom106(esp), 0x169ad+0x3700*n);
 	}
 
-	restoreDefaultScreenBuffer();
+	___1a112ch__VESA101_ACTIVESCREEN_PTR = ___1a1100h__VESA101h_DefaultScreenBuffer;
 	___3a7e0h_cdecl(-1);
 	D(___1a1ef4h) = dRally_Sound_getPosition()&0xff00;
 	dRally_Sound_setPosition(0x5100);
@@ -128,7 +128,7 @@ void menu___22a80h(void){
 	___59b3ch();
 	memcpy(___1a10e4h__VESA101h_DefaultScreenBufferA, ___1a112ch__VESA101_ACTIVESCREEN_PTR, 0x4b000);
 	___1a112ch__VESA101_ACTIVESCREEN_PTR = ___1a10e4h__VESA101h_DefaultScreenBufferA;
-	memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR+0xd200, ___1a1138h__VESA101h_DefaultScreenBufferB+0xd200, 0x2c380);
+	memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR+0xd200, ___1a1138h__VESA101_BACKGROUND+0xd200, 0x2c380);
 
 	j = -1;
 	while(++j < 0x10){
@@ -173,8 +173,7 @@ void menu___22a80h(void){
 	}
 
 	___27f80h_cdecl(0xf, 0xcc, 0xb2, 0x75);
-	restoreDefaultScreenBuffer();
-	___3a6a4h();
+	___3a6a4h_v2(1);
 
 	ebp = 0;
 	edi = 0;

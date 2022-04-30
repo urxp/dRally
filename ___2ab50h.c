@@ -1,5 +1,6 @@
 #include "drally.h"
 #include "drmemory.h"
+#include "drally_structs_fixed.h"
 
 #if defined(DR_MULTIPLAYER)
 	extern __DWORD__ ___19bd60h;
@@ -50,15 +51,17 @@ static void mp_helper(__POINTER__ vp, int i){
 
 void ___2ab50h(void){
 
-	int 	n;
+	int 		n;
 	__BYTE__ 	esp[0x428];
-	char 	buffer[0x64];
+	char 		buffer[0x64];
+	racer_t * 	s_6c;
 
 	___2aa08h();
 
 #if defined(DR_MULTIPLAYER)
 	if(___19bd60h != 0){
 
+		s_6c = (racer_t *)___1a01e0h;
 		___6168ch();
 
 		if(___23594h_cdecl(esp, 1)) mp_helper(esp, 1);
@@ -66,7 +69,7 @@ void ___2ab50h(void){
 
 		if(___23594h_cdecl(esp, 7)){
 
-			___23488h_cdecl(strcat(strcat(strcpy(buffer, "-- "), ___1a01e0h+0x6c*D(___1a1ef8h)), " is currently on Death Rally."), 0x64, 8);
+			___23488h_cdecl(strcat(strcat(strcpy(buffer, "-- "), s_6c[D(___1a1ef8h)].name), " is currently on Death Rally."), 0x64, 8);
 		}
 
 		if(___23594h_cdecl(esp, 20)){
@@ -84,7 +87,7 @@ void ___2ab50h(void){
 
 		if(___23594h_cdecl(esp+0x400, 19)){
 		
-			mp_helper(strcat(strcat(strcpy(buffer, "-- "), ___1a01e0h+0x6c*B(esp+0x400)), " is waiting for you to join the next race."), 0);
+			mp_helper(strcat(strcat(strcpy(buffer, "-- "), s_6c[B(esp+0x400)].name), " is waiting for you to join the next race."), 0);
 		}
 	}
 #endif // DR_MULTIPLAYER

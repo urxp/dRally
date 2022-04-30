@@ -1,5 +1,6 @@
 #include "drally.h"
 #include "drally_keyboard.h"
+#include "drally_structs_fixed.h"
 
 #pragma pack(1)
 typedef struct font_props_s {
@@ -12,7 +13,7 @@ typedef struct font_props_s {
 	extern __DWORD__ ChatMaximized;
 	extern __POINTER__ ___1a112ch__VESA101_ACTIVESCREEN_PTR;
 	extern __POINTER__ ___1a1124h__VESA101h_ScreenBufferA;
-	extern __POINTER__ ___1a1138h__VESA101h_DefaultScreenBufferB;
+	extern __POINTER__ ___1a1138h__VESA101_BACKGROUND;
 	extern __POINTER__ ___1a10fch;
 	extern __POINTER__ ___1a1108h;
 	extern __POINTER__ ___1a110ch;
@@ -44,17 +45,19 @@ void ___23758h(void){
 
 	__DWORD__ 	eax, ebx, ecx, edx, edi, esi, ebp;
 	__BYTE__ 	esp[0x140];
-	char 	buffer[0x96];
-	int 	n, font;
-	char * 	line;
+	char 		buffer[0x96];
+	int 		n, font;
+	char * 		line;
+	racer_t *	s_6c;
 
 
+	s_6c = (racer_t *)___1a01e0h;
 	B(esp+0x13d) = 0;
 	ChatMaximized = 1;
 	D(esp+0x134) = !(D(___196a78h) == 0);
 	D(___196a78h) = 0;
 	memcpy(___1a1124h__VESA101h_ScreenBufferA, ___1a112ch__VESA101_ACTIVESCREEN_PTR, 0x4b000);
-	memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR+0x0d200, ___1a1138h__VESA101h_DefaultScreenBufferB+0x0d200, 0x3c500);
+	memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR+0x0d200, ___1a1138h__VESA101_BACKGROUND+0x0d200, 0x3c500);
 	___135fch(0, 0x6f, 0x27f, 0x171);
 	___12e78h_cdecl(___1a10fch, (font_props_t *)___185c0bh, "press   to minimize chat window", 0x10923);
 	___12e78h_cdecl(___1a1108h, (font_props_t *)___185c0bh, "F1", 0x10959);
@@ -91,7 +94,7 @@ void ___23758h(void){
 
 			while(1){
 
-				memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR+edx+0xc+ebp, ___1a1138h__VESA101h_DefaultScreenBufferB+edx+0xc+ebp, 0x10);
+				memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR+edx+0xc+ebp, ___1a1138h__VESA101_BACKGROUND+edx+0xc+ebp, 0x10);
 				edx += 0x280;
 				if(edx == 0x48d00) break;
 			}
@@ -112,7 +115,7 @@ void ___23758h(void){
 
 				while(1){
 
-					memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR+edx+0xc+ebp, ___1a1138h__VESA101h_DefaultScreenBufferB+edx+0xc+ebp, 0x20);
+					memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR+edx+0xc+ebp, ___1a1138h__VESA101_BACKGROUND+edx+0xc+ebp, 0x20);
 					edx += 0x280;
 					if(edx == 0x48d00) break;
 				}
@@ -129,7 +132,7 @@ void ___23758h(void){
 
 				while(1){
 
-					memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR+edx+0xc, ___1a1138h__VESA101h_DefaultScreenBufferB+edx+0xc, 0x262);
+					memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR+edx+0xc, ___1a1138h__VESA101_BACKGROUND+edx+0xc, 0x262);
 					edx += 0x280;
 					if(edx == 0x48d00) break;
 				}
@@ -144,7 +147,7 @@ void ___23758h(void){
 				else {
 
 					strcpy(buffer, "<");
-					strcat(buffer, ___1a01e0h+0x6c*D(___1a1ef8h));
+					strcat(buffer, s_6c[D(___1a1ef8h)].name);
 					strcat(buffer, "> ");
 					strcat(buffer, esp);
 					dRChatbox_push(buffer, 2);
@@ -190,13 +193,13 @@ void ___23758h(void){
 				edx = 0x46500;
 				while(1){
 
-					memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR+edx+0xc, ___1a1138h__VESA101h_DefaultScreenBufferB+edx+0xc, 0x262);
+					memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR+edx+0xc, ___1a1138h__VESA101_BACKGROUND+edx+0xc, 0x262);
 					edx += 0x280;
 					if(edx == 0x48d00) break;
 				}
 
 				strcpy(buffer, "<");
-				strcat(buffer, ___1a01e0h+0x6c*D(___1a1ef8h));
+				strcat(buffer, s_6c[D(___1a1ef8h)].name);
 				strcat(buffer, "> ");
 				strcat(buffer, esp);
 				dRChatbox_push(buffer, 2);
@@ -233,7 +236,7 @@ void ___23758h(void){
 					edx = 0x46500;
 					while(1){
 
-						memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR+edx+0xc+ebp, ___1a1138h__VESA101h_DefaultScreenBufferB+edx+0xc+ebp, 0x10);
+						memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR+edx+0xc+ebp, ___1a1138h__VESA101_BACKGROUND+edx+0xc+ebp, 0x10);
 						edx += 0x280;
 						if(edx == 0x48d00) break;
 					}

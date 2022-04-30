@@ -57,6 +57,7 @@ typedef int32_t         __SIGNED_DWORD__;
 typedef uint64_t        __QWORD__;
 typedef int64_t         __SIGNED_QWORD__;
 typedef __BYTE__ *      __POINTER__;
+typedef int32_t         __BOOL__;
 
 typedef uintptr_t       __UNSIGNED__;       // size_t
 typedef intptr_t        __SIGNED__;         // ptrdiff_t

@@ -29,7 +29,7 @@ void race___4a25ch(void){
 		s_35e[n].Direction = (float)(3.75*(double)(int)s_35e[n].ImgIndex);
 		s_35e[n].__156 = s_35e[n].Direction;
 		s_35e[n].ImgOffset = 0x640*s_35e[n].ImgIndex+0x25800*n;
-		s_35e[n].__108 = 1;
+		s_35e[n].Lap = 1;
 		s_35e[n].Position = n+1;
 		s_35e[n].__34a = 0;
 
@@ -41,7 +41,7 @@ void race___4a25ch(void){
 		s_35e[n].__19a = 0;
 		s_35e[n].__0 = 0;
 		s_35e[n].__b0 = 0.0f;
-		s_35e[n].__10a = 0;
+		s_35e[n].Finished = 0;
 		s_35e[n].__18a = 0;
 		s_35e[n].__14 = 0;
 		s_35e[n].__18 = 0;

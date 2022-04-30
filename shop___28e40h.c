@@ -1,6 +1,8 @@
 #include "drally.h"
 #include "drally_fonts.h"
 #include "drally_keyboard.h"
+#include "drally_structs_fixed.h"
+#include "drally_structs_free.h"
 #include "sfx.h"
 
 	extern __BYTE__ ___1a1ef8h[];
@@ -9,7 +11,7 @@
 	extern __BYTE__ ___1a1ec4h[];
 	extern __BYTE__ ___1a1ee4h[];
 	extern __DWORD__ ___24cc54h_sfx_volume;
-	extern __BYTE__ ___18e298h[];
+	extern cardata_t ___18e298h[6];
 #define CARENCS ___185cbch
 	extern __DWORD__ ___185cbch[][0x40];
 	extern __BYTE__ ___1a1ed0h[];
@@ -33,7 +35,7 @@
 char * itoa_watcom106(int value, char * buffer, int radix);
 void ___31008h(void);
 void ___3266ch(void);
-void ___33010h_cdecl(__DWORD__ A1);
+void ___33010h_cdecl(int NumCars);
 void underground_main(void);
 __DWORD__ underground___28c1ch(void);
 void ___27a10h(void);
@@ -59,890 +61,409 @@ void ___13248h_cdecl(__DWORD__, __DWORD__ ,__DWORD__, __DWORD__, __DWORD__);
 __DWORD__ ___28ab4h_cdecl(__DWORD__);
 void ___1398ch__VESA101_PRESENTRECTANGLE(__DWORD__ offset, __POINTER__ src, __DWORD__ w, __DWORD__ h);
 
-
+// SHOP ENTER
 void shop___28e40h(void){
 
-	__DWORD__ 	eax, ebx, ecx, edx, edi, esi, ebp;
+	__DWORD__ 	eax, ecx, edx, esi, ebp;
 	__BYTE__ 	__esp[0xc+0x60];
 	__BYTE__ * 	esp = __esp+0xc;
-	__POINTER__ 	ebxp;
-	__POINTER__ 	esip;
-	__POINTER__ 	edxp;
+	int 			i, j, n;
+	__BYTE__ 		px;
+	racer_t * 		s_6c;
+	cardata_t * 	cdp;
 
-/*
-		FPUSH((int)D(0x6c*D(___1a1ef8h)+___1a01e0h+0x3c));
-		ST(0) = ceil(0.25*ST(0));
-		D(esp+0x50) = (int)FPOP();
-*/
-		D(esp+0x50) = (D(0x6c*D(___1a1ef8h)+___1a01e0h+0x3c)+3)/4;
-
-		ebx = 0x6c*D(___1a1ef8h);
-		eax = (long long)(int)D(0x6e0*D(ebx+___1a01e0h+0x1c)+___18e298h+0x6dc)/0xa;
-
-		if(D(___185a14h_UseWeapons) == 0){
-	
-			esi = D(ebx+___1a01e0h+0xc)*eax;
-		}
-		else {
-
-			eax = D(ebx+___1a01e0h+0xc)*eax;
-			edx = (int)eax>>0x1f;
-			esi = (int)(eax-edx)>>2;
-		}
-
-		ebx = D(esp+0x50)-esi;
-		D(esp+0x50) = ebx;
-
-		if((int)ebx < 0) D(esp+0x50) = 0;
-
-		ebx = 0xa;
-		eax = D(esp+0x50);
-		itoa_watcom106(eax, esp+0x3c, ebx);
-		ecx = strlen(esp+0x3c);
-		B(esp+ecx+0x3b) = 0x30;
-		eax = atoi(esp+0x3c);
-		ebp = eax;
-		D(esp+0x50) = eax;
-		eax = D(___1a1ec4h);
-
-		switch(eax){
-		case 0: goto ___28f77h;
-		case 1: goto ___29ba4h;
-		case 2: goto ___29cebh;
-		case 3: goto ___29e33h;
-		case 4: goto ___29f83h;
-		case 5: goto ___2a1afh;
-		default:
-			return;
-		}
+	s_6c = (racer_t *)___1a01e0h;
+	cdp = (cardata_t *)___18e298h;
 
 
-___28f77h:
-		edx = D(___1a1ee4h);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 3;
-		eax -= edx;
-		eax <<= 5;
-		eax = D(eax+___18e298h+0xc);
-		eax -= ebp;
-		
-		if((int)eax >= 0){
+	D(esp+0x50) = (s_6c[D(___1a1ef8h)].refund+3)/4;
+	eax = (long long)(int)cdp[s_6c[D(___1a1ef8h)].car].price_repair/10;
+	esi = s_6c[D(___1a1ef8h)].damage*eax;
 
-			eax = ___28ab4h_cdecl(eax);
-			if(eax) return;
+	if(D(___185a14h_UseWeapons) != 0) esi = (int)esi/4;
+
+	D(esp+0x50) -= esi;
+	if((int)D(esp+0x50) < 0) D(esp+0x50) = 0;
+
+	itoa_watcom106(D(esp+0x50), esp+0x3c, 10);
+	B(esp+strlen(esp+0x3c)+0x3b) = 0x30;
+	ebp = atoi(esp+0x3c);
+	D(esp+0x50) = ebp;
+
+	switch(D(___1a1ec4h)){
+	case 0:	// BUY NEW CAR
+		if(___28ab4h_cdecl(cdp[D(___1a1ee4h)].price-ebp) == 0){
+
 			dRally_Sound_pushEffect(1, SFX_CLICK_4, 0, ___24cc54h_sfx_volume, 0x28000, 0x8000);
 			___13248h_cdecl(0x90, 0x72, 0x180, 0x77, 1);
-			strcpy(esp, "You would get a $");
 			itoa_watcom106(ebp, esp+0x3c, 0xa);
-			strcat(esp, esp+0x3c);
-			strcat(esp, " refund");
-			___12e78h_v3(___1a110ch___185c0bh, esp, 170, 124);
-			strcpy(esp, "from your old car and upgrades.");
-			___12e78h_v3(___1a110ch___185c0bh, esp, 170, 140);
-			strcpy(esp, ___18e298h+0x6e0*D(___1a1ee4h));
-			strcat(esp, " would cost ");
-			itoa_watcom106(D(___18e298h+0x6e0*D(___1a1ee4h)+0xc)-ebp, esp+0x3c, 0xa);
-			strcat(esp, "$");
-			strcat(esp, esp+0x3c);
-			___12e78h_v3(___1a110ch___185c0bh, esp, 170, 156);
-			strcpy(esp, "Purchase it ?");
-		}
-		else {
+			___12e78h_v3(___1a110ch___185c0bh, strcat(strcat(strcpy(esp, "You would get a $"), esp+0x3c), " refund"), 170, 124);
+			___12e78h_v3(___1a110ch___185c0bh, strcpy(esp, "from your old car and upgrades."), 170, 140);
 
-			eax = ___28ab4h_cdecl(eax);
-			if(eax) return;
-			dRally_Sound_pushEffect(1, SFX_CLICK_4, 0, ___24cc54h_sfx_volume, 0x28000, 0x8000);
-			ecx = 0x77;
-			ebx = 0x180;
-			edx = 0x72;
-			eax = 0x90;
-			___13248h_cdecl(eax, edx, ebx, ecx, 1);
-			strcpy(esp, "You would get a $");
-			itoa_watcom106(ebp, esp+0x3c, 0xa);
-			strcat(esp, esp+0x3c);
-			strcat(esp, " refund");
-			___12e78h_v3(___1a110ch___185c0bh, esp, 170, 124);
-			strcpy(esp, "from your old car and upgrades.");
-			___12e78h_v3(___1a110ch___185c0bh, esp, 170, 140);
-			edx = D(___1a1ee4h);
-			eax = 8*edx;
-			eax -= edx;
-			eax <<= 3;
-			eax -= edx;
-			eax <<= 5;
-			eax = D(eax+___18e298h+0xc);
-			strcpy(esp, "Money returned: ");
-			eax -= ebp;
-			edx = (int)eax>>0x1f;
-			eax ^= edx;
-			eax -= edx;
-			itoa_watcom106(eax, esp+0x3c, 0xa);
-			strcat(esp, "$");
-			strcat(esp, esp+0x3c);
-			___12e78h_v3(___1a110ch___185c0bh, esp, 170, 156);
-			edx = D(___1a1ee4h);
-			eax = 8*edx;
-			eax -= edx;
-			eax <<= 3;
-			strcpy(esp, "Buy a ");
-			eax -= edx;
-			strcat(esp, ___18e298h+0x20*eax);
-			strcat(esp, " ?");
-		}
+			if((int)(cdp[D(___1a1ee4h)].price-ebp) >= 0){
 
-		___12e78h_v3(___1a110ch___185c0bh, esp, 170, 172);
-		___12e78h_v3(___1a10cch___185ba9h, "yes", 240, 185);
-		___12e78h_v3(___1a10e0h___185ba9h, "no", 410, 185);
-		___12cb8h__VESA101_PRESENTSCREEN();
-		ebp = 0;
-		D(esp+0x54) = 0;
-___29410h:
-		esi = 0xaa*ebp;
-		___2ab50h();
-		___2ab50h();
-		___259e0h_cdecl(0x10, 0x8d, D(___1a1ed0h), ___1a01b8h[D(___1a1ee4h)], CARENCS[D(___1a1ee4h)]);
-		ecx = 0x40;
-		ebx = 0x60;
-		eax = 0x16090;
-		___1398ch__VESA101_PRESENTRECTANGLE(eax, ___1a112ch__VESA101_ACTIVESCREEN_PTR+0x16090, ebx, ecx);
-		eax = D(___1a1ed0h);
-		eax++;
-		esi += 0x1e0d9;
-		D(___1a1ed0h) = eax;
-		if((int)eax <= 0x3f) goto ___2948eh;
-		ebx = 0;
-		D(___1a1ed0h) = ebx;
-___2948eh:
-		ecx = 0;
-		edi = 0xc4;
-___29495h:
-		edx = edi;
-		memset(___1a112ch__VESA101_ACTIVESCREEN_PTR+esi+ecx, edx, 0x14);
-		ecx += 0x280;
-		if(ecx != 0x3200) goto ___29495h;
-		ebxp = ___1a112ch__VESA101_ACTIVESCREEN_PTR+esi;
-		esip = ___1a10f4h+0x190*D(___1a1e68h);
-
-		ecx = 0x14;
-		edx = 0x14;
-
-		while(1){
-
-			edi = edx;
-
-			while(1){
-
-				if(B(esip) != 0) B(ebxp) = B(esip);
-				ebxp++;
-				esip++;
-				edi--;
-				if(edi == 0) break;
+				itoa_watcom106(cdp[D(___1a1ee4h)].price-ebp, esp+0x3c, 0xa);
+				___12e78h_v3(___1a110ch___185c0bh, strcat(strcat(strcat(strcpy(esp, cdp[D(___1a1ee4h)].name), " would cost "), "$"), esp+0x3c), 170, 156);
+				___12e78h_v3(___1a110ch___185c0bh, strcpy(esp, "Purchase it ?"), 170, 172);
 			}
+			else {
 
-			ebxp += 0x280;
-			ebxp -= edx;
-			ecx--;
-			if(ecx == 0) break;
-		}
-
-		ecx = 0x1c;
-		ebx = 0x14f;
-		eax = 0x1e0a5;
-		___1398ch__VESA101_PRESENTRECTANGLE(eax, ___1a112ch__VESA101_ACTIVESCREEN_PTR+0x1e0a5, ebx, ecx);
-		esi = D(___1a1e68h);
-		esi++;
-		D(___1a1e68h) = esi;
-		if((int)esi <= 0x31) goto ___2952dh;
-		eax = 0;
-		D(___1a1e68h) = eax;
-___2952dh:
-
-		switch(___5994ch()){
-		case DR_SCAN_ESCAPE:
-			ebp = 1;
-			D(esp+0x54) = 0xffffffff;
-			break;
-		case DR_SCAN_ENTER:
-		case DR_SCAN_KP_ENTER:
-			dRally_Sound_pushEffect(1, SFX_CLICK_4, 0, ___24cc54h_sfx_volume, 0x28000, 0x8000);
-			D(esp+0x54) = 0xffffffff;
-			break;
-		case DR_SCAN_F1:
-#if defined(DR_MULTIPLAYER)
-			if(___19bd60h != 0) ___23758h();
-#endif // DR_MULTIPLAYER
-			break;
-		case DR_SCAN_Y:
-		case DR_SCAN_LEFT:
-		case DR_SCAN_KP_4:
-			if(ebp == 1) dRally_Sound_pushEffect(1, SFX_CLICK_2, 0, ___24cc54h_sfx_volume, 0x28000, 0x8000);
-			
-			ebp = 0;
-			ecx = 0x1e000;
-			while(1){
-
-				memset(___1a112ch__VESA101_ACTIVESCREEN_PTR+ecx+0xa8, 0xc4, 0x14f);
-
-				ecx += 0x280;
-				if(ecx == 0x21e80) break;
+				itoa_watcom106(ebp-cdp[D(___1a1ee4h)].price, esp+0x3c, 0xa);
+				___12e78h_v3(___1a110ch___185c0bh, strcat(strcat(strcpy(esp, "Money returned: "), "$"), esp+0x3c), 170, 156);
+				___12e78h_v3(___1a110ch___185c0bh, strcat(strcat(strcpy(esp, "Buy a "), cdp[D(___1a1ee4h)].name), " ?"), 170, 172);
 			}
 
 			___12e78h_v3(___1a10cch___185ba9h, "yes", 240, 185);
 			___12e78h_v3(___1a10e0h___185ba9h, "no", 410, 185);
-			break;
-		case DR_SCAN_N:
-		case DR_SCAN_RIGHT:
-		case DR_SCAN_KP_6:
-			if(ebp == 0) dRally_Sound_pushEffect(1, SFX_CLICK_2, 0, ___24cc54h_sfx_volume, 0x28000, 0x8000);
-			
-			ebp = 1;
-			ecx = 0x1e000;
-			while(1){
+			___12cb8h__VESA101_PRESENTSCREEN();
 
-				memset(___1a112ch__VESA101_ACTIVESCREEN_PTR+ecx+0xa8, 0xc4, 0x14f);
-			
-				ecx += 0x280;
-				if(ecx == 0x21e80) break;
-			}
+			ebp = 0;
+			D(esp+0x54) = 0;
+			while(D(esp+0x54) == 0){
 
-			___12e78h_v3(___1a10e0h___185ba9h, "yes", 240, 185);
-			___12e78h_v3(___1a10cch___185ba9h, "no", 410, 185);
-			break;
-		default:
-			break;
-		}
+				___2ab50h();
+				___2ab50h();
+				___259e0h_cdecl(0x10, 0x8d, D(___1a1ed0h), ___1a01b8h[D(___1a1ee4h)], CARENCS[D(___1a1ee4h)]);
+				___1398ch__VESA101_PRESENTRECTANGLE(0x16090, ___1a112ch__VESA101_ACTIVESCREEN_PTR+0x16090, 0x60, 0x40);
+				esi = 0xaa*ebp+0x1e0d9;
+				D(___1a1ed0h)++;
+				
+				if((int)D(___1a1ed0h) > 0x3f) D(___1a1ed0h) = 0;
 
-		if(D(esp+0x54) == 0) goto ___29410h;
-		if(ebp) goto ___29b90h;
-		dRally_Sound_pushEffect(5, SFX_NEW_CAR_BOUGHT, 0, ___24cc54h_sfx_volume, 0x24000, 0x8000);
-		edx = D(___1a1ef8h);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 2;
-		eax -= edx;
-		ebx = D(___1a1ee4h);
-		D(4*eax+___1a01e0h+0x1c) = ebx;
-		edx = 8*ebx;
-		edx -= ebx;
-		edx <<= 3;
-		edx -= ebx;
-		ecx = D(4*eax+___1a01e0h+0x30);
-		edx <<= 5;
-		ebx = D(esp+0x50);
-		edx = D(edx+___18e298h+0xc);
-		D(4*eax+___1a01e0h+0xc) = ebp;
-		edx -= ebx;
-		ebx = D(4*eax+___1a01e0h+0x1c);
-		ecx -= edx;
-		edx = 8*ebx;
-		D(4*eax+___1a01e0h+0x10) = ebp;
-		edx -= ebx;
-		D(4*eax+___1a01e0h+0x14) = ebp;
-		edx <<= 3;
-		D(4*eax+___1a01e0h+0x18) = ebp;
-		edx -= ebx;
-		D(4*eax+___1a01e0h+0x30) = ecx;
-		edx <<= 5;
-		ecx = 0x77;
-		edx = D(edx+___18e298h+0xc);
-		ebx = 0x180;
-		D(4*eax+___1a01e0h+0x3c) = edx;
-		___25330h();
-		___25e40h();
-		___26650h();
-		___262b4h();
-		___269e4h();
-		___25a74h();
-		edx = 0x72;
-		eax = 0x90;
-		___13248h_cdecl(eax, edx, ebx, ecx, 1);
-		ecx = 0x10;
-		edx = 0x126;
-		ebxp = ___1a112ch__VESA101_ACTIVESCREEN_PTR+0x1e83c;
-		esip = ___1a1e88h;
+				n = -1;
+				while(++n < 0x14) memset(___1a112ch__VESA101_ACTIVESCREEN_PTR+0x280*n+esi, 0xc4, 0x14);
 
-		while(1){
+				j = -1;
+				while(++j < 0x14){
 
-			edi = edx;
+					i = -1;
+					while(++i < 0x14){
 
-			while(1){
+						if((px = B(___1a10f4h+0x190*D(___1a1e68h)+0x14*j+i)) != 0) B(___1a112ch__VESA101_ACTIVESCREEN_PTR+esi+0x280*j+i) = px;
+					}
+				}
 
-				if(B(esip) != 0) B(ebxp) = B(esip);
-				ebxp++;
-				esip++;
-				edi--;
-				if(edi == 0) break;
-			}
+				___1398ch__VESA101_PRESENTRECTANGLE(0x1e0a5, ___1a112ch__VESA101_ACTIVESCREEN_PTR+0x1e0a5, 0x14f, 0x1c);
+				D(___1a1e68h)++;
+				
+				if((int)D(___1a1e68h) > 0x31) D(___1a1e68h) = 0;
 
-			ebxp += 0x280;
-			ebxp -= edx;
-			ecx--;
-			if(ecx == 0) break;
-		}
-
-		strcpy(esp, "Use arrows to change the color");
-		___12e78h_v3(___1a110ch___185c0bh, esp, 170, 124);
-		strcpy(esp, "of your car and press Enter");
-		___12e78h_v3(___1a110ch___185c0bh, esp, 170, 140);
-		strcpy(esp, "when finished.");
-		___12e78h_v3(___1a110ch___185c0bh, esp, 170, 156);
-		___12cb8h__VESA101_PRESENTSCREEN();
-
-		B(esp+0x5c) = 0;
-		ebp = 0x126;
-
-	while(1){
-
-		if((B(esp+0x5c) == DR_SCAN_KP_ENTER)||(D(___196a84h) != 0)) break;
-		B(esp+0x5c) = ___5994ch();
-
+				switch(___5994ch()){
+				case DR_SCAN_ESCAPE:
+					ebp = 1;
+					D(esp+0x54) = -1;
+					break;
+				case DR_SCAN_ENTER:
+				case DR_SCAN_KP_ENTER:
+					dRally_Sound_pushEffect(1, SFX_CLICK_4, 0, ___24cc54h_sfx_volume, 0x28000, 0x8000);
+					D(esp+0x54) = -1;
+					break;
+				case DR_SCAN_F1:
 #if defined(DR_MULTIPLAYER)
-		if((B(esp+0x5c) == DR_SCAN_F1)&&(___19bd60h != 0)) ___23758h();
+					if(___19bd60h != 0) ___23758h();
 #endif // DR_MULTIPLAYER
+					break;
+				case DR_SCAN_Y:
+				case DR_SCAN_LEFT:
+				case DR_SCAN_KP_4:
+					if(ebp == 1) dRally_Sound_pushEffect(1, SFX_CLICK_2, 0, ___24cc54h_sfx_volume, 0x28000, 0x8000);
+					
+					ebp = 0;
+					n = -1;
+					while(++n < 0x19) memset(___1a112ch__VESA101_ACTIVESCREEN_PTR+0x280*n+0x1e000+0xa8, 0xc4, 0x14f);
 
-		if(B(esp+0x5c) == DR_SCAN_LEFT){
+					___12e78h_v3(___1a10cch___185ba9h, "yes", 240, 185);
+					___12e78h_v3(___1a10e0h___185ba9h, "no", 410, 185);
+					break;
+				case DR_SCAN_N:
+				case DR_SCAN_RIGHT:
+				case DR_SCAN_KP_6:
+					if(ebp == 0) dRally_Sound_pushEffect(1, SFX_CLICK_2, 0, ___24cc54h_sfx_volume, 0x28000, 0x8000);
+					
+					ebp = 1;
+					n = -1;
+					while(++n < 0x19) memset(___1a112ch__VESA101_ACTIVESCREEN_PTR+0x280*n+0x1e000+0xa8, 0xc4, 0x14f);
 
-			if((int)D(0x6c*D(___1a1ef8h)+___1a01e0h+0x2c) > 0) D(0x6c*D(___1a1ef8h)+___1a01e0h+0x2c) -= 2;
+					___12e78h_v3(___1a10e0h___185ba9h, "yes", 240, 185);
+					___12e78h_v3(___1a10cch___185ba9h, "no", 410, 185);
+					break;
+				default:
+					break;
+				}
+			}
+
+			if(ebp != 0){
+
+				___25a74h();
+				___12cb8h__VESA101_PRESENTSCREEN();
+			}
+			else {
+
+				dRally_Sound_pushEffect(5, SFX_NEW_CAR_BOUGHT, 0, ___24cc54h_sfx_volume, 0x24000, 0x8000);
+				s_6c[D(___1a1ef8h)].car = D(___1a1ee4h);
+				s_6c[D(___1a1ef8h)].damage = 0;
+				s_6c[D(___1a1ef8h)].engine = 0;
+				s_6c[D(___1a1ef8h)].tires = 0;
+				s_6c[D(___1a1ef8h)].armor = 0;
+				s_6c[D(___1a1ef8h)].money -= cdp[D(___1a1ee4h)].price-D(esp+0x50);
+				s_6c[D(___1a1ef8h)].refund = cdp[D(___1a1ee4h)].price;
+				___25330h();
+				___25e40h();
+				___26650h();
+				___262b4h();
+				___269e4h();
+				___25a74h();
+				___13248h_cdecl(0x90, 0x72, 0x180, 0x77, 1);
+
+				j = -1;
+				while(++j < 0x10){
+
+					i = -1;
+					while(++i < 0x126){
+
+						if((px = B(___1a1e88h+0x126*j+i)) != 0) B(___1a112ch__VESA101_ACTIVESCREEN_PTR+0x1e83c+0x280*j+i) = px;
+					}
+				}
+
+				___12e78h_v3(___1a110ch___185c0bh, strcpy(esp, "Use arrows to change the color"), 170, 124);
+				___12e78h_v3(___1a110ch___185c0bh, strcpy(esp, "of your car and press Enter"), 170, 140);
+				___12e78h_v3(___1a110ch___185c0bh, strcpy(esp, "when finished."), 170, 156);
+				___12cb8h__VESA101_PRESENTSCREEN();
+
+				B(esp+0x5c) = 0;
+				while(1){
+
+					if((B(esp+0x5c) == DR_SCAN_KP_ENTER)||(D(___196a84h) != 0)) break;
+					B(esp+0x5c) = ___5994ch();
+
+					switch(B(esp+0x5c)){
+					case DR_SCAN_F1:
+#if defined(DR_MULTIPLAYER)
+						if(___19bd60h != 0) ___23758h();
+#endif // DR_MULTIPLAYER
+						break;
+					case DR_SCAN_KP_4:
+					case DR_SCAN_LEFT:
+						if((int)s_6c[D(___1a1ef8h)].color > 0) s_6c[D(___1a1ef8h)].color -= 2;
+						break;
+					case DR_SCAN_KP_6:
+					case DR_SCAN_RIGHT:
+						if((int)s_6c[D(___1a1ef8h)].color < 0xfd) s_6c[D(___1a1ef8h)].color += 2;
+						break;
+					default:
+						break;
+					}
+
+					___11378h_cdecl_float(
+						(float)B(___1a0fb8h+3*s_6c[D(___1a1ef8h)].color+0),
+						(float)B(___1a0fb8h+3*s_6c[D(___1a1ef8h)].color+1),
+						(float)B(___1a0fb8h+3*s_6c[D(___1a1ef8h)].color+2)
+					);
+
+					n = -1;
+					while(++n < 0x18) memset(___1a112ch__VESA101_ACTIVESCREEN_PTR+0x1dd80+0x280*n+0xb6, 0xc4, 0x126);
+					
+					j = -1;
+					while(++j < 0x10){
+
+						i = -1;
+						while(++i < 0x126){
+
+							if((px = B(___1a1e88h+0x126*j+i)) != 0) B(___1a112ch__VESA101_ACTIVESCREEN_PTR+0x1e83c+0x280*j+i) = px;
+						}
+					}
+
+					j = -1;
+					while(++j < 0x18){
+
+						i = -1;
+						while(++i < 0xa){
+
+							if((px = B(___1a1eb4h+0xa*j+i)) != 0) B(___1a112ch__VESA101_ACTIVESCREEN_PTR+0x1de3c +0x280*j+i+s_6c[D(___1a1ef8h)].color+0xe) = px;
+						}
+					}
+
+					___2ab50h();
+					___2ab50h();
+					___1398ch__VESA101_PRESENTRECTANGLE(
+						s_6c[D(___1a1ef8h)].color+0x1de48,
+						___1a112ch__VESA101_ACTIVESCREEN_PTR+0x1de3c+s_6c[D(___1a1ef8h)].color+0xc,
+						0xe,
+						0x18);
+					___259e0h_cdecl(0x10, 0x8d, D(___1a1ed0h), ___1a01b8h[D(___1a1ee4h)], CARENCS[D(___1a1ee4h)]);
+					___1398ch__VESA101_PRESENTRECTANGLE(0x16090, ___1a112ch__VESA101_ACTIVESCREEN_PTR+0x16090, 0x60, 0x40);
+					D(___1a1ed0h)++;
+
+					if((int)D(___1a1ed0h) > 0x3f) D(___1a1ed0h) = 0;
+
+					if(B(esp+0x5c) == DR_SCAN_ENTER) break;
+				}
+
+				if((int)s_6c[D(___1a1ef8h)].car >= 5){
+
+					D(___1a1ee4h) = 5;
+				}
+				else {
+
+					D(___1a1ee4h) = s_6c[D(___1a1ef8h)].car+1;
+				}
+
+				___27078h();
+				D(___185a38h_delay) = 0x136;
+				___12cb8h__VESA101_PRESENTSCREEN();
+			}
 		}
+		break;
+	case 1:	// BUY ENGINE
+		if((int)s_6c[D(___1a1ef8h)].engine >= (int)cdp[s_6c[D(___1a1ef8h)].car].n_engine_upgrades){
 
-		if(B(esp+0x5c) == DR_SCAN_KP_4){
-
-			if((int)D(0x6c*D(___1a1ef8h)+___1a01e0h+0x2c) > 0) D(0x6c*D(___1a1ef8h)+___1a01e0h+0x2c) -= 2;
+			___25e40h();
+			___12cb8h__VESA101_PRESENTSCREEN();
 		}
+		else {
 
-		if(B(esp+0x5c) == DR_SCAN_RIGHT){
+			if(___28ab4h_cdecl(cdp[s_6c[D(___1a1ef8h)].car].price_engine_upgrades[s_6c[D(___1a1ef8h)].engine]) == 0){
+				
+				dRally_Sound_pushEffect(1, SFX_CLICK_4, 0, ___24cc54h_sfx_volume, 0x28000, 0x8000);
+				s_6c[D(___1a1ef8h)].money -= cdp[s_6c[D(___1a1ef8h)].car].price_engine_upgrades[s_6c[D(___1a1ef8h)].engine];
+				s_6c[D(___1a1ef8h)].refund += cdp[s_6c[D(___1a1ef8h)].car].price_engine_upgrades[s_6c[D(___1a1ef8h)].engine];
+				___273d8h();
+				D(___185a38h_delay) = 0x136;
+				s_6c[D(___1a1ef8h)].engine++;
+				___25330h();
+				___12cb8h__VESA101_PRESENTSCREEN();
+			}
+		}
+		break;
+	case 2:	// BUY TIRES
+		if((int)s_6c[D(___1a1ef8h)].tires >= (int)cdp[s_6c[D(___1a1ef8h)].car].n_tire_upgrades){
+
+			___262b4h();
+			___12cb8h__VESA101_PRESENTSCREEN();
+		}
+		else {
+
+			if(___28ab4h_cdecl(cdp[s_6c[D(___1a1ef8h)].car].price_tire_upgrades[s_6c[D(___1a1ef8h)].tires]) == 0){
+				
+				dRally_Sound_pushEffect(1, SFX_CLICK_4, 0, ___24cc54h_sfx_volume, 0x28000, 0x8000);
+				s_6c[D(___1a1ef8h)].money -= cdp[s_6c[D(___1a1ef8h)].car].price_tire_upgrades[s_6c[D(___1a1ef8h)].tires];
+				s_6c[D(___1a1ef8h)].refund += cdp[s_6c[D(___1a1ef8h)].car].price_tire_upgrades[s_6c[D(___1a1ef8h)].tires];
+				___276f0h();
+				D(___185a38h_delay) = 0x136;
+				s_6c[D(___1a1ef8h)].tires++;
+				___25330h();
+				___12cb8h__VESA101_PRESENTSCREEN();
+			}
+		}
+		break;
+	case 3:	// BUY ARMOR
+		if((int)s_6c[D(___1a1ef8h)].armor >= (int)cdp[s_6c[D(___1a1ef8h)].car].n_armor_upgrades){
+
+			___26650h();
+			___12cb8h__VESA101_PRESENTSCREEN();
+		}
+		else {
+
+			if(___28ab4h_cdecl(cdp[s_6c[D(___1a1ef8h)].car].price_armor_upgrades[s_6c[D(___1a1ef8h)].armor]) == 0){
+				
+				dRally_Sound_pushEffect(1, SFX_CLICK_4, 0, ___24cc54h_sfx_volume, 0x28000, 0x8000);
+				s_6c[D(___1a1ef8h)].money -= cdp[s_6c[D(___1a1ef8h)].car].price_armor_upgrades[s_6c[D(___1a1ef8h)].armor];
+				s_6c[D(___1a1ef8h)].refund += cdp[s_6c[D(___1a1ef8h)].car].price_armor_upgrades[s_6c[D(___1a1ef8h)].armor];
+				___27a10h();
+				D(___185a38h_delay) = 0x136;
+				s_6c[D(___1a1ef8h)].armor++;
+				___25330h();
+				___12cb8h__VESA101_PRESENTSCREEN();
+			}
+		}
+		break;
+	case 4:	// REPAIR
+		esi = cdp[s_6c[D(___1a1ef8h)].car].price_repair;
+
+		if((int)s_6c[D(___1a1ef8h)].damage < 10) esi = s_6c[D(___1a1ef8h)].damage*esi/10;
+
+		if(D(___185a14h_UseWeapons) != 0) esi = (int)esi/2;
+
+		if((int)s_6c[D(___1a1ef8h)].damage > 0){
 			
-			if((int)D(0x6c*D(___1a1ef8h)+___1a01e0h+0x2c) < 0xfd) D(0x6c*D(___1a1ef8h)+___1a01e0h+0x2c) += 2;
-		}
+			if(___28ab4h_cdecl(esi) == 0){
+				
+				dRally_Sound_pushEffect(1, SFX_ANVIL, 0, ___24cc54h_sfx_volume, 0x28000, 0x8000);
 
-		if(B(esp+0x5c) == DR_SCAN_KP_6){
+				if((int)s_6c[D(___1a1ef8h)].damage < 10){
 
-			if((int)D(0x6c*D(___1a1ef8h)+___1a01e0h+0x2c) < 0xfd) D(0x6c*D(___1a1ef8h)+___1a01e0h+0x2c) += 2;
-		}
+					s_6c[D(___1a1ef8h)].damage = 0;
+				}
+				else {
 
-		eax = 0x6c*D(___1a1ef8h);
-		edx = D(eax+___1a01e0h+0x2c);
-		edx = 3*edx;
-		edxp = ___1a0fb8h+edx;
-		eax = 0;
-		L(eax) = B(edxp+2);
-		D(esp+0x58) = eax;
-		FPUSH((short)W(esp+0x58));
-		esp -= 4;
-		eax = 0;
-		F32(esp) = (float)FPOP();
-		L(eax) = B(edxp+1);
-		D(esp+0x5c) = eax;
-		FPUSH((short)W(esp+0x5c));
-		esp -= 4;
-		eax = 0;
-		F32(esp) = (float)FPOP();
-		L(eax) = B(edxp);
-		D(esp+0x60) = eax;
-		FPUSH((short)W(esp+0x60));
-		esp -= 4;
-		F32(esp) = (float)FPOP();
-		___11378h_cdecl_float(F32(esp), F32(esp+4), F32(esp+8));
-		esp += 0xc;
-		ecx = 0x1dd80;
-	
-		while(1){
+					s_6c[D(___1a1ef8h)].damage -= 10;
+				}
 
-			memset(___1a112ch__VESA101_ACTIVESCREEN_PTR+ecx+0xb6, 0xc4, ebp);
-		
-			ecx += 0x280;
-			if(ecx == 0x21980) break;
-		}
-
-		ecx = 0x10;
-		ebxp = ___1a112ch__VESA101_ACTIVESCREEN_PTR+0x1e83c;
-		esip = ___1a1e88h;
-		edx = ebp;
-
-		while(1){
-
-			edi = edx;
-
-			while(1){
-
-				if(B(esip) != 0) B(ebxp) = B(esip);
-				ebxp++;
-				esip++;
-				edi--;
-
-				if(edi == 0) break;
+				s_6c[D(___1a1ef8h)].money -= esi;
+				s_6c[D(___1a1ef8h)].refund += esi;
+				___25330h();
+				___269e4h();
+				___12cb8h__VESA101_PRESENTSCREEN();
 			}
-
-			ebxp += 0x280;
-			ebxp -= edx;
-			ecx--;
-		
-			if(ecx == 0) break;
 		}
+		break;
+	case 5:	// CONTINUE
+		if((s_6c[D(___1a1ef8h)].damage == 100)&&(D(___185a14h_UseWeapons) == 0)){
 
-		edx = 0x6c*D(___1a1ef8h);
-		ecx = 0x18;
-		ebx = D(edx+___1a01e0h+0x2c);
-		esip = ___1a1eb4h;
-		ebxp = ___1a112ch__VESA101_ACTIVESCREEN_PTR+0x1de3c+ebx+0xe;
-		edx = 0xa;
-
-		while(1){
-
-			edi = edx;
-
-			while(1){
-
-				if(B(esip) != 0) B(ebxp) = B(esip);
-				ebxp++;
-				esip++;
-				edi--;
-
-				if(edi == 0) break;
-			}
-
-			ebxp += 0x280;
-			ebxp -= edx;
-			ecx--;
-		
-			if(ecx == 0) break;
-		}
-
-		___2ab50h();
-		___2ab50h();
-		___1398ch__VESA101_PRESENTRECTANGLE(
-			D(0x6c*D(___1a1ef8h)+___1a01e0h+0x2c)+0x1de48,
-			___1a112ch__VESA101_ACTIVESCREEN_PTR+0x1de3c+D(0x6c*D(___1a1ef8h)+___1a01e0h+0x2c)+0xc,
-			0xe,
-			0x18);
-		___259e0h_cdecl(0x10, 0x8d, D(___1a1ed0h), ___1a01b8h[D(___1a1ee4h)], CARENCS[D(___1a1ee4h)]);
-		___1398ch__VESA101_PRESENTRECTANGLE(0x16090, ___1a112ch__VESA101_ACTIVESCREEN_PTR+0x16090, 0x60, 0x40);
-		D(___1a1ed0h)++;
-
-		if((int)D(___1a1ed0h) > 0x3f) D(___1a1ed0h) = 0;
-
-		if(B(esp+0x5c) == 0x1c) break;
-	}
-
-
-
-
-
-
-
-
-		edx = D(___1a1ef8h);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 2;
-		eax -= edx;
-		eax <<= 2;
-		ebx = D(eax+___1a01e0h+0x1c);
-		if((int)ebx >= 5) goto ___29b67h;
-		eax = ebx+1;
-		D(___1a1ee4h) = eax;
-		goto ___29b71h;
-___29b67h:
-		D(___1a1ee4h) = 5;
-___29b71h:
-		esi = 0x136;
-		___27078h();
-		D(___185a38h_delay) = esi;
-		___12cb8h__VESA101_PRESENTSCREEN();
-		return;
-___29b90h:
-		___25a74h();
-		___12cb8h__VESA101_PRESENTSCREEN();
-		return;
-___29ba4h:
-		edx = D(___1a1ef8h);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 2;
-		eax -= edx;
-		ebx = D(4*eax+___1a01e0h+0x1c);
-		edx = 8*ebx;
-		edx -= ebx;
-		edx <<= 3;
-		edx -= ebx;
-		edx <<= 5;
-		eax = D(4*eax+___1a01e0h+0x10);
-		if((int)eax >= (int)D(edx+___18e298h+0x6a0)) goto ___29cd7h;
-		eax = D(edx+4*eax+___18e298h+0x6ac);
-		eax = ___28ab4h_cdecl(eax);
-		if(eax) return;
-		dRally_Sound_pushEffect(1, SFX_CLICK_4, 0, ___24cc54h_sfx_volume, 0x28000, 0x8000);
-		edx = D(___1a1ef8h);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 2;
-		eax -= edx;
-		ebx = D(4*eax+___1a01e0h+0x1c);
-		edx = 8*ebx;
-		edx -= ebx;
-		edx <<= 3;
-		edx -= ebx;
-		edx <<= 5;
-		ebx = D(4*eax+___1a01e0h+0x10);
-		edx = D(edx+4*ebx+___18e298h+0x6ac);
-		D(4*eax+___1a01e0h+0x30) -= edx;
-		ebx = D(4*eax+___1a01e0h+0x1c);
-		edx = 8*ebx;
-		edx -= ebx;
-		edx <<= 3;
-		edx -= ebx;
-		ebx = D(4*eax+___1a01e0h+0x10);
-		edx <<= 5;
-		ecx = D(4*eax+___1a01e0h+0x3c);
-		edx = D(edx+4*ebx+___18e298h+0x6ac);
-		ecx += edx;
-		D(4*eax+___1a01e0h+0x3c) = ecx;
-		___273d8h();
-		edx = D(___1a1ef8h);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 2;
-		eax -= edx;
-		edi = D(4*eax+___1a01e0h+0x10);
-		esi = 0x136;
-		edi++;
-		D(___185a38h_delay) = esi;
-		D(4*eax+___1a01e0h+0x10) = edi;
-		___25330h();
-		___12cb8h__VESA101_PRESENTSCREEN();
-		return;
-___29cd7h:
-		___25e40h();
-		___12cb8h__VESA101_PRESENTSCREEN();
-		return;
-___29cebh:
-		edx = D(___1a1ef8h);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 2;
-		eax -= edx;
-		ebx = D(4*eax+___1a01e0h+0x1c);
-		edx = 8*ebx;
-		edx -= ebx;
-		edx <<= 3;
-		edx -= ebx;
-		edx <<= 5;
-		eax = D(4*eax+___1a01e0h+0x14);
-		if((int)eax >= (int)D(edx+___18e298h+0x6a4)) goto ___29e1fh;
-		eax = D(edx+4*eax+___18e298h+0x6bc);
-		eax = ___28ab4h_cdecl(eax);
-		if(eax) return;
-		dRally_Sound_pushEffect(1, SFX_CLICK_4, 0, ___24cc54h_sfx_volume, 0x28000, 0x8000);
-		edx = D(___1a1ef8h);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 2;
-		eax -= edx;
-		ebx = D(4*eax+___1a01e0h+0x1c);
-		edx = 8*ebx;
-		edx -= ebx;
-		edx <<= 3;
-		edx -= ebx;
-		edx <<= 5;
-		ebx = D(4*eax+___1a01e0h+0x14);
-		edx = D(edx+4*ebx+___18e298h+0x6bc);
-		D(4*eax+___1a01e0h+0x30) -= edx;
-		ebx = D(4*eax+___1a01e0h+0x1c);
-		edx = 8*ebx;
-		edx -= ebx;
-		edx <<= 3;
-		edx -= ebx;
-		ebx = D(4*eax+___1a01e0h+0x14);
-		edx <<= 5;
-		ecx = D(4*eax+___1a01e0h+0x3c);
-		edx = D(edx+4*ebx+___18e298h+0x6bc);
-		ecx += edx;
-		D(4*eax+___1a01e0h+0x3c) = ecx;
-		___276f0h();
-		edx = D(___1a1ef8h);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 2;
-		eax -= edx;
-		edi = D(4*eax+___1a01e0h+0x14);
-		esi = 0x136;
-		edi++;
-		D(___185a38h_delay) = esi;
-		D(4*eax+___1a01e0h+0x14) = edi;
-		___25330h();
-		___12cb8h__VESA101_PRESENTSCREEN();
-		return;
-___29e1fh:
-		___262b4h();
-		___12cb8h__VESA101_PRESENTSCREEN();
-		return;
-___29e33h:
-		eax = D(___1a1ef8h);
-		edx = 8*eax;
-		edx -= eax;
-		edx <<= 2;
-		edx -= eax;
-		ebx = D(4*edx+___1a01e0h+0x1c);
-		eax = 8*ebx;
-		eax -= ebx;
-		eax <<= 3;
-		eax -= ebx;
-		eax <<= 5;
-		edx = D(4*edx+___1a01e0h+0x18);
-		if((int)edx >= (int)D(eax+___18e298h+0x6a8)) goto ___29f6fh;
-		eax = D(eax+4*edx+___18e298h+0x6cc);
-		eax = ___28ab4h_cdecl(eax);
-		if(eax) return;
-		dRally_Sound_pushEffect(1, SFX_CLICK_4, 0, ___24cc54h_sfx_volume, 0x28000, 0x8000);
-		edx = D(___1a1ef8h);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 2;
-		eax -= edx;
-		ebx = D(4*eax+___1a01e0h+0x1c);
-		edx = 8*ebx;
-		edx -= ebx;
-		edx <<= 3;
-		edx -= ebx;
-		ebx = D(4*eax+___1a01e0h+0x18);
-		edx <<= 5;
-		ebp = D(4*eax+___1a01e0h+0x30);
-		edx = D(edx+4*ebx+___18e298h+0x6cc);
-		ebx = D(4*eax+___1a01e0h+0x1c);
-		ebp -= edx;
-		edx = 8*ebx;
-		edx -= ebx;
-		edx <<= 3;
-		edx -= ebx;
-		edx <<= 5;
-		ebx = D(4*eax+___1a01e0h+0x18);
-		edx = D(edx+4*ebx+___18e298h+0x6cc);
-		ebx = D(4*eax+___1a01e0h+0x3c);
-		D(4*eax+___1a01e0h+0x30) = ebp;
-		ebx += edx;
-		D(4*eax+___1a01e0h+0x3c) = ebx;
-		___27a10h();
-		edx = D(___1a1ef8h);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 2;
-		eax -= edx;
-		esi = D(4*eax+___1a01e0h+0x18);
-		ecx = 0x136;
-		esi++;
-		D(___185a38h_delay) = ecx;
-		D(4*eax+___1a01e0h+0x18) = esi;
-		___25330h();
-		___12cb8h__VESA101_PRESENTSCREEN();
-		return;
-___29f6fh:
-		___26650h();
-		___12cb8h__VESA101_PRESENTSCREEN();
-		return;
-___29f83h:
-		eax = D(___1a1ef8h);
-		ebx = 8*eax;
-		ebx -= eax;
-		ebx <<= 2;
-		ebx -= eax;
-		ebx <<= 2;
-		if((int)D(ebx+___1a01e0h+0xc) >= 0xa) goto ___29fe8h;
-		if(D(___185a14h_UseWeapons) == 0) goto ___29fe8h;
-		eax = D(ebx+___1a01e0h+0x1c);
-		edx = 8*eax;
-		edx -= eax;
-		edx <<= 3;
-		edx -= eax;
-		edx <<= 5;
-		eax = D(edx+___18e298h+0x6dc);
-		edx = eax;
-		ecx = 0xa;
-		edx = (int)edx>>0x1f;
-		eax = (long long)(int)eax/(int)ecx;
-		edx = D(ebx+___1a01e0h+0xc);
-		edx = edx*eax;
-		eax = edx;
-		edx = (int)edx>>0x1f;
-		eax -= edx;
-		eax = (int)eax>>1;
-		esi = eax;
-___29fe8h:
-		edx = D(___1a1ef8h);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 2;
-		eax -= edx;
-		eax <<= 2;
-		if((int)D(eax+___1a01e0h+0xc) < 0xa) goto ___2a039h;
-		if(D(___185a14h_UseWeapons) == 0) goto ___2a039h;
-		eax = D(eax+___1a01e0h+0x1c);
-		edx = 8*eax;
-		edx -= eax;
-		edx <<= 3;
-		edx -= eax;
-		edx <<= 5;
-		eax = D(edx+___18e298h+0x6dc);
-		edx = eax;
-		edx = (int)edx>>0x1f;
-		eax -= edx;
-		eax = (int)eax>>1;
-		esi = eax;
-___2a039h:
-		eax = D(___1a1ef8h);
-		ebx = 8*eax;
-		ebx -= eax;
-		ebx <<= 2;
-		ebx -= eax;
-		ebx <<= 2;
-		if((int)D(ebx+___1a01e0h+0xc) >= 0xa) goto ___2a093h;
-		if(D(___185a14h_UseWeapons) != 0) goto ___2a093h;
-		eax = D(ebx+___1a01e0h+0x1c);
-		edx = 8*eax;
-		edx -= eax;
-		edx <<= 3;
-		edx -= eax;
-		edx <<= 5;
-		eax = D(edx+___18e298h+0x6dc);
-		edx = eax;
-		ecx = 0xa;
-		edx = (int)edx>>0x1f;
-		eax = (long long)(int)eax/(int)ecx;
-		esi = D(ebx+___1a01e0h+0xc);
-		esi = esi*eax;
-___2a093h:
-		edx = D(___1a1ef8h);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 2;
-		eax -= edx;
-		eax <<= 2;
-		if((int)D(eax+___1a01e0h+0xc) < 0xa) goto ___2a0d9h;
-		if(D(___185a14h_UseWeapons) != 0) goto ___2a0d9h;
-		eax = D(eax+___1a01e0h+0x1c);
-		esi = 8*eax;
-		esi -= eax;
-		esi <<= 3;
-		esi -= eax;
-		esi <<= 5;
-		esi = D(esi+___18e298h+0x6dc);
-___2a0d9h:
-		edx = D(___1a1ef8h);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 2;
-		eax -= edx;
-		if((int)D(4*eax+___1a01e0h+0xc) <= 0) return;
-		eax = esi;
-		eax = ___28ab4h_cdecl(eax);
-		if(eax) return;
-		dRally_Sound_pushEffect(1, SFX_ANVIL, 0, ___24cc54h_sfx_volume, 0x28000, 0x8000);
-		edx = D(___1a1ef8h);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 2;
-		eax -= edx;
-		eax <<= 2;
-		edi = D(eax+___1a01e0h+0xc);
-		if((int)edi >= 0xa) goto ___2a159h;
-		edx = 0;
-		D(eax+___1a01e0h+0xc) = edx;
-		goto ___2a162h;
-___2a159h:
-		ebp = edi-0xa;
-		D(eax+___1a01e0h+0xc) = ebp;
-___2a162h:
-		edx = D(___1a1ef8h);
-		eax = 8*edx;
-		eax -= edx;
-		eax <<= 2;
-		eax -= edx;
-		ebx = D(4*eax+___1a01e0h+0x30);
-		ecx = D(4*eax+___1a01e0h+0x3c);
-		ebx -= esi;
-		ecx += esi;
-		D(4*eax+___1a01e0h+0x30) = ebx;
-		D(4*eax+___1a01e0h+0x3c) = ecx;
-		___25330h();
-		___269e4h();
-		___12cb8h__VESA101_PRESENTSCREEN();
-		return;
-
-
-
-// CONTINUE
-___2a1afh:
-		if((D(0x6c*D(___1a1ef8h)+___1a01e0h+0xc) == 0x64)&&(D(___185a14h_UseWeapons) == 0)){
-
-			___13248h_cdecl(0x90, 0x72, 0x180, 0x77, 1);
-			VESA101_16X16_FORMAT_PRINT("[Repair your car first.", 170, 124);
-			VESA101_16X16_FORMAT_PRINT("", 170, 140);
+			___13248h_cdecl(144, 114, 384, 119, 1);
+			VESA101_16X16_FORMAT_PRINT("[Repair your car first.",             170, 124);
+			VESA101_16X16_FORMAT_PRINT("",                                    170, 140);
 			VESA101_16X16_FORMAT_PRINT("What'cha gonna do with that pile of", 170, 156);
 			VESA101_16X16_FORMAT_PRINT("junk, carry it around? Let me spell", 170, 172);
-			VESA101_16X16_FORMAT_PRINT("this out for you: R-E-P-A-I-R.", 170, 188);
+			VESA101_16X16_FORMAT_PRINT("this out for you: R-E-P-A-I-R.",      170, 188);
 			___12cb8h__VESA101_PRESENTSCREEN();
 			dRally_Sound_pushEffect(2, SFX_LAUGHTER, 0, ___24cc54h_sfx_volume, 0x25500, 0x8000);
 		}
 		else {
 
+			D(___185a4ch) = underground___28c1ch();
 #if defined(DR_MULTIPLAYER)
-			if(___19bd60h == 0){
+			if(___19bd60h != 0) D(___1a1028h) = 0;
 #endif // DR_MULTIPLAYER
+			if((D(___185a14h_UseWeapons) != 0)&&(D(___185a4ch) != 0)){
 
-				D(___185a4ch) = underground___28c1ch();
-
-				if((D(___185a14h_UseWeapons) != 0)&&(D(___185a4ch) != 0)){
-				
-					underground_main();
-				}
-				else {
-
-					dRally_Sound_pushEffect(1, SFX_SIGNUP_ENGINE_ON, 0, ___24cc54h_sfx_volume, 0x28000, 0x8000);
-					edi = D(___1a1ef8h);
-					ecx = 0;
-					edx = 0;
-					eax = 0;
-
-					while(1){
-
-						esi = D(eax+___1a01e0h+0x44);
-						if(((int)ecx < (int)esi)&&(edx != edi)) ecx = esi;
-						edx++;
-						eax += 0x6c;
-					
-						if((int)edx >= 0x14) break;
-					}
-
-					if((int)ecx < (int)D(0x6c*D(___1a1ef8h)+___1a01e0h+0x44)){
-
-						___31008h();
-					}
-					else {
-
-						___3266ch();
-					}
-				}
-#if defined(DR_MULTIPLAYER)				
+				underground_main();
 			}
 			else {
 
-				D(___1a1028h) = 0;
-				D(___185a4ch) = underground___28c1ch();
+				dRally_Sound_pushEffect(1, SFX_SIGNUP_ENGINE_ON, 0, ___24cc54h_sfx_volume, 0x28000, 0x8000);
+#if defined(DR_MULTIPLAYER)
+				if(___19bd60h != 0){
 
-				if((D(___185a14h_UseWeapons) == 0)||(D(___185a4ch) == 0)){
-
-					dRally_Sound_pushEffect(1, SFX_SIGNUP_ENGINE_ON, 0, ___24cc54h_sfx_volume, 0x28000, 0x8000);
 					___33010h_cdecl(D(___196adch));
 				}
 				else {
-				
-					underground_main();
-				}
+#endif // DR_MULTIPLAYER
+					ecx = 0;
+					n = -1;
+					while(++n < 0x14){
 
-				D(___185a20h) = 1;
+						if(((int)ecx < (int)s_6c[n].points)&&(n != D(___1a1ef8h))) ecx = s_6c[n].points;
+					}
+
+					if((int)ecx < (int)s_6c[D(___1a1ef8h)].points){
+
+						___31008h();	// challenge adversary
+					}
+					else {
+
+						___3266ch();	// sign up
+					}
+#if defined(DR_MULTIPLAYER)
+				}
+#endif // DR_MULTIPLAYER
 			}
+#if defined(DR_MULTIPLAYER)
+			if(___19bd60h != 0) D(___185a20h) = 1;
 #endif // DR_MULTIPLAYER
 		}
-
-		return;
+		break;
+	default:
+		break;
+	}
 }

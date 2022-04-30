@@ -1,5 +1,6 @@
 #include "drally.h"
 #include "drally_fonts.h"
+#include "drally_structs_fixed.h"
 
 	extern __BYTE__ ___1a1028h[];
 	extern __BYTE__ ___1a0ef8h[];
@@ -23,9 +24,11 @@ __DWORD__ ___32230h(void){
 
 	__DWORD__ 	eax, ebx, ecx, edx, edi, esi, ebp, p5;
 	__BYTE__	esp[0x84];
-	int 	n, x, y;
+	int 		n, x, y;
+	racer_t * 	s_6c;
 
 
+	s_6c = (racer_t *)___1a01e0h;
 	D(esp+0x80) = 0x2d;
 	B(esp+0x78) = B(___1a0ef8h+4*D(___1a1028h));
 	B(esp+0x79) = B(___1a0ef8h+4*D(___1a1028h)+1);
@@ -39,7 +42,7 @@ __DWORD__ ___32230h(void){
 #if defined(DR_MULTIPLAYER)
 			if(___19bd60h == 0){
 #endif // DR_MULTIPLAYER
-				D(___1a01e0h+0x6c*n+0xc) = 0;
+				s_6c[n].damage = 0;
 #if defined(DR_MULTIPLAYER)
 			}
 #endif // DR_MULTIPLAYER
@@ -52,18 +55,18 @@ __DWORD__ ___32230h(void){
 	n = -1;
 	while(++n < 0x14){
 
-		if(((int)esi < (int)D(___1a01e0h+0x6c*n+0x44))&&(n !=  D(___1a1ef8h))) esi = D(___1a01e0h+0x6c*n+0x44);
+		if(((int)esi < (int)s_6c[n].points)&&(n !=  D(___1a1ef8h))) esi = s_6c[n].points;
 	}
 
 #if defined(DR_MULTIPLAYER)
 	if(___19bd60h == 0){
 #endif // DR_MULTIPLAYER
 
-		if((int)esi >= (int)D(___1a01e0h+0x6c*D(___1a1ef8h)+0x44)){
+		if((int)esi >= (int)s_6c[D(___1a1ef8h)].points){
 
 			if(D(___185a14h_UseWeapons) != 0){
 
-				if(D(___1a01e0h+0x6c*D(___1a1ef8h)+0x68) == 1){
+				if(s_6c[D(___1a1ef8h)].sabotage == 1){
 
 					eax = 0;
 					while(1){
@@ -71,12 +74,12 @@ __DWORD__ ___32230h(void){
 						edx = B(esp+eax+0x78);
 						edx = 0x6c*edx;
 						eax++;
-						B(esp+eax+0x33) = B(___1a01e0h+edx+0x48);
+						B(esp+eax+0x33) = s_6c[edx/0x6c].rank;
 						if((int)eax >= 4) break;
 					}
 
 					edi = B(esp+0x34);
-					if(edi == D(___1a01e0h+0x6c*D(___1a1ef8h)+0x48)) edi = B(esp+0x35);
+					if(edi == s_6c[D(___1a1ef8h)].rank) edi = B(esp+0x35);
 					esi = 0x6c*D(___1a1ef8h);
 
 					eax = 0;
@@ -86,7 +89,7 @@ __DWORD__ ___32230h(void){
 
 						if((int)edx < (int)edi){
 
-							if(edx != D(esi+___1a01e0h+0x48)) edi = edx;
+							if(edx != s_6c[esi/0x6c].rank) edi = edx;
 						}
 
 						eax++;
@@ -96,14 +99,14 @@ __DWORD__ ___32230h(void){
 					esi = 0;
 					while(1){
 
-						if(edi == D(___1a01e0h+0x6c*B(esp+esi+0x78)+0x48)) break;
+						if(edi == s_6c[B(esp+esi+0x78)].rank) break;
 						esi++;
 					}
 					
 					srand_watcom106(__GET_TIMER_TICKS());
-					D(___1a01e0h+0x6c*B(esp+esi+0x78)+0xc) = (rand_watcom106()%0x19)+0x19;
-					itoa_watcom106(D(___1a01e0h+0x6c*B(esp+esi+0x78)+0xc), esp+0x6c, 0xa);
-					strcpy(esp+0x5c, ___1a01e0h+0x6c*B(esp+esi+0x78));
+					s_6c[B(esp+esi+0x78)].damage = (rand_watcom106()%0x19)+0x19;
+					itoa_watcom106(s_6c[B(esp+esi+0x78)].damage, esp+0x6c, 0xa);
+					strcpy(esp+0x5c, s_6c[B(esp+esi+0x78)].name);
 					___13248h_cdecl(D(esp+0x80), 0xa5, 0x1ca, 0xc3, 1);
 					x = 0x280*(0xa5+0x28)+D(esp+0x80)+0x38;
 					y = x/0x280;
@@ -146,6 +149,5 @@ __DWORD__ ___32230h(void){
 	}
 #endif // DR_MULTIPLAYER
 
-	D(esp+0x7c) = 0;
-	return D(esp+0x7c);
+	return 0;
 }

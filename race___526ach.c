@@ -8,8 +8,8 @@
 	extern __BYTE__ ___1e6ed0h[];
 	extern __POINTER__ ___243d74h;
 	extern __BYTE__ MY_CAR_IDX[];
-	extern __BYTE__ ___243d28h[];
-	extern __POINTER__ ___243d58h;
+	extern int TRX_WIDTH;
+	extern __POINTER__ TRX_IMA;
 	extern __BYTE__ ___1de580h[];
 	extern __BYTE__ ___1de7d0h[];
 	extern __BYTE__ ___196dd0h[];
@@ -49,7 +49,7 @@ void race___526ach(void){
 
 						rat_a = (int)((double)s_35e[D(___243c60h)].XLocation-(double)s_35e[D(MY_CAR_IDX)].XLocation);
 						rat_b = (int)((double)s_35e[D(___243c60h)].YLocation-(double)s_35e[D(MY_CAR_IDX)].YLocation);
-						eax = 0x9000-0x4b*dRMath_hypotenuse_i(rat_a, rat_b);
+						eax = 0x9000-0x4b*dRMath_magnitude2_i(rat_a, rat_b);
 
 						if((int)eax > 0x1000) dRally_Sound_pushEffect(0xa, SFX_MINE, 0, eax, 0x21000, 0x8000);
 					}
@@ -61,7 +61,7 @@ void race___526ach(void){
 					i = -1;
 					while(++i < 0x10){
 
-						memcpy(___243d58h+D(___1f2488h+0x120*n)-8+D(___243d28h)*(D(___1f2488h+0x120*n+4)+i-8), ___1f2488h+0x20+0x120*n+0x10*i, 0x10);
+						memcpy(TRX_IMA+D(___1f2488h+0x120*n)-8+TRX_WIDTH*(D(___1f2488h+0x120*n+4)+i-8), ___1f2488h+0x20+0x120*n+0x10*i, 0x10);
 					}
 
 					switch(D(___1f2488h+0x120*n+8)-1){

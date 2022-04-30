@@ -84,8 +84,8 @@ static __DWORD__ 	bytes_dcd_cnt = 0;
 static __BYTE__ 	EOD = 0;
 
 static __BYTE__ * 	s_dst;
-static __UNSIGNED__	s_size;
-static __UNSIGNED__ s_offset;
+static __DWORD__	s_size;
+static __DWORD__ s_offset;
 
 static void __bpk_out(__BYTE__ outb){
 	
@@ -124,7 +124,7 @@ static void __bpk_checkdictionary(void){
 	}
 }
 			
-static __UNSIGNED__ __bpk_decode4(__UNSIGNED__ size, __UNSIGNED__ offset, __POINTER__ dst, __POINTER__ src){
+static __DWORD__ __bpk_decode4(__DWORD__ size, __DWORD__ offset, __POINTER__ dst, __POINTER__ src){
 
     __WORD__	code;
 

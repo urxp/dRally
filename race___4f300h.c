@@ -3,27 +3,27 @@
 #include "drally_structs_free.h"
 
 	extern __BYTE__ MY_CAR_IDX[];
-	extern __BYTE__ ___243c8ch[];
+	extern int X___243c8ch;
 	extern __BYTE__ ___1e6ed0h[];
-	extern __BYTE__ ___196d8ch[];
-	extern __BYTE__ ___243d28h[];
-	extern __BYTE__ ___196d88h[];
-	extern __BYTE__ ___243c90h[];
-	extern __BYTE__ ___196d98h[];
-	extern __BYTE__ ___196d94h[];
-	extern __BYTE__ ___243d2ch[];
-	extern __BYTE__ ___196d90h[];
+	extern int CURRENT_VIEWPORT_CENTER_X;
+	extern int TRX_WIDTH;
+	extern int CURRENT_VIEWPORT_W;
+	extern int Y___243c90h;
+	extern int CURRENT_VIEWPORT_X;
+	extern int CURRENT_VIEWPORT_CENTER_Y;
+	extern int TRX_HEIGHT;
+	extern int CURRENT_VIEWPORT_H;
 	extern __BYTE__ ___1de580h[];
-	extern __BYTE__ ___241c78h[0x100];
+	extern __BYTE__ TRX_LIT_TAB[0x100];
 	extern __BYTE__ ___243c60h[];
 	extern __BYTE__ NUM_OF_CARS[];
-	extern __BYTE__ ___196dcch[];
-	extern __BYTE__ ___196dc8h[];
-	extern __POINTER__ ___243d80h;
+	extern int TRX_VIEWPORT_TL_Y;
+	extern int TRX_VIEWPORT_TL_X;
+	extern __POINTER__ BACKBUFFER;
 	extern __POINTER__ ___243d74h;
-	extern __POINTER__ ___243d68h;
+	extern __POINTER__ RACE_BURN1A_BPK;
 
-void ___5e769h(__BYTE__ * A1, int A2, int A3, int A4, int A5, int A6, int A7);
+void ___5e769h(__BYTE__ * A0, int Y3, int X3, int Y2, int X2, int Y1, int X1);
 __DWORD__ __GET_FRAME_COUNTER(void);
 
 #define LOC_PI 		create_double(0xea,0x2e,0x44,0x54,0xfb,0x21,0x09,0x40)
@@ -38,7 +38,7 @@ static void helper00(int n){
 	s_35e = (struct_35e_t *)___1e6ed0h;
 
 	___5e769h(
-		___241c78h,
+		TRX_LIT_TAB,
 		s_35e[n].__8+(int)(40.0*dRMath_cos(((double)s_35e[n].Direction+170.0)*LOC_PI/180.0)*LOC_5OVER6),
 		s_35e[n].__4+(int)(40.0*dRMath_sin(((double)s_35e[n].Direction+170.0)*LOC_PI/180.0)),
 		s_35e[n].__8+(int)(40.0*dRMath_cos(((double)s_35e[n].Direction+190.0)*LOC_PI/180.0)*LOC_5OVER6),
@@ -47,7 +47,7 @@ static void helper00(int n){
 		s_35e[n].__4);
 
 	___5e769h(
-		___241c78h,
+		TRX_LIT_TAB,
 		s_35e[n].__8+(int)(40.0*dRMath_cos(((double)s_35e[n].Direction+190.0)*LOC_PI/180.0)*LOC_5OVER6),
 		s_35e[n].__4+(int)(40.0*dRMath_sin(((double)s_35e[n].Direction+190.0)*LOC_PI/180.0)),
 		s_35e[n].__8+(int)(36.0*dRMath_cos(((double)s_35e[n].Direction+198.0)*LOC_PI/180.0)*LOC_5OVER6),
@@ -56,7 +56,7 @@ static void helper00(int n){
 		s_35e[n].__4);
 
 	___5e769h(
-		___241c78h,
+		TRX_LIT_TAB,
 		s_35e[n].__8+(int)(36.0*dRMath_cos(((double)s_35e[n].Direction+162.0)*LOC_PI/180.0)*LOC_5OVER6),
 		s_35e[n].__4+(int)(36.0*dRMath_sin(((double)s_35e[n].Direction+162.0)*LOC_PI/180.0)),
 		s_35e[n].__8+(int)(40.0*dRMath_cos(((double)s_35e[n].Direction+170.0)*LOC_PI/180.0)*LOC_5OVER6),
@@ -81,7 +81,7 @@ static void helper01(int x, int y, __POINTER__ vp1, int A0){
 			i = -1;
 			while(++i < A0){
 
-				if((px = read_b(vp1+n*A0+i)) != 0) write_b(___243d80h+offset+i, px);
+				if((px = read_b(vp1+n*A0+i)) != 0) write_b(BACKBUFFER+offset+i, px);
 			}
 		}
 
@@ -97,7 +97,7 @@ static void helper02(int n){
 
 	s_35e = (struct_35e_t *)___1e6ed0h;
 
-	helper01(s_35e[n].__4+88, s_35e[n].__8-8, ___243d68h+0x100*s_35e[n].__1da, 0x10);
+	helper01(s_35e[n].__4+88, s_35e[n].__8-8, RACE_BURN1A_BPK+0x100*s_35e[n].__1da, 0x10);
 
 	if((s_35e[n].__1de+0x3) <= __GET_FRAME_COUNTER()){
 
@@ -120,42 +120,42 @@ void race___4f300h(void){
 
 	s_35e = (struct_35e_t *)___1e6ed0h;
 
-	d00 = (double)(int)D(___196d8ch);
-	d01 = (double)(int)D(___243c8ch)+(double)s_35e[D(MY_CAR_IDX)].XLocation;
-	d02 = (double)(int)(D(___243d28h)-D(___196d8ch));
+	d00 = (double)CURRENT_VIEWPORT_CENTER_X;
+	d01 = (double)X___243c8ch+(double)s_35e[D(MY_CAR_IDX)].XLocation;
+	d02 = (double)(int)(TRX_WIDTH-CURRENT_VIEWPORT_CENTER_X);
 
 	if(d00 > d01) s_35e[D(MY_CAR_IDX)].__4 = (int)(double)s_35e[D(MY_CAR_IDX)].XLocation;
-	if(d02 < d01) s_35e[D(MY_CAR_IDX)].__4 = (int)((double)s_35e[D(MY_CAR_IDX)].XLocation-(double)(int)(D(___243d28h)-D(___196d88h)));
+	if(d02 < d01) s_35e[D(MY_CAR_IDX)].__4 = (int)((double)s_35e[D(MY_CAR_IDX)].XLocation-(double)(int)(TRX_WIDTH-CURRENT_VIEWPORT_W));
 
-	if(lqandlq_d(d00, d01, d02)) s_35e[D(MY_CAR_IDX)].__4 = D(___196d8ch)-D(___243c8ch);
+	if(lqandlq_d(d00, d01, d02)) s_35e[D(MY_CAR_IDX)].__4 = CURRENT_VIEWPORT_CENTER_X-X___243c8ch;
 
-	s_35e[D(MY_CAR_IDX)].__4 += D(___196d98h);
+	s_35e[D(MY_CAR_IDX)].__4 += CURRENT_VIEWPORT_X;
 
-	d00 = (double)(int)D(___196d94h);
-	d01 = (double)(int)D(___243c90h)+(double)s_35e[D(MY_CAR_IDX)].YLocation;
-	d02 = (double)(int)(D(___243d2ch)-D(___196d94h));
+	d00 = (double)CURRENT_VIEWPORT_CENTER_Y;
+	d01 = (double)Y___243c90h+(double)s_35e[D(MY_CAR_IDX)].YLocation;
+	d02 = (double)(int)(TRX_HEIGHT-CURRENT_VIEWPORT_CENTER_Y);
 
 	if(d00 > d01) s_35e[D(MY_CAR_IDX)].__8 = (int)(double)s_35e[D(MY_CAR_IDX)].YLocation;
-	if(d02 < d01) s_35e[D(MY_CAR_IDX)].__8 = (int)((double)s_35e[D(MY_CAR_IDX)].YLocation-(double)(int)(D(___243d2ch)-D(___196d90h)));
+	if(d02 < d01) s_35e[D(MY_CAR_IDX)].__8 = (int)((double)s_35e[D(MY_CAR_IDX)].YLocation-(double)(int)(TRX_HEIGHT-CURRENT_VIEWPORT_H));
 
-	if(lqandlq_d(d00, d01, d02)) s_35e[D(MY_CAR_IDX)].__8 = D(___196d94h)-D(___243c90h);
+	if(lqandlq_d(d00, d01, d02)) s_35e[D(MY_CAR_IDX)].__8 = CURRENT_VIEWPORT_CENTER_Y-Y___243c90h;
 
 
-	if(((int)D(___1de580h+0x94*D(MY_CAR_IDX)+0x18) > 0)&&(s_35e[D(MY_CAR_IDX)].__10a == 0)) helper00(D(MY_CAR_IDX));
+	if(((int)D(___1de580h+0x94*D(MY_CAR_IDX)+0x18) > 0)&&(s_35e[D(MY_CAR_IDX)].Finished == 0)) helper00(D(MY_CAR_IDX));
 
 	n = -1;
 	while(++n < (int)D(NUM_OF_CARS)){
 
 		if(n != D(MY_CAR_IDX)){
 
-			s_35e[n].__4 = (int)((double)s_35e[n].XLocation-(double)(int)D(___196dc8h)+(double)(int)D(___196d98h));
-			s_35e[n].__8 = (int)((double)(int)(double)s_35e[n].YLocation-(double)(int)D(___196dcch));
+			s_35e[n].__4 = (int)((double)s_35e[n].XLocation-(double)TRX_VIEWPORT_TL_X+(double)CURRENT_VIEWPORT_X);
+			s_35e[n].__8 = (int)((double)(int)(double)s_35e[n].YLocation-(double)TRX_VIEWPORT_TL_Y);
 
-			if(ltandlt((int)(D(___196d98h)-0x28), (int)s_35e[n].__4, 0x168)){
+			if(ltandlt((int)(CURRENT_VIEWPORT_X-0x28), (int)s_35e[n].__4, 0x168)){
 
-				if(ltandlt(-40, (int)s_35e[n].__8, (int)(D(___196d90h)+0x28))){
+				if(ltandlt(-40, (int)s_35e[n].__8, (int)(CURRENT_VIEWPORT_H+0x28))){
 	
-					if(((int)D(___1de580h+0x94*n+0x18) > 0)&&(s_35e[n].__10a == 0)) helper00(n);
+					if(((int)D(___1de580h+0x94*n+0x18) > 0)&&(s_35e[n].Finished == 0)) helper00(n);
 				}
 			}
 		}
@@ -170,17 +170,17 @@ void race___4f300h(void){
 
 		if(n != D(MY_CAR_IDX)){
 				
-			if(ltandlt((int)(D(___196d98h)-0x14), (int)s_35e[n].__4, 0x154)){
+			if(ltandlt((int)(CURRENT_VIEWPORT_X-0x14), (int)s_35e[n].__4, 0x154)){
 
-				if(ltandlt(-20, (int)s_35e[n].__8, (int)(D(___196d90h)+0x14))){
+				if(ltandlt(-20, (int)s_35e[n].__8, (int)(CURRENT_VIEWPORT_H+0x14))){
 
 					helper01(s_35e[n].__4+0x4c, s_35e[n].__8-0x14, ___243d74h+s_35e[n].ImgOffset, 0x28);
 				}
 			}
 
-			if(ltandlt((int)(D(___196d98h)-0x8), (int)s_35e[n].__4, 0x148)){
+			if(ltandlt((int)(CURRENT_VIEWPORT_X-0x8), (int)s_35e[n].__4, 0x148)){
 				
-				if(ltandlt(-8, (int)s_35e[n].__8, (int)(D(___196d90h)+0x8))){
+				if(ltandlt(-8, (int)s_35e[n].__8, (int)(CURRENT_VIEWPORT_H+0x8))){
 							
 					if((int)D(___1de580h+0x94*n+0x18) <= 0) helper02(n);
 				}

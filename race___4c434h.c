@@ -10,9 +10,9 @@
 	extern __BYTE__ ___196db8h[];
 	extern __BYTE__ ___243d24h[];
 	extern __BYTE__ ___243d20h[];
-	extern __BYTE__ ___243d28h[];
-	extern __BYTE__ ___243d2ch[];
-	extern __POINTER__ ___243d60h;
+	extern int TRX_WIDTH;
+	extern int TRX_HEIGHT;
+	extern __POINTER__ TRX_MAS;
 	extern __POINTER__ ___243d74h;
 	extern __BYTE__ ___243cb0h[];
 	extern __BYTE__ ___243cb4h[];
@@ -42,7 +42,7 @@ static __DWORD__ helper00(int i){
 	}
 	else {
 
-		edx = D(___243d28h)*D(___243d2ch);
+		edx = TRX_WIDTH*TRX_HEIGHT;
 
 		if(i >= (int)edx){
 
@@ -50,7 +50,7 @@ static __DWORD__ helper00(int i){
 		}
 		else {
 
-			rslt = B(___243d60h+i)&0xf;
+			rslt = B(TRX_MAS+i)&0xf;
 		}
 	}
 
@@ -59,30 +59,15 @@ static __DWORD__ helper00(int i){
 
 static void helper01(double d_sign){
 
-	double d_tmp;
 	struct_35e_t * s_35e;
 
 	s_35e = (struct_35e_t *)___1e6ed0h;
 
 	if((s_35e[D(___243c60h)].__18 == 0)&&(s_35e[D(___243c60h)].__1c == 0)){
 
-		FPUSH(90.0);
-		ST(0) = ST(0)/(double)s_35e[D(___243c60h)].__a8;
-		ST(0) = (double)F32(___1de580h+0x94*D(___243c60h)+0x10)/ST(0);
-		FPUSH(s_35e[D(___243c60h)].__bc);
-		ST(0) = ST(0)/36.0;
-		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
-		ST(0) = (double)F32(___243cfch)+ST(0)*d_sign;
-		F32(___243cfch) = (float)ST(0);
-		ST(0) = ST(0)*2.0;
-		ST(1) = ST(1)*ST(0); FPOP();
-		FPUSH(s_35e[D(___243c60h)].__a8);
-		ST(0) = (double)s_35e[D(___243c60h)].Direction+ST(0)*d_sign;
-		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
-		ST(0) = (double)F32(___243cfch)+ST(0)*d_sign;
-		d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
-		s_35e[D(___243c60h)].Direction = (float)FPOP();
-		F32(___243cfch) = (float)FPOP();
+		s_35e[D(___243c60h)].Direction += (float)(d_sign*(double)s_35e[D(___243c60h)].__a8);
+		F32(___243cfch) += (float)((double)F32(___1de580h+0x94*D(___243c60h)+0x10)*d_sign*(double)s_35e[D(___243c60h)].__a8/90.0);
+		F32(___243cfch) *= (float)(1.0+d_sign*(double)s_35e[D(___243c60h)].__bc/18.0);
 
 		if(s_35e[D(___243c60h)].__c0*d_sign < 36.0f) s_35e[D(___243c60h)].__c0 += (float)(2.0*d_sign);
 	}
@@ -108,7 +93,7 @@ void race___4c434h(void){
 	
 	if((int)D(___1de580h+0x94*D(___243c60h)+0x18) > 0){
 
-		if(s_35e[D(___243c60h)].__10a == 0){
+		if(s_35e[D(___243c60h)].Finished == 0){
 
 			L(ecx) = s_35e[D(___243c60h)].Ctrls[getCounter(4)];
 
@@ -177,7 +162,7 @@ void race___4c434h(void){
 
 		if((int)D(___1de580h+0x94*D(___243c60h)+0x18) <= 0) D(___1de580h+0x94*D(___243c60h)+4) = 0;
 
-		if(s_35e[D(___243c60h)].__10a != 0){
+		if(s_35e[D(___243c60h)].Finished != 0){
 
 			s_35e[D(___243c60h)].__bc *= (float)(9.0/10.0);
 		}
@@ -225,7 +210,7 @@ void race___4c434h(void){
 	d_a = (double)F32(esp+0x34)+(double)F32(esp+0x38);
 	d_b = (double)F32(esp+0x30)+(double)F32(esp+0x3c);
 
-	d_hypotenuse = dRMath_hypotenuse(d_a, d_b);
+	d_hypotenuse = dRMath_magnitude2(d_a, d_b);
 	F32(esp+0x58) = (d_hypotenuse == 0.0)?1.0f:(float)(dRMath_abs((double)s_35e[D(___243c60h)].__b0)/d_hypotenuse);
 
 	s_35e[D(___243c60h)].__15a = (float)((double)s_35e[D(___243c60h)].__fc+(double)F32(___243d24h)+(double)F32(esp+0x58)*d_a);
@@ -251,37 +236,37 @@ void race___4c434h(void){
 
 	edx = (int)((double)s_35e[D(___243c60h)].YLocation+(double)s_35e[D(___243c60h)].__f8);
 	D(esp+0x5c) = (int)((double)s_35e[D(___243c60h)].XLocation+(double)s_35e[D(___243c60h)].__f4);
-	D(esp+0x2c) = helper00(edx*D(___243d28h)+D(esp+0x5c));
+	D(esp+0x2c) = helper00(edx*TRX_WIDTH+D(esp+0x5c));
 
 	edx = (int)((double)s_35e[D(___243c60h)].YLocation+(double)s_35e[D(___243c60h)].__c8);
 	D(esp+0x5c) = (int)((double)s_35e[D(___243c60h)].XLocation+(double)s_35e[D(___243c60h)].__c4);
-	D(esp+0x50) = helper00(edx*D(___243d28h)+D(esp+0x5c));
+	D(esp+0x50) = helper00(edx*TRX_WIDTH+D(esp+0x5c));
 
 	edx = (int)((double)s_35e[D(___243c60h)].YLocation+(double)s_35e[D(___243c60h)].__d0);
 	D(esp+0x5c) = (int)((double)s_35e[D(___243c60h)].XLocation+(double)s_35e[D(___243c60h)].__cc);
-	D(esp+0x48) = helper00(edx*D(___243d28h)+D(esp+0x5c));
+	D(esp+0x48) = helper00(edx*TRX_WIDTH+D(esp+0x5c));
 
 	edx = (int)((double)s_35e[D(___243c60h)].YLocation+(double)s_35e[D(___243c60h)].__d8);
 	D(esp+0x5c) = (int)((double)s_35e[D(___243c60h)].XLocation+(double)s_35e[D(___243c60h)].__d4);
-	D(esp+0x4c) = helper00(edx*D(___243d28h)+D(esp+0x5c));
+	D(esp+0x4c) = helper00(edx*TRX_WIDTH+D(esp+0x5c));
 
 	edx = (int)((double)s_35e[D(___243c60h)].YLocation+(double)s_35e[D(___243c60h)].__e0);
 	D(esp+0x5c) = (int)((double)s_35e[D(___243c60h)].XLocation+(double)s_35e[D(___243c60h)].__dc);
-	D(esp+0x54) = helper00(edx*D(___243d28h)+D(esp+0x5c));
+	D(esp+0x54) = helper00(edx*TRX_WIDTH+D(esp+0x5c));
 
 	edx = (int)((double)s_35e[D(___243c60h)].YLocation+(double)s_35e[D(___243c60h)].__e8);
 	D(esp+0x5c) = (int)((double)s_35e[D(___243c60h)].XLocation+(double)s_35e[D(___243c60h)].__e4);
-	D(esp+0x40) = helper00(edx*D(___243d28h)+D(esp+0x5c));
+	D(esp+0x40) = helper00(edx*TRX_WIDTH+D(esp+0x5c));
 
 	edx = (int)((double)s_35e[D(___243c60h)].YLocation+(double)s_35e[D(___243c60h)].__f0);
 	D(esp+0x5c) = (int)((double)s_35e[D(___243c60h)].XLocation+(double)s_35e[D(___243c60h)].__ec);
-	D(esp+0x44) = helper00(edx*D(___243d28h)+D(esp+0x5c));
+	D(esp+0x44) = helper00(edx*TRX_WIDTH+D(esp+0x5c));
 
 	s_35e[D(___243c60h)].ImgIndex = (int)((double)s_35e[D(___243c60h)].Direction/3.75);
 	s_35e[D(___243c60h)].ImgOffset = 0x25800*D(___243c60h)+0x640*s_35e[D(___243c60h)].ImgIndex;
 	ecx = (int)((double)s_35e[D(___243c60h)].__15e+(double)s_35e[D(___243c60h)].YLocation-20.0);
 	ebxp = ___243d74h+(int)s_35e[D(___243c60h)].ImgOffset;
-	edip = ___243d60h+(int)(double)s_35e[D(___243c60h)].XLocation-0x14+(int)D(___243d28h)*(int)ecx+(int)(double)s_35e[D(___243c60h)].__15a;
+	edip = TRX_MAS+(int)(double)s_35e[D(___243c60h)].XLocation-0x14+TRX_WIDTH*(int)ecx+(int)(double)s_35e[D(___243c60h)].__15a;
 	esi = 0xf;
 
 	j = -1;
@@ -292,9 +277,9 @@ void race___4c434h(void){
 		i = -1;
 		while(++i < 0x28){
 
-			if(((signed char)B(ebxp+0x28*j+i) > 3)&&((signed char)(B(edip+D(___243d28h)*j+i)&0xf) < 4)){
+			if(((signed char)B(ebxp+0x28*j+i) > 3)&&((signed char)(B(edip+TRX_WIDTH*j+i)&0xf) < 4)){
 
-				esi = B(edip+D(___243d28h)*j+i)&0xf;
+				esi = B(edip+TRX_WIDTH*j+i)&0xf;
 				D(___243cb0h) = i;
 				D(___243cb4h) = j;
 				breaker = 1;
@@ -351,33 +336,18 @@ void race___4c434h(void){
 				edx = (int)eax>>0x1f;
 				edx = (long long)(int)eax%5;
 				s_35e[D(___243c60h)].__16e = edi;
-				FPUSH((int)D(esp+0x5c));
-				s_35e[D(___243c60h)].__166 = (float)FPOP();
+				s_35e[D(___243c60h)].__166 = (float)(int)D(esp+0x5c);
 
 				if(edx == 0){
 										
 					if((int)s_35e[D(___243c60h)].__16a < 0x1e) s_35e[D(___243c60h)].__16a++; 
 				}
 
-				FPUSH(s_35e[D(___243c60h)].__166);
-				ST(0) = ST(0)+(double)s_35e[D(___243c60h)].YLocation;
-				s_35e[D(___243c60h)].YLocation = (float)ST(0);
-				ST(0) = ST(0)+(double)s_35e[D(___243c60h)].__15e-20.0;
-				D(esp+0x5c) = (int)FPOP();
-				edi = D(___243d28h)*D(esp+0x5c);
-				FPUSH(s_35e[D(___243c60h)].__15a);
-				FPUSH(s_35e[D(___243c60h)].__162);
-				d_tmp = ST(0)+(double)s_35e[D(___243c60h)].XLocation;
-				ST(0) = ST(1);
-				ST(1) = d_tmp;
-				d_tmp = (int)ST(0);
-				ST(0) = ST(1);
-				ST(1) = d_tmp;
-				s_35e[D(___243c60h)].XLocation = (float)ST(0);
-				ecx = (int)FPOP();
-				D(esp+0x5c) = (int)FPOP();
-
-				edip = ___243d60h+(int)ecx+(int)edi-0x14+(int)D(esp+0x5c);
+				s_35e[D(___243c60h)].YLocation += s_35e[D(___243c60h)].__166;
+				D(esp+0x5c) = (int)((double)s_35e[D(___243c60h)].YLocation+(double)s_35e[D(___243c60h)].__15e-20.0);
+				edi = TRX_WIDTH*D(esp+0x5c);
+				s_35e[D(___243c60h)].XLocation += s_35e[D(___243c60h)].__162;
+				edip = TRX_MAS+(int)s_35e[D(___243c60h)].XLocation+(int)edi-0x14+(int)(double)s_35e[D(___243c60h)].__15a;
 				ebxp = ___243d74h+s_35e[D(___243c60h)].ImgOffset;
 				esi = 0xf;
 				edx = 0;
@@ -394,7 +364,7 @@ void race___4c434h(void){
 
 						if(ecx == 0x28){
 
-							edip = edip+D(___243d28h)-0x28;
+							edip = edip+TRX_WIDTH-0x28;
 							edx++;
 							if(edx == 0x28) break;
 							ecx = 0;
@@ -412,7 +382,7 @@ void race___4c434h(void){
 
 							if(ecx == 0x28){
 
-								edip = edip+D(___243d28h)-0x28;
+								edip = edip+TRX_WIDTH-0x28;
 								edx++;
 								if(edx == 0x28) break;
 								ecx = 0;
@@ -544,11 +514,11 @@ void race___4c434h(void){
 	s_35e[D(___243c60h)].XLocation += s_35e[D(___243c60h)].__15a;
 	s_35e[D(___243c60h)].YLocation += s_35e[D(___243c60h)].__15e;
 
-	F32(esp+0x28) = (float)(int)(D(___243d28h)-0x14);
+	F32(esp+0x28) = (float)(int)(TRX_WIDTH-0x14);
 	if(s_35e[D(___243c60h)].XLocation > F32(esp+0x28)) s_35e[D(___243c60h)].XLocation = F32(esp+0x28);
 	if(s_35e[D(___243c60h)].XLocation < 20.0) s_35e[D(___243c60h)].XLocation = 20.0f;
 
-	F32(esp+0x24) = (float)(int)(D(___243d2ch)-0x14);		
+	F32(esp+0x24) = (float)(int)(TRX_HEIGHT-0x14);		
 	if(s_35e[D(___243c60h)].YLocation > F32(esp+0x24)) s_35e[D(___243c60h)].YLocation = F32(esp+0x24);
 	if(s_35e[D(___243c60h)].YLocation < 20.0) s_35e[D(___243c60h)].YLocation = 20.0f;
 }

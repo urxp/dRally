@@ -4,7 +4,7 @@
 #define COOXY(x,y) (0x280*(y)+(x))
 #define COO80UV(u,v) (0x80*(v)+(u))
 
-	extern __BYTE__ * ___1a1138h__VESA101h_DefaultScreenBufferB;
+	extern __BYTE__ * ___1a1138h__VESA101_BACKGROUND;
 	extern __BYTE__ * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
 	extern __BYTE__ ___1a1f64h[];
 	extern __BYTE__ * ___1a1040h[];
@@ -19,7 +19,7 @@ void ___30df8h(void){
 
 	__DWORD__ 	i, j;
 
-	memcpy(&___1a112ch__VESA101_ACTIVESCREEN_PTR[COOXY(0, 0x16f)], &___1a1138h__VESA101h_DefaultScreenBufferB[COOXY(0, 0x16f)], 0x10*0x280);
+	memcpy(&___1a112ch__VESA101_ACTIVESCREEN_PTR[COOXY(0, 0x16f)], &___1a1138h__VESA101_BACKGROUND[COOXY(0, 0x16f)], 0x10*0x280);
 	___135fch(0, 0x173, 0x27f, 0x6d);
 	___23230h();
 

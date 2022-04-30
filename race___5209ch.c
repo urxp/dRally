@@ -1,14 +1,14 @@
 #include "drally.h"
 
-	extern __POINTER__ ___243d38h;
+	extern __POINTER__ RACE_OBSTACLE_BPK;
 	extern __BYTE__ ___196dd0h[];
 	extern __BYTE__ ___243334h[];
 	extern __BYTE__ ___196dd4h[];
 	extern __BYTE__ ___1f2488h[];
 	extern __BYTE__ MY_CAR_IDX[];
 	extern __BYTE__ ___1de580h[];
-	extern __BYTE__ ___243d28h[];
-	extern __POINTER__ ___243d58h;
+	extern int TRX_WIDTH;
+	extern __POINTER__ TRX_IMA;
 
 int rand_watcom106(void);
 
@@ -22,7 +22,7 @@ void race___5209ch(void){
 	__POINTER__ 	edxp;
 
 
-	ebpp = ___243d38h;
+	ebpp = RACE_OBSTACLE_BPK;
 	edx = D(___196dd0h);
 
 	if((int)edx <= 0){
@@ -56,7 +56,7 @@ void race___5209ch(void){
 	}
 
 	ecx = D(___196dd0h);
-	___243d38h = ebpp;
+	RACE_OBSTACLE_BPK = ebpp;
 
 	if(ecx == 0){
 
@@ -68,10 +68,10 @@ void race___5209ch(void){
 			while(1){
 
 				edx = D(eax+___1f2488h+8);
-				ebpp = ___243d38h;
+				ebpp = RACE_OBSTACLE_BPK;
 				if((int)edx > 0) D(esp+0x18)++;
 				eax += 0x120;
-				___243d38h = ebpp;
+				RACE_OBSTACLE_BPK = ebpp;
 				if(eax == 0xd80) break;
 			}
 
@@ -96,7 +96,7 @@ void race___5209ch(void){
 				B(esp+eax) = 1;
 				eax = 0x120*eax;
 				edi = D(eax+___1f2488h+0xc);
-				ebpp = ___243d38h;
+				ebpp = RACE_OBSTACLE_BPK;
 
 				if((int)edi <= 0){
 
@@ -113,7 +113,7 @@ void race___5209ch(void){
 
 				ebx = 0x120*D(esp+0x30);
 				esi = D(ebx+___1f2488h+8);
-				___243d38h = ebpp;
+				RACE_OBSTACLE_BPK = ebpp;
 
 				if(esi == 0){
 
@@ -132,7 +132,7 @@ void race___5209ch(void){
 
 								if(D(eax+___1de580h+0x2c) == 0){
 
-									ebpp = ___243d38h;
+									ebpp = RACE_OBSTACLE_BPK;
 									if(((int)edx >= 0)&&((int)edx < 0x2d)){
 									
 										D(ebx+___1f2488h+8) = 0x2;
@@ -158,7 +158,7 @@ void race___5209ch(void){
 								}
 								else {
 
-									ebpp = ___243d38h;
+									ebpp = RACE_OBSTACLE_BPK;
 									if(((int)edx >= 0)&&((int)edx < 0x1e)){
 									
 										D(ebx+___1f2488h+8) = 0x1;
@@ -191,7 +191,7 @@ void race___5209ch(void){
 
 								eax = 0x120*D(esp+0x30);
 								edi = D(esp+0x18);
-								___243d38h = ebpp;
+								RACE_OBSTACLE_BPK = ebpp;
 								esi ^= esi;
 								edx ^= edx;
 								edi++;
@@ -205,10 +205,10 @@ void race___5209ch(void){
 									eax = D(esp+0x28);
 									eax = D(eax+___1f2488h+4);
 									eax = eax+edx;
-									ecx = D(___243d28h);
+									ecx = TRX_WIDTH;
 									eax = eax-0x8;
 									eax = eax*ecx;
-									memcpy(ebxp, ___243d58h+D(D(esp+0x28)+___1f2488h)-0x8+eax, 0x10);
+									memcpy(ebxp, TRX_IMA+D(D(esp+0x28)+___1f2488h)-0x8+eax, 0x10);
 									ebxp += 0x10;
 									edx++;
 									if((int)edx >= 0x10) break;
@@ -222,7 +222,7 @@ void race___5209ch(void){
 								while(1){
 
 									ebx = D(esp+0x34);
-									ebpp = ___243d38h;
+									ebpp = RACE_OBSTACLE_BPK;
 									eax = 0;
 									D(esp+0x40) = ebx;
 
@@ -233,10 +233,10 @@ void race___5209ch(void){
 										if(B(ebxp+(int)0xffffff00) != 0){
 
 											ecx = D(___1f2488h+edx+4)+edi;
-											esi = D(___243d28h);
+											esi = TRX_WIDTH;
 											ecx -= 0x8;
 											esi = esi*ecx;
-											B(___243d58h+eax+D(___1f2488h+edx)+esi-8) = B(ebxp+(int)0xffffff00);
+											B(TRX_IMA+eax+D(___1f2488h+edx)+esi-8) = B(ebxp+(int)0xffffff00);
 										}
 
 										eax++;
@@ -246,7 +246,7 @@ void race___5209ch(void){
 									esi = D(esp+0x34);
 									edi++;
 									esi += 0x10;
-									___243d38h = ebpp;
+									RACE_OBSTACLE_BPK = ebpp;
 									D(esp+0x34) = esi;
 									if((int)edi >= 0x10) break;
 								}
@@ -263,7 +263,7 @@ void race___5209ch(void){
 		}
 	}
 
-	ebpp = ___243d38h;
+	ebpp = RACE_OBSTACLE_BPK;
 	edx = 0;
 	D(esp+0x1c) = edx;
 	esp0x14 = ___1f2488h+0x20;
@@ -300,7 +300,7 @@ void race___5209ch(void){
 
 					if(B(ebxp+(int)0xffffff00) != 0){
 
-						B(___243d58h+eax+D(___1f2488h+D(esp+0x1c))+D(___243d28h)*(D(esp+0xc)+D(___1f2488h+D(esp+0x1c)+4)-8)-8) = B(ebxp+(int)0xffffff00);
+						B(TRX_IMA+eax+D(___1f2488h+D(esp+0x1c))+TRX_WIDTH*(D(esp+0xc)+D(___1f2488h+D(esp+0x1c)+4)-8)-8) = B(ebxp+(int)0xffffff00);
 					}
 
 					eax++;
@@ -327,7 +327,7 @@ void race___5209ch(void){
 			if((int)edx < 0x5fa) break;
 		}
 
-		___243d38h = ebpp;
+		RACE_OBSTACLE_BPK = ebpp;
 
 		if(ecx != 0){
 
@@ -337,7 +337,7 @@ void race___5209ch(void){
 			ebx = 0;
 			while(1){
 
-				memcpy(___243d58h+D(___243d28h)*(D(___1f2488h+D(esp+0x24)+4)+ebx-0x8)+D(___1f2488h+D(esp+0x24))-0x8, edxp, 0x10);
+				memcpy(TRX_IMA+TRX_WIDTH*(D(___1f2488h+D(esp+0x24)+4)+ebx-0x8)+D(___1f2488h+D(esp+0x24))-0x8, edxp, 0x10);
 				edxp += 0x10;
 				ebx++;
 				if((int)ebx >= 0x10) break;
@@ -353,7 +353,7 @@ void race___5209ch(void){
 			while(1){
 
 				memcpy(
-					___243d58h+D(___1f2488h+D(esp+0x2c))+D(___243d28h)*(D(___1f2488h+D(esp+0x2c)+4)+edx-0x8)-0x8,
+					TRX_IMA+D(___1f2488h+D(esp+0x2c))+TRX_WIDTH*(D(___1f2488h+D(esp+0x2c)+4)+edx-0x8)-0x8,
 					___1f2488h+D(esp+0x1c)+0x20+ebx,
 					0x10);
 
@@ -371,7 +371,7 @@ void race___5209ch(void){
 			D(___1f2488h+D(esp+0x2c)+0xc) = edx+0x12c;
 		}
 
-		ebpp = ___243d38h;
+		ebpp = RACE_OBSTACLE_BPK;
 		D(esp+0x1c) += 0x120;
 		esp0x14 += 0x120;
 		if(D(esp+0x1c) == 0xd80) break;

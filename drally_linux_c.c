@@ -1,7 +1,7 @@
 #include "drally.h"
 
-#define W_WIDTH 	1024//800//1024//640
-#define W_HEIGHT 	768//600//768//480
+#define W_WIDTH 	1024//800//640
+#define W_HEIGHT 	768//600//480
 
 
 #pragma pack(1)
@@ -14,9 +14,9 @@ typedef struct textbit {
 unsigned int INT8_FRAME_COUNTER = 0;
 extern unsigned int ___60458h;
 extern textbit * B800;
-extern unsigned char VGA13_ACTIVESCREEN[];
+extern unsigned char * VGA13_ACTIVESCREEN;
+extern unsigned char VGA13_ACTIVESCREEN_2[];
 extern unsigned char VESA101_ACTIVESCREEN[];
-
 
 unsigned int Ticks = 0;
 unsigned int VRetraceTicks = 0;
@@ -105,7 +105,6 @@ void __VRETRACE_WAIT_IF_INACTIVE(void){
 	if(VRetraceTicks > (FrameMs - 3)){
 		
 		SDL_Delay(FrameMs - VRetraceTicks);
-		//if(GX.ActiveMode == VGA13) __VGA13_PRESENTSCREEN__();
 	}
 }
 
@@ -144,22 +143,7 @@ void __PRESENTSCREEN__(void){
 }
 
 void __VGA13_PRESENTSCREEN__(void){
-/*
-	int 	i,j;
 
-	i = -1;
-	while(++i < 200){
-
-		j = -1;
-		while(++j < 320){
-
-			VGA13_ACTIVESCREEN_X2[2*i*640+2*j] = VGA13_ACTIVESCREEN[i*320+j];
-			VGA13_ACTIVESCREEN_X2[2*i*640+2*j+1] = VGA13_ACTIVESCREEN[i*320+j];
-			VGA13_ACTIVESCREEN_X2[(2*i+1)*640+2*j] = VGA13_ACTIVESCREEN[i*320+j];
-			VGA13_ACTIVESCREEN_X2[(2*i+1)*640+2*j+1] = VGA13_ACTIVESCREEN[i*320+j];
-		}
-	}
-*/
     __PRESENTSCREEN__();
 }
 
@@ -192,19 +176,18 @@ void dRally_Display_init(void){
 	SDL_ShowCursor(SDL_DISABLE);
 	SDL_DisableScreenSaver();
 
-	//if(!GX.VGA13.Surface) GX.VGA13.Surface = SDL_CreateRGBSurfaceFrom(VGA13_ACTIVESCREEN_X2, 2*320, 2*200, 8, 2*320, 0, 0, 0, 0);
-	if(!GX.VGA13.Surface) GX.VGA13.Surface = SDL_CreateRGBSurfaceFrom(VGA13_ACTIVESCREEN, 320, 200, 8, 320, 0, 0, 0, 0);
-	if(!GX.VESA101.Surface) GX.VESA101.Surface = SDL_CreateRGBSurfaceFrom(VESA101_ACTIVESCREEN, 640, 480, 8, 640, 0, 0, 0, 0);
+	if(!GX.VGA13.Surface) GX.VGA13.Surface = SDL_CreateRGBSurfaceWithFormatFrom(VGA13_ACTIVESCREEN_2, 320, 240, 8, 320, SDL_PIXELFORMAT_INDEX8);
+	if(!GX.VESA101.Surface) GX.VESA101.Surface = SDL_CreateRGBSurfaceWithFormatFrom(VESA101_ACTIVESCREEN, 640, 480, 8, 640, SDL_PIXELFORMAT_INDEX8);
 
 	if(!GX.Window){
 
 		GX.Window = SDL_CreateWindow(
-			"dRally / Open Source Engine / Death Rally [1996]",                  		// window title
-			SDL_WINDOWPOS_CENTERED,      	// initial x position
-			SDL_WINDOWPOS_CENTERED,       	// initial y position
-			W_WIDTH,                  			// width, in pixels
-			W_HEIGHT,							// height, in pixels
-			SDL_WINDOW_HIDDEN				// flags - see below
+			"dRally / Open Source Engine / Death Rally [1996]",	// window title
+			SDL_WINDOWPOS_CENTERED,      						// initial x position
+			SDL_WINDOWPOS_CENTERED,       						// initial y position
+			W_WIDTH,                  							// width, in pixels
+			W_HEIGHT,											// height, in pixels
+			SDL_WINDOW_HIDDEN									// flags - see below
 		);
 	}
 
@@ -234,11 +217,14 @@ void __VGA13_SETMODE(void){
 
 	if(GX.ActiveMode != VGA13){
 
+		memset(VGA13_ACTIVESCREEN_2, 0, 320*240);
+		VGA13_ACTIVESCREEN = VGA13_ACTIVESCREEN_2+20*320;
 		GX.Surface = GX.VGA13.Surface;
-	//	SDL_SetRenderDrawColor(GX.Renderer, 0, 0, 0, 255);
-	//	SDL_RenderClear(GX.Renderer);
-	//	SDL_RenderPresent(GX.Renderer);
-		SDL_RenderSetLogicalSize(GX.Renderer, 320, 200);
+		//SDL_SetRenderDrawColor(GX.Renderer, 0, 0, 0, 255);
+		//SDL_RenderClear(GX.Renderer);
+		//SDL_RenderPresent(GX.Renderer);
+		//SDL_RenderSetLogicalSize(GX.Renderer, 320, 200);
+		SDL_RenderSetLogicalSize(GX.Renderer, 320, 240);
 		if(SDL_GetWindowFlags(GX.Window)&SDL_WINDOW_HIDDEN) SDL_ShowWindow(GX.Window);
 		GX.ActiveMode = VGA13;
 	}
@@ -249,6 +235,9 @@ void __VESA101_SETMODE(void){
 	if(GX.ActiveMode != VESA101){
 
 		GX.Surface = GX.VESA101.Surface;
+		//SDL_SetRenderDrawColor(GX.Renderer, 0, 0, 0, 255);
+		//SDL_RenderClear(GX.Renderer);
+		//SDL_RenderPresent(GX.Renderer);
 		SDL_RenderSetLogicalSize(GX.Renderer, 640, 480);
 		if(SDL_GetWindowFlags(GX.Window)&SDL_WINDOW_HIDDEN) SDL_ShowWindow(GX.Window);
 		GX.ActiveMode = VESA101;

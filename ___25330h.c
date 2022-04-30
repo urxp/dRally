@@ -1,47 +1,18 @@
 #include "drally.h"
-
-#pragma pack(1)
-typedef char char40[40];
-typedef char char12[12];
-typedef struct cardata_s {
-    char12      		name;                           // +000
-    __DWORD__   		price;                          // +00C
-    char40      		txt_info[6];                    // +010
-    char40      		txt_winfo[6];                   // +100
-    char40      		txt_bought[6];                  // +1F0
-    char40      		txt_engine_upgrades[4][6];      // +2E0
-    __DWORD__   		n_engine_upgrades;              // +6A0
-    __DWORD__   		n_tire_upgrades;                // +6A4
-    __DWORD__   		n_armor_upgrades;               // +6A8
-    __DWORD__   		price_engine_upgrades[4];       // +6AC
-    __DWORD__   		price_tire_upgrades[4];         // +6BC
-    __DWORD__   		price_armor_upgrades[4];        // +6CC
-    __SIGNED_DWORD__   	price_repair;                   // +6DC
-} cardata_t;
-typedef struct font_props_s {
-	__BYTE__ 	w;
-	__BYTE__ 	h;
-	__BYTE__ 	props[];
-} font_props_t;
+#include "drally_structs_fixed.h"
+#include "drally_structs_free.h"
+#include "drally_fonts.h"
+#include "watcom106.h"
 
 	extern __POINTER__ ___1a112ch__VESA101_ACTIVESCREEN_PTR;
 	extern __POINTER__ ___1a1ed4h;
 	extern __BYTE__ ___1a1ef8h[];
 	extern __POINTER__ ___1a0180h;
 	extern __BYTE__ ___1a01e0h[];
-	extern __BYTE__ ___185c7ah[];
-	extern __POINTER__ ___1a10b8h;
-	extern font_props_t ___185c0bh;
-	extern __POINTER__ ___1a1108h;
 	extern __POINTER__ ___1a1e90h;
 	extern cardata_t ___18e298h[6];
 
-
-__DWORD__ ___250e0h(const char *);
-char * strupr_watcom106(char * s);
-char * itoa_watcom106(int value, char * buffer, int radix);
 void ___12e78h_cdecl(__BYTE__ * A1, font_props_t * A2, const char * A3, __DWORD__ dst_off);
-__DWORD__ ___25230h(const char *);
 
 static const __DWORD__ ___18e220h[6][5] = {
 	[0] = {  55,  60,   0,   0,   0 },
@@ -52,123 +23,84 @@ static const __DWORD__ ___18e220h[6][5] = {
 	[5] = { 140, 145, 150, 155, 160 }
 };
 
+static int helper_width(int props, const char * s){ return (int)(96-getTextWidth(props, s))/2; }
+static int ___250e0h(const char * s){ return helper_width(FONTPROPS02, s); }
+static int ___25230h(const char * s){ return helper_width(FONTPROPS03, s); }
+
+static void helper_rec(int num, int dstx, int dsty, int a){
+
+	int 	i, j, n;
+
+	a = !a;
+	n = -1;
+	while(++n < num){
+
+		j = -1;
+		while(++j < 10){
+
+			i = -1;
+			while(++i < 20) write_b(___1a112ch__VESA101_ACTIVESCREEN_PTR+0x280*(dsty+j)+dstx+23*n+i, read_b(___1a1e90h+200*(4*a+n*!a)+20*j+i));
+		}
+	}
+}
+
+static void helper_upgrades(int upgrades_max, int upgrades_installed, int dstx, int dsty){ 
+	
+	helper_rec(upgrades_max, dstx, dsty, 0);
+	helper_rec(upgrades_installed, dstx, dsty, 1); 
+}
+
 // SHOP, MARKET, RACE SIGN UP RIGHT PANEL
 void ___25330h(void){
 
-	char 	buff_tmp[20];
-	char 	buff[20];
-	int 	i, j, n, offset;
+	char 		buff_tmp[20];
+	char 		buff[20];
+	int 		i, j, n, offset;
+	racer_t * 	s_6c;
 
 
+	s_6c = (racer_t *)___1a01e0h;
+
+	// PANEL BG
 	j = -1;
-	while(++j < 0xe0){
+	while(++j < 224){
 
 		i = -1;
-		while(++i < 0x60) write_b(___1a112ch__VESA101_ACTIVESCREEN_PTR+0x13aa0+0x280*j+i, read_b(___1a1ed4h+0x60*j+i));
+		while(++i < 96) write_b(___1a112ch__VESA101_ACTIVESCREEN_PTR+0x280*(125+j)+(544+i), read_b(___1a1ed4h+0x60*j+i));
 	}
 
+	// MY CAR
 	j = -1;
-	while(++j < 0x40){
+	while(++j < 64){
 
 		i = -1;
-		while(++i < 0x60) B(___1a112ch__VESA101_ACTIVESCREEN_PTR+0x280*(j+141)+(i+544)) = B(___1a0180h+0x1800*D(___1a01e0h+0x6c*D(___1a1ef8h)+0x1c)+0x60*j+i);
+		while(++i < 96) B(___1a112ch__VESA101_ACTIVESCREEN_PTR+0x280*(j+141)+(i+544)) = B(___1a0180h+0x1800*s_6c[D(___1a1ef8h)].car+0x60*j+i);
 	}
 
-	strcpy(buff, ___1a01e0h+0x6c*D(___1a1ef8h));
-	strupr_watcom106(buff);
-	___12e78h_cdecl(___1a10b8h, (font_props_t *)___185c7ah, buff, ___25230h(buff)+0x13d20);
+	strupr_watcom106(strcpy(buff, s_6c[D(___1a1ef8h)].name));
+	___12e78h_v3(___1a10b8h___185c7ah, buff, 640-96+___25230h(buff), 126);
 
-	if((int)D(___1a01e0h+0x30+0x6c*D(___1a1ef8h)) > 0x98967f) D(___1a01e0h+0x30+0x6c*D(___1a1ef8h)) = 0x98967f;
+	if(s_6c[D(___1a1ef8h)].money > 9999999) s_6c[D(___1a1ef8h)].money = 9999999;
 	
-	itoa_watcom106(D(___1a01e0h+0x30+0x6c*D(___1a1ef8h)), buff_tmp, 0xa);
-	strcpy(buff, "$");
-	strcat(buff, buff_tmp);
-	___12e78h_cdecl(___1a1108h, &___185c0bh, buff, ___250e0h(buff)+0x202a0);
+	itoa_watcom106(s_6c[D(___1a1ef8h)].money, buff_tmp, 0xa);
+	strcat(strcpy(buff, "$"), buff_tmp);
+	___12e78h_v3(___1a1108h___185c0bh, buff, 640-96+___250e0h(buff), 205);
 
-	itoa_watcom106(___18e220h[D(___1a01e0h+0x1c+0x6c*D(___1a1ef8h))][D(___1a01e0h+0x10+0x6c*D(___1a1ef8h))], buff_tmp, 0xa);
-	strcpy(buff, (strlen(buff_tmp) == 2) ? " " : "");
-	strcat(buff, buff_tmp);
-	___12e78h_cdecl(___1a10b8h, (font_props_t *)___185c7ah, buff, 0x31fe0);
+	itoa_watcom106(___18e220h[s_6c[D(___1a1ef8h)].car][s_6c[D(___1a1ef8h)].engine], buff_tmp, 0xa);
+	strcat(strcpy(buff, (strlen(buff_tmp) == 2) ? " " : ""), buff_tmp);
+	___12e78h_v3(___1a10b8h___185c7ah, buff, 640-96+64, 319);
 
-	itoa_watcom106(D(___1a01e0h+0x48+0x6c*D(___1a1ef8h)), buff_tmp, 0xa);
-	strcpy(buff, (strlen(buff_tmp) == 1) ? " #" : "#");
-	strcat(buff, buff_tmp);
-	___12e78h_cdecl(___1a10b8h, (font_props_t *)___185c7ah, buff, 0x34560);
+	itoa_watcom106(s_6c[D(___1a1ef8h)].rank, buff_tmp, 0xa);
+	strcat(strcpy(buff, (strlen(buff_tmp) == 1) ? " #" : "#"), buff_tmp);
+	___12e78h_v3(___1a10b8h___185c7ah, buff, 640-96+64, 334);
 		
 	n = -1;
-	while(++n < 5) memset(___1a112ch__VESA101_ACTIVESCREEN_PTR+0x2fd00+0x280*n+0x224, 0x3f, (44*D(___1a01e0h+0xc+0x6c*D(___1a1ef8h))+99)/100);
+	while(++n < 5) memset(___1a112ch__VESA101_ACTIVESCREEN_PTR+0x280*(306+n)+548, 0x3f, (44*s_6c[D(___1a1ef8h)].damage+99)/100);
 	
-	itoa_watcom106(D(___1a01e0h+0xc+0x6c*D(___1a1ef8h)), buff, 0xa);
+	itoa_watcom106(s_6c[D(___1a1ef8h)].damage, buff, 0xa);
+	___12e78h_v3(___1a1108h___185c0bh, buff, 640-96+79-getTextWidth(FONTPROPS02, buff), 302);
 
-	offset = 0;
-	n = -1;
-	while(buff[++n]) offset += ___185c0bh.props[buff[n]-0x20];
-
-	___12e78h_cdecl(___1a1108h, &___185c0bh, buff, 0x280*302+623-offset);
-
-	n = -1;
-	while(++n < ___18e298h[D(___1a01e0h+0x1c+0x6c*D(___1a1ef8h))].n_engine_upgrades){
-
-		j = -1;
-		while(++j < 0xa){
-
-			i = -1;
-			while(++i < 0x14) write_b(___1a112ch__VESA101_ACTIVESCREEN_PTR+0x248a3+0x17*n+0x280*j+i, read_b(___1a1e90h+0x320+0x14*j+i));
-		}
-	}
-
-	n = -1;
-	while(++n < ___18e298h[D(___1a01e0h+0x1c+0x6c*D(___1a1ef8h))].n_tire_upgrades){
-
-		j = -1;
-		while(++j < 0xa){
-
-			i = -1;
-			while(++i < 0x14) write_b(___1a112ch__VESA101_ACTIVESCREEN_PTR+0x284a3+0x17*n+0x280*j+i, read_b(___1a1e90h+0x320+0x14*j+i));
-		}
-	}
-
-	n = -1;
-	while(++n < ___18e298h[D(___1a01e0h+0x1c+0x6c*D(___1a1ef8h))].n_armor_upgrades){
-
-		j = -1;
-		while(++j < 0xa){
-
-			i = -1;
-			while(++i < 0x14) write_b(___1a112ch__VESA101_ACTIVESCREEN_PTR+0x2c0a3+0x17*n+0x280*j+i, read_b(___1a1e90h+0x320+0x14*j+i));
-		}
-	}
-
-	n = -1;
-	while(++n < (int)D(0x6c*D(___1a1ef8h)+___1a01e0h+0x10)){
-
-		j = -1;
-		while(++j < 0xa){
-
-			i = -1;
-			while(++i < 0x14) write_b(___1a112ch__VESA101_ACTIVESCREEN_PTR+0x248a3+0x17*n+0x280*j+i, read_b(___1a1e90h+0xc8*n+0x14*j+i));
-		}
-	}
-
-	n = -1;
-	while(++n < (int)D(0x6c*D(___1a1ef8h)+___1a01e0h+0x14)){
-
-		j = -1;
-		while(++j < 0xa){
-
-			i = -1;
-			while(++i < 0x14) write_b(___1a112ch__VESA101_ACTIVESCREEN_PTR+0x284a3+0x17*n+0x280*j+i, read_b(___1a1e90h+0xc8*n+0x14*j+i));
-		}
-	}
-
-	n = -1;
-	while(++n < (int)D(___1a01e0h+0x18+0x6c*D(___1a1ef8h))){
-
-		j = -1;
-		while(++j < 0xa){
-
-			i = -1;
-			while(++i < 0x14) write_b(___1a112ch__VESA101_ACTIVESCREEN_PTR+0x2c0a3+0x17*n+0x280*j+i, read_b(___1a1e90h+0xc8*n+0x14*j+i));
-		}
-	}
+	helper_upgrades(___18e298h[s_6c[D(___1a1ef8h)].car].n_engine_upgrades, s_6c[D(___1a1ef8h)].engine, 547, 233);
+	helper_upgrades(___18e298h[s_6c[D(___1a1ef8h)].car].n_tire_upgrades, s_6c[D(___1a1ef8h)].tires, 547, 257);
+	helper_upgrades(___18e298h[s_6c[D(___1a1ef8h)].car].n_armor_upgrades, s_6c[D(___1a1ef8h)].armor, 547, 281);
 }

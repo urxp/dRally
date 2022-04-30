@@ -79,10 +79,7 @@ __DWORD__ ___61cd0h(void){
         if(!___638ech()) return (CONNECTION_TYPE = !(MP_ERROR = 0x65));
 
 		NovellNetWare_IPX_GetInternetworkAddress(___24e4b4h);
-        if(NovellNetWare_IPX_OpenSocket(swap16(___199fa0h+0x5000+___199f9ch), 0) == 0xfe) {
-			
-			return (CONNECTION_TYPE = !(MP_ERROR = 0x66));
-		}
+        if(NovellNetWare_IPX_OpenSocket(swap16(___199fa0h+0x5000+___199f9ch), 0) == 0xfe) return (CONNECTION_TYPE = !(MP_ERROR = 0x66));
 
 		n = -1;
 		while(++n < 0x10){

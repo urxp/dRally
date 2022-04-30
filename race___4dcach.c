@@ -8,7 +8,6 @@
 	extern __BYTE__ ___1de580h[];
 	extern __BYTE__ ___2438cch[];
 
-void _settextposition_(__DWORD__, __DWORD__);
 
 static __DWORD__ helper00(int i, float f){ 
 	
@@ -172,7 +171,7 @@ void race___4dcach(void){
 
 					D(esp+0x4c) = 0;
 
-					if((D(___1de580h+0x94*n+0x24) != 0)&&(s_35e[k].__10a == 0)){
+					if((D(___1de580h+0x94*n+0x24) != 0)&&(s_35e[k].Finished == 0)){
 
 						eax = (int)(double)s_35e[k].XLocation-(int)((double)s_35e[n].XLocation+(double)s_35e[n].__cc);
 						edx = (int)(double)s_35e[k].YLocation-(int)((double)s_35e[n].YLocation+(double)s_35e[n].__d0);	
@@ -196,7 +195,6 @@ void race___4dcach(void){
 							if((int)D(___2438cch) > 0x2710) D(___2438cch) = 0x2710;
 							D(___1de580h+0x94*k+0x18) -= D(___2438cch);
 							if((int)D(___1de580h+0x94*k+0x18) < 0) D(___1de580h+0x94*k+0x18) = 0;
-							_settextposition_(0x15, 0x1e);	// ???
 						}
 					}
 				}

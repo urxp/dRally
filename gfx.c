@@ -1,267 +1,197 @@
 #include "drally.h"
+#include "drmath.h"
 
-    extern __BYTE__ * ___243d80h;
+    extern __BYTE__ * BACKBUFFER;
 
-// MEASURE: min=-240, max=437
-#define OFFSET 0x190                // 0x190 + 0x258
+#define OFFSET 400
 
-static int ___5a86ch[0x3e8];        // 0x3e8
-static int ___5b80ch[0x3e8];        // 0x3e8
-static int ___5c7ach[0x3e8];        // 0x3e8
-static int ___5d74ch[0x3e8];        // 0x3e8
+static int ___5a86ch[1000];
+static int ___5b80ch[1000];
+static int ___5c7ach[1000];
+static int ___5d74ch[1000];
 
-static int m_min = 0x7fffffff;
-static int m_max = 0x80000000;
+static int helper_bounds_y(int * PminY, int * PmaxY){
 
-static void measure(int s, int e){
+	if((*PminY < 0x00)&&(*PmaxY <= (*PminY = 0x00))) return 0;
+	if((*PmaxY > 0xc8)&&(*PminY >= (*PmaxY = 0xc8))) return 0;
 
-	int 	l;
-
-	l = 0;
-
-	if(s < m_min){
-
-		m_min = s;
-		l = 1;
-	}
-
-	if(e > m_max){
-
-		m_max = e;
-		l = 1;
-	}
-
-	if(l) printf("MEASURE: min=%d, max=%d\n", m_min, m_max);
+	return !(*PminY == *PmaxY);
 }
 
-static void helper(int A0, int A1, int A2, int A3, int A4, __DWORD__ * A5){
+static void helper1_fp(int A0, int LoY_XZ, int LoY, int HiY_XZ, int HiY, float * dst){
 
-	__DWORD__ 	eax, edi, ebx, ecx;
+    float       vX, pX;
+    int         n, vY, pY;
 
-	ebx = A4-A3;
 
-	if(ebx != 0){
-			
-		eax = (int)((A1-A2)<<0x10)/(int)ebx;
-		ecx = (A2<<0x10)+0x8000;
+    pX = (float)LoY_XZ;
+    pY = LoY;
+    vX = (float)HiY_XZ-pX;
+	vY = HiY-pY;
 
-		ebx += A0;
-		//measure(A3, ebx+A3-1);
-		A3 += OFFSET;
-		while(ebx--){
+	if(vY != 0){
 
-			A5[A3++] = ecx;
-			ecx += eax;
-		}
+        n = -1;
+		while(++n < (vY+A0)) dst[pY+OFFSET+n] = pX+(float)n*vX/(float)vY+0.5f;
 	}
 }
 
-static int helper2(int * P1, int * P2){
+static void helper1(int A0, int LoY_XZ, int LoY, int HiY_XZ, int HiY, int * A5){
 
-	if((*P1 < 0x00)&&(*P2 <= (*P1 = 0x00))) return 0;
-	if((*P2 > 0xc8)&&(*P1 >= (*P2 = 0xc8))) return 0;
+	int 	    eax, ecx;
+    int         n, vX, vY, pX, pY;
 
-	*P1 += OFFSET;
-	*P2 += OFFSET;
 
-	return !(*P1 == *P2);
+    pX = LoY_XZ;
+    pY = LoY;
+    vX = HiY_XZ-pX;
+	vY = HiY-pY;
+
+	if(vY != 0){
+
+		eax = (vX<<0x10)/vY;
+		ecx = (pX<<0x10)+0x8000;
+
+        n = -1;
+		while(++n < (vY+A0)) A5[pY+OFFSET+n] = ecx+n*eax;
+	}
 }
 
-// Objects
-void ___5e137h_order(__DWORD__ A0, int A1, int A2, int A3, int A4, int A5, int A6){
+static void helper_order_y(int * X1, int * Y1, int * Z1, int * X2, int * Y2, int * Z2, int * X3, int * Y3, int * Z3){
 
-    int     ecx, edi;
+    int     i, j, args[9];
 
-    helper(0, A5, A1, A2, A6, ___5a86ch);
-    helper(0, A3, A5, A6, A4, ___5a86ch);
-    helper(0, A3, A1, A2, A4, ___5b80ch);
+	if(Z3) args[0] = *Z3;
+	args[1] = *Y3;
+	args[2] = *X3;
+	if(Z2) args[3] = *Z2;
+	args[4] = *Y2;
+	args[5] = *X2;
+    if(Z1) args[6] = *Z1;
+    args[7] = *Y1;
+    args[8] = *X1;
 
-    if(helper2(&A2, &A4)){
+    i = (*Y1 < *Y2) ? !(*Y2 < *Y3) : 2*!(*Y1 < *Y3);
+    j = (*Y1 < *Y2) ? 2*(*Y1 < *Y3) : (*Y2 < *Y3);
 
-        while(A2 < A4){
-
-            if((ecx = ___5b80ch[A2]) < (edi = ___5a86ch[A2])){
-                    
-                ecx = ___5a86ch[A2];
-                edi = ___5b80ch[A2];
-            }
-
-            edi >>= 0x10;
-            ecx >>= 0x10;
-
-//            if(edi < 0) edi = 0;
-//            if(ecx > 0){
-
-//                if(ecx > 0x140) ecx = 0x140;
-
-//                if(edi <= 0x140){
-
-                    ecx -= edi;
-                    while(ecx--||++ecx) ___243d80h[0x200*(A2-OFFSET)+0x60+edi++] = A0;
-//                }
-//            }
-
-            A2++;
-        }
-    }
+   *X1 = args[3*j+2];
+   *Y1 = args[3*j+1];
+   if(Z1) *Z1 = args[3*j];
+   *X2 = args[3*(3-(i+j))+2];
+   *Y2 = args[3*(3-(i+j))+1];
+   if(Z2) *Z2 = args[3*(3-(i+j))];
+   *X3 = args[3*i+2];
+   *Y3 = args[3*i+1];
+   if(Z3) *Z3 = args[3*i];
 }
 
 // Trees
-static void ___5e3e8h_order(int A1, int A2, int A3, int A4, int A5, int A6, int A7, int A8, int A9){
+void ___5e3e8h(int Z3, int Y3, int X3, int Z2, int Y2, int X2, int Z1, int Y1, int X1){
 
+    int     eax, edx, TREE_XL, TREE_XR;
 
-    __DWORD__   eax, edx;
-    int     ecx, edi;
+    helper_order_y(&X1, &Y1, &Z1, &X2, &Y2, &Z2, &X3, &Y3, &Z3);
 
-    helper(0, A7, A1, A2, A8, ___5a86ch);
-    helper(0, A4, A7, A8, A5, ___5a86ch);
-    helper(0, A4, A1, A2, A5, ___5b80ch);
-    helper(1, A9, A3, A2, A8, ___5c7ach);
-    helper(1, A6, A9, A8, A5, ___5c7ach);
-    helper(1, A6, A3, A2, A5, ___5d74ch);
+    helper1(0, X1, Y1, X2, Y2, ___5a86ch);
+    helper1(0, X2, Y2, X3, Y3, ___5a86ch);
+    helper1(0, X1, Y1, X3, Y3, ___5b80ch);
+    helper1(1, Z1, Y1, Z2, Y2, ___5c7ach);
+    helper1(1, Z2, Y2, Z3, Y3, ___5c7ach);
+    helper1(1, Z1, Y1, Z3, Y3, ___5d74ch);
 
-    if(helper2(&A2, &A5)){
+    if(helper_bounds_y(&Y1, &Y3)){
 
-        ecx = (___5b80ch[(A2+A5)>>1]-___5a86ch[(A2+A5)>>1])>>0x10;
-
-        eax = (ecx != 0) ? (___5d74ch[(A2+A5)>>1]-___5c7ach[(A2+A5)>>1])/ecx : 0;
+        edx = OFFSET+(Y1+Y3)/2;
+        eax = (___5b80ch[edx]-___5a86ch[edx])>>0x10;
+        eax = (eax != 0) ? (___5d74ch[edx]-___5c7ach[edx])/eax : 0;
   
-        while(A2 < A5){
+        while(Y1 < Y3){
 
-            edx = ___5c7ach[A2];
+            TREE_XL = dRMath_min_i(___5b80ch[Y1+OFFSET], ___5a86ch[Y1+OFFSET])>>0x10;
+            TREE_XR = dRMath_max_i(___5b80ch[Y1+OFFSET], ___5a86ch[Y1+OFFSET])>>0x10;
+            edx = (___5b80ch[Y1+OFFSET] < ___5a86ch[Y1+OFFSET])?___5d74ch[Y1+OFFSET]:___5c7ach[Y1+OFFSET];
 
-            if((ecx = ___5b80ch[A2]) < (edi = ___5a86ch[A2])){
+            while(TREE_XL < TREE_XR){
 
-                ecx = ___5a86ch[A2];
-                edi = ___5b80ch[A2];
-                edx = ___5d74ch[A2];
-            }
-
-            edi >>= 0x10;
-            ecx >>= 0x10;
-
-			ecx -= edi;
-            while(ecx--||++ecx){
-
-                ___243d80h[0x200*(A2-OFFSET)+0x60+edi++] = edx>>0x10;
+                BACKBUFFER[0x200*Y1+0x60+TREE_XL] = edx>>0x10;
+                TREE_XL++;
                 edx += eax;
             }
 
-            A2++;
+            Y1++;
+        }
+    }
+}
+
+// Objects
+void ___5e137h(__BYTE__ A0, int Y3, int X3, int Y2, int X2, int Y1, int X1){
+
+    int     OBJ_XL, OBJ_XR;
+
+    helper_order_y(&X1, &Y1, NULL, &X2, &Y2, NULL, &X3, &Y3, NULL);
+
+    helper1(0, X1, Y1, X2, Y2, ___5a86ch);
+    helper1(0, X2, Y2, X3, Y3, ___5a86ch);
+    helper1(0, X1, Y1, X3, Y3, ___5b80ch);
+
+    if(helper_bounds_y(&Y1, &Y3)){
+
+        while(Y1 < Y3){
+
+            OBJ_XL = dRMath_min_i(___5b80ch[Y1+OFFSET], ___5a86ch[Y1+OFFSET])>>0x10;
+            OBJ_XR = dRMath_max_i(___5b80ch[Y1+OFFSET], ___5a86ch[Y1+OFFSET])>>0x10;
+
+            while(OBJ_XL < OBJ_XR){
+                
+                BACKBUFFER[0x200*Y1+0x60+OBJ_XL] = A0;
+                OBJ_XL++;
+            }
+
+            Y1++;
         }
     }
 }
 
 // Shadows
-static void ___5e769h_order(__BYTE__ * A0, int A1, int A2, int A3, int A4, int A5, int A6){
+void ___5e769h(__BYTE__ * A0, int Y3, int X3, int Y2, int X2, int Y1, int X1){
 
-	int 	ecx, edi;
+    int     SHD_XL, SHD_XR;
+//    int     * LEFT, * RIGHT;
 
-	helper(0, A5, A1, A2, A6, ___5a86ch);
-	helper(0, A3, A5, A6, A4, ___5a86ch);
-	helper(0, A3, A1, A2, A4, ___5b80ch);
+    helper_order_y(&X1, &Y1, NULL, &X2, &Y2, NULL, &X3, &Y3, NULL);
 
-	if(helper2(&A2, &A4)){
+    helper1(0, X1, Y1, X2, Y2, ___5a86ch);
+	helper1(0, X2, Y2, X3, Y3, ___5a86ch);
+	helper1(0, X1, Y1, X3, Y3, ___5b80ch);
 
-		while(A2 < A4){
+//    if((X2-X1)*(Y3-Y1)<(X3-X1)*(Y2-Y1)){
+//
+//        LEFT = ___5a86ch;
+//        RIGHT = ___5b80ch;
+//    }
+//    else {
+//
+//        LEFT = ___5b80ch;
+//        RIGHT = ___5a86ch;
+//    }
 
-			if((ecx = ___5b80ch[A2]) < (edi = ___5a86ch[A2])){
-					
-				ecx = ___5a86ch[A2];
-				edi = ___5b80ch[A2];
-			}
+	if(helper_bounds_y(&Y1, &Y3)){
 
-			edi >>= 0x10;
-			ecx >>= 0x10;
+		while(Y1 < Y3){
 
-//			if(edi < 0) edi = 0;
-//			if(ecx > 0){
+            SHD_XL = dRMath_min_i(___5b80ch[Y1+OFFSET], ___5a86ch[Y1+OFFSET])>>0x10;
+            SHD_XR = dRMath_max_i(___5b80ch[Y1+OFFSET], ___5a86ch[Y1+OFFSET])>>0x10;
 
-//				if(ecx > 0x140) ecx = 0x140;
-//				if(edi <= 0x140){
+//            SHD_XL = LEFT[Y1+OFFSET]>>0x10;
+//            SHD_XR = RIGHT[Y1+OFFSET]>>0x10;
 
-					ecx -= edi;
-					while(ecx--||++ecx){
+            while(SHD_XL < SHD_XR){
 
-						___243d80h[0x200*(A2-OFFSET)+0x60+edi] = A0[___243d80h[0x200*(A2-OFFSET)+0x60+edi]];
-						edi++;
-					}
-//				}
-//			}
+                BACKBUFFER[0x200*Y1+0x60+SHD_XL] = A0[BACKBUFFER[0x200*Y1+0x60+SHD_XL]];
+                SHD_XL++;
+            }
 
-			A2++;
+			Y1++;
 		}
 	}
-}
-
-// Objects
-void ___5e137h(__DWORD__ A1, int A2, int A3, int A4, int A5, int A6, int A7){
-
-    int     i, j, args[6];
-    int     a, b, c;
-
-    args[0] = A2;
-    args[1] = A3;
-    args[2] = A4;
-    args[3] = A5;
-    args[4] = A6;
-    args[5] = A7;
-
-    a = (A6 < A4);
-    b = (A4 < A2);
-    c = (A6 < A2);
- 
-    i = a ? 2*!b : 4*!c;
-    j = a ? 4*c : 2*b;
-    
-    ___5e137h_order(A1, args[j+1], args[j], args[i+1], args[i], args[6-(i+j)+1], args[6-(i+j)]);
-}
-
-// Trees
-void ___5e3e8h(int A1, int A2, int A3, int A4, int A5, int A6, int A7, int A8, int A9){
-
-    int     i, j, args[9];
-    int     a, b, c;
-
-    args[0] = A1;
-    args[1] = A2;
-    args[2] = A3;
-    args[3] = A4;
-    args[4] = A5;
-    args[5] = A6;
-    args[6] = A7;
-    args[7] = A8;
-    args[8] = A9;
-
-    a = (A8 < A5);
-    b = (A5 < A2);
-    c = (A8 < A2);
-
-    i = a ? 3*!b : 6*!c;
-    j = a ? 6*c : 3*b;
-
-    ___5e3e8h_order(args[j+2], args[j+1], args[j], args[i+2], args[i+1], args[i], args[9-(i+j)+2], args[9-(i+j)+1], args[9-(i+j)]);
-}
-
-// Shadows
-void ___5e769h(__BYTE__ * A1, int A2, int A3, int A4, int A5, int A6, int A7){
-
-	int 	i, j, args[6];
-    int     a, b, c;
-
-	args[0] = A2;
-	args[1] = A3;
-	args[2] = A4;
-	args[3] = A5;
-	args[4] = A6;
-	args[5] = A7;
-
-    a = (A6 < A4);
-    b = (A4 < A2);
-    c = (A6 < A2);
-
-    i = a ? 2*!b : 4*!c;
-    j = a ? 4*c : 2*b;
-
-	___5e769h_order(A1, args[j+1], args[j], args[i+1], args[i], args[6-(i+j)+1], args[6-(i+j)]);
 }

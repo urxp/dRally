@@ -1,4 +1,5 @@
 #include "drally.h"
+#include "drally_structs_fixed.h"
 
 #pragma pack(1)
 typedef struct rgb24_s {
@@ -31,17 +32,20 @@ rgb24_t dummy_pal[0x200];
 void ___2b318h(void){
 	
 	__DWORD__ 	n;
-	rgb24_t * p_pal;
+	rgb24_t * 	p_pal;
+	racer_t *	s_6c;
 
+
+	s_6c = (racer_t *)___1a01e0h;
 	___12940h();
 
 	if(!(p_pal = ___1a0fb8h)) p_pal = dummy_pal;
 
-	___11564h_cdecl(p_pal[D(0x6c*D(___1a1ef8h)+___1a01e0h+0x2c)].r, p_pal[D(0x6c*D(___1a1ef8h)+___1a01e0h+0x2c)].g, p_pal[D(0x6c*D(___1a1ef8h)+___1a01e0h+0x2c)].b);
+	___11564h_cdecl(p_pal[s_6c[D(___1a1ef8h)].color].r, p_pal[s_6c[D(___1a1ef8h)].color].g, p_pal[s_6c[D(___1a1ef8h)].color].b);
 
 	if(!(p_pal = ___1a0fb8h)) p_pal = dummy_pal;
 
-	___24010h(p_pal[D(0x6c*D(___1a1ef8h)+___1a01e0h+0x2c)].r, p_pal[D(0x6c*D(___1a1ef8h)+___1a01e0h+0x2c)].g, p_pal[D(0x6c*D(___1a1ef8h)+___1a01e0h+0x2c)].b);
+	___24010h(p_pal[s_6c[D(___1a1ef8h)].color].r, p_pal[s_6c[D(___1a1ef8h)].color].g, p_pal[s_6c[D(___1a1ef8h)].color].b);
 	
 	if(!(p_pal = ___1a10c8h)) p_pal = dummy_pal;
 

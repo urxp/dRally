@@ -1,5 +1,6 @@
 #include "drally.h"
 #include "drally_fonts.h"
+#include "drally_structs_fixed.h"
 
 	extern __BYTE__ ___1a1028h[];
 	extern __BYTE__ ___1de7d0h[];
@@ -35,10 +36,13 @@ void ___36068h_cdecl(__DWORD__ A1){
 
     __DWORD__   eax, ebx, ecx, edx, edi, esi, ebp;
     __BYTE__    esp[8];
-	int 	i, j, n;
+	int 		i, j, n;
 	__BYTE__ 	px;
+	racer_t * 	s_6c;
 
  
+	s_6c = (racer_t *)___1a01e0h;
+
 	if(D(___1a1028h)){
 
 		___35f34h_cdecl(0, 3, 0);
@@ -80,7 +84,7 @@ void ___36068h_cdecl(__DWORD__ A1){
 	n = -1;
 	while(++n < 3){
 
-		if((A1 == 0)&&(D(0x6c*B(esp+n)+___1a01e0h+0xc) != 0x64)){
+		if((A1 == 0)&&(s_6c[B(esp+n)].damage != 0x64)){
 
 			if((B(esp+n) == D(___1a1ef8h))&&(D(___196ab0h) == 1)) break;
 
@@ -95,9 +99,9 @@ void ___36068h_cdecl(__DWORD__ A1){
 			}
 		}
 
-		if((D(0x6c*B(esp+n)+___1a01e0h+0xc) != 0x64)&&((B(esp+n) != D(___1a1ef8h))||(D(___196ab0h) != 1))){
+		if((s_6c[B(esp+n)].damage != 0x64)&&((B(esp+n) != D(___1a1ef8h))||(D(___196ab0h) != 1))){
 
-			D(0x6c*B(esp+n)+___1a01e0h+0x44) += EasyPoints[n];
+			s_6c[B(esp+n)].points += EasyPoints[n];
 			___12e78h_cdecl(___1a10b8h, (font_props_t *)___185c7ah, fmtPoints(EasyPoints[n]), 0x280*(0x13*B(esp+n)+0x59)+0xe6);
 		}
 

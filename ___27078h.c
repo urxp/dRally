@@ -1,24 +1,8 @@
 #include "drally.h"
 #include "drally_fonts.h"
 #include "pxl.h"
-
-typedef char char40[40];
-typedef char char12[12];
-typedef struct cardata_s {
-    char12      		name;                           // +000
-    __DWORD__   		price;                          // +00C
-    char40      		txt_info[6];                    // +010
-    char40      		txt_winfo[6];                   // +100
-    char40      		txt_bought[6];                  // +1F0
-    char40      		txt_engine_upgrades[4][6];      // +2E0
-    __DWORD__   		n_engine_upgrades;              // +6A0
-    __DWORD__   		n_tire_upgrades;                // +6A4
-    __DWORD__   		n_armor_upgrades;               // +6A8
-    __DWORD__   		price_engine_upgrades[4];       // +6AC
-    __DWORD__   		price_tire_upgrades[4];         // +6BC
-    __DWORD__   		price_armor_upgrades[4];        // +6CC
-    __SIGNED_DWORD__   	price_repair;                   // +6DC
-} cardata_t;
+#include "drally_structs_free.h"
+#include "drally_structs_fixed.h"
 
 	extern __POINTER__ ___1a112ch__VESA101_ACTIVESCREEN_PTR;
 	extern __POINTER__ ___1a1e6ch;
@@ -43,11 +27,13 @@ char * itoa_watcom106(int value, char * buffer, int radix);
 // SHOP NEXT CAR AFTER BUY UPDATE
 void ___27078h(void){
 
-	char 	buff[20];
+	char 		buff[20];
+	racer_t * 	s_6c;
+	pxl_2D 		src;
+	pxl_2D 		dst;
 
-	pxl_2D 			src;
-	pxl_2D 			dst;
 
+	s_6c = (racer_t *)___1a01e0h;
 	pxlSet(&dst, ___1a112ch__VESA101_ACTIVESCREEN_PTR, 640, 480);
 	pxlSetPosition(&dst, 16, 125);
 
@@ -60,12 +46,12 @@ void ___27078h(void){
 	___259e0h_cdecl(0x10, 0x8d, D(___1a1ed0h), ___1a01b8h[D(___1a1ee4h)], CARENCS[D(___1a1ee4h)]);
 	___12f60h_cdecl(buff, ___25180h_cdecl(itoa_watcom106(___18e298h[D(___1a1ee4h)].price, strcpy(buff, "$")+1, 0xa)-1)+0x20590);
 	___13248h_cdecl(0x90, 0x72, 0x180, 0x77, 1);
-	VESA101_16X16_FORMAT_PRINT(___18e298h[D(0x6c*D(___1a1ef8h)+___1a01e0h+0x1c)].txt_bought[0], 170, 124);
-	VESA101_16X16_FORMAT_PRINT(___18e298h[D(0x6c*D(___1a1ef8h)+___1a01e0h+0x1c)].txt_bought[1], 170, 140);
-	VESA101_16X16_FORMAT_PRINT(___18e298h[D(0x6c*D(___1a1ef8h)+___1a01e0h+0x1c)].txt_bought[2], 170, 156);
-	VESA101_16X16_FORMAT_PRINT(___18e298h[D(0x6c*D(___1a1ef8h)+___1a01e0h+0x1c)].txt_bought[3], 170, 172);
-	VESA101_16X16_FORMAT_PRINT(___18e298h[D(0x6c*D(___1a1ef8h)+___1a01e0h+0x1c)].txt_bought[4], 170, 188);
-	VESA101_16X16_FORMAT_PRINT(___18e298h[D(0x6c*D(___1a1ef8h)+___1a01e0h+0x1c)].txt_bought[5], 170, 204);
+	VESA101_16X16_FORMAT_PRINT(___18e298h[s_6c[D(___1a1ef8h)].car].txt_bought[0], 170, 124);
+	VESA101_16X16_FORMAT_PRINT(___18e298h[s_6c[D(___1a1ef8h)].car].txt_bought[1], 170, 140);
+	VESA101_16X16_FORMAT_PRINT(___18e298h[s_6c[D(___1a1ef8h)].car].txt_bought[2], 170, 156);
+	VESA101_16X16_FORMAT_PRINT(___18e298h[s_6c[D(___1a1ef8h)].car].txt_bought[3], 170, 172);
+	VESA101_16X16_FORMAT_PRINT(___18e298h[s_6c[D(___1a1ef8h)].car].txt_bought[4], 170, 188);
+	VESA101_16X16_FORMAT_PRINT(___18e298h[s_6c[D(___1a1ef8h)].car].txt_bought[5], 170, 204);
 
 	pxlSet(&src, ___1a1e78h, 16, 256);
 	pxlSetChroma(&src, 0);

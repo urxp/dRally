@@ -15,7 +15,7 @@ typedef struct x655_s {
 
 void ___2b318h(void);
 void ___58c60h(void);
-void ___13a98h_cdecl(__DWORD__);
+void menu___13a98h(__DWORD__);
 void old_bpa_read(const char *, __POINTER__, const char *);
 void bpk_decode2(__POINTER__, __POINTER__);
 void ___12cb8h__VESA101_PRESENTSCREEN(void);
@@ -57,7 +57,7 @@ void menu___3d4f0h(void){
 	while(++i <= 0x32){
 
 		___58c60h();
-		if((0x32-i)%2) ___13a98h_cdecl(0);
+		if((0x32-i)%2) menu___13a98h(0);	// SPINNING TIRE ICON
 
 		n = -1;
 		while(++n < 0x100){
@@ -92,7 +92,7 @@ void menu___3d4f0h(void){
 	while(++i <= 0x32){
 
 		___58c60h();
-		if(i%2) ___13a98h_cdecl(0);
+		if(i%2) menu___13a98h(0);	// SPINNING TIRE ICON
 
 		n = -1;
 		while(++n < 0x100){

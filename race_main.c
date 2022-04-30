@@ -11,10 +11,10 @@
 #endif // DR_MULTIPLAYER
 
 	extern __DWORD__ MY_CAR_IDX;
-	extern __BYTE__ NUM_OF_CARS[];
-	extern __BYTE__ ___243d28h[];
-	extern __POINTER__ ___243d58h;
-	extern __POINTER__ ___243d80h;
+	extern int NUM_OF_CARS;
+	extern int TRX_WIDTH;
+	extern __POINTER__ TRX_IMA;
+	extern __POINTER__ BACKBUFFER;
 	extern __BYTE__ ___243d08h[];
 	extern __BYTE__ ___243d0ch[];
 	extern __BYTE__ ___1de580h[];
@@ -46,14 +46,14 @@
 	extern __BYTE__ ___2438c8h[];
 	extern __BYTE__ kmap[];
 	extern __BYTE__ ___243d00h[];
-	extern __BYTE__ ___196dc8h[];
-	extern __BYTE__ ___196dcch[];
-	extern __BYTE__ ___196d88h[];
-	extern __BYTE__ ___196d98h[];
+	extern int TRX_VIEWPORT_TL_X;
+	extern int TRX_VIEWPORT_TL_Y;
+	extern int CURRENT_VIEWPORT_W;
+	extern int CURRENT_VIEWPORT_X;
 	extern __BYTE__ ___196dd4h[];
 	extern __BYTE__ ___243d14h[];
-	extern __BYTE__ VGA13_ACTIVESCREEN[];
-	extern __BYTE__ ___196d8ch[];
+	extern __BYTE__ * VGA13_ACTIVESCREEN;
+	extern int CURRENT_VIEWPORT_CENTER_X;
 	extern __BYTE__ ___1de7d0h[];
 	extern __BYTE__ ___196dd8h[];
 	extern __DWORD__ ___243d44h;
@@ -149,7 +149,43 @@ static void helper01(void (*cb)(int)){
 	int 	n;
 
 	n = -1;
-	while(++n < (int)D(NUM_OF_CARS)) cb(n);
+	while(++n < NUM_OF_CARS) cb(n);
+}
+
+static __WORD__ helper22(const char * cp){
+
+	if(!strcmp(cp, "TR0")) return 0x1e00;
+	if(!strcmp(cp, "TR1")) return 0x3700;
+	if(!strcmp(cp, "TR2")) return 0x2d00;
+	if(!strcmp(cp, "TR3")) return 0x3200;
+	if(!strcmp(cp, "TR4")) return 0x2d00;
+	if(!strcmp(cp, "TR5")) return 0x3700;
+	if(!strcmp(cp, "TR6")) return 0x3200;
+	if(!strcmp(cp, "TR7")) return 0x3200;
+	if(!strcmp(cp, "TR8")) return 0x3200;
+	if(!strcmp(cp, "TR9")) return 0x3200;
+
+	return 0;
+}
+
+static void helper_freeEffectChannels(void){
+	
+	int 	n;
+
+	n = -1;
+	while(++n < 0xe) dRally_Sound_freeEffectChannel(n+1);
+}
+
+static __WORD__ helper33(void){
+
+	__DWORD__ 	ecx, ecxx;
+
+	helper_freeEffectChannels();
+	ecx = dRally_Sound_getPosition()&0xff00;
+	if((ecxx = helper22(___19bd64h)) != 0) dRally_Sound_setPosition(ecxx);
+	dRally_Sound_setMasterVolume(0x8000);
+
+	return ecx;
 }
 
 static void race___4b62ch_helper(int n){
@@ -178,20 +214,22 @@ static void race___526ach_helper(int n){ D(___243c60h) = n; race___526ach(); }
 static void race___4ff50h_helper(int n){ D(___243c60h) = n; race___4ff50h(); }
 
 // ___56774h
-void race_main(__DWORD__ A1, __DWORD__ A2){		// my_position_index, number_of_racers
+void race_main(int MyIndex, int NumCars){		// my_position_index, number_of_racers
 
 	__DWORD__ 	eax, ebx, ecx, edx;
 	__BYTE__ 	esp[0x1c];
-	int 	i, j, n, bool_tmp, k;
+	int 	i, j, n, bool_tmp, k, m, c;
 	struct_35e_t *	s_35e;
+	struct_94_t * 	s_94;
 	struct_54_t *	s_54;
 
 
 
-	s_35e = (struct_35e_t *)___1e6ed0h;
 	s_54 = (struct_54_t *)___1de7d0h;
-	MY_CAR_IDX = A1;
-	D(NUM_OF_CARS) = A2;
+	s_94 = (struct_94_t *)___1de580h;
+	s_35e = (struct_35e_t *)___1e6ed0h;
+	MY_CAR_IDX = MyIndex;
+	NUM_OF_CARS = NumCars;
 	race___3f970h();
 	race___49a34h();
 
@@ -202,11 +240,11 @@ void race_main(__DWORD__ A1, __DWORD__ A2){		// my_position_index, number_of_rac
 		D(___243d0ch) = 0;
 
 		n = -1;
-		while(++n < (int)D(NUM_OF_CARS)){
+		while(++n < NUM_OF_CARS){
 
-			D(___243d0ch) += D(___1de580h+0x94*n+0x38);
-			D(___243d0ch) += D(___1de580h+0x94*n+0x3c);
-			D(___243d0ch) += D(___1de580h+0x94*n+0x40);
+			D(___243d0ch) += s_94[n].__38;
+			D(___243d0ch) += s_94[n].__3c;
+			D(___243d0ch) += s_94[n].__40;
 			D(___243d08h) += 1;
 		}
 
@@ -256,7 +294,7 @@ void race_main(__DWORD__ A1, __DWORD__ A2){		// my_position_index, number_of_rac
 	race___496b0h();
 	race___405bch();
 	race___49a34h();
-	dRally_Sound_pushEffect(1, B(___1de580h+0x94*MY_CAR_IDX)+0x19, 0, 0x10000, 0x28000, 0x8000);
+	dRally_Sound_pushEffect(1, (s_94[MY_CAR_IDX].__0&0xff)+25, 0, 0x10000, 0x28000, 0x8000);
 	resetCounter(1);
 	D(___243ca0h) = 0;
 	D(___243cdch) = 0;
@@ -314,10 +352,10 @@ void race_main(__DWORD__ A1, __DWORD__ A2){		// my_position_index, number_of_rac
 				if((int)getCounter(1) > 0xbe){
 
 					helper01(&race___4b62ch_helper);
-					k = -1; while(++k < D(NUM_OF_CARS)) s_35e[k].__14 = 0;
+					k = -1; while(++k < NUM_OF_CARS) s_35e[k].__14 = 0;
 					helper01(&race___4c434h_helper);
-					k = -1; while(++k < D(NUM_OF_CARS)) s_35e[k].__18 = 0;
-					k = -1; while(++k < D(NUM_OF_CARS)) s_35e[k].__1c = 0;
+					k = -1; while(++k < NUM_OF_CARS) s_35e[k].__18 = 0;
+					k = -1; while(++k < NUM_OF_CARS) s_35e[k].__1c = 0;
 					race___4dcach();
 					helper01(&race___514d8h_helper);
 
@@ -334,7 +372,7 @@ void race_main(__DWORD__ A1, __DWORD__ A2){		// my_position_index, number_of_rac
 				}
 
 				k = -1;
-				while(++k < (int)D(NUM_OF_CARS)){
+				while(++k < NUM_OF_CARS){
 
 					if((int)0 < (int)s_35e[k].__192) s_35e[k].__192--;
 					if((int)0 < (int)s_35e[k].__196) s_35e[k].__196--;
@@ -360,13 +398,13 @@ void race_main(__DWORD__ A1, __DWORD__ A2){		// my_position_index, number_of_rac
 
 					if((s_35e[k].__192 == 2)||(s_35e[k].__196 == 2)){
 
-						if(s_35e[k].__10a == 0){
+						if(s_35e[k].Finished == 0){
 
-							D(esp+0x18) = 0x400-D(___1de580h+0x94*k+0x1c);
+							D(esp+0x18) = 0x400-s_94[k].__1c;
 							D(___2438cch) = (int)((double)D(esp+0x18)*(double)(s_35e[k].__fc*s_35e[k].__fc+s_35e[k].__100*s_35e[k].__100));
 							if((int)D(___2438cch) > 0x2710) D(___2438cch) = 0x2710;
-							D(___1de580h+0x94*k+0x18) -= D(___2438cch);
-							if((int)0 > (int)D(___1de580h+0x94*k+0x18)) D(___1de580h+0x94*k+0x18) = 0;
+							s_94[k].__18 -= D(___2438cch);
+							if((int)0 > (int)s_94[k].__18) s_94[k].__18 = 0;
 						}
 					}
 				}
@@ -428,7 +466,7 @@ void race_main(__DWORD__ A1, __DWORD__ A2){		// my_position_index, number_of_rac
 
 				if(((int)D(___2438d4h) > 0)&&(D(___196ddch) == 0)){
 
-					if(((int)D(___1de580h+0x94*MY_CAR_IDX+0x18) > 0)&&(s_35e[MY_CAR_IDX].__10a == 0)){
+					if(((int)s_94[MY_CAR_IDX].__18 > 0)&&(s_35e[MY_CAR_IDX].Finished == 0)){
 						
 						if(D(___196de0h) == 2){
 
@@ -446,13 +484,13 @@ void race_main(__DWORD__ A1, __DWORD__ A2){		// my_position_index, number_of_rac
 
 				D(___2438d4h) = 0;
 
-				if(((int)D(___1de580h+0x94*MY_CAR_IDX+0x18) <= 0)||(s_35e[MY_CAR_IDX].__10a != 0)){
+				if(((int)s_94[MY_CAR_IDX].__18 <= 0)||(s_35e[MY_CAR_IDX].Finished != 0)){
 
 					dRally_Sound_freeEffectChannel(1);
 					dRally_Sound_freeEffectChannel(6);
 				}
 
-				F32(esp+0x14) = (float)dRMath_abs((double)s_35e[MY_CAR_IDX].__b0/(double)F32(___1de580h+0x94*MY_CAR_IDX+4));
+				F32(esp+0x14) = (float)dRMath_abs((double)s_35e[MY_CAR_IDX].__b0/(double)s_94[MY_CAR_IDX].__4);
 				D(___196df8h) = (int)((double)(5*s_35e[MY_CAR_IDX].__19e)*(double)F32(esp+0x14)+(double)(s_35e[MY_CAR_IDX].__19a+0x28000));
 				dRally_Sound_adjustEffect(1, 0x10000, D(___196df8h), 0x8000);
 				race___54668h();	// POSITION, LAP COUNTER
@@ -467,7 +505,7 @@ void race_main(__DWORD__ A1, __DWORD__ A2){		// my_position_index, number_of_rac
 
 				if(___19bd60h == 0){
 #endif // DR_MULTIPLAYER			
-					if((s_35e[MY_CAR_IDX].__10a != 0)||((int)D(___1de580h+0x94*MY_CAR_IDX+0x18) <= 0)) D(___2438c8h)++;
+					if((s_35e[MY_CAR_IDX].Finished != 0)||((int)s_94[MY_CAR_IDX].__18 <= 0)) D(___2438c8h)++;
 #if defined(DR_MULTIPLAYER)
 				}
 #endif // DR_MULTIPLAYER		
@@ -475,27 +513,21 @@ void race_main(__DWORD__ A1, __DWORD__ A2){		// my_position_index, number_of_rac
 				D(___243c60h) = 0;
 				D(___243d0ch) = 0;
 
-				if((int)D(NUM_OF_CARS) > 0){
-
-					ecx = 0x94*D(NUM_OF_CARS);
-					edx = 0;
-					ebx = 0;
+				if(NUM_OF_CARS > 0){
 
 					while(1){
 
-						if(s_35e[edx/0x35e].__b0 <= 0.5f){
+						if(s_35e[D(___243c60h)].__b0 <= 0.5f){
 
-							if((s_35e[edx/0x35e].__10a != 0)||((int)D(___1de580h+ebx+0x18) <= 0)) D(___243d0ch)++;
+							if((s_35e[D(___243c60h)].Finished != 0)||((int)s_94[D(___243c60h)].__18 <= 0)) D(___243d0ch)++;
 						}
 
-						ebx += 0x94;
-						edx += 0x35e;
 						D(___243c60h)++;
-						if((int)ebx >= (int)ecx) break;
+						if((int)D(___243c60h) >= NUM_OF_CARS) break;
 					}
 				}
 
-				eax = D(NUM_OF_CARS)-1;
+				eax = NUM_OF_CARS-1;
 				if((int)eax <= (int)D(___243d0ch)) D(___2438c8h)++;
 				incCounter(4);
 				decCounter(5);
@@ -506,7 +538,7 @@ void race_main(__DWORD__ A1, __DWORD__ A2){		// my_position_index, number_of_rac
 #if defined(DR_MULTIPLAYER)
 		if(___19bd60h == 0){
 #endif // DR_MULTIPLAYER		
-			if(D(___1de580h) != 6) race___4c21ch();
+			if(s_94[0].__0 != 6) race___4c21ch();
 #if defined(DR_MULTIPLAYER)
 		}
 
@@ -519,30 +551,11 @@ void race_main(__DWORD__ A1, __DWORD__ A2){		// my_position_index, number_of_rac
 #if defined(DR_MULTIPLAYER)
 			if(___19bd60h == 0){
 #endif // DR_MULTIPLAYER
-				D(___243d08h) = 0;
-				while(1){
-
-					D(___243d08h)++;
-					dRally_Sound_freeEffectChannel(D(___243d08h)&0xff);
-					if((int)D(___243d08h) >= 0xe) break;
-				}
-
-				ebx = dRally_Sound_getPosition()&0xff00;
-				if(!strcmp(___19bd64h, "TR0")) dRally_Sound_setPosition(0x1e00);
-				if(!strcmp(___19bd64h, "TR1")) dRally_Sound_setPosition(0x3700);
-				if(!strcmp(___19bd64h, "TR2")) dRally_Sound_setPosition(0x2d00);
-				if(!strcmp(___19bd64h, "TR3")) dRally_Sound_setPosition(0x3200);
-				if(!strcmp(___19bd64h, "TR4")) dRally_Sound_setPosition(0x2d00);
-				if(!strcmp(___19bd64h, "TR5")) dRally_Sound_setPosition(0x3700);
-				if(!strcmp(___19bd64h, "TR6")) dRally_Sound_setPosition(0x3200);
-				if(!strcmp(___19bd64h, "TR7")) dRally_Sound_setPosition(0x3200);
-				if(!strcmp(___19bd64h, "TR8")) dRally_Sound_setPosition(0x3200);
-				if(!strcmp(___19bd64h, "TR9")) dRally_Sound_setPosition(0x3200);
-				dRally_Sound_setMasterVolume(0x8000);
+				ecx = helper33();
 				race___48458h();
-				dRally_Sound_setPosition(ebx);
+				dRally_Sound_setPosition(ecx);
 				dRally_Sound_setMasterVolume(0x10000);
-				dRally_Sound_pushEffect(1, B(___1de580h+0x94*MY_CAR_IDX)+0x19, 0, 0x10000, 0x28000, 0x8000);
+				dRally_Sound_pushEffect(1, (s_94[MY_CAR_IDX].__0&0xff)+25, 0, 0x10000, 0x28000, 0x8000);
 #if defined(DR_MULTIPLAYER)
 			}
 #endif // DR_MULTIPLAYER
@@ -556,7 +569,7 @@ void race_main(__DWORD__ A1, __DWORD__ A2){		// my_position_index, number_of_rac
 
 		if(kmap[DR_SCAN_TAB] == 0) D(___243d00h) = 0;
 
-		if((int)D(___1de580h+0x18+0x94*MY_CAR_IDX) <= 0) dRally_Race_setSettings(RACE_NOTWIDE);
+		if((int)s_94[MY_CAR_IDX].__18 <= 0) dRally_Race_setSettings(RACE_NOTWIDE);
 
 		if(kmap[DR_SCAN_F2] != 0){	// MSX
 
@@ -584,35 +597,16 @@ void race_main(__DWORD__ A1, __DWORD__ A2){		// my_position_index, number_of_rac
 			kmap[DR_SCAN_F5] = 0;
 		}
 
-		if(kmap[DR_SCAN_P] != 0){
+		if(kmap[DR_SCAN_P] != 0){	// GAME PAUSED
 #if defined(DR_MULTIPLAYER)
 			if(___19bd60h == 0){
 #endif // DR_MULTIPLAYER
-				D(___243d08h) = 0;
-				while(1){
-
-					D(___243d08h)++;
-					dRally_Sound_freeEffectChannel(D(___243d08h)&0xff);
-					if((int)D(___243d08h) >= 0xe) break;
-				}
-
-				ecx = dRally_Sound_getPosition()&0xff00;
-				if(!strcmp(___19bd64h, "TR0")) dRally_Sound_setPosition(0x1e00);
-				if(!strcmp(___19bd64h, "TR1")) dRally_Sound_setPosition(0x3700);
-				if(!strcmp(___19bd64h, "TR2")) dRally_Sound_setPosition(0x2d00);
-				if(!strcmp(___19bd64h, "TR3")) dRally_Sound_setPosition(0x3200);
-				if(!strcmp(___19bd64h, "TR4")) dRally_Sound_setPosition(0x2d00);
-				if(!strcmp(___19bd64h, "TR5")) dRally_Sound_setPosition(0x3700);
-				if(!strcmp(___19bd64h, "TR6")) dRally_Sound_setPosition(0x3200);
-				if(!strcmp(___19bd64h, "TR7")) dRally_Sound_setPosition(0x3200);
-				if(!strcmp(___19bd64h, "TR8")) dRally_Sound_setPosition(0x3200);
-				if(!strcmp(___19bd64h, "TR9")) dRally_Sound_setPosition(0x3200);
-				dRally_Sound_setMasterVolume(0x8000);
+				ecx = helper33();
 				race_msg(E_GAME_PAUSED);
 				race___478c8h(0);
 				dRally_Sound_setPosition(ecx);
 				dRally_Sound_setMasterVolume(0x10000);
-				dRally_Sound_pushEffect(1, B(___1de580h+0x94*MY_CAR_IDX)+0x19, 0, 0x10000, 0x28000, 0x8000);
+				dRally_Sound_pushEffect(1, (s_94[MY_CAR_IDX].__0&0xff)+25, 0, 0x10000, 0x28000, 0x8000);
 #if defined(DR_MULTIPLAYER)
 			}
 #endif // DR_MULTIPLAYER
@@ -620,18 +614,14 @@ void race_main(__DWORD__ A1, __DWORD__ A2){		// my_position_index, number_of_rac
 
 		race___4ee9ch();
 		race___4f030h();
-		D(___243d0ch) = 0;
 
-		D(___243d08h) = 0;
-		while(1){
+		ecx = CURRENT_VIEWPORT_W+4;
+		ecx -= ecx&3;
+		m = -1;
+		while(++m < 0xc8){	// COPY TRACK BACKGROUND
 
-			ecx = (int)D(___196d88h)>>2;
 
-			memcpy(___243d80h+D(___243d08h)+D(___196d98h)+0x60, ___243d58h+D(___196dc8h)+D(___243d0ch)+D(___196dcch)*D(___243d28h), 4*(ecx+1));
-			D(___243d0ch) += D(___243d28h);
-
-			D(___243d08h) += 0x200;
-			if((int)D(___243d08h) >= 0x19000) break;
+			memcpy(BACKBUFFER+0x200*m+CURRENT_VIEWPORT_X+0x60, TRX_IMA+TRX_WIDTH*(TRX_VIEWPORT_TL_Y+m)+TRX_VIEWPORT_TL_X, ecx);
 		}
 
 #if defined(DR_MULTIPLAYER)
@@ -642,18 +632,18 @@ void race_main(__DWORD__ A1, __DWORD__ A2){		// my_position_index, number_of_rac
 		}
 #endif // DR_MULTIPLAYER
 		D(___243c60h) = -1;
-		while(++D(___243c60h) < D(NUM_OF_CARS)) race___50ef4h();
+		while(++D(___243c60h) < NUM_OF_CARS) race___50ef4h();
 		race___4f300h();	// RENDER CARS
 		race___51ce0h();
 		if(dRally_Race_getSettings(RACE_SHADOWS)) race___4f170h();
 		D(___243c60h) = -1;
-		while(++D(___243c60h) < D(NUM_OF_CARS)) race___50a48h();
+		while(++D(___243c60h) < NUM_OF_CARS) race___50a48h();
 		D(___243c60h) = -1;
-		while(++D(___243c60h) < D(NUM_OF_CARS)) race___51204h();
-		race___53310h();
-		race___53464h();
+		while(++D(___243c60h) < NUM_OF_CARS) race___51204h();
+		race___53310h();	// SORT OBJECTS
+		race___53464h();	// OBJECTS
 		D(___243c60h) = -1;
-		while(++D(___243c60h) < D(NUM_OF_CARS)) race___50ba4h();
+		while(++D(___243c60h) < NUM_OF_CARS) race___50ba4h();
 		race___51eb4h();
 #if defined(DR_MULTIPLAYER)
 		if(___19bd60h == 0){
@@ -663,10 +653,10 @@ void race_main(__DWORD__ A1, __DWORD__ A2){		// my_position_index, number_of_rac
 		}
 #endif // DR_MULTIPLAYER
 		if((int)getCounter(1) < 0x122) race___42218h();
-		(D(___196d88h) != 0x140) ? race___40f48h() : race___40db4h();
+		(CURRENT_VIEWPORT_W != 0x140) ? race___40f48h() : race___40db4h();
 
 		D(___243c60h) = -1;
-		while(++D(___243c60h) < D(NUM_OF_CARS)){
+		while(++D(___243c60h) < NUM_OF_CARS){
 
 			if((s_35e[D(___243c60h)].Position == 1)&&(D(___196dd4h) != 0)) race___4207ch();
 		}
@@ -675,8 +665,7 @@ void race_main(__DWORD__ A1, __DWORD__ A2){		// my_position_index, number_of_rac
 #if defined(DR_MULTIPLAYER)
 			if(___19bd60h != 0) D(___24387ch) = 0;
 #endif // DR_MULTIPLAYER
-			D(___243d08h) = -1;
-			while(++D(___243d08h) < 0xe) dRally_Sound_freeEffectChannel(D(___243d08h)+1);
+			helper_freeEffectChannels();
 			dRally_Sound_pushEffect(2, SFX_RACE_OVER, 0, 0x10000, 0x50000, 0x8000);
 			race_msg(E_RACE_OVER);
 			race___478c8h(0);
@@ -692,47 +681,35 @@ void race_main(__DWORD__ A1, __DWORD__ A2){		// my_position_index, number_of_rac
 		}
 		else {
 
-			D(___243d08h) = 0;
-			D(___243d0ch) = 0;
-
-			while(1){
-
-				memcpy(VGA13_ACTIVESCREEN+D(___243d08h), ___243d80h+D(___243d0ch)+0x60, 0x140);
-				D(___243d08h) += 0x140;
-				D(___243d0ch) += 0x200;
-				if((int)D(___243d08h) >= 0xfa00) break;
-			}
+			c = -1;
+			while(++c < 0xc8) memcpy(VGA13_ACTIVESCREEN+0x140*c, BACKBUFFER+0x200*c+0x60, 0x140);
 
 			__VGA13_PRESENTSCREEN__();
-
 			s_35e[MY_CAR_IDX].Drug = 0;
 		}
 
 		D(___243c60h) = 0;
-		eax = 0;
-		while(1){
+		eax = -1;
+		while(++eax < 4){
 
-			if((int)s_35e[eax/0x35e].Drug > 0) s_35e[eax/0x35e].Drug -= D(___243334h);
-
-			eax += 0x35e;
-			if(eax == 0xd78) break;
+			if((int)s_35e[eax].Drug > 0) s_35e[eax].Drug -= D(___243334h);
 		}
 
 		D(___243c60h) = 4;
 
 		if(dRally_Race_getSettings(RACE_NOTWIDE)){
 
-			if((int)D(___196d88h) > 0x100) D(___196d88h) -= 4*D(___243334h);
-			if((int)D(___196d88h) < 0x100) D(___196d88h) = 0x100;
+			if(CURRENT_VIEWPORT_W > 0x100) CURRENT_VIEWPORT_W -= 4*D(___243334h);
+			if(CURRENT_VIEWPORT_W < 0x100) CURRENT_VIEWPORT_W = 0x100;
 		}
 		else {
 
-			if((int)D(___196d88h) < 0x140) D(___196d88h) += 2*D(___243334h);
-			if((int)D(___196d88h) > 0x140) D(___196d88h) = 0x140;
+			if(CURRENT_VIEWPORT_W < 0x140) CURRENT_VIEWPORT_W += 2*D(___243334h);
+			if(CURRENT_VIEWPORT_W > 0x140) CURRENT_VIEWPORT_W = 0x140;
 		}
 
-		D(___196d8ch) = (int)D(___196d88h)>>1;
-		D(___196d98h) = 0x140-D(___196d88h);
+		CURRENT_VIEWPORT_CENTER_X = CURRENT_VIEWPORT_W/2;
+		CURRENT_VIEWPORT_X = 0x140-CURRENT_VIEWPORT_W;
 
 #if defined(DR_MULTIPLAYER)
 		if(	(!___19bd60h&&kmap[DR_SCAN_ESCAPE])
@@ -752,14 +729,7 @@ void race_main(__DWORD__ A1, __DWORD__ A2){		// my_position_index, number_of_rac
 #endif // DR_MULTIPLAYER
 
 			D(___243d14h) = -1;
-			D(___243d08h) = 0;
-
-			while(1){
-
-				D(___243d08h)++;
-				dRally_Sound_freeEffectChannel(B(___243d08h));
-				if((int)D(___243d08h) >= 0xe) break;
-			}
+			helper_freeEffectChannels();
 
 #if defined(DR_MULTIPLAYER)
 			if((___19bd60h != 0)&&(D(___243cd8h) != 0)){
@@ -784,7 +754,7 @@ void race_main(__DWORD__ A1, __DWORD__ A2){		// my_position_index, number_of_rac
 			if(D(___243d14h) != 1){
 
 				D(___243d14h) = 0;
-				dRally_Sound_pushEffect(1, B(___1de580h+0x94*MY_CAR_IDX)+0x19, 0, 0x10000, 0x28000, 0x8000);
+				dRally_Sound_pushEffect(1, (s_94[MY_CAR_IDX].__0&0xff)+25, 0, 0x10000, 0x28000, 0x8000);
 			}
 			else {
 #if defined(DR_MULTIPLAYER)
@@ -851,12 +821,8 @@ void race_main(__DWORD__ A1, __DWORD__ A2){		// my_position_index, number_of_rac
 	race___46a10h();	// LEAVING RACE SCREEN ANIMATION
 	race___46738h__VGA13_PRESENTCLEARSCREEN();
 
-	D(___243c60h) = 0;
-	while((int)D(___243c60h) < (int)D(NUM_OF_CARS)){
-
-		D(___1de580h+0x94*D(___243c60h)+0x54) = s_35e[D(___243c60h)].Position;
-		D(___243c60h)++;
-	}
+	n = -1;
+	while(++n < NUM_OF_CARS) s_94[n].__54 = s_35e[n].Position;
 
 	___60719h();
 	dRally_Sound_stop();

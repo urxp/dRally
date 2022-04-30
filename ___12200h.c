@@ -10,7 +10,7 @@
 	extern __POINTER__ ___1a10c8h;
 	extern __POINTER__ ___1a112ch__VESA101_ACTIVESCREEN_PTR;
 	extern __POINTER__ ___1a10c4h;
-	extern __POINTER__ ___1a1138h__VESA101h_DefaultScreenBufferB;
+	extern __POINTER__ ___1a1138h__VESA101_BACKGROUND;
 	extern __POINTER__ ___1a10cch;
 	extern __POINTER__ ___1a10fch;
 	extern __POINTER__ ___1a110ch;
@@ -97,9 +97,10 @@
 
 __POINTER__ ___3f71ch__allocateMemory(__DWORD__);
 
+// Allocate VESA101 Screen
 void ___117d4h(void){
 
-    ___1a112ch__VESA101_ACTIVESCREEN_PTR = ___1a1100h__VESA101h_DefaultScreenBuffer = ___3f71ch__allocateMemory(0x4b000);
+	___1a112ch__VESA101_ACTIVESCREEN_PTR = ___1a1100h__VESA101h_DefaultScreenBuffer = ___3f71ch__allocateMemory(0x4b000);
 }
 
 void ___117f4h(void){
@@ -156,7 +157,7 @@ void ___117f4h(void){
     ___1a0fb4h = dRally_Assets_loadDecode("MENU.BPA", "facexx.bpk", 0x1000);
     ___1a10f0h = dRally_Assets_loadDecode("MENU.BPA", "corn3a.bpk", 0xa00);
     ___1a10d8h = dRally_Assets_loadDecode("MENU.BPA", "corn3b.bpk", 0xa00);
-    ___1a1138h__VESA101h_DefaultScreenBufferB = dRally_Assets_loadDecode("MENU.BPA", "menubg5.bpk", 0x4b000);
+    ___1a1138h__VESA101_BACKGROUND = dRally_Assets_loadDecode("MENU.BPA", "menubg5.bpk", 0x4b000);
 }
 
 __POINTER__ all_3800;
@@ -216,7 +217,7 @@ void ___12200h(void){
 	dRMemory_free(___1a10c8h);
 	dRMemory_free(___1a112ch__VESA101_ACTIVESCREEN_PTR);
 	dRMemory_free(___1a10c4h);
-	dRMemory_free(___1a1138h__VESA101h_DefaultScreenBufferB);
+	dRMemory_free(___1a1138h__VESA101_BACKGROUND);
 	dRMemory_free(___1a10cch);
 	dRMemory_free(___1a10fch);
 	dRMemory_free(___1a110ch);

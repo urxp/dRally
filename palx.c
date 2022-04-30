@@ -5,7 +5,7 @@ void ___2b318h(void);
 void ___58c60h(void);
 void setIntensity___19eb50h(__DWORD__);
 
-
+// FADE IN
 void ___3d1f0h(void){
 
 	int 	i;
@@ -19,6 +19,7 @@ void ___3d1f0h(void){
 	}
 }
 
+// FADE OUT
 void ___3d2bch(void){
 
 	int 	i;
@@ -38,12 +39,12 @@ void ___3d79ch(void){
 
 	___2b318h();
 
-	i = 0x64;
+	i = 100;
 	while(i >= 0){
 
 		___58c60h();
-		dRally_Sound_setMasterVolume(0x28f*i);
+		dRally_Sound_setMasterVolume(655*i);
 		setIntensity___19eb50h(i);
-		i -= 0x4;
+		i -= 4;
 	}  
 }

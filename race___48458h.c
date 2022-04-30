@@ -23,7 +23,7 @@
 	extern __DWORD__ ___1a1118h_gp_machine_gun;
 	extern __DWORD__ ___1a111ch_gp_drop_mine;
 	extern __BYTE__ kmap[];
-	extern __BYTE__ VGA13_ACTIVESCREEN[];
+	extern __BYTE__ * VGA13_ACTIVESCREEN;
 
 	static __BYTE__ ___243dedh[0x87];
 	static __BYTE__ ___1a21a0h[0xf00];

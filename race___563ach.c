@@ -65,7 +65,7 @@ void race___563ach(void){
 				eax += 0x21;
 				D(esp+0xc) = eax;
 
-				if((ebx != 1)||(s_35e[esi].__10a != 0)){
+				if((ebx != 1)||(s_35e[esi].Finished != 0)){
 
 					eax = 0x35e*D(___243c60h);
 
@@ -96,18 +96,10 @@ void race___563ach(void){
 						if(edx != ecx){
 
 							edx = 0x35e*ecx;
-							FPUSH(s_35e[eax/0x35e].YLocation);
-							FPUSH(s_35e[eax/0x35e].XLocation);
-							ST(0) = ST(0)-(double)s_35e[edx/0x35e].XLocation;
-							d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
-							ST(0) = ST(0)-(double)s_35e[edx/0x35e].YLocation;
-							d_tmp = ST(0); ST(0) = ST(1); ST(1) = d_tmp;
-							ST(0) = (int)ST(0);
-							D(esp+4) = (int)FPOP();
+							D(esp+4) = (int)((double)s_35e[eax/0x35e].XLocation-(double)s_35e[edx/0x35e].XLocation);
+							D(esp) = (int)((double)s_35e[eax/0x35e].YLocation-(double)s_35e[edx/0x35e].YLocation);
 							edx = D(esp+4);
 							edx = edx*edx;
-							ST(0) = (int)ST(0);
-							D(esp) = (int)FPOP();
 							eax = D(esp);
 							eax = eax*eax;
 							edx += eax;

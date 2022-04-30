@@ -25,18 +25,28 @@ void ___23758h(void);
 void dRally_Sound_pushEffect(__BYTE__ channel, __BYTE__ n, __DWORD__ unk, __DWORD__ a0, __DWORD__ a1, __DWORD__ a2);
 void ___12e78h_v2(__POINTER__ font_data, font_props_t * font_props, const char * str, int x, int y);
 
-int ___148cch_cdecl(int x, int y, __DWORD__ A3, int * A4){
+static void helper_true(int x, int y){
+
+	___12e78h_v3(___1a10cch___185ba9h, "yes", x+30, y-7);
+	___12e78h_v3(___1a10e0h___185ba9h, "no", x+200, y-7);
+}
+
+static void helper_false(int x, int y){
+
+	___12e78h_v3(___1a10e0h___185ba9h, "yes", x+30, y-7);
+	___12e78h_v3(___1a10cch___185ba9h, "no", x+200, y-7);
+}
+
+static void helperToBreak(int x, int y, __BOOL__ IsToBreak){ (IsToBreak == 1)?helper_true(x, y):helper_false(x, y); }
+
+int ___148cch_cdecl(int x, int y, __DWORD__ A3, __BOOL__ * IsToBreak){
 
 	int 	n, i, j, status;
 	__BYTE__ 	tmp;
 
 
-	//___12e78h_v2((*A4 == 1)?___1a10cch:___1a10e0h, ___185ba9h, "yes", x+30, y-7);
-	___12e78h_v3((*A4 == 1)?___1a10cch___185ba9h:___1a10e0h___185ba9h, "yes", x+30, y-7);
-	//___12e78h_v2((*A4 == 1)?___1a10e0h:___1a10cch, ___185ba9h, "no", x+200, y-7);
-	___12e78h_v3((*A4 == 1)?___1a10e0h___185ba9h:___1a10cch___185ba9h, "no", x+200, y-7);
-	
 
+	helperToBreak(x, y, *IsToBreak);
 	___12cb8h__VESA101_PRESENTSCREEN();
 
 	status = 0;
@@ -46,7 +56,7 @@ int ___148cch_cdecl(int x, int y, __DWORD__ A3, int * A4){
 		___2ab50h();
 
 		n = -1;
-		while(++n < 0x14) memset(___1a112ch__VESA101_ACTIVESCREEN_PTR+0x280*(y+n)+x+7+0xaa*(1-*A4), 0xc4, 0x14);
+		while(++n < 0x14) memset(___1a112ch__VESA101_ACTIVESCREEN_PTR+0x280*(y+n)+x+7+0xaa*!*IsToBreak, 0xc4, 0x14);
 
 		j = -1;
 		while(++j < 0x14){
@@ -55,7 +65,7 @@ int ___148cch_cdecl(int x, int y, __DWORD__ A3, int * A4){
 			while(++i < 0x14){
 				
 				tmp = read_b(___1a10f4h+0x190*___1a1e68h+0x14*j+i);
-				if(tmp) write_b(___1a112ch__VESA101_ACTIVESCREEN_PTR+0x280*(y+j)+x+i+7+0xaa*(1-*A4), tmp);
+				if(tmp) write_b(___1a112ch__VESA101_ACTIVESCREEN_PTR+0x280*(y+j)+x+i+7+0xaa*!*IsToBreak, tmp);
 			}
 		}
 
@@ -69,36 +79,28 @@ int ___148cch_cdecl(int x, int y, __DWORD__ A3, int * A4){
 			if(A3 != 0){
 			
 				status = -2;
-				*A4 = 0;
+				*IsToBreak = 0;
 			}
 			break;
 		case DR_SCAN_Y:
 		case DR_SCAN_LEFT:
 		case DR_SCAN_KP_4:
-			if(*A4 == 0) dRally_Sound_pushEffect(1, SFX_CLICK_2, 0, ___24cc54h_sfx_volume, 0x28000, 0x8000);
+			if(*IsToBreak == 0) dRally_Sound_pushEffect(1, SFX_CLICK_2, 0, ___24cc54h_sfx_volume, 0x28000, 0x8000);
 
 			n = -1;
 			while(++n < 0x19) memset(___1a112ch__VESA101_ACTIVESCREEN_PTR+0x280*(y+n)+x+2, 0xc4, 0xf0);
 
-			//___12e78h_v2(___1a10cch, ___185ba9h, "yes", x+30, y-7);
-			___12e78h_v3(___1a10cch___185ba9h, "yes", x+30, y-7);
-			//___12e78h_v2(___1a10e0h, ___185ba9h, "no", x+200, y-7);
-			___12e78h_v3(___1a10e0h___185ba9h, "no", x+200, y-7);
-			*A4 = 1;
+			helperToBreak(x, y, (*IsToBreak = 1));
 			break;
 		case DR_SCAN_N:
 		case DR_SCAN_RIGHT:
 		case DR_SCAN_KP_6:
-			if(*A4 == 1) dRally_Sound_pushEffect(1, SFX_CLICK_2, 0, ___24cc54h_sfx_volume, 0x28000, 0x8000);
+			if(*IsToBreak == 1) dRally_Sound_pushEffect(1, SFX_CLICK_2, 0, ___24cc54h_sfx_volume, 0x28000, 0x8000);
 			
 			n = -1;
 			while(++n < 0x19) memset(___1a112ch__VESA101_ACTIVESCREEN_PTR+0x280*(y+n)+x+2, 0xc4, 0xf0);
 
-			//___12e78h_v2(___1a10e0h, ___185ba9h, "yes", x+30, y-7);
-			___12e78h_v3(___1a10e0h___185ba9h, "yes", x+30, y-7);
-			//___12e78h_v2(___1a10cch, ___185ba9h, "no", x+200, y-7);
-			___12e78h_v3(___1a10cch___185ba9h, "no", x+200, y-7);
-			*A4 = 0;
+			helperToBreak(x, y, (*IsToBreak = 0));
 			break;
 		case DR_SCAN_ENTER:
 		case DR_SCAN_KP_ENTER:

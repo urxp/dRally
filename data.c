@@ -22,7 +22,7 @@ const __BYTE__ ___196abch[] = {
 // << Medium
     5,  // "Oasis"
     3,  // "Rock Zone"
-    4,  // "Snake Alley"    
+    4,  // "Snake Alley"
 // Easy >>
 // << Hard
     2,  // "Utopia"
@@ -31,8 +31,29 @@ const __BYTE__ ___196abch[] = {
 // Medium >>
     6,  // "Velodrome"
 // Hard >>
-    9, 0x10, 0xe, 0xc, 0xd, 0xb, 0x11, 0xa, 0xf,
-    0x10, 0x11, 0x12, 0, 0, 0
+
+// << Easy
+    9,  // "West End"
+    16, // "Toxic Dump"
+// << Medium
+    14, // "Palm Side"
+    12, // "Hell Mountain"
+    13, // "Desert Run"
+// Easy >>
+// << Hard
+    11, // "Complex"
+    17, // "Borneo"
+    10, // "Newark"
+// Medium >>
+    15, // "Eidolon"
+// Hard >>
+
+    16,
+    17,
+    18,
+    0,
+    0,
+    0
 };
 
 const __DWORD__ ___196af4h[9] = {
@@ -64,7 +85,7 @@ __DWORD__ ___185a44h = 0;
 __DWORD__ ___185a48h = 0;
 __DWORD__ ___185a4ch = 0;
 __DWORD__ ___185a50h = 0;
-__DWORD__ ___185a54h = 0x2710;
+__DWORD__ MP_MONEY = 10000;
 __DWORD__ ___185a58h = 0;
 
 __DWORD__ ___196a74h = 1;
@@ -104,11 +125,11 @@ __DWORD__ ___196bd8h = 0;
 __DWORD__ ___196bdch = 0;
 
 __DWORD__ ___196d84h = 1;
-__DWORD__ ___196d88h = 0x140;
-__DWORD__ ___196d8ch = 0x64;
-__DWORD__ ___196d90h = 0xc8;
-__DWORD__ ___196d94h = 0x64;
-__DWORD__ ___196d98h = 0;
+int CURRENT_VIEWPORT_W = 320;
+int CURRENT_VIEWPORT_CENTER_X = 0x64;
+int CURRENT_VIEWPORT_H = 200;
+int CURRENT_VIEWPORT_CENTER_Y = 0x64;
+int CURRENT_VIEWPORT_X = 0;
 __DWORD__ ___196da0h = 1;
 __DWORD__ ___196da4h = 1;
 __DWORD__ ___196da8h = 1;
@@ -119,8 +140,8 @@ __DWORD__ ___196db8h = 0;
 __DWORD__ ___196dbch = 0;
 __DWORD__ ___196dc0h = 0;
 __DWORD__ ___196dc4h = 0;
-__DWORD__ ___196dc8h = 0;
-__DWORD__ ___196dcch = 0;
+int TRX_VIEWPORT_TL_X = 0;
+int TRX_VIEWPORT_TL_Y = 0;
 __DWORD__ ___196dd0h = 0;
 __DWORD__ ___196dd4h = 0;
 __DWORD__ ___196dd8h = 0;

@@ -1,35 +1,22 @@
 #include "drally.h"
+#include "netpage.h"
 
-	extern __POINTER__ ___24e4ach;
-	extern __POINTER__ ___24e4c0h;
-	extern __POINTER__ ___24cee0h[4];
+	extern NetPage * ___24e4ach;
+	extern NetPage * ___24e4c0h;
+	extern NetPage * ___24cee0h[4];
 
 void ___61278h(void);
 
 void ___4495ch(void){
 
-	__DWORD__	eax, ebx, ecx, edx, edi, esi, ebp;
+	int 	n;;
 
 
 	___61278h();
 
-	W(___24e4ach) = 0;
-	W(___24e4ach+2) = 0;
-	W(___24e4c0h) = 0;
-	W(___24e4c0h+2) = 0;
-	W(___24cee0h[0]) = 0;
-	W(___24cee0h[0]+2) = 0;
-	W(___24cee0h[1]) = 0;
-	W(___24cee0h[1]+2) = 0;
-	W(___24cee0h[2]) = 0;
-	W(___24cee0h[2]+2) = 0;
-	W(___24cee0h[3]) = 0;
-	W(___24cee0h[3]+2) = 0;
+	n = -1;
+	while(++n < 4) npg_zero(___24cee0h[n]);
 
-	memset(___24e4ach+4, 0, 0x1000);
-	memset(___24cee0h[0]+4, 0, 0x1000);
-	memset(___24cee0h[1]+4, 0, 0x1000);
-	memset(___24cee0h[2]+4, 0, 0x1000);
-	memset(___24cee0h[3]+4, 0, 0x1000);
-	memset(___24e4c0h+4, 0, 0x1000);
+	npg_zero(___24e4ach);
+	npg_zero(___24e4c0h);
 }

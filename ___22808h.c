@@ -1,4 +1,5 @@
 #include "drally.h"
+#include "drally_structs_fixed.h"
 
 #pragma pack(1)
 typedef struct x655_s {
@@ -45,22 +46,23 @@ void ___22808h(void){
 	__DWORD__ 	eax, ebx, ecx, edx, edi, ebp;
 	__POINTER__ 	esi;
 	__BYTE__ 	esp[0x70];
-	int 	i, k, n;
+	int 		i, k, n;
+	racer_t * 	s_6c;
 
-
+	s_6c = (racer_t *)___1a01e0h;
 	strcat(strcpy(esp, ___1a0d60h), "endani.haf");
 	if(GET_FILE_SIZE(esp) != 0) ___10b80h_cdecl("endani.haf", 1, "tr0-mus.cmf", 2, "endani-e.cmf", 1, 0x78);
 
 	___606dfh();
 	__VESA101_SETMODE();
-	___605deh_cdecl(0x46, 0);
-	___3d890h();
+	___605deh_cdecl(70, 0);
+	___3d890h();		// Title Screen
 	___1240ch();
 	___24548h();
 	___2faf0h();
 	___3d2bch();
 	___12940h();
-	esi = ___1a0fb8h+3*D(___1a01e0h+0x6c*D(___1a1ef8h)+0x2c);
+	esi = ___1a0fb8h+3*s_6c[D(___1a1ef8h)].color;
 	___11564h_cdecl(B(esi), B(esi+1), B(esi+2));
 	___223c4h();
 	___2b318h();

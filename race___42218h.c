@@ -5,8 +5,8 @@
 	extern __BYTE__ ___196de4h[];
 	extern __BYTE__ ___243334h[];
 	extern __BYTE__ ___243320h[];
-	extern __POINTER__ ___243d80h;
-	extern __POINTER__ ___243d6ch;
+	extern __POINTER__ BACKBUFFER;
+	extern __POINTER__ GEN_LAM_BPK;
 	extern __BYTE__ ___196de0h[];
 #if defined(DR_MULTIPLAYER)
 	extern __DWORD__ ___19bd60h;
@@ -55,7 +55,7 @@ void race___42218h(void){
 		while(++j < 0x3c){
 
 			i = -1;
-			while(++i < 0x50) B( ___243d80h+0x150+D(___243320h)+0x200*j+i) = B(___243d6ch+0x50*j+i);
+			while(++i < 0x50) B( BACKBUFFER+0x150+D(___243320h)+0x200*j+i) = B(GEN_LAM_BPK+0x50*j+i);
 		}
 	}
 
@@ -95,7 +95,7 @@ void race___42218h(void){
 		while(++j < 0x3c){
 
 			i = -1;
-			while(++i < 0x50) B(___243d80h+0x150+D(___243320h)+0x200*j+i) = B(___243d6ch+0x2580+0x50*j+i);
+			while(++i < 0x50) B(BACKBUFFER+0x150+D(___243320h)+0x200*j+i) = B(GEN_LAM_BPK+0x2580+0x50*j+i);
 		}
 
 		D(___196de0h) = 2;
@@ -128,7 +128,7 @@ void race___42218h(void){
 		while(++j < 0x3c){
 		
 			i = -1;
-			while(++i < 0x50) B(___243d80h+0x150+0x200*j+i) = B(___243d6ch+0x12c0+0x50*j+i);
+			while(++i < 0x50) B(BACKBUFFER+0x150+0x200*j+i) = B(GEN_LAM_BPK+0x12c0+0x50*j+i);
 		}
 	}
 }

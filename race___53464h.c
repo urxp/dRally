@@ -1,290 +1,278 @@
 #include "drally.h"
+#include "drmath.h"
 #include "drally_race.h"
 
 typedef struct x2c_s {
-    __DWORD__   __0;        // +00
-    __DWORD__   __4;        // +04
-    __DWORD__   __8;        // +08
-    __DWORD__   __C;        // +0c
-    __DWORD__   _10;        // +10
-    __DWORD__   _14;        // +14
-    __DWORD__   _18;        // +18
-    __DWORD__   _1C;        // +1c
+    __DWORD__   width;     	// +00
+    __DWORD__   height;   	// +04
+    __DWORD__   offset;   	// +08
+    int   		XPos;      	// +0c
+    int   		YPos;      	// +10
+    int   		_14;        // +14
+    __DWORD__   XScreen;  	// +18
+    __DWORD__   YScreen;  	// +1c
     __DWORD__   _20;        // +20
     __DWORD__   _24;        // +24
     __DWORD__   _28;        // +28
 } x2c_t;
 
 typedef struct xc50_s {
-	__DWORD__ 	___0;			// +000
-	__DWORD__ 	___4;			// +004
-	__DWORD__ 	___8[75];		// +008
-	__DWORD__ 	_134[75];		// +134
-	__DWORD__	_260[75];		// +260
+	int 		PointsN;		// +000
+	int 		TrianglesN;		// +004
+	int 		CONST_X___8[75];		// +008
+	int 		CONST_Y_134[75];		// +134
+	int			CONST_Z_260[75];		// +260
 	__DWORD__ 	_38C;			// +38c
 	__DWORD__	_390;			// +390
 	__DWORD__	_394;			// +394
 	__DWORD__ 	_398;			// +398
-	__DWORD__	_39C[100];		// +39c
-	__DWORD__	_52C[100];		// +52c
-	__DWORD__	_6BC[100];		// +6bc
+	__DWORD__	IndicesP1[100];	// +39c
+	__DWORD__	IndicesP2[100];	// +52c
+	__DWORD__	IndicesP3[100];	// +6bc
 	__DWORD__	_84C[100];		// +84c
-	__DWORD__	_9DC;			// +9dc
-	__DWORD__ 	_9E0;			// +9e0
-	__DWORD__	_9E4;			// +9e4
-	__DWORD__	_9E8;			// +9e8
-	__DWORD__	_9EC[75];		// +9ec
-	__DWORD__	_B18[75];		// +b18
+	__DWORD__	TRX_X;			// +9dc
+	__DWORD__ 	TRX_Y;			// +9e0
+	int			X_REL_VIEWPORT_CENTER;			// +9e4
+	int			Y_REL_VIEWPORT_CENTER;			// +9e8
+	__DWORD__	PointsX[75];	// +9ec
+	__DWORD__	PointsY[75];	// +b18
 	__DWORD__	_C44;			// +c44
 	__DWORD__	_C48;			// +c48
 	__DWORD__	_C4C;			// +c4c
 } xc50_t;
 
-	extern __BYTE__ ___243c88h[];
-	extern __BYTE__ ___243d0ch[];
-	extern __BYTE__ ___243c98h[];
+	extern int NUM_OF_OBJECTS;
 	extern xc50_t ___1f3b08h[];		// <0x1f3b08 - 0x1f4758)
 	extern x2c_t ___240b48h[];		// <0x240b48 - 0x240b74)
-	extern __BYTE__ ___243d08h[];
-	extern __BYTE__ ___243c6ch[];
-	extern __BYTE__ ___243c64h[];
-	extern __BYTE__ ___243c78h[];
-	extern __BYTE__ ___243c74h[];
-	extern __BYTE__ ___243c70h[];
-	extern __BYTE__ ___243c68h[];
-	extern __BYTE__ ___196d8ch[];
-	extern __BYTE__ ___196d94h[];
-	extern __BYTE__ ___196d98h[];
+	extern int X1___243c6ch;
+	extern int X3___243c64h;
+	extern int Y1___243c78h;
+	extern int Y2___243c74h;
+	extern int Y3___243c70h;
+	extern int X2___243c68h;
+	extern int CURRENT_VIEWPORT_CENTER_X;
+	extern int CURRENT_VIEWPORT_CENTER_Y;
+	extern int CURRENT_VIEWPORT_X;
 	extern __DWORD__ ___1df9a0h[100][75];
 	extern int ___1e8848h[100][100];
 	extern __BYTE__ ___243c9ch[];
-	extern __BYTE__ ___196dc8h[];
-	extern __BYTE__ ___196dcch[];
-	extern __BYTE__ ___196d88h[];
-	extern __BYTE__ ___196d90h[];
-	extern __POINTER__ ___243d80h;
+	extern int TRX_VIEWPORT_TL_X;
+	extern int TRX_VIEWPORT_TL_Y;
+	extern int CURRENT_VIEWPORT_W;
+	extern int CURRENT_VIEWPORT_H;
+	extern __POINTER__ BACKBUFFER;
 	extern __POINTER__ ___243d5ch;
 
 	static __BYTE__ ___242e78h[0x100];
 	static __BYTE__ ___242f78h[0x100];
 	static __BYTE__ ___243188h[0x100];
 
-void race___5326ch(void);
-void ___5e137h(__DWORD__ A1, int A2, int A3, int A4, int A5, int A6, int A7);
+void ___5e137h(__BYTE__ A0, int Y3, int X3, int Y2, int X2, int Y1, int X1);
 void ___5e3e8h(int A1, int A2, int A3, int A4, int A5, int A6, int A7, int A8, int A9);
-void ___5e769h(__BYTE__ * A1, int A2, int A3, int A4, int A5, int A6, int A7);
+void ___5e769h(__BYTE__ * A0, int Y3, int X3, int Y2, int X2, int Y1, int X1);
 
+static __DWORD__ helper00(int val0, int val1){
+//val0(-171196, 106908), val1(94, 299)
+
+	__DWORD__ 	eax, edx;
+
+	edx = 0x100*val0;
+	eax = (long long)(int)edx/val1;
+	eax = eax+0x80;
+	eax = (int)eax>>8;
+
+	return eax;
+
+//	return (256*val0/val1+128)/256;
+}
+
+static int objMap(int object_i){ return ___1f3b08h[NUM_OF_OBJECTS-object_i-1]._C4C; }
+
+// OBJECTS
 void race___53464h(void){
 
 	__DWORD__ 		eax, ebx, ecx, edx, edi, esi;
-	__DWORD__ 		A1, A2, A3, A4, A5, A6, A7, A8, A9;
-	int 		skip;
-	int 		a, b, c, i, j;
+	__DWORD__ 		A1, A4, A7;
+	int 		a, b, c, i, j, n, m, object_i, xi, yi;
 	__BYTE__ 		px;
 	xc50_t *	p;
 	x2c_t * 	q;
-	__POINTER__	 	eaxp;
-	__POINTER__ 		ebxp;
-	__POINTER__		esip;
 
 
-	D(___243d0ch) = D(___243c88h)-1;
+	object_i = -1;
+	while(++object_i < NUM_OF_OBJECTS){
 
-	if((int)D(___243d0ch) >= 0){
+		p = &___1f3b08h[objMap(object_i)];
 
-		while(1){
+		if(p->_C44 != 1){
 
-			D(___243c98h) = ___1f3b08h[D(___243d0ch)]._C4C;
-			p = &___1f3b08h[D(___243c98h)]; 
+			n = -1;
+			while(++n < p->PointsN){
 
-			if(p->_C44 != 1){
+				//p->PointsX[n] = helper00(0x100*p->X_REL_VIEWPORT_CENTER+p->CONST_X___8[n], p->CONST_Z_260[n])+CURRENT_VIEWPORT_CENTER_X;
+				//p->PointsY[n] = helper00(0x100*p->Y_REL_VIEWPORT_CENTER+p->CONST_Y_134[n], p->CONST_Z_260[n])+CURRENT_VIEWPORT_CENTER_Y;
 
-				D(___243d08h) = 0;
+				p->PointsX[n] = CURRENT_VIEWPORT_CENTER_X+(256*(256*p->X_REL_VIEWPORT_CENTER+p->CONST_X___8[n])/p->CONST_Z_260[n]+128)/256;
+				p->PointsY[n] = CURRENT_VIEWPORT_CENTER_Y+(256*(256*p->Y_REL_VIEWPORT_CENTER+p->CONST_Y_134[n])/p->CONST_Z_260[n]+128)/256;
+			}
 
-				if((int)D(___243d08h) < (int)p->___0){
+			n = -1;
+			while(++n < p->TrianglesN){
 
-					while(1){
+				X1___243c6ch = p->PointsX[p->IndicesP1[n]];
+				Y1___243c78h = p->PointsY[p->IndicesP1[n]];
+				X2___243c68h = p->PointsX[p->IndicesP2[n]];
+				Y2___243c74h = p->PointsY[p->IndicesP2[n]];
+				X3___243c64h = p->PointsX[p->IndicesP3[n]];
+				Y3___243c70h = p->PointsY[p->IndicesP3[n]];
 
-						p->_9EC[D(___243d08h)] = 0x100*p->_9E4+p->___8[D(___243d08h)];
-						p->_B18[D(___243d08h)] = 0x100*p->_9E8+p->_134[D(___243d08h)];
-						D(___243d08h)++;
-					
-						if((int)D(___243d08h) >= (int)p->___0) break;
-					}
-				}
+				ebx = (X2___243c68h-X1___243c6ch)*(Y3___243c70h-Y1___243c78h)-((Y2___243c74h-Y1___243c78h)*(X3___243c64h-X1___243c6ch));
 
-				race___5326ch();
-				D(___243d08h) = 0;
+				if((int)ebx <= 0){
 
-				if((int)D(___243d08h) < (int)p->___4){
+					a = abs(X1___243c6ch-CURRENT_VIEWPORT_CENTER_X);
+					b = abs(X2___243c68h-CURRENT_VIEWPORT_CENTER_X);
+					c = abs(X3___243c64h-CURRENT_VIEWPORT_CENTER_X);
 
-					while(1){
-
-						D(___243c64h) = p->_9EC[p->_6BC[D(___243d08h)]];
-						D(___243c68h) = p->_9EC[p->_52C[D(___243d08h)]];
-						D(___243c6ch) = p->_9EC[p->_39C[D(___243d08h)]];
-						D(___243c70h) = p->_B18[p->_6BC[D(___243d08h)]];
-						D(___243c74h) = p->_B18[p->_52C[D(___243d08h)]];
-						D(___243c78h) = p->_B18[p->_39C[D(___243d08h)]];
-
-						ebx = (D(___243c68h)-D(___243c6ch))*(D(___243c70h)-D(___243c78h))-((D(___243c74h)-D(___243c78h))*(D(___243c64h)-D(___243c6ch)));
-
-						if((int)ebx <= 0){
-
-							a = abs(D(___243c6ch)-D(___196d8ch));
-							b = abs(D(___243c68h)-D(___196d8ch));
-							c = abs(D(___243c64h)-D(___196d8ch));
-
-							if((a < (int)D(___196d8ch))||(b < (int)D(___196d8ch))||(c < (int)D(___196d8ch))){
-								
-								a = abs(D(___243c78h)-D(___196d94h));
-								b = abs(D(___243c74h)-D(___196d94h));
-								c = abs(D(___243c70h)-D(___196d94h));
-
-								if((a < (int)D(___196d94h))||(b < (int)D(___196d94h))||(c < (int)D(___196d94h))){
-									
-									ebx = p->_84C[D(___243d08h)]-0x80;
-
-									switch(ebx){
-									case 0:
-										eax = 0x4b*p->_134[p->_39C[D(___243d08h)]];
-										ecx = 0x64-p->___8[p->_39C[D(___243d08h)]];
-										ecx = 0x36*((int)ecx>>8)+8;
-										A7 = (abs((int)eax>>L(ecx))&7)+0x6d;
-										eax = 0x4b*p->_134[p->_52C[D(___243d08h)]];
-										ecx = 0x64-p->___8[p->_52C[D(___243d08h)]];
-										ecx = 0x36*((int)ecx>>8)+8;
-										A4 = (abs((int)eax>>L(ecx))&7)+0x6d;
-										eax = 0x4b*p->_134[p->_6BC[D(___243d08h)]];
-										ecx = 0x64-p->___8[p->_6BC[D(___243d08h)]];
-										ecx = 0x36*((int)ecx>>8)+8;
-										A1 = (abs((int)eax>>L(ecx))&7)+0x6d;
-										A9 = D(___243c6ch)+D(___196d98h);
-										A8 = D(___243c78h);
-										A6 = D(___243c68h)+D(___196d98h);
-										A5 = D(___243c74h);
-										A3 = D(___243c64h)+D(___196d98h);
-										A2 = D(___243c70h);
-										___5e3e8h(A1,A2,A3,A4,A5,A6,A7,A8,A9);
-										break;
-									case 1:
-										___5e769h(
-											___243188h,
-											D(___243c70h),
-											D(___243c64h)+D(___196d98h),
-											D(___243c74h),
-											D(___243c68h)+D(___196d98h),
-											D(___243c78h),
-											D(___243c6ch)+D(___196d98h));
-										break;
-									case 2:
-										___5e769h(
-											___242f78h,
-											D(___243c70h),
-											D(___243c64h)+D(___196d98h),
-											D(___243c74h),
-											D(___243c68h)+D(___196d98h),
-											D(___243c78h),
-											D(___243c6ch)+D(___196d98h));
-										break;
-									case 3:
-										___5e769h(
-											___242e78h,
-											D(___243c70h),
-											D(___243c64h)+D(___196d98h),
-											D(___243c74h),
-											D(___243c68h)+D(___196d98h),
-											D(___243c78h),
-											D(___243c6ch)+D(___196d98h));
-										break;
-									case 10:
-										A9 = D(___243c6ch)+D(___196d98h);
-										A8 = D(___243c78h);
-										A7 = ___1df9a0h[D(___243c98h)][p->_39C[D(___243d08h)]]+0x6c;
-										A6 = D(___243c68h)+D(___196d98h);
-										A5 = D(___243c74h);
-										A4 = ___1df9a0h[D(___243c98h)][p->_52C[D(___243d08h)]]+0x6c;
-										A3 = D(___243c64h)+D(___196d98h);
-										A2 = D(___243c70h);
-										A1 = ___1df9a0h[D(___243c98h)][p->_6BC[D(___243d08h)]]+0x6c;
-										___5e3e8h(A1,A2,A3,A4,A5,A6,A7,A8,A9);
-										break;
-									default:
-										A7 = D(___243c6ch)+D(___196d98h);
-										A6 = D(___243c78h);
-										A5 = D(___243c68h)+D(___196d98h);
-										A4 = D(___243c74h);
-										A3 = D(___243c64h)+D(___196d98h);
-										A2 = D(___243c70h);
-										A1 = p->_84C[D(___243d08h)]&0xff;
-										___5e137h(A1,A2,A3,A4,A5,A6,A7);
-										break;
-									}
-								}
-							}
-						}
-
-						if(dRally_Race_getSettings(RACE_TEXTURES)){
+					if((a < CURRENT_VIEWPORT_CENTER_X)||(b < CURRENT_VIEWPORT_CENTER_X)||(c < CURRENT_VIEWPORT_CENTER_X)){
 						
-							D(___243c9ch) = ___1e8848h[D(___243c98h)][D(___243d08h)];
+						a = abs(Y1___243c78h-CURRENT_VIEWPORT_CENTER_Y);
+						b = abs(Y2___243c74h-CURRENT_VIEWPORT_CENTER_Y);
+						c = abs(Y3___243c70h-CURRENT_VIEWPORT_CENTER_Y);
 
-							if(D(___243c9ch) != 0xffffffff){
+						if((a < CURRENT_VIEWPORT_CENTER_Y)||(b < CURRENT_VIEWPORT_CENTER_Y)||(c < CURRENT_VIEWPORT_CENTER_Y)){
+							
+							ebx = p->_84C[n]-0x80;
 
-								q = &___240b48h[D(___243c9ch)];
+							switch(ebx){
+							case 0:	// TREE
+								eax = 75*p->CONST_Y_134[p->IndicesP1[n]];
+								ecx = 100-p->CONST_X___8[p->IndicesP1[n]];
+								ecx = 0x36*((int)ecx>>8)+8;
+								A7 = abs((int)eax>>L(ecx))&7;
+								eax = 75*p->CONST_Y_134[p->IndicesP2[n]];
+								ecx = 100-p->CONST_X___8[p->IndicesP2[n]];
+								ecx = 0x36*((int)ecx>>8)+8;
+								A4 = abs((int)eax>>L(ecx))&7;
+								eax = 75*p->CONST_Y_134[p->IndicesP3[n]];
+								ecx = 100-p->CONST_X___8[p->IndicesP3[n]];
+								ecx = 0x36*((int)ecx>>8)+8;
+								A1 = abs((int)eax>>L(ecx))&7;
+								___5e3e8h(
+									A1+0x6d,
+									Y3___243c70h,
+									X3___243c64h+CURRENT_VIEWPORT_X,
+									A4+0x6d,
+									Y2___243c74h,
+									X2___243c68h+CURRENT_VIEWPORT_X,
+									A7+0x6d,
+									Y1___243c78h,
+									X1___243c6ch+CURRENT_VIEWPORT_X
+								);
+								break;
+							case 1:	// SHADOW
+								___5e769h(
+									___243188h,
+									Y3___243c70h,
+									X3___243c64h+CURRENT_VIEWPORT_X,
+									Y2___243c74h,
+									X2___243c68h+CURRENT_VIEWPORT_X,
+									Y1___243c78h,
+									X1___243c6ch+CURRENT_VIEWPORT_X
+								);
+								break;
+							case 2:	// SHADOW
+								___5e769h(
+									___242f78h,
+									Y3___243c70h,
+									X3___243c64h+CURRENT_VIEWPORT_X,
+									Y2___243c74h,
+									X2___243c68h+CURRENT_VIEWPORT_X,
+									Y1___243c78h,
+									X1___243c6ch+CURRENT_VIEWPORT_X
+								);
+								break;
+							case 3:	// SHADOW
+								___5e769h(
+									___242e78h,
+									Y3___243c70h,
+									X3___243c64h+CURRENT_VIEWPORT_X,
+									Y2___243c74h,
+									X2___243c68h+CURRENT_VIEWPORT_X,
+									Y1___243c78h,
+									X1___243c6ch+CURRENT_VIEWPORT_X
+								);
+								break;
+							case 10:	// TREE
+								___5e3e8h(
+									___1df9a0h[objMap(object_i)][p->IndicesP3[n]]+0x6c,
+									Y3___243c70h,
+									X3___243c64h+CURRENT_VIEWPORT_X,
+									___1df9a0h[objMap(object_i)][p->IndicesP2[n]]+0x6c,
+									Y2___243c74h,
+									X2___243c68h+CURRENT_VIEWPORT_X,
+									___1df9a0h[objMap(object_i)][p->IndicesP1[n]]+0x6c,
+									Y1___243c78h,
+									X1___243c6ch+CURRENT_VIEWPORT_X
+								);
+								break;
+							default:	// OBJECT
+								___5e137h(
+									p->_84C[n]&0xff,
+									Y3___243c70h,
+									X3___243c64h+CURRENT_VIEWPORT_X,
+									Y2___243c74h,
+									X2___243c68h+CURRENT_VIEWPORT_X,
+									Y1___243c78h,
+									X1___243c6ch+CURRENT_VIEWPORT_X
+								);
+								break;
+							}
+						} // i
+					} // i
+				} // i
 
-								q->_18 = q->__C-0x100*D(___196dc8h)-0x100*D(___196d8ch);
-								q->_1C = q->_10-0x100*D(___196dcch)-0x100*D(___196d94h);
-								edx = 0x100*q->_18;
-								eax = (long long)(int)edx/(int)q->_14;
-								eax = eax+0x80;
-								eax = (int)eax>>8;
-								edx = 0x100*q->_1C;
-								q->_18 = eax+D(___196d8ch);
-								eax = (long long)(int)edx/(int)q->_14;
-								eax = eax+0x80;
-								eax = (int)eax>>8;
-								q->_1C = eax+D(___196d94h);
-								eax = 0-q->__0;
+				if(dRally_Race_getSettings(RACE_TEXTURES)){
+				
+					D(___243c9ch) = ___1e8848h[objMap(object_i)][n];
 
-								if((int)eax < (int)q->_18){
+					if(D(___243c9ch) != -1){
 
-									eax = 0-q->__4;
+						q = &___240b48h[D(___243c9ch)];
 
-									if(((int)eax < (int)q->_1C)&&((int)q->_18 < (int)D(___196d88h))&&((int)q->_1C < (int)D(___196d90h))){
+						//q->XScreen = helper00(q->XPos-0x100*(TRX_VIEWPORT_TL_X+CURRENT_VIEWPORT_CENTER_X), q->_14)+CURRENT_VIEWPORT_CENTER_X;
+						//q->YScreen = helper00(q->YPos-0x100*(TRX_VIEWPORT_TL_Y+CURRENT_VIEWPORT_CENTER_Y), q->_14)+CURRENT_VIEWPORT_CENTER_Y;
 
-										ebxp = ___243d80h+0x200*(int)q->_1C+(int)q->_18+D(___196d98h)+0x60;
-										esip = ___243d5ch+q->__8;
+						q->XScreen = CURRENT_VIEWPORT_CENTER_X+(256*(q->XPos-256*(TRX_VIEWPORT_TL_X+CURRENT_VIEWPORT_CENTER_X))/q->_14+128)/256;
+						q->YScreen = CURRENT_VIEWPORT_CENTER_Y+(256*(q->YPos-256*(TRX_VIEWPORT_TL_Y+CURRENT_VIEWPORT_CENTER_Y))/q->_14+128)/256;
 
-										j = -1;
-										while(++j < q->__4){
+						if(((int)(0-q->width) < (int)q->XScreen)&&((int)q->XScreen < CURRENT_VIEWPORT_W)){
 
-											if(ebxp > ___243d80h){
+							if(((int)(0-q->height) < (int)q->YScreen)&&((int)q->YScreen < CURRENT_VIEWPORT_H)){
 
-												i = -1;
-												while(++i < q->__0){
+								xi = (int)q->XScreen+CURRENT_VIEWPORT_X+0x60;
+								yi = (int)q->YScreen;
 
-													if((px = B(esip+i))) B(ebxp+i) = px;
-												}
+								j = -1;
+								while(++j < q->height){
+
+									if(((j+yi) >= 0)&&((j+yi) < 0xc8)){
+
+										i = -1;
+										while(++i < q->width){
+
+											if(((i+xi) >= 0)&&((i+xi) < 0x200)){
+											
+												if((px = B(___243d5ch+q->offset+j*q->width+i))) B(BACKBUFFER+0x200*(j+yi)+(i+xi)) = px;
 											}
-
-											esip += q->__0;
-											ebxp += 0x200;
-											eaxp = ___243d80h+0x19000;
-											if(ebxp >= eaxp) break;
 										}
 									}
 								}
 							}
 						}
-
-						D(___243d08h)++;
-						if((int)D(___243d08h) >= (int)p->___4) break;
-					}
-				}
-			}
-
-			D(___243d0ch)--;
-			if((int)D(___243d0ch) < 0) break;
-		}
-	}
+					} // i
+				} // i
+			} // w
+		} // i
+	} // w
 }

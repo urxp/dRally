@@ -7,7 +7,7 @@ typedef struct font_props_s {
 	__BYTE__ 	props[];
 } font_props_t;
 
-	extern __POINTER__ ___1a1138h__VESA101h_DefaultScreenBufferB;
+	extern __POINTER__ ___1a1138h__VESA101_BACKGROUND;
 	extern __POINTER__ ___1a112ch__VESA101_ACTIVESCREEN_PTR;
 	extern font_props_t ___185c0bh;
 	extern __POINTER__ ___1a1108h;
@@ -26,7 +26,7 @@ void ___23230h(void){
 	n = -1;
 	while(++n < 0x59){
 
-		memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR+0x280*n+0x3b600, ___1a1138h__VESA101h_DefaultScreenBufferB+0x280*n+0x3b600, 0x280);
+		memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR+0x280*(n+380), ___1a1138h__VESA101_BACKGROUND+0x280*(n+380), 0x280);
 	}
 
 	n = -1;

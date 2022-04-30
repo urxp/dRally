@@ -10,10 +10,10 @@
 	extern __BYTE__ ___1e6ed0h[];
 	extern __BYTE__ ___1a10a0h[];
 	extern __BYTE__ ___1a10a8h[];
-	extern __BYTE__ ___1a1094h[];
-	extern __BYTE__ ___1a109ch[];
+	extern int LAP_PREVIOUS_MIN;
+	extern int LAP_PREVIOUS_SEC;
 	extern __BYTE__ ___1a1090h[];
-	extern __BYTE__ ___1a102ch[];
+	extern int LAP_PREVIOUS_100;
 	extern __BYTE__ ___243cdch[];
 
 void race___40864h(void);
@@ -48,7 +48,7 @@ void race___40db4h(void){
 		D(___24332ch) = eax;
 		if((int)ebx <= 0xbe) goto ___40ef4h;
 		eax = 0x35e*D(MY_CAR_IDX);
-		if(s_35e[eax/0x35e].__10a != 0) goto ___40ef4h;
+		if(s_35e[eax/0x35e].Finished != 0) goto ___40ef4h;
 		ebx = 0x46;
 		eax = D(___243334h);
 		esi = D(___243cd4h);
@@ -90,14 +90,14 @@ void race___40db4h(void){
 		ebx = eax;
 		___idiv32((__POINTER__)&eax, (__POINTER__)&edx, ecx);
 		//idiv    ecx
-		D(___1a1094h) = eax;
+		LAP_PREVIOUS_MIN = eax;
 		edx = ebx;
 		eax = ebx;
 		edx = (int)edx>>0x1f;
 		___idiv32((__POINTER__)&eax, (__POINTER__)&edx, ecx);
 		//idiv    ecx
 		ebx = 0x46;
-		D(___1a109ch) = edx;
+		LAP_PREVIOUS_SEC = edx;
 		edx = edi;
 		eax = edi;
 		edx = (int)edx>>0x1f;
@@ -105,7 +105,7 @@ void race___40db4h(void){
 		//idiv    ebx
 		D(___1a1090h) = (int)((double)(int)D(esp)*1.42);
 		D(esp) = edx;
-		D(___1a102ch) = (int)(1.42*(double)(int)D(esp));
+		LAP_PREVIOUS_100 = (int)(1.42*(double)(int)D(esp));
 		D(___243cd4h) = esi;
 		D(___243ca0h) = edi;
 ___40ef4h:

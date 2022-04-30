@@ -1,5 +1,6 @@
 #include "drally.h"
 #include "drally_fonts.h"
+#include "drally_structs_fixed.h"
 #include "drmemory.h"
 
 #if defined(DR_MULTIPLAYER)
@@ -7,7 +8,7 @@
 #endif //DR_MULTIPLAYER
 
 	extern __DWORD__ CONNECTION_TYPE;
-	extern __POINTER__ ___1a1138h__VESA101h_DefaultScreenBufferB;
+	extern __POINTER__ ___1a1138h__VESA101_BACKGROUND;
 	extern __POINTER__ ___1a112ch__VESA101_ACTIVESCREEN_PTR;
 	extern __POINTER__ ___1a0f9ch;
 	extern __BYTE__ ___1a1ef8h[];
@@ -39,15 +40,16 @@ __DWORD__ ___1caf4h(void){
 
 	__DWORD__ 	eax, ebx, ecx, edx, edi, esi, ebp;
 	__BYTE__ 	esp[0x68];
-	char 	buffer[0x96];
-	int 	i, n;
+	char 		buffer[0x96];
+	int 		i, n;
+	racer_t * 	s_6c;
 
 
 	if(CONNECTION_TYPE == 2){
 
 		if(NovellNetWare_IPX_InstallationCheck() == 0){
 
-			memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR+0x10680, ___1a1138h__VESA101h_DefaultScreenBufferB+0x10680, 0x28f00);
+			memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR+0x10680, ___1a1138h__VESA101_BACKGROUND+0x10680, 0x28f00);
 			___13710h(0, 0);
 			___13710h(2, 0);
 			___13248h_cdecl(0x1c, 0xc6, 0x253, 0x56, 1);
@@ -64,13 +66,15 @@ __DWORD__ ___1caf4h(void){
 			return 0;
 		}
 
+		s_6c = (racer_t *)___1a01e0h;
+
 		if(___61cd0h() == 0) ___1123ch();
 
 #if defined(DR_MULTIPLAYER)
 		___19bd60h = 1;
 #endif // DR_MULTIPLAYER
 
-		memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR+0x10680, ___1a1138h__VESA101h_DefaultScreenBufferB+0x10680, 0x28f00);
+		memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR+0x10680, ___1a1138h__VESA101_BACKGROUND+0x10680, 0x28f00);
 		___13710h(0, 0);
 		___13710h(2, 0);
 		___13248h_cdecl(0x4b, 0xc6, 0x1ae, 0x38, 1);
@@ -97,7 +101,7 @@ __DWORD__ ___1caf4h(void){
 		}
 
 		dRMemory_free(___1a0f9ch);
-		dRChatbox_push(strcat(strcat(strcpy(buffer, "-- "), ___1a01e0h+0x6c*D(___1a1ef8h)), " has joined to Death Rally."), 0);
+		dRChatbox_push(strcat(strcat(strcpy(buffer, "-- "), s_6c[D(___1a1ef8h)].name), " has joined to Death Rally."), 0);
 		___23488h_cdecl(buffer, strlen(buffer)+1, 6);
 		___23230h();
 		___12d6ch__VESA101_PRESENTBOTTOMSCREEN();

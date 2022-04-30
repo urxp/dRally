@@ -8,7 +8,7 @@ void ___1c178h(void){
 #include "drally.h"
 #include "drmemory.h"
 
-	extern __BYTE__ ___1a1138h__VESA101h_DefaultScreenBufferB[];
+	extern __BYTE__ ___1a1138h__VESA101_BACKGROUND[];
 	extern __BYTE__ ___1a112ch__VESA101_ACTIVESCREEN_PTR[];
 	extern __BYTE__ ___185c0bh[];
 	extern __BYTE__ ___1a1108h[];
@@ -17,7 +17,7 @@ void ___1c178h(void){
 	extern __BYTE__ ___196ab8h[];
 	extern __BYTE__ ___1a2010h[];
 	extern __BYTE__ ___185a14h_UseWeapons[];
-	extern __BYTE__ ___185a54h[];
+	extern __DWORD__ MP_MONEY;
 	extern __DWORD__ ___19bd60h;
 	extern __BYTE__ ___1a1098h[];
 	extern __BYTE__ ___196adch[];
@@ -50,7 +50,7 @@ void ___1c178h(void){
 	eax = 1;
 	edx = 0;
 	eax = ___3f71ch__allocateMemory(eax);
-	esi = D(___1a1138h__VESA101h_DefaultScreenBufferB);
+	esi = D(___1a1138h__VESA101_BACKGROUND);
 	edi = D(___1a112ch__VESA101_ACTIVESCREEN_PTR);
 	esi += 0x10680;
 	edi += 0x10680;
@@ -126,7 +126,7 @@ ___1c2c3h:
 	eax = esp;
 	edx = ecx;
 	eax = atoi(eax);
-	D(___185a54h) = eax;
+	MP_MONEY = eax;
 	eax = D(esp+8);
 	___23488h_cdecl(eax, edx, ebx);
 	eax = D(esp+8);
@@ -139,7 +139,7 @@ ___1c2c3h:
 	eax += 4;
 	memset(eax, edx, ebx);
 	ebx = 2;
-	eax = D(___185a54h);
+	eax = MP_MONEY;
 	___19bd60h = ecx;
 	D(___1a1098h) = ebx;
 	D(___196adch) = ebx;

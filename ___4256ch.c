@@ -1,6 +1,6 @@
 #include "drally.h"
 
-	extern __POINTER__ ___243d80h;
+	extern __POINTER__ BACKBUFFER;
 
 
 static void helper00(__POINTER__ A1, __DWORD__ A2, __DWORD__ A3, __DWORD__ A5, __DWORD__ B0, __DWORD__ B1){
@@ -14,7 +14,7 @@ static void helper00(__POINTER__ A1, __DWORD__ A2, __DWORD__ A3, __DWORD__ A5, _
 		i = -1;
 		while(++i < A2){
 
-			if((px = read_b(A1+A2*A3*(A5+B0)+A2*j+i)) != 0) write_b(___243d80h+B1+0x200*j+i, px);
+			if((px = read_b(A1+A2*A3*(A5+B0)+A2*j+i)) != 0) write_b(BACKBUFFER+B1+0x200*j+i, px);
 		}
 	}
 }

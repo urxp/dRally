@@ -1,6 +1,6 @@
 #include "drally.h"
 
-	extern __BYTE__ * ___1a1138h__VESA101h_DefaultScreenBufferB;	// 640*480
+	extern __BYTE__ * ___1a1138h__VESA101_BACKGROUND;	// 640*480
 	extern __BYTE__ * ___1a112ch__VESA101_ACTIVESCREEN_PTR;			// 640*480
 	extern __BYTE__ * ___1a10b4h;									// 640x10
 
@@ -13,7 +13,7 @@ void ___135fch(__DWORD__ A1, __DWORD__ A2, __DWORD__ A3, __DWORD__ A4){
 	n = -1;
 	while(++n < A4){
 
-		memcpy(&___1a112ch__VESA101_ACTIVESCREEN_PTR[COOXY(A1+2,n+A2-4)], &___1a1138h__VESA101h_DefaultScreenBufferB[COOXY(A1+2,n+A2-4)], A3-6);
+		memcpy(&___1a112ch__VESA101_ACTIVESCREEN_PTR[COOXY(A1+2,n+A2-4)], &___1a1138h__VESA101_BACKGROUND[COOXY(A1+2,n+A2-4)], A3-6);
 	}
 
 	m = -1;

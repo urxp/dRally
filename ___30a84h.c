@@ -1,4 +1,5 @@
 #include "drally.h"
+#include "drally_structs_fixed.h"
 
 	extern __BYTE__ ___1a01e0h[];
 	extern __BYTE__ ___1a1ef8h[];
@@ -14,8 +15,10 @@ void ___30a84h_cdecl(__DWORD__ A1, __DWORD__ A2){
 
 	__DWORD__ 	eax, ebx, ecx, edx, edi, esi, ebp;
 	__BYTE__ 	esp[0x10];
+	racer_t * 	s_6c;
 
 
+	s_6c = (racer_t *)___1a01e0h;
 	D(esp+0x4) = A1;
 	D(esp+0x8) = A2;
 
@@ -24,13 +27,13 @@ void ___30a84h_cdecl(__DWORD__ A1, __DWORD__ A2){
 		ebx = D(esp+0x4);
 		D(esp+0xc) = D(esp+0x8);
 		eax = (int)(ebx+D(esp+0x8))/2;
-		edx = D(0x6c*eax+___1a01e0h+0x44);
+		edx = s_6c[eax].points;
 
 		while(1){
 
 			while(1){
 			
-				if((int)edx <= (int)D(0x6c*ebx+___1a01e0h+0x44)) break;
+				if((int)edx <= (int)s_6c[ebx].points) break;
 				ebx++;
 			}
 
@@ -38,7 +41,7 @@ void ___30a84h_cdecl(__DWORD__ A1, __DWORD__ A2){
 
 			while(1){
 
-				if((int)edx >= (int)D(ecx+___1a01e0h+0x44)) break;
+				if((int)edx >= (int)s_6c[ecx/0x6c].points) break;
 				ecx = ecx-0x6c;
 				D(esp+0xc)--;
 			}
@@ -54,9 +57,9 @@ void ___30a84h_cdecl(__DWORD__ A1, __DWORD__ A2){
 					D(___1a1ef8h) = D(esp+0xc);
 				}
 
-				memcpy(___1a0f18h, ___1a01e0h+0x6c*ebx, 0x6c);
-				memcpy(___1a01e0h+0x6c*ebx, ___1a01e0h+0x6c*D(esp+0xc), 0x6c);
-				memcpy(___1a01e0h+0x6c*D(esp+0xc), ___1a0f18h, 0x6c);
+				memcpy(___1a0f18h, &s_6c[ebx], sizeof(racer_t));
+				memcpy(&s_6c[ebx], &s_6c[D(esp+0xc)], sizeof(racer_t));
+				memcpy(&s_6c[D(esp+0xc)], ___1a0f18h, sizeof(racer_t));
 
 #if defined(DR_MULTIPLAYER)
 				if(___19bd60h != 0){
@@ -64,15 +67,15 @@ void ___30a84h_cdecl(__DWORD__ A1, __DWORD__ A2){
 					eax = 0;
 					while(1){
 
-						ecx = B(eax+___1a1168h);
+						ecx = B(___1a1168h+eax);
 
 						if(ecx != ebx){
 
-							if(ecx == D(esp+0xc)) B(eax+___1a1168h) = L(ebx);
+							if(ecx == D(esp+0xc)) B(___1a1168h+eax) = L(ebx);
 						}
 						else {
 						
-							B(eax+___1a1168h) = B(esp+0xc);
+							B(___1a1168h+eax) = B(esp+0xc);
 						}
 
 						eax++;

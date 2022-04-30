@@ -1,8 +1,8 @@
 #include "drally.h"
 #include "netpage.h"
 
-	extern NetPage * ___24e4c0h;
 #if defined(DR_MULTIPLAYER)
+	extern NetPage * ___24e4c0h;
 	extern __DWORD__ ___19bd60h;
 #endif // DR_MULTIPLAYER
 

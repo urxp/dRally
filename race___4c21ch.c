@@ -39,30 +39,30 @@ void race___4c21ch(void){
 
 			if((int)D(___1de580h+0x94*n+0x18) > 0){
 					
-				dw0 = s_35e[MY_CAR_IDX].__108;
+				dw0 = s_35e[MY_CAR_IDX].Lap;
 				dw0 = dw0*D(___243cech)+s_35e[MY_CAR_IDX].__0;
-				dw1 = s_35e[n].__108;
+				dw1 = s_35e[n].Lap;
 				dw1 = dw1*D(___243cech)+s_35e[n].__0;
 				dw0 -= 1;
 				if(dw1 == dw0) diff_f = 1.0f+___3f6ech[2*i];
-				dw1 = s_35e[MY_CAR_IDX].__108;
+				dw1 = s_35e[MY_CAR_IDX].Lap;
 				dw1 = dw1*D(___243cech)+s_35e[MY_CAR_IDX].__0;
-				dw0 = s_35e[n].__108;
+				dw0 = s_35e[n].Lap;
 				dw0 = dw0*D(___243cech)+s_35e[n].__0;
 				dw1 -= 2;
 				if(dw0 <= dw1) diff_f = 1.0f+___3f6ech[2*i+1];
 
 				if(D(___185a50h) != 2){
 
-					dw0 = s_35e[MY_CAR_IDX].__108;
+					dw0 = s_35e[MY_CAR_IDX].Lap;
 					dw0 = dw0*D(___243cech)+s_35e[MY_CAR_IDX].__0;
-					dw1 = s_35e[n].__108;
+					dw1 = s_35e[n].Lap;
 					dw1 = dw1*D(___243cech)+s_35e[n].__0;
 					dw0 += 1;
 					if(dw1 == dw0) diff_f = 1.0f-___3f704h[2*i];
-					dw1 = s_35e[MY_CAR_IDX].__108;
+					dw1 = s_35e[MY_CAR_IDX].Lap;
 					dw1 = dw1*D(___243cech)+s_35e[MY_CAR_IDX].__0;
-					dw0= s_35e[n].__108;
+					dw0= s_35e[n].Lap;
 					dw0 = dw0*D(___243cech)+s_35e[n].__0;
 					dw1 += 2;
 					if(dw0 >= dw1) diff_f = 1.0f-___3f704h[2*i+1];

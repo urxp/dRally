@@ -1,6 +1,6 @@
 #include "drally.h"
 
-	extern __BYTE__ ___1a54d0h[];
+	extern __BYTE__ ___1a54d0h[0x4b000];
 	extern __POINTER__ ___1a112ch__VESA101_ACTIVESCREEN_PTR;
 
 void ___3d154h(const char * pal_name);
@@ -11,6 +11,7 @@ void bpk_decode2(__POINTER__, __POINTER__);
 void __DISPLAY_SET_PALETTE_COLOR(__DWORD__ b, __DWORD__ g, __DWORD__ r, __DWORD__ n);
 void __WAIT_5(void);
 
+// Title Screen
 void ___3d890h(void){
 
 	__DWORD__ 	n;

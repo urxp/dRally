@@ -10,7 +10,7 @@ typedef struct x655_s {
 
 	extern x655_t ___19eb50h[0x100];
 
-    extern __POINTER__ ___1a1138h__VESA101h_DefaultScreenBufferB;
+    extern __POINTER__ ___1a1138h__VESA101_BACKGROUND;
     extern __POINTER__ ___1a112ch__VESA101_ACTIVESCREEN_PTR;
 #if defined(DR_MULTIPLAYER)
     extern __DWORD__ ___19bd60h;
@@ -21,7 +21,7 @@ typedef struct x655_s {
 
 void ___2b318h(void);
 void ___58c60h(void);
-void ___13a98h_cdecl(__DWORD__);
+void menu___13a98h(__DWORD__);
 void ___23230h(void);
 void ___12cb8h__VESA101_PRESENTSCREEN(void);
 void ___12e78h_cdecl(__BYTE__ * A1, const font_props_t * A2, const char * A3, __DWORD__ dst_off);
@@ -67,7 +67,7 @@ void ___190c4h(void){
 		edx = (int)edx>>0x1f;
 		edx = (long long)(int)eax%(int)esi;
 		
-		if(edx != 0) ___13a98h_cdecl(1);
+		if(edx != 0) menu___13a98h(1);	// SPINNING TIRE ICON
 
 		n = -1;
 		while(++n < 0x60){
@@ -95,7 +95,7 @@ void ___190c4h(void){
 	___59b3ch();
 	___5994ch();
 	___3892ch_cdecl(2);
-	memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR, ___1a1138h__VESA101h_DefaultScreenBufferB, 0x4b000);
+	memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR, ___1a1138h__VESA101_BACKGROUND, 0x4b000);
 	___13710h(0, 0);
 	___13710h(1, 1);
 	___135fch(0, 0x173, 0x27f, 0x6d);
@@ -121,7 +121,7 @@ void ___190c4h(void){
 		edx = (int)edx>>0x1f;
 		edx = (long long)(int)eax%(int)esi;
 
-		if(edx != 0) ___13a98h_cdecl(1);
+		if(edx != 0) menu___13a98h(1);	// SPINNING TIRE ICON
 
 		n = -1;
 		while(++n < 0x60){

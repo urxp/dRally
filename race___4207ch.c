@@ -3,8 +3,8 @@
 	extern __BYTE__ ___243334h[];
 	extern __BYTE__ ___243328h[];
 	extern __BYTE__ ___243324h[];
-	extern __POINTER__ ___243d80h;
-	extern __POINTER__ ___243d50h;
+	extern __POINTER__ BACKBUFFER;
+	extern __POINTER__ GEN_FLA_BPK;
 	extern __BYTE__ ___24332ch[];
 
 // FINISH LINE FLAG
@@ -31,7 +31,7 @@ void race___4207ch(void){
 		i = -1;
 		while(++i < 0x50){
 
-			B(___243d80h+0x150+D(___243328h)+0x200*j+i) = B(___243d50h+0x12c0*edx+0x50*j+i);
+			B(BACKBUFFER+0x150+D(___243328h)+0x200*j+i) = B(GEN_FLA_BPK+0x12c0*edx+0x50*j+i);
 		}
 	}
 

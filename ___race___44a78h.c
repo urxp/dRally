@@ -2,11 +2,11 @@
 #include "drally_structs_free.h"
 
 	extern __BYTE__ ___243880h[];
-	extern __BYTE__ NUM_OF_CARS[];
+	extern int NUM_OF_CARS;
 	extern __BYTE__ ___243c60h[];
 	extern __DWORD__ CONNECTION_TYPE;
 	extern __BYTE__ ___24331ch[];
-	extern __BYTE__ MY_CAR_IDX[];
+	extern int MY_CAR_IDX;
 	extern __BYTE__ ___1e6ed0h[];
 	extern __BYTE__ ___243d08h[];
 	extern __BYTE__ ___196e60h[];
@@ -25,6 +25,7 @@ void ___61518h(void);
 
 void race___44a78h(void){
 
+	int 			n;
 	__DWORD__		eax, ebx, ecx, edx, esi, ebp;
 	struct_35e_t * 	s_35e;
 
@@ -32,28 +33,24 @@ void race___44a78h(void){
 	s_35e = (struct_35e_t *)___1e6ed0h;
 
 	D(___243880h) = 0;
-	ecx = D(NUM_OF_CARS);
-	D(___243c60h) = 0;
 
-	if((int)ecx <= 0){
+	if(NUM_OF_CARS <= 0){
 
-		D(___243c60h) = 0;
+		n = -1;
+		while(++n < NUM_OF_CARS){
 
-		while((int) D(___243c60h) < (int)D(NUM_OF_CARS)){
-
-			if(D(MY_CAR_IDX) != D(___243c60h)){
+			if(n != MY_CAR_IDX){
 			
-				edx = D(___1a51c0h+4*D(___243c60h))+0x2bc;
+				edx = D(___1a51c0h+4*n)+700;
 				if((int)edx < (int)getCounter(3)) D(___243318h) = 1;
 			}
-
-			D(___243c60h)++;
 		}
 
 		D(___243880h) = 1;
 		return;
 	}
 
+	D(___243c60h) = 0;
 	while(1){
 
 		eax = D(___243c60h);
@@ -66,23 +63,23 @@ void race___44a78h(void){
 			D(___24331ch) = ebp;
 		}
 
-		edx = D(MY_CAR_IDX);
+		edx = MY_CAR_IDX;
 		eax = D(___243c60h);
 
 		if(eax == edx){
 
 			esi = D(___243c60h);
 			esi++;
-			ebp = D(NUM_OF_CARS);
+			ebp = NUM_OF_CARS;
 			D(___243c60h) = esi;
 
 			if((int)esi >= (int)ebp){
 				
 				D(___243c60h) = 0;
 
-				while((int) D(___243c60h) < (int)D(NUM_OF_CARS)){
+				while((int) D(___243c60h) < NUM_OF_CARS){
 
-					if(D(MY_CAR_IDX) != D(___243c60h)){
+					if(MY_CAR_IDX != D(___243c60h)){
 					
 						edx = D(___1a51c0h+4*D(___243c60h))+0x2bc;
 						if((int)edx < (int)getCounter(3)) D(___243318h) = 1;
@@ -103,17 +100,17 @@ void race___44a78h(void){
 			while(1){
 
 				ebx = 0;
-				s_35e[D(___243c60h)].Ctrls[eax] = ebx;
+				s_35e[D(___243c60h)].Ctrls[eax] = 0;
 				eax++;
 				if(eax == 0x10) break;
 			}
 
 			ebp = 0x10;
-			D(___243d08h) = ebx;
-			D(___196e60h) = ebx;
+			D(___243d08h) = 0;
+			D(___196e60h) = 0;
 			eax = 0;
-			D(___243d0ch) = ebp;
-			D(___196e64h) = eax;
+			D(___243d0ch) = 0x10;
+			D(___196e64h) = 0;
 
 			if((int)getCounter(5) > 0){
 
@@ -295,16 +292,16 @@ void race___44a78h(void){
 
 					___44730h();
 					W(___24cee0h[D(___24331ch)]+2) = W(___24cee0h[D(___24331ch)]);
-					ebp = D(NUM_OF_CARS);
+					ebp = NUM_OF_CARS;
 					D(___243c60h)++;
 
 					if((int)D(___243c60h) >= (int)ebp){
 
 						D(___243c60h) = 0;
 
-						while((int) D(___243c60h) < (int)D(NUM_OF_CARS)){
+						while((int) D(___243c60h) < NUM_OF_CARS){
 
-							if(D(MY_CAR_IDX) != D(___243c60h)){
+							if(MY_CAR_IDX != D(___243c60h)){
 							
 								edx = D(___1a51c0h+4*D(___243c60h))+0x2bc;
 								if((int)edx < (int)getCounter(3)) D(___243318h) = 1;

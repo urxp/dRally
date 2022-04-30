@@ -1,4 +1,5 @@
 #include "drally.h"
+#include "drally_structs_fixed.h"
 
 #if defined(DR_MULTIPLAYER)
 	extern __DWORD__ ___19bd60h;
@@ -11,9 +12,11 @@
 void ___2ec68h_cdecl(void){
 
 	__DWORD__ 	ebx, ecx;
-	int 	n;
+	int 		n;
+	racer_t * 	s_6c;
 
 
+	s_6c = (racer_t *)___1a01e0h;
 	ecx = 4;
 	while(ecx&&ecx--) D(___1a0a50h+4*ecx) = 1;
 
@@ -29,10 +32,8 @@ void ___2ec68h_cdecl(void){
 	ebx = 0;
 	n = -1;
 	while(++n < 0x14){
-
-		ecx = D(___1a01e0h+0x6c*n+0x44);
-		
-		if(((int)ebx < (int)ecx)&&(n != D(___1a1ef8h))) ebx = ecx;
+	
+		if(((int)ebx < (int)s_6c[n].points)&&(n != D(___1a1ef8h))) ebx = s_6c[n].points;
 	}
 
 #if defined(DR_MULTIPLAYER)
@@ -43,7 +44,7 @@ void ___2ec68h_cdecl(void){
 	else {
 #endif // DR_MULTIPLAYER
 
-		D(___1a0a50h+0xc) = !((int)ebx < (int)D(___1a01e0h+0x6c*D(___1a1ef8h)+0x44));
+		D(___1a0a50h+0xc) = !((int)ebx < (int)s_6c[D(___1a1ef8h)].points);
 
 #if defined(DR_MULTIPLAYER)
 	}

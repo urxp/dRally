@@ -1,5 +1,6 @@
 #include "drally.h"
 #include "drally_keyboard.h"
+#include "drally_structs_fixed.h"
 #include "sfx.h"
 
 #pragma pack(1)
@@ -44,9 +45,10 @@ __DWORD__ ___17510h_cdecl(__POINTER__ A1, __DWORD__ A2, __DWORD__ A3, __POINTER_
 	int 	i, j;
 	__POINTER__ 	ebxp;
 	__POINTER__ 	esip;
+	racer_t * 		s_6c;
 
 
-
+	s_6c = (racer_t *)___1a01e0h;
 	//D(esp+0x40) = A1;
 	D(esp+0x3c) = A2;
 	D(esp+0x8c) = A3;
@@ -196,14 +198,14 @@ __DWORD__ ___17510h_cdecl(__POINTER__ A1, __DWORD__ A2, __DWORD__ A3, __POINTER_
 
 				eax = 0x6c*D(___1a1ef8h);
 				edx = D(esp+0x7c);
-				D(eax+___1a01e0h+0x40) = edx;
+				s_6c[eax/0x6c].face = edx;
 			}
 
 			if(D(esp+0xbc) != 0){
 			
 				eax = 0x6c*D(___1a1ef8h);
 				edx = D(esp+0x80);
-				D(eax+___1a01e0h+0x2c) = edx;
+				s_6c[eax/0x6c].color = edx;
 			}
 			break;
 		case DR_SCAN_F1:
@@ -314,7 +316,7 @@ __DWORD__ ___17510h_cdecl(__POINTER__ A1, __DWORD__ A2, __DWORD__ A3, __POINTER_
 				esi = 0;
 				edx = D(esp+0x7c);
 				D(esp+0x88) = esi;
-				D(eax+___1a01e0h+0x40) = edx;
+				s_6c[eax/0x6c].face = edx;
 			}
 			break;
 		case DR_SCAN_LEFT:
@@ -671,7 +673,7 @@ __DWORD__ ___17510h_cdecl(__POINTER__ A1, __DWORD__ A2, __DWORD__ A3, __POINTER_
 				esi = 0;
 				edx = D(esp+0x7c);
 				D(esp+0x88) = esi;
-				D(eax+___1a01e0h+0x40) = edx;
+				s_6c[eax/0x6c].face = edx;
 			}
 			break;
 		default:

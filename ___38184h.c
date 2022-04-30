@@ -1,5 +1,6 @@
 #include "drally.h"
 #include "drally_fonts.h"
+#include "drally_structs_fixed.h"
 
 	extern __BYTE__ ___1a01e0h[];
 	extern __BYTE__ ___185c7ah[];
@@ -32,8 +33,10 @@ void ___38184h_cdecl(__DWORD__ A1, __POINTER__ A2){
 	__POINTER__ 	ebxp;
 	__POINTER__ 	esip;
 	__POINTER__ 	edxp;
+	racer_t * 		s_6c;
 
 
+	s_6c = (racer_t *)___1a01e0h;
 	eax = A1;
 	D(esp+0x30) = eax;
 	ecx = 0x4;
@@ -97,7 +100,7 @@ void ___38184h_cdecl(__DWORD__ A1, __POINTER__ A2){
 			L(eax) = B(esp+ebp+0x14);
 			eax = 0x6c*eax;
 			ebx = 0xa;
-			eax = D(eax+___1a01e0h+0x48);
+			eax = s_6c[eax/0x6c].rank;
 			itoa_watcom106(eax, esp, ebx);
 			strcat(esp, ".");
 			eax = D(esp+0x34);
@@ -111,14 +114,14 @@ void ___38184h_cdecl(__DWORD__ A1, __POINTER__ A2){
 			L(eax) = B(esp+ebp+0x14);
 			eax = 0x6c*eax;
 			ecx = D(esp+0x40);
-			strcpy(esp, ___1a01e0h+eax);
+			strcpy(esp, s_6c[eax/0x6c].name);
 			strupr_watcom106(esp);
 			___12e78h_cdecl(___1a10b8h, (font_props_t *)___185c7ah, esp, ecx);
 			eax ^= eax;
 			L(eax) = B(esp+ebp+0x14);
 			eax = 0x6c*eax;
 			ecx = D(esp+0x3c);
-			esi = D(eax+___1a01e0h+0x40);
+			esi = s_6c[eax/0x6c].face;
 			ebxp = ___1a112ch__VESA101_ACTIVESCREEN_PTR+ecx+0x1a6;
 			ecx = 0x40;
 			edx = ecx;
@@ -153,7 +156,7 @@ void ___38184h_cdecl(__DWORD__ A1, __POINTER__ A2){
 			ebxp = ___1a112ch__VESA101_ACTIVESCREEN_PTR+ebx+0x1ea;
 			eax = B(esp+ebp+0x14);
 			eax = 0x6c*eax;
-			esi = 0x5140*D(eax+___1a01e0h+0x1c);
+			esi = 0x5140*s_6c[eax/0x6c].car;
 			ebp++;
 			ecx = 0x34;
 			eax = D(esp+0x18);
@@ -214,9 +217,9 @@ void ___38184h_cdecl(__DWORD__ A1, __POINTER__ A2){
 
 	___35b68h_cdecl(
 		0x40,
-		(float)(double)B(edxp+3*D(___1a01e0h+0x6c*B(esp+0x14)+0x2c)),
-		(float)(double)B(edxp+3*D(___1a01e0h+0x6c*B(esp+0x14)+0x2c)+0x1),
-		(float)(double)B(edxp+3*D(___1a01e0h+0x6c*B(esp+0x14)+0x2c)+0x2));
+		(float)(double)B(edxp+3*s_6c[B(esp+0x14)].color),
+		(float)(double)B(edxp+3*s_6c[B(esp+0x14)].color+0x1),
+		(float)(double)B(edxp+3*s_6c[B(esp+0x14)].color+0x2));
 
 	bool_tmp = 0;
 #if defined(DR_MULTIPLAYER)
@@ -227,9 +230,9 @@ void ___38184h_cdecl(__DWORD__ A1, __POINTER__ A2){
 
 	___35b68h_cdecl(
 		0x50,
-		(float)(double)B(edxp+3*D(___1a01e0h+0x6c*B(esp+0x15)+0x2c)),
-		(float)(double)B(edxp+3*D(___1a01e0h+0x6c*B(esp+0x15)+0x2c)+0x1),
-		(float)(double)B(edxp+3*D(___1a01e0h+0x6c*B(esp+0x15)+0x2c)+0x2));
+		(float)(double)B(edxp+3*s_6c[B(esp+0x15)].color),
+		(float)(double)B(edxp+3*s_6c[B(esp+0x15)].color+0x1),
+		(float)(double)B(edxp+3*s_6c[B(esp+0x15)].color+0x2));
 
 	bool_tmp = 0;
 #if defined(DR_MULTIPLAYER)
@@ -240,9 +243,9 @@ void ___38184h_cdecl(__DWORD__ A1, __POINTER__ A2){
 
 	___35b68h_cdecl(
 		0xe0,
-		(float)(double)B(edxp+3*D(___1a01e0h+0x6c*B(esp+0x16)+0x2c)),
-		(float)(double)B(edxp+3*D(___1a01e0h+0x6c*B(esp+0x16)+0x2c)+0x1),
-		(float)(double)B(edxp+3*D(___1a01e0h+0x6c*B(esp+0x16)+0x2c)+0x2));
+		(float)(double)B(edxp+3*s_6c[B(esp+0x16)].color),
+		(float)(double)B(edxp+3*s_6c[B(esp+0x16)].color+0x1),
+		(float)(double)B(edxp+3*s_6c[B(esp+0x16)].color+0x2));
 
 	bool_tmp = 0;
 #if defined(DR_MULTIPLAYER)
@@ -253,7 +256,7 @@ void ___38184h_cdecl(__DWORD__ A1, __POINTER__ A2){
 
 	___35b68h_cdecl(
 		0xf0,
-		(float)(double)B(edxp+3*D(___1a01e0h+0x6c*B(esp+0x17)+0x2c)),
-		(float)(double)B(edxp+3*D(___1a01e0h+0x6c*B(esp+0x17)+0x2c)+0x1),
-		(float)(double)B(edxp+3*D(___1a01e0h+0x6c*B(esp+0x17)+0x2c)+0x2));
+		(float)(double)B(edxp+3*s_6c[B(esp+0x17)].color),
+		(float)(double)B(edxp+3*s_6c[B(esp+0x17)].color+0x1),
+		(float)(double)B(edxp+3*s_6c[B(esp+0x17)].color+0x2));
 }

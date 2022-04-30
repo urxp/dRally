@@ -1,3 +1,11 @@
+#include "drally.h"
+
+void ___1d4e8h(__DWORD__ A1){
+
+	printf("TODO ___1d4e8h\n");
+	exit(1);
+}
+
 /*
 cpu 386
 %include "macros.inc"

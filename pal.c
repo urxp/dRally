@@ -52,7 +52,7 @@ void ___3d154h(const char * pal_name){
 	}
 }
 
-
+// COLORS ___19eb50h [0x40, ..., 0x60)
 void ___11564h_cdecl(__DWORD__ f1, __DWORD__ f2, __DWORD__ f3){
 
 	int 	n;
@@ -70,10 +70,7 @@ void ___11564h_cdecl(__DWORD__ f1, __DWORD__ f2, __DWORD__ f3){
 	}
 }
 
-static __DWORD__ max_0x3f(__DWORD__ A0){
-
-	return (A0 < 0x3f) ? A0 : 0x3f;
-}
+static __DWORD__ max_0x3f(__DWORD__ A0){ return (A0 < 0x3f) ? A0 : 0x3f; }
 
 void ___24010h(__DWORD__ f1, __DWORD__ f2, __DWORD__ f3){
 

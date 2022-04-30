@@ -6,7 +6,7 @@ cpu 386
 	extern 	__MOVS
 	extern 	__STRCAT
 	extern	___1f6e4h
-	extern	___1a1138h__VESA101h_DefaultScreenBufferB
+	extern	___1a1138h__VESA101_BACKGROUND
 	extern	___1a112ch__VESA101_ACTIVESCREEN_PTR
 	extern	___13710h
 	extern	___12cb8h__VESA101_PRESENTSCREEN
@@ -98,7 +98,7 @@ __GDECL(___210b4h)
 		mov     [esp+10h], ebp
 ___21149h:
 		mov     ecx, 28f00h
-		mov     esi, [___1a1138h__VESA101h_DefaultScreenBufferB]
+		mov     esi, [___1a1138h__VESA101_BACKGROUND]
 		mov     edi, [___1a112ch__VESA101_ACTIVESCREEN_PTR]
 		add     esi, 10680h
 		add     edi, 10680h

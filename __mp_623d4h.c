@@ -2,6 +2,7 @@
 #include "drmemory.h"
 #include "drally_ipx.h"
 #include "dos.h"
+#include "netpage.h"
 
     extern IPX_EventControlBlock * ___24cd60h[16];
     extern __DWORD__ CONNECTION_TYPE;
@@ -14,7 +15,7 @@
     extern __POINTER__ ___24e58ah;
     extern __POINTER__ ___24e464h;
     extern __POINTER__ ___24e4ach;
-	extern __POINTER__ ___24cee0h[4];
+	extern NetPage * ___24cee0h[4];
     extern __POINTER__ ___24e4c0h;
     extern IPX_Header * ___24cd00h[16];
     extern __POINTER__ ___24cdc0h[16];
@@ -49,10 +50,9 @@ void ___623d4h(void){
         while(++n < 0x10) dRMemory_free(___24cdc0h[n]);
     }
     
-    dRMemory_free(___24e4ach);
-	dRMemory_free(___24cee0h[0]);
-    dRMemory_free(___24cee0h[1]);
-    dRMemory_free(___24cee0h[2]);
-    dRMemory_free(___24cee0h[3]);
 	dRMemory_free(___24e4c0h);
+    dRMemory_free(___24e4ach);
+
+    n = -1;
+    while(++n < 4) dRMemory_free((__POINTER__)___24cee0h[n]);
 }

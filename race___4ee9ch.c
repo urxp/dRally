@@ -2,66 +2,51 @@
 #include "drmath.h"
 #include "drally_structs_free.h"
 
-	extern __BYTE__ ___243cbch[];
-	extern __BYTE__ ___243c90h[];
-	extern __BYTE__ ___243c8ch[];
+	extern int ___243cbch;
+	extern int Y___243c90h;
+	extern int X___243c8ch;
 	extern __DWORD__ MY_CAR_IDX;
 	extern __BYTE__ ___1e6ed0h[];
-	extern __BYTE__ ___243cc0h[];
-	extern __BYTE__ ___243cc8h[];
-	extern __BYTE__ ___243cc4h[];
-	extern __BYTE__ ___243ccch[];
-	extern __BYTE__ ___196d8ch[];
-	extern __BYTE__ ___196d94h[];
-	extern __BYTE__ ___243d28h[];
-	extern __BYTE__ ___196d88h[];
-	extern __BYTE__ ___196d90h[];
-	extern __BYTE__ ___243d2ch[];
-	extern __BYTE__ ___196dcch[];
-	extern __BYTE__ ___196dc8h[];
+	extern int X_Inc;
+	extern int X_IncOld;
+	extern int Y_Inc;
+	extern int Y_IncOld;
+	extern int CURRENT_VIEWPORT_CENTER_X;
+	extern int CURRENT_VIEWPORT_CENTER_Y;
+	extern int TRX_WIDTH;
+	extern int CURRENT_VIEWPORT_W;
+	extern int CURRENT_VIEWPORT_H;
+	extern int TRX_HEIGHT;
+	extern int TRX_VIEWPORT_TL_Y;
+	extern int TRX_VIEWPORT_TL_X;
 
 
 #define L_PI create_double(0xea,0x2e,0x44,0x54,0xfb,0x21,0x09,0x40)
 
+static int limit_i(int min_val, int val, int max_val){ return (val<min_val)?min_val:(val>max_val)?max_val:val; }
+
 void race___4ee9ch(void){
 
-	double 			d_tmp;
-	__DWORD__ 		eax, ebx, ecx, edx, edi, esi, ebp;
-	__BYTE__ 		esp[0x18];
 	struct_35e_t * 	s_35e;
 
 
 	s_35e = (struct_35e_t *)___1e6ed0h;
-	edi = D(___243c90h);
-	ebp = D(___243c8ch);
 
-	D(___243cc8h) = D(___243cc0h);
-	D(___243ccch) = D(___243cc4h);
-	D(___243cc0h) = (int)(48.0*dRMath_sin(L_PI*((double)s_35e[MY_CAR_IDX].Direction+180.0)/180.0)*(double)s_35e[MY_CAR_IDX].__b0/3.0);
-	D(___243cc4h) = (int)(32.0*dRMath_cos(L_PI*((double)s_35e[MY_CAR_IDX].Direction+180.0)/180.0)*(double)s_35e[MY_CAR_IDX].__b0/3.0);
+	X_IncOld = X_Inc;
+	Y_IncOld = Y_Inc;
+	X_Inc = (int)(dRMath_sin(L_PI*((double)s_35e[MY_CAR_IDX].Direction+180.0)/180.0)*48.0*(double)s_35e[MY_CAR_IDX].__b0/3.0);
+	Y_Inc = (int)(dRMath_cos(L_PI*((double)s_35e[MY_CAR_IDX].Direction+180.0)/180.0)*32.0*(double)s_35e[MY_CAR_IDX].__b0/3.0);
 
-	esi = ((D(___243cc8h) != D(___243cc0h))||(D(___243cc4h) != D(___243ccch))) ? 5 : D(___243cbch);
+	if((X_Inc != X_IncOld)||(Y_Inc != Y_IncOld)) ___243cbch = 5;
 
-	if((int)esi > 0){
+	if(___243cbch > 0){
 
-		ebp += (int)(D(___243cc0h)-ebp)/(int)esi;
-		edi += (int)(D(___243cc4h)-edi)/(int)esi;
+		X___243c8ch += (X_Inc-X___243c8ch)/___243cbch;
+		Y___243c90h += (Y_Inc-Y___243c90h)/___243cbch;
 
-		esi--;
+		___243cbch--;
 	}
 
-	ebx = ebp+(int)(double)s_35e[MY_CAR_IDX].XLocation-D(___196d8ch);
-	ecx = edi+(int)(double)s_35e[MY_CAR_IDX].YLocation-D(___196d94h);
-
-	if((int)ebx > (int)(D(___243d28h)-D(___196d88h))) ebx = D(___243d28h)-D(___196d88h);
-	if((int)ebx < 0) ebx = 0;
-
-	if((int)ecx > (int)(D(___243d2ch)-D(___196d90h))) ecx = D(___243d2ch)-D(___196d90h);
-	if((int)ecx < 0) ecx = 0;
-
-	D(___243c8ch) = ebp;
-	D(___243c90h) = edi;
-	D(___243cbch) = esi;
-	D(___196dcch) = ecx;
-	D(___196dc8h) = ebx;
+	TRX_VIEWPORT_TL_X = limit_i(0, X___243c8ch+(int)(double)s_35e[MY_CAR_IDX].XLocation-CURRENT_VIEWPORT_CENTER_X, TRX_WIDTH-CURRENT_VIEWPORT_W);
+	TRX_VIEWPORT_TL_Y = limit_i(0, Y___243c90h+(int)(double)s_35e[MY_CAR_IDX].YLocation-CURRENT_VIEWPORT_CENTER_Y, TRX_HEIGHT-CURRENT_VIEWPORT_H);
 }

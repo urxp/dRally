@@ -1,5 +1,6 @@
 #include "drally.h"
 #include "drally_fonts.h"
+#include "drally_structs_fixed.h"
 
 	extern __BYTE__ ___1a1ef8h[];
 	extern __BYTE__ ___1a01e0h[];
@@ -13,15 +14,17 @@ __DWORD__ ___168b4h(void){
 
 	__DWORD__ 	ebp;
 	__BYTE__ 	esp[0x54];
-	int 	i, j;
+	int 		i, j;
+	racer_t * 	s_6c;
 
 
+	s_6c = (racer_t *)___1a01e0h;
 	D(esp+0x50) = 0;
-	if((D(0x6c*D(___1a1ef8h)+___1a01e0h+0x34) == 0)&&((int)D(0x6c*D(___1a1ef8h)+___1a01e0h+0x30) < 0x4650)) D(esp+0x50) = 1;
-	if((D(0x6c*D(___1a1ef8h)+___1a01e0h+0x34) == 1)&&((int)D(0x6c*D(___1a1ef8h)+___1a01e0h+0x30) < 0x34bc)) D(esp+0x50) = 1;
-	if((D(0x6c*D(___1a1ef8h)+___1a01e0h+0x34) == 2)&&((int)D(0x6c*D(___1a1ef8h)+___1a01e0h+0x30) < 0x2328)) D(esp+0x50) = 1;
-	if((D(0x6c*D(___1a1ef8h)+___1a01e0h+0x34) == 3)&&((int)D(0x6c*D(___1a1ef8h)+___1a01e0h+0x30) < 0x1194)) D(esp+0x50) = 1;
-	if((D(0x6c*D(___1a1ef8h)+___1a01e0h+0x34) == 4)&&((int)D(0x6c*D(___1a1ef8h)+___1a01e0h+0x30) < 0x8ca)) D(esp+0x50) = 1;
+	if((s_6c[D(___1a1ef8h)].loanshark_type == 0)&&((int)s_6c[D(___1a1ef8h)].money < 18000)) D(esp+0x50) = 1;
+	if((s_6c[D(___1a1ef8h)].loanshark_type == 1)&&((int)s_6c[D(___1a1ef8h)].money < 13500)) D(esp+0x50) = 1;
+	if((s_6c[D(___1a1ef8h)].loanshark_type == 2)&&((int)s_6c[D(___1a1ef8h)].money < 9000)) D(esp+0x50) = 1;
+	if((s_6c[D(___1a1ef8h)].loanshark_type == 3)&&((int)s_6c[D(___1a1ef8h)].money < 4500)) D(esp+0x50) = 1;
+	if((s_6c[D(___1a1ef8h)].loanshark_type == 4)&&((int)s_6c[D(___1a1ef8h)].money < 2250)) D(esp+0x50) = 1;
 	___13248h_cdecl(0x21, 0x83, 0x1e2, 0xe6, 1);
 
 	j = -1;
@@ -33,43 +36,43 @@ __DWORD__ ___168b4h(void){
 
 	if(D(esp+0x50)){
 
-		VESA101_16X16_FORMAT_PRINT("", 128, 136);
-		VESA101_16X16_FORMAT_PRINT("     [It's pay-back time, driver.", 128, 152);
-		VESA101_16X16_FORMAT_PRINT("", 128, 168);
-		VESA101_16X16_FORMAT_PRINT("     Tut tut, hotshot, [I can't see my", 128, 184);
-		VESA101_16X16_FORMAT_PRINT("     [money anywhere.{ I ain't amused,", 128, 200);
-		VESA101_16X16_FORMAT_PRINT("     joker. A deal is a deal. I got a", 128, 216);
-		VESA101_16X16_FORMAT_PRINT("     reputation to look after. Too bad.", 128, 232);
+		VESA101_16X16_FORMAT_PRINT("",                                          128, 136);
+		VESA101_16X16_FORMAT_PRINT("     [It's pay-back time, driver.",         128, 152);
+		VESA101_16X16_FORMAT_PRINT("",                                          128, 168);
+		VESA101_16X16_FORMAT_PRINT("     Tut tut, hotshot, [I can't see my",    128, 184);
+		VESA101_16X16_FORMAT_PRINT("     [money anywhere.{ I ain't amused,",    128, 200);
+		VESA101_16X16_FORMAT_PRINT("     joker. A deal is a deal. I got a",     128, 216);
+		VESA101_16X16_FORMAT_PRINT("     reputation to look after. Too bad.",   128, 232);
 		VESA101_16X16_FORMAT_PRINT("     Nothing personal, but [I got to hurt", 128, 248);
-		VESA101_16X16_FORMAT_PRINT("     [you some now.{ Hurt 'im, boyz.", 128, 264);
-		VESA101_16X16_FORMAT_PRINT("", 128, 280);
+		VESA101_16X16_FORMAT_PRINT("     [you some now.{ Hurt 'im, boyz.",      128, 264);
+		VESA101_16X16_FORMAT_PRINT("",                                          128, 280);
 
-		if(D(___1a01e0h+0x34+0x6c*D(___1a1ef8h)) == 0) ebp = 0x4650;
-		if(D(___1a01e0h+0x34+0x6c*D(___1a1ef8h)) == 1) ebp = 0x34bc;
-		if(D(___1a01e0h+0x34+0x6c*D(___1a1ef8h)) == 2) ebp = 0x2328;
-		if(D(___1a01e0h+0x34+0x6c*D(___1a1ef8h)) == 3) ebp = 0x1194;
-		if(D(___1a01e0h+0x34+0x6c*D(___1a1ef8h)) == 4) ebp = 0x8ca;
+		if(s_6c[D(___1a1ef8h)].loanshark_type == 0) ebp = 18000;
+		if(s_6c[D(___1a1ef8h)].loanshark_type == 1) ebp = 13500;
+		if(s_6c[D(___1a1ef8h)].loanshark_type == 2) ebp = 9000;
+		if(s_6c[D(___1a1ef8h)].loanshark_type == 3) ebp = 4500;
+		if(s_6c[D(___1a1ef8h)].loanshark_type == 4) ebp = 2250;
 
 		___14c50h();
 	}
 	else {
 
-		VESA101_16X16_FORMAT_PRINT("", 128, 136);
-		VESA101_16X16_FORMAT_PRINT("     [It's pay-back time, driver.", 128, 152);
-		VESA101_16X16_FORMAT_PRINT("", 128, 168);
-		VESA101_16X16_FORMAT_PRINT("     This is what I like to see, a guy", 128, 184);
-		VESA101_16X16_FORMAT_PRINT("     who keeps his part of the bargain.", 128, 200);
-		VESA101_16X16_FORMAT_PRINT("     Ah, the sweet smell of money. Come", 128, 216);
+		VESA101_16X16_FORMAT_PRINT("",                                          128, 136);
+		VESA101_16X16_FORMAT_PRINT("     [It's pay-back time, driver.",         128, 152);
+		VESA101_16X16_FORMAT_PRINT("",                                          128, 168);
+		VESA101_16X16_FORMAT_PRINT("     This is what I like to see, a guy",    128, 184);
+		VESA101_16X16_FORMAT_PRINT("     who keeps his part of the bargain.",   128, 200);
+		VESA101_16X16_FORMAT_PRINT("     Ah, the sweet smell of money. Come",   128, 216);
 		VESA101_16X16_FORMAT_PRINT("     to papa, my babies. [Real nice doing", 128, 232);
-		VESA101_16X16_FORMAT_PRINT("     [business with you{, thunderboy.{", 128, 248);
-		VESA101_16X16_FORMAT_PRINT("     Thanks, and good racing riddance.", 128, 264);
-		VESA101_16X16_FORMAT_PRINT("", 128, 280);
+		VESA101_16X16_FORMAT_PRINT("     [business with you{, thunderboy.{",    128, 248);
+		VESA101_16X16_FORMAT_PRINT("     Thanks, and good racing riddance.",    128, 264);
+		VESA101_16X16_FORMAT_PRINT("",                                          128, 280);
 
-		if(D(___1a01e0h+0x34+0x6c*D(___1a1ef8h)) == 0) D(___1a01e0h+0x30+0x6c*D(___1a1ef8h)) -= 0x4650;
-		if(D(___1a01e0h+0x34+0x6c*D(___1a1ef8h)) == 1) D(___1a01e0h+0x30+0x6c*D(___1a1ef8h)) -= 0x34bc;
-		if(D(___1a01e0h+0x34+0x6c*D(___1a1ef8h)) == 2) D(___1a01e0h+0x30+0x6c*D(___1a1ef8h)) -= 0x2328;
-		if(D(___1a01e0h+0x34+0x6c*D(___1a1ef8h)) == 3) D(___1a01e0h+0x30+0x6c*D(___1a1ef8h)) -= 0x1194;
-		if(D(___1a01e0h+0x34+0x6c*D(___1a1ef8h)) == 4) D(___1a01e0h+0x30+0x6c*D(___1a1ef8h)) -= 0x8ca;
+		if(s_6c[D(___1a1ef8h)].loanshark_type == 0) s_6c[D(___1a1ef8h)].money -= 18000;
+		if(s_6c[D(___1a1ef8h)].loanshark_type == 1) s_6c[D(___1a1ef8h)].money -= 13500;
+		if(s_6c[D(___1a1ef8h)].loanshark_type == 2) s_6c[D(___1a1ef8h)].money -= 9000;
+		if(s_6c[D(___1a1ef8h)].loanshark_type == 3) s_6c[D(___1a1ef8h)].money -= 4500;
+		if(s_6c[D(___1a1ef8h)].loanshark_type == 4) s_6c[D(___1a1ef8h)].money -= 2250;
 	}
 
 	___12e78h_v3(___1a10cch___185ba9h, "CONTINUE", 192, 316);

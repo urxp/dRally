@@ -1,6 +1,7 @@
 #include "drally.h"
 #include "drally_keyboard.h"
 #include "drally_fonts.h"
+#include "drally_structs_fixed.h"
 
 #pragma pack(1)
 typedef struct x655_s {
@@ -18,7 +19,8 @@ typedef struct x655_s {
 	extern __BYTE__ ___196a84h[];
 	extern __POINTER__ ___1a112ch__VESA101_ACTIVESCREEN_PTR;
 	extern __BYTE__ ___185a34h[];
-	extern __POINTER__ ___1a1138h__VESA101h_DefaultScreenBufferB;
+	extern __POINTER__ ___1a1138h__VESA101_BACKGROUND;
+	extern __POINTER__ ___1a1100h__VESA101h_DefaultScreenBuffer;
 	extern __BYTE__ ___196a7ch[];
 	extern __BYTE__ ___185c0bh[];
 	extern __POINTER__ ___1a10fch;
@@ -41,9 +43,8 @@ void dRally_Sound_setMasterVolume(__DWORD__ vol);
 void __DISPLAY_SET_PALETTE_COLOR(__DWORD__ b, __DWORD__ g, __DWORD__ r, __DWORD__ n);
 void ___13710h(__DWORD__, __DWORD__);
 void ___12cb8h__VESA101_PRESENTSCREEN(void);
-void ___3a6a4h(void);
+void ___3a6a4h_v2(int);
 __DWORD__ ___146c4h_cdecl(__DWORD__);
-void restoreDefaultScreenBuffer(void);
 void ___1d00ch(void);
 //void ___1d2a8h(void);
 //void ___1d9f8h(void);
@@ -101,7 +102,10 @@ void menu___1e888h(void){
 	__BYTE__ 	__esp[0x10+8];
 	__BYTE__ * 	esp = __esp+0x10;
 	char 	buffer[0x96];
+	racer_t * 	s_6c;
 
+
+	s_6c = (racer_t *)___1a01e0h;
 
 	while(1){
 
@@ -111,7 +115,7 @@ void menu___1e888h(void){
 		if((___19bd60h == 0)||(D(___196a84h) == 0)){
 #endif // DR_MULTIPLAYER
 
-			memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR+0xd200, ___1a1138h__VESA101h_DefaultScreenBufferB+0xd200, 0x2c380);
+			memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR+0xd200, ___1a1138h__VESA101_BACKGROUND+0xd200, 0x2c380);
 
 #if defined(DR_MULTIPLAYER)
 		}
@@ -120,7 +124,7 @@ void menu___1e888h(void){
 			ebp = 0xffdc;
 			edi = 0x640000;
 			D(___185a5ch+0x18) = 1;
-			restoreDefaultScreenBuffer();
+			___1a112ch__VESA101_ACTIVESCREEN_PTR = ___1a1100h__VESA101h_DefaultScreenBuffer;
 			___2b318h();
 
 			while(1){
@@ -157,7 +161,7 @@ void menu___1e888h(void){
 				if(edi == 0xfffe0000) break;
 			}
 
-			memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR, ___1a1138h__VESA101h_DefaultScreenBufferB, 0x4b000);
+			memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR, ___1a1138h__VESA101_BACKGROUND, 0x4b000);
 			___135fch(0, 0x173, 0x27f, 0x6d);
 
 			if(D(___196a7ch) == 0){
@@ -253,7 +257,7 @@ void menu___1e888h(void){
 				___59b3ch();
 				D(___196a80h) = 0;
 				D(___196ad4h) = 0;
-				memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR+0xd200, ___1a1138h__VESA101h_DefaultScreenBufferB+0xd200, 0x2c380);
+				memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR+0xd200, ___1a1138h__VESA101_BACKGROUND+0xd200, 0x2c380);
 				___13710h(0, 0);
 				___13710h(2, 1);
 				___12cb8h__VESA101_PRESENTSCREEN();
@@ -261,20 +265,9 @@ void menu___1e888h(void){
 		}
 #endif // DR_MULTIPLAYER
 
-		if(D(___185a24h) != 0){
-
-			restoreDefaultScreenBuffer();
-			___3a6a4h();
-			___12cb8h__VESA101_PRESENTSCREEN();
-			D(___185a24h) = 0;
-		}
-		else {
-			
-			___12cb8h__VESA101_PRESENTSCREEN();
-		}
-
+		___3a6a4h_v2(0);
+		
 		D(esp+4) = ___146c4h_cdecl(2);
-
 		switch(D(esp+4)){
 #if defined(DR_MULTIPLAYER)
 		case 0:
@@ -288,7 +281,7 @@ void menu___1e888h(void){
 			else {
 
 				shop_main();
-				D(___185a24h) = 1;
+    			D(___185a24h) = 1;
 			}
 			break;
 		case 1:
@@ -299,7 +292,7 @@ void menu___1e888h(void){
 				// Join an existing game
 				if(CONNECTION_TYPE == 2){
 		
-					___1b140h();
+					___1b140h();	// NETWORK, JOIN AN EXISTING NETGAME
 				}
 				else {
 				
@@ -316,7 +309,7 @@ void menu___1e888h(void){
 
 				if((D(esp) != 0)&&(eax != 0)){
 
-					strcat(strcat(strcpy(buffer, "-- "), 0x6c*D(___1a1ef8h)+___1a01e0h), " aborted current netgame.");
+					strcat(strcat(strcpy(buffer, "-- "), s_6c[D(___1a1ef8h)].name), " aborted current netgame.");
 					dRChatbox_push(buffer, 0);
 					___23488h_cdecl(buffer, 0x64, 0x14);
 					___23230h();

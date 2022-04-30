@@ -1,11 +1,11 @@
 #include "drally.h"
 
 	extern __BYTE__ ___1df520h[];
-	extern __BYTE__ ___196dc8h[];
-	extern __BYTE__ ___196d98h[];
-	extern __BYTE__ ___196dcch[];
-	extern __POINTER__ ___243d7ch;
-	extern __POINTER__ ___243d80h;
+	extern int TRX_VIEWPORT_TL_X;
+	extern int CURRENT_VIEWPORT_X;
+	extern int TRX_VIEWPORT_TL_Y;
+	extern __POINTER__ RACE_BLOWI_BPK;
+	extern __POINTER__ BACKBUFFER;
 
 __DWORD__ __GET_FRAME_COUNTER(void);
 
@@ -26,8 +26,8 @@ void race___51ce0h(void){
 
 			if((int)D(___1df520h+0x10*D(esp)+8) != -1){
 
-				edi = D(___196d98h)+D(___1df520h+0x10*D(esp))-D(___196dc8h);
-				eax = D(___1df520h+0x10*D(esp)+4)-D(___196dcch);
+				edi = CURRENT_VIEWPORT_X+D(___1df520h+0x10*D(esp))-TRX_VIEWPORT_TL_X;
+				eax = D(___1df520h+0x10*D(esp)+4)-TRX_VIEWPORT_TL_Y;
 
 				if((int)edi >= 8){
 
@@ -45,7 +45,7 @@ void race___51ce0h(void){
 								i = -1;
 								while(++i < 0x10){
 
-									if((px = B(___243d7ch+0x10*(j+0x10*D(___1df520h+0x10*D(esp)+8))+i)) != 0) B(___243d80h+0x200*(j+eax-8)+i+edi+0x58) = px;
+									if((px = B(RACE_BLOWI_BPK+0x10*(j+0x10*D(___1df520h+0x10*D(esp)+8))+i)) != 0) B(BACKBUFFER+0x200*(j+eax-8)+i+edi+0x58) = px;
 								}
 							}
 						}

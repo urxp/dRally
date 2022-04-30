@@ -3,13 +3,13 @@
 
 	extern __BYTE__ ___1f2488h[];
 	extern __BYTE__ ___1de7d0h[];
-	extern __BYTE__ ___196dc8h[];
-	extern __BYTE__ ___196d98h[];
-	extern __BYTE__ ___196dcch[];
+	extern int TRX_VIEWPORT_TL_X;
+	extern int CURRENT_VIEWPORT_X;
+	extern int TRX_VIEWPORT_TL_Y;
 	extern __BYTE__ ___243334h[];
 
 char * itoa_watcom106(int value, char * buffer, int radix);
-void ___424c8h_cdecl(__DWORD__, const char *);
+void ___424c8h_v2(const char *, int x, int y);
 
 
 void race___51eb4h(void){
@@ -26,21 +26,21 @@ void race___51eb4h(void){
 
 		if(((int)D(0x120*n+___1f2488h+0x14) > 0)&&((int)s_54[0].__50 > 0)){
 
-			x = D(___196d98h)+D(0x120*n+___1f2488h)-D(___196dc8h);
-			y = D(0x120*n+___1f2488h+4)+((int)D(0x120*n+___1f2488h+0x14)>>3)-D(___196dcch)-4;
+			x = CURRENT_VIEWPORT_X+D(0x120*n+___1f2488h)-TRX_VIEWPORT_TL_X;
+			y = D(0x120*n+___1f2488h+4)+((int)D(0x120*n+___1f2488h+0x14)>>3)-TRX_VIEWPORT_TL_Y-4;
 
-			if((x >= -18)&&(x < 0x320)&&(y >= 6)&&(y < 200)){
+			if((x >= -18)&&(x < 320)&&(y >= 6)&&(y < 200)){
 
 				switch(D(0x120*n+___1f2488h+0x18)-1){
 				case 2:
-					___424c8h_cdecl(0x200*(y-6)+0x60+x, itoa_watcom106(s_54[0].__50, strcpy(buffer, "$")+1, 0xa)-1);
+					___424c8h_v2(itoa_watcom106(s_54[0].__50, strcpy(buffer, "$")+1, 0xa)-1, x+0x60, y-6);
 					break;
 				case 6:
-					___424c8h_cdecl(0x200*(y-6)+0x60+x, itoa_watcom106(0xa*s_54[0].__50, strcpy(buffer, "$")+1, 0xa)-1);
+					___424c8h_v2(itoa_watcom106(0xa*s_54[0].__50, strcpy(buffer, "$")+1, 0xa)-1, x+0x60, y-6);
 					break;
 				case 4:
 				case 7:
-					___424c8h_cdecl(0x200*(y-6)+0x60+x, strcat(itoa_watcom106(D(0x120*n+___1f2488h+0x1c), buffer, 0xa), "%"));
+					___424c8h_v2(strcat(itoa_watcom106(D(0x120*n+___1f2488h+0x1c), buffer, 0xa), "%"), x+0x60, y-6);
 					break;
 				default:
 					break;

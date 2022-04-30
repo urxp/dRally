@@ -1,6 +1,6 @@
 #include "drally.h"
 
-	extern __POINTER__ ___1a1138h__VESA101h_DefaultScreenBufferB;
+	extern __POINTER__ ___1a1138h__VESA101_BACKGROUND;
 	extern __POINTER__ ___1a112ch__VESA101_ACTIVESCREEN_PTR;
 
 // SHOP, MARKET, RACE SIGNUP REMOVE COPPER FRAME
@@ -28,7 +28,7 @@ void ___281d0h_cdecl(__DWORD__ A1, __DWORD__ A2, __DWORD__ A3, __DWORD__ A4){
 
 	while(1){
 
-		memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR+edx+ebp, ___1a1138h__VESA101h_DefaultScreenBufferB+edx+ebp, ebx);
+		memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR+edx+ebp, ___1a1138h__VESA101_BACKGROUND+edx+ebp, ebx);
 
 		edx += 0x280;
 		if(edx == D(esp+0x10)) break;
@@ -49,7 +49,7 @@ void ___281d0h_cdecl(__DWORD__ A1, __DWORD__ A2, __DWORD__ A3, __DWORD__ A4){
 
 	while(1){
 
-		memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR+edx+ebp, ___1a1138h__VESA101h_DefaultScreenBufferB+edx+ebp, ebx);
+		memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR+edx+ebp, ___1a1138h__VESA101_BACKGROUND+edx+ebp, ebx);
 		edx += 0x280;
 		esi = D(esp+0xc);
 		if(edx == esi) break;
@@ -72,7 +72,7 @@ void ___281d0h_cdecl(__DWORD__ A1, __DWORD__ A2, __DWORD__ A3, __DWORD__ A4){
 
 	while(1){
 
-		memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR+edx+ebp, ___1a1138h__VESA101h_DefaultScreenBufferB+edx+ebp, 0x5);
+		memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR+edx+ebp, ___1a1138h__VESA101_BACKGROUND+edx+ebp, 0x5);
 		edx += 0x280;
 	
 		if((int)edx >= (int)D(esp+8)) break;
@@ -94,7 +94,7 @@ ___282f7h:
 
 	while(1){
 
-		memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR+edx+ebp+ebx-0x5, ___1a1138h__VESA101h_DefaultScreenBufferB+edx+ebp+ebx-0x5, 0x5);
+		memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR+edx+ebp+ebx-0x5, ___1a1138h__VESA101_BACKGROUND+edx+ebp+ebx-0x5, 0x5);
 
 		edx += 0x280;
 		if((int)edx >= (int)D(esp+0x14)) break;

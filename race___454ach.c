@@ -2,9 +2,9 @@
 
 	extern __BYTE__ ___196e68h[];
 	extern int * ___243314h;	// [3601]
-	extern __BYTE__ ___196d98h[];
-	extern __POINTER__ ___243d80h;
-	extern __BYTE__ VGA13_ACTIVESCREEN[];
+	extern int CURRENT_VIEWPORT_X;
+	extern __POINTER__ BACKBUFFER;
+	extern __BYTE__ * VGA13_ACTIVESCREEN;
 
 // DRUGGED
 void race___454ach(void){
@@ -17,7 +17,7 @@ void race___454ach(void){
 	D(___196e68h) %= 360;
 
 	n = -1;
-	while(++n < 0xc8) memcpy(VGA13_ACTIVESCREEN+0x140*n, ___243d80h+0x200*n+0x60, D(___196d98h));
+	while(++n < 0xc8) memcpy(VGA13_ACTIVESCREEN+0x140*n, BACKBUFFER+0x200*n+0x60, CURRENT_VIEWPORT_X);
 
 	m = D(___196e68h);
 	j = -1;
@@ -29,7 +29,7 @@ void race___454ach(void){
 		ebx = D(___196e68h)+0x4b;
 		ecx = 0x100*___243314h[2*D(___196e68h)+j+1];
 
-		k = (0x140-D(___196d98h))/2;
+		k = (0x140-CURRENT_VIEWPORT_X)/2;
 
 		i = -1;
 		while(++i < k){
@@ -40,15 +40,15 @@ void race___454ach(void){
 			esi = 0x100*___243314h[ebx]+m;
 			l = ___243314h[((int)esi>>0xa)+360]>>7;
 			edi = ___243314h[((int)ecx>>0xa)+360]>>8;
-			eax = edi+D(___196d98h)+2*i;
+			eax = edi+CURRENT_VIEWPORT_X+2*i;
 
 			ecx += 2*(___243314h[D(___196e68h)+125]+2000);
 			ecx %= 0x5a000;
 
-			if(((int)eax < (int)D(___196d98h))||((int)eax >= 0x13f)){
+			if(((int)eax < CURRENT_VIEWPORT_X)||((int)eax >= 0x13f)){
 
-				W(VGA13_ACTIVESCREEN+2*(0x140*j+i)+D(___196d98h)) = 0;
-				W(VGA13_ACTIVESCREEN+2*(0x140*j+i)+D(___196d98h)+0x140) = 0;
+				W(VGA13_ACTIVESCREEN+2*(0x140*j+i)+CURRENT_VIEWPORT_X) = 0;
+				W(VGA13_ACTIVESCREEN+2*(0x140*j+i)+CURRENT_VIEWPORT_X+0x140) = 0;
 			}
 			else {
 
@@ -56,13 +56,13 @@ void race___454ach(void){
 
 				if(((int)eax < 0)||((int)eax >= 0xc7)){
 
-					W(VGA13_ACTIVESCREEN+2*(0x140*j+i)+D(___196d98h)) = 0;
-					W(VGA13_ACTIVESCREEN+2*(0x140*j+i)+D(___196d98h)+0x140) = 0;
+					W(VGA13_ACTIVESCREEN+2*(0x140*j+i)+CURRENT_VIEWPORT_X) = 0;
+					W(VGA13_ACTIVESCREEN+2*(0x140*j+i)+CURRENT_VIEWPORT_X+0x140) = 0;
 				}
 				else {
 
-					W(VGA13_ACTIVESCREEN+2*(0x140*j+i)+D(___196d98h)) = W(___243d80h+0x60+0x200*eax+D(___196d98h)+2*i+(int)edi);
-					W(VGA13_ACTIVESCREEN+2*(0x140*j+i)+D(___196d98h)+0x140) = W(___243d80h+0x60+0x200*eax+D(___196d98h)+2*i+(int)edi+0x200);
+					W(VGA13_ACTIVESCREEN+2*(0x140*j+i)+CURRENT_VIEWPORT_X) = W(BACKBUFFER+0x60+0x200*eax+CURRENT_VIEWPORT_X+2*i+(int)edi);
+					W(VGA13_ACTIVESCREEN+2*(0x140*j+i)+CURRENT_VIEWPORT_X+0x140) = W(BACKBUFFER+0x60+0x200*eax+CURRENT_VIEWPORT_X+2*i+(int)edi+0x200);
 				}
 			}
 		}

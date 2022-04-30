@@ -2,7 +2,7 @@
 #include "drally_structs_free.h"
 #include "drally_fonts.h"
 
-	extern __POINTER__ ___1a1138h__VESA101h_DefaultScreenBufferB;
+	extern __POINTER__ ___1a1138h__VESA101_BACKGROUND;
 	extern __POINTER__ ___1a112ch__VESA101_ACTIVESCREEN_PTR;
 	extern __BYTE__ ___185c0bh[];
 	extern __POINTER__ ___1a1108h;
@@ -55,7 +55,7 @@ void menu___204fch(void){
 
 	while(1){
 
-		memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR+0x10680, ___1a1138h__VESA101h_DefaultScreenBufferB+0x10680, 0x28f00);
+		memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR+0x10680, ___1a1138h__VESA101_BACKGROUND+0x10680, 0x28f00);
 		___13710h(0, 0);
 		___13710h(3, 0);
 		___13710h(6, 1);

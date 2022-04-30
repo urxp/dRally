@@ -70,14 +70,15 @@ typedef struct racer_s {
 	char 				unk0[0xc];			// 	+0x20
 	__DWORD__ 			color;				// 	+0x2c
 	__SIGNED_DWORD__ 	money;				//	+0x30
-	char 				unk2[0x8];			// 	+0x34
+	__DWORD__ 			loanshark_type;		// 	+0x34
+	__DWORD__ 			loanshark_counter;	// 	+0x38
 	__DWORD__ 			refund;				// 	+0x3c
 	__DWORD__ 			face;				// 	+0x40
 	__DWORD__ 			points;				// 	+0x44
 	__DWORD__ 			rank;				// 	+0x48
 	__DWORD__ 			wins;				// 	+0x4c
-	__DWORD__ 			races;				// 	+0x50
-	char 				unk3[4];			// 	+0x54
+	__DWORD__ 			races;				// 	+0x50		
+	__DWORD__ 			bonus;				// 	+0x54
 	__DWORD__ 			income;				// 	+0x58
 	__DWORD__ 			mines;				// 	+0x5c
 	__DWORD__ 			spikes;				// 	+0x60

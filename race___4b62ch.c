@@ -7,16 +7,14 @@
 	extern __BYTE__ ___243cfch[];
 	extern __POINTER__ ___243d74h;
 	extern __BYTE__ ___1df520h[];
-	extern __BYTE__ ___243d28h[];
-	extern __BYTE__ ___243d2ch[];
-	extern __BYTE__ ___243cf8h[];
-	extern __POINTER__ ___243d54h;
+	extern int TRX_WIDTH;
+	extern int TRX_HEIGHT;
+	extern __POINTER__ TRX_LR1;
 	extern __BYTE__ ___1de580h[];
-	extern __POINTER__ ___243d78h;
-	extern __BYTE__ ___243d30h[];
-	extern __BYTE__ ___242178h[];
-	extern __BYTE__ ___242578h[];
-	extern __BYTE__ ___241d78h[];
+	extern __POINTER__ TRX_VAI;
+	extern int TRX_WIDTH_QTR;
+	extern int TRX_OHI_DAT[0x100];
+	extern float TRX_DRV_DAT[0x200];
 
 #define LOC_PI	create_double(0xea,0x2e,0x44,0x54,0xfb,0x21,0x09,0x40)
 
@@ -54,7 +52,7 @@ static void helper_drug(int eax, int edx, int i, int action, int idx){
 	
 	if(ecx != 0){
 
-		if(s_35e[idx].__10a == 0){
+		if(s_35e[idx].Finished == 0){
 
 			if((int)s_94[idx].__18 > 0) s_35e[idx].Ctrls[getCounter(4)] |= action;
 		}
@@ -120,7 +118,7 @@ void race___4b62ch(int idx){
 
 				if((*carimage)[(int)edx+20][(int)ebx+20] > 3){
 					
-					if((s_35e[idx].__186 == 0)&&(s_35e[idx].__10a == 0)) s_35e[idx].__186 = 100;
+					if((s_35e[idx].__186 == 0)&&(s_35e[idx].Finished == 0)) s_35e[idx].__186 = 100;
 				}
 			}
 		}
@@ -135,7 +133,7 @@ void race___4b62ch(int idx){
 
 		if((dRMath_abs_i(D(___1df520h+0x10*n)-i) < 20)&&(dRMath_abs_i(D(___1df520h+0x10*n+4)-j) < 20)){
 
-			if((s_35e[idx].__186 == 0)&&(s_35e[idx].__10a == 0)) s_35e[idx].__186 = 60;
+			if((s_35e[idx].__186 == 0)&&(s_35e[idx].Finished == 0)) s_35e[idx].__186 = 60;
 		}
 	}
 
@@ -159,27 +157,27 @@ void race___4b62ch(int idx){
 	}
 	else {
 
-		ebx = B(___243d78h+((int)(double)s_35e[idx].XLocation>>0x2)+D(___243d30h)*((int)(double)s_35e[idx].YLocation>>0x2));
+		ebx = B(TRX_VAI+((int)(double)s_35e[idx].XLocation>>0x2)+TRX_WIDTH_QTR*((int)(double)s_35e[idx].YLocation>>0x2));
 
 		if((0.0f < s_94[idx].__4)||(s_35e[idx].__b0 > 0.5f)){
 
 			theta = ((double)s_35e[idx].Direction+180.0+26.0)*LOC_PI/180.0;
-			i = helper00(D(___243d28h)-1, (int)((double)s_35e[idx].XLocation+40.0*dRMath_sin(theta)));
-			j = helper00(D(___243d2ch)-1, (int)((double)s_35e[idx].YLocation+40.0*dRMath_cos(theta)));
-			b1 = 0x10-B(___243d54h+D(___243cf8h)*j+i);
+			i = helper00(TRX_WIDTH-1, (int)((double)s_35e[idx].XLocation+40.0*dRMath_sin(theta)));
+			j = helper00(TRX_HEIGHT-1, (int)((double)s_35e[idx].YLocation+40.0*dRMath_cos(theta)));
+			b1 = 0x10-B(TRX_LR1+TRX_WIDTH_QTR*j+i);
 			
 			theta = ((double)s_35e[idx].Direction+180.0-26.0)*LOC_PI/180.0;
-			i = helper00(D(___243d28h)-1, (int)((double)s_35e[idx].XLocation+40.0*dRMath_sin(theta)));
-			j = helper00(D(___243d2ch)-1, (int)((double)s_35e[idx].YLocation+40.0*dRMath_cos(theta)));
-			b2 = 0x10-B(___243d54h+D(___243cf8h)*j+i);
+			i = helper00(TRX_WIDTH-1, (int)((double)s_35e[idx].XLocation+40.0*dRMath_sin(theta)));
+			j = helper00(TRX_HEIGHT-1, (int)((double)s_35e[idx].YLocation+40.0*dRMath_cos(theta)));
+			b2 = 0x10-B(TRX_LR1+TRX_WIDTH_QTR*j+i);
 
 			if(s_35e[idx].__186 != 0){
 
-				eax = D(___242178h+4*ebx)+1;
+				eax = TRX_OHI_DAT[ebx]+1;
 				ecx = b1;
 				if((int)ecx > (int)eax) s_35e[idx].Ctrls[getCounter(4)] |= CTRL_STEER_RIGHT;
 
-				eax = D(___242178h+4*ebx)-1;
+				eax = TRX_OHI_DAT[ebx]-1;
 				ecx = b2;
 				if((int)ecx < (int)eax) s_35e[idx].Ctrls[getCounter(4)] |= CTRL_STEER_LEFT;
 			}
@@ -194,7 +192,7 @@ void race___4b62ch(int idx){
 
 			if((int)s_35e[idx].__196 > 3){
 
-				if(s_35e[idx].__10a == 0){
+				if(s_35e[idx].Finished == 0){
 
 					if((int)s_94[idx].__18 > 0){
 					
@@ -204,12 +202,12 @@ void race___4b62ch(int idx){
 			}
 		}
 
-		if((s_94[idx].__4*F32(___242578h+4*ebx)) > s_35e[idx].__b0){
+		if((s_94[idx].__4*TRX_DRV_DAT[ebx]) > s_35e[idx].__b0){
 
 			if(s_35e[idx].__182 == 0) s_35e[idx].Ctrls[getCounter(4)] |= CTRL_ACCELERATE;
 		}
 
-		s_35e[idx].__a8 = s_94[idx].__14*F32(___241d78h+4*ebx);
+		s_35e[idx].__a8 = s_94[idx].__14*TRX_DRV_DAT[ebx+0x100];
 	}
 
 	if((int)s_35e[idx].__186 > 0){

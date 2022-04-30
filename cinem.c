@@ -11,7 +11,7 @@ typedef struct rgb24_s {
 typedef rgb24_t pal256_t[0x100];
 
 	extern char ___1a0d60h[];
-	extern __BYTE__ VGA13_ACTIVESCREEN[];
+	extern __BYTE__ * VGA13_ACTIVESCREEN;
 
 	static __BYTE__ ___1a2042h[0x101];
 	static __BYTE__ ___1a2149h;

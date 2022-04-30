@@ -1,6 +1,7 @@
 #include "drally.h"
 #include "drally_fonts.h"
 #include "drally_keyboard.h"
+#include "drally_structs_fixed.h"
 
 #pragma pack(1)
 typedef struct x655_s {
@@ -27,7 +28,7 @@ typedef struct x655_s {
 	extern __BYTE__ ___185a20h[];
 	extern __BYTE__ ___185a38h_delay[];
 	extern __BYTE__ ___185a28h[];
-	extern __POINTER__ ___1a1138h__VESA101h_DefaultScreenBufferB;
+	extern __POINTER__ ___1a1138h__VESA101_BACKGROUND;
 	extern __POINTER__ ___1a1124h__VESA101h_ScreenBufferA;
 	extern __BYTE__ ___196a84h[];
 	extern __BYTE__ ___185a34h[];
@@ -85,6 +86,30 @@ static __BYTE__ helper_color(__DWORD__ eax, __DWORD__ edx){
 	return eax&0xff;
 }
 
+static void helper_palette(x655_t * p, int val, int cmin, int cmax){
+
+	int 	n, rr, gg, bb;
+
+	n = cmin-1;
+	while(++n < cmax){
+
+		rr = helper_color(p[n].r, val);
+		gg = helper_color(p[n].g, val);
+		bb = helper_color(p[n].b, val);
+
+		__DISPLAY_SET_PALETTE_COLOR(bb, gg, rr, n);
+	}
+}
+
+static void helper_continue_anim(void){
+
+	___259e0h_cdecl(0x1b0, 0x10d, D(___1a1ee8h), ___1a1ea0h, ___1865fch);
+	___1398ch__VESA101_PRESENTRECTANGLE(0x2a230, ___1a112ch__VESA101_ACTIVESCREEN_PTR+0x2a230, 0x60, 0x40);
+	D(___1a1ee8h)++;
+	
+	if((int)D(___1a1ee8h) > 0x16) D(___1a1ee8h) = 0;
+}
+
 // ___2ee78h
 void underground_main(void){
 
@@ -93,8 +118,12 @@ void underground_main(void){
 	__DWORD__ 	eax, ebx, ecx, edx, edi, esi, ebp;
 	__BYTE__ 	__esp[0x20+0x20];
 	__BYTE__ * 	esp = __esp+0x20;
+	int 		IsToBreak;
 	int 		i, n;
+	racer_t * 	s_6c;
 
+
+	s_6c = (racer_t *)___1a01e0h;
 
 #if defined(DR_MULTIPLAYER)
 	if(___19bd60h == 0){
@@ -103,229 +132,85 @@ void underground_main(void){
 		n = -1;
 		while(++n < 0x14){
 
-			if((i < (int)D(___1a01e0h+0x6c*n+0x44))&&(n != D(___1a1ef8h))) i = D(___1a01e0h+0x6c*n+0x44);
+			if((i < (int)s_6c[n].points)&&(n != D(___1a1ef8h))) i = s_6c[n].points;
 		}
 
-		if(i < (int)D(___1a01e0h+0x6c*D(___1a1ef8h)+0x44)) D(___1a0a50h+0xc) = 0;
+		if(i < (int)s_6c[D(___1a1ef8h)].points) D(___1a0a50h+0xc) = 0;
 #if defined(DR_MULTIPLAYER)
 	}
 #endif // DR_MULTIPLAYER
 
 	___2b318h();
-	ebp = 0x32;
-	D(esp+0x10) = 0xffdc;
-	D(esp+0x14) = 0x640000;
 
-	while(1){
+	n = -1;
+	while(++n < 0x33){
 
 		___58c60h();
-		dRally_Sound_setMasterVolume(D(esp+0x10));
+		dRally_Sound_setMasterVolume(0x51e*(50-n));
 
-		if(ebp%2){
+		if(n%2) helper_continue_anim();
 
-			___259e0h_cdecl(0x1b0, 0x10d, D(___1a1ee8h), ___1a1ea0h, ___1865fch);
-			___1398ch__VESA101_PRESENTRECTANGLE(0x2a230, ___1a112ch__VESA101_ACTIVESCREEN_PTR+0x2a230, 0x60, 0x40);
-			D(___1a1ee8h)++;
-			
-			if((int)D(___1a1ee8h) > 0x16) D(___1a1ee8h) = 0;
-		}
-
-		esi = D(esp+0x14);
-		ecx = 0;
-		D(esp) = 0;
-
-		while(1){
-
-			nn = B(esp);
-			rr = helper_color(___19eb50h[D(esp)].r, esi);
-			gg = helper_color(___19eb50h[D(esp)].g, esi);
-			bb = helper_color(___19eb50h[D(esp)].b, esi);
-
-			__DISPLAY_SET_PALETTE_COLOR(bb, gg, rr, nn);
-			D(esp)++;
-			if((int)D(esp) >= 0x60) break;
-		}
-
-		ebx = 0x80;
-		esi = D(esp+0x14);
-		D(esp) = 0;
-
-		while(1){
-
-			nn = D(esp)+0x80;
-			rr = helper_color(___19eb50h[D(esp)+0x80].r, esi);
-			gg = helper_color(___19eb50h[D(esp)+0x80].g, esi);
-			bb = helper_color(___19eb50h[D(esp)+0x80].b, esi);
-
-			__DISPLAY_SET_PALETTE_COLOR(bb, gg, rr, nn);
-			D(esp)++;
-			if((int)D(esp) >= 0x80) break;
-		}
-
-		ebx = D(esp+0x14);
-		edx = D(esp+0x10);
-		ebp--;
-		ebx -= 0x20000;
-		edx -= 0x51e;
-		D(esp+0x14) = ebx;
-		D(esp+0x10) = edx;
-		if((int)ebp < 0) break;
+		helper_palette(___19eb50h, 0x20000*(50-n), 0, 0x60);
+		helper_palette(___19eb50h, 0x20000*(50-n), 0x80, 0x100);
 	}
 
-	eax = dRally_Sound_getPosition();
-	eax &= 0xff00;
-	D(___1a1ef4h) = eax;
-	eax = 0x3100;
-	ecx = 5;
-	dRally_Sound_setPosition(eax);
-	D(___1a1ef0h) = ecx;
+	D(___1a1ef4h) = dRally_Sound_getPosition()&0xff00;
+	dRally_Sound_setPosition(0x3100);
+	D(___1a1ef0h) = 5;
 	___2ed2ch();
 
 	if(D(___185a40h) == 0){
-
-		ecx = 0x72;
-		ebx = 0x6c;
-		edx = 0xf3;
-		eax = 0x1aa;
-		___27f80h_cdecl(eax, edx, ebx, ecx);
+		
+		___27f80h_cdecl(426, 243, 108, 114);
+	}
+	else {
+	
+		___1716ch();
 	}
 
-	if(D(___185a40h) != 0) ___1716ch();
 	___12cb8h__VESA101_PRESENTSCREEN();
-	ebp = 0;
 	___2b318h();
-	D(esp+0x18) = ebp;
-	D(esp+8) = ebp;
 
-	while(1){
+	n = -1;
+	while(++n < 0x33){
 
 		___58c60h();
-		eax = D(esp+0x18);
-		ebx = 2;
-		dRally_Sound_setMasterVolume(eax);
-		edx = ebp;
-		eax = ebp;
-		edx = (int)edx>>0x1f;
-		edx = (long long)(int)eax%(int)ebx;
+		dRally_Sound_setMasterVolume(0x51e*n);
 
-		if(edx != 0){
+		if(n%2){
 
 			if(D(___185a40h) == 0){
-
-				edx = 0x10d;
-				eax = 0x1b0;
-				ebx = D(___1a1ee8h);
-				___259e0h_cdecl(eax, edx, ebx, ___1a1ea0h, ___1865fch);
-				ecx = 0x40;
-				ebx = 0x60;
-				eax = 0x2a230;
-				___1398ch__VESA101_PRESENTRECTANGLE(eax, ___1a112ch__VESA101_ACTIVESCREEN_PTR+0x2a230, ebx, ecx);
-				ecx = D(___1a1ee8h);
-				ecx++;
-				D(___1a1ee8h) = ecx;
 				
-				if((int)ecx > 0x16){
-				
-					edi = 0;
-					D(___1a1ee8h) = edi;
-				}
+				helper_continue_anim();
 			}
-		}
-
-		ebx = 2;
-		edx = ebp;
-		eax = ebp;
-		edx = (int)edx>>0x1f;
-		edx = (long long)(int)eax%(int)ebx;
-
-		if(edx != 0){
-
-			if(D(___185a40h) != 0){
+			else {
 			
-				edx = 0x141;
-				eax = 0xa4;
-				___13bd4h_cdecl(eax, edx);
+				___13bd4h_cdecl(164, 321);
 			}
 		}
 
-		esi = D(esp+8);
-		edx = 0;
-		edi = 0;
-		D(esp) = 0;
-
-		while(1){
-
-			nn = B(esp);
-			rr = helper_color(___19eb50h[D(esp)].r, esi);
-			gg = helper_color(___19eb50h[D(esp)].g, esi);
-			bb = helper_color(___19eb50h[D(esp)].b, esi);
-
-			__DISPLAY_SET_PALETTE_COLOR(bb, gg, rr, nn);
-			edi += 0xc;
-			D(esp)++;
-			if((int)D(esp) >= 0x60) break;
-		}
-
-		esi = 0x80;
-		D(esp) = 0;
-		esi = D(esp+8);
-
-		while(1){
-
-			nn = D(esp)+0x80;
-			rr = helper_color(___19eb50h[D(esp)+0x80].r, esi);
-			gg = helper_color(___19eb50h[D(esp)+0x80].g, esi);
-			bb = helper_color(___19eb50h[D(esp)+0x80].b, esi);
-
-			__DISPLAY_SET_PALETTE_COLOR(bb, gg, rr, nn);
-			D(esp)++; 
-			if((int)D(esp) >= 0x80) break;
-		}
-
-		edx = D(esp+0xa);
-		ebx = D(esp+0x18);
-		ebp++;
-		edx += 2;
-		ebx += 0x51e;
-		W(esp+0xa) = X(edx);
-		D(esp+0x18) = ebx;
-		if((int)ebp >= 0x32) break;
+		helper_palette(___19eb50h, 0x20000*n, 0, 0x60);
+		helper_palette(___19eb50h, 0x20000*n, 0x80, 0x100);
 	}
 
 	if(D(___185a40h) != 0){
 
 		___17324h();
-		ecx = 0x72;
-		ebx = 0x6c;
-		esi = 0;
-		edx = 0xf3;
-		D(___185a40h) = esi;
+		D(___185a40h) = 0;
 		___2ed2ch();
-		eax = 0x1aa;
-		___27f80h_cdecl(eax, edx, ebx, ecx);
+		___27f80h_cdecl(426, 243, 108, 114);
 		___12cb8h__VESA101_PRESENTSCREEN();
 	}
 
-	edi = 0;
-	D(esp+4) = edi;
-
-	while(1){
-
-		if(D(___185a20h) != 0) break;
+	IsToBreak = 0;
+	while((IsToBreak == 0)&&(D(___185a20h) == 0)){
 
 		___2ab50h();
 		___2ab50h();
-		eax = D(___185a38h_delay);
 		
-		if((int)eax > 0){
-		
-			edx = eax-1;
-			D(___185a38h_delay) = edx;
-		}
+		if((int)D(___185a38h_delay) > 0) D(___185a38h_delay)--;
 
-		eax = D(___1a1ef0h);
-
-		switch(eax){
+		switch(D(___1a1ef0h)){
 		case 0:
 			if(D(___185a38h_delay) == 1){
 			
@@ -362,35 +247,16 @@ void underground_main(void){
 			}
 			break;
 		case 5:
-			edx = 0x10d;
-			eax = 0x1b0;
-			ebx = D(___1a1ee8h);
-			___259e0h_cdecl(eax, edx, ebx, ___1a1ea0h, ___1865fch);
-			ecx = 0x40;
-			ebx = 0x60;
-			eax = 0x2a230;
-			___1398ch__VESA101_PRESENTRECTANGLE(eax, ___1a112ch__VESA101_ACTIVESCREEN_PTR+0x2a230, ebx, ecx);
-			ebx = D(___1a1ee8h);
-			ebx++;
-			D(___1a1ee8h) = ebx;
-
-			if((int)ebx > 0x16){
-				
-				esi = 0;
-				D(___1a1ee8h) = esi;
-			}
+			helper_continue_anim();
 			break;
 		default:
 			break;
 		}
 
-		L(eax) = ___5994ch();
-		switch(L(eax)){
+		switch(___5994ch()){
 		case DR_SCAN_ESCAPE:
-			edi = 0xffffffff;
-			esi = 1;
-			D(esp+4) = edi;
-			D(___185a28h) = esi;
+			IsToBreak = -1;
+			D(___185a28h) = 1;
 			break;
 		case DR_SCAN_ENTER:
 		case DR_SCAN_KP_ENTER:
@@ -421,79 +287,53 @@ void underground_main(void){
 			break;
 		}
 
-		eax = ___2a6a8h();
-		ebp = eax;
+		ebp = ___2a6a8h();
 
-		if((int)eax > 0){
+		if((int)ebp > 0){
 		
-			ecx = 0x29b80;
-			memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR+0xf000, ___1a1138h__VESA101h_DefaultScreenBufferB+0xf000, ecx);
+			memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR+0xf000, ___1a1138h__VESA101_BACKGROUND+0xf000, 0x29b80);
 			___2ed2ch();
 			___2b318h();
-			eax = 0x20;
-			edi = 0x640000;
-			D(esp) = 0;
 
-			while(1){
+			helper_palette(___19eb50h, 0x640000, 0x20, 0x100);
 
-				nn = D(esp)+0x20;
-				rr = helper_color(___19eb50h[D(esp)+0x20].r, edi);
-				gg = helper_color(___19eb50h[D(esp)+0x20].g, edi);
-				bb = helper_color(___19eb50h[D(esp)+0x20].b, edi);
+			___281d0h_cdecl(426, 243, 108, 114);
+			___281d0h_cdecl(10, 115, 108, 114);
+			___281d0h_cdecl(10, 243, 108, 114);
+			___281d0h_cdecl(114, 243, 108, 114);
+			___281d0h_cdecl(218, 243, 108, 114);
+			___281d0h_cdecl(322, 243, 108, 114);
 
-				__DISPLAY_SET_PALETTE_COLOR(bb, gg, rr, nn);
-				D(esp)++;
-				if((int)D(esp) >= 0xe0) break;
-			}
-
-			___281d0h_cdecl(0x1aa, 0xf3, 0x6c, 0x72);
-			___281d0h_cdecl(0xa, 0x73, 0x6c, 0x72);
-			___281d0h_cdecl(0xa, 0xf3, 0x6c, 0x72);
-			___281d0h_cdecl(0x72, 0xf3, 0x6c, 0x72);
-			___281d0h_cdecl(0xda, 0xf3, 0x6c, 0x72);
-			___281d0h_cdecl(0x142, 0xf3, 0x6c, 0x72);
-
-			if(D(___1a1ef0h) == 0){
-
-				___27f80h_cdecl(0xa, 0x73, 0x6c, 0x72);
+			switch(D(___1a1ef0h)){
+			case 0:
+				___27f80h_cdecl(10, 115, 108, 114);
 				___2d294h();
-			}
-
-			if(D(___1a1ef0h) == 1){
-
-				___27f80h_cdecl(0xa, 0xf3, 0x6c, 0x72);
+				break;
+			case 1:
+				___27f80h_cdecl(10, 243, 108, 114);
 				___2d728h();
-			}
-
-			if(D(___1a1ef0h) == 2){
-
-				___27f80h_cdecl(0x72, 0xf3, 0x6c, 0x72);
+				break;
+			case 2:
+				___27f80h_cdecl(114, 243, 108, 114);
 				___2d898h();
-			}
-
-			if(D(___1a1ef0h) == 3){
-			
-				___27f80h_cdecl(0xda, 0xf3, 0x6c, 0x72);
+				break;
+			case 3:
+				___27f80h_cdecl(218, 243, 108, 114);
 				___2da10h();
-			}
-
-			if(D(___1a1ef0h) == 4){
-
-				___27f80h_cdecl(0x142, 0xf3, 0x6c, 0x72);
+				break;
+			case 4:
+				___27f80h_cdecl(322, 243, 108, 114);
 				___2db88h();
-			}
-
-			if(D(___1a1ef0h) == 5){
-
-				___27f80h_cdecl(0x1aa, 0xf3, 0x6c, 0x72);
+				break;
+			case 5:
+				___27f80h_cdecl(426, 243, 108, 114);
 				___2ddc8h();
+				break;
+			default:
+				break;
 			}
 
-			ecx = 0x6d;
-			ebx = 0x27f;
-			edx = 0x173;
-			eax = 0;
-			___135fch(eax, edx, ebx, ecx);
+			___135fch(0, 371, 639, 109);
 
 #if defined(DR_MULTIPLAYER)
 			if(___19bd60h != 0){
@@ -506,107 +346,53 @@ void underground_main(void){
 			___23230h();
 			___12cb8h__VESA101_PRESENTSCREEN();
 			memcpy(___1a1124h__VESA101h_ScreenBufferA, ___1a112ch__VESA101_ACTIVESCREEN_PTR, 0x4b000);
-			if(ebp == 1) ___2a608h_cdecl("Game Saved.");
-			if(ebp == 2) ___2a608h_cdecl("Game Loaded.");
-			if(ebp == 3) ___2a608h_cdecl("Game not found.");
-			ecx = 0x4b000;
-			memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR, ___1a1124h__VESA101h_ScreenBufferA, ecx);
+			
+			switch(ebp){
+			case 1:	___2a608h_cdecl("Game Saved.");
+				break;
+			case 2:	___2a608h_cdecl("Game Loaded.");
+				break;
+			case 3:	___2a608h_cdecl("Game not found.");
+				break;
+			default:
+				break;
+			}
+
+			memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR, ___1a1124h__VESA101h_ScreenBufferA, 0x4b000);
 			___12cb8h__VESA101_PRESENTSCREEN();
 		}
 
 #if defined(DR_MULTIPLAYER)
-		if(___19bd60h != 0){
-
-			if(D(___196a84h) != 0) D(esp+4) = 0xffffffff;
-		}
+		if((___19bd60h != 0)&&(D(___196a84h) != 0)) IsToBreak = -1;
 #endif // DR_MULTIPLAYER
-
-		if(D(esp+4) != 0) break;
 	}
 
-___2f8ach:
-	edx = 1;
-	ebx = D(___196a84h);
-	D(___185a20h) = edx;
-	if(ebx != 0) D(___185a34h) = edx;
+	D(___185a20h) = 1;
 
-	if((D(___196a84h) == 0)&&(D(___185a2ch) == 0)){
+	if(D(___196a84h) == 0){
+		
+		if(D(___185a2ch) == 0){
 
-		___2b318h();
-		ebp = 0x32;
-		eax = 0xffdc;
-		edx = 0x640000;
-		D(esp+0xc) = eax;
-		D(esp+0x1c) = edx;
+			___2b318h();
 
-		while(1){
+			n = -1;
+			while(++n < 0x33){
 
-			___58c60h();
-			eax = ebp;
-			edx = (int)eax>>0x1f;
-			edx = (long long)(int)eax%2;
+				___58c60h();
 
-			if(edx != 0){
+				if(IsToBreak == -1){
 
-				if(D(___1a1ef0h) == 5){
-
-					if(D(esp+4) == -1){
-
-						___259e0h_cdecl(0x1b0, 0x10d, D(___1a1ee8h), ___1a1ea0h, ___1865fch);
-						___1398ch__VESA101_PRESENTRECTANGLE(0x2a230, ___1a112ch__VESA101_ACTIVESCREEN_PTR+0x2a230, 0x60, 0x40);
-						D(___1a1ee8h)++;
-						
-						if((int)D(___1a1ee8h) > 0x16) D(___1a1ee8h) = 0;
-					}
+					if((n%2)&&(D(___1a1ef0h) == 5)) helper_continue_anim();
+					dRally_Sound_setMasterVolume(0x51e*(50-n));
 				}
+
+				helper_palette(___19eb50h, 0x20000*(50-n), 0, 0x60);
+				helper_palette(___19eb50h, 0x20000*(50-n), 0x80, 0x100);
 			}
-
-			if(D(esp+4) == -1) dRally_Sound_setMasterVolume(D(esp+0xc));
-
-			esi = D(esp+0x1c);
-			ebx = 0;
-			edi = 0;
-			D(esp) = 0;
-
-			while(1){
-
-				nn = B(esp);
-				rr = helper_color(___19eb50h[D(esp)].r, esi);
-				gg = helper_color(___19eb50h[D(esp)].g, esi);
-				bb = helper_color(___19eb50h[D(esp)].b, esi);
-
-				__DISPLAY_SET_PALETTE_COLOR(bb, gg, rr, nn);
-				edi += 0xc;
-				D(esp)++;
-				if((int)D(esp) >= 0x60) break;
-			}
-
-			edx = 0x80;
-			esi = D(esp+0x1c);
-			D(esp) = 0;
-
-			while(1){
-
-				nn = D(esp)+0x80;
-				rr = helper_color(___19eb50h[D(esp)+0x80].r, esi);
-				gg = helper_color(___19eb50h[D(esp)+0x80].g, esi);
-				bb = helper_color(___19eb50h[D(esp)+0x80].b, esi);
-
-				__DISPLAY_SET_PALETTE_COLOR(bb, gg, rr, nn);
-				D(esp)++;
-				if((int)D(esp) >= 0x80) break;
-			}
-
-			edi = D(esp+0x1c);
-			esi = D(esp+0xc);
-			ebp--;
-			edi -= 0x20000;
-			esi -= 0x51e;
-			D(esp+0x1c) = edi;
-			D(esp+0xc) = esi;
-			if((int)ebp < 0) break;
 		}
 	}
+	else {
 
-	return;
+		D(___185a34h) = 1;
+	}
 }

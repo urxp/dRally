@@ -1,22 +1,19 @@
 #include "drally.h"
 #include "drally_structs_free.h"
 
-	extern __POINTER__ ___243d80h;
-	extern __POINTER__ ___243d88h;
+	extern __POINTER__ BACKBUFFER;
+	extern __POINTER__ RACE_SHOTS_BPK;
 	extern __BYTE__ ___243c60h[];
 	extern __BYTE__ ___1e6ed0h[];
-	extern __BYTE__ ___196dc8h[];
-	extern __BYTE__ ___196d98h[];
-	extern __BYTE__ ___196dcch[];
+	extern int TRX_VIEWPORT_TL_X;
+	extern int CURRENT_VIEWPORT_X;
+	extern int TRX_VIEWPORT_TL_Y;
 
 // MACHINE GUNS EFFECTS 
 void race___50ba4h(void){
 
 	__DWORD__ 		eax, ebx, ecx, edx, edi, esi, ebp;
 	__BYTE__ 		esp[0x3c];
-	__POINTER__ 	esip;
-	__POINTER__ 	edxp;
-	__POINTER__ 	ebxp;
 	int 			i, j, n, m;
 	__BYTE__ 		px;
 	struct_35e_t * 	s_35e;
@@ -24,13 +21,11 @@ void race___50ba4h(void){
 
 
 	s_35e = (struct_35e_t *)___1e6ed0h;
-	ebxp = ___243d80h;
-	esip = ___243d88h;
 
 	if((int)s_35e[D(___243c60h)].__1b2 > 0){
 
-		n = D(___196d98h)+s_35e[D(___243c60h)].__1ca-D(___196dc8h);
-		m = s_35e[D(___243c60h)].__1ce-D(___196dcch);
+		n = CURRENT_VIEWPORT_X+s_35e[D(___243c60h)].__1ca-TRX_VIEWPORT_TL_X;
+		m = s_35e[D(___243c60h)].__1ce-TRX_VIEWPORT_TL_Y;
 
 		if(n >= 0){
 
@@ -44,7 +39,7 @@ void race___50ba4h(void){
 						i = -1;
 						while(++i < 8){
 
-							if((px = B(esip+0x40*(s_35e[D(___243c60h)].__1b2-1)+i+8*j)) != 0) B(ebxp+n+i+0x200*(j+m)+0x60) = px;
+							if((px = B(RACE_SHOTS_BPK+0x40*(s_35e[D(___243c60h)].__1b2-1)+i+8*j)) != 0) B(BACKBUFFER+n+i+0x200*(j+m)+0x60) = px;
 						}
 					}
 				}
@@ -56,9 +51,9 @@ void race___50ba4h(void){
 
 	if((int)s_35e[D(___243c60h)].__1ae > 0){
 
-		n = D(___196d98h)+s_35e[D(___243c60h)].__1c2-D(___196dc8h);
+		n = CURRENT_VIEWPORT_X+s_35e[D(___243c60h)].__1c2-TRX_VIEWPORT_TL_X;
 		s_35e[D(___243c60h)].__1ca = s_35e[D(___243c60h)].__1c2;
-		m = s_35e[D(___243c60h)].__1c6-D(___196dcch);
+		m = s_35e[D(___243c60h)].__1c6-TRX_VIEWPORT_TL_Y;
 		s_35e[D(___243c60h)].__1ce = s_35e[D(___243c60h)].__1c6;
 
 		if(n >= 0){
@@ -73,7 +68,7 @@ void race___50ba4h(void){
 						i = -1;
 						while(++i < 8){
 
-							if((px = B(esip+0x40*(s_35e[D(___243c60h)].__1ae-1)+i+8*j)) != 0) B(ebxp+n+i+0x200*(j+m)+0x60) = px;
+							if((px = B(RACE_SHOTS_BPK+0x40*(s_35e[D(___243c60h)].__1ae-1)+i+8*j)) != 0) B(BACKBUFFER+n+i+0x200*(j+m)+0x60) = px;
 						}
 					}
 				}
@@ -86,9 +81,9 @@ void race___50ba4h(void){
 
 	if((int)s_35e[D(___243c60h)].__1aa > 0){
 
-		n = D(___196d98h)+s_35e[D(___243c60h)].__1ba-D(___196dc8h);
+		n = CURRENT_VIEWPORT_X+s_35e[D(___243c60h)].__1ba-TRX_VIEWPORT_TL_X;
 		s_35e[D(___243c60h)].__1c2 = s_35e[D(___243c60h)].__1ba;
-		m = s_35e[D(___243c60h)].__1be-D(___196dcch);
+		m = s_35e[D(___243c60h)].__1be-TRX_VIEWPORT_TL_Y;
 		s_35e[D(___243c60h)].__1c6 = s_35e[D(___243c60h)].__1be;
 
 		if(n >= 0){
@@ -103,7 +98,7 @@ void race___50ba4h(void){
 						i = -1;
 						while(++i < 8){
 
-							if((px = B(esip+0x40*(s_35e[D(___243c60h)].__1aa-1)+i+8*j)) != 0) B(ebxp+n+i+0x200*(j+m)+0x60) = px;
+							if((px = B(RACE_SHOTS_BPK+0x40*(s_35e[D(___243c60h)].__1aa-1)+i+8*j)) != 0) B(BACKBUFFER+n+i+0x200*(j+m)+0x60) = px;
 						}
 					}
 				}
@@ -113,7 +108,4 @@ void race___50ba4h(void){
 		s_35e[D(___243c60h)].__1ae = 1+s_35e[D(___243c60h)].__1aa;
 		s_35e[D(___243c60h)].__1aa = 0;
 	}
-
-	___243d88h = esip;
-	___243d80h = ebxp;
 }

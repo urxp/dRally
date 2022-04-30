@@ -27,8 +27,8 @@ void race___44304h(void){
 	if((int)eax >= (int)D(___243878h)){
 
 		edx = 0x35e*D(MY_CAR_IDX);
-		L(ecx) = s_35e[edx/0x35e].__108;
-		L(eax) = s_35e[edx/0x35e].__10a&0xff;
+		L(ecx) = s_35e[edx/0x35e].Lap;
+		L(eax) = s_35e[edx/0x35e].Finished&0xff;
 		L(ecx) <<= 4;
 		L(eax) <<= 3;
 		L(ecx) += L(eax);

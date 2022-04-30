@@ -44,7 +44,7 @@ void race___52ac4h(void){
 				SPECTATORS[n].frame = 0;
 				SPECTATORS[n].dead = 1;
 
-				if(s_35e[D(___243c60h)].__10a == 0){
+				if(s_35e[D(___243c60h)].Finished == 0){
 
 					D(0x94*D(___243c60h)+___1de580h+0x18) -= 3*(0x400-D(0x94*D(___243c60h)+___1de580h+0x1c));
 				}

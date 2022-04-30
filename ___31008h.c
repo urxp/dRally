@@ -1,5 +1,6 @@
 #include "drally.h"
 #include "drally_keyboard.h"
+#include "drally_structs_fixed.h"
 #include "sfx.h"
 
 #pragma pack(1)
@@ -13,7 +14,7 @@ typedef struct x655_s {
 
 	extern __POINTER__ ___1a112ch__VESA101_ACTIVESCREEN_PTR;
 	extern __POINTER__ ___1a10e4h__VESA101h_DefaultScreenBufferA;
-	extern __POINTER__ ___1a1138h__VESA101h_DefaultScreenBufferB;
+	extern __POINTER__ ___1a1138h__VESA101_BACKGROUND;
 	extern __POINTER__ ___1a0f90h;
 	extern __POINTER__ ___1a0f88h;
 	extern __POINTER__ ___1a0f84h;
@@ -47,7 +48,6 @@ typedef struct x655_s {
 	extern __BYTE__ ___1a0a50h[];
 	extern __BYTE__ ___185a20h[];
 
-void restoreDefaultScreenBuffer(void);
 void ___3892ch_cdecl(__DWORD__);
 int rand_watcom106(void);
 void ___3079ch_cdecl(__DWORD__);
@@ -59,11 +59,11 @@ void ___12940h(void);
 void ___58c60h(void);
 void ___2b318h(void);
 void ___2415ch(void);
-void ___3a6a4h(void);
+void ___3a6a4h_v2(int);
 void ___12cb8h__VESA101_PRESENTSCREEN(void);
 void ___2ab50h(void);
 __BYTE__ ___5994ch(void);
-void ___33010h_cdecl(__DWORD__ A1);
+void ___33010h_cdecl(int NumCars);
 void ___135fch(__DWORD__, __DWORD__, __DWORD__, __DWORD__);
 void ___23230h(void);
 void ___25330h(void);
@@ -89,8 +89,10 @@ void ___31008h(void){
 	__BYTE__ 	esp[0x30];
 	__BYTE__ 	px;
 	int 		i, j, n;
+	racer_t * 	s_6c;
 
 
+	s_6c = (racer_t *)___1a01e0h;
 	D(esp+0x28) = 0;
 
 	while(1){
@@ -106,8 +108,8 @@ void ___31008h(void){
 
 	memcpy(___1a10e4h__VESA101h_DefaultScreenBufferA, ___1a112ch__VESA101_ACTIVESCREEN_PTR, 0x4b000);
 	___1a112ch__VESA101_ACTIVESCREEN_PTR = ___1a10e4h__VESA101h_DefaultScreenBufferA;
-	memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR+0xe100, ___1a1138h__VESA101h_DefaultScreenBufferB+0xe100, 0x2aa80);
-	memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR+0x39580, ___1a1138h__VESA101h_DefaultScreenBufferB+0x39580, 0x2800);
+	memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR+0xe100, ___1a1138h__VESA101_BACKGROUND+0xe100, 0x2aa80);
+	memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR+0x39580, ___1a1138h__VESA101_BACKGROUND+0x39580, 0x2800);
 	___135fch(0, 0x173, 0x27f, 0x6d);
 	___23230h();
 	___25330h();
@@ -146,9 +148,7 @@ void ___31008h(void){
 	ebx = 0x10c;
 	edx = 0x78;
 	___27f80h_cdecl(0xaa, edx, ebx, ecx);
-	restoreDefaultScreenBuffer();
-	___3a6a4h();
-	___12cb8h__VESA101_PRESENTSCREEN();
+	___3a6a4h_v2(1);
 
 	L(eax) = 0;
 	n = -1;
@@ -236,7 +236,7 @@ void ___31008h(void){
 		n = -1;
 		while(++n < 0x14){
 
-			ecx = D(___1a01e0h+0x6c*n+0x44);
+			ecx = s_6c[n].points;
 			if(((int)edx < (int)ecx)&&(n != D(___1a1ef8h))) edx = ecx;
 		}
 
@@ -247,7 +247,7 @@ void ___31008h(void){
 		}
 		else {
 #endif // DR_MULTIPLAYER
-			D(___1a0a50h+0xc) = !((int)edx < (int)D(___1a01e0h+0x6c*D(___1a1ef8h)+0x44));
+			D(___1a0a50h+0xc) = !((int)edx < (int)s_6c[D(___1a1ef8h)].points);
 #if defined(DR_MULTIPLAYER)
 		}
 #endif // DR_MULTIPLAYER

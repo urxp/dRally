@@ -1,10 +1,18 @@
+#include "drally.h"
+
+void ___1ca00h(__DWORD__ A1){
+
+	printf("TODO ___1ca00h\n");
+	exit(1);
+}
+
 /*
 cpu 386
 %include "macros.inc"
 
 	extern	__CHK
 	extern 	__MOVS
-	extern	___1a1138h__VESA101h_DefaultScreenBufferB
+	extern	___1a1138h__VESA101_BACKGROUND
 	extern	___1a112ch__VESA101_ACTIVESCREEN_PTR
 	extern	___13710h
 	extern	___13248h_cdecl
@@ -29,7 +37,7 @@ __GDECL(___1ca00h)
 		push    edi
 		mov     ebx, eax
 		mov     ecx, 28f00h
-		mov     esi, [___1a1138h__VESA101h_DefaultScreenBufferB]
+		mov     esi, [___1a1138h__VESA101_BACKGROUND]
 		mov     edi, [___1a112ch__VESA101_ACTIVESCREEN_PTR]
 		add     esi, 10680h
 		add     edi, 10680h

@@ -28,8 +28,8 @@ void ___44730h(void){
 			D(___1de580h+0x94*D(___243c60h)+0x50) = B(___243d9eh+6);
 
 			eax = B(___243d9eh+7);
-			s_35e[D(___243c60h)].__108 = ((int)eax>>4)&0xff;
-			s_35e[D(___243c60h)].__10a = ((int)eax>>3)&0x01;
+			s_35e[D(___243c60h)].Lap = ((int)eax>>4)&0xff;
+			s_35e[D(___243c60h)].Finished = ((int)eax>>3)&0x01;
 			s_35e[D(___243c60h)].__0 = B(___243d9eh+8);
 			s_35e[D(___243c60h)].XLocation = (float)((double)B(___243d9eh+0xa)+(double)(float)(256.0*(double)B(___243d9eh+9)));
 			s_35e[D(___243c60h)].YLocation = (float)((double)B(___243d9eh+0xc)+(double)(float)(256.0*(double)B(___243d9eh+0xb)));
@@ -40,4 +40,10 @@ void ___44730h(void){
 			s_35e[D(___243c60h)].ImgOffset = 0x25800*D(___243c60h)+0x640*B(___243d9eh+0x11);
 		}
 	}
+}
+
+void ___44730h_helper(int n){
+
+	D(___243c60h) = n;
+	___44730h();
 }

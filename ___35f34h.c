@@ -1,4 +1,5 @@
 #include "drally.h"
+#include "drally_structs_fixed.h"
 
 	extern __BYTE__ ___1a0ef8h[];
 	extern __BYTE__ ___1a01e0h[];
@@ -7,7 +8,9 @@ void ___35f34h_cdecl(__DWORD__ A1, __DWORD__ A2, __DWORD__ A3){
 
 	__DWORD__ 	eax, ebx, ecx, edx, edi, esi, ebp;
 	__BYTE__ 	esp[0x14];
+	racer_t * 	s_6c;
 
+	s_6c = (racer_t *)___1a01e0h;
 	eax = A1;
 	edx = A2;
 	ebx = A3;
@@ -28,12 +31,12 @@ ___35f51h:
 		edi = B(eax+ebp+___1a0ef8h);
 		edi = 0x6c*edi;
 		D(esp+0x4) = ebp;
-		edi = D(edi+___1a01e0h+0x1c);
+		edi = s_6c[edi/0x6c].car;
 ___35f81h:
 		L(eax) = B(ecx+ebp+___1a0ef8h);
 		eax &= 0xff;
 		eax = 0x6c*eax;
-		if((int)edi <= (int)D(eax+___1a01e0h+0x1c)) goto ___35f9bh;
+		if((int)edi <= (int)s_6c[eax/0x6c].car) goto ___35f9bh;
 		ecx++;
 		goto ___35f81h;
 ___35f9bh:
@@ -44,7 +47,7 @@ ___35fa1h:
 		L(ebx) = B(eax+___1a0ef8h);
 		ebx = 0x6c*ebx;
 		edx = esi-1;
-		if((int)edi >= (int)D(ebx+___1a01e0h+0x1c)) goto ___35fbch;
+		if((int)edi >= (int)s_6c[ebx/0x6c].car) goto ___35fbch;
 		esi = edx;
 		eax--;
 		goto ___35fa1h;

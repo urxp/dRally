@@ -6,8 +6,8 @@
 	extern __BYTE__ ___1de580h[];
 	extern __BYTE__ ___1e6ed0h[];
 	extern __BYTE__ ___196efch[];
-	extern __POINTER__ ___243290h[2];
-	extern __POINTER__ ___243d80h;
+	extern __POINTER__ RACE_ROCKETX_BPK[2];
+	extern __POINTER__ BACKBUFFER;
 
 __DWORD__ __GET_FRAME_COUNTER(void);
 
@@ -56,7 +56,7 @@ void race___51204h(void){
 					i = -1;
 					while(++i < 0x10){
 
-						if((px = B(___243290h[D(___196efch)]+0x100*val+0x10*j+i))) B(___243d80h+0x200*(y+j)+x+i+0x60) = px;
+						if((px = B(RACE_ROCKETX_BPK[D(___196efch)]+0x100*val+0x10*j+i))) B(BACKBUFFER+0x200*(y+j)+x+i+0x60) = px;
 					}
 				}
 

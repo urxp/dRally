@@ -17,11 +17,11 @@ typedef union struct_120_s {
 	};
 } struct_120_t;
 
-	extern __POINTER__ ___243d38h;
+	extern __POINTER__ RACE_OBSTACLE_BPK;
 	extern struct_120_t ___1f2488h[20];
 	extern __BYTE__ ___196dd0h[];
-	extern __BYTE__ ___243d28h[];
-	extern __POINTER__ ___243d58h;
+	extern int TRX_WIDTH;
+	extern __POINTER__ TRX_IMA;
 	extern __BYTE__ ___1de7d0h[];
 #if defined(DR_MULTIPLAYER)
 	extern __DWORD__ ___19bd60h;
@@ -42,7 +42,7 @@ static void helper00(struct_120_t * p120, int t){
 		n = -1;
 		while(++n < 0x10){
 			
-			memcpy(p120->__20[n], ___243d58h+D(___243d28h)*(p120->y+n-8)+(p120->x-8), 0x10);
+			memcpy(p120->__20[n], TRX_IMA+TRX_WIDTH*(p120->y+n-8)+(p120->x-8), 0x10);
 		}
 
 		j = -1;
@@ -51,9 +51,9 @@ static void helper00(struct_120_t * p120, int t){
 			i = -1;
 			while(++i < 0x10){
 
-				if((px = read_b(___243d38h+0x10*(j+0x10*(p120->type-1))+i)) != 0){
+				if((px = read_b(RACE_OBSTACLE_BPK+0x10*(j+0x10*(p120->type-1))+i)) != 0){
 					
-					write_b(___243d58h+D(___243d28h)*(j+p120->y-8)+i+(p120->x-8), px);
+					write_b(TRX_IMA+TRX_WIDTH*(j+p120->y-8)+i+(p120->x-8), px);
 				}
 			}
 		}

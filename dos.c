@@ -54,11 +54,6 @@ __DWORD__ DPMI_GET_FREE_MEMORY_INFORMATION(void){
 	return 0x57b0cc;
 }
 
-void _settextposition_(__DWORD__ A1, __DWORD__ A2){
-
-    printf("_settextposition_(%d, %d) not implemented\n", A1, A2);
-}
-
 __BYTE__ inp_(__DWORD__ A1){
 
     printf("inp_ not implemented\n");

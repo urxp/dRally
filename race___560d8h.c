@@ -18,7 +18,7 @@ void race___560d8h(void){
 
 		if(n != MY_CAR_IDX){
 
-			if((s_35e[n].__10a == 0)&&(s_35e[MY_CAR_IDX].__10a == 0)){
+			if((s_35e[n].Finished == 0)&&(s_35e[MY_CAR_IDX].Finished == 0)){
 
 				if(s_35e[MY_CAR_IDX].Position < s_35e[n].Position){
 

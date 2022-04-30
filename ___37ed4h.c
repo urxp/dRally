@@ -1,5 +1,6 @@
 #include "drally.h"
 #include "drally_fonts.h"
+#include "drally_structs_fixed.h"
 
 	extern __BYTE__ ___1a01e0h[];
 	extern __BYTE__ ___1a1ef8h[];
@@ -24,7 +25,9 @@ void ___37ed4h_cdecl(int A1){
 	int 		i, j, n;
 	char 		buff[0x30];
 	__BYTE__ 	px;
+	racer_t * 	s_6c;
 
+	s_6c = (racer_t *)___1a01e0h;
 
 	n = -1;
 	while(++n < A1){
@@ -78,13 +81,11 @@ void ___37ed4h_cdecl(int A1){
 			}
 		}
 
-		itoa_watcom106(D(___1a01e0h+0x6c*n+0x48), buff, 0xa);
-		strcat(buff, ".");
+		strcat(itoa_watcom106(s_6c[n].rank, buff, 0xa), ".");
 		___12e78h_cdecl(___1a10b8h, (font_props_t *)___185c7ah, buff, 0xe13e +0x2f80*n-___251e8h_cdecl(buff));
-		strcpy(buff, ___1a01e0h+0x6c*n);
-		strupr_watcom106(buff);
+		strupr_watcom106(strcpy(buff, s_6c[n].name));
 		___12e78h_cdecl(___1a10b8h, (font_props_t *)___185c7ah, buff, 0xdec2+0x2f80*n);
-		itoa_watcom106(D(___1a01e0h+0x6c*n+0x44), buff, 0xa);
+		itoa_watcom106(s_6c[n].points, buff, 0xa);
 		___12e78h_cdecl(___1a10b8h, (font_props_t *)___185c7ah, buff, 0xdf48+0x2f80*n-___251e8h_cdecl(buff));
 	}
 }

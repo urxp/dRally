@@ -18,12 +18,12 @@ typedef struct spectator_s {
 	extern __BYTE__ MY_CAR_IDX[];
 	extern __BYTE__ ___196dach[];
 	extern __BYTE__ ___1e6ed0h[];
-	extern __BYTE__ ___196dc8h[];
-	extern __BYTE__ ___196dcch[];
-	extern __BYTE__ ___196d98h[];
-	extern __POINTER__ ___243d40h;
-	extern __POINTER__ ___243d80h;
-	extern __POINTER__ ___243288h[2];
+	extern int TRX_VIEWPORT_TL_X;
+	extern int TRX_VIEWPORT_TL_Y;
+	extern int CURRENT_VIEWPORT_X;
+	extern __POINTER__ RACE_PEDESTR_BPK;
+	extern __POINTER__ BACKBUFFER;
+	extern __POINTER__ RACE_SPLATX_BPK[2];
 
 __DWORD__ __GET_FRAME_COUNTER(void);
 
@@ -74,11 +74,11 @@ void race___52d7ch(void){
 	}
 	n = -1;
 	while(++n < 0x14){
-		if((SPECTATORS[n].x > (int)(D(___196dc8h)-0x10))&&(SPECTATORS[n].x < (int)(D(___196dc8h)+0x140))){
-			if((SPECTATORS[n].y > (int)(D(___196dcch)-0x10))&&(SPECTATORS[n].y < (int)(D(___196dcch)+0xc8))){
+		if((SPECTATORS[n].x > (int)(TRX_VIEWPORT_TL_X-0x10))&&(SPECTATORS[n].x < (int)(TRX_VIEWPORT_TL_X+0x140))){
+			if((SPECTATORS[n].y > (int)(TRX_VIEWPORT_TL_Y-0x10))&&(SPECTATORS[n].y < (int)(TRX_VIEWPORT_TL_Y+0xc8))){
 				if((SPECTATORS[n].x != 0)&&(SPECTATORS[n].y != 0)){
 
-					eax = SPECTATORS[n].y-D(___196dcch);
+					eax = SPECTATORS[n].y-TRX_VIEWPORT_TL_Y;
 					edx = 0;
 					if((int)eax < 0){
 						edx -= eax;
@@ -86,10 +86,10 @@ void race___52d7ch(void){
 					}
 
 					if(SPECTATORS[n].dead != 0){
-						ebxp = ___243288h[SPECTATORS[n].x%2]+0x100*SPECTATORS[n].frame;
+						ebxp = RACE_SPLATX_BPK[SPECTATORS[n].x%2]+0x100*SPECTATORS[n].frame;
 					}
 					else {
-						ebxp = ___243d40h+0xc00*SPECTATORS[n].type+0x300*SPECTATORS[n].rot+0x100*SPECTATORS[n].frame;
+						ebxp = RACE_PEDESTR_BPK+0xc00*SPECTATORS[n].type+0x300*SPECTATORS[n].rot+0x100*SPECTATORS[n].frame;
 					}
 
 					if((int)eax <= 0xb7){
@@ -100,7 +100,7 @@ void race___52d7ch(void){
 						ecx = 0xc8-eax;
 					}
 
-					edip = ___243d80h+0x60+0x200*eax+SPECTATORS[n].x-D(___196dc8h)+D(___196d98h);
+					edip = BACKBUFFER+0x60+0x200*eax+SPECTATORS[n].x-TRX_VIEWPORT_TL_X+CURRENT_VIEWPORT_X;
 
 					j = -1;
 					while(++j < L(ecx)){

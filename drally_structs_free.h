@@ -41,10 +41,25 @@ typedef struct struct_35e_s {
     float       __fc;               // +0fc
     float       __100;              // +100
     float       __104;              // +104
-    __BYTE__    __108;              // +108
+    __BYTE__    Lap;                // +108
     __BYTE__    Position;           // +109
-    __DWORD__   __10a;              // +10a
-    __BYTE__    __10e[0x40];        // +10e
+    __DWORD__   Finished;              // +10a
+    float       X1__10e;              // +10e
+    float       Y1__112;              // +112
+    float       X1__116;              // +116
+    float       Y1__11a;              // +11a
+    float       X2__11e;              // +11e
+    float       Y2__122;              // +122
+    float       X2__126;              // +126
+    float       Y2__12a;              // +12a
+    float       X3__12e;              // +12e
+    float       Y3__132;              // +132
+    float       X3__136;              // +136
+    float       Y3__13a;              // +13a
+    float       X4__13e;              // +13e
+    float       Y4__142;              // +142
+    float       X4__146;              // +146
+    float       Y4__14a;              // +14a
     float       __14e;              // +14e
     float       __152;              // +152
     float       __156;              // +156
@@ -98,14 +113,23 @@ typedef struct struct_35e_s {
 typedef struct struct_94_s {
     __DWORD__   __0;                // +00
     float       __4;                // +04
-    __BYTE__    __8[0xc];           // +08
+    __BYTE__    __8[8];             // +08
+    float       __10;               // +10
     float       __14;               // +14
     __DWORD__   __18;               // +18
-    __BYTE__    __1c[0x1c];         // +1c
+    __DWORD__   __1c;               // +1C               
+    __BYTE__    __20[8];            // +20
+    __DWORD__   __28;               // +28
+    __DWORD__   __2C;               // +2C
+    __DWORD__   __30;               // +30
+    __DWORD__   __34;               // +34
     __DWORD__   __38;               // +38
     __DWORD__   __3c;               // +3c
     __DWORD__   __40;               // +40
-    __BYTE__    __44[0x18];         // +44
+    __BYTE__    __44[0xc];          // +44
+    __DWORD__   __50;               // +50
+    __DWORD__   __54;               // +54
+    __DWORD__   __58;               // +58
     __DWORD__   __5c;               // +5c
     __DWORD__   __60;               // +60
     __BYTE__    __64[0x20];         // +64
@@ -140,6 +164,24 @@ typedef struct kb_control_s  {
 
 typedef __BYTE__ img40x40[40][40];
 typedef img40x40 car_spins_t[96];
+
+typedef char char40[40];
+typedef char char12[12];
+typedef struct cardata_s {
+    char12      		name;                           // +000
+    __DWORD__   		price;                          // +00C
+    char40      		txt_info[6];                    // +010
+    char40      		txt_winfo[6];                   // +100
+    char40      		txt_bought[6];                  // +1F0
+    char40      		txt_engine_upgrades[4][6];      // +2E0
+    __DWORD__   		n_engine_upgrades;              // +6A0
+    __DWORD__   		n_tire_upgrades;                // +6A4
+    __DWORD__   		n_armor_upgrades;               // +6A8
+    __DWORD__   		price_engine_upgrades[4];       // +6AC
+    __DWORD__   		price_tire_upgrades[4];         // +6BC
+    __DWORD__   		price_armor_upgrades[4];        // +6CC
+    __SIGNED_DWORD__   	price_repair;                   // +6DC
+} cardata_t;
 
 #pragma pack(pop)
 

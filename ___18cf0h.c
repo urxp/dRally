@@ -4,7 +4,7 @@
 #include "drmemory.h"
 
 	extern char ___1866b8h[9][9][50];
-	extern __POINTER__ ___1a1138h__VESA101h_DefaultScreenBufferB;
+	extern __POINTER__ ___1a1138h__VESA101_BACKGROUND;
 	extern __POINTER__ ___1a112ch__VESA101_ACTIVESCREEN_PTR;
 	extern __BYTE__ ___1a1ef8h[];
 	extern __BYTE__ ___185a14h_UseWeapons[];
@@ -53,11 +53,14 @@ static __BYTE__ ROR_BYTE(__BYTE__ b, int n){
 void ___18cf0h(void){
 
 	FILE * 			fd;
-	__DWORD__ 			eax, esi, ebp;
-	__BYTE__ 			esp[0x34];
+	__DWORD__ 		eax, esi, ebp;
+	__BYTE__ 		esp[0x34];
 	saved_game_t *	sg;
 	int 			n;
+	racer_t * 		s_6c;
 
+
+	s_6c = (racer_t *)___1a01e0h;
 
 	n = -1;
 	while(++n < 8){
@@ -75,7 +78,7 @@ void ___18cf0h(void){
 
 	while(1){
 
-		memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR+0x10680, ___1a1138h__VESA101h_DefaultScreenBufferB+0x10680, 0x28f00);
+		memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR+0x10680, ___1a1138h__VESA101_BACKGROUND+0x10680, 0x28f00);
 		___13710h(0, 0);
 		___13710h(1, 0);
 		___13710h(5, 1);
@@ -112,7 +115,7 @@ void ___18cf0h(void){
 		sg->weapons = B(___185a14h_UseWeapons);
 		sg->difficulty = ___196a94h_difficulty;
 		strcpy(sg->name, esp);
-		memcpy(sg->racers, ___1a01e0h, 20*sizeof(racer_t));
+		memcpy(sg->racers, s_6c, 20*sizeof(racer_t));
 		dREncryption_encodeSavedGame(sg);
 		fd = strupr_fopen(strcat(strcpy(esp+0x10, "DR.SG"), itoa_watcom106(n, esp+0x2c, 0xa)), "wb");
 		fwrite(sg, sizeof(saved_game_t), 1, fd);

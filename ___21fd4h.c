@@ -2,7 +2,7 @@
 #include "drally_fonts.h"
 #include "drally_structs_fixed.h"
 
-	extern __POINTER__ ___1a1138h__VESA101h_DefaultScreenBufferB;
+	extern __POINTER__ ___1a1138h__VESA101_BACKGROUND;
 	extern __POINTER__ ___1a112ch__VESA101_ACTIVESCREEN_PTR;
 	extern __POINTER__ ___1a10c0h;
 	extern char ___18d492h[][0xf];
@@ -26,7 +26,7 @@ void ___21fd4h_cdecl(__DWORD__ A1){
 	ebp = 0x14c80;
 	while(1){
 
-		memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR+ebp+0xe1, ___1a1138h__VESA101h_DefaultScreenBufferB+ebp+0xe1, 0x17d);
+		memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR+ebp+0xe1, ___1a1138h__VESA101_BACKGROUND+ebp+0xe1, 0x17d);
 
 		ebp += 0x280;
 		if(ebp == 0x19500) break;
@@ -35,7 +35,7 @@ void ___21fd4h_cdecl(__DWORD__ A1){
 	ebp = 0x20300;
 	while(1){
 
-		memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR+ebp+0xe0, ___1a1138h__VESA101h_DefaultScreenBufferB+ebp+0xe0, 0x170);
+		memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR+ebp+0xe0, ___1a1138h__VESA101_BACKGROUND+ebp+0xe0, 0x170);
 
 		ebp += 0x280;
 		if(ebp == 0x34800) break;

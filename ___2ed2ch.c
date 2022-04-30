@@ -1,6 +1,6 @@
 #include "drally.h"
 
-	extern __POINTER__ ___1a1138h__VESA101h_DefaultScreenBufferB;
+	extern __POINTER__ ___1a1138h__VESA101_BACKGROUND;
 	extern __POINTER__ ___1a112ch__VESA101_ACTIVESCREEN_PTR;
 #if defined(DR_MULTIPLAYER)
 	extern __DWORD__ ___19bd60h;
@@ -25,7 +25,7 @@ void ___2ed2ch(void){
 	__POINTER__ 	esip;
 
 
-	memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR+0xe600, ___1a1138h__VESA101h_DefaultScreenBufferB+0xe600, 0x2a580);
+	memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR+0xe600, ___1a1138h__VESA101_BACKGROUND+0xe600, 0x2a580);
 
 #if defined(DR_MULTIPLAYER)
 	if(___19bd60h != 0){

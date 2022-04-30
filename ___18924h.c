@@ -1,10 +1,11 @@
 #include "drally.h"
 #include "drmemory.h"
+#include "drally_structs_fixed.h"
 #include "sfx.h"
 
 	extern __BYTE__ ___1866b8h[];
 	extern __BYTE__ ___1866b8h[];
-	extern __POINTER__ ___1a1138h__VESA101h_DefaultScreenBufferB;
+	extern __POINTER__ ___1a1138h__VESA101_BACKGROUND;
 	extern __POINTER__ ___1a112ch__VESA101_ACTIVESCREEN_PTR;
 	extern __DWORD__ ___24cc54h_sfx_volume;
 	extern __BYTE__ ___1866b8h[];
@@ -45,9 +46,11 @@ __DWORD__ ___18924h(void){
 	__DWORD__ 	eax, ebx, ecx, edx, edi, esi, ebp;
 	__BYTE__ 	esp[0x28];
 	__BYTE__ 	key;
-	int 	n;
-	FILE *	fd;
+	int 		n;
+	FILE *		fd;
+	racer_t * 	s_6c;
 
+	s_6c = (racer_t *)___1a01e0h;
 
 	n = -1;
 	while(++n < 8){
@@ -70,7 +73,7 @@ __DWORD__ ___18924h(void){
 
 	while(1){
 
-		memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR+0x10680, ___1a1138h__VESA101h_DefaultScreenBufferB+0x10680, 0x28f00);
+		memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR+0x10680, ___1a1138h__VESA101_BACKGROUND+0x10680, 0x28f00);
 		___13710h(0, 0);
 		___13710h(1, 0);
 		___13710h(5, 1);
@@ -117,12 +120,12 @@ __DWORD__ ___18924h(void){
 		D(___1a1ef8h) = B(___1a0f9ch+1);
 		D(___185a14h_UseWeapons) = B(___1a0f9ch+2);
 		___196a94h_difficulty = B(___1a0f9ch+3);
-		memcpy(___1a01e0h, ___1a0f9ch+0x13, 0x870);
+		memcpy(s_6c, ___1a0f9ch+0x13, 20*sizeof(racer_t));
 		dRMemory_free(___1a0f9ch);
-		D(___1a0a50h) = !!(D(0x6c*D(___1a1ef8h)+___1a01e0h+0x5c) != 8);
-		D(___1a0a50h+4) = !!(D(0x6c*D(___1a1ef8h)+___1a01e0h+0x60) != 1);
-		D(___1a0a50h+8) = !!(D(0x6c*D(___1a1ef8h)+___1a01e0h+0x64) != 1);
-		D(___1a0a50h+0xc) = !!(D(0x6c*D(___1a1ef8h)+___1a01e0h+0x68) != 1);
+		D(___1a0a50h) = !!(s_6c[D(___1a1ef8h)].mines != 8);
+		D(___1a0a50h+4) = !!(s_6c[D(___1a1ef8h)].spikes != 1);
+		D(___1a0a50h+8) = !!(s_6c[D(___1a1ef8h)].rocket_fuel != 1);
+		D(___1a0a50h+0xc) = !!(s_6c[D(___1a1ef8h)].sabotage != 1);
 		___2a608h_cdecl("Game Loaded.");
 		eax = 1;
 	}

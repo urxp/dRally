@@ -1,7 +1,8 @@
 #include "drally.h"
 #include "drally_fonts.h"
+#include "drally_structs_fixed.h"
 
-	extern __POINTER__ ___1a1138h__VESA101h_DefaultScreenBufferB;
+	extern __POINTER__ ___1a1138h__VESA101_BACKGROUND;
 	extern __POINTER__ ___1a112ch__VESA101_ACTIVESCREEN_PTR;
 	extern __POINTER__ ___1a10dch;
 	extern __BYTE__ ___1a1ef8h[];
@@ -38,9 +39,11 @@ void ___223c4h(void){
 	__BYTE__ 	esp[0x44];
 	int 	i, j, n, x, y;
 	__BYTE__ 	px;
+	racer_t * 	s_6c;
 
 
-	memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR, ___1a1138h__VESA101h_DefaultScreenBufferB, 0x4b000);
+	s_6c = (racer_t *)___1a01e0h;
+	memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR, ___1a1138h__VESA101_BACKGROUND, 0x4b000);
 	___135fch(0, 0x173, 0x27f, 0x6d);
 	___3e03ch();
 	___23230h();
@@ -55,7 +58,7 @@ void ___223c4h(void){
 		}
 	}
 
-	n = D(___1a01e0h+0x6c*D(___1a1ef8h)+0x50);
+	n = s_6c[D(___1a1ef8h)].races;
 	D(esp+0x2c) = -1;
 	eax = 0;
 	edx = 0;
@@ -94,9 +97,9 @@ void ___223c4h(void){
 			}
 		}
 
-		strcpy(___1a0e28h+0x14*D(esp+0x2c), ___1a01e0h+0x6c*D(___1a1ef8h));
+		strcpy(___1a0e28h+0x14*D(esp+0x2c), s_6c[D(___1a1ef8h)].name);
 		strupr_watcom106(___1a0e28h+0x14*D(esp+0x2c));
-		D(___1a0e28h+0x14*D(esp+0x2c)+0xc) = D(___1a01e0h+0x6c*D(___1a1ef8h)+0x50);
+		D(___1a0e28h+0x14*D(esp+0x2c)+0xc) = s_6c[D(___1a1ef8h)].races;
 		D(___1a0e28h+0x14*D(esp+0x2c)+0x10) = ___196a94h_difficulty;
 		___27d24h_cdecl(0x11, 0x16*D(esp+0x2c)+0x8a, 0x25b, 0x18);
 		CONFIG_WRITE();

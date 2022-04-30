@@ -92,7 +92,7 @@ __DWORD__ ___611c0h(__DWORD__ A1, __POINTER__ * A2){
 		if(___24e3f0h[n] != D(___199fb8h)){
 
 			m = -1;
-			while(++m < A1) B(A2[n]+m) = B((n<<0xa)+m+___24cf28h);
+			while(++m < A1) B(A2[n]+m) = B(___24cf28h+m+(n<<0xa));
 		}
 		else{
 

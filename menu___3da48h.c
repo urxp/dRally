@@ -20,7 +20,7 @@ typedef struct x655_s {
 __DWORD__ GET_FILE_SIZE(const char *);
 void ___2b318h(void);
 void ___58c60h(void);
-void ___13a98h_cdecl(__DWORD__);
+void menu___13a98h(__DWORD__);
 void __DISPLAY_SET_PALETTE_COLOR(__DWORD__ b, __DWORD__ g, __DWORD__ r, __DWORD__ n);
 int ___3d9c0h_cdecl(const char *, const char *, int);
 void ___12cb8h__VESA101_PRESENTSCREEN(void);
@@ -77,7 +77,7 @@ void menu___3da48h(void){
 			eax = ebp;
 			edx = (int)edx>>0x1f;
 			edx = (long long)(int)eax%(int)esi;
-			if(edx != 0) ___13a98h_cdecl(0);
+			if(edx != 0) menu___13a98h(0);	// SPINNING TIRE ICON
 			esi = D(esp+0x70);
 			ecx = 0;
 			D(esp+0x64) = 0;
@@ -149,7 +149,7 @@ void menu___3da48h(void){
 			eax = ebp;
 			edx = (int)edx>>0x1f;
 			edx = (long long)(int)eax%(int)esi;
-			if(edx != 0) ___13a98h_cdecl(0);
+			if(edx != 0) menu___13a98h(0);	// SPINNING TIRE ICON
 			esi = 0;
 			D(esp+0x64) = 0;
 			esi = D(esp+0x68);

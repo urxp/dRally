@@ -41,20 +41,18 @@ typedef struct spectator_s {
 } spectator_t;
 
 	extern char ___19bd64h[16];
-	extern __BYTE__ ___243dd0h[];
+	extern char TRX_BPA[14];
 	extern __BYTE__ ___243d90h[];
 	extern __BYTE__ ___1a54d0h[];
-	extern __BYTE__ ___243d28h[];
-	extern __BYTE__ ___243d2ch[];
+	extern int TRX_WIDTH;
+	extern int TRX_HEIGHT;
 	extern __BYTE__ ___243cech[];
 	extern __BYTE__ ___1e6ed0h[];
 	extern __BYTE__ ___1f2488h[];
 #define SPECTATORS ___1df720h
 	extern spectator_t ___1df720h[];
-	extern __BYTE__ ___243d30h[];
-	extern __BYTE__ ___243d04h[];
-	extern __BYTE__ ___243cf8h[];
-	extern __BYTE__ ___243d10h[];
+	extern int TRX_WIDTH_QTR;
+	extern int TRX_HEIGHT_QTR;
 
 void old_bpa_read(const char *, __POINTER__, const char *);
 
@@ -67,10 +65,10 @@ void race___49bd4h(void){
 
 	s_35e = (struct_35e_t *)___1e6ed0h;
 	TrxInf = (tr_inf_t *)___1a54d0h;
-	old_bpa_read(strcat(strcpy(___243dd0h, ___19bd64h), ".BPA"), (__POINTER__)TrxInf, strcat(strcpy(___243d90h, ___19bd64h), "-INF.BIN"));
+	old_bpa_read(strcat(strcpy(TRX_BPA, ___19bd64h), ".BPA"), (__POINTER__)TrxInf, strcat(strcpy(___243d90h, ___19bd64h), "-INF.BIN"));
 
-	D(___243d28h) = TrxInf->w;
-	D(___243d2ch) = TrxInf->h;
+	TRX_WIDTH = TrxInf->w;
+	TRX_HEIGHT = TrxInf->h;
 	D(___243cech) = TrxInf->unk0;
 
 	n = -1;
@@ -101,8 +99,6 @@ void race___49bd4h(void){
 		SPECTATORS[n].timestamp	= 0;
 	}
 
-	D(___243d30h) = (int)D(___243d28h)>>2;
-	D(___243d04h) = (int)D(___243d2ch)>>2;
-	D(___243cf8h) = D(___243d30h);
-	D(___243d10h) = D(___243d04h);
+	TRX_WIDTH_QTR = TRX_WIDTH>>2;
+	TRX_HEIGHT_QTR = TRX_HEIGHT>>2;
 }

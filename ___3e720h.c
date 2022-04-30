@@ -11,6 +11,7 @@
 	extern __DWORD__ CONFIG_SOUND_ADDR;
 
 #if defined(DR_MULTIPLAYER)
+#include "drally_structs_fixed.h"
 extern __BYTE__ ___1a01e0h[];
 extern __BYTE__ ___1a1ef8h[];
 extern __BYTE__ ___1866b8h[];
@@ -43,6 +44,7 @@ void ___3e720h(void){
 	char 	buffer[0x96];
 
 #if defined(DR_MULTIPLAYER)
+	racer_t * 	s_6c;
     __DWORD__   ebx;
 #endif // DR_MULTIPLAYER
 	
@@ -66,13 +68,14 @@ void ___3e720h(void){
 #if defined(DR_MULTIPLAYER)
 	if(___19bd60h != 0){
 
+		s_6c = (racer_t *)___1a01e0h;
 		ebx = 6;
-		strcat(strcat(strcpy(buffer, "-- "), (char *)(___1a01e0h+0x6c*D(___1a1ef8h))), " has left from Death Rally.");
+		strcat(strcat(strcpy(buffer, "-- "), s_6c[D(___1a1ef8h)].name), " has left from Death Rally.");
 
 		if(strcmp((char *)(___1866b8h+0x3b6), "Abort Current Game") == 0){
 
 			___23488h_cdecl(buffer, 0x64, 0x14);
-			strcat(strcat(strcpy(buffer, "-- "), (char *)(___1a01e0h+0x6c*D(___1a1ef8h))), " aborted current netgame.");
+			strcat(strcat(strcpy(buffer, "-- "), s_6c[D(___1a1ef8h)].name), " aborted current netgame.");
 
 			if(CONNECTION_TYPE != 2) ebx = 9;
 		}

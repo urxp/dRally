@@ -1,37 +1,38 @@
 #include "drally.h"
 #include "drally_structs_free.h"
 
+#pragma pack(1)
 typedef struct xc50_s {
-	__DWORD__ 	___0;			// +000
-	__DWORD__ 	___4;			// +004
-	__DWORD__ 	___8[75];		// +008
-	__DWORD__ 	_134[75];		// +134
-	__DWORD__	_260[75];		// +260
+	int 		PointsN;		// +000
+	int 		TrianglesN;		// +004
+	__DWORD__ 	CONST_X___8[75];		// +008
+	__DWORD__ 	CONST_Y_134[75];		// +134
+	__DWORD__	CONST_Z_260[75];		// +260
 	__DWORD__ 	_38C;			// +38c
 	__DWORD__	_390;			// +390
 	__DWORD__	_394;			// +394
 	__DWORD__ 	_398;			// +398
-	__DWORD__	_39C[100];		// +39c
-	__DWORD__	_52C[100];		// +52c
-	__DWORD__	_6BC[100];		// +6bc
+	__DWORD__	IndicesP1[100];		// +39c
+	__DWORD__	IndicesP2[100];		// +52c
+	__DWORD__	IndicesP3[100];		// +6bc
 	__DWORD__	_84C[100];		// +84c
-	__DWORD__	_9DC;			// +9dc
-	__DWORD__ 	_9E0;			// +9e0
-	__DWORD__	_9E4;			// +9e4
-	__DWORD__	_9E8;			// +9e8
-	__DWORD__	_9EC[75];		// +9ec
-	__DWORD__	_B18[75];		// +b18
+	__DWORD__	TRX_X;			// +9dc
+	__DWORD__ 	TRX_Y;			// +9e0
+	__DWORD__	X_REL_VIEWPORT_CENTER;			// +9e4
+	__DWORD__	Y_REL_VIEWPORT_CENTER;			// +9e8
+	__DWORD__	PointsX[75];		// +9ec
+	__DWORD__	PointsY[75];		// +b18
 	__DWORD__	_C44;			// +c44
 	__DWORD__	_C48;			// +c48
 	__DWORD__	_C4C;			// +c4c
 } xc50_t;
 
 typedef struct x2c_s {
-    __DWORD__   __0;        // +00
-    __DWORD__   __4;        // +04
-    __DWORD__   __8;        // +08
-    __DWORD__   __C;        // +0c
-    __DWORD__   _10;        // +10
+    __DWORD__   width;    	// +00
+    __DWORD__   height;  	// +04
+    __DWORD__   offset;    	// +08
+    __DWORD__   XPos;      	// +0c
+    __DWORD__   YPos;     	// +10
     __DWORD__   _14;        // +14
     __DWORD__   _18;        // +18
     __DWORD__   _1C;        // +1c
@@ -43,26 +44,24 @@ typedef struct x2c_s {
 	extern xc50_t ___1f3b08h[];		// <0x1f3b08 - 0x1f4758)
 	extern x2c_t ___240b48h[];		// <0x240b48 - 0x240b74)
 
-	extern __POINTER__ ___243d58h;
-	extern __BYTE__ ___243d2ch[];
-	extern __BYTE__ ___243d28h[];
-	extern __POINTER__ ___243d60h;
-	extern __POINTER__ ___243d78h;
-	extern __BYTE__ ___243d04h[];
-	extern __BYTE__ ___243d30h[];
-	extern __POINTER__ ___243d54h;
-	extern __BYTE__ ___243d10h[];
-	extern __BYTE__ ___243cf8h[];
+	extern __POINTER__ TRX_IMA;
+	extern int TRX_HEIGHT;
+	extern int TRX_WIDTH;
+	extern __POINTER__ TRX_MAS;
+	extern __POINTER__ TRX_VAI;
+	extern int TRX_HEIGHT_QTR;
+	extern int TRX_WIDTH_QTR;
+	extern __POINTER__ TRX_LR1;
 	extern __POINTER__ ___243d74h;
-	extern __POINTER__ ___243d40h;
+	extern __POINTER__ RACE_PEDESTR_BPK;
 	extern __BYTE__ ___1e6ed0h[];
 	extern __BYTE__ ___1f2488h[];
 	extern __BYTE__ ___1df720h[];
 	extern __BYTE__ ___243c5ch[];
-	extern __BYTE__ ___1de920h[];
-	extern __BYTE__ ___1ded20h[];
-	extern __BYTE__ ___243c88h[];
-	extern __BYTE__ ___243c94h[];
+	extern int X___1de920h[0x100];
+	extern int Y___1ded20h[0x100];
+	extern __BYTE__ NUM_OF_OBJECTS[];
+	extern __BYTE__ NUM_OF_TEXTURES[];
 	extern __POINTER__ ___243d5ch;
 
 static void helper00(__POINTER__ ptr, __DWORD__ dim){
@@ -81,7 +80,7 @@ void race___4af3ch(void){
 	__DWORD__ 		eax, ebx, ecx, edx, edi, esi, ebp;
 	__BYTE__ 		esp[0x3c];
 	int 		i, j, dim, m, n;
-	x2c_t * 	p;
+	x2c_t * 	q;
 	__BYTE__ 		b_tmp;
 	double 		d1, d2, d3;
 	__POINTER__ 		esip;
@@ -90,10 +89,10 @@ void race___4af3ch(void){
 
 	s_35e = (struct_35e_t *)___1e6ed0h;
 
-	helper00(___243d58h, D(___243d28h)*D(___243d2ch));
-	helper00(___243d60h, D(___243d28h)*D(___243d2ch));
-	helper00(___243d78h, D(___243d30h)*D(___243d04h));
-	helper00(___243d54h, D(___243cf8h)*D(___243d10h));
+	helper00(TRX_IMA, TRX_WIDTH*TRX_HEIGHT);
+	helper00(TRX_MAS, TRX_WIDTH*TRX_HEIGHT);
+	helper00(TRX_VAI, TRX_WIDTH_QTR*TRX_HEIGHT_QTR);
+	helper00(TRX_LR1, TRX_WIDTH_QTR*TRX_HEIGHT_QTR);
 
 	D(esp+0x1c) = 0;
 	while(1){
@@ -164,17 +163,17 @@ void race___4af3ch(void){
 		i = -1;
 		while(++i < 0x80){
 
-			b_tmp = B(___243d40h+0x100*j+i);
-			B(___243d40h+0x100*j+i) = B(___243d40h+0x100*j+0xff-i);
-			B(___243d40h+0x100*j+0xff-i) = b_tmp;
+			b_tmp = B(RACE_PEDESTR_BPK+0x100*j+i);
+			B(RACE_PEDESTR_BPK+0x100*j+i) = B(RACE_PEDESTR_BPK+0x100*j+0xff-i);
+			B(RACE_PEDESTR_BPK+0x100*j+0xff-i) = b_tmp;
 		}
 	}
 
 	n = -1;
 	while(++n < 4){
 
-		s_35e[n].XLocation = (float)(int)(D(___243d28h)-1-(int)(double)s_35e[n].XLocation);
-		s_35e[n].YLocation = (float)(int)(D(___243d2ch)-1-(int)(double)s_35e[n].YLocation);
+		s_35e[n].XLocation = (float)(int)(TRX_WIDTH-1-(int)(double)s_35e[n].XLocation);
+		s_35e[n].YLocation = (float)(int)(TRX_HEIGHT-1-(int)(double)s_35e[n].YLocation);
 		s_35e[n].ImgIndex = (s_35e[n].ImgIndex+48)%96;
 		s_35e[n].__156 = (float)(3.75*(double)(int)s_35e[n].ImgIndex);
 		s_35e[n].Direction = (float)(3.75*(double)(int)s_35e[n].ImgIndex);
@@ -186,12 +185,12 @@ void race___4af3ch(void){
 
 		if((int)D(___1f2488h+0x120*n) > 0){
 		
-			D(___1f2488h+0x120*n) = D(___243d28h)-1-D(___1f2488h+0x120*n);
+			D(___1f2488h+0x120*n) = TRX_WIDTH-1-D(___1f2488h+0x120*n);
 		}
 				
 		if((int)D(___1f2488h+0x120*n+4) > 0){
 		
-			D(___1f2488h+0x120*n+4) = D(___243d2ch)-1-D(___1f2488h+0x120*n+4);
+			D(___1f2488h+0x120*n+4) = TRX_HEIGHT-1-D(___1f2488h+0x120*n+4);
 		}
 	}
 
@@ -200,65 +199,61 @@ void race___4af3ch(void){
 
 		if((int)D(___1df720h+0x20*n) > 0){
 		
-			D(___1df720h+0x20*n) = D(___243d28h)-1-D(___1df720h+0x20*n)-0x10;
+			D(___1df720h+0x20*n) = TRX_WIDTH-1-D(___1df720h+0x20*n)-0x10;
 		}
 
 		if((int)D(___1df720h+0x20*n+4) > 0){
 		
-			D(___1df720h+0x20*n+4) = D(___243d2ch)-1-D(___1df720h+0x20*n+4)-0x10;
+			D(___1df720h+0x20*n+4) = TRX_HEIGHT-1-D(___1df720h+0x20*n+4)-0x10;
 		}
 	}
 
 	n = -1;
 	while(++n < (int)D(___243c5ch)){
 
-		D(___1de920h+4*n) = D(___243d28h)-1-D(___1de920h+4*n);
-		D(___1ded20h+4*n) = D(___243d2ch)-1-D(___1ded20h+4*n);
+		X___1de920h[n] = TRX_WIDTH-1-X___1de920h[n];
+		Y___1ded20h[n] = TRX_HEIGHT-1-Y___1ded20h[n];
 	}
 
 	m = -1;
-	while(++m < (int)D(___243c88h)){
+	while(++m < (int)D(NUM_OF_OBJECTS)){
 
 		n = -1;
-		while(++n < (int)D(0xc50*m+(__POINTER__)&___1f3b08h->___0)){
+		while(++n < ___1f3b08h[m].PointsN){
 
-			D(0xc50*m+4*n+(__POINTER__)&___1f3b08h->___8) = 0-D(0xc50*m+4*n+(__POINTER__)&___1f3b08h->___8);
+			___1f3b08h[m].CONST_X___8[n] = 0-___1f3b08h[m].CONST_X___8[n];
+			___1f3b08h[m].CONST_Y_134[n] = 0-___1f3b08h[m].CONST_Y_134[n];
 		}
 
-		n = -1;
-		while(++n < (int)D(0xc50*m+(__POINTER__)&___1f3b08h->___0)){
+		eax = 0-___1f3b08h[m]._390;
+		___1f3b08h[m]._390 = (int)(-1.0*(double)(int)___1f3b08h[m]._38C);
+		___1f3b08h[m]._38C = eax;
 
-			D(0xc50*m+4*n+(__POINTER__)&___1f3b08h->_134) = 0-D(0xc50*m+4*n+(__POINTER__)&___1f3b08h->_134);
-		}
+		eax = 0-___1f3b08h[m]._398;
+		___1f3b08h[m]._398 = (int)(-1.0*(double)(int)___1f3b08h[m]._394);
+		___1f3b08h[m]._394 = eax;
 
-		eax = 0-D(0xc50*m+(__POINTER__)&___1f3b08h->_390);
-		D(0xc50*m+(__POINTER__)&___1f3b08h->_390) = (int)(-1.0*(double)(int)D(0xc50*m+(__POINTER__)&___1f3b08h->_38C));
-		D(0xc50*m+(__POINTER__)&___1f3b08h->_38C) = eax;
 
-		eax = 0-D(0xc50*m+(__POINTER__)&___1f3b08h->_398);
-		D(0xc50*m+(__POINTER__)&___1f3b08h->_398) = (int)(-1.0*(double)(int)D(0xc50*m+(__POINTER__)&___1f3b08h->_394));
-		D(0xc50*m+(__POINTER__)&___1f3b08h->_394) = eax;
-
-		D(0xc50*m+(__POINTER__)&___1f3b08h->_9DC) = D(___243d28h)-1-D(0xc50*m+(__POINTER__)&___1f3b08h->_9DC);
-		D(0xc50*m+(__POINTER__)&___1f3b08h->_9E0) = D(___243d2ch)-1-D(0xc50*m+(__POINTER__)&___1f3b08h->_9E0);
+		___1f3b08h[m].TRX_X = TRX_WIDTH-1-___1f3b08h[m].TRX_X;
+		___1f3b08h[m].TRX_Y = TRX_HEIGHT-1-___1f3b08h[m].TRX_Y;
 	} // w
 
 	i = -1;
-	while(++i < (int)D(___243c94h)){
+	while(++i < (int)D(NUM_OF_TEXTURES)){
 
-		p = &___240b48h[i];
+		q = &___240b48h[i];
 
-		p->__C = 0x100*(D(___243d28h)-1)-p->__C-p->__0*p->_14;
-		p->_10 = 0x100*(D(___243d2ch)-1)-p->_10-p->__4*p->_14;
+		q->XPos = 0x100*(TRX_WIDTH-1)-q->XPos-q->width*q->_14;
+		q->YPos = 0x100*(TRX_HEIGHT-1)-q->YPos-q->height*q->_14;
 
-		dim = p->__0*p->__4;
+		dim = q->width*q->height;
 		eax = dim/2;
 		j = -1;
 		while(++j < (int)eax){
 
-			b_tmp = B(___243d5ch+p->__8+j);
-			B(___243d5ch+p->__8+j) = B(___243d5ch+dim+p->__8-j-1);
-			B(___243d5ch+dim+p->__8-j-1) = b_tmp;
+			b_tmp = B(___243d5ch+q->offset+j);
+			B(___243d5ch+q->offset+j) = B(___243d5ch+dim+q->offset-j-1);
+			B(___243d5ch+dim+q->offset-j-1) = b_tmp;
 		}
 	}
 

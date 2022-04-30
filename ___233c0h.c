@@ -1,7 +1,7 @@
 #include "drally.h"
 #include "drally_fonts.h"
 
-	extern __POINTER__ ___1a1138h__VESA101h_DefaultScreenBufferB;
+	extern __POINTER__ ___1a1138h__VESA101_BACKGROUND;
 	extern __POINTER__ ___1a112ch__VESA101_ACTIVESCREEN_PTR;
 	extern __BYTE__ ___185c0bh[];
 	extern __POINTER__ ___1a1108h;
@@ -21,7 +21,7 @@ void ___233c0h(void){
 	n = -1;
 	while(++n < 0x14c){
 
-		memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR+0x280*(n+0x78)+0xc, ___1a1138h__VESA101h_DefaultScreenBufferB+0x280*(n+0x78)+0xc, 0x276);
+		memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR+0x280*(n+0x78)+0xc, ___1a1138h__VESA101_BACKGROUND+0x280*(n+0x78)+0xc, 0x276);
 	}
 
 	n = -1;

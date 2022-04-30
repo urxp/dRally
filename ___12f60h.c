@@ -1,11 +1,5 @@
 #include "drally.h"
-
-#pragma pack(1)
-typedef struct font_props_s {
-	__BYTE__ 	w;
-	__BYTE__ 	h;
-	__BYTE__ 	props[];
-} font_props_t;
+#include "drally_fonts.h"
 
 	extern font_props_t ___185c6dh;
 	extern __BYTE__ * ___1a112ch__VESA101_ACTIVESCREEN_PTR;
@@ -39,13 +33,7 @@ void ___12f60h_cdecl(const char * A1, __DWORD__ A2){
 	}
 }
 
-int ___25180h_cdecl(const char * A1){
+int ___25180h_cdecl(const char * s){
 
-	int 	n, offset;
-
-	offset = 0;
-	n = -1;
-	while(A1[++n]) offset += c_width(A1[n]);;
-
-	return (0x60-offset)/2;
+	return (0x60-getTextWidth(FONTPROPS04, s))/2;
 }

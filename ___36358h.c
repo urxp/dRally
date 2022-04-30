@@ -1,5 +1,6 @@
 #include "drally.h"
 #include "drally_fonts.h"
+#include "drally_structs_fixed.h"
 
 #pragma pack(1)
 typedef struct x655_s {
@@ -50,10 +51,11 @@ void ___36358h_cdecl(__DWORD__ A1){
 	__BYTE__ 	esp[8];
 	__POINTER__ 	esip;
 	__POINTER__ 	ebxp;
+	racer_t * 		s_6c;
 
+
+	s_6c = (racer_t *)___1a01e0h;
 	eax = A1;
-
-
 	ebp = eax;
 
 	if(D(___1a1028h) != 1){
@@ -161,7 +163,7 @@ void ___36358h_cdecl(__DWORD__ A1){
 			L(eax) = B(esp+edx);
 			edx = 0x6c*eax;
 
-			if(D(edx+___1a01e0h+0xc) != 0x64){
+			if(s_6c[edx/0x6c].damage != 0x64){
 				
 				if((eax == D(___1a1ef8h))&&(D(___196ab0h) == 1)) break;
 
@@ -205,7 +207,7 @@ void ___36358h_cdecl(__DWORD__ A1){
 			eax = B(esp+edi);
 			edx = 0x6c*eax;
 
-			if(D(edx+___1a01e0h+0xc) != 0x64){
+			if(s_6c[edx/0x6c].damage != 0x64){
 				
 				if((eax != D(___1a1ef8h))||(D(___196ab0h) != 1)){
 
@@ -216,9 +218,9 @@ void ___36358h_cdecl(__DWORD__ A1){
 					edx = 0x13*edx;
 					edx += 0x59;
 					edx = 0x280*edx;
-					edi = D(eax+___1a01e0h+0x44);
+					edi = s_6c[eax/0x6c].points;
 					edi += 0x5;
-					D(eax+___1a01e0h+0x44) = edi;
+					s_6c[eax/0x6c].points = edi;
 					ecx = edx+0xe6;
 					___12e78h_cdecl(___1a10b8h, (font_props_t *)___185c7ah, "+5", ecx);
 				}
@@ -228,7 +230,7 @@ void ___36358h_cdecl(__DWORD__ A1){
 			eax = B(esp+edi);
 			edx = 0x6c*eax;
 
-			if(D(edx+___1a01e0h+0xc) != 0x64){
+			if(s_6c[edx/0x6c].damage != 0x64){
 
 				if((eax != D(___1a1ef8h))||(D(___196ab0h) != 1)){
 					
@@ -239,9 +241,9 @@ void ___36358h_cdecl(__DWORD__ A1){
 					edx = 0x13*edx;
 					edx += 0x59;
 					ecx = 0x280*edx;
-					edi = D(eax+___1a01e0h+0x44);
+					edi = s_6c[eax/0x6c].points;
 					edi += 0x3;
-					D(eax+___1a01e0h+0x44) = edi;
+					s_6c[eax/0x6c].points = edi;
 					ecx += 0xe6;
 					___12e78h_cdecl(___1a10b8h, (font_props_t *)___185c7ah, "+3", ecx);
 				}
@@ -251,7 +253,7 @@ void ___36358h_cdecl(__DWORD__ A1){
 			eax = B(esp+edi);
 			edx = 0x6c*eax;
 
-			if(D(edx+___1a01e0h+0xc) != 0x64){
+			if(s_6c[edx/0x6c].damage != 0x64){
 
 				if((eax != D(___1a1ef8h))||(D(___196ab0h) != 1)){
 					
@@ -262,9 +264,9 @@ void ___36358h_cdecl(__DWORD__ A1){
 					edx = 0x13*edx;
 					edx += 0x59;
 					ecx = 0x280*edx;
-					edi = D(eax+___1a01e0h+0x44);
+					edi = s_6c[eax/0x6c].points;
 					edi++;
-					D(eax+___1a01e0h+0x44) = edi;
+					s_6c[eax/0x6c].points = edi;
 					ecx += 0xe6;
 					___12e78h_cdecl(___1a10b8h, (font_props_t *)___185c7ah, "+1", ecx);
 				}

@@ -1,6 +1,7 @@
 #include "drally.h"
 #include "drally_fonts.h"
 #include "drally_keyboard.h"
+#include "drally_structs_fixed.h"
 #include "sfx.h"
 
 #pragma pack(1)
@@ -13,7 +14,7 @@ typedef struct x655_s {
 	extern x655_t ___19eb50h[0x100];
 
 	extern __BYTE__ ___1a1028h[];
-	extern __POINTER__ ___1a1138h__VESA101h_DefaultScreenBufferB;
+	extern __POINTER__ ___1a1138h__VESA101_BACKGROUND;
 	extern __POINTER__ ___1a10e4h__VESA101h_DefaultScreenBufferA;
 	extern __POINTER__ ___1a112ch__VESA101_ACTIVESCREEN_PTR;
 	extern __BYTE__ ___185a3ch[];
@@ -35,7 +36,6 @@ typedef struct x655_s {
 	extern __BYTE__ ___1a1ef4h[];
 	extern __BYTE__ ___185a28h[];
 
-void restoreDefaultScreenBuffer(void);
 void dRally_Sound_freeEffectChannel(__BYTE__ ch_num);
 void ___12940h(void);
 void ___3892ch_cdecl(__DWORD__);
@@ -46,7 +46,7 @@ void ___2b318h(void);
 void ___13248h_cdecl(__DWORD__, __DWORD__ ,__DWORD__, __DWORD__, __DWORD__);
 __DWORD__ ___32230h(void);
 __DWORD__ ___31868h(void);
-void ___33010h_cdecl(__DWORD__ A1);
+void ___33010h_cdecl(int NumCars);
 char * strupr_watcom106(char * s);
 char * itoa_watcom106(int value, char * buffer, int radix);
 void ___3174ch_cdecl(__DWORD__);
@@ -60,7 +60,7 @@ void ___281d0h_cdecl(__DWORD__, __DWORD__, __DWORD__, __DWORD__);
 void ___30df8h(void);
 void ___27f80h_cdecl(__DWORD__, __DWORD__, __DWORD__, __DWORD__);
 void ___17248h(void);
-void ___3a6a4h(void);
+void ___3a6a4h_v2(int);
 void ___31588h(void);
 void __DISPLAY_SET_PALETTE_COLOR(__DWORD__, __DWORD__, __DWORD__, __DWORD__);
 
@@ -82,15 +82,18 @@ static __DWORD__ helper_color(__DWORD__ eax, __DWORD__ edx){
 	return eax;
 }
 
+// SIGNUP SCREEN
 void ___3266ch(void){
 
 	__DWORD__ 	rr, gg, bb, nn;
-	__DWORD__ 	eax, ebx, ecx, edx, edi, esi, ebp, cf;
+	__DWORD__ 	eax, ebx, edx, edi, esi, ebp, cf;
 	__BYTE__ 	esp[0x64];
-	int 	x, y, i, j, n;
+	int 	x, y, i, j, n, n2, n3, n4;
 	__BYTE__ 		px;
+	racer_t * 		s_6c;
 
 
+	s_6c = (racer_t *)___1a01e0h;
 	D(___1a1028h) = -1;
 	___31588h();
 
@@ -104,22 +107,20 @@ void ___3266ch(void){
 		__DISPLAY_SET_PALETTE_COLOR(bb, gg, rr, n+0xb0);
 	}
 
-	memcpy(___1a10e4h__VESA101h_DefaultScreenBufferA, ___1a1138h__VESA101h_DefaultScreenBufferB, 0x4b000);
+	memcpy(___1a10e4h__VESA101h_DefaultScreenBufferA, ___1a1138h__VESA101_BACKGROUND, 0x4b000);
 	___1a112ch__VESA101_ACTIVESCREEN_PTR = ___1a10e4h__VESA101h_DefaultScreenBufferA;
-	memcpy(___1a10e4h__VESA101h_DefaultScreenBufferA+0x280*103, ___1a1138h__VESA101h_DefaultScreenBufferB+0x280*103, 0x28a00);
+	memcpy(___1a10e4h__VESA101h_DefaultScreenBufferA+0x280*103, ___1a1138h__VESA101_BACKGROUND+0x280*103, 0x28a00);
 	___30df8h();
 
 	if(D(___185a3ch) == 0) ___27f80h_cdecl(0xa0*D(___185a50h)+0x16, 0x76, 0x94, 0x84);
 	if(D(___185a3ch) != 0) ___17248h();
 
-	restoreDefaultScreenBuffer();
-	___3a6a4h();
-	___12cb8h__VESA101_PRESENTSCREEN();
+	___3a6a4h_v2(1);
 
 	if(D(___185a3ch) != 0){
 
 		___17324h();
-		memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR+0x10180, ___1a1138h__VESA101h_DefaultScreenBufferB+0x10180, 0x28a00);
+		memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR+0x10180, ___1a1138h__VESA101_BACKGROUND+0x10180, 0x28a00);
 		___30df8h();
 		___27f80h_cdecl(0xa0*D(___185a50h)+0x16, 0x76, 0x94, 0x84);
 		___12cb8h__VESA101_PRESENTSCREEN();
@@ -145,9 +146,9 @@ void ___3266ch(void){
 			break;
 		case DR_SCAN_ENTER:
 		case DR_SCAN_KP_ENTER:
-			if((D(___185a50h) != 1)||(D(___185a50h) != D(___185a44h))||((int)D(___1a01e0h+0x6c*D(___1a1ef8h)+0x1c) >= 2)){
+			if((D(___185a50h) != 1)||(D(___185a50h) != D(___185a44h))||((int)s_6c[D(___1a1ef8h)].car >= 2)){
 
-				if((D(___185a50h) != 2)||(D(___185a48h) != 1)||((int)D(___1a01e0h+0x6c*D(___1a1ef8h)+0x1c) >= 4)){
+				if((D(___185a50h) != 2)||(D(___185a48h) != 1)||((int)s_6c[D(___1a1ef8h)].car >= 4)){
 
 					if(B(___1a1f64h+D(___185a50h)+3) >= 4){
 
@@ -176,10 +177,10 @@ void ___3266ch(void){
 							}
 						}
 
-						itoa_watcom106(D(___1a01e0h+0x6c*D(___1a1ef8h)+0x48), esp+0x3c, 0xa);
+						itoa_watcom106(s_6c[D(___1a1ef8h)].rank, esp+0x3c, 0xa);
 						strcpy(esp, "");
 						if(strlen(esp+0x3c) < 2) strcat(esp, " ");
-						strcat(strcat(strcat(esp, esp+0x3c), "."), strupr_watcom106(strcpy(esp+0x50, ___1a01e0h+0x6c*D(___1a1ef8h))));
+						strcat(strcat(strcat(esp, esp+0x3c), "."), strupr_watcom106(strcpy(esp+0x50, s_6c[D(___1a1ef8h)].name)));
 						edx = B(___1a1f64h+D(___185a50h)+3);
 
 						x = 0x280*(0x12*(edx+1)+0x100)+0xa0*D(___185a50h)+0x22;
@@ -201,76 +202,51 @@ void ___3266ch(void){
 							if((B(___1a1f64h+3) >= 4)&&(B(___1a1f64h+4) >= 4)&&(B(___1a1f64h+5) >= 4)) break;
 						}
 
-						ecx = 0;
-
-						while(1){
+						n2 = -1;
+						while(++n2 < 3){
 
 							memset(esp+0x3c, 0, 0x14);
-							B(esp+0x50) = B(___1a0ef8h+ecx);
-							B(esp+0x51) = B(___1a0ef8h+ecx+1);
-							esi = 0;
-							B(esp+0x52) = B(___1a0ef8h+ecx+2);
-							edi = ecx;
-							B(esp+0x53) = B(___1a0ef8h+ecx+3);
+							B(esp+0x50) = B(___1a0ef8h+4*n2);
+							B(esp+0x51) = B(___1a0ef8h+4*n2+1);
+							B(esp+0x52) = B(___1a0ef8h+4*n2+2);
+							B(esp+0x53) = B(___1a0ef8h+4*n2+3);
 
-							while(1){
+							edi = 4*n2;
+							n3 = -1;
+							while(++n3 < 4){
 
 								eax = 0;
-
 								while(1){
 
-									edx = B(esp+eax+0x50);
+									n = B(esp+eax+0x50);
 									eax++;
-									L(ebx) = B(esp+edx+0x3c);
-									D(esp+0x5c) = edx;
-									if(L(ebx) == 0) break;
+									if(B(esp+n+0x3c) == 0) break;
 								}
 
 								eax = B(esp+0x51);
-
-								if((int)eax > (int)D(esp+0x5c)){
-
-									if(B(esp+eax+0x3c) == 0) D(esp+0x5c) = eax;
-								}
+								if(((int)eax > n)&&(B(esp+eax+0x3c) == 0)) n = eax;
 
 								eax = B(esp+0x52);
-								
-								if((int)eax > (int)D(esp+0x5c)){
-								
-									if(B(esp+eax+0x3c) == 0) D(esp+0x5c) = eax;
-								}
+								if(((int)eax > n)&&(B(esp+eax+0x3c) == 0)) n = eax;
 
 								eax = B(esp+0x53);
-								
-								if((int)eax > (int)D(esp+0x5c)){
-								
-									if(B(esp+eax+0x3c) == 0) D(esp+0x5c) = eax;
-								}
+								if(((int)eax > n)&&(B(esp+eax+0x3c) == 0)) n = eax;
 
-								B(esp+D(esp+0x5c)+0x3c) = 1;
-								B(___1a0ef8h+edi) = B(esp+0x5c);
-								if(D(___1a1ef8h) == D(esp+0x5c)) D(___1a103ch) = esi;
-								esi++;
+								B(esp+n+0x3c) = 1;
+								B(___1a0ef8h+edi) = n;
+								if(D(___1a1ef8h) == n) D(___1a103ch) = n3;
 								edi++;
-								if((int)esi >= 4) break;
 							}
-
-							ecx += 4;
-							if(ecx == 0xc) break;
 						}
 
-						edx = ___32230h();
-						D(esp+0x5c) = 0;
+						if(!___32230h()&&!___31868h()){	// NO_SABOTAGE && NO_EVENTS
 
-						ecx = (edx != 0)?0:___31868h();
-
-						if((edx == 0)&&(ecx == 0)){
-
+							n = 0;
 							while(1){
 
 								___2ab50h();
-								D(esp+0x5c)++;
-								if((___5994ch() != 0)||((int)D(esp+0x5c) >= 0x118)) break;
+								n++;
+								if((___5994ch() != 0)||(n >= 280)) break;
 							}
 						}
 
@@ -321,7 +297,7 @@ void ___3266ch(void){
 
 			if((B(___1a1f64h+3) == 4)&&(B(___1a1f64h+3) == B(___1a1f64h+4))&&(B(___1a1f64h+3) == B(___1a1f64h+5))){
 					
-				___13248h_cdecl(0x21, 0xc8, 0x244, 0x70, 1);
+				___13248h_cdecl(33, 200, 580, 112, 1);
 				___12e78h_v3(___1a10cch___185ba9h, "You did not sign up in any race.", 48, 225);
 				___12e78h_v3(___1a1108h___185c0bh, "Press any key to continue.", 208, 261);
 				___12cb8h__VESA101_PRESENTSCREEN();
@@ -334,34 +310,23 @@ void ___3266ch(void){
 				}
 
 				___2b318h();
-				ebp = 0x640000;
-				D(esp+0x60) = 0xffdc;
 
-				while(1){
+				n4 = -1;
+				while(++n4 < 51){
 
-					if(D(___185a14h_UseWeapons) != 0){
-
-						if(D(___185a4ch) != 0){
-						
-							dRally_Sound_setMasterVolume(D(esp+0x60));
-						}
-					}
+					if((D(___185a14h_UseWeapons) != 0)&&(D(___185a4ch) != 0)) dRally_Sound_setMasterVolume(1310*(50-n4));
 
 					___58c60h();
 					
 					n = -1;
 					while(++n < 0x100){
 
-						rr = helper_color(___19eb50h[n].r, ebp);
-						gg = helper_color(___19eb50h[n].g, ebp);
-						bb = helper_color(___19eb50h[n].b, ebp);
+						rr = helper_color(___19eb50h[n].r, 0x20000*(50-n4));
+						gg = helper_color(___19eb50h[n].g, 0x20000*(50-n4));
+						bb = helper_color(___19eb50h[n].b, 0x20000*(50-n4));
 
 						__DISPLAY_SET_PALETTE_COLOR(bb, gg, rr, n);
 					}
-
-					ebp -= 0x20000;
-					D(esp+0x60) -= 0x51e;
-					if(ebp == 0xfffe0000) break;
 				}
 
 				if(D(___185a14h_UseWeapons) != 0){

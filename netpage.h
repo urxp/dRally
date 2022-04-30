@@ -5,9 +5,9 @@
 
 #pragma pack(push,1)
 typedef struct NetPage {
-	__WORD__ 	write_p;
-	__WORD__    read_p;
-	__BYTE__ 	data[0x1000];
+	__WORD__ 	write_p;		// +00
+	__WORD__    read_p;			// +02
+	__BYTE__ 	data[0x1000];	// +04
 } NetPage;
 
 __BYTE__ npg_readb(NetPage * npg);

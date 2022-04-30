@@ -1,4 +1,5 @@
 #include "drally.h"
+#include "drally_structs_fixed.h"
 #include "assets.h"
 
 	extern __BYTE__ ___1a1edch[];
@@ -51,6 +52,10 @@ static __DWORD__ max_5(__DWORD__ val){ return (val < 5) ? val : 5; }
 
 void ___24548h(void){
 
+	racer_t * 	s_6c;
+
+
+	s_6c = (racer_t *)___1a01e0h;
 	D(___1a1edch) = 0x64;
 	D(___1a1ecch) = 0;
 	D(___1a1ee8h) = 0;
@@ -60,7 +65,7 @@ void ___24548h(void){
 	D(___1a1ec8h) = 0;
 	D(___1a1ed0h) = 0;
 	D(___1a1ec4h) = 5;
-	D(___1a1ee4h) = max_5(D(0x6c*D(___1a1ef8h)+___1a01e0h+0x1c)+1);
+	D(___1a1ee4h) = max_5(s_6c[D(___1a1ef8h)].car+1);
 	___1a1124h__VESA101h_ScreenBufferA = ___1a10e4h__VESA101h_DefaultScreenBufferA = ___3f71ch__allocateMemory(0x4b000);
 
 	___1a1e7ch = ___3f71ch__allocateMemory(0x1800);

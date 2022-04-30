@@ -22,7 +22,7 @@ cpu 386
 	extern	___61cd0h
 	extern	___1123ch
 	extern	___1d688h
-	extern	___1a1138h__VESA101h_DefaultScreenBufferB
+	extern	___1a1138h__VESA101_BACKGROUND
 	extern	___1a112ch__VESA101_ACTIVESCREEN_PTR
 	extern	___13248h_cdecl
 	extern	___185c0bh
@@ -174,7 +174,7 @@ ___1e1b1h:
 		test    eax, eax
 		je      near ___1e4e9h
 		mov     ecx, 28f00h
-		mov     esi, [___1a1138h__VESA101h_DefaultScreenBufferB]
+		mov     esi, [___1a1138h__VESA101_BACKGROUND]
 		mov     edi, [___1a112ch__VESA101_ACTIVESCREEN_PTR]
 		add     esi, 10680h
 		add     edi, 10680h

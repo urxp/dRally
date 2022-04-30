@@ -1,6 +1,7 @@
 #include "drally.h"
 #include "drmemory.h"
 #include "drally_fonts.h"
+#include "drally_structs_fixed.h"
 
 	extern __BYTE__ ___185c0bh[];
 	extern __POINTER__ ___1a1108h;
@@ -26,8 +27,10 @@ __DWORD__ ___1aa28h(__DWORD__ A1, __DWORD__ A2, __DWORD__ A3){
 	__DWORD__ 	eax, ebx, ecx, edx, edi, ebp;
 	__BYTE__ 	esp[0x10];
 	__POINTER__ vp, vp1;
+	racer_t * 	s_6c;
 
 
+	s_6c = (racer_t *)___1a01e0h;
 	ebx = A3;
 	edx = A2;
 	eax = A1;
@@ -89,7 +92,7 @@ ___1aaddh:
 		while(1){
 
 			edx++;
-			B(vp+edx+4) = B(___1a01e0h+eax+0x6c*D(___1a1ef8h));
+			B(vp+edx+4) = s_6c[D(___1a1ef8h)].name[eax];
 			eax++;
 			if((int)eax >= 0xb) break;
 		}

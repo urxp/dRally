@@ -1,201 +1,132 @@
 #include "drally.h"
 #include "drally_fonts.h"
-
-#pragma pack(push,1)
-typedef struct racer_s {
-	char 	name[0xc];			//	+0
-	__DWORD__ 	damage;				// 	+0xc
-	int 	engine;				// 	+0x10
-	__DWORD__ 	tires;				// 	+0x14
-	__DWORD__ 	armor;				//	+0x18
-	__DWORD__ 	car;				//	+0x1c
-	char 	unk0[0xc];			// 	+0x20
-	__DWORD__ 	color;				// 	+0x2c
-	int 	money;				//	+0x30
-	char 	unk2[0x8];			// 	+0x34
-	__DWORD__ 	refund;				// 	+0x3c
-	__DWORD__ 	face;				// 	+0x40
-	__DWORD__ 	points;				// 	+0x44
-	__DWORD__ 	rank;				// 	+0x48
-	__DWORD__ 	wins;				// 	+0x4c
-	__DWORD__ 	races;				// 	+0x50
-	char 	unk3[4];			// 	+0x54
-	__DWORD__ 	income;				// 	+0x58
-	__DWORD__ 	mines;				// 	+0x5c
-	__DWORD__ 	spikes;				// 	+0x60
-	__DWORD__ 	rocket_fuel;		// 	+0x64
-	__DWORD__ 	sabotage;			//	+0x68
-} racer_t;
+#include "drally_structs_fixed.h"
 
 typedef char char80[80];
-typedef struct eventtext_s {
-	char80 	l0;
-	char80 	l1;
-	char80 	l2;
-	char80 	l3;
-	char80 	l4;
-	char80 	l5;
-	char80 	l6;
-	char80 	l7;
-	char80 	l8;
-	char80 	l9;
-} eventtext_t;
+typedef struct event_s {
+	const char80 	common[10];
+	const char80 	spcf[6];
+	int 			spcf_i;
+	int 			rewards[6];
+} event_t;
 
-#pragma pack(pop)
-
-#define Racers ___1a01e0h
-	extern racer_t ___1a01e0h[];
-
+	extern __BYTE__ ___1a01e0h[];
 	extern __POINTER__ ___1a112ch__VESA101_ACTIVESCREEN_PTR;
 	extern __POINTER__ ___1a1e74h;
 	extern __BYTE__ ___1a1ef8h[];
+	extern __POINTER__ ___1a1e84h;
+	extern __POINTER__ ___1a1e60h;
 
-static const eventtext_t l_data[6] = {
-	{
-		"",
-		"",
-		"[Not too shabby, driver.",
-		"",
-		"[Your wild winning streak has earned",
-		"[you an extra 600 bucks.{ But don't",
-		"get cocky, those other wannabe",
-		"victory hounds are going to zero",
-		"right into your blazing taillights.",
-		"And they want to get you bad."
+static event_t * streak = &(event_t){
+	.common = {
+		[0] = "",
+		[1] = "",
+		[2] = "[Not too shabby, driver.",
+		[3] = "",
+		[4] = "[Your wild winning streak has earned",
+		[5] = "", // <--
+		[6] = "get cocky, those other wannabe",
+		[7] = "victory hounds are going to zero",
+		[8] = "right into your blazing taillights.",
+		[9] = "And they want to get you bad."
 	},
-	{
-		"",
-		"",
-		"[Not too shabby, driver.",
-		"",
-		"[Your wild winning streak has earned",
-		"[you an extra 1,000 bucks.{ But don't",
-		"get cocky, those other wannabe",
-		"victory hounds are going to zero",
-		"right into your blazing taillights.",
-		"And they want to get you bad."
+	.spcf = {
+		[0] = "[you an extra 600 bucks.{ But don't",
+		[1] = "[you an extra 1,000 bucks.{ But don't",
+		[2] = "[you an extra 2,000 bucks.{ But don't",
+		[3] = "[you an extra 3,000 bucks.{ But don't",
+		[4] = "[you an extra 4,000 bucks.{ But don't",
+		[5] = "[you an extra 5,000 bucks.{ But don't"
 	},
-	{
-		"",
-		"",
-		"[Not too shabby, driver.",
-		"",
-		"[Your wild winning streak has earned",
-		"[you an extra 2,000 bucks.{ But don't",
-		"get cocky, those other wannabe",
-		"victory hounds are going to zero",
-		"right into your blazing taillights.",
-		"And they want to get you bad."
-	},
-	{
-		"",
-		"",
-		"[Not too shabby, driver.",
-		"",
-		"[Your wild winning streak has earned",
-		"[you an extra 3,000 bucks.{ But don't",
-		"get cocky, those other wannabe",
-		"victory hounds are going to zero",
-		"right into your blazing taillights.",
-		"And they want to get you bad."
-	},
-	{
-		"",
-		"",
-		"[Not too shabby, driver.",
-		"",
-		"[Your wild winning streak has earned",
-		"[you an extra 4,000 bucks.{ But don't",
-		"get cocky, those other wannabe",
-		"victory hounds are going to zero",
-		"right into your blazing taillights.",
-		"And they want to get you bad."
-	},
-	{
-		"",
-		"",
-		"[Not too shabby, driver.",
-		"",
-		"[Your wild winning streak has earned",
-		"[you an extra 5,000 bucks.{ But don't",
-		"get cocky, those other wannabe",
-		"victory hounds are going to zero",
-		"right into your blazing taillights.",
-		"And they want to get you bad."
-	}
+	.spcf_i = 5,
+	.rewards = { 600, 1000, 2000, 3000, 4000, 5000 }
 };
 
+static event_t * reaper = &(event_t){
+	.common = {
+		[0] = "",
+		[1] = "",
+		[2] = "[I am one grateful reaper, driver.",
+		[3] = "",
+		[4] = "[More car corpses{ for my domain. You",
+		[5] = "are my sweetest minion. Your dead-",
+		[6] = "serious dedication has earned you",
+		[7] = "a parking space among my horsemen.",
+		[8] = "", // <--
+		[9] = "powered serial-auto-killer."
+	},
+	.spcf = {
+		[0] = "[A bonus of $600 to you{, horse-",
+		[1] = "[A bonus of $1,000 to you{, horse-",
+		[2] = "[A bonus of $2,000 to you{, horse-",
+		[3] = "[A bonus of $3,000 to you{, horse-",
+		[4] = "[A bonus of $4,000 to you{, horse-",
+		[5] = "[A bonus of $5,000 to you{, horse-"
+	},
+	.spcf_i = 8,
+	.rewards = { 600, 1000, 2000, 3000, 4000, 5000 }
+};
 
+static event_t * inconceivable = &(event_t){
+	.common = {
+		[0] = "",
+		[1] = "",
+		[2] = "[Inconceivable, driver!",
+		[3] = "",
+		[4] = "It was a snowball's chance in hell.",
+		[5] = "Through that blitzkrieg battle, and",
+		[6] = "[not a shadow of a scratch on your",
+		[7] = "[paint job.{ My bet was on you, and",
+		[8] = "it paid me back big time. Here, [your",
+		[9] = "" // <--
+	},
+	.spcf = {
+		[0] = "[share{, [$350{. Go knock yourself out.",
+		[1] = "[share{, [$750{. Go knock yourself out.",
+		[2] = "[share{, [$1,500{. Go knock yourself out.",
+		[3] = "[share, [$3,000{. Go knock yourself out.",
+		[4] = "[share, [$4,500{. Go knock yourself out.",
+		[5] = "[share, [$6,000{. Go knock yourself out."
+	},
+	.spcf_i = 9,
+	.rewards = { 350, 750, 1500, 3000, 4500, 6000 }
+};
 
 
 void ___13248h_cdecl(__DWORD__, __DWORD__ ,__DWORD__, __DWORD__, __DWORD__);
 
-// WINNING STREAK
-void ___14dc4h(void){
+static void helper00(event_t * e, __POINTER__ pic){
 
-	int 	m, n;
+	int 		i, j;
 	__BYTE__ 	px;
+	racer_t * 	rc;
 
+	rc = &((racer_t *)___1a01e0h)[D(___1a1ef8h)];
+	___13248h_cdecl(33, 131, 482, 230, 1);
 
-	___13248h_cdecl(0x21, 0x83, 0x1e2, 0xe6, 1);	
+	j = -1;
+	while(++j < 128){
 
-	n = -1;
-	while(++n < 0x80){
+		i = -1;
+		while(++i < 104){
 
-		m = -1;
-		while(++m < 0x68){
-
-			if((px = read_b(___1a1e74h+0x68*n+m)) != 0) write_b(___1a112ch__VESA101_ACTIVESCREEN_PTR+0x1a42d+0x280*n+m, px);
+			if((px = B(pic+104*j+i)) != 0) B(___1a112ch__VESA101_ACTIVESCREEN_PTR+0x280*(168+j)+(45+i)) = px;
 		}
 	}
 
-	n = 0;
+	rc->money += e->rewards[rc->car];
 
-	if(Racers[D(___1a1ef8h)].car == 5){
+	i = -1;
+	while(++i < 10) VESA101_16X16_FORMAT_PRINT((e->spcf_i == i)?e->spcf[rc->car]:e->common[i], 161, 136+16*i);
 
-		n = 5;
-		Racers[D(___1a1ef8h)].money += 0x1388;
-	}
-
-	if(Racers[D(___1a1ef8h)].car == 4){
-	
-		n = 4;
-		Racers[D(___1a1ef8h)].money += 0xfa0;
-	}
-
-	if(Racers[D(___1a1ef8h)].car == 3){
-
-		n = 3;
-		Racers[D(___1a1ef8h)].money += 0xbb8;
-	}
-
-	if(Racers[D(___1a1ef8h)].car == 2){
-
-		n = 2;
-		Racers[D(___1a1ef8h)].money += 0x7d0;
-	}
-
-	if(Racers[D(___1a1ef8h)].car == 1){
-
-		n = 1;
-		Racers[D(___1a1ef8h)].money += 0x3e8;
-	}
-
-	if(Racers[D(___1a1ef8h)].car == 0){
-			
-		n = 0;
-		Racers[D(___1a1ef8h)].money += 0x258;
-	}
-
-	VESA101_16X16_FORMAT_PRINT(l_data[n].l0, 161, 136);
-	VESA101_16X16_FORMAT_PRINT(l_data[n].l1, 161, 152);
-	VESA101_16X16_FORMAT_PRINT(l_data[n].l2, 161, 168);
-	VESA101_16X16_FORMAT_PRINT(l_data[n].l3, 161, 184);
-	VESA101_16X16_FORMAT_PRINT(l_data[n].l4, 161, 200);
-	VESA101_16X16_FORMAT_PRINT(l_data[n].l5, 161, 216);
-	VESA101_16X16_FORMAT_PRINT(l_data[n].l6, 161, 232);
-	VESA101_16X16_FORMAT_PRINT(l_data[n].l7, 161, 248);
-	VESA101_16X16_FORMAT_PRINT(l_data[n].l8, 161, 264);
-	VESA101_16X16_FORMAT_PRINT(l_data[n].l9, 161, 280);
 	___12e78h_v3(___1a10cch___185ba9h, "CONTINUE", 192, 316);
 }
+
+// WINNING STREAK
+void ___14dc4h(void){ helper00(streak, ___1a1e74h); }
+
+// REAPER
+void ___1549ch(void){ helper00(reaper, ___1a1e60h); }
+
+// INCONCEIVABLE
+void ___15130h(void){ helper00(inconceivable, ___1a1e84h); }

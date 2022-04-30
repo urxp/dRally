@@ -1,11 +1,4 @@
-#include "drally.h"
-
-#pragma pack(1)
-typedef struct font_props_s {
-	__BYTE__ 	w;
-	__BYTE__ 	h;
-	__BYTE__ 	props[];
-} font_props_t;
+#include "drally_fonts.h"
 
 const font_props_t ___185ba9h = {
     .w = 0x20,
@@ -53,3 +46,54 @@ const font_props_t ___185c7ah = {
         9,9,9,9,9,9,9,9,9,9,9,9,9,9,0,0 
     }
 };
+
+
+static int helper_width(const char * s, const font_props_t * fp){
+
+	int 	n, offset;
+
+	offset = 0;
+	n = -1;
+	while(s[++n]) offset += fp->props[s[n]-0x20];
+
+	return offset;
+}
+
+static int c_index(int c){ return ((c &= 0xff) == '$') ? 0 : c-0x2f; }
+static unsigned char c_width(int c){ return ___185c6dh.props[c_index(c)]; }
+static int helper_width_2(const char * s){
+
+	int 	n, offset;
+
+	offset = 0;
+	n = -1;
+	while(s[++n]) offset += c_width(s[n]);
+
+	return offset;
+}
+
+int getTextWidth(int props, const char * s){
+
+    int rslt;
+
+    switch(props){
+    case FONTPROPS01:
+        rslt = helper_width(s, &___185ba9h);
+        break;
+    case FONTPROPS02:
+        rslt = helper_width(s, &___185c0bh);
+        break;
+    case FONTPROPS03:
+        rslt = helper_width(s, &___185c7ah);
+        break;
+    case FONTPROPS04:
+        rslt = helper_width_2(s);
+        break;
+    default:
+        printf("[dRally.Fonts] Unknown font proportions 0x%02X\n", props);
+        rslt = 0;
+        break;
+    }
+
+    return rslt;
+}

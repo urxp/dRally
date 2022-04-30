@@ -22,18 +22,18 @@ typedef struct x21_s {
 	extern __BYTE__ ___2432e8h[];
 	extern __POINTER__ ___2432d8h;
 	extern __POINTER__ ___2432d4h;
-	extern __POINTER__ ___243d80h;
+	extern __POINTER__ BACKBUFFER;
 	extern x21_t ___243e74h[];
 	extern __BYTE__ kmap[];
 	extern __BYTE__ ___2432e4h[];
 	extern __BYTE__ ___243d14h[];
 	extern __BYTE__ ___24330ch[];
 	extern __BYTE__ ___2432dch[];
-	extern __POINTER__ ___243d70h;
+	extern __POINTER__ CPY_GEN_MES_BPK;
 	extern __BYTE__ ___243878h[];
 	extern __BYTE__ ___243330h[];
-	extern __BYTE__ VGA13_ACTIVESCREEN[];
-	extern __BYTE__ ___196d98h[];
+	extern __BYTE__ * VGA13_ACTIVESCREEN;
+	extern int CURRENT_VIEWPORT_X;
 	extern __BYTE__ ___24387ch[];
 
 	static int ___1a30a0h[100];
@@ -121,14 +121,14 @@ static void ___47304h(void){
 
             if(((int)D(___2432e8h) < 0xf24)&&((int)ebp < 0x14)){
 
-                ___243e74h[n]._10 = D(___243d70h+D(___2432cch)+0xcc*(D(___2432d0h)+0));
-                ___243e74h[n]._14 = D(___243d70h+D(___2432cch)+0xcc*(D(___2432d0h)+1));
-                ___243e74h[n]._18 = D(___243d70h+D(___2432cch)+0xcc*(D(___2432d0h)+2));
-                ___243e74h[n]._1C = D(___243d70h+D(___2432cch)+0xcc*(D(___2432d0h)+3));
+                ___243e74h[n]._10 = D(CPY_GEN_MES_BPK+D(___2432cch)+0xcc*(D(___2432d0h)+0));
+                ___243e74h[n]._14 = D(CPY_GEN_MES_BPK+D(___2432cch)+0xcc*(D(___2432d0h)+1));
+                ___243e74h[n]._18 = D(CPY_GEN_MES_BPK+D(___2432cch)+0xcc*(D(___2432d0h)+2));
+                ___243e74h[n]._1C = D(CPY_GEN_MES_BPK+D(___2432cch)+0xcc*(D(___2432d0h)+3));
                 ___243e74h[n].__0 = 0x10000*___1a30a0h[D(___2432e0h)];
                 ___243e74h[n].__4 = 0xc40000;
 
-                ll_tmp = (int)(D(___2432cch)+((int)D(___196d98h)>>0x1)+0x39-___1a30a0h[D(___2432e0h)]);
+                ll_tmp = (int)(D(___2432cch)+(CURRENT_VIEWPORT_X>>0x1)+0x39-___1a30a0h[D(___2432e0h)]);
                 ll_tmp <<= 0x10;
                 ___243e74h[n].__8 = ll_tmp/70;
                 ll_tmp = (int)(D(___2432d0h)-132);
@@ -218,7 +218,7 @@ void race___478c8h(__DWORD__ A1){
     memset(___2432d8h, 0, 0xfa00);
 
 	n = -1;
-    while(++n < 200) memcpy(___2432d4h+0x140*n, ___243d80h+0x200*n+0x60, 0x140);
+    while(++n < 200) memcpy(___2432d4h+0x140*n, BACKBUFFER+0x200*n+0x60, 0x140);
 
 	n = -1;
     while(++n < 969){
@@ -281,10 +281,10 @@ void race___478c8h(__DWORD__ A1){
 
 		___243e74h[n].__8 = 0x10000*((rand_watcom106()%4)-2);
 		___243e74h[n].__C = 0x10000*((rand_watcom106()%3)-r204(D(___2432cch))/25);
-		___243e74h[n]._10 = D(___243d70h+D(___2432cch)+0xcc*(D(___2432d0h)+0));
-		___243e74h[n]._14 = D(___243d70h+D(___2432cch)+0xcc*(D(___2432d0h)+1));
-		___243e74h[n]._18 = D(___243d70h+D(___2432cch)+0xcc*(D(___2432d0h)+2));
-		___243e74h[n]._1C = D(___243d70h+D(___2432cch)+0xcc*(D(___2432d0h)+3));
+		___243e74h[n]._10 = D(CPY_GEN_MES_BPK+D(___2432cch)+0xcc*(D(___2432d0h)+0));
+		___243e74h[n]._14 = D(CPY_GEN_MES_BPK+D(___2432cch)+0xcc*(D(___2432d0h)+1));
+		___243e74h[n]._18 = D(CPY_GEN_MES_BPK+D(___2432cch)+0xcc*(D(___2432d0h)+2));
+		___243e74h[n]._1C = D(CPY_GEN_MES_BPK+D(___2432cch)+0xcc*(D(___2432d0h)+3));
 		if(___243e74h[n]._20 != 0x64) i++;
 		D(___2432d0h) += 4;
 		
@@ -341,7 +341,7 @@ void race___47ed8h(__DWORD__ A0){
 	edx = 0;
 	while(1){
 
-		memcpy(___2432d4h+edx, ___243d80h+ebx+0x60, 0x140);
+		memcpy(___2432d4h+edx, BACKBUFFER+ebx+0x60, 0x140);
 		edx += 0x140;
 		ebx += 0x200;
 		if((int)edx >= 0xfa00) break;
@@ -463,10 +463,10 @@ void race___47ed8h(__DWORD__ A0){
 		___243e74h[ebp].__C = 0x10000*(D(esp+4*D(___2432cch))+edx);
 		edx = rand_watcom106()%4;
 		___243e74h[ebp].__8 = 0x10000*(edx-2);
-		___243e74h[ebp]._10 = D(___243d70h+D(___2432cch)+0xcc*(D(___2432d0h)+0));
-		___243e74h[ebp]._14 = D(___243d70h+D(___2432cch)+0xcc*(D(___2432d0h)+1));
-		___243e74h[ebp]._18 = D(___243d70h+D(___2432cch)+0xcc*(D(___2432d0h)+2));
-		___243e74h[ebp]._1C = D(___243d70h+D(___2432cch)+0xcc*(D(___2432d0h)+3));
+		___243e74h[ebp]._10 = D(CPY_GEN_MES_BPK+D(___2432cch)+0xcc*(D(___2432d0h)+0));
+		___243e74h[ebp]._14 = D(CPY_GEN_MES_BPK+D(___2432cch)+0xcc*(D(___2432d0h)+1));
+		___243e74h[ebp]._18 = D(CPY_GEN_MES_BPK+D(___2432cch)+0xcc*(D(___2432d0h)+2));
+		___243e74h[ebp]._1C = D(CPY_GEN_MES_BPK+D(___2432cch)+0xcc*(D(___2432d0h)+3));
 		D(___2432d0h) += 4;
 		
 		if(D(___2432d0h) == 0x4c){

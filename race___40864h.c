@@ -2,11 +2,11 @@
 #include "sfx.h"
 #include "drally_structs_free.h"
 
-	extern __POINTER__ ___243d80h;
+	extern __POINTER__ BACKBUFFER;
 	extern __BYTE__ ___1d8110h[];
 	extern __BYTE__ MY_CAR_IDX[];
 	extern __BYTE__ ___1de580h[];
-	extern __POINTER__ ___243d34h;
+	extern __POINTER__ SIDEBOM1_BPK;
 	extern __BYTE__ ___243cdch[];
 	extern __BYTE__ ___243cb8h[];
 	extern __BYTE__ ___1d7810h[];
@@ -23,6 +23,38 @@ void dRally_Sound_pushEffect(__BYTE__ channel, __BYTE__ n, __DWORD__ unk, __DWOR
 __DWORD__ ___4256ch_cdecl(__POINTER__ A1, __DWORD__ A2, __DWORD__ A3, __DWORD__ A4, __DWORD__ A5, __DWORD__ A6, __DWORD__ A7, __DWORD__ A8);
 
 double dRMath_ceil(double);
+
+
+void DamageWarning(void){
+
+	struct_54_t *	s_54;
+
+	s_54 = (struct_54_t *)___1de7d0h;
+
+	if((int)D(___1de580h+0x94*D(MY_CAR_IDX)+0x18) < 0x5000){
+
+		if(D(___196de8h) == 0) dRally_Sound_pushEffect(2, SFX_LOOK_OUT, 0, 0x10000, 0x50000, 0x8000);
+
+		D(___196de8h) = 1;
+	}
+
+	if((int)D(___1de580h+0x94*D(MY_CAR_IDX)+0x18) < 0x2800){
+
+		if(D(___196dech) == 0) dRally_Sound_pushEffect(2, SFX_LOOK_OUT, 0, 0x10000, 0x50000, 0x8000);
+
+		D(___196dech) = 1;
+	}
+
+	if((int)D(___1de580h+0x94*D(MY_CAR_IDX)+0x18) == 0){
+
+		if(strcmp(s_54[D(MY_CAR_IDX)].__0, "DUKE NUKEM") == 0){
+
+			if(D(___196df4h) == 0) dRally_Sound_pushEffect(2, SFX_THIS_SUCKS, 0, 0x10000, 0x50000, 0x8000);
+
+			D(___196df4h) = 1;
+		}
+	}
+}
 
 // WIDESCREEN TOPLEFT CORNER BOX
 void race___40864h(void){
@@ -42,7 +74,7 @@ void race___40864h(void){
 		i = -1;
 		while(++i < 0x40){
 
-			if((px = B(___1d8110h+0x40*j+i)) != 0) B(___243d80h+0x200*j+i+0x60) = px;
+			if((px = B(___1d8110h+0x40*j+i)) != 0) B(BACKBUFFER+0x200*j+i+0x60) = px;
 		}
 	}
 
@@ -60,7 +92,7 @@ void race___40864h(void){
 			i = -1;
 			while(++i < edx){
 
-				if((signed char)B(___243d80h+0xe64+B(esp+8)+0x200*j+i) >= 0x40) B(___243d80h+0xe64+B(esp+8)+0x200*j+i) = 0;
+				if((signed char)B(BACKBUFFER+0xe64+B(esp+8)+0x200*j+i) >= 0x40) B(BACKBUFFER+0xe64+B(esp+8)+0x200*j+i) = 0;
 			}
 		}
 	}
@@ -122,7 +154,7 @@ void race___40864h(void){
 			while(++j < 3){
 
 				i = -1;
-				while(++i < edx) B(___243d80h+0x2664+B(esp+4)+0x200*j+i) = 0;
+				while(++i < edx) B(BACKBUFFER+0x2664+B(esp+4)+0x200*j+i) = 0;
 			}
 		}
 
@@ -135,7 +167,7 @@ void race___40864h(void){
 				i = -1;
 				while(++i < 8){
 
-					if((px = read_b(___243d34h+8*j+i)) != 0) write_b(___243d80h+0x1a00+8*n+0x60+0x200*j+i, px);
+					if((px = read_b(SIDEBOM1_BPK+8*j+i)) != 0) write_b(BACKBUFFER+0x1a00+8*n+0x60+0x200*j+i, px);
 				}
 			}
 		}
@@ -150,31 +182,9 @@ void race___40864h(void){
 		i = -1;
 		while(++i < 8){
 
-			if((px = read_b(___1de530h+8*j+i)) != 0) write_b(___243d80h+n+0x200*j+i, px);
+			if((px = read_b(___1de530h+8*j+i)) != 0) write_b(BACKBUFFER+n+0x200*j+i, px);
 		}
 	}
 
-	if((int)D(___1de580h+0x94*D(MY_CAR_IDX)+0x18) < 0x5000){
-
-		if(D(___196de8h) == 0) dRally_Sound_pushEffect(2, SFX_LOOK_OUT, 0, 0x10000, 0x50000, 0x8000);
-
-		D(___196de8h) = 1;
-	}
-
-	if((int)D(___1de580h+0x94*D(MY_CAR_IDX)+0x18) < 0x2800){
-
-		if(D(___196dech) == 0) dRally_Sound_pushEffect(2, SFX_LOOK_OUT, 0, 0x10000, 0x50000, 0x8000);
-
-		D(___196dech) = 1;
-	}
-
-	if(D(___1de580h+0x94*D(MY_CAR_IDX)+0x18) == 0){
-
-		if(strcmp(s_54[D(MY_CAR_IDX)].__0, "DUKE NUKEM") == 0){
-
-			if(D(___196df4h) == 0) dRally_Sound_pushEffect(2, SFX_THIS_SUCKS, 0, 0x10000, 0x50000, 0x8000);
-
-			D(___196df4h) = 1;
-		}
-	}
+	DamageWarning();
 }

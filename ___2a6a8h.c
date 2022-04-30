@@ -25,12 +25,15 @@ __DWORD__ ___2a6a8h(void){
 	FILE * 			fd;
 	int 			n, rslt;
 	saved_game_t * 	sg;
+	racer_t * 		s_6c;
 
 	rslt = 0;
 
 #if defined(DR_MULTIPLAYER)
 	if(___19bd60h == 0){
 #endif // DR_MULTIPLAYER
+
+		s_6c = (racer_t *)___1a01e0h;
 
 		if(kmap[DR_SCAN_F2]){	// QUICK SAVE
 
@@ -40,7 +43,7 @@ __DWORD__ ___2a6a8h(void){
 			sg->weapons = B(___185a14h_UseWeapons);
 			sg->difficulty = ___196a94h_difficulty;
 			strcpy(sg->name, "Quicksave Slot");
-			memcpy(sg->racers, ___1a01e0h, 20*sizeof(racer_t));
+			memcpy(sg->racers, s_6c, 20*sizeof(racer_t));
 			dREncryption_encodeSavedGame(sg);
 			fd = strupr_fopen("DR.SG7", "wb");
 			fwrite(sg, sizeof(saved_game_t), 1, fd);
@@ -64,12 +67,12 @@ __DWORD__ ___2a6a8h(void){
 				D(___1a1ef8h) = sg->me;
 				D(___185a14h_UseWeapons) = sg->weapons;
 				___196a94h_difficulty =  sg->difficulty;
-				memcpy(___1a01e0h, sg->racers, 20*sizeof(racer_t));
+				memcpy(s_6c, sg->racers, 20*sizeof(racer_t));
 				dRMemory_free((__POINTER__)sg);
-				D(___1a0a50h) = !(D(___1a01e0h+0x5c+0x6c*D(___1a1ef8h)) == 8);
-				D(___1a0a50h+4) = !(D(___1a01e0h+0x60+0x6c*D(___1a1ef8h)) == 1);
-				D(___1a0a50h+8) = !(D(___1a01e0h+0x64+0x6c*D(___1a1ef8h)) == 1);
-				D(___1a0a50h+0xc) = !(D(___1a01e0h+0x68+0x6c*D(___1a1ef8h)) == 1);
+				D(___1a0a50h) = !(s_6c[D(___1a1ef8h)].mines == 8);
+				D(___1a0a50h+4) = !(s_6c[D(___1a1ef8h)].spikes == 1);
+				D(___1a0a50h+8) = !(s_6c[D(___1a1ef8h)].rocket_fuel == 1);
+				D(___1a0a50h+0xc) = !(s_6c[D(___1a1ef8h)].sabotage == 1);
 				rslt = 2;
 			}
 			else {

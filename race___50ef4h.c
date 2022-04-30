@@ -1,13 +1,13 @@
 #include "drally.h"
 #include "drally_structs_free.h"
 
-	extern __POINTER__ ___243d80h;
-	extern __POINTER__ ___243d64h;
+	extern __POINTER__ BACKBUFFER;
+	extern __POINTER__ RACE_SMOKE_BPK;
 	extern __BYTE__ ___243c60h[];
 	extern __BYTE__ ___1e6ed0h[];
-	extern __BYTE__ ___196dc8h[];
-	extern __BYTE__ ___196d98h[];
-	extern __BYTE__ ___196dcch[];
+	extern int TRX_VIEWPORT_TL_X;
+	extern int CURRENT_VIEWPORT_X;
+	extern int TRX_VIEWPORT_TL_Y;
 	extern __BYTE__ ___243334h[];
 
 static void helper_copy(__POINTER__ dst, int dstX, int dstY, __POINTER__ src){
@@ -41,12 +41,12 @@ void race___50ef4h(void){
 // LEFT
 		if((int)s_35e[D(___243c60h)].__1e2[n] > 0){
 
-			i0 = s_35e[D(___243c60h)].__25a[n]+D(___196d98h)-D(___196dc8h);
-			j0 = s_35e[D(___243c60h)].__2d2[n]-D(___196dcch);
+			i0 = s_35e[D(___243c60h)].__25a[n]+CURRENT_VIEWPORT_X-TRX_VIEWPORT_TL_X;
+			j0 = s_35e[D(___243c60h)].__2d2[n]-TRX_VIEWPORT_TL_Y;
 
 			if((i0 >= 4)&&((i0+4) < 0x140)&&(j0 >= 4)&&((j0+4) < 0xc8)){
 
-				helper_copy(___243d80h, i0+0x5c, j0-4, ___243d64h+0x40*((s_35e[D(___243c60h)].__1e2[n]-1)/4));
+				helper_copy(BACKBUFFER, i0+0x5c, j0-4, RACE_SMOKE_BPK+0x40*((s_35e[D(___243c60h)].__1e2[n]-1)/4));
 			}
 
 			s_35e[D(___243c60h)].__1e2[n] += D(___243334h);
@@ -56,12 +56,12 @@ void race___50ef4h(void){
 // RIGHT
 		if((int)s_35e[D(___243c60h)].__21e[n] > 0){
 
-			i0 = s_35e[D(___243c60h)].__296[n]+D(___196d98h)-D(___196dc8h);
-			j0 = s_35e[D(___243c60h)].__30e[n]-D(___196dcch);
+			i0 = s_35e[D(___243c60h)].__296[n]+CURRENT_VIEWPORT_X-TRX_VIEWPORT_TL_X;
+			j0 = s_35e[D(___243c60h)].__30e[n]-TRX_VIEWPORT_TL_Y;
 
 			if((i0 >= 4)&&((i0+4) < 0x140)&&(j0 >= 4)&&((j0+4) < 0xc8)){
 
-				helper_copy(___243d80h, i0+0x5c, j0-4, ___243d64h+0x40*((s_35e[D(___243c60h)].__21e[n]-1)/4));
+				helper_copy(BACKBUFFER, i0+0x5c, j0-4, RACE_SMOKE_BPK+0x40*((s_35e[D(___243c60h)].__21e[n]-1)/4));
 			}
 
 			s_35e[D(___243c60h)].__21e[n] += D(___243334h);

@@ -1,4 +1,5 @@
 #include "drally.h"
+#include "drally_structs_fixed.h"
 
 	extern __BYTE__ ___1a1ef8h[];
 	extern __BYTE__ ___1a01e0h[];
@@ -9,7 +10,11 @@
 
 __DWORD__ underground___28c1ch(void){
 
-	switch(D(0x6c*D(___1a1ef8h)+___1a01e0h+0x1c)){
+	racer_t * 	s_6c;
+
+	s_6c = (racer_t *)___1a01e0h;
+
+	switch(s_6c[D(___1a1ef8h)].car){
 	case 0:
 		___1a0170h_PriceMines = 150;
 		___1a0174h_PriceSpikedBumpers = 200;

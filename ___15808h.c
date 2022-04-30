@@ -1,5 +1,6 @@
 #include "drally.h"
 #include "drally_fonts.h"
+#include "drally_structs_fixed.h"
 
 	extern __POINTER__ ___1a112ch__VESA101_ACTIVESCREEN_PTR;
 	extern __POINTER__ ___1a1e80h;
@@ -18,8 +19,10 @@ int ___15808h(void){
 	__BYTE__ 	px;
 	char 		buff[0x34];
 	int 		i, j, n, rslt, penalty;
+	racer_t * 	s_6c;
 
 
+	s_6c = (racer_t *)___1a01e0h;
 	rslt = 0;
 	___13248h_cdecl(0x21, 0x83, 0x1e2, 0xe6, 1);
 
@@ -53,23 +56,23 @@ int ___15808h(void){
 		VESA101_16X16_FORMAT_PRINT("", 161, 296);
 		VESA101_16X16_FORMAT_PRINT("", 161, 312);
 
-		if((int)D(___1a01e0h+0x6c*D(___1a1ef8h)+0x30) < penalty){
+		if((int)s_6c[D(___1a1ef8h)].money < penalty){
 
 			rslt = ___14c50h();
 		}
 		else {
 
-			D(___1a01e0h+0x6c*D(___1a1ef8h)+0x30) -= penalty;
+			s_6c[D(___1a1ef8h)].money -= penalty;
 		}
 	}
 	else {
 
-		if(D(___196aa4h) == 1) D(___1a01e0h+0x6c*D(___1a1ef8h)+0x30) += 12000;
-		if(D(___196aa4h) == 2) D(___1a01e0h+0x6c*D(___1a1ef8h)+0x30) += 8000;
-		if(D(___196aa4h) == 3) D(___1a01e0h+0x6c*D(___1a1ef8h)+0x30) += 6000;
-		if(D(___196aa4h) == 4) D(___1a01e0h+0x6c*D(___1a1ef8h)+0x30) += 4000;
-		if(D(___196aa4h) == 5) D(___1a01e0h+0x6c*D(___1a1ef8h)+0x30) += 2000;
-		if(D(___196aa4h) == 6) D(___1a01e0h+0x6c*D(___1a1ef8h)+0x30) += 1000;
+		if(D(___196aa4h) == 1) s_6c[D(___1a1ef8h)].money += 12000;
+		if(D(___196aa4h) == 2) s_6c[D(___1a1ef8h)].money += 8000;
+		if(D(___196aa4h) == 3) s_6c[D(___1a1ef8h)].money += 6000;
+		if(D(___196aa4h) == 4) s_6c[D(___1a1ef8h)].money += 4000;
+		if(D(___196aa4h) == 5) s_6c[D(___1a1ef8h)].money += 2000;
+		if(D(___196aa4h) == 6) s_6c[D(___1a1ef8h)].money += 1000;
 
 		VESA101_16X16_FORMAT_PRINT("[What motorized steroid peddling!", 161, 168);
 		VESA101_16X16_FORMAT_PRINT("", 161, 184);

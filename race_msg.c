@@ -1,8 +1,8 @@
 #include "drally.h"
 #include "drenums.h"
 
-	extern __POINTER__ ___243d4ch;
-    extern __POINTER__ ___243d70h;
+	extern __POINTER__ GEN_MES_BPK;
+    extern __POINTER__ CPY_GEN_MES_BPK;
     extern __BYTE__ ___1d7810h[];
 
 static const char * MSG_GAME_PAUSED[9] = {
@@ -92,7 +92,7 @@ static const char * MSG_WELCOME[9] = {
 // GAME PAUSED BACKGROUND
 static void race___477d4h(void){
 
-	memcpy(___243d70h, ___243d4ch, 0x3c90);
+	memcpy(CPY_GEN_MES_BPK, GEN_MES_BPK, 0x3c90);
 }
 
 static void race___47808h(__DWORD__ A1, __DWORD__ A2, const char * A3){
@@ -109,7 +109,7 @@ static void race___47808h(__DWORD__ A1, __DWORD__ A2, const char * A3){
 			i = -1;
 			while(++i < 6){
 
-				if((px = read_b(___1d7810h+0x24*(A3[n]-0x20)+6*j+i)) != 0) write_b(___243d70h+0xcc*(j+8*A2+6)+6*(A1+n+1)+i, px);
+				if((px = read_b(___1d7810h+0x24*(A3[n]-0x20)+6*j+i)) != 0) write_b(CPY_GEN_MES_BPK+0xcc*(j+8*A2+6)+6*(A1+n+1)+i, px);
 			}
 		}
 	}

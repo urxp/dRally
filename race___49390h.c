@@ -49,8 +49,7 @@ typedef struct pcx_header_s {
 } pcx_header_t;
 
 	extern FILE * ___1a0ef4h;
-	extern __BYTE__ ___243d08h[];
-	extern __BYTE__ VGA13_ACTIVESCREEN[];
+	extern __BYTE__ * VGA13_ACTIVESCREEN;
 
 void __DISPLAY_GET_PALETTE_COLOR(unsigned char * dst, unsigned char n);
 __DWORD__ ___3a214h_cdecl(__POINTER__, __DWORD__);
@@ -102,10 +101,10 @@ void race___49390h(void){
 
 	fputc(0xc, ___1a0ef4h);
 
-	D(___243d08h) = -1;
-	while(++D(___243d08h) < 0x100){
+	n = -1;
+	while(++n < 0x100){
 
-		PCX_GET_PALETTE_COLOR(&col, D(___243d08h));
+		PCX_GET_PALETTE_COLOR(&col, n);
 		fwrite(&col, sizeof(col), 1, ___1a0ef4h);
 	}
 

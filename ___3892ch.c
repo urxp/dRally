@@ -1,5 +1,6 @@
 #include "drally.h"
 #include "drally_fonts.h"
+#include "drally_structs_fixed.h"
 #include "sfx.h"
 
 #pragma pack(1)
@@ -15,7 +16,7 @@ typedef struct x655_s {
 	extern __BYTE__ ___1a2147h[];
 	extern __BYTE__ ___185c0bh[];
 	extern __POINTER__ ___1a1108h;
-	extern __POINTER__ ___1a1138h__VESA101h_DefaultScreenBufferB;
+	extern __POINTER__ ___1a1138h__VESA101_BACKGROUND;
 	extern __POINTER__ ___1a112ch__VESA101_ACTIVESCREEN_PTR;
 	extern __POINTER__ ___1a0fbch;
 	extern __POINTER__ ___1a0fd8h;
@@ -84,7 +85,10 @@ void ___3892ch_cdecl(__DWORD__ A1, __DWORD__ A2){
 
 	__POINTER__ 	ebxp;
 	__POINTER__ 	esip;
+	racer_t * 		s_6c;
 
+
+	s_6c = (racer_t *)___1a01e0h;
 	eax = A1;
 	edx = A2;
 	D(esp+0x64) = eax;
@@ -98,7 +102,7 @@ void ___3892ch_cdecl(__DWORD__ A1, __DWORD__ A2){
 
 		ecx = 0x4b000;
 		edx = 0x36;
-		memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR, ___1a1138h__VESA101h_DefaultScreenBufferB, ecx);
+		memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR, ___1a1138h__VESA101_BACKGROUND, ecx);
 		ecx = 0x182;
 		esip = ___1a0fbch;
 		ebxp = ___1a112ch__VESA101_ACTIVESCREEN_PTR+0xd32c;
@@ -243,7 +247,7 @@ void ___3892ch_cdecl(__DWORD__ A1, __DWORD__ A2){
 
 			while(1){
 
-				ebp = D(eax+___1a01e0h+0x44);
+				ebp = s_6c[eax/0x6c].points;
 				
 				if((int)esi < (int)ebp){
 				
@@ -263,7 +267,7 @@ void ___3892ch_cdecl(__DWORD__ A1, __DWORD__ A2){
 			eax <<= 0x2;
 			eax -= edi;
 			
-			if((int)esi < (int)D(eax*4+___1a01e0h+0x44)){
+			if((int)esi < (int)s_6c[eax/27].points){
 			
 				if(D(___196ab4h) == 0) B(___1a2147h) = 1;
 			}
@@ -273,7 +277,7 @@ void ___3892ch_cdecl(__DWORD__ A1, __DWORD__ A2){
 			eax -= edi;
 			eax <<= 0x2;
 			eax -= edi;
-			L(eax) = !!((int)esi < (int)D(eax*4+___1a01e0h+0x44));
+			L(eax) = !!((int)esi < (int)s_6c[eax/27].points);
 			ecx = 0x46b6e;
 			eax &= 0xff;
 			D(___196ab4h) = eax;
