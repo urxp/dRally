@@ -402,6 +402,7 @@
     <ClInclude Include="dos.h" />
     <ClInclude Include="drally_fonts.h" />
     <ClInclude Include="drally.h" />
+    <ClInclude Include="drally_display.h" />
     <ClInclude Include="drally_ipx.h" />
     <ClInclude Include="drally_keyboard.h" />
     <ClInclude Include="drally_race.h" />
