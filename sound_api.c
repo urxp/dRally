@@ -285,8 +285,27 @@ void dRally_Sound_load(__DWORD__ msx_t, const char * msx_f, __DWORD__ sfx_t, con
 	
 		bpa_read(bpa, (__POINTER__)musics_s3m);
 		dREncryption_decodeCMF((__POINTER__)musics_s3m, size_s3m);
+		musics_s3m->orderCount = SDL_SwapLE16(musics_s3m->orderCount);
+		musics_s3m->instrumentCount = SDL_SwapLE16(musics_s3m->instrumentCount);
+		musics_s3m->patternPtrCount = SDL_SwapLE16(musics_s3m->patternPtrCount);
+		musics_s3m->flags = SDL_SwapLE16(musics_s3m->flags);
+		musics_s3m->trackerVersion = SDL_SwapLE16(musics_s3m->trackerVersion);
+		musics_s3m->sampleType = SDL_SwapLE16(musics_s3m->sampleType);
+		musics_s3m->ptrSpecial = SDL_SwapLE16(musics_s3m->ptrSpecial);
 		if(strncmp(musics_s3m->sig2, "SCRM", 4)) ___58b20h(0x28, msx_f);
     	if(S3M_getHeaderOrderList(musics_s3m)[0] == 0xff) ___58b20h(0x29, msx_f);
+		for (int i = 0; i < musics_s3m->patternPtrCount; i++) {
+			s3m_pattern_t* pattern = S3M_getPattern(musics_s3m, i);
+			pattern->packed_len = SDL_SwapLE16(pattern->packed_len);
+		}
+		for (int i = 0; i < musics_s3m->instrumentCount; i++) {
+			s3m_pcm_t* pcm = &S3M_getInstrument(musics_s3m, i)->pcm;
+			pcm->ptrDataH = SDL_SwapLE16(pcm->ptrDataH);
+			pcm->length = SDL_SwapLE32(pcm->length);
+			pcm->loopStart = SDL_SwapLE32(pcm->loopStart);
+			pcm->loopEnd = SDL_SwapLE32(pcm->loopEnd);
+			pcm->c2spd = SDL_SwapLE32(pcm->c2spd);
+		}
 	}
 
 	bpa_search(bpa, sfx_f);
@@ -304,9 +323,38 @@ void dRally_Sound_load(__DWORD__ msx_t, const char * msx_f, __DWORD__ sfx_t, con
 
 		bpa_read(bpa, (__POINTER__)effects_xm);
 		dREncryption_decodeCMF((__POINTER__)effects_xm, size_xm);
+		effects_xm->version = SDL_SwapLE16(effects_xm->version);
+		effects_xm->headerSize = SDL_SwapLE32(effects_xm->headerSize);
+		effects_xm->songLength = SDL_SwapLE16(effects_xm->songLength);
+		effects_xm->restartPosition = SDL_SwapLE16(effects_xm->restartPosition);
+		effects_xm->channels = SDL_SwapLE16(effects_xm->channels);
+		effects_xm->patterns = SDL_SwapLE16(effects_xm->patterns);
+		effects_xm->instrumentCount = SDL_SwapLE16(effects_xm->instrumentCount);
+		effects_xm->flags = SDL_SwapLE16(effects_xm->flags);
+		effects_xm->defaultTempo = SDL_SwapLE16(effects_xm->defaultTempo);
+		effects_xm->defaultBPM = SDL_SwapLE16(effects_xm->defaultBPM);
 		if(strncmp(effects_xm->id, "Extended Module: ", 0x11)) ___58b20h(0x28, sfx_f);
 		if(effects_xm->sig1 != 0x1a) ___58b20h(0x28, sfx_f);
 		if(effects_xm->version < 0x104) ___58b20h(0x28, sfx_f);
+		for (int i = 0; i < effects_xm->patterns; i++) {
+			xm_pattern_t* pattern = XM_getPattern(effects_xm, i);
+			pattern->header_size = SDL_SwapLE32(pattern->header_size);
+			pattern->rows = SDL_SwapLE16(pattern->rows);
+			pattern->packed_size = SDL_SwapLE16(pattern->packed_size);
+		}
+		for (int i = 0; i < effects_xm->instrumentCount; i++) {
+			xm_instrument_t* inst = XM_getInstrument(effects_xm, i);
+			inst->size = SDL_SwapLE32(inst->size);
+			inst->n_samples = SDL_SwapLE16(inst->n_samples);
+			if (inst->n_samples > 0)
+			{
+				xm_sample_t* samp = XM_getInstrumentSamples(inst);
+				samp->size = SDL_SwapLE32(samp->size);
+				samp->loop_start = SDL_SwapLE32(samp->loop_start);
+				samp->loop_length = SDL_SwapLE32(samp->loop_length);
+				// TODO swap 16-bit samples?
+			}
+		}
 	}
 
 	bpa_close(bpa);
