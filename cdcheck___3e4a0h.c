@@ -35,6 +35,7 @@ int cdcheck___3e4a0h(void){
 
 	mem = malloc(0x10000);
 	fread(&val0, sizeof(__DWORD__), 1, fd);	// val0=0x2b79338d
+	val0 = SDL_SwapLE32(val0);
 
 	fseek(fd, 0x20000, SEEK_CUR);	// 131,076
 	fread(mem, 0x10000, 1, fd);		// 196,612

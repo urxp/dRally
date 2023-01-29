@@ -123,6 +123,7 @@ void CONFIG_READ(void){
         fread(&CONFIG_SOUND_IRQ, sizeof(__BYTE__), 1, fd);
         fread(&CONFIG_SOUND_DMA, sizeof(__BYTE__), 1, fd);
         fread(&CONFIG_SOUND_ADDR, sizeof(__DWORD__), 1, fd);
+        CONFIG_SOUND_ADDR = SDL_SwapLE32(CONFIG_SOUND_ADDR);
         fclose(fd);
         CONFIG_DEFAULT();
     }
@@ -135,39 +136,55 @@ void CONFIG_READ(void){
         CONFIG_SOUND_TYPE = cfg->soundtype;
         CONFIG_SOUND_IRQ = cfg->soundirq;
         CONFIG_SOUND_DMA = cfg->sounddma;
-        CONFIG_SOUND_ADDR = cfg->soundaddr;
+        CONFIG_SOUND_ADDR = SDL_SwapLE32(cfg->soundaddr);
 
 		CONFIG_DECODE(cfg);
 
-        ___24cc58h_msx_volume = cfg->msx_volume;
-        ___24cc54h_sfx_volume = cfg->sfx_volume;
-        D(___185a5ch+7*0x1c+0x18) = cfg->com_port_option;
-        ___196a94h_difficulty = cfg->difficulty;
-        ___19bd58h_gamepad = cfg->gamepad;
+        ___24cc58h_msx_volume = SDL_SwapLE32(cfg->msx_volume);
+        ___24cc54h_sfx_volume = SDL_SwapLE32(cfg->sfx_volume);
+        D(___185a5ch+7*0x1c+0x18) = SDL_SwapLE32(cfg->com_port_option);
+        ___196a94h_difficulty = SDL_SwapLE32(cfg->difficulty);
+        ___19bd58h_gamepad = SDL_SwapLE32(cfg->gamepad);
         memcpy(___1a201ah_modem_dial_number, cfg->modem_dial_number, sizeof(cfg->modem_dial_number));
         memcpy(___1a1ffch_modem_init_string, cfg->modem_init_string, sizeof(cfg->modem_init_string));
-        ___196a90h_modem_dialing = cfg->modem_dialing;
-        ___1a1e50h_com_port_standard = cfg->com_port_standard;
-        ___199fa4h_com_port_addr = cfg->com_port_addr;
-        ___199fa8h_com_port_irq = cfg->com_port_irq;
+        ___196a90h_modem_dialing = SDL_SwapLE32(cfg->modem_dialing);
+        ___1a1e50h_com_port_standard = SDL_SwapLE32(cfg->com_port_standard);
+        ___199fa4h_com_port_addr = SDL_SwapLE32(cfg->com_port_addr);
+        ___199fa8h_com_port_irq = SDL_SwapLE32(cfg->com_port_irq);
         memcpy(___19f750h, cfg->track_records, sizeof(cfg->track_records));
+        for (int i = 0; i < 6; i++)
+        {
+            for (int j = 0; j < 18; j++)
+            {
+                record_t* rec = &___19f750h[i][j];
+                rec->min = SDL_SwapLE32(rec->min);
+                rec->sec = SDL_SwapLE32(rec->sec);
+                rec->sec100 = SDL_SwapLE32(rec->sec100);
+            }
+        }
         memcpy(___1a0e28h, cfg->hall_of_fame, sizeof(cfg->hall_of_fame));
-        ___1a1140h.accelerate = cfg->kb_accelerate;
-        ___1a1140h.brake = cfg->kb_brake;
-        ___1a1140h.steer_left = cfg->kb_steer_left;
-        ___1a1140h.steer_right = cfg->kb_steer_right;
-        ___1a1140h.turbo_boost = cfg->kb_turbo_boost;
-        ___1a1140h.machine_gun = cfg->kb_machine_gun;
-        ___1a1140h.drop_mine = cfg->kb_drop_mine;
-        ___1a1140h.horn = cfg->kb_horn;
-        ___1a1164h_gp_accelerate = cfg->gp_accelerate;
-        ___1a113ch_gp_brake = cfg->gp_brake;
-        ___1a1110h_gp_steer_left = cfg->gp_steer_left;
-        ___1a1130h_gp_steer_right = cfg->gp_steer_right;
-        ___1a1120h_gp_turbo_boost = cfg->gp_turbo_boost;
-        ___1a1118h_gp_machine_gun = cfg->gp_machine_gun;
-        ___1a111ch_gp_drop_mine = cfg->gp_drop_mine;
-        ___1a1f3ch_counter = cfg->counter;
+        for (int i = 0; i < 10; i++)
+        {
+            hof_entry_t* hof = &___1a0e28h[i];
+            hof->races = SDL_SwapLE32(hof->races);
+            hof->difficulty = SDL_SwapLE32(hof->difficulty);
+        }
+        ___1a1140h.accelerate = SDL_SwapLE32(cfg->kb_accelerate);
+        ___1a1140h.brake = SDL_SwapLE32(cfg->kb_brake);
+        ___1a1140h.steer_left = SDL_SwapLE32(cfg->kb_steer_left);
+        ___1a1140h.steer_right = SDL_SwapLE32(cfg->kb_steer_right);
+        ___1a1140h.turbo_boost = SDL_SwapLE32(cfg->kb_turbo_boost);
+        ___1a1140h.machine_gun = SDL_SwapLE32(cfg->kb_machine_gun);
+        ___1a1140h.drop_mine = SDL_SwapLE32(cfg->kb_drop_mine);
+        ___1a1140h.horn = SDL_SwapLE32(cfg->kb_horn);
+        ___1a1164h_gp_accelerate = SDL_SwapLE32(cfg->gp_accelerate);
+        ___1a113ch_gp_brake = SDL_SwapLE32(cfg->gp_brake);
+        ___1a1110h_gp_steer_left = SDL_SwapLE32(cfg->gp_steer_left);
+        ___1a1130h_gp_steer_right = SDL_SwapLE32(cfg->gp_steer_right);
+        ___1a1120h_gp_turbo_boost = SDL_SwapLE32(cfg->gp_turbo_boost);
+        ___1a1118h_gp_machine_gun = SDL_SwapLE32(cfg->gp_machine_gun);
+        ___1a111ch_gp_drop_mine = SDL_SwapLE32(cfg->gp_drop_mine);
+        ___1a1f3ch_counter = SDL_SwapLE32(cfg->counter);
 
         switch(D(___185a5ch+7*0x1c+0x18)){
         case STANDARD_COM1:
@@ -212,35 +229,51 @@ void CONFIG_WRITE(void){
     fread(&cfg->soundaddr, sizeof(__DWORD__), 1, fd);
     fclose(fd);
 
-    cfg->msx_volume = ___24cc58h_msx_volume;
-    cfg->sfx_volume = ___24cc54h_sfx_volume;
-    cfg->com_port_option = D(___185a5ch+7*0x1c+0x18);
-    cfg->difficulty = ___196a94h_difficulty;
-    cfg->gamepad = ___19bd58h_gamepad;
+    cfg->msx_volume = SDL_SwapLE32(___24cc58h_msx_volume);
+    cfg->sfx_volume = SDL_SwapLE32(___24cc54h_sfx_volume);
+    cfg->com_port_option = SDL_SwapLE32(D(___185a5ch+7*0x1c+0x18));
+    cfg->difficulty = SDL_SwapLE32(___196a94h_difficulty);
+    cfg->gamepad = SDL_SwapLE32(___19bd58h_gamepad);
     memcpy(cfg->modem_dial_number, ___1a201ah_modem_dial_number, sizeof(cfg->modem_dial_number));
     memcpy(cfg->modem_init_string, ___1a1ffch_modem_init_string, sizeof(cfg->modem_init_string));
-    cfg->modem_dialing = ___196a90h_modem_dialing;
-    cfg->com_port_standard = ___1a1e50h_com_port_standard;
-    cfg->com_port_addr = ___199fa4h_com_port_addr;
-    cfg->com_port_irq = ___199fa8h_com_port_irq;
+    cfg->modem_dialing = SDL_SwapLE32(___196a90h_modem_dialing);
+    cfg->com_port_standard = SDL_SwapLE32(___1a1e50h_com_port_standard);
+    cfg->com_port_addr = SDL_SwapLE32(___199fa4h_com_port_addr);
+    cfg->com_port_irq = SDL_SwapLE32(___199fa8h_com_port_irq);
     memcpy(cfg->track_records, ___19f750h, sizeof(cfg->track_records));
+    for (int i = 0; i < 6; i++)
+    {
+        for (int j = 0; j < 18; j++)
+        {
+            record_t* rec = &cfg->track_records[i][j];
+            rec->min = SDL_SwapLE32(rec->min);
+            rec->sec = SDL_SwapLE32(rec->sec);
+            rec->sec100 = SDL_SwapLE32(rec->sec100);
+        }
+    }
     memcpy(cfg->hall_of_fame, ___1a0e28h, sizeof(cfg->hall_of_fame));
-    cfg->kb_accelerate = ___1a1140h.accelerate;
-    cfg->kb_brake = ___1a1140h.brake;
-    cfg->kb_steer_left = ___1a1140h.steer_left;
-    cfg->kb_steer_right = ___1a1140h.steer_right;
-    cfg->kb_turbo_boost = ___1a1140h.turbo_boost;
-    cfg->kb_machine_gun = ___1a1140h.machine_gun;
-    cfg->kb_drop_mine = ___1a1140h.drop_mine;
-    cfg->kb_horn = ___1a1140h.horn;
-    cfg->gp_accelerate = ___1a1164h_gp_accelerate;
-    cfg->gp_brake = ___1a113ch_gp_brake;
-    cfg->gp_steer_left = ___1a1110h_gp_steer_left;
-    cfg->gp_steer_right = ___1a1130h_gp_steer_right;
-    cfg->gp_turbo_boost = ___1a1120h_gp_turbo_boost;
-    cfg->gp_machine_gun = ___1a1118h_gp_machine_gun;
-    cfg->gp_drop_mine = ___1a111ch_gp_drop_mine;
-    cfg->counter = ___1a1f3ch_counter;
+    for (int i = 0; i < 10; i++)
+    {
+        hof_entry_t* hof = &cfg->hall_of_fame[i];
+        hof->races = SDL_SwapLE32(hof->races);
+        hof->difficulty = SDL_SwapLE32(hof->difficulty);
+    }
+    cfg->kb_accelerate = SDL_SwapLE32(___1a1140h.accelerate);
+    cfg->kb_brake = SDL_SwapLE32(___1a1140h.brake);
+    cfg->kb_steer_left = SDL_SwapLE32(___1a1140h.steer_left);
+    cfg->kb_steer_right = SDL_SwapLE32(___1a1140h.steer_right);
+    cfg->kb_turbo_boost = SDL_SwapLE32(___1a1140h.turbo_boost);
+    cfg->kb_machine_gun = SDL_SwapLE32(___1a1140h.machine_gun);
+    cfg->kb_drop_mine = SDL_SwapLE32(___1a1140h.drop_mine);
+    cfg->kb_horn = SDL_SwapLE32(___1a1140h.horn);
+    cfg->gp_accelerate = SDL_SwapLE32(___1a1164h_gp_accelerate);
+    cfg->gp_brake = SDL_SwapLE32(___1a113ch_gp_brake);
+    cfg->gp_steer_left = SDL_SwapLE32(___1a1110h_gp_steer_left);
+    cfg->gp_steer_right = SDL_SwapLE32(___1a1130h_gp_steer_right);
+    cfg->gp_turbo_boost = SDL_SwapLE32(___1a1120h_gp_turbo_boost);
+    cfg->gp_machine_gun = SDL_SwapLE32(___1a1118h_gp_machine_gun);
+    cfg->gp_drop_mine = SDL_SwapLE32(___1a111ch_gp_drop_mine);
+    cfg->counter = SDL_SwapLE32(___1a1f3ch_counter);
 
     CONFIG_ENCODE(cfg);
 
