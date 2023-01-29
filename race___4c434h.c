@@ -17,8 +17,8 @@
 	extern __BYTE__ ___243cb0h[];
 	extern __BYTE__ ___243cb4h[];
 
-#define A_PI 	create_double(0xea,0x2e,0x44,0x54,0xfb,0x21,0x09,0x40)
-#define L0_83 	create_double(0xa3,0xae,0xb5,0xf7,0xa9,0xaa,0xea,0x3f)
+#define A_PI 	3.14159265359
+#define L0_83 	0.833333
 
 #define CTRL_NULL			0x00
 #define CTRL_ACCELERATE		0x01
@@ -498,9 +498,9 @@ void race___4c434h(void){
 	if((D(esp+0x50) == 0xd)||(D(esp+0x48) == 0xd)||(D(esp+0x4c) == 0xd)||(D(esp+0x54) == 0xd)||(D(esp+0x40) == 0xd)||(D(esp+0x44) == 0xd)){
 
 		F64(esp+0x10) = 7.0*(double)s_35e[D(___243c60h)].__b0;
-		s_35e[D(___243c60h)].Direction += (float)((double)rand_watcom106()*F64(esp+0x10)*create_double(0,0,0,0,0,0,0xf0,0x3e));
+		s_35e[D(___243c60h)].Direction += (float)((double)rand_watcom106()*F64(esp+0x10)*(1.0/65536.0));
 		F64(esp+0x10) = 7.0*(double)s_35e[D(___243c60h)].__b0;
-		s_35e[D(___243c60h)].Direction -= (float)((double)rand_watcom106()*F64(esp+0x10)*create_double(0,0,0,0,0,0,0xf0,0x3e));
+		s_35e[D(___243c60h)].Direction -= (float)((double)rand_watcom106()*F64(esp+0x10)*(1.0/65536.0));
 		if(s_35e[D(___243c60h)].Direction < 0.0f) s_35e[D(___243c60h)].Direction += 360.0f;
 		if(s_35e[D(___243c60h)].Direction >= 360.0f) s_35e[D(___243c60h)].Direction -= 360.0f;
 		s_35e[D(___243c60h)].__b0 *= (float)(29.0/30.0);

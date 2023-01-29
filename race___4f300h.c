@@ -26,8 +26,8 @@
 void ___5e769h(__BYTE__ * A0, int Y3, int X3, int Y2, int X2, int Y1, int X1);
 __DWORD__ __GET_FRAME_COUNTER(void);
 
-#define LOC_PI 		create_double(0xea,0x2e,0x44,0x54,0xfb,0x21,0x09,0x40)
-#define LOC_5OVER6	create_double(0xa3,0xae,0xb5,0xf7,0xa9,0xaa,0xea,0x3f)
+#define LOC_PI 		3.14159265359
+#define LOC_5OVER6	0.833333
 
 
 // LIGHTS

@@ -21,8 +21,8 @@ static int local_round(double dval){
 	return (local_op(dval) < 0.5) ? (int)dval : (int)(1.0+dval);
 }
 
-#define L_PI 	create_double(0xea,0x2e,0x44,0x54,0xfb,0x21,0x09,0x40)
-#define L_5o6	create_double(0xa3,0xae,0xb5,0xf7,0xa9,0xaa,0xea,0x3f)
+#define L_PI 	3.14159265359
+#define L_5o6	0.833333
 
 // RENDERS ROCKET FUEL
 void race___51204h(void){

@@ -43,7 +43,7 @@ void __VGA13_PRESENTSCREEN__(void);
 void race___46738h__VGA13_PRESENTCLEARSCREEN(void);
 void ___58c60h(void);
 
-#define LOCAL_PI create_double(0xea,0x2e,0x44,0x54,0xfb,0x21,0x09,0x40)
+#define LOCAL_PI 3.14159265359
 
 // ENTERING RACE SCREEN ANIMATION
 void race___45d3ch(void){
@@ -272,8 +272,8 @@ void race___46a10h(void){
 		n = -1;
 		while(++n < 600){
 
-			D(___243310h+4*n) = (int)(1024.0*dRMath_cos((double)n*create_double(0x9a,0x71,0x40,0x38,0x8c,0x6f,0x85,0x3f /* 157/15000 */)));
-			D(___243314h+4*n) = (int)(1024.0*dRMath_sin((double)n*create_double(0x9a,0x71,0x40,0x38,0x8c,0x6f,0x85,0x3f /* 157/15000 */)));
+			D(___243310h+4*n) = (int)(1024.0*dRMath_cos((double)n*(157.0/15000.0)));
+			D(___243314h+4*n) = (int)(1024.0*dRMath_sin((double)n*(157.0/15000.0)));
 		}
 
 		D(esp+0x58) = 0x41000000;

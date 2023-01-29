@@ -21,7 +21,7 @@
 	extern int TRX_VIEWPORT_TL_X;
 
 
-#define L_PI create_double(0xea,0x2e,0x44,0x54,0xfb,0x21,0x09,0x40)
+#define L_PI 3.14159265359
 
 static int limit_i(int min_val, int val, int max_val){ return (val<min_val)?min_val:(val>max_val)?max_val:val; }
 

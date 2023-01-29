@@ -78,7 +78,7 @@ void race___40864h(void){
 		}
 	}
 
-	D(esp+0x8) = (int)(create_double(0x3d,0x0a,0xd7,0xa3,0x70,0x3d,0x42,0x3f)*(double)(int)D(___1de580h+0x94*D(MY_CAR_IDX)+0x34));
+	D(esp+0x8) = (int)((57.0/1024.0/100.0)*(double)(int)D(___1de580h+0x94*D(MY_CAR_IDX)+0x34));
 	
 	if((int)D(esp+8) < 0) D(esp+0x8) = 0;
 
@@ -142,7 +142,7 @@ void race___40864h(void){
 	}
 	else {
 			
-		D(esp+0x4) = (int)(create_double(0x9a,0x99,0x99,0x99,0x99,0x99,0x41,0x3f)*(double)(int)D(___1de580h+0x94*D(MY_CAR_IDX)+0x30));
+		D(esp+0x4) = (int)((11.0/2048.0/10.0)*(double)(int)D(___1de580h+0x94*D(MY_CAR_IDX)+0x30));
 		
 		if((int)D(esp+4) < 0) D(esp+0x4) = 0;
 
@@ -173,7 +173,7 @@ void race___40864h(void){
 		}
 	}
 
-	D(esp) = (int)(100.0-dRMath_ceil(create_double(0,0,0,0,0,0,0x50,0x3f)*(double)(int)D(___1de580h+0x94*D(MY_CAR_IDX)+0x18)));
+	D(esp) = (int)(100.0-dRMath_ceil((1.0/1024.0)*(double)(int)D(___1de580h+0x94*D(MY_CAR_IDX)+0x18)));
 	n = ___4256ch_cdecl(___1de210h, 0x8, 0xa, D(esp), 0, 0x2c90, -8, -16);
 
 	j = -1;
