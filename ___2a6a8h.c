@@ -44,6 +44,30 @@ __DWORD__ ___2a6a8h(void){
 			sg->difficulty = ___196a94h_difficulty;
 			strcpy(sg->name, "Quicksave Slot");
 			memcpy(sg->racers, s_6c, 20*sizeof(racer_t));
+			for (int i = 0; i < 20; i++) {
+				racer_t* rc = &sg->racers[i];
+				rc->damage = SDL_SwapLE32(rc->damage);
+				rc->engine = SDL_SwapLE32(rc->engine);
+				rc->tires = SDL_SwapLE32(rc->tires);
+				rc->armor = SDL_SwapLE32(rc->armor);
+				rc->car = SDL_SwapLE32(rc->car);
+				rc->color = SDL_SwapLE32(rc->color);
+				rc->money = SDL_SwapLE32(rc->money);
+				rc->loanshark_type = SDL_SwapLE32(rc->loanshark_type);
+				rc->loanshark_counter = SDL_SwapLE32(rc->loanshark_counter);
+				rc->refund = SDL_SwapLE32(rc->refund);
+				rc->face = SDL_SwapLE32(rc->face);
+				rc->points = SDL_SwapLE32(rc->points);
+				rc->rank = SDL_SwapLE32(rc->rank);
+				rc->wins = SDL_SwapLE32(rc->wins);
+				rc->races = SDL_SwapLE32(rc->races);
+				rc->bonus = SDL_SwapLE32(rc->bonus);
+				rc->income = SDL_SwapLE32(rc->income);
+				rc->mines = SDL_SwapLE32(rc->mines);
+				rc->spikes = SDL_SwapLE32(rc->spikes);
+				rc->rocket_fuel = SDL_SwapLE32(rc->rocket_fuel);
+				rc->sabotage = SDL_SwapLE32(rc->sabotage);
+			}
 			dREncryption_encodeSavedGame(sg);
 			fd = strupr_fopen("DR.SG7", "wb");
 			fwrite(sg, sizeof(saved_game_t), 1, fd);
@@ -64,6 +88,30 @@ __DWORD__ ___2a6a8h(void){
 				fread(sg, sizeof(saved_game_t), 1, fd);
 				fclose(fd);
 				dREncryption_decodeSavedGame(sg);
+				for (int i = 0; i < 20; i++) {
+					racer_t* rc = &sg->racers[i];
+					rc->damage = SDL_SwapLE32(rc->damage);
+					rc->engine = SDL_SwapLE32(rc->engine);
+					rc->tires = SDL_SwapLE32(rc->tires);
+					rc->armor = SDL_SwapLE32(rc->armor);
+					rc->car = SDL_SwapLE32(rc->car);
+					rc->color = SDL_SwapLE32(rc->color);
+					rc->money = SDL_SwapLE32(rc->money);
+					rc->loanshark_type = SDL_SwapLE32(rc->loanshark_type);
+					rc->loanshark_counter = SDL_SwapLE32(rc->loanshark_counter);
+					rc->refund = SDL_SwapLE32(rc->refund);
+					rc->face = SDL_SwapLE32(rc->face);
+					rc->points = SDL_SwapLE32(rc->points);
+					rc->rank = SDL_SwapLE32(rc->rank);
+					rc->wins = SDL_SwapLE32(rc->wins);
+					rc->races = SDL_SwapLE32(rc->races);
+					rc->bonus = SDL_SwapLE32(rc->bonus);
+					rc->income = SDL_SwapLE32(rc->income);
+					rc->mines = SDL_SwapLE32(rc->mines);
+					rc->spikes = SDL_SwapLE32(rc->spikes);
+					rc->rocket_fuel = SDL_SwapLE32(rc->rocket_fuel);
+					rc->sabotage = SDL_SwapLE32(rc->sabotage);
+				}
 				D(___1a1ef8h) = sg->me;
 				D(___185a14h_UseWeapons) = sg->weapons;
 				___196a94h_difficulty =  sg->difficulty;
