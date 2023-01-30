@@ -294,13 +294,17 @@ void dRally_Sound_load(__DWORD__ msx_t, const char * msx_f, __DWORD__ sfx_t, con
 		musics_s3m->ptrSpecial = SDL_SwapLE16(musics_s3m->ptrSpecial);
 		if(strncmp(musics_s3m->sig2, "SCRM", 4)) ___58b20h(0x28, msx_f);
     	if(S3M_getHeaderOrderList(musics_s3m)[0] == 0xff) ___58b20h(0x29, msx_f);
+		__WORD__ *patterns = S3M_getHeaderPtrPatterns(musics_s3m);
 		for (int i = 0; i < musics_s3m->patternPtrCount; i++) {
+			patterns[i] = SDL_SwapLE16(patterns[i]);
 			s3m_pattern_t* pattern = S3M_getPattern(musics_s3m, i);
 			pattern->packed_len = SDL_SwapLE16(pattern->packed_len);
 		}
+		__WORD__* instruments = S3M_getHeaderPtrInstruments(musics_s3m);
 		for (int i = 0; i < musics_s3m->instrumentCount; i++) {
+			instruments[i] = SDL_SwapLE16(instruments[i]);
 			s3m_pcm_t* pcm = &S3M_getInstrument(musics_s3m, i)->pcm;
-			pcm->ptrDataH = SDL_SwapLE16(pcm->ptrDataH);
+			pcm->ptrDataL = SDL_SwapLE16(pcm->ptrDataL);
 			pcm->length = SDL_SwapLE32(pcm->length);
 			pcm->loopStart = SDL_SwapLE32(pcm->loopStart);
 			pcm->loopEnd = SDL_SwapLE32(pcm->loopEnd);
@@ -346,6 +350,7 @@ void dRally_Sound_load(__DWORD__ msx_t, const char * msx_f, __DWORD__ sfx_t, con
 			xm_instrument_t* inst = XM_getInstrument(effects_xm, i);
 			inst->size = SDL_SwapLE32(inst->size);
 			inst->n_samples = SDL_SwapLE16(inst->n_samples);
+			inst->sample_header_size = SDL_SwapLE32(inst->sample_header_size);
 			if (inst->n_samples > 0)
 			{
 				xm_sample_t* samp = XM_getInstrumentSamples(inst);
