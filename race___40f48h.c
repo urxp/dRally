@@ -358,7 +358,7 @@ void race___40f48h(void){
         L(eax) -= L(edx);
         X(eax) <<= 8;
         X(edx) = (short)X(eax)>>0xf;
-        ___idiv16((__POINTER__)&eax, (__POINTER__)&edx, X(ebx));
+        ___idiv16((__POINTER__)&X(eax), (__POINTER__)&X(edx), X(ebx));
         X(esi) = X(eax);
 
         eax = 0;
