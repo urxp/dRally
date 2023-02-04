@@ -387,7 +387,7 @@ void shop_main(void){
 			g = ((ll_tmp+0x8000)>>0x10)&0xff;
 			ll_tmp = (long long)(int)___19eb50h[D(esp+0x20)].b*(long long)(int)D(esp+0x2c);
 			b = ((ll_tmp+0x8000)>>0x10)&0xff;
-			__DISPLAY_SET_PALETTE_COLOR(b, g, r, B(esp+0x20));
+			__DISPLAY_SET_PALETTE_COLOR(b, g, r, D(esp+0x20));
 			D(esp+0x20)++;
 			if((int)D(esp+0x20) >= 0x60) break;
 		}
@@ -410,7 +410,7 @@ void shop_main(void){
 		D(esp+0x34) += 0x51e;
 		edx = D(esp+0x2c);
 		edx += 2;
-		W(esp+0x2c) = X(edx);
+		D(esp+0x2c) = X(edx);
 		ebp++;
 		if((int)ebp >= 0x32) break;
 	}
