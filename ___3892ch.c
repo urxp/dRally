@@ -167,7 +167,7 @@ void ___3892ch_cdecl(__DWORD__ A1, __DWORD__ A2){
 			D(esp+0x68) = 0;
 			while(1){
 
-				nn = B(esp+0x68);
+				nn = D(esp+0x68);
 				rr = helper_color(___19eb50h[D(esp+0x68)].r, D(esp+0x6c));
 				gg = helper_color(___19eb50h[D(esp+0x68)].g, D(esp+0x6c));
 				bb = helper_color(___19eb50h[D(esp+0x68)].b, D(esp+0x6c));
@@ -325,7 +325,7 @@ void ___3892ch_cdecl(__DWORD__ A1, __DWORD__ A2){
 			D(esp+0x68) = 0;
 			while(1){
 
-				nn = B(esp+0x68);
+				nn = D(esp+0x68);
 				rr = helper_color(___19eb50h[D(esp+0x68)].r, ebp);
 				gg = helper_color(___19eb50h[D(esp+0x68)].g, ebp);
 				bb = helper_color(___19eb50h[D(esp+0x68)].b, ebp);
@@ -367,7 +367,7 @@ void ___3892ch_cdecl(__DWORD__ A1, __DWORD__ A2){
 			D(esp+0x68) = 0;
 			while(1){
 
-				nn = B(esp+0x68);
+				nn = D(esp+0x68);
 				rr = helper_color(___19eb50h[D(esp+0x68)].r, ebp);
 				gg = helper_color(___19eb50h[D(esp+0x68)].g, ebp);
 				bb = helper_color(___19eb50h[D(esp+0x68)].b, ebp);
@@ -407,7 +407,7 @@ void ___3892ch_cdecl(__DWORD__ A1, __DWORD__ A2){
 				D(esp+0x68) = 0;
 				while(1){
 
-					nn = B(esp+0x68);
+					nn = D(esp+0x68);
 					rr = helper_color(___19eb50h[D(esp+0x68)].r, ebp);
 					gg = helper_color(___19eb50h[D(esp+0x68)].g, ebp);
 					bb = helper_color(___19eb50h[D(esp+0x68)].b, ebp);
@@ -472,7 +472,7 @@ void ___3892ch_cdecl(__DWORD__ A1, __DWORD__ A2){
 				D(esp+0x68) = 0;
 				while(1){
 
-					nn = B(esp+0x68);
+					nn = D(esp+0x68);
 					rr = helper_color(___19eb50h[D(esp+0x68)].r, ebp);
 					gg = helper_color(___19eb50h[D(esp+0x68)].g, ebp);
 					bb = helper_color(___19eb50h[D(esp+0x68)].b, ebp);
@@ -498,7 +498,7 @@ void ___3892ch_cdecl(__DWORD__ A1, __DWORD__ A2){
 				D(esp+0x68) = 0;
 				while(1){
 
-					nn = B(esp+0x68);
+					nn = D(esp+0x68);
 					rr = helper_color(___19eb50h[D(esp+0x68)].r, ebp);
 					gg = helper_color(___19eb50h[D(esp+0x68)].g, ebp);
 					bb = helper_color(___19eb50h[D(esp+0x68)].b, ebp);
@@ -539,7 +539,7 @@ void ___3892ch_cdecl(__DWORD__ A1, __DWORD__ A2){
 			D(esp+0x68) = 0;
 			while(1){
 
-				nn = B(esp+0x68)+0x60;
+				nn = D(esp+0x68)+0x60;
 				rr = helper_color(___19eb50h[D(esp+0x68)+0x60].r, 0x640000);
 				gg = helper_color(___19eb50h[D(esp+0x68)+0x60].g, 0x640000);
 				bb = helper_color(___19eb50h[D(esp+0x68)+0x60].b, 0x640000);
