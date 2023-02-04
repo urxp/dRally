@@ -84,7 +84,7 @@ void menu___3da48h(void){
 
 			while(1){
 
-				nn = B(esp+0x64);
+				nn = D(esp+0x64);
 				rr = helper_color(___19eb50h[D(esp+0x64)].r, esi);
 				gg = helper_color(___19eb50h[D(esp+0x64)].g, esi);
 				bb = helper_color(___19eb50h[D(esp+0x64)].b, esi);
@@ -156,7 +156,7 @@ void menu___3da48h(void){
 
 			while(1){
 
-				nn = B(esp+0x64);
+				nn = D(esp+0x64);
 				rr = helper_color(___19eb50h[D(esp+0x64)].r, esi);
 				gg = helper_color(___19eb50h[D(esp+0x64)].g, esi);
 				bb = helper_color(___19eb50h[D(esp+0x64)].b, esi);
@@ -165,10 +165,10 @@ void menu___3da48h(void){
 				if((int)D(esp+0x64) >= 0x100) break;
 			}
 
-			edx = D(esp+0x6a);
-			edx += 2;
+			edx = D(esp+0x68);
+			edx += 0x20000;
 			ebp++;
-			W(esp+0x6a) = X(edx);
+			D(esp+0x68) = edx;
 		
 			if((int)ebp >= 0x32) break;
 		}
