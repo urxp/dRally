@@ -329,8 +329,8 @@ void ___33010h_cdecl(int NumCars){
 
 		if(edx == 3){
 			
-			B(esp+0xcc) = B(___1a1ef8h);
-			B(esp+0xcd) = B(___1a1ef8h);
+			B(esp+0xcc) = D(___1a1ef8h);
+			B(esp+0xcd) = D(___1a1ef8h);
 		}
 #if defined(DR_MULTIPLAYER)
 	}
@@ -341,7 +341,7 @@ void ___33010h_cdecl(int NumCars){
 		B(esp+0xcd) = 1;
 		B(esp+0xcf) = 3;
 		___1a0f9ch = ___3f71ch__allocateMemory(4);
-		B(___1a0f9ch) = B(___1a1ef8h);
+		B(___1a0f9ch) = D(___1a1ef8h);
 		___23488h_cdecl(___1a0f9ch, 1, 0x13);
 		dRMemory_free(___1a0f9ch);
 		edx = B(___1a2010h+1+D(___196ad4h));
@@ -510,7 +510,7 @@ void ___33010h_cdecl(int NumCars){
 			esp0x98[2] = (__POINTER__)&s_6c[B(___1a1168h+2)];
 			esp0x98[3] = (__POINTER__)&s_6c[B(___1a1168h+3)];
 			___1a0f9ch = ___3f71ch__allocateMemory(4);
-			B(___1a0f9ch) = B(___1a1ef8h);
+			B(___1a0f9ch) = D(___1a1ef8h);
 			___60a84h();
 			
 			n = 0;

@@ -189,7 +189,7 @@ void ___3266ch(void){
 						___12e78h_v3(___1a10b8h___185c7ah, esp, x, y);
 						ebx = B(___1a1f64h+D(___185a50h)+3);
 						D(___1a1028h) = D(___185a50h);
-						B(___1a0ef8h+4*D(___185a50h)+ebx) = B(___1a1ef8h);
+						B(___1a0ef8h+4*D(___185a50h)+ebx) = D(___1a1ef8h);
 						B(___1a1f64h+D(___185a50h)+3)++;
 						D(___1a103ch) = ebx;
 						___12cb8h__VESA101_PRESENTSCREEN();

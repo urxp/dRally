@@ -39,8 +39,8 @@ __DWORD__ ___2a6a8h(void){
 
 			sg = (saved_game_t *)___3f71ch__allocateMemory(sizeof(saved_game_t));
 			memset(sg, 0, sizeof(saved_game_t));
-			sg->me = B(___1a1ef8h);
-			sg->weapons = B(___185a14h_UseWeapons);
+			sg->me = D(___1a1ef8h);
+			sg->weapons = D(___185a14h_UseWeapons);
 			sg->difficulty = ___196a94h_difficulty;
 			strcpy(sg->name, "Quicksave Slot");
 			memcpy(sg->racers, s_6c, 20*sizeof(racer_t));
