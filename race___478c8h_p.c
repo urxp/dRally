@@ -59,12 +59,6 @@ static int r204(unsigned int val){
 // PAUSE, RACE OVER, DIALOG BOX LOAD ANIMATION
 static void ___47304h(void){
 
-#if (SDL_BYTEORDER == SDL_BIG_ENDIAN)
-	// TODO fix the animation
-	for (int i = 0; i < 76; i++) {
-		memcpy(&___2432d8h[(i + 64) * 320 + (320 - 204 + CURRENT_VIEWPORT_X)/ 2], &CPY_GEN_MES_BPK[i * 204], 204);
-	}
-#else
 	__DWORD__ 	eax, ebx, ecx, edx, edi, esi, ebp;
     int     i, j, n, k, l;
     long long   ll_tmp;
@@ -93,7 +87,7 @@ static void ___47304h(void){
             }
             else {
                     
-                ___243e74h[n]._20 += B(___24330ch);
+                ___243e74h[n]._20 += D(___24330ch);
                 
                 i = -1;
                 while(++i < (int)D(___24330ch)){
@@ -155,16 +149,11 @@ static void ___47304h(void){
             }
         }
     }
-#endif
 }
 
 // PAUSE, RACE OVER, DIALOG BOX UNLOAD ANIMATION
 static int ___47620h(void){
 
-#if (SDL_BYTEORDER == SDL_BIG_ENDIAN)
-	// TODO fix the animation
-	return 969;
-#else
 	int 	i, j, n, rslt;
 
 	rslt = 0;
@@ -212,7 +201,6 @@ static int ___47620h(void){
 	}
 
 	return rslt;
-#endif
 }
 
 void race___478c8h(__DWORD__ A1){
