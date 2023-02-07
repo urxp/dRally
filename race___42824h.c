@@ -260,6 +260,7 @@ void race___42824h(void){
 
 	old_bpa_read(TRX_BPA, ___1a54d0h, strcat(strcpy(fname, ___19bd64h), "-SCE.BPK"));
 
+	NUM_OF_OBJECTS = 0;
     bpk_decode4(1, 0, (__POINTER__)&NUM_OF_OBJECTS, ___1a54d0h);
 	NUM_OF_OBJECTS = SDL_SwapLE32(NUM_OF_OBJECTS);
     bpk_decode4(sizeof(xc50_t)*NUM_OF_OBJECTS, 1, (__POINTER__)&___1f3b08h, ___1a54d0h);
@@ -293,6 +294,7 @@ void race___42824h(void){
 		obj->_C48 = SDL_SwapLE32(obj->_C48);
 		obj->_C4C = SDL_SwapLE32(obj->_C4C);
 	}
+	NUM_OF_TEXTURES = 0;
     bpk_decode4(1, sizeof(xc50_t)*NUM_OF_OBJECTS+1, (__POINTER__)&NUM_OF_TEXTURES, ___1a54d0h);
 	NUM_OF_TEXTURES = SDL_SwapLE32(NUM_OF_TEXTURES);
 
