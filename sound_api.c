@@ -357,7 +357,12 @@ void dRally_Sound_load(__DWORD__ msx_t, const char * msx_f, __DWORD__ sfx_t, con
 				samp->size = SDL_SwapLE32(samp->size);
 				samp->loop_start = SDL_SwapLE32(samp->loop_start);
 				samp->loop_length = SDL_SwapLE32(samp->loop_length);
-				// TODO swap 16-bit samples?
+				if (samp->type & 0x10) {
+					__WORD__* data = (__WORD__*)XM_getInstrumentSamplesData(inst);
+					for (int j = 0; j < samp->size / 2; j++) {
+						data[j] = SDL_SwapLE16(data[j]);
+					}
+				}
 			}
 		}
 	}
