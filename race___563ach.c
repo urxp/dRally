@@ -114,7 +114,7 @@ void race___563ach(void){
 
 								edx = 0;
 								eax = 0;
-								L(edx) = B(esp+0xc);
+								L(edx) = D(esp+0xc);
 								L(eax) = L(ebx);
 								ebx = 0;
 								dRally_Sound_pushEffect(eax, edx, ebx, ecx, esi, 0x8000);
@@ -124,7 +124,7 @@ void race___563ach(void){
 
 							edx ^= ecx;
 							eax = 0;
-							L(edx) = B(esp+0xc);
+							L(edx) = D(esp+0xc);
 							ecx = 0x10000;
 							L(eax) = L(ebx);
 							ebx = 0;
