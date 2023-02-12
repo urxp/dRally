@@ -1,5 +1,4 @@
 #include "bpa.h"
-#include <SDL2/SDL_endian.h>
 
 #pragma pack(1)
 typedef struct bpa_entry_s {
