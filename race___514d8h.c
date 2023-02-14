@@ -17,8 +17,8 @@
 int rand_watcom106(void);
 void dRally_Sound_pushEffect(__BYTE__ channel, __BYTE__ n, __DWORD__ unk, __DWORD__ a0, __DWORD__ a1, __DWORD__ a2);
 
-#define LOC_83 create_double(0xa3,0xae,0xb5,0xf7,0xa9,0xaa,0xea,0x3f)
-#define LOC_PI create_double(0xea,0x2e,0x44,0x54,0xfb,0x21,0x09,0x40)
+#define LOC_83 0.833333
+#define LOC_PI 3.14159265359
 
 static int helper00(double dval){
 

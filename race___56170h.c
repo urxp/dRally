@@ -87,7 +87,7 @@ void race___56170h(void){
 	m = -1;
 	while(++m < (int)D(___243ce4h)){
 
-		s_35e[___243178h[m]].Position = B(NUM_OF_CARS)-m;
+		s_35e[___243178h[m]].Position = D(NUM_OF_CARS)-m;
 	}
 
 	D(___243c60h) = n;

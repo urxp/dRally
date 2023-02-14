@@ -240,21 +240,80 @@ void race___42824h(void){
 	
 	old_bpa_read(TRX_BPA, ___1a54d0h, strcat(strcpy(fname, ___19bd64h), "-SHA.BPK"));
 	bpk_decode4(4, 0, ___243c5ch, ___1a54d0h);
+	D(___243c5ch) = SDL_SwapLE32(D(___243c5ch));
 	bpk_decode4(4, 4, ___2438c4h, ___1a54d0h);
+	D(___2438c4h) = SDL_SwapLE32(D(___2438c4h));
 	bpk_decode4(4*D(___243c5ch), 8, X___1de920h, ___1a54d0h);
 	bpk_decode4(4*D(___243c5ch), 4*D(___243c5ch)+8, Y___1ded20h, ___1a54d0h);
 	bpk_decode4(4*D(___243c5ch), 8*D(___243c5ch)+8, ___1df120h, ___1a54d0h);
 	bpk_decode4(4*D(___2438c4h), 0xc*D(___243c5ch)+8, ___1e8448h, ___1a54d0h);
 	bpk_decode4(4*D(___2438c4h), 4*D(___2438c4h)+0xc*D(___243c5ch)+8, ___1e8048h, ___1a54d0h);
 	bpk_decode4(4*D(___2438c4h), 8*D(___2438c4h)+0xc*D(___243c5ch)+8, ___1e7c48h, ___1a54d0h);
+	for (int i = 0; i < 256; i++) {
+		((int*)X___1de920h)[i] = SDL_SwapLE32(((int*)X___1de920h)[i]);
+		((int*)Y___1ded20h)[i] = SDL_SwapLE32(((int*)Y___1ded20h)[i]);
+		((int*)___1df120h)[i] = SDL_SwapLE32(((int*)___1df120h)[i]); // TODO unused?
+		((int*)___1e8448h)[i] = SDL_SwapLE32(((int*)___1e8448h)[i]);
+		((int*)___1e8048h)[i] = SDL_SwapLE32(((int*)___1e8048h)[i]);
+		((int*)___1e7c48h)[i] = SDL_SwapLE32(((int*)___1e7c48h)[i]);
+	}
 
 	old_bpa_read(TRX_BPA, ___1a54d0h, strcat(strcpy(fname, ___19bd64h), "-SCE.BPK"));
 
+	NUM_OF_OBJECTS = 0;
     bpk_decode4(1, 0, (__POINTER__)&NUM_OF_OBJECTS, ___1a54d0h);
+	NUM_OF_OBJECTS = SDL_SwapLE32(NUM_OF_OBJECTS);
     bpk_decode4(sizeof(xc50_t)*NUM_OF_OBJECTS, 1, (__POINTER__)&___1f3b08h, ___1a54d0h);
+	for (int i = 0; i < NUM_OF_OBJECTS; i++)
+	{
+		xc50_t* obj = &___1f3b08h[i];
+		obj->PointsN = SDL_SwapLE32(obj->PointsN);
+		obj->TrianglesN = SDL_SwapLE32(obj->TrianglesN);
+		for (int j = 0; j < 75; j++) {
+			obj->CONST_X___8[j] = SDL_SwapLE32(obj->CONST_X___8[j]);
+			obj->CONST_Y_134[j] = SDL_SwapLE32(obj->CONST_Y_134[j]);
+			obj->CONST_Z_260[j] = SDL_SwapLE32(obj->CONST_Z_260[j]);
+			obj->PointsX[j] = SDL_SwapLE32(obj->PointsX[j]);
+			obj->PointsY[j] = SDL_SwapLE32(obj->PointsY[j]);
+		}
+		for (int j = 0; j < 100; j++) {
+			obj->IndicesP1[j] = SDL_SwapLE32(obj->IndicesP1[j]);
+			obj->IndicesP2[j] = SDL_SwapLE32(obj->IndicesP2[j]);
+			obj->IndicesP3[j] = SDL_SwapLE32(obj->IndicesP3[j]);
+			obj->_84C[j] = SDL_SwapLE32(obj->_84C[j]);
+		}
+		obj->_38C = SDL_SwapLE32(obj->_38C);
+		obj->_390 = SDL_SwapLE32(obj->_390);
+		obj->_394 = SDL_SwapLE32(obj->_394);
+		obj->_398 = SDL_SwapLE32(obj->_398);
+		obj->TRX_X = SDL_SwapLE32(obj->TRX_X);
+		obj->TRX_Y = SDL_SwapLE32(obj->TRX_Y);
+		obj->X_REL_VIEWPORT_CENTER = SDL_SwapLE32(obj->X_REL_VIEWPORT_CENTER);
+		obj->Y_REL_VIEWPORT_CENTER = SDL_SwapLE32(obj->Y_REL_VIEWPORT_CENTER);
+		obj->_C44 = SDL_SwapLE32(obj->_C44);
+		obj->_C48 = SDL_SwapLE32(obj->_C48);
+		obj->_C4C = SDL_SwapLE32(obj->_C4C);
+	}
+	NUM_OF_TEXTURES = 0;
     bpk_decode4(1, sizeof(xc50_t)*NUM_OF_OBJECTS+1, (__POINTER__)&NUM_OF_TEXTURES, ___1a54d0h);
+	NUM_OF_TEXTURES = SDL_SwapLE32(NUM_OF_TEXTURES);
 
     if(NUM_OF_TEXTURES > 0) bpk_decode4(sizeof(x2c_t)*NUM_OF_TEXTURES, sizeof(xc50_t)*NUM_OF_OBJECTS+2, (__POINTER__)&___240b48h, ___1a54d0h);
+	for (int i = 0; i < NUM_OF_TEXTURES; i++)
+	{
+		x2c_t* texture = &___240b48h[i];
+		texture->width = SDL_SwapLE32(texture->width);
+		texture->height = SDL_SwapLE32(texture->height);
+		texture->offset = SDL_SwapLE32(texture->offset);
+		texture->XPos = SDL_SwapLE32(texture->XPos);
+		texture->YPos = SDL_SwapLE32(texture->YPos);
+		texture->_14 = SDL_SwapLE32(texture->_14);
+		texture->_18 = SDL_SwapLE32(texture->_18);
+		texture->_1C = SDL_SwapLE32(texture->_1C);
+		texture->_20 = SDL_SwapLE32(texture->_20);
+		texture->_24 = SDL_SwapLE32(texture->_24);
+		texture->_28 = SDL_SwapLE32(texture->_28);
+	}
 /*
 	n = -1;
 	while(++n < NUM_OF_TEXTURES){
@@ -293,7 +352,13 @@ void race___42824h(void){
 	old_bpa_read(TRX_BPA, TRX_LIT_TAB, strcat(strcpy(fname, ___19bd64h), "-LIT.TAB"));
 	old_bpa_read("ENGINE.BPA", VARJO_TAB, "VARJO.TAB");
 	old_bpa_read(TRX_BPA, (__POINTER__)TRX_DRV_DAT, strcat(strcpy(fname, ___19bd64h), "-DRV.DAT"));
+	for (int i = 0; i < 512; i++) {
+		TRX_DRV_DAT[i] = SDL_SwapFloatLE(TRX_DRV_DAT[i]);
+	}
 	old_bpa_read(TRX_BPA, (__POINTER__)TRX_OHI_DAT, strcat(strcpy(fname, ___19bd64h), "-OHI.DAT"));
+	for (int i = 0; i < 256; i++) {
+		TRX_OHI_DAT[i] = SDL_SwapLE32(TRX_OHI_DAT[i]);
+	}
 	old_bpa_read("ENGINE.BPA", ___1a54d0h, "GEN-FLA.BPK");
 	bpk_decode2(GEN_FLA_BPK, ___1a54d0h);  
 	old_bpa_read("ENGINE.BPA", ___1a54d0h, "GEN-LAM.BPK");

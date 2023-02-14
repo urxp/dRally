@@ -67,6 +67,28 @@ void race___49bd4h(void){
 	TrxInf = (tr_inf_t *)___1a54d0h;
 	old_bpa_read(strcat(strcpy(TRX_BPA, ___19bd64h), ".BPA"), (__POINTER__)TrxInf, strcat(strcpy(___243d90h, ___19bd64h), "-INF.BIN"));
 
+	TrxInf->w = SDL_SwapLE32(TrxInf->w);
+	TrxInf->h = SDL_SwapLE32(TrxInf->h);
+	TrxInf->unk0 = SDL_SwapLE32(TrxInf->unk0);
+	for (int i = 0; i < 4; i++) {
+		tr_startup_t* startup = &TrxInf->startups[i];
+		startup->x = SDL_SwapLE32(startup->x);
+		startup->y = SDL_SwapLE32(startup->y);
+		startup->rot = SDL_SwapLE32(startup->rot);
+	}
+	for (int i = 0; i < 16; i++) {
+		tr_powerup_t* powerup = &TrxInf->powerups[i];
+		powerup->x = SDL_SwapLE32(powerup->x);
+		powerup->y = SDL_SwapLE32(powerup->y);
+	}
+	for (int i = 0; i < 20; i++) {
+		tr_spectator_t* spectator = &TrxInf->spectators[i];
+		spectator->x = SDL_SwapLE32(spectator->x);
+		spectator->y = SDL_SwapLE32(spectator->y);
+		spectator->type = SDL_SwapLE32(spectator->type);
+		spectator->rot = SDL_SwapLE32(spectator->rot);
+	}
+
 	TRX_WIDTH = TrxInf->w;
 	TRX_HEIGHT = TrxInf->h;
 	D(___243cech) = TrxInf->unk0;

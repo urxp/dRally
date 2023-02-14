@@ -231,6 +231,7 @@ void ___10b80h_cdecl(
 	fd = strupr_fopen(buffer, "rb");
 	___1a1f00h = 0;
 	fread(&___1a1f00h, 2, 1, fd);
+	___1a1f00h = SDL_SwapLE32(___1a1f00h);
 	___1a1f10h = ___3f71ch__allocateMemory(___1a1f00h);
 	___1a1f1ch = ___3f71ch__allocateMemory(___1a1f00h);
 	fread(___1a1f10h, ___1a1f00h, 1, fd);
@@ -264,6 +265,7 @@ void ___10b80h_cdecl(
 		esi = __GET_FRAME_COUNTER();
 		eax = 0;
 		fread(&eax, 2, 1, fd);
+		eax = SDL_SwapLE32(eax);
 		fread(EncodedFrame, eax, 1, fd);
 		___108e8h();
 		n = ___1a1f1ch[___185a0ch]+esi;

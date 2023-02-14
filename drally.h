@@ -21,9 +21,15 @@ typedef void (*void_cb)(void);
 #define B(b)	(*(__BYTE__ *)(b))
 #define P(p)    (*(__POINTER__ *)(p))
 
+#if (SDL_BYTEORDER == SDL_BIG_ENDIAN)
+#define X(r)	((__WORD__ *)&r)[1]
+#define H(r)	((__BYTE__ *)&r)[2]
+#define L(r)	((__BYTE__ *)&r)[3]
+#else
 #define X(r)	((__WORD__ *)&r)[0]
 #define H(r)	((__BYTE__ *)&r)[1]
 #define L(r)	((__BYTE__ *)&r)[0]
+#endif
 
 FILE * strupr_fopen(const char * file_name, const char * mode);
 

@@ -85,6 +85,10 @@ void race___49390h(void){
 	pcx_h.planes = 1;
 	pcx_h.scanline = 0x140;
 	pcx_h.col_mode = 1;
+	pcx_h.x_max = SDL_SwapLE16(pcx_h.x_max);
+	pcx_h.y_max = SDL_SwapLE16(pcx_h.y_max);
+	pcx_h.scanline = SDL_SwapLE16(pcx_h.scanline);
+	pcx_h.col_mode = SDL_SwapLE16(pcx_h.col_mode);
 
 	n = 0;
 	while((++n < 0x64)&&GET_FILE_SIZE(fname)){

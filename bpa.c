@@ -158,6 +158,11 @@ BPA * bpa_open(const char * bpa_fname){
     if((bpa->fd = fopen(bpa_fname, "rb")) != (FILE *)0){
     
         fread(&bpa->header, 1, sizeof(bpa_header_t), bpa->fd);
+        bpa->header.n = SDL_SwapLE32(bpa->header.n);
+        for (int i = 0; i < bpa->header.n; i++)
+        {
+            bpa->header.fat[i].size = SDL_SwapLE32(bpa->header.fat[i].size);
+        }
     }
     
     if(bpa_sanity(bpa) == BPA_FAILED){

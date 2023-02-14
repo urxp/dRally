@@ -73,7 +73,7 @@ void race___563ach(void){
 
 						esi = 0;
 						s_35e[eax/0x35e].__356 = esi;
-						L(eax) = B(___243c60h);
+						L(eax) = D(___243c60h);
 						L(eax) += 0xb;
 						eax &= 0xff;
 						dRally_Sound_freeEffectChannel(eax);
@@ -89,7 +89,7 @@ void race___563ach(void){
 						ecx = D(MY_CAR_IDX);
 						esi <<= 0xc;
 						s_35e[eax/0x35e].__356 = ebx;
-						L(ebx) = B(___243c60h);
+						L(ebx) = D(___243c60h);
 						esi += 0x21000;
 						L(ebx) += 0xb;
 
@@ -114,7 +114,7 @@ void race___563ach(void){
 
 								edx = 0;
 								eax = 0;
-								L(edx) = B(esp+0xc);
+								L(edx) = D(esp+0xc);
 								L(eax) = L(ebx);
 								ebx = 0;
 								dRally_Sound_pushEffect(eax, edx, ebx, ecx, esi, 0x8000);
@@ -124,7 +124,7 @@ void race___563ach(void){
 
 							edx ^= ecx;
 							eax = 0;
-							L(edx) = B(esp+0xc);
+							L(edx) = D(esp+0xc);
 							ecx = 0x10000;
 							L(eax) = L(ebx);
 							ebx = 0;

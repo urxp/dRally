@@ -176,7 +176,7 @@ void ___31008h(void){
 
 			while(1){
 
-				nn = B(esp+0x28);
+				nn = D(esp+0x28);
 				rr = helper_color(___19eb50h[D(esp+0x28)].r, esi);
 				gg = helper_color(___19eb50h[D(esp+0x28)].g, esi);
 				bb = helper_color(___19eb50h[D(esp+0x28)].b, esi);
@@ -204,7 +204,7 @@ void ___31008h(void){
 		D(esp+0x28) = 0;
 		while(1){
 
-			__DISPLAY_SET_PALETTE_COLOR(0, 0, 0, B(esp+0x28));
+			__DISPLAY_SET_PALETTE_COLOR(0, 0, 0, D(esp+0x28));
 			D(esp+0x28)++;
 			if((int)D(esp+0x28) >= 0x100) break;
 		}

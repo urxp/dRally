@@ -1,10 +1,7 @@
 #ifndef __BPA_H
 #define __BPA_H
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include "types.h"
+#include "drally.h"
 
 #define BPA_OK          0
 #define BPA_MALFORMED   1

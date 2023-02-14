@@ -358,7 +358,7 @@ void race___40f48h(void){
         L(eax) -= L(edx);
         X(eax) <<= 8;
         X(edx) = (short)X(eax)>>0xf;
-        ___idiv16((__POINTER__)&eax, (__POINTER__)&edx, X(ebx));
+        ___idiv16((__POINTER__)&X(eax), (__POINTER__)&X(edx), X(ebx));
         X(esi) = X(eax);
 
         eax = 0;
@@ -398,7 +398,7 @@ void race___40f48h(void){
     else {
 
 // AMMO BAR
-        n = (int)(create_double(0x9a,0x99,0x99,0x99,0x99,0x99,0x41,0x3f)*(double)(int)D(___1de580h+0x94*D(MY_CAR_IDX)+0x30));
+        n = (int)((11.0/2048.0/10.0)*(double)(int)D(___1de580h+0x94*D(MY_CAR_IDX)+0x30));
         n = (n < 0) ? 0x37 : 0x37-n;
 
         if(n != 0){
@@ -428,7 +428,7 @@ void race___40f48h(void){
     }
 
 // TURBO BAR SOMETHING
-    n = (int)(create_double(0x3d,0x0a,0xd7,0xa3,0x70,0x3d,0x42,0x3f)*(double)(int)D(___1de580h+0x94*D(MY_CAR_IDX)+0x34));
+    n = (int)((57.0/1024.0/100.0)*(double)(int)D(___1de580h+0x94*D(MY_CAR_IDX)+0x34));
     n = (n < 0) ? 0x3a : 0x3a-n;
 
     if(n != 0){
@@ -445,7 +445,7 @@ void race___40f48h(void){
     }
 
 // DAMAGE PERCENTAGE SYMBOL
-    n = (int)(100.0-dRMath_ceil((double)(int)D(___1de580h+0x94*D(MY_CAR_IDX)+0x18)*create_double(0,0,0,0,0,0,0x50,0x3f)));
+    n = (int)(100.0-dRMath_ceil((double)(int)D(___1de580h+0x94*D(MY_CAR_IDX)+0x18)*(1.0/1024.0)));
     k = ___4256ch_cdecl(___1de210h, 8, 10, n, 0, CURRENT_VIEWPORT_X+0x8e2e, -8, -16);
 
     j = -1;

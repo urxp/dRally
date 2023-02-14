@@ -16,7 +16,7 @@
 	extern int TRX_OHI_DAT[0x100];
 	extern float TRX_DRV_DAT[0x200];
 
-#define LOC_PI	create_double(0xea,0x2e,0x44,0x54,0xfb,0x21,0x09,0x40)
+#define LOC_PI	3.14159265359
 
 #define CTRL_NULL			0x00
 #define CTRL_ACCELERATE		0x01

@@ -161,7 +161,7 @@ __DWORD__ ___198a0h(void){
     while(++n < 9) B(vp0+n+21) = B(___1a2010h+n+1);
 
     B(vp0+20) = B(___196ab8h);
-    B(vp0+30) = B(___185a14h_UseWeapons);
+    B(vp0+30) = D(___185a14h_UseWeapons);
 
     ___13248h_cdecl(D(esp+0xc8-4), D(esp+0xe0-4), 0x1c2, 0x106, 1);
     ___12e78h_v3(___1a110ch___185c0bh, strcat(strcpy(esp, s_6c[D(___1a1ef8h)].name), "'s game"), D(esp+0xc4)+0x16, D(esp+0xdc)+0x73);

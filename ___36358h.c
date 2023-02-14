@@ -288,7 +288,7 @@ void ___36358h_cdecl(__DWORD__ A1){
 
 		while(1){
 
-			nn = B(esp+4);
+			nn = D(esp+4);
 			rr = helper_color(___19eb50h[D(esp+0x4)].r, 0x640000);
 			gg = helper_color(___19eb50h[D(esp+0x4)].g, 0x640000);
 			bb = helper_color(___19eb50h[D(esp+0x4)].b, 0x640000);
