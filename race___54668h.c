@@ -16,9 +16,6 @@
 
 int rand_watcom106(void);
 
-#define A_PI 	3.14159265359
-#define L0_83 	0.833333
-
 static int helper00(double dval){ return ((dval-(double)(int)dval) < 0.5)?(int)dval:(int)(1.0+dval); }
 
 static void helper11(float fval1, float fval2, __BYTE__ * bp){
@@ -54,22 +51,13 @@ static int helper44(int idx){
 	return (0.0 < (double)s_35e[idx].__b0)&&((s_35e[idx].Ctrls[getCounter(4)]&2) != 0);
 }
 
-static void helper55(int n, float * xf, float * yf, double angle){
-
-	struct_35e_t * 	s_35e = (struct_35e_t *)___1e6ed0h;
-
-	angle = ((double)s_35e[n].Direction+angle)*A_PI/180.0;
-
-	*xf = (float)((double)s_35e[n].XLocation+12.0*dRMath_sin(angle));
-	*yf = (float)((double)s_35e[n].YLocation+12.0*dRMath_cos(angle)*L0_83);
-}
-
 // POSITION, LAP COUNTER
 void race___54668h(void){
 
 	int 			br0, k, n;
 	__BYTE__ 		esp[0x124];
 	float 			x1f, x2f, x3f, x4f, y1f, y2f, y3f, y4f;
+	double 			angle;
 	struct_35e_t * 	s_35e;
 	struct_94_t *	s_94;
 
@@ -79,10 +67,22 @@ void race___54668h(void){
 	n = -1;
 	while(++n < NUM_OF_CARS){
 
-		helper55(n, &s_35e[n].X1__10e, &s_35e[n].Y1__112, 180.0-22.0);
-		helper55(n, &s_35e[n].X2__11e, &s_35e[n].Y2__122, 180.0+22.0);
-		helper55(n, &s_35e[n].X3__12e, &s_35e[n].Y3__132, -22.0);
-		helper55(n, &s_35e[n].X4__13e, &s_35e[n].Y4__142, 22.0);
+		angle = ((double)s_35e[n].Direction+(180.0-22.0))*dR_PI/180.0;
+		s_35e[n].X1__10e = (float)((double)s_35e[n].XLocation+12.0*dRMath_sin(angle));
+		s_35e[n].Y1__112 = (float)((double)s_35e[n].YLocation+12.0*dRMath_cos(angle)*5.0/6.0);
+
+		angle = ((double)s_35e[n].Direction+(180.0+22.0))*dR_PI/180.0;
+		s_35e[n].X2__11e = (float)((double)s_35e[n].XLocation+12.0*dRMath_sin(angle));
+		s_35e[n].Y2__122 = (float)((double)s_35e[n].YLocation+12.0*dRMath_cos(angle)*5.0/6.0);
+
+		angle = ((double)s_35e[n].Direction+(-22.0))*dR_PI/180.0;
+		s_35e[n].X3__12e = (float)((double)s_35e[n].XLocation+12.0*dRMath_sin(angle));
+		s_35e[n].Y3__132 = (float)((double)s_35e[n].YLocation+12.0*dRMath_cos(angle)*5.0/6.0);
+
+		angle = ((double)s_35e[n].Direction+(22.0))*dR_PI/180.0;
+		s_35e[n].X4__13e = (float)((double)s_35e[n].XLocation+12.0*dRMath_sin(angle));
+		s_35e[n].Y4__142 = (float)((double)s_35e[n].YLocation+12.0*dRMath_cos(angle)*5.0/6.0);
+
 
 		if(((int)s_94[n].__18 > 0)&&helper33(n, 0.55)) s_35e[n].__104 += (float)((double)(rand_watcom106()-rand_watcom106())/65536.0);
 
