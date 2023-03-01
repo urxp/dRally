@@ -73,7 +73,7 @@ unsigned int __GET_FRAME_COUNTER(void){
 		INT8_FRAME_COUNTER += skip;
 		IRQ0_TimerISR();
 
-		if(!skip) __PRESENTSCREEN__();
+		//if(!skip) __PRESENTSCREEN__();
 	}
 
 	IO_Loop();
