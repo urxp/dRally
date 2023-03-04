@@ -672,8 +672,10 @@ void race_main(int MyIndex, int NumCars){		// my_position_index, number_of_racer
 			D(___243d14h) = 1;
 		}
 
+		/*
 		D(___243d08h) = __GET_FRAME_COUNTER();
 		while(D(___243d08h) == __GET_FRAME_COUNTER());
+		*/
 
 		if((int)s_35e[MY_CAR_IDX].Drug > 0){
 
