@@ -218,7 +218,7 @@ void race_main(int MyIndex, int NumCars){		// my_position_index, number_of_racer
 
 	__DWORD__ 	eax, ebx, ecx, edx;
 	__BYTE__ 	esp[0x1c];
-	int 	i, j, n, bool_tmp, k, m, c;
+	int 	i, j, n, bool_tmp, k, m, c, frames;
 	struct_35e_t *	s_35e;
 	struct_94_t * 	s_94;
 	struct_54_t *	s_54;
@@ -612,6 +612,8 @@ void race_main(int MyIndex, int NumCars){		// my_position_index, number_of_racer
 #endif // DR_MULTIPLAYER
 		}
 
+		frames = __GET_FRAME_COUNTER();
+
 		race___4ee9ch();
 		race___4f030h();
 
@@ -676,10 +678,12 @@ void race_main(int MyIndex, int NumCars){		// my_position_index, number_of_racer
 		D(___243d08h) = __GET_FRAME_COUNTER();
 		while(D(___243d08h) == __GET_FRAME_COUNTER());
 		*/
+		while (frames == __GET_FRAME_COUNTER());
 
 		if((int)s_35e[MY_CAR_IDX].Drug > 0){
 
 			race___454ach();
+			__VGA13_PRESENTSCREEN__();
 		}
 		else {
 
