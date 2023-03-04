@@ -10,9 +10,10 @@ void ___3e3cch(void){
 
     if(!(fd = strupr_fopen("CDROM.INI", "rb"))){
 
-        printf("Error reading CDROM.INI file!\n");
-        dRally_System_clean();
-        exit(0x70);
+        //printf("Error reading CDROM.INI file!\n");
+        //dRally_System_clean();
+        //exit(0x70);
+        return;
     }
 
     fscanf(fd, "%s", ___1a0d60h);
