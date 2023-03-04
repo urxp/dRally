@@ -260,7 +260,7 @@ void race___478c8h(__DWORD__ A1){
 		resetCounter(5);
 		___58c60h();
 		memcpy(VGA13_ACTIVESCREEN+0x5000, ___2432d8h+0x5000, 0xaa00);
-		__VGA13_PRESENTSCREEN__();
+		//__VGA13_PRESENTSCREEN__();
 		memcpy(___2432d8h+0x5000, ___2432d4h+0x5000, 0xaa00);
 		___47304h();
 		D(___24330ch) = getCounter(2);
@@ -303,7 +303,7 @@ void race___478c8h(__DWORD__ A1){
 		resetCounter(2);
 		___58c60h();
 		memcpy(VGA13_ACTIVESCREEN, ___2432d8h, 0xfa00);
-		__VGA13_PRESENTSCREEN__();
+		//__VGA13_PRESENTSCREEN__();
 		memcpy(___2432d8h, ___2432d4h, 0xfa00);
 		if(___47620h() >= i) break;
 		D(___24330ch) = getCounter(2);
