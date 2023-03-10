@@ -97,7 +97,39 @@ static void CONFIG_ENCODE(config_t * p){
     }
 }
 
+static int strisprint(const char* s, size_t len){
+
+    for (size_t i = 0; i < len; i++)
+    {
+        if (!isprint((unsigned char)s[i]))
+            return 0;
+    }
+    return 1;
+}
+
+static int CONFIG_IS_ENCODED(config_t* p){
+
+    for (int i = 0; i < 6; i++)
+    {
+        for (int j = 0; j < 18; j++)
+        {
+            record_t* rec = &p->track_records[i][j];
+            if (!strisprint(rec->name, strlen(rec->name)))
+                return 1;
+        }
+    }
+
+    for (int i = 0; i < 10; i++)
+    {
+        hof_entry_t* hof = &p->hall_of_fame[i];
+        if (!strisprint(hof->name, strlen(hof->name)))
+            return 1;
+    }
+    return 0;
+}
+
 static const __BYTE__ CONFIG_INIT[7] = { 0,0,0,0,0,0,0 };
+static int CONFIG_ENCODED = 0;
 
 void CONFIG_READ(void){
 
@@ -138,8 +170,11 @@ void CONFIG_READ(void){
         CONFIG_SOUND_DMA = cfg->sounddma;
         CONFIG_SOUND_ADDR = SDL_SwapLE32(cfg->soundaddr);
 
-		CONFIG_DECODE(cfg);
-
+        CONFIG_ENCODED = CONFIG_IS_ENCODED(cfg);
+        if (CONFIG_ENCODED) {
+            CONFIG_DECODE(cfg);
+        }
+        
         ___24cc58h_msx_volume = SDL_SwapLE32(cfg->msx_volume);
         ___24cc54h_sfx_volume = SDL_SwapLE32(cfg->sfx_volume);
         D(___185a5ch+7*0x1c+0x18) = SDL_SwapLE32(cfg->com_port_option);
@@ -275,7 +310,9 @@ void CONFIG_WRITE(void){
     cfg->gp_drop_mine = SDL_SwapLE32(___1a111ch_gp_drop_mine);
     cfg->counter = SDL_SwapLE32(___1a1f3ch_counter);
 
-    CONFIG_ENCODE(cfg);
+    if (CONFIG_ENCODED) {
+        CONFIG_ENCODE(cfg);
+    }
 
     fd = strupr_fopen(CONFIG_FILE_NAME, "wb");
     fwrite(cfg, sizeof(config_t), 1, fd);
