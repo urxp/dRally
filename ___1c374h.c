@@ -44,6 +44,7 @@ static __BYTE__ __dfr_1855c8h[0x100] = {
 // Multiplayer Initialize A New Game
 void ___1c374h_cdecl(int A0){
 
+#if defined(DR_MULTIPLAYER)
 	__DWORD__ 	eax, ebx, ecx, edx, edi, esi, ebp;
 	__BYTE__ 	esp[0xc];
 	int 	n;
@@ -141,4 +142,5 @@ void ___1c374h_cdecl(int A0){
 			if(n == -1) break;
 		}
 	}
+#endif
 }

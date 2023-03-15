@@ -39,6 +39,7 @@ __DWORD__ ___3ab5ch_cdecl(__DWORD__);
 
 void ___1d2a8h(void){
 
+#if defined(DR_MULTIPLAYER)
 	__DWORD__ 	eax, ebx, ecx, edx, edi, esi, ebp;
 	__BYTE__ 	esp[0xc];
 
@@ -128,4 +129,5 @@ void ___1d2a8h(void){
 	
 		___1d4e8h();
 	}
+#endif
 }
