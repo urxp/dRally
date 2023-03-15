@@ -56,7 +56,9 @@ void ___618c4h(void){
 
     if(n > 0) ___618c4h_helper(n);
 
+#if defined(DR_MULTIPLAYER)
     if(CONNECTION_TYPE == 2) NovellNetWare_IPX_RelinquishControl();
+#endif // DR_MULTIPLAYER
 }
 
 void ___6168ch(void){
@@ -65,6 +67,7 @@ void ___6168ch(void){
 
 	if(CONNECTION_TYPE == 2){
 
+#if defined(DR_MULTIPLAYER)
 		n = 0x10;
 		while(n--){
 
@@ -85,6 +88,7 @@ void ___6168ch(void){
 				if(NovellNetWare_IPX_ListenForPacket(___24cd60h[n])) MP_ERROR = 0xcb;
 			}
 		}
+#endif // DR_MULTIPLAYER
 	}
 	
 	___618c4h();

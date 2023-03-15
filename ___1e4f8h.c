@@ -57,13 +57,13 @@ void ___1e4f8h(void){
 
 	if(CONNECTION_TYPE == 2){
 
+#if defined(DR_MULTIPLAYER)
 		___623d4h();
 		edx = D(___199f9ch);
 		D(___199f9ch) = 0;
 
 		if(___61cd0h() == 0) ___1123ch();
 
-#if defined(DR_MULTIPLAYER)
 		if(___19bd60h != 0){
 
 			if(CONNECTION_TYPE == 2){

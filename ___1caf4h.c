@@ -47,6 +47,7 @@ __DWORD__ ___1caf4h(void){
 
 	if(CONNECTION_TYPE == 2){
 
+#if defined(DR_MULTIPLAYER)
 		if(NovellNetWare_IPX_InstallationCheck() == 0){
 
 			memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR+0x10680, ___1a1138h__VESA101_BACKGROUND+0x10680, 0x28f00);
@@ -70,9 +71,7 @@ __DWORD__ ___1caf4h(void){
 
 		if(___61cd0h() == 0) ___1123ch();
 
-#if defined(DR_MULTIPLAYER)
 		___19bd60h = 1;
-#endif // DR_MULTIPLAYER
 
 		memcpy(___1a112ch__VESA101_ACTIVESCREEN_PTR+0x10680, ___1a1138h__VESA101_BACKGROUND+0x10680, 0x28f00);
 		___13710h(0, 0);
@@ -123,6 +122,7 @@ __DWORD__ ___1caf4h(void){
 		___12cb8h__VESA101_PRESENTSCREEN();
 		___59b3ch();
 		___5994ch();
+#endif // DR_MULTIPLAYER
 
 		return 1;
 	}

@@ -48,6 +48,7 @@ void ___61518h(void){
 
 	if(CONNECTION_TYPE == 2){
 
+#if defined(DR_MULTIPLAYER)
 		NovellNetWare_IPX_RelinquishControl();
 
 		n = 0x10;
@@ -71,5 +72,6 @@ void ___61518h(void){
 				if(NovellNetWare_IPX_ListenForPacket(___24cd60h[n])) MP_ERROR = 0xcb;
 			}
 		}
+#endif
 	}
 }
