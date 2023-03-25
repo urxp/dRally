@@ -51,6 +51,7 @@ void dRChatbox_push(const char * line, int col);
 // Network Initialize Game
 __DWORD__ ___198a0h(void){
 
+#if defined(DR_MULTIPLAYER)
     __DWORD__   	eax, ebx, ecx, edx, esi;
     __BYTE__    	esp[0x110];
 	__POINTER__ 	vp0, vp1;
@@ -403,4 +404,7 @@ __DWORD__ ___198a0h(void){
 
         return 0;
     }
+#else
+    return 0;
+#endif
 }

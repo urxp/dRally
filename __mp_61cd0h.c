@@ -51,6 +51,7 @@ __DWORD__ ___61cd0h(void){
 
     if(CONNECTION_TYPE == 2){
 
+#if defined(DR_MULTIPLAYER)
         if(!(___24e4b4h = (IPX_Address *)dRMemory_alloc(sizeof(IPX_Address)))) return (CONNECTION_TYPE = !(MP_ERROR = 0x64));
         if(!(___24e54eh = (IPX_EventControlBlock *)dRMemory_alloc(sizeof(IPX_EventControlBlock)+2*sizeof(IPX_Fragment)))) return (CONNECTION_TYPE = !(MP_ERROR = 0x64));
         if(!(___24e45ch = (IPX_EventControlBlock *)dRMemory_alloc(sizeof(IPX_EventControlBlock)+2*sizeof(IPX_Fragment)))) return (CONNECTION_TYPE = !(MP_ERROR = 0x64));
@@ -87,6 +88,7 @@ __DWORD__ ___61cd0h(void){
 			if(NovellNetWare_IPX_ListenForPacket(___24cd60h[n])) MP_ERROR = 0xcb;
             ___24cd60h[n]->InUse = ECB_INUSE_AWAITINGPACKET;
 		}
+#endif // DR_MULTIPLAYER
 	}
 
 	_dos_gettime(&esp);
