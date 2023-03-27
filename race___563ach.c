@@ -1,4 +1,5 @@
 #include "drally.h"
+#include "drmath.h"
 #include "drally_structs_free.h"
 
 	extern __BYTE__ NUM_OF_CARS[];
@@ -10,7 +11,6 @@
 
 void dRally_Sound_pushEffect(__BYTE__ channel, __BYTE__ n, __DWORD__ unk, __DWORD__ a0, __DWORD__ a1, __DWORD__ a2);
 void dRally_Sound_freeEffectChannel(__BYTE__ ch_num);
-double dRMath_sqrt(double);
 
 // HORNS
 void race___563ach(void){

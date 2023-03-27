@@ -1,6 +1,7 @@
 #include "drally.h"
 #include "drmath.h"
 
+#if !defined(DR_INLINE_MATH)
 double dRMath_sin(double dval){ return sin(dval); }
 double dRMath_cos(double dval){ return cos(dval); }
 double dRMath_sqrt(double dval){ return sqrt(dval); }
@@ -24,3 +25,4 @@ int dRMath_magnitude2_i(int a, int b){ return (int)dRMath_sqrt((double)dRMath_su
 
 double dRMath_sum3squares(double dval1, double dval2, double dval3){ return dval1*dval1+dval2*dval2+dval3*dval3; }
 double dRMath_magnitude3(double a, double b, double c){ return dRMath_sqrt(dRMath_sum3squares(a, b, c)); }
+#endif // DR_INLINE_MATH

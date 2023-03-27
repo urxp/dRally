@@ -1,4 +1,5 @@
 #include "drally.h"
+#include "drmath.h"
 #include "sfx.h"
 #include "drally_structs_free.h"
 
@@ -52,7 +53,6 @@ __DWORD__ ___4256ch_cdecl(__POINTER__ A1, __DWORD__ A2, __DWORD__ A3, __DWORD__ 
 void dRally_Sound_pushEffect(__BYTE__ channel, __BYTE__ n, __DWORD__ unk, __DWORD__ a0, __DWORD__ a1, __DWORD__ a2);
 void ___424c8h_v2(const char *, int x, int y);
 void DamageWarning(void);
-double dRMath_ceil(double);
 
 static void helper00(int A0){
 
