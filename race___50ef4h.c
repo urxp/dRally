@@ -15,15 +15,17 @@ static void helper_copy(__POINTER__ dst, int dstX, int dstY, __POINTER__ src){
 	int 		i, j;
 	__BYTE__ 	px;
 
-	j = -1;
-	while(++j < 8){
-
-		i = -1;
-		while(++i < 8){
-
-			if((px = read_b(src+8*j+i)) != 0) write_b(dst+0x200*(j+dstY)+i+dstX, px);
-		}
-	}
+	__BYTE__ *s = src;
+	__BYTE__ *d = dst + 0x200 * dstY + dstX;
+	j = 8;
+	do {
+		i = 8;
+		do {
+			if ((px = *s++) != 0) *d = px;
+			d++;
+		} while (--i);
+		d += (0x200 - 8);
+	} while (--j);
 }
 
 // TIRE DUSTING

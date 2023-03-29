@@ -107,15 +107,18 @@ void race___514d8h(void){
 									eax++;
 									setCounter(6, eax);
 
-									j = -1;
-									while(++j < 8){
-
-										i = -1;
-										while(++i < 8){
-
-											if((px = B(RACE_MINES1A_BPK+8*j+i)) != 0) B(TRX_IMA+TRX_WIDTH*(j+D(esp+0x74))+D(esp+0x88)+i) = px;
-										}
-									}
+									__BYTE__* s = RACE_MINES1A_BPK;
+									__BYTE__* d = TRX_IMA + TRX_WIDTH * (D(esp + 0x74)) + D(esp + 0x88);
+									int stride = TRX_WIDTH - 8;
+									j = 8;
+									do {
+										i = 8;
+										do {
+											if ((px = *s++) != 0) *d = px;
+											d++;
+										} while (--i);
+										d += stride;
+									} while (--j);
 
 									s_94[n].__28--;
 								}
@@ -146,18 +149,18 @@ void race___514d8h(void){
 
 					if(D(___1df520h+edi+8) == -1){
 
-						j = -1;
-						while(++j < 0x10){
-
-							i = -1;
-							while(++i < 0x10){
-
-								if((px = B(RACE_BLOWI_BPK+0x10*j+i+0x500)) != 0){
-
-									B(TRX_IMA+D(___1df520h+edi)+i+TRX_WIDTH*(D(___1df520h+edi+4)+j-8)-8) = px;
-								}
-							}
-						}
+						__BYTE__* s = RACE_BLOWI_BPK + 0x500;
+						__BYTE__* d = TRX_IMA + D(___1df520h + edi) + TRX_WIDTH * (D(___1df520h + edi + 4) - 8) - 8;
+						int stride = TRX_WIDTH - 0x10;
+						j = 0x10;
+						do {
+							i = 0x10;
+							do {
+								if ((px = *s++) != 0) *d = px;
+								d++;
+							} while (--i);
+							d += stride;
+						} while (--j);
 
 						D(___1df520h+edi+8) = 0;
 

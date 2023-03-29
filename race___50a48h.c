@@ -32,15 +32,17 @@ void race___50a48h(void){
 
 			img = RACE_FLAMEX_BPK[s_94[D(___243c60h)].__84[s_94[D(___243c60h)].__60]]+0x40*(s_35e[D(___243c60h)].ImgIndex/2);
 
-			j = -1;
-			while(++j < 8){
-
-				i = -1;
-				while(++i < 8){
-
-					if((px = read_b(img+8*j+i)) != 0) write_b(BACKBUFFER+0x200*(j+j0)+i+i0+0x60, px);
-				}
-			}
+			__BYTE__* s = img;
+			__BYTE__* d = BACKBUFFER + 0x200 * (j0) + i0 + 0x60;
+			j = 8;
+			do {
+				i = 8;
+				do {
+					if ((px = *s++) != 0) *d = px;
+					d++;
+				} while (--i);
+				d += (0x200 - 8);
+			} while (--j);
 		}
 
 		s_35e[D(___243c60h)].__1b6 = 0;

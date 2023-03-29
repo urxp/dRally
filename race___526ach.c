@@ -23,7 +23,7 @@ void race___526ach(void){
 	double 	d_tmp;
 	__DWORD__ 	eax, ebx, ecx, edx, edi, esi;
 	__POINTER__ 	edxp;
-	int 			i, n, rat_a, rat_b;
+	int 			i, j, n, rat_a, rat_b;
 	struct_54_t * 	s_54;
 	struct_35e_t * 	s_35e;
 
@@ -58,11 +58,17 @@ void race___526ach(void){
 						dRally_Sound_pushEffect(4, SFX_MINE, 0, 0x9000, 0x21000, 0x8000);
 					}
 
-					i = -1;
-					while(++i < 0x10){
-
-						memcpy(TRX_IMA+D(___1f2488h+0x120*n)-8+TRX_WIDTH*(D(___1f2488h+0x120*n+4)+i-8), ___1f2488h+0x20+0x120*n+0x10*i, 0x10);
-					}
+					__BYTE__* s = ___1f2488h + 0x20 + 0x120 * n;
+					__BYTE__* d = TRX_IMA + D(___1f2488h + 0x120 * n) - 8 + TRX_WIDTH * (D(___1f2488h + 0x120 * n + 4) - 8);
+					int stride = TRX_WIDTH - 0x10;
+					j = 0x10;
+					do {
+						i = 0x10;
+						do {
+							*d++ = *s++;
+						} while (--i);
+						d += stride;
+					} while (--j);
 
 					switch(D(___1f2488h+0x120*n+8)-1){
 					case 0:

@@ -39,15 +39,17 @@ void race___51ce0h(void){
 
 						if(((int)edx < 0xc8)&&(D(___1df520h+0x10*D(esp)+8) != 5)){
 
-							j = -1;
-							while(++j < 0x10){
-
-								i = -1;
-								while(++i < 0x10){
-
-									if((px = B(RACE_BLOWI_BPK+0x10*(j+0x10*D(___1df520h+0x10*D(esp)+8))+i)) != 0) B(BACKBUFFER+0x200*(j+eax-8)+i+edi+0x58) = px;
-								}
-							}
+							__BYTE__* s = RACE_BLOWI_BPK + 0x10 * (0x10 * D(___1df520h + 0x10 * D(esp) + 8));
+							__BYTE__* d = BACKBUFFER + 0x200 * (eax - 8) + edi + 0x58;
+							j = 16;
+							do {
+								i = 16;
+								do {
+									if ((px = *s++) != 0) *d = px;
+									d++;
+								} while (--i);
+								d += 0x200 - 16;
+							} while (--j);
 						}
 					}
 				}

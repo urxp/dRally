@@ -27,10 +27,12 @@ static void helper11(float fval1, float fval2, __BYTE__ * bp){
 
 	if((B(TRX_MAS+TRX_WIDTH*j+i)&0xf) == 0xf){
 
-		B(TRX_IMA+TRX_WIDTH*(j+0)+i+0) = bp[B(TRX_IMA+TRX_WIDTH*(j+0)+i+0)];
-		B(TRX_IMA+TRX_WIDTH*(j+0)+i+1) = bp[B(TRX_IMA+TRX_WIDTH*(j+0)+i+1)];
-		B(TRX_IMA+TRX_WIDTH*(j+1)+i+0) = bp[B(TRX_IMA+TRX_WIDTH*(j+1)+i+0)];
-		B(TRX_IMA+TRX_WIDTH*(j+1)+i+1) = bp[B(TRX_IMA+TRX_WIDTH*(j+1)+i+1)];
+		__BYTE__* dest = TRX_IMA + TRX_WIDTH * j + i;
+		dest[0] = bp[dest[0]];
+		dest[1] = bp[dest[1]];
+		dest += TRX_WIDTH;
+		dest[0] = bp[dest[0]];
+		dest[1] = bp[dest[1]];
 	}
 }
 
