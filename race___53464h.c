@@ -272,15 +272,20 @@ void race___53464h(void){
 								}
 
 								// x clip
-								if (xi < 0) {
-									dest += (-xi);
-									src += (-xi);
-									width += xi;
-									xi = 0;
+								int xdiff = CURRENT_VIEWPORT_X + 0x60 + (-xi);
+								if (xdiff > 0) {
+									dest += xdiff;
+									src += xdiff;
+									width -= xdiff;
+									xi += xdiff;
 								}
-								int xdiff = xi + width - 0x200;
+								xdiff = xi + width - 0x200 + 0x60;
 								if (xdiff > 0) {
 									width -= xdiff;
+								}
+
+								if (width <= 0 || height <= 0) {
+									continue;
 								}
 
 								int yy = height;
@@ -289,7 +294,7 @@ void race___53464h(void){
 									__BYTE__* s = src;
 									__BYTE__* d = dest;
 									while (xx--) {
-										if ((px = *s++)) *d = px;
+										if ((px = *s++) != 0) *d = px;
 										d++;
 									}
 									src += stride;

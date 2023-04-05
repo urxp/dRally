@@ -8,6 +8,7 @@
 	extern __BYTE__ ___196efch[];
 	extern __POINTER__ RACE_ROCKETX_BPK[2];
 	extern __POINTER__ BACKBUFFER;
+	extern int CURRENT_VIEWPORT_X;
 
 __DWORD__ __GET_FRAME_COUNTER(void);
 
@@ -44,7 +45,7 @@ void race___51204h(void){
 		x = s_35e[D(___243c60h)].__4-8+local_round(d_val*dRMath_sin(d_angle));
 		y = s_35e[D(___243c60h)].__8-8+local_round(L_5o6*d_val*dRMath_cos(d_angle));
 
-		if((x >= 0)&&((x+0x10) < 0x140)){
+		if((x >= CURRENT_VIEWPORT_X)&&((x+0x10) < 0x140)){
 
 			if((y >= 0)&&((y+0x10) < 0xc8)){
 

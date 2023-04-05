@@ -27,7 +27,7 @@ void race___50ba4h(void){
 		n = CURRENT_VIEWPORT_X+s_35e[D(___243c60h)].__1ca-TRX_VIEWPORT_TL_X;
 		m = s_35e[D(___243c60h)].__1ce-TRX_VIEWPORT_TL_Y;
 
-		if(n >= 0){
+		if(n >= CURRENT_VIEWPORT_X){
 
 			if(((n+0x8) < 0x140)&&(m >= 0)){
 					
@@ -58,7 +58,7 @@ void race___50ba4h(void){
 		m = s_35e[D(___243c60h)].__1c6-TRX_VIEWPORT_TL_Y;
 		s_35e[D(___243c60h)].__1ce = s_35e[D(___243c60h)].__1c6;
 
-		if(n >= 0){
+		if(n >= CURRENT_VIEWPORT_X){
 
 			if(((n+0x8) < 0x140)&&(m >= 0)){
 
@@ -90,7 +90,7 @@ void race___50ba4h(void){
 		m = s_35e[D(___243c60h)].__1be-TRX_VIEWPORT_TL_Y;
 		s_35e[D(___243c60h)].__1c6 = s_35e[D(___243c60h)].__1be;
 
-		if(n >= 0){
+		if(n >= CURRENT_VIEWPORT_X){
 
 			if(((n+0x8) < 0x140)&&(m >= 0)){
 

@@ -46,7 +46,7 @@ void race___50ef4h(void){
 			i0 = s_35e[D(___243c60h)].__25a[n]+CURRENT_VIEWPORT_X-TRX_VIEWPORT_TL_X;
 			j0 = s_35e[D(___243c60h)].__2d2[n]-TRX_VIEWPORT_TL_Y;
 
-			if((i0 >= 4)&&((i0+4) < 0x140)&&(j0 >= 4)&&((j0+4) < 0xc8)){
+			if((i0 >= 4 + CURRENT_VIEWPORT_X)&&((i0+4) < 0x140)&&(j0 >= 4)&&((j0+4) < 0xc8)){
 
 				helper_copy(BACKBUFFER, i0+0x5c, j0-4, RACE_SMOKE_BPK+0x40*((s_35e[D(___243c60h)].__1e2[n]-1)/4));
 			}
@@ -61,7 +61,7 @@ void race___50ef4h(void){
 			i0 = s_35e[D(___243c60h)].__296[n]+CURRENT_VIEWPORT_X-TRX_VIEWPORT_TL_X;
 			j0 = s_35e[D(___243c60h)].__30e[n]-TRX_VIEWPORT_TL_Y;
 
-			if((i0 >= 4)&&((i0+4) < 0x140)&&(j0 >= 4)&&((j0+4) < 0xc8)){
+			if((i0 >= 4 + CURRENT_VIEWPORT_X)&&((i0+4) < 0x140)&&(j0 >= 4)&&((j0+4) < 0xc8)){
 
 				helper_copy(BACKBUFFER, i0+0x5c, j0-4, RACE_SMOKE_BPK+0x40*((s_35e[D(___243c60h)].__21e[n]-1)/4));
 			}

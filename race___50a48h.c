@@ -28,7 +28,7 @@ void race___50a48h(void){
 		i0 = s_35e[D(___243c60h)].__1d2+CURRENT_VIEWPORT_X-TRX_VIEWPORT_TL_X;
 		j0 = s_35e[D(___243c60h)].__1d6-TRX_VIEWPORT_TL_Y;
 
-		if((i0 >= 0)&&((i0+8) < 0x140)&&(j0 >= 0)&&((j0+8) < 0xc8)){
+		if((i0 >= CURRENT_VIEWPORT_X)&&((i0+8) < 0x140)&&(j0 >= 0)&&((j0+8) < 0xc8)){
 
 			img = RACE_FLAMEX_BPK[s_94[D(___243c60h)].__84[s_94[D(___243c60h)].__60]]+0x40*(s_35e[D(___243c60h)].ImgIndex/2);
 

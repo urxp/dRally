@@ -2,6 +2,7 @@
 #include "drmath.h"
 
     extern __BYTE__ * BACKBUFFER;
+    extern int CURRENT_VIEWPORT_X;
 
 #define OFFSET 400
 
@@ -114,7 +115,9 @@ void ___5e3e8h(int Z3, int Y3, int X3, int Z2, int Y2, int X2, int Z1, int Y1, i
         while (Y1 < Y3) {
 
             TREE_XL = dRMath_min_i(LEFT[Y1], RIGHT[Y1]) >> 0x10;
+            TREE_XL = dRMath_max_i(TREE_XL, CURRENT_VIEWPORT_X);
             TREE_XR = dRMath_max_i(LEFT[Y1], RIGHT[Y1]) >> 0x10;
+            TREE_XR = dRMath_min_i(TREE_XR, 320);
             edx = (LEFT[Y1] < RIGHT[Y1]) ? TOP[Y1] : BOTTOM[Y1];
 
             while (TREE_XL < TREE_XR) {
@@ -149,7 +152,9 @@ void ___5e137h(__BYTE__ A0, int Y3, int X3, int Y2, int X2, int Y1, int X1){
         while (Y1 < Y3) {
 
             OBJ_XL = dRMath_min_i(LEFT[Y1], RIGHT[Y1]) >> 0x10;
+            OBJ_XL = dRMath_max_i(OBJ_XL, CURRENT_VIEWPORT_X);
             OBJ_XR = dRMath_max_i(LEFT[Y1], RIGHT[Y1]) >> 0x10;
+            OBJ_XR = dRMath_min_i(OBJ_XR, 320);
 
             while (OBJ_XL < OBJ_XR) {
 
@@ -194,7 +199,9 @@ void ___5e769h(__BYTE__ * A0, int Y3, int X3, int Y2, int X2, int Y1, int X1){
         while (Y1 < Y3) {
 
             SHD_XL = dRMath_min_i(LEFT[Y1], RIGHT[Y1]) >> 0x10;
+            SHD_XL = dRMath_max_i(SHD_XL, CURRENT_VIEWPORT_X);
             SHD_XR = dRMath_max_i(LEFT[Y1], RIGHT[Y1]) >> 0x10;
+            SHD_XR = dRMath_min_i(SHD_XR, 320);
 
             while (SHD_XL < SHD_XR) {
 

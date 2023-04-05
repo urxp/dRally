@@ -90,15 +90,20 @@ static void helper01(int x, int y, __POINTER__ vp1, int A0){
 	}
 
 	// x clip
-	if (x < 0) {
-		dest += (-x);
-		src += (-x);
-		width += x;
-		x = 0;
+	int xdiff = CURRENT_VIEWPORT_X + 0x60 + (-x);
+	if (xdiff > 0) {
+		dest += xdiff;
+		src += xdiff;
+		width -= xdiff;
+		x += xdiff;
 	}
-	int xdiff = x + width - 0x200;
+	xdiff = x + width - 0x200 + 0x60;
 	if (xdiff > 0) {
 		width -= xdiff;
+	}
+
+	if (width <= 0 || height <= 0) {
+		return;
 	}
 
 	int yy = height;
