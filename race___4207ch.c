@@ -29,11 +29,9 @@ void race___4207ch(void){
 	__BYTE__* d = BACKBUFFER + 0x150 + D(___243328h);
 	j = 0x3c;
 	do {
-		i = 0x50;
-		do {
-			*d++ = *s++;
-		} while (--i);
-		d += (0x200 - 0x50);
+		memcpy(d, s, 0x50);
+		s += 0x50;
+		d += 0x200;
 	} while (--j);
 
 	D(___243324h) += D(___24332ch);

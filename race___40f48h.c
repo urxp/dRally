@@ -133,11 +133,9 @@ void race___40f48h(void){
     __BYTE__* d = BACKBUFFER + 0x20 + CURRENT_VIEWPORT_X;
     j = 0xc8;
     do {
-        i = 0x40;
-        do {
-            *d++ = *s++;
-        } while (--i);
-        d += 0x200 - 0x40;
+        memcpy(d, s, 0x40);
+        s += 0x40;
+        d += 0x200;
     } while (--j);
 
     // FINISH FLAGS
