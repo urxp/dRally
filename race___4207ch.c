@@ -25,15 +25,14 @@ void race___4207ch(void){
 
 	edx = (int)(D(___243324h)+0x8000)>>0x10;
 
-	j = -1;
-	while(++j < 0x3c){
-
-		i = -1;
-		while(++i < 0x50){
-
-			B(BACKBUFFER+0x150+D(___243328h)+0x200*j+i) = B(GEN_FLA_BPK+0x12c0*edx+0x50*j+i);
-		}
-	}
+	__BYTE__* s = GEN_FLA_BPK + 0x12c0 * edx;
+	__BYTE__* d = BACKBUFFER + 0x150 + D(___243328h);
+	j = 0x3c;
+	do {
+		memcpy(d, s, 0x50);
+		s += 0x50;
+		d += 0x200;
+	} while (--j);
 
 	D(___243324h) += D(___24332ch);
 	eax = (int)(D(___243324h)+0x8000)>>0x10;

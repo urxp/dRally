@@ -35,22 +35,26 @@ void race___52d7ch(void){
 	__POINTER__ 	ebxp;
 	__POINTER__ 	edip;
 	struct_35e_t * 	s_35e;
+	int xloc, yloc, frames;
 
 
 	s_35e = (struct_35e_t *) ___1e6ed0h;
+	xloc = (int)s_35e[D(MY_CAR_IDX)].XLocation;
+	yloc = (int)s_35e[D(MY_CAR_IDX)].YLocation;
+	frames = __GET_FRAME_COUNTER();
 
 	n = -1;
 	while(++n < 0x14){
 		if(SPECTATORS[n].dead != 0){
-			if((SPECTATORS[n].timestamp+5) <= __GET_FRAME_COUNTER()){
+			if((SPECTATORS[n].timestamp+5) <= frames){
 				if(SPECTATORS[n].frame < 7){
 					SPECTATORS[n].frame++;
-					SPECTATORS[n].timestamp = __GET_FRAME_COUNTER();
+					SPECTATORS[n].timestamp = frames;
 				}
 			}
 		}
 		else {
-			if((SPECTATORS[n].timestamp+5) <= __GET_FRAME_COUNTER()){
+			if((SPECTATORS[n].timestamp+5) <= frames){
 				if(SPECTATORS[n].z_mov == 0){
 					if(SPECTATORS[n].frame < 2)	SPECTATORS[n].frame++;
 					else 						SPECTATORS[n].z_mov = 1;
@@ -59,21 +63,19 @@ void race___52d7ch(void){
 					if(SPECTATORS[n].frame > 0)	SPECTATORS[n].frame--;
 					else						SPECTATORS[n].z_mov = 0;
 				}
-				SPECTATORS[n].timestamp = __GET_FRAME_COUNTER();
+				SPECTATORS[n].timestamp = frames;
 			}
 
-			if(SPECTATORS[n].x > (int)s_35e[D(MY_CAR_IDX)].XLocation){
-				if(SPECTATORS[n].y > (int)s_35e[D(MY_CAR_IDX)].YLocation) SPECTATORS[n].rot = 2*!D(___196dach);
-				else if(SPECTATORS[n].y < (int)s_35e[D(MY_CAR_IDX)].YLocation) SPECTATORS[n].rot = 1+2*!!D(___196dach);
+			if(SPECTATORS[n].x > xloc){
+				if(SPECTATORS[n].y > yloc) SPECTATORS[n].rot = 2*!D(___196dach);
+				else if(SPECTATORS[n].y < yloc) SPECTATORS[n].rot = 1+2*!!D(___196dach);
 			}
-			else if(SPECTATORS[n].x < (int)s_35e[D(MY_CAR_IDX)].XLocation){
-				if(SPECTATORS[n].y > (int)s_35e[D(MY_CAR_IDX)].YLocation) SPECTATORS[n].rot = 1+2*!D(___196dach);
-				else if(SPECTATORS[n].y < (int)s_35e[D(MY_CAR_IDX)].YLocation) SPECTATORS[n].rot = 2*!!D(___196dach);
+			else if(SPECTATORS[n].x < xloc){
+				if(SPECTATORS[n].y > yloc) SPECTATORS[n].rot = 1+2*!D(___196dach);
+				else if(SPECTATORS[n].y < yloc) SPECTATORS[n].rot = 2*!!D(___196dach);
 			}
 		}
-	}
-	n = -1;
-	while(++n < 0x14){
+
 		if((SPECTATORS[n].x > (int)(TRX_VIEWPORT_TL_X-0x10))&&(SPECTATORS[n].x < (int)(TRX_VIEWPORT_TL_X+0x140))){
 			if((SPECTATORS[n].y > (int)(TRX_VIEWPORT_TL_Y-0x10))&&(SPECTATORS[n].y < (int)(TRX_VIEWPORT_TL_Y+0xc8))){
 				if((SPECTATORS[n].x != 0)&&(SPECTATORS[n].y != 0)){

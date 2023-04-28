@@ -8,15 +8,17 @@ static void helper00(__POINTER__ A1, __DWORD__ A2, __DWORD__ A3, __DWORD__ A5, _
 	int 		i, j;
 	__BYTE__ 	px;
 
-	j = -1;
-	while(++j < A3){
-
-		i = -1;
-		while(++i < A2){
-
-			if((px = read_b(A1+A2*A3*(A5+B0)+A2*j+i)) != 0) write_b(BACKBUFFER+B1+0x200*j+i, px);
-		}
-	}
+	__BYTE__* s = A1 + A2 * A3 * (A5 + B0);
+	__BYTE__* d = BACKBUFFER + B1;
+	j = A3;
+	do {
+		i = A2;
+		do {
+			if ((px = *s++) != 0) *d = px;
+			d++;
+		} while (--i);
+		d += 0x200 - A2;
+	} while (--j);
 }
 
 // DAMAGE %

@@ -8,6 +8,7 @@
 	extern __BYTE__ ___196efch[];
 	extern __POINTER__ RACE_ROCKETX_BPK[2];
 	extern __POINTER__ BACKBUFFER;
+	extern int CURRENT_VIEWPORT_X;
 
 __DWORD__ __GET_FRAME_COUNTER(void);
 
@@ -44,21 +45,23 @@ void race___51204h(void){
 		x = s_35e[D(___243c60h)].__4-8+local_round(d_val*dRMath_sin(d_angle));
 		y = s_35e[D(___243c60h)].__8-8+local_round(L_5o6*d_val*dRMath_cos(d_angle));
 
-		if((x >= 0)&&((x+0x10) < 0x140)){
+		if((x >= CURRENT_VIEWPORT_X)&&((x+0x10) < 0x140)){
 
 			if((y >= 0)&&((y+0x10) < 0xc8)){
 
 				val = (int)s_35e[D(___243c60h)].ImgIndex/4;
 
-				j = -1;
-				while(++j < 0x10){
-
-					i = -1;
-					while(++i < 0x10){
-
-						if((px = B(RACE_ROCKETX_BPK[D(___196efch)]+0x100*val+0x10*j+i))) B(BACKBUFFER+0x200*(y+j)+x+i+0x60) = px;
-					}
-				}
+				__BYTE__* s = RACE_ROCKETX_BPK[D(___196efch)] + 0x100 * val;
+				__BYTE__* d = BACKBUFFER + 0x200 * y + x + 0x60;
+				j = 16;
+				do {
+					i = 16;
+					do {
+						if ((px = *s++) != 0) *d = px;
+						d++;
+					} while (--i);
+					d += (0x200 - 16);
+				} while (--j);
 
 				if((__GET_FRAME_COUNTER()-s_35e[D(___243c60h)].__1de) > 3){
 					

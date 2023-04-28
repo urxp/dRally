@@ -253,20 +253,52 @@ void race___53464h(void){
 								xi = (int)q->XScreen+CURRENT_VIEWPORT_X+0x60;
 								yi = (int)q->YScreen;
 
-								j = -1;
-								while(++j < q->height){
+								int width = q->width;
+								int stride = width;
+								int height = q->height;
+								__BYTE__ *src = ___243d5ch + q->offset;
+								__BYTE__ *dest = BACKBUFFER + 0x200 * yi + xi;
 
-									if(((j+yi) >= 0)&&((j+yi) < 0xc8)){
+								// y clip
+								if (yi < 0) {
+									dest += (-yi) * 0x200;
+									src += (-yi) * width;
+									height += yi;
+									yi = 0;
+								}
+								int ydiff = yi + height - 0xc8;
+								if (ydiff > 0) {
+									height -= ydiff;
+								}
 
-										i = -1;
-										while(++i < q->width){
+								// x clip
+								int xdiff = CURRENT_VIEWPORT_X + 0x60 + (-xi);
+								if (xdiff > 0) {
+									dest += xdiff;
+									src += xdiff;
+									width -= xdiff;
+									xi += xdiff;
+								}
+								xdiff = xi + width - 0x200 + 0x60;
+								if (xdiff > 0) {
+									width -= xdiff;
+								}
 
-											if(((i+xi) >= 0)&&((i+xi) < 0x200)){
-											
-												if((px = B(___243d5ch+q->offset+j*q->width+i))) B(BACKBUFFER+0x200*(j+yi)+(i+xi)) = px;
-											}
-										}
+								if (width <= 0 || height <= 0) {
+									continue;
+								}
+
+								int yy = height;
+								while (yy--) {
+									int xx = width;
+									__BYTE__* s = src;
+									__BYTE__* d = dest;
+									while (xx--) {
+										if ((px = *s++) != 0) *d = px;
+										d++;
 									}
+									src += stride;
+									dest += 0x200;
 								}
 							}
 						}

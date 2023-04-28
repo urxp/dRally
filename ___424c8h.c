@@ -11,15 +11,17 @@ static void ___424c8h_cdecl(int offset, const char * A2){
 	n = -1;
 	while(A2[++n]){
 
-		y = -1;
-		while(++y < 6){
-
-			x = -1;
-			while(++x < 6){
-
-				if((px = ___1d7810h[0x24*(A2[n]-0x20)+6*y+x]) != 0) BACKBUFFER[offset+6*n+0x200*y+x] = px;
-			}
-		}
+		__BYTE__* s = &___1d7810h[0x24 * (A2[n] - 0x20)];
+		__BYTE__* d = &BACKBUFFER[offset + 6 * n];
+		y = 6;
+		do {
+			x = 6;
+			do {
+				if ((px = *s++) != 0) *d = px;
+				d++;
+			} while (--x);
+			d += (0x200 - 6);
+		} while (--y);
 	}
 }
 

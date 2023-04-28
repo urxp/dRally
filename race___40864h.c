@@ -1,4 +1,5 @@
 #include "drally.h"
+#include "drmath.h"
 #include "sfx.h"
 #include "drally_structs_free.h"
 
@@ -22,7 +23,6 @@
 void dRally_Sound_pushEffect(__BYTE__ channel, __BYTE__ n, __DWORD__ unk, __DWORD__ a0, __DWORD__ a1, __DWORD__ a2);
 __DWORD__ ___4256ch_cdecl(__POINTER__ A1, __DWORD__ A2, __DWORD__ A3, __DWORD__ A4, __DWORD__ A5, __DWORD__ A6, __DWORD__ A7, __DWORD__ A8);
 
-double dRMath_ceil(double);
 
 
 void DamageWarning(void){
@@ -68,15 +68,19 @@ void race___40864h(void){
 
 	s_54 = (struct_54_t *)___1de7d0h;
 
-	j = -1;
-	while(++j < 0x20){
-
-		i = -1;
-		while(++i < 0x40){
-
-			if((px = B(___1d8110h+0x40*j+i)) != 0) B(BACKBUFFER+0x200*j+i+0x60) = px;
-		}
-	}
+	__BYTE__* s = ___1d8110h;
+	__BYTE__* d = BACKBUFFER + 0x60;
+	j = 32;
+	do {
+		i = 64;
+		do {
+			//if ((px = *s++) != 0) *d = px;
+			//d++;
+			// no transparency
+			*d++ = *s++;
+		} while (--i);
+		d += 0x200 - 64;
+	} while (--j);
 
 	D(esp+0x8) = (int)((57.0/1024.0/100.0)*(double)(int)D(___1de580h+0x94*D(MY_CAR_IDX)+0x34));
 	
@@ -86,15 +90,17 @@ void race___40864h(void){
 
 	if(edx != 0){
 
-		j = -1;
-		while(++j < 7){
-
-			i = -1;
-			while(++i < edx){
-
-				if((signed char)B(BACKBUFFER+0xe64+B(esp+8)+0x200*j+i) >= 0x40) B(BACKBUFFER+0xe64+B(esp+8)+0x200*j+i) = 0;
-			}
-		}
+		__BYTE__* d = BACKBUFFER + 0xe64 + B(esp + 8);
+		int stride = 0x200 - edx;
+		j = 7;
+		do {
+			i = edx;
+			do {
+				if ((signed char)*d >= 0x40) *d = 0;
+				d++;
+			} while (--i);
+			d += stride;
+		} while (--j);
 	}
 
 	if(D(___1de580h+0x94*D(MY_CAR_IDX)+0x2c) == 0){
@@ -150,41 +156,49 @@ void race___40864h(void){
 
 		if(edx != 0){
 
-			j = -1;
-			while(++j < 3){
-
-				i = -1;
-				while(++i < edx) B(BACKBUFFER+0x2664+B(esp+4)+0x200*j+i) = 0;
-			}
+			__BYTE__* d = BACKBUFFER + 0x2664 + B(esp + 4);
+			int stride = 0x200 - edx;
+			j = 3;
+			do {
+				i = edx;
+				do {
+					*d++ = 0;
+				} while (--i);
+				d += stride;
+			} while (--j);
 		}
 
 		n = -1;
 		while(++n < (int)D(___1de580h+0x94*D(MY_CAR_IDX)+0x28)){
 
-			j = -1;
-			while(++j < 6){
-
-				i = -1;
-				while(++i < 8){
-
-					if((px = read_b(SIDEBOM1_BPK+8*j+i)) != 0) write_b(BACKBUFFER+0x1a00+8*n+0x60+0x200*j+i, px);
-				}
-			}
+			__BYTE__* s = SIDEBOM1_BPK;
+			__BYTE__* d = BACKBUFFER + 0x1a00 + 8 * n + 0x60 ;
+			j = 6;
+			do {
+				i = 8;
+				do {
+					if ((px = *s++) != 0) *d = px;
+					d++;
+				} while (--i);
+				d += 0x200 - 8;
+			} while (--j);
 		}
 	}
 
 	D(esp) = (int)(100.0-dRMath_ceil((1.0/1024.0)*(double)(int)D(___1de580h+0x94*D(MY_CAR_IDX)+0x18)));
 	n = ___4256ch_cdecl(___1de210h, 0x8, 0xa, D(esp), 0, 0x2c90, -8, -16);
 
-	j = -1;
-	while(++j < 10){
-
-		i = -1;
-		while(++i < 8){
-
-			if((px = read_b(___1de530h+8*j+i)) != 0) write_b(BACKBUFFER+n+0x200*j+i, px);
-		}
-	}
+	s = ___1de530h;
+	d = BACKBUFFER + n;
+	j = 10;
+	do {
+		i = 8;
+		do {
+			if ((px = *s++) != 0) *d = px;
+			d++;
+		} while (--i);
+		d += 0x200 - 8;
+	} while (--j);
 
 	DamageWarning();
 }

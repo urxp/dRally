@@ -29,7 +29,7 @@ void race___51eb4h(void){
 			x = CURRENT_VIEWPORT_X+D(0x120*n+___1f2488h)-TRX_VIEWPORT_TL_X;
 			y = D(0x120*n+___1f2488h+4)+((int)D(0x120*n+___1f2488h+0x14)>>3)-TRX_VIEWPORT_TL_Y-4;
 
-			if((x >= -18)&&(x < 320)&&(y >= 6)&&(y < 200)){
+			if((x >= -18 + CURRENT_VIEWPORT_X)&&(x < 320)&&(y >= 6)&&(y < 200)){
 
 				switch(D(0x120*n+___1f2488h+0x18)-1){
 				case 2:

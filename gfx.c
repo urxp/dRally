@@ -2,6 +2,7 @@
 #include "drmath.h"
 
     extern __BYTE__ * BACKBUFFER;
+    extern int CURRENT_VIEWPORT_X;
 
 #define OFFSET 400
 
@@ -101,19 +102,27 @@ void ___5e3e8h(int Z3, int Y3, int X3, int Z2, int Y2, int X2, int Z1, int Y1, i
 
     if(helper_bounds_y(&Y1, &Y3)){
 
-        edx = OFFSET+(Y1+Y3)/2;
-        eax = (___5b80ch[edx]-___5a86ch[edx])>>0x10;
-        eax = (eax != 0) ? (___5d74ch[edx]-___5c7ach[edx])/eax : 0;
-  
-        while(Y1 < Y3){
+        int* LEFT = &___5b80ch[OFFSET];
+        int* RIGHT = &___5a86ch[OFFSET];
+        int* BOTTOM = &___5c7ach[OFFSET];
+        int* TOP = &___5d74ch[OFFSET];
+        unsigned char* dest = &BACKBUFFER[0x60];
 
-            TREE_XL = dRMath_min_i(___5b80ch[Y1+OFFSET], ___5a86ch[Y1+OFFSET])>>0x10;
-            TREE_XR = dRMath_max_i(___5b80ch[Y1+OFFSET], ___5a86ch[Y1+OFFSET])>>0x10;
-            edx = (___5b80ch[Y1+OFFSET] < ___5a86ch[Y1+OFFSET])?___5d74ch[Y1+OFFSET]:___5c7ach[Y1+OFFSET];
+        edx = (Y1 + Y3) / 2;
+        eax = (LEFT[edx] - RIGHT[edx]) >> 0x10;
+        eax = (eax != 0) ? (TOP[edx] - BOTTOM[edx]) / eax : 0;
 
-            while(TREE_XL < TREE_XR){
+        while (Y1 < Y3) {
 
-                BACKBUFFER[0x200*Y1+0x60+TREE_XL] = edx>>0x10;
+            TREE_XL = dRMath_min_i(LEFT[Y1], RIGHT[Y1]) >> 0x10;
+            TREE_XL = dRMath_max_i(TREE_XL, CURRENT_VIEWPORT_X);
+            TREE_XR = dRMath_max_i(LEFT[Y1], RIGHT[Y1]) >> 0x10;
+            TREE_XR = dRMath_min_i(TREE_XR, 320);
+            edx = (LEFT[Y1] < RIGHT[Y1]) ? TOP[Y1] : BOTTOM[Y1];
+
+            while (TREE_XL < TREE_XR) {
+
+                dest[0x200 * Y1 + TREE_XL] = edx >> 0x10;
                 TREE_XL++;
                 edx += eax;
             }
@@ -136,14 +145,20 @@ void ___5e137h(__BYTE__ A0, int Y3, int X3, int Y2, int X2, int Y1, int X1){
 
     if(helper_bounds_y(&Y1, &Y3)){
 
-        while(Y1 < Y3){
+        int* LEFT = &___5b80ch[OFFSET];
+        int* RIGHT = &___5a86ch[OFFSET];
+        unsigned char* dest = &BACKBUFFER[0x60];
 
-            OBJ_XL = dRMath_min_i(___5b80ch[Y1+OFFSET], ___5a86ch[Y1+OFFSET])>>0x10;
-            OBJ_XR = dRMath_max_i(___5b80ch[Y1+OFFSET], ___5a86ch[Y1+OFFSET])>>0x10;
+        while (Y1 < Y3) {
 
-            while(OBJ_XL < OBJ_XR){
-                
-                BACKBUFFER[0x200*Y1+0x60+OBJ_XL] = A0;
+            OBJ_XL = dRMath_min_i(LEFT[Y1], RIGHT[Y1]) >> 0x10;
+            OBJ_XL = dRMath_max_i(OBJ_XL, CURRENT_VIEWPORT_X);
+            OBJ_XR = dRMath_max_i(LEFT[Y1], RIGHT[Y1]) >> 0x10;
+            OBJ_XR = dRMath_min_i(OBJ_XR, 320);
+
+            while (OBJ_XL < OBJ_XR) {
+
+                dest[0x200 * Y1 + OBJ_XL] = A0;
                 OBJ_XL++;
             }
 
@@ -177,21 +192,24 @@ void ___5e769h(__BYTE__ * A0, int Y3, int X3, int Y2, int X2, int Y1, int X1){
 
 	if(helper_bounds_y(&Y1, &Y3)){
 
-		while(Y1 < Y3){
+        int* LEFT = &___5b80ch[OFFSET];
+        int* RIGHT = &___5a86ch[OFFSET];
+        unsigned char* dest = &BACKBUFFER[0x60];
 
-            SHD_XL = dRMath_min_i(___5b80ch[Y1+OFFSET], ___5a86ch[Y1+OFFSET])>>0x10;
-            SHD_XR = dRMath_max_i(___5b80ch[Y1+OFFSET], ___5a86ch[Y1+OFFSET])>>0x10;
+        while (Y1 < Y3) {
 
-//            SHD_XL = LEFT[Y1+OFFSET]>>0x10;
-//            SHD_XR = RIGHT[Y1+OFFSET]>>0x10;
+            SHD_XL = dRMath_min_i(LEFT[Y1], RIGHT[Y1]) >> 0x10;
+            SHD_XL = dRMath_max_i(SHD_XL, CURRENT_VIEWPORT_X);
+            SHD_XR = dRMath_max_i(LEFT[Y1], RIGHT[Y1]) >> 0x10;
+            SHD_XR = dRMath_min_i(SHD_XR, 320);
 
-            while(SHD_XL < SHD_XR){
+            while (SHD_XL < SHD_XR) {
 
-                BACKBUFFER[0x200*Y1+0x60+SHD_XL] = A0[BACKBUFFER[0x200*Y1+0x60+SHD_XL]];
+                dest[0x200 * Y1 + SHD_XL] = A0[dest[0x200 * Y1 + SHD_XL]];
                 SHD_XL++;
             }
 
-			Y1++;
-		}
+            Y1++;
+        }
 	}
 }

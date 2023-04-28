@@ -1,4 +1,5 @@
 #include "drally.h"
+#include "drmath.h"
 #include "sfx.h"
 #include "drally_structs_free.h"
 
@@ -52,7 +53,6 @@ __DWORD__ ___4256ch_cdecl(__POINTER__ A1, __DWORD__ A2, __DWORD__ A3, __DWORD__ 
 void dRally_Sound_pushEffect(__BYTE__ channel, __BYTE__ n, __DWORD__ unk, __DWORD__ a0, __DWORD__ a1, __DWORD__ a2);
 void ___424c8h_v2(const char *, int x, int y);
 void DamageWarning(void);
-double dRMath_ceil(double);
 
 static void helper00(int A0){
 
@@ -129,8 +129,14 @@ void race___40f48h(void){
 
 	if(CURRENT_VIEWPORT_X < 0x40) race___40864h();
 		
-    n = -1;
-    while(++n < 0xc8) memcpy(BACKBUFFER+0x200*n+0x20+CURRENT_VIEWPORT_X, ___1c9f10h+0x40*n, 0x40);
+    __BYTE__* s = ___1c9f10h;
+    __BYTE__* d = BACKBUFFER + 0x20 + CURRENT_VIEWPORT_X;
+    j = 0xc8;
+    do {
+        memcpy(d, s, 0x40);
+        s += 0x40;
+        d += 0x200;
+    } while (--j);
 
     // FINISH FLAGS
     n = -1;
@@ -138,61 +144,67 @@ void race___40f48h(void){
 
         if(s_35e[D(___243854h+4*n)].Finished != 0){
 
-            j = -1;
-            while(++j < 28){
-
-                i = -1;
-                while(++i < 22){
-
-                    if((px = B(GOALNUM2_BPK+22*j+i)) != 0) B(BACKBUFFER+0x200*(32*n+j+78)+CURRENT_VIEWPORT_X+i+36) = px;
-                }
-            }
+            __BYTE__* s = GOALNUM2_BPK;
+            __BYTE__* d = BACKBUFFER + 0x200 * (32 * n + 78) + CURRENT_VIEWPORT_X + 36;
+            j = 28;
+            do {
+                i = 22;
+                do {
+                    if ((px = *s++) != 0) *d = px;
+                    d++;
+                } while (--i);
+                d += 0x200 - 22;
+            } while (--j);
         }
     }
 
     n = NUM_OF_CARS-2;
     while(++n < 3){
 
-        j = -1;
-        while(++j < 0x20){
-
-            i = j%2;
-            while(i < 0x40){
-
-                B(BACKBUFFER+0x200*(0x20*n+j+104)+0x20+i+CURRENT_VIEWPORT_X) = 0;
-                i += 2;
-            }
-        }
+        __BYTE__* d = BACKBUFFER + 0x200 * (0x20 * n + 104) + 0x20 + CURRENT_VIEWPORT_X;
+        j = 32;
+        do {
+            i = 64;
+            do {
+                if (((i + j) & 1) == 0) *d = 0;
+                d++;
+            } while (--i);
+            d += 0x200 - 64;
+        } while (--j);
     }
 
 // RACE NUMBER OF LAPS
     n = -1;
     while(++n < NUM_OF_CARS){
 
-        j = -1;
-        while(++j < 10){
-
-            i = -1;
-            while(++i < 8){
-
-                if((px = B(___1de210h+0x50*NUM_OF_LAPS+8*j+i)) != 0) B(BACKBUFFER+0x200*(0x20*n+j+90)+CURRENT_VIEWPORT_X+i+0x3a-5*!n) = px;
-            }
-        }
+        __BYTE__* s = ___1de210h + 0x50 * NUM_OF_LAPS;
+        __BYTE__* d = BACKBUFFER + 0x200 * (0x20 * n + 90) + CURRENT_VIEWPORT_X + 0x3a - 5 * !n;
+        j = 10;
+        do {
+            i = 8;
+            do {
+                if ((px = *s++) != 0) *d = px;
+                d++;
+            } while (--i);
+            d += 0x200 - 8;
+        } while (--j);
     }
 
 // TOTAL NUMBER OF LAPS
     n = -1;
     while(++n < NUM_OF_CARS){
 
-        j = -1;
-        while(++j < 10){
-
-            i = -1;
-            while(++i < 8){
-
-                if((px = B(___1de210h+0x50*s_35e[D(___243854h+4*n)].Lap+8*j+i)) != 0) B(BACKBUFFER+0x200*(0x20*n+j+90)+CURRENT_VIEWPORT_X+i+0x24-2*!n) = px;
-            }
-        }
+        __BYTE__* s = ___1de210h + 0x50 * s_35e[D(___243854h + 4 * n)].Lap;
+        __BYTE__* d = BACKBUFFER + 0x200 * (0x20 * n + 90) + CURRENT_VIEWPORT_X + 0x24 - 2 * !n;
+        j = 10;
+        do {
+            i = 8;
+            do {
+                if ((px = *s++) != 0) *d = px;
+                d++;
+            } while (--i);
+            d += 0x200 - 8;
+        } while (--j);
     }
 
     0x19000;
@@ -203,10 +215,20 @@ void race___40f48h(void){
 
         k = (int)(64.0-(dRMath_ceil((double)(int)D(___1de580h+0x94*D(___243854h+4)+0x18)/1024.0)/1.57));
 
-        n = -1;
-        while(++n < 9){
-
-            memcpy(BACKBUFFER+0x200*(n+104)+0x20+0x40-k+CURRENT_VIEWPORT_X, DAMSLID_BPK+0x40*n+0x40-k, k);
+        if (k > 0) {
+            __BYTE__* s = DAMSLID_BPK + 0x40 - k;
+            __BYTE__* d = BACKBUFFER + 0x200 * 104 + 0x20 + 0x40 - k + CURRENT_VIEWPORT_X;
+            int strides = 0x40 - k;
+            int strided = 0x200 - k;
+            j = 9;
+            do {
+                i = k;
+                do {
+                    *d++ = *s++;
+                } while (--i);
+                d += strided;
+                s += strides;
+            } while (--j);
         }
     }
 
@@ -215,10 +237,20 @@ void race___40f48h(void){
 
         k = (int)(64.0-(dRMath_ceil((double)(int)D(___1de580h+0x94*D(___243854h+8)+0x18)/1024.0)/1.57));
 
-        n = -1;
-        while(++n < 9){
-
-            memcpy(BACKBUFFER+0x200*(n+136)+0x20+0x40-k+CURRENT_VIEWPORT_X, DAMSLID_BPK+0x40*n+0x40-k, k);
+        if (k > 0) {
+            __BYTE__* s = DAMSLID_BPK + 0x40 - k;
+            __BYTE__* d = BACKBUFFER + 0x200 * 136 + 0x20 + 0x40 - k + CURRENT_VIEWPORT_X;
+            int strides = 0x40 - k;
+            int strided = 0x200 - k;
+            j = 9;
+            do {
+                i = k;
+                do {
+                    *d++ = *s++;
+                } while (--i);
+                d += strided;
+                s += strides;
+            } while (--j);
         }
     }
 
@@ -227,10 +259,20 @@ void race___40f48h(void){
 
         k = (int)(64.0-(dRMath_ceil((double)(int)D(___1de580h+0x94*D(___243854h+0xc)+0x18)/1024.0)/1.57));
 
-        n = -1;
-        while(++n < 9){
-
-            memcpy(BACKBUFFER+0x200*(n+168)+0x20+0x40-k+CURRENT_VIEWPORT_X, DAMSLID_BPK+0x40*n+0x40-k, k);
+        if (k > 0) {
+            __BYTE__* s = DAMSLID_BPK + 0x40 - k;
+            __BYTE__* d = BACKBUFFER + 0x200 * 168 + 0x20 + 0x40 - k + CURRENT_VIEWPORT_X;
+            int strides = 0x40 - k;
+            int strided = 0x200 - k;
+            j = 9;
+            do {
+                i = k;
+                do {
+                    *d++ = *s++;
+                } while (--i);
+                d += strided;
+                s += strides;
+            } while (--j);
         }
     }
 
@@ -301,12 +343,16 @@ void race___40f48h(void){
     eax = D(___1c9ef0h)+0x8000;
     eax = (int)eax>>0x10;
 
-    j = -1;
-    while(++j < 0x20){
-
-        i = -1;
-        while(++i < 0x20) B(BACKBUFFER+0x9080-0x40+CURRENT_VIEWPORT_X+0x200*j+i) = B(___1d8a10h+0x400*eax+0x20*j+i);
-    }
+    s = ___1d8a10h + 0x400 * eax;
+    d = BACKBUFFER + 0x9080 - 0x40 + CURRENT_VIEWPORT_X;
+    j = 32;
+    do {
+        i = 32;
+        do {
+            *d++ = *s++;
+        } while (--i);
+        d += 0x200 - 32;
+    } while (--j);
 
     ebp = 0x1;
     if((int)ebp < NUM_OF_CARS){
@@ -319,12 +365,16 @@ void race___40f48h(void){
             esi = D(___1c9ef0h+edi)+0x8000;
             esi = (int)esi>>0x10;
 
-            j = -1;
-            while(++j < 0x18){
-
-                i = -1;
-                while(++i < 0x18) B(BACKBUFFER+D(esp+0x18)+0x88-0x40+CURRENT_VIEWPORT_X+0x200*j+i) = B(___1d2710h+0x240*esi+0x18*j+i);
-            }
+            __BYTE__* s = ___1d2710h + 0x240 * esi;
+            __BYTE__* d = BACKBUFFER + D(esp + 0x18) + 0x88 - 0x40 + CURRENT_VIEWPORT_X;
+            j = 24;
+            do {
+                i = 24;
+                do {
+                    *d++ = *s++;
+                } while (--i);
+                d += 0x200 - 24;
+            } while (--j);
 
             D(esp+0x18) += 0x4000;
             edi += 4;
@@ -403,27 +453,33 @@ void race___40f48h(void){
 
         if(n != 0){
 
-            j = -1;
-            while(++j < 3){
-
-                i = -1;
-                while(++i < n) B(BACKBUFFER+0x5e64-0x40+CURRENT_VIEWPORT_X+0x37-n+0x200*j+i) = 0;
-            }
+            __BYTE__* d = BACKBUFFER + 0x5e64 - 0x40 + CURRENT_VIEWPORT_X + 0x37 - n;
+            int stride = 0x200 - n;
+            j = 3;
+            do {
+                i = n;
+                do {
+                    *d++ = 0;
+                } while (--i);
+                d += stride;
+            } while (--j);
         }
 
 // MINES BAR
         n = -1;
         while(++n < (int)D(___1de580h+0x94*D(MY_CAR_IDX)+0x28)){
 
-            j = -1;
-            while(++j < 6){
-
-                i = -1;
-                while(++i < 8){
-
-                    if((px = B(SIDEBOM1_BPK+8*j+i)) != 0) B(BACKBUFFER+0x5200+0x8*n+0x60-0x40+CURRENT_VIEWPORT_X+0x200*j+i) = px;
-                }
-            }
+            __BYTE__* s = SIDEBOM1_BPK;
+            __BYTE__* d = BACKBUFFER + 0x5200 + 0x8 * n + 0x60 - 0x40 + CURRENT_VIEWPORT_X;
+            j = 6;
+            do {
+                i = 8;
+                do {
+                    if ((px = *s++) != 0) *d = px;
+                    d++;
+                } while (--i);
+                d += 0x200 - 8;
+            } while (--j);
         }
     }
 
@@ -433,42 +489,50 @@ void race___40f48h(void){
 
     if(n != 0){
 
-        j = -1;
-        while(++j < 7){
-
-            i = -1;
-            while(++i < n){
-
-                if((signed char)B(BACKBUFFER+0x4464-0x40+CURRENT_VIEWPORT_X+0x3a-n+0x200*j+i) >= 0x40) B(BACKBUFFER+0x4464-0x40+CURRENT_VIEWPORT_X+0x3a-n+0x200*j+i) = 0;
-            }
-        }
+        __BYTE__* d = BACKBUFFER + 0x4464 - 0x40 + CURRENT_VIEWPORT_X + 0x3a - n;
+        int stride = 0x200 - n;
+        j = 7;
+        do {
+            i = n;
+            do {
+                if ((signed char)*d >= 0x40) *d = 0;
+                d++;
+            } while (--i);
+            d += stride;
+        } while (--j);
     }
 
 // DAMAGE PERCENTAGE SYMBOL
     n = (int)(100.0-dRMath_ceil((double)(int)D(___1de580h+0x94*D(MY_CAR_IDX)+0x18)*(1.0/1024.0)));
     k = ___4256ch_cdecl(___1de210h, 8, 10, n, 0, CURRENT_VIEWPORT_X+0x8e2e, -8, -16);
 
-    j = -1;
-    while(++j < 10){
-
-        i = -1;
-        while(++i < 8){
-
-            if((px = B(___1de530h+8*j+i)) != 0) B(BACKBUFFER+k+0x200*j+i) = px;
-        }
-    }
+    s = ___1de530h;
+    d = BACKBUFFER + k;
+    j = 10;
+    do {
+        i = 8;
+        do {
+            if ((px = *s++) != 0) *d = px;
+            d++;
+        } while (--i);
+        d += 0x200 - 8;
+    } while (--j);
 
     DamageWarning();
 
 // MY CAR DAMAGE PREVIEW
     if((n = (int)dRMath_ceil((double)(int)D(___1de580h+0x94*D(MY_CAR_IDX)+0x18)/20480.0)) < 0) n = 0;
     
-    j = -1;
-    while(++j < 21){
-
-        i = -1;
-        while(++i < 64) B(BACKBUFFER+0x200*(j+50)+CURRENT_VIEWPORT_X+i+0x20) = B(___1d5890h+0x540*(5-n)+0x40*j+i);
-    }
+    s = ___1d5890h + 0x540 * (5 - n);
+    d = BACKBUFFER + 0x200 *  50 + CURRENT_VIEWPORT_X + 0x20;
+    j = 21;
+    do {
+        i = 64;
+        do {
+            *d++ = *s++;
+        } while (--i);
+        d += 0x200 - 64;
+    } while (--j);
 
 // DEATH CROSS
     n = -1;
@@ -476,15 +540,17 @@ void race___40f48h(void){
 
         if((int)D(___1de580h+0x94*D(___243854h+4*n)+0x18) <= 0){
 
-            j = -1;
-            while(++j < 32){
-
-                i = -1;
-                while(++i < 64){
-
-                    if((px = B(RASTI1_BPK+64*j+i)) != 0) B(BACKBUFFER+0x200*(0x20*n+j+72)+CURRENT_VIEWPORT_X+i+0x20) = px;
-                }
-            }
+            __BYTE__* s = RASTI1_BPK;
+            __BYTE__* d = BACKBUFFER + 0x200 * (0x20 * n + 72) + CURRENT_VIEWPORT_X + 0x20;
+            j = 32;
+            do {
+                i = 64;
+                do {
+                    if ((px = *s++) != 0) *d = px;
+                    d++;
+                } while (--i);
+                d += 0x200 - 64;
+            } while (--j);
         }
     }
 }

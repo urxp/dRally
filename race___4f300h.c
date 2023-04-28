@@ -71,23 +71,53 @@ static void helper01(int x, int y, __POINTER__ vp1, int A0){
 	int 		i, n, offset;
 	__BYTE__ 	px;
 
+	int width = A0;
+	int stride = A0;
+	int height = A0;
+	__BYTE__* src = vp1;
+	__BYTE__* dest = BACKBUFFER + 0x200 * y + x;
 
-	offset = 0x200*y+x;
-	n = 0;
-	do {
+	// y clip
+	if (y < 0) {
+		dest += (-y) * 0x200;
+		src += (-y) * width;
+		height += y;
+		y = 0;
+	}
+	int ydiff = y + height - 0xc8;
+	if (ydiff > 0) {
+		height -= ydiff;
+	}
 
-		if(offset > 0){
+	// x clip
+	int xdiff = CURRENT_VIEWPORT_X + 0x60 + (-x);
+	if (xdiff > 0) {
+		dest += xdiff;
+		src += xdiff;
+		width -= xdiff;
+		x += xdiff;
+	}
+	xdiff = x + width - 0x200 + 0x60;
+	if (xdiff > 0) {
+		width -= xdiff;
+	}
 
-			i = -1;
-			while(++i < A0){
+	if (width <= 0 || height <= 0) {
+		return;
+	}
 
-				if((px = read_b(vp1+n*A0+i)) != 0) write_b(BACKBUFFER+offset+i, px);
-			}
+	int yy = height;
+	while (yy--) {
+		int xx = width;
+		__BYTE__* s = src;
+		__BYTE__* d = dest;
+		while (xx--) {
+			if ((px = *s++)) *d = px;
+			d++;
 		}
-
-		n++;
-		offset += 0x200;
-	} while((n < A0)&&(offset < 0x19000)); // 512x200
+		src += stride;
+		dest += 0x200;
+	}
 }
 
 // DEAD CAR

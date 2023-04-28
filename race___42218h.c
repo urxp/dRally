@@ -51,12 +51,14 @@ void race___42218h(void){
 			D(___243320h) -= D(___243334h);
 		}
 
-		j = -1;
-		while(++j < 0x3c){
-
-			i = -1;
-			while(++i < 0x50) B( BACKBUFFER+0x150+D(___243320h)+0x200*j+i) = B(GEN_LAM_BPK+0x50*j+i);
-		}
+		__BYTE__* s = GEN_LAM_BPK;
+		__BYTE__* d = BACKBUFFER + 0x150 + D(___243320h);
+		j = 0x3c;
+		do {
+			memcpy(d, s, 0x50);
+			s += 0x50;
+			d += 0x200;
+		} while (--j);
 	}
 
 	if((int)getCounter(1) > 0xbe){
@@ -91,12 +93,14 @@ void race___42218h(void){
 			D(___243320h) += 2*D(___243334h);
 		}
 
-		j = -1;
-		while(++j < 0x3c){
-
-			i = -1;
-			while(++i < 0x50) B(BACKBUFFER+0x150+D(___243320h)+0x200*j+i) = B(GEN_LAM_BPK+0x2580+0x50*j+i);
-		}
+		__BYTE__* s = GEN_LAM_BPK + 0x2580;
+		__BYTE__* d = BACKBUFFER + 0x150 + D(___243320h);
+		j = 0x3c;
+		do {
+			memcpy(d, s, 0x50);
+			s += 0x50;
+			d += 0x200;
+		} while (--j);
 
 		D(___196de0h) = 2;
 	}
@@ -124,11 +128,13 @@ void race___42218h(void){
 
 		D(___196de0h) = 1;
 
-		j = -1;
-		while(++j < 0x3c){
-		
-			i = -1;
-			while(++i < 0x50) B(BACKBUFFER+0x150+0x200*j+i) = B(GEN_LAM_BPK+0x12c0+0x50*j+i);
-		}
+		__BYTE__* s = GEN_LAM_BPK + 0x12c0;
+		__BYTE__* d = BACKBUFFER + 0x150 + D(___243320h);
+		j = 0x3c;
+		do {
+			memcpy(d, s, 0x50);
+			s += 0x50;
+			d += 0x200;
+		} while (--j);
 	}
 }
