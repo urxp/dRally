@@ -21,9 +21,7 @@ static __DWORD__ helper_color(__BYTE__ b){
 
 	edx = b;
 	edx <<= 0x10;
-	eax = edx<<0x10;
-	edx = (int)edx>>0x10;
-	___idiv32((__POINTER__)&eax, (__POINTER__)&edx, 0x3f0000);
+	eax = edx / 63;
 
 	return eax;
 }

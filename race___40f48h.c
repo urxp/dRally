@@ -57,36 +57,25 @@ void DamageWarning(void);
 static void helper00(int A0){
 
     int     eax, edx;
+    int n;
 
-    eax = A0;
-    edx = (int)eax>>0x1f;
-    ___idiv32((__POINTER__)&eax, (__POINTER__)&edx, 0x46);
-    edx = (int)eax>>0x1f;
-    ___idiv32((__POINTER__)&eax, (__POINTER__)&edx, 0x3c);
+    n = A0 / 70;
+    eax = n / 60;
     ___4256ch_cdecl(___1d7810h, 6, 6, eax, 16, 0x587b-0x40+CURRENT_VIEWPORT_X, -6, 0);
 
-    eax = A0;
-    edx = (int)eax>>0x1f;
-    ___idiv32((__POINTER__)&eax, (__POINTER__)&edx, 0x46);
-    edx = (int)eax>>0x1f;
-    ___idiv32((__POINTER__)&eax, (__POINTER__)&edx, 0x3c);
+    edx = n % 60;
     ___4256ch_cdecl(___1d7810h, 6, 6, edx, 16, 0x5889-0x40+CURRENT_VIEWPORT_X, 6, 0);
 
-    eax = A0;
-    edx = (int)eax>>0x1f;
-    ___idiv32((__POINTER__)&eax, (__POINTER__)&edx, 0x46);
+    edx = A0 % 70;
 
     ___4256ch_cdecl(___1d7810h, 6, 6, (int)(1.42*(double)(int)edx), 16, 0x5897-0x40+CURRENT_VIEWPORT_X, 6, 0);
 }
 
 static int helper01(int A0){
 
-    int     eax, edx;
+    int     eax;
 
-    edx = 0x10000*A0;
-    eax = 0x10000*edx;
-    edx = (int)edx>>0x10;
-    ___idiv32((__POINTER__)&eax, (__POINTER__)&edx, 0x20000);
+    eax = A0 << 15;
 
     return eax;
 }
@@ -408,7 +397,7 @@ void race___40f48h(void){
         L(eax) -= L(edx);
         X(eax) <<= 8;
         X(edx) = (short)X(eax)>>0xf;
-        ___idiv16((__POINTER__)&X(eax), (__POINTER__)&X(edx), X(ebx));
+        eax = (X(edx) << 16 | X(eax)) / X(ebx);
         X(esi) = X(eax);
 
         eax = 0;

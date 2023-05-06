@@ -90,9 +90,7 @@ void ___1d2a8h(void){
 					if(ebp == 0xff) break;
 					D(esp+8) = 0xa;
 					ecx = ___5994ch();
-					edx = (int)ebx>>0x1f;
-					eax = ebx;
-					___idiv32((__POINTER__)&eax, (__POINTER__)&edx, D(esp+8));
+					edx = ebx % D(esp+8);
 					if(edx == 1){
 					
 						ebp = ___60b48h(D(___199fa0h)+5, 2);

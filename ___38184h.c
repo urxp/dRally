@@ -49,9 +49,7 @@ void ___38184h_cdecl(__DWORD__ A1, __POINTER__ A2){
 	ebp -= eax;
 	ebx = eax+0x1;
 	edx -= ebp;
-	eax = edx;
-	edx = (int)edx>>0x1f;
-	___idiv32((__POINTER__)&eax, (__POINTER__)&edx, ebx);
+	eax = edx / ebx;
 	ebp ^= ebp;
 	D(esp+0x34) = eax;
 	ebx = D(esp+0x30);

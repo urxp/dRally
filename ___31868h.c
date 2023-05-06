@@ -40,8 +40,7 @@ __DWORD__ ___31868h(void){
 	rslt = 0;
 
 	eax = rand_watcom106();
-	edx = (int)eax>>0x1f;
-	___idiv32((__POINTER__)&eax, (__POINTER__)&edx, 0x64);
+	edx = eax % 0x64;
 	rslt = 0;
 
 	if(((int)edx >= (int)D(___196b24h))||(D(___185a14h_UseWeapons) == 0)){
@@ -52,8 +51,7 @@ __DWORD__ ___31868h(void){
 
 		D(___196b24h) = 5;
 		eax = rand_watcom106();
-		edx = (int)eax>>0x1f;
-		___idiv32((__POINTER__)&eax, (__POINTER__)&edx, 0x64);
+		edx = eax % 0x64;
 	
 		if((int)edx >= 0x32){
 
@@ -128,8 +126,7 @@ __DWORD__ ___31868h(void){
 			while(1){
 
 				eax = rand_watcom106();
-				edx = (int)eax>>0x1f;
-				___idiv32((__POINTER__)&eax, (__POINTER__)&edx, 4);
+				edx = eax % 4;
 				eax = B(___1a0ef8h+4*D(___1a1028h)+edx);
 				if(eax != D(___1a1ef8h)) break;
 			}

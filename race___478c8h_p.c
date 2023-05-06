@@ -363,8 +363,7 @@ void race___47ed8h(__DWORD__ A0){
 	while(1){
 
 		eax = rand_watcom106();
-		edx = (int)eax>>0x1f;
-		___idiv32((__POINTER__)&eax, (__POINTER__)&edx, 0x13c);
+		edx = eax % 0x13c;
 		___1a30a0h[ebx] = edx;
 		ebx++;
 		if(ebx == 100) break;

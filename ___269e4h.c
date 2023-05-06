@@ -169,15 +169,11 @@ void ___269e4h(void){
 
 		if(D(___185a14h_UseWeapons) == 0){
 
-			eax = D(0x6e0*s_6c[D(___1a1ef8h)].car+___18e298h+0x6dc);
-			edx = (int)eax>>0x1f;
-			___idiv32((__POINTER__)&eax, (__POINTER__)&edx, 0xa);
+			eax = D(0x6e0 * s_6c[D(___1a1ef8h)].car + ___18e298h + 0x6dc) / 0xa;
 		}
 		else {
 
-			eax = D(0x6e0*s_6c[D(___1a1ef8h)].car+___18e298h+0x6dc);
-			edx = (int)eax>>0x1f;
-			___idiv32((__POINTER__)&eax, (__POINTER__)&edx, 0xa);
+			eax = D(0x6e0 * s_6c[D(___1a1ef8h)].car + ___18e298h + 0x6dc) / 0xa;
 			edx = eax;
 			edx = (int)edx>>0x1f;
 			eax = eax-edx;
