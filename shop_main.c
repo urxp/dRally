@@ -161,12 +161,7 @@ void shop_main(void){
 	D(esp+0x18) = 0;
 	D(esp+0xc) = (s_6c[D(___1a1ef8h)].refund+3)/4;
 	ebx = 0x6c*D(___1a1ef8h);
-	eax = D(___18e298h+0x6e0*s_6c[ebx/0x6c].car+0x6dc);
-	edx = (int)eax>>0x1f;
-	ll_tmp = edx;
-	ll_tmp <<= 0x20;
-	ll_tmp += eax;
-	eax = ll_tmp/0xa;
+	eax = D(___18e298h + 0x6e0 * s_6c[ebx / 0x6c].car + 0x6dc) / 0xa;
 	edx = (int)s_6c[ebx/0x6c].damage*(int)eax;
 
 	if(D(___185a14h_UseWeapons) != 0) edx = (int)edx/2;

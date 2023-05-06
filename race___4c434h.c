@@ -322,19 +322,19 @@ void race___4c434h(void){
 				eax = rand_watcom106();
 				ebx = 2*s_35e[D(___243c60h)].__16a+1;
 				edx = (int)eax>>0x1f;
-				edx = (long long)(int)eax%(int)ebx;
+				edx = (int)eax%(int)ebx;
 				edx = edx-s_35e[D(___243c60h)].__16a;
 				D(esp+0x5c) = edx;
 				s_35e[D(___243c60h)].__162 = (float)(double)(int)D(esp+0x5c);
 				eax = rand_watcom106();
 				ebx = 2*s_35e[D(___243c60h)].__16a+1;
 				edx = (int)eax>>0x1f;
-				edx = (long long)(int)eax%(int)ebx;
+				edx = (int)eax%(int)ebx;
 				edi = s_35e[D(___243c60h)].__16e+1;
 				D(esp+0x5c) = edx-s_35e[D(___243c60h)].__16a;
 				eax = edi;
 				edx = (int)eax>>0x1f;
-				edx = (long long)(int)eax%5;
+				edx = (int)eax%5;
 				s_35e[D(___243c60h)].__16e = edi;
 				s_35e[D(___243c60h)].__166 = (float)(int)D(esp+0x5c);
 
