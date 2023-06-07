@@ -300,11 +300,7 @@ void race___40f48h(void){
 
         if((int)eax <= 0){
 
-            eax = D(4*ebx+___1c9f00h);
-            ___imul32((__POINTER__)&eax, (__POINTER__)&edx, D(___24332ch));
-            eax += 0x8000;
-            edx += !!(eax < 0x8000);
-            eax = (eax >> 0x10)|(edx << 0x10);
+            eax = (int)D(4 * ebx + ___1c9f00h) / 0x10000 * D(___24332ch);
             D(4*ebx+___1c9ef0h) += eax;
             eax = D(4*ebx+___1c9ef0h)+0x8000;
             eax = (int)eax>>0x10;
@@ -313,11 +309,7 @@ void race___40f48h(void){
         }
         else {
 
-            eax = D(4*ebx+___1c9f00h);
-            ___imul32((__POINTER__)&eax, (__POINTER__)&edx, D(___24332ch));
-            eax += 0x8000;
-            edx += !!(eax < 0x8000);
-            eax = (eax >> 0x10)|(edx << 0x10);
+            eax = (int)D(4 * ebx + ___1c9f00h) / 0x10000 * D(___24332ch);
             D(4*ebx+___1c9ef0h) += eax;
             eax = D(4*ebx+___1c9ef0h)+0x8000;
             eax = (int)eax>>0x10;

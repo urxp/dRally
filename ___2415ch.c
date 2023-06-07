@@ -41,7 +41,6 @@ const char name_list[0x14][0xb] = {
 void ___2415ch(void){
 
 
-	long long 	ll_tmp;
 	__DWORD__ 	eax, ebx, ecx, edx, edi, esi, ebp, n;
 	__BYTE__ 	esp[0x100];
 	racer_t * 	s_6c;

@@ -146,7 +146,6 @@ static __DWORD__ checkCheat(__BYTE__ * p){
 // ___2b8ach
 void shop_main(void){
 
-	long long 	ll_tmp;
 	__DWORD__ 	eax, ebx, ecx, edx, edi, esi, ebp;
 	__BYTE__ 	__esp[0x20+0x40];
 	int 	bool_tmp, cond1, cond2, cond3, cond4;
@@ -322,11 +321,7 @@ void shop_main(void){
 
 		edx = ebp;
 		eax = ebp;
-		edx = (int)edx>>0x1f;
-		ll_tmp = edx;
-		ll_tmp <<= 0x20;
-		ll_tmp += eax;
-		edx = ll_tmp%2;
+		edx = eax % 2;
 
 		if(edx != 0){
 			if(LONGCOND&&(s_6c[D(___1a1ef8h)].loanshark_counter != 4)){
@@ -347,11 +342,7 @@ void shop_main(void){
 
 		edx = ebp;
 		eax = ebp;
-		edx = (int)edx>>0x1f;
-		ll_tmp = edx;
-		ll_tmp <<= 0x20;
-		ll_tmp += eax;
-		edx = ll_tmp%2;
+		edx = eax % 2;
 
 		if(edx != 0){
 			if(LONGCOND&&(s_6c[D(___1a1ef8h)].loanshark_counter != 4)){
@@ -376,12 +367,9 @@ void shop_main(void){
 		D(esp+0x20) = 0;
 		while(1){
 
-			ll_tmp = (long long)(int)___19eb50h[D(esp+0x20)].r*(long long)(int)D(esp+0x2c);
-			r = ((ll_tmp+0x8000)>>0x10)&0xff;
-			ll_tmp = (long long)(int)___19eb50h[D(esp+0x20)].g*(long long)(int)D(esp+0x2c);
-			g = ((ll_tmp+0x8000)>>0x10)&0xff;
-			ll_tmp = (long long)(int)___19eb50h[D(esp+0x20)].b*(long long)(int)D(esp+0x2c);
-			b = ((ll_tmp+0x8000)>>0x10)&0xff;
+			r = (((int)___19eb50h[D(esp + 0x20)].r * (int)D(esp + 0x2c) + 0x8000) >> 0x10) & 0xff;
+			g = (((int)___19eb50h[D(esp + 0x20)].g * (int)D(esp + 0x2c) + 0x8000) >> 0x10) & 0xff;
+			b = (((int)___19eb50h[D(esp + 0x20)].b * (int)D(esp + 0x2c) + 0x8000) >> 0x10) & 0xff;
 			__DISPLAY_SET_PALETTE_COLOR(b, g, r, D(esp+0x20));
 			D(esp+0x20)++;
 			if((int)D(esp+0x20) >= 0x60) break;
@@ -390,12 +378,9 @@ void shop_main(void){
 		D(esp+0x20) = 0;
 		while(1){
 
-			ll_tmp = (long long)(int)___19eb50h[D(esp+0x20)+0x80].r*(long long)(int)D(esp+0x2c);
-			r = ((ll_tmp+0x8000)>>0x10)&0xff;
-			ll_tmp = (long long)(int)___19eb50h[D(esp+0x20)+0x80].g*(long long)(int)D(esp+0x2c);
-			g = ((ll_tmp+0x8000)>>0x10)&0xff;
-			ll_tmp = (long long)(int)___19eb50h[D(esp+0x20)+0x80].b*(long long)(int)D(esp+0x2c);
-			b = ((ll_tmp+0x8000)>>0x10)&0xff;
+			r = (((int)___19eb50h[D(esp + 0x20) + 0x80].r * (int)D(esp + 0x2c) + 0x8000) >> 0x10) & 0xff;
+			g = (((int)___19eb50h[D(esp + 0x20) + 0x80].g * (int)D(esp + 0x2c) + 0x8000) >> 0x10) & 0xff;
+			b = (((int)___19eb50h[D(esp + 0x20) + 0x80].b * (int)D(esp + 0x2c) + 0x8000) >> 0x10) & 0xff;
 			__DISPLAY_SET_PALETTE_COLOR(b, g, r, D(esp+0x20)+0x80);
 			D(esp+0x20)++;
 			if((int)D(esp+0x20) >= 0x80) break;
@@ -900,12 +885,9 @@ ___2c687h:
 			D(esp+0x20) = 0;
 			while(1){
 
-				ll_tmp = (long long)(int)___19eb50h[D(esp+0x20)+0x20].r*0x64;
-				r = ((ll_tmp+0x8000)>>0x10)&0xff;
-				ll_tmp = (long long)(int)___19eb50h[D(esp+0x20)+0x20].g*0x64;
-				g = ((ll_tmp+0x8000)>>0x10)&0xff;
-				ll_tmp = (long long)(int)___19eb50h[D(esp+0x20)+0x20].b*0x64;
-				b = ((ll_tmp+0x8000)>>0x10)&0xff;
+				r = (((int)___19eb50h[D(esp + 0x20) + 0x20].r * 0x64 + 0x8000) >> 0x10) & 0xff;
+				g = (((int)___19eb50h[D(esp + 0x20) + 0x20].g * 0x64 + 0x8000) >> 0x10) & 0xff;
+				b = (((int)___19eb50h[D(esp + 0x20) + 0x20].b * 0x64 + 0x8000) >> 0x10) & 0xff;
 				__DISPLAY_SET_PALETTE_COLOR(b, g, r, D(esp+0x20)+0x20);
 				D(esp+0x20)++;
 				if((int)D(esp+0x20) >= 0xe0) break;

@@ -65,7 +65,6 @@ void ___11378h_cdecl_float(float A1, float A2, float A3);
 
 __DWORD__ ___3ab5ch_cdecl(__DWORD__ A1){
 
-	long long 		ll_tmp;
 	__DWORD__ 		eax1, eax2;
 	__DWORD__ 		eax, ebx, ecx, edx, edi, esi, ebp;
 	__BYTE__ 		esp[0x5c];

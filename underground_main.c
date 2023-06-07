@@ -72,14 +72,7 @@ void dRally_Sound_setMasterVolume(__DWORD__ vol);
 
 static __BYTE__ helper_color(__DWORD__ eax, __DWORD__ edx){
 
-	long long 	ll_tmp;
-
-	ll_tmp = (long long)(int)eax*(int)edx;
-	edx = ll_tmp>>0x20;
-	eax = ll_tmp;
-	eax += 0x8000;
-	edx += !!(eax < 0x8000);
-	eax = (eax>>0x10)|(edx<<0x10);
+	eax = edx / 0x10000 * eax;
 	eax += 0x8000;
 	eax = (int)eax>>0x10;
 
@@ -113,7 +106,6 @@ static void helper_continue_anim(void){
 // ___2ee78h
 void underground_main(void){
 
-	long long ll_tmp;
 	__DWORD__ 	rr, gg, bb, nn;
 	__DWORD__ 	eax, ebx, ecx, edx, edi, esi, ebp;
 	__BYTE__ 	__esp[0x20+0x20];

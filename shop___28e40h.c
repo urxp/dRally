@@ -77,7 +77,7 @@ void shop___28e40h(void){
 
 
 	D(esp+0x50) = (s_6c[D(___1a1ef8h)].refund+3)/4;
-	eax = (long long)(int)cdp[s_6c[D(___1a1ef8h)].car].price_repair/10;
+	eax = (int)cdp[s_6c[D(___1a1ef8h)].car].price_repair/10;
 	esi = s_6c[D(___1a1ef8h)].damage*eax;
 
 	if(D(___185a14h_UseWeapons) != 0) esi = (int)esi/4;

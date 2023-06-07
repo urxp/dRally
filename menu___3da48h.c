@@ -38,12 +38,7 @@ void dRally_Sound_release(void);
 
 static __BYTE__ helper_color(__DWORD__ eax, __DWORD__ edx){
 
-	long long 	ll_tmp;
-
-	ll_tmp = (long long)(int)eax*(int)edx; edx = ll_tmp>>0x20; eax = ll_tmp;
-	eax += 0x8000;
-	edx += !!(eax < 0x8000);
-	eax = (eax >> 0x10)|(edx << 0x10);
+	eax = edx / 0x10000 * eax;
 	eax += 0x8000;
 	eax = (int)eax>>0x10;
 
@@ -52,7 +47,6 @@ static __BYTE__ helper_color(__DWORD__ eax, __DWORD__ edx){
 
 void menu___3da48h(void){
 
-	long long 	ll_tmp;
 	__DWORD__ 	rr, gg, bb, nn, cf;
 	__DWORD__ 	eax, ebx, ecx, edx, edi, esi, ebp;
 	__BYTE__ 	__esp[0x10+0x74];
@@ -76,7 +70,7 @@ void menu___3da48h(void){
 			edx = ebp;
 			eax = ebp;
 			edx = (int)edx>>0x1f;
-			edx = (long long)(int)eax%(int)esi;
+			edx = (int)eax%(int)esi;
 			if(edx != 0) menu___13a98h(0);	// SPINNING TIRE ICON
 			esi = D(esp+0x70);
 			ecx = 0;
@@ -148,7 +142,7 @@ void menu___3da48h(void){
 			edx = ebp;
 			eax = ebp;
 			edx = (int)edx>>0x1f;
-			edx = (long long)(int)eax%(int)esi;
+			edx = (int)eax%(int)esi;
 			if(edx != 0) menu___13a98h(0);	// SPINNING TIRE ICON
 			esi = 0;
 			D(esp+0x64) = 0;
