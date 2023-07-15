@@ -114,6 +114,6 @@ void ___75840h(sound_mod_t * smod){
 		if(hi_p > xm_smpl_data_p) hi_p = xm_smpl_data_p;
 	}
 
-	printf("%6lld\n", hi_p-(__POINTER__)sfx_p);
+	printf("%6td\n", hi_p-(__POINTER__)sfx_p);
 	dRMemory_resize((__POINTER__)sfx_p, hi_p-(__POINTER__)sfx_p);
 }
