@@ -39,7 +39,6 @@ void ___12e78h_cdecl(__BYTE__ * A1, font_props_t * A2, const char * A3, __DWORD_
 __DWORD__ ___17510h_cdecl(__POINTER__ A1, __DWORD__ A2, __DWORD__ A3, __POINTER__ A4, __DWORD__ A5, __DWORD__ A6, __DWORD__ A7, __DWORD__ A8, __DWORD__ A9){
 
 	int 	n;
-	long long 	ll_tmp;
 	__DWORD__ 	eax, eax1, eax2, ebx, ecx, edx, edi, esi, ebp;
 	__BYTE__ 	esp[0x9c+0xc+4+0x14];
 	int 	i, j;

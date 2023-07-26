@@ -157,7 +157,6 @@ void switch_ZZ(__BYTE__);
 static __DWORD__ static_CX(__WORD__ A1, int Finetune){
 
 	__DWORD__ 		eax;
-	__QWORD__ 		ll_tmp;
 
 //	__DWORD__ 		period_oct;
 //	__DWORD__ 		note_st3period;
@@ -228,7 +227,6 @@ void ___6ef2ch(void){
 
     __DWORD__   eax, ebx, ecx, edx, esi, edi, ebp;
 	int 	hi_channel_id;
-    long long   ll_tmp;
 
 	if(S3M_UpdatePosition != 0){
 

@@ -67,14 +67,7 @@ void __DISPLAY_SET_PALETTE_COLOR(__DWORD__, __DWORD__, __DWORD__, __DWORD__);
 
 static __DWORD__ helper_color(__DWORD__ eax, __DWORD__ edx){
 
-	long long 	ll_tmp;
-
-	ll_tmp = (long long)(int)eax*(int)edx;
-	edx = ll_tmp>>0x20;
-	eax = ll_tmp;
-	eax += 0x8000;
-	edx += !!(eax < 0x8000);
-	eax = (eax >> 0x10)|(edx << 0x10);
+	eax = edx / 0x10000 * eax;
 	eax += 0x8000;
 	eax = (int)eax>>0x10;
 	eax &= 0xff;

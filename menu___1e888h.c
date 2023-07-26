@@ -76,15 +76,11 @@ void dRChatbox_push(const char * line, int col);
 
 static __DWORD__ helper_color(__DWORD__ A0, __DWORD__ A1){
 
-	long long 	ll_tmp;
 	__DWORD__ 	eax, edx;
 
 	eax = A0;
 	edx = A1;
-	ll_tmp = (long long)(int)eax*(int)edx; edx = ll_tmp>>0x20; eax = ll_tmp;
-	eax += 0x8000;
-	edx += !!(eax < 0x8000);
-	eax = (eax >> 0x10)|(edx << 0x10);
+	eax = edx / 0x10000 * eax;
 	eax += 0x8000;
 	eax = (int)eax>>0x10;
 	eax &= 0xff;

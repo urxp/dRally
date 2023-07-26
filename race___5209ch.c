@@ -84,10 +84,7 @@ void race___5209ch(void){
 
 				while(1){
 					eax = rand_watcom106();
-					edx = eax;
-					ebx = 0xc;
-					edx = (int)edx>>0x1f;
-					___idiv32((__POINTER__)&eax, (__POINTER__)&edx, ebx);
+					edx = eax % 0xc;
 					D(esp+0x30) = edx;
 					if(B(esp+edx) != 1) break;
 				}
@@ -124,10 +121,7 @@ void race___5209ch(void){
 							if((int)D(esp+0x18) < 4){
 
 								eax = rand_watcom106();
-								edx = eax;
-								ecx = 0x64;
-								edx = (int)edx>>0x1f;
-								___idiv32((__POINTER__)&eax, (__POINTER__)&edx, ecx);
+								edx = eax % 0x64;
 								eax = 0x94*D(MY_CAR_IDX);
 
 								if(D(eax+___1de580h+0x2c) == 0){
@@ -366,8 +360,7 @@ void race___5209ch(void){
 			D(___1f2488h+D(esp+0x2c)+8) = 0;
 			D(___196dd0h) = 0x118;
 			eax = rand_watcom106();
-			edx = (int)eax>>0x1f;
-			___idiv32((__POINTER__)&eax, (__POINTER__)&edx, 0xc8);
+			edx = eax % 0xc8;
 			D(___1f2488h+D(esp+0x2c)+0xc) = edx+0x12c;
 		}
 

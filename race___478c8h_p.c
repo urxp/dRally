@@ -61,7 +61,6 @@ static void ___47304h(void){
 
 	__DWORD__ 	eax, ebx, ecx, edx, edi, esi, ebp;
     int     i, j, n, k, l;
-    long long   ll_tmp;
 
 
     ebp = 0;
@@ -128,12 +127,12 @@ static void ___47304h(void){
                 ___243e74h[n].__0 = 0x10000*___1a30a0h[D(___2432e0h)];
                 ___243e74h[n].__4 = 0xc40000;
 
-                ll_tmp = (int)(D(___2432cch)+(CURRENT_VIEWPORT_X>>0x1)+0x39-___1a30a0h[D(___2432e0h)]);
-                ll_tmp <<= 0x10;
-                ___243e74h[n].__8 = ll_tmp/70;
-                ll_tmp = (int)(D(___2432d0h)-132);
-                ll_tmp <<= 0x10;
-                ___243e74h[n].__C = ll_tmp/70;
+				k = (int)(D(___2432cch) + (CURRENT_VIEWPORT_X >> 0x1) + 0x39 - ___1a30a0h[D(___2432e0h)]);
+				k <<= 0x10;
+				___243e74h[n].__8 = k / 70;
+				k = (int)(D(___2432d0h) - 132);
+				k <<= 0x10;
+				___243e74h[n].__C = k / 70;
                 ___243e74h[n]._20 = 0;
                 D(___2432e8h) += 0x4;
                 D(___2432d0h) += 0x4;
@@ -363,8 +362,7 @@ void race___47ed8h(__DWORD__ A0){
 	while(1){
 
 		eax = rand_watcom106();
-		edx = (int)eax>>0x1f;
-		___idiv32((__POINTER__)&eax, (__POINTER__)&edx, 0x13c);
+		edx = eax % 0x13c;
 		___1a30a0h[ebx] = edx;
 		ebx++;
 		if(ebx == 100) break;

@@ -77,7 +77,7 @@ static __DWORD__ helper00(int val0, int val1){
 	__DWORD__ 	eax, edx;
 
 	edx = 0x100*val0;
-	eax = (long long)(int)edx/val1;
+	eax = (int)edx/val1;
 	eax = eax+0x80;
 	eax = (int)eax>>8;
 

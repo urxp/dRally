@@ -107,40 +107,28 @@ void race___40864h(void){
 
 		if((int)D(___243cdch) <= 0){
 
-			eax = D(___243ca0h);
-			edx = (int)eax>>0x1f;
-			___idiv32((__POINTER__)&eax, (__POINTER__)&edx, 0x46);
-			edx = (int)eax>>0x1f;
-			___idiv32((__POINTER__)&eax, (__POINTER__)&edx, 0x3c);
+			int n, A0;
+
+			A0 = D(___243ca0h);
+			n = A0 / 70;
+			eax = n / 60;
 			___4256ch_cdecl(___1d7810h, 0x6, 0x6, eax, 0x10, 0x207b, -6, 0);
-			eax = D(___243ca0h);
-			edx = (int)eax>>0x1f;
-			___idiv32((__POINTER__)&eax, (__POINTER__)&edx, 0x46);
-			edx = (int)eax>>0x1f;
-			___idiv32((__POINTER__)&eax, (__POINTER__)&edx, 0x3c);
+			edx = n % 60;
 			___4256ch_cdecl(___1d7810h, 0x6, 0x6, edx, 0x10, 0x2089, 6, 0);
-			eax = D(___243ca0h);
-			edx = (int)eax>>0x1f;
-			___idiv32((__POINTER__)&eax, (__POINTER__)&edx, 0x46);
+			edx = A0 % 70;
 			___4256ch_cdecl(___1d7810h, 0x6, 0x6, (int)(1.42*(double)(int)edx), 0x10, 0x2097, 6, 0);
 		}
 		else {
 
-			eax = D(___243cb8h);
-			edx = (int)eax>>0x1f;
-			___idiv32((__POINTER__)&eax, (__POINTER__)&edx, 0x46);
-			edx = (int)eax>>0x1f;
-			___idiv32((__POINTER__)&eax, (__POINTER__)&edx, 0x3c);
+			int n, A0;
+
+			A0 = D(___243cb8h);
+			n = A0 / 70;
+			eax = n / 60;
 			___4256ch_cdecl(___1d7810h, 0x6, 0x6, eax, 0x10, 0x207b, -6, 0);
-			eax = D(___243cb8h);
-			edx = (int)eax>>0x1f;
-			___idiv32((__POINTER__)&eax, (__POINTER__)&edx, 0x46);
-			edx = (int)eax>>0x1f;
-			___idiv32((__POINTER__)&eax, (__POINTER__)&edx, 0x3c);
+			edx = n % 60;
 			___4256ch_cdecl(___1d7810h, 0x6, 0x6, edx, 0x10, 0x2089, 6, 0);
-			eax = D(___243cb8h);
-			edx = (int)eax>>0x1f;
-			___idiv32((__POINTER__)&eax, (__POINTER__)&edx, 0x46);
+			edx = A0 % 70;
 			___4256ch_cdecl(___1d7810h, 0x6, 0x6, (int)(1.42*(double)(int)edx), 0x10, 0x2097, 6, 0);
 			D(___243cdch) -= D(___243334h);
 			if((int)D(___243cdch) < 0) D(___243cdch) = 0;

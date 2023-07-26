@@ -34,10 +34,7 @@ void ___35f34h_cdecl(__DWORD__, __DWORD__, __DWORD__);
 
 static __BYTE__ helper_color(__DWORD__ eax, __DWORD__ edx){
 
-	___imul32((__POINTER__)&eax, (__POINTER__)&edx, edx);
-	eax += 0x8000;
-	edx += !!(eax < 0x8000);
-	eax = (eax>>0x10)|(edx<<0x10);
+	eax = edx / 0x10000 * eax;
 	eax += 0x8000;
 	eax = (int)eax>>0x10;
 
