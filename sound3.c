@@ -119,7 +119,7 @@ void ___716fch(sound_mod_t * smod){
         ___71608h_cdecl(s3m, n);
     }
 
-    printf("%6lld\n", hi_p-(__POINTER__)s3m);
+    printf("%6td\n", hi_p-(__POINTER__)s3m);
     dRMemory_resize((__POINTER__)s3m, hi_p-(__POINTER__)s3m);
     ___5f2b4h_cdecl();
 }

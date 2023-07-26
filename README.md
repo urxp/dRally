@@ -7,7 +7,24 @@ The main goal of this project is to create a port of Death Rally (1996) running 
 * GNU/Make
 * SDL2
 
-#### You need original game assets
+
+#### Building
+
+```sh
+FLAGS="YOUR CFLAGS" make
+```
+
+#### Installation - needs original game assets
+
+* [Death Rally registered free windows version CHIP](https://www.chip.de/downloads/Death-Rally-Vollversion_38550689.html)
+
+```sh
+7z e -o drally DeathRallyWin_10.exe
+cd drally && mkdir CINEM && mv ENDANI* CINEM && mv SANIM* CINEM
+echo "./CINEM" &> CDROM.INI
+```
+
+Only versions including the DR.IDF file are able to use the `FLAGS += -DDR_CDCHECK`
 
     dRally
     |--CINEM
