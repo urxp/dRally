@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdbool.h>
 
 #include "drally_ipx.h"
 
@@ -11,10 +12,6 @@
 #define IPXBUFFERSIZE 	1424
 
 #define CONVIPX(hostvar) hostvar[0], hostvar[1], hostvar[2], hostvar[3], hostvar[4], hostvar[5]
-
-typedef int             bool;
-#define true            1
-#define false           0
 
 typedef unsigned char   Bit8u;
 typedef signed short    Bit16s;

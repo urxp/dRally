@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
+#define __USE_POSIX 1
 #include <time.h>
 #include <ctype.h>
 #include <SDL2/SDL.h>
