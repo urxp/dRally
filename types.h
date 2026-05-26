@@ -44,7 +44,6 @@ typedef __BYTE__ *              __POINTER__;
 #endif
 */
 
-//#include <stddef.h>
 #include <stdio.h>
 #include <stdint.h>
 
@@ -61,5 +60,12 @@ typedef int32_t         __BOOL__;
 
 typedef uintptr_t       __UNSIGNED__;       // size_t
 typedef intptr_t        __SIGNED__;         // ptrdiff_t
+
+typedef enum
+{
+	DR_FALSE                   = (const int)0,
+	DR_TRUE                    = (const int)1,
+	DR_BOOLEAN_ENUM_FORCE_SIZE = (const int)0x7fffffff
+} boolean_enum_t;
 
 #endif // __TYPES_H

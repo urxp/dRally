@@ -12,10 +12,6 @@
 
 #define CONVIPX(hostvar) hostvar[0], hostvar[1], hostvar[2], hostvar[3], hostvar[4], hostvar[5]
 
-typedef int             bool;
-#define true            1
-#define false           0
-
 typedef unsigned char   Bit8u;
 typedef signed short    Bit16s;
 typedef unsigned short  Bit16u;
@@ -29,7 +25,7 @@ typedef unsigned int Bitu;
 typedef struct ECBClass {
     
     RealPt ECBAddr;
-	bool isInESRList;
+	boolean_enum_t isInESRList;
    	struct ECBClass * prevECB;	// Linked List
 	struct ECBClass * nextECB;
 	
@@ -46,9 +42,9 @@ typedef struct packetBuffer {
 	Bit8u buffer[1024];
 	Bit16s packetSize;  // Packet size remaining in read
 	Bit16s packetRead;  // Bytes read of total packet
-	bool inPacket;      // In packet reception flag
-	bool connected;		// Connected flag
-	bool waitsize;
+	boolean_enum_t inPacket;      // In packet reception flag
+	boolean_enum_t connected;		// Connected flag
+	boolean_enum_t waitsize;
 } packetBuffer;
 
 #pragma pack(push,1)
@@ -87,8 +83,8 @@ int SDLNetInited = 0;
 int IPX_ClientLoopRunning = 0;
 
 Bit32u udpPort;
-bool isIpxServer;
-bool isIpxConnected;
+boolean_enum_t isIpxServer;
+boolean_enum_t isIpxConnected;
 IPaddress ipxServConnIp;			// IPAddress for client connection to server
 UDPsocket ipxClientSocket;
 int UDPChannel;						// Channel used by UDP connection
@@ -128,7 +124,7 @@ Bit8u getInUseFlag(ECBClass *);
 void setInUseFlag(ECBClass *, Bit8u flagval);
 void setCompletionFlag(ECBClass *, Bit8u flagval);
 Bit16u getFragCount(ECBClass *);
-bool writeData(ECBClass *);
+boolean_enum_t writeData(ECBClass *);
 void writeDataBuffer(ECBClass *, Bit8u* buffer, Bit16u length);
 void getFragDesc(ECBClass *, Bit16u descNum, IPX_Fragment * fragDesc);
 RealPt getESRAddr(ECBClass *);
@@ -176,7 +172,7 @@ void writeDataBuffer(ECBClass * this, Bit8u* buffer, Bit16u length){
 	this->buflen=length;
 }
 
-bool writeData(ECBClass * this){
+boolean_enum_t writeData(ECBClass * this){
 	
 	Bitu length=this->buflen;
 	Bit8u* buffer = this->databuffer;
@@ -359,7 +355,7 @@ void del_ECBClass(ECBClass * this) {
 
 
 
-static bool sockInUse(Bit16u sockNum) {
+static boolean_enum_t sockInUse(Bit16u sockNum) {
 	for(Bitu i=0;i<socketCount;i++) {
 		if (opensockets[i] == sockNum) return true;
 	}
@@ -622,7 +618,7 @@ static void IPX_ClientLoop(void) {
 }
 
 
-void DisconnectFromServer(bool unexpected) {
+void DisconnectFromServer(boolean_enum_t unexpected) {
 	if(unexpected) printf("IPX: Server disconnected unexpectedly\n");
 	if(incomingPacket.connected) {
 		incomingPacket.connected = false;
@@ -702,8 +698,8 @@ static void sendPacket(ECBClass* sendecb) {
 	// filter out broadcasts and local loopbacks
 	// Real implementation uses the ImmedAddr to check wether this is a broadcast
 
-	bool islocalbroadcast=true;
-	bool isloopback=true;
+	boolean_enum_t islocalbroadcast=true;
+	boolean_enum_t isloopback=true;
 
 	Bit8u * addrptr;
 
@@ -772,7 +768,7 @@ int IPX_ThreadFunction(__POINTER__ data){
 }
 
 
-bool ConnectToServer(char const *strAddr) {
+boolean_enum_t ConnectToServer(char const *strAddr) {
 
 	int numsent;
 	UDPpacket regPacket;

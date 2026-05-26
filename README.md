@@ -13,10 +13,16 @@ The main goal of this project is to create a port of Death Rally (1996) running 
 ```sh
 FLAGS="YOUR CFLAGS" make
 ```
+i.g. for x86_64 non-cross compile
+
+```sh
+FLAGS="-march=native -mfpmath=sse -ftree-vectorize -fopenmp-simd -O3" make
+```
 
 #### Installation - needs original game assets
 
-* [Death Rally registered free windows version CHIP](https://www.chip.de/downloads/Death-Rally-Vollversion_38550689.html)
+* [Death Rally (Classic) - Steam](https://steamcommunity.com/app/358270)
+* [Death Rally (Classic) - CHIP](https://www.chip.de/downloads/Death-Rally-Vollversion_38550689.html)
 
 ```sh
 7z e -o drally DeathRallyWin_10.exe
@@ -44,4 +50,6 @@ Only versions including the DR.IDF file are able to use the `FLAGS += -DDR_CDCHE
     [1] CDROM.INI contains relative location of CINEM directory (./CINEM)
 
 #### Work in progress
-*   Multiplayer not available 
+
+- Multiplayer not available
+- HAF cinematic playing
