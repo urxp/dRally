@@ -21,6 +21,10 @@ extern __WORD__           SOUND_SAMPLERATE;
 #include "platform_3ds/dr3_input_map.h"
 #endif
 
+#if defined(__3DS__) && defined(DR3_USE_GFX) && !defined(DR3_PROFILE)
+#include "platform_3ds/dr3_bottom.h"
+#endif
+
 
 #pragma pack(1)
 typedef struct textbit {
@@ -98,6 +102,11 @@ int skip;
 unsigned int __GET_FRAME_COUNTER(void){
 
 	dr3_prof_poll();
+#if defined(__3DS__) && defined(DR3_USE_GFX) && !defined(DR3_PROFILE)
+	/* bottom screen: controls (left) + current driver standings (right); the profiler owns that
+	   screen in the debug build */
+	dr3_bottom_update();
+#endif
 
 	unsigned int NewTicks;
 	unsigned int FrameMs = 1000/___60458h;// - 1;

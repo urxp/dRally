@@ -51,6 +51,29 @@ Conclusions and fixes applied:
 5. `consoleInit()` on the bottom screen must not run before SDL's video driver called `gfxInit()` -
    doing so jumped into a NULL pointer inside libctru.  It is initialised lazily now.
 
+### Bottom screen (release build)
+
+The game never draws to the bottom screen, so `platform_3ds/dr3_bottom.c` uses it: the controls in
+English on the left and the current driver standings on the right, in the style of the Death Rally
+front end:
+
+```
+CONTROLS           TOP DRIVERS
+------------------ --------------------
+D-pad     steer    1   Sam            420
+R         gas      2 * PLAYERNAME     380
+L         brake    3   Farmer Ted     350
+A         horn     ...
+```
+
+The list comes straight from the running game (`racer_t ___1a01e0h[20]`, `points` at +0x44, plus the
+player index `___1a1ef8h`; see `drally_structs_fixed.h`): sorted by points, the player marked with
+`*`, top ten shown, and if the player is not in the top ten his row is appended. Before a game is
+loaded the list shows `(no game loaded)` - names are sanity checked so uninitialised memory cannot
+show up as drivers.  It refreshes at most once per second and only when the text changed.
+
+The profiler build keeps that screen for the profiler (`-DDR3_PROFILE` disables `dr3_bottom`).
+
 ### Profiler build (autonomous measurement)
 
 ```

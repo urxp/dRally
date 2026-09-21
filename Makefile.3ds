@@ -96,6 +96,7 @@ EXTRA_OBJS := platform_3ds/dr3_input.o \
               platform_3ds/dr3_paths.o \
               platform_3ds/dr3_fb.o \
               platform_3ds/dr3_prof.o \
+              platform_3ds/dr3_bottom.o \
               platform_3ds/sdl2_net_stub/sdl2_net_stub.o
 OBJS := data.o bss.o
 
