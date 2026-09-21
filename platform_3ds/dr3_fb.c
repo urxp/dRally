@@ -22,7 +22,7 @@ static uint16_t dr3_sx[DR3_MAP_MAX];    /* target x -> source column (nearest)  
 static uint16_t dr3_sy[DR3_MAP_MAX];    /* target y -> source row (nearest)           */
 static uint16_t dr3_fx0[DR3_MAP_MAX];   /* filtered: first source column of target x  */
 static uint16_t dr3_fx1[DR3_MAP_MAX];   /* filtered: end column (exclusive)           */
-static uint16_t dr3_finv[DR3_MAP_MAX];  /* filtered: 65536 / (fx1 - fx0)              */
+static uint32_t dr3_finv[DR3_MAP_MAX];  /* filtered: 65536 / (fx1 - fx0) - must hold 65536! */
 
 static void dr3_fb_build_maps(int sw, int sh, int dw, int dh)
 {
@@ -39,7 +39,7 @@ static void dr3_fb_build_maps(int sw, int sh, int dw, int dh)
         if (x1 <= dr3_fx0[i]) x1 = dr3_fx0[i] + 1;
         if (x1 > sw)          x1 = sw;
         dr3_fx1[i]  = (uint16_t)x1;
-        dr3_finv[i] = (uint16_t)(65536u / (uint32_t)(x1 - dr3_fx0[i]));
+        dr3_finv[i] = 65536u / (uint32_t)(x1 - dr3_fx0[i]);
     }
 
     for (i = 0; i < dh && i < DR3_MAP_MAX; ++i) {

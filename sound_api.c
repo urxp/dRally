@@ -491,13 +491,19 @@ void dRally_Sound_pushEffect(__BYTE__ sfx_channel, __BYTE__ n, __DWORD__ offset,
 }
 
 // 00065990h
+/* The 3DS DAC runs at a fixed rate (32728 Hz is the commonly quoted value).  Compile with
+   -DDR3_DSP_RATE=<hz> to try another one without touching this file. */
+#ifndef DR3_DSP_RATE
+#define DR3_DSP_RATE 32728
+#endif
+
 void dRally_Sound_setSampleRate(__DWORD__ freq){
 
 #if defined(__3DS__)
 	/* The 3DS DAC runs at a fixed 32728 Hz.  Feeding it the DOS default of 22050 Hz made music and
 	   effects play 1.48x too fast (and too high pitched), so ask for the native rate instead -
 	   nothing has to be resampled then either. */
-	freq = 32728;
+	freq = DR3_DSP_RATE;
 #endif
 
 	SOUND_SAMPLERATE = __BOUNDS(freq, 0x1f40, 0xac44);
