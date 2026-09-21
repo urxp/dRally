@@ -1,0 +1,4 @@
+# The 3DS makefile is executed by GNU make on Linux (devkitPro) - it must keep LF endings even if
+# the checkout happens on Windows with core.autocrlf=true.
+Makefile.3ds text eol=lf
+doc/3ds.md text eol=lf

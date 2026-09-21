@@ -1,5 +1,9 @@
 #include "drally.h"
 
+#if defined(__3DS__)
+#include "platform_3ds/dr3_input.h"
+#endif
+
 extern void_cb ___2432c8h;
 
 void dRally_Keyboard_make(SDL_Scancode);
@@ -9,7 +13,13 @@ void IO_Loop(void){
 
     SDL_Event e;
 
+#if defined(__3DS__)
+    /* SDL2's n3ds backend reports joystick events; dr3_poll_event() turns the pad into the
+       keyboard scancodes this engine expects (see platform_3ds/dr3_input.c). */
+    while(dr3_poll_event(&e)){
+#else
     while(SDL_PollEvent(&e)){
+#endif
 
         if(e.type == SDL_KEYDOWN){
 

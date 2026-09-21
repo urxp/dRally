@@ -15,3 +15,10 @@ z_regex*
 *_ok.c
 *.zip
 *_32b.c
+# Nintendo 3DS port (branch 3ds)
+build
+*.3dsx
+*.elf
+*.smdh
+*.map
+
