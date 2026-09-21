@@ -18,14 +18,14 @@ static const dr3_btn_map_t dr3_btn_map[] = {
     /* shoulders: the Vita-proven accelerate / brake mapping */
     { DR3_PAD_R,      { SDL_SCANCODE_A,          -1, -1 } },
     { DR3_PAD_L,      { SDL_SCANCODE_Z,          -1, -1 } },
-    /* face buttons: nitro+confirm, machine gun, mine, horn */
-    { DR3_PAD_A,      { SDL_SCANCODE_LSHIFT,     SDL_SCANCODE_KP_ENTER, SDL_SCANCODE_RETURN } },
-    { DR3_PAD_X,      { SDL_SCANCODE_LCTRL,      -1, -1 } },
-    { DR3_PAD_Y,      { SDL_SCANCODE_LALT,       -1, -1 } },
+    /* face buttons: confirm, horn, machine gun, turbo/nitro */
+    { DR3_PAD_A,      { SDL_SCANCODE_RETURN,     -1, -1 } },   /* single key: dialogues see exactly one */
     { DR3_PAD_B,      { SDL_SCANCODE_SPACE,      -1, -1 } },
+    { DR3_PAD_X,      { SDL_SCANCODE_LCTRL,      -1, -1 } },
+    { DR3_PAD_Y,      { SDL_SCANCODE_LSHIFT,     -1, -1 } },   /* turbo boost */
     /* New 3DS shoulder extras + system keys */
-    { DR3_PAD_ZL,     { SDL_SCANCODE_LCTRL,      -1, -1 } },
-    { DR3_PAD_ZR,     { SDL_SCANCODE_LALT,       -1, -1 } },
+    { DR3_PAD_ZL,     { SDL_SCANCODE_LALT,       -1, -1 } },
+    { DR3_PAD_ZR,     { SDL_SCANCODE_LCTRL,      -1, -1 } },
     { DR3_PAD_START,  { SDL_SCANCODE_ESCAPE,     -1, -1 } }
     /* NOTE: SELECT deliberately has no scancode - it opens the 3DS software keyboard
        (see dr3_input.c) so player names and save slots can actually be typed. */

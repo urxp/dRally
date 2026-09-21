@@ -46,7 +46,7 @@ LIBDIRS  := -L$(SDL2_3DS_LIB) -L$(CTRULIB)/lib
 
 # DR_MULTIPLAYER/IPXNET are kept: menus, race code and the chat box reference multiplayer symbols
 # unconditionally (verified: dropping them produces 20 unresolved externals on Windows/MSVC).
-DEFINES  := -D__3DS__ -DDR_LETTERBOX -DDR_MULTIPLAYER -DIPXNET
+DEFINES  := -D__3DS__ -DDR_LETTERBOX -DDR_MULTIPLAYER -DIPXNET -DDR3_LOG_KEYS -DDR3_USE_GFX
 
 INCLUDES := -I$(CURDIR) \
             -I$(CURDIR)/platform_3ds \
@@ -80,6 +80,7 @@ EXTRA_OBJS := platform_3ds/dr3_input.o \
               platform_3ds/dr3_blit.o \
               platform_3ds/dr3_log.o \
               platform_3ds/dr3_paths.o \
+              platform_3ds/dr3_fb.o \
               platform_3ds/sdl2_net_stub/sdl2_net_stub.o
 OBJS := data.o bss.o
 

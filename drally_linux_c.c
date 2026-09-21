@@ -6,6 +6,10 @@
 #include "platform_3ds/dr3_log.h"
 #endif
 
+#if defined(__3DS__) && defined(DR3_USE_GFX)
+#include "platform_3ds/dr3_fb.h"
+#endif
+
 
 #pragma pack(1)
 typedef struct textbit {
@@ -159,8 +163,58 @@ void __PRESENTSCREEN__(void){
 #if defined(__3DS__)
 
 	SDL_Surface *	win;
+#if defined(DR3_USE_GFX)
+	static int		dr3_direct = -1;		/* 1 = write the framebuffer directly, 0 = SDL path */
+	static int		dr3_masks_ready = 0;
+	static uint32_t	dr3_rmask, dr3_gmask, dr3_bmask, dr3_amask;
+#endif
 
 	if(!GX.ActiveMode) return;
+
+#if defined(DR3_USE_GFX)
+	if(dr3_direct < 0){
+
+		dr3_direct = (dr3_fb_init() == 0) ? 1 : 0;
+		dr3_log("[dr3] present path: %s", dr3_direct ? "direct gfx framebuffer" : "SDL window surface");
+	}
+
+	if(dr3_direct){
+
+		if(!dr3_masks_ready){
+
+			/* take the channel masks from SDL's surface once - same values the SDL path used */
+			win = SDL_GetWindowSurface(GX.Window);
+			if(win){
+				dr3_rmask = win->format->Rmask;
+				dr3_gmask = win->format->Gmask;
+				dr3_bmask = win->format->Bmask;
+				dr3_amask = win->format->Amask;
+				dr3_masks_ready = 1;
+			}
+		}
+
+		if(!dr3_masks_ready) return;
+
+		if(dr3_lut_dirty){
+			dr3_lut32_build_masks(&dr3_lut, &dr3_pal, dr3_rmask, dr3_gmask, dr3_bmask, dr3_amask);
+			dr3_lut_dirty = 0;
+		}
+
+		/* downscaling (640x480 VESA menus) needs the horizontal average, upscaling is nearest */
+		dr3_fb_present((const uint8_t *)GX.Surface->pixels, GX.Surface->w, GX.Surface->h,
+			GX.Surface->pitch, &dr3_pal, &dr3_lut,
+			(GX.Surface->w > DR3_SCREEN_W || GX.Surface->h > DR3_SCREEN_H) ? 1 : 0);
+
+		++dr3_present_count;
+		if(SDL_GetTicks() - dr3_present_last_log >= 1000){
+			dr3_log("[dr3] %u presents/s (direct) SDLms=%u frame_counter=%u",
+				dr3_present_count, SDL_GetTicks(), INT8_FRAME_COUNTER);
+			dr3_present_count = 0;
+			dr3_present_last_log = SDL_GetTicks();
+		}
+		return;
+	}
+#endif
 
 	win = SDL_GetWindowSurface(GX.Window);		/* == the GSP framebuffer on the 3DS */
 	if(!win){

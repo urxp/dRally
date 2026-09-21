@@ -151,6 +151,15 @@ static char         dr3_text[64];
 static int          dr3_text_len;
 static int          dr3_text_pos;
 static unsigned int dr3_text_next_ms;
+static int          dr3_text_sentinel_done;
+
+static void dr3_push_release(int scan, unsigned int now)
+{
+    if (dr3_pending_count >= DR3_QUEUE_LEN) return;
+    dr3_pending[dr3_pending_count].scancode   = scan;
+    dr3_pending[dr3_pending_count].release_at = now + DR3_TEXT_RELEASE_MS;
+    ++dr3_pending_count;
+}
 
 static void dr3_queue_text(const char *text)
 {
@@ -161,6 +170,7 @@ static void dr3_queue_text(const char *text)
     dr3_text[n]    = 0;
     dr3_text_len   = (int)n;
     dr3_text_pos   = 0;
+    dr3_text_sentinel_done = 0;
     dr3_text_next_ms = SDL_GetTicks();   /* deliver the first character right away */
 }
 
@@ -178,17 +188,23 @@ static void dr3_service_text(void)
     now = SDL_GetTicks();
     if ((int)(now - dr3_text_next_ms) < 0) return;
 
+    /* The dialogue always consumes one key before it looks at the character, which used to eat the
+       first typed letter.  Send a dead key first (SDL scancode 0 maps to DOS 0 = "no key"). */
+    if (!dr3_text_sentinel_done) {
+        dr3_text_sentinel_done = 1;
+        dr3_queue_push(SDL_SCANCODE_UNKNOWN, 1);
+        dr3_push_release(SDL_SCANCODE_UNKNOWN, now);
+        dr3_text_next_ms = now + DR3_TEXT_CHAR_MS;
+        return;
+    }
+
     scan = dr3_char_to_scancode(dr3_text[dr3_text_pos++]);
     dr3_text_next_ms = now + DR3_TEXT_CHAR_MS;
 
     if (scan < 0) return;
 
-    dr3_queue_push(scan, 1);                 /* key down now ... */
-    if (dr3_pending_count < DR3_QUEUE_LEN) { /* ... released a little later */
-        dr3_pending[dr3_pending_count].scancode   = scan;
-        dr3_pending[dr3_pending_count].release_at = now + DR3_TEXT_RELEASE_MS;
-        ++dr3_pending_count;
-    }
+    dr3_queue_push(scan, 1);        /* key down now ... */
+    dr3_push_release(scan, now);    /* ... released a little later */
 }
 
 static void dr3_service_pending(void)
@@ -254,6 +270,10 @@ int dr3_poll_event(SDL_Event *e)
         const int scan    = dr3_queue[dr3_q_head].scancode;
         const int pressed = dr3_queue[dr3_q_head].pressed;
         dr3_q_head = (dr3_q_head + 1) % DR3_QUEUE_LEN;
+
+#if defined(DR3_LOG_KEYS)
+        if (pressed) dr3_log("[dr3] key down 0x%02X '%s'", scan, dr3_scancode_name(scan));
+#endif
 
         memset(e, 0, sizeof(*e));
         e->type                = pressed ? SDL_KEYDOWN : SDL_KEYUP;
