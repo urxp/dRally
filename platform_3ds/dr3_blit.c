@@ -18,18 +18,46 @@ void dr3_palette_set(dr3_palette_t *pal, int index, uint8_t r, uint8_t g, uint8_
     pal->b[index] = b;
 }
 
+/* Number of trailing zero bits of an SDL channel mask (0 for an empty mask). */
+static int dr3_mask_shift(uint32_t mask)
+{
+    int shift = 0;
+    if (!mask) return 0;
+    while (!(mask & 1u)) {
+        mask >>= 1;
+        ++shift;
+    }
+    return shift;
+}
+
+void dr3_lut32_build_masks(dr3_lut32_t *lut, const dr3_palette_t *pal,
+                           uint32_t r_mask, uint32_t g_mask, uint32_t b_mask, uint32_t a_mask)
+{
+    const int      rs = dr3_mask_shift(r_mask);
+    const int      gs = dr3_mask_shift(g_mask);
+    const int      bs = dr3_mask_shift(b_mask);
+    const int      as = dr3_mask_shift(a_mask);
+    const uint32_t a_bits = a_mask ? (0xFFu << as) : 0u;   /* no alpha bits -> no alpha value */
+    int            n;
+
+    for (n = 0; n < 256; ++n) {
+        lut->px[n] = ((uint32_t)pal->r[n] << rs) |
+                     ((uint32_t)pal->g[n] << gs) |
+                     ((uint32_t)pal->b[n] << bs) |
+                     a_bits;
+    }
+}
+
 void dr3_lut32_build(dr3_lut32_t *lut, const dr3_palette_t *pal, int order, uint8_t alpha)
 {
-    int n;
-    for (n = 0; n < 256; ++n) {
-        const uint32_t r = pal->r[n];
-        const uint32_t g = pal->g[n];
-        const uint32_t b = pal->b[n];
-        const uint32_t a = (uint32_t)alpha << 24;
-        lut->px[n] = (order == DR3_LUT_RGB)
-                   ? (r | (g << 8) | (b << 16) | a)
-                   : (b | (g << 8) | (r << 16) | a);
-    }
+    /* memory order B,G,R,A  -> B in the low byte (SDL_PIXELFORMAT_ARGB8888 masks)
+       memory order R,G,B,A  -> R in the low byte (SDL_PIXELFORMAT_ABGR8888 masks) */
+    const uint32_t alpha_mask = (uint32_t)alpha << 24;
+
+    if (order == DR3_LUT_RGB)
+        dr3_lut32_build_masks(lut, pal, 0x000000FFu, 0x0000FF00u, 0x00FF0000u, alpha_mask);
+    else
+        dr3_lut32_build_masks(lut, pal, 0x00FF0000u, 0x0000FF00u, 0x000000FFu, alpha_mask);
 }
 
 static void dr3_fill32(uint32_t *dst, int dw, int dh, int pitch, uint32_t color)

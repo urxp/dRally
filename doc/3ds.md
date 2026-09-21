@@ -30,8 +30,9 @@ Consequences that shape this port:
 | `platform_3ds/dr3_input_map.c` / `.h` | the button → scancode table (data only, unit-tested) |
 | `platform_3ds/dr3_blit.c` / `.h` | palette → 32-bit LUT and an integer-only nearest-neighbour / centred scaler (unit-tested) |
 | `platform_3ds/sdl2_net_stub/` | inert SDL_net so the multiplayer code compiles and links |
-| `tests/test_dr3.c`, `tests/Dr3Tests.vcxproj`, `tests/build_tests.ps1` | host unit tests (287 checks), runnable **without** a 3DS toolchain |
-| `events.c` | the only engine patch so far: `while(dr3_poll_event(&e))` under `#if defined(__3DS__)` |
+| `tests/test_dr3.c`, `tests/Dr3Tests.vcxproj`, `tests/build_tests.ps1` | host unit tests (295 checks), runnable **without** a 3DS toolchain |
+| `events.c` | engine patch 1: `while(dr3_poll_event(&e))` under `#if defined(__3DS__)` |
+| `drally_linux_c.c` | engine patch 2 (display): window created as the fixed 400x240 top screen, **no SDL renderer**, `__PRESENTSCREEN__` converts the 8-bit screen with the palette LUT straight into the window surface and calls `SDL_UpdateWindowSurface`; `SDL_SetWindowSize` calls are skipped |
 
 ### Why the multiplayer code stays in
 
@@ -98,23 +99,46 @@ CDROM.INI                 <- contains: ./CINEM
 CINEM/ENDANI.HAF  ENDANI0.HAF  SANIM.HAF
 ```
 
-## Testing without a 3DS toolchain
+## Why there is no SDL renderer on the 3DS
 
-```powershell
-powershell -ExecutionPolicy Bypass -File tests\build_tests.ps1
-```
-287 host checks over the portable code (LUT byte order, centred and scaled blit output, the full
-pad -> scancode mapping, quit combo). This is the fast feedback loop while devkitARM is unavailable.
+`src/video/n3ds` only registers a *frame-buffer* driver (`CreateWindowFramebuffer` /
+`UpdateWindowFramebuffer`) - there is no accelerated renderer. Two further details from that driver:
+
+* The hardware frame buffer is **rotated** (240x400 internally, `src/video/n3ds/SDL_n3dsframebuffer.c`
+  uses `GetDestOffset(x, y, dest_width) = dest_width - y - 1 + dest_width * x`) and SDL copies the
+  window surface into it, so we only have to fill the window surface - orientation is free.
+* `SDL_GetWindowSizeInPixels()` defines the size of that surface, and the copy clamps to
+  `min(hardware, surface)`. That is why the window is created with 400x240 and why the
+  `SDL_SetWindowSize(1024x768)` calls are skipped on the 3DS - resizing would make SDL copy a
+  cropped region.
+
+An active renderer would also block `SDL_GetWindowSurface`, which `__PRESENTSCREEN__` writes into,
+so the renderer is not created at all on the 3DS.
+
+## Verification (all runnable without a 3DS toolchain)
+
+| Check | Command | Result |
+|---|---|---|
+| Portable logic | `tests\build_tests.ps1` (MSVC) | **295 checks, 0 failures** - LUT byte order + masks (`SDL_PIXELFORMAT_RGBA8888` as used by the 3DS), centred/scaled blit pixels, full pad → scancode map, quit combo |
+| Whole engine with `-D__3DS__` | `scripts\gen_3ds_check.ps1` → `tests\dRally3DSCheck.vcxproj` | **330 translation units compile and link** (exit 0) - validates every `#if defined(__3DS__)` path with the real SDL2 headers, catching typos/prototype errors before devkitARM exists |
+| Windows regression | `scripts\build_windows.ps1 -GameDir dRally-3ds -SkipDeps -SkipStage` | still builds (exit 0) |
+| Emulator | `Azahar` in `C:\Program Files\Azahar` | installed, ready for the first `.3dsx` |
+
+Workbench scripts (live outside the repo, in `C:\Users\M-PC\rally\scripts`):
+`gen_makefile_3ds.ps1` (Makefile from upstream lists), `patch_3ds_display.ps1` (display patch,
+whitespace tolerant + idempotent), `gen_3ds_check.ps1` (`__3DS__` syntax/link check), plus
+`build_windows.ps1` / `run_windows.cmd` for the reference build.
 
 ## Roadmap
 
 1. ~~branch, makefile, input layer, host tests~~ (done)
-2. Display patch: cached streaming texture + `dr3_blit` LUT, `DR_LETTERBOX` 320x240 -> 400x240,
-   while keeping a small yield so the cooperative sound thread is not starved.
+2. ~~display patch: renderer-free present path + `dr3_blit` LUT with SDL masks, fixed 400x240
+   window~~ (done, verified by the `-D__3DS__` link check)
 3. Software keyboard (`SDL_n3dsswkb.c`) for the driver-name / save prompts.
 4. Audio sanity check (ndsp) and frame-time measurement; the old 3DS may need a reduced frame rate.
 5. Make `cinem.c` (HAF cinematics) skippable - CPU heavy.
 6. Packaging (`*.3dsx`, optional `.cia`) and a user-facing README.
+7. First real 3DS run: `make -f Makefile.3ds` with devkitARM, then Azahar / `3dslink`.
 
 ## Open blocker
 

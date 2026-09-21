@@ -1,6 +1,10 @@
 #include "drally.h"
 #include "drally_display.h"
 
+#if defined(__3DS__)
+#include "platform_3ds/dr3_blit.h"
+#endif
+
 
 #pragma pack(1)
 typedef struct textbit {
@@ -39,6 +43,24 @@ static struct GX {
 	SDL_Renderer * 	Renderer;
 	SDL_Texture * 	Texture;
 } GX = {0};
+
+#if defined(__3DS__)
+/*
+ * The 3DS build does not use an SDL renderer at all: SDL2 only ships the software renderer there,
+ * and the window surface *is* the GSP framebuffer. So we convert the engine's 8-bit screen with a
+ * palette look-up table directly into the window surface (platform_3ds/dr3_blit.c) - one pass,
+ * no texture allocation per frame.
+ */
+static dr3_palette_t dr3_pal;
+static dr3_lut32_t   dr3_lut;
+static int           dr3_lut_dirty = 1;   /* set whenever the palette changes */
+
+#ifdef DR3_3DS_CENTER
+#define DR3_3DS_SCALE_MODE DR3_SCALE_CENTER   /* pixel-perfect 1:1 with black borders */
+#else
+#define DR3_3DS_SCALE_MODE DR3_SCALE_STRETCH  /* 320x200/320x240 fills the whole 400x240 screen */
+#endif
+#endif
 
 
 extern __DWORD__ ___60441h;
@@ -131,6 +153,37 @@ void __DISPLAY_SET_PALETTE_COLOR(int b, int g, int r, int n);
 
 void __PRESENTSCREEN__(void){
 
+#if defined(__3DS__)
+
+	SDL_Surface *	win;
+
+	if(!GX.ActiveMode) return;
+
+	win = SDL_GetWindowSurface(GX.Window);		/* == the GSP framebuffer on the 3DS */
+	if(!win) return;
+
+	if(dr3_lut_dirty){
+
+		/* take the channel masks from the real target surface - no assumptions about the format */
+		dr3_lut32_build_masks(&dr3_lut, &dr3_pal,
+			win->format->Rmask, win->format->Gmask, win->format->Bmask, win->format->Amask);
+		dr3_lut_dirty = 0;
+	}
+
+	if(dr3_blit8_lut32((const uint8_t *)GX.Surface->pixels, GX.Surface->w, GX.Surface->h,
+			GX.Surface->pitch, &dr3_lut,
+			(uint32_t *)win->pixels, win->w, win->h, win->pitch / 4,
+			DR3_3DS_SCALE_MODE, dr3_lut.px[0]) != 0){
+
+		printf("[dRally.DISPLAY] present failed (%dx%d -> %dx%d)\n",
+			GX.Surface->w, GX.Surface->h, win->w, win->h);
+		return;
+	}
+
+	SDL_UpdateWindowSurface(GX.Window);
+
+#else
+
 	if(GX.ActiveMode){
 
 		GX.Texture = SDL_CreateTextureFromSurface(GX.Renderer, GX.Surface);
@@ -139,6 +192,8 @@ void __PRESENTSCREEN__(void){
 		SDL_DestroyTexture(GX.Texture);
 		GX.Texture = NULL;
 	}
+
+#endif
 }
 
 void __VGA13_PRESENTSCREEN__(void){
@@ -158,6 +213,12 @@ void __DISPLAY_SET_PALETTE_COLOR(int b, int g, int r, int n){
     col.r = (r<<2)|(r>>4);
     col.g = (g<<2)|(g>>4);
     col.b = (b<<2)|(b>>4);
+
+#if defined(__3DS__)
+	/* our own copy: the LUT is rebuilt from it whenever the framebuffer is presented */
+	dr3_palette_set(&dr3_pal, n, col.r, col.g, col.b);
+	dr3_lut_dirty = 1;
+#endif
 
 	if(GX.ActiveMode) SDL_SetPaletteColors(GX.Surface->format->palette, &col, n, 1);
 }
@@ -202,18 +263,38 @@ void dRally_Display_init(int mode){
 			"dRally / Open Source Engine / Death Rally [1996]",	// window title
 			SDL_WINDOWPOS_CENTERED,      						// initial x position
 			SDL_WINDOWPOS_CENTERED,       						// initial y position
+#if defined(__3DS__)
+			DR3_SCREEN_W,										// 3DS top screen: fixed 400x240
+			DR3_SCREEN_H,
+#else
+#if defined(__3DS__)
+			DR3_SCREEN_W,										// 3DS top screen: fixed 400x240
+			DR3_SCREEN_H,
+#else
 			W_WIDTH,                  							// width, in pixels
 			W_HEIGHT,											// height, in pixels
+#endif
+#endif
 			SDL_WINDOW_HIDDEN									// flags - see below
 		);
 	}
 
+#if defined(__3DS__)
+	/* no renderer: __PRESENTSCREEN__ writes straight into the window surface (the framebuffer) */
+	SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "0");
+#else
+#if defined(__3DS__)
+	/* no renderer: __PRESENTSCREEN__ writes straight into the window surface (the framebuffer) */
+	SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "0");
+#else
 	if(!GX.Renderer){
 
 		SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "2");
 		GX.Renderer = SDL_CreateRenderer(GX.Window, -1, SDL_RENDERER_ACCELERATED);
 		//GX.Renderer = SDL_CreateRenderer(GX.Window, -1, SDL_RENDERER_SOFTWARE);
 	}
+#endif
+#endif
 }
 
 void dRally_Display_clean(void){
@@ -241,7 +322,9 @@ void __VGA13_SETMODE(void){
 			break;
 		case W_SHRINK:
 		default:
+#if !defined(__3DS__)
 			SDL_SetWindowSize(GX.Window, W_WIDTH, 5*W_HEIGHT/6);
+#endif
 			break;
 		}
 
@@ -265,7 +348,9 @@ void __VESA101_SETMODE(void){
 			break;
 		case W_SHRINK:
 		default:
+#if !defined(__3DS__)
 			SDL_SetWindowSize(GX.Window, W_WIDTH, W_HEIGHT);
+#endif
 			break;
 		}
 

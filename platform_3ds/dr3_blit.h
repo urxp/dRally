@@ -13,8 +13,8 @@
 
 #include <stdint.h>
 
-#define DR3_LUT_BGR 0   /* memory order B,G,R,A (SDL_PIXELFORMAT_ARGB8888 on little endian) */
-#define DR3_LUT_RGB 1   /* memory order R,G,B,A (SDL_PIXELFORMAT_ABGR8888 on little endian) */
+#define DR3_LUT_BGR 0   /* memory order B,G,R,A (== SDL_PIXELFORMAT_ARGB8888 masks) */
+#define DR3_LUT_RGB 1   /* memory order R,G,B,A (== SDL_PIXELFORMAT_ABGR8888 masks) */
 
 #define DR3_SCALE_STRETCH 0  /* fill the whole target */
 #define DR3_SCALE_CENTER  1  /* 1:1, centred, borders filled with the clear colour */
@@ -35,7 +35,15 @@ typedef struct {
 void dr3_palette_reset(dr3_palette_t *pal);
 void dr3_palette_set(dr3_palette_t *pal, int index, uint8_t r, uint8_t g, uint8_t b);
 
+/*
+ * The colour layout of the destination can be given two ways:
+ *   dr3_lut32_build()        convenience for the two common byte orders
+ *   dr3_lut32_build_masks()  exact SDL masks - use this with a real target surface
+ *                            (e.g. SDL_PIXELFORMAT_RGBA8888 on the 3DS) so no assumption is made
+ */
 void dr3_lut32_build(dr3_lut32_t *lut, const dr3_palette_t *pal, int order, uint8_t alpha);
+void dr3_lut32_build_masks(dr3_lut32_t *lut, const dr3_palette_t *pal,
+                           uint32_t r_mask, uint32_t g_mask, uint32_t b_mask, uint32_t a_mask);
 
 /*
  * src        : 8-bit indexed pixels

@@ -21,4 +21,6 @@ build
 *.elf
 *.smdh
 *.map
+tests/x64
+tests/dRally3DSCheck.vcxproj
 

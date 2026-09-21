@@ -187,10 +187,50 @@ static void test_input_map(void)
           "scancode name lookup failed");
 }
 
+static void test_lut_masks(void)
+{
+    dr3_palette_t pal;
+    dr3_lut32_t   lut, lut2;
+    uint32_t      v;
+
+    printf("- LUT from SDL masks\n");
+    dr3_palette_reset(&pal);
+    dr3_palette_set(&pal, 0, 0x11, 0x22, 0x33);
+
+    /* the 3DS framebuffer is SDL_PIXELFORMAT_RGBA8888:
+       R=0xFF000000 G=0x00FF0000 B=0x0000FF00 A=0x000000FF */
+    dr3_lut32_build_masks(&lut, &pal, 0xFF000000u, 0x00FF0000u, 0x0000FF00u, 0x000000FFu);
+    CHECK(lut.px[0] == 0x112233FFu, "RGBA8888 masks: got 0x%08X want 0x112233FF", lut.px[0]);
+
+    /* ... which in little endian memory is A,B,G,R = FF,33,22,11 */
+    v = lut.px[0];
+    CHECK(((v >> 0) & 0xFF) == 0xFF, "byte0 (A) = 0x%02X", (v >> 0) & 0xFF);
+    CHECK(((v >> 8) & 0xFF) == 0x33, "byte1 (B) = 0x%02X", (v >> 8) & 0xFF);
+    CHECK(((v >> 16) & 0xFF) == 0x22, "byte2 (G) = 0x%02X", (v >> 16) & 0xFF);
+    CHECK(((v >> 24) & 0xFF) == 0x11, "byte3 (R) = 0x%02X", (v >> 24) & 0xFF);
+
+    /* the convenience orders must match the equivalent SDL masks */
+    dr3_lut32_build(&lut2, &pal, DR3_LUT_BGR, 0xFF);
+    dr3_lut32_build_masks(&lut, &pal, 0x00FF0000u, 0x0000FF00u, 0x000000FFu, 0xFF000000u);
+    CHECK(lut2.px[0] == lut.px[0], "DR3_LUT_BGR != ARGB8888 masks (0x%08X vs 0x%08X)",
+          lut2.px[0], lut.px[0]);
+
+    dr3_lut32_build(&lut2, &pal, DR3_LUT_RGB, 0xFF);
+    dr3_lut32_build_masks(&lut, &pal, 0x000000FFu, 0x0000FF00u, 0x00FF0000u, 0xFF000000u);
+    CHECK(lut2.px[0] == lut.px[0], "DR3_LUT_RGB != ABGR8888 masks (0x%08X vs 0x%08X)",
+          lut2.px[0], lut.px[0]);
+
+    /* empty masks must not invent an alpha value (palette entry 0 is black after a reset) */
+    dr3_palette_reset(&pal);
+    dr3_lut32_build_masks(&lut, &pal, 0, 0, 0, 0);
+    CHECK(lut.px[0] == 0x00000000u, "empty masks: 0x%08X", lut.px[0]);
+}
+
 int main(void)
 {
     printf("dRally 3DS port - host tests\n\n");
     test_lut();
+    test_lut_masks();
     test_blit_center();
     test_blit_stretch();
     test_input_map();
