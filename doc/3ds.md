@@ -12,8 +12,15 @@ Windows remains the reference build — this branch does not touch it.
 | Input | d-pad/circle pad steer, R accelerate, L brake, A confirm, Y turbo, X machine gun, B horn, START pause, SELECT opens the 3DS software keyboard, L+R+START quits |
 | Video | direct top-screen framebuffer output, double buffered, box-filtered downscale for the 640x480 menus |
 | Speed | engine logic keeps its ~70 fps; presentation is the bottleneck (12-27 fps in the emulator). The emulator itself is a big part of that - measure on hardware |
-| Sound | **not working in Azahar**: `SDL_OpenAudioDevice` fails with `DSP init failed: dspfirm.cdc missing!`. libctru's ndsp needs the DSP firmware that Luma3DS provides on real hardware (`sdmc:/3ds/dspfirm.cdc`); the emulator has no system files from a console |
+| Sound | **works** — needs the DSP firmware `sdmc:/3ds/dspfirm.cdc` (Luma3DS provides it on real hardware; for Azahar copy it from your own console to `%APPDATA%\azahar\sdmc\3ds\dspfirm.cdc`). The mixer runs at the DAC's native 32728 Hz: the DOS default of 22050 Hz made everything play 1.48x too fast because the 3DS DAC does not resample |
 | Known gaps | `___59720h` was ported (keyboard path only, joystick branches omitted); some menus/dialogs may still be unimplemented upstream (they print `TODO` and `exit(1)`) |
+
+### Release package
+
+`make -f Makefile.3ds` produces `build/3ds/dRally_3ds.smdh` (icon/title metadata) and embeds it into
+the `.3dsx` via `3dsxtool --smdh=`. The ready-to-copy SD package (executable + original game data +
+`README.txt`) is assembled in `C:\Users\M-PC\rally\3ds-release\dRally_3ds\` (and as a zip next to it).
+On the console the folder must end up as `sdmc:/3ds/drally/`.
 
 ### Things learned the hard way (all handled in the code)
 

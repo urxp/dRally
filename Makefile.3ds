@@ -108,14 +108,24 @@ ALL_OBJS := $(addprefix $(BUILD)/, $(UNI_OBJS) $(LINUX_OBJS) $(RACE_OBJS) $(MENU
 
 .PHONY: all clean
 
+# home screen metadata (icon + title shown by the Homebrew Launcher)
+APP_TITLE   := Death Rally
+APP_DESC    := Death Rally (1996) - open source engine port
+APP_AUTHOR  := urxp / dRally, 3DS port
+APP_ICON    ?= $(CTRULIB)/default_icon.png
+
 all: $(OUTPUT).3dsx
 
 # NOTE: this makefile is deliberately self contained and does NOT include $(DEVKITARM)/3ds_rules -
 # that file brings its own %.elf/%.3dsx rules and variable conventions which would conflict with the
 # explicit object lists above.  3dsxtool does the .elf -> .3dsx conversion here.
-$(OUTPUT).3dsx: $(OUTPUT).elf
+$(OUTPUT).smdh: $(APP_ICON) Makefile.3ds
+	@echo "  SMDH   $(notdir $@)"
+	@smdhtool --create "$(APP_TITLE)" "$(APP_DESC)" "$(APP_AUTHOR)" $(APP_ICON) $@
+
+$(OUTPUT).3dsx: $(OUTPUT).elf $(OUTPUT).smdh
 	@echo "  TOOL   3dsxtool $@"
-	@3dsxtool $< $@ $(THREEDSXFLAGS)
+	@3dsxtool $< $@ --smdh=$(OUTPUT).smdh
 
 $(OUTPUT).elf: $(ALL_OBJS)
 	@echo "  LINK   $(notdir $@)"
