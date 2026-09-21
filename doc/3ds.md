@@ -86,6 +86,12 @@ show up as drivers.  It refreshes at most once per second and only when the text
   racing - made the bottom screen flicker even when it was switched off.  `dr3_bottom.c` /
   `dr3_prof.c` undefine the macro again because they draw there on purpose
 
+* the bottom screen is drawn with a **single** `printf()` per update and without clearing it: libctru's
+  console redraws the screen for every `printf()`, so writing the block line by line (after a clear)
+  was visible as flicker.  The release build prints a fixed height of padded lines (so removed lines are
+  overwritten) and only when the content changed; the profiler overlay collects its output in a buffer
+  (`dr3_out()`) and writes it once, including the clear, so the update is atomic
+
 The profiler build keeps that screen for the profiler (`-DDR3_PROFILE` disables `dr3_bottom`).
 
 ### Profiler build (autonomous measurement)

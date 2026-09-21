@@ -358,6 +358,23 @@ static void dr3_prof_touch(void)
     was_down = down;
 }
 
+/* The console redraws the screen for every printf(), which made the overlay flicker.  Everything
+   (including the clear) is collected here and written with a single printf(). */
+static char dr3_out_buf[4096];
+static int  dr3_out_len;
+
+static void dr3_out(const char *fmt, ...)
+{
+    va_list ap;
+    int     n;
+
+    va_start(ap, fmt);
+    n = vsnprintf(dr3_out_buf + dr3_out_len, sizeof(dr3_out_buf) - (size_t)dr3_out_len, fmt, ap);
+    va_end(ap);
+
+    if (n > 0) dr3_out_len += n;
+}
+
 static void dr3_prof_overlay(void)
 {
     const uint64_t    t0 = dr3_prof_tick();
@@ -380,32 +397,32 @@ static void dr3_prof_overlay(void)
     }
 
     printf("\x1b[2J\x1b[H");
-    printf("dRally 3DS profiler   %lu MHz\n", (unsigned long)(dr3_ticks_per_ms / 1000));
-    printf("PHASE %-5s %4lu.%01lus   VAR %s\n", dr3_phase_name[p], (unsigned long)(in / 1000),
+    dr3_out("dRally 3DS profiler   %lu MHz\n", (unsigned long)(dr3_ticks_per_ms / 1000));
+    dr3_out("PHASE %-5s %4lu.%01lus   VAR %s\n", dr3_phase_name[p], (unsigned long)(in / 1000),
            (unsigned long)((in / 100) % 10), dr3_var_name[dr3_variant]);
-    printf("MODE  %dx%d %s\n", dr3_mode_w, dr3_mode_h, dr3_mode_filtered ? "filter" : "nearest");
-    printf("PRES  %3lu/s %5luus max %5lu | blit %5lu flush %4lu swap %4lu\n",
+    dr3_out("MODE  %dx%d %s\n", dr3_mode_w, dr3_mode_h, dr3_mode_filtered ? "filter" : "nearest");
+    dr3_out("PRES  %3lu/s %5luus max %5lu | blit %5lu flush %4lu swap %4lu\n",
            (unsigned long)pr->cnt, (unsigned long)dr3_avg(pr->sum, pr->cnt), (unsigned long)pr->max,
            (unsigned long)dr3_avg(dr3_slot[p][DR3_SLOT_BLIT].sum, pr->cnt),
            (unsigned long)dr3_avg(dr3_slot[p][DR3_SLOT_FLUSH].sum, pr->cnt),
            (unsigned long)dr3_avg(dr3_slot[p][DR3_SLOT_SWAP].sum, pr->cnt));
-    printf("GAME  %3lu/s %5luus max %5lu | IO %4lu/s %4luus\n",
+    dr3_out("GAME  %3lu/s %5luus max %5lu | IO %4lu/s %4luus\n",
            (unsigned long)ga->cnt, (unsigned long)dr3_avg(ga->sum, ga->cnt), (unsigned long)ga->max,
            (unsigned long)io->cnt, (unsigned long)dr3_avg(io->sum, io->cnt));
-    printf("FRAME %5luus max %5lu  skip %lu/s\n", (unsigned long)dr3_avg(v->frame_sum, v->frame_cnt),
+    dr3_out("FRAME %5luus max %5lu  skip %lu/s\n", (unsigned long)dr3_avg(v->frame_sum, v->frame_cnt),
            (unsigned long)v->frame_max, (unsigned long)dr3_cnt[p][DR3_CNT_SKIP]);
-    printf("AUDIO %3lucb/s %5luf/s (want %5lu) stalls %lu mix %luus\n",
+    dr3_out("AUDIO %3lucb/s %5luf/s (want %5lu) stalls %lu mix %luus\n",
            (unsigned long)dr3_cnt[p][DR3_CNT_AUDIO_CB],
            (unsigned long)dr3_cnt[p][DR3_CNT_AUDIO_FR],
            (unsigned long)dr3_prof_audio_rate(),
            (unsigned long)dr3_cnt[p][DR3_CNT_STALL],
            (unsigned long)dr3_avg(mx->sum, mx->cnt));
-    printf("HIST  <14ms:%lu 14-20:%lu 20-30:%lu >30:%lu\n",
+    dr3_out("HIST  <14ms:%lu 14-20:%lu 20-30:%lu >30:%lu\n",
            (unsigned long)v->hist[0], (unsigned long)v->hist[1],
            (unsigned long)v->hist[2], (unsigned long)v->hist[3]);
-    printf("\n%s\n", dr3_phase_summarised ? "*** see drally_3ds.log for the summary ***"
+    dr3_out("\n%s\n", dr3_phase_summarised ? "*** see drally_3ds.log for the summary ***"
                                          : "(measuring - no input needed)");
-    printf("RATE %5lu Hz          [RATE -]  [RATE +]\n", (unsigned long)dr3_prof_audio_rate());
+    dr3_out("RATE %5lu Hz          [RATE -]  [RATE +]\n", (unsigned long)dr3_prof_audio_rate());
 
     dr3_prof_touch();          /* tap the rate buttons to tune the pitch */
 
@@ -414,8 +431,11 @@ static void dr3_prof_overlay(void)
         char lines[DR3_BOTTOM_LINES][DR3_BOTTOM_LINE_LEN];
         int  n = dr3_bottom_build_lines(lines), i;
 
-        for (i = 0; i < n; ++i) printf("%s\n", lines[i]);
+        for (i = 0; i < n; ++i) dr3_out("%s\n", lines[i]);
     }
+
+    printf("%s", dr3_out_buf);
+    dr3_out_len = 0;
 
     dr3_bottom_flush();
 

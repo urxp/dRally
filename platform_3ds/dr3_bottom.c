@@ -113,6 +113,10 @@ void dr3_bottom_flush(void)
 
 /* --------------------------------------------------------------- tap to hide --- */
 
+/* Fixed height of the block we print, so that lines which disappear (e.g. "your rank") are
+   overwritten instead of staying on screen - and so that we never have to clear the whole screen. */
+#define DR3_BOTTOM_PRINT_ROWS 17
+
 static int dr3_bottom_hidden;
 
 int dr3_bottom_is_hidden(void) { return dr3_bottom_hidden; }
@@ -207,16 +211,22 @@ int dr3_bottom_build_lines(char out[DR3_BOTTOM_LINES][DR3_BOTTOM_LINE_LEN])
 void dr3_bottom_update(void)
 {
     static unsigned int last_ms;
+    static char         last[DR3_BOTTOM_PRINT_ROWS][DR3_BOTTOM_LINE_LEN];
+    static int          last_valid;
+    static int          last_hidden;
     char                line[DR3_BOTTOM_LINES][DR3_BOTTOM_LINE_LEN];
-    int                 rows, i;
+    char                block[DR3_BOTTOM_PRINT_ROWS * (DR3_BOTTOM_LINE_LEN + 2)];
+    int                 rows, i, len = 0;
 
     if (!dr3_bottom_console_ensure()) return;
-    if ((SDL_GetTicks() - last_ms) < 1000) return;      /* once a second is plenty */
+    if ((SDL_GetTicks() - last_ms) < 500) return;       /* twice a second is plenty */
     last_ms = SDL_GetTicks();
 
     if (dr3_bottom_hidden) {
-        /* the player tapped the screen away: keep it dark (the game's own printf() output lands here
-           too, so it has to be cleared again) */
+        if (last_valid && last_hidden) return;          /* already dark */
+
+        last_valid = 1;
+        last_hidden = 1;
         printf("\x1b[2J\x1b[H");
         dr3_bottom_flush();
         return;
@@ -224,10 +234,23 @@ void dr3_bottom_update(void)
 
     rows = dr3_bottom_build_lines(line);
 
-    /* always redraw: the game's own printf() output ends up on this screen too (libctru
-       redirects stdout to the console), so anything we skipped would stay there */
-    printf("\x1b[2J\x1b[H");
-    for (i = 0; i < rows; ++i) printf("%s\n", line[i]);
+    /* Nothing to do unless something changed - the engine own printf() output no longer reaches this
+       screen (it goes to the log), so the content really is stable. */
+    if (last_valid && !last_hidden && (rows == DR3_BOTTOM_PRINT_ROWS) &&
+        (memcmp(line, last, sizeof(last)) == 0)) return;
 
+    memcpy(last, line, sizeof(last));
+    last_valid  = 1;
+    last_hidden = 0;
+
+    /* libctru console redraws the screen for every printf(), so printing the block line by line (and
+       clearing the screen first) was visible as flicker.  Build the whole block and write it once. */
+    for (i = 0; i < DR3_BOTTOM_PRINT_ROWS; ++i) {
+        const char *text = (i < rows) ? line[i] : "                                        ";
+
+        len += snprintf(block + len, sizeof(block) - (size_t)len, "%.*s\n", DR3_BOTTOM_LINE_LEN, text);
+    }
+
+    printf("\x1b[H%s", block);
     dr3_bottom_flush();
 }
