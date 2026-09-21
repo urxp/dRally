@@ -7,6 +7,11 @@ Makefile text eol=lf
 Makefile.3ds text eol=lf
 doc/3ds.md text eol=lf
 
+# these two were rewritten with CRLF by a script once; pin them so a Windows checkout cannot
+# reintroduce a diff that has nothing to do with the port
+drally.c    text eol=lf
+race_main.c text eol=lf
+
 # Visual Studio keeps CRLF in these - do not normalise them (upstream stores them that way, and a
 # rewrite would show up as a huge, meaningless diff in a pull request)
 *.sln     -text
