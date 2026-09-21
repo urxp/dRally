@@ -105,6 +105,14 @@ void dr3_bottom_flush(void)
     gfxScreenSwapBuffers(GFX_BOTTOM, false);
 }
 
+/* One line of the standings: rank, player marker, name and points.  The name is padded so the points
+   always sit in the same column, whatever the name length is.  12 character names still fit (the
+   right column allows 21 characters). */
+static void dr3_bottom_rank_line(char *out, size_t out_size, int rank, const dr3_standing_t *s)
+{
+    snprintf(out, out_size, "%2d %c %-11s%4d", rank, s->is_player ? '*' : ' ', s->name, s->points);
+}
+
 int dr3_bottom_build_lines(char out[DR3_BOTTOM_LINES][DR3_BOTTOM_LINE_LEN])
 {
     dr3_standing_t list[20];
@@ -124,10 +132,7 @@ int dr3_bottom_build_lines(char out[DR3_BOTTOM_LINES][DR3_BOTTOM_LINE_LEN])
     for (i = 0; i < n_controls && rows < DR3_BOTTOM_LINES; ++i) {
         char right[24] = "";
 
-        if (i < DR3_BOTTOM_TOP && i < n) {
-            snprintf(right, sizeof(right), "%d %s %s %4d", i + 1, list[i].is_player ? "*" : " ",
-                     list[i].name, list[i].points);
-        }
+        if (i < DR3_BOTTOM_TOP && i < n) dr3_bottom_rank_line(right, sizeof(right), i + 1, &list[i]);
 
         snprintf(out[rows], DR3_BOTTOM_LINE_LEN, "%-19s%.21s", dr3_bottom_controls[i], right);
         ++rows;
@@ -145,8 +150,10 @@ int dr3_bottom_build_lines(char out[DR3_BOTTOM_LINES][DR3_BOTTOM_LINE_LEN])
 
             for (i = 0; i < n; ++i) {
                 if (list[i].is_player) {
-                    snprintf(out[rows], DR3_BOTTOM_LINE_LEN, "%-19s%d * %s %4d", "your rank", i + 1,
-                             list[i].name, list[i].points);
+                    char right[24];
+
+                    dr3_bottom_rank_line(right, sizeof(right), i + 1, &list[i]);
+                    snprintf(out[rows], DR3_BOTTOM_LINE_LEN, "%-19s%.21s", "your rank", right);
                     ++rows;
                     break;
                 }
