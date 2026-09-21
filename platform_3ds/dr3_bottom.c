@@ -1,5 +1,4 @@
 #include "dr3_bottom.h"
-#include "dr3_input.h"
 
 #include "drally.h"
 #include "drally_structs_fixed.h"
@@ -27,7 +26,8 @@ static const char *const dr3_bottom_controls[] = {
     "B         boost",
     "Y         shoot",
     "X         mine",
-    "ZL/ZR     boost/shoot",
+    "ZL        boost",
+    "ZR        shoot",
     "START     pause",
     "SELECT    keyboard",
     "L+R+START quit",
@@ -105,35 +105,6 @@ void dr3_bottom_flush(void)
     gfxScreenSwapBuffers(GFX_BOTTOM, false);
 }
 
-/* --------------------------------------------------------- on-screen buttons --- */
-
-/* Drawn in the last row of the screen (row 29); the touch zones below match this text:
-   [ENTER] on the left, [ESC] right of it.  A tap injects that key, which is how the race start and
-   other dialogues that wait for a plain RETURN can be confirmed while A drives the car. */
-const char *dr3_bottom_button_line(void) { return "[ENTER]  [ESC]"; }
-
-void dr3_bottom_touch(void)
-{
-    static unsigned int last_ms;
-    static int          was_down;
-    touchPosition       touch;
-    const unsigned int  now = SDL_GetTicks();
-    int                 down;
-
-    if ((now - last_ms) < 20) return;          /* 50 Hz is plenty for tapping */
-    last_ms = now;
-
-    hidTouchRead(&touch);
-    down = (touch.px || touch.py) ? 1 : 0;
-
-    if (down && !was_down && (touch.py >= 224)) {   /* the button row is the last console row */
-        if (touch.px < 64)       dr3_input_inject_key(SDL_SCANCODE_RETURN, 1);
-        else if (touch.px < 128) dr3_input_inject_key(SDL_SCANCODE_ESCAPE, 1);
-    }
-
-    was_down = down;
-}
-
 int dr3_bottom_build_lines(char out[DR3_BOTTOM_LINES][DR3_BOTTOM_LINE_LEN])
 {
     dr3_standing_t list[20];
@@ -145,7 +116,7 @@ int dr3_bottom_build_lines(char out[DR3_BOTTOM_LINES][DR3_BOTTOM_LINE_LEN])
     n = dr3_bottom_read_standings(list, 20);
     dr3_bottom_sort(list, n);
 
-    snprintf(out[rows], DR3_BOTTOM_LINE_LEN, "%-19s%-21s", "CONTROLS", "TOP DRIVERS");
+    snprintf(out[rows], DR3_BOTTOM_LINE_LEN, "%-19s%-21s", "CONTROLS", "RANKING");
     ++rows;
     snprintf(out[rows], DR3_BOTTOM_LINE_LEN, "%-19s%-21s", "-------------------", "--------------------");
     ++rows;
@@ -168,7 +139,10 @@ int dr3_bottom_build_lines(char out[DR3_BOTTOM_LINES][DR3_BOTTOM_LINE_LEN])
             ++rows;
         }
         else if (!list[0].is_player) {
-            /* keep the player in sight even when he is not in the top ten */
+            /* keep the player in sight even when he is not in the top ten - a row further down so it
+               does not run into the controls list */
+            ++rows;                     /* blank line */
+
             for (i = 0; i < n; ++i) {
                 if (list[i].is_player) {
                     snprintf(out[rows], DR3_BOTTOM_LINE_LEN, "%-19s%d * %s %4d", "your rank", i + 1,
@@ -199,10 +173,6 @@ void dr3_bottom_update(void)
        redirects stdout to the console), so anything we skipped would stay there */
     printf("\x1b[2J\x1b[H");
     for (i = 0; i < rows; ++i) printf("%s\n", line[i]);
-
-    /* the buttons live in the last row of the screen - the touch zones assume that */
-    while (rows < (DR3_BOTTOM_LINES - 1)) { printf("\n"); ++rows; }
-    printf("%s", dr3_bottom_button_line());
 
     dr3_bottom_flush();
 }

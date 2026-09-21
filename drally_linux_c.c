@@ -103,9 +103,8 @@ unsigned int __GET_FRAME_COUNTER(void){
 
 	dr3_prof_poll();
 #if defined(__3DS__) && defined(DR3_USE_GFX) && !defined(DR3_PROFILE)
-	/* bottom screen: controls (left) + current driver standings (right) and the on-screen buttons;
-	   the profiler owns that screen in the debug build */
-	dr3_bottom_touch();
+	/* bottom screen: controls (left) + current driver standings (right); the profiler owns that
+	   screen in the debug build */
 	dr3_bottom_update();
 #endif
 
