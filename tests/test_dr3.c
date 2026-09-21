@@ -137,18 +137,37 @@ static void test_input_map(void)
     CHECK(set[SDL_SCANCODE_A] == 1, "R must press 'A' (accelerate)");
     CHECK(set[SDL_SCANCODE_Z] == 0, "R must not press 'Z'");
 
-    /* A = confirm (a single RETURN so dialogues see exactly one key per frame) */
+    /* front end (default context): A confirms, B selects - exactly one key each */
+    dr3_input_set_context(0);
+
     memset(&st, 0, sizeof(st));
     st.held = DR3_PAD_A;
     dr3_input_scancodes(&st, set);
-    expect_scan(&st, 1, "A button");
-    CHECK(set[SDL_SCANCODE_RETURN], "A must map to RETURN (confirm)");
+    expect_scan(&st, 1, "A button (front end)");
+    CHECK(set[SDL_SCANCODE_RETURN], "A must map to RETURN (confirm) in the front end");
 
-    /* Y = turbo (LSHIFT), as in the original default controls */
     memset(&st, 0, sizeof(st));
-    st.held = DR3_PAD_Y;
+    st.held = DR3_PAD_B;
     dr3_input_scancodes(&st, set);
-    CHECK(set[SDL_SCANCODE_LSHIFT], "Y must map to LSHIFT (turbo)");
+    CHECK(set[SDL_SCANCODE_SPACE], "B must map to SPACE (select) in the front end");
+
+    /* race: A horn, B boost, Y shoot, X mine (STILL one key each, so dialogues keep working) */
+    dr3_input_set_context(1);
+
+    memset(&st, 0, sizeof(st)); st.held = DR3_PAD_A; dr3_input_scancodes(&st, set);
+    expect_scan(&st, 1, "A button (race)");
+    CHECK(set[SDL_SCANCODE_SPACE], "A must map to SPACE (horn) in a race");
+
+    memset(&st, 0, sizeof(st)); st.held = DR3_PAD_B; dr3_input_scancodes(&st, set);
+    CHECK(set[SDL_SCANCODE_LSHIFT], "B must map to LSHIFT (boost) in a race");
+
+    memset(&st, 0, sizeof(st)); st.held = DR3_PAD_Y; dr3_input_scancodes(&st, set);
+    CHECK(set[SDL_SCANCODE_LCTRL], "Y must map to LCTRL (shoot) in a race");
+
+    memset(&st, 0, sizeof(st)); st.held = DR3_PAD_X; dr3_input_scancodes(&st, set);
+    CHECK(set[SDL_SCANCODE_LALT], "X must map to LALT (drop mine) in a race");
+
+    dr3_input_set_context(0);      /* back to the front end for the rest of the checks */
 
     memset(&st, 0, sizeof(st));
     st.held = DR3_PAD_UP;
@@ -163,12 +182,15 @@ static void test_input_map(void)
     st.cpad_x = -1;
     expect_scan(&st, 3, "accelerate + steer left");
 
+    /* X/Y are only mapped while racing */
+    dr3_input_set_context(1);
     memset(&st, 0, sizeof(st));
     st.held = DR3_PAD_X;
-    expect_scan(&st, 1, "X button");
+    expect_scan(&st, 1, "X button (race)");
     memset(&st, 0, sizeof(st));
     st.held = DR3_PAD_Y;
-    expect_scan(&st, 1, "Y button");
+    expect_scan(&st, 1, "Y button (race)");
+    dr3_input_set_context(0);
     memset(&st, 0, sizeof(st));
     st.held = DR3_PAD_B;
     expect_scan(&st, 1, "B button");

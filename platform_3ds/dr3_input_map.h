@@ -51,6 +51,10 @@ int dr3_input_quit_combo(const dr3_pad_state_t *st);
 /* Text typed on the 3DS software keyboard -> SDL scancode (returns -1 if unmappable). */
 int dr3_char_to_scancode(char c);
 
+/* Which mapping applies: 0 = front end (VESA101 menus), 1 = race (VGA13).  The same button confirms
+   in menus and drives the car in a race, so the engine tells us which situation we are in. */
+void dr3_input_set_context(int in_race);
+
 const char *dr3_scancode_name(int scancode);
 
 #endif /* DR3_INPUT_MAP_H */

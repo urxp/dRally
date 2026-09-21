@@ -8,7 +8,19 @@ typedef struct {
     int      scancodes[3];
 } dr3_btn_map_t;
 
-static const dr3_btn_map_t dr3_btn_map[] = {
+/*
+ * The pad mapping depends on what the game is doing, because the same button has to confirm a menu
+ * entry and drive the car:
+ *   - front end (VESA101, 640x480)  -> A confirms, B selects, X/Y/shoulders are unused
+ *   - race      (VGA13,  320x240)   -> A horn, B boost, Y shoot, X drop mine
+ * The context is set by the display layer (dr3_input_set_context) whenever the mode changes.
+ */
+static int dr3_race_ctx;
+
+void dr3_input_set_context(int in_race) { dr3_race_ctx = in_race ? 1 : 0; }
+
+/* steering, shoulders and system keys are the same everywhere */
+static const dr3_btn_map_t dr3_btn_map_common[] = {
     /* steering (+ keypad aliases the engine also accepts) */
     { DR3_PAD_LEFT,   { SDL_SCANCODE_LEFT,       SDL_SCANCODE_KP_4,     -1 } },
     { DR3_PAD_RIGHT,  { SDL_SCANCODE_RIGHT,      SDL_SCANCODE_KP_6,     -1 } },
@@ -18,17 +30,26 @@ static const dr3_btn_map_t dr3_btn_map[] = {
     /* shoulders: the Vita-proven accelerate / brake mapping */
     { DR3_PAD_R,      { SDL_SCANCODE_A,          -1, -1 } },
     { DR3_PAD_L,      { SDL_SCANCODE_Z,          -1, -1 } },
-    /* face buttons: confirm, horn, machine gun, turbo/nitro */
-    { DR3_PAD_A,      { SDL_SCANCODE_RETURN,     -1, -1 } },   /* single key: dialogues see exactly one */
-    { DR3_PAD_B,      { SDL_SCANCODE_SPACE,      -1, -1 } },
-    { DR3_PAD_X,      { SDL_SCANCODE_LCTRL,      -1, -1 } },
-    { DR3_PAD_Y,      { SDL_SCANCODE_LSHIFT,     -1, -1 } },   /* turbo boost */
-    /* New 3DS shoulder extras + system keys */
-    { DR3_PAD_ZL,     { SDL_SCANCODE_LALT,       -1, -1 } },
-    { DR3_PAD_ZR,     { SDL_SCANCODE_LCTRL,      -1, -1 } },
+    { DR3_PAD_L,      { SDL_SCANCODE_Z,          -1, -1 } },
     { DR3_PAD_START,  { SDL_SCANCODE_ESCAPE,     -1, -1 } }
     /* NOTE: SELECT deliberately has no scancode - it opens the 3DS software keyboard
        (see dr3_input.c) so player names and save slots can actually be typed. */
+};
+
+/* front end: A confirms, B selects (as it always did) */
+static const dr3_btn_map_t dr3_btn_map_menu[] = {
+    { DR3_PAD_A,      { SDL_SCANCODE_RETURN,     -1, -1 } },
+    { DR3_PAD_B,      { SDL_SCANCODE_SPACE,      -1, -1 } }
+};
+
+/* race: A horn, B boost, Y shoot, X drop mine (+ the New 3DS shoulders for boost/shoot) */
+static const dr3_btn_map_t dr3_btn_map_race[] = {
+    { DR3_PAD_A,      { SDL_SCANCODE_SPACE,      -1, -1 } },
+    { DR3_PAD_B,      { SDL_SCANCODE_LSHIFT,     -1, -1 } },
+    { DR3_PAD_Y,      { SDL_SCANCODE_LCTRL,      -1, -1 } },
+    { DR3_PAD_X,      { SDL_SCANCODE_LALT,       -1, -1 } },
+    { DR3_PAD_ZL,     { SDL_SCANCODE_LSHIFT,     -1, -1 } },
+    { DR3_PAD_ZR,     { SDL_SCANCODE_LCTRL,      -1, -1 } }
 };
 
 static const struct { int scan; const char *name; } dr3_names[] = {
@@ -38,8 +59,8 @@ static const struct { int scan; const char *name; } dr3_names[] = {
     { SDL_SCANCODE_DOWN,     "DOWN" },
     { SDL_SCANCODE_A,        "A (accelerate)" },
     { SDL_SCANCODE_Z,        "Z (brake)" },
-    { SDL_SCANCODE_LSHIFT,   "LSHIFT (turbo)" },
-    { SDL_SCANCODE_LCTRL,    "LCTRL (machine gun)" },
+    { SDL_SCANCODE_LSHIFT,   "LSHIFT (boost)" },
+    { SDL_SCANCODE_LCTRL,    "LCTRL (shoot)" },
     { SDL_SCANCODE_LALT,     "LALT (drop mine)" },
     { SDL_SCANCODE_SPACE,    "SPACE (horn)" },
     { SDL_SCANCODE_KP_ENTER, "KP_ENTER (confirm)" },
@@ -52,13 +73,25 @@ static const struct { int scan; const char *name; } dr3_names[] = {
 
 int dr3_input_scancodes(const dr3_pad_state_t *st, uint8_t *scancode_set)
 {
-    size_t i;
-    int    n, count = 0;
+    const dr3_btn_map_t *maps[2];
+    size_t               lens[2];
+    int                  m;
+    int                  n, count = 0;
+
+    /* the shared part plus the table of the current context (front end or race) */
+    maps[0] = dr3_btn_map_common;
+    lens[0] = sizeof(dr3_btn_map_common) / sizeof(dr3_btn_map_common[0]);
+    maps[1] = dr3_race_ctx ? dr3_btn_map_race : dr3_btn_map_menu;
+    lens[1] = dr3_race_ctx ? (sizeof(dr3_btn_map_race) / sizeof(dr3_btn_map_race[0]))
+                           : (sizeof(dr3_btn_map_menu) / sizeof(dr3_btn_map_menu[0]));
 
     for (n = 0; n < SDL_NUM_SCANCODES; ++n) scancode_set[n] = 0;
 
-    for (i = 0; i < sizeof(dr3_btn_map) / sizeof(dr3_btn_map[0]); ++i) {
-        const uint32_t mask = dr3_btn_map[i].mask;
+    for (m = 0; m < 2; ++m) {
+    size_t i;
+
+    for (i = 0; i < lens[m]; ++i) {
+        const uint32_t mask = maps[m][i].mask;
         int            on;
 
         if (mask == DR3_PAD_LEFT)       on = (st->held & mask) != 0 || st->cpad_x < 0 || st->cstick_x < 0;
@@ -70,13 +103,14 @@ int dr3_input_scancodes(const dr3_pad_state_t *st, uint8_t *scancode_set)
         if (!on) continue;
 
         for (n = 0; n < 3; ++n) {
-            const int scan = dr3_btn_map[i].scancodes[n];
+            const int scan = maps[m][i].scancodes[n];
             if (scan < 0) break;
             if (scan < SDL_NUM_SCANCODES && !scancode_set[scan]) {
                 scancode_set[scan] = 1;
                 ++count;
             }
         }
+    }
     }
 
     return count;

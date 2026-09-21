@@ -13,8 +13,13 @@ extern unsigned long long dr3_audio_frames;
 extern __WORD__           SOUND_SAMPLERATE;
 #endif
 
-/* the profiler is a no-op unless DR3_PROFILE is defined (see platform_3ds/dr3_prof.h) */
+/* the profiler is a no-op unless DR3_PROFILE is defined (see platform_3ds/dr3_prof.h); the frame
+   limiter below uses its macros, so this include must stay unconditional */
 #include "platform_3ds/dr3_prof.h"
+
+#if defined(__3DS__)
+#include "platform_3ds/dr3_input_map.h"
+#endif
 
 
 #pragma pack(1)
@@ -229,6 +234,10 @@ void __PRESENTSCREEN__(void){
 				: ((GX.Surface->w > DR3_SCREEN_W || GX.Surface->h > DR3_SCREEN_H) ? 1 : 0);
 
 			dr3_prof_present_mode(GX.Surface->w, GX.Surface->h, filter);
+#if defined(__3DS__)
+			/* VGA13 (320x240) is a race, VESA101 (640x480) the front end - the pad mapping follows */
+			dr3_input_set_context((GX.Surface->w <= 320) ? 1 : 0);
+#endif
 			dr3_fb_present((const uint8_t *)GX.Surface->pixels, GX.Surface->w, GX.Surface->h,
 				GX.Surface->pitch, &dr3_pal, &dr3_lut, filter);
 		}

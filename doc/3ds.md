@@ -9,7 +9,7 @@ Windows remains the reference build — this branch does not touch it.
 |---|---|
 | Runs in **Azahar** | yes — boots, menus, name entry, in-game |
 | Runs on real hardware | not tested yet (next step; `3dslink` or copy the `.3dsx` to the SD card) |
-| Input | d-pad/circle pad steer, R accelerate, L brake, A confirm, Y turbo, X machine gun, B horn, START pause, SELECT opens the 3DS software keyboard, L+R+START quits |
+| Input | d-pad/circle pad steer, R accelerate, L brake, **front end:** A confirm + B select, **race:** A horn, B boost, Y shoot, X mine, ZL/ZR boost/shoot, START pause, SELECT opens the 3DS software keyboard, L+R+START quits (the mapping follows the display mode - see the table below) |
 | Video | direct top-screen framebuffer output, double buffered, box-filtered downscale for the 640x480 menus |
 | Speed | engine logic keeps its ~70 fps; presentation is the bottleneck (12-27 fps in the emulator). The emulator itself is a big part of that - measure on hardware |
 | Sound | **works** — needs the DSP firmware `sdmc:/3ds/dspfirm.cdc` (Luma3DS provides it on real hardware; for Azahar copy it from your own console to `%APPDATA%\azahar\sdmc\3ds\dspfirm.cdc`). The mixer runs at the DAC's native 32728 Hz: the DOS default of 22050 Hz made everything play 1.48x too fast because the 3DS DAC does not resample |
@@ -136,14 +136,18 @@ Windows configuration; multiplayer simply cannot connect (it could not on PC eit
 | D-pad / circle pad / c-stick | steer (`LEFT`/`RIGHT`, `KP_4`/`KP_6`), up/down also accelerate/brake (`A`/`Z`) |
 | R | accelerate (`A`) |
 | L | brake / reverse (`Z`) |
-| A | confirm / menu (`RETURN` — exactly one key so dialogues see it) |
-| Y | turbo boost (`LSHIFT`) |
-| X | machine gun (`LCTRL`) |
-| B | horn (`SPACE`) |
-| ZL / ZR (New 3DS) | drop mine (`LALT`) / machine gun (`LCTRL`) |
+| A | front end: confirm (`RETURN` — exactly one key so dialogues see it)   /   race: horn (`SPACE`) |
+| B | front end: select (`SPACE`)   /   race: **boost** (`LSHIFT`) |
+| Y | race: **shoot** (`LCTRL`) |
+| X | race: **drop mine** (`LALT`) |
+| ZL / ZR (New 3DS) | boost (`LSHIFT`) / shoot (`LCTRL`) |
 | START | pause / back (`ESCAPE`) |
 | **SELECT** | opens the **3DS software keyboard** (type player names, save slots) |
 | **L + R + START** | quit |
+
+The mapping follows the display mode: VESA101 (640x480) is the front end - where A confirms and B
+selects - and VGA13 (320x240) is a race, where the same buttons become horn, boost, shoot and mine.
+The engine tells the input layer which of the two is active (`dr3_input_set_context`).
 
 The defaults are dRally's own (`config_c.c`): accelerate `A`, brake `Z`, arrows steer, turbo
 `LSHIFT`, horn `SPACE`, mine `LALT`, machine gun `LCTRL`. Covered by
