@@ -3,6 +3,7 @@
 
 #if defined(__3DS__)
 #include "platform_3ds/dr3_blit.h"
+#include "platform_3ds/dr3_log.h"
 #endif
 
 
@@ -54,6 +55,8 @@ static struct GX {
 static dr3_palette_t dr3_pal;
 static dr3_lut32_t   dr3_lut;
 static int           dr3_lut_dirty = 1;   /* set whenever the palette changes */
+static unsigned int  dr3_present_count = 0;
+static unsigned int  dr3_present_last_log = 0;
 
 #ifdef DR3_3DS_CENTER
 #define DR3_3DS_SCALE_MODE DR3_SCALE_CENTER   /* pixel-perfect 1:1 with black borders */
@@ -160,7 +163,10 @@ void __PRESENTSCREEN__(void){
 	if(!GX.ActiveMode) return;
 
 	win = SDL_GetWindowSurface(GX.Window);		/* == the GSP framebuffer on the 3DS */
-	if(!win) return;
+	if(!win){
+		dr3_log("[dr3] present: SDL_GetWindowSurface failed: %s", SDL_GetError());
+		return;
+	}
 
 	if(dr3_lut_dirty){
 
@@ -170,17 +176,46 @@ void __PRESENTSCREEN__(void){
 		dr3_lut_dirty = 0;
 	}
 
-	if(dr3_blit8_lut32((const uint8_t *)GX.Surface->pixels, GX.Surface->w, GX.Surface->h,
+	if(dr3_present_count == 0 && dr3_present_last_log == 0){
+		dr3_log("[dr3] present: src %dx%d pitch %d -> dst %dx%d pitch %d  masks %08X/%08X/%08X/%08X  lut0=%08X",
+			GX.Surface->w, GX.Surface->h, GX.Surface->pitch,
+			win->w, win->h, win->pitch,
+			win->format->Rmask, win->format->Gmask, win->format->Bmask, win->format->Amask,
+			dr3_lut.px[0]);
+	}
+
+	int present_ok;
+
+	if(GX.Surface->w > win->w || GX.Surface->h > win->h){
+
+		/* downscaling (the 640x480 VESA menus): box filter, otherwise the game's dither patterns
+		   alias into vertical stripes */
+		present_ok = dr3_blit8_filter((const uint8_t *)GX.Surface->pixels, GX.Surface->w, GX.Surface->h,
+			GX.Surface->pitch, &dr3_pal, &dr3_lut,
+			(uint32_t *)win->pixels, win->w, win->h, win->pitch / 4);
+	}
+	else {
+
+		present_ok = dr3_blit8_lut32((const uint8_t *)GX.Surface->pixels, GX.Surface->w, GX.Surface->h,
 			GX.Surface->pitch, &dr3_lut,
 			(uint32_t *)win->pixels, win->w, win->h, win->pitch / 4,
-			DR3_3DS_SCALE_MODE, dr3_lut.px[0]) != 0){
+			DR3_3DS_SCALE_MODE, dr3_lut.px[0]);
+	}
 
-		printf("[dRally.DISPLAY] present failed (%dx%d -> %dx%d)\n",
-			GX.Surface->w, GX.Surface->h, win->w, win->h);
+	if(present_ok != 0){
+
+		dr3_log("[dr3] present FAILED (%dx%d -> %dx%d)", GX.Surface->w, GX.Surface->h, win->w, win->h);
 		return;
 	}
 
 	SDL_UpdateWindowSurface(GX.Window);
+
+	++dr3_present_count;
+	if(SDL_GetTicks() - dr3_present_last_log >= 1000){
+		dr3_log("[dr3] %u presents/s  SDLms=%u  frame_counter=%u", dr3_present_count, SDL_GetTicks(), INT8_FRAME_COUNTER);
+		dr3_present_count = 0;
+		dr3_present_last_log = SDL_GetTicks();
+	}
 
 #else
 
@@ -267,13 +302,8 @@ void dRally_Display_init(int mode){
 			DR3_SCREEN_W,										// 3DS top screen: fixed 400x240
 			DR3_SCREEN_H,
 #else
-#if defined(__3DS__)
-			DR3_SCREEN_W,										// 3DS top screen: fixed 400x240
-			DR3_SCREEN_H,
-#else
 			W_WIDTH,                  							// width, in pixels
 			W_HEIGHT,											// height, in pixels
-#endif
 #endif
 			SDL_WINDOW_HIDDEN									// flags - see below
 		);
@@ -282,10 +312,10 @@ void dRally_Display_init(int mode){
 #if defined(__3DS__)
 	/* no renderer: __PRESENTSCREEN__ writes straight into the window surface (the framebuffer) */
 	SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "0");
-#else
-#if defined(__3DS__)
-	/* no renderer: __PRESENTSCREEN__ writes straight into the window surface (the framebuffer) */
-	SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "0");
+	dr3_log("[dr3] display init: mode=%d window=%p vga13=%p vesa101=%p", mode,
+		(void *)GX.Window, (void *)GX.VGA13.Surface, (void *)GX.VESA101.Surface);
+	if(!GX.Window)          dr3_log("[dr3] WINDOW CREATION FAILED: %s", SDL_GetError());
+	if(!GX.VGA13.Surface)   dr3_log("[dr3] VGA13 SURFACE CREATION FAILED: %s", SDL_GetError());
 #else
 	if(!GX.Renderer){
 
@@ -293,7 +323,6 @@ void dRally_Display_init(int mode){
 		GX.Renderer = SDL_CreateRenderer(GX.Window, -1, SDL_RENDERER_ACCELERATED);
 		//GX.Renderer = SDL_CreateRenderer(GX.Window, -1, SDL_RENDERER_SOFTWARE);
 	}
-#endif
 #endif
 }
 
@@ -335,6 +364,7 @@ void __VGA13_SETMODE(void){
 		//SDL_RenderPresent(GX.Renderer);
 		if(SDL_GetWindowFlags(GX.Window)&SDL_WINDOW_HIDDEN) SDL_ShowWindow(GX.Window);
 		GX.ActiveMode = VGA13;
+		dr3_log("[dr3] mode = VGA13 (%dx%d, window %d)", GX.Surface->w, GX.Surface->h, GX.WindowMode);
 	}
 }
 
@@ -360,6 +390,7 @@ void __VESA101_SETMODE(void){
 		//SDL_RenderPresent(GX.Renderer);
 		if(SDL_GetWindowFlags(GX.Window)&SDL_WINDOW_HIDDEN) SDL_ShowWindow(GX.Window);
 		GX.ActiveMode = VESA101;
+		dr3_log("[dr3] mode = VESA101 (%dx%d)", GX.Surface->w, GX.Surface->h);
 	}
 }
 

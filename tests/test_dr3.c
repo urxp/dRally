@@ -137,13 +137,13 @@ static void test_input_map(void)
     CHECK(set[SDL_SCANCODE_A] == 1, "R must press 'A' (accelerate)");
     CHECK(set[SDL_SCANCODE_Z] == 0, "R must not press 'Z'");
 
-    /* A = nitro (LSHIFT) + menu confirm (KP_ENTER) */
+    /* A = nitro (LSHIFT) + menu confirm (KP_ENTER and RETURN) */
     memset(&st, 0, sizeof(st));
     st.held = DR3_PAD_A;
     dr3_input_scancodes(&st, set);
-    expect_scan(&st, 2, "A button");
-    CHECK(set[SDL_SCANCODE_LSHIFT] && set[SDL_SCANCODE_KP_ENTER],
-          "A must map to LSHIFT + KP_ENTER");
+    expect_scan(&st, 3, "A button");
+    CHECK(set[SDL_SCANCODE_LSHIFT] && set[SDL_SCANCODE_KP_ENTER] && set[SDL_SCANCODE_RETURN],
+          "A must map to LSHIFT + KP_ENTER + RETURN");
 
     memset(&st, 0, sizeof(st));
     st.held = DR3_PAD_UP;
@@ -226,6 +226,43 @@ static void test_lut_masks(void)
     CHECK(lut.px[0] == 0x00000000u, "empty masks: 0x%08X", lut.px[0]);
 }
 
+static void test_text_and_filter(void)
+{
+    dr3_palette_t pal;
+    dr3_lut32_t   lut;
+    uint8_t       src[4 * 2];
+    uint32_t      dst[2 * 1];
+    int           i;
+
+    printf("- software keyboard text + filtered downscale\n");
+
+    /* characters typed on the 3DS keyboard must become the scancodes the engine maps back to chars */
+    CHECK(dr3_char_to_scancode('A') == SDL_SCANCODE_A, "'A' -> SCANCODE_A");
+    CHECK(dr3_char_to_scancode('z') == SDL_SCANCODE_Z, "'z' -> SCANCODE_Z (case folded)");
+    CHECK(dr3_char_to_scancode('5') == SDL_SCANCODE_5, "'5' -> SCANCODE_5");
+    CHECK(dr3_char_to_scancode('0') == SDL_SCANCODE_0, "'0' -> SCANCODE_0");
+    CHECK(dr3_char_to_scancode(' ') == SDL_SCANCODE_SPACE, "' ' -> SCANCODE_SPACE");
+    CHECK(dr3_char_to_scancode('-') == SDL_SCANCODE_MINUS, "'-' -> SCANCODE_MINUS");
+    CHECK(dr3_char_to_scancode('?') == -1, "'?' has no scancode and must be rejected");
+
+    /* box filter: a 4x2 image of two colours downscaled to 2x1 must average, not pick a pixel */
+    dr3_palette_reset(&pal);
+    dr3_palette_set(&pal, 1, 0, 0, 0);      /* black */
+    dr3_palette_set(&pal, 2, 200, 100, 50); /* a colour */
+    dr3_lut32_build_masks(&lut, &pal, 0xFF000000u, 0x00FF0000u, 0x0000FF00u, 0x000000FFu);
+
+    for (i = 0; i < 4; ++i) { src[i] = 1; src[4 + i] = 2; }   /* rows: black / colour */
+
+    CHECK(dr3_blit8_filter(src, 4, 2, 4, &pal, &lut, dst, 2, 1, 2) == 0, "filter blit failed");
+    CHECK(((dst[0] >> 24) & 0xFF) == 100, "filtered red: %u (expected the average 100)",
+          (dst[0] >> 24) & 0xFF);
+    CHECK(((dst[0] >> 16) & 0xFF) == 50, "filtered green: %u", (dst[0] >> 16) & 0xFF);
+    CHECK(((dst[0] >> 8) & 0xFF) == 25, "filtered blue: %u", (dst[0] >> 8) & 0xFF);
+
+    CHECK(dr3_blit8_filter(src, 4, 2, 4, &pal, &lut, dst, 1, 1, 1) == 0, "1x1 filter failed");
+    CHECK(((dst[0] >> 24) & 0xFF) == 100, "1x1 filtered red: %u", (dst[0] >> 24) & 0xFF);
+}
+
 int main(void)
 {
     printf("dRally 3DS port - host tests\n\n");
@@ -234,6 +271,7 @@ int main(void)
     test_blit_center();
     test_blit_stretch();
     test_input_map();
+    test_text_and_filter();
 
     printf("\n%d checks, %d failures\n", g_checks, g_failed);
     return g_failed ? 1 : 0;

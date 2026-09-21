@@ -48,6 +48,9 @@ int dr3_input_scancodes(const dr3_pad_state_t *st, uint8_t *scancode_set);
 /* True when the player asked to quit (L + R + START). */
 int dr3_input_quit_combo(const dr3_pad_state_t *st);
 
+/* Text typed on the 3DS software keyboard -> SDL scancode (returns -1 if unmappable). */
+int dr3_char_to_scancode(char c);
+
 const char *dr3_scancode_name(int scancode);
 
 #endif /* DR3_INPUT_MAP_H */

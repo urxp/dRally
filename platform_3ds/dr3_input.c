@@ -3,6 +3,7 @@
 
 #include "dr3_input.h"
 #include "dr3_input_map.h"
+#include "dr3_log.h"
 
 /* Raw joystick indices as exposed by SDL's n3ds backend (see SDL_sysjoystick.c):
    A=0 B=1 SELECT=2 START=3 DRIGHT=4 DLEFT=5 DUP=6 DDOWN=7 R=8 L=9 X=10 Y=11 ZL=12 ZR=13 */
@@ -29,6 +30,7 @@ static SDL_Joystick       *dr3_joy;
 static int                 dr3_ready;
 
 static uint8_t dr3_prev[SDL_NUM_SCANCODES];
+static uint32_t dr3_prev_held;
 
 static struct { int scancode; int pressed; } dr3_queue[DR3_QUEUE_LEN];
 static int dr3_q_head, dr3_q_tail;
@@ -38,7 +40,7 @@ int dr3_input_init(void)
     if (dr3_ready) return 0;
 
     if (SDL_InitSubSystem(SDL_INIT_GAMECONTROLLER | SDL_INIT_JOYSTICK) != 0)
-        printf("[dRally.3DS] input: SDL_InitSubSystem failed: %s\n", SDL_GetError());
+        dr3_log("[dRally.3DS] input: SDL_InitSubSystem failed: %s\n", SDL_GetError());
 
     if (SDL_NumJoysticks() > 0) {
         if (SDL_IsGameController(0)) dr3_pad = SDL_GameControllerOpen(0);
@@ -49,7 +51,7 @@ int dr3_input_init(void)
     dr3_q_head = dr3_q_tail = 0;
     dr3_ready = 1;
 
-    printf("[dRally.3DS] input ready (pad=%s joystick=%s)\n",
+    dr3_log("[dRally.3DS] input ready (pad=%s joystick=%s)\n",
            dr3_pad ? SDL_GameControllerName(dr3_pad) : "-",
            dr3_joy ? SDL_JoystickName(dr3_joy) : "-");
     return 0;
@@ -57,7 +59,7 @@ int dr3_input_init(void)
 
 void dr3_input_describe(void)
 {
-    printf("[dRally.3DS] R/L = accelerate/brake, d-pad or circle pad = steer, "
+    dr3_log("[dRally.3DS] R/L = accelerate/brake, d-pad or circle pad = steer, "
            "A = nitro + confirm, X = machine gun, Y = mine, B = horn, "
            "START = pause/back, L+R+START = quit\n");
 }
@@ -134,16 +136,80 @@ static void dr3_sync_keys(const dr3_pad_state_t *st)
     memcpy(dr3_prev, now, sizeof(dr3_prev));
 }
 
+/* Characters typed on the 3DS software keyboard arrive as SDL_TEXTINPUT - turn them into the key
+   events the engine understands.
+   The engine's text handler (___59720h) reads popLastKey() *and* popLastChar(), so the key must stay
+   "down" for at least one engine frame - otherwise dRally_Keyboard_break() clears LAST_KEY before the
+   game can read it.  Releases are therefore scheduled a few frames later. */
+#define DR3_TEXT_RELEASE_MS 120
+
+static struct { int scancode; unsigned int release_at; } dr3_pending[DR3_QUEUE_LEN];
+static int      dr3_pending_count;
+
+static void dr3_queue_text(const char *text)
+{
+    for (; text && *text; ++text) {
+        const int scan = dr3_char_to_scancode(*text);
+        if (scan < 0) continue;
+
+        dr3_queue_push(scan, 1);                 /* key down now */
+        if (dr3_pending_count < DR3_QUEUE_LEN) { /* key up a little later */
+            dr3_pending[dr3_pending_count].scancode  = scan;
+            dr3_pending[dr3_pending_count].release_at = SDL_GetTicks() + DR3_TEXT_RELEASE_MS;
+            ++dr3_pending_count;
+        }
+    }
+}
+
+static void dr3_service_pending(void)
+{
+    const unsigned int now = SDL_GetTicks();
+    int                i   = 0;
+
+    while (i < dr3_pending_count) {
+        if ((int)(now - dr3_pending[i].release_at) >= 0) {
+            dr3_queue_push(dr3_pending[i].scancode, 0);
+            dr3_pending[i] = dr3_pending[--dr3_pending_count];
+        } else {
+            ++i;
+        }
+    }
+}
+
+/* returns 1 when the event should be forwarded, 0 when it was consumed here */
+static int dr3_translate_event(SDL_Event *e)
+{
+    if (e->type == SDL_TEXTINPUT) {
+        dr3_log("[dr3] software keyboard typed: '%s'", e->text.text);
+        dr3_queue_text(e->text.text);
+        return 0;
+    }
+    return 1;
+}
+
 int dr3_poll_event(SDL_Event *e)
 {
     if (!dr3_ready) dr3_input_init();
 
-    /* real events (HOME button / SDL_QUIT, touch, ...) win over synthetic ones */
-    if (SDL_PollEvent(e)) return 1;
+    dr3_service_pending();      /* release typed keys that have been held long enough */
+
+    /* real events (HOME button / SDL_QUIT, touch, software keyboard, ...) win over synthetic ones */
+    if (SDL_PollEvent(e)) {
+        if (dr3_translate_event(e)) return 1;
+        /* the event was consumed (typed text) - fall through and drain the synthetic queue */
+    }
 
     if (dr3_q_head == dr3_q_tail) {
         dr3_pad_state_t st;
         dr3_build_state(&st);
+
+        /* SELECT opens the 3DS software keyboard so player names / save slots can be typed */
+        if ((st.held & DR3_PAD_SELECT) && !(dr3_prev_held & DR3_PAD_SELECT)) {
+            dr3_log("[dr3] SELECT: opening the 3DS software keyboard");
+            SDL_StartTextInput();          /* blocks until the player is done typing */
+            dr3_build_state(&st);          /* refresh: the pad state is stale after the modal */
+        }
+        dr3_prev_held = st.held;
 
         if (dr3_input_quit_combo(&st)) {
             memset(e, 0, sizeof(*e));

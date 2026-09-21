@@ -1,5 +1,7 @@
 #include "dr3_input_map.h"
 
+#include <stddef.h>   /* size_t - MSVC pulls this in transitively, GCC does not */
+
 /* One 3DS button can produce several scancodes (e.g. nitro *and* menu confirm). */
 typedef struct {
     uint32_t mask;
@@ -17,15 +19,16 @@ static const dr3_btn_map_t dr3_btn_map[] = {
     { DR3_PAD_R,      { SDL_SCANCODE_A,          -1, -1 } },
     { DR3_PAD_L,      { SDL_SCANCODE_Z,          -1, -1 } },
     /* face buttons: nitro+confirm, machine gun, mine, horn */
-    { DR3_PAD_A,      { SDL_SCANCODE_LSHIFT,     SDL_SCANCODE_KP_ENTER, -1 } },
+    { DR3_PAD_A,      { SDL_SCANCODE_LSHIFT,     SDL_SCANCODE_KP_ENTER, SDL_SCANCODE_RETURN } },
     { DR3_PAD_X,      { SDL_SCANCODE_LCTRL,      -1, -1 } },
     { DR3_PAD_Y,      { SDL_SCANCODE_LALT,       -1, -1 } },
     { DR3_PAD_B,      { SDL_SCANCODE_SPACE,      -1, -1 } },
     /* New 3DS shoulder extras + system keys */
     { DR3_PAD_ZL,     { SDL_SCANCODE_LCTRL,      -1, -1 } },
     { DR3_PAD_ZR,     { SDL_SCANCODE_LALT,       -1, -1 } },
-    { DR3_PAD_START,  { SDL_SCANCODE_ESCAPE,     -1, -1 } },  /* pause / back out */
-    { DR3_PAD_SELECT, { SDL_SCANCODE_F1,         -1, -1 } }   /* help / key list  */
+    { DR3_PAD_START,  { SDL_SCANCODE_ESCAPE,     -1, -1 } }
+    /* NOTE: SELECT deliberately has no scancode - it opens the 3DS software keyboard
+       (see dr3_input.c) so player names and save slots can actually be typed. */
 };
 
 static const struct { int scan; const char *name; } dr3_names[] = {
@@ -83,6 +86,38 @@ int dr3_input_quit_combo(const dr3_pad_state_t *st)
 {
     const uint32_t combo = DR3_PAD_L | DR3_PAD_R | DR3_PAD_START;
     return (st->held & combo) == combo;
+}
+
+/*
+ * Maps a character typed on the 3DS software keyboard to the SDL scancode the engine understands
+ * (keyboard.c turns scancodes into DOS scan codes and derives the typed character from them).
+ */
+int dr3_char_to_scancode(char c)
+{
+    if (c >= 'a' && c <= 'z') c = (char)(c - 'a' + 'A');
+
+    if (c >= 'A' && c <= 'Z') return SDL_SCANCODE_A + (c - 'A');   /* A..Z are consecutive in SDL */
+    if (c >= '1' && c <= '9') return SDL_SCANCODE_1 + (c - '1');
+    if (c == '0')             return SDL_SCANCODE_0;
+
+    switch (c) {
+        case ' ':  return SDL_SCANCODE_SPACE;
+        case '-':  return SDL_SCANCODE_MINUS;
+        case '_':  return SDL_SCANCODE_MINUS;
+        case '.':  return SDL_SCANCODE_PERIOD;
+        case ',':  return SDL_SCANCODE_COMMA;
+        case '/':  return SDL_SCANCODE_SLASH;
+        case '\\': return SDL_SCANCODE_BACKSLASH;
+        case '\'': return SDL_SCANCODE_APOSTROPHE;
+        case ';':  return SDL_SCANCODE_SEMICOLON;
+        case '=':  return SDL_SCANCODE_EQUALS;
+        case '[':  return SDL_SCANCODE_LEFTBRACKET;
+        case ']':  return SDL_SCANCODE_RIGHTBRACKET;
+        case '`':  return SDL_SCANCODE_GRAVE;
+        case '+':  return SDL_SCANCODE_KP_PLUS;
+        case '\n': return SDL_SCANCODE_RETURN;
+        default:   return -1;
+    }
 }
 
 const char *dr3_scancode_name(int scancode)

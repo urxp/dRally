@@ -16,8 +16,9 @@
 #define DR3_LUT_BGR 0   /* memory order B,G,R,A (== SDL_PIXELFORMAT_ARGB8888 masks) */
 #define DR3_LUT_RGB 1   /* memory order R,G,B,A (== SDL_PIXELFORMAT_ABGR8888 masks) */
 
-#define DR3_SCALE_STRETCH 0  /* fill the whole target */
+#define DR3_SCALE_STRETCH 0  /* fill the whole target (nearest neighbour) */
 #define DR3_SCALE_CENTER  1  /* 1:1, centred, borders filled with the clear colour */
+#define DR3_SCALE_FILTER  2  /* fill the whole target, box-filtered (use when downscaling) */
 
 #define DR3_SCREEN_W 400  /* 3DS top screen */
 #define DR3_SCREEN_H 240
@@ -30,6 +31,7 @@ typedef struct {
 
 typedef struct {
     uint32_t px[256];
+    int      rs, gs, bs, as;   /* channel shifts of the target format (for filtered scaling) */
 } dr3_lut32_t;
 
 void dr3_palette_reset(dr3_palette_t *pal);
@@ -56,5 +58,12 @@ int dr3_blit8_lut32(const uint8_t *src, int sw, int sh, int src_pitch,
                     const dr3_lut32_t *lut,
                     uint32_t *dst, int dw, int dh, int dst_pitch_px,
                     int mode, uint32_t clear);
+
+/* Box-filtered variant of the scaled blit: averages the source pixels that fall into each target
+   pixel.  Used when the source is larger than the target (e.g. 640x480 VESA -> 400x240), because
+   plain nearest-neighbour turns the game's dithered shading into vertical stripes. */
+int dr3_blit8_filter(const uint8_t *src, int sw, int sh, int src_pitch,
+                     const dr3_palette_t *pal, const dr3_lut32_t *lut,
+                     uint32_t *dst, int dw, int dh, int dst_pitch_px);
 
 #endif /* DR3_BLIT_H */

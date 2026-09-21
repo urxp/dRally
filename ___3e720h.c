@@ -1,5 +1,12 @@
 #include "drally.h"
 
+#if defined(__3DS__)
+#include "platform_3ds/dr3_log.h"
+#define DR3_LOG(...) dr3_log(__VA_ARGS__)
+#else
+#define DR3_LOG(...) do {} while(0)
+#endif
+
     extern __BYTE__ ___1a202fh[0x13];
 	extern __DWORD__ ___199fa0h;
 	extern __BYTE__ ___1a2148h;
@@ -49,21 +56,30 @@ void ___3e720h(void){
 #endif // DR_MULTIPLAYER
 	
 	___3e3cch();		// read CDROM.INI
+	DR3_LOG("[dr3] 3e720: 1 cdrom.ini read");
 	___3e164h();		// "check" available memory
+	DR3_LOG("[dr3] 3e720: 2 memory check done");
 	___3e1c4h();		// check assets
+	DR3_LOG("[dr3] 3e720: 3 asset check done");
 	___199fa0h = 0;
 	memset(___1a202fh, 0, 0x13);
 	___1a2148h = 0;
 	___2415ch();
+	DR3_LOG("[dr3] 3e720: 4 2415ch done");
 	CONFIG_READ();
+	DR3_LOG("[dr3] 3e720: 5 config read");
     dRally_Sound_init(CONFIG_SOUND_TYPE||!(CONFIG_SOUND_IRQ||CONFIG_SOUND_DMA||CONFIG_SOUND_ADDR)); 
+	DR3_LOG("[dr3] 3e720: 6 sound init done");
 	___2432c8h = &___3aaf8h;
 	___1a1f3ch_counter++;
 	CONFIG_WRITE();
+	DR3_LOG("[dr3] 3e720: 7 config written");
 	printf("\nLoading music & effects, please wait...\n");
 	___3d908h();	// play intro
+	DR3_LOG("[dr3] 3e720: 8 intro done");
 
 	menu_main();
+	DR3_LOG("[dr3] 3e720: 9 menu_main returned");
 
 #if defined(DR_MULTIPLAYER)
 	if(___19bd60h != 0){
@@ -90,6 +106,7 @@ void ___3e720h(void){
 
 	___3d79ch();
 	CONFIG_WRITE();
+	DR3_LOG("[dr3] 3e720: 7 config written");
 	___12200h();
 	___12a54h();
 	___24ec0h();

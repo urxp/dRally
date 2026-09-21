@@ -1,5 +1,7 @@
 #include "dr3_blit.h"
 
+#include <stddef.h>   /* size_t - MSVC pulls this in transitively, GCC does not */
+
 void dr3_palette_reset(dr3_palette_t *pal)
 {
     int n;
@@ -40,6 +42,11 @@ void dr3_lut32_build_masks(dr3_lut32_t *lut, const dr3_palette_t *pal,
     const uint32_t a_bits = a_mask ? (0xFFu << as) : 0u;   /* no alpha bits -> no alpha value */
     int            n;
 
+    lut->rs = rs;
+    lut->gs = gs;
+    lut->bs = bs;
+    lut->as = as;
+
     for (n = 0; n < 256; ++n) {
         lut->px[n] = ((uint32_t)pal->r[n] << rs) |
                      ((uint32_t)pal->g[n] << gs) |
@@ -67,6 +74,52 @@ static void dr3_fill32(uint32_t *dst, int dw, int dh, int pitch, uint32_t color)
         uint32_t *row = dst + (size_t)y * (size_t)pitch;
         for (x = 0; x < dw; ++x) row[x] = color;
     }
+}
+
+/* Box-filtered scaling: averages every source pixel that falls into a target pixel.  Keeps the
+   game's dithered shading intact (plain nearest-neighbour turns it into vertical stripes when
+   downscaling, e.g. the 640x480 VESA menu -> 400x240). */
+int dr3_blit8_filter(const uint8_t *src, int sw, int sh, int src_pitch,
+                     const dr3_palette_t *pal, const dr3_lut32_t *lut,
+                     uint32_t *dst, int dw, int dh, int dst_pitch_px)
+{
+    int x, y;
+
+    if (sw <= 0 || sh <= 0 || dw <= 0 || dh <= 0) return -1;
+
+    for (y = 0; y < dh; ++y) {
+        const int sy0 = (int)(((uint32_t)y * (uint32_t)sh) / (uint32_t)dh);
+        int       sy1 = (int)(((uint32_t)(y + 1) * (uint32_t)sh) / (uint32_t)dh);
+        uint32_t *drow = dst + (size_t)y * (size_t)dst_pitch_px;
+
+        if (sy1 <= sy0) sy1 = sy0 + 1;
+
+        for (x = 0; x < dw; ++x) {
+            const int sx0 = (int)(((uint32_t)x * (uint32_t)sw) / (uint32_t)dw);
+            int       sx1 = (int)(((uint32_t)(x + 1) * (uint32_t)sw) / (uint32_t)dw);
+            uint32_t  r = 0, g = 0, b = 0, n = 0;
+            int       sx, sy;
+
+            if (sx1 <= sx0) sx1 = sx0 + 1;
+
+            for (sy = sy0; sy < sy1 && sy < sh; ++sy) {
+                const uint8_t *srow = src + (size_t)sy * (size_t)src_pitch;
+                for (sx = sx0; sx < sx1 && sx < sw; ++sx) {
+                    const uint8_t idx = srow[sx];
+                    r += pal->r[idx];
+                    g += pal->g[idx];
+                    b += pal->b[idx];
+                    ++n;
+                }
+            }
+
+            if (!n) { drow[x] = 0; continue; }
+
+            drow[x] = ((r / n) << lut->rs) | ((g / n) << lut->gs) | ((b / n) << lut->bs) |
+                      (0xFFu << lut->as);
+        }
+    }
+    return 0;
 }
 
 int dr3_blit8_lut32(const uint8_t *src, int sw, int sh, int src_pitch,

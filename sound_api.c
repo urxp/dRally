@@ -16,6 +16,10 @@ Error! E2028: dRally_Sound_quit is an undefined reference
 Error! E2028: dRally_Sound_adjustEffect is an undefined reference
 */
 #include "drally.h"
+
+#if defined(__3DS__)
+#include "platform_3ds/dr3_log.h"
+#endif
 #include "draudio.h"
 #include "drmemory.h"
 #include "drencryption.h"
@@ -146,13 +150,25 @@ void dRally_Sound_init(__BYTE__ sound){
 			printf("[dRally.SOUND] Opening audio device.\n");
 			audio_dev = SDL_OpenAudioDevice(NULL, 0, &a, &b, 0);
 
+#if defined(__3DS__)
+			dr3_log("[dr3] audio request: freq=%d format=%04X channels=%d samples=%d",
+				a.freq, (unsigned)a.format, a.channels, a.samples);
+#endif
+
 			if(audio_dev == 0){
 				
 				SOUND = 0;
 				SDL_Log("Failed to open audio: %s", SDL_GetError());
+#if defined(__3DS__)
+				dr3_log("[dr3] SDL_OpenAudioDevice FAILED: %s", SDL_GetError());
+#endif
 			}
 			else {
 				printf("[dRally.SOUND] Audio opened: %d hz, %d channels, %d samples\n", b.freq, b.channels, b.samples);
+#if defined(__3DS__)
+				dr3_log("[dr3] audio opened: freq=%d format=%04X channels=%d samples=%d (device %u)",
+					b.freq, (unsigned)b.format, b.channels, b.samples, (unsigned)audio_dev);
+#endif
 			}
 		}
 	}

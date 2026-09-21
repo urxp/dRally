@@ -1,6 +1,11 @@
 #include "drally.h"
 #include "drally_display.h"
 
+#if defined(__3DS__)
+#include "platform_3ds/dr3_log.h"
+#include "platform_3ds/dr3_paths.h"
+#endif
+
 #if defined(DR_MULTIPLAYER)
 extern __DWORD__ ___19bd60h;
 void ___623d4h(void);
@@ -30,17 +35,31 @@ static void ___100dch(void){
 
 int main(int argc, char * argv[]){
 
+#if defined(__3DS__)
+	dr3_log("[dr3] === dRally 3DS boot ===");
+	dr3_fix_paths(argc > 0 ? argv[0] : NULL);	/* assets are opened relative to the CWD */
+#endif
+
 	dRally_System_init();
 #if defined(DR_LETTERBOX)
 	dRally_Display_init(W_LETTERBOX);
 #else
 	dRally_Display_init(W_SHRINK);
 #endif // DR_LETTERBOX
+#if defined(__3DS__)
+	dr3_log("[dr3] display init returned");
+#endif
 	___10060h();
 	___60466h(70, 1);
 	___2432c8h = &___100dch;
 	dRally_Keyboard_init();
+#if defined(__3DS__)
+	dr3_log("[dr3] keyboard init returned");
+#endif
 	___3e720h();
+#if defined(__3DS__)
+	dr3_log("[dr3] entering game (___3e720h returned)");
+#endif
 
 #if defined(DR_MULTIPLAYER)
 	if(___19bd60h != 0) ___623d4h();

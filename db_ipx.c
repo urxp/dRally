@@ -12,9 +12,9 @@
 
 #define CONVIPX(hostvar) hostvar[0], hostvar[1], hostvar[2], hostvar[3], hostvar[4], hostvar[5]
 
-typedef int             bool;
-#define true            1
-#define false           0
+/* C23 (GCC 16 / devkitARM) rejects "typedef int bool;" - use <stdbool.h> instead.
+   The PS Vita/Switch port had to fix the same clash. */
+#include <stdbool.h>
 
 typedef unsigned char   Bit8u;
 typedef signed short    Bit16s;
@@ -71,7 +71,9 @@ void PackIP(IPaddress ipAddr, PackedIP *ipPack) {
 }
 #endif
 
-typedef unsigned int __DWORD__;
+/* __DWORD__ is defined by types.h (pulled in via drally_ipx.h); the redundant redefinition here
+   conflicts with it under C23 ("conflicting types for '__DWORD__'"). */
+
 __DWORD__ reg_ax;
 __DWORD__ reg_bx;
 __DWORD__ reg_cx;

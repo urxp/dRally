@@ -1,5 +1,9 @@
 #include "drally.h"
 
+#if defined(__3DS__)
+#include "platform_3ds/dr3_log.h"
+#endif
+
 #pragma pack(1)
 
 struct dostime_t {
@@ -133,12 +137,20 @@ void dRally_System_init(void){
 		SDL_Log("Failed to init video subsystem: %s", SDL_GetError());
 	}
 
+#if defined(__3DS__)
+	dr3_log("[dr3] SDL_Init(VIDEO) finished (error='%s')", SDL_GetError());
+#endif
+
 #if !defined(_WIN32)
     time(&tmt);
     localtime_r(&tmt, &TimeInit);
 #endif
 
     dRally_Memory_init();
+
+#if defined(__3DS__)
+    dr3_log("[dr3] system init done (memory arena ready)");
+#endif
 }
 
 

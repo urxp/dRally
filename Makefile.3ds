@@ -6,9 +6,10 @@
 # Switch builds. Re-run the generator after pulling upstream changes.
 #
 # Requirements
-#   * devkitPro with devkitARM + 3ds-dev (libctru)
+#   * devkitPro with devkitARM + 3ds-dev (libctru), including tools\bin (3dsxtool) on PATH
 #   * SDL2 built for the 3DS from source - SDL2 has a native n3ds backend, but devkitPro does not
 #     package SDL2 for the 3DS (only SDL 1.2), see doc/3ds.md for the cmake lines
+#   * GNU make, running in the devkitPro MSYS2 environment
 #
 # Usage
 #   export DEVKITPRO=/opt/devkitpro
@@ -28,16 +29,20 @@ ifeq ($(strip $(DEVKITPRO)),)
 $(error "Please set DEVKITPRO in your environment (devkitPro install path)")
 endif
 
+# The upstream Makefile's header (CC := gcc etc.) is NOT copied by the generator - only the object
+# lists are - so the toolchain has to be defined here.
+PREFIX ?= arm-none-eabi-
+CC     := $(PREFIX)gcc
+
 # where SDL2 for the 3DS was installed (cmake --install prefix)
 SDL2_3DS_PREFIX ?= $(DEVKITPRO)/portlibs/3ds
 SDL2_3DS_LIB    ?= $(SDL2_3DS_PREFIX)/lib
 
-include $(DEVKITARM)/3ds_rules
-
 TARGET   := dRally_3ds
 BUILD    := build/3ds
 OUTPUT   := $(BUILD)/$(TARGET)
-LIBDIRS  := $(SDL2_3DS_LIB) $(DEVKITPRO)/libctru/lib
+CTRULIB  ?= $(DEVKITPRO)/libctru
+LIBDIRS  := -L$(SDL2_3DS_LIB) -L$(CTRULIB)/lib
 
 # DR_MULTIPLAYER/IPXNET are kept: menus, race code and the chat box reference multiplayer symbols
 # unconditionally (verified: dropping them produces 20 unresolved externals on Windows/MSVC).
@@ -50,19 +55,31 @@ INCLUDES := -I$(CURDIR) \
             -I$(SDL2_3DS_PREFIX)/include/SDL2 \
             -I$(DEVKITPRO)/libctru/include
 
+# GCC 14+ promoted several historical warnings to errors (incompatible pointer types, implicit
+# function declarations, ...). This DOS-era decompiled code relies on the old lenient behaviour --
+# the PS Vita/Switch builds used an older GCC and never saw these.  Downgrade them back to warnings.
+LEGACY_WARNINGS := -Wno-error=incompatible-pointer-types \
+                   -Wno-error=int-conversion \
+                   -Wno-error=implicit-function-declaration \
+                   -Wno-error=implicit-int \
+                   -Wno-error=return-mismatch
+
 # NOTE: keep the "-DDR_LETTERBOX" scaling path; on the 3DS the engine draws into a 320x240 buffer
 # which SDL scales to the 400x240 top screen (see doc/3ds.md).
 CFLAGS   := -g -Wall -O2 -D__3DS__ $(DEFINES) $(INCLUDES) \
             -march=armv6k -mtune=mpcore -mfloat-abi=hard -mtp=soft \
-            -ffunction-sections -fdata-sections -fno-common -MMD -MP
+            -ffunction-sections -fdata-sections -fno-common -MMD -MP $(LEGACY_WARNINGS)
 
 LDFLAGS  := -g -march=armv6k -mtune=mpcore -mfloat-abi=hard -mtp=soft \
-            -specs=3dsx.specs -Wl,-Map,$(OUTPUT).map -Wl,--gc-sections -Wl,-q
+            -specs=3dsx.specs -Wl,-Map,$(OUTPUT).map -Wl,--gc-sections
 
-LIBS     := -lSDL2 -lctru -lm
+LIBS     := -lSDL2main -lSDL2 -lctru -lm
 
 EXTRA_OBJS := platform_3ds/dr3_input.o \
+              platform_3ds/dr3_input_map.o \
               platform_3ds/dr3_blit.o \
+              platform_3ds/dr3_log.o \
+              platform_3ds/dr3_paths.o \
               platform_3ds/sdl2_net_stub/sdl2_net_stub.o
 OBJS := data.o bss.o
 
@@ -92,7 +109,12 @@ ALL_OBJS := $(addprefix $(BUILD)/, $(UNI_OBJS) $(LINUX_OBJS) $(RACE_OBJS) $(MENU
 
 all: $(OUTPUT).3dsx
 
+# NOTE: this makefile is deliberately self contained and does NOT include $(DEVKITARM)/3ds_rules -
+# that file brings its own %.elf/%.3dsx rules and variable conventions which would conflict with the
+# explicit object lists above.  3dsxtool does the .elf -> .3dsx conversion here.
 $(OUTPUT).3dsx: $(OUTPUT).elf
+	@echo "  TOOL   3dsxtool $@"
+	@3dsxtool $< $@ $(THREEDSXFLAGS)
 
 $(OUTPUT).elf: $(ALL_OBJS)
 	@echo "  LINK   $(notdir $@)"
