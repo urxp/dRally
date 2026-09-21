@@ -136,11 +136,26 @@ unsigned int       dr3_audio_cb_count = 0;
 unsigned long long dr3_audio_frames = 0;
 #endif
 
+#if defined(__3DS__)
+/* Rate used for BOTH the SDL device and the mixer.  It is tunable at runtime from the profiler's
+   bottom screen and persisted in sdmc:/dr3_audio_rate.txt, because the 3DS DAC's real rate does not
+   have to be the commonly quoted 32728 Hz - the pitch (how fast music sounds) tells us. */
+__DWORD__ DR3_AUDIO_RATE = DR3_DSP_RATE;
+
+static void dr3_audio_load_rate(void);
+static void dr3_audio_save_rate(__DWORD__ hz);
+
+void dr3_audio_reopen(__DWORD__ hz);
+#endif
+
 SDL_AudioDeviceID audio_dev = 0;
 
 
 void dRally_Sound_init(__BYTE__ sound){
 
+#if defined(__3DS__)
+	dr3_audio_load_rate();
+#endif
 	SDL_AudioSpec a;
 	SDL_AudioSpec b;
 
@@ -154,7 +169,7 @@ void dRally_Sound_init(__BYTE__ sound){
 			   but the DAC always runs at 32728 Hz.  Opening the device at the DOS rate made SDL wait 1.48x
 			   too long per buffer, which is exactly why the mixer only delivered ~22.5k of the required
 			   32.7k frames per second (music dragging, stalls). */
-			a.freq = DR3_DSP_RATE;
+			a.freq = DR3_AUDIO_RATE;
 #else
 			a.freq = SOUND_SAMPLERATE;
 #endif
@@ -513,7 +528,7 @@ void dRally_Sound_setSampleRate(__DWORD__ freq){
 	/* The 3DS DAC runs at a fixed 32728 Hz.  Feeding it the DOS default of 22050 Hz made music and
 	   effects play 1.48x too fast (and too high pitched), so ask for the native rate instead -
 	   nothing has to be resampled then either. */
-	freq = DR3_DSP_RATE;
+	freq = DR3_AUDIO_RATE;
 #endif
 
 	SOUND_SAMPLERATE = __BOUNDS(freq, 0x1f40, 0xac44);
@@ -544,3 +559,53 @@ __BYTE__ dRally_Sound_setPosition(__DWORD__ pos_n){
 
 	return (SOUND&&SOUND_LOADED&&Sound.msx.type) ? ___71a88h_cdecl(pos_n) : 0;
 }
+
+#if defined(__3DS__)
+#define DR3_AUDIO_RATE_FILE "sdmc:/dr3_audio_rate.txt"
+
+static void dr3_audio_save_rate(__DWORD__ hz)
+{
+	FILE *	fd = fopen(DR3_AUDIO_RATE_FILE, "wb");
+
+	if(!fd) return;
+	fprintf(fd, "%u\n", (unsigned)hz);
+	fclose(fd);
+}
+
+static void dr3_audio_load_rate(void)
+{
+	FILE *	fd = fopen(DR3_AUDIO_RATE_FILE, "rb");
+	unsigned hz = 0;
+
+	if(!fd) return;
+
+	if(fscanf(fd, "%u", &hz) == 1){
+
+		if((hz >= 0x1f40) && (hz <= 0xac44)){
+
+			DR3_AUDIO_RATE = hz;
+			dr3_log("[dr3] audio rate from file: %u Hz", hz);
+		}
+	}
+
+	fclose(fd);
+}
+
+/* Close the device and open it again at another rate - that is what changes the pitch, because SDL
+   passes spec.freq to ndspChnSetRate().  Used by the profiler's bottom screen buttons. */
+void dr3_audio_reopen(__DWORD__ hz)
+{
+	dr3_log("[dr3] audio reopen: %u Hz (was %u)", (unsigned)hz, (unsigned)DR3_AUDIO_RATE);
+
+	DR3_AUDIO_RATE = hz;
+
+	if(audio_dev){
+
+		SDL_CloseAudioDevice(audio_dev);
+		audio_dev = 0;
+	}
+
+	dRally_Sound_init(1);
+	dr3_audio_save_rate(hz);
+}
+#endif

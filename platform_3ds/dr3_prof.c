@@ -310,6 +310,50 @@ static int dr3_prof_console(void)
     return 1;
 }
 
+/* ------------------------------------------------------------------ audio UI --- */
+
+/* Rate candidates - the DAC's real rate does not have to be the commonly quoted 32728 Hz; the pitch
+   tells us.  A tap reopens the SDL device at the new rate and persists it. */
+static const uint32_t dr3_rate_tab[] = { 22050u, 24000u, 26728u, 32000u, 32728u, 36000u, 44100u, 48000u, 48500u };
+static const int      dr3_rate_n     = (int)(sizeof(dr3_rate_tab) / sizeof(dr3_rate_tab[0]));
+static int            dr3_rate_idx   = 4;      /* 32728 */
+
+extern void dr3_audio_reopen(uint32_t hz);     /* implemented in sound_api.c (3DS build) */
+
+static uint32_t dr3_prof_audio_rate(void) { return dr3_rate_tab[dr3_rate_idx]; }
+
+static void dr3_prof_audio_rate_step(int dir)
+{
+    dr3_rate_idx += dir;
+    if (dr3_rate_idx < 0)          dr3_rate_idx = 0;
+    if (dr3_rate_idx >= dr3_rate_n) dr3_rate_idx = dr3_rate_n - 1;
+
+    dr3_log("[dr3] PROF audio rate -> %lu Hz", (unsigned long)dr3_prof_audio_rate());
+    dr3_audio_reopen(dr3_prof_audio_rate());
+}
+
+/* Three touch zones on the bottom screen: rate down, rate up (drawn right of the AUDIO line). */
+static void dr3_prof_touch(void)
+{
+    static int  was_down;
+    touchPosition t;
+    int         down;
+
+    hidTouchRead(&t);
+    down = (t.px || t.py) ? 1 : 0;
+
+    if (down && !was_down) {
+        const int x = t.px, y = t.py;
+
+        if ((y >= 76) && (y <= 96)) {
+            if ((x >= 160) && (x <= 240))      dr3_prof_audio_rate_step(-1);
+            else if ((x >= 248) && (x <= 319)) dr3_prof_audio_rate_step(+1);
+        }
+    }
+
+    was_down = down;
+}
+
 static void dr3_prof_overlay(void)
 {
     const uint64_t    t0 = dr3_prof_tick();
@@ -338,9 +382,10 @@ static void dr3_prof_overlay(void)
            (unsigned long)io->cnt, (unsigned long)dr3_avg(io->sum, io->cnt));
     printf("FRAME %5luus max %5lu  skip %lu/s\n", (unsigned long)dr3_avg(v->frame_sum, v->frame_cnt),
            (unsigned long)v->frame_max, (unsigned long)dr3_cnt[p][DR3_CNT_SKIP]);
-    printf("AUDIO %3lucb/s %5luf/s (=32728) stalls %lu mix %luus\n",
+    printf("AUDIO %3lucb/s %5luf/s (want %5lu) stalls %lu mix %luus\n",
            (unsigned long)dr3_cnt[p][DR3_CNT_AUDIO_CB],
            (unsigned long)dr3_cnt[p][DR3_CNT_AUDIO_FR],
+           (unsigned long)dr3_prof_audio_rate(),
            (unsigned long)dr3_cnt[p][DR3_CNT_STALL],
            (unsigned long)dr3_avg(mx->sum, mx->cnt));
     printf("HIST  <14ms:%lu 14-20:%lu 20-30:%lu >30:%lu\n",
@@ -348,6 +393,9 @@ static void dr3_prof_overlay(void)
            (unsigned long)v->hist[2], (unsigned long)v->hist[3]);
     printf("\n%s\n", dr3_phase_summarised ? "*** see drally_3ds.log for the summary ***"
                                          : "(measuring - no input needed)");
+    printf("RATE %5lu Hz          [RATE -]  [RATE +]\n", (unsigned long)dr3_prof_audio_rate());
+
+    dr3_prof_touch();          /* tap the rate buttons to tune the pitch */
 
     gfxFlushBuffers();
     gfxScreenSwapBuffers(GFX_BOTTOM, false);
