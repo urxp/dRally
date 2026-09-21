@@ -1,4 +1,8 @@
 /*
+ * Part of the dRally 3DS port - https://github.com/urxp/dRally
+ * SPDX-License-Identifier: MIT (see LICENSE and THIRD_PARTY.md)
+ */
+/*
  * dr3_paths.h - working directory fix for the Nintendo 3DS build.
  *
  * The engine opens its assets (ENGINE.BPA, ...) with *relative* names, so the process CWD must be

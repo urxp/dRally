@@ -1,4 +1,8 @@
 /*
+ * Part of the dRally 3DS port - https://github.com/urxp/dRally
+ * SPDX-License-Identifier: MIT (see LICENSE and THIRD_PARTY.md)
+ */
+/*
  * sdl2_net_stub.c - inert SDL_net for the Nintendo 3DS build (see include/SDL2/SDL_net.h).
  *
  * Design rule: never return NULL where the engine expects a usable handle, and never block.

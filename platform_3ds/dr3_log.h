@@ -1,4 +1,8 @@
 /*
+ * Part of the dRally 3DS port - https://github.com/urxp/dRally
+ * SPDX-License-Identifier: MIT (see LICENSE and THIRD_PARTY.md)
+ */
+/*
  * dr3_log.h - tiny file logger for the Nintendo 3DS build.
  *
  * Azahar is a GUI application, so the guest's stdout never reaches a console we can read.  This

@@ -1,4 +1,8 @@
 /*
+ * Part of the dRally 3DS port - https://github.com/urxp/dRally
+ * SPDX-License-Identifier: MIT (see LICENSE and THIRD_PARTY.md)
+ */
+/*
  * dr3_prof.h - autonomous profiler for the Nintendo 3DS port.
  *
  * Enabled with -DDR3_PROFILE (see Makefile.3ds: "make -f Makefile.3ds DR3_DEBUG=1").  It measures the

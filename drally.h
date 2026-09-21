@@ -24,6 +24,14 @@
  * undefines this again.
  */
 #define printf(...) dr3_log(__VA_ARGS__)
+#else
+/*
+ * Not the 3DS build (Linux, BSD, Windows): the port's helpers are not linked there, so they compile
+ * away.  The shared engine files call them (log lines, profiler hooks), and this keeps those files
+ * buildable on every platform without sprinkling #if defined(__3DS__) over the engine sources.
+ */
+#include "platform_3ds/dr3_prof.h"      /* no-ops unless DR3_PROFILE is defined */
+#define dr3_log(...)            ((void)0)
 #endif
 
 

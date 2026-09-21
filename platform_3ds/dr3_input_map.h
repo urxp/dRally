@@ -1,4 +1,8 @@
 /*
+ * Part of the dRally 3DS port - https://github.com/urxp/dRally
+ * SPDX-License-Identifier: MIT (see LICENSE and THIRD_PARTY.md)
+ */
+/*
  * dr3_input_map.h - 3DS pad state -> SDL scancodes.
  *
  * Death Rally's default controls (see config_c.c) are DOS scan codes:

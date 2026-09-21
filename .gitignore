@@ -24,3 +24,9 @@ build
 tests/x64
 tests/dRally3DSCheck.vcxproj
 
+# the port's local extras - never publish these
+3ds-release/
+logs/
+*.log
+dr3_controls.txt
+

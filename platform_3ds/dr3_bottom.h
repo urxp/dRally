@@ -1,4 +1,8 @@
 /*
+ * Part of the dRally 3DS port - https://github.com/urxp/dRally
+ * SPDX-License-Identifier: MIT (see LICENSE and THIRD_PARTY.md)
+ */
+/*
  * dr3_bottom.h - the bottom screen of the 3DS shows the controls (left) and the current driver
  * standings (right), in the style of the Death Rally front end.
  *

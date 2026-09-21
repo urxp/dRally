@@ -1,3 +1,7 @@
+/*
+ * Part of the dRally 3DS port - https://github.com/urxp/dRally
+ * SPDX-License-Identifier: MIT (see LICENSE and THIRD_PARTY.md)
+ */
 #include "dr3_prof.h"
 
 #if defined(DR3_PROFILE)

@@ -1,4 +1,8 @@
 /*
+ * Part of the dRally 3DS port - https://github.com/urxp/dRally
+ * SPDX-License-Identifier: MIT (see LICENSE and THIRD_PARTY.md)
+ */
+/*
  * dr3_blit.h - fast 8-bit indexed -> 32-bit RGBx conversion for the Nintendo 3DS build.
  *
  * SDL2's 3DS video driver is a frame-buffer driver (see SDL_n3dsframebuffer.c) and only the

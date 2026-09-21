@@ -57,7 +57,7 @@ ifeq ($(DR3_DEBUG),1)
 BUILD    := build/3ds_debug
 TARGET   := dRally_3ds_debug
 DEFINES  += -DDR3_PROFILE
-APP_TITLE := Death Rally (profile)
+APP_TITLE := dRally 3DS (profile)
 endif
 
 OUTPUT   := $(BUILD)/$(TARGET)
@@ -125,8 +125,8 @@ ALL_OBJS := $(addprefix $(BUILD)/, $(UNI_OBJS) $(LINUX_OBJS) $(RACE_OBJS) $(MENU
 .PHONY: all clean
 
 # home screen metadata (icon + title shown by the Homebrew Launcher)
-APP_TITLE   ?= Death Rally
-APP_DESC    := Death Rally (1996) - open source engine port
+APP_TITLE   ?= dRally 3DS
+APP_DESC    := Death Rally (1996) engine port
 APP_AUTHOR  := urxp / dRally, 3DS port
 APP_ICON    ?= $(CTRULIB)/default_icon.png
 

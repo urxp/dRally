@@ -1,4 +1,8 @@
 /*
+ * Part of the dRally 3DS port - https://github.com/urxp/dRally
+ * SPDX-License-Identifier: MIT (see LICENSE and THIRD_PARTY.md)
+ */
+/*
  * dr3_fb.h - direct top-screen framebuffer output for the Nintendo 3DS.
  *
  * SDL2's n3ds video driver hands the window surface to the GPU with a per-pixel SDL_memcpy loop

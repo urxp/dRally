@@ -1,4 +1,8 @@
 /*
+ * Part of the dRally 3DS port - https://github.com/urxp/dRally
+ * SPDX-License-Identifier: MIT (see LICENSE and THIRD_PARTY.md)
+ */
+/*
  * SDL_net.h - minimal stand-in for the Nintendo 3DS build.
  *
  * devkitPro ships no SDL2_net for the 3DS (and SDL2 has no n3ds net backend), but dRally's

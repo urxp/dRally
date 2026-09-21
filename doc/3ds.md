@@ -1,25 +1,25 @@
-# Nintendo 3DS port
+﻿# Nintendo 3DS port
 
-Branch `3ds`, worktree `C:\Users\M-PC\rally\dRally-3ds` (5 commits on top of upstream `920d85a`).
-Windows remains the reference build — this branch does not touch it.
+Branch `3ds`, based on upstream `920d85a`.
+Windows remains the reference build â€” this branch does not touch it.
 
 ## Status (2026-09-21): runs on the emulator, playable
 
 | | |
 |---|---|
-| Runs in **Azahar** | yes — boots, menus, name entry, in-game |
+| Runs in **Azahar** | yes â€” boots, menus, name entry, in-game |
 | Runs on real hardware | not tested yet (next step; `3dslink` or copy the `.3dsx` to the SD card) |
 | Input | d-pad/circle pad steer, R accelerate, L brake, **front end:** A confirm + B select, **race:** A horn, B boost, Y shoot, X mine, ZL/ZR boost/shoot, START pause, SELECT opens the 3DS software keyboard, L+R+START quits (the mapping follows the display mode - see the table below) |
 | Video | direct top-screen framebuffer output, double buffered, box-filtered downscale for the 640x480 menus |
 | Speed | engine logic keeps its ~70 fps; presentation is the bottleneck (12-27 fps in the emulator). The emulator itself is a big part of that - measure on hardware |
-| Sound | **works** — needs the DSP firmware `sdmc:/3ds/dspfirm.cdc` (Luma3DS provides it on real hardware; for Azahar copy it from your own console to `%APPDATA%\azahar\sdmc\3ds\dspfirm.cdc`). The mixer runs at the DAC's native 32728 Hz: the DOS default of 22050 Hz made everything play 1.48x too fast because the 3DS DAC does not resample |
+| Sound | **works** â€” needs the DSP firmware `sdmc:/3ds/dspfirm.cdc` (Luma3DS provides it on real hardware; for Azahar copy it from your own console to `%APPDATA%\azahar\sdmc\3ds\dspfirm.cdc`). The mixer runs at the DAC's native 32728 Hz: the DOS default of 22050 Hz made everything play 1.48x too fast because the 3DS DAC does not resample |
 | Known gaps | `___59720h` was ported (keyboard path only, joystick branches omitted); some menus/dialogs may still be unimplemented upstream (they print `TODO` and `exit(1)`) |
 
 ### Release package
 
 `make -f Makefile.3ds` produces `build/3ds/dRally_3ds.smdh` (icon/title metadata) and embeds it into
 the `.3dsx` via `3dsxtool --smdh=`. The ready-to-copy SD package (executable + original game data +
-`README.txt`) is assembled in `C:\Users\M-PC\rally\3ds-release\dRally_3ds\` (and as a zip next to it).
+`README.txt`) is assembled next to the build output (executable + original game data + guide).
 On the console the folder must end up as `sdmc:/3ds/drally/`.
 
 ### First profile run (Azahar, 268 MHz) - what it found
@@ -120,9 +120,9 @@ The release build is untouched: without `-DDR3_PROFILE` every profiler call comp
 
 ### Things learned the hard way (all handled in the code)
 
-1. **Working directory** — the engine opens `ENGINE.BPA` etc. relative to the CWD; on the 3DS that is
+1. **Working directory** â€” the engine opens `ENGINE.BPA` etc. relative to the CWD; on the 3DS that is
    not the game folder, so the game crashed right after startup. `platform_3ds/dr3_paths.c` fixes it.
-2. **Azahar pauses the app at start** (`Debugging_DelayStartForLLEModules`) — with an empty NAND this
+2. **Azahar pauses the app at start** (`Debugging_DelayStartForLLEModules`) â€” with an empty NAND this
    leaves *every* homebrew on a black screen. Set `delay_start_for_lle_modules=false` in
    `%APPDATA%\azahar\config\qt-config.ini` (Azahar must be closed while editing, it rewrites the file
    on exit).
@@ -135,7 +135,7 @@ The release build is untouched: without `-DDR3_PROFILE` every profiler call comp
 
 ## Why there is no SDL shim
 
-SDL 2.30.11 already ships a **native Nintendo 3DS backend** — `src/video/n3ds` (GSP framebuffer),
+SDL 2.30.11 already ships a **native Nintendo 3DS backend** â€” `src/video/n3ds` (GSP framebuffer),
 `src/audio/n3ds` (ndsp), `src/joystick/n3ds` (hid), `src/thread/timer/file/filesystem/power/sensor/
 locale/main/n3ds`, plus `docs/README-n3ds.md` and CMake support. devkitPro does *not* package SDL2
 for the 3DS (only `3ds-sdl` = SDL 1.2), so SDL2 is built from source here.
@@ -144,10 +144,10 @@ Consequences that shape this port:
 
 | SDL2-3DS fact | Effect on dRally |
 |---|---|
-| only the **software renderer** exists | the hot path is index8 → 32-bit conversion; `platform_3ds/dr3_blit.c` does it via a palette LUT (unit-tested) |
+| only the **software renderer** exists | the hot path is index8 â†’ 32-bit conversion; `platform_3ds/dr3_blit.c` does it via a palette LUT (unit-tested) |
 | frame-buffer driver (`CreateWindowFramebuffer`) | presenting via a cached streaming texture (as the PS Vita port does) is the plan for the display patch |
 | `SDL2main` needed for ROMFS | `LIBS := -lSDL2 -lctru -lm` plus the 3DS rules |
-| **cooperative threading on one core** — a thread only yields on `SDL_Delay` / blocking waits | the Vita port's "remove all `SDL_Delay`" patch must NOT be copied blindly: the engine's sound thread would starve. Keep a small yield |
+| **cooperative threading on one core** â€” a thread only yields on `SDL_Delay` / blocking waits | the Vita port's "remove all `SDL_Delay`" patch must NOT be copied blindly: the engine's sound thread would starve. Keep a small yield |
 | New 3DS clock boost + extra L2 cache on by default | good for the frame budget; the old 3DS remains the risk case |
 | joystick backend reports **buttons**, not keys | `platform_3ds/dr3_input.c` turns the pad into the SDL scancodes the engine expects |
 
@@ -156,9 +156,9 @@ Consequences that shape this port:
 | File | Purpose |
 |---|---|
 | `Makefile.3ds` | devkitPro/3DS build. **Generated** by `scripts/gen_makefile_3ds.ps1`, which copies the object lists verbatim from the upstream `Makefile` |
-| `platform_3ds/dr3_input.c` / `.h` | wraps `SDL_PollEvent`: pad → synthetic `SDL_KEYDOWN/UP` events, plus the `L+R+START` quit combo |
-| `platform_3ds/dr3_input_map.c` / `.h` | the button → scancode table (data only, unit-tested) |
-| `platform_3ds/dr3_blit.c` / `.h` | palette → 32-bit LUT and an integer-only nearest-neighbour / centred scaler (unit-tested) |
+| `platform_3ds/dr3_input.c` / `.h` | wraps `SDL_PollEvent`: pad â†’ synthetic `SDL_KEYDOWN/UP` events, plus the `L+R+START` quit combo |
+| `platform_3ds/dr3_input_map.c` / `.h` | the button â†’ scancode table (data only, unit-tested) |
+| `platform_3ds/dr3_blit.c` / `.h` | palette â†’ 32-bit LUT and an integer-only nearest-neighbour / centred scaler (unit-tested) |
 | `platform_3ds/sdl2_net_stub/` | inert SDL_net so the multiplayer code compiles and links |
 | `tests/test_dr3.c`, `tests/Dr3Tests.vcxproj`, `tests/build_tests.ps1` | host unit tests (295 checks), runnable **without** a 3DS toolchain |
 | `events.c` | engine patch 1: `while(dr3_poll_event(&e))` under `#if defined(__3DS__)` |
@@ -168,7 +168,7 @@ Consequences that shape this port:
 
 Removing the multiplayer objects was tried and **fails to link**: menus, race code and the chat box
 reference multiplayer symbols unconditionally (`___61278h`, `___61518h`, `___618c4h`, `npg_zero`,
-`npg_peekb`, `npg_override`, `dRChatbox_clear/getFont/getLine`, plus data from `__mp_data.c`) —
+`npg_peekb`, `npg_override`, `dRChatbox_clear/getFont/getLine`, plus data from `__mp_data.c`) â€”
 20 unresolved externals. The inert SDL_net stub keeps the object list identical to the working
 Windows configuration; multiplayer simply cannot connect (it could not on PC either).
 
@@ -179,7 +179,7 @@ Windows configuration; multiplayer simply cannot connect (it could not on PC eit
 | D-pad / circle pad / c-stick | steer (`LEFT`/`RIGHT`, `KP_4`/`KP_6`), up/down also accelerate/brake (`A`/`Z`) |
 | R | accelerate (`A`) |
 | L | brake / reverse (`Z`) |
-| A | front end: confirm (`RETURN` — exactly one key so dialogues see it)   /   race: horn (`SPACE`) |
+| A | front end: confirm (`RETURN` â€” exactly one key so dialogues see it)   /   race: horn (`SPACE`) |
 | B | front end: select (`SPACE`)   /   race: **boost** (`LSHIFT`) |
 | Y | race: **shoot** (`LCTRL`) |
 | X | race: **drop mine** (`LALT`) |
@@ -199,29 +199,29 @@ The defaults are dRally's own (`config_c.c`): accelerate `A`, brake `Z`, arrows 
 ## Building
 
 ```bash
-export DEVKITPRO=/opt/devkitpro
-export DEVKITARM=$DEVKITPRO/devkitARM
-export PATH=$DEVKITPRO/tools/bin:$DEVKITARM/bin:$PATH
+# 1. devkitPro with devkitARM + libctru (3ds-dev, 3ds-cmake, 3ds-pkg-config)
+# 2. SDL2 with the n3ds backend (devkitPro ships no SDL2 for the 3DS)
+git clone --depth 1 https://github.com/libsdl-org/SDL third_party/SDL
+bash scripts/3ds/build_sdl2_3ds.sh          # -> third_party/SDL2-3ds-install
 
-# 1. SDL2 with the n3ds backend (devkitPro ships no SDL2 for the 3DS)
-sudo dkp-pacman -S 3ds-dev 3ds-cmake 3ds-pkg-config
-git clone --depth 1 --branch release-2.30.11 https://github.com/libsdl-org/SDL.git
-cmake -S SDL -B SDL/build -DCMAKE_TOOLCHAIN_FILE="$DEVKITPRO/cmake/3DS.cmake" \
-      -DCMAKE_BUILD_TYPE=Release
-cmake --build SDL/build -j4
-cmake --install SDL/build            # -> $DEVKITPRO/portlibs/3ds
-
-# 2. the game
-make -f Makefile.3ds -j4             # -> build/3ds/dRally_3ds.3dsx
+# 3. the game
+bash scripts/3ds/build_3ds.sh               # -> build/3ds/dRally_3ds.3dsx
+bash scripts/3ds/build_3ds.sh all           # ... and the profiler build
 ```
+
+`Makefile.3ds` is generated (`powershell -File scripts/3ds/gen_makefile_3ds.ps1`); it reuses the
+upstream object lists verbatim, so the 3DS build compiles exactly the same sources as the other
+platforms.  Both scripts honour `DEVKITPRO`, `SDL_SRC` and `SDL2_3DS_PREFIX` from the environment.
 
 ## Running
 
 * **Emulator (no hardware needed):** install Azahar (Citra fork, `winget install AzaharEmu.Azahar`),
   load `build/3ds/dRally_3ds.3dsx` and point its SD-card folder at a directory containing the game
-  data below. `printf` output shows up in the emulator log.
+  data.  If nothing shows up, check that `delay_start_for_lle_modules` is `false` in Azahar's
+  `qt-config.ini` - otherwise every homebrew stays on a black screen without system files.
 * **Real hardware:** `3dslink build/3ds/dRally_3ds.3dsx` pushes and boots it over WiFi (needs a
-  homebrew-enabled 3DS).
+  homebrew-enabled 3DS), or just copy the file to the SD card.
+* The port writes `sdmc:/drally_3ds.log` - the first place to look, since the 3DS has no console.
 
 Data layout (`sdmc:/3ds/drally/` or the emulator's SD root). The original game files are required
 and are **not** shipped:
@@ -253,12 +253,12 @@ so the renderer is not created at all on the 3DS.
 
 | Check | Command | Result |
 |---|---|---|
-| Portable logic | `tests\build_tests.ps1` (MSVC) | **295 checks, 0 failures** - LUT byte order + masks (`SDL_PIXELFORMAT_RGBA8888` as used by the 3DS), centred/scaled blit pixels, full pad → scancode map, quit combo |
-| Whole engine with `-D__3DS__` | `scripts\gen_3ds_check.ps1` → `tests\dRally3DSCheck.vcxproj` | **330 translation units compile and link** (exit 0) - validates every `#if defined(__3DS__)` path with the real SDL2 headers, catching typos/prototype errors before devkitARM exists |
+| Portable logic | `tests\build_tests.ps1` (MSVC) | **295 checks, 0 failures** - LUT byte order + masks (`SDL_PIXELFORMAT_RGBA8888` as used by the 3DS), centred/scaled blit pixels, full pad â†’ scancode map, quit combo |
+| Whole engine with `-D__3DS__` | `scripts\gen_3ds_check.ps1` â†’ `tests\dRally3DSCheck.vcxproj` | **330 translation units compile and link** (exit 0) - validates every `#if defined(__3DS__)` path with the real SDL2 headers, catching typos/prototype errors before devkitARM exists |
 | Windows regression | `scripts\build_windows.ps1 -GameDir dRally-3ds -SkipDeps -SkipStage` | still builds (exit 0) |
 | Emulator | `Azahar` in `C:\Program Files\Azahar` | installed, ready for the first `.3dsx` |
 
-Workbench scripts (live outside the repo, in `C:\Users\M-PC\rally\scripts`):
+Build and analysis scripts (in `scripts\/3ds`):
 `gen_makefile_3ds.ps1` (Makefile from upstream lists), `patch_3ds_display.ps1` (display patch,
 whitespace tolerant + idempotent), `gen_3ds_check.ps1` (`__3DS__` syntax/link check), plus
 `build_windows.ps1` / `run_windows.cmd` for the reference build.

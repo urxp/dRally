@@ -1,3 +1,7 @@
+/*
+ * Part of the dRally 3DS port - https://github.com/urxp/dRally
+ * SPDX-License-Identifier: MIT (see LICENSE and THIRD_PARTY.md)
+ */
 #include "dr3_blit.h"
 
 #include <stddef.h>   /* size_t - MSVC pulls this in transitively, GCC does not */

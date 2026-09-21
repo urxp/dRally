@@ -1,4 +1,8 @@
 /*
+ * Part of the dRally 3DS port - https://github.com/urxp/dRally
+ * SPDX-License-Identifier: MIT (see LICENSE and THIRD_PARTY.md)
+ */
+/*
  * dr3_input.h - 3DS input glue: SDL2's n3ds joystick backend produces *joystick* events, but the
  * engine reads *keyboard* scancodes (events.c -> dRally_Keyboard_make/break), so we translate the
  * pad into synthetic SDL keyboard events. Only compiled for the 3DS build.
