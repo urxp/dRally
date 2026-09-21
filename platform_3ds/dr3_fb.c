@@ -131,6 +131,17 @@ void dr3_fb_present(const uint8_t *src, int sw, int sh, int src_pitch,
                         srow   = src + (size_t)sy * (size_t)src_pitch;
                     }
 
+                    if ((sx1 - sx0) == 2) {
+                        /* the common case (1.6:1 downscale): average two already converted pixels.
+                           The packed average is exact for 8-bit channels and needs neither palette
+                           lookups nor multiplications - the generic path cost 10 ms per frame. */
+                        const uint32_t a = lutpx[srow[sx0]];
+                        const uint32_t b = lutpx[srow[sx0 + 1]];
+
+                        *drow-- = ((((a ^ b) & 0xFEFEFEFEu) >> 1) + (a & b)) | (0xFFu << as);
+                        continue;
+                    }
+
                     p   = srow + sx0;
                     end = srow + sx1;
                     while (p < end) {

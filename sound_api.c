@@ -19,6 +19,12 @@ Error! E2028: dRally_Sound_adjustEffect is an undefined reference
 
 #if defined(__3DS__)
 #include "platform_3ds/dr3_log.h"
+/* The 3DS DAC runs at a fixed rate (32728 Hz is the commonly quoted value).  Compile with
+   -DDR3_DSP_RATE=<hz> to try another one without touching this file. */
+#ifndef DR3_DSP_RATE
+#define DR3_DSP_RATE 32728
+#endif
+
 #include "platform_3ds/dr3_prof.h"
 #endif
 #include "draudio.h"
@@ -143,7 +149,15 @@ void dRally_Sound_init(__BYTE__ sound){
 		if(!audio_dev){
 
 			SDL_memset(&a, 0, sizeof(a));
+#if defined(__3DS__)
+			/* SDL's n3ds backend paces its wave-buffer queue with spec.freq (SDL_Delay(samples*1000/freq)),
+			   but the DAC always runs at 32728 Hz.  Opening the device at the DOS rate made SDL wait 1.48x
+			   too long per buffer, which is exactly why the mixer only delivered ~22.5k of the required
+			   32.7k frames per second (music dragging, stalls). */
+			a.freq = DR3_DSP_RATE;
+#else
 			a.freq = SOUND_SAMPLERATE;
+#endif
 			a.format = AUDIO_S16SYS;
 			a.channels = 2;
 			a.samples = SOUND_SAMPLES;
@@ -492,11 +506,6 @@ void dRally_Sound_pushEffect(__BYTE__ sfx_channel, __BYTE__ n, __DWORD__ offset,
 }
 
 // 00065990h
-/* The 3DS DAC runs at a fixed rate (32728 Hz is the commonly quoted value).  Compile with
-   -DDR3_DSP_RATE=<hz> to try another one without touching this file. */
-#ifndef DR3_DSP_RATE
-#define DR3_DSP_RATE 32728
-#endif
 
 void dRally_Sound_setSampleRate(__DWORD__ freq){
 

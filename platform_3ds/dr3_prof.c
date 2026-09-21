@@ -5,6 +5,7 @@
 #include "dr3_log.h"
 
 #include <3ds.h>
+#include <SDL.h>
 #include <stdio.h>
 #include <stdarg.h>
 #include <string.h>
@@ -85,12 +86,10 @@ void dr3_prof_init(void)
     dr3_log("[dr3] PROF init: 804 MHz speedup requested, cpu clock ~%lu MHz (ticks/ms=%llu)",
             (unsigned long)(dr3_ticks_per_ms / 1000), (unsigned long long)dr3_ticks_per_ms);
 
-    consoleInit(GFX_BOTTOM, NULL);
-    printf("\x1b[2J");                           /* clear */
-    printf("dRally 3DS profiler\nclock ~%lu MHz\n\n", (unsigned long)(dr3_ticks_per_ms / 1000));
-    gfxFlushBuffers();
-    gfxScreenSwapBuffers(GFX_BOTTOM, false);
-
+    /* NOTE: the profiler text lives on the bottom screen, but consoleInit() needs the gfx state that
+       SDL's n3ds video driver creates with gfxInit() - and that happens long after this function.
+       Initialising it here jumped into a NULL pointer inside libctru, so it is now done lazily in
+       dr3_prof_console() on the first overlay update. */
     dr3_sec_ms        = dr3_now_ms();
     dr3_phase_ms      = dr3_sec_ms;
     dr3_var_change_ms = dr3_sec_ms;
@@ -227,6 +226,20 @@ void dr3_prof_music_tick(void) { dr3_prof_count(DR3_CNT_MUSIC_TICK, 1); }
 
 /* ---------------------------------------------------- game frame + variants --- */
 
+/* Time between two engine frames (the real frame period, not just the timer handler) so the log
+   shows whether the 70 Hz budget (14285 us) is met. */
+uint32_t dr3_prof_frame_delta(void)
+{
+    static uint64_t prev;
+    const uint64_t  now = svcGetSystemTick();
+    uint32_t        us  = 0;
+
+    if (prev) us = (uint32_t)(((now - prev) * 1000u) / dr3_ticks_per_ms);
+    prev = now;
+
+    return us;
+}
+
 void dr3_prof_frame(uint32_t game_us, uint32_t skip)
 {
     dr3_var_t *v = &dr3_var[dr3_phase][dr3_variant];
@@ -281,6 +294,22 @@ static int dr3_prof_want_variant(uint64_t now)
 
 static uint32_t dr3_avg(uint32_t sum, uint32_t cnt) { return cnt ? (sum / cnt) : 0; }
 
+/* The bottom screen console needs gfxInit(), which SDL performs when the video subsystem is
+   initialised - definitely not during early startup.  Initialising it on the first overlay update
+   avoids the NULL jump inside libctru's gfx code. */
+static int dr3_console_ready;
+
+static int dr3_prof_console(void)
+{
+    if (dr3_console_ready) return 1;
+    if (!SDL_WasInit(SDL_INIT_VIDEO)) return 0;      /* gfx is not up yet - try again later */
+
+    dr3_console_ready = 1;
+    consoleInit(GFX_BOTTOM, NULL);
+
+    return 1;
+}
+
 static void dr3_prof_overlay(void)
 {
     const uint64_t    t0 = dr3_prof_tick();
@@ -291,6 +320,8 @@ static void dr3_prof_overlay(void)
     const dr3_slot_t *mx = &dr3_slot[p][DR3_SLOT_MIX];
     const dr3_var_t  *v  = &dr3_var[p][dr3_variant];
     const uint64_t    in = dr3_now_ms() - dr3_phase_ms;
+
+    if (!dr3_prof_console()) return;      /* gfx not initialised yet - no overlay this time */
 
     printf("\x1b[2J\x1b[H");
     printf("dRally 3DS profiler   %lu MHz\n", (unsigned long)(dr3_ticks_per_ms / 1000));

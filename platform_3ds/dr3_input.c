@@ -143,6 +143,7 @@ static void dr3_sync_keys(const dr3_pad_state_t *st)
    game can read it.  Releases are therefore scheduled a few frames later. */
 #define DR3_TEXT_RELEASE_MS 120   /* how long a synthetic key stays down */
 #define DR3_TEXT_CHAR_MS    30    /* gap between two typed characters */
+#define DR3_INPUT_POLL_MS   3     /* how often the pad/SDL events are actually polled */
 
 static struct { int scancode; unsigned int release_at; } dr3_pending[DR3_QUEUE_LEN];
 static int      dr3_pending_count;
@@ -235,10 +236,22 @@ static int dr3_translate_event(SDL_Event *e)
 
 int dr3_poll_event(SDL_Event *e)
 {
+    static unsigned int dr3_last_poll_ms;
+
     if (!dr3_ready) dr3_input_init();
 
     dr3_service_pending();      /* release typed keys that have been held long enough */
     dr3_service_text();         /* deliver the next typed character */
+
+    /* The engine calls IO_Loop() thousands of times per second (measured 2848/s, 60us each = 17% of
+       the CPU time) because it spins in its own wait loops.  Pumping SDL and reading the pad that
+       often is pure waste for a 70 Hz game, so the actual polling is limited to ~330 Hz.  Queued
+       events are still delivered immediately (the check below). */
+    if ((dr3_q_head == dr3_q_tail) && (dr3_pending_count == 0) &&
+        ((SDL_GetTicks() - dr3_last_poll_ms) < DR3_INPUT_POLL_MS))
+        return 0;
+
+    dr3_last_poll_ms = SDL_GetTicks();
 
     /* real events (HOME button / SDL_QUIT, touch, software keyboard, ...) win over synthetic ones */
     if (SDL_PollEvent(e)) {

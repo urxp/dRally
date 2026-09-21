@@ -22,6 +22,35 @@ the `.3dsx` via `3dsxtool --smdh=`. The ready-to-copy SD package (executable + o
 `README.txt`) is assembled in `C:\Users\M-PC\rally\3ds-release\dRally_3ds\` (and as a zip next to it).
 On the console the folder must end up as `sdmc:/3ds/drally/`.
 
+### First profile run (Azahar, 268 MHz) - what it found
+
+| measurement | MENU 640x480 | RACE 320x240 |
+|---|---|---|
+| `present` with filter + blit | 13826 us (blit 14540) | - |
+| `present` filter off (nearest) | 4721 us (blit 4618) | - |
+| `present` skip-blit (floor) | 340 us (flush 62, swap 1) | 178 us |
+| `IO_Loop` | 2848 calls/s, 60 us each = **17% CPU** | same |
+| audio | **22.5k of 32.7k frames/s, 11 stalls/s** | same |
+
+Conclusions and fixes applied:
+
+1. **Audio starvation had a clear cause**: SDL's n3ds backend paces its wave-buffer queue with
+   `SDL_Delay(samples * 1000 / spec.freq)`, but the DAC always runs at 32728 Hz.  The device was
+   opened with the DOS default (22050), so SDL waited 1.48x too long per buffer - exactly the
+   22528/32728 ratio seen in the log.  `a.freq = DR3_DSP_RATE` when opening fixes the pacing (and
+   with it the "music is a bit slow" symptom).
+2. **The blit is the only real cost** - flush + swap together are 63 us, so there is nothing to gain
+   there.  The filter was the expensive part (10 ms per menu frame); the common 1.6:1 case now uses
+   the packed average of two converted pixels instead of three palette lookups and three
+   multiplications per pixel.
+3. **`IO_Loop` was called 2848 times per second** (the engine spins in its own wait loops) and each
+   call pumped SDL and read the pad.  Polling is now limited to ~330 Hz, which is plenty for a 70 Hz
+   game.
+4. The frame time is now measured as wall-clock time between engine frames (the timer handler itself
+   only takes ~2 us, so measuring that was useless).
+5. `consoleInit()` on the bottom screen must not run before SDL's video driver called `gfxInit()` -
+   doing so jumped into a NULL pointer inside libctru.  It is initialised lazily now.
+
 ### Profiler build (autonomous measurement)
 
 ```

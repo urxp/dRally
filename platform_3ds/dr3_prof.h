@@ -56,6 +56,7 @@ void     dr3_prof_init(void);                 /* calibrate clock, set up the dis
 void     dr3_prof_add(int slot, uint32_t us);
 void     dr3_prof_count(int counter, uint32_t n);
 void     dr3_prof_frame(uint32_t game_us, uint32_t skip);   /* one engine frame */
+uint32_t dr3_prof_frame_delta(void);                        /* us since the last engine frame */
 void     dr3_prof_phase(int phase);
 void     dr3_prof_present_mode(int w, int h, int filtered);
 void     dr3_prof_audio_cb(int samples, uint32_t mix_us);
@@ -75,7 +76,8 @@ int      dr3_prof_force_filter(void);         /* -1 engine decides, 0 nearest, 1
 #define dr3_prof_init()                ((void)0)
 #define dr3_prof_add(slot, us)         ((void)0)
 #define dr3_prof_count(c, n)           ((void)0)
-#define dr3_prof_frame(us, skip)       ((void)0)
+#define dr3_prof_frame(us, skip)       ((void)(us), (void)(skip))
+static inline uint32_t dr3_prof_frame_delta(void) { return 0; }
 #define dr3_prof_phase(p)              ((void)0)
 #define dr3_prof_present_mode(w,h,f)   ((void)0)
 #define dr3_prof_audio_cb(s, us)       ((void)0)

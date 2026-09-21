@@ -109,9 +109,11 @@ unsigned int __GET_FRAME_COUNTER(void){
 
 		INT8_FRAME_COUNTER += skip;
 		{
-			DR3_PROF_MARK(frame_t0);
+			/* wall time since the previous engine frame = the real frame period */
+			const uint32_t wall_us = dr3_prof_frame_delta();
+
 			IRQ0_TimerISR();
-			dr3_prof_frame(dr3_prof_us(frame_t0), (unsigned int)skip);
+			dr3_prof_frame(wall_us, (unsigned int)skip);
 		}
 
 		//if(!skip) __PRESENTSCREEN__();
