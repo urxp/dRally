@@ -395,12 +395,17 @@ static void dr3_prof_overlay(void)
 
     dr3_prof_touch();          /* tap the rate buttons to tune the pitch */
 
+    dr3_prof_touch();          /* tap the rate buttons to tune the pitch */
+
     /* append the same controls + driver standings block the normal build shows */
     {
         char lines[DR3_BOTTOM_LINES][DR3_BOTTOM_LINE_LEN];
         int  n = dr3_bottom_build_lines(lines), i;
 
         for (i = 0; i < n; ++i) printf("%s\n", lines[i]);
+
+        while (n < (DR3_BOTTOM_LINES - 1)) { printf("\n"); ++n; }
+        printf("%s", dr3_bottom_button_line());
     }
 
     dr3_bottom_flush();
@@ -499,6 +504,10 @@ void dr3_prof_poll(void)
 {
     uint64_t now;
     int      want;
+
+    /* the on-screen buttons must react immediately (they throttle themselves internally) */
+    dr3_bottom_touch();        /* ENTER / ESC                   */
+    dr3_prof_touch();          /* audio rate (profiler only)    */
 
     if (++dr3_poll_div < 32) return;      /* called from the frame limiter - keep it cheap */
     dr3_poll_div = 0;

@@ -12,4 +12,7 @@ int  dr3_input_init(void);            /* open the pad, reset state; call after S
 int  dr3_poll_event(SDL_Event *e);    /* drop-in replacement for SDL_PollEvent           */
 void dr3_input_describe(void);        /* log the pad/joystick name and the button map    */
 
+/* Inject a key as if the pad had produced it (used by the on-screen buttons of the bottom screen). */
+void dr3_input_inject_key(int scancode, int pressed);
+
 #endif /* DR3_INPUT_H */

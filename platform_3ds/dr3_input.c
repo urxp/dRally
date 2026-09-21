@@ -234,6 +234,18 @@ static int dr3_translate_event(SDL_Event *e)
     return 1;
 }
 
+/* Keys requested from outside the pad (bottom screen buttons).  Both the down and the up event are
+   queued, so the engine sees one clean key press. */
+void dr3_input_inject_key(int scancode, int pressed)
+{
+    if (!dr3_ready) dr3_input_init();
+    if ((scancode < 0) || (scancode >= SDL_NUM_SCANCODES)) return;
+
+    dr3_queue_push(scancode, pressed ? 1 : 0);
+
+    if (pressed) dr3_push_release(scancode, SDL_GetTicks());
+}
+
 int dr3_poll_event(SDL_Event *e)
 {
     static unsigned int dr3_last_poll_ms;

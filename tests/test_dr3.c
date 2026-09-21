@@ -155,8 +155,9 @@ static void test_input_map(void)
     dr3_input_set_context(1);
 
     memset(&st, 0, sizeof(st)); st.held = DR3_PAD_A; dr3_input_scancodes(&st, set);
-    expect_scan(&st, 1, "A button (race)");
+    expect_scan(&st, 2, "A button (race)");
     CHECK(set[SDL_SCANCODE_SPACE], "A must map to SPACE (horn) in a race");
+    CHECK(set[SDL_SCANCODE_RETURN], "A must also send RETURN so the race start dialogues confirm");
 
     memset(&st, 0, sizeof(st)); st.held = DR3_PAD_B; dr3_input_scancodes(&st, set);
     CHECK(set[SDL_SCANCODE_LSHIFT], "B must map to LSHIFT (boost) in a race");

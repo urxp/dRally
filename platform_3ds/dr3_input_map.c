@@ -42,9 +42,11 @@ static const dr3_btn_map_t dr3_btn_map_menu[] = {
     { DR3_PAD_B,      { SDL_SCANCODE_SPACE,      -1, -1 } }
 };
 
-/* race: A horn, B boost, Y shoot, X drop mine (+ the New 3DS shoulders for boost/shoot) */
+/* race: A horn, B boost, Y shoot, X drop mine (+ the New 3DS shoulders for boost/shoot).
+   A sends SPACE *and* RETURN: the horn reacts to the key state, while the race start dialogues wait
+   for a key press and only accept RETURN (RETURN is queued last, so it is the one they see). */
 static const dr3_btn_map_t dr3_btn_map_race[] = {
-    { DR3_PAD_A,      { SDL_SCANCODE_SPACE,      -1, -1 } },
+    { DR3_PAD_A,      { SDL_SCANCODE_SPACE,      SDL_SCANCODE_RETURN, -1 } },
     { DR3_PAD_B,      { SDL_SCANCODE_LSHIFT,     -1, -1 } },
     { DR3_PAD_Y,      { SDL_SCANCODE_LCTRL,      -1, -1 } },
     { DR3_PAD_X,      { SDL_SCANCODE_LALT,       -1, -1 } },

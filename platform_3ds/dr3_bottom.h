@@ -20,6 +20,12 @@ int  dr3_bottom_console_ensure(void);
 /* Fills "out" with the controls/standings block and returns the number of lines written. */
 int  dr3_bottom_build_lines(char out[DR3_BOTTOM_LINES][DR3_BOTTOM_LINE_LEN]);
 
+/* The on-screen buttons drawn in the last row of the screen. */
+const char *dr3_bottom_button_line(void);
+
+/* Handles taps on those buttons (ENTER / ESC).  Call frequently - it throttles itself. */
+void dr3_bottom_touch(void);
+
 /* Standalone bottom screen (release build): redraws at most once a second, only when it changed. */
 void dr3_bottom_update(void);
 

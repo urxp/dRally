@@ -34,11 +34,8 @@ void dr3_log(const char *fmt, ...)
     }
     va_end(ap);
 
-    va_start(ap, fmt);
-    vfprintf(stdout, fmt, ap);
-    fputc('\n', stdout);
-    fflush(stdout);
-    va_end(ap);
+    /* NOTE: nothing goes to stdout here on purpose.  libctru's consoleInit() makes stdout draw onto
+       the bottom screen, which would overwrite the controls/standings/statistics we show there. */
 }
 
 int dr3_log_lines(void)
