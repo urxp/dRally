@@ -20,6 +20,15 @@ int  dr3_bottom_console_ensure(void);
 /* Fills "out" with the controls/standings block and returns the number of lines written. */
 int  dr3_bottom_build_lines(char out[DR3_BOTTOM_LINES][DR3_BOTTOM_LINE_LEN]);
 
+/* Tapping the bottom screen switches the information off and on again.
+   dr3_bottom_touch() reacts to every tap, dr3_bottom_touch_ex() ignores taps whose Y coordinate is
+   inside [ignore_y0, ignore_y1) - the profiler build uses that for its audio rate buttons. */
+void dr3_bottom_touch(void);
+void dr3_bottom_touch_ex(int ignore_y0, int ignore_y1);
+
+/* 1 while the player switched the information off. */
+int  dr3_bottom_is_hidden(void);
+
 /* Standalone bottom screen (release build): redraws at most once a second. */
 void dr3_bottom_update(void);
 

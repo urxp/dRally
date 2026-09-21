@@ -72,6 +72,12 @@ player index `___1a1ef8h`; see `drally_structs_fixed.h`): sorted by points, the 
 loaded the list shows `(no game loaded)` - names are sanity checked so uninitialised memory cannot
 show up as drivers.  It refreshes at most once per second and only when the text changed.
 
+* the pad mapping can be overridden with `dr3_controls.txt` in the game folder (one `BUTTON = KEY[, KEY]`
+  line per button, optionally prefixed with `menu:` or `race:`; keys are SDL scancode names, `NONE`
+  removes a mapping) - see `platform_3ds/dr3_input_map.c`
+* tapping the bottom screen switches the controls/standings (or the profiler statistics) off and on
+  again; the state is kept in `dr3_bottom_hidden`
+
 The profiler build keeps that screen for the profiler (`-DDR3_PROFILE` disables `dr3_bottom`).
 
 ### Profiler build (autonomous measurement)

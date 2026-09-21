@@ -1,4 +1,5 @@
 #include "dr3_bottom.h"
+#include "dr3_log.h"
 
 #include "drally.h"
 #include "drally_structs_fixed.h"
@@ -105,6 +106,40 @@ void dr3_bottom_flush(void)
     gfxScreenSwapBuffers(GFX_BOTTOM, false);
 }
 
+/* --------------------------------------------------------------- tap to hide --- */
+
+static int dr3_bottom_hidden;
+
+int dr3_bottom_is_hidden(void) { return dr3_bottom_hidden; }
+
+void dr3_bottom_touch(void) { dr3_bottom_touch_ex(-1, -1); }
+
+void dr3_bottom_touch_ex(int ignore_y0, int ignore_y1)
+{
+    static unsigned int last_ms;
+    static int          was_down;
+    touchPosition       touch;
+    const unsigned int  now = SDL_GetTicks();
+    int                 down;
+
+    if ((now - last_ms) < 30) return;          /* 33 Hz is plenty for tapping */
+    last_ms = now;
+
+    hidTouchRead(&touch);
+    down = (touch.px || touch.py) ? 1 : 0;
+
+    if (down && !was_down) {
+        const unsigned int y = touch.py;
+
+        if (!((ignore_y0 >= 0) && (y >= (unsigned int)ignore_y0) && (y < (unsigned int)ignore_y1))) {
+            dr3_bottom_hidden = !dr3_bottom_hidden;
+            dr3_log("[dr3] bottom screen %s (tap to switch it back)", dr3_bottom_hidden ? "hidden" : "shown");
+        }
+    }
+
+    was_down = down;
+}
+
 /* One line of the standings: rank, player marker, name and points.  The name is padded so the points
    always sit in the same column, whatever the name length is.  12 character names still fit (the
    right column allows 21 characters). */
@@ -173,6 +208,14 @@ void dr3_bottom_update(void)
     if (!dr3_bottom_console_ensure()) return;
     if ((SDL_GetTicks() - last_ms) < 1000) return;      /* once a second is plenty */
     last_ms = SDL_GetTicks();
+
+    if (dr3_bottom_hidden) {
+        /* the player tapped the screen away: keep it dark (the game's own printf() output lands here
+           too, so it has to be cleared again) */
+        printf("\x1b[2J\x1b[H");
+        dr3_bottom_flush();
+        return;
+    }
 
     rows = dr3_bottom_build_lines(line);
 

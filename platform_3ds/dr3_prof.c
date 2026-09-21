@@ -365,6 +365,14 @@ static void dr3_prof_overlay(void)
 
     if (!dr3_prof_console()) return;      /* gfx not initialised yet - no overlay this time */
 
+    if (dr3_bottom_is_hidden()) {
+        /* the player tapped the screen away - keep it dark */
+        printf("\x1b[2J\x1b[H");
+        dr3_bottom_flush();
+        dr3_prof_add(DR3_SLOT_OVERLAY, dr3_prof_us(t0));
+        return;
+    }
+
     printf("\x1b[2J\x1b[H");
     printf("dRally 3DS profiler   %lu MHz\n", (unsigned long)(dr3_ticks_per_ms / 1000));
     printf("PHASE %-5s %4lu.%01lus   VAR %s\n", dr3_phase_name[p], (unsigned long)(in / 1000),
@@ -501,7 +509,8 @@ void dr3_prof_poll(void)
     int      want;
 
     /* the on-screen rate buttons must react immediately (they throttle themselves internally) */
-    dr3_prof_touch();          /* audio rate (profiler only)    */
+    dr3_bottom_touch_ex(70, 100);   /* a tap elsewhere switches the info off/on */
+    dr3_prof_touch();               /* audio rate (profiler only)          */
 
     if (++dr3_poll_div < 32) return;      /* called from the frame limiter - keep it cheap */
     dr3_poll_div = 0;
