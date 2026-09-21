@@ -38,7 +38,7 @@ int main(int argc, char * argv[]){
 
 #if defined(__3DS__)
 	dr3_log("[dr3] === dRally 3DS boot ===");
-	dr3_fix_paths(argc > 0 ? argv[0] : NULL);	/* assets are opened relative to the CWD */
+	dr3_fix_paths(argc > 0 ? argv[0] : NULL);	/* assets are opened relative to the CWD */
 
 	/* autonomous profiler (debug build only): clock calibration + bottom screen display */
 	dr3_prof_init();
