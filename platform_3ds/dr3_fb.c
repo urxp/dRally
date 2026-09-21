@@ -9,6 +9,47 @@ static int       dr3_fb_w;
 static int       dr3_fb_h;
 static int       dr3_fb_ready;
 
+/*
+ * Per-mode lookup tables.  The original inner loops computed "y * sh / dh" for every one of the
+ * 96.000 pixels; an ARM11 integer division costs ~20-40 cycles, so that alone was milliseconds per
+ * frame.  Everything that only depends on the source/target size is precomputed once here.
+ */
+#define DR3_MAP_MAX 512
+
+static int      dr3_map_sw = -1;
+static int      dr3_map_sh = -1;
+static uint16_t dr3_sx[DR3_MAP_MAX];    /* target x -> source column (nearest)        */
+static uint16_t dr3_sy[DR3_MAP_MAX];    /* target y -> source row (nearest)           */
+static uint16_t dr3_fx0[DR3_MAP_MAX];   /* filtered: first source column of target x  */
+static uint16_t dr3_fx1[DR3_MAP_MAX];   /* filtered: end column (exclusive)           */
+static uint16_t dr3_finv[DR3_MAP_MAX];  /* filtered: 65536 / (fx1 - fx0)              */
+
+static void dr3_fb_build_maps(int sw, int sh, int dw, int dh)
+{
+    int i;
+
+    if (dr3_map_sw == sw && dr3_map_sh == sh) return;
+
+    for (i = 0; i < dw && i < DR3_MAP_MAX; ++i) {
+        int x1;
+
+        dr3_sx[i]  = (uint16_t)(((uint32_t)i * (uint32_t)sw) / (uint32_t)dw);
+        dr3_fx0[i] = dr3_sx[i];
+        x1         = (int)(((uint32_t)(i + 1) * (uint32_t)sw) / (uint32_t)dw);
+        if (x1 <= dr3_fx0[i]) x1 = dr3_fx0[i] + 1;
+        if (x1 > sw)          x1 = sw;
+        dr3_fx1[i]  = (uint16_t)x1;
+        dr3_finv[i] = (uint16_t)(65536u / (uint32_t)(x1 - dr3_fx0[i]));
+    }
+
+    for (i = 0; i < dh && i < DR3_MAP_MAX; ++i) {
+        dr3_sy[i] = (uint16_t)(((uint32_t)i * (uint32_t)sh) / (uint32_t)dh);
+    }
+
+    dr3_map_sw = sw;
+    dr3_map_sh = sh;
+}
+
 int dr3_fb_init(void)
 {
     uint16_t w = 0;
@@ -56,47 +97,64 @@ void dr3_fb_present(const uint8_t *src, int sw, int sh, int src_pitch,
     /* the image is written into the rotated buffer: source column -> hardware row */
     const int dw = dr3_fb_h;                  /* 400 */
     const int dh = dr3_fb_w;                  /* 240 */
+    const uint32_t *lutpx = lut->px;
 
-    for (x = 0; x < dw; ++x) {
-        uint32_t *row = dr3_fb + (size_t)x * (size_t)dr3_fb_w;
-        int       sx0 = (int)(((uint32_t)x * (uint32_t)sw) / (uint32_t)dw);
-        int       sx1 = (int)(((uint32_t)(x + 1) * (uint32_t)sw) / (uint32_t)dw);
+    if (dw > DR3_MAP_MAX || dh > DR3_MAP_MAX) return;
 
-        if (sx1 <= sx0) sx1 = sx0 + 1;
+    dr3_fb_build_maps(sw, sh, dw, dh);
 
-        for (y = 0; y < dh; ++y) {
-            const int sy = (int)(((uint32_t)y * (uint32_t)sh) / (uint32_t)dh);
-            uint32_t  v;
+    if (filter) {
+        /* average the source columns a target pixel covers - the game's dither patterns alias into
+           vertical stripes with plain nearest neighbour */
+        for (x = 0; x < dw; ++x) {
+            uint32_t *      drow   = fb + (size_t)x * (size_t)dr3_fb_w + (dh - 1);
+            const int       sx0    = dr3_fx0[x];
+            const int       sx1    = dr3_fx1[x];
+            const uint32_t  inv    = dr3_finv[x];
+            const uint8_t * srow   = NULL;
+            int             sy_cur = -1;
+            const int       rs = lut->rs, gs = lut->gs, bs = lut->bs, as = lut->as;
 
-            if (filter) {
-                /* average the source columns that this target pixel covers - the game's dither
-                   patterns alias into vertical stripes otherwise */
-                const uint8_t *srow = src + (size_t)sy * (size_t)src_pitch;
-                uint32_t       r = 0, g = 0, b = 0, n = 0;
-                int            sx;
+            for (y = 0; y < dh; ++y) {
+                const int sy = dr3_sy[y];
+                uint32_t  r = 0, g = 0, b = 0;
+                const uint8_t *p;
+                const uint8_t *end;
 
-                for (sx = sx0; sx < sx1 && sx < sw; ++sx) {
-                    const uint8_t idx = srow[sx];
+                if (sy != sy_cur) {          /* same source row -> same pixels, only re-base on change */
+                    sy_cur = sy;
+                    srow   = src + (size_t)sy * (size_t)src_pitch;
+                }
+
+                p   = srow + sx0;
+                end = srow + sx1;
+                while (p < end) {
+                    const uint8_t idx = *p++;
                     r += pal->r[idx];
                     g += pal->g[idx];
                     b += pal->b[idx];
-                    ++n;
                 }
 
-                if (n > 1) {
-                    const uint32_t inv = 65536u / n;   /* no integer divide on ARM11 */
-                    r = (r * inv) >> 16;
-                    g = (g * inv) >> 16;
-                    b = (b * inv) >> 16;
+                *drow-- = ((((r * inv) >> 16) << rs) | (((g * inv) >> 16) << gs) |
+                           (((b * inv) >> 16) << bs) | (0xFFu << as));
+            }
+        }
+    }
+    else {
+        for (x = 0; x < dw; ++x) {
+            const int       sx     = dr3_sx[x];
+            uint32_t *      drow   = fb + (size_t)x * (size_t)dr3_fb_w + (dh - 1);
+            const uint8_t * sptr   = src + sx;
+            int             sy_cur = -1;
+
+            for (y = 0; y < dh; ++y) {
+                const int sy = dr3_sy[y];
+                if (sy != sy_cur) {
+                    sy_cur = sy;
+                    sptr   = src + (size_t)sy * (size_t)src_pitch + sx;
                 }
-
-                v = (r << lut->rs) | (g << lut->gs) | (b << lut->bs) | (0xFFu << lut->as);
+                *drow-- = lutpx[*sptr];      /* vertical stretch: same source pixel while sy is constant */
             }
-            else {
-                v = lut->px[src[(size_t)sy * (size_t)src_pitch + sx0]];
-            }
-
-            row[dh - 1 - y] = v;   /* rotation: dest column counts downwards */
         }
     }
 

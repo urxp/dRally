@@ -8,6 +8,9 @@
 
 #if defined(__3DS__) && defined(DR3_USE_GFX)
 #include "platform_3ds/dr3_fb.h"
+extern unsigned int       dr3_audio_cb_count;
+extern unsigned long long dr3_audio_frames;
+extern __WORD__           SOUND_SAMPLERATE;
 #endif
 
 
@@ -207,8 +210,9 @@ void __PRESENTSCREEN__(void){
 
 		++dr3_present_count;
 		if(SDL_GetTicks() - dr3_present_last_log >= 1000){
-			dr3_log("[dr3] %u presents/s (direct) SDLms=%u frame_counter=%u",
-				dr3_present_count, SDL_GetTicks(), INT8_FRAME_COUNTER);
+			dr3_log("[dr3] %u presents/s (direct) SDLms=%u frame_counter=%u audio: %u callbacks, %llu frames in the last second (expected ~%d)", dr3_present_count, SDL_GetTicks(), INT8_FRAME_COUNTER, dr3_audio_cb_count, dr3_audio_frames, (int)SOUND_SAMPLERATE);
+			dr3_audio_cb_count = 0;
+			dr3_audio_frames = 0;
 			dr3_present_count = 0;
 			dr3_present_last_log = SDL_GetTicks();
 		}

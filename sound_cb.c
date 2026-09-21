@@ -1,5 +1,11 @@
 #include "drally.h"
 
+#if defined(__3DS__)
+extern unsigned int dr3_audio_cb_count;
+extern unsigned long long dr3_audio_frames;
+#include "platform_3ds/dr3_log.h"
+#endif
+
 #define __BOUNDS(v, l, h) 	((v)<(l)?(l):(v)>(h)?(h):(v))
 #define COO32UV(u,v) 	(0x20*(v)+(u))
 
@@ -315,6 +321,11 @@ void audio_s16_stereo_cb(__POINTER__ udata, unsigned char * stream, unsigned int
 
 
 	samples = size / sizeof(sample_s16_stereo_t);
+#if defined(__3DS__)
+	dr3_audio_cb_count++;
+	dr3_audio_frames += (unsigned long long)samples;
+#endif
+
 	samples_done = 0;
 
 	while(samples_done < samples){

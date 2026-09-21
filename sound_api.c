@@ -122,6 +122,13 @@ void ___685a4h_createPlanes_cdecl(void);
 void ___6ef2ch_init(void);
 void ___6ef2ch(void);
 
+#if defined(__3DS__)
+/* how much audio the mixer has actually produced - compared against the sample rate this shows
+   whether the audio thread is being starved by the renderer */
+unsigned int       dr3_audio_cb_count = 0;
+unsigned long long dr3_audio_frames = 0;
+#endif
+
 SDL_AudioDeviceID audio_dev = 0;
 
 

@@ -1,7 +1,14 @@
 #include "drally.h"
 #include "drmemory.h"
 
-#define SAMPLES 			256
+#if defined(__3DS__)
+/* The audio mixer runs on the same CPU as the renderer, so a bigger buffer means four times fewer
+   callbacks and far more slack before the music starts to drag (the L/R buffers in this file are
+   sized from SOUND_SAMPLES, which keeps everything consistent). */
+#define SAMPLES			1024
+#else
+#define SAMPLES			256
+#endif
 #define VOLUME_MAX 			100
 #define SAMPLELIB_NEW		0
 #define SAMPLELIB_RESAMPLE	1
