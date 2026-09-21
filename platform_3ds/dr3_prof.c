@@ -3,6 +3,7 @@
 #if defined(DR3_PROFILE)
 
 #include "dr3_log.h"
+#include "dr3_bottom.h"
 
 #include <3ds.h>
 #include <SDL.h>
@@ -301,11 +302,8 @@ static int dr3_console_ready;
 
 static int dr3_prof_console(void)
 {
-    if (dr3_console_ready) return 1;
-    if (!SDL_WasInit(SDL_INIT_VIDEO)) return 0;      /* gfx is not up yet - try again later */
-
+    if (!dr3_bottom_console_ensure()) return 0;   /* shared with the release build's bottom screen */
     dr3_console_ready = 1;
-    consoleInit(GFX_BOTTOM, NULL);
 
     return 1;
 }
@@ -397,8 +395,15 @@ static void dr3_prof_overlay(void)
 
     dr3_prof_touch();          /* tap the rate buttons to tune the pitch */
 
-    gfxFlushBuffers();
-    gfxScreenSwapBuffers(GFX_BOTTOM, false);
+    /* append the same controls + driver standings block the normal build shows */
+    {
+        char lines[DR3_BOTTOM_LINES][DR3_BOTTOM_LINE_LEN];
+        int  n = dr3_bottom_build_lines(lines), i;
+
+        for (i = 0; i < n; ++i) printf("%s\n", lines[i]);
+    }
+
+    dr3_bottom_flush();
 
     dr3_prof_add(DR3_SLOT_OVERLAY, dr3_prof_us(t0));
 }

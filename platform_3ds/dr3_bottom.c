@@ -1,5 +1,4 @@
 #include "dr3_bottom.h"
-#include "dr3_log.h"
 
 #include "drally.h"
 #include "drally_structs_fixed.h"
@@ -13,12 +12,10 @@
 extern __BYTE__  ___1a01e0h[];
 extern __BYTE__  ___1a1ef8h[];
 
-#define DR3_BOTTOM_COLS   40
-#define DR3_BOTTOM_ROWS   30
-#define DR3_BOTTOM_TOP    10            /* how many drivers the standings list shows */
+#define DR3_BOTTOM_TOP 10          /* how many drivers the standings list shows */
 
-static int dr3_bottom_ready;
-static char dr3_bottom_last[DR3_BOTTOM_ROWS][64];
+static int  dr3_bottom_ready;
+static char dr3_bottom_last[DR3_BOTTOM_LINES][DR3_BOTTOM_LINE_LEN];
 static int  dr3_bottom_drawn;
 
 /* ------------------------------------------------------------------ controls --- */
@@ -40,17 +37,13 @@ static const char *const dr3_bottom_controls[] = {
 
 /* ---------------------------------------------------------------- standings --- */
 
-typedef struct {
-    char  name[16];
-    int   points;
-    int   is_player;
-} dr3_standing_t;
+typedef struct { char name[16]; int points; int is_player; } dr3_standing_t;
 
-/* Reads the racer array the engine keeps for the running game.  Returns the number of drivers
-   written; 0 when no game is loaded yet. */
+/* Reads the racer array the engine keeps for the running game (racer_t: name at +0, points at
+   +0x44).  Returns the number of drivers written; 0 when no game is loaded yet. */
 static int dr3_bottom_read_standings(dr3_standing_t *out, int max)
 {
-    const racer_t *r = (const racer_t *)___1a01e0h;
+    const racer_t *r  = (const racer_t *)___1a01e0h;
     const int      me = (int)D(___1a1ef8h);
     int            i, n = 0;
 
@@ -62,7 +55,7 @@ static int dr3_bottom_read_standings(dr3_standing_t *out, int max)
 
         memcpy(name, r[i].name, 12);
         name[12] = 0;
-        for (j = 11; (j >= 0) && ((name[j] == ' ') || (name[j] == 0)); --j) name[j] = 0;
+        for (j = 11; (j >= 0) && ((name[j] == (char)32) || (name[j] == 0)); --j) name[j] = 0;
 
         /* guard against uninitialised memory (before a game is loaded) and empty slots: only accept
            short names made of plain printable characters */
@@ -81,7 +74,7 @@ static int dr3_bottom_read_standings(dr3_standing_t *out, int max)
     return n;
 }
 
-/* highest points first (simple insertion sort - at most 20 entries) */
+/* highest points first (at most 20 entries) */
 static void dr3_bottom_sort(dr3_standing_t *list, int n)
 {
     int i, j;
@@ -96,7 +89,7 @@ static void dr3_bottom_sort(dr3_standing_t *list, int n)
 
 /* -------------------------------------------------------------------- draw --- */
 
-static int dr3_bottom_console(void)
+int dr3_bottom_console_ensure(void)
 {
     if (dr3_bottom_ready) return 1;
     if (!SDL_WasInit(SDL_INIT_VIDEO)) return 0;      /* gfx is not up yet - try again later */
@@ -107,56 +100,74 @@ static int dr3_bottom_console(void)
     return 1;
 }
 
-void dr3_bottom_update(void)
+void dr3_bottom_flush(void)
 {
-    static unsigned int last_ms;
-    dr3_standing_t      list[20];
-    int                 n, i, rows = 0;
-    char                line[DR3_BOTTOM_ROWS][64];
+    gfxFlushBuffers();
+    gfxScreenSwapBuffers(GFX_BOTTOM, false);
+}
 
-    if (!dr3_bottom_console()) return;
-    if ((SDL_GetTicks() - last_ms) < 1000) return;   /* once a second is plenty */
-    last_ms = SDL_GetTicks();
+int dr3_bottom_build_lines(char out[DR3_BOTTOM_LINES][DR3_BOTTOM_LINE_LEN])
+{
+    dr3_standing_t list[20];
+    int            n, i, rows = 0;
+    const int      n_controls = (int)(sizeof(dr3_bottom_controls) / sizeof(dr3_bottom_controls[0]));
+
+    memset(out, 0, (size_t)DR3_BOTTOM_LINES * DR3_BOTTOM_LINE_LEN);
 
     n = dr3_bottom_read_standings(list, 20);
     dr3_bottom_sort(list, n);
 
-    memset(line, 0, sizeof(line));
-
-    snprintf(line[rows], sizeof(line[rows]), "%-19s%-21s", "CONTROLS", "TOP DRIVERS");
+    snprintf(out[rows], DR3_BOTTOM_LINE_LEN, "%-19s%-21s", "CONTROLS", "TOP DRIVERS");
     ++rows;
-    snprintf(line[rows], sizeof(line[rows]), "%-19s%-21s", "-------------------", "--------------------");
+    snprintf(out[rows], DR3_BOTTOM_LINE_LEN, "%-19s%-21s", "-------------------", "--------------------");
     ++rows;
 
-    for (i = 0; i < (int)(sizeof(dr3_bottom_controls) / sizeof(dr3_bottom_controls[0])); ++i) {
+    for (i = 0; i < n_controls && rows < DR3_BOTTOM_LINES; ++i) {
         char right[24] = "";
 
         if (i < DR3_BOTTOM_TOP && i < n) {
-            snprintf(right, sizeof(right), "%d %s %s %4d",
-                     i + 1, list[i].is_player ? "*" : " ", list[i].name, list[i].points);
+            snprintf(right, sizeof(right), "%d %s %s %4d", i + 1, list[i].is_player ? "*" : " ",
+                     list[i].name, list[i].points);
         }
 
-        snprintf(line[rows], sizeof(line[rows]), "%-19s%.21s", dr3_bottom_controls[i], right);
+        snprintf(out[rows], DR3_BOTTOM_LINE_LEN, "%-19s%.21s", dr3_bottom_controls[i], right);
         ++rows;
     }
 
-    if (n == 0) {
-        snprintf(line[rows], sizeof(line[rows]), "%-19s%-21s", "", "(no game loaded)");
-        ++rows;
-    }
-    else if (!list[0].is_player) {
-        /* keep the player in sight even when he is not in the top ten */
-        for (i = 0; i < n; ++i) {
-            if (list[i].is_player) {
-                snprintf(line[rows], sizeof(line[rows]), "%-19s%d * %s %4d", "your rank", i + 1,
-                         list[i].name, list[i].points);
-                ++rows;
-                break;
+    if (rows < DR3_BOTTOM_LINES) {
+        if (n == 0) {
+            snprintf(out[rows], DR3_BOTTOM_LINE_LEN, "%-19s%-21s", "", "(no game loaded)");
+            ++rows;
+        }
+        else if (!list[0].is_player) {
+            /* keep the player in sight even when he is not in the top ten */
+            for (i = 0; i < n; ++i) {
+                if (list[i].is_player) {
+                    snprintf(out[rows], DR3_BOTTOM_LINE_LEN, "%-19s%d * %s %4d", "your rank", i + 1,
+                             list[i].name, list[i].points);
+                    ++rows;
+                    break;
+                }
             }
         }
     }
 
-    /* only touch the screen when something actually changed */
+    return rows;
+}
+
+void dr3_bottom_update(void)
+{
+    static unsigned int last_ms;
+    char                line[DR3_BOTTOM_LINES][DR3_BOTTOM_LINE_LEN];
+    int                 rows, i;
+
+    if (!dr3_bottom_console_ensure()) return;
+    if ((SDL_GetTicks() - last_ms) < 1000) return;      /* once a second is plenty */
+    last_ms = SDL_GetTicks();
+
+    rows = dr3_bottom_build_lines(line);
+
+    /* only touch the screen when the text actually changed */
     if (dr3_bottom_drawn && (memcmp(line, dr3_bottom_last, sizeof(line)) == 0)) return;
     memcpy(dr3_bottom_last, line, sizeof(line));
     dr3_bottom_drawn = 1;
@@ -164,12 +175,5 @@ void dr3_bottom_update(void)
     printf("\x1b[2J\x1b[H");
     for (i = 0; i < rows; ++i) printf("%s\n", line[i]);
 
-    gfxFlushBuffers();
-    gfxScreenSwapBuffers(GFX_BOTTOM, false);
-}
-
-void dr3_bottom_release(void)
-{
-    dr3_bottom_drawn = 0;
-    dr3_bottom_ready = 0;
+    dr3_bottom_flush();
 }
