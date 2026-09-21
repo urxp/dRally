@@ -8,6 +8,12 @@
 #include <3ds.h>
 #include <SDL.h>
 #include <stdio.h>
+
+/* this file draws via the real printf (libctru's console on the bottom screen) */
+#if defined(printf)
+#undef printf
+#endif
+
 #include <stdarg.h>
 #include <string.h>
 

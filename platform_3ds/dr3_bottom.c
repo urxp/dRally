@@ -2,6 +2,11 @@
 #include "dr3_log.h"
 
 #include "drally.h"
+
+/* this file draws via the real printf (libctru's console on the bottom screen) */
+#if defined(printf)
+#undef printf
+#endif
 #include "drally_structs_fixed.h"
 
 #include <3ds.h>

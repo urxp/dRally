@@ -11,6 +11,21 @@
 
 #include "types.h"
 
+#if defined(__3DS__)
+#include "platform_3ds/dr3_log.h"
+
+/*
+ * libctru's console is initialised on the bottom screen so the port can show the controls, the driver
+ * standings and (in the profiler build) its statistics there.  That also means stdout draws onto that
+ * screen, and the decompiled engine has 126 printf() leftovers - some fire over and over while racing
+ * (e.g. "[TODO] IN instruction for Joystick/Gamepad"), which made the screen flicker.  Sending every
+ * printf() to the log file keeps the bottom screen ours; nothing uses printf()'s return value, so the
+ * replacement is safe.  The bottom screen code (dr3_bottom.c / dr3_prof.c) needs the real printf and
+ * undefines this again.
+ */
+#define printf(...) dr3_log(__VA_ARGS__)
+#endif
+
 
 typedef void (*void_cb)(void);
 

@@ -80,6 +80,12 @@ show up as drivers.  It refreshes at most once per second and only when the text
 * tapping the bottom screen switches the controls/standings (or the profiler statistics) off and on
   again; the state is kept in `dr3_bottom_hidden`
 
+* the engine's own `printf()` output is sent to the log file (`#define printf(...) dr3_log(__VA_ARGS__)`
+  in drally.h, __3DS__ only): libctru's console makes stdout draw onto the bottom screen, and the
+  decompiled leftovers - e.g. `[TODO] IN instruction for Joystick/Gamepad` fires repeatedly while
+  racing - made the bottom screen flicker even when it was switched off.  `dr3_bottom.c` /
+  `dr3_prof.c` undefine the macro again because they draw there on purpose
+
 The profiler build keeps that screen for the profiler (`-DDR3_PROFILE` disables `dr3_bottom`).
 
 ### Profiler build (autonomous measurement)
