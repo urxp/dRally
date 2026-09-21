@@ -1,7 +1,34 @@
 # Nintendo 3DS port
 
-Branch `3ds`, worktree `C:\Users\M-PC\rally\dRally-3ds` (based on upstream `920d85a`).
+Branch `3ds`, worktree `C:\Users\M-PC\rally\dRally-3ds` (5 commits on top of upstream `920d85a`).
 Windows remains the reference build — this branch does not touch it.
+
+## Status (2026-09-21): runs on the emulator, playable
+
+| | |
+|---|---|
+| Runs in **Azahar** | yes — boots, menus, name entry, in-game |
+| Runs on real hardware | not tested yet (next step; `3dslink` or copy the `.3dsx` to the SD card) |
+| Input | d-pad/circle pad steer, R accelerate, L brake, A confirm, Y turbo, X machine gun, B horn, START pause, SELECT opens the 3DS software keyboard, L+R+START quits |
+| Video | direct top-screen framebuffer output, double buffered, box-filtered downscale for the 640x480 menus |
+| Speed | engine logic keeps its ~70 fps; presentation is the bottleneck (12-27 fps in the emulator). The emulator itself is a big part of that - measure on hardware |
+| Sound | **not working in Azahar**: `SDL_OpenAudioDevice` fails with `DSP init failed: dspfirm.cdc missing!`. libctru's ndsp needs the DSP firmware that Luma3DS provides on real hardware (`sdmc:/3ds/dspfirm.cdc`); the emulator has no system files from a console |
+| Known gaps | `___59720h` was ported (keyboard path only, joystick branches omitted); some menus/dialogs may still be unimplemented upstream (they print `TODO` and `exit(1)`) |
+
+### Things learned the hard way (all handled in the code)
+
+1. **Working directory** — the engine opens `ENGINE.BPA` etc. relative to the CWD; on the 3DS that is
+   not the game folder, so the game crashed right after startup. `platform_3ds/dr3_paths.c` fixes it.
+2. **Azahar pauses the app at start** (`Debugging_DelayStartForLLEModules`) — with an empty NAND this
+   leaves *every* homebrew on a black screen. Set `delay_start_for_lle_modules=false` in
+   `%APPDATA%\azahar\config\qt-config.ini` (Azahar must be closed while editing, it rewrites the file
+   on exit).
+3. **The engine keeps only the last key of a frame**, so typed text must be delivered one character per
+   frame, and a dialogue needs exactly one key per press (that is why A emits a single RETURN).
+4. **SDL's n3ds present path** copies the window surface pixel by pixel into the rotated hardware
+   buffer - far too slow, hence the direct gfx output (with double buffering, otherwise it tears).
+5. **Debugging without a console**: Azahar is a GUI application, so guest stdout is lost;
+   `platform_3ds/dr3_log.c` writes `sdmc:/drally_3ds.log`, which is readable from the PC.
 
 ## Why there is no SDL shim
 
@@ -49,14 +76,14 @@ Windows configuration; multiplayer simply cannot connect (it could not on PC eit
 | D-pad / circle pad / c-stick | steer (`LEFT`/`RIGHT`, `KP_4`/`KP_6`), up/down also accelerate/brake (`A`/`Z`) |
 | R | accelerate (`A`) |
 | L | brake / reverse (`Z`) |
-| A | nitro (`LSHIFT`) **and** menu confirm (`KP_ENTER`) |
+| A | confirm / menu (`RETURN` — exactly one key so dialogues see it) |
+| Y | turbo boost (`LSHIFT`) |
 | X | machine gun (`LCTRL`) |
-| Y | drop mine (`LALT`) |
 | B | horn (`SPACE`) |
+| ZL / ZR (New 3DS) | drop mine (`LALT`) / machine gun (`LCTRL`) |
 | START | pause / back (`ESCAPE`) |
-| SELECT | help (`F1`) |
-| ZL / ZR (New 3DS) | machine gun / mine |
-| **L + R + START** | quit to the home menu |
+| **SELECT** | opens the **3DS software keyboard** (type player names, save slots) |
+| **L + R + START** | quit |
 
 The defaults are dRally's own (`config_c.c`): accelerate `A`, brake `Z`, arrows steer, turbo
 `LSHIFT`, horn `SPACE`, mine `LALT`, machine gun `LCTRL`. Covered by
