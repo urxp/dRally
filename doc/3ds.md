@@ -72,9 +72,11 @@ player index `___1a1ef8h`; see `drally_structs_fixed.h`): sorted by points, the 
 loaded the list shows `(no game loaded)` - names are sanity checked so uninitialised memory cannot
 show up as drivers.  It refreshes at most once per second and only when the text changed.
 
-* the pad mapping can be overridden with `dr3_controls.txt` in the game folder (one `BUTTON = KEY[, KEY]`
-  line per button, optionally prefixed with `menu:` or `race:`; keys are SDL scancode names, `NONE`
-  removes a mapping) - see `platform_3ds/dr3_input_map.c`
+* the pad mapping is described with *functions* (GAS, BRAKE, BOOST, SHOOT, MINE, HORN, LEFT, RIGHT,
+  PAUSE, CONFIRM, MENU_UP/DOWN/NEXT) and can be reassigned freely in `dr3_controls.txt` in the game
+  folder: `FUNCTION = BUTTON[, BUTTON]`, with the analog stick directions usable as buttons
+  (`GAS = R, UP, STICK_UP, B`).  A function belongs to the front end, a race or both, so the same
+  button can confirm a menu entry and honk the horn (`platform_3ds/dr3_input_map.c`)
 * tapping the bottom screen switches the controls/standings (or the profiler statistics) off and on
   again; the state is kept in `dr3_bottom_hidden`
 

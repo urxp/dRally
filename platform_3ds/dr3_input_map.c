@@ -3,86 +3,80 @@
 #include <stddef.h>   /* size_t - MSVC pulls this in transitively, GCC does not */
 #include <string.h>
 
-/* One 3DS button can produce up to three scancodes (e.g. horn *and* menu confirm, or accelerator
-   *and* the keypad alias the engine also accepts). */
+/*
+ * The mapping is described with *functions* (what the game needs), not with keys: each function owns
+ * the buttons that trigger it and the key(s) it sends to the engine.
+ *
+ *   - a function belongs to one situation (front end 640x480, race 320x240) or to both
+ *   - several buttons can trigger the same function (GAS = R, UP by default)
+ *   - so "gas" can be put on anything the player likes, via dr3_controls.txt
+ */
+
+#define DR3_CTX_MENU      0        /* front end (VESA101 640x480)            */
+#define DR3_CTX_RACE      1        /* race (VGA13 320x240)                   */
+#define DR3_CTX_ANY      -1
+
+#define DR3_FUNC_KEYS     3
+#define DR3_FUNC_BUTTONS  4
+
+/* pseudo buttons: the analog sticks (both of them, per direction) so that e.g. GAS can be put on
+   STICK_UP as well as on R */
+#define DR3_STICK_LEFT   0x80000001u
+#define DR3_STICK_RIGHT  0x80000002u
+#define DR3_STICK_UP     0x80000003u
+#define DR3_STICK_DOWN   0x80000004u
+
 typedef struct {
-    uint32_t    mask;
-    const char *name;          /* the name used in dr3_controls.txt */
-} dr3_btn_def_t;
+    const char *name;                          /* the name used in dr3_controls.txt */
+    int         context;                       /* DR3_CTX_MENU / _RACE / _ANY       */
+    int         keys[DR3_FUNC_KEYS];           /* the keys it sends to the engine   */
+    uint32_t    buttons[DR3_FUNC_BUTTONS];     /* the buttons that trigger it       */
+} dr3_func_def_t;
 
-#define DR3_BTN_COUNT 13
-#define DR3_CTX_COUNT 2        /* 0 = front end (VESA101 640x480), 1 = race (VGA13 320x240) */
-#define DR3_BTN_KEYS  3
+#define DR3_FUNC_COUNT 13
 
-static const dr3_btn_def_t dr3_btn_defs[DR3_BTN_COUNT] = {
-    { DR3_PAD_LEFT,  "LEFT"  },
-    { DR3_PAD_RIGHT, "RIGHT" },
-    { DR3_PAD_UP,    "UP"    },
-    { DR3_PAD_DOWN,  "DOWN"  },
-    { DR3_PAD_R,     "R"     },
-    { DR3_PAD_L,     "L"     },
-    { DR3_PAD_A,     "A"     },
-    { DR3_PAD_B,     "B"     },
-    { DR3_PAD_X,     "X"     },
-    { DR3_PAD_Y,     "Y"     },
-    { DR3_PAD_ZL,    "ZL"    },
-    { DR3_PAD_ZR,    "ZR"    },
-    { DR3_PAD_START, "START" }
-
-    /* NOTE: SELECT deliberately has no scancode - it opens the 3DS software keyboard (dr3_input.c)
-       so player names and save slots can be typed. */
+static const dr3_func_def_t dr3_funcs[DR3_FUNC_COUNT] = {
+    { "GAS",       DR3_CTX_RACE,  { SDL_SCANCODE_A, -1, -1 },
+      { DR3_PAD_R, DR3_PAD_UP, DR3_STICK_UP, 0 } },
+    { "BRAKE",     DR3_CTX_RACE,  { SDL_SCANCODE_Z, -1, -1 },
+      { DR3_PAD_L, DR3_PAD_DOWN, DR3_STICK_DOWN, 0 } },
+    { "MENU_UP",   DR3_CTX_MENU,  { SDL_SCANCODE_UP, -1, -1 },
+      { DR3_PAD_UP, 0, 0, 0 } },
+    { "MENU_DOWN", DR3_CTX_MENU,  { SDL_SCANCODE_DOWN, -1, -1 },
+      { DR3_PAD_DOWN, 0, 0, 0 } },
+    { "LEFT",      DR3_CTX_ANY,   { SDL_SCANCODE_LEFT, SDL_SCANCODE_KP_4, -1 },
+      { DR3_PAD_LEFT, DR3_STICK_LEFT, 0, 0 } },
+    { "RIGHT",     DR3_CTX_ANY,   { SDL_SCANCODE_RIGHT, SDL_SCANCODE_KP_6, -1 },
+      { DR3_PAD_RIGHT, DR3_STICK_RIGHT, 0, 0 } },
+    { "PAUSE",     DR3_CTX_ANY,   { SDL_SCANCODE_ESCAPE, -1, -1 },
+      { DR3_PAD_START, 0, 0, 0 } },
+    { "BOOST",     DR3_CTX_RACE,  { SDL_SCANCODE_LSHIFT, -1, -1 },
+      { DR3_PAD_B, DR3_PAD_ZL, 0, 0 } },
+    { "SHOOT",     DR3_CTX_RACE,  { SDL_SCANCODE_LCTRL, -1, -1 },
+      { DR3_PAD_Y, DR3_PAD_ZR, 0, 0 } },
+    { "MINE",      DR3_CTX_RACE,  { SDL_SCANCODE_LALT, -1, -1 },
+      { DR3_PAD_X, 0, 0, 0 } },
+    { "HORN",      DR3_CTX_RACE,  { SDL_SCANCODE_SPACE, SDL_SCANCODE_RETURN, -1 },
+      { DR3_PAD_A, 0, 0, 0 } },
+    { "CONFIRM",   DR3_CTX_MENU,  { SDL_SCANCODE_RETURN, -1, -1 },
+      { DR3_PAD_A, 0, 0, 0 } },
+    { "MENU_NEXT", DR3_CTX_MENU,  { SDL_SCANCODE_SPACE, -1, -1 },
+      { DR3_PAD_B, 0, 0, 0 } }
 };
 
-/* [button][context][slot].  Filled from the defaults below and then optionally overridden by
-   dr3_controls.txt in the game folder (see doc/3ds.md / README.txt). */
-static int dr3_btn_tab[DR3_BTN_COUNT][DR3_CTX_COUNT][DR3_BTN_KEYS];
-static int dr3_btn_tab_ready;
-static int dr3_race_ctx;
+/* buttons can be reassigned by dr3_controls.txt */
+static uint32_t dr3_func_buttons[DR3_FUNC_COUNT][DR3_FUNC_BUTTONS];
+static int      dr3_func_ready;
+static int      dr3_race_ctx;
 
 void dr3_input_set_context(int in_race) { dr3_race_ctx = in_race ? 1 : 0; }
 
-static void dr3_btn_set(int b, int ctx, int k0, int k1, int k2)
+static void dr3_func_defaults(void)
 {
-    dr3_btn_tab[b][ctx][0] = k0;
-    dr3_btn_tab[b][ctx][1] = k1;
-    dr3_btn_tab[b][ctx][2] = k2;
-}
+    int i, j;
 
-/* The built-in mapping - the same one the port shipped before the config file existed. */
-static void dr3_btn_tab_defaults(void)
-{
-    int b, c;
-
-    for (b = 0; b < DR3_BTN_COUNT; ++b)
-        for (c = 0; c < DR3_CTX_COUNT; ++c) dr3_btn_set(b, c, -1, -1, -1);
-
-    /* steering (the keypad aliases are what the engine also accepts) and gas/brake */
-    dr3_btn_set(0, 0, SDL_SCANCODE_LEFT,    SDL_SCANCODE_KP_4, -1);
-    dr3_btn_set(0, 1, SDL_SCANCODE_LEFT,    SDL_SCANCODE_KP_4, -1);
-    dr3_btn_set(1, 0, SDL_SCANCODE_RIGHT,   SDL_SCANCODE_KP_6, -1);
-    dr3_btn_set(1, 1, SDL_SCANCODE_RIGHT,   SDL_SCANCODE_KP_6, -1);
-    dr3_btn_set(2, 0, SDL_SCANCODE_UP,      SDL_SCANCODE_A,    -1);
-    dr3_btn_set(2, 1, SDL_SCANCODE_UP,      SDL_SCANCODE_A,    -1);
-    dr3_btn_set(3, 0, SDL_SCANCODE_DOWN,    SDL_SCANCODE_Z,    -1);
-    dr3_btn_set(3, 1, SDL_SCANCODE_DOWN,    SDL_SCANCODE_Z,    -1);
-    dr3_btn_set(4, 0, SDL_SCANCODE_A,       -1, -1);
-    dr3_btn_set(4, 1, SDL_SCANCODE_A,       -1, -1);
-    dr3_btn_set(5, 0, SDL_SCANCODE_Z,       -1, -1);
-    dr3_btn_set(5, 1, SDL_SCANCODE_Z,       -1, -1);
-    dr3_btn_set(12, 0, SDL_SCANCODE_ESCAPE, -1, -1);
-    dr3_btn_set(12, 1, SDL_SCANCODE_ESCAPE, -1, -1);
-
-    /* front end: A confirms, B selects */
-    dr3_btn_set(6, 0, SDL_SCANCODE_RETURN,  -1, -1);
-    dr3_btn_set(7, 0, SDL_SCANCODE_SPACE,   -1, -1);
-
-    /* race: A horn (+RETURN for the race start dialogues), B boost, X mine, Y shoot */
-    dr3_btn_set(6,  1, SDL_SCANCODE_SPACE,  SDL_SCANCODE_RETURN, -1);
-    dr3_btn_set(7,  1, SDL_SCANCODE_LSHIFT, -1, -1);
-    dr3_btn_set(8,  1, SDL_SCANCODE_LALT,   -1, -1);
-    dr3_btn_set(9,  1, SDL_SCANCODE_LCTRL,  -1, -1);
-    dr3_btn_set(10, 1, SDL_SCANCODE_LSHIFT, -1, -1);
-    dr3_btn_set(11, 1, SDL_SCANCODE_LCTRL,  -1, -1);
+    for (i = 0; i < DR3_FUNC_COUNT; ++i)
+        for (j = 0; j < DR3_FUNC_BUTTONS; ++j) dr3_func_buttons[i][j] = dr3_funcs[i].buttons[j];
 }
 /* ---------------------------------------------------------------- config file --- */
 
@@ -93,6 +87,27 @@ static void dr3_btn_tab_defaults(void)
 #include <stdio.h>
 
 #define DR3_CONTROLS_FILE "dr3_controls.txt"
+
+static const struct { const char *name; uint32_t mask; } dr3_pad_names[] = {
+    { "A",     DR3_PAD_A     },
+    { "B",     DR3_PAD_B     },
+    { "X",     DR3_PAD_X     },
+    { "Y",     DR3_PAD_Y     },
+    { "L",     DR3_PAD_L     },
+    { "R",     DR3_PAD_R     },
+    { "ZL",    DR3_PAD_ZL    },
+    { "ZR",    DR3_PAD_ZR    },
+    { "START", DR3_PAD_START },
+    { "UP",    DR3_PAD_UP    },
+    { "DOWN",  DR3_PAD_DOWN  },
+    { "LEFT",  DR3_PAD_LEFT  },
+    { "RIGHT", DR3_PAD_RIGHT },
+    { "STICK_LEFT",  DR3_STICK_LEFT  },
+    { "STICK_RIGHT", DR3_STICK_RIGHT },
+    { "STICK_UP",    DR3_STICK_UP    },
+    { "STICK_DOWN",  DR3_STICK_DOWN  },
+    { "NONE",        0               }
+};
 
 static char *dr3_trim(char *s)
 {
@@ -108,28 +123,38 @@ static char *dr3_trim(char *s)
     return s;
 }
 
-static int dr3_btn_index(const char *name)
+static uint32_t dr3_pad_mask(const char *name)
 {
-    int b;
+    size_t i;
 
-    for (b = 0; b < DR3_BTN_COUNT; ++b) {
-        if (SDL_strcasecmp(name, dr3_btn_defs[b].name) == 0) return b;
+    for (i = 0; i < sizeof(dr3_pad_names) / sizeof(dr3_pad_names[0]); ++i) {
+        if (SDL_strcasecmp(name, dr3_pad_names[i].name) == 0) return dr3_pad_names[i].mask;
+    }
+
+    return 0;
+}
+
+static int dr3_func_index(const char *name)
+{
+    int i;
+
+    for (i = 0; i < DR3_FUNC_COUNT; ++i) {
+        if (SDL_strcasecmp(name, dr3_funcs[i].name) == 0) return i;
     }
 
     return -1;
 }
 
 /*
- * dr3_controls.txt lives next to the game data and holds one line per button:
+ * dr3_controls.txt (game folder, next to ENGINE.BPA) holds one line per function:
  *
- *      BUTTON = KEY[, KEY]         changes the race mapping
- *      menu:BUTTON = KEY[, KEY]    changes only the front end
- *      race:BUTTON = KEY[, KEY]    changes only the race
+ *      FUNCTION = BUTTON[, BUTTON]
  *
- * KEY is an SDL scancode name (SPACE, RETURN, LSHIFT, LCTRL, LALT, ESCAPE, A..Z, 1..0, KP_4, F1, ...);
- * NONE removes the mapping.  Buttons that are not mentioned keep their built-in key.
+ * FUNCTION is GAS, BRAKE, LEFT, RIGHT, PAUSE, BOOST, SHOOT, MINE, HORN, CONFIRM, MENU_UP, MENU_DOWN
+ * or MENU_NEXT; BUTTON is A, B, X, Y, L, R, ZL, ZR, START, UP, DOWN, LEFT, RIGHT, STICK or NONE.
+ * Functions that are not mentioned keep their built-in buttons.  The file is optional.
  */
-static void dr3_btn_tab_load(void)
+static void dr3_func_load(void)
 {
     FILE *fd = fopen(DR3_CONTROLS_FILE, "rb");
     char  line[160];
@@ -144,16 +169,13 @@ static void dr3_btn_tab_load(void)
         char *hash = strchr(line, '#');
         char *eq;
         char *p;
-        int   ctx = 0, b, slot;
+        int   fi, slot;
 
         ++n;
         if (hash) *hash = 0;
 
         p = dr3_trim(line);
         if (!*p) continue;
-
-        if (strncmp(p, "menu:", 5) == 0)      { ctx = 0; p = dr3_trim(p + 5); }
-        else if (strncmp(p, "race:", 5) == 0) { ctx = 1; p = dr3_trim(p + 5); }
 
         eq = strchr(p, '=');
         if (!eq) {
@@ -162,45 +184,46 @@ static void dr3_btn_tab_load(void)
         }
 
         *eq = 0;
-        b   = dr3_btn_index(dr3_trim(p));
-        if (b < 0) {
-            dr3_log("[dr3] controls: line %d: unknown button '%s'", n, dr3_trim(p));
+        fi  = dr3_func_index(dr3_trim(p));
+        if (fi < 0) {
+            dr3_log("[dr3] controls: line %d: unknown function '%s'", n, dr3_trim(p));
             continue;
         }
 
         p    = dr3_trim(eq + 1);
         slot = 0;
-        dr3_btn_set(b, ctx, -1, -1, -1);
+        while (slot < DR3_FUNC_BUTTONS) dr3_func_buttons[fi][slot++] = 0;
 
-        while (*p && (slot < DR3_BTN_KEYS)) {
-            char   key[32];
+        slot = 0;
+        while (*p) {
+            char   name[24];
             size_t len = strcspn(p, ",");
             char * k;
 
-            if (len >= sizeof(key)) len = sizeof(key) - 1;
-            memcpy(key, p, len);
-            key[len] = 0;
+            if (len >= sizeof(name)) len = sizeof(name) - 1;
+            memcpy(name, p, len);
+            name[len] = 0;
             p += len;
             if (*p == ',') ++p;
 
-            k = dr3_trim(key);
+            k = dr3_trim(name);
             if (!*k) continue;
-            if (SDL_strcasecmp(k, "NONE") == 0) continue;
 
-            {
-                SDL_Scancode sc = SDL_GetScancodeFromName(k);
-
-                if (sc == SDL_SCANCODE_UNKNOWN) {
-                    dr3_log("[dr3] controls: line %d: unknown key '%s'", n, k);
-                    continue;
-                }
-
-                dr3_btn_tab[b][ctx][slot++] = (int)sc;
+            if (slot >= DR3_FUNC_BUTTONS) {
+                dr3_log("[dr3] controls: line %d: %s takes at most %d buttons", n,
+                        dr3_funcs[fi].name, DR3_FUNC_BUTTONS);
+                break;
             }
+
+            dr3_func_buttons[fi][slot] = dr3_pad_mask(k);
+            if (dr3_func_buttons[fi][slot] == 0) {
+                dr3_log("[dr3] controls: line %d: unknown button '%s'", n, k);
+            }
+
+            ++slot;
         }
 
-        dr3_log("[dr3] controls: %s%s = first key %d", ctx ? "race:" : "menu:", dr3_btn_defs[b].name,
-                dr3_btn_tab[b][ctx][0]);
+        dr3_log("[dr3] controls: %s = %d button(s)", dr3_funcs[fi].name, slot);
     }
 
     fclose(fd);
@@ -208,44 +231,59 @@ static void dr3_btn_tab_load(void)
 
 #else
 
-#define dr3_btn_tab_load() ((void)0)
+#define dr3_func_load() ((void)0)
 
 #endif /* __3DS__ */
 
-static void dr3_btn_tab_ensure(void)
+static void dr3_func_ensure(void)
 {
-    if (dr3_btn_tab_ready) return;
-    dr3_btn_tab_ready = 1;
+    if (dr3_func_ready) return;
+    dr3_func_ready = 1;
 
-    dr3_btn_tab_defaults();
-    dr3_btn_tab_load();
+    dr3_func_defaults();
+    dr3_func_load();
+}
+
+/* Is that button (or analog stick direction) currently triggered? */
+static int dr3_btn_on(uint32_t mask, const dr3_pad_state_t *st)
+{
+    switch (mask) {
+        case DR3_STICK_LEFT:  return (st->cpad_x < 0) || (st->cstick_x < 0);
+        case DR3_STICK_RIGHT: return (st->cpad_x > 0) || (st->cstick_x > 0);
+        case DR3_STICK_UP:    return (st->cpad_y > 0) || (st->cstick_y > 0);
+        case DR3_STICK_DOWN:  return (st->cpad_y < 0) || (st->cstick_y < 0);
+        default:              return (st->held & mask) != 0;
+    }
 }
 
 int dr3_input_scancodes(const dr3_pad_state_t *st, uint8_t *scancode_set)
 {
-    int b, n, count = 0;
+    int i, j, n, count = 0;
 
-    dr3_btn_tab_ensure();
+    dr3_func_ensure();
 
     for (n = 0; n < SDL_NUM_SCANCODES; ++n) scancode_set[n] = 0;
 
-    for (b = 0; b < DR3_BTN_COUNT; ++b) {
-        const uint32_t mask = dr3_btn_defs[b].mask;
-        int            on;
+    for (i = 0; i < DR3_FUNC_COUNT; ++i) {
+        const dr3_func_def_t *f  = &dr3_funcs[i];
+        int                   on = 0;
 
-        if (mask == DR3_PAD_LEFT)       on = (st->held & mask) != 0 || st->cpad_x < 0 || st->cstick_x < 0;
-        else if (mask == DR3_PAD_RIGHT) on = (st->held & mask) != 0 || st->cpad_x > 0 || st->cstick_x > 0;
-        else if (mask == DR3_PAD_UP)    on = (st->held & mask) != 0 || st->cpad_y > 0;
-        else if (mask == DR3_PAD_DOWN)  on = (st->held & mask) != 0 || st->cpad_y < 0;
-        else                            on = (st->held & mask) != 0;
+        if ((f->context != DR3_CTX_ANY) && (f->context != dr3_race_ctx)) continue;
+
+        for (j = 0; j < DR3_FUNC_BUTTONS; ++j) {
+            const uint32_t mask = dr3_func_buttons[i][j];
+
+            if (!mask) continue;
+            if (dr3_btn_on(mask, st)) on = 1;
+        }
 
         if (!on) continue;
 
-        for (n = 0; n < DR3_BTN_KEYS; ++n) {
-            const int scan = dr3_btn_tab[b][dr3_race_ctx][n];
+        for (n = 0; n < DR3_FUNC_KEYS; ++n) {
+            const int scan = f->keys[n];
 
             if (scan < 0) break;
-            if ((scan < SDL_NUM_SCANCODES) && !scancode_set[scan]) {
+            if (!scancode_set[scan]) {
                 scancode_set[scan] = 1;
                 ++count;
             }
@@ -299,7 +337,7 @@ static const struct { int scan; const char *name; } dr3_names[] = {
     { SDL_SCANCODE_RIGHT,    "RIGHT" },
     { SDL_SCANCODE_UP,       "UP" },
     { SDL_SCANCODE_DOWN,     "DOWN" },
-    { SDL_SCANCODE_A,        "A (accelerate)" },
+    { SDL_SCANCODE_A,        "A (gas)" },
     { SDL_SCANCODE_Z,        "Z (brake)" },
     { SDL_SCANCODE_LSHIFT,   "LSHIFT (boost)" },
     { SDL_SCANCODE_LCTRL,    "LCTRL (shoot)" },

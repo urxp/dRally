@@ -130,12 +130,14 @@ static void test_input_map(void)
     memset(&st, 0, sizeof(st));
     expect_scan(&st, 0, "idle");
 
-    /* R = accelerate -> 'A' (dRally's default), L = brake -> 'Z' */
+    /* R = gas -> 'A' (dRally's default), L = brake -> 'Z': race functions */
+    dr3_input_set_context(1);
     memset(&st, 0, sizeof(st));
     st.held = DR3_PAD_R;
     dr3_input_scancodes(&st, set);
-    CHECK(set[SDL_SCANCODE_A] == 1, "R must press 'A' (accelerate)");
+    CHECK(set[SDL_SCANCODE_A] == 1, "R must press 'A' (gas) in a race");
     CHECK(set[SDL_SCANCODE_Z] == 0, "R must not press 'Z'");
+    dr3_input_set_context(0);
 
     /* front end (default context): A confirms, B selects - exactly one key each */
     dr3_input_set_context(0);
@@ -172,16 +174,19 @@ static void test_input_map(void)
 
     memset(&st, 0, sizeof(st));
     st.held = DR3_PAD_UP;
-    expect_scan(&st, 2, "d-pad up");
+    expect_scan(&st, 1, "d-pad up (front end)");
 
     memset(&st, 0, sizeof(st));
     st.cpad_x = -1;
     expect_scan(&st, 2, "circle pad left");
 
+    /* gas + steering come from the same button/stick while racing */
+    dr3_input_set_context(1);
     memset(&st, 0, sizeof(st));
     st.held   = DR3_PAD_R;
     st.cpad_x = -1;
-    expect_scan(&st, 3, "accelerate + steer left");
+    expect_scan(&st, 3, "gas + steer left");
+    dr3_input_set_context(0);
 
     /* X/Y are only mapped while racing */
     dr3_input_set_context(1);
@@ -201,7 +206,9 @@ static void test_input_map(void)
 
     memset(&st, 0, sizeof(st));
     st.cpad_y = 1;
-    expect_scan(&st, 2, "circle pad up");
+    dr3_input_set_context(1);              /* stick up = gas while racing */
+    expect_scan(&st, 1, "circle pad up (gas)");
+    dr3_input_set_context(0);
 
     /* quit combo */
     memset(&st, 0, sizeof(st));
@@ -211,7 +218,7 @@ static void test_input_map(void)
     st.held = DR3_PAD_L | DR3_PAD_R | DR3_PAD_START;
     CHECK(dr3_input_quit_combo(&st), "L+R+START must quit");
 
-    CHECK(strcmp(dr3_scancode_name(SDL_SCANCODE_A), "A (accelerate)") == 0,
+    CHECK(strcmp(dr3_scancode_name(SDL_SCANCODE_A), "A (gas)") == 0,
           "scancode name lookup failed");
 }
 
