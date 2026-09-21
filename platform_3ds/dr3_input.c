@@ -141,23 +141,53 @@ static void dr3_sync_keys(const dr3_pad_state_t *st)
    The engine's text handler (___59720h) reads popLastKey() *and* popLastChar(), so the key must stay
    "down" for at least one engine frame - otherwise dRally_Keyboard_break() clears LAST_KEY before the
    game can read it.  Releases are therefore scheduled a few frames later. */
-#define DR3_TEXT_RELEASE_MS 120
+#define DR3_TEXT_RELEASE_MS 120   /* how long a synthetic key stays down */
+#define DR3_TEXT_CHAR_MS    30    /* gap between two typed characters */
 
 static struct { int scancode; unsigned int release_at; } dr3_pending[DR3_QUEUE_LEN];
 static int      dr3_pending_count;
 
+static char         dr3_text[64];
+static int          dr3_text_len;
+static int          dr3_text_pos;
+static unsigned int dr3_text_next_ms;
+
 static void dr3_queue_text(const char *text)
 {
-    for (; text && *text; ++text) {
-        const int scan = dr3_char_to_scancode(*text);
-        if (scan < 0) continue;
+    size_t n = strlen(text);
 
-        dr3_queue_push(scan, 1);                 /* key down now */
-        if (dr3_pending_count < DR3_QUEUE_LEN) { /* key up a little later */
-            dr3_pending[dr3_pending_count].scancode  = scan;
-            dr3_pending[dr3_pending_count].release_at = SDL_GetTicks() + DR3_TEXT_RELEASE_MS;
-            ++dr3_pending_count;
-        }
+    if (n > sizeof(dr3_text) - 1) n = sizeof(dr3_text) - 1;
+    memcpy(dr3_text, text, n);
+    dr3_text[n]    = 0;
+    dr3_text_len   = (int)n;
+    dr3_text_pos   = 0;
+    dr3_text_next_ms = SDL_GetTicks();   /* deliver the first character right away */
+}
+
+/*
+ * The engine keeps only the *last* key of a frame (dRally_Keyboard_make overwrites LAST_KEY), so a
+ * whole typed word must be delivered one character per frame - otherwise only one letter arrives.
+ */
+static void dr3_service_text(void)
+{
+    int          scan;
+    unsigned int now;
+
+    if (dr3_text_pos >= dr3_text_len) return;
+
+    now = SDL_GetTicks();
+    if ((int)(now - dr3_text_next_ms) < 0) return;
+
+    scan = dr3_char_to_scancode(dr3_text[dr3_text_pos++]);
+    dr3_text_next_ms = now + DR3_TEXT_CHAR_MS;
+
+    if (scan < 0) return;
+
+    dr3_queue_push(scan, 1);                 /* key down now ... */
+    if (dr3_pending_count < DR3_QUEUE_LEN) { /* ... released a little later */
+        dr3_pending[dr3_pending_count].scancode   = scan;
+        dr3_pending[dr3_pending_count].release_at = now + DR3_TEXT_RELEASE_MS;
+        ++dr3_pending_count;
     }
 }
 
@@ -192,6 +222,7 @@ int dr3_poll_event(SDL_Event *e)
     if (!dr3_ready) dr3_input_init();
 
     dr3_service_pending();      /* release typed keys that have been held long enough */
+    dr3_service_text();         /* deliver the next typed character */
 
     /* real events (HOME button / SDL_QUIT, touch, software keyboard, ...) win over synthetic ones */
     if (SDL_PollEvent(e)) {

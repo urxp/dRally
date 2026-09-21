@@ -115,8 +115,17 @@ int dr3_blit8_filter(const uint8_t *src, int sw, int sh, int src_pitch,
 
             if (!n) { drow[x] = 0; continue; }
 
-            drow[x] = ((r / n) << lut->rs) | ((g / n) << lut->gs) | ((b / n) << lut->bs) |
-                      (0xFFu << lut->as);
+            {
+                /* multiply by a reciprocal instead of dividing: ARM11 has no fast integer divide
+                   and this loop runs for every pixel of the 640x480 VESA menus */
+                const uint32_t inv = 65536u / n;
+
+                r = (r * inv) >> 16;
+                g = (g * inv) >> 16;
+                b = (b * inv) >> 16;
+            }
+
+            drow[x] = (r << lut->rs) | (g << lut->gs) | (b << lut->bs) | (0xFFu << lut->as);
         }
     }
     return 0;
