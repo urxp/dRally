@@ -1,5 +1,8 @@
 #include "drally.h"
 
+/* the profiler is a no-op unless DR3_PROFILE is defined (see platform_3ds/dr3_prof.h) */
+#include "platform_3ds/dr3_prof.h"
+
 #if defined(__3DS__)
 extern unsigned int dr3_audio_cb_count;
 extern unsigned long long dr3_audio_frames;
@@ -319,6 +322,8 @@ void audio_s16_stereo_cb(__POINTER__ udata, unsigned char * stream, unsigned int
 
 	int		n, channel_n, samples, samples_done, samples_todo;
 
+	DR3_PROF_MARK(mix_t0);
+
 
 	samples = size / sizeof(sample_s16_stereo_t);
 #if defined(__3DS__)
@@ -335,6 +340,7 @@ void audio_s16_stereo_cb(__POINTER__ udata, unsigned char * stream, unsigned int
 		if((int)s3m_TickSamples == 0){
 
 			AUDIO_DATA_CB();
+			dr3_prof_music_tick();
 			s3m_TickSamples += (double)SOUND_SAMPLERATE*s3m_TickDuration_s;
 		}
 
@@ -371,4 +377,6 @@ void audio_s16_stereo_cb(__POINTER__ udata, unsigned char * stream, unsigned int
 		((sample_s16_stereo_t *)stream)[n].right = __BOUNDS(___68d34h_R_BFR[n], -32768, 32767);
 		___68d38h_L_BFR[n] = ___68d34h_R_BFR[n] = 0;
 	}
+
+	dr3_prof_audio_cb((int)samples, dr3_prof_us(mix_t0));
 }

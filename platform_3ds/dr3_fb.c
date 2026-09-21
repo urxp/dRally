@@ -1,5 +1,6 @@
 #include "dr3_fb.h"
 #include "dr3_log.h"
+#include "dr3_prof.h"
 
 #include <3ds.h>
 #include <stddef.h>
@@ -103,61 +104,76 @@ void dr3_fb_present(const uint8_t *src, int sw, int sh, int src_pitch,
 
     dr3_fb_build_maps(sw, sh, dw, dh);
 
-    if (filter) {
-        /* average the source columns a target pixel covers - the game's dither patterns alias into
-           vertical stripes with plain nearest neighbour */
-        for (x = 0; x < dw; ++x) {
-            uint32_t *      drow   = fb + (size_t)x * (size_t)dr3_fb_w + (dh - 1);
-            const int       sx0    = dr3_fx0[x];
-            const int       sx1    = dr3_fx1[x];
-            const uint32_t  inv    = dr3_finv[x];
-            const uint8_t * srow   = NULL;
-            int             sy_cur = -1;
-            const int       rs = lut->rs, gs = lut->gs, bs = lut->bs, as = lut->as;
+    /* the skip-blit variant measures the floor we cannot avoid (flush + swap only) */
+    if (!dr3_prof_skip_blit()) {
+        const uint64_t blit_t0 = dr3_prof_tick();
 
-            for (y = 0; y < dh; ++y) {
-                const int sy = dr3_sy[y];
-                uint32_t  r = 0, g = 0, b = 0;
-                const uint8_t *p;
-                const uint8_t *end;
+        if (filter) {
+            /* average the source columns a target pixel covers - the game's dither patterns alias into
+               vertical stripes with plain nearest neighbour */
+            for (x = 0; x < dw; ++x) {
+                uint32_t *      drow   = fb + (size_t)x * (size_t)dr3_fb_w + (dh - 1);
+                const int       sx0    = dr3_fx0[x];
+                const int       sx1    = dr3_fx1[x];
+                const uint32_t  inv    = dr3_finv[x];
+                const uint8_t * srow   = NULL;
+                int             sy_cur = -1;
+                const int       rs = lut->rs, gs = lut->gs, bs = lut->bs, as = lut->as;
 
-                if (sy != sy_cur) {          /* same source row -> same pixels, only re-base on change */
-                    sy_cur = sy;
-                    srow   = src + (size_t)sy * (size_t)src_pitch;
+                for (y = 0; y < dh; ++y) {
+                    const int sy = dr3_sy[y];
+                    uint32_t  r = 0, g = 0, b = 0;
+                    const uint8_t *p;
+                    const uint8_t *end;
+
+                    if (sy != sy_cur) {          /* same source row -> same pixels, only re-base on change */
+                        sy_cur = sy;
+                        srow   = src + (size_t)sy * (size_t)src_pitch;
+                    }
+
+                    p   = srow + sx0;
+                    end = srow + sx1;
+                    while (p < end) {
+                        const uint8_t idx = *p++;
+                        r += pal->r[idx];
+                        g += pal->g[idx];
+                        b += pal->b[idx];
+                    }
+
+                    *drow-- = ((((r * inv) >> 16) << rs) | (((g * inv) >> 16) << gs) |
+                               (((b * inv) >> 16) << bs) | (0xFFu << as));
                 }
-
-                p   = srow + sx0;
-                end = srow + sx1;
-                while (p < end) {
-                    const uint8_t idx = *p++;
-                    r += pal->r[idx];
-                    g += pal->g[idx];
-                    b += pal->b[idx];
-                }
-
-                *drow-- = ((((r * inv) >> 16) << rs) | (((g * inv) >> 16) << gs) |
-                           (((b * inv) >> 16) << bs) | (0xFFu << as));
             }
         }
-    }
-    else {
-        for (x = 0; x < dw; ++x) {
-            const int       sx     = dr3_sx[x];
-            uint32_t *      drow   = fb + (size_t)x * (size_t)dr3_fb_w + (dh - 1);
-            const uint8_t * sptr   = src + sx;
-            int             sy_cur = -1;
+        else {
+            for (x = 0; x < dw; ++x) {
+                const int       sx     = dr3_sx[x];
+                uint32_t *      drow   = fb + (size_t)x * (size_t)dr3_fb_w + (dh - 1);
+                const uint8_t * sptr   = src + sx;
+                int             sy_cur = -1;
 
-            for (y = 0; y < dh; ++y) {
-                const int sy = dr3_sy[y];
-                if (sy != sy_cur) {
-                    sy_cur = sy;
-                    sptr   = src + (size_t)sy * (size_t)src_pitch + sx;
+                for (y = 0; y < dh; ++y) {
+                    const int sy = dr3_sy[y];
+                    if (sy != sy_cur) {
+                        sy_cur = sy;
+                        sptr   = src + (size_t)sy * (size_t)src_pitch + sx;
+                    }
+                    *drow-- = lutpx[*sptr];      /* vertical stretch: same source pixel while sy is constant */
                 }
-                *drow-- = lutpx[*sptr];      /* vertical stretch: same source pixel while sy is constant */
             }
         }
+        dr3_prof_add(DR3_SLOT_BLIT, dr3_prof_us(blit_t0));
     }
 
-    GSPGPU_FlushDataCache(dr3_fb, (u32)(dr3_fb_w * dr3_fb_h * 4));
-    gfxScreenSwapBuffers(GFX_TOP, false);
+
+    {
+        const uint64_t t = dr3_prof_tick();
+        GSPGPU_FlushDataCache(dr3_fb, (u32)(dr3_fb_w * dr3_fb_h * 4));
+        dr3_prof_add(DR3_SLOT_FLUSH, dr3_prof_us(t));
+    }
+    {
+        const uint64_t t = dr3_prof_tick();
+        gfxScreenSwapBuffers(GFX_TOP, false);
+        dr3_prof_add(DR3_SLOT_SWAP, dr3_prof_us(t));
+    }
 }

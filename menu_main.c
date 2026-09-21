@@ -1,4 +1,5 @@
 #include "drally.h"
+#include "platform_3ds/dr3_prof.h"
 #include "drally_fonts.h"
 #include "drally_structs_fixed.h"
 #include "watcom106.h"
@@ -83,6 +84,9 @@ void dRChatbox_push(const char *, int);
 void setIntensity___19eb50h(__DWORD__);
 
 void menu_main(void){
+
+	dr3_prof_phase(DR3_PHASE_MENU);
+
 
     int   			n;
     __DWORD__   	ebx;

@@ -19,6 +19,7 @@ Error! E2028: dRally_Sound_adjustEffect is an undefined reference
 
 #if defined(__3DS__)
 #include "platform_3ds/dr3_log.h"
+#include "platform_3ds/dr3_prof.h"
 #endif
 #include "draudio.h"
 #include "drmemory.h"
@@ -507,6 +508,7 @@ void dRally_Sound_setSampleRate(__DWORD__ freq){
 #endif
 
 	SOUND_SAMPLERATE = __BOUNDS(freq, 0x1f40, 0xac44);
+	dr3_prof_event("mixer rate %d Hz", (int)SOUND_SAMPLERATE);
 }
 
 // 0006563ch

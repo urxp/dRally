@@ -14,6 +14,7 @@
 # Usage
 #   export DEVKITPRO=/opt/devkitpro
 #   make -f Makefile.3ds -j4                       # -> build/3ds/dRally_3ds.3dsx
+#   make -f Makefile.3ds -j4 DR3_DEBUG=1           # -> build/3ds_debug/dRally_3ds_debug.3dsx (profiler)
 #
 # Notes
 #   * only SDL2's software renderer exists on the 3DS (framebuffer driver)
@@ -40,13 +41,26 @@ SDL2_3DS_LIB    ?= $(SDL2_3DS_PREFIX)/lib
 
 TARGET   := dRally_3ds
 BUILD    := build/3ds
-OUTPUT   := $(BUILD)/$(TARGET)
 CTRULIB  ?= $(DEVKITPRO)/libctru
 LIBDIRS  := -L$(SDL2_3DS_LIB) -L$(CTRULIB)/lib
 
 # DR_MULTIPLAYER/IPXNET are kept: menus, race code and the chat box reference multiplayer symbols
 # unconditionally (verified: dropping them produces 20 unresolved externals on Windows/MSVC).
 DEFINES  := -D__3DS__ -DDR_LETTERBOX -DDR_MULTIPLAYER -DIPXNET -DDR3_LOG_KEYS -DDR3_USE_GFX
+
+# Profiling build (platform_3ds/dr3_prof.h):   make -f Makefile.3ds DR3_DEBUG=1
+# It measures the frame budget, rotates measurement variants on its own and writes the results to
+# sdmc:/drally_3ds.log.  It gets its own object tree, so the release and debug builds never
+# recompile (or link) each other's objects.
+DR3_DEBUG ?= 0
+ifeq ($(DR3_DEBUG),1)
+BUILD    := build/3ds_debug
+TARGET   := dRally_3ds_debug
+DEFINES  += -DDR3_PROFILE
+APP_TITLE := Death Rally (profile)
+endif
+
+OUTPUT   := $(BUILD)/$(TARGET)
 
 INCLUDES := -I$(CURDIR) \
             -I$(CURDIR)/platform_3ds \
@@ -81,6 +95,7 @@ EXTRA_OBJS := platform_3ds/dr3_input.o \
               platform_3ds/dr3_log.o \
               platform_3ds/dr3_paths.o \
               platform_3ds/dr3_fb.o \
+              platform_3ds/dr3_prof.o \
               platform_3ds/sdl2_net_stub/sdl2_net_stub.o
 OBJS := data.o bss.o
 
@@ -109,7 +124,7 @@ ALL_OBJS := $(addprefix $(BUILD)/, $(UNI_OBJS) $(LINUX_OBJS) $(RACE_OBJS) $(MENU
 .PHONY: all clean
 
 # home screen metadata (icon + title shown by the Homebrew Launcher)
-APP_TITLE   := Death Rally
+APP_TITLE   ?= Death Rally
 APP_DESC    := Death Rally (1996) - open source engine port
 APP_AUTHOR  := urxp / dRally, 3DS port
 APP_ICON    ?= $(CTRULIB)/default_icon.png

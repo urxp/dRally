@@ -1,4 +1,5 @@
 #include "drally.h"
+#include "platform_3ds/dr3_prof.h"
 #include "drally_keyboard.h"
 #include "drally_race.h"
 #include "drenums.h"
@@ -214,7 +215,10 @@ static void race___526ach_helper(int n){ D(___243c60h) = n; race___526ach(); }
 static void race___4ff50h_helper(int n){ D(___243c60h) = n; race___4ff50h(); }
 
 // ___56774h
-void race_main(int MyIndex, int NumCars){		// my_position_index, number_of_racers
+void race_main(int MyIndex, int NumCars){		// my_position_index, number_of_racers
+
+	dr3_prof_phase(DR3_PHASE_RACE);
+
 
 	__DWORD__ 	eax, ebx, ecx, edx;
 	__BYTE__ 	esp[0x1c];

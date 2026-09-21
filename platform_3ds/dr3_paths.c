@@ -3,7 +3,16 @@
 
 #include <stdio.h>
 #include <string.h>
+
+/* the path calls are POSIX; MSVC spells them differently (the Windows build is only used as a
+   compile/link check for the shared code, so this keeps it checking the same source) */
+#if defined(_WIN32)
+#include <direct.h>
+#define chdir  _chdir
+#define getcwd _getcwd
+#else
 #include <unistd.h>
+#endif
 
 static char dr3_cwd_buf[512];
 

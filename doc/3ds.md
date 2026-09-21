@@ -22,6 +22,30 @@ the `.3dsx` via `3dsxtool --smdh=`. The ready-to-copy SD package (executable + o
 `README.txt`) is assembled in `C:\Users\M-PC\rally\3ds-release\dRally_3ds\` (and as a zip next to it).
 On the console the folder must end up as `sdmc:/3ds/drally/`.
 
+### Profiler build (autonomous measurement)
+
+```
+make -f Makefile.3ds DR3_DEBUG=1        # -> build/3ds_debug/dRally_3ds_debug.3dsx
+```
+
+`platform_3ds/dr3_prof.{c,h}` measure the whole frame budget with the ARM11 system tick, aggregate per
+second and per display mode, rotate measurement variants on their own and write everything to
+`sdmc:/drally_3ds.log` - no user interaction needed:
+
+* phases are detected at the engine entry points (`menu_main`, `race_main`, audio rate changes)
+* variants rotate automatically: menu 10 s `normal` -> 10 s `filter-off` -> 10 s `skip-blit`,
+  races 15 s `normal` -> 15 s `skip-blit`
+* slots: `present` (total) split into `blit` (our conversion + write), `flush`
+  (`GSPGPU_FlushDataCache`) and `swap` (`gfxScreenSwapBuffers`), plus `game` (`IRQ0_TimerISR`),
+  `IO_Loop`, audio `mix` and the state of the frame-time histogram
+* the bottom screen (unused by the game) shows the live numbers; it costs ~1 ms per update and is
+  counted separately
+* the log gets one `STAT` line per second and a `SUMMARY` block with per-variant averages when a
+  phase has run for 20 s or the phase changes ("MENU DONE" / "RACE DONE")
+* `scripts/analyze_3ds_profile.ps1 -Log <file>` turns that log into a table
+
+The release build is untouched: without `-DDR3_PROFILE` every profiler call compiles away.
+
 ### Things learned the hard way (all handled in the code)
 
 1. **Working directory** — the engine opens `ENGINE.BPA` etc. relative to the CWD; on the 3DS that is

@@ -13,6 +13,9 @@ extern unsigned long long dr3_audio_frames;
 extern __WORD__           SOUND_SAMPLERATE;
 #endif
 
+/* the profiler is a no-op unless DR3_PROFILE is defined (see platform_3ds/dr3_prof.h) */
+#include "platform_3ds/dr3_prof.h"
+
 
 #pragma pack(1)
 typedef struct textbit {
@@ -89,13 +92,15 @@ static void IRQ0_TimerISR(void){
 int skip;
 unsigned int __GET_FRAME_COUNTER(void){
 
+	dr3_prof_poll();
+
 	unsigned int NewTicks;
 	unsigned int FrameMs = 1000/___60458h;// - 1;
 
 
 	NewTicks = SDL_GetTicks()-Ticks;	
 	
-	if(NewTicks < (FrameMs-3)) SDL_Delay(1);
+	if(NewTicks < (FrameMs-3)) { SDL_Delay(1); dr3_prof_count(DR3_CNT_DELAY, 1); }
 	else if(NewTicks >= FrameMs){
 
 		Ticks = SDL_GetTicks();
@@ -103,13 +108,22 @@ unsigned int __GET_FRAME_COUNTER(void){
 		skip = NewTicks/FrameMs - 1;
 
 		INT8_FRAME_COUNTER += skip;
-		IRQ0_TimerISR();
+		{
+			DR3_PROF_MARK(frame_t0);
+			IRQ0_TimerISR();
+			dr3_prof_frame(dr3_prof_us(frame_t0), (unsigned int)skip);
+		}
 
 		//if(!skip) __PRESENTSCREEN__();
 	}
 
-	IO_Loop();
-	
+	{
+		DR3_PROF_MARK(io_t0);
+		IO_Loop();
+		dr3_prof_count(DR3_CNT_IO, 1);
+		DR3_PROF_END(DR3_SLOT_IO, io_t0);
+	}
+
 	return INT8_FRAME_COUNTER;
 }
 
@@ -174,6 +188,8 @@ void __PRESENTSCREEN__(void){
 
 	if(!GX.ActiveMode) return;
 
+	DR3_PROF_MARK(present_t0);
+
 #if defined(DR3_USE_GFX)
 	if(dr3_direct < 0){
 
@@ -203,10 +219,17 @@ void __PRESENTSCREEN__(void){
 			dr3_lut_dirty = 0;
 		}
 
-		/* downscaling (640x480 VESA menus) needs the horizontal average, upscaling is nearest */
-		dr3_fb_present((const uint8_t *)GX.Surface->pixels, GX.Surface->w, GX.Surface->h,
-			GX.Surface->pitch, &dr3_pal, &dr3_lut,
-			(GX.Surface->w > DR3_SCREEN_W || GX.Surface->h > DR3_SCREEN_H) ? 1 : 0);
+		/* downscaling (640x480 VESA menus) needs the horizontal average, upscaling is nearest;
+		   while profiling, the variant schedule may override this */
+		{
+			const int forced = dr3_prof_force_filter();
+			const int filter = (forced >= 0) ? forced
+				: ((GX.Surface->w > DR3_SCREEN_W || GX.Surface->h > DR3_SCREEN_H) ? 1 : 0);
+
+			dr3_prof_present_mode(GX.Surface->w, GX.Surface->h, filter);
+			dr3_fb_present((const uint8_t *)GX.Surface->pixels, GX.Surface->w, GX.Surface->h,
+				GX.Surface->pitch, &dr3_pal, &dr3_lut, filter);
+		}
 
 		++dr3_present_count;
 		if(SDL_GetTicks() - dr3_present_last_log >= 1000){
@@ -216,6 +239,8 @@ void __PRESENTSCREEN__(void){
 			dr3_present_count = 0;
 			dr3_present_last_log = SDL_GetTicks();
 		}
+
+		DR3_PROF_END(DR3_SLOT_PRESENT, present_t0);
 		return;
 	}
 #endif
@@ -274,6 +299,9 @@ void __PRESENTSCREEN__(void){
 		dr3_present_count = 0;
 		dr3_present_last_log = SDL_GetTicks();
 	}
+
+	dr3_prof_present_mode(GX.Surface->w, GX.Surface->h, 0);
+	DR3_PROF_END(DR3_SLOT_PRESENT, present_t0);
 
 #else
 
